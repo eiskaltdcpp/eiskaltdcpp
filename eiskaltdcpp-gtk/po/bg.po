@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2014-05-09 12:42+0400\n"
+"POT-Creation-Date: 2014-06-03 08:35+0400\n"
 "PO-Revision-Date: 2013-11-19 16:39+0000\n"
 "Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
 "Language-Team: Bulgarian (http://www.transifex.com/projects/p/eiskaltdcpp/"
@@ -32,7 +32,7 @@ msgstr ""
 msgid " *** Emoticons not loaded"
 msgstr ""
 
-#: ../src/settingsdialog.cc:2514
+#: ../src/settingsdialog.cc:2515
 msgid " + system icons"
 msgstr ""
 
@@ -124,7 +124,7 @@ msgstr ""
 msgid "*** Available commands:"
 msgstr ""
 
-#: ../src/settingsdialog.cc:2287
+#: ../src/settingsdialog.cc:2288
 msgid "*** T E S T ***"
 msgstr ""
 
@@ -137,12 +137,12 @@ msgstr ""
 msgid "-:--:-- left"
 msgstr ""
 
-#: ../src/settingsdialog.cc:2466 ../src/settingsdialog.cc:2490
+#: ../src/settingsdialog.cc:2467 ../src/settingsdialog.cc:2491
 msgid "...must be *.theme"
 msgstr ""
 
-#: ../src/settingsdialog.cc:2369 ../src/settingsdialog.cc:2398
-#: ../src/settingsdialog.cc:2435
+#: ../src/settingsdialog.cc:2370 ../src/settingsdialog.cc:2399
+#: ../src/settingsdialog.cc:2436
 msgid "...must not be empty"
 msgstr ""
 
@@ -352,7 +352,7 @@ msgstr ""
 msgid "<b>Enter your password</b>"
 msgstr ""
 
-#: ../src/settingsdialog.cc:2205
+#: ../src/settingsdialog.cc:2206
 msgid "<b>Extension</b>"
 msgstr ""
 
@@ -420,19 +420,19 @@ msgstr ""
 msgid "<b>Min FileSize</b>"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1851
+#: ../src/settingsdialog.cc:1852
 msgid "<b>Name of the new search type</b>"
 msgstr ""
 
-#: ../src/settingsdialog.cc:3098
+#: ../src/settingsdialog.cc:3099
 msgid "<b>Name under which the others see the directory</b>"
 msgstr ""
 
-#: ../src/settingsdialog.cc:3738
+#: ../src/settingsdialog.cc:3739
 msgid "<b>Name, under which you see the directory</b>"
 msgstr ""
 
-#: ../src/settingsdialog.cc:2104
+#: ../src/settingsdialog.cc:2105
 msgid "<b>New name</b>"
 msgstr ""
 
@@ -702,6 +702,10 @@ msgstr ""
 msgid "Allow few connections from one IP"
 msgstr ""
 
+#: ../src/settingsdialog.cc:1727
+msgid "Allow only TLS connections to clients"
+msgstr ""
+
 #: ../src/settingsdialog.cc:1659
 msgid "Allow overlap chunks"
 msgstr ""
@@ -719,8 +723,8 @@ msgid "Appearance"
 msgstr ""
 
 #: ../src/settingsdialog.cc:927 ../src/settingsdialog.cc:962
-#: ../src/settingsdialog.cc:2985 ../src/settingsdialog.cc:3019
-#: ../src/settingsdialog.cc:3037 ../src/settingsdialog.cc:3068
+#: ../src/settingsdialog.cc:2986 ../src/settingsdialog.cc:3020
+#: ../src/settingsdialog.cc:3038 ../src/settingsdialog.cc:3069
 msgid "Application"
 msgstr ""
 
@@ -1098,12 +1102,12 @@ msgid "Colors & Fonts"
 msgstr ""
 
 #: ../src/settingsdialog.cc:1673 ../src/settingsdialog.cc:1681
-#: ../src/settingsdialog.cc:3347 ../src/settingsdialog.cc:3421
+#: ../src/settingsdialog.cc:3348 ../src/settingsdialog.cc:3422
 #: ../ui/settingsdialog.ui:812
 msgid "Command"
 msgstr ""
 
-#: ../src/settingsdialog.cc:3465 ../src/settingsdialog.cc:3471
+#: ../src/settingsdialog.cc:3466 ../src/settingsdialog.cc:3472
 msgid "Command name already exists"
 msgstr ""
 
@@ -1271,15 +1275,15 @@ msgstr ""
 
 #: ../src/settingsdialog.cc:905 ../src/settingsdialog.cc:919
 #: ../src/settingsdialog.cc:1033 ../src/settingsdialog.cc:1436
-#: ../src/settingsdialog.cc:3754 ../src/settingsdialog.cc:3774
-#: ../src/settingsdialog.cc:3803 ../src/settingsdialog.cc:3817
-#: ../src/settingsdialog.cc:3872 ../src/sharebrowser.cc:334
+#: ../src/settingsdialog.cc:3755 ../src/settingsdialog.cc:3775
+#: ../src/settingsdialog.cc:3804 ../src/settingsdialog.cc:3818
+#: ../src/settingsdialog.cc:3873 ../src/sharebrowser.cc:334
 #: ../src/UserCommandMenu.cc:66 ../src/search.cc:921 ../src/search.cc:1757
 #: ../ui/adlsearch.ui:392 ../ui/settingsdialog.ui:6725
 msgid "Directory"
 msgstr ""
 
-#: ../src/settingsdialog.cc:3759
+#: ../src/settingsdialog.cc:3760
 msgid "Directory or favorite name already exists"
 msgstr ""
 
@@ -1525,8 +1529,8 @@ msgstr ""
 msgid "Enter value for "
 msgstr ""
 
-#: ../src/settingsdialog.cc:1912 ../src/settingsdialog.cc:1956
-#: ../src/settingsdialog.cc:2975
+#: ../src/settingsdialog.cc:1913 ../src/settingsdialog.cc:1957
+#: ../src/settingsdialog.cc:2976
 msgid "Error"
 msgstr ""
 
@@ -1588,15 +1592,15 @@ msgstr ""
 msgid "Export..."
 msgstr ""
 
-#: ../src/settingsdialog.cc:2204
+#: ../src/settingsdialog.cc:2205
 msgid "Extension edition"
 msgstr ""
 
 #: ../src/settingsdialog.cc:928 ../src/settingsdialog.cc:963
-#: ../src/settingsdialog.cc:1738 ../src/settingsdialog.cc:1879
-#: ../src/settingsdialog.cc:1930 ../src/settingsdialog.cc:1985
-#: ../src/settingsdialog.cc:2986 ../src/settingsdialog.cc:3020
-#: ../src/settingsdialog.cc:3038 ../src/settingsdialog.cc:3069
+#: ../src/settingsdialog.cc:1739 ../src/settingsdialog.cc:1880
+#: ../src/settingsdialog.cc:1931 ../src/settingsdialog.cc:1986
+#: ../src/settingsdialog.cc:2987 ../src/settingsdialog.cc:3021
+#: ../src/settingsdialog.cc:3039 ../src/settingsdialog.cc:3070
 msgid "Extensions"
 msgstr ""
 
@@ -1619,7 +1623,7 @@ msgid "Favorite Hubs"
 msgstr ""
 
 #: ../src/settingsdialog.cc:904 ../src/settingsdialog.cc:918
-#: ../src/settingsdialog.cc:3753
+#: ../src/settingsdialog.cc:3754
 msgid "Favorite Name"
 msgstr ""
 
@@ -1641,7 +1645,7 @@ msgstr ""
 msgid "Favorite hub already exists"
 msgstr ""
 
-#: ../src/settingsdialog.cc:3736 ../ui/settingsdialog.ui:8996
+#: ../src/settingsdialog.cc:3737 ../ui/settingsdialog.ui:8996
 msgid "Favorite name"
 msgstr ""
 
@@ -1656,8 +1660,8 @@ msgid "Favorite user quit"
 msgstr ""
 
 #: ../src/settingsdialog.cc:364 ../src/settingsdialog.cc:1156
-#: ../src/settingsdialog.cc:1435 ../src/settingsdialog.cc:2903
-#: ../src/settingsdialog.cc:2922 ../src/UserCommandMenu.cc:68
+#: ../src/settingsdialog.cc:1435 ../src/settingsdialog.cc:2904
+#: ../src/settingsdialog.cc:2923 ../src/UserCommandMenu.cc:68
 #: ../ui/settingsdialog.ui:6826 ../ui/settingsdialog.ui:6910
 #: ../ui/settingsdialog.ui:6994 ../ui/settingsdialog.ui:7078
 #: ../ui/settingsdialog.ui:7159
@@ -1947,9 +1951,9 @@ msgid "Homepage"
 msgstr ""
 
 #: ../src/settingsdialog.cc:1672 ../src/settingsdialog.cc:1682
-#: ../src/settingsdialog.cc:3346 ../src/settingsdialog.cc:3420
-#: ../src/settingsdialog.cc:3994 ../src/settingsdialog.cc:4085
-#: ../src/settingsdialog.cc:4108 ../src/settingsdialog.cc:4127
+#: ../src/settingsdialog.cc:3347 ../src/settingsdialog.cc:3421
+#: ../src/settingsdialog.cc:3995 ../src/settingsdialog.cc:4086
+#: ../src/settingsdialog.cc:4109 ../src/settingsdialog.cc:4128
 #: ../src/finishedtransfers.cc:85 ../src/finishedtransfers.cc:194
 #: ../src/search.cc:107 ../src/search.cc:658 ../src/search.cc:755
 #: ../src/search.cc:884 ../ui/search.ui:150
@@ -2033,8 +2037,8 @@ msgid "ISO-8859-9"
 msgstr ""
 
 #: ../src/settingsdialog.cc:403 ../src/settingsdialog.cc:1337
-#: ../src/settingsdialog.cc:2285 ../src/settingsdialog.cc:2319
-#: ../src/settingsdialog.cc:2396 ../src/settingsdialog.cc:2432
+#: ../src/settingsdialog.cc:2286 ../src/settingsdialog.cc:2320
+#: ../src/settingsdialog.cc:2397 ../src/settingsdialog.cc:2433
 msgid "Icon"
 msgstr ""
 
@@ -2091,7 +2095,7 @@ msgstr ""
 msgid "Installing handler for"
 msgstr ""
 
-#: ../src/settingsdialog.cc:2032 ../src/settingsdialog.cc:2220
+#: ../src/settingsdialog.cc:2033 ../src/settingsdialog.cc:2221
 msgid "Invalid extension: "
 msgstr ""
 
@@ -2170,9 +2174,9 @@ msgstr ""
 
 #: ../src/settingsdialog.cc:329 ../src/settingsdialog.cc:887
 #: ../src/settingsdialog.cc:1010 ../src/settingsdialog.cc:1028
-#: ../src/settingsdialog.cc:3634 ../src/settingsdialog.cc:3647
-#: ../src/settingsdialog.cc:3664 ../src/settingsdialog.cc:4342
-#: ../src/settingsdialog.cc:4378 ../src/publichubs.cc:69
+#: ../src/settingsdialog.cc:3635 ../src/settingsdialog.cc:3648
+#: ../src/settingsdialog.cc:3665 ../src/settingsdialog.cc:4343
+#: ../src/settingsdialog.cc:4379 ../src/publichubs.cc:69
 #: ../src/publichubs.cc:339 ../src/publichubs.cc:364 ../src/publichubs.cc:414
 msgid "List"
 msgstr ""
@@ -2403,7 +2407,7 @@ msgstr ""
 msgid "Mplayer player"
 msgstr ""
 
-#: ../src/settingsdialog.cc:2967 ../src/settingsdialog.cc:3053
+#: ../src/settingsdialog.cc:2968 ../src/settingsdialog.cc:3054
 msgid "Must not be empty..."
 msgstr ""
 
@@ -2423,15 +2427,15 @@ msgstr ""
 #: ../src/settingsdialog.cc:926 ../src/settingsdialog.cc:961
 #: ../src/settingsdialog.cc:1397 ../src/settingsdialog.cc:1451
 #: ../src/settingsdialog.cc:1671 ../src/settingsdialog.cc:1680
-#: ../src/settingsdialog.cc:1748 ../src/settingsdialog.cc:1904
-#: ../src/settingsdialog.cc:1948 ../src/settingsdialog.cc:1997
-#: ../src/settingsdialog.cc:2197 ../src/settingsdialog.cc:2984
-#: ../src/settingsdialog.cc:3000 ../src/settingsdialog.cc:3018
-#: ../src/settingsdialog.cc:3036 ../src/settingsdialog.cc:3062
-#: ../src/settingsdialog.cc:3067 ../src/settingsdialog.cc:3345
-#: ../src/settingsdialog.cc:3419 ../src/settingsdialog.cc:3993
-#: ../src/settingsdialog.cc:4084 ../src/settingsdialog.cc:4107
-#: ../src/settingsdialog.cc:4126 ../src/favoritehubs.cc:53
+#: ../src/settingsdialog.cc:1749 ../src/settingsdialog.cc:1905
+#: ../src/settingsdialog.cc:1949 ../src/settingsdialog.cc:1998
+#: ../src/settingsdialog.cc:2198 ../src/settingsdialog.cc:2985
+#: ../src/settingsdialog.cc:3001 ../src/settingsdialog.cc:3019
+#: ../src/settingsdialog.cc:3037 ../src/settingsdialog.cc:3063
+#: ../src/settingsdialog.cc:3068 ../src/settingsdialog.cc:3346
+#: ../src/settingsdialog.cc:3420 ../src/settingsdialog.cc:3994
+#: ../src/settingsdialog.cc:4085 ../src/settingsdialog.cc:4108
+#: ../src/settingsdialog.cc:4127 ../src/favoritehubs.cc:53
 #: ../src/favoritehubs.cc:77 ../src/favoritehubs.cc:78
 #: ../src/favoritehubs.cc:132 ../src/favoritehubs.cc:306
 #: ../src/favoritehubs.cc:450 ../src/publichubs.cc:47 ../src/publichubs.cc:159
@@ -2440,7 +2444,7 @@ msgstr ""
 msgid "Name"
 msgstr ""
 
-#: ../src/settingsdialog.cc:3459
+#: ../src/settingsdialog.cc:3460
 msgid "Name and command must not be empty"
 msgstr ""
 
@@ -2448,15 +2452,15 @@ msgstr ""
 msgid "Name:"
 msgstr ""
 
-#: ../src/settingsdialog.cc:4342
+#: ../src/settingsdialog.cc:4343
 msgid "New exception"
 msgstr ""
 
-#: ../src/settingsdialog.cc:3664 ../src/publichubs.cc:364
+#: ../src/settingsdialog.cc:3665 ../src/publichubs.cc:364
 msgid "New list"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1850
+#: ../src/settingsdialog.cc:1851
 msgid "New search type"
 msgstr ""
 
@@ -2721,8 +2725,8 @@ msgstr ""
 msgid "Portuguese (Brazil)"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1737 ../src/settingsdialog.cc:1838
-#: ../src/settingsdialog.cc:1929
+#: ../src/settingsdialog.cc:1738 ../src/settingsdialog.cc:1839
+#: ../src/settingsdialog.cc:1930
 msgid "Predefined"
 msgstr ""
 
@@ -2891,7 +2895,7 @@ msgstr ""
 msgid "Rename"
 msgstr ""
 
-#: ../src/settingsdialog.cc:2103
+#: ../src/settingsdialog.cc:2104
 msgid "Rename a search type"
 msgstr ""
 
@@ -2993,9 +2997,9 @@ msgstr ""
 msgid "Search spam detected from "
 msgstr ""
 
-#: ../src/settingsdialog.cc:1736 ../src/settingsdialog.cc:1928
-#: ../src/settingsdialog.cc:1961 ../src/settingsdialog.cc:2047
-#: ../src/settingsdialog.cc:2096 ../src/settingsdialog.cc:2144
+#: ../src/settingsdialog.cc:1737 ../src/settingsdialog.cc:1929
+#: ../src/settingsdialog.cc:1962 ../src/settingsdialog.cc:2048
+#: ../src/settingsdialog.cc:2097 ../src/settingsdialog.cc:2145
 msgid "Search type"
 msgstr ""
 
@@ -3011,11 +3015,11 @@ msgstr ""
 msgid "Security Certificates"
 msgstr ""
 
-#: ../src/settingsdialog.cc:3170
+#: ../src/settingsdialog.cc:3171
 msgid "Select Color"
 msgstr ""
 
-#: ../src/settingsdialog.cc:3293
+#: ../src/settingsdialog.cc:3294
 msgid "Select Font"
 msgstr ""
 
@@ -3052,7 +3056,7 @@ msgstr ""
 msgid "Sent ADC extensions : %s\n"
 msgstr ""
 
-#: ../src/settingsdialog.cc:3371 ../src/settingsdialog.cc:3469
+#: ../src/settingsdialog.cc:3372 ../src/settingsdialog.cc:3470
 #: ../ui/settingsdialog.ui:627
 msgid "Separator"
 msgstr ""
@@ -3199,7 +3203,7 @@ msgid "Signal handlers installed.\n"
 msgstr ""
 
 #: ../src/settingsdialog.cc:1034 ../src/settingsdialog.cc:1040
-#: ../src/settingsdialog.cc:3804 ../src/settingsdialog.cc:3873
+#: ../src/settingsdialog.cc:3805 ../src/settingsdialog.cc:3874
 #: ../src/downloadqueue.cc:74 ../src/downloadqueue.cc:93
 #: ../src/downloadqueue.cc:285 ../src/downloadqueue.cc:392
 #: ../src/sharebrowser.cc:85 ../src/sharebrowser.cc:110
@@ -3437,9 +3441,9 @@ msgid "Timestamp"
 msgstr ""
 
 #: ../src/settingsdialog.cc:402 ../src/settingsdialog.cc:1336
-#: ../src/settingsdialog.cc:2284 ../src/settingsdialog.cc:2340
-#: ../src/settingsdialog.cc:2356 ../src/settingsdialog.cc:2378
-#: ../src/settingsdialog.cc:2382 ../src/settingsdialog.cc:2432
+#: ../src/settingsdialog.cc:2285 ../src/settingsdialog.cc:2341
+#: ../src/settingsdialog.cc:2357 ../src/settingsdialog.cc:2379
+#: ../src/settingsdialog.cc:2383 ../src/settingsdialog.cc:2433
 msgid "Title"
 msgstr ""
 
@@ -3485,7 +3489,7 @@ msgstr ""
 msgid "Total sent"
 msgstr ""
 
-#: ../src/settingsdialog.cc:3878
+#: ../src/settingsdialog.cc:3879
 msgid "Total size: "
 msgstr ""
 
@@ -3824,12 +3828,12 @@ msgstr ""
 msgid "View the list of finished uploads"
 msgstr ""
 
-#: ../src/settingsdialog.cc:1032 ../src/settingsdialog.cc:3802
-#: ../src/settingsdialog.cc:3871
+#: ../src/settingsdialog.cc:1032 ../src/settingsdialog.cc:3803
+#: ../src/settingsdialog.cc:3872
 msgid "Virtual Name"
 msgstr ""
 
-#: ../src/settingsdialog.cc:3095
+#: ../src/settingsdialog.cc:3096
 msgid "Virtual name"
 msgstr ""
 
@@ -3882,7 +3886,7 @@ msgstr ""
 msgid "Yes"
 msgstr ""
 
-#: ../src/settingsdialog.cc:3864
+#: ../src/settingsdialog.cc:3865
 msgid "[HIDDEN SHARE] "
 msgstr ""
 
@@ -4123,11 +4127,11 @@ msgstr ""
 msgid "default"
 msgstr ""
 
-#: ../src/settingsdialog.cc:2505
+#: ../src/settingsdialog.cc:2506
 msgid "default icons"
 msgstr ""
 
-#: ../src/settingsdialog.cc:2537
+#: ../src/settingsdialog.cc:2538
 msgid "default theme"
 msgstr ""
 
@@ -4135,7 +4139,7 @@ msgstr ""
 msgid "eMail"
 msgstr ""
 
-#: ../src/settingsdialog.cc:2770
+#: ../src/settingsdialog.cc:2771
 #, c-format
 msgid "eiskaltdcpp-gtk: load theme %s...\n"
 msgstr ""
@@ -4186,7 +4190,7 @@ msgstr ""
 msgid "searchADL"
 msgstr ""
 
-#: ../src/settingsdialog.cc:3162 ../src/settingsdialog.cc:3289
+#: ../src/settingsdialog.cc:3163 ../src/settingsdialog.cc:3290
 msgid "selected style failed"
 msgstr ""
 

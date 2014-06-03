@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2014-05-09 12:42+0400\n"
+"POT-Creation-Date: 2014-06-03 08:35+0400\n"
 "PO-Revision-Date: 2014-02-21 22:59+0000\n"
 "Last-Translator: Márk Lutring <marcus@elitemail.hu>\n"
 "Language-Team: Hungarian (http://www.transifex.com/projects/p/eiskaltdcpp/"
@@ -617,39 +617,39 @@ msgstr "A fájl-lista frissítése befejeződött"
 msgid "File list %1% generated"
 msgstr "Fájl-lista %1% létrehozva"
 
-#: ../SettingsManager.cpp:179
+#: ../SettingsManager.cpp:180
 msgid "downloaded from"
 msgstr "letöltve"
 
-#: ../SettingsManager.cpp:515
+#: ../SettingsManager.cpp:516
 msgid "Invalid search type name"
 msgstr "Érvénytelen keresési feltétel"
 
-#: ../SettingsManager.cpp:519 ../SettingsManager.cpp:541
+#: ../SettingsManager.cpp:520 ../SettingsManager.cpp:542
 msgid "This search type already exists"
 msgstr "A megadott keresési feltétel már létezik"
 
-#: ../SettingsManager.cpp:573
+#: ../SettingsManager.cpp:574
 msgid "No such search type"
 msgstr "Keresési feltétel nem található"
 
-#: ../SettingsManager.cpp:614
+#: ../SettingsManager.cpp:615
 msgid "Error: setting not found!"
 msgstr "Hiba: Beállítás nem található!"
 
-#: ../SettingsManager.cpp:616
+#: ../SettingsManager.cpp:617
 msgid "Core setting "
 msgstr "Alapbeállítás"
 
-#: ../SettingsManager.cpp:617
+#: ../SettingsManager.cpp:618
 msgid "Change core setting "
 msgstr "Alapbeállítás megváltoztatása: "
 
-#: ../SettingsManager.cpp:617
+#: ../SettingsManager.cpp:618
 msgid " to "
 msgstr "erre:"
 
-#: ../SettingsManager.cpp:619
+#: ../SettingsManager.cpp:620
 msgid "Error: segv parser :D"
 msgstr "Hiba: segv-elemző :D"
 

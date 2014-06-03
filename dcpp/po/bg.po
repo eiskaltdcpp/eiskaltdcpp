@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2014-05-09 12:42+0400\n"
+"POT-Creation-Date: 2014-06-03 08:35+0400\n"
 "PO-Revision-Date: 2013-11-19 16:45+0000\n"
 "Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
 "Language-Team: Bulgarian (http://www.transifex.com/projects/p/eiskaltdcpp/"
@@ -607,39 +607,39 @@ msgstr "Опресняването на списъка с файлове зав�
 msgid "File list %1% generated"
 msgstr "Започва опресняване на списъка с файлове"
 
-#: ../SettingsManager.cpp:179
+#: ../SettingsManager.cpp:180
 msgid "downloaded from"
 msgstr "сваляне от"
 
-#: ../SettingsManager.cpp:515
+#: ../SettingsManager.cpp:516
 msgid "Invalid search type name"
 msgstr "Неправилно име за тип търсене"
 
-#: ../SettingsManager.cpp:519 ../SettingsManager.cpp:541
+#: ../SettingsManager.cpp:520 ../SettingsManager.cpp:542
 msgid "This search type already exists"
 msgstr "Този тип търсене вече съществува"
 
-#: ../SettingsManager.cpp:573
+#: ../SettingsManager.cpp:574
 msgid "No such search type"
 msgstr "Няма такъв тип търсене"
 
-#: ../SettingsManager.cpp:614
+#: ../SettingsManager.cpp:615
 msgid "Error: setting not found!"
 msgstr "Грешка: настройката не е намерена!"
 
-#: ../SettingsManager.cpp:616
+#: ../SettingsManager.cpp:617
 msgid "Core setting "
 msgstr ""
 
-#: ../SettingsManager.cpp:617
+#: ../SettingsManager.cpp:618
 msgid "Change core setting "
 msgstr "Промяна настройките на ядрото"
 
-#: ../SettingsManager.cpp:617
+#: ../SettingsManager.cpp:618
 msgid " to "
 msgstr "до"
 
-#: ../SettingsManager.cpp:619
+#: ../SettingsManager.cpp:620
 msgid "Error: segv parser :D"
 msgstr ""
 
