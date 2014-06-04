@@ -806,6 +806,8 @@ static void sigbus_handler(int signum
 }
 
 bool HashManager::Hasher::fastHash(const string& filename, uint8_t* , TigerTree& tth, int64_t size, CRC32Filter* xcrc32) {
+    instantPause();
+
     static StreamStore streamStore;
 
     if (streamStore.loadTree(filename, tth, -1)){
@@ -943,7 +945,11 @@ int HashManager::Hasher::run() {
     bool last = false;
     pause();
     for(;;) {
-        s.wait();
+
+        if (w.empty()) {
+            s.wait();
+        }
+
         if(stop)
             break;
         if(rebuild) {
@@ -1072,7 +1078,7 @@ int HashManager::Hasher::run() {
     }
 
 HashManager::HashPauser::HashPauser() {
-    resume = !HashManager::getInstance()->pauseHashing();
+    resume = !HashManager::getInstance()->isHashingPaused();
 }
 
 HashManager::HashPauser::~HashPauser() {
