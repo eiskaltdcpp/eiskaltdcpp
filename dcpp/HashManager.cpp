@@ -671,7 +671,7 @@ void HashManager::Hasher::instantPause() {
         }
     }
     if(wait) {
-        printf("wait2: %d\n", wait); fflush(stdout);
+//        printf("wait2: %d\n", wait); fflush(stdout);
         s.wait();
     }
 }
