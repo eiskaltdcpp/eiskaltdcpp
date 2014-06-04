@@ -124,6 +124,9 @@ int SearchManager::run() {
 
     while(!stop) {
         try {
+            if (!socket.get()) {
+                continue;
+            }
             if(!socket->wait(400, true, false).first) {
                 continue;
             }
