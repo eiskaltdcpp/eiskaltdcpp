@@ -61,7 +61,12 @@ public:
     };
 
     struct Hash {
-        size_t operator()(const UserPtr& x) const { return ((size_t)(&(*x)))/sizeof(User); }
+        size_t operator()(const UserPtr& x) const {
+            if (x.get() == nullptr) {
+//                printf("User failed ptr == nullptr\n");fflush(stdout);
+                return 0;
+            }
+            return ((size_t)(&(*x)))/sizeof(User); }
     };
 
     User(const CID& aCID) : cid(aCID) { }
