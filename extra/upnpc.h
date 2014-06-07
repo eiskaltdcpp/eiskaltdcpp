@@ -35,7 +35,7 @@ class UPnPc :
     private:
         bool init();
 
-        bool add(const unsigned short port, const dcpp::UPnP::Protocol protocol, const std::string& description);
+        std::pair<bool, bool> add(const unsigned short port, const dcpp::UPnP::Protocol protocol, const std::string& description);
         bool remove(const unsigned short port, const dcpp::UPnP::Protocol protocol);
         const std::string& getName() const {
             return name;

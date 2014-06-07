@@ -117,8 +117,8 @@ void BufferedSocket::connect(const string& aAddress, const string& aPort, const 
     CryptoManager::getInstance()->getClientSocket(allowUntrusted)) : new Socket(Socket::TYPE_TCP));
 
     s->setV4only(false);
-    s->setLocalIp4(SETTING(BIND_IFACE)? s->getIfaceI4(SETTING(BIND_IFACE_NAME)).c_str() : SETTING(BIND_ADDRESS));
-    s->setLocalIp6(SETTING(BIND_IFACE6)? s->getIfaceI6(SETTING(BIND_IFACE_NAME6)).c_str() : SETTING(BIND_ADDRESS6));
+    s->setLocalIp4(SETTING(BIND_IFACE)? Util::getIfaceI4(SETTING(BIND_IFACE_NAME)).c_str() : SETTING(BIND_ADDRESS));
+    s->setLocalIp6(SETTING(BIND_IFACE6)? Util::getIfaceI6(SETTING(BIND_IFACE_NAME6)).c_str() : SETTING(BIND_ADDRESS6));
 
     setSocket(move(s));
 

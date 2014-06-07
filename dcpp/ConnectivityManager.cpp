@@ -71,6 +71,7 @@ void ConnectivityManager::detectConnection() {
     SettingsManager::getInstance()->unset(SettingsManager::NO_IP_OVERRIDE);
     //SettingsManager::getInstance()->unset(SettingsManager::MAPPER);
     SettingsManager::getInstance()->unset(SettingsManager::BIND_ADDRESS);
+    SettingsManager::getInstance()->unset(SettingsManager::BIND_ADDRESS6);
 
    if (UPnPManager::getInstance()->getOpened()) {
        UPnPManager::getInstance()->close();
@@ -111,12 +112,20 @@ void ConnectivityManager::setup(bool settingsChanged) {
    if(BOOLSETTING(AUTO_DETECT_CONNECTION)) {
        if (!autoDetected) detectConnection();
    } else {
-        if(autoDetected || (settingsChanged && (SearchManager::getInstance()->getPort() != Util::toString(SETTING(UDP_PORT)) || ConnectionManager::getInstance()->getPort() != Util::toString(SETTING(TCP_PORT)) || ConnectionManager::getInstance()->getSecurePort() != Util::toString(SETTING(TLS_PORT)) || SETTING(BIND_ADDRESS) != lastBind))) {
+        if(autoDetected || (settingsChanged
+                            && (SearchManager::getInstance()->getPort() != Util::toString(SETTING(UDP_PORT))
+                                || ConnectionManager::getInstance()->getPort() != Util::toString(SETTING(TCP_PORT))
+                                || ConnectionManager::getInstance()->getSecurePort() != Util::toString(SETTING(TLS_PORT))
+                                || SETTING(BIND_ADDRESS) != lastBind4
+                                || SETTING(BIND_ADDRESS6) != lastBind6)
+                            )
+           ) {
            if(settingsChanged || SETTING(INCOMING_CONNECTIONS) != SettingsManager::INCOMING_FIREWALL_UPNP) {
                UPnPManager::getInstance()->close();
            }
            startSocket();
-       } else if(SETTING(INCOMING_CONNECTIONS) == SettingsManager::INCOMING_FIREWALL_UPNP && !UPnPManager::getInstance()->getOpened()) {
+       } else if(SETTING(INCOMING_CONNECTIONS) == SettingsManager::INCOMING_FIREWALL_UPNP
+                 && !UPnPManager::getInstance()->getOpened()) {
            // previous UPnP mappings had failed; try again
            UPnPManager::getInstance()->open();
        }
@@ -179,7 +188,8 @@ void ConnectivityManager::updateLast() {
     lastUdp = (unsigned short)SETTING(UDP_PORT);
     lastTls = (unsigned short)(SETTING(TLS_PORT));
     lastConn = SETTING(INCOMING_CONNECTIONS);
-    lastBind = SETTING(BIND_ADDRESS);
+    lastBind4 = SETTING(BIND_ADDRESS);
+    lastBind6 = SETTING(BIND_ADDRESS6);
     //lastMapper = SETTING(MAPPER);
 }
 

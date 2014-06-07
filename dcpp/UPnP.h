@@ -49,7 +49,7 @@ protected:
     static const char* protocols[PROTOCOL_LAST];
 
 private:
-    virtual bool add(const unsigned short port, const Protocol protocol, const string& description) = 0;
+    virtual std::pair<bool, bool> add(const unsigned short port, const Protocol protocol, const string& description) = 0;
     virtual bool remove(const unsigned short port, const Protocol protocol) = 0;
 
     typedef std::pair<unsigned short, Protocol> rule;

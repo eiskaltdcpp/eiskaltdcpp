@@ -28,7 +28,8 @@ const char* UPnP::protocols[PROTOCOL_LAST] = {
 };
 
 bool UPnP::open(const unsigned short port, const Protocol protocol, const string& description) {
-    if(!add(port, protocol, description))
+    auto result = add(port, protocol, description);
+    if(!result.first)
         return false;
 
     rules.push_back(std::make_pair(port, protocol));

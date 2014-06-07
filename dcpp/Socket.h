@@ -183,9 +183,6 @@ public:
 
         static int getLastError();
 
-        string getIfaceI4(const string &iface);
-        string getIfaceI6(const string &iface);
-
         GETSET(string, ip, Ip);
         GETSET(string, localIp4, LocalIp4);
         GETSET(string, localIp6, LocalIp6);

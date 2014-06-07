@@ -65,7 +65,8 @@ private:
     unsigned short lastUdp;
     unsigned short lastTls;
     int lastConn;
-    string lastBind;
+    string lastBind4;
+    string lastBind6;
 };
 
 } // namespace dcpp

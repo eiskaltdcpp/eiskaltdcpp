@@ -52,6 +52,7 @@ const string SettingsManager::settingTags[] =
     "TLSCertificateFile", "TLSTrustedCertificatesPath",
     "Language", "SkipListShare", "InternetIp", "BindIfaceName",
     "DHTKey", "DynDNSServer", "MimeHandler",  "BindIfaceName6",
+    "ExternalIp6",
     "SENTRY",
     // Ints
     "IncomingConnections", "InPort", "Slots", "AutoFollow",
