@@ -128,6 +128,7 @@ void DownloadManager::revive(UserConnection* uc) {
 }
 
 void DownloadManager::addConnection(UserConnectionPtr conn) {
+
     if(!conn->isSet(UserConnection::FLAG_SUPPORTS_TTHF) || !conn->isSet(UserConnection::FLAG_SUPPORTS_ADCGET)) {
         // Can't download from these...
         conn->getUser()->setFlag(User::OLD_CLIENT);
@@ -142,6 +143,13 @@ void DownloadManager::addConnection(UserConnectionPtr conn) {
         conn->disconnect();
         return;
     }
+
+    if(SETTING(REQUIRE_TLS) && !conn->isSecure()) {
+        conn->error("Secure connection required!");
+        QueueManager::getInstance()->removeSource(conn->getUser(), QueueItem::Source::FLAG_UNENCRYPTED);
+        return;
+    }
+
     conn->addListener(this);
     checkDownloads(conn);
 }

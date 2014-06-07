@@ -557,6 +557,13 @@ void UploadManager::addConnection(UserConnectionPtr conn) {
         conn->disconnect();
         return;
     }
+
+    if(SETTING(REQUIRE_TLS) && !conn->isSecure()) {
+        conn->error("Secure connection required!");
+        conn->disconnect();
+        return;
+    }
+
     conn->addListener(this);
     conn->setState(UserConnection::STATE_GET);
 }
