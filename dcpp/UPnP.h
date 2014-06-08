@@ -44,7 +44,7 @@ public:
 
     virtual string getExternalIP() = 0;
     virtual const string& getName() const = 0;
-    virtual bool isIpV6();
+    virtual bool isIpV6() = 0;
 
 protected:
     static const char* protocols[PROTOCOL_LAST];
