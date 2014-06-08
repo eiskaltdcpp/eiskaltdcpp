@@ -989,7 +989,7 @@ void AdcHub::info(bool /*alwaysSend*/) {
 
     AdcCommand c(AdcCommand::CMD_INF, AdcCommand::TYPE_BROADCAST);
     if (state == STATE_NORMAL) {
-    updateCounts(false);
+        updateCounts(false);
     }
     addParam(lastInfoMap, c, "ID", ClientManager::getInstance()->getMyCID().toBase32());
     addParam(lastInfoMap, c, "PD", ClientManager::getInstance()->getMyPID().toBase32());
@@ -1027,23 +1027,25 @@ void AdcHub::info(bool /*alwaysSend*/) {
 
     if (!getFavIp().empty()) {
         addParam(lastInfoMap, c, "I4", getFavIp());
-   } else if(BOOLSETTING(NO_IP_OVERRIDE) && !SETTING(EXTERNAL_IP).empty()) {
+    } else if(BOOLSETTING(NO_IP_OVERRIDE) && !SETTING(EXTERNAL_IP).empty()) {
            addParam(lastInfoMap, c, "I4", Socket::resolve(SETTING(EXTERNAL_IP), AF_INET));
-   } else {
+    } else {
            addParam(lastInfoMap, c, "I4", "0.0.0.0");
-   }
+    }
 
-   if(isActive()) {
-           addParam(lastInfoMap, c, "U4", SearchManager::getInstance()->getPort());
-           su += "," + TCP4_FEATURE;
-            su += "," + UDP4_FEATURE;
-   } else {
+    if(isActive()) {
+        addParam(lastInfoMap, c, "U4", SearchManager::getInstance()->getPort());
+        su += "," + TCP4_FEATURE;
+        su += "," + UDP4_FEATURE;
+        su += "," + TCP6_FEATURE;
+        su += "," + UDP6_FEATURE;
+    } else {
         if (BOOLSETTING(ALLOW_NATT))
             su += "," + NAT0_FEATURE;
         else
             addParam(lastInfoMap, c, "I4", "");
         addParam(lastInfoMap, c, "U4", "");
-   }
+    }
 
     addParam(lastInfoMap, c, "SU", su);
 
