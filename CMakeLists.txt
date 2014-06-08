@@ -97,6 +97,7 @@ option (USE_GOLD "Use ld.gold instead ld.bfd" OFF)
 option (DO_NOT_USE_MUTEX "Do not use mutex (necessary for Haiku and WINE)" OFF)
 option (LOCAL_JSONCPP "Use local JsonCpp" ON)
 option (LOCAL_BOOST "Use local boost headers" OFF)
+option (MINIUPNP_WITH_IPV6 "Try use upnp for ipv6" OFF)
 
 if (DO_NOT_USE_MUTEX OR HAIKU OR APPLE)
   add_definitions ( -DDO_NOT_USE_MUTEX )

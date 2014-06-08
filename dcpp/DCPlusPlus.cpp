@@ -100,9 +100,9 @@ void startup(void (*f)(void*, const string&), void* p) {
     DebugManager::newInstance();
 
     SettingsManager::getInstance()->load();
-#ifdef USE_MINIUPNP
-    UPnPManager::getInstance()->runMiniUPnP();
-#endif
+//#ifdef USE_MINIUPNP
+//    UPnPManager::getInstance()->runMiniUPnP();
+//#endif
     if (BOOLSETTING(IPFILTER)){
         ipfilter::newInstance();
         ipfilter::getInstance()->load();

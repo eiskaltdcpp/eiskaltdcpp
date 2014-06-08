@@ -44,12 +44,13 @@ public:
 
     virtual string getExternalIP() = 0;
     virtual const string& getName() const = 0;
+    virtual bool isIpV6();
 
 protected:
     static const char* protocols[PROTOCOL_LAST];
 
 private:
-    virtual std::pair<bool, bool> add(const unsigned short port, const Protocol protocol, const string& description) = 0;
+    virtual bool add(const unsigned short port, const Protocol protocol, const string& description) = 0;
     virtual bool remove(const unsigned short port, const Protocol protocol) = 0;
 
     typedef std::pair<unsigned short, Protocol> rule;

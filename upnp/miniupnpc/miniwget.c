@@ -1,8 +1,8 @@
-/* $Id: miniwget.c,v 1.58 2012/08/11 05:52:49 nanard Exp $ */
+/* $Id: miniwget.c,v 1.61 2014/02/05 17:27:48 nanard Exp $ */
 /* Project : miniupnp
  * Website : http://miniupnp.free.fr/
  * Author : Thomas Bernard
- * Copyright (c) 2005-2012 Thomas Bernard
+ * Copyright (c) 2005-2014 Thomas Bernard
  * This software is subject to the conditions detailed in the
  * LICENCE file provided in this distribution. */
 
@@ -39,18 +39,22 @@
 #include <net/if.h>
 #include <netdb.h>
 #define closesocket close
-/* defining MINIUPNPC_IGNORE_EINTR enable the ignore of interruptions
- * during the connect() call */
-#define MINIUPNPC_IGNORE_EINTR
 #endif /* #else _WIN32 */
 #if defined(__sun) || defined(sun)
 #define MIN(x,y) (((x)<(y))?(x):(y))
+#endif
+#ifdef __GNU__
+#define MAXHOSTNAMELEN 64
 #endif
 
 #include "miniupnpcstrings.h"
 #include "miniwget.h"
 #include "connecthostport.h"
 #include "receivedata.h"
+
+#ifndef MAXHOSTNAMELEN
+#define MAXHOSTNAMELEN 64
+#endif
 
 /*
  * Read a HTTP response from a socket.
@@ -158,7 +162,7 @@ getHTTPResponse(int s, int * size)
 							chunked = 1;
 						}
 					}
-					while(header_buf[i]=='\r' || header_buf[i] == '\n')
+					while((i < (int)header_buf_used) && (header_buf[i]=='\r' || header_buf[i] == '\n'))
 						i++;
 					linestart = i;
 					colon = linestart;

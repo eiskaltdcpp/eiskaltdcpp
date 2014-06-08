@@ -38,7 +38,7 @@ public:
     * first added impl will be tried first.
     */
 
-    void runMiniUPnP();
+//    void runMiniUPnP();
     void addImplementation(UPnP* impl);
     bool open();
     void close();
@@ -54,7 +54,7 @@ private:
     bool opened;
     Atomic<bool,memory_ordering_strong> portMapping;
 
-    UPnPManager() : opened(false), portMapping(false) { }
+    UPnPManager();// : opened(false), portMapping(false) { }
     virtual ~UPnPManager() noexcept { join(); }
 
     int run();

@@ -27,12 +27,11 @@
 #include <dcpp/stdinc.h>
 #include <dcpp/UPnP.h>
 
-class UPnPc :
+class UPnPc6 :
     public dcpp::UPnP
 {
     public:
-        UPnPc() {}
-
+        UPnPc6() {}
     private:
         bool init();
 
@@ -44,5 +43,5 @@ class UPnPc :
 
         std::string getExternalIP();
         static const std::string name;
-        bool isIpV6() { return false; }
+        bool isIpV6() { return true; }
 };

@@ -27,12 +27,24 @@
 #include "ConnectivityManager.h"
 #ifdef USE_MINIUPNP
 #include "extra/upnpc.h"
+    #ifdef MINIUPNP_WITH_IPV6
+    #include "extra/upnpc6.h"
+    #endif
 #endif
 #ifdef WITH_DHT
 #include "dht/DHT.h"
 #endif
-namespace dcpp {
 
+namespace dcpp {
+    
+UPnPManager::UPnPManager() : opened(false), portMapping(false) {
+#ifdef USE_MINIUPNP
+    addImplementation(new UPnPc());
+    #ifdef MINIUPNP_WITH_IPV6
+        addImplementation(new UPnPc6());
+    #endif
+#endif
+}
 void UPnPManager::addImplementation(UPnP* impl) {
     impls.push_back(impl);
 }
@@ -104,27 +116,29 @@ int UPnPManager::run() {
         }
 #endif
 
-        opened = true;
+        opened |= true;
         log(str(F_("Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%), mapped using the %4% interface") % conn_port % search_port % secure_port % impl.getName()));
-
-        if(!BOOLSETTING(NO_IP_OVERRIDE)) {
-            // now lets configure the external IP (connect to me) address
-            string ExternalIP = impl.getExternalIP();
-            if(!ExternalIP.empty()) {
-                // woohoo, we got the external IP from the UPnP framework
-                SettingsManager::getInstance()->set(SettingsManager::EXTERNAL_IP, ExternalIP);
-            } else {
-                //:-( Looks like we have to rely on the user setting the external IP manually
-                // no need to do cleanup here because the mappings work
-                log(_("Failed to get external IP"));
+        if (!impl.isIpV6()) {
+            if(!BOOLSETTING(NO_IP_OVERRIDE)) {
+                // now lets configure the external IP (connect to me) address
+                string ExternalIP = impl.getExternalIP();
+                if(!ExternalIP.empty()) {
+                    // woohoo, we got the external IP from the UPnP framework
+                    SettingsManager::getInstance()->set(SettingsManager::EXTERNAL_IP, ExternalIP);
+                } else {
+                    //:-( Looks like we have to rely on the user setting the external IP manually
+                    // no need to do cleanup here because the mappings work
+                    log(_("Failed to get external IP"));
+                }
             }
         }
 
         ConnectivityManager::getInstance()->mappingFinished(true);
 
-        break;
+//        break;
     }
 
+    ConnectivityManager::getInstance()->mappingFinished(opened);
     if(!opened) {
         log(_("Failed to create port mappings"));
         ConnectivityManager::getInstance()->mappingFinished(false);
@@ -143,9 +157,14 @@ void UPnPManager::close(UPnP& impl) {
 void UPnPManager::log(const string& message) {
     ConnectivityManager::getInstance()->log(str(F_("UPnP: %1%") % message));
 }
-#ifdef USE_MINIUPNP
-void UPnPManager::runMiniUPnP() {
-    addImplementation(new UPnPc());
-}
-#endif
+
+//#ifdef USE_MINIUPNP
+//void UPnPManager::runMiniUPnP() {
+    //addImplementation(new UPnPc());
+//#ifdef MINIUPNP_WITH_IPV6
+    //addImplementation(new UPnPc6());
+//#endif
+//}
+//#endif
+
 } // namespace dcpp

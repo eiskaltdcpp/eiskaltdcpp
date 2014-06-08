@@ -41,7 +41,8 @@ using namespace dcpp;
 
 bool UPnPc::init()
 {
-    UPNPDev *devices = upnpDiscover(5000, SettingsManager::getInstance()->isDefault(SettingsManager::BIND_ADDRESS) ? 0 : SETTING(BIND_ADDRESS).c_str(), 0, 0
+    string mcastif = SETTING(BIND_IFACE)? Util::getIfaceI4(SETTING(BIND_IFACE_NAME)) : SETTING(BIND_ADDRESS);
+    UPNPDev *devices = upnpDiscover(5000, mcastif.c_str(), 0, 0
 #if (MINIUPNPC_API_VERSION == 8 || defined(MINIUPNPC16))
                                         , 0, 0);
 #else
@@ -58,11 +59,11 @@ bool UPnPc::init()
     return ret;
 }
 
-std::pair<bool, bool> UPnPc::add(const unsigned short port, const UPnP::Protocol protocol, const string& description)
+bool UPnPc::add(const unsigned short port, const UPnP::Protocol protocol, const string& description)
 {
     const string port_ = Util::toString(port);
 
-    bool ipv4_portmap = UPNP_AddPortMapping(urls.controlURL, data.first.servicetype, port_.c_str(), port_.c_str(),
+    return UPNP_AddPortMapping(urls.controlURL, data.first.servicetype, port_.c_str(), port_.c_str(),
         (SETTING(BIND_IFACE)? Util::getIfaceI4(SETTING(BIND_IFACE_NAME)).c_str() : SETTING(BIND_ADDRESS).c_str())
                                , description.c_str(), protocols[protocol], NULL
 #if (MINIUPNPC_API_VERSION == 8 || defined(MINIUPNPC16))
@@ -70,15 +71,6 @@ std::pair<bool, bool> UPnPc::add(const unsigned short port, const UPnP::Protocol
 #else
                                                                                     ) == UPNPCOMMAND_SUCCESS;
 #endif
-    bool ipv6_portmap = UPNP_AddPortMapping(urls.controlURL, data.first.servicetype, port_.c_str(), port_.c_str(),
-        (SETTING(BIND_IFACE6)? Util::getIfaceI6(SETTING(BIND_IFACE_NAME6)).c_str() : SETTING(BIND_ADDRESS6).c_str())
-                               , description.c_str(), protocols[protocol], NULL
-#if (MINIUPNPC_API_VERSION == 8 || defined(MINIUPNPC16))
-                                                                                    , 0) == UPNPCOMMAND_SUCCESS;
-#else
-                                                                                    ) == UPNPCOMMAND_SUCCESS;
-#endif
-    return std::make_pair(ipv4_portmap,ipv6_portmap);
 }
 
 bool UPnPc::remove(const unsigned short port, const UPnP::Protocol protocol)

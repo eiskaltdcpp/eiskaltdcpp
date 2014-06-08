@@ -1,6 +1,6 @@
 project(miniupnpc)
 cmake_minimum_required(VERSION 2.6)
-set (MINIUPNPC_VERSION 1.8)
+set (MINIUPNPC_VERSION 1.9)
 # ######### General setup ##########
 include_directories(${PROJECT_SOURCE_DIR})
 
