@@ -10,7 +10,7 @@ API Layers:
         (+) Изменить место назначения для элемента очереди (queue.move)
                 Args: source (string), target (string)
                 Return: 0 | 1 (integer)
-        (+) Удаление элемента очереди (queue.remove)
+        (+) Удаление элемента очереди (queue.remove {alias - queue.del})
                 Args: target (string)
                 Return: 0 | 1 (integer)
         (+) Постановка в очередь магнета (magnet.add)
