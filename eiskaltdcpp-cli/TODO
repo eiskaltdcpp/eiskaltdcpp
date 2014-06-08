@@ -35,7 +35,7 @@ API Layers:
                 Args: directory (string), filename (string), tth (string), size (int64_t)
                 Return: 0 | 1 (integer)
                 Comment: add file in queue by tth
-        (wip) Очистка очереди (queue.clear)
+        (+) Очистка очереди (queue.clear)
                 Args: none
                 Return: 0 (integer)
 
@@ -185,3 +185,6 @@ IPFILTER
 Пожелания:
         (+) Выполнение команды и выход (./cli.pl -c show.version)
         (+) Поддерка UTF8
+        (wip) queue.remove -> queue.del
+		(wip) list.local -> list.ls
+		(wip) list.get -> list.fetch
