@@ -771,8 +771,6 @@ void FavoriteManager::on(UserConnected, const UserPtr& user) noexcept {
     auto i = users.find(user->getCID());
     if (i != users.end())
         fire(FavoriteManagerListener::StatusChanged(), i->second);
-
-    fire(FavoriteManagerListener::StatusChanged(), i->second);
 }
 
 string FavoriteManager::getConfigFile() {
