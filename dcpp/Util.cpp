@@ -1368,6 +1368,7 @@ string Util::getIfaceI4(const string &iface) {
             tmp.append(host);
             if (tmp.find("%") == string::npos) {
                 addr = tmp;
+                return addr;
             }
         }
 //        printf("\t\taddress: <%s>\n", host);
@@ -1419,6 +1420,7 @@ string Util::getIfaceI6(const string &iface) {
             tmp.append(host);
             if (tmp.find("%") == string::npos) {
                 addr = tmp;
+                return addr;
             }
         }
 //        printf("\t\taddress: <%s>\n", host);

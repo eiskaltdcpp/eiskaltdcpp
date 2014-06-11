@@ -23,6 +23,7 @@
 static UPNPUrls urls6;
 static IGDdatas data6;
 const std::string UPnPc6::name = "MiniUPnP6";
+static std::map<uint64_t,uint16_t> uniqIDMap;
 
 using namespace std;
 using namespace dcpp;
@@ -45,23 +46,32 @@ bool UPnPc6::init()
 bool UPnPc6::add(const unsigned short port, const UPnP::Protocol protocol, const string& description)
 {
     const string port_ = Util::toString(port);
-
-    return UPNP_AddPortMapping(urls6.controlURL, data6.first.servicetype, port_.c_str(), port_.c_str(),
-        (SETTING(BIND_IFACE6)? Util::getIfaceI6(SETTING(BIND_IFACE_NAME6)).c_str() : SETTING(BIND_ADDRESS6).c_str())
-        , description.c_str(), protocols[protocol], NULL, 0) == UPNPCOMMAND_SUCCESS;
+    char uniqID[8];
+    string proto;
+    if (protocols[protocol] == "TCP") 
+        proto.append(Util::toString(IPPROTO_TCP));
+    if (protocols[protocol] == "UDP") 
+        proto.append(Util::toString(IPPROTO_UDP));
+    int ret = UPNP_AddPinhole(urls6.controlURL, data6.first.servicetype, "::",  "0",
+            (SETTING(BIND_IFACE6)? Util::getIfaceI6(SETTING(BIND_IFACE_NAME6)).c_str() : SETTING(BIND_ADDRESS6).c_str()),
+                              port_.c_str(),
+                              proto.c_str(), "86400", (char*)&uniqID);
+    if (ret == UPNPCOMMAND_SUCCESS)
+        uniqIDMap.insert(std::map<uint64_t,uint16_t>::value_type((port*(protocol+1)), atoi(uniqID)));
+    return ret == UPNPCOMMAND_SUCCESS;
 }
 
 bool UPnPc6::remove(const unsigned short port, const UPnP::Protocol protocol)
 {
-    return UPNP_DeletePortMapping(urls6.controlURL, data6.first.servicetype, Util::toString(port).c_str(),
-        protocols[protocol], NULL) == UPNPCOMMAND_SUCCESS;
+    auto it = uniqIDMap.find((port*(protocol+1)));
+    if (it == uniqIDMap.end())
+            return false;
+    int ret = UPNP_DeletePinhole(urls6.controlURL,data6.first.servicetype, Util::toString(it->second).c_str());
+    return ret == UPNPCOMMAND_SUCCESS;
 }
 
 string UPnPc6::getExternalIP()
 {
-    char buf[16] = { 0 };
-    if (UPNP_GetExternalIPAddress(urls6.controlURL, data6.first.servicetype, buf) == UPNPCOMMAND_SUCCESS)
-        return buf;
     return Util::emptyString;
 }
 
