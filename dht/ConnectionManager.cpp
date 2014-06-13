@@ -58,13 +58,7 @@ namespace dht
         bool active = ClientManager::getInstance()->isActive();
 
         // if I am not active, send reverse connect to me request
-        //AdcCommand cmd(active ? AdcCommand::CMD_CTM : AdcCommand::CMD_RCM, AdcCommand::TYPE_UDP);
-        uint32_t tmp_adc_cmd;
-        if(active)
-            tmp_adc_cmd = AdcCommand::CMD_CTM;
-        else
-            tmp_adc_cmd = AdcCommand::CMD_RCM;
-        AdcCommand cmd(tmp_adc_cmd, AdcCommand::TYPE_UDP);
+        AdcCommand cmd(active ? AdcCommand::CMD_CTM : AdcCommand::CMD_RCM, AdcCommand::TYPE_UDP);
         cmd.addParam(secure ? SECURE_CLIENT_PROTOCOL_TEST : CLIENT_PROTOCOL);
 
         if(active)
