@@ -30,7 +30,7 @@ using namespace dcpp;
 
 bool UPnPc6::init()
 {
-    string mcastif = SETTING(BIND_IFACE6)? Util::getIfaceI4(SETTING(BIND_IFACE_NAME6)) : SETTING(BIND_ADDRESS6);
+    string mcastif = SETTING(BIND_IFACE6)? Util::getIfaceI6(SETTING(BIND_IFACE_NAME6)) : SETTING(BIND_ADDRESS6);
     UPNPDev *devices = upnpDiscover(5000, mcastif.c_str(), 0, 0, 1, 0);
 
     if (!devices)

@@ -1026,15 +1026,16 @@ void AdcHub::info(bool /*alwaysSend*/) {
     }
 
     if (!getFavIp().empty()) {
-        addParam(lastInfoMap, c, "I4", getFavIp());
+         addParam(lastInfoMap, c, "I4", getFavIp());
     } else if(BOOLSETTING(NO_IP_OVERRIDE) && !SETTING(EXTERNAL_IP).empty()) {
-           addParam(lastInfoMap, c, "I4", Socket::resolve(SETTING(EXTERNAL_IP), AF_INET));
+        addParam(lastInfoMap, c, "I4", Socket::resolve(SETTING(EXTERNAL_IP), AF_INET));
     } else {
-           addParam(lastInfoMap, c, "I4", "0.0.0.0");
+        addParam(lastInfoMap, c, "I4", "0.0.0.0");
     }
 
     if(isActive()) {
         addParam(lastInfoMap, c, "U4", SearchManager::getInstance()->getPort());
+        addParam(lastInfoMap, c, "U6", SearchManager::getInstance()->getPort());
         su += "," + TCP4_FEATURE;
         su += "," + UDP4_FEATURE;
         su += "," + TCP6_FEATURE;
