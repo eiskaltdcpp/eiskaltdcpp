@@ -188,9 +188,9 @@ private:
             TreeInfo(const TreeInfo& rhs) : size(rhs.size), index(rhs.index), blockSize(rhs.blockSize) { }
             TreeInfo& operator=(const TreeInfo& rhs) { size = rhs.size; index = rhs.index; blockSize = rhs.blockSize; return *this; }
 
-            GETSET(int64_t, size, Size);
-            GETSET(int64_t, index, Index);
-            GETSET(int64_t, blockSize, BlockSize);
+            GETSET(int64_t, size, Size)
+            GETSET(int64_t, index, Index)
+            GETSET(int64_t, blockSize, BlockSize)
         };
 
         /** File -> root mapping info */
@@ -201,10 +201,10 @@ private:
 
             bool operator==(const string& name) { return name == fileName; }
 
-            GETSET(string, fileName, FileName);
-            GETSET(TTHValue, root, Root);
-            GETSET(uint32_t, timeStamp, TimeStamp);
-            GETSET(bool, used, Used);
+            GETSET(string, fileName, FileName)
+            GETSET(TTHValue, root, Root)
+            GETSET(uint32_t, timeStamp, TimeStamp)
+            GETSET(bool, used, Used)
         };
 
         typedef vector<FileInfo> FileInfoList;

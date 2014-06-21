@@ -702,7 +702,7 @@ vector<string> Util::getLocalIPs() {
             if ((i->ifa_flags & IFF_UP) && !(i->ifa_flags & IFF_LOOPBACK) && sa != NULL)
             {
                 void* src = NULL;
-                socklen_t len;
+                socklen_t len = INET_ADDRSTRLEN;
 
                 // IPv4 address
                 if (sa->sa_family == AF_INET)
@@ -1305,33 +1305,6 @@ string Util::getIfaceI4(const string &iface) {
 #ifdef _WIN32
     return "0.0.0.0";
 #else
-//    struct ifreq request;
-//    string s = "0.0.0.0";
-//    char address[INET_ADDRSTRLEN];
-
-//    memset(&request, 0, sizeof(struct ifreq));
-
-//    if ((size_t)iface.size() <= sizeof(request.ifr_name)){
-//        memcpy(request.ifr_name, iface.c_str(), iface.size());
-
-//        int sock = socket(AF_INET, SOCK_STREAM, 0);
-
-//        if (sock != -1 ){
-//            if (ioctl(sock, SIOCGIFADDR, &request) >= 0){
-//                struct sockaddr *sa = &request.ifr_addr;
-
-//                if ( sa && sa->sa_family == AF_INET ) {
-//                    inet_ntop(sa->sa_family, (void*) &((struct sockaddr_in*)sa)->sin_addr, address, INET_ADDRSTRLEN);
-//                    s = address;
-//                }
-//            }
-
-//            ::close(sock);
-//        }
-//    }
-
-//    return s;
-
     string addr = "0.0.0.0";
     struct ifaddrs *ifaddr, *ifa;
     int family, s, n;
@@ -1359,11 +1332,6 @@ string Util::getIfaceI4(const string &iface) {
 //            printf("getnameinfo() failed: %s\n", gai_strerror(s));
             return addr;
         } else {
-//            char * pch = NULL;
-//            pch = strchr(host,'%');
-//            if (pch == NULL){
-//                addr.append(host);
-//            }
             string tmp;
             tmp.append(host);
             if (tmp.find("%") == string::npos) {
@@ -1411,11 +1379,6 @@ string Util::getIfaceI6(const string &iface) {
 //            printf("getnameinfo() failed: %s\n", gai_strerror(s));
             return addr;
         } else {
-//            char * pch = NULL;
-//            pch = strchr(host,'%');
-//            if (pch == NULL){
-//                addr.append(host);
-//            }
             string tmp;
             tmp.append(host);
             if (tmp.find("%") == string::npos) {

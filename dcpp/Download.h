@@ -70,8 +70,8 @@ public:
 
     const unique_ptr<OutputStream>& getOutput() const { return output; }
 
-    GETSET(string, tempTarget, TempTarget);
-    GETSET(bool, treeValid, TreeValid);
+    GETSET(string, tempTarget, TempTarget)
+    GETSET(bool, treeValid, TreeValid)
 private:
 
     const string& getDownloadTarget() const;

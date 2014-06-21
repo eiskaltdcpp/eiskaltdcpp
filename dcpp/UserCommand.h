@@ -94,13 +94,13 @@ public:
     const StringList& getDisplayName() const;
     void setDisplayName();
 
-    GETSET(int, cid, Id);
-    GETSET(int, type, Type);
-    GETSET(int, ctx, Ctx);
-    GETSET(string, name, Name);
-    GETSET(string, command, Command);
-    GETSET(string, to, To);
-    GETSET(string, hub, Hub);
+    GETSET(int, cid, Id)
+    GETSET(int, type, Type)
+    GETSET(int, ctx, Ctx)
+    GETSET(string, name, Name)
+    GETSET(string, command, Command)
+    GETSET(string, to, To)
+    GETSET(string, hub, Hub)
 
 private:
     StringList displayName;

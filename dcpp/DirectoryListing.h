@@ -63,13 +63,13 @@ public:
 
         ~File() { }
 
-        GETSET(string, name, Name);
-        GETSET(int64_t, size, Size);
-        GETSET(Directory*, parent, Parent);
-        GETSET(TTHValue, tthRoot, TTH);
-        GETSET(bool, adls, Adls);
-        GETSET(uint64_t, ts, TS);
-        GETSET(uint64_t, hit, Hit);
+        GETSET(string, name, Name)
+        GETSET(int64_t, size, Size)
+        GETSET(Directory*, parent, Parent)
+        GETSET(TTHValue, tthRoot, TTH)
+        GETSET(bool, adls, Adls)
+        GETSET(uint64_t, ts, TS)
+        GETSET(uint64_t, hit, Hit)
         MediaInfo mediaInfo;
     };
 
@@ -113,10 +113,10 @@ public:
             return x;
         }
 
-        GETSET(string, name, Name);
-        GETSET(Directory*, parent, Parent);
-        GETSET(bool, adls, Adls);
-        GETSET(bool, complete, Complete);
+        GETSET(string, name, Name)
+        GETSET(Directory*, parent, Parent)
+        GETSET(bool, adls, Adls)
+        GETSET(bool, complete, Complete)
 
     };
 
@@ -124,7 +124,7 @@ public:
     public:
         AdlDirectory(const string& aFullPath, Directory* aParent, const string& aName) : Directory(aParent, aName, true, true), fullPath(aFullPath) { }
 
-        GETSET(string, fullPath, FullPath);
+        GETSET(string, fullPath, FullPath)
     };
 
     DirectoryListing(const HintedUser& aUser);
@@ -155,7 +155,7 @@ public:
 
     static UserPtr getUserFromFilename(const string& fileName);
 
-    GETSET(HintedUser, user, User);
+    GETSET(HintedUser, user, User)
 
     Directory* find(const string& aName, Directory* current);
 

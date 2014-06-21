@@ -89,9 +89,9 @@ public:
     const UserConnection& getUserConnection() const { return userConnection; }
     bool getOverlapped() const { return getSegment().getOverlapped(); }
     void setOverlapped(bool overlap) { segment.setOverlapped(overlap); }
-    GETSET(Segment, segment, Segment);
-    GETSET(Type, type, Type);
-    GETSET(uint64_t, start, Start);
+    GETSET(Segment, segment, Segment)
+    GETSET(Type, type, Type)
+    GETSET(uint64_t, start, Start)
 private:
 
     typedef std::pair<uint64_t, int64_t> Sample;

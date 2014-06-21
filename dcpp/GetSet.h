@@ -24,20 +24,9 @@ access it. */
 
 #include <type_traits>
 
-#ifndef DCPLUSPLUS_SIMPLE_GETSET
-
 #define GETSET(t, name, name2) \
 private: t name; \
 public: std::conditional<std::is_class<t>::value, const t&, t>::type get##name2() const { return name; } \
         template<typename GetSetT> void set##name2(GetSetT&& name) { this->name = std::forward<GetSetT>(name); }
-
-#else
-
-// This version is for my stupid editor =)
-#define GETSET(t, name, name2) \
-        private: t name; \
-        public: t get##name2() const; void set##name2(t name);
-
-#endif
 
 #endif /* GETSET_H_ */

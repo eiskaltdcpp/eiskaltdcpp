@@ -87,7 +87,7 @@ private:
 
 Q_DECLARE_INTERFACE (ArenaWidget, "com.NegatiV.EiskaltDCPP.ArenaWidget/1.0")
 Q_DECLARE_METATYPE(ArenaWidget*)
-Q_DECLARE_METATYPE(ArenaWidget::Flags);
+Q_DECLARE_METATYPE(ArenaWidget::Flags)
 
 class ScriptWidget :
     public QObject,

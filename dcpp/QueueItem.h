@@ -83,13 +83,13 @@ public:
 
         typedef boost::intrusive_ptr<PartialSource> Ptr;
 
-        GETSET(PartsInfo, partialInfo, PartialInfo);
-        GETSET(string, myNick, MyNick);                 // for NMDC support only
-        GETSET(string, hubIpPort, HubIpPort);
-        GETSET(string, ip, Ip);
-        GETSET(uint16_t, udpPort, UdpPort);
-        GETSET(uint64_t, nextQueryTime, NextQueryTime);
-        GETSET(uint8_t, pendingQueryCount, PendingQueryCount);
+        GETSET(PartsInfo, partialInfo, PartialInfo)
+        GETSET(string, myNick, MyNick)                 // for NMDC support only
+        GETSET(string, hubIpPort, HubIpPort)
+        GETSET(string, ip, Ip)
+        GETSET(uint16_t, udpPort, UdpPort)
+        GETSET(uint64_t, nextQueryTime, NextQueryTime)
+        GETSET(uint8_t, pendingQueryCount, PendingQueryCount)
     };
 
 
@@ -122,8 +122,8 @@ public:
         bool operator==(const UserPtr& aUser) const { return user == aUser; }
         PartialSource::Ptr& getPartialSource() { return partialSource; }
 
-        GETSET(HintedUser, user, User);
-        GETSET(PartialSource::Ptr, partialSource, PartialSource);
+        GETSET(HintedUser, user, User)
+        GETSET(PartialSource::Ptr, partialSource, PartialSource)
     };
 
     typedef std::vector<Source> SourceList;
@@ -227,14 +227,14 @@ public:
     const string& getTempTarget();
     void setTempTarget(const string& aTempTarget) { tempTarget = aTempTarget; }
 
-    GETSET(SegmentSet, done, Done);
-    GETSET(DownloadList, downloads, Downloads);
-    GETSET(string, target, Target);
-    GETSET(int64_t, size, Size);
-    GETSET(Priority, priority, Priority);
-    GETSET(time_t, added, Added);
-    GETSET(TTHValue, tthRoot, TTH);
-    GETSET(uint64_t, nextPublishingTime, NextPublishingTime);
+    GETSET(SegmentSet, done, Done)
+    GETSET(DownloadList, downloads, Downloads)
+    GETSET(string, target, Target)
+    GETSET(int64_t, size, Size)
+    GETSET(Priority, priority, Priority)
+    GETSET(time_t, added, Added)
+    GETSET(TTHValue, tthRoot, TTH)
+    GETSET(uint64_t, nextPublishingTime, NextPublishingTime)
 private:
     QueueItem& operator=(const QueueItem&);
 

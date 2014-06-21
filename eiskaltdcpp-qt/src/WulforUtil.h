@@ -218,5 +218,5 @@ private:
 
 };
 
-Q_DECLARE_METATYPE(WulforUtil*);
-Q_DECLARE_METATYPE(WulforUtil::Icons);
+Q_DECLARE_METATYPE(WulforUtil*)
+Q_DECLARE_METATYPE(WulforUtil::Icons)

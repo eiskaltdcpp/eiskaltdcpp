@@ -130,7 +130,7 @@ public:
     ClientBase& getClientBase() { return client; }
     const ClientBase& getClientBase() const { return client; }
     bool isInList;
-    GETSET(Identity, identity, Identity);
+    GETSET(Identity, identity, Identity)
 private:
     friend class NmdcHub;
     OnlineUser(const OnlineUser&);

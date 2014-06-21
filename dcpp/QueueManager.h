@@ -64,9 +64,9 @@ public:
     UserPtr& getUser() { return user; }
     void setUser(const UserPtr& aUser) { user = aUser; }
 
-    GETSET(string, name, Name);
-    GETSET(string, target, Target);
-    GETSET(QueueItem::Priority, priority, Priority);
+    GETSET(string, name, Name)
+    GETSET(string, target, Target)
+    GETSET(QueueItem::Priority, priority, Priority)
 private:
     UserPtr user;
 };
@@ -155,8 +155,8 @@ public:
         return qi->isChunkDownloaded(startPos, bytes);
     }
 
-    GETSET(uint64_t, lastSave, LastSave);
-    GETSET(string, queueFile, QueueFile);
+    GETSET(uint64_t, lastSave, LastSave)
+    GETSET(string, queueFile, QueueFile)
 private:
     enum { MOVER_LIMIT = 10*1024*1024 };
     class FileMover : public Thread {

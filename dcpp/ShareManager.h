@@ -123,8 +123,8 @@ public:
         return tthIndex.find(tth) != tthIndex.end();
     }
     void publish();
-    GETSET(uint32_t, hits, Hits);
-    GETSET(string, bzXmlFile, BZXmlFile);
+    GETSET(uint32_t, hits, Hits)
+    GETSET(string, bzXmlFile, BZXmlFile)
 private:
     struct AdcSearch;
     class Directory : public FastAlloc<Directory>, public intrusive_ptr_base<Directory>, boost::noncopyable {
@@ -181,10 +181,10 @@ private:
             string getFullName() const { return parent->getFullName() + name; }
             string getRealPath() const { return parent->getRealPath(name); }
 
-            GETSET(string, name, Name);
-            GETSET(TTHValue, tth, TTH);
-            GETSET(int64_t, size, Size);
-            GETSET(Directory*, parent, Parent);
+            GETSET(string, name, Name)
+            GETSET(TTHValue, tth, TTH)
+            GETSET(int64_t, size, Size)
+            GETSET(Directory*, parent, Parent)
         };
 
         int64_t size;
@@ -214,8 +214,8 @@ private:
 
         void merge(const Ptr& source);
 
-        GETSET(string, name, Name);
-        GETSET(Directory*, parent, Parent);
+        GETSET(string, name, Name)
+        GETSET(Directory*, parent, Parent)
     private:
         friend void intrusive_ptr_release(intrusive_ptr_base<Directory>*);
 

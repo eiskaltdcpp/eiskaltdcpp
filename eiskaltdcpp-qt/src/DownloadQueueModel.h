@@ -141,7 +141,7 @@ private:
     /** */
     DownloadQueueItem *findTarget(const DownloadQueueItem*, const QString&);
 
-    Q_DECLARE_PRIVATE(DownloadQueueModel);
+    Q_DECLARE_PRIVATE(DownloadQueueModel)
 
     DownloadQueueModelPrivate *d_ptr;
 };

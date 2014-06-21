@@ -36,11 +36,11 @@ public:
 
     void update(const OnlineUser& info);
 
-    GETSET(UserPtr, user, User);
-    GETSET(string, nick, Nick);
-    GETSET(string, url, Url);
-    GETSET(time_t, lastSeen, LastSeen);
-    GETSET(string, description, Description);
+    GETSET(UserPtr, user, User)
+    GETSET(string, nick, Nick)
+    GETSET(string, url, Url)
+    GETSET(time_t, lastSeen, LastSeen)
+    GETSET(string, description, Description)
 };
 
 } // namespace dcpp

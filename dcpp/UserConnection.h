@@ -193,13 +193,13 @@ public:
     void updateChunkSize(int64_t leafSize, int64_t lastChunk, uint64_t ticks);
     bool supportsTrees() const { return isSet(FLAG_SUPPORTS_TTHL); }
 
-    GETSET(string, hubUrl, HubUrl);
-    GETSET(string, token, Token);
-    GETSET(string, encoding, Encoding);
-    GETSET(string, port, Port);
-    GETSET(States, state, State);
-    GETSET(uint64_t, lastActivity, LastActivity);
-    GETSET(double, speed, Speed);
+    GETSET(string, hubUrl, HubUrl)
+    GETSET(string, token, Token)
+    GETSET(string, encoding, Encoding)
+    GETSET(string, port, Port)
+    GETSET(States, state, State)
+    GETSET(uint64_t, lastActivity, LastActivity)
+    GETSET(double, speed, Speed)
 private:
     int64_t chunkSize;
     BufferedSocket* socket;

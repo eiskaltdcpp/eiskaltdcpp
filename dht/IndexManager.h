@@ -43,12 +43,12 @@ namespace dht
 
     struct Source
     {
-        GETSET(CID, cid, CID);
-        GETSET(string, ip, Ip);
-        GETSET(uint64_t, expires, Expires);
-        GETSET(uint64_t, size, Size);
-        GETSET(uint16_t, udpPort, UdpPort);
-        GETSET(bool, partial, Partial);
+        GETSET(CID, cid, CID)
+        GETSET(string, ip, Ip)
+        GETSET(uint64_t, expires, Expires)
+        GETSET(uint64_t, size, Size)
+        GETSET(uint16_t, udpPort, UdpPort)
+        GETSET(bool, partial, Partial)
     };
 
     class IndexManager :

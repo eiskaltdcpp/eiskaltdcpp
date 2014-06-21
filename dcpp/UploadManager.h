@@ -95,9 +95,9 @@ public:
     void setRunning(int _running) { running = _running; notifyQueuedUsers(); }
 
     //GETSET(int, running, Running);
-    GETSET(uint8_t, extraPartial, ExtraPartial);
-    GETSET(uint8_t, extra, Extra);
-    GETSET(uint64_t, lastGrant, LastGrant);
+    GETSET(uint8_t, extraPartial, ExtraPartial)
+    GETSET(uint8_t, extra, Extra)
+    GETSET(uint64_t, lastGrant, LastGrant)
 
     void updateLimits() {limits.RenewList(NULL);}
 private:

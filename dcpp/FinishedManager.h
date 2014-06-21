@@ -47,14 +47,14 @@ public:
 
     int imageIndex() const;
 
-    GETSET(string, target, Target);
-    GETSET(string, hub, Hub);
-    GETSET(string, tth, TTH);
+    GETSET(string, target, Target)
+    GETSET(string, hub, Hub)
+    GETSET(string, tth, TTH)
 
-    GETSET(int64_t, size, Size);
-    GETSET(int64_t, avgSpeed, AvgSpeed);
-    GETSET(time_t, time, Time);
-    GETSET(UserPtr, user, User);
+    GETSET(int64_t, size, Size)
+    GETSET(int64_t, avgSpeed, AvgSpeed)
+    GETSET(time_t, time, Time)
+    GETSET(UserPtr, user, User)
 
 private:
     friend class FinishedManager;

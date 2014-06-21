@@ -105,8 +105,8 @@ friend class dcpp::Singleton<MainWindow>;
 
         typedef QList<QAction*> ActionList;
 
-        Q_PROPERTY (QObject* ToolBar READ getToolBar);
-        Q_PROPERTY (QMenuBar* MenuBar READ menuBar);
+        Q_PROPERTY (QObject* ToolBar READ getToolBar)
+        Q_PROPERTY (QMenuBar* MenuBar READ menuBar)
 
         void beginExit();
 

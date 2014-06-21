@@ -141,18 +141,18 @@ public:
 
     const string& getHubUrl() const { return hubUrl; }
 
-    GETSET(Identity, myIdentity, MyIdentity);
-    GETSET(Identity, hubIdentity, HubIdentity);
+    GETSET(Identity, myIdentity, MyIdentity)
+    GETSET(Identity, hubIdentity, HubIdentity)
 
-    GETSET(string, defpassword, Password);
-    GETSET(uint32_t, reconnDelay, ReconnDelay);
-    GETSET(uint64_t, lastActivity, LastActivity);
-    GETSET(bool, registered, Registered);
-    GETSET(bool, autoReconnect, AutoReconnect);
-    GETSET(string, encoding, Encoding);
-    GETSET(string, clientId, ClientId);
-    GETSET(string, currentNick, CurrentNick);
-    GETSET(string, currentDescription, CurrentDescription);
+    GETSET(string, defpassword, Password)
+    GETSET(uint32_t, reconnDelay, ReconnDelay)
+    GETSET(uint64_t, lastActivity, LastActivity)
+    GETSET(bool, registered, Registered)
+    GETSET(bool, autoReconnect, AutoReconnect)
+    GETSET(string, encoding, Encoding)
+    GETSET(string, clientId, ClientId)
+    GETSET(string, currentNick, CurrentNick)
+    GETSET(string, currentDescription, CurrentDescription)
 
     string getFavIp() const { return externalIP; }
 

@@ -42,18 +42,18 @@ public:
 
     ~HubEntry() noexcept { }
 
-    GETSET(string, name, Name);
-    GETSET(string, server, Server);
-    GETSET(string, description, Description);
-    GETSET(string, country, Country);
-    GETSET(string, rating, Rating);
-    GETSET(float, reliability, Reliability);
-    GETSET(int64_t, shared, Shared);
-    GETSET(int64_t, minShare, MinShare);
-    GETSET(int, users, Users);
-    GETSET(int, minSlots, MinSlots);
-    GETSET(int, maxHubs, MaxHubs);
-    GETSET(int, maxUsers, MaxUsers);
+    GETSET(string, name, Name)
+    GETSET(string, server, Server)
+    GETSET(string, description, Description)
+    GETSET(string, country, Country)
+    GETSET(string, rating, Rating)
+    GETSET(float, reliability, Reliability)
+    GETSET(int64_t, shared, Shared)
+    GETSET(int64_t, minShare, MinShare)
+    GETSET(int, users, Users)
+    GETSET(int, minSlots, MinSlots)
+    GETSET(int, maxHubs, MaxHubs)
+    GETSET(int, maxUsers, MaxUsers)
 };
 const string DEF_FAKE_ID = "";
 
@@ -83,21 +83,21 @@ public:
 
     void setNick(const string& aNick) { nick = aNick; }
 
-    GETSET(string, userdescription, UserDescription);
-    GETSET(string, name, Name);
-    GETSET(string, server, Server);
-    GETSET(string, description, Description);
-    GETSET(string, password, Password);
-    GETSET(bool, connect, Connect);
-    GETSET(string, encoding, Encoding);
-    GETSET(int, mode, Mode); // 0 = default, 1 = active, 2 = passive
-    GETSET(bool, overrideId, OverrideId);
-    GETSET(string, clientId, ClientId);
-    GETSET(string, externalIP, ExternalIP);
-    GETSET(bool, useInternetIp, UseInternetIP);
-    GETSET(bool, disableChat, DisableChat);
-    GETSET(string, group, Group);
-    GETSET(uint32_t, searchInterval, SearchInterval);
+    GETSET(string, userdescription, UserDescription)
+    GETSET(string, name, Name)
+    GETSET(string, server, Server)
+    GETSET(string, description, Description)
+    GETSET(string, password, Password)
+    GETSET(bool, connect, Connect)
+    GETSET(string, encoding, Encoding)
+    GETSET(int, mode, Mode) // 0 = default, 1 = active, 2 = passive
+    GETSET(bool, overrideId, OverrideId)
+    GETSET(string, clientId, ClientId)
+    GETSET(string, externalIP, ExternalIP)
+    GETSET(bool, useInternetIp, UseInternetIP)
+    GETSET(bool, disableChat, DisableChat)
+    GETSET(string, group, Group)
+    GETSET(uint32_t, searchInterval, SearchInterval)
 private:
     string nick;
 };

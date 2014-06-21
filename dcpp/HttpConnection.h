@@ -44,8 +44,8 @@ public:
     int64_t getDone() const { return done; }
     double getSpeed() const { return speed; }
 
-    GETSET(string, url, Url);
-    GETSET(bool, coralized, Coralized);
+    GETSET(string, url, Url)
+    GETSET(bool, coralized, Coralized)
 
 private:
     enum RequestType { TYPE_GET, TYPE_POST };

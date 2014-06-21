@@ -73,7 +73,7 @@ public:
 private:
     int64_t start;
     int64_t size;
-    GETSET(bool, overlapped, Overlapped);
+    GETSET(bool, overlapped, Overlapped)
 };
 
 } //dcpp namespace

@@ -51,11 +51,11 @@ public:
     ConnectionQueueItem(const HintedUser& aUser, bool aDownload) : token(Util::toString(Util::rand())),
                 lastAttempt(0), errors(0), state(WAITING), download(aDownload), user(aUser) { }
 
-    GETSET(string, token, Token);
-    GETSET(uint64_t, lastAttempt, LastAttempt);
-    GETSET(int, errors, Errors); // Number of connection errors, or -1 after a protocol error
-    GETSET(State, state, State);
-    GETSET(bool, download, Download);
+    GETSET(string, token, Token)
+    GETSET(uint64_t, lastAttempt, LastAttempt)
+    GETSET(int, errors, Errors) // Number of connection errors, or -1 after a protocol error
+    GETSET(State, state, State)
+    GETSET(bool, download, Download)
 
     const HintedUser& getUser() const { return user; }
 

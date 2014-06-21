@@ -42,9 +42,9 @@ public:
 
     int64_t getAverageSpeed() const;
 
-    GETSET(int64_t, transferred, Transferred);
-    GETSET(int64_t, milliSeconds, MilliSeconds);
-    GETSET(time_t, time, Time);
+    GETSET(int64_t, transferred, Transferred)
+    GETSET(int64_t, milliSeconds, MilliSeconds)
+    GETSET(time_t, time, Time)
 };
 
 class FinishedFileItem : public FinishedItemBase, public intrusive_ptr_base<FinishedFileItem> {
@@ -71,10 +71,10 @@ public:
     double getTransferredPercentage() const;
     bool isFull() const;
 
-    GETSET(HintedUserList, users, Users);
-    GETSET(int64_t, fileSize, FileSize);
-    GETSET(int64_t, actual, Actual);
-    GETSET(bool, crc32Checked, Crc32Checked);
+    GETSET(HintedUserList, users, Users)
+    GETSET(int64_t, fileSize, FileSize)
+    GETSET(int64_t, actual, Actual)
+    GETSET(bool, crc32Checked, Crc32Checked)
 };
 
 class FinishedUserItem : public FinishedItemBase, public intrusive_ptr_base<FinishedUserItem> {
@@ -93,7 +93,7 @@ public:
         const string& file
         );
 
-    GETSET(StringList, files, Files);
+    GETSET(StringList, files, Files)
 };
 
 } // namespace dcpp

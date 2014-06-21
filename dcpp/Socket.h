@@ -183,10 +183,10 @@ public:
 
         static int getLastError();
 
-        GETSET(string, ip, Ip);
-        GETSET(string, localIp4, LocalIp4);
-        GETSET(string, localIp6, LocalIp6);
-        GETSET(bool, v4only, V4only);
+        GETSET(string, ip, Ip)
+        GETSET(string, localIp4, LocalIp4)
+        GETSET(string, localIp6, LocalIp6)
+        GETSET(bool, v4only, V4only)
 
 protected:
         typedef union {

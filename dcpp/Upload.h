@@ -37,7 +37,7 @@ public:
 
     virtual void getParams(const UserConnection& aSource, StringMap& params);
 
-    GETSET(InputStream*, stream, Stream);
+    GETSET(InputStream*, stream, Stream)
 };
 
 } // namespace dcpp
