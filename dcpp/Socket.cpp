@@ -157,13 +157,26 @@ inline bool isConnected(socket_t sock) {
 inline int readable(socket_t sock0, socket_t sock1) {
     fd_set rfd;
     struct timeval tv = { 0 };
-
+    int maxfd = INVALID_SOCKET;
+    
     FD_ZERO(&rfd);
-    FD_SET(sock0, &rfd);
-    FD_SET(sock1, &rfd);
+    
+    if (sock0 != INVALID_SOCKET) {
+        maxfd = sock0;
+        FD_SET(sock0, &rfd);
+    }
+    
+    if (sock1 != INVALID_SOCKET) {
+        maxfd = std::max(sock0, sock1);
+        FD_SET(sock1, &rfd);
+    }
 
-    if(::select(std::max(sock0, sock1) + 1, &rfd, NULL, NULL, &tv) > 0) {
-        return FD_ISSET(sock0, &rfd) ? sock0 : sock1;
+    if(::select(maxfd + 1, &rfd, NULL, NULL, &tv) > 0) {
+            return (sock0 != INVALID_SOCKET && FD_ISSET(sock0, &rfd)) ? 
+                        sock0 : 
+                        (sock1 != INVALID_SOCKET && FD_ISSET(sock1, &rfd)) ? 
+                            sock1 : 
+                            INVALID_SOCKET;
     }
 
     return sock0;
@@ -285,7 +298,7 @@ uint16_t Socket::accept(const Socket& listeningSocket) {
 
     addr sock_addr = { { 0 } };
     socklen_t sz = sizeof(sock_addr);
-
+    
     auto sock = check([&] { return ::accept(readable(listeningSocket.sock4, listeningSocket.sock6), &sock_addr.sa, &sz); });
     setSock(sock, sock_addr.sa.sa_family);
 
