@@ -291,7 +291,7 @@ private:
     friend class ::dht::IndexManager;
 #endif
 
-    typedef unordered_map<TTHValue, Directory::File::Set::iterator> HashFileMap;
+    typedef unordered_map<TTHValue, Directory::File::Set::const_iterator> HashFileMap;
     typedef HashFileMap::iterator HashFileIter;
 
     HashFileMap tthIndex;
