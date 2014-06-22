@@ -308,6 +308,10 @@ ShareManager::Directory::File::Set::const_iterator ShareManager::findFile(const 
     return it;
 }
 
+void ShareManager::incHit(const TTHValue& tth) {
+    // TODO
+}
+
 string ShareManager::validateVirtual(const string& aVirt) const noexcept {
     string tmp = aVirt;
     string::size_type idx = 0;
@@ -355,6 +359,8 @@ static const string SFILE = "File";
 static const string SNAME = "Name";
 static const string SSIZE = "Size";
 static const string STTH = "TTH";
+static const string sTS = "TS";
+static const string sHIT = "HIT";
 
 struct ShareLoader : public SimpleXMLReader::CallBack {
     ShareLoader(ShareManager::DirList& aDirs) : dirs(aDirs), cur(0), depth(0) { }
@@ -386,11 +392,13 @@ struct ShareLoader : public SimpleXMLReader::CallBack {
             const string& fname = getAttrib(attribs, SNAME, 0);
             const string& size = getAttrib(attribs, SSIZE, 1);
             const string& root = getAttrib(attribs, STTH, 2);
+            const uint64_t hit = atol(getAttrib(attribs, sHIT, 3).c_str());
+            const uint64_t ts = atol(getAttrib(attribs, sTS, 3).c_str());
             if(fname.empty() || size.empty() || (root.size() != 39)) {
                 dcdebug("Invalid file found: %s\n", fname.c_str());
                 return;
             }
-            cur->files.insert(ShareManager::Directory::File(fname, Util::toInt64(size), cur, TTHValue(root)));
+            cur->files.insert(ShareManager::Directory::File(fname, Util::toInt64(size), cur, TTHValue(root), hit, ts));
         }
     }
     virtual void endTag(const string& name, const string&) {
@@ -692,7 +700,7 @@ ShareManager::Directory::Ptr ShareManager::buildTree(const string& aName, const 
                 }
                 try {
                     if(HashManager::getInstance()->checkTTH(fileName, size, i->getLastWriteTime()))
-                        lastFileIter = dir->files.insert(lastFileIter, Directory::File(name, size, dir, HashManager::getInstance()->getTTH(fileName, size)));
+                        lastFileIter = dir->files.insert(lastFileIter, Directory::File(name, size, dir, HashManager::getInstance()->getTTH(fileName, size),0,i->getLastWriteTime()));
                 } catch(const HashException&) {
                 }
             }
@@ -1053,6 +1061,10 @@ void ShareManager::Directory::filesToXml(OutputStream& xmlFile, string& indent, 
         xmlFile.write(LITERAL("\" TTH=\""));
         tmp2.clear();
         xmlFile.write(f.getTTH().toBase32(tmp2));
+        xmlFile.write(LITERAL("\" HIT=\""));
+        xmlFile.write(Util::toString(f.getHit()));
+        xmlFile.write(LITERAL("\" TS=\""));
+        xmlFile.write(Util::toString(f.getTS()));
         xmlFile.write(LITERAL("\"/>\r\n"));
     }
 }
@@ -1487,7 +1499,7 @@ void ShareManager::on(QueueManagerListener::FileMoved, const string& n) noexcept
     }
 }
 
-void ShareManager::on(HashManagerListener::TTHDone, const string& fname, const TTHValue& root) noexcept {
+void ShareManager::on(HashManagerListener::TTHDone, const string& fname, const TTHValue& root, uint64_t aTimeStamp) noexcept {
     Lock l(cs);
     Directory::Ptr d = getDirectory(fname);
     if(d) {
@@ -1502,7 +1514,7 @@ void ShareManager::on(HashManagerListener::TTHDone, const string& fname, const T
         } else {
             string name = Util::getFileName(fname);
             int64_t size = File::getSize(fname);
-            auto it = d->files.insert(Directory::File(name, size, d, root)).first;
+            auto it = d->files.insert(Directory::File(name, size, d, root, 0, aTimeStamp)).first;
             updateIndices(*d, it);
         }
         setDirty();

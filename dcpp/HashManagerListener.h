@@ -29,7 +29,7 @@ public:
 
     typedef X<0> TTHDone;
 
-    virtual void on(TTHDone, const string& /* fileName */, const TTHValue& /* root */) noexcept = 0;
+    virtual void on(TTHDone, const string& /* fileName */, const TTHValue& /* root */,uint64_t aTimeStamp) noexcept = 0;
 };
 
 }

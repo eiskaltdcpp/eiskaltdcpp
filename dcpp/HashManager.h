@@ -70,7 +70,7 @@ public:
     /**
      * Check if the TTH tree associated with the filename is current.
      */
-    bool checkTTH(const string& aFileName, int64_t aSize, uint32_t aTimeStamp);
+    bool checkTTH(const string& aFileName, int64_t aSize, uint64_t aTimeStamp);
 
     void stopHashing(const string& baseDir) { hasher.stopHashing(baseDir); }
     void setPriority(Thread::Priority p) { hasher.setThreadPriority(p); }
@@ -86,7 +86,7 @@ public:
     /** Return block size of the tree associated with root, or 0 if no such tree is in the store */
     size_t getBlockSize(const TTHValue& root);
 
-    void addTree(const string& aFileName, uint32_t aTimeStamp, const TigerTree& tt) {
+    void addTree(const string& aFileName, uint64_t aTimeStamp, const TigerTree& tt) {
         hashDone(aFileName, aTimeStamp, tt, -1, -1);
     }
     void addTree(const TigerTree& tree) { Lock l(cs); store.addTree(tree); }
@@ -173,7 +173,7 @@ private:
 
         void rebuild();
 
-        bool checkTTH(const string& aFileName, int64_t aSize, uint32_t aTimeStamp);
+        bool checkTTH(const string& aFileName, int64_t aSize, uint64_t aTimeStamp);
 
         void addTree(const TigerTree& tt) noexcept;
         const TTHValue* getTTH(const string& aFileName);
@@ -268,7 +268,7 @@ private:
     /** Single node tree where node = root, no storage in HashData.dat */
     static const int64_t SMALL_TREE = -1;
 
-    void hashDone(const string& aFileName, uint32_t aTimeStamp, const TigerTree& tth, int64_t speed, int64_t size);
+    void hashDone(const string& aFileName, uint64_t aTimeStamp, const TigerTree& tth, int64_t speed, int64_t size);
 
     void doRebuild() {
         Lock l(cs);

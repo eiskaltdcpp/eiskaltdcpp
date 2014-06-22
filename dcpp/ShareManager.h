@@ -123,6 +123,8 @@ public:
         return tthIndex.find(tth) != tthIndex.end();
     }
     void publish();
+    void incHit(const TTHValue& tth);
+    
     GETSET(uint32_t, hits, Hits)
     GETSET(string, bzXmlFile, BZXmlFile)
 private:
@@ -158,15 +160,15 @@ private:
             typedef set<File, FileLess> Set;
 
             File() : size(0), parent(0) { }
-            File(const string& aName, int64_t aSize, const Directory::Ptr& aParent, const TTHValue& aRoot) :
-            name(aName), tth(aRoot), size(aSize), parent(aParent.get()) { }
+            File(const string& aName, int64_t aSize, const Directory::Ptr& aParent, const TTHValue& aRoot, uint64_t aHit, uint64_t aTs) :
+            name(aName), tth(aRoot), size(aSize), parent(aParent.get()), hit(aHit), ts(aTs) { }
             File(const File& rhs) :
-            name(rhs.getName()), tth(rhs.getTTH()), size(rhs.getSize()), parent(rhs.getParent()) { }
+            name(rhs.getName()), tth(rhs.getTTH()), size(rhs.getSize()), parent(rhs.getParent()), hit(rhs.getHit()), ts(rhs.getTS()) { }
 
             ~File() { }
 
             File& operator=(const File& rhs) {
-                name = rhs.name; size = rhs.size; parent = rhs.parent; tth = rhs.tth;
+                name = rhs.name; size = rhs.size; parent = rhs.parent; tth = rhs.tth; hit = rhs.hit; ts = rhs.ts;
                 return *this;
             }
 
@@ -185,6 +187,8 @@ private:
             GETSET(TTHValue, tth, TTH)
             GETSET(int64_t, size, Size)
             GETSET(Directory*, parent, Parent)
+            GETSET(uint64_t, hit, Hit);
+            GETSET(uint64_t, ts, TS);
         };
 
         int64_t size;
@@ -287,7 +291,7 @@ private:
     friend class ::dht::IndexManager;
 #endif
 
-    typedef unordered_map<TTHValue, Directory::File::Set::const_iterator> HashFileMap;
+    typedef unordered_map<TTHValue, Directory::File::Set::iterator> HashFileMap;
     typedef HashFileMap::iterator HashFileIter;
 
     HashFileMap tthIndex;
@@ -320,7 +324,7 @@ private:
     // QueueManagerListener
     virtual void on(QueueManagerListener::FileMoved, const string& n) noexcept;
     // HashManagerListener
-    virtual void on(HashManagerListener::TTHDone, const string& fname, const TTHValue& root) noexcept;
+    virtual void on(HashManagerListener::TTHDone, const string& fname, const TTHValue& root, uint64_t) noexcept;
 
     // SettingsManagerListener
     virtual void on(SettingsManagerListener::Save, SimpleXML& xml) noexcept {

@@ -27,6 +27,7 @@
 #include "DownloadManager.h"
 #include "QueueManager.h"
 #include "UploadManager.h"
+#include "ShareManager.h"
 
 namespace dcpp {
 
@@ -140,7 +141,10 @@ void FinishedManager::onComplete(Transfer* t, bool upload, bool crc32Checked) {
         }
 
         Lock l(cs);
-
+        
+        if (upload) 
+            ShareManager::getInstance()->incHit(t->getTTH());
+        
         {
             MapByFile& map = upload ? ULByFile : DLByFile;
             auto it = map.find(file);

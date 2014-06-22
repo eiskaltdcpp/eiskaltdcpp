@@ -163,7 +163,7 @@ void HashManager::StreamStore::deleteStream(const string& p_filePath)
 }
 
 
-bool HashManager::checkTTH(const string& aFileName, int64_t aSize, uint32_t aTimeStamp) {
+bool HashManager::checkTTH(const string& aFileName, int64_t aSize, uint64_t aTimeStamp) {
     Lock l(cs);
 
     const TTHValue* tthold = getFileTTHif(Text::toLower(aFileName));
@@ -209,7 +209,7 @@ size_t HashManager::getBlockSize(const TTHValue& root) {
     return store.getBlockSize(root);
 }
 
-void HashManager::hashDone(const string& aFileName, uint32_t aTimeStamp, const TigerTree& tth, int64_t speed, int64_t size) {
+void HashManager::hashDone(const string& aFileName, uint64_t aTimeStamp, const TigerTree& tth, int64_t speed, int64_t size) {
     try {
         Lock l(cs);
         store.addFile(aFileName, aTimeStamp, tth, true);
@@ -219,7 +219,7 @@ void HashManager::hashDone(const string& aFileName, uint32_t aTimeStamp, const T
         return;
     }
 
-    fire(HashManagerListener::TTHDone(), aFileName, tth.getRoot());
+    fire(HashManagerListener::TTHDone(), aFileName, tth.getRoot(), aTimeStamp);
 
     if (speed > 0) {
         LogManager::getInstance()->message(str(F_("Finished hashing: %1% (%2% at %3%/s)") % Util::addBrackets(aFileName) %
@@ -323,7 +323,7 @@ size_t HashManager::HashStore::getBlockSize(const TTHValue& root) const {
     return i == treeIndex.end() ? 0 : i->second.getBlockSize();
 }
 
-bool HashManager::HashStore::checkTTH(const string& aFileName, int64_t aSize, uint32_t aTimeStamp) {
+bool HashManager::HashStore::checkTTH(const string& aFileName, int64_t aSize, uint64_t aTimeStamp) {
     string fname = Util::getFileName(aFileName);
     string fpath = Util::getFilePath(aFileName);
     DirIter i = fileIndex.find(fpath);
