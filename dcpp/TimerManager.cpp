@@ -29,6 +29,8 @@ namespace dcpp {
 timeval TimerManager::tv;
 #else
 using namespace boost::posix_time;
+static auto g_start = microsec_clock::universal_time();
+static volatile bool g_running = false;
 #endif
 
 TimerManager::TimerManager() {
@@ -37,6 +39,7 @@ TimerManager::TimerManager() {
 #else
     // This mutex will be unlocked only upon shutdown
     boostmtx.lock();
+    g_running = true;
 #endif
 }
 
@@ -55,7 +58,6 @@ void TimerManager::shutdown() {
 
 int TimerManager::run() {
     setThreadName("TimerManager");
-    int nextMin = 0;
 #ifdef TIMER_OLD_BOOST
     uint64_t x = getTick();
     uint64_t nextTick = x + 1000;
@@ -71,24 +73,28 @@ int TimerManager::run() {
         x = getTick();
     }
 #else
-    ptime now = microsec_clock::universal_time();
-    ptime nextSecond = now + seconds(1);
-
+    auto now = microsec_clock::universal_time();
+    // shows the time of planned launch event.
+    auto nextSecond = now + seconds(1);
+    auto nextMin = now + minutes(1);
+    
     while(!boostmtx.timed_lock(nextSecond)) {
-        uint64_t t = getTick();
         now = microsec_clock::universal_time();
         nextSecond += seconds(1);
-        if(nextSecond < now) {
-                nextSecond = now;
+        if (nextSecond <= now)
+        {
+            nextSecond = now + seconds(1);
         }
-
+        const auto t = (now - g_start).total_milliseconds();
         fire(TimerManagerListener::Second(), t);
-        if(nextMin++ >= 60) {
+        if (nextMin <= now)
+        {
+            nextMin += minutes(1);
             fire(TimerManagerListener::Minute(), t);
-            nextMin = 0;
         }
     }
     boostmtx.unlock();
+    g_running = false;
 #endif
 
     dcdebug("TimerManager done\n");
@@ -101,8 +107,7 @@ uint64_t TimerManager::getTick() {
     gettimeofday(&tv2, NULL);
     return static_cast<uint64_t>(((tv2.tv_sec - tv.tv_sec) * 1000 ) + ( (tv2.tv_usec - tv.tv_usec) / 1000));
 #else
-    static ptime start = microsec_clock::universal_time();
-    return (microsec_clock::universal_time() - start).total_milliseconds();
+    return (microsec_clock::universal_time() - g_start).total_milliseconds();
 #endif
 }
 
