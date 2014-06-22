@@ -319,7 +319,7 @@ void ServerThread::on(Connecting, Client* cur) noexcept {
     if (isVerbose)
         cout << "Connecting to " <<  cur->getHubUrl() << "..."<< "\n";
 
-    if (auto i = clientsMap.find(cur->getHubUrl()) == clientsMap.end()) {
+    if (clientsMap.find(cur->getHubUrl()) == clientsMap.end()) {
         CurHub curhub;
         curhub.curclient = cur;
         clientsMap[cur->getHubUrl()] = curhub;
