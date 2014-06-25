@@ -919,13 +919,13 @@ bool JsonRpcMethods::IpFilterOnOff(const Json::Value& root, Json::Value& respons
     response["jsonrpc"] = "2.0";
     response["id"] = root["id"];
 
-    if (root["params"].isMember("on") && !root["params"]["on"].isBool()
-        && !root["params"]["on"].isConvertibleTo(Json::booleanValue)) {
+    if (root["params"].isMember("on") && !root["params"]["on"].isInt()
+        && !root["params"]["on"].isConvertibleTo(Json::intValue)) {
         FailedValidateRequest(response);
         return false;
     }
 
-    ServerThread::getInstance()->ipfilterOnOff(root["params"]["on"].asBool());
+    ServerThread::getInstance()->ipfilterOnOff(root["params"]["on"].asInt());
     response["result"] = 0;
     if (isDebug) std::cout << "IpFilterOnOff (response): " << response << std::endl;
     return true;
@@ -988,15 +988,15 @@ bool JsonRpcMethods::IpFilterUpDownRule(const Json::Value& root, Json::Value& re
     response["jsonrpc"] = "2.0";
     response["id"] = root["id"];
 
-    if ((root["params"].isMember("up") && !root["params"]["up"].isBool()
-         && !root["params"]["up"].isConvertibleTo(Json::booleanValue))
+    if ((root["params"].isMember("up") && !root["params"]["up"].isInt()
+         && !root["params"]["up"].isConvertibleTo(Json::intValue))
          || (root["params"].isMember("rule") && !root["params"]["rule"].isString()
          && !root["params"]["rule"].isConvertibleTo(Json::stringValue))) {
         FailedValidateRequest(response);
         return false;
     }
 
-    ServerThread::getInstance()->ipfilterUpDownRule(root["params"]["up"].asBool(), root["params"]["rule"].asString());
+    ServerThread::getInstance()->ipfilterUpDownRule(root["params"]["up"].asInt(), root["params"]["rule"].asString());
     response["result"] = 0;
     if (isDebug) std::cout << "IpFilterUpDownRule (response): " << response << std::endl;
     return true;
