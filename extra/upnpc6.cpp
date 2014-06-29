@@ -48,9 +48,9 @@ bool UPnPc6::add(const unsigned short port, const UPnP::Protocol protocol, const
     const string port_ = Util::toString(port);
     char uniqID[8];
     string proto;
-    if (protocols[protocol] == "TCP") 
+    if (strcmp(protocols[protocol],"TCP") == 0) 
         proto.append(Util::toString(IPPROTO_TCP));
-    if (protocols[protocol] == "UDP") 
+    if (strcmp(protocols[protocol],"UDP") == 0) 
         proto.append(Util::toString(IPPROTO_UDP));
     int ret = UPNP_AddPinhole(urls6.controlURL, data6.first.servicetype, "::",  "0",
             (SETTING(BIND_IFACE6)? Util::getIfaceI6(SETTING(BIND_IFACE_NAME6)).c_str() : SETTING(BIND_ADDRESS6).c_str()),

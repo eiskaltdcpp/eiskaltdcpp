@@ -38,10 +38,10 @@ public Q_SLOTS:
     bool isHashingPaused() const;
 
 Q_SIGNALS:
-    void done(const QString &file, const QString &tth);
+    void done(const QString &file, const QString &tth, const QString &timestamp);
 
 protected:
-    virtual void on(TTHDone, const dcpp::string& , const dcpp::TTHValue&) throw();
+    virtual void on(TTHDone, const dcpp::string& , const dcpp::TTHValue&, uint64_t timestamp) throw();
 
 private:
     HashManagerScript(QObject *parent = 0);

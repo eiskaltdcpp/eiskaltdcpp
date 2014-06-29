@@ -61,8 +61,9 @@ uint32_t ipfilter::StringToUint32(const string& ip) {
 string ipfilter::Uint32ToString(uint32_t ip) {
     char str[INET_ADDRSTRLEN];
     inet_ntop(AF_INET, &ip, str, INET_ADDRSTRLEN);
-    if (str)
+    if (NULL != inet_ntop(AF_INET, &ip, str, INET_ADDRSTRLEN))
         return string(str);
+    return Util::emptyString;
 }
 
 uint32_t ipfilter::MaskToCIDR(uint32_t mask){

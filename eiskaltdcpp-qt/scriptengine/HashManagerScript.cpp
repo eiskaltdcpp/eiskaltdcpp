@@ -67,6 +67,6 @@ bool HashManagerScript::isHashingPaused() const {
     return HM->isHashingPaused();
 }
 
-void HashManagerScript::on(TTHDone, const dcpp::string &file, const dcpp::TTHValue &val) throw() {
-    emit done(_q(file), _q(val.toBase32()));
+void HashManagerScript::on(TTHDone, const dcpp::string &file, const dcpp::TTHValue &val , uint64_t timestamp) throw() {
+    emit done(_q(file), _q(val.toBase32()), QString::number(timestamp));
 }
