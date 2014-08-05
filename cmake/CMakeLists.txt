@@ -82,7 +82,7 @@ if(UPDATE_PO)
 				${dcpp_SOURCE_DIR}/po/libeiskaltdcpp.pot
 			DEPENDS "${dcpp_files_from}"
 			WORKING_DIRECTORY ${dcpp_SOURCE_DIR}/po
-			COMMENT "pot-update {ibeiskaltdcpp}: Generated source pot file."
+			COMMENT "pot-update {libeiskaltdcpp}: Generated source pot file."
 		)
 		if (USE_GTK OR USE_GTK3)
 		add_custom_command(
