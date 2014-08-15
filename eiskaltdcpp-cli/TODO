@@ -189,11 +189,14 @@ IPFILTER
                 Args: param (string), value (string)
                 Return:
                     if param empty - return 1 (integer)
-                    if value is empty - current_value(string)
+                    if value is empty - value (string)
                     if value isn't empty - try set param to value,
                         return 0 (integer) on success,
                         return 1 (integer) on fail
                     (string)
+                Example: 
+                    Request:  {"jsonrpc": "2.0", "id": "1", "method": "settings.getset", "params" : { "key": "DownloadDirectory"}}
+                    Reply:    {"id":"1","jsonrpc":"2.0","result":{"value":"/home/egik/Downloads1/"}}
 -----------------------
 ПОЛЬЗОВАТЕЛИ
         (+) Просмотр списка пользователей хаба (hub.getusers)
@@ -208,5 +211,5 @@ IPFILTER
         (+) Выполнение команды и выход (./cli.pl -c show.version)
         (+) Поддерка UTF8
         (wip) queue.remove -> queue.del
-		(wip) list.local -> list.ls
-		(wip) list.get -> list.fetch
+        (wip) list.local -> list.ls
+        (wip) list.get -> list.fetch

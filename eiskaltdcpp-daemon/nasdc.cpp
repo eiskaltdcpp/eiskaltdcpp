@@ -46,7 +46,8 @@ static void SigHandler(int sig) {
     } else if (sig == SIGQUIT) {
         str += "SIGQUIT";
     } else if (sig == SIGHUP) {
-        str += "SIGHUP";
+       ConfigReload();
+       return;
     } else {
         str += dcpp::Util::toString(sig);
     }

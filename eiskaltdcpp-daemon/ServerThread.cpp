@@ -1239,11 +1239,14 @@ bool ServerThread::openFileList(const string& filelist) {
         } catch (const ThreadException&) {
             ///@todo add error message
             delete stld;
+            delete dl;
             return false;
         }
         listsMap.insert(FilelistMap::value_type(filelist,dl));
+        delete stld;
         return true;
     }
+    return false;
 }
 
 bool ServerThread::closeFileList(const string& filelist) {
@@ -1345,12 +1348,14 @@ bool ServerThread::downloadFileFromList(const string& target_file, const string&
             dir = it->second->find(directory,it->second->getRoot());
         }
         string fname = Util::getFileName(target_file, '\\');
-        DirectoryListing::File* filePtr;
+        DirectoryListing::File* filePtr = NULL;
         for (const auto& file : dir->files) {
             if (file->getName() == fname) {
                 filePtr = file;
             }
         }
+        if (!filePtr)
+            return false;
         string dtdir = downloadto.empty() ? SETTING(DOWNLOAD_DIRECTORY) : downloadto;
         dtdir += PATH_SEPARATOR + fname;
         if (downloadFileFromList(filePtr, it->second, dtdir))
@@ -1466,4 +1471,14 @@ void ServerThread::ipfilterUpDownRule(bool up, const string& rule) {
         if (ipfilter::getInstance()->ParseString(rule, ip, mask, act))
             ipfilter::getInstance()->moveRuleDown(ip, act);
     }
+}
+
+bool ServerThread::configReload()
+{
+    if (SettingsManager::getInstance()) {
+        SettingsManager::newInstance();
+        SettingsManager::getInstance()->load();
+        return true;
+    } else 
+        return false;
 }
