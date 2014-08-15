@@ -87,6 +87,7 @@ public:
     void ipfilterPurgeRules(const string &rules);
     void ipfilterAddRules(const string &rules);
     void ipfilterUpDownRule(bool up, const string &rule);
+    bool configReload();
 
 private:
     friend class Singleton<ServerThread>;
