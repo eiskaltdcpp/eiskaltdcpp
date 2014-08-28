@@ -1238,12 +1238,10 @@ bool ServerThread::openFileList(const string& filelist) {
             stld->start();
         } catch (const ThreadException&) {
             ///@todo add error message
-            delete stld;
             delete dl;
             return false;
         }
         listsMap.insert(FilelistMap::value_type(filelist,dl));
-        delete stld;
         return true;
     }
     return false;
