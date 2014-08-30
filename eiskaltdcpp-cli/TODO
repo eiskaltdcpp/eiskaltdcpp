@@ -49,10 +49,12 @@ API Layers:
                 Args: separator (string)
                 Return: @all filelists in filelist dir@ (string) | 1 (integer)
                 Comment:
+        (+) Список файллистов (list.ls) alias to list.local
         (wip) Передача файллиста на клиента (list.get)
                 Args: filelist (string)
                 Return: @base32 encoded xml.bz2 file@ | 1 (integer)
                 Comment:
+		(wip) Передача файллиста на клиента (list.fetch) alias to list.get
         (+) Открыть файллист (list.open)
                 Args: filelist (string)
                 Return: 0 | 1 (integer)
