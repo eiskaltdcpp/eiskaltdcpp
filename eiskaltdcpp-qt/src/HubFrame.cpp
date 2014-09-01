@@ -2952,7 +2952,7 @@ void HubFrame::slotChatMenu(const QPoint &){
     QString pressedParagraph = cursor.block().text();
 
     int row_counter = 0;
-    QRegExp nick_exp("<((.+))>");
+    QRegExp nick_exp("<((\\w+))>");
     QRegExp thirdPerson_exp("\\*\\W+((\\w+))");// * Some_nick say something
 
     QString nick = "";
