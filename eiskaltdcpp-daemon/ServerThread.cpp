@@ -1340,12 +1340,14 @@ bool ServerThread::downloadDirFromList(const string& directory, const string& do
 {
     auto it = listsMap.find(filelist);
     if (it != listsMap.end()) {
-        DirectoryListing::Directory *dir;
+        DirectoryListing::Directory *dir = NULL;
         if (directory.empty() || directory == "\\") {
             dir = it->second->getRoot();
         } else {
             dir = it->second->find(directory,it->second->getRoot());
         }
+        if (!dir)
+            return false;
         string dtdir = downloadto.empty() ? SETTING(DOWNLOAD_DIRECTORY) : downloadto;
         if (downloadDirFromList(dir, it->second, dtdir))
             return true;
@@ -1373,12 +1375,14 @@ bool ServerThread::downloadFileFromList(const string& target_file, const string&
     auto it = listsMap.find(filelist);
     if (it != listsMap.end()) {
         string directory = Util::getFilePath(target_file, '\\');
-        DirectoryListing::Directory *dir;
+        DirectoryListing::Directory *dir = NULL;
         if (directory.empty() || directory == "\\") {
             dir = it->second->getRoot();
         } else {
             dir = it->second->find(directory,it->second->getRoot());
         }
+        if (!dir)
+            return false;
         string fname = Util::getFileName(target_file, '\\');
         DirectoryListing::File* filePtr = NULL;
         for (const auto& file : dir->files) {
