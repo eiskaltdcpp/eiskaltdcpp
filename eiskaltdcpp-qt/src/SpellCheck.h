@@ -27,12 +27,13 @@ friend class dcpp::Singleton<SpellCheck>;
 
 public:
     bool ok(const QString &word);
-    void suggestions(const QString &word, QStringList &list);
+    void suggestions(const QString &word, QStringList &list, QStringList &list_en);
     void addToDict(const QString &word);
 
 private:
     SpellCheck(QObject *parent = 0);
     ~SpellCheck();
 
-    AspellSpeller *spell_checker;
+    AspellSpeller *spell_checker_main;
+    AspellSpeller *spell_checker_en;
 };

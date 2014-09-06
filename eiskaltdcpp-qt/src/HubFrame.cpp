@@ -3541,7 +3541,8 @@ void HubFrame::slotInputContextMenu(){
         }
         else {
             QStringList list;
-            sp->suggestions(word, list);
+            QStringList list_en;
+            sp->suggestions(word, list, list_en);
 
             m->addSeparator();
             QAction *add_to_dict = new QAction(tr("Add to dictionary"), m);
@@ -3549,11 +3550,12 @@ void HubFrame::slotInputContextMenu(){
             m->addAction(add_to_dict);
 
             QMenu *ss = NULL;
-            if (!list.isEmpty()) {
+            if (!list.isEmpty() || !list_en.isEmpty()) {
                 ss = new QMenu(tr("Suggestions"), this);
 
-
                 for (const auto &s : list)
+                    ss->addAction(s);
+                for (const auto &s : list_en)
                     ss->addAction(s);
 
                 m->addMenu(ss);
