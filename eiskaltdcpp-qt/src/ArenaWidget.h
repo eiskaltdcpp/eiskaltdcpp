@@ -39,6 +39,7 @@ public:
         Spy,
         CustomWidget,
         QueuedUsers,
+        CmdDebug,
         NoRole  //Not valid for widgets
     };
 

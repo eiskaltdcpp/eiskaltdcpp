@@ -201,6 +201,7 @@ friend class dcpp::Singleton<MainWindow>;
         void slotToolsAutoAway();
         void slotToolsSearch();
         void slotToolsADLS();
+        void slotToolsCmdDebug();
         void slotToolsCopyWindowTitle();
         void slotToolsSettings();
         void slotToolsJS();
