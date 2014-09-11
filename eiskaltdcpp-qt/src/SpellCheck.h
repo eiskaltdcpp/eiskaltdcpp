@@ -12,6 +12,8 @@
 #include <QObject>
 #include <QList>
 #include <QStringList>
+#include <QMap>
+#include <QPair>
 
 #include <aspell.h>
 
@@ -27,13 +29,12 @@ friend class dcpp::Singleton<SpellCheck>;
 
 public:
     bool ok(const QString &word);
-    void suggestions(const QString &word, QStringList &list, QStringList &list_en);
-    void addToDict(const QString &word);
+    void suggestions(const QString &word, QMap<QString, QStringList> &listMap);
+    void addToDict(const QString &word, const QString &lang);
 
 private:
     SpellCheck(QObject *parent = 0);
     ~SpellCheck();
 
-    AspellSpeller *spell_checker_main;
-    AspellSpeller *spell_checker_en;
+    QMap<QString, AspellSpeller*> spellChekers;
 };

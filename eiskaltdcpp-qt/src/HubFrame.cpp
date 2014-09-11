@@ -3540,32 +3540,41 @@ void HubFrame::slotInputContextMenu(){
             m->deleteLater();
         }
         else {
-            QStringList list;
-            QStringList list_en;
-            sp->suggestions(word, list, list_en);
+//            QStringList list;
+//            QStringList list_en;
+            QMap<QString, QStringList> listMap;
+            sp->suggestions(word, listMap);
 
             m->addSeparator();
-            QAction *add_to_dict = new QAction(tr("Add to dictionary"), m);
 
-            m->addAction(add_to_dict);
+//            QAction *add_to_dict = new QAction(tr("Add to dictionary"), m);
+//            m->addAction(add_to_dict);
+            QMenu* add_to_dict = new QMenu(tr("Add to dictionary"), this);
+            m->addMenu(add_to_dict);
 
             QMenu *ss = NULL;
-            if (!list.isEmpty() || !list_en.isEmpty()) {
+            if (!listMap.isEmpty()) {
                 ss = new QMenu(tr("Suggestions"), this);
-
-                for (const auto &s : list)
-                    ss->addAction(s);
-                for (const auto &s : list_en)
-                    ss->addAction(s);
+                auto it = listMap.constBegin();
+                while (it != listMap.constEnd()) {
+                    QAction *add_to_dict_lang = new QAction(it.key(), add_to_dict);
+                    add_to_dict->addAction(add_to_dict_lang);
+                    QMenu *ss_by_lang = new QMenu(it.key(), this);
+                    foreach(QString item , it.value()) {
+                        ss_by_lang->addAction(item);
+                    }
+                    ++it;
+                    ss->addMenu(ss_by_lang);
+                }
 
                 m->addMenu(ss);
             }
 
             QAction *ret = m->exec(QCursor::pos());
 
-            if (ret == add_to_dict)
-                sp->addToDict(word);
-            else if (ss && ret && ret->parent() == ss){
+            if (add_to_dict && ret && ret->parent() == add_to_dict)
+                sp->addToDict(word, ret->text());
+            else if (ss && ret /*&& ret->parent()->parent() == ss*/){
                 c.removeSelectedText();
 
                 c.insertText(ret->text());
