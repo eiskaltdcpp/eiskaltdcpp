@@ -123,7 +123,7 @@ Nycklar:
     <message>
         <location filename="../src/ActionCustomizer.cpp" line="17"/>
         <source>Customize actions</source>
-        <translation type="unfinished"/>
+        <translation>Anpassade åtgärder</translation>
     </message>
     <message>
         <location filename="../src/ActionCustomizer.cpp" line="26"/>
@@ -383,7 +383,7 @@ Nycklar:
     <message>
         <location filename="../src/DownloadQueue.cpp" line="793"/>
         <source>Total files: &lt;b&gt;%1&lt;/b&gt; Total size: &lt;b&gt;%2&lt;/b&gt;</source>
-        <translation type="unfinished"/>
+        <translation>Totalt antal files: &lt;b&gt;%1&lt;/b&gt; Sammanlagd storlek: &lt;b&gt;%2&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueue.h" line="85"/>
@@ -1200,7 +1200,7 @@ Favoritanvändare</translation>
         <location filename="../src/HubFrame.cpp" line="1677"/>
         <location filename="../src/HubFrame.cpp" line="1679"/>
         <source>Invalid command syntax.</source>
-        <translation type="unfinished"/>
+        <translation>Ogiltigt kommandosyntax.</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1689"/>
@@ -1401,7 +1401,8 @@ Favoritanvändare</translation>
         <location filename="../src/HubFrame.cpp" line="1857"/>
         <source>/lua &lt;chunk&gt; - execute Lua chunk
 </source>
-        <translation type="unfinished"/>
+        <translation>/lua &lt;chunk&gt; - starta Lua-chunk
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="2109"/>
@@ -1560,7 +1561,7 @@ Favoritanvändare</translation>
     <message>
         <location filename="../src/IPFilterFrame.cpp" line="189"/>
         <source>Change rule direction</source>
-        <translation type="unfinished"/>
+        <translation>Ändra riktning på regeln</translation>
     </message>
     <message>
         <location filename="../src/IPFilterFrame.cpp" line="197"/>
@@ -1621,7 +1622,7 @@ Favoritanvändare</translation>
     <message>
         <location filename="../src/Magnet.cpp" line="47"/>
         <source>Download file via auto search alternatives</source>
-        <translation type="unfinished"/>
+        <translation>Ladda ned filen via den automatiska sökalternativet</translation>
     </message>
     <message>
         <location filename="../src/Magnet.cpp" line="168"/>
@@ -2006,7 +2007,7 @@ Favoritanvändare</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="1338"/>
         <source>AntiSpam module</source>
-        <translation type="unfinished"/>
+        <translation>AntiSpam-modul</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1340"/>
@@ -2137,7 +2138,7 @@ Favoritanvändare</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="1394"/>
         <source>Widgets side dock</source>
-        <translation type="unfinished"/>
+        <translation>Widgetens sidopanel</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1396"/>
@@ -2172,7 +2173,7 @@ Favoritanvändare</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="1408"/>
         <source>Wiki of project</source>
-        <translation type="unfinished"/>
+        <translation>Projektets Wiki-sida</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1410"/>
@@ -2193,12 +2194,12 @@ Favoritanvändare</translation>
         <location filename="../src/MainWindow.cpp" line="1417"/>
         <location filename="../src/MainWindow.cpp" line="1449"/>
         <source>Actions</source>
-        <translation type="unfinished"/>
+        <translation>Åtgärder</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1420"/>
         <source>Main layout</source>
-        <translation type="unfinished"/>
+        <translation>Huvudlayout</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1647"/>
@@ -2261,12 +2262,12 @@ Favoritanvändare</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="1853"/>
         <source>Modern XML Filelists</source>
-        <translation type="unfinished"/>
+        <translation>Modern XML-fillista</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1854"/>
         <source>Modern XML Filelists uncompressed</source>
-        <translation type="unfinished"/>
+        <translation>Modern XML-fillista okomprimmerad</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1855"/>
@@ -2306,12 +2307,12 @@ Favoritanvändare</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="2311"/>
         <source>Script Engine</source>
-        <translation type="unfinished"/>
+        <translation>Skriptmotor</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2554"/>
         <source>Button style</source>
-        <translation type="unfinished"/>
+        <translation>Knappstil</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2555"/>
@@ -2336,7 +2337,7 @@ Favoritanvändare</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="2568"/>
         <source>Customize</source>
-        <translation type="unfinished"/>
+        <translation>Egen</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2625"/>
@@ -2386,7 +2387,7 @@ Favoritanvändare</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="2689"/>
         <source>&lt;b&gt;Graphic files&lt;/b&gt;&lt;br/&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;Grafikfiler&lt;/b&gt;&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2692"/>
@@ -2562,7 +2563,7 @@ Favoritanvändare</translation>
     <message>
         <location filename="../src/Notification.cpp" line="114"/>
         <source>Setup speed limits</source>
-        <translation type="unfinished"/>
+        <translation>Ställ in hastighetsbegränsningar</translation>
     </message>
     <message>
         <location filename="../src/Notification.cpp" line="115"/>
@@ -2606,7 +2607,7 @@ Nedladdat: %3 Uppladdat: %4</translation>
     <message>
         <location filename="../src/PMWindow.cpp" line="337"/>
         <source>Chat cleared.</source>
-        <translation type="unfinished"/>
+        <translation>Chatten tömd.</translation>
     </message>
     <message>
         <location filename="../src/PMWindow.cpp" line="425"/>
@@ -2674,7 +2675,7 @@ Nedladdat: %3 Uppladdat: %4</translation>
     <message>
         <location filename="../src/PublicHubModel.cpp" line="29"/>
         <source>Rating</source>
-        <translation type="unfinished"/>
+        <translation>Betyg</translation>
     </message>
 </context>
 <context>
@@ -2717,7 +2718,7 @@ Nedladdat: %3 Uppladdat: %4</translation>
     <message>
         <location filename="../src/PublicHubs.cpp" line="286"/>
         <source>from Coral</source>
-        <translation type="unfinished"/>
+        <translation>från Coral</translation>
     </message>
     <message>
         <location filename="../src/PublicHubs.cpp" line="290"/>
@@ -2727,7 +2728,7 @@ Nedladdat: %3 Uppladdat: %4</translation>
     <message>
         <location filename="../src/PublicHubs.cpp" line="295"/>
         <source>Cached hub list is corrupted or unsupported</source>
-        <translation type="unfinished"/>
+        <translation>Buffrad hubblista är skadad eller i ett format som inte stöds</translation>
     </message>
     <message>
         <location filename="../src/PublicHubs.cpp" line="297"/>
@@ -3070,17 +3071,17 @@ Nedladdat: %3 Uppladdat: %4</translation>
     <message>
         <location filename="../src/SearchFrame.cpp" line="180"/>
         <source>Blacklist...</source>
-        <translation type="unfinished"/>
+        <translation>Svartlista...</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="183"/>
         <source>Blacklist</source>
-        <translation type="unfinished"/>
+        <translation>Svartlista</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="186"/>
         <source>Add to Blacklist</source>
-        <translation type="unfinished"/>
+        <translation>Lägg till svartlista</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="291"/>
@@ -3218,7 +3219,7 @@ Nedladdat: %3 Uppladdat: %4</translation>
     <message>
         <location filename="../src/Settings.cpp" line="60"/>
         <source>Sharing</source>
-        <translation type="unfinished"/>
+        <translation>Delar ut</translation>
     </message>
     <message>
         <location filename="../src/Settings.cpp" line="65"/>
@@ -3248,7 +3249,7 @@ Nedladdat: %3 Uppladdat: %4</translation>
     <message>
         <location filename="../src/Settings.cpp" line="90"/>
         <source>History</source>
-        <translation type="unfinished"/>
+        <translation>Historik</translation>
     </message>
 </context>
 <context>
@@ -3602,7 +3603,7 @@ Nedladdat: %3 Uppladdat: %4</translation>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="89"/>
         <source>Properties of magnet</source>
-        <translation type="unfinished"/>
+        <translation>Egenskaper för magnet</translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="92"/>
@@ -3637,7 +3638,7 @@ Nedladdat: %3 Uppladdat: %4</translation>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="224"/>
         <source>Listing: </source>
-        <translation type="unfinished"/>
+        <translation>Listning:</translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="326"/>
@@ -4194,7 +4195,7 @@ Vill du stoppa den?
     <message>
         <location filename="../src/TransferViewModel.cpp" line="52"/>
         <source>Flags</source>
-        <translation type="unfinished"/>
+        <translation>Flaggor</translation>
     </message>
     <message>
         <location filename="../src/TransferViewModel.cpp" line="52"/>
@@ -4261,7 +4262,7 @@ Vill du stoppa den?
         <location filename="../src/TransferViewModel.cpp" line="610"/>
         <location filename="../src/TransferViewModel.cpp" line="616"/>
         <source>Finished</source>
-        <translation type="unfinished"/>
+        <translation>Färdiga</translation>
     </message>
 </context>
 <context>
@@ -4331,7 +4332,7 @@ Vill du stoppa den?
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="29"/>
         <source>Favorite hub name.</source>
-        <translation type="unfinished"/>
+        <translation>Favorithubbnamn.</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="42"/>
@@ -4347,7 +4348,7 @@ Vill du stoppa den?
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="78"/>
         <source>Type source</source>
-        <translation type="unfinished"/>
+        <translation>Källtyp</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="94"/>
@@ -4484,12 +4485,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIAntiSpam.ui" line="14"/>
         <source>AntiSpam configuration</source>
-        <translation type="unfinished"/>
+        <translation>AntiSpam-inställningar</translation>
     </message>
     <message>
         <location filename="../ui/UIAntiSpam.ui" line="20"/>
         <source>AntiSpam</source>
-        <translation type="unfinished"/>
+        <translation>AntiSpam</translation>
     </message>
     <message>
         <location filename="../ui/UIAntiSpam.ui" line="46"/>
@@ -4509,7 +4510,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIAntiSpam.ui" line="95"/>
         <source>Enable AntiSpam</source>
-        <translation type="unfinished"/>
+        <translation>Aktivera AntiSpam</translation>
     </message>
     <message>
         <location filename="../ui/UIAntiSpam.ui" line="102"/>
@@ -4524,7 +4525,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIAntiSpam.ui" line="116"/>
         <source>Black list</source>
-        <translation type="unfinished"/>
+        <translation>Svartlista</translation>
     </message>
     <message>
         <location filename="../ui/UIAntiSpam.ui" line="131"/>
@@ -4557,18 +4558,18 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIAntiSpam.ui" line="182"/>
         <source>Gray List</source>
-        <translation type="unfinished"/>
+        <translation>Grålista</translation>
     </message>
     <message>
         <location filename="../ui/UIAntiSpam.ui" line="248"/>
         <source>White list</source>
-        <translation type="unfinished"/>
+        <translation>Vitlista</translation>
     </message>
     <message>
         <location filename="../ui/UIAntiSpam.ui" line="314"/>
         <location filename="../ui/UIAntiSpam.ui" line="369"/>
         <source>Move user to &quot;White&quot; list</source>
-        <translation type="unfinished"/>
+        <translation>Flytta användaren till vitlistan</translation>
     </message>
     <message>
         <location filename="../ui/UIAntiSpam.ui" line="317"/>
@@ -4581,7 +4582,7 @@ p, li { white-space: pre-wrap; }
         <location filename="../ui/UIAntiSpam.ui" line="327"/>
         <location filename="../ui/UIAntiSpam.ui" line="340"/>
         <source>Move user to &quot;Gray&quot; list</source>
-        <translation type="unfinished"/>
+        <translation>Flytta användaren till grålistan</translation>
     </message>
     <message>
         <location filename="../ui/UIAntiSpam.ui" line="343"/>
@@ -4594,7 +4595,7 @@ p, li { white-space: pre-wrap; }
         <location filename="../ui/UIAntiSpam.ui" line="353"/>
         <location filename="../ui/UIAntiSpam.ui" line="382"/>
         <source>Move user to &quot;Black&quot; list</source>
-        <translation type="unfinished"/>
+        <translation>Flytta användarn till svartlistan</translation>
     </message>
     <message>
         <location filename="../ui/UIAntiSpam.ui" line="395"/>
@@ -4671,7 +4672,7 @@ p, li { white-space: pre-wrap; }
         <location filename="../ui/UIFavoriteHubEditor.ui" line="85"/>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="234"/>
         <source>This description will show in the user list.</source>
-        <translation type="unfinished"/>
+        <translation>Denna beskrivning kommer att synas i användarlistan.</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="92"/>
@@ -4721,7 +4722,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="180"/>
         <source>Minimum search interval (seconds)</source>
-        <translation type="unfinished"/>
+        <translation>Minsta tid mellan sökningar (sekunder)</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="202"/>
@@ -4736,7 +4737,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="221"/>
         <source>If hub requires password, define it here.</source>
-        <translation type="unfinished"/>
+        <translation>Om hubben kräver lösenord, ange det här.</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="241"/>
@@ -4792,7 +4793,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIFavoriteUsers.ui" line="41"/>
         <source>Auto grant slot to all users</source>
-        <translation type="unfinished"/>
+        <translation>Bevilja slott automatiskt till alla användare</translation>
     </message>
 </context>
 <context>
@@ -4939,12 +4940,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/HubFrame.ui" line="137"/>
         <source>Hide find frame (Ctrl+F)</source>
-        <translation type="unfinished"/>
+        <translation>Göm sökpanelen (CTRL+F)</translation>
     </message>
     <message>
         <location filename="../ui/HubFrame.ui" line="281"/>
         <source>Last status message on hub</source>
-        <translation type="unfinished"/>
+        <translation>Sista statusmeddelandet i hubben</translation>
     </message>
 </context>
 <context>
@@ -5079,7 +5080,9 @@ p, li { white-space: pre-wrap; }
         <location filename="../ui/UIMagnet.ui" line="137"/>
         <source>Adds magnet to download queue. If autosearch for alternatives is enabled
 in options, file will be downloaded without opening search dialog.</source>
-        <translation type="unfinished"/>
+        <translation>Lägger till MAGNET-länkar i nerladdningskön. Om automatisk sökning är
+aktiverad i inställningarna, kommer filen att laddas ned utan att sökfönstret
+öppnas.</translation>
     </message>
     <message>
         <location filename="../ui/UIMagnet.ui" line="141"/>
@@ -5112,7 +5115,7 @@ in options, file will be downloaded without opening search dialog.</source>
     <message>
         <location filename="../ui/PrivateMessage.ui" line="63"/>
         <source>Previous (Shift+F3)</source>
-        <translation type="unfinished"/>
+        <translation>Föregående (Skift+F3)</translation>
     </message>
     <message>
         <location filename="../ui/PrivateMessage.ui" line="66"/>
@@ -5132,7 +5135,7 @@ in options, file will be downloaded without opening search dialog.</source>
     <message>
         <location filename="../ui/PrivateMessage.ui" line="83"/>
         <source>Hide find frame (Ctrl+F)</source>
-        <translation type="unfinished"/>
+        <translation>Göm sökpanelen (CTRL+F)</translation>
     </message>
     <message>
         <location filename="../ui/PrivateMessage.ui" line="93"/>
@@ -5147,12 +5150,12 @@ in options, file will be downloaded without opening search dialog.</source>
     <message>
         <location filename="../ui/PrivateMessage.ui" line="189"/>
         <source>Go to hub</source>
-        <translation type="unfinished"/>
+        <translation>Gå till hubben</translation>
     </message>
     <message>
         <location filename="../ui/PrivateMessage.ui" line="196"/>
         <source>User share</source>
-        <translation type="unfinished"/>
+        <translation>Utdelat</translation>
     </message>
 </context>
 <context>
@@ -5209,12 +5212,12 @@ in options, file will be downloaded without opening search dialog.</source>
     <message>
         <location filename="../ui/UIQuickConnect.ui" line="32"/>
         <source>Quick connect</source>
-        <translation type="unfinished"/>
+        <translation>Snabbanslutning</translation>
     </message>
     <message>
         <location filename="../ui/UIQuickConnect.ui" line="44"/>
         <source>IP address of DNS name of hub you want to connect.</source>
-        <translation type="unfinished"/>
+        <translation>IP-adress eller DNS-namn på hubben du vill ansluta till</translation>
     </message>
 </context>
 <context>
@@ -5237,7 +5240,7 @@ in options, file will be downloaded without opening search dialog.</source>
     <message>
         <location filename="../ui/UIScriptManager.ui" line="31"/>
         <source>Reload it</source>
-        <translation type="unfinished"/>
+        <translation>Uppdatera</translation>
     </message>
     <message>
         <location filename="../ui/UIScriptManager.ui" line="39"/>
@@ -5250,7 +5253,7 @@ in options, file will be downloaded without opening search dialog.</source>
     <message>
         <location filename="../ui/UISearchBlacklist.ui" line="29"/>
         <source>Blacklist</source>
-        <translation type="unfinished"/>
+        <translation>Svartlista</translation>
     </message>
     <message>
         <location filename="../ui/UISearchBlacklist.ui" line="93"/>
@@ -5281,17 +5284,17 @@ in options, file will be downloaded without opening search dialog.</source>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="27"/>
         <source>Connection</source>
-        <translation type="unfinished"/>
+        <translation>Anslutning</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="33"/>
         <source>Auto detect connection</source>
-        <translation type="unfinished"/>
+        <translation>Identifera anslutning automatiskt</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="40"/>
         <source>Incoming connections</source>
-        <translation type="unfinished"/>
+        <translation>Inkommande anslutningar</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="55"/>
@@ -5301,7 +5304,13 @@ If your computer is not behind a router all you have to do is to choose
 this option and usually you don't need to alter anything more in the
 connection settings.
 However, if you have a software firewall installed, you may need further configuration in the firewall to allow Internet access for EiskaltDC++.</source>
-        <translation type="unfinished"/>
+        <translation>Välj detta läge om din dator är ansluten direkt till internet.
+Välj inte detta läge om du har en router eller annan extern brandvägg.
+Om din dator inte är ansluten till en router ska du oftast inte behöva göra
+några fler ändringar i anslutningsinställningarna.
+Däremot om du har en mjukvarubrandvägg kan du få behöva göra
+ändringar i din brandväggs inställningar för att tillåta EiskaltDC++ att få
+tillgång till internet.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="63"/>
@@ -5315,7 +5324,9 @@ the TCP, UDP and TLS port forwarding on your own.
 You will need to specify the external IP address of your router using
 the setting below if you want downloads to work properly.
 Use this mode only if the previous ones are not options for you.</source>
-        <translation type="unfinished"/>
+        <translation>Vällj detta läge om du använder en brandvägg (router) och vill ställa in TCP-, UDP- och TLS-portarna manuellt. Du kommer att behöva ange extern IP-adress på din router med hjälp av inställningarna här under om du vill att
+nerladdningarna ska fungera som de ska.  Använd detta läge bara om
+föregånde läge inte var rätt för dig.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="80"/>
@@ -5330,7 +5341,12 @@ This mode carries some serious limitations:
   * only 5 results per user will be returned in response to searches;
   * you will not be able to download from other passive users;
   * you may won&apos;t be able to search and/or download on certain hubs.</source>
-        <translation type="unfinished"/>
+        <translation>Välj detta alternativ om inga andra läge fungerade. I detta läge kommer
+EiskaltDC++ inte att göra några inkommande anslutningar, utan endast utgående.
+Detta läge medför en del allvarliga begränsningar:
+  * endast 5 sökträffar per användare när du söker;
+  * du kommer inte att kunna ladda ned från andra passiva användare;
+  * du kommer inte att kunna söka och/eller ladda ned i en del hubbar.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="98"/>
@@ -5345,7 +5361,12 @@ Most routers do support UPnP but you may need to enable it
 in the router's configuration page.
 This way EiskaltDC++ will automatically open the ports it needs
 and obtain your external IP address as well.</source>
-        <translation type="unfinished"/>
+        <translation>Välj detta alternativ om du är bakom en brandvägg/router som har stöd
+för UPnP-standarden som automatiskt konfigurerar din brandvägg/router.
+De flesta routrar har stöd för UPnP men du kan behöva aktivera det i din
+routers inställningar.
+Då kommer EiskaltDC++ att automatiskt öppna de portar som behövs och
+även att erhålla din externa IP-adress.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="113"/>
@@ -5380,29 +5401,31 @@ and obtain your external IP address as well.</source>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="235"/>
         <source>Bind to address</source>
-        <translation type="unfinished"/>
+        <translation>Lås till nätverksadress</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="245"/>
         <source>Bind to interface</source>
-        <translation type="unfinished"/>
+        <translation>Lås till nätverkskort</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="261"/>
         <source>Outgoing connections</source>
-        <translation type="unfinished"/>
+        <translation>Utgående anslutningar</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="276"/>
         <source>Select this mode if you can make unrestricted outbound connections.
 This includes connecting to any IP address on any port.
 Choose this option if unsure.</source>
-        <translation type="unfinished"/>
+        <translation>Välj detta alternativ om du kan göra obegränsade utgående anslutningar.
+Det inkluderar att ansluta till alla IP-adresser på alla portar.
+Välj detta alternativ om du är osäker på vad du ska välja.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="281"/>
         <source>Direct connection</source>
-        <translation type="unfinished"/>
+        <translation>Direkt anslutning</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="291"/>
@@ -5450,22 +5473,22 @@ DC++&apos;s SOCKS5 support does not include GSSAPI.</source>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="373"/>
         <source>Use to resolve hostnames</source>
-        <translation type="unfinished"/>
+        <translation>Använd för att ta reda på värdnamnet</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="401"/>
         <source>DynDNS Address:</source>
-        <translation type="unfinished"/>
+        <translation>DynDNS-adress:</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="427"/>
         <source>When enabled can hang program on exit.</source>
-        <translation type="unfinished"/>
+        <translation>Aktiverad kan detta hänga programmet vid avslut.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="430"/>
         <source>Automatically update external IP (restart required)</source>
-        <translation type="unfinished"/>
+        <translation>Automatisk uppdatera den externa IP-adressen (omstart krävs)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="454"/>
@@ -5531,7 +5554,7 @@ DC++&apos;s SOCKS5 support does not include GSSAPI.</source>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="815"/>
         <source>Type-of-Service (ToS)</source>
-        <translation type="unfinished"/>
+        <translation>Type-of-Service (ToS)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="831"/>
@@ -5547,7 +5570,18 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; - &amp;quot;Minimal cost&amp;quot;&lt;/span&gt; should be used for &amp;quot;filler data&amp;quot; where slow transmission doesn't matter&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;At most one of these TOS values can be specified. Linux sends &lt;span style=&quot; font-weight:600;&quot;&gt;&amp;quot;Low delay&amp;quot;&lt;/span&gt; datagrams first by default, but the exact behaviour depends on the configured queueing discipline.&lt;span style=&quot; font-weight:600;&quot;&gt; Warning! This option needs superuser privileges!&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Set the Type-Of-Service (TOS) field that is sent with every &lt;a href=&quot;http://en.wikipedia.org/wiki/IP_packet&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0057ae;&quot;&gt;IP packet&lt;/span&gt;&lt;/a&gt; originating from this socket. It is used to prioritize packets on the network. TOS is a byte. There are some standard TOS flags defined: &lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; - &amp;quot;Low delay&amp;quot;&lt;/span&gt; to minimize delays for interactive traffic&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; - &amp;quot;Throughput&amp;quot;&lt;/span&gt; to optimize throughput&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; - &amp;quot;Reliability&amp;quot;&lt;/span&gt; to optimize for reliability&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; - &amp;quot;Minimal cost&amp;quot;&lt;/span&gt; should be used for &amp;quot;filler data&amp;quot; where slow transmission doesn&apos;t matter&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;At most one of these TOS values can be specified. Linux sends &lt;span style=&quot; font-weight:600;&quot;&gt;&amp;quot;Low delay&amp;quot;&lt;/span&gt; datagrams first by default, but the exact behaviour depends on the configured queueing discipline.&lt;span style=&quot; font-weight:600;&quot;&gt; Warning! This option needs superuser privileges!&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="846"/>
@@ -5587,12 +5621,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="925"/>
         <source>TLS settings</source>
-        <translation type="unfinished"/>
+        <translation>TLS-inställningar</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="932"/>
         <source>Disable TLS</source>
-        <translation type="unfinished"/>
+        <translation>Inaktivera TLS</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="937"/>
@@ -5607,12 +5641,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="950"/>
         <source>Allow untrusted certificate for hubs</source>
-        <translation type="unfinished"/>
+        <translation>Tillåt ej betrodda certifikat för hubbar</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="957"/>
         <source>Allow untrusted sertificate for clients</source>
-        <translation type="unfinished"/>
+        <translation>Tillåt ej betrodda certifikat för klienter</translation>
     </message>
 </context>
 <context>
@@ -5625,17 +5659,17 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="30"/>
         <source>Downloads</source>
-        <translation type="unfinished"/>
+        <translation>Nedladdningar</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="36"/>
         <source>Directories</source>
-        <translation type="unfinished"/>
+        <translation>Kataloger</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="51"/>
         <source>Download directory</source>
-        <translation type="unfinished"/>
+        <translation>Nedladdningskatalog</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="84"/>
@@ -5645,7 +5679,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="97"/>
         <source>Limits</source>
-        <translation type="unfinished"/>
+        <translation>Begränsningar</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="106"/>
@@ -5653,33 +5687,37 @@ p, li { white-space: pre-wrap; }
 designed to prevent new downloads if your existing downloads
 exceed a specific threshold. It's measured in kibibytes per second,
 and a value of zero will disable this limit.</source>
-        <translation type="unfinished"/>
+        <translation>Detta är ett annat sätt att begränsa samtidiga nedladdningar på,
+genom att övervaka befintliga nedladdningar och låta dem ej överstiga
+ett bestämt värde. Det mäts i kibibytes per sekund, och värdet 0
+inaktiverar denna begränsning.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="119"/>
         <source>This limits the number of simultaneous downloads.
 A value of 0 means no limit.</source>
-        <translation type="unfinished"/>
+        <translation>Detta begränsar antaler samtidiga nedladdningar.
+Värdet 0 menas med obegränsat.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="133"/>
         <source>Maximum simultaneous downloads (0 = infinite)</source>
-        <translation type="unfinished"/>
+        <translation>Max antal samtidiga nedladdningar (0 = obegränsat)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="149"/>
         <source>No new downloads if speed exceeds (KiB/s, 0 = infinite)</source>
-        <translation type="unfinished"/>
+        <translation>Inga nya nedladdningar om hastigheter överskrider (KiB/s, 0 = avstängt)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="159"/>
         <source>Note: Because of changing download speeds, this is not 100% accurate</source>
-        <translation type="unfinished"/>
+        <translation>Obs: Eftersom hastigheten ändras hela tiden är detta inte 100% korrekt.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="172"/>
         <source>Public Hub lists</source>
-        <translation type="unfinished"/>
+        <translation>Publika hubblistor</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="181"/>
@@ -5691,17 +5729,17 @@ It&apos;s not used for uploads, downloads, or connecting to a hub.</source>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="190"/>
         <source>Http proxy (hub list only)</source>
-        <translation type="unfinished"/>
+        <translation>HTTP Proxy (endast för hubblistor)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="197"/>
         <source>Configure Public Hub Lists</source>
-        <translation type="unfinished"/>
+        <translation>Konfigurera publika hubblistor</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="221"/>
         <source>Download to</source>
-        <translation type="unfinished"/>
+        <translation>Laddar ned till</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="264"/>
@@ -5770,18 +5808,19 @@ and Normal prio max size, will be set to Low as priority. (default: 0 KiB)</sour
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="420"/>
         <source>Auto-drop settings</source>
-        <translation type="unfinished"/>
+        <translation>Inställning för automatisk frånkoppling</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="429"/>
         <source>If the download speed of a file is below the entered value,
 the source will be dropped. (default: 1024 B/s)</source>
-        <translation type="unfinished"/>
+        <translation>Om nedladdningshastigheten på en fil är under angivit värde,
+kommer källan att kopplas från. (standard: 1024 B/s)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="440"/>
         <source>Check every x second(s) if the source is slow. (default: 10 s)</source>
-        <translation type="unfinished"/>
+        <translation>Kontrollera varje x sekund(er) om källan är långsam. (standard: 10 s)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="450"/>
@@ -5806,7 +5845,7 @@ will be dropped. (default: 1)</source>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="485"/>
         <source>Minimum filesize before sources will be dropped (in KiB). (default: 0 KiB)</source>
-        <translation type="unfinished"/>
+        <translation>Minsta filstorlek innan källorna kopplas från (KiB). (standard: 0 KiB)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="501"/>
@@ -6043,7 +6082,7 @@ denna funktionen, du måste då radera dem manuellt.</translation>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="916"/>
         <source>Allow simultaneous uploads by one user from few NMDC hubs</source>
-        <translation type="unfinished"/>
+        <translation>Tillåt mer än en samtidig uppladdning per användare i NMDC-hubbar</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="923"/>
@@ -6081,7 +6120,7 @@ denna funktionen, du måste då radera dem manuellt.</translation>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="83"/>
         <source>Application font</source>
-        <translation type="unfinished"/>
+        <translation>Programtypsnitt</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="95"/>
@@ -6463,12 +6502,12 @@ them is usually available only to operators</source>
     <message>
         <location filename="../ui/UISettingsHistory.ui" line="87"/>
         <source>Number of search history elements to store:</source>
-        <translation type="unfinished"/>
+        <translation>Antal sökningar som ska sparas i historiken:</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsHistory.ui" line="113"/>
         <source>Number of download directories history elements to store:</source>
-        <translation type="unfinished"/>
+        <translation>Antal nedladdningskataloger som ska sparas i historiken:</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsHistory.ui" line="152"/>
@@ -6597,7 +6636,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="40"/>
         <source>Enable notifications</source>
-        <translation type="unfinished"/>
+        <translation>Aktivera meddelanden</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="49"/>
@@ -6625,7 +6664,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="77"/>
         <source>Allow other types of notifications</source>
-        <translation type="unfinished"/>
+        <translation>Tillåt andra typer av meddelanden</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="91"/>
@@ -6645,12 +6684,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="124"/>
         <source>Notification module</source>
-        <translation type="unfinished"/>
+        <translation>Meddelandemodul</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="144"/>
         <source>Default (Qt)</source>
-        <translation type="unfinished"/>
+        <translation>Standard (Qt)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="149"/>
@@ -6678,7 +6717,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="253"/>
         <source>Play sound on active PM window</source>
-        <translation type="unfinished"/>
+        <translation>Spela upp ljud vid privatmeddelande</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="295"/>
@@ -6799,7 +6838,7 @@ Välj inte din nedladdningshastighet då denna visar hur fort andra användare k
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="33"/>
         <source>View share in simple mode</source>
-        <translation type="unfinished"/>
+        <translation>Visa utdelat i förenklat läge</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="65"/>
@@ -6946,22 +6985,22 @@ och kan få klienten att verka ha låst sig.</translation>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="338"/>
         <source>FastHash options (restart needed)</source>
-        <translation type="unfinished"/>
+        <translation>Inställningar för snabbindexering (omstart krävs)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="346"/>
         <source>Private page mapping</source>
-        <translation type="unfinished"/>
+        <translation>Private page mapping</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="353"/>
         <source>No reserve</source>
-        <translation type="unfinished"/>
+        <translation>No reserve</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="367"/>
         <source>Proactive read from disk</source>
-        <translation type="unfinished"/>
+        <translation>Proactive read from disk</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="379"/>
@@ -7116,22 +7155,22 @@ stänga hans slott, men om användaren återkommer inom
     <message>
         <location filename="../ui/UIShareBrowserSearch.ui" line="35"/>
         <source>Search only files</source>
-        <translation type="unfinished"/>
+        <translation>Sök endast filer</translation>
     </message>
     <message>
         <location filename="../ui/UIShareBrowserSearch.ui" line="40"/>
         <source>Search only directories</source>
-        <translation type="unfinished"/>
+        <translation>Sök endast kataloger</translation>
     </message>
     <message>
         <location filename="../ui/UIShareBrowserSearch.ui" line="45"/>
         <source>Search all</source>
-        <translation type="unfinished"/>
+        <translation>Sök alla</translation>
     </message>
     <message>
         <location filename="../ui/UIShareBrowserSearch.ui" line="54"/>
         <source>Name</source>
-        <translation type="unfinished"/>
+        <translation>Namn</translation>
     </message>
     <message>
         <source>Filename</source>
@@ -7184,7 +7223,7 @@ stänga hans slott, men om användaren återkommer inom
     <message>
         <location filename="../ui/UIUserCommands.ui" line="14"/>
         <source>New command</source>
-        <translation type="unfinished"/>
+        <translation>Nytt kommando</translation>
     </message>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="23"/>
@@ -7287,7 +7326,7 @@ stänga hans slott, men om användaren återkommer inom
     <message>
         <location filename="../src/UserListModel.cpp" line="134"/>
         <source>&lt;br/&gt;&lt;b&gt;Favorite user&lt;/b&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;br/&gt;&lt;b&gt;Favoritanvändare&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/UserListModel.cpp" line="167"/>

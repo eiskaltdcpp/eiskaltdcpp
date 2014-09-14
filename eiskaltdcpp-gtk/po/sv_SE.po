@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
 "POT-Creation-Date: 2014-06-03 08:35+0400\n"
-"PO-Revision-Date: 2014-07-10 13:55+0000\n"
+"PO-Revision-Date: 2014-08-27 19:32+0000\n"
 "Last-Translator: Sopor\n"
 "Language-Team: Swedish (Sweden) (http://www.transifex.com/projects/p/eiskaltdcpp/language/sv_SE/)\n"
 "MIME-Version: 1.0\n"
@@ -287,7 +287,7 @@ msgstr "<b>Lägg till spelare</b>"
 
 #: ../ui/settingsdialog.ui:3651
 msgid "<b>Auto-drop settings</b>"
-msgstr ""
+msgstr "<b>Automatiska koppla från-inställningar</b>"
 
 #: ../ui/settingsdialog.ui:4947
 msgid "<b>Auto-open on startup</b>"
@@ -295,7 +295,7 @@ msgstr "<b>Öppna automatiskt vid start</b>"
 
 #: ../ui/settingsdialog.ui:3341
 msgid "<b>Auto-priority settings</b>"
-msgstr ""
+msgstr "<b>Automatiska prioritetsinställningar</b>"
 
 #: ../ui/settingsdialog.ui:5306
 msgid "<b>Available styles</b>"
@@ -359,7 +359,7 @@ msgstr "<b>Filändelse</b>"
 
 #: ../ui/settingsdialog.ui:3106
 msgid "<b>Favorite download to directories</b>"
-msgstr ""
+msgstr "<b>Favoritnedladdning för kataloger</b>"
 
 #: ../ui/publichubs.ui:236
 msgid "<b>Filter</b>"
@@ -990,7 +990,7 @@ msgstr "Certifikatfil"
 
 #: ../src/settingsmanager.cc:526
 msgid "Change gui setting "
-msgstr ""
+msgstr "Ändra GUI-inställning"
 
 #: ../ui/mainwindow.ui:1611
 msgid "Changelog (git)"
@@ -1386,15 +1386,15 @@ msgstr "Ladda ned avbild: inaktiverad"
 
 #: ../src/hub.cc:1991
 msgid "Download image: unlimit"
-msgstr ""
+msgstr "Ladda ned avbild: obegränsat"
 
 #: ../src/hub.cc:1993
 msgid "Download limit image: "
-msgstr ""
+msgstr "Ladda ned begränsad avbild:"
 
 #: ../src/hub.cc:2056
 msgid "Download limit image: 0 - disable, n < 0 - unlimit, empty - info"
-msgstr ""
+msgstr "Ladda ned begränsad avbild: 0 - inaktiverad, n < 0 - obegränsad, tom - info"
 
 #: ../src/transfers.cc:1099
 msgid "Download removed"
@@ -1520,7 +1520,7 @@ msgstr "Engelska"
 
 #: ../ui/mainwindow.ui:2535
 msgid "Enter line for user command"
-msgstr ""
+msgstr "Ange rad för användarkommando"
 
 #: ../ui/sharebrowser.ui:278
 msgid "Enter text to search for"
@@ -1537,7 +1537,7 @@ msgstr "Fel"
 
 #: ../src/settingsmanager.cc:528
 msgid "Error: segv parser :D"
-msgstr ""
+msgstr "Fel: segv parser :D"
 
 #: ../src/settingsmanager.cc:523
 msgid "Error: setting not found!"
@@ -1864,7 +1864,7 @@ msgstr "GiB"
 
 #: ../src/hub.cc:2857 ../src/favoritehubs.cc:362
 msgid "Global hub default"
-msgstr ""
+msgstr "Global hubbstandard"
 
 #: ../ui/uploadqueue.ui:51
 msgid "Grant Slot"
@@ -2224,7 +2224,7 @@ msgstr "Logga privatchatt"
 
 #: ../ui/settingsdialog.ui:7240
 msgid "Log search alternate"
-msgstr ""
+msgstr "Logga sök efter nya källor"
 
 #: ../ui/settingsdialog.ui:7206
 msgid "Log status messages"
@@ -2354,7 +2354,7 @@ msgstr "Minsta antal Slottar"
 
 #: ../ui/settingsdialog.ui:3612
 msgid "Min elapsed"
-msgstr ""
+msgstr "Minst förflutit"
 
 #: ../ui/settingsdialog.ui:3460
 msgid "Min filesize"
@@ -2538,11 +2538,11 @@ msgstr "Normal"
 
 #: ../ui/settingsdialog.ui:3308
 msgid "Normal priority max size"
-msgstr ""
+msgstr "Normal prioritet största storlek"
 
 #: ../src/hub.cc:1921 ../src/hub.cc:1956 ../src/hub.cc:1966 ../src/hub.cc:2112
 msgid "Not found user: "
-msgstr ""
+msgstr "Hittade ej användaren: "
 
 #: ../ui/settingsdialog.ui:8460
 msgid "Note: Custom search types will only be applied to ADC hubs!"
@@ -2559,7 +2559,7 @@ msgstr "Obs: Nya filer läggs inte till din utdelning förrän de har blivit ind
 #: ../ui/settingsdialog.ui:2845
 msgid ""
 "Note; because of changing download speeds, this is not 100% accurate..."
-msgstr ""
+msgstr "Obs: eftersom nedladdningshastigheten ändras är inte detta 100% korrekt..."
 
 #: ../src/settingsdialog.cc:1335 ../ui/settingsdialog.ui:5883
 msgid "Notify"
@@ -2567,7 +2567,7 @@ msgstr "Meddela"
 
 #: ../ui/searchspy.ui:267 ../ui/settingsdialog.ui:6572
 msgid "Number of matches for the top"
-msgstr ""
+msgstr "Antal träffar från toppen"
 
 #: ../src/WulforUtil.cc:159
 msgid "Offline"
@@ -2596,7 +2596,7 @@ msgstr "Öppna _din fillista"
 
 #: ../ui/finishedtransfers.ui:164
 msgid "Open containing _folder"
-msgstr ""
+msgstr "Öppna mappen som innehåller"
 
 #: ../src/notify.cc:158 ../ui/finishedtransfers.ui:153
 msgid "Open file"
@@ -3007,7 +3007,7 @@ msgstr "Söktyp"
 
 #: ../ui/search.ui:434
 msgid "Search within local results"
-msgstr ""
+msgstr "Sök bland lokala resultat"
 
 #: ../src/search.cc:1946
 msgid "Searching for "
@@ -3056,7 +3056,7 @@ msgstr "Skicka okända kommandon till hubben"
 #: ../src/search.cc:581
 #, c-format
 msgid "Sent ADC extensions : %s\n"
-msgstr ""
+msgstr "Skickat ADC-filändelser : %s\n"
 
 #: ../src/settingsdialog.cc:3372 ../src/settingsdialog.cc:3470
 #: ../ui/settingsdialog.ui:627
@@ -3092,11 +3092,11 @@ msgstr "Ställ in prioritet"
 
 #: ../ui/hub.ui:84
 msgid "Set download limit image"
-msgstr ""
+msgstr "Sätt nedladdningsbegränsning på avbild"
 
 #: ../src/hub.cc:1999
 msgid "Set download limit image: "
-msgstr ""
+msgstr "Sätt nedladdningsbegränsning på avbild:"
 
 #: ../src/settingsdialog.cc:986
 msgid ""
@@ -3141,7 +3141,7 @@ msgstr "Visa hjälp"
 
 #: ../src/hub.cc:2072
 msgid "Show ipfilter rules list"
-msgstr ""
+msgstr "Visa regellistan för IP-filter"
 
 #: ../src/settingsdialog.cc:1116
 msgid "Show joins / parts in chat by default"
@@ -3153,7 +3153,7 @@ msgstr "Visa magnet-dialog"
 
 #: ../src/settingsdialog.cc:1568
 msgid "Show nicklist in hub frame on the left side"
-msgstr ""
+msgstr "Visa användarlistan i vänster hubbram"
 
 #: ../ui/finishedtransfers.ui:125
 msgid "Show only completely finished downloads"
@@ -3178,7 +3178,7 @@ msgstr "Visa tidsstämpel i chatten som standard"
 
 #: ../ui/searchspy.ui:376
 msgid "Show top search"
-msgstr ""
+msgstr "Visa översta sökningen"
 
 #: ../src/settingsdialog.cc:1658
 msgid "Show user country in chat"
@@ -3319,7 +3319,7 @@ msgstr "Påbörja en sökning efter följande fil"
 
 #: ../ui/settingsdialog.ui:6323
 msgid "State of preparedness"
-msgstr ""
+msgstr "Beredskap"
 
 #: ../src/downloadqueue.cc:73 ../src/downloadqueue.cc:284
 #: ../src/downloadqueue.cc:391 ../src/searchspy.cc:60 ../src/searchspy.cc:298
@@ -3594,7 +3594,7 @@ msgstr "Uppdatera din fillista"
 
 #: ../ui/settingsdialog.ui:6401
 msgid "Updating string or TTH"
-msgstr ""
+msgstr "Uppdaterang sträng eller TTH"
 
 #: ../src/settingsdialog.cc:1419
 msgid "Upload"
@@ -3663,7 +3663,7 @@ msgstr "Använd Uttryckssymboler"
 
 #: ../src/settingsdialog.cc:1119
 msgid "Use OEM monospaced font for chat windows"
-msgstr ""
+msgstr "Använd skrivmaskinstypsnitt i chattfönsterna"
 
 #: ../ui/settingsdialog.ui:1684
 msgid "Use SOCKS5 server to resolve hostnames"
@@ -3699,11 +3699,11 @@ msgstr "Använd magnet-delning"
 
 #: ../ui/settingsdialog.ui:2060
 msgid "Use second set of bandwidth limits"
-msgstr ""
+msgstr "Använd andra uppsättningen av bredbandsbegränsningen"
 
 #: ../ui/settingsdialog.ui:79
 msgid "Use separator extensions (doc;xls;ppt;docx;xlsx;pptx)"
-msgstr ""
+msgstr "Använd filnamnstilläggs-avgränsare (doc;xls;ppt;docx;xlsx;pptx)"
 
 #: ../src/transfers.cc:57 ../src/transfers.cc:88 ../src/transfers.cc:90
 #: ../src/transfers.cc:499 ../src/transfers.cc:564 ../src/transfers.cc:595
@@ -3712,7 +3712,7 @@ msgstr "Användare"
 
 #: ../src/settingsdialog.cc:1409
 msgid "User (dc)"
-msgstr ""
+msgstr "Användare (dc)"
 
 #: ../src/settingsdialog.cc:1413
 msgid "User (normal)"
@@ -3737,7 +3737,7 @@ msgstr "Favoritanvändare:"
 
 #: ../src/settingsdialog.cc:1410
 msgid "User firewall (dc)"
-msgstr ""
+msgstr "Användarens brandvägg (dc)"
 
 #: ../src/settingsdialog.cc:1414
 msgid "User firewall (normal)"
@@ -3753,19 +3753,19 @@ msgstr "Kunde inte hitta användaren"
 
 #: ../src/settingsdialog.cc:1412
 msgid "User operator (dc)"
-msgstr ""
+msgstr "Användaroperatör (dc)"
 
 #: ../src/settingsdialog.cc:1416
 msgid "User operator (normal)"
-msgstr ""
+msgstr "Användaroperatör (normal)"
 
 #: ../src/settingsdialog.cc:1411
 msgid "User operator firewall (dc)"
-msgstr ""
+msgstr "Användaroperatör (dc)"
 
 #: ../src/settingsdialog.cc:1415
 msgid "User operator firewall (normal)"
-msgstr ""
+msgstr "Användaroperatör brandvägg (normal)"
 
 #: ../src/privatemessage.cc:1379
 msgid "User went offline"
@@ -3817,7 +3817,7 @@ msgstr "Visa statusmeddelanden i huvudchatten"
 
 #: ../ui/mainwindow.ui:2244
 msgid "View the files to be downloaded"
-msgstr ""
+msgstr "Visa filer som ska laddas ned"
 
 #: ../ui/mainwindow.ui:2099
 msgid "View the hashing progress"
@@ -3825,11 +3825,11 @@ msgstr "Visa indexeringsförloppet"
 
 #: ../ui/mainwindow.ui:2261
 msgid "View the list of finished downloads"
-msgstr ""
+msgstr "Visa en lista över färdiga nedladdningar"
 
 #: ../ui/mainwindow.ui:2278
 msgid "View the list of finished uploads"
-msgstr ""
+msgstr "Visa en lista över färdiga uppladdningar"
 
 #: ../src/settingsdialog.cc:1032 ../src/settingsdialog.cc:3803
 #: ../src/settingsdialog.cc:3872
@@ -3867,11 +3867,11 @@ msgstr "Välkommen till"
 
 #: ../ui/settingsdialog.ui:5215
 msgid "When a private message window is opened"
-msgstr ""
+msgstr "När ett privatmeddelandefönster öppnas"
 
 #: ../ui/mainwindow.ui:1594
 msgid "Wiki of project"
-msgstr ""
+msgstr "Projektets Wiki-sida"
 
 #: ../ui/settingsdialog.ui:5055
 msgid "Windows"
@@ -3920,7 +3920,7 @@ msgstr "_Adress:"
 #: ../ui/search.ui:731 ../ui/transfers.ui:36 ../ui/favoriteusers.ui:158
 #: ../ui/downloadqueue.ui:283 ../ui/hub.ui:556
 msgid "_Browse file list"
-msgstr ""
+msgstr "_Bläddra i fillistan"
 
 #: ../ui/transfers.ui:145
 msgid "_Close connection"
@@ -3958,11 +3958,11 @@ msgstr "_Nedladdning"
 
 #: ../ui/favoritehubs.ui:205
 msgid "_Encoding:"
-msgstr ""
+msgstr "_Teckenkodning:"
 
 #: ../ui/mainwindow.ui:1124
 msgid "_Exit"
-msgstr ""
+msgstr "_Avsluta"
 
 #: ../ui/mainwindow.ui:1030
 msgid "_File"
@@ -3970,7 +3970,7 @@ msgstr "_Fil"
 
 #: ../ui/transfers.ui:130
 msgid "_Force attempt"
-msgstr ""
+msgstr "_Tvinga nytt försök"
 
 #: ../ui/search.ui:776 ../ui/transfers.ui:72
 msgid "_Grant extra slot"
@@ -3998,19 +3998,19 @@ msgstr "_Lägsta"
 
 #: ../ui/mainwindow.ui:1098
 msgid "_Magnet Choice"
-msgstr ""
+msgstr "_Magnet-val"
 
 #: ../ui/search.ui:749
 msgid "_Match Queue"
-msgstr ""
+msgstr "_Matcha nedladdningskön"
 
 #: ../ui/transfers.ui:45 ../ui/favoriteusers.ui:167 ../ui/hub.ui:574
 msgid "_Match queue"
-msgstr ""
+msgstr "_Matcha nedladdningskön"
 
 #: ../ui/favoritehubs.ui:251
 msgid "_Mode:"
-msgstr ""
+msgstr "_Läge:"
 
 #: ../ui/downloadqueue.ui:155
 msgid "_Move"
@@ -4038,11 +4038,11 @@ msgstr "_Öppna hubb"
 
 #: ../ui/privatemessage.ui:148 ../ui/hub.ui:191
 msgid "_Open link in default application"
-msgstr ""
+msgstr "_Öppna länk i standardprogram"
 
 #: ../ui/search.ui:740 ../ui/hub.ui:565
 msgid "_Open partial file list"
-msgstr ""
+msgstr "_Öppna förenklad fillista"
 
 #: ../ui/favoritehubs.ui:377
 msgid "_Password:"
@@ -4054,7 +4054,7 @@ msgstr "_Pausad"
 
 #: ../ui/mainwindow.ui:1351
 msgid "_Preferences"
-msgstr ""
+msgstr "_Inställningar"
 
 #: ../ui/mainwindow.ui:1381
 msgid "_Previous widget"
@@ -4066,7 +4066,7 @@ msgstr "_Privatmeddelande"
 
 #: ../ui/privatemessage.ui:216 ../ui/hub.ui:259
 msgid "_Properties/Choice"
-msgstr ""
+msgstr "_Egenskaper/Val"
 
 #: ../ui/mainwindow.ui:1150
 msgid "_Quick connect"
@@ -4092,7 +4092,7 @@ msgstr "_Ta bort användaren från nedladdningskön"
 
 #: ../ui/search.ui:707 ../ui/sharebrowser.ui:155 ../ui/downloadqueue.ui:182
 msgid "_Search for alternates"
-msgstr ""
+msgstr "_Sök efter nya källor"
 
 #: ../ui/privatemessage.ui:160 ../ui/hub.ui:203
 msgid "_Search magnet"
@@ -4100,11 +4100,11 @@ msgstr "_Sök magnet"
 
 #: ../ui/transfers.ui:54
 msgid "_Send private message"
-msgstr ""
+msgstr "_Skicka privat meddelande"
 
 #: ../ui/hub.ui:547
 msgid "_Send public message"
-msgstr ""
+msgstr "_Skicka offentligt meddelande"
 
 #: ../ui/mainwindow.ui:1223
 msgid "_Tools"
@@ -4112,7 +4112,7 @@ msgstr "_Verktyg"
 
 #: ../ui/favoritehubs.ui:407
 msgid "_User Description:"
-msgstr ""
+msgstr "_Användarbeskrivning:"
 
 #: ../ui/search.ui:794 ../ui/hub.ui:640
 msgid "_User commands"
@@ -4124,7 +4124,7 @@ msgstr "_Widgets"
 
 #: ../src/hub.cc:3166
 msgid "bad image"
-msgstr ""
+msgstr "dålig avbild"
 
 #: ../ui/settingsdialog.ui:8990
 msgid "default"
@@ -4165,11 +4165,11 @@ msgstr "http://github.com/eiskaltdcpp/eiskaltdcpp/raw/master/ChangeLog.txt"
 
 #: ../ui/settingsdialog.ui:5129
 msgid "in program"
-msgstr ""
+msgstr "i program"
 
 #: ../src/hub.cc:3157
 msgid "loading error"
-msgstr ""
+msgstr "laddningsfel"
 
 #: ../src/transfers.cc:1111
 msgid "none"
@@ -4177,7 +4177,7 @@ msgstr "ingen"
 
 #: ../src/privatemessage.cc:977 ../src/hub.cc:2004
 msgid "project home: "
-msgstr ""
+msgstr "hemprojekt:"
 
 #: ../src/privatemessage.cc:996 ../src/hub.cc:2023
 msgid "ratio: %1% (uploads: %2%, downloads: %3% )"
@@ -4195,7 +4195,7 @@ msgstr "sökADL"
 
 #: ../src/settingsdialog.cc:3163 ../src/settingsdialog.cc:3290
 msgid "selected style failed"
-msgstr ""
+msgstr "vald stil misslyckades"
 
 #: ../ui/settingsdialog.ui:6006
 msgid "theme"
