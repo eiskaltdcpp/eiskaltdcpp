@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
 "POT-Creation-Date: 2014-06-03 08:35+0400\n"
-"PO-Revision-Date: 2014-08-27 19:32+0000\n"
+"PO-Revision-Date: 2014-09-17 12:34+0000\n"
 "Last-Translator: Sopor\n"
 "Language-Team: Swedish (Sweden) (http://www.transifex.com/projects/p/eiskaltdcpp/language/sv_SE/)\n"
 "MIME-Version: 1.0\n"
@@ -912,7 +912,7 @@ msgstr "Bulgarisk översättning\n"
 
 #: ../src/settingsdialog.cc:1417
 msgid "Button smile"
-msgstr ""
+msgstr "Knappleende"
 
 #: ../src/favoriteusers.cc:52 ../src/favoriteusers.cc:116
 #: ../src/favoriteusers.cc:215 ../src/favoriteusers.cc:244
@@ -982,7 +982,7 @@ msgstr "Kan inte hantera SIGPIPE\n"
 
 #: ../src/wulfor.cc:79
 msgid "Catching signal "
-msgstr ""
+msgstr "Fångar signal"
 
 #: ../ui/settingsdialog.ui:8172
 msgid "Certificate file"
@@ -1178,7 +1178,7 @@ msgstr "Ansluter"
 
 #: ../src/mainwindow.cc:2286
 msgid "Connectivity Manager: Warning"
-msgstr ""
+msgstr "Anslutningshanterare: Varning"
 
 #: ../src/mainwindow.cc:210
 msgid "Contributors"
@@ -1808,7 +1808,7 @@ msgstr "Ram (storlek)"
 msgid ""
 "Frame size determines the width of the review, higher values affect "
 "performance"
-msgstr ""
+msgstr "Ramstorleken bestäms av bredden av översynen, högre värden påverkar prestandan"
 
 #: ../ui/searchspy.ui:313
 msgid "Frame:"
@@ -2649,7 +2649,7 @@ msgstr "Paneler"
 
 #: ../src/sharebrowser.cc:187
 msgid "Parse and build tree..."
-msgstr ""
+msgstr "Analysera och skapa filuppbyggnad"
 
 #: ../ui/favoritehubs.ui:558
 msgid "Passive"
@@ -2907,7 +2907,7 @@ msgstr "Rapportera ett fel"
 
 #: ../src/transfers.cc:905
 msgid "Requesting"
-msgstr ""
+msgstr "Begär"
 
 #: ../ui/settingsdialog.ui:4356
 msgid "Reset changes"
@@ -3459,7 +3459,7 @@ msgstr "Till (tom för valda användare)"
 msgid ""
 "To start downloading file you need turn on auto search alternatives "
 "(Settings/Downloads/Queue)"
-msgstr ""
+msgstr "För att börja ladda ned filer måste du aktivera sök automatiskt efter nya nedladdningsplatser (Inställningar/Nedladdningar/Nedladdningskön)"
 
 #: ../ui/settingsdialog.ui:6193
 msgid "Toolbar"
@@ -3515,7 +3515,7 @@ msgstr "Överfört"
 #: ../src/transfers.cc:614
 #, c-format
 msgid "Transfers::updateTransfer, CID not found %s\n"
-msgstr ""
+msgstr "Transfers::updateTransfer, CID ej funnen %s\n"
 
 #: ../ui/settingsdialog.ui:8157
 msgid "Trusted certificates path"
@@ -3560,7 +3560,7 @@ msgid ""
 "Unable to open %1% port. Searching or file transfers will not work correctly"
 " until you change settings or turn off any application that might be using "
 "that port."
-msgstr ""
+msgstr "Kunde inte öppna port %1. Sökning eller filöverföring kommer inte att fungera fullt ut förrän du ändrar inställningarna eller stänger ner programmet som använder den porten."
 
 #: ../ui/settingsdialog.ui:2688
 msgid "Unfinished downloads directory"
@@ -3586,7 +3586,7 @@ msgstr "Uppdatera"
 
 #: ../src/searchspy.cc:392 ../ui/searchspy.ui:360
 msgid "Update frame search"
-msgstr ""
+msgstr "Uppdatera ramsökning"
 
 #: ../src/hub.cc:2054
 msgid "Update own file list"
