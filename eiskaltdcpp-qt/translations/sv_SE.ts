@@ -1987,7 +1987,7 @@ Favoritanvändare</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="1330"/>
         <source>Hub Manager</source>
-        <translation type="unfinished"/>
+        <translation>Hubbhanterare</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1332"/>
@@ -2098,7 +2098,7 @@ Favoritanvändare</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="1376"/>
         <source>Scripts Manager</source>
-        <translation type="unfinished"/>
+        <translation>Skripthanterare</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1378"/>
@@ -2292,7 +2292,7 @@ Favoritanvändare</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="2069"/>
         <source>Connectivity Manager: Warning</source>
-        <translation type="unfinished"/>
+        <translation>Anslutningshanterare: Varning</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2089"/>
@@ -2823,7 +2823,7 @@ Nedladdat: %3 Uppladdat: %4</translation>
     <message>
         <location filename="../src/ScriptManagerDialog.cpp" line="41"/>
         <source>Script Manager</source>
-        <translation type="unfinished"/>
+        <translation>Skripthanterare</translation>
     </message>
 </context>
 <context>
@@ -4732,7 +4732,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="214"/>
         <source>This nickname, or handle, will identify you when you join a hub.</source>
-        <translation type="unfinished"/>
+        <translation>Detta användarnamn används när du ansluter till en hubb.</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="221"/>
@@ -5069,7 +5069,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIMagnet.ui" line="127"/>
         <source>Opens search dialog and searches file.</source>
-        <translation type="unfinished"/>
+        <translation>Öppnar sökfönster och söker efter fil.</translation>
     </message>
     <message>
         <location filename="../ui/UIMagnet.ui" line="130"/>
@@ -5225,7 +5225,7 @@ aktiverad i inställningarna, kommer filen att laddas ned utan att sökfönstret
     <message>
         <location filename="../ui/UIScriptManager.ui" line="14"/>
         <source>Dialog</source>
-        <translation type="unfinished"/>
+        <translation>Dialog</translation>
     </message>
     <message>
         <location filename="../ui/UIScriptManager.ui" line="21"/>
@@ -5433,7 +5433,10 @@ Välj detta alternativ om du är osäker på vad du ska välja.</translation>
 a SOCKS proxy. The caveats for Passive mode also apply here.
 SOCKS5 proxies are not the same as HTTP proxies.
 DC++&apos;s SOCKS5 support does not include GSSAPI.</source>
-        <translation type="unfinished"/>
+        <translation>Välj detta läget om du vill göra utgående anslutningar genom
+en SOCKS-proxy. Samma varningar gäller här för passivtläge.
+SOCKS5-proxyservrar är inte detsamma som HTTP-proxyservrar.
+DC++ SOCKS5-stöd omfattar inte GSSAPI.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="297"/>
@@ -5524,7 +5527,7 @@ DC++&apos;s SOCKS5 support does not include GSSAPI.</source>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="583"/>
         <source>Alternate speed limit at time from </source>
-        <translation type="unfinished"/>
+        <translation>Alternativ hastighetsbegränsning efter tiden</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="609"/>
@@ -5591,17 +5594,17 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="851"/>
         <source>Low delay</source>
-        <translation type="unfinished"/>
+        <translation>Låg fördröjning</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="856"/>
         <source>Throughput</source>
-        <translation type="unfinished"/>
+        <translation>Genomfart</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="861"/>
         <source>Reliability</source>
-        <translation type="unfinished"/>
+        <translation>Tillförlitlighet</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="866"/>
@@ -5674,7 +5677,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="84"/>
         <source>Use unfinished downloads directory</source>
-        <translation type="unfinished"/>
+        <translation>Använd temporär katalog för nedladdningar</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="97"/>
@@ -5724,7 +5727,9 @@ Värdet 0 menas med obegränsat.</translation>
         <source>This HTTP proxy will only be used to request
 the Public Hub List specified above.
 It&apos;s not used for uploads, downloads, or connecting to a hub.</source>
-        <translation type="unfinished"/>
+        <translation>Denna HTTP-proxyn kommer endast att användas
+till ovanstående publika hubblista.
+Den används inte till upp-/nedladdning eller anslutning till en hubb.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="190"/>
@@ -5788,22 +5793,22 @@ and Normal prio max size, will be set to Low as priority. (default: 0 KiB)</sour
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="343"/>
         <source>Highest priority max size (KiB)</source>
-        <translation type="unfinished"/>
+        <translation>Högsta prioritet maximal storlek (KiB)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="359"/>
         <source>High priority max size (KiB)</source>
-        <translation type="unfinished"/>
+        <translation>Hög prioritet maximal storlek (KiB)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="375"/>
         <source>Normal priority max size (KiB)</source>
-        <translation type="unfinished"/>
+        <translation>Normal prioritet maximal storlek (KiB)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="391"/>
         <source>Low priority max size (KiB)</source>
-        <translation type="unfinished"/>
+        <translation>Låg prioritet maximal storlek (KiB)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="420"/>
@@ -5826,7 +5831,8 @@ kommer källan att kopplas från. (standard: 1024 B/s)</translation>
         <location filename="../ui/UISettingsDownloads.ui" line="450"/>
         <source>Amount of time (in seconds) that has to pass since the download
 started before a source can be dropped. (default: 15 s)</source>
-        <translation type="unfinished"/>
+        <translation>Den tid (i sekunder) det måste gå innan nedladdningen startat
+tills en källa kopplas i från automatiskt. (standard: 15 s)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="461"/>
@@ -6263,14 +6269,14 @@ denna funktionen, du måste då radera dem manuellt.</translation>
         <source>If checked, you'll see emoticons even in the middle of words.
 If unchecked, you'll see emoticons only if they are isolated
 from other words by spaces.</source>
-        <translation>om markerad, du kommer att se uttryckssymboler mitt inne i ord.
-Om du avmarkerar, kommer du endast se uttryckssymboler om
-de är avskilda från ord med mellanslag.</translation>
+        <translation>Markerad, kommer du att se uttryckssymboler mitt inne i orden.
+Avmarkerad, kommer du endast se uttryckssymboler om
+de är avskilda från andra ord med mellanslag.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="351"/>
         <source>Force emoticon parsing</source>
-        <translation type="unfinished"/>
+        <translation>Visa uttryckssymboler i orden</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="358"/>
