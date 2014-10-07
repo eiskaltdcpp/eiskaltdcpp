@@ -2766,12 +2766,12 @@ Nedladdat: %3 Uppladdat: %4</translation>
     <message>
         <location filename="../src/main.cpp" line="165"/>
         <source>UserList icons has been loaded</source>
-        <translation type="unfinished"/>
+        <translation>Ikoner laddade för användarlistan</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="168"/>
         <source>Application icons has been loaded</source>
-        <translation type="unfinished"/>
+        <translation>Ikoner laddade för programmet</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="216"/>
@@ -2815,7 +2815,7 @@ Nedladdat: %3 Uppladdat: %4</translation>
     <message>
         <location filename="../scriptengine/ScriptConsole.cpp" line="23"/>
         <source>Script Console</source>
-        <translation type="unfinished"/>
+        <translation>Skriptkonsol</translation>
     </message>
 </context>
 <context>
@@ -2877,7 +2877,7 @@ Nedladdat: %3 Uppladdat: %4</translation>
     <message>
         <location filename="../src/SearchBlacklistDialog.cpp" line="279"/>
         <source>Set text...</source>
-        <translation type="unfinished"/>
+        <translation>Ställ in text...</translation>
     </message>
 </context>
 <context>
@@ -2885,7 +2885,7 @@ Nedladdat: %3 Uppladdat: %4</translation>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished"/>
+        <translation>Form</translation>
     </message>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="44"/>
@@ -3136,7 +3136,7 @@ Nedladdat: %3 Uppladdat: %4</translation>
     <message>
         <location filename="../src/SearchModel.cpp" line="55"/>
         <source>Ext</source>
-        <translation type="unfinished"/>
+        <translation>Ext</translation>
     </message>
     <message>
         <location filename="../src/SearchModel.cpp" line="55"/>
@@ -3420,12 +3420,12 @@ Nedladdat: %3 Uppladdat: %4</translation>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="255"/>
         <source>Private: local user</source>
-        <translation type="unfinished"/>
+        <translation>Privat: lokal användare</translation>
     </message>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="259"/>
         <source>Private: user</source>
-        <translation type="unfinished"/>
+        <translation>Privat: användare</translation>
     </message>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="263"/>
@@ -4294,7 +4294,7 @@ Vill du stoppa den?
     <message>
         <location filename="../ui/UIADLSearch.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished"/>
+        <translation>Form</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearch.ui" line="56"/>
@@ -4327,7 +4327,7 @@ Vill du stoppa den?
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="20"/>
         <source>Dialog</source>
-        <translation type="unfinished"/>
+        <translation>Dialog</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="29"/>
@@ -4457,7 +4457,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIActionCustomizer.ui" line="14"/>
         <source>Dialog</source>
-        <translation type="unfinished"/>
+        <translation>Dialog</translation>
     </message>
     <message>
         <location filename="../ui/UIActionCustomizer.ui" line="29"/>
@@ -4608,7 +4608,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIDownloadQueue.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished"/>
+        <translation>Form</translation>
     </message>
     <message>
         <location filename="../ui/UIDownloadQueue.ui" line="41"/>
@@ -4626,7 +4626,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="14"/>
         <source>Dialog</source>
-        <translation type="unfinished"/>
+        <translation>Dialog</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="20"/>
@@ -4760,7 +4760,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIFavoriteHubs.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished"/>
+        <translation>Form</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubs.ui" line="56"/>
@@ -4788,7 +4788,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIFavoriteUsers.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished"/>
+        <translation>Form</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteUsers.ui" line="41"/>
@@ -4829,7 +4829,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIFinishedTransfers.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished"/>
+        <translation>Form</translation>
     </message>
     <message>
         <location filename="../ui/UIFinishedTransfers.ui" line="22"/>
@@ -4890,7 +4890,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/HubFrame.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished"/>
+        <translation>Form</translation>
     </message>
     <message>
         <location filename="../ui/HubFrame.ui" line="81"/>
@@ -4953,7 +4953,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIHubManager.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished"/>
+        <translation>Form</translation>
     </message>
     <message>
         <location filename="../ui/UIHubManager.ui" line="33"/>
@@ -5044,7 +5044,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIMagnet.ui" line="20"/>
         <source>Form</source>
-        <translation type="unfinished"/>
+        <translation>Form</translation>
     </message>
     <message>
         <location filename="../ui/UIMagnet.ui" line="58"/>
@@ -5105,7 +5105,7 @@ aktiverad i inställningarna, kommer filen att laddas ned utan att sökfönstret
     <message>
         <location filename="../ui/PrivateMessage.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished"/>
+        <translation>Form</translation>
     </message>
     <message>
         <location filename="../ui/PrivateMessage.ui" line="56"/>
@@ -5163,7 +5163,7 @@ aktiverad i inställningarna, kommer filen att laddas ned utan att sökfönstret
     <message>
         <location filename="../ui/UIPublicHubs.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished"/>
+        <translation>Form</translation>
     </message>
 </context>
 <context>
@@ -5171,7 +5171,7 @@ aktiverad i inställningarna, kommer filen att laddas ned utan att sökfönstret
     <message>
         <location filename="../ui/UIPublicHubsList.ui" line="14"/>
         <source>Dialog</source>
-        <translation type="unfinished"/>
+        <translation>Dialog</translation>
     </message>
     <message>
         <location filename="../ui/UIPublicHubsList.ui" line="23"/>
@@ -5204,7 +5204,7 @@ aktiverad i inställningarna, kommer filen att laddas ned utan att sökfönstret
     <message>
         <location filename="../ui/UIQueuedUsers.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished"/>
+        <translation>Form</translation>
     </message>
 </context>
 <context>
@@ -5245,7 +5245,7 @@ aktiverad i inställningarna, kommer filen att laddas ned utan att sökfönstret
     <message>
         <location filename="../ui/UIScriptManager.ui" line="39"/>
         <source>When script changed</source>
-        <translation type="unfinished"/>
+        <translation>När skriptet ändras</translation>
     </message>
 </context>
 <context>
@@ -5279,7 +5279,7 @@ aktiverad i inställningarna, kommer filen att laddas ned utan att sökfönstret
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished"/>
+        <translation>Form</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="27"/>
@@ -5502,7 +5502,7 @@ DC++ SOCKS5-stöd omfattar inte GSSAPI.</translation>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="475"/>
         <source>Enable Throttle</source>
-        <translation type="unfinished"/>
+        <translation>Aktivera fartbegränsning</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="506"/>
@@ -5609,7 +5609,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="866"/>
         <source>Minimal cost</source>
-        <translation type="unfinished"/>
+        <translation>Minimal kostnad</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="876"/>
@@ -5657,7 +5657,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished"/>
+        <translation>Form</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="30"/>
@@ -5764,31 +5764,35 @@ Den används inte till upp-/nedladdning eller anslutning till en hubb.</translat
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="284"/>
         <source>Auto-priority settings</source>
-        <translation type="unfinished"/>
+        <translation>Automatiska prioritetsinställningar</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="293"/>
         <source>Files with the same or under the entered size
 will be set to Highest as priority. (default: 64 KiB)</source>
-        <translation type="unfinished"/>
+        <translation>Filer med samma eller mindre filstorlek kommer
+att få högsta prioritet. (standard: 64 KiB)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="304"/>
         <source>Files with the same or under the entered size, but above Highest
 prio max size, will be set to High as priority. (default: 0 KiB)</source>
-        <translation type="unfinished"/>
+        <translation>Filer med samma eller mindre filstorlek, men över högsta
+prioritet kommer att få hög prioritet. (standard: 0 KiB)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="315"/>
         <source>Files with the same or under the entered size, but above Highest and
 High prio max size, will be set to Normal as priority. (default: 0 KiB)</source>
-        <translation type="unfinished"/>
+        <translation>Filer med samma eller mindre filstorlek, men över högsta och hög
+prioritet kommer att få normal prioritet. (standard: 0 KiB)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="326"/>
         <source>Files with the same or under the entered size, but above Highest, High
 and Normal prio max size, will be set to Low as priority. (default: 0 KiB)</source>
-        <translation type="unfinished"/>
+        <translation>Filer med samma eller mindre filstorlek, men över högsta, hög och
+normal prioritet kommer att få låg prioritet. (standard: 0 KiB)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="343"/>
@@ -5846,7 +5850,8 @@ disconnected only because of their current inactivity. (default: 10 s)</source>
         <location filename="../ui/UISettingsDownloads.ui" line="474"/>
         <source>Minimum amount of sources before any sources
 will be dropped. (default: 1)</source>
-        <translation type="unfinished"/>
+        <translation>Minsta antal källor innan någon källa automatisk
+blir frånkopplad. (standard: 1)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="485"/>
@@ -5912,7 +5917,8 @@ Inaktiverad kommer filerna att ställas in med Normal prioritet.</translation>
         <source>This option removes the slow sources for all queue items (except file lists).
 To enable autodrop, turn on either &quot;Autodrop slow sources for all queue items&quot;
 or &quot;Remove slow file lists&quot; (or both of them).</source>
-        <translation type="unfinished"/>
+        <translation>Denna inställning raderar långsamma källor för alla nedladdningar
+(utom fillistor). För att fungera måste du aktivera &quot;Stäng automatiskt ner alla långsamma källor&quot; eller  &quot;Ta bort långsamma fillistor&quot; (eller båda).</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="658"/>
@@ -5925,7 +5931,9 @@ or &quot;Remove slow file lists&quot; (or both of them).</source>
 was recognized as too slow.
 To enable autodrop, turn on either &quot;Autodrop slow sources for all queue items&quot;
 or &quot;Remove slow file lists&quot; (or both of them).</source>
-        <translation type="unfinished"/>
+        <translation>Aktiverad kommer EiskaltDC++ att radera långsamma fillistor.
+För att fungera måste du aktivera &quot;Stäng automatiskt ner alla långsamma
+källor&quot; eller  &quot;Ta bort långsamma fillistor&quot; (eller båda).</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="675"/>
@@ -5969,7 +5977,12 @@ for many more files you're downloading. Enable if unsure.
 The drawbacks are that it might add slower sources, possibly
 increasing the time needed to complete a download,
 and that you&apos;ll download a lot of file lists.</source>
-        <translation type="unfinished"/>
+        <translation>Aktivera för att automatiskt ladda ner användarnas fillistor och matcha
+dem som källor i din nedladdningskö mot alla dina filer du har i kö.
+Om du laddar ned en hel uppsättning filer är det troligen att denna
+användare har fler av de filer du har i kö. Aktivera om du är osäker å vad
+du ska välja. En nackdel kan vara att du lägger till en massa långsamma
+källor som förlänger nedladdningstiden och att du kommer att ladda ned många fillistor.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="730"/>
@@ -5982,7 +5995,10 @@ and that you&apos;ll download a lot of file lists.</source>
 try to download will be silently skipped.
 Sometimes empty files contain information through their naming.
 However every file, even an empty one, will consume some drive space.</source>
-        <translation type="unfinished"/>
+        <translation>När denna inställning är aktiverad, kommer alla filer
+på 0 byte att aldrig laddas ned.
+I bland innehåller sjäva filnamnet information men,
+varje fil, även tomma, tar upp lite diskutrymme.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="747"/>
@@ -6029,7 +6045,15 @@ their target location, it won't result automatic deletion of
 the corresponding finished entries from the queue.
 If you disable this function, it won't remove existing finished items
 from the queue either, you must do that manually.</source>
-        <translation type="unfinished"/>
+        <translation>Aktivera om du vill behålla nedladdade filer och mappar i
+nedladdningskön även efter de är klara. När de är klara kommer de
+att vara kvar som klara nedladdningar och du kan sedan radera dem
+när du vill. När du använder denna funktion kan du se och hålla
+kontroll på alla filer som laddas ned utan att öppna fönstret för
+klara nedladdningar.
+Tänk på att när du flyttar eller raderar filer du laddat ned kommer
+inte dessa försvinna från fönstret. Samma gäller om du stänger av
+denna funktionen, du måste då radera dem manuellt.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="807"/>
@@ -6101,12 +6125,12 @@ denna funktionen, du måste då radera dem manuellt.</translation>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished"/>
+        <translation>Form</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="24"/>
         <source>Basic</source>
-        <translation type="unfinished"/>
+        <translation>Grundläggande</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="30"/>
@@ -6242,7 +6266,7 @@ denna funktionen, du måste då radera dem manuellt.</translation>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="305"/>
         <source>Do not change focus on new incoming private messages</source>
-        <translation type="unfinished"/>
+        <translation>Ändra inte aktivt fönster vid nya inkommande privatmeddelanden</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="315"/>
@@ -6252,7 +6276,7 @@ denna funktionen, du måste då radera dem manuellt.</translation>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="322"/>
         <source>Filter kick-messages from the chat</source>
-        <translation type="unfinished"/>
+        <translation>Filtrera bort kickmeddelanden från chatten</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="329"/>
@@ -6281,7 +6305,7 @@ de är avskilda från andra ord med mellanslag.</translation>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="358"/>
         <source>Use emoticons panel</source>
-        <translation type="unfinished"/>
+        <translation>Använd uttryckssymbolpanel</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="365"/>
@@ -6407,7 +6431,8 @@ de är avskilda från andra ord med mellanslag.</translation>
         <location filename="../ui/UISettingsGUI.ui" line="674"/>
         <source>Depending on hub configuration: information about
 them is usually available only to operators</source>
-        <translation type="unfinished"/>
+        <translation>Beroende på hubbinställningar är informationen om
+dem oftast bara tillgängliga för operatörer</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="678"/>
@@ -6487,7 +6512,7 @@ them is usually available only to operators</source>
     <message>
         <location filename="../ui/UISettingsHistory.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished"/>
+        <translation>Form</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsHistory.ui" line="44"/>
@@ -6526,7 +6551,7 @@ them is usually available only to operators</source>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished"/>
+        <translation>Form</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="20"/>
@@ -6596,7 +6621,7 @@ them is usually available only to operators</source>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="300"/>
         <source>Auto search alternates</source>
-        <translation type="unfinished"/>
+        <translation>Sök automatiskt efter nya källor</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="313"/>
@@ -6627,7 +6652,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished"/>
+        <translation>FormForm</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="24"/>
@@ -6637,7 +6662,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="30"/>
         <source>Ask confirm before exit</source>
-        <translation type="unfinished"/>
+        <translation>Bekräfta programavslut</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="40"/>
@@ -6728,7 +6753,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="295"/>
         <source>Favorite user event</source>
-        <translation type="unfinished"/>
+        <translation>Favoritanvändarhändelse</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="343"/>
@@ -6750,7 +6775,7 @@ Till exempel: /usr/bin/mplayer</translation>
     <message>
         <location filename="../ui/UISettingsPersonal.ui" line="20"/>
         <source>Form</source>
-        <translation type="unfinished"/>
+        <translation>Form</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsPersonal.ui" line="38"/>
@@ -6834,12 +6859,12 @@ Välj inte din nedladdningshastighet då denna visar hur fort andra användare k
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished"/>
+        <translation>Form</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="27"/>
         <source>Basic</source>
-        <translation type="unfinished"/>
+        <translation>Grundläggande</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="33"/>
@@ -7091,7 +7116,7 @@ stänga hans slott, men om användaren återkommer inom
     <message>
         <location filename="../ui/UISettingsShortcuts.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished"/>
+        <translation>Form</translation>
     </message>
 </context>
 <context>
@@ -7099,7 +7124,7 @@ stänga hans slott, men om användaren återkommer inom
     <message>
         <location filename="../ui/UISettingsUC.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished"/>
+        <translation>Form</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsUC.ui" line="42"/>
@@ -7132,7 +7157,7 @@ stänga hans slott, men om användaren återkommer inom
     <message>
         <location filename="../ui/UIShareBrowser.ui" line="20"/>
         <source>Form</source>
-        <translation type="unfinished"/>
+        <translation>Form</translation>
     </message>
     <message utf8="true">
         <location filename="../ui/UIShareBrowser.ui" line="103"/>
@@ -7193,7 +7218,7 @@ stänga hans slott, men om användaren återkommer inom
     <message>
         <location filename="../ui/UISpy.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished"/>
+        <translation>Form</translation>
     </message>
     <message>
         <location filename="../ui/UISpy.ui" line="35"/>
@@ -7221,7 +7246,7 @@ stänga hans slott, men om användaren återkommer inom
     <message>
         <location filename="../ui/UITransferView.ui" line="20"/>
         <source>Form</source>
-        <translation type="unfinished"/>
+        <translation>Form</translation>
     </message>
 </context>
 <context>

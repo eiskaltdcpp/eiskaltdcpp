@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
 "POT-Creation-Date: 2014-06-03 08:35+0400\n"
-"PO-Revision-Date: 2014-09-17 12:34+0000\n"
+"PO-Revision-Date: 2014-09-24 15:15+0000\n"
 "Last-Translator: Sopor\n"
 "Language-Team: Swedish (Sweden) (http://www.transifex.com/projects/p/eiskaltdcpp/language/sv_SE/)\n"
 "MIME-Version: 1.0\n"
@@ -673,7 +673,7 @@ msgstr "Avancerat"
 
 #: ../src/hub.cc:2070
 msgid "Alias A executing"
-msgstr ""
+msgstr "Alias A executing"
 
 #: ../src/hub.cc:2067
 msgid "Alias List"
@@ -685,7 +685,7 @@ msgstr "Alias ta bort A"
 
 #: ../src/hub.cc:2069
 msgid "Alias add uname -a as A"
-msgstr ""
+msgstr "Alias add uname -a as A"
 
 #: ../src/hub.cc:2269
 msgid "Aliases not found."
@@ -868,7 +868,7 @@ msgstr "Svart/Vit"
 
 #: ../ui/settingsdialog.ui:5362
 msgid "Bold Authors of message in chat"
-msgstr ""
+msgstr "Fetstila användarna i chatten"
 
 #: ../ui/settingsdialog.ui:8949
 msgid "Both"
@@ -1945,7 +1945,7 @@ msgstr "Högsta"
 
 #: ../ui/settingsdialog.ui:3322
 msgid "Highest priority max size"
-msgstr ""
+msgstr "Högsta prioritet maximal storlek"
 
 #: ../ui/mainwindow.ui:1561
 msgid "Homepage"
@@ -2689,7 +2689,7 @@ msgstr "Pausad..."
 
 #: ../ui/settingsdialog.ui:1267
 msgid "Personal"
-msgstr ""
+msgstr "Personal"
 
 #: ../ui/settingsdialog.ui:4243
 msgid "Pictures"
