@@ -4017,10 +4017,6 @@ Do you want to stop it?
         <translation>Arquivo</translation>
     </message>
     <message>
-        <source>Host</source>
-        <translation type="obsolete">Host</translation>
-    </message>
-    <message>
         <location filename="../src/TransferView.cpp" line="76"/>
         <source>Hub</source>
         <translation type="unfinished">Hub</translation>
@@ -7072,10 +7068,6 @@ if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</sourc
         <location filename="../ui/UIShareBrowserSearch.ui" line="54"/>
         <source>Name</source>
         <translation type="unfinished">Nome</translation>
-    </message>
-    <message>
-        <source>Filename</source>
-        <translation type="obsolete">Arquivo</translation>
     </message>
     <message>
         <location filename="../ui/UIShareBrowserSearch.ui" line="59"/>

@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR EiskaltDC++ team
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Translators:
 # gray <grayich@ukr.net>, 2013-2014
@@ -9,15 +9,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2014-06-03 08:35+0400\n"
+"POT-Creation-Date: 2014-10-12 00:28+0400\n"
 "PO-Revision-Date: 2014-06-03 10:48+0000\n"
 "Last-Translator: gray <grayich@ukr.net>\n"
-"Language-Team: Ukrainian (http://www.transifex.com/projects/p/eiskaltdcpp/language/uk/)\n"
+"Language-Team: Ukrainian (http://www.transifex.com/projects/p/eiskaltdcpp/"
+"language/uk/)\n"
+"Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: uk\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: ../src/privatemessage.cc:565 ../src/privatemessage.cc:644
 #: ../src/hub.cc:1065 ../src/hub.cc:1144
@@ -80,7 +82,7 @@ msgstr " це не обраний користувач"
 msgid " left"
 msgstr " залишишось"
 
-#: ../src/downloadqueue.cc:1294
+#: ../src/downloadqueue.cc:1290
 msgid " of "
 msgstr " із "
 
@@ -96,7 +98,7 @@ msgstr " до "
 msgid " user(s)"
 msgstr " користувач(ів)"
 
-#: ../src/downloadqueue.cc:1294
+#: ../src/downloadqueue.cc:1290
 msgid " user(s) online"
 msgstr " користувач(ів) в мережі"
 
@@ -114,7 +116,15 @@ msgid ""
 "%% a literal '%' character.\n"
 "\n"
 "see man strftime for details."
-msgstr "%a скорочено день тижня.\n%b скорочено ім'я місяця.\n%H година, як десятинне число в 24-часовому форматі.\n%M хвилина, як десятинне число (від 00 до 59).\n%S секунда, як десятинне число (від 00 до 59).\n%% символ '%'.\n\nдив. детальніше man strftime."
+msgstr ""
+"%a скорочено день тижня.\n"
+"%b скорочено ім'я місяця.\n"
+"%H година, як десятинне число в 24-часовому форматі.\n"
+"%M хвилина, як десятинне число (від 00 до 59).\n"
+"%S секунда, як десятинне число (від 00 до 59).\n"
+"%% символ '%'.\n"
+"\n"
+"див. детальніше man strftime."
 
 #: ../src/hub.cc:2369
 msgid "': type /help for a list of available commands"
@@ -146,7 +156,7 @@ msgstr "...має бути *.theme"
 msgid "...must not be empty"
 msgstr "...не має бути пустим"
 
-#: ../src/downloadqueue.cc:1320
+#: ../src/downloadqueue.cc:1316
 msgid "0 B (0.00%)"
 msgstr "0 б (0.00%)"
 
@@ -276,9 +286,11 @@ msgstr ": /help для отримання списку доступних ком
 
 #: ../ui/settingsdialog.ui:7259
 msgid ""
-"<a "
-"href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html\">Help</a>"
-msgstr "<a href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html\">Допомога</a>"
+"<a href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html"
+"\">Help</a>"
+msgstr ""
+"<a href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html"
+"\">Допомога</a>"
 
 #: ../ui/settingsdialog.ui:3855
 msgid "<b>Add player</b>"
@@ -438,7 +450,9 @@ msgstr "<b>Нове ім'я</b>"
 
 #: ../ui/settingsdialog.ui:9258 ../ui/publichubs.ui:151
 msgid "<b>Note:</b> Edit urls in the list by clicking them once when selected"
-msgstr "<b>Примітка:</b> Для зміни посилань в цьому списку достатньо одного кліка після виділення"
+msgstr ""
+"<b>Примітка:</b> Для зміни посилань в цьому списку достатньо одного кліка "
+"після виділення"
 
 #: ../ui/settingsdialog.ui:5545
 msgid "<b>Notify</b>"
@@ -574,7 +588,9 @@ msgstr "<b>файл:</b> "
 
 #: ../ui/favoritehubs.ui:444
 msgid "<small>Note: Leave unchecked for default values</small>"
-msgstr "<small>Примітка: Зніміть прапорець, якщо хочете залишити значення по замовчуванню</small>"
+msgstr ""
+"<small>Примітка: Зніміть прапорець, якщо хочете залишити значення по "
+"замовчуванню</small>"
 
 #: ../src/sharebrowser.hh:149 ../src/sharebrowser.hh:152
 msgid "?"
@@ -624,7 +640,9 @@ msgstr "Одразу додавати завантажені файли до ш�
 msgid ""
 "Add rule 192.168.1.0/23 where direction incoming and action is allow and "
 "192.168.6.0/24 where direction is incoming or outcoming and action is drop"
-msgstr "Додає правило 192.168.1.0/23, де напрямок - вхідні, дія - дозволити, і правило 192.168.6.0/24, де напрямок - вхідні та вихідні, а дія - пропустити"
+msgstr ""
+"Додає правило 192.168.1.0/23, де напрямок - вхідні, дія - дозволити, і "
+"правило 192.168.6.0/24, де напрямок - вхідні та вихідні, а дія - пропустити"
 
 #: ../ui/mainwindow.ui:288
 msgid "Add this file to your download queue"
@@ -966,7 +984,7 @@ msgstr "CP949"
 msgid "CRC Checked"
 msgstr "CRC Перевірено"
 
-#: ../src/downloadqueue.cc:1364
+#: ../src/downloadqueue.cc:1360
 msgid "CRC32 inconsistency (SFV-Check)"
 msgstr "CRC32 невідповідність (SFV-Перевірка)"
 
@@ -1207,7 +1225,11 @@ msgid ""
 "\n"
 "EiskaltDC++ version: %s (%s)\n"
 "DC++ core version: %s"
-msgstr "Клієнт оснований на вихідному коді FreeDC++ та LinuxDC++\n\nEiskaltDC++ версія: %s (%s)\nDC++ версія ядра: %s"
+msgstr ""
+"Клієнт оснований на вихідному коді FreeDC++ та LinuxDC++\n"
+"\n"
+"EiskaltDC++ версія: %s (%s)\n"
+"DC++ версія ядра: %s"
 
 #: ../ui/cmddebug.ui:99
 msgid "DETECTION"
@@ -1393,7 +1415,9 @@ msgstr "Обмеження завантаження зображення:"
 
 #: ../src/hub.cc:2056
 msgid "Download limit image: 0 - disable, n < 0 - unlimit, empty - info"
-msgstr "Обмеження завантаження картинки: 0 - викнено, n < 0 - необмежено, пусто - інформація"
+msgstr ""
+"Обмеження завантаження картинки: 0 - викнено, n < 0 - необмежено, пусто - "
+"інформація"
 
 #: ../src/transfers.cc:1099
 msgid "Download removed"
@@ -1680,7 +1704,7 @@ msgstr "Список файлів завантажено"
 msgid "File name"
 msgstr "Ім'я файлу"
 
-#: ../src/downloadqueue.cc:1360
+#: ../src/downloadqueue.cc:1356
 msgid "File not available"
 msgstr "Файл не доступний"
 
@@ -1807,7 +1831,9 @@ msgstr "Кадр (розмір)"
 msgid ""
 "Frame size determines the width of the review, higher values affect "
 "performance"
-msgstr "Розмір кадра визначає ширину огляду, великі значення впливають на продуктивність"
+msgstr ""
+"Розмір кадра визначає ширину огляду, великі значення впливають на "
+"продуктивність"
 
 #: ../ui/searchspy.ui:313
 msgid "Frame:"
@@ -1829,7 +1855,7 @@ msgstr "Французький переклад\n"
 msgid "Full Path"
 msgstr "Повний шлях"
 
-#: ../src/downloadqueue.cc:1366
+#: ../src/downloadqueue.cc:1362
 msgid "Full tree does not match TTH root"
 msgstr "Не відповідність корню ТТН"
 
@@ -1930,7 +1956,7 @@ msgstr "Сховати бічну панель"
 msgid "Hide tools panel"
 msgstr "Сховати панель інструментів"
 
-#: ../src/downloadqueue.cc:1336
+#: ../src/downloadqueue.cc:1332
 msgid "High"
 msgstr "Високий"
 
@@ -1938,7 +1964,7 @@ msgstr "Високий"
 msgid "High priority max size"
 msgstr "Вищий"
 
-#: ../src/downloadqueue.cc:1339
+#: ../src/downloadqueue.cc:1335
 msgid "Highest"
 msgstr "Найвищий"
 
@@ -2086,8 +2112,7 @@ msgstr "Імпорт..."
 msgid "Indexing Progress"
 msgstr "Прогрес хешування"
 
-#: ../src/hashdialog.cc:40 ../src/hashdialog.cc:119 ../src/hashdialog.cc:136
-#: ../ui/hash.ui:7
+#: ../src/hashdialog.cc:132 ../ui/hash.ui:7
 msgid "Indexing files..."
 msgstr "Хешування файлів..."
 
@@ -2241,7 +2266,7 @@ msgstr "Журнал віддач"
 msgid "Logs"
 msgstr "Журнали"
 
-#: ../src/downloadqueue.cc:1333
+#: ../src/downloadqueue.cc:1329
 msgid "Low"
 msgstr "Низький"
 
@@ -2249,7 +2274,7 @@ msgstr "Низький"
 msgid "Low priority size"
 msgstr "Низький"
 
-#: ../src/downloadqueue.cc:1330
+#: ../src/downloadqueue.cc:1326
 msgid "Lowest"
 msgstr "Найнижчий"
 
@@ -2499,7 +2524,7 @@ msgstr "Ніки"
 msgid "No"
 msgstr "Ні"
 
-#: ../src/downloadqueue.cc:1376
+#: ../src/downloadqueue.cc:1372
 msgid "No errors"
 msgstr "Без помилок"
 
@@ -2519,7 +2544,7 @@ msgstr "Не завантажувати, якщо швидкість вище (�
 msgid "No search text entered"
 msgstr "Не введено текст для пошуку"
 
-#: ../src/downloadqueue.cc:1289
+#: ../src/downloadqueue.cc:1285
 msgid "No users"
 msgstr "Немає користувачів"
 
@@ -2531,7 +2556,7 @@ msgstr "Немає іконки"
 msgid "Noon"
 msgstr "Полдень"
 
-#: ../src/downloadqueue.cc:1342 ../ui/search.ui:86
+#: ../src/downloadqueue.cc:1338 ../ui/search.ui:86
 msgid "Normal"
 msgstr "Нормальний"
 
@@ -2545,7 +2570,8 @@ msgstr "Не знайдено користувача: "
 
 #: ../ui/settingsdialog.ui:8460
 msgid "Note: Custom search types will only be applied to ADC hubs!"
-msgstr "Примітка: Вказані пошукові типи будуть застосовуватися тільки для ADC хабів!"
+msgstr ""
+"Примітка: Вказані пошукові типи будуть застосовуватися тільки для ADC хабів!"
 
 #: ../ui/settingsdialog.ui:4815 ../ui/settingsdialog.ui:4885
 msgid "Note: Most of these options require that you restart the application"
@@ -2556,9 +2582,9 @@ msgid "Note: New files are added to the share only once they've been hashed!"
 msgstr "Примітка: Нові файли будуть додані до шари лише після хешування!"
 
 #: ../ui/settingsdialog.ui:2845
-msgid ""
-"Note; because of changing download speeds, this is not 100% accurate..."
-msgstr "Примітка; точність не 100%, так як швидкість завантаження не змінюється..."
+msgid "Note; because of changing download speeds, this is not 100% accurate..."
+msgstr ""
+"Примітка; точність не 100%, так як швидкість завантаження не змінюється..."
 
 #: ../src/settingsdialog.cc:1335 ../ui/settingsdialog.ui:5883
 msgid "Notify"
@@ -2654,7 +2680,7 @@ msgstr "Розбір і побудова дерева..."
 msgid "Passive"
 msgstr "Пасивний"
 
-#: ../src/downloadqueue.cc:1362
+#: ../src/downloadqueue.cc:1358
 msgid "Passive user"
 msgstr "Пасивний користувач"
 
@@ -2678,17 +2704,19 @@ msgstr "Шлях"
 msgid "Pause"
 msgstr "Пауза"
 
-#: ../src/downloadqueue.cc:1327
+#: ../src/downloadqueue.cc:1323
 msgid "Paused"
 msgstr "Призупинено"
 
-#: ../src/hashdialog.cc:40 ../src/hashdialog.cc:124 ../src/hashdialog.cc:136
+#: ../src/hashdialog.cc:132
 msgid "Paused..."
 msgstr "Пауза..."
 
 #: ../ui/settingsdialog.ui:1267
 msgid "Personal"
-msgstr "Персональна\n інформація"
+msgstr ""
+"Персональна\n"
+" інформація"
 
 #: ../ui/settingsdialog.ui:4243
 msgid "Pictures"
@@ -2855,7 +2883,7 @@ msgstr "Перехоплювати зовнішні магнет-посилан�
 msgid "Remember choice"
 msgstr "Запам'ятати вибір"
 
-#: ../src/downloadqueue.cc:1370
+#: ../src/downloadqueue.cc:1366
 msgid "Remote client does not fully support TTH - cannot download"
 msgstr "Віддалений клієнт не повністю підтримує ТТН - неможливо завантажити"
 
@@ -2924,7 +2952,7 @@ msgstr "Праворуч"
 msgid "Run in background"
 msgstr "Виконувати у фоні"
 
-#: ../src/downloadqueue.cc:1296
+#: ../src/downloadqueue.cc:1292
 msgid "Running..."
 msgstr "Виконується..."
 
@@ -3076,14 +3104,17 @@ msgstr "Сербський (латиниця) переклад\n"
 
 #: ../src/hub.cc:2066
 msgid ""
-"Set Core option param in value (without value return current value of "
-"option)"
-msgstr "Встановити опцію ядра в значення value (без параметра value повертає поточне значення опції) "
+"Set Core option param in value (without value return current value of option)"
+msgstr ""
+"Встановити опцію ядра в значення value (без параметра value повертає поточне "
+"значення опції) "
 
 #: ../src/hub.cc:2065
 msgid ""
 "Set GUI option param in value (without value return current value of option)"
-msgstr "Встановити опцію GUI в значення value (без параметра value повертає поточне значення опції)"
+msgstr ""
+"Встановити опцію GUI в значення value (без параметра value повертає поточне "
+"значення опції)"
 
 #: ../ui/downloadqueue.ui:81 ../ui/downloadqueue.ui:215
 msgid "Set Priorit_y"
@@ -3098,9 +3129,10 @@ msgid "Set download limit image: "
 msgstr "Вставити обмеження завантаження: "
 
 #: ../src/settingsdialog.cc:986
-msgid ""
-"Set lowest priority for newly added files larger than low priority size"
-msgstr "Встановлювати найнижчий пріоритет для файлів, що перевищують розмір низького пріоритету"
+msgid "Set lowest priority for newly added files larger than low priority size"
+msgstr ""
+"Встановлювати найнижчий пріоритет для файлів, що перевищують розмір низького "
+"пріоритету"
 
 #: ../ui/settingsdialog.ui:4054
 msgid "Share hidden files"
@@ -3289,7 +3321,7 @@ msgstr "Сирці (git)"
 msgid "Source Type"
 msgstr "Тип джерела"
 
-#: ../src/downloadqueue.cc:1368
+#: ../src/downloadqueue.cc:1364
 msgid "Source too slow"
 msgstr "Надто повільне джерело"
 
@@ -3406,7 +3438,9 @@ msgstr "Стиль тексту"
 msgid ""
 "The increase in waiting time increases the likelihood of adding to top, but "
 "reduces the dynamics (updating) frame"
-msgstr "Збільшення часу очікування збільшує ймовірність додання в топ, але знижує динаміку (оновлення) кадра"
+msgstr ""
+"Збільшення часу очікування збільшує ймовірність додання в топ, але знижує "
+"динаміку (оновлення) кадра"
 
 #: ../src/favoritehubs.cc:419
 msgid "The name and address fields are required"
@@ -3458,7 +3492,9 @@ msgstr "Кому (пусто для вибраного користувача)"
 msgid ""
 "To start downloading file you need turn on auto search alternatives "
 "(Settings/Downloads/Queue)"
-msgstr "Для початку завантаження файлу увімкніть автопошук альтернатив (Налаштування/Завантаження/Черга)"
+msgstr ""
+"Для початку завантаження файлу увімкніть автопошук альтернатив (Налаштування/"
+"Завантаження/Черга)"
 
 #: ../ui/settingsdialog.ui:6193
 msgid "Toolbar"
@@ -3544,7 +3580,8 @@ msgstr "Український переклад\n"
 
 #: ../src/hub.cc:2986
 msgid "Unable to connect: already connected to the requested hub"
-msgstr "Неможливо встановити з'єднання: запит перенаправлено на підключений хаб"
+msgstr ""
+"Неможливо встановити з'єднання: запит перенаправлено на підключений хаб"
 
 #: ../src/sharebrowser.cc:216
 msgid "Unable to load file list: "
@@ -3556,16 +3593,19 @@ msgstr "Не можливо завантажити список файлів: Н
 
 #: ../src/mainwindow.cc:2284
 msgid ""
-"Unable to open %1% port. Searching or file transfers will not work correctly"
-" until you change settings or turn off any application that might be using "
+"Unable to open %1% port. Searching or file transfers will not work correctly "
+"until you change settings or turn off any application that might be using "
 "that port."
-msgstr "Неможливо відкрити порт %1%. Пошук й обмін файлами не будуть працювати коректно поки ви не зміните налаштування або інший додаток не припинить використовувати цей порт."
+msgstr ""
+"Неможливо відкрити порт %1%. Пошук й обмін файлами не будуть працювати "
+"коректно поки ви не зміните налаштування або інший додаток не припинить "
+"використовувати цей порт."
 
 #: ../ui/settingsdialog.ui:2688
 msgid "Unfinished downloads directory"
 msgstr "Тека незавершених завантажень"
 
-#: ../src/downloadqueue.cc:1302 ../src/downloadqueue.cc:1303
+#: ../src/downloadqueue.cc:1298 ../src/downloadqueue.cc:1299
 #: ../src/WulforUtil.cc:332 ../src/WulforUtil.cc:334 ../src/mainwindow.cc:1084
 #: ../src/mainwindow.cc:1474
 msgid "Unknown"
@@ -3791,12 +3831,22 @@ msgid ""
 "Using:\n"
 "  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n"
 "  eiskaltdcpp-gtk <Key>\n"
-"EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC protocol.\n"
+"EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC "
+"protocol.\n"
 "\n"
 "Keys:\n"
 "  -h, --help\t Show this message\n"
 "  -V, --version\t Show version string\n"
-msgstr "Використовується:\n  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n  eiskaltdcpp-gtk <Key>\nEiskaltDC++ це крос-платформенна програма, що використовує Direct Connect та ADC протоколи.\n\nКлючі:\n  -h, --help\t Показати це повідомлення\n  -V, --version\t Показати версію\n"
+msgstr ""
+"Використовується:\n"
+"  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n"
+"  eiskaltdcpp-gtk <Key>\n"
+"EiskaltDC++ це крос-платформенна програма, що використовує Direct Connect та "
+"ADC протоколи.\n"
+"\n"
+"Ключі:\n"
+"  -h, --help\t Показати це повідомлення\n"
+"  -V, --version\t Показати версію\n"
 
 #: ../src/sharebrowser.cc:91 ../src/sharebrowser.cc:369
 msgid "Video"

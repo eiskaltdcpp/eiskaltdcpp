@@ -4014,10 +4014,6 @@ Chcesz go zatrzymać?
         <translation>Nazwa pliku</translation>
     </message>
     <message>
-        <source>Host</source>
-        <translation type="obsolete">Host</translation>
-    </message>
-    <message>
         <location filename="../src/TransferView.cpp" line="76"/>
         <source>Hub</source>
         <translation type="unfinished"></translation>
@@ -7123,10 +7119,6 @@ jeżeli użytkownik powróci na hub w ciągu 10 minut, EiskaltDC++ przyzna mu ex
         <location filename="../ui/UIShareBrowserSearch.ui" line="54"/>
         <source>Name</source>
         <translation type="unfinished">Nazwa</translation>
-    </message>
-    <message>
-        <source>Filename</source>
-        <translation type="obsolete">Nazwa pliku</translation>
     </message>
     <message>
         <location filename="../ui/UIShareBrowserSearch.ui" line="59"/>

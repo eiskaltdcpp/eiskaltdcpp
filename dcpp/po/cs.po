@@ -4,11 +4,12 @@
 #
 # Translators:
 # Translators:
+# Translators:
 msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2014-06-03 08:35+0400\n"
+"POT-Creation-Date: 2014-10-12 00:28+0400\n"
 "PO-Revision-Date: 2013-11-19 16:45+0000\n"
 "Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
 "Language-Team: Czech (http://www.transifex.com/projects/p/eiskaltdcpp/"
@@ -59,15 +60,15 @@ msgstr "TTH"
 msgid "CD Image"
 msgstr "CD Image"
 
-#: ../SearchManager.cpp:146
+#: ../SearchManager.cpp:149
 msgid "Search enabled again"
 msgstr ""
 
-#: ../SearchManager.cpp:154
+#: ../SearchManager.cpp:157
 msgid "Search disabled: %1%"
 msgstr ""
 
-#: ../SearchManager.cpp:278 ../SearchManager.cpp:365 ../SearchManager.cpp:367
+#: ../SearchManager.cpp:281 ../SearchManager.cpp:368 ../SearchManager.cpp:370
 #: ../Transfer.cpp:81 ../Transfer.cpp:85 ../QueueManager.cpp:2171
 #: ../QueueManager.cpp:2177 ../QueueManager.cpp:2183 ../ClientManager.cpp:178
 msgid "Offline"
@@ -101,18 +102,18 @@ msgstr "Nelze číst hash souborů"
 msgid "Error creating hash data file: %1%"
 msgstr "Chyba vytváření souboru hashe: %1%"
 
-#: ../HashManager.cpp:946
+#: ../HashManager.cpp:958
 msgid "Hash database rebuilt"
 msgstr "Hash databáze obnovena"
 
-#: ../HashManager.cpp:1040
+#: ../HashManager.cpp:1052
 msgid ""
 "%1% not shared; calculated CRC32 does not match the one found in SFV file."
 msgstr ""
 "%1% není sdíleno; vypočtený součet CRC32 nesouhlasí se součtem ze souboru "
 "SFV."
 
-#: ../HashManager.cpp:1045
+#: ../HashManager.cpp:1057
 msgid "Error hashing %1%: %2%"
 msgstr "Chyba hashování %1%: %2%"
 
@@ -195,7 +196,7 @@ msgstr "Nelze odeslat soubor %1%: %2%"
 msgid "IPFilter: Blocked incoming connection to "
 msgstr "IPFilter: Blokováno příchozí spojení k "
 
-#: ../UploadManager.cpp:618
+#: ../UploadManager.cpp:625
 msgid "Disconnected user leaving the hub: %1%"
 msgstr "Odpojený uživatel opouštějící hub: %1%"
 
@@ -443,31 +444,31 @@ msgstr "Zahodit"
 msgid "SSL Error: %1% (%2%, %3%)"
 msgstr ""
 
-#: ../DownloadManager.cpp:134
+#: ../DownloadManager.cpp:135
 msgid "IPFilter: Blocked outgoing connection to "
 msgstr ""
 
-#: ../DownloadManager.cpp:229
+#: ../DownloadManager.cpp:237
 msgid "Invalid size"
 msgstr "Neplatná velikost"
 
-#: ../DownloadManager.cpp:234
+#: ../DownloadManager.cpp:242
 msgid "Response does not match request"
 msgstr "Odezva neodpovídá požadavku"
 
-#: ../DownloadManager.cpp:241
+#: ../DownloadManager.cpp:249
 msgid "Could not open target file: %1%"
 msgstr "Nemohu otevřít cílový soubor: %1%"
 
-#: ../DownloadManager.cpp:320
+#: ../DownloadManager.cpp:328
 msgid "Full tree does not match TTH root"
 msgstr "Stáhnutý strom neodpovídá porovnanému TTH základu (TTH root)"
 
-#: ../DownloadManager.cpp:385
+#: ../DownloadManager.cpp:393
 msgid "No slots available"
 msgstr "Nejsou volné žádné sloty"
 
-#: ../DownloadManager.cpp:496
+#: ../DownloadManager.cpp:504
 msgid "%1%: File not available"
 msgstr "%1%: Soubor není dostupný"
 
@@ -611,25 +612,21 @@ msgstr "Tento typ hledání již existuje"
 msgid "No such search type"
 msgstr "Takový typ hledávání není"
 
-#: ../SettingsManager.cpp:615
+#: ../SettingsManager.cpp:602 ../SettingsManager.cpp:607
 msgid "Error: setting not found!"
 msgstr "Chyba: nastaveni nenalezeno!"
 
-#: ../SettingsManager.cpp:617
+#: ../SettingsManager.cpp:602
 msgid "Core setting "
 msgstr ""
 
-#: ../SettingsManager.cpp:618
+#: ../SettingsManager.cpp:607
 msgid "Change core setting "
 msgstr "Změna nastavení jádra "
 
-#: ../SettingsManager.cpp:618
+#: ../SettingsManager.cpp:607
 msgid " to "
 msgstr " na "
-
-#: ../SettingsManager.cpp:620
-msgid "Error: segv parser :D"
-msgstr ""
 
 #: ../Socket.cpp:86
 #, c-format

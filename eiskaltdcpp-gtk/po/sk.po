@@ -3,12 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
+# Translators:
 msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2014-06-03 08:35+0400\n"
-"PO-Revision-Date: 2013-11-19 16:39+0000\n"
+"POT-Creation-Date: 2014-10-12 00:28+0400\n"
+"PO-Revision-Date: 2014-06-03 04:41+0000\n"
 "Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
 "Language-Team: Slovak (http://www.transifex.com/projects/p/eiskaltdcpp/"
 "language/sk/)\n"
@@ -79,7 +80,7 @@ msgstr "nie je obľúbený užívateľ"
 msgid " left"
 msgstr "ostáva"
 
-#: ../src/downloadqueue.cc:1294
+#: ../src/downloadqueue.cc:1290
 msgid " of "
 msgstr "z"
 
@@ -95,7 +96,7 @@ msgstr ""
 msgid " user(s)"
 msgstr "užívateľ(ia)"
 
-#: ../src/downloadqueue.cc:1294
+#: ../src/downloadqueue.cc:1290
 msgid " user(s) online"
 msgstr "Užívateľ(ia) prihlásený"
 
@@ -145,7 +146,7 @@ msgstr "...musí byť *.theme"
 msgid "...must not be empty"
 msgstr "...nemôže byť prázdny"
 
-#: ../src/downloadqueue.cc:1320
+#: ../src/downloadqueue.cc:1316
 msgid "0 B (0.00%)"
 msgstr ""
 
@@ -703,9 +704,8 @@ msgid "Allow few connections from one IP"
 msgstr ""
 
 #: ../src/settingsdialog.cc:1727
-#, fuzzy
 msgid "Allow only TLS connections to clients"
-msgstr "Povoliť TLS pripojenia ku klientom bez dôveryhodných certifikátov"
+msgstr ""
 
 #: ../src/settingsdialog.cc:1659
 msgid "Allow overlap chunks"
@@ -967,7 +967,7 @@ msgstr "CP949"
 msgid "CRC Checked"
 msgstr "CRC Checked"
 
-#: ../src/downloadqueue.cc:1364
+#: ../src/downloadqueue.cc:1360
 msgid "CRC32 inconsistency (SFV-Check)"
 msgstr "CRC32 inconsistency (SFV-Check)"
 
@@ -1687,7 +1687,7 @@ msgstr "Zoznam súborov načítaný"
 msgid "File name"
 msgstr ""
 
-#: ../src/downloadqueue.cc:1360
+#: ../src/downloadqueue.cc:1356
 msgid "File not available"
 msgstr "Súbor neprístupný"
 
@@ -1836,7 +1836,7 @@ msgstr ""
 msgid "Full Path"
 msgstr ""
 
-#: ../src/downloadqueue.cc:1366
+#: ../src/downloadqueue.cc:1362
 msgid "Full tree does not match TTH root"
 msgstr "Full tree does not match TTH root"
 
@@ -1937,7 +1937,7 @@ msgstr ""
 msgid "Hide tools panel"
 msgstr ""
 
-#: ../src/downloadqueue.cc:1336
+#: ../src/downloadqueue.cc:1332
 msgid "High"
 msgstr "Vysoká"
 
@@ -1945,7 +1945,7 @@ msgstr "Vysoká"
 msgid "High priority max size"
 msgstr ""
 
-#: ../src/downloadqueue.cc:1339
+#: ../src/downloadqueue.cc:1335
 msgid "Highest"
 msgstr "Najvyššia"
 
@@ -2093,8 +2093,7 @@ msgstr ""
 msgid "Indexing Progress"
 msgstr "Prebieha indexovanie"
 
-#: ../src/hashdialog.cc:40 ../src/hashdialog.cc:119 ../src/hashdialog.cc:136
-#: ../ui/hash.ui:7
+#: ../src/hashdialog.cc:132 ../ui/hash.ui:7
 msgid "Indexing files..."
 msgstr "Indexovanie súborov..."
 
@@ -2250,7 +2249,7 @@ msgstr ""
 msgid "Logs"
 msgstr ""
 
-#: ../src/downloadqueue.cc:1333
+#: ../src/downloadqueue.cc:1329
 msgid "Low"
 msgstr "Nízka"
 
@@ -2258,7 +2257,7 @@ msgstr "Nízka"
 msgid "Low priority size"
 msgstr ""
 
-#: ../src/downloadqueue.cc:1330
+#: ../src/downloadqueue.cc:1326
 msgid "Lowest"
 msgstr "Najnižšia"
 
@@ -2508,7 +2507,7 @@ msgstr "Prezývky"
 msgid "No"
 msgstr "Nie"
 
-#: ../src/downloadqueue.cc:1376
+#: ../src/downloadqueue.cc:1372
 msgid "No errors"
 msgstr "Bez chýb"
 
@@ -2528,7 +2527,7 @@ msgstr ""
 msgid "No search text entered"
 msgstr "Nebol zadaný text pre vyhľadávanie"
 
-#: ../src/downloadqueue.cc:1289
+#: ../src/downloadqueue.cc:1285
 msgid "No users"
 msgstr "Žiadny užívatelia"
 
@@ -2540,7 +2539,7 @@ msgstr ""
 msgid "Noon"
 msgstr ""
 
-#: ../src/downloadqueue.cc:1342 ../ui/search.ui:86
+#: ../src/downloadqueue.cc:1338 ../ui/search.ui:86
 msgid "Normal"
 msgstr "Normálna"
 
@@ -2662,7 +2661,7 @@ msgstr ""
 msgid "Passive"
 msgstr ""
 
-#: ../src/downloadqueue.cc:1362
+#: ../src/downloadqueue.cc:1358
 msgid "Passive user"
 msgstr "Pasívny užívateľ"
 
@@ -2686,11 +2685,11 @@ msgstr "Cesta"
 msgid "Pause"
 msgstr "Prestávka"
 
-#: ../src/downloadqueue.cc:1327
+#: ../src/downloadqueue.cc:1323
 msgid "Paused"
 msgstr "Pozastavený"
 
-#: ../src/hashdialog.cc:40 ../src/hashdialog.cc:124 ../src/hashdialog.cc:136
+#: ../src/hashdialog.cc:132
 msgid "Paused..."
 msgstr "Pozastavené..."
 
@@ -2863,7 +2862,7 @@ msgstr ""
 msgid "Remember choice"
 msgstr ""
 
-#: ../src/downloadqueue.cc:1370
+#: ../src/downloadqueue.cc:1366
 msgid "Remote client does not fully support TTH - cannot download"
 msgstr "Vzdialený klient nemá plnú podporu TTH - nieje možné sťahovanie"
 
@@ -2932,7 +2931,7 @@ msgstr ""
 msgid "Run in background"
 msgstr "Pustiť na pozadí"
 
-#: ../src/downloadqueue.cc:1296
+#: ../src/downloadqueue.cc:1292
 msgid "Running..."
 msgstr "Prebiehajúci"
 
@@ -3297,7 +3296,7 @@ msgstr "Zdroj (git)"
 msgid "Source Type"
 msgstr "Typ zdroja"
 
-#: ../src/downloadqueue.cc:1368
+#: ../src/downloadqueue.cc:1364
 msgid "Source too slow"
 msgstr "Zdroj je príliš pomalý"
 
@@ -3577,7 +3576,7 @@ msgstr ""
 msgid "Unfinished downloads directory"
 msgstr ""
 
-#: ../src/downloadqueue.cc:1302 ../src/downloadqueue.cc:1303
+#: ../src/downloadqueue.cc:1298 ../src/downloadqueue.cc:1299
 #: ../src/WulforUtil.cc:332 ../src/WulforUtil.cc:334 ../src/mainwindow.cc:1084
 #: ../src/mainwindow.cc:1474
 msgid "Unknown"

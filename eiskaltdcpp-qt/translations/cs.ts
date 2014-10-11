@@ -4031,10 +4031,6 @@ Chcete jej vypnout?
         <translation>Soubor</translation>
     </message>
     <message>
-        <source>Host</source>
-        <translation type="obsolete">Host</translation>
-    </message>
-    <message>
         <location filename="../src/TransferView.cpp" line="76"/>
         <source>Hub</source>
         <translation type="unfinished">Hub</translation>
@@ -7204,10 +7200,6 @@ pokud se uživatel vrátí do 10 minut, EiskaltDC++ mu tyto sloty navrátí.</tr
         <location filename="../ui/UIShareBrowserSearch.ui" line="54"/>
         <source>Name</source>
         <translation type="unfinished">Název</translation>
-    </message>
-    <message>
-        <source>Filename</source>
-        <translation type="obsolete">Soubor</translation>
     </message>
     <message>
         <location filename="../ui/UIShareBrowserSearch.ui" line="59"/>

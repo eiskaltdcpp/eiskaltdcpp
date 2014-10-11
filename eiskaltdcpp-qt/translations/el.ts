@@ -4024,10 +4024,6 @@ Do you want to stop it?
         <translation>Όνομα αρχείου</translation>
     </message>
     <message>
-        <source>Host</source>
-        <translation type="obsolete">Υπολογιστής</translation>
-    </message>
-    <message>
         <location filename="../src/TransferView.cpp" line="76"/>
         <source>Hub</source>
         <translation type="unfinished">Κόμβος</translation>

@@ -1,20 +1,21 @@
+# SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR EiskaltDC++ team
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
 # Translators:
-# Boris Pek <tehnick-8@mail.ru>, 2012.
-# Boris Pek <tehnick-8@yandex.ru>, 2012-2014.
-# Boris Pek <tehnick-8@yandex.ru>, 2014.
-# Вячеслав Третьяков <tret2003@gmail.com>, 2012.
+# Boris Pek <tehnick-8@mail.ru>, 2012
+# Boris Pek <tehnick-8@yandex.ru>, 2012-2014
+# Boris Pek <tehnick-8@yandex.ru>, 2014
+# Вячеслав Третьяков <tret2003@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2014-06-03 08:35+0400\n"
-"PO-Revision-Date: 2014-06-03 08:39+0400\n"
+"POT-Creation-Date: 2014-10-12 00:28+0400\n"
+"PO-Revision-Date: 2014-06-03 04:41+0000\n"
 "Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
-"Language-Team: Russian <tehnick-8@mail.ru>\n"
+"Language-Team: Russian (http://www.transifex.com/projects/p/eiskaltdcpp/"
 "language/ru/)\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
@@ -22,7 +23,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Lokalize 1.5\n"
 
 #: ../src/privatemessage.cc:565 ../src/privatemessage.cc:644
 #: ../src/hub.cc:1065 ../src/hub.cc:1144
@@ -85,7 +85,7 @@ msgstr " не фаворит"
 msgid " left"
 msgstr " осталось"
 
-#: ../src/downloadqueue.cc:1294
+#: ../src/downloadqueue.cc:1290
 msgid " of "
 msgstr " из "
 
@@ -101,7 +101,7 @@ msgstr " в "
 msgid " user(s)"
 msgstr " юзер(ы)"
 
-#: ../src/downloadqueue.cc:1294
+#: ../src/downloadqueue.cc:1290
 msgid " user(s) online"
 msgstr " юзер(ов) онлайн"
 
@@ -159,7 +159,7 @@ msgstr "...должно быть *.theme"
 msgid "...must not be empty"
 msgstr "не должно быть пустым"
 
-#: ../src/downloadqueue.cc:1320
+#: ../src/downloadqueue.cc:1316
 msgid "0 B (0.00%)"
 msgstr "0 Б (0.00%)"
 
@@ -988,7 +988,7 @@ msgstr "CP949"
 msgid "CRC Checked"
 msgstr "CRC Проверено"
 
-#: ../src/downloadqueue.cc:1364
+#: ../src/downloadqueue.cc:1360
 msgid "CRC32 inconsistency (SFV-Check)"
 msgstr "CRC32 несоответствие (SFV-Проверка)"
 
@@ -1708,7 +1708,7 @@ msgstr "Список файлов закачен"
 msgid "File name"
 msgstr "Файл"
 
-#: ../src/downloadqueue.cc:1360
+#: ../src/downloadqueue.cc:1356
 msgid "File not available"
 msgstr "Файл недоступен"
 
@@ -1859,7 +1859,7 @@ msgstr "Французский перевод\n"
 msgid "Full Path"
 msgstr "Полный путь"
 
-#: ../src/downloadqueue.cc:1366
+#: ../src/downloadqueue.cc:1362
 msgid "Full tree does not match TTH root"
 msgstr "Не соответствует корню TTH"
 
@@ -1960,7 +1960,7 @@ msgstr "Спрятать боковую панель"
 msgid "Hide tools panel"
 msgstr "Спрятать панель инструментов"
 
-#: ../src/downloadqueue.cc:1336
+#: ../src/downloadqueue.cc:1332
 msgid "High"
 msgstr "Высокий"
 
@@ -1968,7 +1968,7 @@ msgstr "Высокий"
 msgid "High priority max size"
 msgstr "Высший"
 
-#: ../src/downloadqueue.cc:1339
+#: ../src/downloadqueue.cc:1335
 msgid "Highest"
 msgstr "Самый высокий"
 
@@ -2116,8 +2116,7 @@ msgstr "Импорт..."
 msgid "Indexing Progress"
 msgstr "Прогресс хэширования"
 
-#: ../src/hashdialog.cc:40 ../src/hashdialog.cc:119 ../src/hashdialog.cc:136
-#: ../ui/hash.ui:7
+#: ../src/hashdialog.cc:132 ../ui/hash.ui:7
 msgid "Indexing files..."
 msgstr "Хэширование файлов..."
 
@@ -2271,7 +2270,7 @@ msgstr "Журнал отдач"
 msgid "Logs"
 msgstr "Журналы"
 
-#: ../src/downloadqueue.cc:1333
+#: ../src/downloadqueue.cc:1329
 msgid "Low"
 msgstr "Низкий"
 
@@ -2279,7 +2278,7 @@ msgstr "Низкий"
 msgid "Low priority size"
 msgstr "Низкий"
 
-#: ../src/downloadqueue.cc:1330
+#: ../src/downloadqueue.cc:1326
 msgid "Lowest"
 msgstr "Самый низкий"
 
@@ -2529,7 +2528,7 @@ msgstr "Ники"
 msgid "No"
 msgstr "Нет"
 
-#: ../src/downloadqueue.cc:1376
+#: ../src/downloadqueue.cc:1372
 msgid "No errors"
 msgstr "Нет ошибок"
 
@@ -2549,7 +2548,7 @@ msgstr "Не закачивать, если скорость выше (Кб/с, 
 msgid "No search text entered"
 msgstr "Не введён текст для поиска"
 
-#: ../src/downloadqueue.cc:1289
+#: ../src/downloadqueue.cc:1285
 msgid "No users"
 msgstr "Нет юзеров"
 
@@ -2561,7 +2560,7 @@ msgstr "Нет иконки"
 msgid "Noon"
 msgstr "Полдень"
 
-#: ../src/downloadqueue.cc:1342 ../ui/search.ui:86
+#: ../src/downloadqueue.cc:1338 ../ui/search.ui:86
 msgid "Normal"
 msgstr "Нормальный"
 
@@ -2685,7 +2684,7 @@ msgstr "Разбор и построение дерева..."
 msgid "Passive"
 msgstr "Пассивный"
 
-#: ../src/downloadqueue.cc:1362
+#: ../src/downloadqueue.cc:1358
 msgid "Passive user"
 msgstr "Пассивный юзер"
 
@@ -2709,11 +2708,11 @@ msgstr "Путь"
 msgid "Pause"
 msgstr "Приостановлено"
 
-#: ../src/downloadqueue.cc:1327
+#: ../src/downloadqueue.cc:1323
 msgid "Paused"
 msgstr "Приостановлено"
 
-#: ../src/hashdialog.cc:40 ../src/hashdialog.cc:124 ../src/hashdialog.cc:136
+#: ../src/hashdialog.cc:132
 msgid "Paused..."
 msgstr "Приостановлено"
 
@@ -2888,7 +2887,7 @@ msgstr "Перехватывать внешние магнет-ссылки"
 msgid "Remember choice"
 msgstr "Запомнить выбор"
 
-#: ../src/downloadqueue.cc:1370
+#: ../src/downloadqueue.cc:1366
 msgid "Remote client does not fully support TTH - cannot download"
 msgstr "Удаленный клиент не полностью поддерживает TTH - нельзя скачать"
 
@@ -2957,7 +2956,7 @@ msgstr "Справа"
 msgid "Run in background"
 msgstr "Выполнять в фоне"
 
-#: ../src/downloadqueue.cc:1296
+#: ../src/downloadqueue.cc:1292
 msgid "Running..."
 msgstr "Выполняется..."
 
@@ -3326,7 +3325,7 @@ msgstr "Исходники (git)"
 msgid "Source Type"
 msgstr "Тип источника"
 
-#: ../src/downloadqueue.cc:1368
+#: ../src/downloadqueue.cc:1364
 msgid "Source too slow"
 msgstr "Слишком медленный источник"
 
@@ -3610,7 +3609,7 @@ msgstr ""
 msgid "Unfinished downloads directory"
 msgstr "Директория незавершённых закачек"
 
-#: ../src/downloadqueue.cc:1302 ../src/downloadqueue.cc:1303
+#: ../src/downloadqueue.cc:1298 ../src/downloadqueue.cc:1299
 #: ../src/WulforUtil.cc:332 ../src/WulforUtil.cc:334 ../src/mainwindow.cc:1084
 #: ../src/mainwindow.cc:1474
 msgid "Unknown"
@@ -4272,4 +4271,3 @@ msgstr "верх/ожидание/фрейм:"
 #: ../src/searchspy.cc:298 ../src/searchspy.cc:366
 msgid "waiting..."
 msgstr "ожидание..."
-

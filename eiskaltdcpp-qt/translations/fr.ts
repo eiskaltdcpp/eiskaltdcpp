@@ -4016,10 +4016,6 @@ Voulez-vous l&apos;arrêter?</translation>
         <translation>Nom de fichier</translation>
     </message>
     <message>
-        <source>Host</source>
-        <translation type="obsolete">Serveur</translation>
-    </message>
-    <message>
         <location filename="../src/TransferView.cpp" line="76"/>
         <source>Hub</source>
         <translation type="unfinished">Serveur</translation>
@@ -7164,10 +7160,6 @@ les dix minutes, EiskaltDC++ lui redonne automatiquement un slot.</translation>
         <location filename="../ui/UIShareBrowserSearch.ui" line="54"/>
         <source>Name</source>
         <translation type="unfinished">Nom</translation>
-    </message>
-    <message>
-        <source>Filename</source>
-        <translation type="obsolete">Nom de fichier</translation>
     </message>
     <message>
         <location filename="../ui/UIShareBrowserSearch.ui" line="59"/>

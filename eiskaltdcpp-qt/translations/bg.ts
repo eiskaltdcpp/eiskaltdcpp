@@ -4035,10 +4035,6 @@ Do you want to stop it?
         <translation>Име на файл</translation>
     </message>
     <message>
-        <source>Host</source>
-        <translation type="obsolete">Хост</translation>
-    </message>
-    <message>
         <location filename="../src/TransferView.cpp" line="76"/>
         <source>Hub</source>
         <translation type="unfinished">Хъб</translation>
@@ -7225,10 +7221,6 @@ EiskaltDC++ поддържа качване на файлове и списъц�
         <location filename="../ui/UIShareBrowserSearch.ui" line="54"/>
         <source>Name</source>
         <translation type="unfinished">Име</translation>
-    </message>
-    <message>
-        <source>Filename</source>
-        <translation type="obsolete">Име на файл</translation>
     </message>
     <message>
         <location filename="../ui/UIShareBrowserSearch.ui" line="59"/>

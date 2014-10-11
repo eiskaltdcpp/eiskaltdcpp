@@ -628,7 +628,7 @@ Keys:
     <message>
         <location filename="../src/FavoriteUsers.cpp" line="278"/>
         <source>Browse Files</source>
-        <translation type="unfinished"></translation>
+        <translation>Browse Files</translation>
     </message>
     <message>
         <location filename="../src/FavoriteUsers.h" line="46"/>
@@ -674,27 +674,27 @@ Keys:
     <message>
         <location filename="../src/FileBrowserModel.cpp" line="190"/>
         <source>&lt;b&gt;Media Info:&lt;/b&gt;&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Media Info:&lt;/b&gt;&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/FileBrowserModel.cpp" line="192"/>
         <source>&amp;nbsp;&amp;nbsp;&lt;b&gt;Video:&lt;/b&gt; %1&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;nbsp;&amp;nbsp;&lt;b&gt;Video:&lt;/b&gt; %1&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/FileBrowserModel.cpp" line="194"/>
         <source>&amp;nbsp;&amp;nbsp;&lt;b&gt;Audio:&lt;/b&gt; %1&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;nbsp;&amp;nbsp;&lt;b&gt;Audio:&lt;/b&gt; %1&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/FileBrowserModel.cpp" line="196"/>
         <source>&amp;nbsp;&amp;nbsp;&lt;b&gt;Bitrate:&lt;/b&gt; %1&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;nbsp;&amp;nbsp;&lt;b&gt;Bitrate:&lt;/b&gt; %1&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/FileBrowserModel.cpp" line="198"/>
         <source>&amp;nbsp;&amp;nbsp;&lt;b&gt;Resolution:&lt;/b&gt; %1&lt;br/&gt;&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;nbsp;&amp;nbsp;&lt;b&gt;Resolution:&lt;/b&gt; %1&lt;br/&gt;&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/FileBrowserModel.cpp" line="209"/>
@@ -724,32 +724,32 @@ Keys:
     <message>
         <location filename="../src/FileBrowserModel.cpp" line="312"/>
         <source>Bitrate</source>
-        <translation type="unfinished"></translation>
+        <translation>Bitrate</translation>
     </message>
     <message>
         <location filename="../src/FileBrowserModel.cpp" line="312"/>
         <source>Resolution</source>
-        <translation type="unfinished"></translation>
+        <translation>Resolution</translation>
     </message>
     <message>
         <location filename="../src/FileBrowserModel.cpp" line="312"/>
         <source>Video</source>
-        <translation type="unfinished"></translation>
+        <translation>Video</translation>
     </message>
     <message>
         <location filename="../src/FileBrowserModel.cpp" line="312"/>
         <source>Audio</source>
-        <translation type="unfinished"></translation>
+        <translation>Audio</translation>
     </message>
     <message>
         <location filename="../src/FileBrowserModel.cpp" line="313"/>
         <source>Downloaded</source>
-        <translation type="unfinished">Downloaded</translation>
+        <translation>Downloaded</translation>
     </message>
     <message>
         <location filename="../src/FileBrowserModel.cpp" line="313"/>
         <source>Shared</source>
-        <translation type="unfinished">Shared</translation>
+        <translation>Shared</translation>
     </message>
 </context>
 <context>
@@ -1761,12 +1761,12 @@ Favorite user</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="818"/>
         <source>Ctrl+[</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+[</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="824"/>
         <source>Ctrl+]</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+]</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="870"/>
@@ -1781,7 +1781,7 @@ Favorite user</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="921"/>
         <source>Ctrl+K</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+K</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="934"/>
@@ -2486,12 +2486,12 @@ Favorite user</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="2758"/>
         <source>Chinese (China) translation&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Chinese (China) translation&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2761"/>
         <source>Swedish (Sweden) translation&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Swedish (Sweden) translation&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2994"/>
@@ -3399,12 +3399,12 @@ Downloaded: %3 Uploaded: %4</translation>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="93"/>
         <source>Chinese (China)</source>
-        <translation type="unfinished"></translation>
+        <translation>Chinese (China)</translation>
     </message>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="94"/>
         <source>Swedish (Sweden)</source>
-        <translation type="unfinished"></translation>
+        <translation>Swedish (Sweden)</translation>
     </message>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="243"/>
@@ -3711,7 +3711,7 @@ Downloaded: %3 Uploaded: %4</translation>
     <message>
         <location filename="../src/ShareBrowserSearch.cpp" line="106"/>
         <source>Found %1 items</source>
-        <translation type="unfinished"></translation>
+        <translation>Found %1 items</translation>
     </message>
 </context>
 <context>
@@ -4036,13 +4036,9 @@ Do you want to stop it?
         <translation>Filename</translation>
     </message>
     <message>
-        <source>Host</source>
-        <translation type="obsolete">Host</translation>
-    </message>
-    <message>
         <location filename="../src/TransferView.cpp" line="76"/>
         <source>Hub</source>
-        <translation type="unfinished">Hub</translation>
+        <translation>Hub</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="77"/>
@@ -5628,32 +5624,32 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="925"/>
         <source>TLS settings</source>
-        <translation type="unfinished"></translation>
+        <translation>TLS settings</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="932"/>
         <source>Disable TLS</source>
-        <translation type="unfinished"></translation>
+        <translation>Disable TLS</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="937"/>
         <source>Allow TLS</source>
-        <translation type="unfinished"></translation>
+        <translation>Allow TLS</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="942"/>
         <source>Require TLS</source>
-        <translation type="unfinished"></translation>
+        <translation>Require TLS</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="950"/>
         <source>Allow untrusted certificate for hubs</source>
-        <translation type="unfinished"></translation>
+        <translation>Allow untrusted certificate for hubs</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="957"/>
         <source>Allow untrusted sertificate for clients</source>
-        <translation type="unfinished"></translation>
+        <translation>Allow untrusted sertificate for clients</translation>
     </message>
 </context>
 <context>
@@ -6625,7 +6621,7 @@ them is usually available only to operators</translation>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="224"/>
         <source>Search Spy</source>
-        <translation type="unfinished">Search Spy</translation>
+        <translation>Search Spy</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="274"/>
@@ -7207,26 +7203,22 @@ if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</trans
     <message>
         <location filename="../ui/UIShareBrowserSearch.ui" line="35"/>
         <source>Search only files</source>
-        <translation type="unfinished"></translation>
+        <translation>Search only files</translation>
     </message>
     <message>
         <location filename="../ui/UIShareBrowserSearch.ui" line="40"/>
         <source>Search only directories</source>
-        <translation type="unfinished"></translation>
+        <translation>Search only directories</translation>
     </message>
     <message>
         <location filename="../ui/UIShareBrowserSearch.ui" line="45"/>
         <source>Search all</source>
-        <translation type="unfinished"></translation>
+        <translation>Search all</translation>
     </message>
     <message>
         <location filename="../ui/UIShareBrowserSearch.ui" line="54"/>
         <source>Name</source>
-        <translation type="unfinished">Name</translation>
-    </message>
-    <message>
-        <source>Filename</source>
-        <translation type="obsolete">Filename</translation>
+        <translation>Name</translation>
     </message>
     <message>
         <location filename="../ui/UIShareBrowserSearch.ui" line="59"/>

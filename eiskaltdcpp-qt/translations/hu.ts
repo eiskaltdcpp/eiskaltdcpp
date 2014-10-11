@@ -4034,10 +4034,6 @@ Biztosan le akarod állítani?
         <translation>Fájlnév</translation>
     </message>
     <message>
-        <source>Host</source>
-        <translation type="obsolete">Host</translation>
-    </message>
-    <message>
         <location filename="../src/TransferView.cpp" line="76"/>
         <source>Hub</source>
         <translation type="unfinished"></translation>
@@ -7202,10 +7198,6 @@ Mivel az eltellt idő alatt a megüresedett feltöltési slotot más is elfoglal
         <location filename="../ui/UIShareBrowserSearch.ui" line="54"/>
         <source>Name</source>
         <translation type="unfinished">Név</translation>
-    </message>
-    <message>
-        <source>Filename</source>
-        <translation type="obsolete">Fájlnév</translation>
     </message>
     <message>
         <location filename="../ui/UIShareBrowserSearch.ui" line="59"/>

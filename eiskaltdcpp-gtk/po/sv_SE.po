@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR EiskaltDC++ team
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Translators:
 # Sopor, 2014
@@ -10,14 +10,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2014-06-03 08:35+0400\n"
+"POT-Creation-Date: 2014-10-12 00:28+0400\n"
 "PO-Revision-Date: 2014-09-24 15:15+0000\n"
 "Last-Translator: Sopor\n"
-"Language-Team: Swedish (Sweden) (http://www.transifex.com/projects/p/eiskaltdcpp/language/sv_SE/)\n"
+"Language-Team: Swedish (Sweden) (http://www.transifex.com/projects/p/"
+"eiskaltdcpp/language/sv_SE/)\n"
+"Language: sv_SE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sv_SE\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../src/privatemessage.cc:565 ../src/privatemessage.cc:644
@@ -81,7 +82,7 @@ msgstr "är inte favoritanvändare"
 msgid " left"
 msgstr "lämnat"
 
-#: ../src/downloadqueue.cc:1294
+#: ../src/downloadqueue.cc:1290
 msgid " of "
 msgstr "av"
 
@@ -97,7 +98,7 @@ msgstr "till"
 msgid " user(s)"
 msgstr "användare"
 
-#: ../src/downloadqueue.cc:1294
+#: ../src/downloadqueue.cc:1290
 msgid " user(s) online"
 msgstr "användare online"
 
@@ -115,7 +116,15 @@ msgid ""
 "%% a literal '%' character.\n"
 "\n"
 "see man strftime for details."
-msgstr "%a förkortat veckodagsnamn.\n%b förkortat månadsnamn.\n%H tid i 24-timmarsformat.\n%M minuter (range 00 to 59).\n%S sekunder (range 00 to 59).\n%% procenttecken.\n\nse manual strftime för mer information."
+msgstr ""
+"%a förkortat veckodagsnamn.\n"
+"%b förkortat månadsnamn.\n"
+"%H tid i 24-timmarsformat.\n"
+"%M minuter (range 00 to 59).\n"
+"%S sekunder (range 00 to 59).\n"
+"%% procenttecken.\n"
+"\n"
+"se manual strftime för mer information."
 
 #: ../src/hub.cc:2369
 msgid "': type /help for a list of available commands"
@@ -147,7 +156,7 @@ msgstr "...måste vara *.theme"
 msgid "...must not be empty"
 msgstr "...får inte vara tomt"
 
-#: ../src/downloadqueue.cc:1320
+#: ../src/downloadqueue.cc:1316
 msgid "0 B (0.00%)"
 msgstr "0 B (0.00%)"
 
@@ -277,9 +286,11 @@ msgstr ": skriv /help för att få en lista över tillgängliga kommandon"
 
 #: ../ui/settingsdialog.ui:7259
 msgid ""
-"<a "
-"href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html\">Help</a>"
-msgstr "<a href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html\">Help</a>"
+"<a href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html"
+"\">Help</a>"
+msgstr ""
+"<a href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html"
+"\">Help</a>"
 
 #: ../ui/settingsdialog.ui:3855
 msgid "<b>Add player</b>"
@@ -439,7 +450,8 @@ msgstr "<b>Nytt namn</b>"
 
 #: ../ui/settingsdialog.ui:9258 ../ui/publichubs.ui:151
 msgid "<b>Note:</b> Edit urls in the list by clicking them once when selected"
-msgstr "<b>Obs:</b> Klicka en gång när url:en redan är markerad för att editera dem"
+msgstr ""
+"<b>Obs:</b> Klicka en gång när url:en redan är markerad för att editera dem"
 
 #: ../ui/settingsdialog.ui:5545
 msgid "<b>Notify</b>"
@@ -625,7 +637,9 @@ msgstr "Lägg till klara filer direkt till utdelningen (om utdelad)"
 msgid ""
 "Add rule 192.168.1.0/23 where direction incoming and action is allow and "
 "192.168.6.0/24 where direction is incoming or outcoming and action is drop"
-msgstr "Lägg till regel 192.168.1.0/23 där inkommande trafik är tillåten och 192.168.6.0/24 där inkommande eller utgående trafik stängs ned"
+msgstr ""
+"Lägg till regel 192.168.1.0/23 där inkommande trafik är tillåten och "
+"192.168.6.0/24 där inkommande eller utgående trafik stängs ned"
 
 #: ../ui/mainwindow.ui:288
 msgid "Add this file to your download queue"
@@ -967,7 +981,7 @@ msgstr "CP949"
 msgid "CRC Checked"
 msgstr "CRC-kontrollerad"
 
-#: ../src/downloadqueue.cc:1364
+#: ../src/downloadqueue.cc:1360
 msgid "CRC32 inconsistency (SFV-Check)"
 msgstr "CRC32-värden stämmer inte överens (SFV-kontroll)"
 
@@ -1208,7 +1222,11 @@ msgid ""
 "\n"
 "EiskaltDC++ version: %s (%s)\n"
 "DC++ core version: %s"
-msgstr "DC++ klient bygger på källkod från FreeDC++ och LinuxDC++\n\nEiskaltDC++ version: %s (%s)\nDC++ core version: %s"
+msgstr ""
+"DC++ klient bygger på källkod från FreeDC++ och LinuxDC++\n"
+"\n"
+"EiskaltDC++ version: %s (%s)\n"
+"DC++ core version: %s"
 
 #: ../ui/cmddebug.ui:99
 msgid "DETECTION"
@@ -1394,7 +1412,8 @@ msgstr "Ladda ned begränsad avbild:"
 
 #: ../src/hub.cc:2056
 msgid "Download limit image: 0 - disable, n < 0 - unlimit, empty - info"
-msgstr "Ladda ned begränsad avbild: 0 - inaktiverad, n < 0 - obegränsad, tom - info"
+msgstr ""
+"Ladda ned begränsad avbild: 0 - inaktiverad, n < 0 - obegränsad, tom - info"
 
 #: ../src/transfers.cc:1099
 msgid "Download removed"
@@ -1681,7 +1700,7 @@ msgstr "Fillistan laddad"
 msgid "File name"
 msgstr "Filnamn"
 
-#: ../src/downloadqueue.cc:1360
+#: ../src/downloadqueue.cc:1356
 msgid "File not available"
 msgstr "Filen är inte tillgänglig"
 
@@ -1808,7 +1827,9 @@ msgstr "Ram (storlek)"
 msgid ""
 "Frame size determines the width of the review, higher values affect "
 "performance"
-msgstr "Ramstorleken bestäms av bredden av översynen, högre värden påverkar prestandan"
+msgstr ""
+"Ramstorleken bestäms av bredden av översynen, högre värden påverkar "
+"prestandan"
 
 #: ../ui/searchspy.ui:313
 msgid "Frame:"
@@ -1830,9 +1851,10 @@ msgstr "Fransk översättning\n"
 msgid "Full Path"
 msgstr "Full sökväg"
 
-#: ../src/downloadqueue.cc:1366
+#: ../src/downloadqueue.cc:1362
 msgid "Full tree does not match TTH root"
-msgstr "Felaktigt TTH-värde nedladdat för filen eller så är indexdatabasen trasig"
+msgstr ""
+"Felaktigt TTH-värde nedladdat för filen eller så är indexdatabasen trasig"
 
 #: ../src/WulforUtil.cc:225
 msgid "GB18030"
@@ -1931,7 +1953,7 @@ msgstr "Göm sidpanelen"
 msgid "Hide tools panel"
 msgstr "Göm verktygspanelen"
 
-#: ../src/downloadqueue.cc:1336
+#: ../src/downloadqueue.cc:1332
 msgid "High"
 msgstr "Hög"
 
@@ -1939,7 +1961,7 @@ msgstr "Hög"
 msgid "High priority max size"
 msgstr "Största"
 
-#: ../src/downloadqueue.cc:1339
+#: ../src/downloadqueue.cc:1335
 msgid "Highest"
 msgstr "Högsta"
 
@@ -2087,8 +2109,7 @@ msgstr "Importera..."
 msgid "Indexing Progress"
 msgstr "Indexeringsförlopp"
 
-#: ../src/hashdialog.cc:40 ../src/hashdialog.cc:119 ../src/hashdialog.cc:136
-#: ../ui/hash.ui:7
+#: ../src/hashdialog.cc:132 ../ui/hash.ui:7
 msgid "Indexing files..."
 msgstr "Filindexering..."
 
@@ -2144,7 +2165,9 @@ msgstr "Behåll nedladdade filer och kataloger i kön"
 msgid ""
 "Keep duplicate files in your file list (duplicates never count towards your "
 "share size)"
-msgstr "Behåll dubbletter i din fillista (dubbletter höjer inte storleken på din utdelning)"
+msgstr ""
+"Behåll dubbletter i din fillista (dubbletter höjer inte storleken på din "
+"utdelning)"
 
 #: ../src/settingsdialog.cc:1645
 msgid "Keep filelists when exiting"
@@ -2242,7 +2265,7 @@ msgstr "Logga uppladdningar"
 msgid "Logs"
 msgstr "Loggar"
 
-#: ../src/downloadqueue.cc:1333
+#: ../src/downloadqueue.cc:1329
 msgid "Low"
 msgstr "Låg"
 
@@ -2250,7 +2273,7 @@ msgstr "Låg"
 msgid "Low priority size"
 msgstr "Låg prioritetstorlek"
 
-#: ../src/downloadqueue.cc:1330
+#: ../src/downloadqueue.cc:1326
 msgid "Lowest"
 msgstr "Lägsta"
 
@@ -2500,7 +2523,7 @@ msgstr "Användarnamnen"
 msgid "No"
 msgstr "Nej"
 
-#: ../src/downloadqueue.cc:1376
+#: ../src/downloadqueue.cc:1372
 msgid "No errors"
 msgstr "Inga fel"
 
@@ -2514,13 +2537,14 @@ msgstr "Inga träffar"
 
 #: ../ui/settingsdialog.ui:2778
 msgid "No new downloads if speed exceeds (KiB/s, 0 = disable)"
-msgstr "Inga nya nedladdningar om hastigheter överskrider (KiB/s, 0 = avstängt)"
+msgstr ""
+"Inga nya nedladdningar om hastigheter överskrider (KiB/s, 0 = avstängt)"
 
 #: ../src/sharebrowser.cc:906
 msgid "No search text entered"
 msgstr "Ingen söktext angivet"
 
-#: ../src/downloadqueue.cc:1289
+#: ../src/downloadqueue.cc:1285
 msgid "No users"
 msgstr "Inga användare"
 
@@ -2532,7 +2556,7 @@ msgstr "Ingen ikon"
 msgid "Noon"
 msgstr "12 PM"
 
-#: ../src/downloadqueue.cc:1342 ../ui/search.ui:86
+#: ../src/downloadqueue.cc:1338 ../ui/search.ui:86
 msgid "Normal"
 msgstr "Normal"
 
@@ -2554,12 +2578,13 @@ msgstr "Obs: De flesta av dessa inställningar kräver en omstart"
 
 #: ../ui/settingsdialog.ui:4022
 msgid "Note: New files are added to the share only once they've been hashed!"
-msgstr "Obs: Nya filer läggs inte till din utdelning förrän de har blivit indexerade!"
+msgstr ""
+"Obs: Nya filer läggs inte till din utdelning förrän de har blivit indexerade!"
 
 #: ../ui/settingsdialog.ui:2845
-msgid ""
-"Note; because of changing download speeds, this is not 100% accurate..."
-msgstr "Obs: eftersom nedladdningshastigheten ändras är inte detta 100% korrekt..."
+msgid "Note; because of changing download speeds, this is not 100% accurate..."
+msgstr ""
+"Obs: eftersom nedladdningshastigheten ändras är inte detta 100% korrekt..."
 
 #: ../src/settingsdialog.cc:1335 ../ui/settingsdialog.ui:5883
 msgid "Notify"
@@ -2655,7 +2680,7 @@ msgstr "Analysera och skapa filuppbyggnad"
 msgid "Passive"
 msgstr "Passiv"
 
-#: ../src/downloadqueue.cc:1362
+#: ../src/downloadqueue.cc:1358
 msgid "Passive user"
 msgstr "Passiv användare"
 
@@ -2679,11 +2704,11 @@ msgstr "Sökväg"
 msgid "Pause"
 msgstr "Paus"
 
-#: ../src/downloadqueue.cc:1327
+#: ../src/downloadqueue.cc:1323
 msgid "Paused"
 msgstr "Pausad"
 
-#: ../src/hashdialog.cc:40 ../src/hashdialog.cc:124 ../src/hashdialog.cc:136
+#: ../src/hashdialog.cc:132
 msgid "Paused..."
 msgstr "Pausad..."
 
@@ -2846,7 +2871,8 @@ msgstr "Uppdaterar fillistan"
 
 #: ../src/settingsdialog.cc:1655
 msgid "Register with the OS to handle dchub:// and adc:// URL links"
-msgstr "Registrera URL-hanterare i operativsystemet för dchub://- och adc://-länkar"
+msgstr ""
+"Registrera URL-hanterare i operativsystemet för dchub://- och adc://-länkar"
 
 #: ../src/settingsdialog.cc:1656
 msgid "Register with the OS to handle magnet: URL links"
@@ -2856,7 +2882,7 @@ msgstr "Registrera URL-hanterare i operativsystemet för magnet-länkar"
 msgid "Remember choice"
 msgstr "Kom ihåg val"
 
-#: ../src/downloadqueue.cc:1370
+#: ../src/downloadqueue.cc:1366
 msgid "Remote client does not fully support TTH - cannot download"
 msgstr "Fjärrklienten har inte fullt stöd för TTH-värden - kan inte ladda ned"
 
@@ -2925,7 +2951,7 @@ msgstr "Höger"
 msgid "Run in background"
 msgstr "Kör i bakgrunden"
 
-#: ../src/downloadqueue.cc:1296
+#: ../src/downloadqueue.cc:1292
 msgid "Running..."
 msgstr "Laddar ned..."
 
@@ -3077,8 +3103,7 @@ msgstr "Serbisk (Latin) översättning\n"
 
 #: ../src/hub.cc:2066
 msgid ""
-"Set Core option param in value (without value return current value of "
-"option)"
+"Set Core option param in value (without value return current value of option)"
 msgstr ""
 
 #: ../src/hub.cc:2065
@@ -3099,9 +3124,9 @@ msgid "Set download limit image: "
 msgstr "Sätt nedladdningsbegränsning på avbild:"
 
 #: ../src/settingsdialog.cc:986
-msgid ""
-"Set lowest priority for newly added files larger than low priority size"
-msgstr "Sätt lägsta prioritet för nya filer som är större än låg prioritetsstorlek"
+msgid "Set lowest priority for newly added files larger than low priority size"
+msgstr ""
+"Sätt lägsta prioritet för nya filer som är större än låg prioritetsstorlek"
 
 #: ../ui/settingsdialog.ui:4054
 msgid "Share hidden files"
@@ -3290,7 +3315,7 @@ msgstr "Källa (git)"
 msgid "Source Type"
 msgstr "Källtyp"
 
-#: ../src/downloadqueue.cc:1368
+#: ../src/downloadqueue.cc:1364
 msgid "Source too slow"
 msgstr "Källan är för långsam"
 
@@ -3459,7 +3484,9 @@ msgstr "Till (tom för valda användare)"
 msgid ""
 "To start downloading file you need turn on auto search alternatives "
 "(Settings/Downloads/Queue)"
-msgstr "För att börja ladda ned filer måste du aktivera sök automatiskt efter nya nedladdningsplatser (Inställningar/Nedladdningar/Nedladdningskön)"
+msgstr ""
+"För att börja ladda ned filer måste du aktivera sök automatiskt efter nya "
+"nedladdningsplatser (Inställningar/Nedladdningar/Nedladdningskön)"
 
 #: ../ui/settingsdialog.ui:6193
 msgid "Toolbar"
@@ -3557,16 +3584,19 @@ msgstr "Kunde inte öppna fillistan: ogiltigt namn på fillistan"
 
 #: ../src/mainwindow.cc:2284
 msgid ""
-"Unable to open %1% port. Searching or file transfers will not work correctly"
-" until you change settings or turn off any application that might be using "
+"Unable to open %1% port. Searching or file transfers will not work correctly "
+"until you change settings or turn off any application that might be using "
 "that port."
-msgstr "Kunde inte öppna port %1. Sökning eller filöverföring kommer inte att fungera fullt ut förrän du ändrar inställningarna eller stänger ner programmet som använder den porten."
+msgstr ""
+"Kunde inte öppna port %1. Sökning eller filöverföring kommer inte att "
+"fungera fullt ut förrän du ändrar inställningarna eller stänger ner "
+"programmet som använder den porten."
 
 #: ../ui/settingsdialog.ui:2688
 msgid "Unfinished downloads directory"
 msgstr "Temporär katalog för nedladdningar"
 
-#: ../src/downloadqueue.cc:1302 ../src/downloadqueue.cc:1303
+#: ../src/downloadqueue.cc:1298 ../src/downloadqueue.cc:1299
 #: ../src/WulforUtil.cc:332 ../src/WulforUtil.cc:334 ../src/mainwindow.cc:1084
 #: ../src/mainwindow.cc:1474
 msgid "Unknown"
@@ -3792,12 +3822,22 @@ msgid ""
 "Using:\n"
 "  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n"
 "  eiskaltdcpp-gtk <Key>\n"
-"EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC protocol.\n"
+"EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC "
+"protocol.\n"
 "\n"
 "Keys:\n"
 "  -h, --help\t Show this message\n"
 "  -V, --version\t Show version string\n"
-msgstr "Använd:\n  eiskaltdcpp-gtk <magnetlänk> <dchubb://länk> <adc(s)://länk>\n  eiskaltdcpp-gtk <Nyckel>\nEiskaltDC++ är ett plattformsoberoende program som använder Direct Connect och ADC-protokollet\n\nNycklar:\n  -h, --help\t Visa detta meddelande\n  -V, --version\t Visa version\n"
+msgstr ""
+"Använd:\n"
+"  eiskaltdcpp-gtk <magnetlänk> <dchubb://länk> <adc(s)://länk>\n"
+"  eiskaltdcpp-gtk <Nyckel>\n"
+"EiskaltDC++ är ett plattformsoberoende program som använder Direct Connect "
+"och ADC-protokollet\n"
+"\n"
+"Nycklar:\n"
+"  -h, --help\t Visa detta meddelande\n"
+"  -V, --version\t Visa version\n"
 
 #: ../src/sharebrowser.cc:91 ../src/sharebrowser.cc:369
 msgid "Video"

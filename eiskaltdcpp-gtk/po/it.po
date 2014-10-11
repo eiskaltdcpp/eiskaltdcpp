@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
+# Translators:
 # Boris Pek <tehnick-8@mail.ru>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2014-06-03 08:35+0400\n"
-"PO-Revision-Date: 2013-11-19 16:39+0000\n"
+"POT-Creation-Date: 2014-10-12 00:28+0400\n"
+"PO-Revision-Date: 2014-06-03 04:41+0000\n"
 "Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/eiskaltdcpp/"
 "language/it/)\n"
@@ -80,7 +81,7 @@ msgstr ""
 msgid " left"
 msgstr ""
 
-#: ../src/downloadqueue.cc:1294
+#: ../src/downloadqueue.cc:1290
 msgid " of "
 msgstr ""
 
@@ -96,7 +97,7 @@ msgstr ""
 msgid " user(s)"
 msgstr ""
 
-#: ../src/downloadqueue.cc:1294
+#: ../src/downloadqueue.cc:1290
 msgid " user(s) online"
 msgstr ""
 
@@ -146,7 +147,7 @@ msgstr ""
 msgid "...must not be empty"
 msgstr ""
 
-#: ../src/downloadqueue.cc:1320
+#: ../src/downloadqueue.cc:1316
 msgid "0 B (0.00%)"
 msgstr ""
 
@@ -966,7 +967,7 @@ msgstr ""
 msgid "CRC Checked"
 msgstr ""
 
-#: ../src/downloadqueue.cc:1364
+#: ../src/downloadqueue.cc:1360
 msgid "CRC32 inconsistency (SFV-Check)"
 msgstr ""
 
@@ -1680,7 +1681,7 @@ msgstr ""
 msgid "File name"
 msgstr ""
 
-#: ../src/downloadqueue.cc:1360
+#: ../src/downloadqueue.cc:1356
 msgid "File not available"
 msgstr ""
 
@@ -1829,7 +1830,7 @@ msgstr ""
 msgid "Full Path"
 msgstr ""
 
-#: ../src/downloadqueue.cc:1366
+#: ../src/downloadqueue.cc:1362
 msgid "Full tree does not match TTH root"
 msgstr ""
 
@@ -1930,7 +1931,7 @@ msgstr ""
 msgid "Hide tools panel"
 msgstr ""
 
-#: ../src/downloadqueue.cc:1336
+#: ../src/downloadqueue.cc:1332
 msgid "High"
 msgstr ""
 
@@ -1938,7 +1939,7 @@ msgstr ""
 msgid "High priority max size"
 msgstr ""
 
-#: ../src/downloadqueue.cc:1339
+#: ../src/downloadqueue.cc:1335
 msgid "Highest"
 msgstr ""
 
@@ -2086,8 +2087,7 @@ msgstr ""
 msgid "Indexing Progress"
 msgstr ""
 
-#: ../src/hashdialog.cc:40 ../src/hashdialog.cc:119 ../src/hashdialog.cc:136
-#: ../ui/hash.ui:7
+#: ../src/hashdialog.cc:132 ../ui/hash.ui:7
 msgid "Indexing files..."
 msgstr ""
 
@@ -2241,7 +2241,7 @@ msgstr ""
 msgid "Logs"
 msgstr ""
 
-#: ../src/downloadqueue.cc:1333
+#: ../src/downloadqueue.cc:1329
 msgid "Low"
 msgstr ""
 
@@ -2249,7 +2249,7 @@ msgstr ""
 msgid "Low priority size"
 msgstr ""
 
-#: ../src/downloadqueue.cc:1330
+#: ../src/downloadqueue.cc:1326
 msgid "Lowest"
 msgstr ""
 
@@ -2499,7 +2499,7 @@ msgstr ""
 msgid "No"
 msgstr ""
 
-#: ../src/downloadqueue.cc:1376
+#: ../src/downloadqueue.cc:1372
 msgid "No errors"
 msgstr ""
 
@@ -2519,7 +2519,7 @@ msgstr ""
 msgid "No search text entered"
 msgstr ""
 
-#: ../src/downloadqueue.cc:1289
+#: ../src/downloadqueue.cc:1285
 msgid "No users"
 msgstr ""
 
@@ -2531,7 +2531,7 @@ msgstr ""
 msgid "Noon"
 msgstr ""
 
-#: ../src/downloadqueue.cc:1342 ../ui/search.ui:86
+#: ../src/downloadqueue.cc:1338 ../ui/search.ui:86
 msgid "Normal"
 msgstr ""
 
@@ -2653,7 +2653,7 @@ msgstr ""
 msgid "Passive"
 msgstr ""
 
-#: ../src/downloadqueue.cc:1362
+#: ../src/downloadqueue.cc:1358
 msgid "Passive user"
 msgstr ""
 
@@ -2677,11 +2677,11 @@ msgstr ""
 msgid "Pause"
 msgstr ""
 
-#: ../src/downloadqueue.cc:1327
+#: ../src/downloadqueue.cc:1323
 msgid "Paused"
 msgstr ""
 
-#: ../src/hashdialog.cc:40 ../src/hashdialog.cc:124 ../src/hashdialog.cc:136
+#: ../src/hashdialog.cc:132
 msgid "Paused..."
 msgstr ""
 
@@ -2854,7 +2854,7 @@ msgstr ""
 msgid "Remember choice"
 msgstr ""
 
-#: ../src/downloadqueue.cc:1370
+#: ../src/downloadqueue.cc:1366
 msgid "Remote client does not fully support TTH - cannot download"
 msgstr ""
 
@@ -2923,7 +2923,7 @@ msgstr ""
 msgid "Run in background"
 msgstr ""
 
-#: ../src/downloadqueue.cc:1296
+#: ../src/downloadqueue.cc:1292
 msgid "Running..."
 msgstr ""
 
@@ -3286,7 +3286,7 @@ msgstr ""
 msgid "Source Type"
 msgstr ""
 
-#: ../src/downloadqueue.cc:1368
+#: ../src/downloadqueue.cc:1364
 msgid "Source too slow"
 msgstr ""
 
@@ -3562,7 +3562,7 @@ msgstr ""
 msgid "Unfinished downloads directory"
 msgstr ""
 
-#: ../src/downloadqueue.cc:1302 ../src/downloadqueue.cc:1303
+#: ../src/downloadqueue.cc:1298 ../src/downloadqueue.cc:1299
 #: ../src/WulforUtil.cc:332 ../src/WulforUtil.cc:334 ../src/mainwindow.cc:1084
 #: ../src/mainwindow.cc:1474
 msgid "Unknown"

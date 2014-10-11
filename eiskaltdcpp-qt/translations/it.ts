@@ -4032,10 +4032,6 @@ Vuoi arrestarla?</translation>
         <translation>Nome file</translation>
     </message>
     <message>
-        <source>Host</source>
-        <translation type="obsolete">Host</translation>
-    </message>
-    <message>
         <location filename="../src/TransferView.cpp" line="76"/>
         <source>Hub</source>
         <translation type="unfinished">Hub</translation>
@@ -7180,10 +7176,6 @@ se l&apos;utente torna prima di 10 minuti EiskaltDC++ riassegna lo slot all&apos
         <location filename="../ui/UIShareBrowserSearch.ui" line="54"/>
         <source>Name</source>
         <translation type="unfinished">Nome</translation>
-    </message>
-    <message>
-        <source>Filename</source>
-        <translation type="obsolete">Nome file</translation>
     </message>
     <message>
         <location filename="../ui/UIShareBrowserSearch.ui" line="59"/>

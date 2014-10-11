@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2014-06-03 08:35+0400\n"
-"PO-Revision-Date: 2014-04-01 19:34+0000\n"
+"POT-Creation-Date: 2014-10-12 00:28+0400\n"
+"PO-Revision-Date: 2014-06-03 04:41+0000\n"
 "Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/eiskaltdcpp/"
 "language/fr/)\n"
@@ -81,7 +81,7 @@ msgstr " n'est pas un utilisateur favoris"
 msgid " left"
 msgstr "restant"
 
-#: ../src/downloadqueue.cc:1294
+#: ../src/downloadqueue.cc:1290
 msgid " of "
 msgstr " de "
 
@@ -97,7 +97,7 @@ msgstr "à"
 msgid " user(s)"
 msgstr "utilisateur(s)"
 
-#: ../src/downloadqueue.cc:1294
+#: ../src/downloadqueue.cc:1290
 msgid " user(s) online"
 msgstr " utilisateurs en ligne"
 
@@ -155,7 +155,7 @@ msgstr "...doit être *.theme"
 msgid "...must not be empty"
 msgstr "...ne doit pas être vide"
 
-#: ../src/downloadqueue.cc:1320
+#: ../src/downloadqueue.cc:1316
 msgid "0 B (0.00%)"
 msgstr "0 B (0.00%)"
 
@@ -718,9 +718,8 @@ msgid "Allow few connections from one IP"
 msgstr "Autoriser plusieurs connections pour une même IP"
 
 #: ../src/settingsdialog.cc:1727
-#, fuzzy
 msgid "Allow only TLS connections to clients"
-msgstr "Autoriser plusieurs connections pour un seul utilisateur"
+msgstr ""
 
 #: ../src/settingsdialog.cc:1659
 msgid "Allow overlap chunks"
@@ -987,7 +986,7 @@ msgstr "CP949"
 msgid "CRC Checked"
 msgstr "CRC Checked"
 
-#: ../src/downloadqueue.cc:1364
+#: ../src/downloadqueue.cc:1360
 msgid "CRC32 inconsistency (SFV-Check)"
 msgstr "Incohérence CRC32 (Vérification SFV)"
 
@@ -1708,7 +1707,7 @@ msgstr "Liste de fichiers chargée"
 msgid "File name"
 msgstr "Nom de fichier"
 
-#: ../src/downloadqueue.cc:1360
+#: ../src/downloadqueue.cc:1356
 msgid "File not available"
 msgstr "Fichier non disponible"
 
@@ -1859,7 +1858,7 @@ msgstr "Traduction Française\n"
 msgid "Full Path"
 msgstr "Chemin complet"
 
-#: ../src/downloadqueue.cc:1366
+#: ../src/downloadqueue.cc:1362
 msgid "Full tree does not match TTH root"
 msgstr "La concaténation des clés ne correspond pas à la racine TTH"
 
@@ -1960,7 +1959,7 @@ msgstr "Cacher le panneau latéral"
 msgid "Hide tools panel"
 msgstr "Cacher le panneau d'outils"
 
-#: ../src/downloadqueue.cc:1336
+#: ../src/downloadqueue.cc:1332
 msgid "High"
 msgstr "Haute"
 
@@ -1968,7 +1967,7 @@ msgstr "Haute"
 msgid "High priority max size"
 msgstr "Taille max pour haute priorité"
 
-#: ../src/downloadqueue.cc:1339
+#: ../src/downloadqueue.cc:1335
 msgid "Highest"
 msgstr "Plus haute"
 
@@ -2116,8 +2115,7 @@ msgstr "Importer..."
 msgid "Indexing Progress"
 msgstr "Progression du scan"
 
-#: ../src/hashdialog.cc:40 ../src/hashdialog.cc:119 ../src/hashdialog.cc:136
-#: ../ui/hash.ui:7
+#: ../src/hashdialog.cc:132 ../ui/hash.ui:7
 msgid "Indexing files..."
 msgstr "Scan des fichiers..."
 
@@ -2273,7 +2271,7 @@ msgstr "Log des envois"
 msgid "Logs"
 msgstr "Logs"
 
-#: ../src/downloadqueue.cc:1333
+#: ../src/downloadqueue.cc:1329
 msgid "Low"
 msgstr "Bas"
 
@@ -2281,7 +2279,7 @@ msgstr "Bas"
 msgid "Low priority size"
 msgstr "Taille de basse priorité"
 
-#: ../src/downloadqueue.cc:1330
+#: ../src/downloadqueue.cc:1326
 msgid "Lowest"
 msgstr "Plus basse"
 
@@ -2531,7 +2529,7 @@ msgstr "Surnoms"
 msgid "No"
 msgstr "Non"
 
-#: ../src/downloadqueue.cc:1376
+#: ../src/downloadqueue.cc:1372
 msgid "No errors"
 msgstr "Pas d'erreur"
 
@@ -2552,7 +2550,7 @@ msgstr ""
 msgid "No search text entered"
 msgstr "Aucun texte d'entré"
 
-#: ../src/downloadqueue.cc:1289
+#: ../src/downloadqueue.cc:1285
 msgid "No users"
 msgstr "Pas d'utilisateurs"
 
@@ -2564,7 +2562,7 @@ msgstr "Pas d'icône"
 msgid "Noon"
 msgstr "Midi"
 
-#: ../src/downloadqueue.cc:1342 ../ui/search.ui:86
+#: ../src/downloadqueue.cc:1338 ../ui/search.ui:86
 msgid "Normal"
 msgstr "Normale"
 
@@ -2693,7 +2691,7 @@ msgstr "Analyse et construction de l'arbre..."
 msgid "Passive"
 msgstr "Passif"
 
-#: ../src/downloadqueue.cc:1362
+#: ../src/downloadqueue.cc:1358
 msgid "Passive user"
 msgstr "Utilisateur passif"
 
@@ -2717,11 +2715,11 @@ msgstr "Chemin"
 msgid "Pause"
 msgstr "Pause"
 
-#: ../src/downloadqueue.cc:1327
+#: ../src/downloadqueue.cc:1323
 msgid "Paused"
 msgstr "En pause"
 
-#: ../src/hashdialog.cc:40 ../src/hashdialog.cc:124 ../src/hashdialog.cc:136
+#: ../src/hashdialog.cc:132
 msgid "Paused..."
 msgstr "Pausé..."
 
@@ -2894,7 +2892,7 @@ msgstr "Paramétrer l'OS pour prendre en charge les liens magnet"
 msgid "Remember choice"
 msgstr "Se souvenir du choix"
 
-#: ../src/downloadqueue.cc:1370
+#: ../src/downloadqueue.cc:1366
 msgid "Remote client does not fully support TTH - cannot download"
 msgstr ""
 "Le client distant ne supporte pas pleinement TTH - impossible de télécharger"
@@ -2964,7 +2962,7 @@ msgstr "Droite"
 msgid "Run in background"
 msgstr "Continuer en fond"
 
-#: ../src/downloadqueue.cc:1296
+#: ../src/downloadqueue.cc:1292
 msgid "Running..."
 msgstr "En cours"
 
@@ -3331,7 +3329,7 @@ msgstr "Source (git)"
 msgid "Source Type"
 msgstr "Type de source"
 
-#: ../src/downloadqueue.cc:1368
+#: ../src/downloadqueue.cc:1364
 msgid "Source too slow"
 msgstr "Source trop lente"
 
@@ -3614,7 +3612,7 @@ msgstr ""
 msgid "Unfinished downloads directory"
 msgstr "Répertoire de téléchargement temporaire"
 
-#: ../src/downloadqueue.cc:1302 ../src/downloadqueue.cc:1303
+#: ../src/downloadqueue.cc:1298 ../src/downloadqueue.cc:1299
 #: ../src/WulforUtil.cc:332 ../src/WulforUtil.cc:334 ../src/mainwindow.cc:1084
 #: ../src/mainwindow.cc:1474
 msgid "Unknown"

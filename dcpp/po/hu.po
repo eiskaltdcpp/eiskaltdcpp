@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2014-06-03 08:35+0400\n"
+"POT-Creation-Date: 2014-10-12 00:28+0400\n"
 "PO-Revision-Date: 2014-02-21 22:59+0000\n"
 "Last-Translator: Márk Lutring <marcus@elitemail.hu>\n"
 "Language-Team: Hungarian (http://www.transifex.com/projects/p/eiskaltdcpp/"
@@ -61,15 +61,15 @@ msgstr "TTH"
 msgid "CD Image"
 msgstr "CD képfájl"
 
-#: ../SearchManager.cpp:146
+#: ../SearchManager.cpp:149
 msgid "Search enabled again"
 msgstr "Keresés ismét engedélyezve"
 
-#: ../SearchManager.cpp:154
+#: ../SearchManager.cpp:157
 msgid "Search disabled: %1%"
 msgstr "Keresés tiltva:%1%"
 
-#: ../SearchManager.cpp:278 ../SearchManager.cpp:365 ../SearchManager.cpp:367
+#: ../SearchManager.cpp:281 ../SearchManager.cpp:368 ../SearchManager.cpp:370
 #: ../Transfer.cpp:81 ../Transfer.cpp:85 ../QueueManager.cpp:2171
 #: ../QueueManager.cpp:2177 ../QueueManager.cpp:2183 ../ClientManager.cpp:178
 msgid "Offline"
@@ -103,17 +103,17 @@ msgstr "A hash adatfájl beolvasása nem lehetséges"
 msgid "Error creating hash data file: %1%"
 msgstr "Hiba a hash adatfájl létrehozásakor: %1%"
 
-#: ../HashManager.cpp:946
+#: ../HashManager.cpp:958
 msgid "Hash database rebuilt"
 msgstr "A hash adatbázis újraépítve"
 
-#: ../HashManager.cpp:1040
+#: ../HashManager.cpp:1052
 msgid ""
 "%1% not shared; calculated CRC32 does not match the one found in SFV file."
 msgstr ""
 "%1% nincs megosztva. A kiszámított CRC32 nem egyezik az SFV fájlban lévővel."
 
-#: ../HashManager.cpp:1045
+#: ../HashManager.cpp:1057
 msgid "Error hashing %1%: %2%"
 msgstr "Hiba a következő hashelésekor: %1%: %2%"
 
@@ -199,7 +199,7 @@ msgstr "A fájl küldése sikertelen: %1%: %2%"
 msgid "IPFilter: Blocked incoming connection to "
 msgstr "IPFilter: Blokkolt bejövő kapcsolat innen: "
 
-#: ../UploadManager.cpp:618
+#: ../UploadManager.cpp:625
 msgid "Disconnected user leaving the hub: %1%"
 msgstr "A hubról kilépő felhasználó szétkapcsolva: %1%"
 
@@ -456,31 +456,31 @@ msgstr "Eldob"
 msgid "SSL Error: %1% (%2%, %3%)"
 msgstr "SSL Hiba: %1% (%2%, %3%)"
 
-#: ../DownloadManager.cpp:134
+#: ../DownloadManager.cpp:135
 msgid "IPFilter: Blocked outgoing connection to "
 msgstr "IPFilter: Blokkolt kimenő kapcsolat: "
 
-#: ../DownloadManager.cpp:229
+#: ../DownloadManager.cpp:237
 msgid "Invalid size"
 msgstr "Érvénytelen méret"
 
-#: ../DownloadManager.cpp:234
+#: ../DownloadManager.cpp:242
 msgid "Response does not match request"
 msgstr "A válasz nem felel meg a kérésnek"
 
-#: ../DownloadManager.cpp:241
+#: ../DownloadManager.cpp:249
 msgid "Could not open target file: %1%"
 msgstr "Nem sikerült megnyitni a célfájlt a következő miatt: %1%"
 
-#: ../DownloadManager.cpp:320
+#: ../DownloadManager.cpp:328
 msgid "Full tree does not match TTH root"
 msgstr "A teljes fa nem megfelelő a TTH gyökérhez"
 
-#: ../DownloadManager.cpp:385
+#: ../DownloadManager.cpp:393
 msgid "No slots available"
 msgstr "Nincs szabad slot"
 
-#: ../DownloadManager.cpp:496
+#: ../DownloadManager.cpp:504
 msgid "%1%: File not available"
 msgstr "%1%: A fájl nem elérhető"
 
@@ -633,25 +633,21 @@ msgstr "A megadott keresési feltétel már létezik"
 msgid "No such search type"
 msgstr "Keresési feltétel nem található"
 
-#: ../SettingsManager.cpp:615
+#: ../SettingsManager.cpp:602 ../SettingsManager.cpp:607
 msgid "Error: setting not found!"
 msgstr "Hiba: Beállítás nem található!"
 
-#: ../SettingsManager.cpp:617
+#: ../SettingsManager.cpp:602
 msgid "Core setting "
 msgstr "Alapbeállítás"
 
-#: ../SettingsManager.cpp:618
+#: ../SettingsManager.cpp:607
 msgid "Change core setting "
 msgstr "Alapbeállítás megváltoztatása: "
 
-#: ../SettingsManager.cpp:618
+#: ../SettingsManager.cpp:607
 msgid " to "
 msgstr "erre:"
-
-#: ../SettingsManager.cpp:620
-msgid "Error: segv parser :D"
-msgstr "Hiba: segv-elemző :D"
 
 #: ../Socket.cpp:86
 #, c-format
@@ -731,3 +727,6 @@ msgstr "A kértnél több byte írása történt"
 #: ../MerkleCheckOutputStream.h:52 ../MerkleCheckOutputStream.h:112
 msgid "TTH inconsistency"
 msgstr "TTH inkonzisztencia"
+
+#~ msgid "Error: segv parser :D"
+#~ msgstr "Hiba: segv-elemző :D"

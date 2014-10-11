@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2014-06-03 08:35+0400\n"
-"PO-Revision-Date: 2014-04-01 19:34+0000\n"
+"POT-Creation-Date: 2014-10-12 00:28+0400\n"
+"PO-Revision-Date: 2014-06-03 04:41+0000\n"
 "Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
 "Language-Team: Hungarian (http://www.transifex.com/projects/p/eiskaltdcpp/"
 "language/hu/)\n"
@@ -82,7 +82,7 @@ msgstr " nem kedvenc felhasználó"
 msgid " left"
 msgstr " maradt"
 
-#: ../src/downloadqueue.cc:1294
+#: ../src/downloadqueue.cc:1290
 msgid " of "
 msgstr ""
 
@@ -98,7 +98,7 @@ msgstr ""
 msgid " user(s)"
 msgstr " felhasználó(k)"
 
-#: ../src/downloadqueue.cc:1294
+#: ../src/downloadqueue.cc:1290
 msgid " user(s) online"
 msgstr " online felhasználó"
 
@@ -156,7 +156,7 @@ msgstr "... *.theme kiterjesztésűnek kell lennie"
 msgid "...must not be empty"
 msgstr "...nem lehet üres"
 
-#: ../src/downloadqueue.cc:1320
+#: ../src/downloadqueue.cc:1316
 msgid "0 B (0.00%)"
 msgstr "0 B (0.00%)"
 
@@ -722,9 +722,8 @@ msgid "Allow few connections from one IP"
 msgstr "Több kapcsolat engedélyezése egy IP címnek"
 
 #: ../src/settingsdialog.cc:1727
-#, fuzzy
 msgid "Allow only TLS connections to clients"
-msgstr "Több kapcsolat engedélyezése egy felhasználónak"
+msgstr ""
 
 #: ../src/settingsdialog.cc:1659
 msgid "Allow overlap chunks"
@@ -993,7 +992,7 @@ msgstr "CP949"
 msgid "CRC Checked"
 msgstr "CRC Ellenőrizve"
 
-#: ../src/downloadqueue.cc:1364
+#: ../src/downloadqueue.cc:1360
 msgid "CRC32 inconsistency (SFV-Check)"
 msgstr "CRC32 inkonzisztencia (SFV ellenőrzéskor)"
 
@@ -1712,7 +1711,7 @@ msgstr "Fájl-lista betöltve"
 msgid "File name"
 msgstr "Fájlnév"
 
-#: ../src/downloadqueue.cc:1360
+#: ../src/downloadqueue.cc:1356
 msgid "File not available"
 msgstr "Fájl nem elérhető"
 
@@ -1861,7 +1860,7 @@ msgstr "Francia fordítás\n"
 msgid "Full Path"
 msgstr "Teljes útvonal"
 
-#: ../src/downloadqueue.cc:1366
+#: ../src/downloadqueue.cc:1362
 msgid "Full tree does not match TTH root"
 msgstr "A teljes fa nem megfelelő a TTH gyökérhez"
 
@@ -1962,7 +1961,7 @@ msgstr "Kedvencek listájának megjelenítése"
 msgid "Hide tools panel"
 msgstr "Eszköztár elrejtése "
 
-#: ../src/downloadqueue.cc:1336
+#: ../src/downloadqueue.cc:1332
 msgid "High"
 msgstr "Magas"
 
@@ -1970,7 +1969,7 @@ msgstr "Magas"
 msgid "High priority max size"
 msgstr "Magas prioritás max mérete"
 
-#: ../src/downloadqueue.cc:1339
+#: ../src/downloadqueue.cc:1335
 msgid "Highest"
 msgstr "Legmagasabb"
 
@@ -2118,8 +2117,7 @@ msgstr "Importálás..."
 msgid "Indexing Progress"
 msgstr "Indexelési folyamat"
 
-#: ../src/hashdialog.cc:40 ../src/hashdialog.cc:119 ../src/hashdialog.cc:136
-#: ../ui/hash.ui:7
+#: ../src/hashdialog.cc:132 ../ui/hash.ui:7
 msgid "Indexing files..."
 msgstr "Fájlok indexelése..."
 
@@ -2275,7 +2273,7 @@ msgstr "Feltöltések naplózása"
 msgid "Logs"
 msgstr "Naplók"
 
-#: ../src/downloadqueue.cc:1333
+#: ../src/downloadqueue.cc:1329
 msgid "Low"
 msgstr "Alacsony"
 
@@ -2283,7 +2281,7 @@ msgstr "Alacsony"
 msgid "Low priority size"
 msgstr "Alacsony prioritás max mérete"
 
-#: ../src/downloadqueue.cc:1330
+#: ../src/downloadqueue.cc:1326
 msgid "Lowest"
 msgstr "Legalacsonyabb"
 
@@ -2533,7 +2531,7 @@ msgstr "Nick"
 msgid "No"
 msgstr "Nem"
 
-#: ../src/downloadqueue.cc:1376
+#: ../src/downloadqueue.cc:1372
 msgid "No errors"
 msgstr "Nincsenek hibák"
 
@@ -2553,7 +2551,7 @@ msgstr "Ne legyen új letöltés, ha a sebesség ezt túllépi (KiB/s; 0 = letil
 msgid "No search text entered"
 msgstr "A keresési mező nincs kitöltve"
 
-#: ../src/downloadqueue.cc:1289
+#: ../src/downloadqueue.cc:1285
 msgid "No users"
 msgstr "Nincsenek felhasználók"
 
@@ -2565,7 +2563,7 @@ msgstr "Nincsenek ikonok"
 msgid "Noon"
 msgstr "Dél"
 
-#: ../src/downloadqueue.cc:1342 ../ui/search.ui:86
+#: ../src/downloadqueue.cc:1338 ../ui/search.ui:86
 msgid "Normal"
 msgstr "Normál"
 
@@ -2693,7 +2691,7 @@ msgstr ""
 msgid "Passive"
 msgstr "Passzív"
 
-#: ../src/downloadqueue.cc:1362
+#: ../src/downloadqueue.cc:1358
 msgid "Passive user"
 msgstr "Passzív felhasználó"
 
@@ -2717,11 +2715,11 @@ msgstr "Útvonal"
 msgid "Pause"
 msgstr "Szünet"
 
-#: ../src/downloadqueue.cc:1327
+#: ../src/downloadqueue.cc:1323
 msgid "Paused"
 msgstr "Megállítva"
 
-#: ../src/hashdialog.cc:40 ../src/hashdialog.cc:124 ../src/hashdialog.cc:136
+#: ../src/hashdialog.cc:132
 msgid "Paused..."
 msgstr "Szünetel..."
 
@@ -2896,7 +2894,7 @@ msgstr "A magnet: URL hivatkozások EiskaltDC++-hoz regisztrálása a rendszerbe
 msgid "Remember choice"
 msgstr "Emlékezz a válaszra"
 
-#: ../src/downloadqueue.cc:1370
+#: ../src/downloadqueue.cc:1366
 msgid "Remote client does not fully support TTH - cannot download"
 msgstr ""
 "A távoli kliens nem rendelkezik TTH támogatással - a letöltés nem lehetséges"
@@ -2966,7 +2964,7 @@ msgstr "Jobb"
 msgid "Run in background"
 msgstr "Futtatás a háttérben"
 
-#: ../src/downloadqueue.cc:1296
+#: ../src/downloadqueue.cc:1292
 msgid "Running..."
 msgstr "Fut..."
 
@@ -3331,7 +3329,7 @@ msgstr "Forrás (git)"
 msgid "Source Type"
 msgstr "Keresés típusa"
 
-#: ../src/downloadqueue.cc:1368
+#: ../src/downloadqueue.cc:1364
 msgid "Source too slow"
 msgstr "A forrás túl lassú"
 
@@ -3612,7 +3610,7 @@ msgstr ""
 msgid "Unfinished downloads directory"
 msgstr "Befejezetlen letöltések könyvtára"
 
-#: ../src/downloadqueue.cc:1302 ../src/downloadqueue.cc:1303
+#: ../src/downloadqueue.cc:1298 ../src/downloadqueue.cc:1299
 #: ../src/WulforUtil.cc:332 ../src/WulforUtil.cc:334 ../src/mainwindow.cc:1084
 #: ../src/mainwindow.cc:1474
 msgid "Unknown"
