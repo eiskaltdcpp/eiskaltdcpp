@@ -310,6 +310,7 @@ list (APPEND AllLanguages
             pl
             pt_BR
             ru
+            sr
             sr@latin
             sk
             uk
