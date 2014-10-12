@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2014-10-12 00:28+0400\n"
+"POT-Creation-Date: 2014-10-12 19:27+0400\n"
 "PO-Revision-Date: 2014-09-24 15:15+0000\n"
 "Last-Translator: Sopor\n"
 "Language-Team: Swedish (Sweden) (http://www.transifex.com/projects/p/"
@@ -34,7 +34,7 @@ msgstr " *** Uttryckssymbol-läge av"
 msgid " *** Emoticons not loaded"
 msgstr " *** Uttryckssymboler är inte laddade"
 
-#: ../src/settingsdialog.cc:2515
+#: ../src/settingsdialog.cc:2517
 msgid " + system icons"
 msgstr "+ systemikoner"
 
@@ -134,11 +134,11 @@ msgstr "': skriv /help för att se en lista över tillgängliga kommandon"
 msgid "*** Available commands:"
 msgstr "*** Tillgängliga kommandon:"
 
-#: ../src/settingsdialog.cc:2288
+#: ../src/settingsdialog.cc:2290
 msgid "*** T E S T ***"
 msgstr "*** T E S T ***"
 
-#: ../src/settingsdialog.cc:1466 ../ui/mainwindow.ui:251
+#: ../src/settingsdialog.cc:1468 ../ui/mainwindow.ui:251
 #: ../ui/mainwindow.ui:2375 ../ui/mainwindow.ui:2393
 msgid "+/-"
 msgstr "+/-"
@@ -147,12 +147,12 @@ msgstr "+/-"
 msgid "-:--:-- left"
 msgstr "-:--:-- kvar"
 
-#: ../src/settingsdialog.cc:2467 ../src/settingsdialog.cc:2491
+#: ../src/settingsdialog.cc:2469 ../src/settingsdialog.cc:2493
 msgid "...must be *.theme"
 msgstr "...måste vara *.theme"
 
-#: ../src/settingsdialog.cc:2370 ../src/settingsdialog.cc:2399
-#: ../src/settingsdialog.cc:2436
+#: ../src/settingsdialog.cc:2372 ../src/settingsdialog.cc:2401
+#: ../src/settingsdialog.cc:2438
 msgid "...must not be empty"
 msgstr "...får inte vara tomt"
 
@@ -364,7 +364,7 @@ msgstr "<b>Dela inte ut filer och mappar som innehåller:</b>"
 msgid "<b>Enter your password</b>"
 msgstr "<b>Ange ditt lösenord</b>"
 
-#: ../src/settingsdialog.cc:2206
+#: ../src/settingsdialog.cc:2208
 msgid "<b>Extension</b>"
 msgstr "<b>Filändelse</b>"
 
@@ -432,19 +432,19 @@ msgstr "<b>Största filstorlek</b>"
 msgid "<b>Min FileSize</b>"
 msgstr "<b>Minsta filstorlek</b>"
 
-#: ../src/settingsdialog.cc:1852
+#: ../src/settingsdialog.cc:1854
 msgid "<b>Name of the new search type</b>"
 msgstr "<b>Namn på den nya söktypen</b>"
 
-#: ../src/settingsdialog.cc:3099
+#: ../src/settingsdialog.cc:3101
 msgid "<b>Name under which the others see the directory</b>"
 msgstr "<b>Katalognamnet som andra användare ser det</b>"
 
-#: ../src/settingsdialog.cc:3739
+#: ../src/settingsdialog.cc:3741
 msgid "<b>Name, under which you see the directory</b>"
 msgstr "<b>Katalognamnet som du ser det</b>"
 
-#: ../src/settingsdialog.cc:2105
+#: ../src/settingsdialog.cc:2107
 msgid "<b>New name</b>"
 msgstr "<b>Nytt namn</b>"
 
@@ -581,7 +581,7 @@ msgstr "<b>Vad är det du vill göra?</b>"
 msgid "<b>Window Options</b>"
 msgstr "<b>Fönsteralternativ</b>"
 
-#: ../src/mainwindow.cc:2342
+#: ../src/mainwindow.cc:2346
 msgid "<b>file:</b> "
 msgstr "<b>fil:</b> "
 
@@ -609,7 +609,7 @@ msgstr "ADLSearch Properties"
 msgid "About EiskaltDC++"
 msgstr "Om EiskaltDC++"
 
-#: ../src/settingsdialog.cc:1650
+#: ../src/settingsdialog.cc:1652
 msgid "Accept custom user commands from hub"
 msgstr "Acceptera användarkommandon från hubben"
 
@@ -629,7 +629,7 @@ msgstr "Lägg till / Ta bort"
 msgid "Add a hub to favorites"
 msgstr "Lägg till en favorithubb"
 
-#: ../src/settingsdialog.cc:1652
+#: ../src/settingsdialog.cc:1654
 msgid "Add finished files to share instantly (if shared)"
 msgstr "Lägg till klara filer direkt till utdelningen (om utdelad)"
 
@@ -705,27 +705,27 @@ msgstr "Alias add uname -a as A"
 msgid "Aliases not found."
 msgstr "Hittade inga alias."
 
-#: ../src/settingsdialog.cc:1726
+#: ../src/settingsdialog.cc:1728
 msgid "Allow TLS connections to clients without trusted certificate"
 msgstr "Tillåt TLS-anslutningar till klienter som saknar betrodda certifikat"
 
-#: ../src/settingsdialog.cc:1725
+#: ../src/settingsdialog.cc:1727
 msgid "Allow TLS connections to hubs without trusted certificate"
 msgstr "Tillåt TLS-anslutningar till hubbar som saknar betrodda certifikat"
 
-#: ../src/settingsdialog.cc:1660
+#: ../src/settingsdialog.cc:1662
 msgid "Allow few connections from one IP"
 msgstr "Tillåt flera anslutningar från samma IP"
 
-#: ../src/settingsdialog.cc:1727
+#: ../src/settingsdialog.cc:1729
 msgid "Allow only TLS connections to clients"
 msgstr "Tillåt endast TLS-anslutningar till andra klienter"
 
-#: ../src/settingsdialog.cc:1659
+#: ../src/settingsdialog.cc:1661
 msgid "Allow overlap chunks"
 msgstr "Tillåt att delarna överlappas"
 
-#: ../src/settingsdialog.cc:1661
+#: ../src/settingsdialog.cc:1663
 msgid "Allow some connections for one user"
 msgstr "Tillåt flera anslutningar från samma användare"
 
@@ -738,8 +738,8 @@ msgid "Appearance"
 msgstr "Utseende"
 
 #: ../src/settingsdialog.cc:927 ../src/settingsdialog.cc:962
-#: ../src/settingsdialog.cc:2986 ../src/settingsdialog.cc:3020
-#: ../src/settingsdialog.cc:3038 ../src/settingsdialog.cc:3069
+#: ../src/settingsdialog.cc:2988 ../src/settingsdialog.cc:3022
+#: ../src/settingsdialog.cc:3040 ../src/settingsdialog.cc:3071
 msgid "Application"
 msgstr "Program"
 
@@ -800,7 +800,7 @@ msgstr "Uppdatera utdelning"
 msgid "Auto update IP from internet"
 msgstr "Uppdatera IP-adressen automatiskt"
 
-#: ../src/settingsdialog.cc:1641
+#: ../src/settingsdialog.cc:1643
 msgid "Auto-away on minimize (and back on restore)"
 msgstr "Auto-IVD vid minimera (och tillbaka vid återställ)"
 
@@ -808,11 +808,11 @@ msgstr "Auto-IVD vid minimera (och tillbaka vid återställ)"
 msgid "Auto-drop slow sources for all queue items (except filelists)"
 msgstr "Stäng automatiskt ner alla långsamma källor (utom fillistor)"
 
-#: ../src/settingsdialog.cc:1646
+#: ../src/settingsdialog.cc:1648
 msgid "Automatically disconnect users who leave the hub"
 msgstr "Koppla bort användare som lämnar hubben"
 
-#: ../src/settingsdialog.cc:1642
+#: ../src/settingsdialog.cc:1644
 msgid "Automatically follow redirects"
 msgstr "Följ omdirigering automatiskt"
 
@@ -916,15 +916,15 @@ msgstr "Bläddra i listan med publika hubbar"
 msgid "Browse..."
 msgstr "Bländra..."
 
-#: ../src/settingsdialog.cc:1080
+#: ../src/settingsdialog.cc:1082
 msgid "Bulgarian"
 msgstr "Bulgariska"
 
-#: ../src/mainwindow.cc:248
+#: ../src/mainwindow.cc:252
 msgid "Bulgarian translation\n"
 msgstr "Bulgarisk översättning\n"
 
-#: ../src/settingsdialog.cc:1417
+#: ../src/settingsdialog.cc:1419
 msgid "Button smile"
 msgstr "Knappleende"
 
@@ -1034,11 +1034,11 @@ msgstr "Chatten aktiverad"
 msgid "Check every"
 msgstr "Kontrollera varje"
 
-#: ../src/settingsdialog.cc:1094
+#: ../src/settingsdialog.cc:1096
 msgid "Chinese (China)"
 msgstr "Kinesiska (Kina)"
 
-#: ../src/mainwindow.cc:273
+#: ../src/mainwindow.cc:277
 msgid "Chinese (China) translation\n"
 msgstr "Kinesiska (Kina) översättning\n"
 
@@ -1046,8 +1046,8 @@ msgstr "Kinesiska (Kina) översättning\n"
 msgid "Choose a File"
 msgstr "Välj en fil"
 
-#: ../src/privatemessage.cc:1298 ../src/hub.cc:2651 ../src/mainwindow.cc:1324
-#: ../src/mainwindow.cc:1392 ../ui/search.ui:7 ../ui/sharebrowser.ui:7
+#: ../src/privatemessage.cc:1298 ../src/hub.cc:2651 ../src/mainwindow.cc:1328
+#: ../src/mainwindow.cc:1396 ../ui/search.ui:7 ../ui/sharebrowser.ui:7
 #: ../ui/settingsdialog.ui:8510
 msgid "Choose a directory"
 msgstr "Välj en kalalog"
@@ -1072,7 +1072,7 @@ msgstr "Rensa chatten"
 msgid "Clear frame search"
 msgstr "Rensa ramfältet"
 
-#: ../src/settingsdialog.cc:1643
+#: ../src/settingsdialog.cc:1645
 msgid "Clear search box after each search"
 msgstr "Rensa sökfältet efter varje sökning"
 
@@ -1116,13 +1116,13 @@ msgstr "Välj färg"
 msgid "Colors & Fonts"
 msgstr "Färger & Typsnitt"
 
-#: ../src/settingsdialog.cc:1673 ../src/settingsdialog.cc:1681
-#: ../src/settingsdialog.cc:3348 ../src/settingsdialog.cc:3422
+#: ../src/settingsdialog.cc:1675 ../src/settingsdialog.cc:1683
+#: ../src/settingsdialog.cc:3350 ../src/settingsdialog.cc:3424
 #: ../ui/settingsdialog.ui:812
 msgid "Command"
 msgstr "Kommando"
 
-#: ../src/settingsdialog.cc:3466 ../src/settingsdialog.cc:3472
+#: ../src/settingsdialog.cc:3468 ../src/settingsdialog.cc:3474
 msgid "Command name already exists"
 msgstr "Namnet på kommandot finns redan"
 
@@ -1134,15 +1134,15 @@ msgstr "Konfigurera publika hubblistor"
 msgid "Configure hub lists"
 msgstr "Konfigurera hubblistor"
 
-#: ../src/settingsdialog.cc:1573
+#: ../src/settingsdialog.cc:1575
 msgid "Confirm application exit"
 msgstr "Bekräfta avstängning av programmet"
 
-#: ../src/settingsdialog.cc:1574
+#: ../src/settingsdialog.cc:1576
 msgid "Confirm favorite hub removal"
 msgstr "Bekräfta borttagning av favorithubb"
 
-#: ../src/settingsdialog.cc:1433 ../src/settingsdialog.cc:1472
+#: ../src/settingsdialog.cc:1435 ../src/settingsdialog.cc:1474
 #: ../ui/mainwindow.ui:2144 ../ui/mainwindow.ui:2417
 msgid "Connect"
 msgstr "Anslut"
@@ -1190,7 +1190,7 @@ msgstr "Ansluter..."
 msgid "Connection"
 msgstr "Ansluter"
 
-#: ../src/mainwindow.cc:2286
+#: ../src/mainwindow.cc:2290
 msgid "Connectivity Manager: Warning"
 msgstr "Anslutningshanterare: Varning"
 
@@ -1207,11 +1207,11 @@ msgstr "Antal"
 msgid "Country"
 msgstr "Land"
 
-#: ../src/settingsdialog.cc:1084
+#: ../src/settingsdialog.cc:1086
 msgid "Czech"
 msgstr "Tjeckiska"
 
-#: ../src/mainwindow.cc:254
+#: ../src/mainwindow.cc:258
 msgid "Czech translation\n"
 msgstr "Tjeckisk översättning\n"
 
@@ -1293,16 +1293,16 @@ msgid "Direct connection"
 msgstr "Direkt anslutning"
 
 #: ../src/settingsdialog.cc:905 ../src/settingsdialog.cc:919
-#: ../src/settingsdialog.cc:1033 ../src/settingsdialog.cc:1436
-#: ../src/settingsdialog.cc:3755 ../src/settingsdialog.cc:3775
-#: ../src/settingsdialog.cc:3804 ../src/settingsdialog.cc:3818
-#: ../src/settingsdialog.cc:3873 ../src/sharebrowser.cc:334
+#: ../src/settingsdialog.cc:1033 ../src/settingsdialog.cc:1438
+#: ../src/settingsdialog.cc:3757 ../src/settingsdialog.cc:3777
+#: ../src/settingsdialog.cc:3806 ../src/settingsdialog.cc:3820
+#: ../src/settingsdialog.cc:3875 ../src/sharebrowser.cc:334
 #: ../src/UserCommandMenu.cc:66 ../src/search.cc:921 ../src/search.cc:1757
 #: ../ui/adlsearch.ui:392 ../ui/settingsdialog.ui:6725
 msgid "Directory"
 msgstr "Katalog"
 
-#: ../src/settingsdialog.cc:3760
+#: ../src/settingsdialog.cc:3762
 msgid "Directory or favorite name already exists"
 msgstr "Katalog- eller favoritnamn finns redan"
 
@@ -1310,7 +1310,7 @@ msgstr "Katalog- eller favoritnamn finns redan"
 msgid "Disable chat"
 msgstr "Inaktivera chatten"
 
-#: ../src/settingsdialog.cc:1123
+#: ../src/settingsdialog.cc:1125
 msgid "Do not close the program, hide in the system tray"
 msgstr "Stäng inte programmet, lägg det i meddelandefältet"
 
@@ -1342,7 +1342,7 @@ msgstr "Göm inte sidpanelen vid sök"
 msgid "Don't remove the source when auto-dropping, only disconnect"
 msgstr "Ta inte bort källan vid automatisk bortkoppling, koppla bara i från"
 
-#: ../src/settingsdialog.cc:1653
+#: ../src/settingsdialog.cc:1655
 msgid "Don't send the away message to bots"
 msgstr "Skicka inte IVD-meddelande till botar"
 
@@ -1350,7 +1350,7 @@ msgstr "Skicka inte IVD-meddelande till botar"
 msgid "Done"
 msgstr "Klar"
 
-#: ../src/settingsdialog.cc:1418 ../ui/sharebrowser.ui:80
+#: ../src/settingsdialog.cc:1420 ../ui/sharebrowser.ui:80
 #: ../ui/sharebrowser.ui:126
 msgid "Download"
 msgstr "Ladda ned"
@@ -1359,7 +1359,7 @@ msgstr "Ladda ned"
 msgid "Download Matches"
 msgstr "Matchade nedladdningar"
 
-#: ../src/settingsdialog.cc:1142 ../src/settingsdialog.cc:1552
+#: ../src/settingsdialog.cc:1144 ../src/settingsdialog.cc:1554
 #: ../src/downloadqueue.cc:33 ../ui/mainwindow.ui:1268
 msgid "Download Queue"
 msgstr "Nedladdningskö"
@@ -1380,12 +1380,12 @@ msgstr "Nedladdning är klar..."
 msgid "Download failed: "
 msgstr "Nedladdningen misslyckades:"
 
-#: ../src/settingsdialog.cc:1172 ../src/settingsdialog.cc:1354
+#: ../src/settingsdialog.cc:1174 ../src/settingsdialog.cc:1356
 #: ../src/transfers.cc:1090 ../src/settingsmanager.cc:236
 msgid "Download finished"
 msgstr "Nedladdningen är avslutad"
 
-#: ../src/settingsdialog.cc:1173 ../src/settingsdialog.cc:1358
+#: ../src/settingsdialog.cc:1175 ../src/settingsdialog.cc:1360
 #: ../src/settingsmanager.cc:238
 msgid "Download finished file list"
 msgstr "Nedladdningen av fillistan är avslutad"
@@ -1443,7 +1443,7 @@ msgstr "Laddar ned till..."
 msgid "Download whole director_y to..."
 msgstr "Ladda ned hela kataloge_n till..."
 
-#: ../src/mainwindow.cc:761
+#: ../src/mainwindow.cc:765
 msgid "Download: "
 msgstr "Ladda ned:"
 
@@ -1505,15 +1505,15 @@ msgstr "Uttryckssymboler på/av"
 msgid "Emotion packs"
 msgstr "Uttryckssymbolspaket"
 
-#: ../src/settingsdialog.cc:1648
+#: ../src/settingsdialog.cc:1650
 msgid "Enable automatic SFV checking"
 msgstr "Använd automatisk SFV-kontrollering"
 
-#: ../src/settingsdialog.cc:1649
+#: ../src/settingsdialog.cc:1651
 msgid "Enable safe and compressed transfers"
 msgstr "Aktivera säkra och komprimerade överföringar"
 
-#: ../src/settingsdialog.cc:1647
+#: ../src/settingsdialog.cc:1649
 msgid "Enable segmented downloads"
 msgstr "Aktivera segmenterad nedladdning"
 
@@ -1545,12 +1545,12 @@ msgstr "Ange rad för användarkommando"
 msgid "Enter text to search for"
 msgstr "Ange text att söka efter"
 
-#: ../src/mainwindow.cc:1258
+#: ../src/mainwindow.cc:1262
 msgid "Enter value for "
 msgstr "Ange värde för"
 
-#: ../src/settingsdialog.cc:1913 ../src/settingsdialog.cc:1957
-#: ../src/settingsdialog.cc:2976
+#: ../src/settingsdialog.cc:1915 ../src/settingsdialog.cc:1959
+#: ../src/settingsdialog.cc:2978
 msgid "Error"
 msgstr "Fel"
 
@@ -1612,15 +1612,15 @@ msgstr "Endast för experter"
 msgid "Export..."
 msgstr "Exportera..."
 
-#: ../src/settingsdialog.cc:2205
+#: ../src/settingsdialog.cc:2207
 msgid "Extension edition"
 msgstr ""
 
 #: ../src/settingsdialog.cc:928 ../src/settingsdialog.cc:963
-#: ../src/settingsdialog.cc:1739 ../src/settingsdialog.cc:1880
-#: ../src/settingsdialog.cc:1931 ../src/settingsdialog.cc:1986
-#: ../src/settingsdialog.cc:2987 ../src/settingsdialog.cc:3021
-#: ../src/settingsdialog.cc:3039 ../src/settingsdialog.cc:3070
+#: ../src/settingsdialog.cc:1741 ../src/settingsdialog.cc:1882
+#: ../src/settingsdialog.cc:1933 ../src/settingsdialog.cc:1988
+#: ../src/settingsdialog.cc:2989 ../src/settingsdialog.cc:3023
+#: ../src/settingsdialog.cc:3041 ../src/settingsdialog.cc:3072
 msgid "Extensions"
 msgstr "Filändelser"
 
@@ -1636,23 +1636,23 @@ msgstr "Extern IP-adress"
 msgid "Favorite Hub Properties"
 msgstr "Egenskaper för favorithubb"
 
-#: ../src/settingsdialog.cc:1420 ../src/settingsdialog.cc:1474
-#: ../src/settingsdialog.cc:1551 ../src/favoritehubs.cc:31
+#: ../src/settingsdialog.cc:1422 ../src/settingsdialog.cc:1476
+#: ../src/settingsdialog.cc:1553 ../src/favoritehubs.cc:31
 #: ../ui/mainwindow.ui:1174 ../ui/mainwindow.ui:2168
 msgid "Favorite Hubs"
 msgstr "Favorithubbar"
 
 #: ../src/settingsdialog.cc:904 ../src/settingsdialog.cc:918
-#: ../src/settingsdialog.cc:3754
+#: ../src/settingsdialog.cc:3756
 msgid "Favorite Name"
 msgstr "Favoritnamn"
 
-#: ../src/settingsdialog.cc:1243
+#: ../src/settingsdialog.cc:1245
 msgid "Favorite User"
 msgstr "Favoritanvändare"
 
-#: ../src/settingsdialog.cc:1421 ../src/settingsdialog.cc:1476
-#: ../src/settingsdialog.cc:1555 ../src/favoriteusers.cc:33
+#: ../src/settingsdialog.cc:1423 ../src/settingsdialog.cc:1478
+#: ../src/settingsdialog.cc:1557 ../src/favoriteusers.cc:33
 #: ../ui/mainwindow.ui:1204 ../ui/mainwindow.ui:2184
 msgid "Favorite Users"
 msgstr "Favoritanvändare"
@@ -1665,23 +1665,23 @@ msgstr "Favorithubb har lagts till"
 msgid "Favorite hub already exists"
 msgstr "Favorithubben finns redan"
 
-#: ../src/settingsdialog.cc:3737 ../ui/settingsdialog.ui:8996
+#: ../src/settingsdialog.cc:3739 ../ui/settingsdialog.ui:8996
 msgid "Favorite name"
 msgstr "Favoritnamn"
 
-#: ../src/settingsdialog.cc:1178 ../src/settingsdialog.cc:1374
+#: ../src/settingsdialog.cc:1180 ../src/settingsdialog.cc:1376
 #: ../src/settingsmanager.cc:246
 msgid "Favorite user joined"
 msgstr "Favoritanvändare ansluter"
 
-#: ../src/settingsdialog.cc:1179 ../src/settingsdialog.cc:1378
+#: ../src/settingsdialog.cc:1181 ../src/settingsdialog.cc:1380
 #: ../src/settingsmanager.cc:248
 msgid "Favorite user quit"
 msgstr "Favoritanvändaren lämnar"
 
-#: ../src/settingsdialog.cc:364 ../src/settingsdialog.cc:1156
-#: ../src/settingsdialog.cc:1435 ../src/settingsdialog.cc:2904
-#: ../src/settingsdialog.cc:2923 ../src/UserCommandMenu.cc:68
+#: ../src/settingsdialog.cc:364 ../src/settingsdialog.cc:1158
+#: ../src/settingsdialog.cc:1437 ../src/settingsdialog.cc:2906
+#: ../src/settingsdialog.cc:2925 ../src/UserCommandMenu.cc:68
 #: ../ui/settingsdialog.ui:6826 ../ui/settingsdialog.ui:6910
 #: ../ui/settingsdialog.ui:6994 ../ui/settingsdialog.ui:7078
 #: ../ui/settingsdialog.ui:7159
@@ -1747,7 +1747,7 @@ msgstr "Filter enligt IP"
 msgid "Filter files already in share"
 msgstr "Filtrera filer som redan finns i utdelningen"
 
-#: ../src/settingsdialog.cc:1112
+#: ../src/settingsdialog.cc:1114
 msgid "Filter kick and NMDC debug messages"
 msgstr "Filtrera kick- och NMDC-debugmeddelanden"
 
@@ -1767,15 +1767,15 @@ msgstr "Leta upp"
 msgid "Find files"
 msgstr "Leta upp filer"
 
-#: ../src/settingsdialog.cc:1140 ../src/settingsdialog.cc:1422
-#: ../src/settingsdialog.cc:1496 ../src/settingsdialog.cc:1553
+#: ../src/settingsdialog.cc:1142 ../src/settingsdialog.cc:1424
+#: ../src/settingsdialog.cc:1498 ../src/settingsdialog.cc:1555
 #: ../src/finishedtransfers.cc:35 ../ui/mainwindow.ui:1280
 #: ../ui/mainwindow.ui:2263 ../ui/mainwindow.ui:2513
 msgid "Finished Downloads"
 msgstr "Färdiga Nedladdningar"
 
-#: ../src/settingsdialog.cc:1141 ../src/settingsdialog.cc:1423
-#: ../src/settingsdialog.cc:1498 ../src/settingsdialog.cc:1554
+#: ../src/settingsdialog.cc:1143 ../src/settingsdialog.cc:1425
+#: ../src/settingsdialog.cc:1500 ../src/settingsdialog.cc:1556
 #: ../src/finishedtransfers.cc:40 ../ui/mainwindow.ui:1291
 #: ../ui/mainwindow.ui:2280 ../ui/mainwindow.ui:2521
 msgid "Finished Uploads"
@@ -1835,7 +1835,7 @@ msgstr ""
 msgid "Frame:"
 msgstr "Ram:"
 
-#: ../src/mainwindow.cc:2401
+#: ../src/mainwindow.cc:2405
 msgid "Free "
 msgstr "Ledigt"
 
@@ -1860,7 +1860,7 @@ msgstr ""
 msgid "GB18030"
 msgstr "GB18030"
 
-#: ../src/settingsdialog.cc:1219
+#: ../src/settingsdialog.cc:1221
 msgid "General text"
 msgstr "Allmän text"
 
@@ -1868,11 +1868,11 @@ msgstr "Allmän text"
 msgid "Generate certificates"
 msgstr "Skapa nya certifikat"
 
-#: ../src/settingsdialog.cc:1086
+#: ../src/settingsdialog.cc:1088
 msgid "German"
 msgstr "Tyska"
 
-#: ../src/mainwindow.cc:257
+#: ../src/mainwindow.cc:261
 msgid "German translation\n"
 msgstr "Tysk översättning\n"
 
@@ -1896,11 +1896,11 @@ msgstr "Bevilja slott"
 msgid "Grant extra slot"
 msgstr "Bevilja extra slott"
 
-#: ../src/settingsdialog.cc:1088
+#: ../src/settingsdialog.cc:1090
 msgid "Greek"
 msgstr "Grekiska"
 
-#: ../src/mainwindow.cc:263
+#: ../src/mainwindow.cc:267
 msgid "Greek translation\n"
 msgstr "Grekisk översättning\n"
 
@@ -1936,7 +1936,7 @@ msgstr "HUBB OUT"
 msgid "H_igh"
 msgstr "H_ög"
 
-#: ../src/settingsdialog.cc:1426 ../src/settingsdialog.cc:1486
+#: ../src/settingsdialog.cc:1428 ../src/settingsdialog.cc:1488
 #: ../ui/mainwindow.ui:2101 ../ui/mainwindow.ui:2473
 msgid "Hash"
 msgstr "Index"
@@ -1973,17 +1973,17 @@ msgstr "Högsta prioritet maximal storlek"
 msgid "Homepage"
 msgstr "Hemsida"
 
-#: ../src/settingsdialog.cc:1672 ../src/settingsdialog.cc:1682
-#: ../src/settingsdialog.cc:3347 ../src/settingsdialog.cc:3421
-#: ../src/settingsdialog.cc:3995 ../src/settingsdialog.cc:4086
-#: ../src/settingsdialog.cc:4109 ../src/settingsdialog.cc:4128
+#: ../src/settingsdialog.cc:1674 ../src/settingsdialog.cc:1684
+#: ../src/settingsdialog.cc:3349 ../src/settingsdialog.cc:3423
+#: ../src/settingsdialog.cc:3997 ../src/settingsdialog.cc:4088
+#: ../src/settingsdialog.cc:4111 ../src/settingsdialog.cc:4130
 #: ../src/finishedtransfers.cc:85 ../src/finishedtransfers.cc:194
 #: ../src/search.cc:107 ../src/search.cc:658 ../src/search.cc:755
 #: ../src/search.cc:884 ../ui/search.ui:150
 msgid "Hub"
 msgstr "Hubb"
 
-#: ../src/settingsdialog.cc:1143
+#: ../src/settingsdialog.cc:1145
 msgid "Hub (also sets urgency hint)"
 msgstr ""
 
@@ -2005,12 +2005,12 @@ msgstr "Hubbmenu"
 msgid "Hub Name"
 msgstr "Hubbnamn"
 
-#: ../src/settingsdialog.cc:1176 ../src/settingsdialog.cc:1366
+#: ../src/settingsdialog.cc:1178 ../src/settingsdialog.cc:1368
 #: ../src/settingsmanager.cc:244
 msgid "Hub connected"
 msgstr "Hubb ansluten"
 
-#: ../src/settingsdialog.cc:1177 ../src/settingsdialog.cc:1370
+#: ../src/settingsdialog.cc:1179 ../src/settingsdialog.cc:1372
 #: ../src/settingsmanager.cc:242
 msgid "Hub disconnected"
 msgstr "Hubb frånkopplad"
@@ -2059,9 +2059,9 @@ msgstr "ISO-8859-8"
 msgid "ISO-8859-9"
 msgstr "ISO-8859-9"
 
-#: ../src/settingsdialog.cc:403 ../src/settingsdialog.cc:1337
-#: ../src/settingsdialog.cc:2286 ../src/settingsdialog.cc:2320
-#: ../src/settingsdialog.cc:2397 ../src/settingsdialog.cc:2433
+#: ../src/settingsdialog.cc:403 ../src/settingsdialog.cc:1339
+#: ../src/settingsdialog.cc:2288 ../src/settingsdialog.cc:2322
+#: ../src/settingsdialog.cc:2399 ../src/settingsdialog.cc:2435
 msgid "Icon"
 msgstr "Ikon"
 
@@ -2085,11 +2085,11 @@ msgstr "Ignorera TTH"
 msgid "Ignore TTH search"
 msgstr "Ignorera TTH-sök"
 
-#: ../src/settingsdialog.cc:1566
+#: ../src/settingsdialog.cc:1568
 msgid "Ignore private messages from bots"
 msgstr "Ignorera privata meddelanden från botar"
 
-#: ../src/settingsdialog.cc:1565
+#: ../src/settingsdialog.cc:1567
 msgid "Ignore private messages from the hub"
 msgstr "Ignorera privata meddelanden från hubben"
 
@@ -2117,7 +2117,7 @@ msgstr "Filindexering..."
 msgid "Installing handler for"
 msgstr "Installera hanterare för"
 
-#: ../src/settingsdialog.cc:2033 ../src/settingsdialog.cc:2221
+#: ../src/settingsdialog.cc:2035 ../src/settingsdialog.cc:2223
 msgid "Invalid extension: "
 msgstr "Ogiltig filändelse:"
 
@@ -2133,11 +2133,11 @@ msgstr "IP-filter är aktiverad"
 msgid "Ipfilter on/off"
 msgstr "IP-filter på/av"
 
-#: ../src/settingsdialog.cc:1090
+#: ../src/settingsdialog.cc:1092
 msgid "Italian"
 msgstr "Italien"
 
-#: ../src/mainwindow.cc:266
+#: ../src/mainwindow.cc:270
 msgid "Italian translation\n"
 msgstr "Italiensk översättning\n"
 
@@ -2157,11 +2157,11 @@ msgstr "KOI8-R"
 msgid "Kaffeine player"
 msgstr "Kaffeine-spelare"
 
-#: ../src/settingsdialog.cc:1663
+#: ../src/settingsdialog.cc:1665
 msgid "Keep downloaded files and dirs in queue"
 msgstr "Behåll nedladdade filer och kataloger i kön"
 
-#: ../src/settingsdialog.cc:1644
+#: ../src/settingsdialog.cc:1646
 msgid ""
 "Keep duplicate files in your file list (duplicates never count towards your "
 "share size)"
@@ -2169,7 +2169,7 @@ msgstr ""
 "Behåll dubbletter i din fillista (dubbletter höjer inte storleken på din "
 "utdelning)"
 
-#: ../src/settingsdialog.cc:1645
+#: ../src/settingsdialog.cc:1647
 msgid "Keep filelists when exiting"
 msgstr "Behåll fillistor vid programavslut"
 
@@ -2198,9 +2198,9 @@ msgstr "Begränsningar"
 
 #: ../src/settingsdialog.cc:329 ../src/settingsdialog.cc:887
 #: ../src/settingsdialog.cc:1010 ../src/settingsdialog.cc:1028
-#: ../src/settingsdialog.cc:3635 ../src/settingsdialog.cc:3648
-#: ../src/settingsdialog.cc:3665 ../src/settingsdialog.cc:4343
-#: ../src/settingsdialog.cc:4379 ../src/publichubs.cc:69
+#: ../src/settingsdialog.cc:3637 ../src/settingsdialog.cc:3650
+#: ../src/settingsdialog.cc:3667 ../src/settingsdialog.cc:4345
+#: ../src/settingsdialog.cc:4381 ../src/publichubs.cc:69
 #: ../src/publichubs.cc:339 ../src/publichubs.cc:364 ../src/publichubs.cc:414
 msgid "List"
 msgstr "Lista"
@@ -2217,7 +2217,7 @@ msgstr "Ladda Lua-fil"
 msgid "Loaded from cache: "
 msgstr "Laddad från bufferten: "
 
-#: ../src/mainwindow.cc:2057
+#: ../src/mainwindow.cc:2061
 msgid "Loading file list"
 msgstr "Laddar fillista"
 
@@ -2281,11 +2281,11 @@ msgstr "Lägsta"
 msgid "Magnet"
 msgstr "Magnet"
 
-#: ../src/mainwindow.cc:1385
+#: ../src/mainwindow.cc:1389
 msgid "Magnet Choice"
 msgstr "Magnet-Val"
 
-#: ../src/mainwindow.cc:1315
+#: ../src/mainwindow.cc:1319
 msgid "Magnet Properties / Choice"
 msgstr "Magnet-Egenskaper / Val"
 
@@ -2391,7 +2391,7 @@ msgstr "Minsta antal källor anslutna"
 msgid "Mini slot size"
 msgstr "Storlek på Minislott"
 
-#: ../src/settingsdialog.cc:1127
+#: ../src/settingsdialog.cc:1129
 msgid "Minimize to tray on startup"
 msgstr "Minimera till meddelandefältet vid uppstart"
 
@@ -2431,15 +2431,15 @@ msgstr "Flytta till..."
 msgid "Mplayer player"
 msgstr "Mplayer-spelare"
 
-#: ../src/settingsdialog.cc:2968 ../src/settingsdialog.cc:3054
+#: ../src/settingsdialog.cc:2970 ../src/settingsdialog.cc:3056
 msgid "Must not be empty..."
 msgstr "Får inte vara tom..."
 
-#: ../src/settingsdialog.cc:1222
+#: ../src/settingsdialog.cc:1224
 msgid "My nick"
 msgstr "Mitt användarnamn"
 
-#: ../src/settingsdialog.cc:1225
+#: ../src/settingsdialog.cc:1227
 msgid "My own message"
 msgstr "Mina egna meddelanden"
 
@@ -2449,17 +2449,17 @@ msgstr "A_nvändarnamn:"
 
 #: ../src/settingsdialog.cc:690 ../src/settingsdialog.cc:699
 #: ../src/settingsdialog.cc:926 ../src/settingsdialog.cc:961
-#: ../src/settingsdialog.cc:1397 ../src/settingsdialog.cc:1451
-#: ../src/settingsdialog.cc:1671 ../src/settingsdialog.cc:1680
-#: ../src/settingsdialog.cc:1749 ../src/settingsdialog.cc:1905
-#: ../src/settingsdialog.cc:1949 ../src/settingsdialog.cc:1998
-#: ../src/settingsdialog.cc:2198 ../src/settingsdialog.cc:2985
-#: ../src/settingsdialog.cc:3001 ../src/settingsdialog.cc:3019
-#: ../src/settingsdialog.cc:3037 ../src/settingsdialog.cc:3063
-#: ../src/settingsdialog.cc:3068 ../src/settingsdialog.cc:3346
-#: ../src/settingsdialog.cc:3420 ../src/settingsdialog.cc:3994
-#: ../src/settingsdialog.cc:4085 ../src/settingsdialog.cc:4108
-#: ../src/settingsdialog.cc:4127 ../src/favoritehubs.cc:53
+#: ../src/settingsdialog.cc:1399 ../src/settingsdialog.cc:1453
+#: ../src/settingsdialog.cc:1673 ../src/settingsdialog.cc:1682
+#: ../src/settingsdialog.cc:1751 ../src/settingsdialog.cc:1907
+#: ../src/settingsdialog.cc:1951 ../src/settingsdialog.cc:2000
+#: ../src/settingsdialog.cc:2200 ../src/settingsdialog.cc:2987
+#: ../src/settingsdialog.cc:3003 ../src/settingsdialog.cc:3021
+#: ../src/settingsdialog.cc:3039 ../src/settingsdialog.cc:3065
+#: ../src/settingsdialog.cc:3070 ../src/settingsdialog.cc:3348
+#: ../src/settingsdialog.cc:3422 ../src/settingsdialog.cc:3996
+#: ../src/settingsdialog.cc:4087 ../src/settingsdialog.cc:4110
+#: ../src/settingsdialog.cc:4129 ../src/favoritehubs.cc:53
 #: ../src/favoritehubs.cc:77 ../src/favoritehubs.cc:78
 #: ../src/favoritehubs.cc:132 ../src/favoritehubs.cc:306
 #: ../src/favoritehubs.cc:450 ../src/publichubs.cc:47 ../src/publichubs.cc:159
@@ -2468,7 +2468,7 @@ msgstr "A_nvändarnamn:"
 msgid "Name"
 msgstr "Namn"
 
-#: ../src/settingsdialog.cc:3460
+#: ../src/settingsdialog.cc:3462
 msgid "Name and command must not be empty"
 msgstr "Namn eller kommando får inte vara tomma"
 
@@ -2476,15 +2476,15 @@ msgstr "Namn eller kommando får inte vara tomma"
 msgid "Name:"
 msgstr "Namn:"
 
-#: ../src/settingsdialog.cc:4343
+#: ../src/settingsdialog.cc:4345
 msgid "New exception"
 msgstr "Nytt undantag"
 
-#: ../src/settingsdialog.cc:3665 ../src/publichubs.cc:364
+#: ../src/settingsdialog.cc:3667 ../src/publichubs.cc:364
 msgid "New list"
 msgstr "Ny lista"
 
-#: ../src/settingsdialog.cc:1851
+#: ../src/settingsdialog.cc:1853
 msgid "New search type"
 msgstr "Ny söksträng"
 
@@ -2586,7 +2586,7 @@ msgid "Note; because of changing download speeds, this is not 100% accurate..."
 msgstr ""
 "Obs: eftersom nedladdningshastigheten ändras är inte detta 100% korrekt..."
 
-#: ../src/settingsdialog.cc:1335 ../ui/settingsdialog.ui:5883
+#: ../src/settingsdialog.cc:1337 ../ui/settingsdialog.ui:5883
 msgid "Notify"
 msgstr "Meddela"
 
@@ -2603,7 +2603,7 @@ msgstr "Frånkopplad"
 msgid "Online"
 msgstr "Ansluten"
 
-#: ../src/settingsdialog.cc:1117
+#: ../src/settingsdialog.cc:1119
 msgid "Only show joins / parts for favorite users"
 msgstr "Visa endast anslutning / frånkoppling av favoritanvändare"
 
@@ -2627,7 +2627,7 @@ msgstr "Öppna mappen som innehåller"
 msgid "Open file"
 msgstr "Öppna fil"
 
-#: ../src/settingsdialog.cc:1562
+#: ../src/settingsdialog.cc:1564
 msgid "Open file list window in the background"
 msgstr "Öppna fillistor i bakgrunden"
 
@@ -2639,11 +2639,11 @@ msgstr "Öppna mapp"
 msgid "Open image"
 msgstr "Öppna avbild"
 
-#: ../src/settingsdialog.cc:1563
+#: ../src/settingsdialog.cc:1565
 msgid "Open new private messages from other users in the background"
 msgstr "Öppna nya privatmeddelanden från andra användare i bakgrunden"
 
-#: ../src/settingsdialog.cc:1564
+#: ../src/settingsdialog.cc:1566
 msgid "Open new window when using /join"
 msgstr "Öppna nytt fönster när du använder /join"
 
@@ -2651,11 +2651,11 @@ msgstr "Öppna nytt fönster när du använder /join"
 msgid "Open own file list"
 msgstr "Öppna din egna fillista"
 
-#: ../src/settingsdialog.cc:1246
+#: ../src/settingsdialog.cc:1248
 msgid "Operator"
 msgstr "Operatör"
 
-#: ../src/settingsdialog.cc:1424 ../src/settingsdialog.cc:1482
+#: ../src/settingsdialog.cc:1426 ../src/settingsdialog.cc:1484
 #: ../ui/mainwindow.ui:2067 ../ui/mainwindow.ui:2457
 msgid "Own file list"
 msgstr "Egen fillista"
@@ -2736,7 +2736,7 @@ msgstr "Polska"
 msgid "Polish translation\n"
 msgstr "Polsk översättning\n"
 
-#: ../src/settingsdialog.cc:1567
+#: ../src/settingsdialog.cc:1569
 msgid "Popup box to input password for hubs"
 msgstr "Poppuppruta för att ange hubblösenord"
 
@@ -2752,12 +2752,12 @@ msgstr "Portar"
 msgid "Portuguese (Brazil)"
 msgstr "Portugal (Brasilien)"
 
-#: ../src/settingsdialog.cc:1738 ../src/settingsdialog.cc:1839
-#: ../src/settingsdialog.cc:1930
+#: ../src/settingsdialog.cc:1740 ../src/settingsdialog.cc:1841
+#: ../src/settingsdialog.cc:1932
 msgid "Predefined"
 msgstr "Fördefinierade"
 
-#: ../src/settingsdialog.cc:1427 ../src/settingsdialog.cc:1480
+#: ../src/settingsdialog.cc:1429 ../src/settingsdialog.cc:1482
 #: ../ui/mainwindow.ui:2041 ../ui/mainwindow.ui:2449
 #: ../ui/settingsdialog.ui:1011
 msgid "Preferences"
@@ -2772,7 +2772,7 @@ msgstr "Förhandsgranskning"
 msgid "Priority"
 msgstr "Prioritet"
 
-#: ../src/settingsdialog.cc:1144
+#: ../src/settingsdialog.cc:1146
 msgid "Private Message (also sets urgency hint)"
 msgstr ""
 
@@ -2780,8 +2780,8 @@ msgstr ""
 msgid "Private key file"
 msgstr "Privat nyckelfil"
 
-#: ../src/settingsdialog.cc:1175 ../src/settingsdialog.cc:1228
-#: ../src/settingsdialog.cc:1362 ../src/hub.cc:2052
+#: ../src/settingsdialog.cc:1177 ../src/settingsdialog.cc:1230
+#: ../src/settingsdialog.cc:1364 ../src/hub.cc:2052
 #: ../src/settingsmanager.cc:240
 msgid "Private message"
 msgstr "Privata meddelande"
@@ -2794,8 +2794,8 @@ msgstr "Förlopp"
 msgid "Properties"
 msgstr "Egenskaper"
 
-#: ../src/settingsdialog.cc:1428 ../src/settingsdialog.cc:1478
-#: ../src/settingsdialog.cc:1550 ../src/publichubs.cc:29
+#: ../src/settingsdialog.cc:1430 ../src/settingsdialog.cc:1480
+#: ../src/settingsdialog.cc:1552 ../src/publichubs.cc:29
 #: ../ui/mainwindow.ui:1186 ../ui/mainwindow.ui:2220 ../ui/mainwindow.ui:2441
 msgid "Public Hubs"
 msgstr "Publika Hubbar"
@@ -2804,7 +2804,7 @@ msgstr "Publika Hubbar"
 msgid "Public Hubs list URL"
 msgstr "Adress till publika hubblistor"
 
-#: ../src/settingsdialog.cc:1429 ../src/settingsdialog.cc:1494
+#: ../src/settingsdialog.cc:1431 ../src/settingsdialog.cc:1496
 #: ../ui/mainwindow.ui:2246 ../ui/mainwindow.ui:2505
 #: ../ui/settingsdialog.ui:3710
 msgid "Queue"
@@ -2814,7 +2814,7 @@ msgstr "Nedladdningskön"
 msgid "Quick connect to the hub"
 msgstr "Snabbanslutning"
 
-#: ../src/settingsdialog.cc:1432 ../src/settingsdialog.cc:1500
+#: ../src/settingsdialog.cc:1434 ../src/settingsdialog.cc:1502
 #: ../ui/mainwindow.ui:2349 ../ui/mainwindow.ui:2529
 msgid "Quit"
 msgstr "Avsluta"
@@ -2847,7 +2847,7 @@ msgstr "Återanslut"
 msgid "Rebuild hash"
 msgstr "Återskapa index"
 
-#: ../src/settingsdialog.cc:1434 ../src/settingsdialog.cc:1470
+#: ../src/settingsdialog.cc:1436 ../src/settingsdialog.cc:1472
 #: ../ui/mainwindow.ui:2127 ../ui/mainwindow.ui:2409
 msgid "Reconnect"
 msgstr "Återanslut"
@@ -2860,7 +2860,7 @@ msgstr "Återanslut till alla hubbar"
 msgid "Reconnect to the hub"
 msgstr "Anslut till hubben"
 
-#: ../src/settingsdialog.cc:1425 ../src/settingsdialog.cc:1484
+#: ../src/settingsdialog.cc:1427 ../src/settingsdialog.cc:1486
 #: ../ui/mainwindow.ui:2084 ../ui/mainwindow.ui:2465
 msgid "Refresh"
 msgstr "Uppdatera"
@@ -2869,12 +2869,12 @@ msgstr "Uppdatera"
 msgid "Refresh file list"
 msgstr "Uppdaterar fillistan"
 
-#: ../src/settingsdialog.cc:1655
+#: ../src/settingsdialog.cc:1657
 msgid "Register with the OS to handle dchub:// and adc:// URL links"
 msgstr ""
 "Registrera URL-hanterare i operativsystemet för dchub://- och adc://-länkar"
 
-#: ../src/settingsdialog.cc:1656
+#: ../src/settingsdialog.cc:1658
 msgid "Register with the OS to handle magnet: URL links"
 msgstr "Registrera URL-hanterare i operativsystemet för magnet-länkar"
 
@@ -2923,7 +2923,7 @@ msgstr "Ta bort användaren från _nedladdningskön"
 msgid "Rename"
 msgstr "Döp om"
 
-#: ../src/settingsdialog.cc:2104
+#: ../src/settingsdialog.cc:2106
 msgid "Rename a search type"
 msgstr "Döp om en söktyp"
 
@@ -2971,8 +2971,8 @@ msgstr "SJIS"
 msgid "Say a third person"
 msgstr "Säg som tredje person"
 
-#: ../src/settingsdialog.cc:1145 ../src/settingsdialog.cc:1430
-#: ../src/settingsdialog.cc:1488 ../src/search.cc:40 ../src/search.cc:86
+#: ../src/settingsdialog.cc:1147 ../src/settingsdialog.cc:1432
+#: ../src/settingsdialog.cc:1490 ../src/search.cc:40 ../src/search.cc:86
 #: ../src/search.cc:93 ../src/search.cc:259 ../src/search.cc:457
 #: ../src/search.cc:471 ../src/search.cc:1130 ../src/search.cc:1131
 #: ../src/search.cc:2015 ../ui/searchspy.ui:94 ../ui/searchspy.ui:401
@@ -2981,7 +2981,7 @@ msgstr "Säg som tredje person"
 msgid "Search"
 msgstr "Sök"
 
-#: ../src/settingsdialog.cc:1437 ../ui/mainwindow.ui:1242
+#: ../src/settingsdialog.cc:1439 ../ui/mainwindow.ui:1242
 msgid "Search ADL"
 msgstr "Sök ADL"
 
@@ -2989,8 +2989,8 @@ msgstr "Sök ADL"
 msgid "Search Menu"
 msgstr "Sökmeny"
 
-#: ../src/settingsdialog.cc:1146 ../src/settingsdialog.cc:1431
-#: ../src/settingsdialog.cc:1492 ../src/settingsdialog.cc:1556
+#: ../src/settingsdialog.cc:1148 ../src/settingsdialog.cc:1433
+#: ../src/settingsdialog.cc:1494 ../src/settingsdialog.cc:1558
 #: ../src/searchspy.cc:35 ../ui/mainwindow.ui:1317 ../ui/mainwindow.ui:2321
 #: ../ui/settingsdialog.ui:6675
 msgid "Search Spy"
@@ -3025,9 +3025,9 @@ msgstr "Sökinställningar"
 msgid "Search spam detected from "
 msgstr "Sök-spam upptäcktes från"
 
-#: ../src/settingsdialog.cc:1737 ../src/settingsdialog.cc:1929
-#: ../src/settingsdialog.cc:1962 ../src/settingsdialog.cc:2048
-#: ../src/settingsdialog.cc:2097 ../src/settingsdialog.cc:2145
+#: ../src/settingsdialog.cc:1739 ../src/settingsdialog.cc:1931
+#: ../src/settingsdialog.cc:1964 ../src/settingsdialog.cc:2050
+#: ../src/settingsdialog.cc:2099 ../src/settingsdialog.cc:2147
 msgid "Search type"
 msgstr "Söktyp"
 
@@ -3043,23 +3043,23 @@ msgstr "Sök efter"
 msgid "Security Certificates"
 msgstr "Säkerhetscertifikats"
 
-#: ../src/settingsdialog.cc:3171
+#: ../src/settingsdialog.cc:3173
 msgid "Select Color"
 msgstr "Välj färg"
 
-#: ../src/settingsdialog.cc:3294
+#: ../src/settingsdialog.cc:3296
 msgid "Select Font"
 msgstr "Välj typsnitt"
 
-#: ../src/mainwindow.cc:2427
+#: ../src/mainwindow.cc:2431
 msgid "Select file to Get TTH"
 msgstr "Visa TTH-värde för en fil"
 
-#: ../src/mainwindow.cc:2020 ../ui/mainwindow.ui:809
+#: ../src/mainwindow.cc:2024 ../ui/mainwindow.ui:809
 msgid "Select filelist to browse"
 msgstr "Välj fillista att bläddra i"
 
-#: ../src/settingsdialog.cc:1124
+#: ../src/settingsdialog.cc:1126
 msgid "Send PM when double clicked in the user list"
 msgstr "Skicka privatmeddelande vid dubbelklick i användarlistan"
 
@@ -3075,7 +3075,7 @@ msgstr "Skicka privat meddelande"
 msgid "Send once per nick"
 msgstr "Skicka en gång per användarnamn"
 
-#: ../src/settingsdialog.cc:1651
+#: ../src/settingsdialog.cc:1653
 msgid "Send unknown /commands to the hub"
 msgstr "Skicka okända kommandon till hubben"
 
@@ -3084,20 +3084,30 @@ msgstr "Skicka okända kommandon till hubben"
 msgid "Sent ADC extensions : %s\n"
 msgstr "Skickat ADC-filändelser : %s\n"
 
-#: ../src/settingsdialog.cc:3372 ../src/settingsdialog.cc:3470
+#: ../src/settingsdialog.cc:3374 ../src/settingsdialog.cc:3472
 #: ../ui/settingsdialog.ui:627
 msgid "Separator"
 msgstr "Avgränsare"
 
-#: ../src/settingsdialog.cc:1468 ../ui/mainwindow.ui:2401
+#: ../src/settingsdialog.cc:1470 ../ui/mainwindow.ui:2401
 msgid "Separators"
 msgstr "Avgränsare"
 
 #: ../src/settingsdialog.cc:1074
-msgid "Serbian (Latin)"
+#, fuzzy
+msgid "Serbian (Cyrillic)"
 msgstr "Serbiska (Latin)"
 
 #: ../src/mainwindow.cc:241
+#, fuzzy
+msgid "Serbian (Cyrillic) translation\n"
+msgstr "Serbisk (Latin) översättning\n"
+
+#: ../src/settingsdialog.cc:1076
+msgid "Serbian (Latin)"
+msgstr "Serbiska (Latin)"
+
+#: ../src/mainwindow.cc:244
 msgid "Serbian (Latin) translation\n"
 msgstr "Serbisk (Latin) översättning\n"
 
@@ -3143,7 +3153,7 @@ msgstr "Utdelad"
 msgid "Sharing"
 msgstr "Delar ut"
 
-#: ../src/settingsdialog.cc:1657
+#: ../src/settingsdialog.cc:1659
 msgid "Show IP's' in chats"
 msgstr "Visa IP-nummer i chatt"
 
@@ -3168,7 +3178,7 @@ msgstr "Visa hjälp"
 msgid "Show ipfilter rules list"
 msgstr "Visa regellistan för IP-filter"
 
-#: ../src/settingsdialog.cc:1116
+#: ../src/settingsdialog.cc:1118
 msgid "Show joins / parts in chat by default"
 msgstr "Visa anslutningar / frånkopplingar i chatten som standard"
 
@@ -3176,7 +3186,7 @@ msgstr "Visa anslutningar / frånkopplingar i chatten som standard"
 msgid "Show magnet dialog"
 msgstr "Visa magnet-dialog"
 
-#: ../src/settingsdialog.cc:1568
+#: ../src/settingsdialog.cc:1570
 msgid "Show nicklist in hub frame on the left side"
 msgstr "Visa användarlistan i vänster hubbram"
 
@@ -3193,11 +3203,11 @@ msgstr "Visa endast när programet är inaktivt."
 msgid "Show ratio [send in chat]"
 msgstr "Visa förhållande [skickat i chatt]"
 
-#: ../src/settingsdialog.cc:1113
+#: ../src/settingsdialog.cc:1115
 msgid "Show status icon in the system tray"
 msgstr "Visa statusikon i meddelandefältet"
 
-#: ../src/settingsdialog.cc:1114
+#: ../src/settingsdialog.cc:1116
 msgid "Show timestamps in chat by default"
 msgstr "Visa tidsstämpel i chatten som standard"
 
@@ -3205,7 +3215,7 @@ msgstr "Visa tidsstämpel i chatten som standard"
 msgid "Show top search"
 msgstr "Visa översta sökningen"
 
-#: ../src/settingsdialog.cc:1658
+#: ../src/settingsdialog.cc:1660
 msgid "Show user country in chat"
 msgstr "Visa landet på användarna i chatten"
 
@@ -3232,7 +3242,7 @@ msgid "Signal handlers installed.\n"
 msgstr "Signalhanterare installerad.\n"
 
 #: ../src/settingsdialog.cc:1034 ../src/settingsdialog.cc:1040
-#: ../src/settingsdialog.cc:3805 ../src/settingsdialog.cc:3874
+#: ../src/settingsdialog.cc:3807 ../src/settingsdialog.cc:3876
 #: ../src/downloadqueue.cc:74 ../src/downloadqueue.cc:93
 #: ../src/downloadqueue.cc:285 ../src/downloadqueue.cc:392
 #: ../src/sharebrowser.cc:85 ../src/sharebrowser.cc:110
@@ -3274,11 +3284,11 @@ msgstr "Slott beviljad till"
 msgid "Slots"
 msgstr "Slottar"
 
-#: ../src/settingsdialog.cc:1082
+#: ../src/settingsdialog.cc:1084
 msgid "Slovak"
 msgstr "Slovakien"
 
-#: ../src/mainwindow.cc:251
+#: ../src/mainwindow.cc:255
 msgid "Slovak translation\n"
 msgstr "Slovakisk översättning\n"
 
@@ -3298,11 +3308,11 @@ msgstr "Socket skrivbuffert"
 msgid "Socks IP"
 msgstr "Socks-IP"
 
-#: ../src/settingsdialog.cc:1118
+#: ../src/settingsdialog.cc:1120
 msgid "Sort favorite users first"
 msgstr "Lägg favoritanvändare överst"
 
-#: ../src/settingsdialog.cc:1155 ../ui/settingsdialog.ui:5255
+#: ../src/settingsdialog.cc:1157 ../ui/settingsdialog.ui:5255
 msgid "Sounds"
 msgstr "Ljud"
 
@@ -3319,11 +3329,11 @@ msgstr "Källtyp"
 msgid "Source too slow"
 msgstr "Källan är för långsam"
 
-#: ../src/settingsdialog.cc:1078
+#: ../src/settingsdialog.cc:1080
 msgid "Spanish"
 msgstr "Spanska"
 
-#: ../src/mainwindow.cc:244
+#: ../src/mainwindow.cc:248
 msgid "Spanish translation\n"
 msgstr "Spansk översättning\n"
 
@@ -3354,7 +3364,7 @@ msgstr "Beredskap"
 msgid "Status"
 msgstr "Status"
 
-#: ../src/settingsdialog.cc:1234
+#: ../src/settingsdialog.cc:1236
 msgid "Status message"
 msgstr "Statusmeddelande"
 
@@ -3362,11 +3372,11 @@ msgstr "Statusmeddelande"
 msgid "Stop"
 msgstr "Stopp"
 
-#: ../src/settingsdialog.cc:1096
+#: ../src/settingsdialog.cc:1098
 msgid "Swedish (Sweden)"
 msgstr "Svenska (Sverige)"
 
-#: ../src/mainwindow.cc:276
+#: ../src/mainwindow.cc:280
 msgid "Swedish (Sweden) translation\n"
 msgstr "Svenska (Sverige) översättning\n"
 
@@ -3379,7 +3389,7 @@ msgstr "Systemstandard"
 msgid "System icons"
 msgstr "Systemikoner"
 
-#: ../src/settingsdialog.cc:1231
+#: ../src/settingsdialog.cc:1233
 msgid "System message"
 msgstr "Systemmeddelanden"
 
@@ -3464,15 +3474,15 @@ msgstr "Tid kvar"
 msgid "Time last seen"
 msgstr "Sågs senast"
 
-#: ../src/settingsdialog.cc:1237 ../src/settingsdialog.cc:1267
-#: ../src/settingsdialog.cc:1272
+#: ../src/settingsdialog.cc:1239 ../src/settingsdialog.cc:1269
+#: ../src/settingsdialog.cc:1274
 msgid "Timestamp"
 msgstr "Tidsstämpel"
 
-#: ../src/settingsdialog.cc:402 ../src/settingsdialog.cc:1336
-#: ../src/settingsdialog.cc:2285 ../src/settingsdialog.cc:2341
-#: ../src/settingsdialog.cc:2357 ../src/settingsdialog.cc:2379
-#: ../src/settingsdialog.cc:2383 ../src/settingsdialog.cc:2433
+#: ../src/settingsdialog.cc:402 ../src/settingsdialog.cc:1338
+#: ../src/settingsdialog.cc:2287 ../src/settingsdialog.cc:2343
+#: ../src/settingsdialog.cc:2359 ../src/settingsdialog.cc:2381
+#: ../src/settingsdialog.cc:2385 ../src/settingsdialog.cc:2435
 msgid "Title"
 msgstr "Titel"
 
@@ -3520,7 +3530,7 @@ msgstr "Totalt mottaget"
 msgid "Total sent"
 msgstr "Totalt skickat"
 
-#: ../src/settingsdialog.cc:3879
+#: ../src/settingsdialog.cc:3881
 msgid "Total size: "
 msgstr "Total storlek:"
 
@@ -3554,7 +3564,7 @@ msgstr "Sökväg till betrodda certifikat"
 msgid "Type"
 msgstr "Typ"
 
-#: ../src/settingsdialog.cc:1240
+#: ../src/settingsdialog.cc:1242
 msgid "URL"
 msgstr "URL"
 
@@ -3562,7 +3572,7 @@ msgstr "URL"
 msgid "UTF-8"
 msgstr "UTF-8"
 
-#: ../src/settingsdialog.cc:1076
+#: ../src/settingsdialog.cc:1078
 msgid "Ukrainian"
 msgstr "Ukrainska"
 
@@ -3578,11 +3588,11 @@ msgstr "Kunde inte ansluta: du är redan ansluten till denna hubb"
 msgid "Unable to load file list: "
 msgstr "Kunde inte ladda fillistan: "
 
-#: ../src/mainwindow.cc:2045
+#: ../src/mainwindow.cc:2049
 msgid "Unable to load file list: Invalid file list name"
 msgstr "Kunde inte öppna fillistan: ogiltigt namn på fillistan"
 
-#: ../src/mainwindow.cc:2284
+#: ../src/mainwindow.cc:2288
 msgid ""
 "Unable to open %1% port. Searching or file transfers will not work correctly "
 "until you change settings or turn off any application that might be using "
@@ -3597,8 +3607,8 @@ msgid "Unfinished downloads directory"
 msgstr "Temporär katalog för nedladdningar"
 
 #: ../src/downloadqueue.cc:1298 ../src/downloadqueue.cc:1299
-#: ../src/WulforUtil.cc:332 ../src/WulforUtil.cc:334 ../src/mainwindow.cc:1084
-#: ../src/mainwindow.cc:1474
+#: ../src/WulforUtil.cc:332 ../src/WulforUtil.cc:334 ../src/mainwindow.cc:1088
+#: ../src/mainwindow.cc:1478
 msgid "Unknown"
 msgstr "Okänt"
 
@@ -3626,7 +3636,7 @@ msgstr "Uppdatera din fillista"
 msgid "Updating string or TTH"
 msgstr "Uppdaterang sträng eller TTH"
 
-#: ../src/settingsdialog.cc:1419
+#: ../src/settingsdialog.cc:1421
 msgid "Upload"
 msgstr "Ladda upp"
 
@@ -3642,7 +3652,7 @@ msgstr "Uppladdningsslottar"
 msgid "Upload complete..."
 msgstr "Uppladdning klar..."
 
-#: ../src/settingsdialog.cc:1174
+#: ../src/settingsdialog.cc:1176
 msgid "Upload finished"
 msgstr "Uppladdning klar"
 
@@ -3658,7 +3668,7 @@ msgstr "Nedladdningshastighet"
 msgid "Upload starting..."
 msgstr "Uppladdningen startar..."
 
-#: ../src/mainwindow.cc:761
+#: ../src/mainwindow.cc:765
 msgid "Upload: "
 msgstr "Laddar upp:"
 
@@ -3669,13 +3679,13 @@ msgstr "Laddar upp"
 #: ../src/settingsdialog.cc:363 ../src/settingsdialog.cc:401
 #: ../src/settingsdialog.cc:435 ../src/settingsdialog.cc:689
 #: ../src/settingsdialog.cc:702 ../src/settingsdialog.cc:718
-#: ../src/settingsdialog.cc:1154 ../src/settingsdialog.cc:1165
-#: ../src/settingsdialog.cc:1334 ../src/settingsdialog.cc:1349
-#: ../src/settingsdialog.cc:1450 ../src/settingsdialog.cc:1460
+#: ../src/settingsdialog.cc:1156 ../src/settingsdialog.cc:1167
+#: ../src/settingsdialog.cc:1336 ../src/settingsdialog.cc:1351
+#: ../src/settingsdialog.cc:1452 ../src/settingsdialog.cc:1462
 msgid "Use"
 msgstr "Använd"
 
-#: ../src/settingsdialog.cc:1662
+#: ../src/settingsdialog.cc:1664
 msgid "Use ADL search only in own file list"
 msgstr "Använd ADL-sök endast i min fillista"
 
@@ -3691,7 +3701,7 @@ msgstr "Använd DHT"
 msgid "Use Emoticons"
 msgstr "Använd Uttryckssymboler"
 
-#: ../src/settingsdialog.cc:1119
+#: ../src/settingsdialog.cc:1121
 msgid "Use OEM monospaced font for chat windows"
 msgstr "Använd skrivmaskinstypsnitt i chattfönsterna"
 
@@ -3699,7 +3709,7 @@ msgstr "Använd skrivmaskinstypsnitt i chattfönsterna"
 msgid "Use SOCKS5 server to resolve hostnames"
 msgstr "Använd SOCKS5-server för att ta reda på värdnamnet"
 
-#: ../src/settingsdialog.cc:1724
+#: ../src/settingsdialog.cc:1726
 msgid "Use TLS when remote client supports it"
 msgstr "Använd TLS om fjärrklienten har stöd för det"
 
@@ -3711,19 +3721,19 @@ msgstr "Använd UPnP för att låta klienten ställa in min routern"
 msgid "Use bandwidth limits"
 msgstr "Använd bredbandsbegränsning"
 
-#: ../src/settingsdialog.cc:1121
+#: ../src/settingsdialog.cc:1123
 msgid "Use blinking status icon"
 msgstr "Använd blinkande statusikon"
 
-#: ../src/settingsdialog.cc:1122
+#: ../src/settingsdialog.cc:1124
 msgid "Use emoticons"
 msgstr "Använd uttryckssymboler"
 
-#: ../src/settingsdialog.cc:1654
+#: ../src/settingsdialog.cc:1656
 msgid "Use fast hashing method (disable if you have problems with hashing)"
 msgstr "Använd snabbindexering (inaktivera om du har problem med indexeringen)"
 
-#: ../src/settingsdialog.cc:1120
+#: ../src/settingsdialog.cc:1122
 msgid "Use magnet split"
 msgstr "Använd magnet-delning"
 
@@ -3740,11 +3750,11 @@ msgstr "Använd filnamnstilläggs-avgränsare (doc;xls;ppt;docx;xlsx;pptx)"
 msgid "User"
 msgstr "Användare"
 
-#: ../src/settingsdialog.cc:1409
+#: ../src/settingsdialog.cc:1411
 msgid "User (dc)"
 msgstr "Användare (dc)"
 
-#: ../src/settingsdialog.cc:1413
+#: ../src/settingsdialog.cc:1415
 msgid "User (normal)"
 msgstr "Användare (normal)"
 
@@ -3765,11 +3775,11 @@ msgstr "Användarkommandon"
 msgid "User favorite list:"
 msgstr "Favoritanvändare:"
 
-#: ../src/settingsdialog.cc:1410
+#: ../src/settingsdialog.cc:1412
 msgid "User firewall (dc)"
 msgstr "Användarens brandvägg (dc)"
 
-#: ../src/settingsdialog.cc:1414
+#: ../src/settingsdialog.cc:1416
 msgid "User firewall (normal)"
 msgstr "User firewall (normal)"
 
@@ -3781,19 +3791,19 @@ msgstr "Användarlista visa/göm"
 msgid "User not found"
 msgstr "Kunde inte hitta användaren"
 
-#: ../src/settingsdialog.cc:1412
+#: ../src/settingsdialog.cc:1414
 msgid "User operator (dc)"
 msgstr "Användaroperatör (dc)"
 
-#: ../src/settingsdialog.cc:1416
+#: ../src/settingsdialog.cc:1418
 msgid "User operator (normal)"
 msgstr "Användaroperatör (normal)"
 
-#: ../src/settingsdialog.cc:1411
+#: ../src/settingsdialog.cc:1413
 msgid "User operator firewall (dc)"
 msgstr "Användaroperatör (dc)"
 
-#: ../src/settingsdialog.cc:1415
+#: ../src/settingsdialog.cc:1417
 msgid "User operator firewall (normal)"
 msgstr "Användaroperatör brandvägg (normal)"
 
@@ -3843,15 +3853,15 @@ msgstr ""
 msgid "Video"
 msgstr "Video"
 
-#: ../src/settingsdialog.cc:1092
+#: ../src/settingsdialog.cc:1094
 msgid "Vietnamese"
 msgstr "Vietnamesisk"
 
-#: ../src/mainwindow.cc:270
+#: ../src/mainwindow.cc:274
 msgid "Vietnamese translation\n"
 msgstr "Vietnamesisk översättning\n"
 
-#: ../src/settingsdialog.cc:1115
+#: ../src/settingsdialog.cc:1117
 msgid "View status messages in main chat"
 msgstr "Visa statusmeddelanden i huvudchatten"
 
@@ -3871,12 +3881,12 @@ msgstr "Visa en lista över färdiga nedladdningar"
 msgid "View the list of finished uploads"
 msgstr "Visa en lista över färdiga uppladdningar"
 
-#: ../src/settingsdialog.cc:1032 ../src/settingsdialog.cc:3803
-#: ../src/settingsdialog.cc:3872
+#: ../src/settingsdialog.cc:1032 ../src/settingsdialog.cc:3805
+#: ../src/settingsdialog.cc:3874
 msgid "Virtual Name"
 msgstr "Virtual Namn"
 
-#: ../src/settingsdialog.cc:3096
+#: ../src/settingsdialog.cc:3098
 msgid "Virtual name"
 msgstr "Virtuelt namn"
 
@@ -3901,7 +3911,7 @@ msgstr "Väntar på att försöka igen"
 msgid "Waiting:"
 msgstr "Väntar:"
 
-#: ../src/mainwindow.cc:391
+#: ../src/mainwindow.cc:395
 msgid "Welcome to "
 msgstr "Välkommen till"
 
@@ -3929,7 +3939,7 @@ msgstr "Xine-spelare"
 msgid "Yes"
 msgstr "Ja"
 
-#: ../src/settingsdialog.cc:3865
+#: ../src/settingsdialog.cc:3867
 msgid "[HIDDEN SHARE] "
 msgstr "[HIDDEN SHARE] "
 
@@ -4170,11 +4180,11 @@ msgstr "dålig avbild"
 msgid "default"
 msgstr "standard"
 
-#: ../src/settingsdialog.cc:2506
+#: ../src/settingsdialog.cc:2508
 msgid "default icons"
 msgstr "standardikoner"
 
-#: ../src/settingsdialog.cc:2538
+#: ../src/settingsdialog.cc:2540
 msgid "default theme"
 msgstr "standardstil"
 
@@ -4182,12 +4192,12 @@ msgstr "standardstil"
 msgid "eMail"
 msgstr "ePost"
 
-#: ../src/settingsdialog.cc:2771
+#: ../src/settingsdialog.cc:2773
 #, c-format
 msgid "eiskaltdcpp-gtk: load theme %s...\n"
 msgstr "eiskaltdcpp-gtk: ladda tema %s...\n"
 
-#: ../src/mainwindow.cc:2332
+#: ../src/mainwindow.cc:2336
 msgid "file list from "
 msgstr "fillista från"
 
@@ -4199,7 +4209,7 @@ msgstr "från"
 msgid "from Coral"
 msgstr "från Coral"
 
-#: ../src/mainwindow.cc:377
+#: ../src/mainwindow.cc:381
 msgid "http://github.com/eiskaltdcpp/eiskaltdcpp/raw/master/ChangeLog.txt"
 msgstr "http://github.com/eiskaltdcpp/eiskaltdcpp/raw/master/ChangeLog.txt"
 
@@ -4223,17 +4233,17 @@ msgstr "hemprojekt:"
 msgid "ratio: %1% (uploads: %2%, downloads: %3% )"
 msgstr "Förhållande: %1% (uppladdning: %2%, nedladdning: %3% )"
 
-#: ../src/treeview.cc:211 ../src/mainwindow.cc:2366 ../src/mainwindow.cc:2368
+#: ../src/treeview.cc:211 ../src/mainwindow.cc:2370 ../src/mainwindow.cc:2372
 #: ../src/hashdialog.cc:73 ../ui/settingsdialog.ui:3522
 #: ../ui/settingsdialog.ui:3538 ../ui/settingsdialog.ui:3582
 msgid "s"
 msgstr "s"
 
-#: ../src/settingsdialog.cc:1490
+#: ../src/settingsdialog.cc:1492
 msgid "searchADL"
 msgstr "sökADL"
 
-#: ../src/settingsdialog.cc:3163 ../src/settingsdialog.cc:3290
+#: ../src/settingsdialog.cc:3165 ../src/settingsdialog.cc:3292
 msgid "selected style failed"
 msgstr "vald stil misslyckades"
 

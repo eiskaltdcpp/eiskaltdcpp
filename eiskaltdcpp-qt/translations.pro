@@ -15,6 +15,6 @@ TRANSLATIONS = translations/en.ts \
     translations/pt_BR.ts \
     translations/ru.ts \
     translations/sk.ts \
-    translations/sr \
+    translations/sr.ts \
     translations/sr@latin.ts \
     translations/uk.ts
