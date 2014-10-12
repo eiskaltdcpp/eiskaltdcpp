@@ -157,7 +157,7 @@ Nycklar:
     <message>
         <location filename="../src/Antispam.cpp" line="177"/>
         <source>Hi, this is AntiSpam bot. So question is &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>Hej, detta är AntiSpam-bot. Så frågan är &quot;%1&quot;</translation>
     </message>
 </context>
 <context>
@@ -182,12 +182,12 @@ Nycklar:
     <message>
         <location filename="../src/CustomFontModel.cpp" line="39"/>
         <source>Public Chat: Chat</source>
-        <translation type="unfinished"/>
+        <translation>Publik chatt: Chatt</translation>
     </message>
     <message>
         <location filename="../src/CustomFontModel.cpp" line="40"/>
         <source>Public Chat: Userlist</source>
-        <translation type="unfinished"/>
+        <translation>Publik chatt: Användarlista</translation>
     </message>
     <message>
         <location filename="../src/CustomFontModel.cpp" line="41"/>
@@ -1218,7 +1218,7 @@ Favoritanvändare</translation>
         <location filename="../src/HubFrame.cpp" line="1763"/>
         <location filename="../src/HubFrame.cpp" line="1765"/>
         <source>Aspell switched %1</source>
-        <translation type="unfinished"/>
+        <translation>Stavningskontrollen ändrades till %1</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1763"/>
@@ -3204,7 +3204,7 @@ Nedladdat: %3 Uppladdat: %4</translation>
     <message>
         <location filename="../src/Settings.cpp" line="45"/>
         <source>Personal</source>
-        <translation type="unfinished"/>
+        <translation>Personal</translation>
     </message>
     <message>
         <location filename="../src/Settings.cpp" line="50"/>
@@ -3430,7 +3430,7 @@ Nedladdat: %3 Uppladdat: %4</translation>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="263"/>
         <source>Chat: Say nick</source>
-        <translation type="unfinished"/>
+        <translation>Chatt: Säg användarnamn</translation>
     </message>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="267"/>
@@ -3689,7 +3689,7 @@ Nedladdat: %3 Uppladdat: %4</translation>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="1116"/>
         <source>Share browser</source>
-        <translation type="unfinished"/>
+        <translation>Utdelningsbläddrare</translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="1123"/>
@@ -3783,7 +3783,7 @@ Nedladdat: %3 Uppladdat: %4</translation>
         <location filename="../src/SideBar.cpp" line="59"/>
         <location filename="../src/SideBar.cpp" line="407"/>
         <source>Share Browsers</source>
-        <translation type="unfinished"/>
+        <translation>Utdelningsbläddrarna</translation>
     </message>
     <message>
         <location filename="../src/SideBar.cpp" line="60"/>
@@ -4596,7 +4596,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIAntiSpam.ui" line="395"/>
         <source>Filter Operators</source>
-        <translation type="unfinished"/>
+        <translation>Filtrera Operatörerna</translation>
     </message>
 </context>
 <context>
@@ -4807,7 +4807,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIFileHasher.ui" line="73"/>
         <source>Compute</source>
-        <translation type="unfinished"/>
+        <translation>Beräkna</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="80"/>
@@ -6311,7 +6311,7 @@ de är avskilda från andra ord med mellanslag.</translation>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="386"/>
         <source>Chat (extended)</source>
-        <translation type="unfinished"/>
+        <translation>Chatt (utökad)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="400"/>
@@ -6322,7 +6322,7 @@ de är avskilda från andra ord med mellanslag.</translation>
         <location filename="../ui/UISettingsGUI.ui" line="414"/>
         <location filename="../ui/UISettingsGUI.ui" line="433"/>
         <source>Insert nick into input widget</source>
-        <translation type="unfinished"/>
+        <translation>Infoga användarnamnet i ingångs-widgeten</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="419"/>
@@ -6345,7 +6345,7 @@ de är avskilda från andra ord med mellanslag.</translation>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="460"/>
         <source>Application unit base</source>
-        <translation type="unfinished"/>
+        <translation>Appliceringsenhetsbas</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="474"/>
@@ -6401,7 +6401,7 @@ de är avskilda från andra ord med mellanslag.</translation>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="612"/>
         <source>Maximum paragraphs</source>
-        <translation type="unfinished"/>
+        <translation>Maximala paragrafer</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="638"/>
@@ -6696,12 +6696,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="91"/>
         <source>Enable notifications with not active main window</source>
-        <translation type="unfinished"/>
+        <translation>Aktivera meddelanden med inaktivt huvudfönster</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="98"/>
         <source>Enable notifications with active main window</source>
-        <translation type="unfinished"/>
+        <translation>Aktivera meddelanden med aktivt huvudfönster</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="105"/>
