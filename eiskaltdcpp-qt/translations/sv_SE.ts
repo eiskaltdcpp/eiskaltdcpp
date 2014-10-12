@@ -1053,13 +1053,13 @@ Nycklar:
         <location filename="../src/HubFrame.cpp" line="322"/>
         <location filename="../src/HubFrame.cpp" line="409"/>
         <source>Add to Black</source>
-        <translation type="unfinished"/>
+        <translation>Lägg till Svart</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="323"/>
         <location filename="../src/HubFrame.cpp" line="410"/>
         <source>Add to White</source>
-        <translation type="unfinished"/>
+        <translation>Lägg till Vit</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="534"/>
@@ -1382,13 +1382,15 @@ Favoritanvändare</translation>
         <location filename="../src/HubFrame.cpp" line="1853"/>
         <source>/ws param value - set gui option param in value (without value return current value of option)
 </source>
-        <translation type="unfinished"/>
+        <translation>/ws parametervärde - ställer in det grafiska parametervärdet (utan värde visas det nuvarande värdet)
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1854"/>
         <source>/dcpps param value - set core option param in value (without value return current value of option)
 </source>
-        <translation type="unfinished"/>
+        <translation>/dcpps parametervärde - ställer in kärnans parametervärde (utan värde visas det nuvarande värdet)
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1856"/>
@@ -1485,7 +1487,7 @@ Favoritanvändare</translation>
         <location filename="../src/HubFrame.cpp" line="2601"/>
         <location filename="../src/HubFrame.cpp" line="3759"/>
         <source>Redirect request received to a hub that&apos;s already connected</source>
-        <translation type="unfinished"/>
+        <translation>Omdirigering begärd för en redan ansluten hubb</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="2673"/>
@@ -4095,7 +4097,7 @@ Vill du stoppa den?
     <message>
         <location filename="../src/TransferView.cpp" line="593"/>
         <source>Requesting</source>
-        <translation type="unfinished"/>
+        <translation>Begär</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="604"/>
@@ -5969,7 +5971,12 @@ The autosearch will find exact matches by searching via hash.
 The drawback is that it may won't find much more sources
 and will prevent manual searches on hubs where
 a predefined search interval rule is in effect.</source>
-        <translation type="unfinished"/>
+        <translation>Klienter söker med några minuters mellanrum efter filer i din
+nedladdningskö för att hitta fler nedladdningsplatser (användare/källor).
+Den automatiska sökningen kommer att hitta exakta träffar via TTH.
+En nackdel är att den kanske inte hittar så många fler källor
+och den hindrar även manuella sökningar i hubbar där
+en begränsning på sökintervaller finns.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="709"/>
