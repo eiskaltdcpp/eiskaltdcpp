@@ -1145,7 +1145,7 @@ Nycklar:
     <message>
         <location filename="../src/HubFrame.cpp" line="1478"/>
         <source>Hub role: User</source>
-        <translation type="unfinished"/>
+        <translation>Hubbroll: Användare</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1481"/>
@@ -2103,7 +2103,7 @@ Favoritanvändare</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="1378"/>
         <source>Script Console</source>
-        <translation type="unfinished"/>
+        <translation>Skriptkonsol</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1381"/>
@@ -3871,12 +3871,12 @@ Nedladdat: %3 Uppladdat: %4</translation>
     <message>
         <location filename="../src/SideBar.cpp" line="636"/>
         <source>Modern XML Filelists</source>
-        <translation type="unfinished"/>
+        <translation>Moderna XML-fillistor</translation>
     </message>
     <message>
         <location filename="../src/SideBar.cpp" line="637"/>
         <source>Modern XML Filelists uncompressed</source>
-        <translation type="unfinished"/>
+        <translation>Moderna okomprimmerad XML-fillistor</translation>
     </message>
     <message>
         <location filename="../src/SideBar.cpp" line="638"/>
@@ -4030,10 +4030,6 @@ Vill du stoppa den?
         <location filename="../src/TransferView.cpp" line="75"/>
         <source>Filename</source>
         <translation>Filnamn</translation>
-    </message>
-    <message>
-        <source>Host</source>
-        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="76"/>
@@ -7202,10 +7198,6 @@ stänga hans slott, men om användaren återkommer inom
         <location filename="../ui/UIShareBrowserSearch.ui" line="54"/>
         <source>Name</source>
         <translation>Namn</translation>
-    </message>
-    <message>
-        <source>Filename</source>
-        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../ui/UIShareBrowserSearch.ui" line="59"/>
