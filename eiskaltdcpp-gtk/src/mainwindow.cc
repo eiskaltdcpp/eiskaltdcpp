@@ -229,7 +229,7 @@ MainWindow::MainWindow():
         string("  2011-2014 Márk Lutring <marcus@elitemail.hu>\n")+
         string("\n")+
         _("French translation\n")+
-        string("  2010-2012 Alexandre Wallimann aka Ale <alexandre.wallimann@gmail.com>\n")+
+        string("  2010-2014 Alexandre Wallimann aka Jellyffs <alexandre.wallimann@gmail.com>\n")+
         string("\n")+
         _("Polish translation\n")+
         string("  2010-2012 Arahael <arahael@gmail.com>\n")+
