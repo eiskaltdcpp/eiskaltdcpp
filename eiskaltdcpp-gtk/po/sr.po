@@ -1,110 +1,110 @@
+# SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR EiskaltDC++ team
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Translators:
-# Boris Pek <tehnick-8@yandex.ru>, 2014.
+# Translators:
+# Boris Pek <tehnick-8@yandex.ru>, 2014
+# markosm <pausovic@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2014-10-12 20:11+0400\n"
-"PO-Revision-Date: 2014-10-12 19:52+0400\n"
-"Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
-"Language-Team: Russian <kde-russian@lists.kde.ru>\n"
-"Language: sr\n"
+"POT-Creation-Date: 2014-10-12 19:27+0400\n"
+"PO-Revision-Date: 2014-10-13 17:03+0000\n"
+"Last-Translator: markosm <pausovic@gmail.com>\n"
+"Language-Team: Serbian (http://www.transifex.com/projects/p/eiskaltdcpp/language/sr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"language/sr/)\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Lokalize 1.5\n"
+"Language: sr\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: ../src/privatemessage.cc:565 ../src/privatemessage.cc:644
 #: ../src/hub.cc:1065 ../src/hub.cc:1144
 msgid " *** Emoticons limit"
-msgstr ""
+msgstr " *** Ограничење емотикона"
 
 #: ../src/privatemessage.cc:560 ../src/hub.cc:1060
 msgid " *** Emoticons mode off"
-msgstr ""
+msgstr " *** Емотикон режим искљ"
 
 #: ../src/privatemessage.cc:555 ../src/hub.cc:1055
 msgid " *** Emoticons not loaded"
-msgstr ""
+msgstr " *** Емотикони нису учитани"
 
 #: ../src/settingsdialog.cc:2517
 msgid " + system icons"
-msgstr ""
+msgstr "+ системске иконе"
 
 #: ../src/hub.cc:461 ../src/hub.cc:479
 msgid " Users"
-msgstr ""
+msgstr "Корисници"
 
 #: ../src/hub.cc:2790
 msgid " added to favorites list"
-msgstr ""
+msgstr "додат на листу омиљеног"
 
 #: ../src/hub.cc:1946
 msgid " empty..."
-msgstr ""
+msgstr "празан..."
 
 #: ../src/sharebrowser.cc:1118 ../src/finishedtransfers.cc:265
 msgid " files"
-msgstr ""
+msgstr "фајлови"
 
 #: ../src/hub.cc:444 ../src/hub.cc:455
 msgid " has joined"
-msgstr ""
+msgstr "се прикључио"
 
 #: ../src/hub.cc:445 ../src/hub.cc:454
 msgid " has joined hub "
-msgstr ""
+msgstr "се прикључио на хаб"
 
 #: ../src/hub.cc:486 ../src/hub.cc:496
 msgid " has quit"
-msgstr ""
+msgstr "је напустио"
 
 #: ../src/hub.cc:485 ../src/hub.cc:495
 msgid " has quit hub "
-msgstr ""
+msgstr "је напустио хаб"
 
 #: ../src/privatemessage.cc:1391 ../src/hub.cc:1919 ../src/hub.cc:2722
 msgid " is favorite user"
-msgstr ""
+msgstr "је омиљени корисник"
 
 #: ../src/privatemessage.cc:1412 ../src/hub.cc:1937 ../src/hub.cc:2761
 msgid " is not favorite user"
-msgstr ""
+msgstr "није омиљени корисник"
 
 #: ../src/hashdialog.cc:64 ../src/hashdialog.cc:73 ../src/hashdialog.cc:82
 msgid " left"
-msgstr ""
+msgstr "остало"
 
 #: ../src/downloadqueue.cc:1290
 msgid " of "
-msgstr ""
+msgstr "од"
 
 #: ../src/hub.cc:2817
 msgid " removed from favorites list"
-msgstr ""
+msgstr "уклоњен из листе омиљених"
 
 #: ../src/settingsmanager.cc:526
 msgid " to "
-msgstr ""
+msgstr "за"
 
 #: ../src/search.cc:716
 msgid " user(s)"
-msgstr ""
+msgstr "корисник(ци)"
 
 #: ../src/downloadqueue.cc:1290
 msgid " user(s) online"
-msgstr ""
+msgstr "корисник(ци) на вези"
 
 #: ../src/finishedtransfers.cc:274
 msgid " users"
-msgstr ""
+msgstr "корисници"
 
 #: ../ui/settingsdialog.ui:4768
 msgid ""
@@ -116,183 +116,183 @@ msgid ""
 "%% a literal '%' character.\n"
 "\n"
 "see man strftime for details."
-msgstr ""
+msgstr "%a abbreviated weekday name.\n%b abbreviated month name.\n%H hour as a decimal number using a 24-hour clock.\n%M minute as a decimal number (range 00 to 59).\n%S second as a decimal number (range 00 to 59).\n%% a literal '%' character.\n\nsee man strftime for details."
 
 #: ../src/hub.cc:2369
 msgid "': type /help for a list of available commands"
-msgstr ""
+msgstr "': режим /помоћ за листу доступних команди"
 
 #: ../src/privatemessage.cc:1022 ../src/hub.cc:2038
 msgid "*** Available commands:"
-msgstr ""
+msgstr "*** Доступне команде:"
 
 #: ../src/settingsdialog.cc:2290
 msgid "*** T E S T ***"
-msgstr ""
+msgstr "*** T Е С Т ***"
 
 #: ../src/settingsdialog.cc:1468 ../ui/mainwindow.ui:251
 #: ../ui/mainwindow.ui:2375 ../ui/mainwindow.ui:2393
 msgid "+/-"
-msgstr ""
+msgstr "+/-"
 
 #: ../src/hashdialog.cc:65 ../src/hashdialog.cc:77
 msgid "-:--:-- left"
-msgstr ""
+msgstr "-:--:-- остало"
 
 #: ../src/settingsdialog.cc:2469 ../src/settingsdialog.cc:2493
 msgid "...must be *.theme"
-msgstr ""
+msgstr "...мора бити *.тема"
 
 #: ../src/settingsdialog.cc:2372 ../src/settingsdialog.cc:2401
 #: ../src/settingsdialog.cc:2438
 msgid "...must not be empty"
-msgstr ""
+msgstr "...не сме бити празно"
 
 #: ../src/downloadqueue.cc:1316
 msgid "0 B (0.00%)"
-msgstr ""
+msgstr "0 B (0.00%)"
 
 #: ../src/hub.cc:525
 msgid "0 Users"
-msgstr ""
+msgstr "0 Корисника"
 
 #: ../ui/settingsdialog.ui:8781 ../ui/settingsdialog.ui:8861
 msgid "10AM"
-msgstr ""
+msgstr "10AM"
 
 #: ../ui/settingsdialog.ui:8817 ../ui/settingsdialog.ui:8897
 msgid "10PM"
-msgstr ""
+msgstr "10PM"
 
 #: ../ui/settingsdialog.ui:8784 ../ui/settingsdialog.ui:8864
 msgid "11AM"
-msgstr ""
+msgstr "11AM"
 
 #: ../ui/settingsdialog.ui:8820 ../ui/settingsdialog.ui:8900
 msgid "11PM"
-msgstr ""
+msgstr "11PM"
 
 #: ../ui/settingsdialog.ui:8969
 msgid "16x16"
-msgstr ""
+msgstr "16x16"
 
 #: ../ui/settingsdialog.ui:8754 ../ui/settingsdialog.ui:8834
 msgid "1AM"
-msgstr ""
+msgstr "1AM"
 
 #: ../ui/settingsdialog.ui:8790 ../ui/settingsdialog.ui:8870
 msgid "1PM"
-msgstr ""
+msgstr "1PM"
 
 #: ../ui/settingsdialog.ui:8972
 msgid "22x22"
-msgstr ""
+msgstr "22x22"
 
 #: ../ui/settingsdialog.ui:8975
 msgid "24x24"
-msgstr ""
+msgstr "24x24"
 
 #: ../ui/settingsdialog.ui:8757 ../ui/settingsdialog.ui:8837
 msgid "2AM"
-msgstr ""
+msgstr "2AM"
 
 #: ../ui/settingsdialog.ui:8793 ../ui/settingsdialog.ui:8873
 msgid "2PM"
-msgstr ""
+msgstr "2PM"
 
 #: ../ui/settingsdialog.ui:8978
 msgid "32x32"
-msgstr ""
+msgstr "32x32"
 
 #: ../ui/settingsdialog.ui:8981
 msgid "36x36"
-msgstr ""
+msgstr "36x36"
 
 #: ../ui/settingsdialog.ui:8760 ../ui/settingsdialog.ui:8840
 msgid "3AM"
-msgstr ""
+msgstr "3AM"
 
 #: ../ui/settingsdialog.ui:8796 ../ui/settingsdialog.ui:8876
 msgid "3PM"
-msgstr ""
+msgstr "3PM"
 
 #: ../ui/settingsdialog.ui:8984
 msgid "48x48"
-msgstr ""
+msgstr "48x48"
 
 #: ../ui/settingsdialog.ui:8763 ../ui/settingsdialog.ui:8843
 msgid "4AM"
-msgstr ""
+msgstr "4AM"
 
 #: ../ui/settingsdialog.ui:8799 ../ui/settingsdialog.ui:8879
 msgid "4PM"
-msgstr ""
+msgstr "4PM"
 
 #: ../ui/settingsdialog.ui:8766 ../ui/settingsdialog.ui:8846
 msgid "5AM"
-msgstr ""
+msgstr "5AM"
 
 #: ../ui/settingsdialog.ui:8802 ../ui/settingsdialog.ui:8882
 msgid "5PM"
-msgstr ""
+msgstr "5PM"
 
 #: ../ui/settingsdialog.ui:8987
 msgid "64x64"
-msgstr ""
+msgstr "64x64"
 
 #: ../ui/settingsdialog.ui:8769 ../ui/settingsdialog.ui:8849
 msgid "6AM"
-msgstr ""
+msgstr "6AM"
 
 #: ../ui/settingsdialog.ui:8805 ../ui/settingsdialog.ui:8885
 msgid "6PM"
-msgstr ""
+msgstr "6PM"
 
 #: ../ui/settingsdialog.ui:8772 ../ui/settingsdialog.ui:8852
 msgid "7AM"
-msgstr ""
+msgstr "7AM"
 
 #: ../ui/settingsdialog.ui:8808 ../ui/settingsdialog.ui:8888
 msgid "7PM"
-msgstr ""
+msgstr "7PM"
 
 #: ../ui/settingsdialog.ui:8775 ../ui/settingsdialog.ui:8855
 msgid "8AM"
-msgstr ""
+msgstr "8AM"
 
 #: ../ui/settingsdialog.ui:8811 ../ui/settingsdialog.ui:8891
 msgid "8PM"
-msgstr ""
+msgstr "8PM"
 
 #: ../ui/settingsdialog.ui:8778 ../ui/settingsdialog.ui:8858
 msgid "9AM"
-msgstr ""
+msgstr "9AM"
 
 #: ../ui/settingsdialog.ui:8814 ../ui/settingsdialog.ui:8894
 msgid "9PM"
-msgstr ""
+msgstr "9PM"
 
 #: ../src/privatemessage.cc:1038
 msgid ": type /help for a list of available commands"
-msgstr ""
+msgstr ": режим /помоћ за листу доступних команди"
 
 #: ../ui/settingsdialog.ui:7259
 msgid ""
-"<a href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html"
-"\">Help</a>"
-msgstr ""
+"<a "
+"href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html\">Help</a>"
+msgstr "<a href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html\">Помоћ</a>"
 
 #: ../ui/settingsdialog.ui:3855
 msgid "<b>Add player</b>"
-msgstr ""
+msgstr "<b>Додај плејер</b>"
 
 #: ../ui/settingsdialog.ui:3651
 msgid "<b>Auto-drop settings</b>"
-msgstr ""
+msgstr "<b>Ауто-прекид подешавања</b>"
 
 #: ../ui/settingsdialog.ui:4947
 msgid "<b>Auto-open on startup</b>"
-msgstr ""
+msgstr "<b>Ауто-отварање на старту</b>"
 
 #: ../ui/settingsdialog.ui:3341
 msgid "<b>Auto-priority settings</b>"
@@ -2557,7 +2557,8 @@ msgid "Note: New files are added to the share only once they've been hashed!"
 msgstr ""
 
 #: ../ui/settingsdialog.ui:2845
-msgid "Note; because of changing download speeds, this is not 100% accurate..."
+msgid ""
+"Note; because of changing download speeds, this is not 100% accurate..."
 msgstr ""
 
 #: ../src/settingsdialog.cc:1337 ../ui/settingsdialog.ui:5883
@@ -3084,7 +3085,8 @@ msgstr ""
 
 #: ../src/hub.cc:2066
 msgid ""
-"Set Core option param in value (without value return current value of option)"
+"Set Core option param in value (without value return current value of "
+"option)"
 msgstr ""
 
 #: ../src/hub.cc:2065
@@ -3105,7 +3107,8 @@ msgid "Set download limit image: "
 msgstr ""
 
 #: ../src/settingsdialog.cc:986
-msgid "Set lowest priority for newly added files larger than low priority size"
+msgid ""
+"Set lowest priority for newly added files larger than low priority size"
 msgstr ""
 
 #: ../ui/settingsdialog.ui:4054
@@ -3562,8 +3565,8 @@ msgstr ""
 
 #: ../src/mainwindow.cc:2288
 msgid ""
-"Unable to open %1% port. Searching or file transfers will not work correctly "
-"until you change settings or turn off any application that might be using "
+"Unable to open %1% port. Searching or file transfers will not work correctly"
+" until you change settings or turn off any application that might be using "
 "that port."
 msgstr ""
 
@@ -3797,8 +3800,7 @@ msgid ""
 "Using:\n"
 "  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n"
 "  eiskaltdcpp-gtk <Key>\n"
-"EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC "
-"protocol.\n"
+"EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC protocol.\n"
 "\n"
 "Keys:\n"
 "  -h, --help\t Show this message\n"
