@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
 "POT-Creation-Date: 2014-10-12 19:27+0400\n"
-"PO-Revision-Date: 2014-10-13 17:03+0000\n"
+"PO-Revision-Date: 2014-10-13 17:36+0000\n"
 "Last-Translator: markosm <pausovic@gmail.com>\n"
 "Language-Team: Serbian (http://www.transifex.com/projects/p/eiskaltdcpp/language/sr/)\n"
 "MIME-Version: 1.0\n"
@@ -296,366 +296,366 @@ msgstr "<b>Ауто-отварање на старту</b>"
 
 #: ../ui/settingsdialog.ui:3341
 msgid "<b>Auto-priority settings</b>"
-msgstr ""
+msgstr "<b>Ауто-приоритетна подешавања</b>"
 
 #: ../ui/settingsdialog.ui:5306
 msgid "<b>Available styles</b>"
-msgstr ""
+msgstr "<b>Доступни стилови</b>"
 
 #: ../ui/settingsdialog.ui:8204
 msgid "<b>Certificate Paths</b>"
-msgstr ""
+msgstr "<b>Путање сертификата</b>"
 
 #: ../ui/settingsdialog.ui:6462
 msgid "<b>Colors</b>"
-msgstr ""
+msgstr "<b>Боје</b>"
 
 #: ../ui/settingsdialog.ui:646
 msgid "<b>Command Type</b>"
-msgstr ""
+msgstr "<b>Тип команде</b>"
 
 #: ../ui/settingsdialog.ui:5035
 msgid "<b>Confirmation Dialog Options</b>"
-msgstr ""
+msgstr "<b>Опције потврде дијалога</b>"
 
 #: ../ui/mainwindow.ui:714
 msgid "<b>Connect to address:</b>"
-msgstr ""
+msgstr "<b>Повежи на адресу:</b>"
 
 #: ../ui/settingsdialog.ui:743
 msgid "<b>Context</b>"
-msgstr ""
+msgstr "<b>Контекст</b>"
 
 #: ../ui/settingsdialog.ui:5993
 msgid "<b>Current theme name:</b>"
-msgstr ""
+msgstr "<b>Име тренутне теме:</b>"
 
 #: ../ui/settingsdialog.ui:4743
 msgid "<b>Default away message</b>"
-msgstr ""
+msgstr "<b>Подразумевана порука отсутности</b>"
 
 #: ../ui/favoriteusers.ui:96
 msgid "<b>Description</b>"
-msgstr ""
+msgstr "<b>Опис</b>"
 
 #: ../ui/adlsearch.ui:295
 msgid "<b>Destination Directory</b>"
-msgstr ""
+msgstr "<b>Дестинација фасцикле</b>"
 
 #: ../ui/settingsdialog.ui:2743
 msgid "<b>Directories</b>"
-msgstr ""
+msgstr "<b>Фасцикле</b>"
 
 #: ../ui/settingsdialog.ui:4396
 msgid "<b>Do not share files and folders containing:</b>"
-msgstr ""
+msgstr "<b>Не дели фајлове и фасцикле који садрже:</b>"
 
 #: ../src/hub.cc:601
 msgid "<b>Enter your password</b>"
-msgstr ""
+msgstr "<b>Унеси лозинку</b>"
 
 #: ../src/settingsdialog.cc:2208
 msgid "<b>Extension</b>"
-msgstr ""
+msgstr "<b>Проширења</b>"
 
 #: ../ui/settingsdialog.ui:3106
 msgid "<b>Favorite download to directories</b>"
-msgstr ""
+msgstr "<b>Фасцикла за преузимање омиљеног</b>"
 
 #: ../ui/publichubs.ui:236
 msgid "<b>Filter</b>"
-msgstr ""
+msgstr "<b>Филтер</b>"
 
 #: ../ui/settingsdialog.ui:6648
 msgid "<b>Frame</b>"
-msgstr ""
+msgstr "<b>Исечак</b>"
 
 #: ../ui/publichubs.ui:292
 msgid "<b>Hub List</b>"
-msgstr ""
+msgstr "<b>Хаб листа</b>"
 
 #: ../ui/favoritehubs.ui:81
 msgid "<b>Hub</b>"
-msgstr ""
+msgstr "<b>Хаб</b>"
 
 #: ../ui/settingsdialog.ui:5621
 msgid "<b>Icon size</b>"
-msgstr ""
+msgstr "<b>Величина икона</b>"
 
 #: ../ui/settingsdialog.ui:5929
 msgid "<b>Icons</b>"
-msgstr ""
+msgstr "<b>Icons</b>"
 
 #: ../ui/favoritehubs.ui:328
 msgid "<b>Identification</b>"
-msgstr ""
+msgstr "<b>Идентификација</b>"
 
 #: ../ui/settingsdialog.ui:1604
 msgid "<b>Incoming connection settings</b>"
-msgstr ""
+msgstr "<b>Подешавање долазне конекције</b>"
 
 #: ../ui/settingsdialog.ui:4538
 msgid "<b>Language</b>"
-msgstr ""
+msgstr "<b>Језик</b>"
 
 #: ../ui/settingsdialog.ui:2859
 msgid "<b>Limits</b>"
-msgstr ""
+msgstr "<b>Ограничења</b>"
 
 #: ../ui/settingsdialog.ui:7275
 msgid "<b>Logging</b>"
-msgstr ""
+msgstr "<b>Логовање</b>"
 
 #: ../ui/mainwindow.ui:260
 msgid "<b>Magnet properties</b>"
-msgstr ""
+msgstr "<b>Својства магнета</b>"
 
 #: ../ui/settingsdialog.ui:4692
 msgid "<b>Main Toolbar Style</b>"
-msgstr ""
+msgstr "<b>Стил главне траке алата</b>"
 
 #: ../ui/adlsearch.ui:211
 msgid "<b>Max FileSize</b>"
-msgstr ""
+msgstr "<b>Макс величина фајла</b>"
 
 #: ../ui/adlsearch.ui:178
 msgid "<b>Min FileSize</b>"
-msgstr ""
+msgstr "<b>Мин величина фајла</b>"
 
 #: ../src/settingsdialog.cc:1854
 msgid "<b>Name of the new search type</b>"
-msgstr ""
+msgstr "<b>Име новог режима претраге</b>"
 
 #: ../src/settingsdialog.cc:3101
 msgid "<b>Name under which the others see the directory</b>"
-msgstr ""
+msgstr "<b>Назив под којим други виде фасциклу</b>"
 
 #: ../src/settingsdialog.cc:3741
 msgid "<b>Name, under which you see the directory</b>"
-msgstr ""
+msgstr "<b>Назив под којим други виде фасциклу</b>"
 
 #: ../src/settingsdialog.cc:2107
 msgid "<b>New name</b>"
-msgstr ""
+msgstr "<b>Ново име</b>"
 
 #: ../ui/settingsdialog.ui:9258 ../ui/publichubs.ui:151
 msgid "<b>Note:</b> Edit urls in the list by clicking them once when selected"
-msgstr ""
+msgstr "<b>Напомена:</b> Измени урл-ове у листи кликом када се одабира"
 
 #: ../ui/settingsdialog.ui:5545
 msgid "<b>Notify</b>"
-msgstr ""
+msgstr "<b>Обавести</b>"
 
 #: ../ui/settingsdialog.ui:4582
 msgid "<b>Options</b>"
-msgstr ""
+msgstr "<b>Опције</b>"
 
 #: ../ui/settingsdialog.ui:8247
 msgid "<b>Other Security Options</b>"
-msgstr ""
+msgstr "<b>Друге безбедоносне опције</b>"
 
 #: ../ui/settingsdialog.ui:3690
 msgid "<b>Other queue options</b>"
-msgstr ""
+msgstr "<b>Остале опције реда</b>"
 
 #: ../ui/settingsdialog.ui:1863
 msgid "<b>Outgoing connection settings</b>"
-msgstr ""
+msgstr "<b>Подешавања одлазних веза</b>"
 
 #: ../ui/settingsdialog.ui:940
 msgid "<b>Parameters</b>"
-msgstr ""
+msgstr "<b>Параметри</b>"
 
 #: ../ui/settingsdialog.ui:1250
 msgid "<b>Personal Information</b>"
-msgstr ""
+msgstr "<b>Личне информације</b>"
 
 #: ../ui/settingsdialog.ui:3748
 msgid "<b>Players list</b>"
-msgstr ""
+msgstr "<b>Листа плејера</b>"
 
 #: ../ui/settingsdialog.ui:5342
 msgid "<b>Preview styles</b>"
-msgstr ""
+msgstr "<b>Преглед стилова</b>"
 
 #: ../ui/settingsdialog.ui:5235
 msgid "<b>Private message sound</b>"
-msgstr ""
+msgstr "<b>Звук приватне поруке</b>"
 
 #: ../ui/settingsdialog.ui:5840
 msgid "<b>Private message</b>"
-msgstr ""
+msgstr "<b>Приватна порука</b>"
 
 #: ../ui/hash.ui:55
 msgid "<b>Processing file:</b>"
-msgstr ""
+msgstr "<b>Обрада фајла:</b>"
 
 #: ../ui/settingsdialog.ui:2978
 msgid "<b>Public Hubs list</b>"
-msgstr ""
+msgstr "<b>Листа јавних хабова</b>"
 
 #: ../ui/adlsearch.ui:94
 msgid "<b>Search String</b>"
-msgstr ""
+msgstr "<b>Претрага низа</b>"
 
 #: ../ui/settingsdialog.ui:8474
 msgid "<b>Search types</b>"
-msgstr ""
+msgstr "<b>Претрага режима</b>"
 
 #: ../ui/settingsdialog.ui:2154
 msgid "<b>Secondary Transfer Rate Limiting</b>"
-msgstr ""
+msgstr "<b>Ограничење нивоа преноса</b>"
 
 #: ../ui/settingsdialog.ui:2340
 msgid "<b>Secondary Transfer Rate Settings</b>"
-msgstr ""
+msgstr "<b>Подешавање секундарног преноса</b>"
 
 #: ../ui/settingsdialog.ui:4140
 msgid "<b>Shared directories</b>"
-msgstr ""
+msgstr "<b>Дељене фасцикле</b>"
 
 #: ../ui/adlsearch.ui:252
 msgid "<b>Size Type</b>"
-msgstr ""
+msgstr "<b>Тип величине</b>"
 
 #: ../ui/settingsdialog.ui:5094
 msgid "<b>Sounds</b>"
-msgstr ""
+msgstr "<b>Звуци</b>"
 
 #: ../ui/adlsearch.ui:128
 msgid "<b>Source Type</b>"
-msgstr ""
+msgstr "<b>Режим извора</b>"
 
 #: ../ui/hash.ui:124
 msgid "<b>Statistics</b>"
-msgstr ""
+msgstr "<b>Статистика</b>"
 
 #: ../ui/settingsdialog.ui:4640
 msgid "<b>Tab Position</b>"
-msgstr ""
+msgstr "<b>Позиција картице</b>"
 
 #: ../ui/settingsdialog.ui:4868
 msgid "<b>Tab bolding on content change</b>"
-msgstr ""
+msgstr "<b>Картица се подебљава код промене садржаја</b>"
 
 #: ../ui/settingsdialog.ui:981
 msgid "<b>Text sent to hub</b>"
-msgstr ""
+msgstr "<b>Текст послат на хаб</b>"
 
 #: ../ui/settingsdialog.ui:5965
 msgid "<b>Text styles</b>"
-msgstr ""
+msgstr "<b>Стилови текста</b>"
 
 #: ../ui/settingsdialog.ui:4791
 msgid "<b>Timestamps</b>"
-msgstr ""
+msgstr "<b>Време</b>"
 
 #: ../ui/settingsdialog.ui:5588
 msgid "<b>Title</b>"
-msgstr ""
+msgstr "<b>Наслов</b>"
 
 #: ../ui/settingsdialog.ui:6173
 msgid "<b>Toolbar buttons</b>"
-msgstr ""
+msgstr "<b>Дугмићи траке алата</b>"
 
 #: ../ui/settingsdialog.ui:2034
 msgid "<b>Transfer Rate Limiting</b>"
-msgstr ""
+msgstr "<b>Ограничење трансфера</b>"
 
 #: ../ui/mainwindow.ui:429
 msgid "<b>What would you like to do?</b>"
-msgstr ""
+msgstr "<b>Шта желите да учините?</b>"
 
 #: ../ui/settingsdialog.ui:4991
 msgid "<b>Window Options</b>"
-msgstr ""
+msgstr "<b>Опције прозора</b>"
 
 #: ../src/mainwindow.cc:2346
 msgid "<b>file:</b> "
-msgstr ""
+msgstr "<b>фајл:</b> "
 
 #: ../ui/favoritehubs.ui:444
 msgid "<small>Note: Leave unchecked for default values</small>"
-msgstr ""
+msgstr "<small>Напомена: Остави неозначено за подразумеване вредности</small>"
 
 #: ../src/sharebrowser.hh:149 ../src/sharebrowser.hh:152
 msgid "?"
-msgstr ""
+msgstr "?"
 
 #: ../ui/mainwindow.ui:2306 ../ui/mainwindow.ui:2489
 msgid "ADL"
-msgstr ""
+msgstr "АДЛ"
 
 #: ../src/adlsearch.cc:30 ../ui/mainwindow.ui:2304
 msgid "ADL Search"
-msgstr ""
+msgstr "АДЛ претрага"
 
 #: ../ui/adlsearch.ui:8
 msgid "ADLSearch Properties"
-msgstr ""
+msgstr "Својства АДЛ претраге"
 
 #: ../ui/mainwindow.ui:1628
 msgid "About EiskaltDC++"
-msgstr ""
+msgstr "О EiskaltDC++"
 
 #: ../src/settingsdialog.cc:1652
 msgid "Accept custom user commands from hub"
-msgstr ""
+msgstr "Прихвати прилагођене корисничке команде са хаба"
 
 #: ../ui/favoritehubs.ui:555 ../ui/settingsdialog.ui:1456
 msgid "Active"
-msgstr ""
+msgstr "Активан"
 
 #: ../ui/settingsdialog.ui:4326 ../ui/settingsdialog.ui:8361
 msgid "Add"
-msgstr ""
+msgstr "Додај"
 
 #: ../ui/mainwindow.ui:2373
 msgid "Add / Remove"
-msgstr ""
+msgstr "Додај / Уклони"
 
 #: ../src/hub.cc:2043 ../ui/hub.ui:39
 msgid "Add a hub to favorites"
-msgstr ""
+msgstr "Додај хаб у омиљено"
 
 #: ../src/settingsdialog.cc:1654
 msgid "Add finished files to share instantly (if shared)"
-msgstr ""
+msgstr "Додај завршене фајлове одмах за дељење (ако је дељено)"
 
 #: ../src/hub.cc:2075
 msgid ""
 "Add rule 192.168.1.0/23 where direction incoming and action is allow and "
 "192.168.6.0/24 where direction is incoming or outcoming and action is drop"
-msgstr ""
+msgstr "Додај 192.168.1.0/23 у долазну дирекцију и дозволи акцију и 192.168.6.0/24 дирекција долазног или одлазног и акција се прекида"
 
 #: ../ui/mainwindow.ui:288
 msgid "Add this file to your download queue"
-msgstr ""
+msgstr "Додај овај фајл у ред за преузимање"
 
 #: ../ui/uploadqueue.ui:60
 msgid "Add to Favorite Users"
-msgstr ""
+msgstr "Додај у омиљене кориснике"
 
 #: ../ui/publichubs.ui:415
 msgid "Add to favorites"
-msgstr ""
+msgstr "Додај у омиљене"
 
 #: ../src/privatemessage.cc:1027 ../src/hub.cc:2044 ../ui/privatemessage.ui:48
 msgid "Add user to favorites list"
-msgstr ""
+msgstr "Додај корисника у листу омиљеног"
 
 #: ../ui/adlsearch.ui:452 ../ui/adlsearch.ui:535
 msgid "Add..."
-msgstr ""
+msgstr "Додај..."
 
 #: ../src/downloadqueue.cc:81 ../src/downloadqueue.cc:293
 #: ../src/downloadqueue.cc:400
 msgid "Added"
-msgstr ""
+msgstr "Додато"
 
 #: ../ui/settingsdialog.ui:6284
 msgid "Adding string or TTH to the top"
-msgstr ""
+msgstr "Додај низ или ТТХ на врх"
 
 #: ../src/favoritehubs.cc:55 ../src/favoritehubs.cc:142
 #: ../src/favoritehubs.cc:156 ../src/favoritehubs.cc:229
@@ -665,82 +665,82 @@ msgstr ""
 #: ../src/publichubs.cc:50 ../src/publichubs.cc:162 ../src/publichubs.cc:272
 #: ../src/publichubs.cc:297
 msgid "Address"
-msgstr ""
+msgstr "Адреса"
 
 #: ../ui/settingsdialog.ui:2569 ../ui/settingsdialog.ui:4470
 #: ../ui/settingsdialog.ui:7341
 msgid "Advanced"
-msgstr ""
+msgstr "Напредно"
 
 #: ../src/hub.cc:2070
 msgid "Alias A executing"
-msgstr ""
+msgstr "Пресуодим А се извршава"
 
 #: ../src/hub.cc:2067
 msgid "Alias List"
-msgstr ""
+msgstr "Листе псеудонима"
 
 #: ../src/hub.cc:2068
 msgid "Alias Remove A"
-msgstr ""
+msgstr "Псеудоним уклања А"
 
 #: ../src/hub.cc:2069
 msgid "Alias add uname -a as A"
-msgstr ""
+msgstr "Псеудоним додаје  uname -a као А"
 
 #: ../src/hub.cc:2269
 msgid "Aliases not found."
-msgstr ""
+msgstr "Псеудоними нису пронађени."
 
 #: ../src/settingsdialog.cc:1728
 msgid "Allow TLS connections to clients without trusted certificate"
-msgstr ""
+msgstr "Дозволи ТЛС везе са клијентима без сигурног сертификата"
 
 #: ../src/settingsdialog.cc:1727
 msgid "Allow TLS connections to hubs without trusted certificate"
-msgstr ""
+msgstr "Омогући ТЛС конекције са хабовима вез сигурног сертификата"
 
 #: ../src/settingsdialog.cc:1662
 msgid "Allow few connections from one IP"
-msgstr ""
+msgstr "Омогући неколико конекција са једне ИП"
 
 #: ../src/settingsdialog.cc:1729
 msgid "Allow only TLS connections to clients"
-msgstr ""
+msgstr "Омогући само ТЛС конекције за клијенте"
 
 #: ../src/settingsdialog.cc:1661
 msgid "Allow overlap chunks"
-msgstr ""
+msgstr "Омогући преклапање делова"
 
 #: ../src/settingsdialog.cc:1663
 msgid "Allow some connections for one user"
-msgstr ""
+msgstr "Омогући неке конекције за једног корисника"
 
 #: ../src/settingsdialog.cc:954
 msgid "Amarok player"
-msgstr ""
+msgstr "Amarok плејер"
 
 #: ../ui/settingsdialog.ui:4829 ../ui/settingsdialog.ui:6691
 msgid "Appearance"
-msgstr ""
+msgstr "Изглед"
 
 #: ../src/settingsdialog.cc:927 ../src/settingsdialog.cc:962
 #: ../src/settingsdialog.cc:2988 ../src/settingsdialog.cc:3022
 #: ../src/settingsdialog.cc:3040 ../src/settingsdialog.cc:3071
 msgid "Application"
-msgstr ""
+msgstr "Апликација"
 
 #: ../ui/settingsdialog.ui:3802
 msgid "Application:"
-msgstr ""
+msgstr "Апликација:"
 
 #: ../ui/searchspy.ui:241
 msgid "Apply settings"
-msgstr ""
+msgstr "Примени подешавања"
 
 #: ../ui/settingsdialog.ui:3828
 msgid "Apply to Extensions: (avi;mov;divx)"
-msgstr ""
+msgstr "Примени на проширења: (avi;mov;divx)"
 
 #: ../src/favoritehubs.cc:454
 #, c-format
