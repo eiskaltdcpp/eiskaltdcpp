@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
 "POT-Creation-Date: 2014-10-12 19:27+0400\n"
-"PO-Revision-Date: 2014-10-13 17:36+0000\n"
+"PO-Revision-Date: 2014-10-14 18:06+0000\n"
 "Last-Translator: markosm <pausovic@gmail.com>\n"
 "Language-Team: Serbian (http://www.transifex.com/projects/p/eiskaltdcpp/language/sr/)\n"
 "MIME-Version: 1.0\n"
@@ -745,155 +745,155 @@ msgstr "Примени на проширења: (avi;mov;divx)"
 #: ../src/favoritehubs.cc:454
 #, c-format
 msgid "Are you sure you want to delete favorite hub \"%s\"?"
-msgstr ""
+msgstr "Да ли сте сигурни да желите да обришете омиљени хаб \"%s\"?"
 
 #: ../src/favoriteusers.cc:441
 msgid "Are you sure you want to delete favorite user(s)?"
-msgstr ""
+msgstr "Да ли сте сигурни да желите да обришете омиљеног корисника(е)?"
 
 #: ../ui/search.ui:89
 msgid "At least"
-msgstr ""
+msgstr "Најмања"
 
 #: ../ui/search.ui:92
 msgid "At most"
-msgstr ""
+msgstr "Највећа"
 
 #: ../src/sharebrowser.cc:92 ../src/sharebrowser.cc:370
 msgid "Audio"
-msgstr ""
+msgstr "Аудио"
 
 #: ../src/favoritehubs.cc:52 ../src/favoritehubs.cc:72
 #: ../src/favoritehubs.cc:131 ../src/favoritehubs.cc:313
 #: ../src/favoritehubs.cc:495 ../src/favoritehubs.cc:497
 msgid "Auto Connect"
-msgstr ""
+msgstr "Ауто конекција"
 
 #: ../ui/favoritehubs.ui:457
 msgid "Auto connect on _startup"
-msgstr ""
+msgstr "Ауто конекција на старту"
 
 #: ../src/favoriteusers.cc:47 ../src/favoriteusers.cc:68
 #: ../src/favoriteusers.cc:111 ../src/favoriteusers.cc:473
 #: ../src/favoriteusers.cc:475
 msgid "Auto grant slot"
-msgstr ""
+msgstr "Аутоматски одобрен слот"
 
 #: ../ui/settingsdialog.ui:7811
 msgid "Auto refresh time"
-msgstr ""
+msgstr "Време ауто освежавања"
 
 #: ../ui/favoritehubs.ui:510
 msgid "Auto update IP from internet"
-msgstr ""
+msgstr "Ауто надоградња ИП са интернета"
 
 #: ../src/settingsdialog.cc:1643
 msgid "Auto-away on minimize (and back on restore)"
-msgstr ""
+msgstr "Ауто-спуштање на минимизовано (и повратак на почетак)"
 
 #: ../src/settingsdialog.cc:987
 msgid "Auto-drop slow sources for all queue items (except filelists)"
-msgstr ""
+msgstr "Ауто-прекид спорих извора за све ставке у реду (осим фајл листи)"
 
 #: ../src/settingsdialog.cc:1648
 msgid "Automatically disconnect users who leave the hub"
-msgstr ""
+msgstr "Аутоматско дисконектовање корисника који напуштају хаб"
 
 #: ../src/settingsdialog.cc:1644
 msgid "Automatically follow redirects"
-msgstr ""
+msgstr "Аутоматско праћење преусмерења"
 
 #: ../src/settingsdialog.cc:991
 msgid "Automatically match queue for auto search hits"
-msgstr ""
+msgstr "Аутоматско подударање упита за ауто претрагу"
 
 #: ../ui/settingsdialog.ui:4167
 msgid "Automatically open extra slot if speed is below (0 = disable)"
-msgstr ""
+msgstr "Аутоматски отвори додатни слот ако је брзина испод (0 = искључи)"
 
 #: ../src/settingsdialog.cc:990
 msgid "Automatically search for alternative download locations"
-msgstr ""
+msgstr "Аутоматски тражи алтернативне локације за преузимање"
 
 #: ../ui/settingsdialog.ui:2408
 msgid "Automatically update external IP (restart required)"
-msgstr ""
+msgstr "Аутоматски ажурирај спољашње ИП (захтева рестарт)"
 
 #: ../src/privatemessage.cc:1023 ../src/hub.cc:2039 ../ui/privatemessage.ui:12
 #: ../ui/hub.ui:12
 msgid "Away mode message on/off"
-msgstr ""
+msgstr "Порука за режим у одсуству укљ/иск"
 
 #: ../src/privatemessage.cc:911 ../src/privatemessage.cc:925
 #: ../src/privatemessage.cc:1024 ../src/hub.cc:1862 ../src/hub.cc:1875
 #: ../src/hub.cc:2040 ../ui/privatemessage.ui:21 ../ui/hub.ui:21
 msgid "Away mode off"
-msgstr ""
+msgstr "Режим отсутности искљ"
 
 #: ../src/privatemessage.cc:919 ../src/hub.cc:1869
 msgid "Away mode on: "
-msgstr ""
+msgstr "Режим отсутности укљ:"
 
 #: ../ui/search.ui:103 ../ui/adlsearch.ui:406 ../ui/settingsdialog.ui:7978
 #: ../ui/settingsdialog.ui:7991
 msgid "B"
-msgstr ""
+msgstr "B"
 
 #: ../src/hashdialog.cc:64 ../ui/settingsdialog.ui:3552
 msgid "B/s"
-msgstr ""
+msgstr "B/s"
 
 #: ../ui/settingsdialog.ui:5383
 msgid "Back color"
-msgstr ""
+msgstr "Боја позадине"
 
 #: ../src/settingsdialog.cc:1064
 msgid "Belarusian"
-msgstr ""
+msgstr "Белоруски"
 
 #: ../src/mainwindow.cc:224
 msgid "Belarusian translation\n"
-msgstr ""
+msgstr "Белоруски превод\n"
 
 #: ../ui/settingsdialog.ui:7772
 msgid "Bind address"
-msgstr ""
+msgstr "Повежи на адресу"
 
 #: ../src/sharebrowser.cc:89 ../src/sharebrowser.cc:367
 msgid "Bitrate"
-msgstr ""
+msgstr "Битрејт"
 
 #: ../ui/settingsdialog.ui:5451
 msgid "Black/White"
-msgstr ""
+msgstr "Црна/Бела"
 
 #: ../ui/settingsdialog.ui:5362
 msgid "Bold Authors of message in chat"
-msgstr ""
+msgstr "Подебљај ауторске поруке у ћаскању"
 
 #: ../ui/settingsdialog.ui:8949
 msgid "Both"
-msgstr ""
+msgstr "Оба"
 
 #: ../ui/settingsdialog.ui:8952
 msgid "Both horizontal"
-msgstr ""
+msgstr "Оба водоравно"
 
 #: ../ui/settingsdialog.ui:8932
 msgid "Bottom"
-msgstr ""
+msgstr "Доле"
 
 #: ../ui/uploadqueue.ui:87
 msgid "Browse FileList"
-msgstr ""
+msgstr "Прегледај фајл листу"
 
 #: ../ui/settingsdialog.ui:5167
 msgid "Browse file..."
-msgstr ""
+msgstr "Прегледај фајл..."
 
 #: ../ui/mainwindow.ui:2218
 msgid "Browse the list of public hubs"
-msgstr ""
+msgstr "Прегледај листу јавних хабова"
 
 #: ../src/sharebrowser.cc:539 ../src/sharebrowser.cc:607 ../src/search.cc:357
 #: ../src/search.cc:428 ../ui/privatemessage.ui:188 ../ui/mainwindow.ui:319
@@ -901,19 +901,19 @@ msgstr ""
 #: ../ui/settingsdialog.ui:6749 ../ui/settingsdialog.ui:8062
 #: ../ui/settingsdialog.ui:8080 ../ui/settingsdialog.ui:8098
 msgid "Browse..."
-msgstr ""
+msgstr "Прегледај..."
 
 #: ../src/settingsdialog.cc:1082
 msgid "Bulgarian"
-msgstr ""
+msgstr "Бугарски"
 
 #: ../src/mainwindow.cc:252
 msgid "Bulgarian translation\n"
-msgstr ""
+msgstr "Бугарски превод\n"
 
 #: ../src/settingsdialog.cc:1419
 msgid "Button smile"
-msgstr ""
+msgstr "Емотикон дугме"
 
 #: ../src/favoriteusers.cc:52 ../src/favoriteusers.cc:116
 #: ../src/favoriteusers.cc:215 ../src/favoriteusers.cc:244
@@ -922,285 +922,285 @@ msgstr ""
 #: ../src/favoriteusers.cc:428 ../src/favoriteusers.cc:472
 #: ../src/favoriteusers.cc:590
 msgid "CID"
-msgstr ""
+msgstr "ЦИД"
 
 #: ../ui/cmddebug.ui:69
 msgid "CLIENT IN"
-msgstr ""
+msgstr "КЛИЈЕНТ У"
 
 #: ../ui/cmddebug.ui:84
 msgid "CLIENT OUT"
-msgstr ""
+msgstr "КЛИЈЕНТ ВАН"
 
 #: ../src/cmddebug.cc:32
 msgid "CMD"
-msgstr ""
+msgstr "CMD"
 
 #: ../ui/mainwindow.ui:1256
 msgid "CMD Debug"
-msgstr ""
+msgstr "CMD Debug"
 
 #: ../src/WulforUtil.cc:213
 msgid "CP1250"
-msgstr ""
+msgstr "CP1250"
 
 #: ../src/WulforUtil.cc:222
 msgid "CP1251"
-msgstr ""
+msgstr "CP1251"
 
 #: ../src/WulforUtil.cc:212
 msgid "CP1252"
-msgstr ""
+msgstr "CP1252"
 
 #: ../src/WulforUtil.cc:223
 msgid "CP1256"
-msgstr ""
+msgstr "CP1256"
 
 #: ../src/WulforUtil.cc:224
 msgid "CP1257"
-msgstr ""
+msgstr "CP1257"
 
 #: ../src/WulforUtil.cc:220
 msgid "CP949"
-msgstr ""
+msgstr "CP949"
 
 #: ../src/finishedtransfers.cc:68 ../src/finishedtransfers.cc:242
 msgid "CRC Checked"
-msgstr ""
+msgstr "CRC проверен"
 
 #: ../src/downloadqueue.cc:1360
 msgid "CRC32 inconsistency (SFV-Check)"
-msgstr ""
+msgstr "CRC32 inconsistency (SFV-Check)"
 
 #: ../ui/mainwindow.ui:1112
 msgid "Calculate file TTH"
-msgstr ""
+msgstr "Израчунајте ТТХ фајл"
 
 #: ../src/wulfor.cc:108
 #, c-format
 msgid "Cannot handle SIGPIPE\n"
-msgstr ""
+msgstr "Не може обрадити СИГПИПЕ\n"
 
 #: ../src/wulfor.cc:79
 msgid "Catching signal "
-msgstr ""
+msgstr "Хватање сигнала"
 
 #: ../ui/settingsdialog.ui:8172
 msgid "Certificate file"
-msgstr ""
+msgstr "Фајл сертификата"
 
 #: ../src/settingsmanager.cc:526
 msgid "Change gui setting "
-msgstr ""
+msgstr "Промените подешавање сучеља"
 
 #: ../ui/mainwindow.ui:1611
 msgid "Changelog (git)"
-msgstr ""
+msgstr "Хронологија промена (git)"
 
 #: ../ui/settingsdialog.ui:609
 msgid "Chat"
-msgstr ""
+msgstr "Ћаскање"
 
 #: ../ui/privatemessage.ui:260 ../ui/hub.ui:332
 msgid "Chat Commands"
-msgstr ""
+msgstr "Команде ћаскања"
 
 #: ../ui/settingsdialog.ui:688
 msgid "Chat Menu"
-msgstr ""
+msgstr "Мени ћаскања"
 
 #: ../src/hub.cc:1889
 msgid "Chat disabled"
-msgstr ""
+msgstr "Ћаскање онемогућено"
 
 #: ../src/hub.cc:1894
 msgid "Chat enabled"
-msgstr ""
+msgstr "Ћаскање омогућено"
 
 #: ../ui/settingsdialog.ui:3492
 msgid "Check every"
-msgstr ""
+msgstr "Провери сваки"
 
 #: ../src/settingsdialog.cc:1096
 msgid "Chinese (China)"
-msgstr ""
+msgstr "Кинески (Кина)"
 
 #: ../src/mainwindow.cc:277
 msgid "Chinese (China) translation\n"
-msgstr ""
+msgstr "Кинески (Кина) превод\n"
 
 #: ../ui/settingsdialog.ui:8582
 msgid "Choose a File"
-msgstr ""
+msgstr "Одабери фајл"
 
 #: ../src/privatemessage.cc:1298 ../src/hub.cc:2651 ../src/mainwindow.cc:1328
 #: ../src/mainwindow.cc:1396 ../ui/search.ui:7 ../ui/sharebrowser.ui:7
 #: ../ui/settingsdialog.ui:8510
 msgid "Choose a directory"
-msgstr ""
+msgstr "Одабери фасциклу"
 
 #: ../ui/mainwindow.ui:512
 msgid "Chose A File"
-msgstr ""
+msgstr "Одабери фајл"
 
 #: ../ui/searchspy.ui:124 ../ui/searchspy.ui:340 ../ui/search.ui:242
 msgid "Clear"
-msgstr ""
+msgstr "Очисти"
 
 #: ../src/privatemessage.cc:1025 ../ui/privatemessage.ui:30
 msgid "Clear PM"
-msgstr ""
+msgstr "Очисти ПП"
 
 #: ../src/hub.cc:2041 ../ui/hub.ui:30
 msgid "Clear chat"
-msgstr ""
+msgstr "Очисти ћаскање"
 
 #: ../src/searchspy.cc:503 ../ui/searchspy.ui:344
 msgid "Clear frame search"
-msgstr ""
+msgstr "Очисти оквир за претрагу"
 
 #: ../src/settingsdialog.cc:1645
 msgid "Clear search box after each search"
-msgstr ""
+msgstr "Очисти поље за претрагу после сваке претраге"
 
 #: ../src/privatemessage.cc:1026 ../ui/privatemessage.ui:39
 msgid "Close PM"
-msgstr ""
+msgstr "Затвори ПП"
 
 #: ../ui/mainwindow.ui:1428
 msgid "Close all PM"
-msgstr ""
+msgstr "Затвори све ПП"
 
 #: ../ui/mainwindow.ui:1419
 msgid "Close all hubs"
-msgstr ""
+msgstr "Затвори све хабове"
 
 #: ../ui/mainwindow.ui:1437
 msgid "Close all search"
-msgstr ""
+msgstr "Затвори све претраге"
 
 #: ../src/hub.cc:2042
 msgid "Close chat"
-msgstr ""
+msgstr "Затвори ћаскање"
 
 #: ../ui/mainwindow.ui:1446
 msgid "Close offline PM"
-msgstr ""
+msgstr "Затвори ПП ван мреже"
 
 #: ../src/bookentry.cc:75
 msgid "Close tab"
-msgstr ""
+msgstr "Затвори картицу"
 
 #: ../src/transfers.cc:407
 msgid "Closing connection..."
-msgstr ""
+msgstr "Затварање конекције..."
 
 #: ../ui/settingsdialog.ui:401
 msgid "Color select"
-msgstr ""
+msgstr "Одабери боју"
 
 #: ../ui/settingsdialog.ui:5505
 msgid "Colors & Fonts"
-msgstr ""
+msgstr "Боје & Фонтови"
 
 #: ../src/settingsdialog.cc:1675 ../src/settingsdialog.cc:1683
 #: ../src/settingsdialog.cc:3350 ../src/settingsdialog.cc:3424
 #: ../ui/settingsdialog.ui:812
 msgid "Command"
-msgstr ""
+msgstr "Команда"
 
 #: ../src/settingsdialog.cc:3468 ../src/settingsdialog.cc:3474
 msgid "Command name already exists"
-msgstr ""
+msgstr "Име команде већ постоји"
 
 #: ../ui/settingsdialog.ui:2904
 msgid "Configure Public Hub Lists"
-msgstr ""
+msgstr "Конфигуриши јавне хаб листе"
 
 #: ../ui/settingsdialog.ui:9103 ../ui/publichubs.ui:10
 msgid "Configure hub lists"
-msgstr ""
+msgstr "Конфигуриши хаб листе"
 
 #: ../src/settingsdialog.cc:1575
 msgid "Confirm application exit"
-msgstr ""
+msgstr "Потврди излаз апликације"
 
 #: ../src/settingsdialog.cc:1576
 msgid "Confirm favorite hub removal"
-msgstr ""
+msgstr "Потврди брисање омиљеног хаба"
 
 #: ../src/settingsdialog.cc:1435 ../src/settingsdialog.cc:1474
 #: ../ui/mainwindow.ui:2144 ../ui/mainwindow.ui:2417
 msgid "Connect"
-msgstr ""
+msgstr "Повежи"
 
 #: ../src/hub.cc:3496
 msgid "Connect failed: "
-msgstr ""
+msgstr "Повезивање неуспело:"
 
 #: ../ui/mainwindow.ui:620
 msgid "Connect to a hub"
-msgstr ""
+msgstr "Повежи на хаб"
 
 #: ../ui/favoriteusers.ui:203
 msgid "Connect to hub"
-msgstr ""
+msgstr "Повежи на хаб"
 
 #: ../src/hub.cc:2050 ../ui/hub.ui:57
 msgid "Connect to the hub"
-msgstr ""
+msgstr "Повежи на хаб"
 
 #: ../src/hub.cc:3440 ../src/transfers.cc:1029
 msgid "Connected"
-msgstr ""
+msgstr "Повезано"
 
 #: ../src/transfers.cc:1065
 msgid "Connecting"
-msgstr ""
+msgstr "Повезивање"
 
 #: ../src/transfers.cc:374
 msgid "Connecting (forced)..."
-msgstr ""
+msgstr "Повезивање (присилно)..."
 
 #: ../src/hub.cc:3433
 msgid "Connecting to "
-msgstr ""
+msgstr "Повезивање на"
 
 #: ../src/transfers.cc:1018
 msgid "Connecting..."
-msgstr ""
+msgstr "Повезивање..."
 
 #: ../src/hub.cc:90 ../src/hub.cc:409 ../src/hub.cc:429 ../src/search.cc:106
 #: ../src/search.cc:657 ../src/search.cc:742 ../src/search.cc:875
 #: ../ui/search.ui:141 ../ui/settingsdialog.ui:1883
 #: ../ui/settingsdialog.ui:2585
 msgid "Connection"
-msgstr ""
+msgstr "Повезивање"
 
 #: ../src/mainwindow.cc:2290
 msgid "Connectivity Manager: Warning"
-msgstr ""
+msgstr "Менаџер повезивања: Упозорење"
 
 #: ../src/mainwindow.cc:210
 msgid "Contributors"
-msgstr ""
+msgstr "Сарадници"
 
 #: ../src/searchspy.cc:58 ../src/searchspy.cc:157 ../src/searchspy.cc:271
 #: ../src/searchspy.cc:296 ../src/searchspy.cc:312 ../src/searchspy.cc:434
 msgid "Count"
-msgstr ""
+msgstr "Бројач"
 
 #: ../src/publichubs.cc:51 ../src/publichubs.cc:163
 msgid "Country"
-msgstr ""
+msgstr "Држава"
 
 #: ../src/settingsdialog.cc:1086
 msgid "Czech"
-msgstr ""
+msgstr "Чешки"
 
 #: ../src/mainwindow.cc:258
 msgid "Czech translation\n"
-msgstr ""
+msgstr "Чешки превод\n"
 
 #: ../src/mainwindow.cc:184
 #, c-format
@@ -1209,42 +1209,42 @@ msgid ""
 "\n"
 "EiskaltDC++ version: %s (%s)\n"
 "DC++ core version: %s"
-msgstr ""
+msgstr "ДЦ++ клијент заснован на изворном коду од FreeDC++ и\nLinuxDC++\n\nEiskaltDC++ верзија: %s (%s)\nDC++ изворна верзија: %s"
 
 #: ../ui/cmddebug.ui:99
 msgid "DETECTION"
-msgstr ""
+msgstr "ДЕТЕКЦИЈА"
 
 #: ../ui/settingsdialog.ui:2508
 msgid "DHT Port"
-msgstr ""
+msgstr "ДХТ порт"
 
 #: ../src/emoticonsdialog.cc:98 ../src/previewmenu.cc:87
 #: ../ui/favoritehubs.ui:552 ../ui/settingsdialog.ui:5721
 #: ../ui/settingsdialog.ui:6436 ../ui/settingsdialog.ui:6622
 #: ../ui/settingsdialog.ui:8421
 msgid "Default"
-msgstr ""
+msgstr "Подразумевано"
 
 #: ../ui/settingsdialog.ui:2618
 msgid "Default download directory"
-msgstr ""
+msgstr "Подразумевана фасцикла преузимања"
 
 #: ../ui/settingsdialog.ui:1211
 msgid "Default hub encoding"
-msgstr ""
+msgstr "Подразумевано хаб кодирање"
 
 #: ../ui/settingsdialog.ui:6074
 msgid "Default icons"
-msgstr ""
+msgstr "Подразумеване иконе"
 
 #: ../ui/settingsdialog.ui:5434
 msgid "Default styles"
-msgstr ""
+msgstr "Подразумевани стилови"
 
 #: ../ui/searchspy.ui:112
 msgid "Delete item"
-msgstr ""
+msgstr "Обриши ставку"
 
 #: ../src/hub.cc:88 ../src/hub.cc:407 ../src/hub.cc:427
 #: ../src/favoritehubs.cc:54 ../src/favoritehubs.cc:133
@@ -1254,26 +1254,26 @@ msgstr ""
 #: ../src/favoriteusers.cc:400 ../src/favoriteusers.cc:589
 #: ../ui/favoriteusers.ui:212 ../ui/settingsdialog.ui:1171
 msgid "Description"
-msgstr ""
+msgstr "Опис"
 
 #: ../src/adlsearch.cc:41 ../src/adlsearch.cc:61 ../src/adlsearch.cc:112
 #: ../src/adlsearch.cc:212 ../src/adlsearch.cc:237
 msgid "Destination Directory"
-msgstr ""
+msgstr "Дестинација фасцикле"
 
 #: ../src/mainwindow.cc:206
 msgid "Developers"
-msgstr ""
+msgstr "Програмери"
 
 #: ../src/sharebrowser.cc:116 ../src/sharebrowser.cc:262
 #: ../src/sharebrowser.cc:281 ../src/sharebrowser.cc:623
 #: ../src/sharebrowser.cc:675
 msgid "Dir"
-msgstr ""
+msgstr "Дир"
 
 #: ../ui/settingsdialog.ui:1803
 msgid "Direct connection"
-msgstr ""
+msgstr "Директно повезивање"
 
 #: ../src/settingsdialog.cc:905 ../src/settingsdialog.cc:919
 #: ../src/settingsdialog.cc:1033 ../src/settingsdialog.cc:1438
@@ -1283,275 +1283,275 @@ msgstr ""
 #: ../src/UserCommandMenu.cc:66 ../src/search.cc:921 ../src/search.cc:1757
 #: ../ui/adlsearch.ui:392 ../ui/settingsdialog.ui:6725
 msgid "Directory"
-msgstr ""
+msgstr "Фасцикла"
 
 #: ../src/settingsdialog.cc:3762
 msgid "Directory or favorite name already exists"
-msgstr ""
+msgstr "Фасцикла или омиљено име већ постоји"
 
 #: ../ui/favoritehubs.ui:91 ../ui/hub.ui:344
 msgid "Disable chat"
-msgstr ""
+msgstr "Искључи ћаскање"
 
 #: ../src/settingsdialog.cc:1125
 msgid "Do not close the program, hide in the system tray"
-msgstr ""
+msgstr "Не затварај програм, сакриј га у системску касету"
 
 #: ../ui/settingsdialog.ui:2669
 msgid "Do not use unfinished downloads directory"
-msgstr ""
+msgstr "Не користи фасциклу за недовршена преузимања"
 
 #: ../ui/mainwindow.ui:792
 msgid "Do you really want to exit?"
-msgstr ""
+msgstr "Да ли стварно желите да напустите?"
 
 #: ../ui/settingsdialog.ui:1508
 msgid "Don't allow Hub/UPnP/DHT to override"
-msgstr ""
+msgstr "Не дозволи Хаб/УПнП да замени"
 
 #: ../src/settingsdialog.cc:993
 msgid "Don't download files already in share"
-msgstr ""
+msgstr "Не преузимај већ дељене фајлове"
 
 #: ../src/settingsdialog.cc:994
 msgid "Don't download files already in the queue"
-msgstr ""
+msgstr "Не преузимај фајлове који су у реду"
 
 #: ../ui/search.ui:549
 msgid "Don't hide side panel on search"
-msgstr ""
+msgstr "Не криј бочни панел на претрази"
 
 #: ../src/settingsdialog.cc:989
 msgid "Don't remove the source when auto-dropping, only disconnect"
-msgstr ""
+msgstr "Не бришите извор код ауто-пада, само се дисконектујте"
 
 #: ../src/settingsdialog.cc:1655
 msgid "Don't send the away message to bots"
-msgstr ""
+msgstr "Не шаљите поруку отсутности ботовима"
 
 #: ../src/sharebrowser.cc:189 ../src/hashdialog.cc:102
 msgid "Done"
-msgstr ""
+msgstr "Урађено"
 
 #: ../src/settingsdialog.cc:1420 ../ui/sharebrowser.ui:80
 #: ../ui/sharebrowser.ui:126
 msgid "Download"
-msgstr ""
+msgstr "Преузимање"
 
 #: ../ui/adlsearch.ui:327
 msgid "Download Matches"
-msgstr ""
+msgstr "Подударено преузимање"
 
 #: ../src/settingsdialog.cc:1144 ../src/settingsdialog.cc:1554
 #: ../src/downloadqueue.cc:33 ../ui/mainwindow.ui:1268
 msgid "Download Queue"
-msgstr ""
+msgstr "Ред за преузимање"
 
 #: ../ui/privatemessage.ui:178 ../ui/search.ui:664 ../ui/hub.ui:221
 msgid "Download _to..."
-msgstr ""
+msgstr "Преузми _у..."
 
 #: ../ui/search.ui:678
 msgid "Download _whole directory"
-msgstr ""
+msgstr "Преузми _целу фасциклу"
 
 #: ../src/transfers.cc:967
 msgid "Download complete..."
-msgstr ""
+msgstr "Преузимање комплетно..."
 
 #: ../src/publichubs.cc:451
 msgid "Download failed: "
-msgstr ""
+msgstr "Преузимање неуспело:"
 
 #: ../src/settingsdialog.cc:1174 ../src/settingsdialog.cc:1356
 #: ../src/transfers.cc:1090 ../src/settingsmanager.cc:236
 msgid "Download finished"
-msgstr ""
+msgstr "Преузимање завршено"
 
 #: ../src/settingsdialog.cc:1175 ../src/settingsdialog.cc:1360
 #: ../src/settingsmanager.cc:238
 msgid "Download finished file list"
-msgstr ""
+msgstr "Завршено преузимање фајл листе"
 
 #: ../src/publichubs.cc:459
 msgid "Download finished: "
-msgstr ""
+msgstr "Преузимање завршено:"
 
 #: ../ui/hub.ui:149
 msgid "Download image"
-msgstr ""
+msgstr "Преузми слику"
 
 #: ../src/hub.cc:1989
 msgid "Download image: disable"
-msgstr ""
+msgstr "Преузми слику: искључено"
 
 #: ../src/hub.cc:1991
 msgid "Download image: unlimit"
-msgstr ""
+msgstr "Преузми слике: без ограничења"
 
 #: ../src/hub.cc:1993
 msgid "Download limit image: "
-msgstr ""
+msgstr "Ограничење преузимања за слику:"
 
 #: ../src/hub.cc:2056
 msgid "Download limit image: 0 - disable, n < 0 - unlimit, empty - info"
-msgstr ""
+msgstr "Ограничење преузимања:0 - disable, n < 0 - unlimit, empty - info"
 
 #: ../src/transfers.cc:1099
 msgid "Download removed"
-msgstr ""
+msgstr "Преузимање уклоњено"
 
 #: ../ui/mainwindow.ui:1813
 msgid "Download speed"
-msgstr ""
+msgstr "Брзина преузимања"
 
 #: ../src/transfers.cc:918
 msgid "Download starting..."
-msgstr ""
+msgstr "Почетак преузимања..."
 
 #: ../src/publichubs.cc:443
 msgid "Download starting: "
-msgstr ""
+msgstr "Преузимање започето:"
 
 #: ../ui/settingsdialog.ui:3119
 msgid "Download to"
-msgstr ""
+msgstr "Преузми у"
 
 #: ../ui/sharebrowser.ui:89 ../ui/sharebrowser.ui:135
 msgid "Download to..."
-msgstr ""
+msgstr "Преузми у..."
 
 #: ../ui/search.ui:687
 msgid "Download whole director_y to..."
-msgstr ""
+msgstr "Преузми целу фасциклу _у..."
 
 #: ../src/mainwindow.cc:765
 msgid "Download: "
-msgstr ""
+msgstr "Преузимање:"
 
 #: ../src/downloadqueue.cc:75 ../src/downloadqueue.cc:95
 #: ../src/downloadqueue.cc:288 ../src/downloadqueue.cc:395
 #: ../src/sharebrowser.cc:93 ../src/sharebrowser.cc:371
 msgid "Downloaded"
-msgstr ""
+msgstr "Преузето"
 
 #: ../src/publichubs.cc:485
 msgid "Downloaded hub list is corrupted or unsupported "
-msgstr ""
+msgstr "Преузета хаб листа је оштећена или неподржана"
 
 #: ../src/transfers.cc:581 ../src/transfers.cc:954
 msgid "Downloading"
-msgstr ""
+msgstr "Преузимање"
 
 #: ../ui/settingsdialog.ui:2995 ../ui/settingsdialog.ui:3966
 msgid "Downloads"
-msgstr ""
+msgstr "Преузимања"
 
 #: ../ui/settingsdialog.ui:3626
 msgid "Drop sources below"
-msgstr ""
+msgstr "Пад извора испод"
 
 #: ../src/search.cc:1980
 msgid "Dropped: "
-msgstr ""
+msgstr "Прекинуто:"
 
 #: ../ui/settingsdialog.ui:2440
 msgid "DynDNS Address"
-msgstr ""
+msgstr "DynDNS адреса"
 
 #: ../ui/settingsdialog.ui:1185
 msgid "E-Mail"
-msgstr ""
+msgstr "Е-пошта"
 
 #: ../ui/mainwindow.ui:2039
 msgid "Edit the preferences"
-msgstr ""
+msgstr "Измени подешавања"
 
 #: ../ui/privatemessage.ui:290 ../ui/hub.ui:376
 msgid "Emoticons"
-msgstr ""
+msgstr "Емотикони"
 
 #: ../src/privatemessage.cc:967 ../src/hub.cc:1973
 msgid "Emoticons mode off"
-msgstr ""
+msgstr "Емотикон режим иск"
 
 #: ../src/privatemessage.cc:972 ../src/hub.cc:1978
 msgid "Emoticons mode on"
-msgstr ""
+msgstr "Емотикон режим укљ"
 
 #: ../src/privatemessage.cc:1031 ../src/hub.cc:2059
 msgid "Emoticons on/off"
-msgstr ""
+msgstr "Емотикони укљ/иск"
 
 #: ../src/emoticonsdialog.cc:61
 msgid "Emotion packs"
-msgstr ""
+msgstr "Пакети емотикона"
 
 #: ../src/settingsdialog.cc:1650
 msgid "Enable automatic SFV checking"
-msgstr ""
+msgstr "Омогући аутоматску СФВ проверу"
 
 #: ../src/settingsdialog.cc:1651
 msgid "Enable safe and compressed transfers"
-msgstr ""
+msgstr "Омогући безбедан и компресован трансфер"
 
 #: ../src/settingsdialog.cc:1649
 msgid "Enable segmented downloads"
-msgstr ""
+msgstr "Омогући сегментна преузимања"
 
 #: ../src/adlsearch.cc:38 ../src/adlsearch.cc:58 ../src/adlsearch.cc:66
 #: ../src/adlsearch.cc:109 ../src/adlsearch.cc:209 ../src/adlsearch.cc:242
 #: ../src/adlsearch.cc:390 ../src/adlsearch.cc:392 ../ui/adlsearch.ui:312
 msgid "Enabled"
-msgstr ""
+msgstr "Омогућено"
 
 #: ../src/favoritehubs.cc:59 ../src/favoritehubs.cc:144
 #: ../src/favoritehubs.cc:230 ../src/favoritehubs.cc:252
 #: ../src/favoritehubs.cc:312 ../src/favoritehubs.cc:484
 msgid "Encoding"
-msgstr ""
+msgstr "Шифровање"
 
 #: ../src/transfers.cc:70
 msgid "Encryption"
-msgstr ""
+msgstr "Шифровање"
 
 #: ../src/settingsdialog.cc:1060
 msgid "English"
-msgstr ""
+msgstr "Енглески"
 
 #: ../ui/mainwindow.ui:2535
 msgid "Enter line for user command"
-msgstr ""
+msgstr "Унеси линију за корисничку команду"
 
 #: ../ui/sharebrowser.ui:278
 msgid "Enter text to search for"
-msgstr ""
+msgstr "Унеси текст претраге за"
 
 #: ../src/mainwindow.cc:1262
 msgid "Enter value for "
-msgstr ""
+msgstr "Унеси вредност за"
 
 #: ../src/settingsdialog.cc:1915 ../src/settingsdialog.cc:1959
 #: ../src/settingsdialog.cc:2978
 msgid "Error"
-msgstr ""
+msgstr "Грешка"
 
 #: ../src/settingsmanager.cc:528
 msgid "Error: segv parser :D"
-msgstr ""
+msgstr "Грешка: segv parser :D"
 
 #: ../src/settingsmanager.cc:523
 msgid "Error: setting not found!"
-msgstr ""
+msgstr "Грешка: подешавања нису нађена!"
 
 #: ../src/downloadqueue.cc:80 ../src/downloadqueue.cc:292
 #: ../src/downloadqueue.cc:399
 msgid "Errors"
-msgstr ""
+msgstr "Грешке"
 
 #: ../ui/settingsdialog.ui:5199
 msgid "Every time a private message is received"
-msgstr ""
+msgstr "Сваки пут када је приватна порука примљена"
 
 #: ../src/downloadqueue.cc:79 ../src/downloadqueue.cc:94
 #: ../src/downloadqueue.cc:286 ../src/downloadqueue.cc:393
@@ -1560,43 +1560,43 @@ msgstr ""
 #: ../src/search.cc:131 ../src/search.cc:659 ../src/search.cc:736
 #: ../src/search.cc:745
 msgid "Exact Size"
-msgstr ""
+msgstr "Тачна величина"
 
 #: ../ui/mainwindow.ui:218
 msgid "Exact size"
-msgstr ""
+msgstr "Тачна величина"
 
 #: ../ui/settingsdialog.ui:4409
 msgid "Exceptions"
-msgstr ""
+msgstr "Изузеци"
 
 #: ../src/hub.cc:2062
 msgid "Execute Lua Chunk"
-msgstr ""
+msgstr "Изврши Lua комад"
 
 #: ../src/hub.cc:2064
 msgid "Execute code (bash)"
-msgstr ""
+msgstr "Изврши код (bash)"
 
 #: ../ui/mainwindow.ui:2021
 msgid "Exit"
-msgstr ""
+msgstr "Излаз"
 
 #: ../ui/mainwindow.ui:734
 msgid "Exit EiskaltDC++ Gtk?"
-msgstr ""
+msgstr "Излаз EiskaltDC++ Gtk?"
 
 #: ../ui/settingsdialog.ui:8033
 msgid "Experts Only"
-msgstr ""
+msgstr "Само за експерте"
 
 #: ../ui/settingsdialog.ui:6029
 msgid "Export..."
-msgstr ""
+msgstr "Извоз..."
 
 #: ../src/settingsdialog.cc:2207
 msgid "Extension edition"
-msgstr ""
+msgstr "Едиција проширења"
 
 #: ../src/settingsdialog.cc:928 ../src/settingsdialog.cc:963
 #: ../src/settingsdialog.cc:1741 ../src/settingsdialog.cc:1882
@@ -1604,62 +1604,62 @@ msgstr ""
 #: ../src/settingsdialog.cc:2989 ../src/settingsdialog.cc:3023
 #: ../src/settingsdialog.cc:3041 ../src/settingsdialog.cc:3072
 msgid "Extensions"
-msgstr ""
+msgstr "Проширења"
 
 #: ../ui/settingsdialog.ui:1495
 msgid "External / WAN IP"
-msgstr ""
+msgstr "Спољна / WAN ИП"
 
 #: ../ui/favoritehubs.ui:478
 msgid "External IP"
-msgstr ""
+msgstr "Спољна ИП"
 
 #: ../ui/favoritehubs.ui:15
 msgid "Favorite Hub Properties"
-msgstr ""
+msgstr "Својства омиљеног хаба"
 
 #: ../src/settingsdialog.cc:1422 ../src/settingsdialog.cc:1476
 #: ../src/settingsdialog.cc:1553 ../src/favoritehubs.cc:31
 #: ../ui/mainwindow.ui:1174 ../ui/mainwindow.ui:2168
 msgid "Favorite Hubs"
-msgstr ""
+msgstr "Омиљени хабови"
 
 #: ../src/settingsdialog.cc:904 ../src/settingsdialog.cc:918
 #: ../src/settingsdialog.cc:3756
 msgid "Favorite Name"
-msgstr ""
+msgstr "Омиљено име"
 
 #: ../src/settingsdialog.cc:1245
 msgid "Favorite User"
-msgstr ""
+msgstr "Омиљени корисник"
 
 #: ../src/settingsdialog.cc:1423 ../src/settingsdialog.cc:1478
 #: ../src/settingsdialog.cc:1557 ../src/favoriteusers.cc:33
 #: ../ui/mainwindow.ui:1204 ../ui/mainwindow.ui:2184
 msgid "Favorite Users"
-msgstr ""
+msgstr "Омиљени корисници"
 
 #: ../src/hub.cc:3040
 msgid "Favorite hub added"
-msgstr ""
+msgstr "Додат омиљени хаб"
 
 #: ../src/hub.cc:3045
 msgid "Favorite hub already exists"
-msgstr ""
+msgstr "Омиљени хаб већ постоји"
 
 #: ../src/settingsdialog.cc:3739 ../ui/settingsdialog.ui:8996
 msgid "Favorite name"
-msgstr ""
+msgstr "Име омиљеног"
 
 #: ../src/settingsdialog.cc:1180 ../src/settingsdialog.cc:1376
 #: ../src/settingsmanager.cc:246
 msgid "Favorite user joined"
-msgstr ""
+msgstr "Омиљени корисник се прикључио"
 
 #: ../src/settingsdialog.cc:1181 ../src/settingsdialog.cc:1380
 #: ../src/settingsmanager.cc:248
 msgid "Favorite user quit"
-msgstr ""
+msgstr "Омиљени корисник је напустио"
 
 #: ../src/settingsdialog.cc:364 ../src/settingsdialog.cc:1158
 #: ../src/settingsdialog.cc:1437 ../src/settingsdialog.cc:2906
@@ -1668,31 +1668,31 @@ msgstr ""
 #: ../ui/settingsdialog.ui:6994 ../ui/settingsdialog.ui:7078
 #: ../ui/settingsdialog.ui:7159
 msgid "File"
-msgstr ""
+msgstr "Фајл"
 
 #: ../src/transfers.cc:673 ../src/transfers.cc:875
 msgid "File list"
-msgstr ""
+msgstr "Фајл листа"
 
 #: ../src/sharebrowser.cc:181
 msgid "File list loaded"
-msgstr ""
+msgstr "Учитана фајл листа"
 
 #: ../ui/mainwindow.ui:104
 msgid "File name"
-msgstr ""
+msgstr "Име фајла"
 
 #: ../src/downloadqueue.cc:1356
 msgid "File not available"
-msgstr ""
+msgstr "Фајл није доступан"
 
 #: ../ui/search.ui:153
 msgid "File type"
-msgstr ""
+msgstr "Тип фајла"
 
 #: ../ui/settingsdialog.ui:705
 msgid "Filelist Menu"
-msgstr ""
+msgstr "Мени фајл листе"
 
 #: ../src/downloadqueue.cc:72 ../src/downloadqueue.cc:96
 #: ../src/downloadqueue.cc:97 ../src/downloadqueue.cc:282
@@ -1711,246 +1711,246 @@ msgstr ""
 #: ../src/search.cc:1351 ../src/search.cc:1702 ../src/search.cc:2036
 #: ../ui/search.ui:132 ../ui/adlsearch.ui:389
 msgid "Filename"
-msgstr ""
+msgstr "Име фајла"
 
 #: ../src/finishedtransfers.cc:86 ../src/finishedtransfers.cc:195
 msgid "Files"
-msgstr ""
+msgstr "Фајлови"
 
 #: ../src/downloadqueue.cc:245 ../src/sharebrowser.cc:389
 msgid "Files: "
-msgstr ""
+msgstr "Фајлови:"
 
 #: ../ui/cmddebug.ui:113
 msgid "Filter by IP"
-msgstr ""
+msgstr "Филтер од ИП"
 
 #: ../ui/search.ui:478
 msgid "Filter files already in share"
-msgstr ""
+msgstr "Филтер фајлови су већ у дељеном"
 
 #: ../src/settingsdialog.cc:1114
 msgid "Filter kick and NMDC debug messages"
-msgstr ""
+msgstr "Filter kick and NMDC debug messages"
 
 #: ../src/search.cc:1967
 msgid "Filtered: "
-msgstr ""
+msgstr "Филтрирано:"
 
 #: ../src/search.cc:575
 msgid "Filtered: 0"
-msgstr ""
+msgstr "Филтрирано: 0"
 
 #: ../ui/sharebrowser.ui:433
 msgid "Find"
-msgstr ""
+msgstr "Нађи"
 
 #: ../ui/sharebrowser.ui:196
 msgid "Find files"
-msgstr ""
+msgstr "Нађи фајлове"
 
 #: ../src/settingsdialog.cc:1142 ../src/settingsdialog.cc:1424
 #: ../src/settingsdialog.cc:1498 ../src/settingsdialog.cc:1555
 #: ../src/finishedtransfers.cc:35 ../ui/mainwindow.ui:1280
 #: ../ui/mainwindow.ui:2263 ../ui/mainwindow.ui:2513
 msgid "Finished Downloads"
-msgstr ""
+msgstr "Завршена преузимања"
 
 #: ../src/settingsdialog.cc:1143 ../src/settingsdialog.cc:1425
 #: ../src/settingsdialog.cc:1500 ../src/settingsdialog.cc:1556
 #: ../src/finishedtransfers.cc:40 ../ui/mainwindow.ui:1291
 #: ../ui/mainwindow.ui:2280 ../ui/mainwindow.ui:2521
 msgid "Finished Uploads"
-msgstr ""
+msgstr "Завршена отпремања"
 
 #: ../ui/settingsdialog.ui:1473
 msgid "Firewall (passive, last resort)"
-msgstr ""
+msgstr "Заштитни зид (пасиван, последње средство)"
 
 #: ../ui/settingsdialog.ui:1528
 msgid "Firewall with manual port forward"
-msgstr ""
+msgstr "Заштитни зид са ручним прослеђивањем порта"
 
 #: ../src/transfers.cc:64
 msgid "Flags"
-msgstr ""
+msgstr "Заставе"
 
 #: ../ui/settingsdialog.ui:4072
 msgid "Follow Links"
-msgstr ""
+msgstr "Прати линкове"
 
 #: ../ui/settingsdialog.ui:8653
 msgid "Font select"
-msgstr ""
+msgstr "Одабери фонт"
 
 #: ../ui/settingsdialog.ui:6798 ../ui/settingsdialog.ui:6882
 #: ../ui/settingsdialog.ui:6966 ../ui/settingsdialog.ui:7050
 #: ../ui/settingsdialog.ui:7132
 msgid "Format"
-msgstr ""
+msgstr "Формат"
 
 #: ../src/sharebrowser.cc:687 ../src/sharebrowser.cc:730
 msgid "Found a match"
-msgstr ""
+msgstr "Пронађено подударање"
 
 #: ../src/search.cc:676
 msgid "Found: "
-msgstr ""
+msgstr "Пронађено:"
 
 #: ../src/search.cc:574
 msgid "Found: 0"
-msgstr ""
+msgstr "Пронађено: 0"
 
 #: ../ui/settingsdialog.ui:6509
 msgid "Frame (size)"
-msgstr ""
+msgstr "Исечак (величина)"
 
 #: ../ui/searchspy.ui:325 ../ui/settingsdialog.ui:6494
 msgid ""
 "Frame size determines the width of the review, higher values affect "
 "performance"
-msgstr ""
+msgstr "Величина одређује ширину прегледа, вишим вредностима утиче на перформансе"
 
 #: ../ui/searchspy.ui:313
 msgid "Frame:"
-msgstr ""
+msgstr "Оквир:"
 
 #: ../src/mainwindow.cc:2405
 msgid "Free "
-msgstr ""
+msgstr "Слободно"
 
 #: ../src/settingsdialog.cc:1068
 msgid "French"
-msgstr ""
+msgstr "Француски"
 
 #: ../src/mainwindow.cc:231
 msgid "French translation\n"
-msgstr ""
+msgstr "Француски превод\n"
 
 #: ../ui/adlsearch.ui:395
 msgid "Full Path"
-msgstr ""
+msgstr "Пуна путања"
 
 #: ../src/downloadqueue.cc:1362
 msgid "Full tree does not match TTH root"
-msgstr ""
+msgstr "Пуно стабло не подудара са ТТХ кореном"
 
 #: ../src/WulforUtil.cc:225
 msgid "GB18030"
-msgstr ""
+msgstr "GB18030"
 
 #: ../src/settingsdialog.cc:1221
 msgid "General text"
-msgstr ""
+msgstr "Општи текст"
 
 #: ../ui/settingsdialog.ui:8264
 msgid "Generate certificates"
-msgstr ""
+msgstr "Генериши сертификате"
 
 #: ../src/settingsdialog.cc:1088
 msgid "German"
-msgstr ""
+msgstr "Немачки"
 
 #: ../src/mainwindow.cc:261
 msgid "German translation\n"
-msgstr ""
+msgstr "Немачки превод\n"
 
 #: ../src/privatemessage.cc:1029 ../src/hub.cc:2047 ../ui/privatemessage.ui:66
 msgid "Get file list"
-msgstr ""
+msgstr "Добави фајл листу"
 
 #: ../ui/search.ui:112 ../ui/adlsearch.ui:415
 msgid "GiB"
-msgstr ""
+msgstr "GiB"
 
 #: ../src/hub.cc:2857 ../src/favoritehubs.cc:362
 msgid "Global hub default"
-msgstr ""
+msgstr "Подразумевани глобални хаб"
 
 #: ../ui/uploadqueue.ui:51
 msgid "Grant Slot"
-msgstr ""
+msgstr "Одобри слот"
 
 #: ../src/privatemessage.cc:1030 ../src/hub.cc:2048 ../ui/privatemessage.ui:75
 msgid "Grant extra slot"
-msgstr ""
+msgstr "Одобри додатни слот"
 
 #: ../src/settingsdialog.cc:1090
 msgid "Greek"
-msgstr ""
+msgstr "Грчки"
 
 #: ../src/mainwindow.cc:267
 msgid "Greek translation\n"
-msgstr ""
+msgstr "Грчки превод\n"
 
 #: ../ui/search.ui:382
 msgid "Group by"
-msgstr ""
+msgstr "Група од"
 
 #: ../ui/finishedtransfers.ui:34
 msgid "Grouped by Files"
-msgstr ""
+msgstr "Груписано по фајловима"
 
 #: ../ui/finishedtransfers.ui:62
 msgid "Grouped by Users"
-msgstr ""
+msgstr "Груписано по корисницима"
 
 #: ../src/settingsmanager.cc:525
 msgid "Gui setting "
-msgstr ""
+msgstr "Подешавање сучеља"
 
 #: ../ui/settingsdialog.ui:2944
 msgid "HTTP Proxy (for hublist only)"
-msgstr ""
+msgstr "ХТТП прокси (само за хаб листу)"
 
 #: ../ui/cmddebug.ui:39
 msgid "HUB IN"
-msgstr ""
+msgstr "ХАБ У"
 
 #: ../ui/cmddebug.ui:54
 msgid "HUB OUT"
-msgstr ""
+msgstr "ХАБ ВАН"
 
 #: ../ui/downloadqueue.ui:127 ../ui/downloadqueue.ui:261
 msgid "H_igh"
-msgstr ""
+msgstr "В_исок"
 
 #: ../src/settingsdialog.cc:1428 ../src/settingsdialog.cc:1488
 #: ../ui/mainwindow.ui:2101 ../ui/mainwindow.ui:2473
 msgid "Hash"
-msgstr ""
+msgstr "Хеш"
 
 #: ../ui/settingsdialog.ui:8955
 msgid "Hidden"
-msgstr ""
+msgstr "Сакривено"
 
 #: ../ui/search.ui:256
 msgid "Hide side panel"
-msgstr ""
+msgstr "Сакриј бочни панел"
 
 #: ../ui/mainwindow.ui:1541
 msgid "Hide tools panel"
-msgstr ""
+msgstr "Сакриј панел алата"
 
 #: ../src/downloadqueue.cc:1332
 msgid "High"
-msgstr ""
+msgstr "Висок"
 
 #: ../ui/settingsdialog.ui:3200
 msgid "High priority max size"
-msgstr ""
+msgstr "Висок приоритет макс величине"
 
 #: ../src/downloadqueue.cc:1335
 msgid "Highest"
-msgstr ""
+msgstr "Највише"
 
 #: ../ui/settingsdialog.ui:3322
 msgid "Highest priority max size"
-msgstr ""
+msgstr "Највиши приоритет макс величине"
 
 #: ../ui/mainwindow.ui:1561
 msgid "Homepage"
-msgstr ""
+msgstr "Матична страна"
 
 #: ../src/settingsdialog.cc:1674 ../src/settingsdialog.cc:1684
 #: ../src/settingsdialog.cc:3349 ../src/settingsdialog.cc:3423
@@ -1960,218 +1960,218 @@ msgstr ""
 #: ../src/search.cc:107 ../src/search.cc:658 ../src/search.cc:755
 #: ../src/search.cc:884 ../ui/search.ui:150
 msgid "Hub"
-msgstr ""
+msgstr "Хаб"
 
 #: ../src/settingsdialog.cc:1145
 msgid "Hub (also sets urgency hint)"
-msgstr ""
+msgstr "Хаб (такође поставља хитан наговештај)"
 
 #: ../src/favoriteusers.cc:49 ../src/favoriteusers.cc:113
 #: ../src/favoriteusers.cc:587
 msgid "Hub (last seen in, if offline)"
-msgstr ""
+msgstr "Хаб (последњи пут виђен, ако је ван мреже)"
 
 #: ../ui/settingsdialog.ui:850
 msgid "Hub IP / DNS (empty = All, 'op' = where operator)"
-msgstr ""
+msgstr "Hub IP / DNS (empty = All, 'op' = where operator)"
 
 #: ../ui/settingsdialog.ui:724
 msgid "Hub Menu"
-msgstr ""
+msgstr "Хаб мени"
 
 #: ../src/transfers.cc:58 ../src/transfers.cc:500 ../src/transfers.cc:565
 #: ../src/transfers.cc:596
 msgid "Hub Name"
-msgstr ""
+msgstr "Име хаба"
 
 #: ../src/settingsdialog.cc:1178 ../src/settingsdialog.cc:1368
 #: ../src/settingsmanager.cc:244
 msgid "Hub connected"
-msgstr ""
+msgstr "Хаб је повезан"
 
 #: ../src/settingsdialog.cc:1179 ../src/settingsdialog.cc:1372
 #: ../src/settingsmanager.cc:242
 msgid "Hub disconnected"
-msgstr ""
+msgstr "Хаб је неповезан"
 
 #: ../ui/search.ui:510 ../ui/mainwindow.ui:2170 ../ui/mainwindow.ui:2425
 msgid "Hubs"
-msgstr ""
+msgstr "Хабови"
 
 #: ../ui/mainwindow.ui:1762
 msgid "Hubs (normal / registered / op)"
-msgstr ""
+msgstr "Хабови (normal / registered / op)"
 
 #: ../src/publichubs.cc:179
 msgid "Hubs: "
-msgstr ""
+msgstr "Хабови:"
 
 #: ../src/settingsdialog.cc:1066
 msgid "Hungarian"
-msgstr ""
+msgstr "Мађарски"
 
 #: ../src/mainwindow.cc:227
 msgid "Hungarian translation\n"
-msgstr ""
+msgstr "Мађарски превод\n"
 
 #: ../src/transfers.cc:69 ../src/search.cc:109 ../src/search.cc:660
 msgid "IP"
-msgstr ""
+msgstr "ИП"
 
 #: ../src/WulforUtil.cc:218
 msgid "ISO-2022-JP"
-msgstr ""
+msgstr "ISO-2022-JP"
 
 #: ../src/WulforUtil.cc:214
 msgid "ISO-8859-2"
-msgstr ""
+msgstr "ISO-8859-2"
 
 #: ../src/WulforUtil.cc:215
 msgid "ISO-8859-7"
-msgstr ""
+msgstr "ISO-8859-7"
 
 #: ../src/WulforUtil.cc:216
 msgid "ISO-8859-8"
-msgstr ""
+msgstr "ISO-8859-8"
 
 #: ../src/WulforUtil.cc:217
 msgid "ISO-8859-9"
-msgstr ""
+msgstr "ISO-8859-9"
 
 #: ../src/settingsdialog.cc:403 ../src/settingsdialog.cc:1339
 #: ../src/settingsdialog.cc:2288 ../src/settingsdialog.cc:2322
 #: ../src/settingsdialog.cc:2399 ../src/settingsdialog.cc:2435
 msgid "Icon"
-msgstr ""
+msgstr "Икона"
 
 #: ../src/emoticonsdialog.cc:66
 msgid "Icon size"
-msgstr ""
+msgstr "Величина иконе"
 
 #: ../ui/settingsdialog.ui:5677
 msgid "Icon..."
-msgstr ""
+msgstr "Икона..."
 
 #: ../ui/settingsdialog.ui:8943
 msgid "Icons"
-msgstr ""
+msgstr "Иконе"
 
 #: ../ui/searchspy.ui:209
 msgid "Ignore TTH"
-msgstr ""
+msgstr "Игнориши ТТХ"
 
 #: ../ui/searchspy.ui:213
 msgid "Ignore TTH search"
-msgstr ""
+msgstr "Игнориши ТТХ претрагу"
 
 #: ../src/settingsdialog.cc:1568
 msgid "Ignore private messages from bots"
-msgstr ""
+msgstr "Игнориши приватну поруку од ботова"
 
 #: ../src/settingsdialog.cc:1567
 msgid "Ignore private messages from the hub"
-msgstr ""
+msgstr "Игнориши приватне поруке са хаба"
 
 #: ../src/hub.cc:3566
 msgid "Ignored private message from bot "
-msgstr ""
+msgstr "Игнориши приватне поруке од бота"
 
 #: ../src/hub.cc:3559
 msgid "Ignored private message from hub"
-msgstr ""
+msgstr "Игнориши приватне поруке од хаба"
 
 #: ../ui/settingsdialog.ui:6044
 msgid "Import..."
-msgstr ""
+msgstr "Увоз..."
 
 #: ../ui/mainwindow.ui:1081
 msgid "Indexing Progress"
-msgstr ""
+msgstr "Индексирање напретка"
 
 #: ../src/hashdialog.cc:132 ../ui/hash.ui:7
 msgid "Indexing files..."
-msgstr ""
+msgstr "Индексирање фајлова"
 
 #: ../src/wulfor.cc:95
 msgid "Installing handler for"
-msgstr ""
+msgstr "Инсталирање за"
 
 #: ../src/settingsdialog.cc:2035 ../src/settingsdialog.cc:2223
 msgid "Invalid extension: "
-msgstr ""
+msgstr "Неважећа проширења:"
 
 #: ../src/hub.cc:2213
 msgid "Ipfilter is disable"
-msgstr ""
+msgstr "Ип филтер је онемогућен"
 
 #: ../src/hub.cc:2206
 msgid "Ipfilter is enable"
-msgstr ""
+msgstr "Ип филтер је омогућен"
 
 #: ../src/hub.cc:2071
 msgid "Ipfilter on/off"
-msgstr ""
+msgstr "Ип филтер укљ/иск"
 
 #: ../src/settingsdialog.cc:1092
 msgid "Italian"
-msgstr ""
+msgstr "Италијански"
 
 #: ../src/mainwindow.cc:270
 msgid "Italian translation\n"
-msgstr ""
+msgstr "Италијански превод\n"
 
 #: ../src/downloadqueue.cc:243 ../src/sharebrowser.cc:394
 msgid "Items: "
-msgstr ""
+msgstr "Ставке:"
 
 #: ../src/sharebrowser.cc:399
 msgid "Items: 0"
-msgstr ""
+msgstr "Ставке: 0"
 
 #: ../src/WulforUtil.cc:221
 msgid "KOI8-R"
-msgstr ""
+msgstr "KOI8-R"
 
 #: ../src/settingsdialog.cc:952
 msgid "Kaffeine player"
-msgstr ""
+msgstr "Kaffeine плејер"
 
 #: ../src/settingsdialog.cc:1665
 msgid "Keep downloaded files and dirs in queue"
-msgstr ""
+msgstr "Чувајте преузете фајлове и фасцикле у реду"
 
 #: ../src/settingsdialog.cc:1646
 msgid ""
 "Keep duplicate files in your file list (duplicates never count towards your "
 "share size)"
-msgstr ""
+msgstr "Чувајте дуплиране фајлове у вашој фајл листи (дупликати се не рачунају у важу дељену величину)"
 
 #: ../src/settingsdialog.cc:1647
 msgid "Keep filelists when exiting"
-msgstr ""
+msgstr "Чувај фајл листе код напуштања"
 
 #: ../ui/search.ui:106 ../ui/adlsearch.ui:409 ../ui/settingsdialog.ui:3230
 #: ../ui/settingsdialog.ui:3246 ../ui/settingsdialog.ui:3278
 #: ../ui/settingsdialog.ui:3294 ../ui/settingsdialog.ui:3506
 #: ../ui/settingsdialog.ui:7696 ../ui/settingsdialog.ui:7943
 msgid "KiB"
-msgstr ""
+msgstr "KiB"
 
 #: ../ui/downloadqueue.ui:109 ../ui/downloadqueue.ui:243
 msgid "L_ow"
-msgstr ""
+msgstr "Н_изак"
 
 #: ../ui/settingsdialog.ui:8926
 msgid "Left"
-msgstr ""
+msgstr "Лево"
 
 #: ../ui/mainwindow.ui:1505
 msgid "Left position"
-msgstr ""
+msgstr "Лева позиција"
 
 #: ../ui/settingsdialog.ui:2375
 msgid "Limits"
-msgstr ""
+msgstr "Ограничења"
 
 #: ../src/settingsdialog.cc:329 ../src/settingsdialog.cc:887
 #: ../src/settingsdialog.cc:1010 ../src/settingsdialog.cc:1028
@@ -2180,136 +2180,136 @@ msgstr ""
 #: ../src/settingsdialog.cc:4381 ../src/publichubs.cc:69
 #: ../src/publichubs.cc:339 ../src/publichubs.cc:364 ../src/publichubs.cc:414
 msgid "List"
-msgstr ""
+msgstr "Листа"
 
 #: ../src/sharebrowser.cc:38 ../src/sharebrowser.cc:66
 msgid "List: "
-msgstr ""
+msgstr "Листа:"
 
 #: ../src/hub.cc:2061
 msgid "Load Lua file"
-msgstr ""
+msgstr "Учитавање Lua фајла"
 
 #: ../src/publichubs.cc:472
 msgid "Loaded from cache: "
-msgstr ""
+msgstr "Учитано из кеша:"
 
 #: ../src/mainwindow.cc:2061
 msgid "Loading file list"
-msgstr ""
+msgstr "Учитавање фајл листе"
 
 #: ../src/wulfor.cc:75
 msgid "Loading: "
-msgstr ""
+msgstr "Учитавање:"
 
 #: ../ui/settingsdialog.ui:6940
 msgid "Log downloads"
-msgstr ""
+msgstr "Дневник преузимања"
 
 #: ../ui/settingsdialog.ui:7223
 msgid "Log filelist transfers"
-msgstr ""
+msgstr "Дневник трансфера фајл листи"
 
 #: ../ui/settingsdialog.ui:7108
 msgid "Log finished downloads"
-msgstr ""
+msgstr "Дневник завршених преузимања"
 
 #: ../ui/settingsdialog.ui:6772
 msgid "Log main chat"
-msgstr ""
+msgstr "Дневник главног ћаскања"
 
 #: ../ui/settingsdialog.ui:6856
 msgid "Log private chat"
-msgstr ""
+msgstr "Дневник приватног ћаскања"
 
 #: ../ui/settingsdialog.ui:7240
 msgid "Log search alternate"
-msgstr ""
+msgstr "Дневник алтернативне претраге"
 
 #: ../ui/settingsdialog.ui:7206
 msgid "Log status messages"
-msgstr ""
+msgstr "Дневник статусних порука"
 
 #: ../ui/settingsdialog.ui:7189
 msgid "Log system messages"
-msgstr ""
+msgstr "Дневник системских порука"
 
 #: ../ui/settingsdialog.ui:7024
 msgid "Log uploads"
-msgstr ""
+msgstr "Дневник отпремања"
 
 #: ../ui/settingsdialog.ui:7295
 msgid "Logs"
-msgstr ""
+msgstr "Дневници"
 
 #: ../src/downloadqueue.cc:1329
 msgid "Low"
-msgstr ""
+msgstr "Низак"
 
 #: ../ui/settingsdialog.ui:3214
 msgid "Low priority size"
-msgstr ""
+msgstr "Ниска величина приоритета"
 
 #: ../src/downloadqueue.cc:1326
 msgid "Lowest"
-msgstr ""
+msgstr "Најнижи"
 
 #: ../ui/mainwindow.ui:8 ../ui/mainwindow.ui:92
 msgid "Magnet"
-msgstr ""
+msgstr "Магнет"
 
 #: ../src/mainwindow.cc:1389
 msgid "Magnet Choice"
-msgstr ""
+msgstr "Избор магнета"
 
 #: ../src/mainwindow.cc:1319
 msgid "Magnet Properties / Choice"
-msgstr ""
+msgstr "Магнет Својства / Избор"
 
 #: ../ui/sharebrowser.ui:418
 msgid "Match Queue"
-msgstr ""
+msgstr "Сложи ред"
 
 #: ../ui/mainwindow.ui:1063
 msgid "Match all listings"
-msgstr ""
+msgstr "Упореди све листинге"
 
 #: ../src/sharebrowser.cc:1118
 msgid "Matched "
-msgstr ""
+msgstr "Подударено"
 
 #: ../ui/settingsdialog.ui:6362
 msgid "Matches"
-msgstr ""
+msgstr "Подударено"
 
 #: ../src/publichubs.cc:55 ../src/publichubs.cc:167
 msgid "Max Hubs"
-msgstr ""
+msgstr "Макс хабова"
 
 #: ../src/adlsearch.cc:43 ../src/adlsearch.cc:63 ../src/adlsearch.cc:114
 #: ../src/adlsearch.cc:214
 msgid "Max Size"
-msgstr ""
+msgstr "Макс величина"
 
 #: ../src/publichubs.cc:56 ../src/publichubs.cc:168
 msgid "Max Users"
-msgstr ""
+msgstr "Макс корисника"
 
 #: ../ui/settingsdialog.ui:7543
 msgid "Max filelist size"
-msgstr ""
+msgstr "Макс величина фајл листе"
 
 #: ../ui/settingsdialog.ui:7504
 msgid "Max hash speed"
-msgstr ""
+msgstr "Макс хеш брзина"
 
 #: ../ui/settingsdialog.ui:3476
 msgid "Max inactivity"
-msgstr ""
+msgstr "Макс неактивности"
 
 #: ../ui/settingsdialog.ui:1157
 msgid "Max upload speed (MiB/s)"
-msgstr ""
+msgstr "Макс брзина отпремања (MiB/s)"
 
 #: ../ui/settingsdialog.ui:1999 ../ui/settingsdialog.ui:2253
 msgid "Maximum Download Rate (KiB/s) (0 = infinite)"
