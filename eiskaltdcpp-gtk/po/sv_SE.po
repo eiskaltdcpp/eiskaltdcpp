@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
 "POT-Creation-Date: 2014-10-12 19:27+0400\n"
-"PO-Revision-Date: 2014-10-12 21:04+0000\n"
+"PO-Revision-Date: 2014-10-15 17:46+0000\n"
 "Last-Translator: Sopor\n"
 "Language-Team: Swedish (Sweden) (http://www.transifex.com/projects/p/eiskaltdcpp/language/sv_SE/)\n"
 "MIME-Version: 1.0\n"
@@ -1964,7 +1964,7 @@ msgstr "Hubb"
 
 #: ../src/settingsdialog.cc:1145
 msgid "Hub (also sets urgency hint)"
-msgstr ""
+msgstr "Hubb (sätter också brådskande tips)"
 
 #: ../src/favoriteusers.cc:49 ../src/favoriteusers.cc:113
 #: ../src/favoriteusers.cc:587
@@ -2749,7 +2749,7 @@ msgstr "Prioritet"
 
 #: ../src/settingsdialog.cc:1146
 msgid "Private Message (also sets urgency hint)"
-msgstr ""
+msgstr "Privatmeddelande (sätter också brådskande tips)"
 
 #: ../ui/settingsdialog.ui:8187
 msgid "Private key file"
