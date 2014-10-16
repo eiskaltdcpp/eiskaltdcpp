@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2014-10-16 21:06+0400\n"
-"PO-Revision-Date: 2014-10-12 15:44+0000\n"
+"POT-Creation-Date: 2014-10-16 21:46+0400\n"
+"PO-Revision-Date: 2014-10-16 17:19+0000\n"
 "Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/eiskaltdcpp/"
 "language/ru/)\n"
@@ -870,12 +870,11 @@ msgstr "Цвет фона"
 
 #: ../src/settingsdialog.cc:1082
 msgid "Basque"
-msgstr ""
+msgstr "Баскский"
 
 #: ../src/mainwindow.cc:252
-#, fuzzy
 msgid "Basque translation\n"
-msgstr "Испанский перевод\n"
+msgstr "Баскский перевод\n"
 
 #: ../src/settingsdialog.cc:1064
 msgid "Belarusian"

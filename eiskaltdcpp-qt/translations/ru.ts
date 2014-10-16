@@ -2448,7 +2448,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="2735"/>
         <source>Basque translation&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Баскский перевод&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2738"/>
@@ -3377,7 +3377,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="87"/>
         <source>Basque</source>
-        <translation type="unfinished"></translation>
+        <translation>Баскский</translation>
     </message>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="88"/>
