@@ -84,6 +84,7 @@ void SettingsGUI::init(){
         langNames["sr@latin.qm"] = tr("Serbian (Latin)");
         langNames["uk.qm"]       = tr("Ukrainian");
         langNames["es.qm"]       = tr("Spanish");
+		langNames["eu.qm"]       = tr("Basque");
         langNames["bg.qm"]       = tr("Bulgarian");
         langNames["sk.qm"]       = tr("Slovak");
         langNames["cs.qm"]       = tr("Czech");

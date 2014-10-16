@@ -304,6 +304,7 @@ list (APPEND AllLanguages
             el
             en
             es
+            eu
             fr
             hu
             it

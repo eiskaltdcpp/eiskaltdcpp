@@ -8,6 +8,7 @@ TRANSLATIONS = translations/en.ts \
     translations/de.ts \
     translations/el.ts \
     translations/es.ts \
+    translations/eu.ts \
     translations/fr.ts \
     translations/hu.ts \
     translations/it.ts \
