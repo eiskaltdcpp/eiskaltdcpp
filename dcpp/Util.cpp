@@ -31,6 +31,7 @@
 
 #ifdef _WIN32
 #include "w.h"
+#include <iphlpapi.h>
 #include "shlobj.h"
 #include "lmcons.h"
 #else
@@ -734,6 +735,7 @@ vector<string> Util::getLocalIPs() {
 
     return addresses;
 }
+
 string Util::getLocalIp() {
 #ifdef HAVE_IFADDRS_H
     return getLocalIPs().empty() ? "0.0.0.0" : getLocalIPs()[0];
@@ -1393,6 +1395,29 @@ string Util::getIfaceI6(const string &iface) {
 //    return addr.empty() ? "::" : addr;
     return addr;
 #endif
+
+}
+
+vector<string> Util::getLocalIfaces() {
+    vector<string> ifaces;
+
+//#ifdef HAVE_IFADDRS_H
+    struct ifaddrs *ifap;
+
+    if (getifaddrs(&ifap) == 0){
+        for (struct ifaddrs *i = ifap; i ; i = i->ifa_next){
+            struct sockaddr *sa = i->ifa_addr;
+
+            // If the interface is up, is not a loopback and it has an address
+            if ((i->ifa_flags & IFF_UP) && !(i->ifa_flags & IFF_LOOPBACK) && sa)
+                ifaces.push_back(i->ifa_name);
+        }
+
+        freeifaddrs(ifap);
+    }
+//#endif
+
+    return ifaces;
 }
 
 } // namespace dcpp

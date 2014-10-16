@@ -13,13 +13,6 @@
 #include "ArenaWidgetFactory.h"
 #include "icons/gv.xpm"
 
-#ifdef HAVE_IFADDRS_H
-#include <sys/types.h>
-#include <arpa/inet.h>
-#include <net/if.h>
-#include <ifaddrs.h>
-#include <fcntl.h>
-#endif
 #include "dcpp/ClientManager.h"
 #include "dcpp/SettingsManager.h"
 #include "dcpp/Util.h"
@@ -905,21 +898,10 @@ bool WulforUtil::getUserCommandParams(const UserCommand& uc, StringMap& params) 
 QStringList WulforUtil::getLocalIfaces(){
     QStringList ifaces;
 
-#ifdef HAVE_IFADDRS_H
-    struct ifaddrs *ifap;
-
-    if (getifaddrs(&ifap) == 0){
-        for (struct ifaddrs *i = ifap; i ; i = i->ifa_next){
-            struct sockaddr *sa = i->ifa_addr;
-
-            // If the interface is up, is not a loopback and it has an address
-            if ((i->ifa_flags & IFF_UP) && !(i->ifa_flags & IFF_LOOPBACK) && sa && !ifaces.contains(i->ifa_name))
-                ifaces.push_back(i->ifa_name);
-        }
-
-        freeifaddrs(ifap);
+    vector<string> fromUtil = Util::getLocalIfaces();
+    for(const auto a: fromUtil) {
+        ifaces.append(QString::fromStdString(a));
     }
-#endif
 
     return ifaces;
 }
@@ -927,45 +909,10 @@ QStringList WulforUtil::getLocalIfaces(){
 QStringList WulforUtil::getLocalIPs(){
     QStringList addresses;
 
-#ifdef HAVE_IFADDRS_H
-    struct ifaddrs *ifap;
-
-    if (getifaddrs(&ifap) == 0){
-        for (struct ifaddrs *i = ifap; i ; i = i->ifa_next){
-            struct sockaddr *sa = i->ifa_addr;
-
-            // If the interface is up, is not a loopback and it has an address
-            if ((i->ifa_flags & IFF_UP) && !(i->ifa_flags & IFF_LOOPBACK) && sa){
-                void* src = NULL;
-                socklen_t len;
-
-                // IPv4 address
-                if (sa->sa_family == AF_INET){
-                    struct sockaddr_in* sai = (struct sockaddr_in*)sa;
-                    src = (void*) &(sai->sin_addr);
-                    len = INET_ADDRSTRLEN;
-                }
-                // IPv6 address
-                else if (sa->sa_family == AF_INET6){
-                    struct sockaddr_in6* sai6 = (struct sockaddr_in6*)sa;
-                        src = (void*) &(sai6->sin6_addr);
-                        len = INET6_ADDRSTRLEN;
-                }
-
-                // Convert the binary address to a string and add it to the output list
-                if (src){
-                    char address[len];
-                    inet_ntop(sa->sa_family, src, address, len);
-                    addresses.push_back(address);
-                }
-            }
-        }
-
-        freeifaddrs(ifap);
+    vector<string> fromUtil = Util::getLocalIPs();
+    for(const auto a: fromUtil) {
+        addresses.append(QString::fromStdString(a));
     }
-#else
-    addresses.push_back(Util::getLocalIp().c_str());
-#endif
 
     return addresses;
 }

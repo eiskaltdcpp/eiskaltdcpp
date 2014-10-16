@@ -35,7 +35,6 @@ class WulforUtil
         static std::vector<int> splitString(const std::string &str, const std::string &delimiter);
         static std::string linuxSeparator(const std::string &ps);
         static std::string windowsSeparator(const std::string &ps);
-        static std::vector<std::string> getLocalIPs();
 
         /** get nick */
         static std::string getNicks(const std::string &cid, const std::string& hintUrl);

@@ -451,6 +451,7 @@ public:
     static string getIfaceI4(const string &iface);
     static string getIfaceI6(const string &iface);
 
+    static vector<string> getLocalIfaces();
 private:
     /** In local mode, all config and temp files are kept in the same dir as the executable */
     static bool localMode;

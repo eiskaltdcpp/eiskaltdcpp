@@ -30,10 +30,6 @@
 #include <fcntl.h>
 #include "settingsmanager.hh"
 #include "dcpp/StringTokenizer.h"
-#ifdef HAVE_IFADDRS_H
-#include <ifaddrs.h>
-#include <net/if.h>
-#endif
 #include "extra/magnet.h"
 
 using namespace std;
@@ -80,57 +76,6 @@ string WulforUtil::windowsSeparator(const string &ps)
             (*it) = '\\';
     return str;
 }
-
-vector<string> WulforUtil::getLocalIPs()
-{
-    vector<string> addresses;
-
-#ifdef HAVE_IFADDRS_H
-    struct ifaddrs *ifap;
-
-    if (getifaddrs(&ifap) == 0)
-    {
-        for (struct ifaddrs *i = ifap; i ; i = i->ifa_next)
-        {
-            struct sockaddr *sa = i->ifa_addr;
-
-            // If the interface is up, is not a loopback and it has an address
-            if ((i->ifa_flags & IFF_UP) && !(i->ifa_flags & IFF_LOOPBACK) && sa)
-            {
-                void* src = NULL;
-                socklen_t len;
-
-                // IPv4 address
-                if (sa->sa_family == AF_INET)
-                {
-                    struct sockaddr_in* sai = (struct sockaddr_in*)sa;
-                    src = (void*) &(sai->sin_addr);
-                    len = INET_ADDRSTRLEN;
-                }
-                // IPv6 address
-                else if (sa->sa_family == AF_INET6)
-                {
-                    struct sockaddr_in6* sai6 = (struct sockaddr_in6*)sa;
-                    src = (void*) &(sai6->sin6_addr);
-                    len = INET6_ADDRSTRLEN;
-                }
-
-                // Convert the binary address to a string and add it to the output list
-                if (src)
-                {
-                    char address[len];
-                    inet_ntop(sa->sa_family, src, address, len);
-                    addresses.push_back(address);
-                }
-            }
-        }
-        freeifaddrs(ifap);
-    }
-#endif
-
-    return addresses;
-}
-
 
 string WulforUtil::getNicks(const string &cid, const string& hintUrl)
 {

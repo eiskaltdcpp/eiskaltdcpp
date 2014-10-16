@@ -771,7 +771,7 @@ void Settings::initConnection_gui()
     gtk_entry_set_text(GTK_ENTRY(getWidget("ipEntry")), SETTING(EXTERNAL_IP).c_str());
 
     // Fill IP address combo box
-    vector<string> addresses = WulforUtil::getLocalIPs();
+    vector<string> addresses = Util::getLocalIPs();
     for (auto it = addresses.begin(); it != addresses.end(); ++it)
         gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(getWidget("ipComboboxEntry")), it->c_str());
 
