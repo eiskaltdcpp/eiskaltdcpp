@@ -5,6 +5,7 @@
 * Thanks to Anh Phan the Vietnamese translation is now available.
 * Thanks to Marko Trifunović the Serbian (Cyrillic) translation is now
   available.
+* Thanks to Egoitz Rodriguez the Basque translation is now available.
 * Fixed finding of Lua 5.2.x during configuration.
 * The local copy of miniupnpc is updated to version 1.8. Build with old
   miniupnpc versions (1.5.x, 1.6.x and 1.7.x) is still supported.

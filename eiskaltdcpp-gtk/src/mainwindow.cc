@@ -243,11 +243,14 @@ MainWindow::MainWindow():
         string("\n")+
         _("Serbian (Latin) translation\n")+
         string("  2010-2014 Miroslav Petrovic <miroslav031@gmail.com>\n")+
-		string("  2014 Marko Trifunović <trifunovic@openmailbox.org>\n")+
+        string("  2014 Marko Trifunović <trifunovic@openmailbox.org>\n")+
         string("\n")+
         _("Spanish translation\n")+
         string("  2010-2014 Gustavo Alvarez aka sL1pKn07 <sl1pkn07@gmail.com>\n")+
         string("  2012-2014 Francisco Blas Izquierdo Riera aka klondike <klondike at klondike.es>\n")+
+        string("\n")+
+        _("Basque translation\n")+
+        string("  2014 Egoitz Rodriguez <egoitzro2@hotmail.com>\n")+
         string("\n")+
         _("Bulgarian translation\n")+
         string("  2010-2012 Rusi Dimitrov aka PsyTrip <dimitrov.rusi@gmail.com>\n")+
