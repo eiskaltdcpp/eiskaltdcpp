@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
 "POT-Creation-Date: 2014-10-16 21:06+0400\n"
-"PO-Revision-Date: 2014-10-16 17:48+0000\n"
+"PO-Revision-Date: 2014-10-16 20:21+0000\n"
 "Last-Translator: Sopor\n"
 "Language-Team: Swedish (Sweden) (http://www.transifex.com/projects/p/eiskaltdcpp/language/sv_SE/)\n"
 "MIME-Version: 1.0\n"
@@ -1604,7 +1604,7 @@ msgstr "Exportera..."
 
 #: ../src/settingsdialog.cc:2209
 msgid "Extension edition"
-msgstr ""
+msgstr "Editera filändelse"
 
 #: ../src/settingsdialog.cc:928 ../src/settingsdialog.cc:963
 #: ../src/settingsdialog.cc:1743 ../src/settingsdialog.cc:1884
@@ -3423,7 +3423,7 @@ msgstr "Textstil"
 msgid ""
 "The increase in waiting time increases the likelihood of adding to top, but "
 "reduces the dynamics (updating) frame"
-msgstr ""
+msgstr "Ökningen i väntetiden ökar sannolikheten att lägga överst, men minskar den dynamiska (uppdatering) ramen"
 
 #: ../src/favoritehubs.cc:419
 msgid "The name and address fields are required"
