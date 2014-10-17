@@ -192,10 +192,10 @@ Search::Search():
     g_signal_connect(getWidget("grantExtraSlotItem"), "activate", G_CALLBACK(onGrantExtraSlotClicked_gui), (gpointer)this);
     g_signal_connect(getWidget("removeUserFromQueueItem"), "activate", G_CALLBACK(onRemoveUserFromQueueClicked_gui), (gpointer)this);
     g_signal_connect(getWidget("removeItem"), "activate", G_CALLBACK(onRemoveClicked_gui), (gpointer)this);
-    g_signal_connect(getWidget("comboboxSize"), "changed", G_CALLBACK(onComboBoxChanged_gui), (gpointer)this);
+    handler_id_size = g_signal_connect(getWidget("comboboxSize"), "changed", G_CALLBACK(onComboBoxChanged_gui), (gpointer)this);
     g_signal_connect(getWidget("comboboxentrySearch"), "changed", G_CALLBACK(onComboBoxChanged_gui), (gpointer)this);
     g_signal_connect(getWidget("comboboxUnit"), "changed", G_CALLBACK(onComboBoxChanged_gui), (gpointer)this);
-    g_signal_connect(getWidget("comboboxFile"), "changed", G_CALLBACK(onComboBoxChanged_gui), (gpointer)this);
+    handler_id_file =  g_signal_connect(getWidget("comboboxFile"), "changed", G_CALLBACK(onComboBoxChanged_gui), (gpointer)this);
     g_signal_connect(getWidget("comboboxGroupBy"), "changed", G_CALLBACK(onGroupByComboBoxChanged_gui), (gpointer)this);
     g_signal_connect(getWidget("togglebuttonSidePanel"), "toggled", G_CALLBACK(onSidePanelToggled_gui), (gpointer)this);
     g_signal_connect(getWidget("buttonClear"), "clicked", G_CALLBACK(onClearButtonClicked_gui), (gpointer)this);
@@ -223,8 +223,14 @@ void Search::putValue_gui(const string &str, int64_t size, SearchManager::SizeMo
 {
     gtk_entry_set_text(GTK_ENTRY(searchEntry), str.c_str());
     gtk_entry_set_text(GTK_ENTRY(getWidget("entrySize")), Util::toString(size).c_str());
+
+    g_signal_handler_block(GTK_COMBO_BOX(getWidget("comboboxSize")), handler_id_size);
     gtk_combo_box_set_active(GTK_COMBO_BOX(getWidget("comboboxSize")), (int)mode);
+    g_signal_handler_unblock(GTK_COMBO_BOX(getWidget("comboboxSize")), handler_id_size);
+
+    g_signal_handler_block(GTK_COMBO_BOX(getWidget("comboboxFile")), handler_id_file);
     gtk_combo_box_set_active(GTK_COMBO_BOX(getWidget("comboboxFile")), (int)type);
+    g_signal_handler_unblock(GTK_COMBO_BOX(getWidget("comboboxFile")), handler_id_file);
 
     search_gui();
 }

@@ -152,4 +152,6 @@ class Search:
         UserCommandMenu *userCommandMenu;
         GroupType previousGrouping;
         std::unordered_map<std::string, std::vector<dcpp::SearchResultPtr> > results;
+        gulong handler_id_size;
+        gulong handler_id_file;
 };

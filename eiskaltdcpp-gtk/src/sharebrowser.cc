@@ -184,9 +184,15 @@ void ShareBrowser::show()
 gpointer ShareBrowser::threadLoad_list(gpointer data)
 {
     ShareBrowser *man = (ShareBrowser *)data;
-    man->setStatus_gui("mainStatus", _("Parse and build tree..."));
-    if (man->buildList_gui())
-        man->setStatus_gui("mainStatus", _("Done"));
+//    man->setStatus_gui("mainStatus", _("Parse and build tree..."));
+    typedef Func2<ShareBrowser, string, string> F2;
+    F2 *f = new F2(man, &ShareBrowser::setStatus_gui, "mainStatus", _("Parse and build tree..."));
+    WulforManager::get()->dispatchGuiFunc(f);
+    if (man->buildList_gui()) {
+        F2 *f2 = new F2(man, &ShareBrowser::setStatus_gui, "mainStatus", _("Done"));
+        WulforManager::get()->dispatchGuiFunc(f2);
+//        man->setStatus_gui("mainStatus", _("Done"));
+    }
     return NULL;
 }
 
