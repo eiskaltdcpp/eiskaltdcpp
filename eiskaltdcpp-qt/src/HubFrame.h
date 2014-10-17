@@ -21,6 +21,7 @@
 #include <QSortFilterProxyModel>
 #include <QCompleter>
 #include <QMetaType>
+#include <QTextBlockUserData>
 
 #include "ui_HubFrame.h"
 
@@ -41,6 +42,13 @@ class PMWindow;
 class HubFramePrivate;
 
 using namespace dcpp;
+
+struct UserListUserData : public QTextBlockUserData
+{
+    UserListItem* data;
+    UserListUserData(UserListItem* ptr) { data = ptr;}
+    virtual ~UserListUserData() { }
+};
 
 class HubFrame :
         public  QWidget,

@@ -2374,11 +2374,11 @@ void HubFrame::newMsg(const VarMap &map){
 
     bool third = map["3RD"].toBool();
 
-    nick = third? ("* " + nick + " ") : ("<" + nick + "> ");
+    QString nicktoout = third? ("* " + nick + " ") : ("<" + nick + "> ");
 
     message = LinkParser::parseForLinks(message, true);
 
-    WulforUtil::getInstance()->textToHtml(nick, true);
+    WulforUtil::getInstance()->textToHtml(nicktoout, true);
 
     message = "<font color=\"" + WSGET(msg_color) + "\">" + message + "</font>";
 
@@ -2389,7 +2389,7 @@ void HubFrame::newMsg(const VarMap &map){
         output  += " <font color=\"" + WSGET(WS_CHAT_TIME_COLOR)+ "\">" + _q(info) + "</font>";
 
     output  += QString(" <a style=\"text-decoration:none\" href=\"user://%1\"><font color=\"%2\"><b>%3</b></font></a>")
-               .arg(nick).arg(WSGET(color)).arg(nick.replace("\"", "&quot;"));
+               .arg(nicktoout).arg(WSGET(color)).arg(nicktoout.replace("\"", "&quot;"));
     output  += message;
 
     if (!isVisible()){
@@ -2400,11 +2400,9 @@ void HubFrame::newMsg(const VarMap &map){
 
         MainWindow::getInstance()->redrawToolPanel();
     }
-
+    QTextDocument *chatDoc = textEdit_CHAT->document();
     if (d->drawLine && WBGET("hubframe/unreaden-draw-line", true)){
         QString hr = "<hr />";
-
-        QTextDocument *chatDoc = textEdit_CHAT->document();
 
         int scrollbarValue = textEdit_CHAT->verticalScrollBar()->value();
 
@@ -2457,6 +2455,8 @@ void HubFrame::newMsg(const VarMap &map){
     }
 
     addOutput(output);
+    UserListUserData * udata = new UserListUserData(d->model->itemForNick(nick, _q(d->client->getHubUrl())));
+    chatDoc->lastBlock().setUserData(/*(QTextBlockUserData*)*/udata);
 }
 
 void HubFrame::newPm(const VarMap &map){
@@ -2946,32 +2946,35 @@ void HubFrame::slotChatMenu(const QPoint &){
         return;
 
     QTextCursor cursor = editor->cursorForPosition(editor->mapFromGlobal(QCursor::pos()));
+    UserListUserData* udata = dynamic_cast<UserListUserData*>(cursor.block().userData());
+    UserListItem* item = NULL;
+    if (udata)
+        item = dynamic_cast<UserListItem*>(udata->data);
+    QString nickr = "";
+    if (!item) {
+        QString pressedParagraph = cursor.block().text();
+        int row_counter = 0;
+        QRegExp nick_exp("<((.+))>");
+        QRegExp thirdPerson_exp("\\*\\W+((\\w+))");// * Some_nick say something
 
-    cursor.movePosition(QTextCursor::StartOfBlock);
+       while (!(pressedParagraph.contains(nick_exp) || pressedParagraph.contains(thirdPerson_exp)) && row_counter < 600){//try to find nick in above rows (max 600 rows)
+           cursor.movePosition(QTextCursor::PreviousBlock);
+           pressedParagraph = cursor.block().text();
 
-    QString pressedParagraph = cursor.block().text();
+           row_counter++;
+       }
 
-    int row_counter = 0;
-    QRegExp nick_exp("<((\\w+))>");
-    QRegExp thirdPerson_exp("\\*\\W+((\\w+))");// * Some_nick say something
-
-    QString nick = "";
-
-    while (!(pressedParagraph.contains(nick_exp) || pressedParagraph.contains(thirdPerson_exp)) && row_counter < 600){//try to find nick in above rows (max 600 rows)
-        cursor.movePosition(QTextCursor::PreviousBlock);
-        pressedParagraph = cursor.block().text();
-
-        row_counter++;
+       if (nick_exp.captureCount() >= 2)
+           nickr = nick_exp.cap(1);
+       else if (thirdPerson_exp.exactMatch(pressedParagraph) && thirdPerson_exp.captureCount() >= 2)
+           nickr = thirdPerson_exp.cap(1);
     }
 
-    if (nick_exp.captureCount() >= 2)
-        nick = nick_exp.cap(1);
-    else if (thirdPerson_exp.exactMatch(pressedParagraph) && thirdPerson_exp.captureCount() >= 2)
-        nick = thirdPerson_exp.cap(1);
+    QString nick = item ? item->getNick() : nickr;
 
     Q_D(HubFrame);
 
-    QString cid = d->model->CIDforNick(nick, _q(d->client->getHubUrl()));
+    QString cid = item ? item->getCID() : d->model->CIDforNick(nickr, _q(d->client->getHubUrl()));;
 
     if (cid.isEmpty()){
         QMenu *m = editor->createStandardContextMenu(QCursor::pos());
@@ -3540,15 +3543,11 @@ void HubFrame::slotInputContextMenu(){
             m->deleteLater();
         }
         else {
-//            QStringList list;
-//            QStringList list_en;
             QMap<QString, QStringList> listMap;
             sp->suggestions(word, listMap);
 
             m->addSeparator();
 
-//            QAction *add_to_dict = new QAction(tr("Add to dictionary"), m);
-//            m->addAction(add_to_dict);
             QMenu* add_to_dict = new QMenu(tr("Add to dictionary"), this);
             m->addMenu(add_to_dict);
 
@@ -3574,7 +3573,7 @@ void HubFrame::slotInputContextMenu(){
 
             if (add_to_dict && ret && ret->parent() == add_to_dict)
                 sp->addToDict(word, ret->text());
-            else if (ss && ret /*&& ret->parent()->parent() == ss*/){
+            else if (ss && ret){
                 c.removeSelectedText();
 
                 c.insertText(ret->text());
