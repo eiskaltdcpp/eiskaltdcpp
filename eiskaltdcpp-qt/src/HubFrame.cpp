@@ -2456,7 +2456,7 @@ void HubFrame::newMsg(const VarMap &map){
 
     addOutput(output);
     UserListUserData * udata = new UserListUserData(d->model->itemForNick(nick, _q(d->client->getHubUrl())));
-    chatDoc->lastBlock().setUserData(/*(QTextBlockUserData*)*/udata);
+    chatDoc->lastBlock().setUserData(udata);
 }
 
 void HubFrame::newPm(const VarMap &map){
@@ -2952,6 +2952,7 @@ void HubFrame::slotChatMenu(const QPoint &){
         item = dynamic_cast<UserListItem*>(udata->data);
     QString nickr = "";
     if (!item) {
+        cursor.movePosition(QTextCursor::StartOfBlock);
         QString pressedParagraph = cursor.block().text();
         int row_counter = 0;
         QRegExp nick_exp("<((.+))>");
