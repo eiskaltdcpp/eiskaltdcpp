@@ -51,6 +51,10 @@ SetCompressor /SOLID lzma
 !insertmacro MUI_LANGUAGE "PortugueseBR"
 !insertmacro MUI_LANGUAGE "SimpChinese"
 !insertmacro MUI_LANGUAGE "Swedish"
+!insertmacro MUI_LANGUAGE "Serbian"
+!insertmacro MUI_LANGUAGE "Basque"
+!insertmacro MUI_LANGUAGE "Romanian"
+;!insertmacro MUI_LANGUAGE "Vietnamese"
 !insertmacro MUI_RESERVEFILE_LANGDLL
 Function .onInit
   !insertmacro MUI_LANGDLL_DISPLAY
