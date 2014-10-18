@@ -45,8 +45,8 @@ using namespace dcpp;
 
 struct UserListUserData : public QTextBlockUserData
 {
-    UserListItem* data;
-    UserListUserData(UserListItem* ptr) { data = ptr;}
+    QString data;
+    UserListUserData(QString nick) { data = nick;}
     virtual ~UserListUserData() { }
 };
 

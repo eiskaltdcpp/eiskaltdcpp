@@ -2400,7 +2400,9 @@ void HubFrame::newMsg(const VarMap &map){
 
         MainWindow::getInstance()->redrawToolPanel();
     }
+
     QTextDocument *chatDoc = textEdit_CHAT->document();
+
     if (d->drawLine && WBGET("hubframe/unreaden-draw-line", true)){
         QString hr = "<hr />";
 
@@ -2431,6 +2433,9 @@ void HubFrame::newMsg(const VarMap &map){
 
         addOutput(output);
 
+        UserListUserData * udata = new UserListUserData(nick);
+        chatDoc->lastBlock().setUserData(udata);
+
         for (QTextBlock it = chatDoc->begin(); it != chatDoc->end(); it = it.next()){
             if(!it.userState()){
                 it.setUserState(-1); // delete label for the last of the old messages
@@ -2455,7 +2460,7 @@ void HubFrame::newMsg(const VarMap &map){
     }
 
     addOutput(output);
-    UserListUserData * udata = new UserListUserData(d->model->itemForNick(nick, _q(d->client->getHubUrl())));
+    UserListUserData * udata = new UserListUserData(nick);
     chatDoc->lastBlock().setUserData(udata);
 }
 
@@ -2947,11 +2952,11 @@ void HubFrame::slotChatMenu(const QPoint &){
 
     QTextCursor cursor = editor->cursorForPosition(editor->mapFromGlobal(QCursor::pos()));
     UserListUserData* udata = dynamic_cast<UserListUserData*>(cursor.block().userData());
-    UserListItem* item = NULL;
+    QString nickfromudata = "";
     if (udata)
-        item = dynamic_cast<UserListItem*>(udata->data);
+        nickfromudata = udata->data;
     QString nickr = "";
-    if (!item) {
+    if (nickfromudata.isEmpty()) {
         cursor.movePosition(QTextCursor::StartOfBlock);
         QString pressedParagraph = cursor.block().text();
         int row_counter = 0;
@@ -2971,11 +2976,11 @@ void HubFrame::slotChatMenu(const QPoint &){
            nickr = thirdPerson_exp.cap(1);
     }
 
-    QString nick = item ? item->getNick() : nickr;
+    QString nick = !nickfromudata.isEmpty() ? nickfromudata : nickr;
 
     Q_D(HubFrame);
 
-    QString cid = item ? item->getCID() : d->model->CIDforNick(nickr, _q(d->client->getHubUrl()));;
+    QString cid = d->model->CIDforNick(nick, _q(d->client->getHubUrl()));;
 
     if (cid.isEmpty()){
         QMenu *m = editor->createStandardContextMenu(QCursor::pos());
