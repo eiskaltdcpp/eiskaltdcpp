@@ -378,7 +378,8 @@ void SettingsGUI::ok(){
         if (WSGET(WS_APP_EMOTICON_THEME) != comboBox_EMOT->currentText()){
             WSSET(WS_APP_EMOTICON_THEME, comboBox_EMOT->currentText());
 
-            EmoticonFactory::getInstance()->load();
+            if (EmoticonFactory::getInstance())
+                EmoticonFactory::getInstance()->load();
         }
 
         if (comboBox_TABBAR->currentIndex() == 2){
