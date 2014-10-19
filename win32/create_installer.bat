@@ -42,8 +42,8 @@ copy /Y "%MINGW32_DEPENDS_DIR%\script\qtscript_xml.dll"                %INSTALLE
 copy /Y "%MINGW32_DEPENDS_DIR%\script\qtscript_xmlpatterns.dll"        %INSTALLER_DIR%\script\
 
 copy /Y "%MINGW32_DIR%\bin\libstdc++-6.dll"                            %INSTALLER_DIR%
+copy /Y "%MINGW32_DIR%\bin\libwinpthread-1.dll"                        %INSTALLER_DIR%
 copy /Y "%MINGW32_DIR%\bin\libgcc_s_dw2-1.dll"                         %INSTALLER_DIR%
-copy /Y "%MINGW32_DIR%\bin\mingwm10.dll"                               %INSTALLER_DIR%
 
 copy /Y "%GETTEXT_DIR%\bin\libintl-8.dll"                              %INSTALLER_DIR%
 copy /Y "%LIBICONV_DIR%\bin\libiconv-2.dll"                            %INSTALLER_DIR%
