@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
 "POT-Creation-Date: 2014-10-16 21:06+0400\n"
-"PO-Revision-Date: 2014-10-16 20:21+0000\n"
+"PO-Revision-Date: 2014-10-19 21:24+0000\n"
 "Last-Translator: Sopor\n"
 "Language-Team: Swedish (Sweden) (http://www.transifex.com/projects/p/eiskaltdcpp/language/sv_SE/)\n"
 "MIME-Version: 1.0\n"
@@ -1762,7 +1762,7 @@ msgstr "Leta upp filer"
 #: ../src/finishedtransfers.cc:35 ../ui/mainwindow.ui:1280
 #: ../ui/mainwindow.ui:2263 ../ui/mainwindow.ui:2513
 msgid "Finished Downloads"
-msgstr "Färdiga Nedladdningar"
+msgstr "Färdiga nedladdningar"
 
 #: ../src/settingsdialog.cc:1145 ../src/settingsdialog.cc:1427
 #: ../src/settingsdialog.cc:1502 ../src/settingsdialog.cc:1558
@@ -3663,7 +3663,7 @@ msgstr "Använd"
 
 #: ../src/settingsdialog.cc:1666
 msgid "Use ADL search only in own file list"
-msgstr "Använd ADL-sök endast i min fillista"
+msgstr "Använd endast ADL-sök i din fillista"
 
 #: ../ui/mainwindow.ui:2009
 msgid "Use Blinking Icon"
