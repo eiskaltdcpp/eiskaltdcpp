@@ -15,8 +15,8 @@ qt-opensource-windows-x86-mingw482-4.8.6-1.exe or later
 Win32OpenSSL-1_0_1j.exe or later
 	http://slproweb.com/download/Win32OpenSSL-1_0_1j.exe
 
-cmake-2.8.11.2-win32-x86.exe (cmake>=2.8.12 don't work)
-	http://www.cmake.org/files/v2.8/cmake-2.8.11.2-win32-x86.exe
+cmake-3.0.2-win32-x86.exe or later
+	http://www.cmake.org/files/v3.0/cmake-3.0.2-win32-x86.exe
 
 nsis-2.46-setup.exe or later
 	http://sourceforge.net/projects/nsis/files/NSIS%202/2.46/nsis-2.46-setup.exe/download
