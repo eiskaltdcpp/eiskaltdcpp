@@ -362,7 +362,7 @@ void File::renameFile(const string& source, const string& target) {
 // This doesn't assume all bytes are written in one write call, it is a bit safer
 void File::copyFile(const string& source, const string& target) {
     const size_t BUF_SIZE = 64 * 1024;
-    boost::scoped_array<char> buffer(new char[BUF_SIZE]);
+    std::unique_ptr<char[]> buffer(new char[BUF_SIZE]);
     size_t count = BUF_SIZE;
     File src(source, File::READ, 0);
     File dst(target, File::WRITE, File::CREATE | File::TRUNCATE);

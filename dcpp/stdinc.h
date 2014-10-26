@@ -67,7 +67,6 @@
 #include <vector>
 
 #include <boost/format.hpp>
-#include <boost/scoped_array.hpp>
 #include <boost/noncopyable.hpp>
 
 #include <bzlib.h>

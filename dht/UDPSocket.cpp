@@ -103,7 +103,7 @@ namespace dht
         string remoteAddr,remotePort;
         if(socket->wait(delay, true, false).first)
         {
-            boost::scoped_array<uint8_t> buf(new uint8_t[BUFSIZE]);
+            std::unique_ptr<uint8_t[]> buf(new uint8_t[BUFSIZE]);
             int len = socket->read(&buf[0], BUFSIZE, remoteAddr, remotePort);
             dcdrun(receivedBytes += len);
             dcdrun(receivedPackets++);
@@ -121,7 +121,7 @@ namespace dht
                 //  return; // non-encrypted packets are forbidden
 
                 unsigned long destLen = BUFSIZE; // what size should be reserved?
-                boost::scoped_array<uint8_t> destBuf(new uint8_t[destLen]);
+                std::unique_ptr<uint8_t[]> destBuf(new uint8_t[destLen]);
                 if(buf[0] == ADC_PACKED_PACKET_HEADER) // is this compressed packet?
                 {
                     if(!decompressPacket(destBuf.get(), destLen, buf.get(), len))
@@ -347,8 +347,7 @@ namespace dht
     bool UDPSocket::decryptPacket(uint8_t* buf, int& len, const string& remoteIp, bool& isUdpKeyValid)
     {
 #ifdef HEADER_RC4_H
-        boost::scoped_array<uint8_t> destBuf(new uint8_t[len]);
-
+        std::unique_ptr<uint8_t[]> destBuf(new uint8_t[len]);
         // the first try decrypts with our UDP key and CID
         // if it fails, decryption will happen with CID only
         int tries = 0;

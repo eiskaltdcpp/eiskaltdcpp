@@ -88,8 +88,7 @@ namespace dht
             try
             {
                 uLongf destLen = BUFSIZE;
-                boost::scoped_array<uint8_t> destBuf;
-
+                std::unique_ptr<uint8_t[]> destBuf;
                 // decompress incoming packet
                 int result;
 

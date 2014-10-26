@@ -2063,7 +2063,7 @@ uint32_t QueueManager::calcCrc32(const string& file) {
     CalcInputStream<CRC32Filter, false> f(&ff);
 
     const size_t BUF_SIZE = 1024*1024;
-    boost::scoped_array<uint8_t> b(new uint8_t[BUF_SIZE]);
+    std::unique_ptr<uint8_t[]> b(new uint8_t[BUF_SIZE]);
     size_t n = BUF_SIZE;
     while(f.read(&b[0], n) > 0)
         ;       // Keep on looping...

@@ -19,8 +19,6 @@
 #include "stdinc.h"
 #include "CryptoManager.h"
 
-#include <boost/scoped_array.hpp>
-
 #include "File.h"
 #include "LogManager.h"
 #include "ClientManager.h"
@@ -352,7 +350,7 @@ void CryptoManager::decodeBZ2(const uint8_t* is, size_t sz, string& os) {
     // We assume that the files aren't compressed more than 2:1...if they are it'll work anyway,
     // but we'll have to do multiple passes...
     size_t bufsize = 2*sz;
-    boost::scoped_array<char> buf(new char[bufsize]);
+    std::unique_ptr<char[]> buf(new char[bufsize]);
 
     bs.avail_in = sz;
     bs.avail_out = bufsize;
@@ -385,8 +383,7 @@ void CryptoManager::decodeBZ2(const uint8_t* is, size_t sz, string& os) {
 }
 
 string CryptoManager::keySubst(const uint8_t* aKey, size_t len, size_t n) {
-    boost::scoped_array<uint8_t> temp(new uint8_t[len + n * 10]);
-
+    std::unique_ptr<uint8_t[]> temp(new uint8_t[len + n * 10]);
     size_t j=0;
 
     for(size_t i = 0; i<len; i++) {
@@ -413,7 +410,7 @@ string CryptoManager::makeKey(const string& aLock) {
     if(aLock.size() < 3)
         return Util::emptyString;
 
-    boost::scoped_array<uint8_t> temp(new uint8_t[aLock.length()]);
+    std::unique_ptr<uint8_t[]> temp(new uint8_t[aLock.length()]);
     uint8_t v1;
     size_t extra=0;
 
