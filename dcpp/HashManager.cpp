@@ -1102,10 +1102,11 @@ bool HashManager::isHashingPaused() const {
 }
 
 void HashManager::on(TimerManagerListener::Second, uint64_t tick) noexcept {
-    //fprintf(stdout,"%lld\n", tick); fflush(stdout);
+//    fprintf(stdout,"tick: %lu\n", tick); fflush(stdout);
     static bool firstcycle = true;
     if (firstcycle){
         int delay = SETTING(HASHING_START_DELAY);
+//        fprintf(stdout,"delay: %d\n", delay); fflush(stdout);
         SettingsManager *SM = SettingsManager::getInstance();
         if (delay > 1800){
             delay = 1800;
@@ -1121,7 +1122,8 @@ void HashManager::on(TimerManagerListener::Second, uint64_t tick) noexcept {
 
             // if delay is more than -1 hashing process must be resumed
             // if there is nothing to hashing pause is not required
-            if (isHashingPaused() && ((delay >= 0 && Util::getUpTime() >= delay) || filesLeft == 0)){
+//            fprintf(stdout,"Util::getUpTime(): %lu\n", Util::getUpTime()); fflush(stdout);
+            if (isHashingPaused() && ((delay >= 0 && Util::getUpTime() >= delay*1000) || filesLeft == 0)){
                 resumeHashing();
                 firstcycle = false;
             }

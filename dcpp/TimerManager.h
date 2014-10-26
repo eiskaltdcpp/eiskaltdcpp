@@ -22,18 +22,9 @@
 #include "Speaker.h"
 #include "Singleton.h"
 
-#ifdef TIMER_OLD_BOOST
-    #include "Semaphore.h"
-#else
-    #include <boost/thread/mutex.hpp>
-#endif
-
-#ifndef _WIN32
-    #include <ctime>
-    #ifdef TIMER_OLD_BOOST
-        #include <climits>
-    #endif
-#endif
+#include <mutex>
+#include <ctime>
+#include <chrono>
 
 namespace dcpp {
 
@@ -54,16 +45,11 @@ class TimerManager : public Speaker<TimerManagerListener>, public Singleton<Time
 public:
     void shutdown();
 
-    static time_t getTime() { return (time_t)time(NULL); }
+    static time_t getTime() { return std::chrono::high_resolution_clock::to_time_t(std::chrono::high_resolution_clock::now()); }
     static uint64_t getTick();
 private:
     friend class Singleton<TimerManager>;
-#ifdef TIMER_OLD_BOOST
-    Semaphore s;
-    static timeval tv;
-#else
-    boost::timed_mutex boostmtx;
-#endif
+    std::timed_mutex mtx;
     TimerManager();
     virtual ~TimerManager();
 

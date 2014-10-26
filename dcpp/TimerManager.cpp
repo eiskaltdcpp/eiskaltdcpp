@@ -20,27 +20,15 @@
 
 #include "TimerManager.h"
 
-#ifndef TIMER_OLD_BOOST
-#include <boost/date_time/posix_time/ptime.hpp>
-#endif
 namespace dcpp {
 
-#ifdef TIMER_OLD_BOOST
-timeval TimerManager::tv;
-#else
-using namespace boost::posix_time;
-static auto g_start = microsec_clock::universal_time();
+static auto g_start = std::chrono::high_resolution_clock::now();
 static volatile bool g_running = false;
-#endif
 
 TimerManager::TimerManager() {
-#ifdef TIMER_OLD_BOOST
-    gettimeofday(&tv, NULL);
-#else
     // This mutex will be unlocked only upon shutdown
-    boostmtx.lock();
+    mtx.lock();
     g_running = true;
-#endif
 }
 
 TimerManager::~TimerManager() {
@@ -48,67 +36,40 @@ TimerManager::~TimerManager() {
 }
 
 void TimerManager::shutdown() {
-#ifdef TIMER_OLD_BOOST
-    s.signal();
-#else
-    boostmtx.unlock();
-#endif
+    mtx.unlock();
     join();
 }
 
 int TimerManager::run() {
     setThreadName("TimerManager");
-#ifdef TIMER_OLD_BOOST
-    uint64_t x = getTick();
-    uint64_t nextTick = x + 1000;
-
-    while(!s.wait(nextTick > x ? nextTick - x : 0)) {
-        uint64_t z = getTick();
-        nextTick = z + 1000;
-        fire(TimerManagerListener::Second(), z);
-        if(nextMin++ >= 60) {
-            fire(TimerManagerListener::Minute(), z);
-             nextMin = 0;
-         }
-        x = getTick();
-    }
-#else
-    auto now = microsec_clock::universal_time();
-    // shows the time of planned launch event.
-    auto nextSecond = now + seconds(1);
-    auto nextMin = now + minutes(1);
+    auto now = std::chrono::high_resolution_clock::now();
+    auto nextSecond = now + std::chrono::seconds(1);
+    auto nextMin = now + std::chrono::minutes(1);
     
-    while(!boostmtx.timed_lock(nextSecond)) {
-        now = microsec_clock::universal_time();
-        nextSecond += seconds(1);
+    while(!mtx.try_lock_until(nextSecond)) {
+        now = std::chrono::high_resolution_clock::now();
+        nextSecond += std::chrono::seconds(1);
         if (nextSecond <= now)
         {
-            nextSecond = now + seconds(1);
+            nextSecond = now + std::chrono::seconds(1);
         }
-        const auto t = (now - g_start).total_milliseconds();
+        const auto t = std::chrono::duration_cast<std::chrono::milliseconds>(now - g_start).count();
         fire(TimerManagerListener::Second(), t);
         if (nextMin <= now)
         {
-            nextMin += minutes(1);
+            nextMin += std::chrono::minutes(1);
             fire(TimerManagerListener::Minute(), t);
         }
     }
-    boostmtx.unlock();
+    mtx.unlock();
     g_running = false;
-#endif
 
     dcdebug("TimerManager done\n");
     return 0;
 }
 
 uint64_t TimerManager::getTick() {
-#ifdef TIMER_OLD_BOOST
-    timeval tv2;
-    gettimeofday(&tv2, NULL);
-    return static_cast<uint64_t>(((tv2.tv_sec - tv.tv_sec) * 1000 ) + ( (tv2.tv_usec - tv.tv_usec) / 1000));
-#else
-    return (microsec_clock::universal_time() - g_start).total_milliseconds();
-#endif
+    return std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::high_resolution_clock::now() - g_start).count();
 }
 
 } // namespace dcpp
