@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
 "POT-Creation-Date: 2014-10-16 21:06+0400\n"
-"PO-Revision-Date: 2014-10-19 21:24+0000\n"
+"PO-Revision-Date: 2014-10-26 18:45+0000\n"
 "Last-Translator: Sopor\n"
 "Language-Team: Swedish (Sweden) (http://www.transifex.com/projects/p/eiskaltdcpp/language/sv_SE/)\n"
 "MIME-Version: 1.0\n"
@@ -809,7 +809,7 @@ msgstr "Matcha automatiskt filer mot nedladdningskön"
 
 #: ../ui/settingsdialog.ui:4167
 msgid "Automatically open extra slot if speed is below (0 = disable)"
-msgstr "Öppna extra slott om hastigheten underskrider (0 = avstängt)"
+msgstr "Öppna extra slott om hastigheten underskrider (0 = inaktiverad)"
 
 #: ../src/settingsdialog.cc:990
 msgid "Automatically search for alternative download locations"
@@ -1281,7 +1281,7 @@ msgstr "Katalog"
 
 #: ../ui/settingsdialog.ui:1803
 msgid "Direct connection"
-msgstr "Direkt anslutning"
+msgstr "Direktanslutning"
 
 #: ../src/settingsdialog.cc:905 ../src/settingsdialog.cc:919
 #: ../src/settingsdialog.cc:1033 ../src/settingsdialog.cc:1440
@@ -1777,7 +1777,7 @@ msgstr "Brandvägg (passiv, sista utvägen)"
 
 #: ../ui/settingsdialog.ui:1528
 msgid "Firewall with manual port forward"
-msgstr "Brandvägg med manuell port-forward"
+msgstr "Brandvägg med manuell portmappning"
 
 #: ../src/transfers.cc:64
 msgid "Flags"
@@ -2110,7 +2110,7 @@ msgstr "Ogiltig filändelse:"
 
 #: ../src/hub.cc:2213
 msgid "Ipfilter is disable"
-msgstr "IP-filter är avstängt"
+msgstr "IP-filter är inaktiverad"
 
 #: ../src/hub.cc:2206
 msgid "Ipfilter is enable"
@@ -2522,7 +2522,7 @@ msgstr "Inga träffar"
 
 #: ../ui/settingsdialog.ui:2778
 msgid "No new downloads if speed exceeds (KiB/s, 0 = disable)"
-msgstr "Inga nya nedladdningar om hastigheter överskrider (KiB/s, 0 = avstängt)"
+msgstr "Inga nya nedladdningar om hastigheter överskrider (KiB/s, 0 = inaktiverad)"
 
 #: ../src/sharebrowser.cc:906
 msgid "No search text entered"
@@ -2781,7 +2781,7 @@ msgstr "Egenskaper"
 #: ../src/settingsdialog.cc:1554 ../src/publichubs.cc:29
 #: ../ui/mainwindow.ui:1186 ../ui/mainwindow.ui:2220 ../ui/mainwindow.ui:2441
 msgid "Public Hubs"
-msgstr "Publika Hubbar"
+msgstr "Publika hubbar"
 
 #: ../ui/settingsdialog.ui:2890
 msgid "Public Hubs list URL"

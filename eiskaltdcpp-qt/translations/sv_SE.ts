@@ -990,7 +990,7 @@ Nycklar:
     <message>
         <location filename="../src/HubFrame.cpp" line="193"/>
         <source>Disable/Enable chat</source>
-        <translation>Stäng av/Sätt på chatten</translation>
+        <translation>Inaktivera/Aktivera chatten</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="195"/>
@@ -1130,7 +1130,7 @@ Nycklar:
     <message>
         <location filename="../src/HubFrame.cpp" line="1433"/>
         <source>Chat disabled.</source>
-        <translation>Chatten avstängd.</translation>
+        <translation>Chatten inaktiverad.</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1440"/>
@@ -2759,7 +2759,7 @@ Nedladdat: %3 Uppladdat: %4</translation>
         <location filename="../src/PublicHubsList.cpp" line="71"/>
         <location filename="../src/PublicHubsList.cpp" line="95"/>
         <source>Public hub</source>
-        <translation>Publika hubb</translation>
+        <translation>Publik hubb</translation>
     </message>
     <message>
         <location filename="../src/PublicHubsList.cpp" line="71"/>
@@ -5327,7 +5327,7 @@ Välj inte detta läge om du har en router eller annan extern brandvägg.
 Om din dator inte är ansluten till en router ska du oftast inte behöva göra
 några fler ändringar i anslutningsinställningarna.
 Däremot om du har en mjukvarubrandvägg kan du få behöva göra
-ändringar i din brandväggs inställningar för att tillåta EiskaltDC++ att få
+ändringar i dina brandväggsinställningar för att tillåta EiskaltDC++ att få
 tillgång till internet.</translation>
     </message>
     <message>
@@ -5342,14 +5342,14 @@ the TCP, UDP and TLS port forwarding on your own.
 You will need to specify the external IP address of your router using
 the setting below if you want downloads to work properly.
 Use this mode only if the previous ones are not options for you.</source>
-        <translation>Vällj detta läge om du använder en brandvägg (router) och vill ställa in TCP-, UDP- och TLS-portarna manuellt. Du kommer att behöva ange extern IP-adress på din router med hjälp av inställningarna här under om du vill att
-nerladdningarna ska fungera som de ska.  Använd detta läge bara om
-föregånde läge inte var rätt för dig.</translation>
+        <translation>Vällj detta läge om du använder en brandvägg (router) och vill ställa in TCP-, UDP- och TLS-portarna manuellt.
+Du kommer att behöva ange extern IP-adress på din router med hjälp av inställningarna här under om du vill att nerladdningarna ska fungera som de ska.
+Använd detta alternativ bara om föregånde alternativ inte var rätt för dig.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="80"/>
         <source>Firewall with port forwarding</source>
-        <translation>Brandvägg med manuell port-forward</translation>
+        <translation>Brandvägg med manuell portmappning</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="90"/>
@@ -5359,7 +5359,7 @@ This mode carries some serious limitations:
   * only 5 results per user will be returned in response to searches;
   * you will not be able to download from other passive users;
   * you may won&apos;t be able to search and/or download on certain hubs.</source>
-        <translation>Välj detta alternativ om inga andra läge fungerade. I detta läge kommer
+        <translation>Välj detta läge om inga andra läge fungerade. I detta läge kommer
 EiskaltDC++ inte att göra några inkommande anslutningar, utan endast utgående.
 Detta läge medför en del allvarliga begränsningar:
   * endast 5 sökträffar per användare när du söker;
@@ -5379,7 +5379,7 @@ Most routers do support UPnP but you may need to enable it
 in the router's configuration page.
 This way EiskaltDC++ will automatically open the ports it needs
 and obtain your external IP address as well.</source>
-        <translation>Välj detta alternativ om du är bakom en brandvägg/router som har stöd
+        <translation>Välj detta läge om du är bakom en brandvägg/router som har stöd
 för UPnP-standarden som automatiskt konfigurerar din brandvägg/router.
 De flesta routrar har stöd för UPnP men du kan behöva aktivera det i din
 routers inställningar.
@@ -5399,7 +5399,7 @@ Då kommer EiskaltDC++ att automatiskt öppna de portar som behövs och
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="152"/>
         <source>Don&apos;t allow Hub/UPnP/DHT to override</source>
-        <translation>Tillåt inte Hub/UPnP/DHT att skriva över</translation>
+        <translation>Tillåt inte Hubb/UPnP/DHT att skriva över</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="161"/>
@@ -5436,14 +5436,14 @@ Då kommer EiskaltDC++ att automatiskt öppna de portar som behövs och
         <source>Select this mode if you can make unrestricted outbound connections.
 This includes connecting to any IP address on any port.
 Choose this option if unsure.</source>
-        <translation>Välj detta alternativ om du kan göra obegränsade utgående anslutningar.
+        <translation>Välj detta läge om du kan göra obegränsade utgående anslutningar.
 Det inkluderar att ansluta till alla IP-adresser på alla portar.
-Välj detta alternativ om du är osäker på vad du ska välja.</translation>
+Välj detta läge om du är osäker på vad du ska välja.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="281"/>
         <source>Direct connection</source>
-        <translation>Direkt anslutning</translation>
+        <translation>Direktanslutning</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="291"/>
@@ -5451,8 +5451,8 @@ Välj detta alternativ om du är osäker på vad du ska välja.</translation>
 a SOCKS proxy. The caveats for Passive mode also apply here.
 SOCKS5 proxies are not the same as HTTP proxies.
 DC++&apos;s SOCKS5 support does not include GSSAPI.</source>
-        <translation>Välj detta läget om du vill göra utgående anslutningar genom
-en SOCKS-proxy. Samma varningar gäller här för passivtläge.
+        <translation>Välj detta läge om du vill göra utgående anslutningar genom
+en SOCKS-proxy. Samma varningar gäller här för passivt läge.
 SOCKS5-proxyservrar är inte detsamma som HTTP-proxyservrar.
 DC++ SOCKS5-stöd omfattar inte GSSAPI.</translation>
     </message>
@@ -6969,7 +6969,7 @@ the Hidden attribute set.
 With this option off, files starting with a . (full stop) will not be shared.
 Note: this option requires a refresh of the file list,
 and may cause the client to appear to freeze.</source>
-        <translation>Dela ut filer med dolt filattributet och filer i kataloger med dolt filattribut.
+        <translation>Dela ut filer med det dolda filattributet och filer i kataloger med dolt filattribut.
 När denna är avstängd, filer som börjar med en . (punkt) kommer inte att delas ut.
 Obs: denna funktion kräver en uppdatering av fillistan
 och kan få klienten att verka ha låst sig.</translation>
@@ -6997,7 +6997,7 @@ och kan få klienten att verka ha låst sig.</translation>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="262"/>
         <source>Use fast hash</source>
-        <translation>Använd snabb indexering</translation>
+        <translation>Använd snabbindexering</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="275"/>
