@@ -5342,7 +5342,7 @@ the TCP, UDP and TLS port forwarding on your own.
 You will need to specify the external IP address of your router using
 the setting below if you want downloads to work properly.
 Use this mode only if the previous ones are not options for you.</source>
-        <translation>Vällj detta läge om du använder en brandvägg (router) och vill ställa in TCP-, UDP- och TLS-portarna manuellt.
+        <translation>Välj detta läge om du använder en brandvägg (router) och vill ställa in TCP-, UDP- och TLS-portarna manuellt.
 Du kommer att behöva ange extern IP-adress på din router med hjälp av inställningarna här under om du vill att nerladdningarna ska fungera som de ska.
 Använd detta alternativ bara om föregånde alternativ inte var rätt för dig.</translation>
     </message>
