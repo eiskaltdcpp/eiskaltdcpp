@@ -1874,7 +1874,7 @@ Favoritanvändare</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="1285"/>
         <source>&amp;File</source>
-        <translation>&amp;Fil</translation>
+        <translation>&amp;Arkiv</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1287"/>
@@ -4086,7 +4086,7 @@ Vill du stoppa den?
     <message>
         <location filename="../src/TransferView.cpp" line="93"/>
         <source>Close connection(s)</source>
-        <translation>Stäng anslutningarna</translation>
+        <translation>Stäng anslutning(ar)</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="343"/>
