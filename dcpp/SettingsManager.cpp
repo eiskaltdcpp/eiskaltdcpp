@@ -98,7 +98,7 @@ const string SettingsManager::settingTags[] =
     "BindIface", "MinimumSearchInterval", "EnableDynDNS", "AllowUploadOverMultiHubs",
     "UseADLOnlyOnOwnList", "AllowSimUploads", "CheckTargetsPathsOnStart", "NmdcDebug",
     "ShareSkipZeroByte", "RequireTLS", "LogSpy",
-    "BindIface6",
+    "BindIface6", "AppUnitBase",
     "SENTRY",
     // Int64
     "TotalUpload", "TotalDownload",
@@ -308,6 +308,7 @@ SettingsManager::SettingsManager()
     setDefault(CHECK_TARGETS_PATHS_ON_START, false);
     setDefault(SHARE_SKIP_ZERO_BYTE, false);
     setDefault(BIND_ADDRESS6, "::");
+    setDefault(APP_UNIT_BASE, 0);
 
     setSearchTypeDefaults();
 }
