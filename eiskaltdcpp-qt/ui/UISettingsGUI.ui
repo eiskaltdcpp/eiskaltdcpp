@@ -30,7 +30,16 @@
           <string>Language file</string>
          </property>
          <layout class="QGridLayout" name="gridLayout_6">
-          <property name="margin">
+          <property name="leftMargin">
+           <number>1</number>
+          </property>
+          <property name="topMargin">
+           <number>1</number>
+          </property>
+          <property name="rightMargin">
+           <number>1</number>
+          </property>
+          <property name="bottomMargin">
            <number>1</number>
           </property>
           <item row="0" column="0">
@@ -55,7 +64,16 @@
           <string>Theme</string>
          </property>
          <layout class="QGridLayout" name="gridLayout_5">
-          <property name="margin">
+          <property name="leftMargin">
+           <number>1</number>
+          </property>
+          <property name="topMargin">
+           <number>1</number>
+          </property>
+          <property name="rightMargin">
+           <number>1</number>
+          </property>
+          <property name="bottomMargin">
            <number>1</number>
           </property>
           <item row="0" column="0">
@@ -83,7 +101,16 @@
           <string>Application font</string>
          </property>
          <layout class="QGridLayout" name="gridLayout_7">
-          <property name="margin">
+          <property name="leftMargin">
+           <number>1</number>
+          </property>
+          <property name="topMargin">
+           <number>1</number>
+          </property>
+          <property name="rightMargin">
+           <number>1</number>
+          </property>
+          <property name="bottomMargin">
            <number>1</number>
           </property>
           <item row="0" column="0">
@@ -471,12 +498,17 @@ from other words by spaces.</string>
           <widget class="QComboBox" name="comboBox_APP_UNIT_BASE">
            <item>
             <property name="text">
-             <string>1024</string>
+             <string>IEC</string>
             </property>
            </item>
            <item>
             <property name="text">
-             <string>1000</string>
+             <string>JEDEC</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Metric</string>
             </property>
            </item>
           </widget>
@@ -719,7 +751,16 @@ them is usually available only to operators</string>
           <string>Text colors in chat</string>
          </property>
          <layout class="QGridLayout" name="gridLayout_3">
-          <property name="margin">
+          <property name="leftMargin">
+           <number>1</number>
+          </property>
+          <property name="topMargin">
+           <number>1</number>
+          </property>
+          <property name="rightMargin">
+           <number>1</number>
+          </property>
+          <property name="bottomMargin">
            <number>1</number>
           </property>
           <item row="0" column="0">
@@ -741,7 +782,16 @@ them is usually available only to operators</string>
           <string>Highlighting of search results in the chat</string>
          </property>
          <layout class="QHBoxLayout" name="horizontalLayout_2">
-          <property name="margin">
+          <property name="leftMargin">
+           <number>1</number>
+          </property>
+          <property name="topMargin">
+           <number>1</number>
+          </property>
+          <property name="rightMargin">
+           <number>1</number>
+          </property>
+          <property name="bottomMargin">
            <number>1</number>
           </property>
           <item>
@@ -799,7 +849,16 @@ them is usually available only to operators</string>
           <string>Highlighting of already shared files</string>
          </property>
          <layout class="QGridLayout" name="gridLayout_9">
-          <property name="margin">
+          <property name="leftMargin">
+           <number>1</number>
+          </property>
+          <property name="topMargin">
+           <number>1</number>
+          </property>
+          <property name="rightMargin">
+           <number>1</number>
+          </property>
+          <property name="bottomMargin">
            <number>1</number>
           </property>
           <item row="0" column="0">
@@ -854,7 +913,16 @@ them is usually available only to operators</string>
           <string>Transfer colors</string>
          </property>
          <layout class="QGridLayout" name="gridLayout_10">
-          <property name="margin">
+          <property name="leftMargin">
+           <number>1</number>
+          </property>
+          <property name="topMargin">
+           <number>1</number>
+          </property>
+          <property name="rightMargin">
+           <number>1</number>
+          </property>
+          <property name="bottomMargin">
            <number>1</number>
           </property>
           <item row="0" column="1">
