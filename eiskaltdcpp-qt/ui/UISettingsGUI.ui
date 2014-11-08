@@ -521,9 +521,6 @@ from other words by spaces.</string>
              <verstretch>0</verstretch>
             </sizepolicy>
            </property>
-           <property name="toolTip">
-            <string>show kibibyte (KiB) or kilobyte (KB), etc.</string>
-           </property>
            <property name="text">
             <string>Timestamp</string>
            </property>
