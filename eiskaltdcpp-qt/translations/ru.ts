@@ -4689,7 +4689,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="85"/>
         <source>This description will be shown in the list of favorite hubs.</source>
-        <translation type="unfinished"></translation>
+        <translation>Это описание будет отображаться в списке избранных хабов.</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="92"/>
@@ -4759,7 +4759,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="234"/>
         <source>This description will be shown in the user list.</source>
-        <translation type="unfinished"></translation>
+        <translation>Это описание будет отображаться в списке пользователей.</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="241"/>
@@ -6417,22 +6417,22 @@ from other words by spaces.</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="457"/>
         <source>Show kibibyte (KiB) or kilobyte (KB), etc.</source>
-        <translation type="unfinished"></translation>
+        <translation>Показывать кибибайты (КиБ) или килобайты (КБ), и т.п.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="474"/>
         <source>IEC</source>
-        <translation type="unfinished"></translation>
+        <translation>IEC</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="479"/>
         <source>JEDEC</source>
-        <translation type="unfinished"></translation>
+        <translation>JEDEC</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="484"/>
         <source>Metric</source>
-        <translation type="unfinished"></translation>
+        <translation>Метрическая</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="498"/>
