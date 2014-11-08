@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2014-10-12 00:28+0400\n"
+"POT-Creation-Date: 2014-11-09 02:35+0300\n"
 "PO-Revision-Date: 2013-11-19 16:45+0000\n"
 "Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
 "Language-Team: Czech (http://www.transifex.com/projects/p/eiskaltdcpp/"
@@ -500,42 +500,67 @@ msgstr "Fronta souborů ke stáhnutí"
 msgid "Users"
 msgstr "Uživatelé"
 
-#: ../Util.cpp:641
+#: ../Util.cpp:644
 #, c-format
 msgid "%d B"
 msgstr "%d B"
 
-#: ../Util.cpp:643
+#: ../Util.cpp:646
 #, c-format
 msgid "%.02f KiB"
 msgstr "%.02f KiB"
 
-#: ../Util.cpp:645
+#: ../Util.cpp:646
+#, fuzzy, c-format
+msgid "%.02f KB"
+msgstr "%.02f KiB"
+
+#: ../Util.cpp:648
 #, c-format
 msgid "%.02f MiB"
 msgstr "%.02f MiB"
 
-#: ../Util.cpp:647
+#: ../Util.cpp:648
+#, fuzzy, c-format
+msgid "%.02f MB"
+msgstr "%.02f MiB"
+
+#: ../Util.cpp:650
 #, c-format
 msgid "%.02f GiB"
 msgstr "%.02f GiB"
 
-#: ../Util.cpp:649
+#: ../Util.cpp:650
+#, fuzzy, c-format
+msgid "%.02f GB"
+msgstr "%.02f GiB"
+
+#: ../Util.cpp:652
 #, c-format
 msgid "%.02f TiB"
 msgstr "%.02f TiB"
 
-#: ../Util.cpp:651
+#: ../Util.cpp:652
+#, fuzzy, c-format
+msgid "%.02f TB"
+msgstr "%.02f TiB"
+
+#: ../Util.cpp:654
 #, c-format
 msgid "%.02f PiB"
 msgstr "%.02f PiB"
 
-#: ../Util.cpp:681
+#: ../Util.cpp:654
+#, fuzzy, c-format
+msgid "%.02f PB"
+msgstr "%.02f PiB"
+
+#: ../Util.cpp:688
 #, c-format
 msgid "%s B"
 msgstr "%s B"
 
-#: ../Util.cpp:685
+#: ../Util.cpp:692
 #, c-format
 msgid "%'lld B"
 msgstr "%'lld B"
@@ -600,31 +625,31 @@ msgstr "Spuštěno obnovení filelistu"
 msgid "downloaded from"
 msgstr "staženo z"
 
-#: ../SettingsManager.cpp:516
+#: ../SettingsManager.cpp:517
 msgid "Invalid search type name"
 msgstr "Nevhodný název typu hledání"
 
-#: ../SettingsManager.cpp:520 ../SettingsManager.cpp:542
+#: ../SettingsManager.cpp:521 ../SettingsManager.cpp:543
 msgid "This search type already exists"
 msgstr "Tento typ hledání již existuje"
 
-#: ../SettingsManager.cpp:574
+#: ../SettingsManager.cpp:575
 msgid "No such search type"
 msgstr "Takový typ hledávání není"
 
-#: ../SettingsManager.cpp:602 ../SettingsManager.cpp:607
+#: ../SettingsManager.cpp:603 ../SettingsManager.cpp:608
 msgid "Error: setting not found!"
 msgstr "Chyba: nastaveni nenalezeno!"
 
-#: ../SettingsManager.cpp:602
+#: ../SettingsManager.cpp:603
 msgid "Core setting "
 msgstr ""
 
-#: ../SettingsManager.cpp:607
+#: ../SettingsManager.cpp:608
 msgid "Change core setting "
 msgstr "Změna nastavení jádra "
 
-#: ../SettingsManager.cpp:607
+#: ../SettingsManager.cpp:608
 msgid " to "
 msgstr " na "
 

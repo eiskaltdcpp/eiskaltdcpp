@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2014-10-12 00:28+0400\n"
+"POT-Creation-Date: 2014-11-09 02:35+0300\n"
 "PO-Revision-Date: 2014-03-28 21:38+0000\n"
 "Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/"
@@ -491,42 +491,67 @@ msgstr ""
 msgid "Users"
 msgstr ""
 
-#: ../Util.cpp:641
+#: ../Util.cpp:644
 #, c-format
 msgid "%d B"
 msgstr ""
 
-#: ../Util.cpp:643
+#: ../Util.cpp:646
 #, c-format
 msgid "%.02f KiB"
 msgstr ""
 
-#: ../Util.cpp:645
+#: ../Util.cpp:646
+#, c-format
+msgid "%.02f KB"
+msgstr ""
+
+#: ../Util.cpp:648
 #, c-format
 msgid "%.02f MiB"
 msgstr ""
 
-#: ../Util.cpp:647
+#: ../Util.cpp:648
+#, c-format
+msgid "%.02f MB"
+msgstr ""
+
+#: ../Util.cpp:650
 #, c-format
 msgid "%.02f GiB"
 msgstr ""
 
-#: ../Util.cpp:649
+#: ../Util.cpp:650
+#, c-format
+msgid "%.02f GB"
+msgstr ""
+
+#: ../Util.cpp:652
 #, c-format
 msgid "%.02f TiB"
 msgstr ""
 
-#: ../Util.cpp:651
+#: ../Util.cpp:652
+#, c-format
+msgid "%.02f TB"
+msgstr ""
+
+#: ../Util.cpp:654
 #, c-format
 msgid "%.02f PiB"
 msgstr ""
 
-#: ../Util.cpp:681
+#: ../Util.cpp:654
+#, c-format
+msgid "%.02f PB"
+msgstr ""
+
+#: ../Util.cpp:688
 #, c-format
 msgid "%s B"
 msgstr ""
 
-#: ../Util.cpp:685
+#: ../Util.cpp:692
 #, c-format
 msgid "%'lld B"
 msgstr ""
@@ -591,31 +616,31 @@ msgstr ""
 msgid "downloaded from"
 msgstr ""
 
-#: ../SettingsManager.cpp:516
+#: ../SettingsManager.cpp:517
 msgid "Invalid search type name"
 msgstr ""
 
-#: ../SettingsManager.cpp:520 ../SettingsManager.cpp:542
+#: ../SettingsManager.cpp:521 ../SettingsManager.cpp:543
 msgid "This search type already exists"
 msgstr ""
 
-#: ../SettingsManager.cpp:574
+#: ../SettingsManager.cpp:575
 msgid "No such search type"
 msgstr ""
 
-#: ../SettingsManager.cpp:602 ../SettingsManager.cpp:607
+#: ../SettingsManager.cpp:603 ../SettingsManager.cpp:608
 msgid "Error: setting not found!"
 msgstr ""
 
-#: ../SettingsManager.cpp:602
+#: ../SettingsManager.cpp:603
 msgid "Core setting "
 msgstr ""
 
-#: ../SettingsManager.cpp:607
+#: ../SettingsManager.cpp:608
 msgid "Change core setting "
 msgstr ""
 
-#: ../SettingsManager.cpp:607
+#: ../SettingsManager.cpp:608
 msgid " to "
 msgstr ""
 
