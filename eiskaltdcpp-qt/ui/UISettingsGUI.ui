@@ -454,7 +454,7 @@ from other words by spaces.</string>
             </sizepolicy>
            </property>
            <property name="toolTip">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Show kibibyte (KiB) or kilobyte (KB), etc.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            <string>Show kibibyte (KiB) or kilobyte (KB), etc.</string>
            </property>
            <property name="text">
             <string>Application unit base</string>
