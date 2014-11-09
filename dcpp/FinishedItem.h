@@ -18,7 +18,7 @@
 
 #pragma once
 
-#include <boost/noncopyable.hpp>
+#include "extra/noncopyable.h"
 #include "forward.h"
 #include "typedefs.h"
 #include "Pointer.h"
@@ -26,7 +26,7 @@
 
 namespace dcpp {
 
-class FinishedItemBase : boost::noncopyable {
+class FinishedItemBase : ::noncopyable {
 public:
     explicit FinishedItemBase(
         int64_t transferred_,

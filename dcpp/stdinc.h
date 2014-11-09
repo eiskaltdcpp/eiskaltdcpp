@@ -67,7 +67,7 @@
 #include <vector>
 
 #include <boost/format.hpp>
-#include <boost/noncopyable.hpp>
+#include "extra/noncopyable.h"
 
 #include <bzlib.h>
 

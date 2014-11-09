@@ -19,11 +19,12 @@
 #ifndef DCPLUSPLUS_DCPP_FILE_READER_H
 #define DCPLUSPLUS_DCPP_FILE_READER_H
 
+#include <cstdint>
 #include <functional>
 #include <string>
 #include <vector>
 
-#include <boost/noncopyable.hpp>
+#include "extra/noncopyable.h"
 
 namespace dcpp {
 
@@ -34,7 +35,7 @@ using std::vector;
 
 /** Helper class for reading an entire file */
 
-class FileReader : boost::noncopyable {
+class FileReader : ::noncopyable {
 public:
 
 	enum Strategy {

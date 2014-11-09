@@ -35,7 +35,7 @@ using std::unordered_map;
 
 class SocketException;
 
-class ConnectionQueueItem : boost::noncopyable {
+class ConnectionQueueItem : ::noncopyable {
 public:
     typedef ConnectionQueueItem* Ptr;
     typedef vector<Ptr> List;

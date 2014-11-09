@@ -22,8 +22,7 @@
 #include "Singleton.h"
 #include "Thread.h"
 #include "UPnP.h"
-#include "Atomic.h"
-#include <boost/ptr_container/ptr_vector.hpp>
+#include <atomic>
 
 namespace dcpp {
 
@@ -48,18 +47,19 @@ public:
 private:
     friend class Singleton<UPnPManager>;
 
-    typedef boost::ptr_vector<UPnP> Impls;
+    typedef std::vector<UPnP*> Impls;
     Impls impls;
 
     bool opened;
-    Atomic<bool,memory_ordering_strong> portMapping;
 
-    UPnPManager();// : opened(false), portMapping(false) { }
+    static std::atomic_flag busy;
+
+    UPnPManager();
     virtual ~UPnPManager() noexcept { join(); }
 
     int run();
 
-    void close(UPnP& impl);
+    void close(UPnP *impl);
     void log(const string& message);
 };
 

@@ -998,9 +998,9 @@ void AdcHub::info(bool /*alwaysSend*/) {
     addParam(lastInfoMap, c, "SS", ShareManager::getInstance()->getShareSizeString());
     addParam(lastInfoMap, c, "SF", Util::toString(ShareManager::getInstance()->getSharedFiles()));
     addParam(lastInfoMap, c, "EM", SETTING(EMAIL));
-    addParam(lastInfoMap, c, "HN", Util::toString(counts.normal));
-    addParam(lastInfoMap, c, "HR", Util::toString(counts.registered));
-    addParam(lastInfoMap, c, "HO", Util::toString(counts.op));
+    addParam(lastInfoMap, c, "HN", Util::toString(counts[COUNT_NORMAL].load()));
+    addParam(lastInfoMap, c, "HR", Util::toString(counts[COUNT_REGISTERED].load()));
+    addParam(lastInfoMap, c, "HO", Util::toString(counts[COUNT_OP].load()));
     addParam(lastInfoMap, c, "VE", getClientId().c_str());
     addParam(lastInfoMap, c, "AW", Util::getAway() ? "1" : Util::emptyString);
     int limit = ThrottleManager::getInstance()->getDownLimit();

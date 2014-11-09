@@ -14,15 +14,13 @@
 #include <QRegExp>
 #include <QString>
 
-#include <boost/noncopyable.hpp>
-
 #include "dcpp/stdinc.h"
 #include "dcpp/Singleton.h"
 
 class SearchBlacklist:
         public QObject,
         public dcpp::Singleton<SearchBlacklist>,
-        public boost::noncopyable
+        public ::noncopyable
 {
     Q_OBJECT
 

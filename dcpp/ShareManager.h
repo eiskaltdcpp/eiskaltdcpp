@@ -37,7 +37,7 @@
 #include "FastAlloc.h"
 #include "MerkleTree.h"
 #include "Pointer.h"
-#include "Atomic.h"
+#include <atomic>
 
 #ifdef WITH_DHT
 namespace dht {
@@ -74,7 +74,7 @@ public:
     void removeDirectory(const string& realPath);
     void renameDirectory(const string& realPath, const string& virtualName);
 
-    bool isRefreshing() { return refreshing; }
+//    bool isRefreshing() { return refreshing == true; }
 
     string toVirtual(const TTHValue& tth) const;
     string toReal(const string& virtualFile);
@@ -129,7 +129,7 @@ public:
     GETSET(string, bzXmlFile, BZXmlFile)
 private:
     struct AdcSearch;
-    class Directory : public FastAlloc<Directory>, public intrusive_ptr_base<Directory>, boost::noncopyable {
+    class Directory : public FastAlloc<Directory>, public intrusive_ptr_base<Directory>, ::noncopyable {
     public:
         typedef boost::intrusive_ptr<Directory> Ptr;
         typedef unordered_map<string, Ptr, CaseStringHash, CaseStringEq> Map;
@@ -273,7 +273,7 @@ private:
 
     int listN;
 
-    Atomic<bool,memory_ordering_strong> refreshing;
+    static std::atomic_flag refreshing;
 
     uint64_t lastXmlUpdate;
     uint64_t lastFullUpdate;

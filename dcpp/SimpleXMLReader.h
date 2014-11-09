@@ -17,13 +17,13 @@
 #pragma once
 
 #include "typedefs.h"
-#include <boost/noncopyable.hpp>
+#include "extra/noncopyable.h"
 
 namespace dcpp {
 
 class SimpleXMLReader {
 public:
-    struct CallBack : private boost::noncopyable {
+    struct CallBack : private ::noncopyable {
         virtual ~CallBack() { }
         /** A new XML tag has been encountered.
         @param name Name of the tag.

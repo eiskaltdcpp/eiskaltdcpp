@@ -29,7 +29,7 @@ namespace dcpp {
 
 using std::deque;
 
-class Transfer : private boost::noncopyable {
+class Transfer : private ::noncopyable {
 public:
     enum Type {
         TYPE_FILE,

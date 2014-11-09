@@ -44,13 +44,13 @@ disconnecting(false), v4only(v4only)
 {
     start();
 
-    sockets.inc();
+    ++sockets;
 }
 
-Atomic<long,memory_ordering_strong> BufferedSocket::sockets(0);
+atomic<int64_t> BufferedSocket::sockets(0);
 
 BufferedSocket::~BufferedSocket() {
-    sockets.dec();
+    --sockets;
 }
 
 void BufferedSocket::setMode (Modes aMode, size_t aRollback) {

@@ -31,7 +31,7 @@ namespace dcpp {
 
 class ListLoader;
 
-class DirectoryListing : boost::noncopyable
+class DirectoryListing : ::noncopyable
 {
 public:
     class Directory;
@@ -73,7 +73,7 @@ public:
         MediaInfo mediaInfo;
     };
 
-    class Directory : public FastAlloc<Directory>, boost::noncopyable {
+    class Directory : public FastAlloc<Directory>, ::noncopyable {
     public:
         typedef Directory* Ptr;
         struct DirSort {

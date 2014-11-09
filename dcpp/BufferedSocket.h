@@ -27,7 +27,7 @@
 #include "Speaker.h"
 #include "Util.h"
 #include "Socket.h"
-#include "Atomic.h"
+#include <atomic>
 
 namespace dcpp {
 using std::deque;
@@ -174,7 +174,7 @@ private:
     void threadSendData();
 
     void fail(const string& aError);
-    static Atomic<long,memory_ordering_strong> sockets;
+    static std::atomic<int64_t> sockets;
 
     bool checkEvents();
     void checkSocket();

@@ -18,7 +18,7 @@
 
 #pragma once
 
-#include "Atomic.h"
+#include <atomic>
 #include "compiler.h"
 #include "BufferedSocketListener.h"
 #include "ClientListener.h"
@@ -33,7 +33,7 @@
 #include "ScriptManager.h"
 #endif
 
-#include <boost/noncopyable.hpp>
+#include "extra/noncopyable.h"
 
 namespace dcpp {
 #ifdef LUA_SCRIPT
@@ -59,7 +59,7 @@ public:
 
 };
 /** Yes, this should probably be called a Hub */
-class Client : public ClientBase, public Speaker<ClientListener>, public BufferedSocketListener, protected TimerManagerListener, private boost::noncopyable
+class Client : public ClientBase, public Speaker<ClientListener>, public BufferedSocketListener, protected TimerManagerListener, private ::noncopyable
 #ifdef LUA_SCRIPT
 , public ClientScriptInstance
 #endif
@@ -82,7 +82,7 @@ public:
 
     virtual size_t getUserCount() const = 0;
     virtual int64_t getAvailable() const = 0;
-    static int getTotalCounts() { return counts.normal + counts.registered + counts.op; }
+    static int getTotalCounts() { return counts[COUNT_NORMAL].load() + counts[COUNT_REGISTERED].load() + counts[COUNT_OP].load(); }
     virtual void send(const AdcCommand& command) = 0;
 
     virtual string escape(string const& str) const { return str; }
@@ -108,9 +108,7 @@ public:
     static string getCounts() {
         char buf[128];
         return string(buf, snprintf(buf, sizeof(buf), "%ld/%ld/%ld",
-            static_cast<long>(counts.normal),
-            static_cast<long>(counts.registered),
-            static_cast<long>(counts.op)));
+            counts[COUNT_NORMAL].load(), counts[COUNT_REGISTERED].load(), counts[COUNT_OP].load()));
     }
 
     StringMap& escapeParams(StringMap& sm) {
@@ -163,16 +161,15 @@ protected:
     friend class ClientManager;
     Client(const string& hubURL, char separator, bool secure_);
     virtual ~Client();
-    struct Counts {
-        private:
-            typedef Atomic<boost::int32_t> atomic_counter_t;
-        public:
-            typedef boost::int32_t value_type;
-            Counts(value_type n = 0, value_type r = 0, value_type o = 0) : normal(n), registered(r), op(o) { }
-            atomic_counter_t normal;
-            atomic_counter_t registered;
-            atomic_counter_t op;
+
+    enum CountType {
+        COUNT_NORMAL,
+        COUNT_REGISTERED,
+        COUNT_OP,
+        COUNT_UNCOUNTED,
     };
+
+    static std::atomic<int64_t> counts[COUNT_UNCOUNTED];
 
     enum States {
         STATE_CONNECTING,   ///< Waiting for socket to connect
@@ -183,8 +180,6 @@ protected:
         STATE_DISCONNECTED,  ///< Nothing in particular
     } state;
     SearchQueue searchQueue;
-    static Counts counts;
-    Counts lastCounts;
 
     BufferedSocket *sock;
 
@@ -215,13 +210,6 @@ protected:
 private:
 
     virtual OnlineUserList getUsers() const = 0;
-
-    enum CountType {
-        COUNT_UNCOUNTED,
-        COUNT_NORMAL,
-        COUNT_REGISTERED,
-        COUNT_OP
-    };
 
     string hubUrl;
     string address;

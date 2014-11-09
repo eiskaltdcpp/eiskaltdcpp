@@ -30,7 +30,7 @@ namespace dcpp {
 class ClientBase;
 
 /** A user connected to one or more hubs. */
-class User : public FastAlloc<User>, public intrusive_ptr_base<User>, public Flags, private boost::noncopyable
+class User : public FastAlloc<User>, public intrusive_ptr_base<User>, public Flags, private ::noncopyable
 {
 public:
     enum Bits {

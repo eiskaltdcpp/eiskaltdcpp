@@ -24,7 +24,7 @@ namespace dcpp {
 
 using std::string;
 
-class UPnP : boost::noncopyable
+class UPnP : ::noncopyable
 {
 public:
     UPnP() { }
