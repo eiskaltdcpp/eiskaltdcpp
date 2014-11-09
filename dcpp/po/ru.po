@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
 "POT-Creation-Date: 2014-11-09 02:35+0300\n"
-"PO-Revision-Date: 2014-11-09 02:37+0300\n"
+"PO-Revision-Date: 2014-11-09 22:00+0300\n"
 "Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "language/ru/)\n"
@@ -520,7 +520,7 @@ msgstr "%d Б"
 #: ../Util.cpp:646
 #, c-format
 msgid "%.02f KiB"
-msgstr "%.02f КБ"
+msgstr "%.02f КиБ"
 
 #: ../Util.cpp:646
 #, c-format
@@ -530,7 +530,7 @@ msgstr "%.02f КБ"
 #: ../Util.cpp:648
 #, c-format
 msgid "%.02f MiB"
-msgstr "%.02f МБ"
+msgstr "%.02f МиБ"
 
 #: ../Util.cpp:648
 #, c-format
@@ -540,7 +540,7 @@ msgstr "%.02f МБ"
 #: ../Util.cpp:650
 #, c-format
 msgid "%.02f GiB"
-msgstr "%.02f ГБ"
+msgstr "%.02f ГиБ"
 
 #: ../Util.cpp:650
 #, c-format
@@ -550,7 +550,7 @@ msgstr "%.02f ГБ"
 #: ../Util.cpp:652
 #, c-format
 msgid "%.02f TiB"
-msgstr "%.02f ТБ"
+msgstr "%.02f ТиБ"
 
 #: ../Util.cpp:652
 #, c-format
@@ -560,7 +560,7 @@ msgstr "%.02f ТБ"
 #: ../Util.cpp:654
 #, c-format
 msgid "%.02f PiB"
-msgstr "%.02f ПБ"
+msgstr "%.02f ПиБ"
 
 #: ../Util.cpp:654
 #, c-format
