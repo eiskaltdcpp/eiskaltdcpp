@@ -17,7 +17,7 @@
    <item row="0" column="0">
     <widget class="QTabWidget" name="tabWidget">
      <property name="currentIndex">
-      <number>0</number>
+      <number>2</number>
      </property>
      <widget class="QWidget" name="tab_2">
       <attribute name="title">
@@ -454,7 +454,7 @@ from other words by spaces.</string>
             </sizepolicy>
            </property>
            <property name="toolTip">
-            <string>show kibibyte (KiB) or kilobyte (KB), etc.</string>
+            <string>Show kibibyte (KiB) or kilobyte (KB), etc.</string>
            </property>
            <property name="text">
             <string>Application unit base</string>
@@ -471,12 +471,17 @@ from other words by spaces.</string>
           <widget class="QComboBox" name="comboBox_APP_UNIT_BASE">
            <item>
             <property name="text">
-             <string>1024</string>
+             <string>IEC</string>
             </property>
            </item>
            <item>
             <property name="text">
-             <string>1000</string>
+             <string>JEDEC</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Metric</string>
             </property>
            </item>
           </widget>
@@ -490,7 +495,7 @@ from other words by spaces.</string>
             </sizepolicy>
            </property>
            <property name="toolTip">
-            <string>show kibibyte (KiB) or kilobyte (KB), etc.</string>
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;These expressions may be used for the time:&lt;/p&gt;&lt;table border=&quot;0&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px;&quot; cellspacing=&quot;2&quot; cellpadding=&quot;0&quot;&gt;&lt;thead&gt;&lt;tr&gt;&lt;td&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Expression&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Output&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;h&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;the hour without a leading zero (0 to 23 or 1 to 12 if AM/PM display)&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;hh&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;the hour with a leading zero (00 to 23 or 01 to 12 if AM/PM display)&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;H&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;the hour without a leading zero (0 to 23, even with AM/PM display)&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;HH&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;the hour with a leading zero (00 to 23, even with AM/PM display)&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;m&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;the minute without a leading zero (0 to 59)&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;mm&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;the minute with a leading zero (00 to 59)&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;s&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;the second without a leading zero (0 to 59)&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;ss&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;the second with a leading zero (00 to 59)&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;z&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;the milliseconds without leading zeroes (0 to 999)&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;zzz&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;the milliseconds with leading zeroes (000 to 999)&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;AP or A&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;use AM/PM display. &lt;span style=&quot; font-style:italic;&quot;&gt;A/AP&lt;/span&gt; will be replaced by either &amp;quot;AM&amp;quot; or &amp;quot;PM&amp;quot;.&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;ap or a&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;use am/pm display. &lt;span style=&quot; font-style:italic;&quot;&gt;a/ap&lt;/span&gt; will be replaced by either &amp;quot;am&amp;quot; or &amp;quot;pm&amp;quot;.&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;t&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;the timezone (for example &amp;quot;CEST&amp;quot;)&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
            <property name="text">
             <string>Timestamp</string>
@@ -500,13 +505,6 @@ from other words by spaces.</string>
            </property>
            <property name="wordWrap">
             <bool>true</bool>
-           </property>
-          </widget>
-         </item>
-         <item row="4" column="1">
-          <widget class="QLineEdit" name="lineEdit_TIMESTAMP">
-           <property name="text">
-            <string>hh:mm:ss</string>
            </property>
           </widget>
          </item>
@@ -565,6 +563,13 @@ from other words by spaces.</string>
              <string>Download</string>
             </property>
            </item>
+          </widget>
+         </item>
+         <item row="4" column="1">
+          <widget class="QLineEdit" name="lineEdit_TIMESTAMP">
+           <property name="text">
+            <string>hh:mm:ss</string>
+           </property>
           </widget>
          </item>
         </layout>

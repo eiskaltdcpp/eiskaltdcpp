@@ -304,12 +304,14 @@ list (APPEND AllLanguages
             el
             en
             es
+            eu
             fr
             hu
             it
             pl
             pt_BR
             ru
+            sr
             sr@latin
             sk
             uk

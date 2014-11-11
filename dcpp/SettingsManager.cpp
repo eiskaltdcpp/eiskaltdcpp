@@ -96,7 +96,7 @@ const string SettingsManager::settingTags[] =
     "IpFilter", "TextColor", "UseLua", "AllowNatt", "IpTOSValue", "SegmentSize",
     "BindIface", "MinimumSearchInterval", "EnableDynDNS", "AllowUploadOverMultiHubs",
     "UseADLOnlyOnOwnList", "AllowSimUploads", "CheckTargetsPathsOnStart", "NmdcDebug",
-    "ShareSkipZeroByte", "RequireTLS", "LogSpy",
+    "ShareSkipZeroByte", "RequireTLS", "LogSpy", "AppUnitBase",
     "SENTRY",
     // Int64
     "TotalUpload", "TotalDownload",
@@ -303,6 +303,7 @@ SettingsManager::SettingsManager()
     setDefault(ALLOW_SIM_UPLOADS, true);
     setDefault(CHECK_TARGETS_PATHS_ON_START, false);
     setDefault(SHARE_SKIP_ZERO_BYTE, false);
+    setDefault(APP_UNIT_BASE, 0);
     setSearchTypeDefaults();
 }
 
@@ -596,28 +597,41 @@ bool SettingsManager::getType(const char* name, int& n, int& type) const {
 
 const std::string SettingsManager::parseCoreCmd(const std::string& cmd) {
     StringTokenizer<string> sl(cmd, ' ');
-    if (sl.getTokens().size() == 1 || sl.getTokens().size() == 2) {
-        int n,type; string tmp;
-        getType(sl.getTokens().at(0).c_str(),n,type);
-        if (type == SettingsManager::TYPE_INT) {
-            if (sl.getTokens().size() == 2) {
-                int i = atoi(sl.getTokens().at(1).c_str());
-                set((SettingsManager::IntSetting)n,i);
-            } else if (sl.getTokens().size() == 1)
-                tmp = Util::toString(get((SettingsManager::IntSetting)n,false));
-        }
-        else if (type == SettingsManager::TYPE_STRING) {
-            if (sl.getTokens().size() == 2)
-                set((SettingsManager::StrSetting)n, sl.getTokens().at(1));
-            else if (sl.getTokens().size() == 1)
-                tmp = get((SettingsManager::StrSetting)n,false);
-         } else
-            return _("Error: setting not found!");
-        return !tmp.empty() ?
-        _("Core setting ") + string(sl.getTokens().at(0)) + ": " + tmp :
-        _("Change core setting ") + string(sl.getTokens().at(0)) + _(" to ") + string(sl.getTokens().at(1));
+    if (sl.getTokens().size() == 1) {
+        string ret;
+        bool b = parseCoreCmd(ret, sl.getTokens().at(0), Util::emptyString);
+        return (!b ? _("Error: setting not found!") : _("Core setting ") + sl.getTokens().at(0) + ": " + ret);
+    } else if (sl.getTokens().size() >= 2) {
+        string tmp = cmd.substr(sl.getTokens().at(0).size()+1);
+        string ret;
+        bool b = parseCoreCmd(ret, sl.getTokens().at(0), tmp);
+        return (!b ? _("Error: setting not found!") : _("Change core setting ") + sl.getTokens().at(0) + _(" to ") + tmp);
     }
-    return _("Error: segv parser :D");
+    return Util::emptyString;
+}
+
+bool SettingsManager::parseCoreCmd(string& ret, const std::string& key, const string& value) {
+    if (key.empty()) {
+        return false;
+    }
+
+    int n,type;
+    getType(key.c_str(),n,type);
+    if (type == SettingsManager::TYPE_INT) {
+        if (!value.empty()) {
+            int i = atoi(value.c_str());
+            set((SettingsManager::IntSetting)n,i);
+        } else if (value.empty())
+            ret = Util::toString(get((SettingsManager::IntSetting)n,false));
+    }
+    else if (type == SettingsManager::TYPE_STRING) {
+        if (!value.empty())
+            set((SettingsManager::StrSetting)n, value);
+        else if (value.empty())
+            ret = get((SettingsManager::StrSetting)n,false);
+    } else
+        return false;
+    return true;
 }
 
 } // namespace dcpp

@@ -497,6 +497,7 @@ private:
     static CountryList countries;
 
     static void loadBootConfig();
+    static string formatBytes(int64_t aBytes, uint8_t base);
 };
 
 /** Case sensitive hash function for strings */

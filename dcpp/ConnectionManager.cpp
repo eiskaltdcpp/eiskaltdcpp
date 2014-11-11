@@ -416,16 +416,10 @@ void ConnectionManager::on(AdcCommand::STA, UserConnection*, const AdcCommand& c
 }
 
 void ConnectionManager::on(UserConnectionListener::Connected, UserConnection* aSource) noexcept {
-
-    if(SETTING(REQUIRE_TLS) && !aSource->isSecure()) {
-        putConnection(aSource);
-        QueueManager::getInstance()->removeSource(aSource->getUser(), QueueItem::Source::FLAG_UNENCRYPTED);
-        return;
-    }
-
+    // incorrect check because aSource->getUser().get() == nullptr
     if(aSource->isSecure() && !aSource->isTrusted() && !BOOLSETTING(ALLOW_UNTRUSTED_CLIENTS)) {
         putConnection(aSource);
-        QueueManager::getInstance()->removeSource(aSource->getUser(), QueueItem::Source::FLAG_UNTRUSTED);
+//        QueueManager::getInstance()->removeSource(aSource->getUser(), QueueItem::Source::FLAG_UNTRUSTED);
         return;
     }
 

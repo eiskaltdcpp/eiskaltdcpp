@@ -635,23 +635,30 @@ string Util::getAwayMessage() {
     return (formatTime(awayMsg.empty() ? SETTING(DEFAULT_AWAY_MESSAGE) : awayMsg, awayTime)) + " <" APPNAME " v" VERSIONSTRING ">";
 }
 
-string Util::formatBytes(int64_t aBytes) {
+string Util::formatBytes(int64_t aBytes, uint8_t base) {
+    uint16_t a = (base < 2? 1024 : 1000);
+    float b = a*1.0;
+
     char buf[128];
-    if(aBytes < 1024) {
+    if(aBytes < a) {
         snprintf(buf, sizeof(buf), _("%d B"), (int)(aBytes&0xffffffff));
-    } else if(aBytes < 1024*1024) {
-        snprintf(buf, sizeof(buf), _("%.02f KiB"), (double)aBytes/(1024.0));
-    } else if(aBytes < 1024*1024*1024) {
-        snprintf(buf, sizeof(buf), _("%.02f MiB"), (double)aBytes/(1024.0*1024.0));
-    } else if(aBytes < (int64_t)1024*1024*1024*1024) {
-        snprintf(buf, sizeof(buf), _("%.02f GiB"), (double)aBytes/(1024.0*1024.0*1024.0));
-    } else if(aBytes < (int64_t)1024*1024*1024*1024*1024) {
-        snprintf(buf, sizeof(buf), _("%.02f TiB"), (double)aBytes/(1024.0*1024.0*1024.0*1024.0));
+    } else if(aBytes < a*a) {
+        snprintf(buf, sizeof(buf), (base == 0 ? _("%.02f KiB") : _("%.02f KB")), (double)aBytes/(b));
+    } else if(aBytes < a*a*a) {
+        snprintf(buf, sizeof(buf), (base == 0 ? _("%.02f MiB") : _("%.02f MB")), (double)aBytes/(b*b));
+    } else if(aBytes < (int64_t)a*a*a*a) {
+        snprintf(buf, sizeof(buf), (base == 0 ? _("%.02f GiB") : _("%.02f GB")), (double)aBytes/(b*b*b));
+    } else if(aBytes < (int64_t)a*a*a*a*a) {
+        snprintf(buf, sizeof(buf), (base == 0 ? _("%.02f TiB") : _("%.02f TB")), (double)aBytes/(b*b*b*b));
     } else {
-        snprintf(buf, sizeof(buf), _("%.02f PiB"), (double)aBytes/(1024.0*1024.0*1024.0*1024.0*1024.0));
+        snprintf(buf, sizeof(buf), (base == 0 ? _("%.02f PiB") : _("%.02f PB")), (double)aBytes/(b*b*b*b*b));
     }
 
     return buf;
+}
+
+string Util::formatBytes(int64_t aBytes) {
+    return formatBytes(aBytes, SETTING(APP_UNIT_BASE));
 }
 
 string Util::formatExactSize(int64_t aBytes) {

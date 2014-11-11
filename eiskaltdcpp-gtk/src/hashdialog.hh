@@ -46,4 +46,5 @@ class Hash:
         int64_t startBytes;
         size_t startFiles;
         uint64_t startTime;
+        gulong handler_id;
 };

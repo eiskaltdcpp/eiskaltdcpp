@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2014-05-09 12:42+0400\n"
+"POT-Creation-Date: 2014-11-09 02:35+0300\n"
 "PO-Revision-Date: 2014-02-21 22:59+0000\n"
 "Last-Translator: Márk Lutring <marcus@elitemail.hu>\n"
 "Language-Team: Hungarian (http://www.transifex.com/projects/p/eiskaltdcpp/"
@@ -61,15 +61,15 @@ msgstr "TTH"
 msgid "CD Image"
 msgstr "CD képfájl"
 
-#: ../SearchManager.cpp:146
+#: ../SearchManager.cpp:149
 msgid "Search enabled again"
 msgstr "Keresés ismét engedélyezve"
 
-#: ../SearchManager.cpp:154
+#: ../SearchManager.cpp:157
 msgid "Search disabled: %1%"
 msgstr "Keresés tiltva:%1%"
 
-#: ../SearchManager.cpp:278 ../SearchManager.cpp:365 ../SearchManager.cpp:367
+#: ../SearchManager.cpp:281 ../SearchManager.cpp:368 ../SearchManager.cpp:370
 #: ../Transfer.cpp:81 ../Transfer.cpp:85 ../QueueManager.cpp:2171
 #: ../QueueManager.cpp:2177 ../QueueManager.cpp:2183 ../ClientManager.cpp:178
 msgid "Offline"
@@ -103,17 +103,17 @@ msgstr "A hash adatfájl beolvasása nem lehetséges"
 msgid "Error creating hash data file: %1%"
 msgstr "Hiba a hash adatfájl létrehozásakor: %1%"
 
-#: ../HashManager.cpp:946
+#: ../HashManager.cpp:958
 msgid "Hash database rebuilt"
 msgstr "A hash adatbázis újraépítve"
 
-#: ../HashManager.cpp:1040
+#: ../HashManager.cpp:1052
 msgid ""
 "%1% not shared; calculated CRC32 does not match the one found in SFV file."
 msgstr ""
 "%1% nincs megosztva. A kiszámított CRC32 nem egyezik az SFV fájlban lévővel."
 
-#: ../HashManager.cpp:1045
+#: ../HashManager.cpp:1057
 msgid "Error hashing %1%: %2%"
 msgstr "Hiba a következő hashelésekor: %1%: %2%"
 
@@ -199,7 +199,7 @@ msgstr "A fájl küldése sikertelen: %1%: %2%"
 msgid "IPFilter: Blocked incoming connection to "
 msgstr "IPFilter: Blokkolt bejövő kapcsolat innen: "
 
-#: ../UploadManager.cpp:618
+#: ../UploadManager.cpp:625
 msgid "Disconnected user leaving the hub: %1%"
 msgstr "A hubról kilépő felhasználó szétkapcsolva: %1%"
 
@@ -456,31 +456,31 @@ msgstr "Eldob"
 msgid "SSL Error: %1% (%2%, %3%)"
 msgstr "SSL Hiba: %1% (%2%, %3%)"
 
-#: ../DownloadManager.cpp:134
+#: ../DownloadManager.cpp:135
 msgid "IPFilter: Blocked outgoing connection to "
 msgstr "IPFilter: Blokkolt kimenő kapcsolat: "
 
-#: ../DownloadManager.cpp:229
+#: ../DownloadManager.cpp:237
 msgid "Invalid size"
 msgstr "Érvénytelen méret"
 
-#: ../DownloadManager.cpp:234
+#: ../DownloadManager.cpp:242
 msgid "Response does not match request"
 msgstr "A válasz nem felel meg a kérésnek"
 
-#: ../DownloadManager.cpp:241
+#: ../DownloadManager.cpp:249
 msgid "Could not open target file: %1%"
 msgstr "Nem sikerült megnyitni a célfájlt a következő miatt: %1%"
 
-#: ../DownloadManager.cpp:320
+#: ../DownloadManager.cpp:328
 msgid "Full tree does not match TTH root"
 msgstr "A teljes fa nem megfelelő a TTH gyökérhez"
 
-#: ../DownloadManager.cpp:385
+#: ../DownloadManager.cpp:393
 msgid "No slots available"
 msgstr "Nincs szabad slot"
 
-#: ../DownloadManager.cpp:496
+#: ../DownloadManager.cpp:504
 msgid "%1%: File not available"
 msgstr "%1%: A fájl nem elérhető"
 
@@ -512,42 +512,67 @@ msgstr "Letöltési Sor"
 msgid "Users"
 msgstr "Felhasználó(k)"
 
-#: ../Util.cpp:641
+#: ../Util.cpp:644
 #, c-format
 msgid "%d B"
 msgstr "%d B"
 
-#: ../Util.cpp:643
+#: ../Util.cpp:646
 #, c-format
 msgid "%.02f KiB"
 msgstr "%.02f KiB"
 
-#: ../Util.cpp:645
+#: ../Util.cpp:646
+#, fuzzy, c-format
+msgid "%.02f KB"
+msgstr "%.02f KiB"
+
+#: ../Util.cpp:648
 #, c-format
 msgid "%.02f MiB"
 msgstr "%.02f MiB"
 
-#: ../Util.cpp:647
+#: ../Util.cpp:648
+#, fuzzy, c-format
+msgid "%.02f MB"
+msgstr "%.02f MiB"
+
+#: ../Util.cpp:650
 #, c-format
 msgid "%.02f GiB"
 msgstr "%.02f GiB"
 
-#: ../Util.cpp:649
+#: ../Util.cpp:650
+#, fuzzy, c-format
+msgid "%.02f GB"
+msgstr "%.02f GiB"
+
+#: ../Util.cpp:652
 #, c-format
 msgid "%.02f TiB"
 msgstr "%.02f TiB"
 
-#: ../Util.cpp:651
+#: ../Util.cpp:652
+#, fuzzy, c-format
+msgid "%.02f TB"
+msgstr "%.02f TiB"
+
+#: ../Util.cpp:654
 #, c-format
 msgid "%.02f PiB"
 msgstr "%.02f PiB"
 
-#: ../Util.cpp:681
+#: ../Util.cpp:654
+#, fuzzy, c-format
+msgid "%.02f PB"
+msgstr "%.02f PiB"
+
+#: ../Util.cpp:688
 #, c-format
 msgid "%s B"
 msgstr "%s B"
 
-#: ../Util.cpp:685
+#: ../Util.cpp:692
 #, c-format
 msgid "%'lld B"
 msgstr "%'lld B"
@@ -617,41 +642,37 @@ msgstr "A fájl-lista frissítése befejeződött"
 msgid "File list %1% generated"
 msgstr "Fájl-lista %1% létrehozva"
 
-#: ../SettingsManager.cpp:179
+#: ../SettingsManager.cpp:180
 msgid "downloaded from"
 msgstr "letöltve"
 
-#: ../SettingsManager.cpp:515
+#: ../SettingsManager.cpp:517
 msgid "Invalid search type name"
 msgstr "Érvénytelen keresési feltétel"
 
-#: ../SettingsManager.cpp:519 ../SettingsManager.cpp:541
+#: ../SettingsManager.cpp:521 ../SettingsManager.cpp:543
 msgid "This search type already exists"
 msgstr "A megadott keresési feltétel már létezik"
 
-#: ../SettingsManager.cpp:573
+#: ../SettingsManager.cpp:575
 msgid "No such search type"
 msgstr "Keresési feltétel nem található"
 
-#: ../SettingsManager.cpp:614
+#: ../SettingsManager.cpp:603 ../SettingsManager.cpp:608
 msgid "Error: setting not found!"
 msgstr "Hiba: Beállítás nem található!"
 
-#: ../SettingsManager.cpp:616
+#: ../SettingsManager.cpp:603
 msgid "Core setting "
 msgstr "Alapbeállítás"
 
-#: ../SettingsManager.cpp:617
+#: ../SettingsManager.cpp:608
 msgid "Change core setting "
 msgstr "Alapbeállítás megváltoztatása: "
 
-#: ../SettingsManager.cpp:617
+#: ../SettingsManager.cpp:608
 msgid " to "
 msgstr "erre:"
-
-#: ../SettingsManager.cpp:619
-msgid "Error: segv parser :D"
-msgstr "Hiba: segv-elemző :D"
 
 #: ../Socket.cpp:86
 #, c-format
@@ -731,3 +752,6 @@ msgstr "A kértnél több byte írása történt"
 #: ../MerkleCheckOutputStream.h:52 ../MerkleCheckOutputStream.h:112
 msgid "TTH inconsistency"
 msgstr "TTH inkonzisztencia"
+
+#~ msgid "Error: segv parser :D"
+#~ msgstr "Hiba: segv-elemző :D"

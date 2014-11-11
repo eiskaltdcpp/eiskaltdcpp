@@ -73,7 +73,7 @@ TransferView::Menu::Menu():
     copy_column->addAction(tr("Size"));
     copy_column->addAction(tr("Time left"));
     copy_column->addAction(tr("Filename"));
-    copy_column->addAction(tr("Host"));
+    copy_column->addAction(tr("Hub"));
     copy_column->addAction(tr("IP"));
     copy_column->addAction(tr("Encryption"));
     copy_column->addAction(tr("Magnet"));

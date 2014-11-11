@@ -14,6 +14,7 @@
 
 #include <QCloseEvent>
 #include <QDir>
+#include <QComboBox>
 
 ShareBrowserSearch::ShareBrowserSearch(FileBrowserModel *model, QWidget *parent): QDialog(parent), searchRoot(NULL) {
     if ( !model )
@@ -26,6 +27,7 @@ ShareBrowserSearch::ShareBrowserSearch(FileBrowserModel *model, QWidget *parent)
     if (WVGET("sharebrowsersearch/size").isValid())
         resize(WVGET("sharebrowsersearch/size").toSize());
 
+    comboBox_TYPE_SEARCH->setCurrentIndex(WVGET("sharebrowsersearch/currenttype").toInt());
     treeWidget->header()->restoreState(WVGET("sharebrowsersearch/columnstate").toByteArray());
 
     setAttribute(Qt::WA_DeleteOnClose, true);
@@ -46,6 +48,7 @@ ShareBrowserSearch::~ShareBrowserSearch(){
 void ShareBrowserSearch::closeEvent(QCloseEvent *e){
     WVSET("sharebrowsersearch/size", size());
     WVSET("sharebrowsersearch/columnstate", treeWidget->header()->saveState());
+    WVSET("sharebrowsersearch/currenttype", comboBox_TYPE_SEARCH->currentIndex());
 
     QDialog::closeEvent(e);
 }
@@ -58,6 +61,7 @@ void ShareBrowserSearch::slotStartSearch(){
     treeWidget->clear();
 
     hash.clear();
+    items.clear();
 
     label_STATS->setText("");
 
@@ -119,19 +123,25 @@ void ShareBrowserSearch::findMatches(FileBrowserItem *item){
         model->fetchMore(index);
     
     QString fname = "";
-
+    int type_search = comboBox_TYPE_SEARCH->currentIndex();
     for (const auto &i : item->childItems){
         if (i->dir){
-            findMatches(i);
-
-            DirectoryListing::File::List *files = &i->dir->files;
-            DirectoryListing::File::Iter it_file;
-
-            for (it_file = files->begin(); it_file != files->end(); ++it_file){
-                fname = _q((*it_file)->getName());
-                
+            if (type_search == 1 || type_search == 2) {
+                fname = _q(i->dir->getName());
                 if (fname.indexOf(lineEdit_SEARCHSTR->text(), 0, Qt::CaseInsensitive) >= 0 || fname.indexOf(regexp) >= 0 || regexp.exactMatch(fname))
-                    emit gotItem(_q((*it_file)->getName()), i);
+                    emit gotItem(_q(i->dir->getName()), item);
+            }
+            findMatches(i);
+            if (type_search == 0 || type_search == 2) {
+                DirectoryListing::File::List *files = &i->dir->files;
+                DirectoryListing::File::Iter it_file;
+
+                for (it_file = files->begin(); it_file != files->end(); ++it_file){
+                    fname = _q((*it_file)->getName());
+
+                    if (fname.indexOf(lineEdit_SEARCHSTR->text(), 0, Qt::CaseInsensitive) >= 0 || fname.indexOf(regexp) >= 0 || regexp.exactMatch(fname))
+                        emit gotItem(_q((*it_file)->getName()), i);
+                }
             }
         }
     }

@@ -39,6 +39,9 @@ BEGIN {
 	 "/usr/share/eiskaltdcpp/cli"
 }
 
+# use quit, exit or ctrl+d to exit
+$SIG{INT} = 'IGNORE';
+
 # preparing terminal
 use utf8;
 use locale;
@@ -46,8 +49,8 @@ binmode STDOUT, ':utf8';
 
 # configuration
 our %config;
-$config{version}=0.6;
-$config{revision}=20140521;
+$config{version}=0.7;
+$config{revision}=20140608;
 require "cli-jsonrpc-config.pl";
 
 # processing command line options
@@ -224,7 +227,6 @@ sub get_commands
 			maxargs => 1,
 			proc => \&sharelist
 		},
-
 		"share.refresh" =>
 		{
 			desc => "Refresh a share, hash up new files. Parameters: none",
@@ -408,6 +410,11 @@ sub get_commands
 			desc => "Get queue item full info. Parameters: target",
 			maxargs => 1,
 			proc => \&queuegetiteminfo
+		},
+		"queue.clear" =>
+		{
+			desc => "Clear download queue. Parameters: none",
+			proc => \&queueclear
 		},
 		# last
 		"prompt" =>
@@ -1602,6 +1609,29 @@ sub queuegetiteminfo()
 	delete($obj->{'params'});
 }
 
+sub queueclear()
+{
+	$obj->{'id'} = int(rand(2**16));
+	$obj->{'method'} = 'queue.clear';
+	if ($config{debug} > 0) { print("===Request===\n".Dumper($obj)."\n") };
+	$res = $client->call($config{eiskaltURL}, $obj);
+	if ($res)
+	{
+		if ($res->is_error) 
+		{
+			print("===Error===\nCode: ".$res->error_message->{'code'}."===\n".$res->error_message->{'message'}."\n");
+		}
+		else
+		{
+			print("===Reply===\n".$res->result."\n");
+		}
+	}
+	else
+	{
+		print $client->status_line;
+	}
+}
+
 __END__
 
 =pod
@@ -1650,5 +1680,6 @@ list.downloaddir +0.6
 queue.matchlists +0.6
 queue.getiteminfo +0.6
 queue.add
+queue.clear +0.7
 =cut
 

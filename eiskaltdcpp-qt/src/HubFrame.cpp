@@ -295,7 +295,7 @@ HubFrame::Menu::Action HubFrame::Menu::execUserMenu(Client *client, const QStrin
     menu->clear();
     menu->setProperty("iconVisibleInMenu", true);
 
-    menu->setTitle(WulforUtil::getInstance()->getNicks(cid, _q(client->getHubUrl())));
+    menu->setTitle(WulforUtil::getInstance()->getNickViaOnlineUser(cid, _q(client->getHubUrl())));
 
     if (menu->title().isEmpty())
         menu->setTitle(tr("[User went offline]"));
@@ -371,8 +371,7 @@ HubFrame::Menu::Action HubFrame::Menu::execChatMenu(Client *client, const QStrin
         return None;
 
     menu->clear();
-
-    QAction *title = new QAction(WulforUtil::getInstance()->getNicks(cid, _q(client->getHubUrl())), menu);
+    QAction *title = new QAction(WulforUtil::getInstance()->getNickViaOnlineUser(cid, _q(client->getHubUrl())), menu);
     QFont f;
     f.setBold(true);
     title->setFont(f);

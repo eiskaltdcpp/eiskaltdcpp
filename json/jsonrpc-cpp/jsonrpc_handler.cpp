@@ -148,8 +148,8 @@ namespace Json
         error["id"] = Json::Value::null;
         error["jsonrpc"] = "2.0";
 
-        err["code"] = INVALID_REQUEST;
-        err["message"] = "Invalid JSON-RPC request.";
+        err["code"] = INVALID_PARAMS;
+        err["message"] = "Invalid params in JSON-RPC request.";
         error["error"] = err;
         return false;
       }

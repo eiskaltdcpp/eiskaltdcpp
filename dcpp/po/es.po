@@ -4,16 +4,18 @@
 #
 # Translators:
 # Translators:
-# Klondike klondikeño <franxisco1988@gmail.com>, 2013
-# Klondike klondikeño <franxisco1988@gmail.com>, 2012
+# Translators:
+# franxisco1988 <franxisco1988@gmail.com>, 2013
+# franxisco1988 <franxisco1988@gmail.com>, 2012
 # Gustavo Alvarez Lopez <sl1pkn07@gmail.com>, 2012-2013
+# franxisco1988 <franxisco1988@gmail.com>, 2012-2013
 msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2014-05-09 12:42+0400\n"
-"PO-Revision-Date: 2013-11-19 16:45+0000\n"
-"Last-Translator: Klondike klondikeño <franxisco1988@gmail.com>\n"
+"POT-Creation-Date: 2014-11-09 02:35+0300\n"
+"PO-Revision-Date: 2014-07-05 01:21+0000\n"
+"Last-Translator: Gustavo Alvarez Lopez <sl1pkn07@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/eiskaltdcpp/"
 "language/es/)\n"
 "Language: es\n"
@@ -62,15 +64,15 @@ msgstr "TTH"
 msgid "CD Image"
 msgstr "Imagen de CD"
 
-#: ../SearchManager.cpp:146
+#: ../SearchManager.cpp:149
 msgid "Search enabled again"
 msgstr "Búsqueda habilitada de nuevo"
 
-#: ../SearchManager.cpp:154
+#: ../SearchManager.cpp:157
 msgid "Search disabled: %1%"
 msgstr "Búsqueda desactivada: %1%"
 
-#: ../SearchManager.cpp:278 ../SearchManager.cpp:365 ../SearchManager.cpp:367
+#: ../SearchManager.cpp:281 ../SearchManager.cpp:368 ../SearchManager.cpp:370
 #: ../Transfer.cpp:81 ../Transfer.cpp:85 ../QueueManager.cpp:2171
 #: ../QueueManager.cpp:2177 ../QueueManager.cpp:2183 ../ClientManager.cpp:178
 msgid "Offline"
@@ -104,18 +106,18 @@ msgstr "No se pudo leer el archivo índices"
 msgid "Error creating hash data file: %1%"
 msgstr "Error al crear el archivo índice: %1%"
 
-#: ../HashManager.cpp:946
+#: ../HashManager.cpp:958
 msgid "Hash database rebuilt"
 msgstr "Base de datos de índices reconstruida"
 
-#: ../HashManager.cpp:1040
+#: ../HashManager.cpp:1052
 msgid ""
 "%1% not shared; calculated CRC32 does not match the one found in SFV file."
 msgstr ""
 "%1% no compartido; el CRC32 calculado no concuerda con el encontrado en el "
 "archivo SFV."
 
-#: ../HashManager.cpp:1045
+#: ../HashManager.cpp:1057
 msgid "Error hashing %1%: %2%"
 msgstr "Error en el indexado %1%: %2%"
 
@@ -200,7 +202,7 @@ msgstr "Imposible enviar archivo  %1%: %2%"
 msgid "IPFilter: Blocked incoming connection to "
 msgstr "IPFilter: Bloqueada conexión de entrada a "
 
-#: ../UploadManager.cpp:618
+#: ../UploadManager.cpp:625
 msgid "Disconnected user leaving the hub: %1%"
 msgstr "Se ha desconectado al usuario que ha dejado el hub: %1%"
 
@@ -454,31 +456,31 @@ msgstr "Descartar"
 msgid "SSL Error: %1% (%2%, %3%)"
 msgstr "SSL Error: %1% (%2%, %3%)"
 
-#: ../DownloadManager.cpp:134
+#: ../DownloadManager.cpp:135
 msgid "IPFilter: Blocked outgoing connection to "
 msgstr "IPFilter: Bloqueada conexión saliente a "
 
-#: ../DownloadManager.cpp:229
+#: ../DownloadManager.cpp:237
 msgid "Invalid size"
 msgstr "Tamaño no válido"
 
-#: ../DownloadManager.cpp:234
+#: ../DownloadManager.cpp:242
 msgid "Response does not match request"
 msgstr "La respuesta no encaja con la petición"
 
-#: ../DownloadManager.cpp:241
+#: ../DownloadManager.cpp:249
 msgid "Could not open target file: %1%"
 msgstr "No se puede abrir el archivo de destino: %1%"
 
-#: ../DownloadManager.cpp:320
+#: ../DownloadManager.cpp:328
 msgid "Full tree does not match TTH root"
 msgstr "El árbol TTH no encaja con la raíz"
 
-#: ../DownloadManager.cpp:385
+#: ../DownloadManager.cpp:393
 msgid "No slots available"
 msgstr "No hay slots disponibles"
 
-#: ../DownloadManager.cpp:496
+#: ../DownloadManager.cpp:504
 msgid "%1%: File not available"
 msgstr "%1%: Archivo no disponible"
 
@@ -510,42 +512,67 @@ msgstr "Cola de Descargas"
 msgid "Users"
 msgstr "Usuarios"
 
-#: ../Util.cpp:641
+#: ../Util.cpp:644
 #, c-format
 msgid "%d B"
 msgstr "%d B"
 
-#: ../Util.cpp:643
+#: ../Util.cpp:646
 #, c-format
 msgid "%.02f KiB"
 msgstr "%.02f KiB"
 
-#: ../Util.cpp:645
+#: ../Util.cpp:646
+#, fuzzy, c-format
+msgid "%.02f KB"
+msgstr "%.02f KiB"
+
+#: ../Util.cpp:648
 #, c-format
 msgid "%.02f MiB"
 msgstr "%.02f MiB"
 
-#: ../Util.cpp:647
+#: ../Util.cpp:648
+#, fuzzy, c-format
+msgid "%.02f MB"
+msgstr "%.02f MiB"
+
+#: ../Util.cpp:650
 #, c-format
 msgid "%.02f GiB"
 msgstr "%.02f GiB"
 
-#: ../Util.cpp:649
+#: ../Util.cpp:650
+#, fuzzy, c-format
+msgid "%.02f GB"
+msgstr "%.02f GiB"
+
+#: ../Util.cpp:652
 #, c-format
 msgid "%.02f TiB"
 msgstr "%.02f TiB"
 
-#: ../Util.cpp:651
+#: ../Util.cpp:652
+#, fuzzy, c-format
+msgid "%.02f TB"
+msgstr "%.02f TiB"
+
+#: ../Util.cpp:654
 #, c-format
 msgid "%.02f PiB"
 msgstr "%.02f PiB"
 
-#: ../Util.cpp:681
+#: ../Util.cpp:654
+#, fuzzy, c-format
+msgid "%.02f PB"
+msgstr "%.02f PiB"
+
+#: ../Util.cpp:688
 #, c-format
 msgid "%s B"
 msgstr "%s B"
 
-#: ../Util.cpp:685
+#: ../Util.cpp:692
 #, c-format
 msgid "%'lld B"
 msgstr "%'lld B"
@@ -611,41 +638,37 @@ msgstr "Refresco de la lista de archivos terminada"
 msgid "File list %1% generated"
 msgstr "Lista de archivos %1% generada"
 
-#: ../SettingsManager.cpp:179
+#: ../SettingsManager.cpp:180
 msgid "downloaded from"
 msgstr "descargado de"
 
-#: ../SettingsManager.cpp:515
+#: ../SettingsManager.cpp:517
 msgid "Invalid search type name"
 msgstr "Nombre del tipo a buscar invalido"
 
-#: ../SettingsManager.cpp:519 ../SettingsManager.cpp:541
+#: ../SettingsManager.cpp:521 ../SettingsManager.cpp:543
 msgid "This search type already exists"
 msgstr "Este tipo de búsquedas ya existe"
 
-#: ../SettingsManager.cpp:573
+#: ../SettingsManager.cpp:575
 msgid "No such search type"
 msgstr "Tipo de búsqueda no encontrada"
 
-#: ../SettingsManager.cpp:614
+#: ../SettingsManager.cpp:603 ../SettingsManager.cpp:608
 msgid "Error: setting not found!"
 msgstr "Error: ¡configuración no encontrada!"
 
-#: ../SettingsManager.cpp:616
+#: ../SettingsManager.cpp:603
 msgid "Core setting "
 msgstr "Configuración del núcleo"
 
-#: ../SettingsManager.cpp:617
+#: ../SettingsManager.cpp:608
 msgid "Change core setting "
 msgstr "Cambiada la configuración del núcleo "
 
-#: ../SettingsManager.cpp:617
+#: ../SettingsManager.cpp:608
 msgid " to "
 msgstr " a "
-
-#: ../SettingsManager.cpp:619
-msgid "Error: segv parser :D"
-msgstr "Error: parseador de segv :D"
 
 #: ../Socket.cpp:86
 #, c-format
@@ -725,3 +748,6 @@ msgstr "Más bytes escritos de los requeridos"
 #: ../MerkleCheckOutputStream.h:52 ../MerkleCheckOutputStream.h:112
 msgid "TTH inconsistency"
 msgstr "Incnsistencia TTH"
+
+#~ msgid "Error: segv parser :D"
+#~ msgstr "Error: parseador de segv :D"

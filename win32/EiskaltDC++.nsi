@@ -51,6 +51,10 @@ SetCompressor /SOLID lzma
 !insertmacro MUI_LANGUAGE "PortugueseBR"
 !insertmacro MUI_LANGUAGE "SimpChinese"
 !insertmacro MUI_LANGUAGE "Swedish"
+!insertmacro MUI_LANGUAGE "Serbian"
+!insertmacro MUI_LANGUAGE "Basque"
+!insertmacro MUI_LANGUAGE "Romanian"
+;!insertmacro MUI_LANGUAGE "Vietnamese"
 !insertmacro MUI_RESERVEFILE_LANGDLL
 Function .onInit
   !insertmacro MUI_LANGDLL_DISPLAY
@@ -87,7 +91,6 @@ Section "EiskaltDC++"
   File "installer\libgcc_s_dw2-1.dll"
   File "installer\libeay32.dll"
   File "installer\ssleay32.dll"
-  File "installer\mingwm10.dll"
   File "installer\libintl-8.dll"
   File "installer\libaspell-15.dll"
   File "installer\lua51.dll"
@@ -97,6 +100,7 @@ Section "EiskaltDC++"
   File "installer\libz-1.dll"
   ;File "installer\libgcc_s_sjlj-1.dll"
   File "installer\libstdc++-6.dll"
+  File "installer\libwinpthread-1.dll"
   File "installer\libpcrecpp-0.dll"
   File "installer\libpcre-0.dll"
 

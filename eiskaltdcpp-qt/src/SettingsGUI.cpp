@@ -80,9 +80,11 @@ void SettingsGUI::init(){
         langNames["fr.qm"]       = tr("French");
         langNames["pl.qm"]       = tr("Polish");
         langNames["pt_BR.qm"]    = tr("Portuguese (Brazil)");
+        langNames["sr.qm"]       = tr("Serbian (Cyrillic)");
         langNames["sr@latin.qm"] = tr("Serbian (Latin)");
         langNames["uk.qm"]       = tr("Ukrainian");
         langNames["es.qm"]       = tr("Spanish");
+		langNames["eu.qm"]       = tr("Basque");
         langNames["bg.qm"]       = tr("Bulgarian");
         langNames["sk.qm"]       = tr("Slovak");
         langNames["cs.qm"]       = tr("Czech");
@@ -222,7 +224,7 @@ void SettingsGUI::init(){
         comboBox_DBL_CLICK->setCurrentIndex(WIGET(WI_CHAT_DBLCLICK_ACT));
         comboBox_MDL_CLICK->setCurrentIndex(WIGET(WI_CHAT_MDLCLICK_ACT));
         comboBox_DEF_MAGNET_ACTION->setCurrentIndex(WIGET(WI_DEF_MAGNET_ACTION));
-        comboBox_APP_UNIT_BASE->setCurrentIndex(comboBox_APP_UNIT_BASE->findText(QString::number(WIGET(WI_APP_UNIT_BASE))));
+        comboBox_APP_UNIT_BASE->setCurrentIndex(SETTING(APP_UNIT_BASE));
         checkBox_HIGHLIGHTFAVS->setChecked(WBGET(WB_CHAT_HIGHLIGHT_FAVS));
         checkBox_CHAT_SHOW_IP->setChecked(BOOLSETTING(USE_IP));
         checkBox_CHAT_SHOW_CC->setChecked(BOOLSETTING(GET_USER_COUNTRY));
@@ -378,7 +380,8 @@ void SettingsGUI::ok(){
         if (WSGET(WS_APP_EMOTICON_THEME) != comboBox_EMOT->currentText()){
             WSSET(WS_APP_EMOTICON_THEME, comboBox_EMOT->currentText());
 
-            EmoticonFactory::getInstance()->load();
+            if (EmoticonFactory::getInstance())
+                EmoticonFactory::getInstance()->load();
         }
 
         if (comboBox_TABBAR->currentIndex() == 2){
@@ -416,7 +419,7 @@ void SettingsGUI::ok(){
         WISET(WI_CHAT_DBLCLICK_ACT, comboBox_DBL_CLICK->currentIndex());
         WISET(WI_CHAT_MDLCLICK_ACT, comboBox_MDL_CLICK->currentIndex());
         WISET(WI_DEF_MAGNET_ACTION, comboBox_DEF_MAGNET_ACTION->currentIndex());
-        WISET(WI_APP_UNIT_BASE, comboBox_APP_UNIT_BASE->currentText().toInt());
+        SM->set(SettingsManager::APP_UNIT_BASE, comboBox_APP_UNIT_BASE->currentIndex());
         WBSET(WB_CHAT_HIGHLIGHT_FAVS, checkBox_HIGHLIGHTFAVS->isChecked());
         SM->set(SettingsManager::USE_IP, checkBox_CHAT_SHOW_IP->isChecked());
         WBSET("hubframe/use-bb-code", checkBox_BB_CODE->isChecked());

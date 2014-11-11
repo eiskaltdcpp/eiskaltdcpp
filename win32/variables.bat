@@ -17,8 +17,8 @@ set BUILD_DIR=.
 set INSTALL_DIR=%BUILD_DIR%\EiskaltDC++
 set INSTALLER_DIR=%BUILD_DIR%\installer
 
-set MINGW32_DIR=%SystemDrive%\MinGW
-set QT_MINGW32_DIR=%SystemDrive%\Qt\4.8.5
+set MINGW32_DIR=%SystemDrive%\mingw32
+set QT_MINGW32_DIR=%SystemDrive%\Qt\4.8.6
 
 set OPENSSL_DIR=%SystemDrive%\OpenSSL-Win32
 set MINGW32_DEPENDS_DIR=%SystemDrive%\eiskaltdcpp\mingw32-depends
@@ -40,4 +40,5 @@ set PCRE_HEADERS_DIR=C:/eiskaltdcpp/mingw32-depends/pcre/include
 set PATH=%QT_MINGW32_DIR%\bin
 set PATH=%PATH%;%MINGW32_DIR%\bin
 set PATH=%PATH%;%CMAKE_DIR%\bin
+set PATH=%PATH%;%LIBICONV_DIR%\bin
 set PATH=%PATH%;%SystemRoot%\System32

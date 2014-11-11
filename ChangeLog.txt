@@ -3,6 +3,9 @@
 * GCC < 4.6 and Clang < 3.1 are not supported anymore.
 * Added option (ShareSkipZeroByte) for skipping zero sized files from share.
 * Thanks to Anh Phan the Vietnamese translation is now available.
+* Thanks to Marko Trifunović the Serbian (Cyrillic) translation is now
+  available.
+* Thanks to Egoitz Rodriguez the Basque translation is now available.
 * Fixed finding of Lua 5.2.x during configuration.
 * The local copy of miniupnpc is updated to version 1.8. Build with old
   miniupnpc versions (1.5.x, 1.6.x and 1.7.x) is still supported.
@@ -717,7 +720,7 @@
 * Added graphical configuration of user commands in the Settings dialog.
   (In previous versions it was necessary to edit xml-config manually)
 * Thanks to Dmytro Demenko the Ukrainian translation is now available.
-* Thanks to Miroslav Petrovic the Serbian translation is now available.
+* Thanks to Miroslav Petrovic the Serbian (Latin) translation is now available.
 * Preferences moved to $XDG_CONFIG_HOME/eiskaltdc++/ directory (environment
   variable $XDG_CONFIG_HOME mostly often defined as ~/.config/). Preferences
   directory will be automatically moved at first start after the upgrade.
