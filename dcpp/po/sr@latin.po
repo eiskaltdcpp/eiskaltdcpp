@@ -1,12 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR EiskaltDC++ team
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Translators:
 # Translators:
+# Translators:
+# markosm <pausovic@gmail.com>, 2014
 #   <miroslav031@gmail.com>, 2012
-# miroslav <miroslav031@yandex.com>, 2013
+# miroslav <miroslav031@yandex.com>, 2013-2014
 # miroslav <miroslav031@yandex.com>, 2013
 # markosm <pausovic@gmail.com>, 2014
 msgid ""
@@ -14,16 +16,14 @@ msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
 "POT-Creation-Date: 2014-11-09 02:35+0300\n"
-"PO-Revision-Date: 2014-10-11 11:07+0000\n"
-"Last-Translator: markosm <pausovic@gmail.com>\n"
-"Language-Team: Serbian (Latin) (http://www.transifex.com/projects/p/"
-"eiskaltdcpp/language/sr@latin/)\n"
-"Language: sr@latin\n"
+"PO-Revision-Date: 2014-11-12 19:17+0000\n"
+"Last-Translator: miroslav <miroslav031@yandex.com>\n"
+"Language-Team: Serbian (Latin) (http://www.transifex.com/projects/p/eiskaltdcpp/language/sr@latin/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Language: sr@latin\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: ../SearchManager.cpp:36
 msgid "Any"
@@ -114,8 +114,7 @@ msgstr "Obnavaljam hash bazu podataka"
 #: ../HashManager.cpp:1052
 msgid ""
 "%1% not shared; calculated CRC32 does not match the one found in SFV file."
-msgstr ""
-"%1% nije deljeno; izračunati CRC32 se ne poklapa sa onim u SFV datoteci."
+msgstr "%1% nije deljeno; izračunati CRC32 se ne poklapa sa onim u SFV datoteci."
 
 #: ../HashManager.cpp:1057
 msgid "Error hashing %1%: %2%"
@@ -131,10 +130,9 @@ msgstr "Odredjivanje najboljih podešavanja za povezivanje..."
 
 #: ../ConnectivityManager.cpp:85
 msgid ""
-"Unable to open %1% port(s); connectivity settings must be configured manually"
-msgstr ""
-"Ne može se otvoriti  %1% port(s); Podešavanja povezivanja moraju se ručno "
-"kofigurisati"
+"Unable to open %1% port(s); connectivity settings must be configured "
+"manually"
+msgstr "Ne može se otvoriti  %1% port(s); Podešavanja povezivanja moraju se ručno kofigurisati"
 
 #: ../ConnectivityManager.cpp:95
 msgid ""
@@ -145,17 +143,13 @@ msgstr "Javna IP adresa otkrivena, izaberi aktivni režim sa direktnom vezom"
 msgid ""
 "Local network with possible NAT detected, trying to map the ports using "
 "UPnP..."
-msgstr ""
-"Lokalna mreža sa mogućim NAT detektovanim, pokušava da mapira portove "
-"koristeći UPnP..."
+msgstr "Lokalna mreža sa mogućim NAT detektovanim, pokušava da mapira portove koristeći UPnP..."
 
 #: ../ConnectivityManager.cpp:130
 msgid ""
 "Automatic setup of active mode has failed. You may want to set up your "
 "connection manually for better connectivity"
-msgstr ""
-"Automatsko podešavanje aktivnog režima nije uspelo. Možda ćete želeti da "
-"podesite konekciju ručno za bolje povezivanje"
+msgstr "Automatsko podešavanje aktivnog režima nije uspelo. Možda ćete želeti da podesite konekciju ručno za bolje povezivanje"
 
 #: ../ConnectivityManager.cpp:142
 msgid "Transfer (TCP)"
@@ -254,9 +248,7 @@ msgstr "Ime odredišne datoteke je predugačko"
 msgid ""
 "Invalid target file (missing directory, check default download directory "
 "setting)"
-msgstr ""
-"Neispravna odredišna datoteka (nema direktorijuma, proveri podešavanje "
-"standardnog direktorijuma za preuzimanje)"
+msgstr "Neispravna odredišna datoteka (nema direktorijuma, proveri podešavanje standardnog direktorijuma za preuzimanje)"
 
 #: ../QueueManager.cpp:864
 msgid "File already exists at the target location"
@@ -280,8 +272,7 @@ msgstr "Onemogućeno pokretanje %1% to %2% (%3%); preimenovano %4%"
 
 #: ../QueueManager.cpp:1208
 msgid "Unable to move %1% to %2% (%3%) nor to rename to %4% (%5%)"
-msgstr ""
-"Onemogućeno pokretanje %1% to %2% (%3%) nemoguće preimenovati %4% (%5%)"
+msgstr "Onemogućeno pokretanje %1% to %2% (%3%) nemoguće preimenovati %4% (%5%)"
 
 #: ../QueueManager.cpp:1403
 msgid "Unable to open filelist: %1%"
@@ -292,9 +283,9 @@ msgid "%1%: Matched %2% file"
 msgstr "%1% Podudaranje: %2% fajla"
 
 #: ../QueueManager.cpp:1796
-msgid "Target path for this item is not available: %1%; pause this queue item."
-msgstr ""
-"Ciljna putanja za ovu stavku nije dostupna: %1%; pauziraj  ovu stavku u redu."
+msgid ""
+"Target path for this item is not available: %1%; pause this queue item."
+msgstr "Ciljna putanja za ovu stavku nije dostupna: %1%; pauziraj  ovu stavku u redu."
 
 #: ../QueueManager.cpp:2035 ../QueueManager.cpp:2044
 msgid "CRC32 inconsistency (SFV-Check)"
@@ -316,9 +307,7 @@ msgstr "Ne mogu da uspostavim bazni protokol"
 msgid ""
 "Hub probably uses an old version of ADC, please encourage the owner to "
 "upgrade"
-msgstr ""
-"Hub verovatno koristi staru verziju ADC-a, molim predložite vlasniku da "
-"pređe na novu verziju"
+msgstr "Hub verovatno koristi staru verziju ADC-a, molim predložite vlasniku da pređe na novu verziju"
 
 #: ../AdcHub.cpp:305
 msgid "%1% was kicked by %2%: %3%"
@@ -356,9 +345,7 @@ msgstr "Hab tema:"
 msgid ""
 "This hub is trying to use your client to spam %1%, please urge hub owner to "
 "fix this"
-msgstr ""
-"Ovaj hab je probao da koristi tvoj klijent za spam %1%, obavestite vlasnika "
-"haba da to popravi"
+msgstr "Ovaj hab je probao da koristi tvoj klijent za spam %1%, obavestite vlasnika haba da to popravi"
 
 #: ../ConnectionManager.cpp:179
 msgid "All download slots taken"
@@ -420,9 +407,7 @@ msgstr "Port DHT  (%1% UDP)"
 msgid ""
 "Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%), mapped "
 "using the %4% interface"
-msgstr ""
-"Uspešno kreiran port maping(TCP: %1%, UDP: %2%, TLS: %3%) mapiranje koristi  "
-"%4% interfejsa"
+msgstr "Uspešno kreiran port maping(TCP: %1%, UDP: %2%, TLS: %3%) mapiranje koristi  %4% interfejsa"
 
 #: ../UPnPManager.cpp:119
 msgid "Failed to get external IP"
@@ -523,9 +508,9 @@ msgid "%.02f KiB"
 msgstr "%.02f KiB"
 
 #: ../Util.cpp:646
-#, fuzzy, c-format
+#, c-format
 msgid "%.02f KB"
-msgstr "%.02f KiB"
+msgstr "%.02f KB"
 
 #: ../Util.cpp:648
 #, c-format
@@ -533,9 +518,9 @@ msgid "%.02f MiB"
 msgstr "%.02f MiB"
 
 #: ../Util.cpp:648
-#, fuzzy, c-format
+#, c-format
 msgid "%.02f MB"
-msgstr "%.02f MiB"
+msgstr "%.02f MB"
 
 #: ../Util.cpp:650
 #, c-format
@@ -543,9 +528,9 @@ msgid "%.02f GiB"
 msgstr "%.02f GiB"
 
 #: ../Util.cpp:650
-#, fuzzy, c-format
+#, c-format
 msgid "%.02f GB"
-msgstr "%.02f GiB"
+msgstr "%.02f GB"
 
 #: ../Util.cpp:652
 #, c-format
@@ -553,9 +538,9 @@ msgid "%.02f TiB"
 msgstr "%.02f TiB"
 
 #: ../Util.cpp:652
-#, fuzzy, c-format
+#, c-format
 msgid "%.02f TB"
-msgstr "%.02f TiB"
+msgstr "%.02f TB"
 
 #: ../Util.cpp:654
 #, c-format
@@ -563,9 +548,9 @@ msgid "%.02f PiB"
 msgstr "%.02f PiB"
 
 #: ../Util.cpp:654
-#, fuzzy, c-format
+#, c-format
 msgid "%.02f PB"
-msgstr "%.02f PiB"
+msgstr "%.02f PB"
 
 #: ../Util.cpp:688
 #, c-format
@@ -609,17 +594,13 @@ msgstr "Korisnik je izabrao da ne delite privremeni fajl: %1% (Veličina: %2%)"
 msgid ""
 "Duplicate file will not be shared: %1% (Size: %2% B) Dupe matched against: "
 "%3%"
-msgstr ""
-"Duplikat datoteke neće biti deljen: %1%%2% (Veličina: %3% B) Duplikat "
-"potvrđen sa: %4%%5%"
+msgstr "Duplikat datoteke neće biti deljen: %1%%2% (Veličina: %3% B) Duplikat potvrđen sa: %4%%5%"
 
 #: ../ShareManager.cpp:793
 msgid ""
-"File list refresh in progress, please wait for it to finish before trying to "
-"refresh again"
-msgstr ""
-"Osvežavanje liste deljenih datoteka je u toku, molim sačekajte da se završi "
-"pre ponovnog pokretanja"
+"File list refresh in progress, please wait for it to finish before trying to"
+" refresh again"
+msgstr "Osvežavanje liste deljenih datoteka je u toku, molim sačekajte da se završi pre ponovnog pokretanja"
 
 #: ../ShareManager.cpp:814
 msgid "File list refresh failed: %1%"
@@ -695,9 +676,7 @@ msgstr "Socks server provera nije uspela (loše korisničko ime / lozinka?)"
 msgid ""
 "Failed to set up the socks server for UDP relay (check socks address and "
 "port)"
-msgstr ""
-"Greška pri podešavanju socks servera za UDP prenos (proveriti socks adresu i "
-"port)"
+msgstr "Greška pri podešavanju socks servera za UDP prenos (proveriti socks adresu i port)"
 
 #: ../CryptoManager.cpp:134
 msgid "No private key file chosen"
@@ -746,4 +725,4 @@ msgid "TTH inconsistency"
 msgstr "TTH neusaglašenost"
 
 #~ msgid "Error: segv parser :D"
-#~ msgstr "Greška: segv parser :D"
+#~ msgstr "Error: segv parser :D"
