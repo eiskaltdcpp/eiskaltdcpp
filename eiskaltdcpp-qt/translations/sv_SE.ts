@@ -2484,7 +2484,7 @@ Favoritanvändare</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="2759"/>
         <source>Portuguese (Brazil) translation&lt;br/&gt;</source>
-        <translation>Portugal (Brasilien) översöttning&lt;br/&gt;</translation>
+        <translation>Portugisisk (Brasilien) översättning&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2762"/>
@@ -2499,7 +2499,7 @@ Favoritanvändare</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="2768"/>
         <source>Swedish (Sweden) translation&lt;br/&gt;</source>
-        <translation>Svenska (Sverige) översättning&lt;br/&gt;</translation>
+        <translation>Svensk (Sverige) översättning&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="3001"/>
