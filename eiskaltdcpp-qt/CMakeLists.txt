@@ -38,7 +38,7 @@ else (USE_QT_QML)
     message (STATUS "Building without Qt Declarative UI support")
 endif (USE_QT_QML)
 
-if (APPLE OR WIN32 OR HAIKU)
+if (APPLE OR HAIKU)
     set (DBUS_NOTIFY OFF)
 endif ()
 
