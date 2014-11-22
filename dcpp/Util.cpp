@@ -243,9 +243,9 @@ void Util::initialize(PathsMap pathOverrides) {
     try {
         // This product includes GeoIP data created by MaxMind, available from http://maxmind.com/
         // Updates at http://www.maxmind.com/app/geoip_country
-#ifdef WIN32
+#ifdef _WIN32
         string file = getPath(PATH_RESOURCES) + "GeoIPCountryWhois.csv";
-#else //WIN32
+#else //_WIN32
         string file_usr = getPath(PATH_RESOURCES) + "GeoIPCountryWhois.csv";
         string file_sys = string(_DATADIR) + PATH_SEPARATOR + "GeoIPCountryWhois.csv";
         string file = "";
@@ -255,7 +255,7 @@ void Util::initialize(PathsMap pathOverrides) {
             file = file_usr;
         else
             file = file_sys;
-#endif //WIN32
+#endif //_WIN32
         string data = File(file, File::READ, File::OPEN).read();
 
         const char* start = data.c_str();

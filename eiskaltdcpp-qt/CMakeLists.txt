@@ -117,7 +117,10 @@ endif ()
 file (GLOB UI_FORMS ${PROJECT_SOURCE_DIR}/ui/*.ui)
 
 if (WIN32)
-  list (APPEND SRCS ../win32/applink.c)
+    list (APPEND SRCS ../win32/applink.c)
+    if (USE_QT5)
+        add_definitions (-DQ_WS_WIN)
+    endif (USE_QT5)
 endif (WIN32)
 
 set (WIN_RESOURCES)
