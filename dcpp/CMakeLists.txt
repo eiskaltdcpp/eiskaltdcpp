@@ -19,7 +19,6 @@ include_directories (${Boost_INCLUDE_DIR} ${BZIP2_INCLUDE_DIR} ${ZLIB_INCLUDE_DI
 
 if (WIN32)
   set (LINK STATIC)
-  set (WIN32_LIBS "ws2_32")
 else (WIN32)
   if (NOT CMAKE_CROSSCOMPILING)
     if (HAIKU)
