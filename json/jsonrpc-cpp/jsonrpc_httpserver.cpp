@@ -1,6 +1,7 @@
 /*
  *  JsonRpc-Cpp - JSON-RPC implementation.
- *  Copyright (C) 2008-2011 Sebastien Vincent <sebastien.vincent@cppextrem.com>
+ *  Copyright (C) 2011-2014 Eugene Petrov <dhamp@ya.ru>
+ *  Copyright (C) 2013 Dorian Scholz <DorianScholz@gmx.de>
  *
  *  This program is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU Lesser General Public License as published by
@@ -18,7 +19,7 @@
 
 /**
  * \file jsonrpc_httpserver.cpp
- * \brief JSON-RPC HTTPServer.
+ * \brief JSON-RPC HTTPServer. Based on JSON-RPC Server.
  * \author Eugene Petrov
  */
 
