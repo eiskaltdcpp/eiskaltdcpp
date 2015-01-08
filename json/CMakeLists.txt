@@ -18,7 +18,6 @@ if (LOCAL_JSONCPP)
     add_library (jsoncpp STATIC ${jsoncpp_SRCS})
 else (LOCAL_JSONCPP)
     find_package(JsonCpp)
-    #message("jsonrpcpp JSONCPP_INCLUDE_DIR: " ${JSONCPP_INCLUDE_DIR})
 endif (LOCAL_JSONCPP)
 
 include_directories(${JSONCPP_INCLUDE_DIR})

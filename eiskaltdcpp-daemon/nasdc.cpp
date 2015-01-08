@@ -261,7 +261,8 @@ int main(int argc, char* argv[])
     Util::initialize(override);
 
     if (isDebug) {
-        printf("PATH_GLOBAL_CONFIG: %s\n\
+        printf("\
+            PATH_GLOBAL_CONFIG: %s\n\
             PATH_USER_CONFIG: %s\n\
             PATH_USER_LOCAL: %s\n\
             PATH_RESOURCES: %s\n\
@@ -279,7 +280,7 @@ int main(int argc, char* argv[])
             Util::getPath(Util::PATH_FILE_LISTS).c_str(),
             Util::getPath(Util::PATH_HUB_LISTS).c_str(),
             Util::getPath(Util::PATH_NOTEPAD).c_str()
-                                    );
+            );
         fflush(stdout);
     }
 
