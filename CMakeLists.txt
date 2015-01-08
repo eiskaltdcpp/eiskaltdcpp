@@ -352,6 +352,10 @@ if (HAIKU AND HAIKU_PKG)
   add_subdirectory (haiku)
 endif ()
 
+if (JSONRPC_DAEMON)
+add_subdirectory (json)
+endif (JSONRPC_DAEMON)
+
 if (USE_QT OR USE_QT5)
   add_subdirectory (eiskaltdcpp-qt)
 endif (USE_QT OR USE_QT5)
@@ -368,9 +372,6 @@ if (USE_CLI_XMLRPC OR USE_CLI_JSONRPC)
   add_subdirectory (eiskaltdcpp-cli)
 endif ()
 
-if (JSONRPC_DAEMON)
-add_subdirectory (json)
-endif (JSONRPC_DAEMON)
 
 if(GETTEXT_FOUND)
     option (UPDATE_PO "Update po files" OFF)
