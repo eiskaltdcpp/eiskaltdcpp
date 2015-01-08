@@ -189,7 +189,6 @@ if (USE_QT5 AND NOT USE_QT)
 endif()
 
 #Create translations
-set (target_basename "translations_qt")
 file(MAKE_DIRECTORY ${PROJECT_BINARY_DIR}/translations/)
 foreach (LANGUAGE ${LANGUAGES})
         set (TS ${PROJECT_SOURCE_DIR}/translations/${LANGUAGE}.ts)
@@ -201,10 +200,9 @@ foreach (LANGUAGE ${LANGUAGES})
                 DEPENDS "${TS}"
                 COMMAND ${QT_LRELEASE_EXECUTABLE}
                 ARGS "${TS}" -qm "${QM}")
-        add_custom_target(${target_basename}_${LANGUAGE} DEPENDS ${QM})
 endforeach()
 
-add_custom_target(${target_basename} ALL DEPENDS ${TRANSLATIONS_BINARY})
+add_custom_target(${PROJECT_NAME}_tr ALL DEPENDS ${TRANSLATIONS_BINARY})
 
 set (DEFAULT_QRC_FILE ${PROJECT_SOURCE_DIR}/icons/appl/default/default.qrc)
 
@@ -238,7 +236,7 @@ elseif (USE_QT5)
         ${Qt5Script_INCLUDE_DIRS}
         ${Qt5Sql_INCLUDE_DIRS}
         )
-    list (APPEND LIBS 
+    list (APPEND LIBS
         ${Qt5Widgets_LIBRARIES}
         ${Qt5Xml_LIBRARIES}
         ${Qt5Network_LIBRARIES}
