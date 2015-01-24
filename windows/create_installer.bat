@@ -13,7 +13,7 @@ strip "%INSTALLER_DIR%\eiskaltdcpp-daemon.exe"
 
 copy /Y "%SOURCES_DIR%\data\icons\eiskaltdcpp.ico"                     %INSTALLER_DIR%
 copy /Y "%SOURCES_DIR%\data\icons\icon_164x314.bmp"                    %INSTALLER_DIR%
-copy /Y "%SOURCES_DIR%\win32\dcppboot.xml"                             %INSTALLER_DIR%
+copy /Y "%SOURCES_DIR%\windows\dcppboot.xml"                           %INSTALLER_DIR%
 copy /Y "%SOURCES_DIR%\eiskaltdcpp-cli\cli-jsonrpc-config.pl"          %INSTALLER_DIR%
 copy /Y "%SOURCES_DIR%\LICENSE"                                        %INSTALLER_DIR%
 echo [Paths] > "%INSTALLER_DIR%\qt.conf"

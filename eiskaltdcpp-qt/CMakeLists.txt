@@ -118,7 +118,7 @@ file (GLOB UI_FORMS ${PROJECT_SOURCE_DIR}/ui/*.ui)
 
 if (WIN32)
     if (OPENSSL_MSVC)
-        list (APPEND SRCS ../win32/applink.c)
+        list (APPEND SRCS ../windows/applink.c)
     endif (OPENSSL_MSVC)
     if (USE_QT5)
         add_definitions (-DQ_WS_WIN)
