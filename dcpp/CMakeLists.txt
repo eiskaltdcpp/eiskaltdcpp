@@ -8,8 +8,8 @@ file (GLOB dcpp_hdrs ${PROJECT_SOURCE_DIR}/*.h)
 list (REMOVE_ITEM dcpp_srcs ${PROJECT_SOURCE_DIR}/FileReader.cpp)
 list (REMOVE_ITEM dcpp_hdrs ${PROJECT_SOURCE_DIR}/FileReader.h)
 
-set (DCPP_SRCS @dcpp_srcs@ PARENT_SCOPE)
-set (DCPP_HDRS @dcpp_hdrs@ PARENT_SCOPE)
+set (DCPP_SRCS ${dcpp_srcs} PARENT_SCOPE)
+set (DCPP_HDRS ${dcpp_hdrs} PARENT_SCOPE)
 
 if (NOT LUA_SCRIPT)
   list (REMOVE_ITEM dcpp_srcs ${PROJECT_SOURCE_DIR}/ScriptManager.cpp)
