@@ -74,7 +74,7 @@ public:
     void removeDirectory(const string& realPath);
     void renameDirectory(const string& realPath, const string& virtualName);
 
-//    bool isRefreshing() { return refreshing == true; }
+    bool isRefreshing() { return refreshing; }
 
     string toVirtual(const TTHValue& tth) const;
     string toReal(const string& virtualFile);
@@ -124,7 +124,7 @@ public:
     }
     void publish();
     void incHit(const TTHValue& tth);
-    
+
     GETSET(uint32_t, hits, Hits)
     GETSET(string, bzXmlFile, BZXmlFile)
 private:
@@ -273,7 +273,7 @@ private:
 
     int listN;
 
-    static std::atomic_flag refreshing;
+    std::atomic<bool> refreshing;
 
     uint64_t lastXmlUpdate;
     uint64_t lastFullUpdate;

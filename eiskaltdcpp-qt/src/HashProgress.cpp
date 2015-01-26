@@ -22,8 +22,8 @@ using namespace dcpp;
 unsigned HashProgress::getHashStatus() {
     ShareManager *SM = ShareManager::getInstance();
     HashManager  *HM = HashManager::getInstance();
-//    if( SM->isRefreshing() )
-//        return LISTUPDATE;
+    if( SM->isRefreshing() )
+        return LISTUPDATE;
 
     if( HM->isHashingPaused() ) {
         return (Util::getUpTime() < SETTING(HASHING_START_DELAY)) ? DELAYED : PAUSED;
@@ -91,10 +91,10 @@ void HashProgress::timerTick(){
     stateButton();
 
     HashManager::getInstance()->getStats(path, bytes, files);
-//    if(ShareManager::getInstance()->isRefreshing()) {
-//        file->setText(tr("Refreshing file list"));
-//        return;
-//    }
+    if(ShareManager::getInstance()->isRefreshing()) {
+        file->setText(tr("Refreshing file list"));
+        return;
+    }
 
     if( startTime == 0 )
         startTime = tick;

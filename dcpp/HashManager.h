@@ -20,6 +20,7 @@
 
 #include <functional>
 #include <map>
+#include <atomic>
 
 #include "Singleton.h"
 #include "MerkleTree.h"
@@ -125,7 +126,7 @@ public:
 private:
     class Hasher : public Thread {
     public:
-        Hasher() : stop(false), running(false), paused(0), rebuild(false), currentSize(0) { }
+        Hasher() : stop(false), running(false), paused(false), rebuild(false), currentSize(0) { }
 
         void hashFile(const string& fileName, int64_t size);
 
@@ -153,7 +154,7 @@ private:
 
         bool stop;
         bool running;
-        unsigned paused;
+        std::atomic<bool> paused;
         bool rebuild;
         string currentFile;
         int64_t currentSize;

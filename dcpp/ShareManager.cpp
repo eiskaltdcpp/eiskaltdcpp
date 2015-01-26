@@ -53,12 +53,10 @@
 
 namespace dcpp {
 
-atomic_flag ShareManager::refreshing = ATOMIC_FLAG_INIT;
-
 using std::numeric_limits;
 
 ShareManager::ShareManager() : hits(0), xmlListLen(0), bzXmlListLen(0),
-    xmlDirty(true), forceXmlRefresh(false), refreshDirs(false), update(false), initial(true), listN(0),
+    xmlDirty(true), forceXmlRefresh(false), refreshDirs(false), update(false), initial(true), listN(0), refreshing(false),
     lastXmlUpdate(0), lastFullUpdate(GET_TICK()), bloom(1<<20)
 {
     SettingsManager::getInstance()->addListener(this);
@@ -801,10 +799,11 @@ void ShareManager::updateIndices(Directory& dir, const Directory::File::Set::ite
 }
 
 void ShareManager::refresh(bool dirs /* = false */, bool aUpdate /* = true */, bool block /* = false */) noexcept {
-    if(refreshing.test_and_set()) {
+    if(refreshing.exchange(true) == true) {
         LogManager::getInstance()->message(_("File list refresh in progress, please wait for it to finish before trying to refresh again"));
         return;
     }
+
     UploadManager::getInstance()->updateLimits();
 
     update = aUpdate;
@@ -877,7 +876,7 @@ int ShareManager::run() {
     if(update) {
         ClientManager::getInstance()->infoUpdated();
     }
-    refreshing.clear();
+    refreshing = false;
 #ifdef WITH_DHT
     dht::IndexManager* im = dht::IndexManager::getInstance();
     if(im && im->isTimeForPublishing())

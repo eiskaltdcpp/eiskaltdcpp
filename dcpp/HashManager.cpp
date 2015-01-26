@@ -610,32 +610,31 @@ void HashManager::HashStore::createDataFile(const string& name) {
 void HashManager::Hasher::hashFile(const string& fileName, int64_t size) {
     Lock l(cs);
     if (w.insert(make_pair(fileName, size)).second) {
-        if(paused > 0)
-            paused = 1 ;
-        else
+        //if(paused)
+            //paused = true;
+        //else
+            //s.signal();
+        if (!paused)
             s.signal();
     }
 }
 
 bool HashManager::Hasher::pause() {
-    Lock l(cs);
-    paused = 1;
-//    printf("pause::paused: %d\n", paused);fflush(stdout);
+    paused = true;
+    printf("pause::paused: %d\n", paused.load());fflush(stdout);
     return true;
 }
 
 void HashManager::Hasher::resume() {
-    Lock l(cs);
-    while(paused > 0) {
-        paused = 0;
-//        printf("resume::paused: %d\n", paused);fflush(stdout);
+    while(paused) {
+        paused = false;
+        printf("resume::paused: %d\n", paused.load());fflush(stdout);
         s.signal();
     }
 }
 
 bool HashManager::Hasher::isPaused() const {
-    Lock l(cs);
-    return paused > 0;
+    return paused;
 }
 
 void HashManager::Hasher::stopHashing(const string& baseDir) {
@@ -666,12 +665,12 @@ void HashManager::Hasher::instantPause() {
     bool wait = false;
     {
         Lock l(cs);
-        if(paused > 0) {
+        if(paused) {
             wait = true;
         }
     }
     if(wait) {
-//        printf("wait2: %d\n", wait); fflush(stdout);
+        printf("wait2: %d\n", wait); fflush(stdout);
         s.wait();
     }
 }
@@ -884,12 +883,12 @@ bool HashManager::Hasher::fastHash(const string& filename, uint8_t* , TigerTree&
         if(maxHashSpeed > 0) {
             uint64_t now = GET_TICK();
             uint64_t minTime = size_read * 1000LL / (maxHashSpeed * 1024LL * 1024LL);
-            
+
             if(lastRead + minTime> now) {
                 uint64_t diff = now - lastRead;
                 Thread::sleep(minTime - diff);
             }
-            
+
             lastRead = lastRead + minTime;
         } else {
             lastRead = GET_TICK();
@@ -1102,33 +1101,35 @@ bool HashManager::isHashingPaused() const {
 }
 
 void HashManager::on(TimerManagerListener::Second, uint64_t tick) noexcept {
-//    fprintf(stdout,"tick: %lu\n", tick); fflush(stdout);
-//    static bool firstcycle = true;
-//    if (firstcycle){
-//        int delay = SETTING(HASHING_START_DELAY);
-////        fprintf(stdout,"delay: %d\n", delay); fflush(stdout);
-//        SettingsManager *SM = SettingsManager::getInstance();
-//        if (delay > 1800){
-//            delay = 1800;
-//            SM->set(SettingsManager::HASHING_START_DELAY, delay);
-//        }
+    fprintf(stdout,"tick: %lu\n", tick); fflush(stdout);
+    static bool firstcycle = true;
+    if (firstcycle) {
+        int delay = SETTING(HASHING_START_DELAY);
+        fprintf(stdout,"delay: %d\n", delay); fflush(stdout);
+        SettingsManager *SM = SettingsManager::getInstance();
+        if (delay > 1800){
+            delay = 1800;
+            SM->set(SettingsManager::HASHING_START_DELAY, delay);
+        }
+		bool b = ShareManager::getInstance()->isRefreshing();
+		fprintf(stdout,"b: %d\n", b); fflush(stdout);
 
-//        if (!ShareManager::getInstance()->isRefreshing()){
-//            string  curFile;
-//            int64_t bytesLeft;
-//            size_t  filesLeft = -1;
-//            getStats(curFile, bytesLeft, filesLeft);
-//            //fprintf(stdout,"filesLeft %d\n", filesLeft); fflush(stdout);
+        if (!b){
+            string  curFile;
+            int64_t bytesLeft;
+            size_t  filesLeft = -1;
+            getStats(curFile, bytesLeft, filesLeft);
+            fprintf(stdout,"filesLeft %lu\n", filesLeft); fflush(stdout);
 
-//            // if delay is more than -1 hashing process must be resumed
-//            // if there is nothing to hashing pause is not required
-////            fprintf(stdout,"Util::getUpTime(): %lu\n", Util::getUpTime()); fflush(stdout);
-//            if (isHashingPaused() && ((delay >= 0 && Util::getUpTime() >= delay*1000) || filesLeft == 0)){
-//                resumeHashing();
-//                firstcycle = false;
-//            }
-//        }
-//    }
+            // if delay is more than -1 hashing process must be resumed
+            // if there is nothing to hashing pause is not required
+            fprintf(stdout,"Util::getUpTime(): %lu\n", Util::getUpTime()); fflush(stdout);
+            if (isHashingPaused() && ((delay >= 0 && Util::getUpTime() >= delay*1000) || filesLeft == 0)){
+                resumeHashing();
+                firstcycle = false;
+            }
+        }
+    }
 }
 
 } // namespace dcpp
