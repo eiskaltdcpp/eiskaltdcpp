@@ -83,7 +83,8 @@ bool JsonRpcMethods::HubAdd(const Json::Value& root, Json::Value& response)
         return false;
     }
 
-    ServerThread::getInstance()->connectClient(root["params"]["huburl"].asString(), root["params"]["enc"].asString());
+    ServerThread::getInstance()->connectClient(root["params"]["huburl"].asString(),
+                                               root["params"]["enc"].asString());
     response["result"] = "Connecting to " + root["params"]["huburl"].asString();
     if (isDebug) std::cout << "HubAdd (response): " << response << std::endl;
     return true;
@@ -120,8 +121,8 @@ bool JsonRpcMethods::HubSay(const Json::Value& root, Json::Value& response)
         return false;
     }
 
-    if (ServerThread::getInstance()->findHubInConnectedClients(root["params"]["huburl"].asString())) {
-        ServerThread::getInstance()->sendMessage(root["params"]["huburl"].asString(),root["params"]["message"].asString());
+    if (ServerThread::getInstance()->sendMessage(root["params"]["huburl"].asString(),
+                                                 root["params"]["message"].asString())) {
         response["result"] = 0;
     } else
         response["result"] = 1;
@@ -145,7 +146,9 @@ bool JsonRpcMethods::HubSayPM(const Json::Value& root, Json::Value& response)
         return false;
     }
 
-    if (ServerThread::getInstance()->sendPrivateMessage(root["params"]["huburl"].asString(), root["params"]["nick"].asString(), root["params"]["message"].asString()))
+    if (ServerThread::getInstance()->sendPrivateMessage(root["params"]["huburl"].asString(),
+                                                        root["params"]["nick"].asString(),
+                                                        root["params"]["message"].asString()))
         response["result"] = 0;
     else
         response["result"] = 1;
@@ -187,7 +190,8 @@ bool JsonRpcMethods::AddDirInShare(const Json::Value& root, Json::Value& respons
     }
 
     try {
-        if (ServerThread::getInstance()->addDirInShare(root["params"]["directory"].asString(), root["params"]["virtname"].asString()))
+        if (ServerThread::getInstance()->addDirInShare(root["params"]["directory"].asString(),
+                                                       root["params"]["virtname"].asString()))
             response["result"] = 0;
         else
             response["result"] = 1;
@@ -213,7 +217,8 @@ bool JsonRpcMethods::RenameDirInShare(const Json::Value& root, Json::Value& resp
     }
 
     try {
-        if (ServerThread::getInstance()->renameDirInShare(root["params"]["directory"].asString(), root["params"]["virtname"].asString()))
+        if (ServerThread::getInstance()->renameDirInShare(root["params"]["directory"].asString(),
+                                                          root["params"]["virtname"].asString()))
             response["result"] = 0;
         else
             response["result"] = 1;
@@ -289,7 +294,8 @@ bool JsonRpcMethods::GetFileList(const Json::Value& root, Json::Value& response)
         return false;
     }
 
-    if (ServerThread::getInstance()->getFileList(root["params"]["huburl"].asString(), root["params"]["nick"].asString(), false))
+    if (ServerThread::getInstance()->getFileList(root["params"]["huburl"].asString(),
+                                                 root["params"]["nick"].asString(), false))
         response["result"] = 0;
     else
         response["result"] = 1;
@@ -312,7 +318,9 @@ bool JsonRpcMethods::GetChatPub(const Json::Value& root, Json::Value& response)
     }
 
     string retchat;
-    ServerThread::getInstance()->getChatPubFromClient(retchat, root["params"]["huburl"].asString(), root["params"]["separator"].asString());
+    ServerThread::getInstance()->getChatPubFromClient(retchat,
+                                                      root["params"]["huburl"].asString(),
+                                                      root["params"]["separator"].asString());
     response["result"] = retchat;
     if (isDebug) std::cout << "GetChatPub (response): " << response << std::endl;
     return true;
@@ -341,7 +349,12 @@ bool JsonRpcMethods::SendSearch(const Json::Value& root, Json::Value& response)
         return false;
     }
 
-    if (ServerThread::getInstance()->sendSearchonHubs(root["params"]["searchstring"].asString(), root["params"]["searchtype"].asInt(), root["params"]["sizemode"].asInt(), root["params"]["sizetype"].asInt(), root["params"]["size"].asDouble(), root["params"]["huburls"].asString()))
+    if (ServerThread::getInstance()->sendSearchonHubs(root["params"]["searchstring"].asString(),
+                                                      root["params"]["searchtype"].asInt(),
+                                                      root["params"]["sizemode"].asInt(),
+                                                      root["params"]["sizetype"].asInt(),
+                                                      root["params"]["size"].asDouble(),
+                                                      root["params"]["huburls"].asString()))
         response["result"] = 0;
     else
         response["result"] = 1;

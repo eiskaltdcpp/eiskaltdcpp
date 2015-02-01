@@ -621,14 +621,14 @@ void HashManager::Hasher::hashFile(const string& fileName, int64_t size) {
 
 bool HashManager::Hasher::pause() {
     paused = true;
-    printf("pause::paused: %d\n", paused.load());fflush(stdout);
+    //printf("pause::paused: %d\n", paused.load());fflush(stdout);
     return true;
 }
 
 void HashManager::Hasher::resume() {
     while(paused) {
         paused = false;
-        printf("resume::paused: %d\n", paused.load());fflush(stdout);
+        //printf("resume::paused: %d\n", paused.load());fflush(stdout);
         s.signal();
     }
 }
@@ -1101,29 +1101,29 @@ bool HashManager::isHashingPaused() const {
 }
 
 void HashManager::on(TimerManagerListener::Second, uint64_t tick) noexcept {
-    fprintf(stdout,"tick: %lu\n", tick); fflush(stdout);
+    //fprintf(stdout,"tick: %lu\n", tick); fflush(stdout);
     static bool firstcycle = true;
     if (firstcycle) {
         int delay = SETTING(HASHING_START_DELAY);
-        fprintf(stdout,"delay: %d\n", delay); fflush(stdout);
+        //fprintf(stdout,"delay: %d\n", delay); fflush(stdout);
         SettingsManager *SM = SettingsManager::getInstance();
         if (delay > 1800){
             delay = 1800;
             SM->set(SettingsManager::HASHING_START_DELAY, delay);
         }
-		bool b = ShareManager::getInstance()->isRefreshing();
-		fprintf(stdout,"b: %d\n", b); fflush(stdout);
+        bool b = ShareManager::getInstance()->isRefreshing();
+        //fprintf(stdout,"b: %d\n", b); fflush(stdout);
 
         if (!b){
             string  curFile;
             int64_t bytesLeft;
             size_t  filesLeft = -1;
             getStats(curFile, bytesLeft, filesLeft);
-            fprintf(stdout,"filesLeft %lu\n", filesLeft); fflush(stdout);
+            //fprintf(stdout,"filesLeft %lu\n", filesLeft); fflush(stdout);
 
             // if delay is more than -1 hashing process must be resumed
             // if there is nothing to hashing pause is not required
-            fprintf(stdout,"Util::getUpTime(): %lu\n", Util::getUpTime()); fflush(stdout);
+            // fprintf(stdout,"Util::getUpTime(): %lu\n", Util::getUpTime()); fflush(stdout);
             if (isHashingPaused() && ((delay >= 0 && Util::getUpTime() >= delay*1000) || filesLeft == 0)){
                 resumeHashing();
                 firstcycle = false;

@@ -43,51 +43,51 @@ public:
     void Close();
     void WaitFor();
 
-    void connectClient(const string& address, const string& encoding);
-    void disconnectClient(const string& address);
-    void sendMessage(const string& hubUrl, const string& message);
-    void listConnectedClients(string& listhubs,const string& separator);
-    bool findHubInConnectedClients(const string& hub);
-    bool sendPrivateMessage(const string& hub, const string& nick, const string& message);
-    bool getFileList(const string& hub, const string& nick, bool match);
-    void getChatPubFromClient(string& chat, const string& hub, const string& separator);
-    bool sendSearchonHubs(const string& search, const int& mode, const int& sizemode, const int& sizetype, const double& size, const string& huburls);
-    void returnSearchResults(vector<StringMap>& resultarray, const string& huburl);
-    bool clearSearchResults(const string& huburl);
-    void listShare(string& listshare, const string& sseparator);
-    bool delDirFromShare(const string& sdirectory);
-    bool renameDirInShare(const string& sdirectory, const string& svirtname);
-    bool addDirInShare(const string& sdirectory, const string& svirtname);
-    bool addInQueue(const string& sddir, const string& name, const int64_t& size, const string& tth);
-    bool setPriorityQueueItem(const string& target, const unsigned int& priority);
-    void listQueueTargets(string& listqueue, const string& sseparator);
-    void listQueue(unordered_map<string,StringMap>& listqueue);
-    bool moveQueueItem(const string& source, const string& target);
-    bool removeQueueItem(const string& target);
-    void getItemSourcesbyTarget(const string& target, const string& separator, string& sources, unsigned int& online);
-    void getHashStatus(string& target, int64_t& bytesLeft, size_t& filesLeft, string& status);
+    void connectClient(const string&, const string&);
+    void disconnectClient(const string&);
+    bool sendMessage(const string&, const string&);
+    void listConnectedClients(string&, const string&);
+    bool findHubInConnectedClients(const string&);
+    bool sendPrivateMessage(const string&, const string&, const string&);
+    bool getFileList(const string&, const string&, bool match);
+    void getChatPubFromClient(string&, const string&, const string&);
+    bool sendSearchonHubs(const string&, const int&, const int&, const int&, const double&, const string&);
+    void returnSearchResults(vector<StringMap>&, const string&);
+    bool clearSearchResults(const string&);
+    void listShare(string&, const string&);
+    bool delDirFromShare(const string&);
+    bool renameDirInShare(const string&, const string&);
+    bool addDirInShare(const string&, const string&);
+    bool addInQueue(const string&, const string&, const int64_t&, const string&);
+    bool setPriorityQueueItem(const string&, const unsigned int&);
+    void listQueueTargets(string&, const string&);
+    void listQueue(unordered_map<string,StringMap>&);
+    bool moveQueueItem(const string&, const string&);
+    bool removeQueueItem(const string&);
+    void getItemSourcesbyTarget(const string&, const string&, string&, unsigned int&);
+    void getHashStatus(string&, int64_t&, size_t&, string&);
     bool pauseHash();
     void matchAllList();
-    void listHubsFullDesc(unordered_map<string,StringMap>& listhubs);
-    void getHubUserList(string& userlist, const string& huburl, const string& separator);
-    bool getUserInfo(StringMap& userinfo, const string& nick, const string& huburl);
-    void showLocalLists(string& l, const string& separator);
-    bool getClientFileList(const string& filelist, string& ret);
-    bool openFileList(const string& filelist);
-    bool closeFileList(const string& filelist);
+    void listHubsFullDesc(unordered_map<string,StringMap>&);
+    void getHubUserList(string&, const string&, const string&);
+    bool getUserInfo(StringMap&, const string&, const string&);
+    void showLocalLists(string&, const string&);
+    bool getClientFileList(const string&, string&);
+    bool openFileList(const string&);
+    bool closeFileList(const string&);
     void closeAllFileLists();
-    void showOpenedLists(string& l, const string& separator);
-    void lsDirInList(const string& directory, const string& filelist, unordered_map<string,StringMap>& ret);
-    bool downloadDirFromList(const string &target, const string &downloadto, const string &filelist);
-    bool downloadFileFromList(const string &file, const string &downloadto, const string &filelist);
-    void getItemDescbyTarget(const string &target, StringMap &sm);
+    void showOpenedLists(string&, const string&);
+    void lsDirInList(const string&, const string&, unordered_map<string,StringMap>&);
+    bool downloadDirFromList(const string&, const string&, const string&);
+    bool downloadFileFromList(const string&, const string&, const string&);
+    void getItemDescbyTarget(const string&, StringMap&);
     void queueClear();
-    bool settingsGetSet(string &out, const string &param, const string &value);
-    void ipfilterList(string &out, const string &separator);
-    void ipfilterOnOff(bool on);
-    void ipfilterPurgeRules(const string &rules);
-    void ipfilterAddRules(const string &rules);
-    void ipfilterUpDownRule(bool up, const string &rule);
+    bool settingsGetSet(string&, const string&, const string&);
+    void ipfilterList(string&, const string&);
+    void ipfilterOnOff(bool);
+    void ipfilterPurgeRules(const string&);
+    void ipfilterAddRules(const string&);
+    void ipfilterUpDownRule(bool, const string&);
     bool configReload();
 
 private:
@@ -97,24 +97,24 @@ private:
     virtual ~ServerThread();
 
     virtual int run();
-    void startSocket(bool changed);
+    void startSocket(bool);
     void autoConnect();
-    void showPortsError(const std::string& port);
+    void showPortsError(const std::string&);
     bool disconnect_all();
-    void parseSearchResult(SearchResultPtr result, StringMap &resultMap);
-    string revertSeparator(const string &ps);
+    void parseSearchResult(SearchResultPtr, StringMap&);
+    string revertSeparator(const string&);
     typedef struct {
-            deque<string> curchat;
-            Client* curclient;
-            SearchResultList cursearchresult;
-            StringMap curuserlist;
-    } CurHub;
+            deque<string> chat;
+            Client* client;
+            SearchResultList searchresult;
+            StringMap userlist;
+    } HubDescribe;
 
     typedef unordered_map <unsigned int, string> QueueMap;
     typedef QueueMap::const_iterator QueueIter;
     QueueMap queuesMap;
 
-    typedef unordered_map <string, CurHub> ClientMap;
+    typedef unordered_map <string, HubDescribe> ClientMap;
     static ClientMap clientsMap;
     bool json_run;
 
@@ -125,22 +125,22 @@ private:
     virtual void on(TimerManagerListener::Second, uint64_t aTick) noexcept;
 
     // ClientListener
-    virtual void on(Connecting, Client* cur) noexcept;
-    virtual void on(Connected, Client* cur) noexcept;
-    virtual void on(UserUpdated, Client* cur, const OnlineUser&) noexcept;
-    virtual void on(UsersUpdated, Client* cur, const OnlineUserList&) noexcept;
-    virtual void on(UserRemoved, Client* cur, const OnlineUser&) noexcept;
-    virtual void on(Redirect, Client* cur, const string&) noexcept;
-    virtual void on(Failed, Client* cur, const string&) noexcept;
-    virtual void on(GetPassword, Client* cur) noexcept;
-    virtual void on(HubUpdated, Client* cur) noexcept;
-    virtual void on(StatusMessage, Client* cur, const string&, int = ClientListener::FLAG_NORMAL) noexcept;
+    virtual void on(Connecting, Client*) noexcept;
+    virtual void on(Connected, Client*) noexcept;
+    virtual void on(UserUpdated, Client*, const OnlineUser&) noexcept;
+    virtual void on(UsersUpdated, Client*, const OnlineUserList&) noexcept;
+    virtual void on(UserRemoved, Client*, const OnlineUser&) noexcept;
+    virtual void on(Redirect, Client*, const string&) noexcept;
+    virtual void on(Failed, Client*, const string&) noexcept;
+    virtual void on(GetPassword, Client*) noexcept;
+    virtual void on(HubUpdated, Client*) noexcept;
+    virtual void on(StatusMessage, Client*, const string&, int = ClientListener::FLAG_NORMAL) noexcept;
     virtual void on(ClientListener::Message, Client*, const ChatMessage&) noexcept;
-    virtual void on(NickTaken, Client* cur) noexcept;
-    virtual void on(SearchFlood, Client* cur, const string&) noexcept;
+    virtual void on(NickTaken, Client*) noexcept;
+    virtual void on(SearchFlood, Client*, const string&) noexcept;
 
     //SearchManagerListener
-    virtual void on(SearchManagerListener::SR, const SearchResultPtr &result) noexcept;
+    virtual void on(SearchManagerListener::SR, const SearchResultPtr&) noexcept;
 
     //QueueManagerListener
     //virtual void on(Added, QueueItem*) noexcept;
@@ -156,12 +156,12 @@ private:
     CriticalSection shutcs;
     static const unsigned int maxLines = 50;
 
-    void getQueueParams(QueueItem* item, StringMap& params);
-    void getItemSources(QueueItem* item, const string& separator, string& sources, unsigned int& online);
-    void getParamsUser(StringMap& params, Identity& id);
-    void updateUser(const StringMap& params, Client* cl);
-    void removeUser(const string& cid, Client* cl);
-    void lsDirInList(DirectoryListing::Directory *dir, unordered_map<string,StringMap>& ret);
-    bool downloadDirFromList(DirectoryListing::Directory *dir, DirectoryListing* list, const string& downloadto);
-    bool downloadFileFromList(DirectoryListing::File *file, DirectoryListing *list, const string &downloadto);
+    void getQueueParams(QueueItem*, StringMap&);
+    void getItemSources(QueueItem*, const string&, string&, unsigned int&);
+    void getParamsUser(StringMap&, Identity&);
+    void updateUser(const StringMap&, Client*);
+    void removeUser(const string&, Client*);
+    void lsDirInList(DirectoryListing::Directory*, unordered_map<string,StringMap>&);
+    bool downloadDirFromList(DirectoryListing::Directory*, DirectoryListing*, const string&);
+    bool downloadFileFromList(DirectoryListing::File*, DirectoryListing*, const string&);
 };

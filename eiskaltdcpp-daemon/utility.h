@@ -20,8 +20,8 @@ using std::string;
 
 extern std::string LOCAL_PATH, PATH, sTitle, LOG_FILE;
 
-void logging(bool d, bool s, bool b, const std::string& msg);
-bool DirExist(char * sPath);
-void Log(const std::string & sData);
-std::string toString(short val);
-bool splitMagnet(const std::string &, std::string &, int64_t &, std::string &);
+void logging(bool, bool, bool, const std::string&);
+bool DirExist(char*);
+void Log(const std::string&);
+std::string toString(short);
+bool splitMagnet(const std::string&, std::string&, int64_t&, std::string&);

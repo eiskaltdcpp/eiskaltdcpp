@@ -15,7 +15,7 @@
 
 class ServerThread;
 #include <string>
-void callBack(void* x, const std::string& a);
+void callBack(void*, const std::string&);
 void ServerInitialize();
 bool ServerStart();
 void ServerStop();
