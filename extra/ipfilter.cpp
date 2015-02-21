@@ -114,10 +114,10 @@ bool ipfilter::ParseString(string exp, uint32_t &ip, uint32_t &mask, eTableActio
     }
 
     string str_ip_mask = "", str_ip = "", str_mask = "";
-    unsigned int pos=0;
+    auto pos=0;
     pos = exp.find("!");
     #ifdef _DEBUG_IPFILTER_
-        fprintf(stdout,"! pos::%d %u\n", pos, pos != string::npos);
+        fprintf(stdout,"! pos::%u %u\n", pos, pos != string::npos);
     #endif
     if (pos == 0) {
         act = etaDROP;
@@ -421,7 +421,7 @@ void ipfilter::loadList() {
 
     StringTokenizer<string> st(f, "\n");
     for (StringIter i = st.getTokens().begin(); i != st.getTokens().end(); ++i) {
-        string str_ip, str_mask = "";
+        string str_ip;
         eDIRECTION direction = eDIRECTION_IN;
         str_ip = *i;
 #ifdef _DEBUG_IPFILTER_

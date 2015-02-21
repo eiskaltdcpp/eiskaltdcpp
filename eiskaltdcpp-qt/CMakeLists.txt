@@ -315,6 +315,8 @@ add_executable (${PROJECT_NAME} MACOSX_BUNDLE WIN32 src/main.cpp
                 ${WIN_RESOURCES}
                 translations)
 
+add_cppcheck(${PROJECT_NAME} STYLE POSSIBLE_ERROR FORCE)
+
 add_definitions (-DCLIENT_DATA_DIR="${CLIENT_DATA_DIR}"
                  -DCLIENT_SOUNDS_DIR="${CLIENT_SOUNDS_DEST}"
                  -DCLIENT_TRANSLATIONS_DIR="${CLIENT_TRANSLATIONS_DEST}"

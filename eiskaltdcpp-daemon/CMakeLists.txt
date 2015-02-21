@@ -62,6 +62,8 @@ add_executable (${PROJECT_NAME} MACOSX_BUNDLE WIN32
                 ${nasdc_SRCS}
                 )
 
+add_cppcheck(${PROJECT_NAME} STYLE POSSIBLE_ERROR FORCE)
+
 list(APPEND LIBS
         ${XMLRPCLIBS}
         ${JSONRPCLIBS}

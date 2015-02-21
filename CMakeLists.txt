@@ -49,6 +49,10 @@ CHECK_INCLUDE_FILES ("sys/types.h;sys/statvfs.h;limits.h;stdbool.h;stdint.h" FS_
 
 set (CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${PROJECT_SOURCE_DIR}/cmake")
 
+enable_testing()
+
+include (CppcheckTargets)
+
 find_package (PkgConfig)
 find_package (BZip2 REQUIRED)
 find_package (ZLIB REQUIRED)

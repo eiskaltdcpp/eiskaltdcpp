@@ -41,7 +41,9 @@ endif (APPLE)
 
 set (UPNP "extra")
 
-add_library (dcpp ${LINK} ${dcpp_srcs})
+add_library (${PROJECT_NAME} ${LINK} ${dcpp_srcs})
+
+add_cppcheck(${PROJECT_NAME} STYLE POSSIBLE_ERROR FORCE)
 
 if (WITH_DHT)
   add_definitions ( -DWITH_DHT )

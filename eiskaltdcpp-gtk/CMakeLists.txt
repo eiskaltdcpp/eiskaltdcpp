@@ -78,6 +78,8 @@ add_executable (${PROJECT_NAME} MACOSX_BUNDLE WIN32
                 ${gtk_srcs}
                 )
 
+add_cppcheck(${PROJECT_NAME} STYLE POSSIBLE_ERROR FORCE)
+
 if (USE_LIBNOTIFY)
     add_definitions (-DUSE_LIBNOTIFY)
 endif (USE_LIBNOTIFY)

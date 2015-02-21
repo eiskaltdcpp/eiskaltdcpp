@@ -14,7 +14,9 @@ endif (WITH_DHT)
 
 set (LINK STATIC)
 
-add_library (dht ${LINK} ${dht_srcs})
+add_library (${PROJECT_NAME} ${LINK} ${dht_srcs})
+
+add_cppcheck(${PROJECT_NAME} STYLE POSSIBLE_ERROR FORCE)
 
 if (WIN32)
     set_property(TARGET dht PROPERTY COMPILE_FLAGS)

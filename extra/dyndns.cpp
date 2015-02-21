@@ -28,13 +28,13 @@ DynDNS::~DynDNS() {
 
 void DynDNS::on(HttpManagerListener::Failed, HttpConnection* c, const string& str) noexcept {
     if(c != this->c) { return; }
-    c = nullptr;
+    this->c = nullptr;
     completeDownload(false, str);
 }
 
 void DynDNS::on(HttpManagerListener::Complete, HttpConnection* c, OutputStream* stream) noexcept {
     if(c != this->c) { return; }
-    c = nullptr;
+    this->c = nullptr;
 
     auto str = static_cast<StringOutputStream*>(stream)->getString();
     completeDownload(true, str);
