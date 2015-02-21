@@ -41,4 +41,4 @@ else(WIN32)
     set_property(TARGET extra PROPERTY COMPILE_FLAGS -fPIC)
 endif (WIN32)
 
-target_link_libraries (extra ${MINIUPNP_LIBRARY} ${GETTEXT_LIBRARIES})
+target_link_libraries (extra ${MINIUPNP_LIBRARY} ${GETTEXT_LIBRARIES} ${ICONV_LIBRARIES})
