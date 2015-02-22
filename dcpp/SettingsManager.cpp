@@ -223,7 +223,7 @@ SettingsManager::SettingsManager()
     setDefault(ADC_DEBUG, false);
     setDefault(SEARCH_HISTORY, 10);
     setDefault(SET_MINISLOT_SIZE, 64);
-    setDefault(MAX_FILELIST_SIZE, 512);
+    setDefault(MAX_FILELIST_SIZE, 4*1024);
     setDefault(PRIO_HIGHEST_SIZE, 64);
     setDefault(PRIO_HIGH_SIZE, 0);
     setDefault(PRIO_NORMAL_SIZE, 0);
