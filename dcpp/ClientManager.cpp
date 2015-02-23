@@ -308,10 +308,9 @@ bool ClientManager::isOp(const UserPtr& user, const string& aHubUrl) const {
 }
 
 CID ClientManager::makeCid(const string& aNick, const string& aHubUrl) const noexcept {
-    string n = Text::toLower(aNick);
     TigerHash th;
-    th.update(n.c_str(), n.length());
-    th.update(Text::toLower(aHubUrl).c_str(), aHubUrl.length());
+    th.update(aNick.c_str(), aNick.length());
+    th.update(aHubUrl.c_str(), aHubUrl.length());
     // Construct hybrid CID from the bits of the tiger hash - should be
     // fairly random, and hopefully low-collision
     return CID(th.finalize());
