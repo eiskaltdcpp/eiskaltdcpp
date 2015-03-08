@@ -43,11 +43,11 @@ class HubFramePrivate;
 
 using namespace dcpp;
 
-struct UserListUserData : public QTextBlockUserData
+class UserListUserData : public QTextBlockUserData
 {
+public:
+    UserListUserData(const QString& nick) : data(nick) { }
     QString data;
-    UserListUserData(QString nick) { data = nick;}
-    virtual ~UserListUserData() { }
 };
 
 class HubFrame :

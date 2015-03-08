@@ -2433,8 +2433,10 @@ void HubFrame::newMsg(const VarMap &map){
 
         addOutput(output);
 
-        UserListUserData * udata = new UserListUserData(nick);
-        chatDoc->lastBlock().setUserData(udata);
+        for (QTextBlock itu = chatDoc->lastBlock(); itu != chatDoc->begin(); itu = itu.previous()){
+            if (!itu.userData())
+                itu.setUserData(new UserListUserData(nick));
+        }
 
         for (QTextBlock it = chatDoc->begin(); it != chatDoc->end(); it = it.next()){
             if(!it.userState()){
@@ -2460,8 +2462,10 @@ void HubFrame::newMsg(const VarMap &map){
     }
 
     addOutput(output);
-    UserListUserData * udata = new UserListUserData(nick);
-    chatDoc->lastBlock().setUserData(udata);
+    for (QTextBlock itu = chatDoc->lastBlock(); itu != chatDoc->begin(); itu = itu.previous()){
+        if (!itu.userData())
+            itu.setUserData(new UserListUserData(nick));
+    }
 }
 
 void HubFrame::newPm(const VarMap &map){
@@ -2951,30 +2955,29 @@ void HubFrame::slotChatMenu(const QPoint &){
         return;
 
     QTextCursor cursor = editor->cursorForPosition(editor->mapFromGlobal(QCursor::pos()));
-    UserListUserData* udata = dynamic_cast<UserListUserData*>(cursor.block().userData());
     QString nickfromudata = "";
-    if (udata)
-        nickfromudata = udata->data;
+    if(cursor.block().userData())
+        nickfromudata = static_cast<UserListUserData*>(cursor.block().userData())->data;
     QString nickr = "";
-    if (nickfromudata.isEmpty()) {
-        cursor.movePosition(QTextCursor::StartOfBlock);
-        QString pressedParagraph = cursor.block().text();
-        int row_counter = 0;
-        QRegExp nick_exp("<((.+))>");
-        QRegExp thirdPerson_exp("\\*\\W+((\\w+))");// * Some_nick say something
+//    if (nickfromudata.isEmpty()) {
+//        cursor.movePosition(QTextCursor::StartOfBlock);
+//        QString pressedParagraph = cursor.block().text();
+//        int row_counter = 0;
+//        QRegExp nick_exp("<((.+?))> ");
+//        QRegExp thirdPerson_exp("\\* ((.+?)) ");// * Some_nick say something
 
-       while (!(pressedParagraph.contains(nick_exp) || pressedParagraph.contains(thirdPerson_exp)) && row_counter < 600){//try to find nick in above rows (max 600 rows)
-           cursor.movePosition(QTextCursor::PreviousBlock);
-           pressedParagraph = cursor.block().text();
+//       while (!(pressedParagraph.contains(nick_exp) || pressedParagraph.contains(thirdPerson_exp)) && row_counter < 600){//try to find nick in above rows (max 600 rows)
+//           cursor.movePosition(QTextCursor::PreviousBlock);
+//           pressedParagraph = cursor.block().text();
 
-           row_counter++;
-       }
+//           row_counter++;
+//       }
 
-       if (nick_exp.captureCount() >= 2)
-           nickr = nick_exp.cap(1);
-       else if (thirdPerson_exp.exactMatch(pressedParagraph) && thirdPerson_exp.captureCount() >= 2)
-           nickr = thirdPerson_exp.cap(1);
-    }
+//       if (nick_exp.captureCount() >= 2)
+//           nickr = nick_exp.cap(1);
+//       else if (thirdPerson_exp.exactMatch(pressedParagraph) && thirdPerson_exp.captureCount() >= 2)
+//           nickr = thirdPerson_exp.cap(1);
+//    }
 
     QString nick = !nickfromudata.isEmpty() ? nickfromudata : nickr;
 
