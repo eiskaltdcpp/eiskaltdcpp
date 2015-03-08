@@ -249,7 +249,14 @@ void NmdcHub::onLine(const string& aLine) noexcept {
             return;
 
         string seeker = param.substr(i, j-i);
-
+        auto pos_slashes = seeker.find("://");
+        if (pos_slashes != string::npos) {
+            //seeker = (pos_slashes + 3 < seeker.size()) ? seeker.substr(pos_slashes+3) : Util::emptyString;
+            //fire(ClientListener::SearchFlood(), this, str(F_("NLO Try generate DDOS on %1%, do nothing") % seeker));
+            return;
+        }
+        bool passive = (seeker.compare(0, 4, "Hub:") == 0);
+        //printf("$Search->%s\n", seeker.c_str()); fflush(stdout);
         // Filter own searches
         if(isActive()) {
             if(seeker == (getLocalIp() + ":" + Util::toString(SearchManager::getInstance()->getPort()))) {
