@@ -212,15 +212,8 @@ string ClientManager::findHub(const string& ipPort) const {
     Lock l(cs);
 
     string ip;
-    string port;
-    string::size_type i = ipPort.rfind(':');
-    if(i == string::npos) {
-        ip = ipPort;
-        port = "411";
-    } else {
-        ip = ipPort.substr(0, i);
-        port = ipPort.substr(i+1);
-    }
+    string port = "411";
+    Util::parseIpPort(ipPort, ip, port);
 
     string url;
     for(auto c: clients) {
@@ -542,8 +535,8 @@ void ClientManager::on(NmdcSearch, Client* aClient, const string& aSeeker, int a
                 aClient->send(str);
 
         } else {
-                string ip, port, file, proto, query, fragment;
-                Util::decodeUrl(aSeeker, proto, ip, port, file, query, fragment);
+                string ip, port;
+                Util::parseIpPort(aSeeker, ip ,port);
                 ip = Socket::resolve(ip, AF_INET);
                 if(static_cast<NmdcHub*>(aClient)->isProtectedIP(ip))
                     return;
@@ -562,8 +555,11 @@ void ClientManager::on(NmdcSearch, Client* aClient, const string& aSeeker, int a
             }
         }
 
-        string ip, file, proto, query, fragment, port;
-        Util::decodeUrl(aSeeker, proto, ip, port, file, query, fragment);
+        string ip, port;
+        Util::parseIpPort(aSeeker, ip ,port);
+        if (port.empty()) {
+            return;
+        }
 
         try {
             AdcCommand cmd = SearchManager::getInstance()->toPSR(true, aClient->getMyNick(), aClient->getIpPort(), aTTH.toBase32(), partialInfo);

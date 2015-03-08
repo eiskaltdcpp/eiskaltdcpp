@@ -259,6 +259,14 @@ void NmdcHub::onLine(const string& aLine) noexcept {
 
         string seeker = param.substr(i, j-i);
         //printf("$Search->%s\n", seeker.c_str()); fflush(stdout);
+        auto pos_slashes = seeker.find("://");
+        if (pos_slashes != string::npos) {
+            //seeker = (pos_slashes + 3 < seeker.size()) ? seeker.substr(pos_slashes+3) : Util::emptyString;
+            //fire(ClientListener::SearchFlood(), this, str(F_("NLO Try generate DDOS on %1%, do nothing") % seeker));
+            return;
+        }
+        bool passive = (seeker.compare(0, 4, "Hub:") == 0);
+        //printf("$Search->%s\n", seeker.c_str()); fflush(stdout);
         // Filter own searches
         if(isActive()) {
             if(seeker == (getLocalIp() + ":" + SearchManager::getInstance()->getPort())
@@ -293,7 +301,7 @@ void NmdcHub::onLine(const string& aLine) noexcept {
                 count++;
 
             if(count > 7) {
-                if(seeker.compare(0, 4, "Hub:") == 0)
+                if(passive)
                     fire(ClientListener::SearchFlood(), this, seeker.substr(4));
                 else
                     fire(ClientListener::SearchFlood(), this, str(F_("%1% (Nick unknown)") % seeker));
@@ -325,7 +333,7 @@ void NmdcHub::onLine(const string& aLine) noexcept {
         string terms = unescape(param.substr(i));
 
         if(!terms.empty()) {
-            if(seeker.compare(0, 4, "Hub:") == 0) {
+            if(passive) {
                 OnlineUser* u = findUser(seeker.substr(4));
 
                 if(u == NULL) {

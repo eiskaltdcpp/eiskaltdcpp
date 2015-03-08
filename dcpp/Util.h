@@ -452,6 +452,7 @@ public:
     static string getIfaceI6(const string &iface);
 
     static vector<string> getLocalIfaces();
+    static void parseIpPort(const string &aIpPort, string& ip, std::string& port);
 private:
     /** In local mode, all config and temp files are kept in the same dir as the executable */
     static bool localMode;
