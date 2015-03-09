@@ -2635,7 +2635,6 @@ void HubFrame::findText(QTextDocument::FindFlags flag){
     c = textEdit_CHAT->document()->find(lineEdit_FIND->text(), c, flag);
     if (!c.isNull()) {
         textEdit_CHAT->setTextCursor(c);
-
         slotFindAll();
     }
 }
@@ -3371,17 +3370,14 @@ void HubFrame::slotFindAll(){
 
         QTextCursor c = textEdit_CHAT->document()->find(lineEdit_FIND->text(), 0, 0);
 
-        while (!c.isNull()){
+        while (!c.isNull()) {
             selection.cursor = c;
             extraSelections.append(selection);
 
             c = textEdit_CHAT->document()->find(lineEdit_FIND->text(), c, 0);
         }
     }
-    if (!extraSelections.isEmpty())
-        textEdit_CHAT->setExtraSelections(extraSelections);
-    else
-        textEdit_CHAT->setExtraSelections(QList<QTextEdit::ExtraSelection>());
+    textEdit_CHAT->setExtraSelections(extraSelections);
 }
 
 void HubFrame::slotSmile(){
