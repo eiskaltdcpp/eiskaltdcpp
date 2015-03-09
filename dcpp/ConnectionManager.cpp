@@ -314,11 +314,23 @@ void ConnectionManager::accept(const Socket& sock, bool secure) noexcept {
         delete uc;
     }
 }
+
+void ConnectionManager::addCTM2HUB(const string &server, const string &port)
+{
+    const string key = server + ':' + port;
+    ddosctm2hub.insert(key);
+}
+
 void ConnectionManager::nmdcConnect(const string& aServer, const string& aPort, const string& aNick, const string& hubUrl, const string& encoding, bool secure) {
     nmdcConnect(aServer, aPort, Util::emptyString, BufferedSocket::NAT_NONE, aNick, hubUrl, encoding, secure);
 }
 
 void ConnectionManager::nmdcConnect(const string& aServer, const string& aPort, const string& localPort, BufferedSocket::NatRoles natRole, const string& aNick, const string& hubUrl, const string& encoding, bool secure) {
+
+    if (!ddosctm2hub.empty() && ddosctm2hub.find(aServer + ":" + aPort) != ddosctm2hub.end()) {
+        return;
+    }
+
     if(shuttingDown)
         return;
 

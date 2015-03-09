@@ -537,9 +537,6 @@ void ClientManager::on(NmdcSearch, Client* aClient, const string& aSeeker, int a
         } else {
                 string ip, port;
                 Util::parseIpPort(aSeeker, ip ,port);
-                ip = Socket::resolve(ip, AF_INET);
-                if(static_cast<NmdcHub*>(aClient)->isProtectedIP(ip))
-                    return;
                 if(port.empty())
                     port = "412";
                 for(const auto& sr: l)
@@ -563,7 +560,6 @@ void ClientManager::on(NmdcSearch, Client* aClient, const string& aSeeker, int a
 
         try {
             AdcCommand cmd = SearchManager::getInstance()->toPSR(true, aClient->getMyNick(), aClient->getIpPort(), aTTH.toBase32(), partialInfo);
-            ip = Socket::resolve(ip, AF_INET);
             sendUDP(ip, port, cmd.toString(ClientManager::getInstance()->getMe()->getCID()));
         } catch(...) {
             dcdebug("Partial search caught error\n");

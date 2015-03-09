@@ -20,6 +20,7 @@
 
 #include "UserConnection.h"
 #include "ClientManager.h"
+#include "ConnectionManager.h"
 
 #include "StringTokenizer.h"
 #include "AdcCommand.h"
@@ -99,8 +100,11 @@ void UserConnection::on(BufferedSocketListener::Line, const string& aLine) noexc
         if(Util::stricmp(param.c_str(), FILE_NOT_AVAILABLE) == 0 ||
             param.rfind(/*path/file*/" no more exists") != string::npos) {
             fire(UserConnectionListener::FileNotAvailable(), this);
+        } else if (::strncmp(param.c_str(), "CTM2HUB", 7) == 0 ) {
+            ConnectionManager::getInstance()->addCTM2HUB(socket->getIp(), getPort());
+            fire(UserConnectionListener::ProtocolError(), this, param);
         } else {
-                        fire(UserConnectionListener::ProtocolError(), this, param);
+            fire(UserConnectionListener::ProtocolError(), this, param);
         }
     } else if(cmd == "$GetListLen") {
         fire(UserConnectionListener::GetListLength(), this);
@@ -160,6 +164,7 @@ bool UserConnectionScriptInstance::onUserConnectionMessageOut(UserConnection* aC
 void UserConnection::connect(const string& aServer, const string& aPort, const string& localPort, BufferedSocket::NatRoles natRole) {
     dcassert(!socket);
     port = aPort;
+    setPort(aPort);
     socket = BufferedSocket::getSocket(0);
     socket->addListener(this);
     socket->connect(aServer, aPort, localPort, natRole, isSet(FLAG_SECURE), BOOLSETTING(ALLOW_UNTRUSTED_CLIENTS), true);

@@ -122,7 +122,9 @@ public:
 
     const string& getPort() const;
     const string& getSecurePort() const;
+    void addCTM2HUB(const string& server, const string& port);
 private:
+    unordered_set<string> ddosctm2hub;
 
     class Server : public Thread {
     public:

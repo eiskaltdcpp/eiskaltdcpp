@@ -477,22 +477,13 @@ void NmdcHub::onLine(const string& aLine) noexcept {
         i++;
         string server;
         j = param.find(']', i);
-        //printf("i->%u j->%u\n",i,j);fflush(stdout);
         if(j == string::npos) {
             j = param.find(':', i);
-            server = Socket::resolve(param.substr(i, j-i), AF_INET);
+            server = param.substr(i, j-i);
         } else {
             j++;
-            server = Socket::resolve(param.substr(i+1, j-i-2), AF_INET6);
-            //server = param.substr(i+1, j-i-2);
+            server = param.substr(i+1, j-i-2);
         }
-        //printf("i->%u j->%u\n",i,j);fflush(stdout);
-        //printf("ipv6->%s\n", param.substr(i).c_str());//fflush(stdout);
-        //printf("ipv6->%s\n",param.substr(i, j-i).c_str());fflush(stdout);
-        //string server = Socket::resolve(param.substr(i, j-i), );
-        //printf("$ConnectToMe Socket::resolve->%s\n ", server.c_str());fflush(stdout);
-        if(isProtectedIP(server))
-            return;
         if(j+1 >= param.size()) {
             return;
         }
@@ -1071,14 +1062,6 @@ void NmdcHub::clearFlooders(uint64_t aTick) {
     }
 }
 
-bool NmdcHub::isProtectedIP(const string& ip) {
-    if(find(protectedIPs.begin(), protectedIPs.end(), ip) != protectedIPs.end()) {
-        fire(ClientListener::StatusMessage(), this, str(F_("This hub is trying to use your client to spam %1%, please urge hub owner to fix this") % ip));
-        return true;
-    }
-    return false;
-}
-
 void NmdcHub::on(Connected) noexcept {
     Client::on(Connected());
     if(state != STATE_PROTOCOL) {
@@ -1113,26 +1096,6 @@ void NmdcHub::on(Second, uint64_t aTick) noexcept {
 
     if(state == STATE_NORMAL && (aTick > (getLastActivity() + 120*1000)) ) {
         send("|", 1);
-    }
-}
-
-void NmdcHub::on(Minute, uint64_t aTick) noexcept {
-    if(aTick > (lastProtectedIPsUpdate + 24*3600*1000)) {
-        protectedIPs.clear();
-
-        protectedIPs.push_back("dcpp.net");
-        protectedIPs.push_back("hublist.org");
-        protectedIPs.push_back("openhublist.org");
-        protectedIPs.push_back("dchublist.com");
-        protectedIPs.push_back("hublista.hu");
-        for(auto i = protectedIPs.begin(); i != protectedIPs.end();) {
-            *i = Socket::resolve(*i);
-            if(Util::isPrivateIp(*i))
-                i = protectedIPs.erase(i);
-            else
-                ++i;
-        }
-        lastProtectedIPsUpdate = aTick;
     }
 }
 
