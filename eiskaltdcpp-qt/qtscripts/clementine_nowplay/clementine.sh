@@ -83,7 +83,7 @@ then
                         progressbar="${progressbar}-"
                 done
                 progressbar="${progressbar}|"
-                for((i=1;i<(10-nrate);i++))
+                for((i=1;i<$((10-nrate));i++))
                 do
                         progressbar="${progressbar}-"
                 done
