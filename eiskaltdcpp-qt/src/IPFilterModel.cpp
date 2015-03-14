@@ -152,6 +152,11 @@ void IPFilterModel::clearModel(){
     emit layoutChanged();
 }
 
+void IPFilterModel::reset() {
+    beginResetModel();
+    endResetModel();
+}
+
 void IPFilterModel::repaint(){
     emit layoutChanged();
 }

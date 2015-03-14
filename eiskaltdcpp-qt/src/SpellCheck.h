@@ -34,6 +34,5 @@ private:
     SpellCheck(QObject *parent = 0);
     ~SpellCheck();
 
-    AspellConfig *config;
     AspellSpeller *spell_checker;
 };

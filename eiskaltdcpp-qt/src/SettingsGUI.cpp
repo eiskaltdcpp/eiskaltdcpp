@@ -26,6 +26,7 @@
 #include <QFile>
 #include <QSystemTrayIcon>
 #include <QHeaderView>
+#include <QMap>
 
 #ifndef CLIENT_ICONS_DIR
 #define CLIENT_ICONS_DIR ""
@@ -71,46 +72,35 @@ void SettingsGUI::init(){
 #else
         QDir translationsDir(qApp->applicationDirPath()+QDir::separator()+CLIENT_TRANSLATIONS_DIR);
 #endif
-        for (const auto &f : translationsDir.entryList(QDir::Files | QDir::NoSymLinks)){
-            QString full_path = QDir::toNativeSeparators( translationsDir.filePath(f) );
-            QString lang = "";
+        QMap<QString, QString> langNames;
+        langNames["en.qm"]       = tr("English");
+        langNames["ru.qm"]       = tr("Russian");
+        langNames["be.qm"]       = tr("Belarusian");
+        langNames["hu.qm"]       = tr("Hungarian");
+        langNames["fr.qm"]       = tr("French");
+        langNames["pl.qm"]       = tr("Polish");
+        langNames["pt_BR.qm"]    = tr("Portuguese (Brazil)");
+        langNames["sr.qm"]       = tr("Serbian (Cyrillic)");
+        langNames["sr@latin.qm"] = tr("Serbian (Latin)");
+        langNames["uk.qm"]       = tr("Ukrainian");
+        langNames["es.qm"]       = tr("Spanish");
+		langNames["eu.qm"]       = tr("Basque");
+        langNames["bg.qm"]       = tr("Bulgarian");
+        langNames["sk.qm"]       = tr("Slovak");
+        langNames["cs.qm"]       = tr("Czech");
+        langNames["de.qm"]       = tr("German");
+        langNames["el.qm"]       = tr("Greek");
+        langNames["it.qm"]       = tr("Italian");
+        langNames["vi.qm"]       = tr("Vietnamese");
+        langNames["zh_CN.qm"]    = tr("Chinese (China)");
+        langNames["sv_SE.qm"]    = tr("Swedish (Sweden)");
 
-            if (f == "en.qm")
-                lang = tr("English");
-            else if (f == "ru.qm")
-                lang = tr("Russian");
-            else if (f == "be.qm")
-                lang = tr("Belarusian");
-            else if (f == "hu.qm")
-                lang = tr("Hungarian");
-            else if (f == "fr.qm")
-                lang = tr("French");
-            else if (f == "pl.qm")
-                lang = tr("Polish");
-            else if (f == "pt_BR.qm")
-                lang = tr("Portuguese (Brazil)");
-            else if (f == "sr@latin.qm")
-                lang = tr("Serbian (Latin)");
-            else if (f == "uk.qm")
-                lang = tr("Ukrainian");
-            else if (f == "es.qm")
-                lang = tr("Spanish");
-            else if (f == "bg.qm")
-                lang = tr("Bulgarian");
-            else if (f == "sk.qm")
-                lang = tr("Slovak");
-            else if (f == "cs.qm")
-                lang = tr("Czech");
-            else if (f == "de.qm")
-                lang = tr("German");
-            else if (f == "el.qm")
-                lang = tr("Greek");
-            else if (f == "it.qm")
-                lang = tr("Italian");
-            else if (f == "vi.qm")
-                lang = tr("Vietnamese");
-            else if (f == "zh_CN.qm")
-                lang = tr("Chinese (China)");
+        QString full_path;
+        QString lang;
+
+        for (const auto &f : translationsDir.entryList(QDir::Files | QDir::NoSymLinks)){
+            full_path = QDir::toNativeSeparators( translationsDir.filePath(f) );
+            lang = langNames[f];
 
             if (!lang.isEmpty()){
                 comboBox_LANGS->addItem(lang, full_path);
@@ -234,7 +224,7 @@ void SettingsGUI::init(){
         comboBox_DBL_CLICK->setCurrentIndex(WIGET(WI_CHAT_DBLCLICK_ACT));
         comboBox_MDL_CLICK->setCurrentIndex(WIGET(WI_CHAT_MDLCLICK_ACT));
         comboBox_DEF_MAGNET_ACTION->setCurrentIndex(WIGET(WI_DEF_MAGNET_ACTION));
-        comboBox_APP_UNIT_BASE->setCurrentIndex(comboBox_APP_UNIT_BASE->findText(QString::number(WIGET(WI_APP_UNIT_BASE))));
+        comboBox_APP_UNIT_BASE->setCurrentIndex(SETTING(APP_UNIT_BASE));
         checkBox_HIGHLIGHTFAVS->setChecked(WBGET(WB_CHAT_HIGHLIGHT_FAVS));
         checkBox_CHAT_SHOW_IP->setChecked(BOOLSETTING(USE_IP));
         checkBox_CHAT_SHOW_CC->setChecked(BOOLSETTING(GET_USER_COUNTRY));
@@ -340,7 +330,7 @@ void SettingsGUI::init(){
         CustomFontModel *model = new CustomFontModel(this);
         tableView->setModel(model);
 
-        tableView->horizontalHeader()->restoreState(QByteArray::fromBase64(WSGET(WS_SETTINGS_GUI_FONTS_STATE).toAscii()));
+        tableView->horizontalHeader()->restoreState(QByteArray::fromBase64(WSGET(WS_SETTINGS_GUI_FONTS_STATE).toUtf8()));
 
         connect(tableView, SIGNAL(doubleClicked(QModelIndex)), model, SLOT(itemDoubleClicked(QModelIndex)));
         connect(this, SIGNAL(saveFonts()), model, SLOT(ok()));
@@ -390,7 +380,8 @@ void SettingsGUI::ok(){
         if (WSGET(WS_APP_EMOTICON_THEME) != comboBox_EMOT->currentText()){
             WSSET(WS_APP_EMOTICON_THEME, comboBox_EMOT->currentText());
 
-            EmoticonFactory::getInstance()->load();
+            if (EmoticonFactory::getInstance())
+                EmoticonFactory::getInstance()->load();
         }
 
         if (comboBox_TABBAR->currentIndex() == 2){
@@ -428,7 +419,7 @@ void SettingsGUI::ok(){
         WISET(WI_CHAT_DBLCLICK_ACT, comboBox_DBL_CLICK->currentIndex());
         WISET(WI_CHAT_MDLCLICK_ACT, comboBox_MDL_CLICK->currentIndex());
         WISET(WI_DEF_MAGNET_ACTION, comboBox_DEF_MAGNET_ACTION->currentIndex());
-        WISET(WI_APP_UNIT_BASE, comboBox_APP_UNIT_BASE->currentText().toInt());
+        SM->set(SettingsManager::APP_UNIT_BASE, comboBox_APP_UNIT_BASE->currentIndex());
         WBSET(WB_CHAT_HIGHLIGHT_FAVS, checkBox_HIGHLIGHTFAVS->isChecked());
         SM->set(SettingsManager::USE_IP, checkBox_CHAT_SHOW_IP->isChecked());
         WBSET("hubframe/use-bb-code", checkBox_BB_CODE->isChecked());

@@ -93,4 +93,6 @@ private:
     Qt::SortOrder sortOrder;
     /** */
     QHash<QString, SpyItem*> hashes;
+
+    void reset();
 };

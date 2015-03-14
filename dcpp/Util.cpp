@@ -243,9 +243,9 @@ void Util::initialize(PathsMap pathOverrides) {
     try {
         // This product includes GeoIP data created by MaxMind, available from http://maxmind.com/
         // Updates at http://www.maxmind.com/app/geoip_country
-#ifdef WIN32
+#ifdef _WIN32
         string file = getPath(PATH_RESOURCES) + "GeoIPCountryWhois.csv";
-#else //WIN32
+#else //_WIN32
         string file_usr = getPath(PATH_RESOURCES) + "GeoIPCountryWhois.csv";
         string file_sys = string(_DATADIR) + PATH_SEPARATOR + "GeoIPCountryWhois.csv";
         string file = "";
@@ -255,7 +255,7 @@ void Util::initialize(PathsMap pathOverrides) {
             file = file_usr;
         else
             file = file_sys;
-#endif //WIN32
+#endif //_WIN32
         string data = File(file, File::READ, File::OPEN).read();
 
         const char* start = data.c_str();
@@ -605,6 +605,16 @@ void Util::decodeUrl(const string& url, string& protocol, string& host, uint16_t
     //printf("protocol:%s\n host:%s\n port:%d\n path:%s\n query:%s\n fragment:%s\n", protocol.c_str(), host.c_str(), port, path.c_str(), query.c_str(), fragment.c_str());
 }
 
+void Util::parseIpPort(const string& aIpPort, string& ip, uint16_t& port) {
+    string::size_type i = aIpPort.rfind(':');
+    if (i == string::npos) {
+        ip = aIpPort;
+    } else {
+        ip = aIpPort.substr(0, i);
+        port = Util::toInt(aIpPort.substr(i + 1));
+    }
+}
+
 map<string, string> Util::decodeQuery(const string& query) {
     map<string, string> ret;
     size_t start = 0;
@@ -635,23 +645,30 @@ string Util::getAwayMessage() {
     return (formatTime(awayMsg.empty() ? SETTING(DEFAULT_AWAY_MESSAGE) : awayMsg, awayTime)) + " <" APPNAME " v" VERSIONSTRING ">";
 }
 
-string Util::formatBytes(int64_t aBytes) {
+string Util::formatBytes(int64_t aBytes, uint8_t base) {
+    uint16_t a = (base < 2? 1024 : 1000);
+    float b = a*1.0;
+
     char buf[128];
-    if(aBytes < 1024) {
+    if(aBytes < a) {
         snprintf(buf, sizeof(buf), _("%d B"), (int)(aBytes&0xffffffff));
-    } else if(aBytes < 1024*1024) {
-        snprintf(buf, sizeof(buf), _("%.02f KiB"), (double)aBytes/(1024.0));
-    } else if(aBytes < 1024*1024*1024) {
-        snprintf(buf, sizeof(buf), _("%.02f MiB"), (double)aBytes/(1024.0*1024.0));
-    } else if(aBytes < (int64_t)1024*1024*1024*1024) {
-        snprintf(buf, sizeof(buf), _("%.02f GiB"), (double)aBytes/(1024.0*1024.0*1024.0));
-    } else if(aBytes < (int64_t)1024*1024*1024*1024*1024) {
-        snprintf(buf, sizeof(buf), _("%.02f TiB"), (double)aBytes/(1024.0*1024.0*1024.0*1024.0));
+    } else if(aBytes < a*a) {
+        snprintf(buf, sizeof(buf), (base == 0 ? _("%.02f KiB") : _("%.02f KB")), (double)aBytes/(b));
+    } else if(aBytes < a*a*a) {
+        snprintf(buf, sizeof(buf), (base == 0 ? _("%.02f MiB") : _("%.02f MB")), (double)aBytes/(b*b));
+    } else if(aBytes < (int64_t)a*a*a*a) {
+        snprintf(buf, sizeof(buf), (base == 0 ? _("%.02f GiB") : _("%.02f GB")), (double)aBytes/(b*b*b));
+    } else if(aBytes < (int64_t)a*a*a*a*a) {
+        snprintf(buf, sizeof(buf), (base == 0 ? _("%.02f TiB") : _("%.02f TB")), (double)aBytes/(b*b*b*b));
     } else {
-        snprintf(buf, sizeof(buf), _("%.02f PiB"), (double)aBytes/(1024.0*1024.0*1024.0*1024.0*1024.0));
+        snprintf(buf, sizeof(buf), (base == 0 ? _("%.02f PiB") : _("%.02f PB")), (double)aBytes/(b*b*b*b*b));
     }
 
     return buf;
+}
+
+string Util::formatBytes(int64_t aBytes) {
+    return formatBytes(aBytes, SETTING(APP_UNIT_BASE));
 }
 
 string Util::formatExactSize(int64_t aBytes) {

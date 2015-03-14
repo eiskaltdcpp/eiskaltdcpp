@@ -114,7 +114,8 @@ public:
         IPFILTER, TEXT_COLOR, USE_LUA, ALLOW_NATT, IP_TOS_VALUE, SEGMENT_SIZE,
         BIND_IFACE, MINIMUM_SEARCH_INTERVAL, DYNDNS_ENABLE, ALLOW_UPLOAD_MULTI_HUB,
         USE_ADL_ONLY_OWN_LIST, ALLOW_SIM_UPLOADS, CHECK_TARGETS_PATHS_ON_START,
-        NMDC_DEBUG, SHARE_SKIP_ZERO_BYTE, LOG_SPY,
+        NMDC_DEBUG, SHARE_SKIP_ZERO_BYTE, REQUIRE_TLS, LOG_SPY,
+        APP_UNIT_BASE,
         INT_LAST };
 
     enum Int64Setting { INT64_FIRST = INT_LAST + 1,
@@ -219,8 +220,6 @@ public:
 
     void unset(size_t key) { isSet[key] = false; }
 
-    const std::string parseCoreCmd(const std::string& cmd);
-
     void load() {
         Util::migrate(getConfigFile());
         load(getConfigFile());
@@ -251,6 +250,10 @@ public:
         return searchTypes;
     }
     const StringList& getExtensions(const string& name);
+
+    const std::string parseCoreCmd(const std::string& cmd);
+    bool parseCoreCmd(string& ret, const std::string& key, const string& value);
+
 private:
     friend class Singleton<SettingsManager>;
     SettingsManager();

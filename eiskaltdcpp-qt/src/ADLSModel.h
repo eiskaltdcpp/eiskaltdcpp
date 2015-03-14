@@ -101,4 +101,6 @@ private:
 
     int sortColumn;
     Qt::SortOrder sortOrder;
+
+    void reset();
 };

@@ -59,11 +59,10 @@ class SearchFrame : public QWidget,
 
     typedef QMap<QString, QVariant> VarMap;
 
-    class Menu : public dcpp::Singleton<Menu>{
-    friend class dcpp::Singleton<Menu>;
-
+    class Menu : public dcpp::Singleton<Menu> {
+        friend class dcpp::Singleton<Menu>;
     public:
-        enum Action{
+        enum Action {
             Download=0,
             DownloadTo,
             DownloadWholeDir,
@@ -87,8 +86,8 @@ class SearchFrame : public QWidget,
 
         Action exec(QStringList);
         QMenu *buildUserCmdMenu(QList<QString> hubs);
-        QMap<QString, QString> ucParams;
-        QString getDownloadToPath() {return downToPath; }
+        QString getDownloadToPath() { return downToPath; }
+        int getCommandId() { return uc_cmd_id; }
         void addTempPath(const QString &path);
 
     private:
@@ -99,6 +98,8 @@ class SearchFrame : public QWidget,
         QList<QAction*> action_list;
 
         QString downToPath;
+
+        int uc_cmd_id;
 
         QMenu *menu;
         QMenu *magnet_menu;

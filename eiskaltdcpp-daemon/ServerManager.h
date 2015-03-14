@@ -19,6 +19,7 @@ void callBack(void* x, const std::string& a);
 void ServerInitialize();
 bool ServerStart();
 void ServerStop();
+void ConfigReload();
 
 extern bool bServerRunning, bServerTerminated, bIsRestart, bIsClose;
 extern unsigned short int lport;

@@ -47,6 +47,10 @@
 #include <QRegExp>
 #include <QProcess>
 
+#if QT_VERSION >= 0x050000
+#include <QUrlQuery>
+#endif
+
 #include "SearchFrame.h"
 #include "extra/magnet.h"
 
@@ -240,7 +244,7 @@ void WulforUtil::clearUserIconCache(){
 
 QPixmap *WulforUtil::getUserIcon(const UserPtr &id, bool isAway, bool isOp, const QString &sp){
 
-    int x = connectionSpeeds[sp];
+    int x = connectionSpeeds.value(sp, 5);
     int y = 0;
 
     if (isAway)
@@ -407,7 +411,7 @@ QPixmap WulforUtil::loadPixmap(const QString &file){
     if (p.load(f))
         return p;
 
-    printf("loadPixmap: Can't load '%s'\n", f.toAscii().constData());
+    printf("loadPixmap: Can't load '%s'\n", f.toUtf8().constData());
 
     m_bError = true;
 
@@ -422,6 +426,11 @@ const QPixmap &WulforUtil::getPixmap(enum WulforUtil::Icons e){
 
 QString WulforUtil::getNicks(const QString &cid, const QString &hintUrl){
     return getNicks(CID(cid.toStdString()), hintUrl);
+}
+
+QString WulforUtil::getNickViaOnlineUser(const QString &cid, const QString &hintUrl) {
+    OnlineUser* user = ClientManager::getInstance()->findOnlineUser(CID(_tq(cid)), _tq(hintUrl), true);
+    return user ? _q(user->getIdentity().getNick()) : QString();
 }
 
 QString WulforUtil::getNicks(const CID &cid, const QString &hintUrl){
@@ -710,7 +719,7 @@ QTextCodec *WulforUtil::codecForEncoding(QString name){
     if (!QtEnc2DCEnc.contains(name))
         return QTextCodec::codecForLocale();
 
-    return QTextCodec::codecForName(name.toAscii());
+    return QTextCodec::codecForName(name.toUtf8());
 }
 
 bool WulforUtil::openUrl(const QString &url){
@@ -718,7 +727,7 @@ bool WulforUtil::openUrl(const QString &url){
         if (!SETTING(MIME_HANDLER).empty())
             QProcess::startDetached(_q(SETTING(MIME_HANDLER)), QStringList(url));
         else
-            QDesktopServices::openUrl(QUrl::fromEncoded(url.toAscii()));
+            QDesktopServices::openUrl(QUrl::fromEncoded(url.toUtf8()));
     }
     else if (url.startsWith("adc://") || url.startsWith("adcs://")){
         MainWindow::getInstance()->newHubFrame(url, "UTF-8");
@@ -738,20 +747,32 @@ bool WulforUtil::openUrl(const QString &url){
         m->deleteLater();
     }
     else if (url.startsWith("magnet:")){
-        QString magnet = url;
+        const QString magnet = url;
 
+#if QT_VERSION >= 0x050000
+        QUrlQuery u;
+#else
         QUrl u;
+#endif
 
-        if (!magnet.contains("+"))
-            u.setEncodedUrl(magnet.toAscii());
-        else {
+        if (!magnet.contains("+")) {
+#if QT_VERSION >= 0x050000
+                u.setQuery(magnet.toUtf8());
+#else
+                u.setEncodedUrl(magnet.toUtf8());
+#endif
+        } else {
             QString _l = magnet;
 
             _l.replace("+", "%20");
-            u.setEncodedUrl(_l.toAscii());
+#if QT_VERSION >= 0x050000
+                u.setQuery(_l.toUtf8());
+#else
+                u.setEncodedUrl(_l.toUtf8());
+#endif
         }
 
-        if (u.hasQueryItem("kt")){
+        if (u.hasQueryItem("kt")) {
             QString keywords = u.queryItemValue("kt");
             QString hub = u.hasQueryItem("xs")? u.queryItemValue("xs") : "";
 
@@ -773,7 +794,7 @@ bool WulforUtil::openUrl(const QString &url){
             if (!SETTING(MIME_HANDLER).empty())
                 QProcess::startDetached(_q(SETTING(MIME_HANDLER)), QStringList(url));
             else
-                QDesktopServices::openUrl(QUrl::fromEncoded(url.toAscii()));
+                QDesktopServices::openUrl(QUrl::fromEncoded(url.toUtf8()));
         }
     }
     else
@@ -949,45 +970,8 @@ QStringList WulforUtil::getLocalIPs(){
     return addresses;
 }
 
-QString WulforUtil::formatBytes(int64_t aBytes, int base){
-    QString s;
-
-    if (base == 1024){
-        if(aBytes < 1024)
-            s = tr("%1 B").arg((int)(aBytes & 0xffffffff));
-        else if(aBytes < 1024*1024)
-            s = tr("%1 KiB").arg(static_cast<double>(aBytes)/1024.0, 0, 'f', 1);
-        else if(aBytes < 1024*1024*1024)
-            s = tr("%1 MiB").arg(static_cast<double>(aBytes)/(1024.0*1024.0), 0, 'f', 1);
-        else if(aBytes < static_cast<int64_t>(1024)*1024*1024*1024)
-            s = tr("%1 GiB").arg(static_cast<double>(aBytes)/(1024.0*1024.0*1024.0), 0, 'f', 2);
-        else if(aBytes < static_cast<int64_t>(1024)*1024*1024*1024*1024)
-            s = tr("%1 TiB").arg(static_cast<double>(aBytes)/(1024.0*1024.0*1024.0*1024.0), 0, 'f', 3);
-        else
-            s = tr("%1 PiB").arg(static_cast<double>(aBytes)/(1024.0*1024.0*1024.0*1024.0*1024.0), 0, 'f', 4);
-    }
-    else if (base == 1000){
-        if(aBytes < 1000)
-            s = tr("%1 B").arg((int)(aBytes & 0xffffffff));
-        else if(aBytes < 1000*1000)
-            s = tr("%1 KB").arg(static_cast<double>(aBytes)/1000.0, 0, 'f', 1);
-        else if(aBytes < 1000*1000*1000)
-            s = tr("%1 MB").arg(static_cast<double>(aBytes)/(1000.0*1000.0), 0, 'f', 1);
-        else if(aBytes < static_cast<int64_t>(1000)*1000*1000*1000)
-            s = tr("%1 GB").arg(static_cast<double>(aBytes)/(1000.0*1000.0*1000.0), 0, 'f', 2);
-        else if(aBytes < static_cast<int64_t>(1000)*1000*1000*1000*1000)
-            s = tr("%1 TB").arg(static_cast<double>(aBytes)/(1000.0*1000.0*1000.0*1000.0), 0, 'f', 3);
-        else
-            s = tr("%1 PB").arg(static_cast<double>(aBytes)/(1000.0*1000.0*1000.0*1000.0*1000.0), 0, 'f', 4);
-    }
-    else
-        s = "";
-
-    return s;
-}
-
 QString WulforUtil::formatBytes(int64_t aBytes){
-    return formatBytes(aBytes, WIGET(WI_APP_UNIT_BASE));
+    return _q(Util::formatBytes(aBytes));
 }
 
 QString WulforUtil::makeMagnet(const QString &path, const int64_t size, const QString &tth){
@@ -1145,15 +1129,12 @@ QMenu *WulforUtil::buildUserCmdMenu(const StringList& hub_list, int ctx, QWidget
             }
         } else if (uc->isRaw() || uc->isChat()) {
             menuPtr = ucMenu;
-            auto _ptr = uc->getDisplayName().begin();
+            auto _begin = uc->getDisplayName().begin();
             auto _end = uc->getDisplayName().end();
-            for(; _ptr != _end; ++_ptr) {
-                const QString name = _q(*_ptr);
-                if (_ptr + 1 == _end) {
-                    QAction *act = menuPtr->addAction(name);
-                    act->setToolTip(_q(uc->getCommand()));
-                    act->setStatusTip(_q(uc->getName()));
-                    act->setData(_q(uc->getHub()));
+            for(; _begin != _end; ++_begin) {
+                const QString name = _q(*_begin);
+                if (_begin + 1 == _end) {
+                    menuPtr->addAction(name)->setData(uc->getId());
                 } else {
                     bool found = false;
                     QListIterator<QAction*> iter(menuPtr->actions());

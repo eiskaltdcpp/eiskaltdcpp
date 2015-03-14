@@ -31,14 +31,14 @@ else (USE_LIBNOTIFY)
     message (STATUS "Building without libnotify support")
 endif (USE_LIBNOTIFY)
 
-include_directories(${CMAKE_CURRENT_BINARY_DIR})
+include_directories(${PROJECT_BINARY_DIR})
 aux_source_directory(${PROJECT_SOURCE_DIR}/src gtk_srcs)
 file (GLOB gtk_hdrs ${PROJECT_SOURCE_DIR}/src/*.hh)
 file (GLOB gtk_ui ${PROJECT_SOURCE_DIR}/ui/*.ui)
 
-set (GTK_SRCS @gtk_srcs@ PARENT_SCOPE)
-set (GTK_HDRS @gtk_hdrs@ PARENT_SCOPE)
-set (GTK_UI   @gtk_ui@   PARENT_SCOPE)
+set (GTK_SRCS ${gtk_srcs} PARENT_SCOPE)
+set (GTK_HDRS ${gtk_hdrs} PARENT_SCOPE)
+set (GTK_UI   ${gtk_ui}  PARENT_SCOPE)
 set (GTHREAD "-lgthread-2.0")
 
 if (USE_GTK)
@@ -135,7 +135,7 @@ if (UNIX)
                 OUTPUT_FILE ${PROJECT_BINARY_DIR}/${PROJECT_NAME}.1.gz
                 COMMAND "${GZIP_CMD}" -9
                 INPUT_FILE ${PROJECT_NAME}.1
-                WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/)
+                WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/)
     install (FILES ${PROJECT_BINARY_DIR}/${PROJECT_NAME}.1.gz DESTINATION ${MAN_DIR})
 endif (UNIX)
 
@@ -144,12 +144,9 @@ endif (UNIX)
     RUNTIME DESTINATION ${BINDIR}
     BUNDLE DESTINATION ${BUNDLEDIR})
 
-  install (DIRECTORY ui/ DESTINATION "${CLIENT_DATA_DIR}/gtk/ui"
-    PATTERN ".svn" EXCLUDE)
-  install (DIRECTORY icons/ DESTINATION "${CLIENT_DATA_DIR}/gtk/icons"
-    PATTERN ".svn" EXCLUDE)
-  install (DIRECTORY themes/ DESTINATION "${CLIENT_DATA_DIR}/gtk/themes"
-    PATTERN ".svn" EXCLUDE)
+  install (DIRECTORY ui/ DESTINATION "${CLIENT_DATA_DIR}/gtk/ui")
+  install (DIRECTORY icons/ DESTINATION "${CLIENT_DATA_DIR}/gtk/icons")
+  install (DIRECTORY themes/ DESTINATION "${CLIENT_DATA_DIR}/gtk/themes")
 
 if (APPLE)
   install (FILES ${PROJECT_NAME}.desktop DESTINATION ${PROJECT_NAME_GLOBAL}.app/applications)

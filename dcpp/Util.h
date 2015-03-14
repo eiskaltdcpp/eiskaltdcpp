@@ -480,6 +480,7 @@ public:
     static uint32_t rand(uint32_t low, uint32_t high) { return rand(high-low) + low; }
     static double randd() { return ((double)rand()) / ((double)0xffffffff); }
 
+    static void parseIpPort(const string &aIpPort, string &ip, uint16_t &port);
 private:
     /** In local mode, all config and temp files are kept in the same dir as the executable */
     static bool localMode;
@@ -497,6 +498,7 @@ private:
     static CountryList countries;
 
     static void loadBootConfig();
+    static string formatBytes(int64_t aBytes, uint8_t base);
 };
 
 /** Case sensitive hash function for strings */

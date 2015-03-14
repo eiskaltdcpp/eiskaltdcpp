@@ -10,7 +10,12 @@
 #include "CustomFontModel.h"
 #include "WulforUtil.h"
 
+#if QT_VERSION >= 0x050000
+#include <QtWidgets>
+#else
 #include <QtGui>
+#endif
+
 #include <QFontDialog>
 #include <QList>
 #include <QStringList>
@@ -151,7 +156,7 @@ void CustomFontModel::addNewFont(const QString &wkey, const QString &desc){
     if (wkey.isEmpty() || desc.isEmpty())
         return;
 
-    QString font_desc = WSGET(wkey.toAscii().constData());
+	QString font_desc = WSGET(wkey.toUtf8().constData());
     QFont f;
 
     if (font_desc.isEmpty())
@@ -189,7 +194,7 @@ void CustomFontModel::itemDoubleClicked(const QModelIndex &i){
 void CustomFontModel::ok(){
     for (const auto &i : rootItem->childItems){
         if (!i->custom_font.isEmpty()){
-            WSSET(i->key.toAscii().constData(), i->custom_font);
+			WSSET(i->key.toUtf8().constData(), i->custom_font);
 
             emit fontChanged(i->key, i->custom_font);
         }

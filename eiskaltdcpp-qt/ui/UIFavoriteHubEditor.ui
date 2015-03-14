@@ -82,7 +82,7 @@
       <item row="3" column="1">
        <widget class="LineEdit" name="lineEdit_DESC">
         <property name="toolTip">
-         <string>This description will show in the user list.</string>
+         <string>This description will be shown in the list of favorite hubs.</string>
         </property>
        </widget>
       </item>
@@ -231,7 +231,7 @@
          <bool>false</bool>
         </property>
         <property name="toolTip">
-         <string>This description will show in the user list.</string>
+         <string>This description will be shown in the user list.</string>
         </property>
        </widget>
       </item>

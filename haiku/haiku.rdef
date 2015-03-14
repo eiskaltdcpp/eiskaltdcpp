@@ -4,8 +4,8 @@ resource app_name_catalog_entry "x-vnd.EiskaltDC++:System name:eiskaltdcpp-qt";
 
 resource app_version {
 	major  = 2, 
-	middle = 2,
-	minor  = 8,
+	middle = 3,
+	minor  = 0,
 
 	variety = B_APPV_BETA,
 	internal = 0,

@@ -59,6 +59,10 @@
 #include <QShortcut>
 #include <QHeaderView>
 
+#if QT_VERSION >= 0x050000
+#include <QUrlQuery>
+#endif
+
 #include <QtDebug>
 
 #include <exception>
@@ -291,7 +295,7 @@ HubFrame::Menu::Action HubFrame::Menu::execUserMenu(Client *client, const QStrin
     menu->clear();
     menu->setProperty("iconVisibleInMenu", true);
 
-    menu->setTitle(WulforUtil::getInstance()->getNicks(cid, _q(client->getHubUrl())));
+    menu->setTitle(WulforUtil::getInstance()->getNickViaOnlineUser(cid, _q(client->getHubUrl())));
 
     if (menu->title().isEmpty())
         menu->setTitle(tr("[User went offline]"));
@@ -334,20 +338,16 @@ HubFrame::Menu::Action HubFrame::Menu::execUserMenu(Client *client, const QStrin
         return chat_actions_map[res];
     else if (antispam_menu && antispam_menu->actions().contains(res))
         return static_cast<HubFrame::Menu::Action>(res->data().toInt());
-    else if (res && !res->toolTip().isEmpty()){//User command{
-        last_user_cmd = res->toolTip();
-        QString cmd_name = res->statusTip();
-        QString hub = res->data().toString();
+    else if (res && res->data().canConvert(QVariant::Int)){//User command{
+        int id = res->data().toInt();
 
-        int id = FavoriteManager::getInstance()->findUserCommand(cmd_name.toStdString(), hub.toStdString());
         UserCommand uc;
-
         if (id == -1 || !FavoriteManager::getInstance()->getUserCommand(id, uc))
             return None;
 
         StringMap params;
 
-        if (WulforUtil::getInstance()->getUserCommandParams(uc, params)){
+        if (WulforUtil::getInstance()->getUserCommandParams(uc, params)) {
             UserPtr user = ClientManager::getInstance()->findUser(CID(cid.toStdString()));
 
             if (user)
@@ -371,8 +371,7 @@ HubFrame::Menu::Action HubFrame::Menu::execChatMenu(Client *client, const QStrin
         return None;
 
     menu->clear();
-
-    QAction *title = new QAction(WulforUtil::getInstance()->getNicks(cid, _q(client->getHubUrl())), menu);
+    QAction *title = new QAction(WulforUtil::getInstance()->getNickViaOnlineUser(cid, _q(client->getHubUrl())), menu);
     QFont f;
     f.setBold(true);
     title->setFont(f);
@@ -426,14 +425,10 @@ HubFrame::Menu::Action HubFrame::Menu::execChatMenu(Client *client, const QStrin
         return chat_actions_map[res];
     else if (antispam_menu && antispam_menu->actions().contains(res))
         return static_cast<HubFrame::Menu::Action>(res->data().toInt());
-    else if (res && !res->toolTip().isEmpty()){//User command
-        last_user_cmd = res->toolTip();
-        QString cmd_name = res->statusTip();
-        QString hub = res->data().toString();
+    else if (res && res->data().canConvert(QVariant::Int)){//User command
+        int id = res->data().toInt();
 
-        int id = FavoriteManager::getInstance()->findUserCommand(cmd_name.toStdString(), hub.toStdString());
         UserCommand uc;
-
         if (id == -1 || !FavoriteManager::getInstance()->getUserCommand(id, uc))
             return None;
 
@@ -505,21 +500,31 @@ QString HubFrame::LinkParser::parseForLinks(QString input, bool use_emot){
                 if (linktype == "magnet:"){
                     QString magnet = link;
 
+#if QT_VERSION >= 0x050000
+                    QUrlQuery u;
+#else
                     QUrl u;
+#endif
 
-                    if (!magnet.contains("+"))
-                        u.setEncodedUrl(magnet.toAscii());
-                    else {
+                    if (!magnet.contains("+")) {
+#if QT_VERSION >= 0x050000
+                        u.setQuery(magnet.toUtf8());
+#else
+                        u.setEncodedUrl(magnet.toUtf8());
+#endif
+                    } else {
                         QString _l = magnet;
 
                         _l.replace("+", "%20");
-                        u.setEncodedUrl(_l.toAscii());
+#if QT_VERSION >= 0x050000
+                            u.setQuery(_l.toUtf8());
+#else
+                            u.setEncodedUrl(_l.toUtf8());
+#endif
                     }
-
-                    if (u.hasQueryItem("kt")){
+                    if (u.hasQueryItem("kt")) {
                         QString keywords = u.queryItemValue("kt");
                         QString hub = u.hasQueryItem("xs")? u.queryItemValue("xs") : "";
-
                         if (!(hub.startsWith("dchub://", Qt::CaseInsensitive) ||
                               hub.startsWith("adc://", Qt::CaseInsensitive) ||
                               hub.startsWith("adcs://", Qt::CaseInsensitive)) && !hub.isEmpty())
@@ -529,9 +534,15 @@ QString HubFrame::LinkParser::parseForLinks(QString input, bool use_emot){
                             keywords = tr("Invalid keywords");
 
                         if (!hub.isEmpty())
+#if QT_VERSION >= 0x050000
+                            toshow = keywords.toHtmlEscaped() + " (" + hub.toHtmlEscaped() + ")";
+                        else
+                            toshow = keywords.toHtmlEscaped();
+#else
                             toshow = Qt::escape(keywords) + " (" + Qt::escape(hub) + ")";
                         else
                             toshow = Qt::escape(keywords);
+#endif
                     }
                     else {
                         QString name, tth;
@@ -595,7 +606,7 @@ QString HubFrame::LinkParser::parseForLinks(QString input, bool use_emot){
                     if (emo_text_len == input_length)
                         nextCharisSpace = true;
                     else if (input_length > emo_text_len){
-                        char c = input.at(emo_text_len).toAscii();
+                        char c = input.at(emo_text_len).unicode();
 
                         nextCharisSpace = (c == ' ' || c == '\t');
                     }
@@ -636,7 +647,7 @@ QString HubFrame::LinkParser::parseForLinks(QString input, bool use_emot){
                 QString chunk = input.left(input.indexOf("[/color]")+8);
 
                 if (exp.exactMatch(chunk)){
-                    if (exp.numCaptures() == 3){
+                    if (exp.captureCount() == 3){
                         output += "<font color=\"" + exp.cap(1) + "\">" + parseForLinks(exp.cap(2), false) + "</font>";
 
                         input.remove(0, chunk.length());
@@ -647,7 +658,7 @@ QString HubFrame::LinkParser::parseForLinks(QString input, bool use_emot){
                 QRegExp exp("\\[url=*((.+[^\\]\\[]))*\\]((.+))\\[/url\\]");
                 QString chunk = input.left(input.indexOf("[/url]")+6);
 
-                if (exp.exactMatch(chunk) && exp.numCaptures() == 4){
+                if (exp.exactMatch(chunk) && exp.captureCount() == 4){
                     QString link = exp.cap(2);
                     QString title = exp.cap(3);
 
@@ -657,7 +668,11 @@ QString HubFrame::LinkParser::parseForLinks(QString input, bool use_emot){
                         link.remove(0, 1);
 
                     if (!title.isEmpty()){
-                        output += "<a href=\"" + link + "\" title=\"" + Qt::escape(title) + "\">" + Qt::escape(title) + "</a>";
+#if QT_VERSION >= 0x050000
+                            output += "<a href=\"" + link + "\" title=\"" + title.toHtmlEscaped() + "\">" + title.toHtmlEscaped() + "</a>";
+#else
+                            output += "<a href=\"" + link + "\" title=\"" + Qt::escape(title) + "\">" + Qt::escape(title) + "</a>";
+#endif
 
                         input.remove(0, chunk.length());
                     }
@@ -1305,7 +1320,7 @@ void HubFrame::load(){
     QString ustate = WSGET(WS_CHAT_USERLIST_STATE);
 
     if (!ustate.isEmpty())
-        treeView_USERS->header()->restoreState(QByteArray::fromBase64(ustate.toAscii()));
+        treeView_USERS->header()->restoreState(QByteArray::fromBase64(ustate.toUtf8()));
 
     if (w_chat >= 0 && w_ulist >= 0){
         QList<int> frames;
@@ -1561,7 +1576,7 @@ bool HubFrame::parseForCmd(QString line, QWidget *wg){
         QStringList lex = line.split(" ", QString::SkipEmptyParts);
 
         if (lex.size() >= 2){
-            QString aliases = QByteArray::fromBase64(WSGET(WS_CHAT_CMD_ALIASES).toAscii());
+            QString aliases = QByteArray::fromBase64(WSGET(WS_CHAT_CMD_ALIASES).toUtf8());
 
             if (lex.at(1) == "list"){
                 if (!aliases.isEmpty()){
@@ -1591,7 +1606,7 @@ bool HubFrame::parseForCmd(QString line, QWidget *wg){
                         for (const auto &line : alias_list)
                             new_aliases += line + "\n";
 
-                        WSSET(WS_CHAT_CMD_ALIASES, new_aliases.toAscii().toBase64());
+                        WSSET(WS_CHAT_CMD_ALIASES, new_aliases.toUtf8().toBase64());
 
                         if (fr == this)
                             addStatus(tr("Alias removed."));
@@ -1623,7 +1638,7 @@ bool HubFrame::parseForCmd(QString line, QWidget *wg){
                     else if (!aliases.contains(new_cmd.at(0)+'\t')){
                         aliases += new_cmd.at(0) + '\t' +  new_cmd.at(1) + '\n';
 
-                        WSSET(WS_CHAT_CMD_ALIASES, aliases.toAscii().toBase64());
+                        WSSET(WS_CHAT_CMD_ALIASES, aliases.toUtf8().toBase64());
 
                         if (fr == this)
                             addStatus(tr("Alias %1 => %2 has been added").arg(new_cmd.at(0)).arg(new_cmd.at(1)));
@@ -1890,7 +1905,7 @@ bool HubFrame::parseForCmd(QString line, QWidget *wg){
             pm->addStatus(out);
     }
     else if (!WSGET(WS_CHAT_CMD_ALIASES).isEmpty()){
-        QString aliases = QByteArray::fromBase64(WSGET(WS_CHAT_CMD_ALIASES).toAscii());
+        QString aliases = QByteArray::fromBase64(WSGET(WS_CHAT_CMD_ALIASES).toUtf8());
         QStringList alias_list = aliases.split('\n', QString::SkipEmptyParts);
         bool ok = false;
 
@@ -2297,7 +2312,7 @@ void HubFrame::addAsFavorite(){
         aEntry.setServer(d->client->getHubUrl());
         aEntry.setName(d->client->getHubName());
         aEntry.setDescription(d->client->getHubDescription());
-        aEntry.setConnect(FALSE);
+        aEntry.setConnect(false);
         aEntry.setNick(d->client->getMyNick());
         aEntry.setEncoding(d->client->getEncoding());
 
@@ -2618,10 +2633,10 @@ void HubFrame::findText(QTextDocument::FindFlags flag){
         c.movePosition(QTextCursor::Start,QTextCursor::MoveAnchor,1);
 
     c = textEdit_CHAT->document()->find(lineEdit_FIND->text(), c, flag);
-
-    textEdit_CHAT->setTextCursor(c);
-
-    slotFindAll();
+    if (!c.isNull()) {
+        textEdit_CHAT->setTextCursor(c);
+        slotFindAll();
+    }
 }
 
 void HubFrame::updateStyles(){
@@ -3328,12 +3343,11 @@ void HubFrame::slotFindTextEdited(const QString & text){
 
     c.movePosition(QTextCursor::StartOfLine,QTextCursor::MoveAnchor,1);
     c = textEdit_CHAT->document()->find(lineEdit_FIND->text(), c, 0);
-
-    textEdit_CHAT->setExtraSelections(QList<QTextEdit::ExtraSelection>());
-
-    textEdit_CHAT->setTextCursor(c);
-
-    slotFindAll();
+    if (!c.isNull()) {
+        textEdit_CHAT->setExtraSelections(QList<QTextEdit::ExtraSelection>());
+        textEdit_CHAT->setTextCursor(c);
+        slotFindAll();
+    }
 }
 
 void HubFrame::slotFindAll(){
@@ -3356,14 +3370,13 @@ void HubFrame::slotFindAll(){
 
         QTextCursor c = textEdit_CHAT->document()->find(lineEdit_FIND->text(), 0, 0);
 
-        while (!c.isNull()){
+        while (!c.isNull()) {
             selection.cursor = c;
             extraSelections.append(selection);
 
             c = textEdit_CHAT->document()->find(lineEdit_FIND->text(), c, 0);
         }
     }
-
     textEdit_CHAT->setExtraSelections(extraSelections);
 }
 
@@ -3573,22 +3586,18 @@ void HubFrame::slotStatusLinkOpen(const QString &url){
     WulforUtil::getInstance()->openUrl(url);
 }
 
-void HubFrame::slotHubMenu(QAction *res){
-    if (res && !res->toolTip().isEmpty()){//User command
-        QString last_user_cmd = res->toolTip();
-        QString cmd_name = res->statusTip();
-        QString hub = res->data().toString();
+void HubFrame::slotHubMenu(QAction *res) {
+    if (res && res->data().canConvert(QVariant::Int)) {//User command
+        int id = res->data().toInt();
 
-        int id = FavoriteManager::getInstance()->findUserCommand(cmd_name.toStdString(), hub.toStdString());
         UserCommand uc;
-
         if (id == -1 || !FavoriteManager::getInstance()->getUserCommand(id, uc))
             return;
 
         StringMap params;
         Q_D(HubFrame);
 
-        if (WulforUtil::getInstance()->getUserCommandParams(uc, params)){
+        if (WulforUtil::getInstance()->getUserCommandParams(uc, params)) {
             d->client->getMyIdentity().getParams(params, "my", true);
             d->client->getHubIdentity().getParams(params, "hub", false);
 
@@ -3853,7 +3862,7 @@ void HubFrame::on(ClientListener::Message, Client*, const ChatMessage &message) 
         map["CLR"] = color;
         map["3RD"] = third;
         map["CID"] = _q(id.toBase32());
-        map["I4"]  = _q(ClientManager::getInstance()->getOnlineUserIdentity(message.from->getUser()).getIp());
+        map["I4"]  = _q(message.from->getIdentity().getIp());
 
         if (WBGET(WB_CHAT_REDIRECT_BOT_PMS) && isBot)
             emit coreMessage(map);
@@ -3874,7 +3883,7 @@ void HubFrame::on(ClientListener::Message, Client*, const ChatMessage &message) 
             params["userCID"] = id.toBase32();
             params["userNI"] = user->getIdentity().getNick();
             params["myCID"] = ClientManager::getInstance()->getMe()->getCID().toBase32();
-            params["userI4"] = ClientManager::getInstance()->getOnlineUserIdentity(message.from->getUser()).getIp();
+            params["userI4"] = message.from->getIdentity().getIp();
             LOG(LogManager::PM, params);
         }
     }
@@ -3909,7 +3918,7 @@ void HubFrame::on(ClientListener::Message, Client*, const ChatMessage &message) 
 
         map["CLR"] = color;
         map["3RD"] = third;
-        map["I4"]  = _q(ClientManager::getInstance()->getOnlineUserIdentity(user->getUser()).getIp());
+        map["I4"]  = _q(user->getIdentity().getIp());
 
         emit coreMessage(map);
 
@@ -3923,7 +3932,7 @@ void HubFrame::on(ClientListener::Message, Client*, const ChatMessage &message) 
             d->client->getHubIdentity().getParams(params, "hub", false);
             params["hubURL"] = d->client->getHubUrl();
             params["userNI"] = _tq(nick);
-            params["userI4"] = ClientManager::getInstance()->getOnlineUserIdentity(user->getUser()).getIp();
+            params["userI4"] = user->getIdentity().getIp();
             d->client->getMyIdentity().getParams(params, "my", true);
             LOG(LogManager::CHAT, params);
         }
@@ -3939,9 +3948,9 @@ void HubFrame::on(ClientListener::StatusMessage, Client*, const string &msg, int
 
     if (BOOLSETTING(LOG_STATUS_MESSAGES)){
         StringMap params;
-        d->client->getHubIdentity().getParams(params, "hub", FALSE);
+        d->client->getHubIdentity().getParams(params, "hub", false);
         params["hubURL"] = d->client->getHubUrl();
-        d->client->getMyIdentity().getParams(params, "my", TRUE);
+        d->client->getMyIdentity().getParams(params, "my", true);
         params["message"] = msg;
         LOG(LogManager::STATUS, params);
     }

@@ -273,6 +273,11 @@ void FavoriteHubModel::clearModel(){
     emit layoutChanged();
 }
 
+void FavoriteHubModel::reset() {
+    beginResetModel();
+    endResetModel();
+}
+
 bool FavoriteHubModel::removeItem(const QModelIndex &el){
     if (!el.isValid())
         return false;

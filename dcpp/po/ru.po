@@ -1,21 +1,20 @@
-# SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR EiskaltDC++ team
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
 # Translators:
-# Boris Pek <tehnick-8@mail.ru>, 2012
-# Boris Pek <tehnick-8@yandex.ru>, 2012-2013
-# Вячеслав Третьяков <tret2003@gmail.com>, 2012
-# Вячеслав Третьяков <tret2003@gmail.com>, 2012
+# Translators:
+# Boris Pek <tehnick-8@mail.ru>, 2012.
+# Boris Pek <tehnick-8@yandex.ru>, 2012-2013, 2014.
+# Вячеслав Третьяков <tret2003@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2014-01-11 15:08+0400\n"
-"PO-Revision-Date: 2013-11-19 16:45+0000\n"
+"POT-Creation-Date: 2014-11-09 02:35+0300\n"
+"PO-Revision-Date: 2014-11-09 22:00+0300\n"
 "Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
-"Language-Team: Russian (http://www.transifex.com/projects/p/eiskaltdcpp/"
+"Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "language/ru/)\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
@@ -23,6 +22,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Lokalize 1.5\n"
 
 #: ../SearchManager.cpp:36
 msgid "Any"
@@ -64,15 +64,15 @@ msgstr "TTH"
 msgid "CD Image"
 msgstr "CD образ"
 
-#: ../SearchManager.cpp:146
+#: ../SearchManager.cpp:149
 msgid "Search enabled again"
 msgstr "Поиск снова включен"
 
-#: ../SearchManager.cpp:154
+#: ../SearchManager.cpp:157
 msgid "Search disabled: %1%"
 msgstr "Поиск отключен: %1%"
 
-#: ../SearchManager.cpp:278 ../SearchManager.cpp:365 ../SearchManager.cpp:367
+#: ../SearchManager.cpp:281 ../SearchManager.cpp:368 ../SearchManager.cpp:370
 #: ../Transfer.cpp:81 ../Transfer.cpp:85 ../QueueManager.cpp:2171
 #: ../QueueManager.cpp:2177 ../QueueManager.cpp:2183 ../ClientManager.cpp:178
 msgid "Offline"
@@ -106,16 +106,16 @@ msgstr "Невозможно считать хэш файла"
 msgid "Error creating hash data file: %1%"
 msgstr "Ошибка создания файла данных хэша: %1%"
 
-#: ../HashManager.cpp:946
+#: ../HashManager.cpp:958
 msgid "Hash database rebuilt"
 msgstr "Хеш базы данных обновлен"
 
-#: ../HashManager.cpp:1040
+#: ../HashManager.cpp:1052
 msgid ""
 "%1% not shared; calculated CRC32 does not match the one found in SFV file."
 msgstr "%1% не расшарен из-за несоответсвия хеш-суммы (CRC32)."
 
-#: ../HashManager.cpp:1045
+#: ../HashManager.cpp:1057
 msgid "Error hashing %1%: %2%"
 msgstr "Ошибка хэширования %1%: %2%"
 
@@ -201,11 +201,11 @@ msgstr "Невозможно передать файл %1%: %2%"
 msgid "IPFilter: Blocked incoming connection to "
 msgstr "IPFilter: заблокировано входящее соединение к "
 
-#: ../UploadManager.cpp:618
+#: ../UploadManager.cpp:625
 msgid "Disconnected user leaving the hub: %1%"
 msgstr "Пользователь %1% отключился и покинул хаб"
 
-#: ../DirectoryListing.cpp:206
+#: ../DirectoryListing.cpp:209
 msgid "Directory missing name attribute"
 msgstr "Отсутствует имя папки"
 
@@ -344,15 +344,15 @@ msgstr "Перенаправление пользователя(ей)"
 msgid "Auto-connect group (converted)"
 msgstr "Авто-подключение группы (сконвертированный)"
 
-#: ../NmdcHub.cpp:288
+#: ../NmdcHub.cpp:289
 msgid "%1% (Nick unknown)"
 msgstr "%1% (Ник неизвестен)"
 
-#: ../NmdcHub.cpp:667
+#: ../NmdcHub.cpp:668
 msgid "Hub topic:"
 msgstr "Тема хаба:"
 
-#: ../NmdcHub.cpp:1017
+#: ../NmdcHub.cpp:1018
 msgid ""
 "This hub is trying to use your client to spam %1%, please urge hub owner to "
 "fix this"
@@ -456,31 +456,31 @@ msgstr "Отклонить"
 msgid "SSL Error: %1% (%2%, %3%)"
 msgstr "Ошибка SSL: %1% (%2%, %3%)"
 
-#: ../DownloadManager.cpp:134
+#: ../DownloadManager.cpp:135
 msgid "IPFilter: Blocked outgoing connection to "
 msgstr "IPFilter: заблокировано исходящее соединение к "
 
-#: ../DownloadManager.cpp:229
+#: ../DownloadManager.cpp:237
 msgid "Invalid size"
 msgstr "Неверный размер"
 
-#: ../DownloadManager.cpp:234
+#: ../DownloadManager.cpp:242
 msgid "Response does not match request"
 msgstr "Ответ не соответствует запросо"
 
-#: ../DownloadManager.cpp:241
+#: ../DownloadManager.cpp:249
 msgid "Could not open target file: %1%"
 msgstr "Невозможно открыть файл %1%"
 
-#: ../DownloadManager.cpp:320
+#: ../DownloadManager.cpp:328
 msgid "Full tree does not match TTH root"
 msgstr "Полное дерево не соответствует TTH корня"
 
-#: ../DownloadManager.cpp:385
+#: ../DownloadManager.cpp:393
 msgid "No slots available"
 msgstr "Нет доступных слотов"
 
-#: ../DownloadManager.cpp:496
+#: ../DownloadManager.cpp:504
 msgid "%1%: File not available"
 msgstr "%1%: Файл недоступен"
 
@@ -512,42 +512,67 @@ msgstr "Очередь загрузок"
 msgid "Users"
 msgstr "Пользователи"
 
-#: ../Util.cpp:641
+#: ../Util.cpp:644
 #, c-format
 msgid "%d B"
 msgstr "%d Б"
 
-#: ../Util.cpp:643
+#: ../Util.cpp:646
 #, c-format
 msgid "%.02f KiB"
+msgstr "%.02f КиБ"
+
+#: ../Util.cpp:646
+#, c-format
+msgid "%.02f KB"
 msgstr "%.02f КБ"
 
-#: ../Util.cpp:645
+#: ../Util.cpp:648
 #, c-format
 msgid "%.02f MiB"
+msgstr "%.02f МиБ"
+
+#: ../Util.cpp:648
+#, c-format
+msgid "%.02f MB"
 msgstr "%.02f МБ"
 
-#: ../Util.cpp:647
+#: ../Util.cpp:650
 #, c-format
 msgid "%.02f GiB"
+msgstr "%.02f ГиБ"
+
+#: ../Util.cpp:650
+#, c-format
+msgid "%.02f GB"
 msgstr "%.02f ГБ"
 
-#: ../Util.cpp:649
+#: ../Util.cpp:652
 #, c-format
 msgid "%.02f TiB"
+msgstr "%.02f ТиБ"
+
+#: ../Util.cpp:652
+#, c-format
+msgid "%.02f TB"
 msgstr "%.02f ТБ"
 
-#: ../Util.cpp:651
+#: ../Util.cpp:654
 #, c-format
 msgid "%.02f PiB"
+msgstr "%.02f ПиБ"
+
+#: ../Util.cpp:654
+#, c-format
+msgid "%.02f PB"
 msgstr "%.02f ПБ"
 
-#: ../Util.cpp:681
+#: ../Util.cpp:688
 #, c-format
 msgid "%s B"
 msgstr "%s Б"
 
-#: ../Util.cpp:685
+#: ../Util.cpp:692
 #, c-format
 msgid "%'lld B"
 msgstr "%'lld Б"
@@ -611,41 +636,37 @@ msgstr "Обновление списка файлов завершено"
 msgid "File list %1% generated"
 msgstr "Запущено обновление списка файлов %1%"
 
-#: ../SettingsManager.cpp:184
+#: ../SettingsManager.cpp:180
 msgid "downloaded from"
 msgstr "загружено из"
 
-#: ../SettingsManager.cpp:520
+#: ../SettingsManager.cpp:517
 msgid "Invalid search type name"
 msgstr "Неверное имя поискового типа"
 
-#: ../SettingsManager.cpp:524 ../SettingsManager.cpp:546
+#: ../SettingsManager.cpp:521 ../SettingsManager.cpp:543
 msgid "This search type already exists"
 msgstr "Этот поисковый тип уже существует"
 
-#: ../SettingsManager.cpp:578
+#: ../SettingsManager.cpp:575
 msgid "No such search type"
 msgstr "Нет такого поискового типа"
 
-#: ../SettingsManager.cpp:619
+#: ../SettingsManager.cpp:603 ../SettingsManager.cpp:608
 msgid "Error: setting not found!"
 msgstr "Ошибка: опция не обнаружена!"
 
-#: ../SettingsManager.cpp:621
+#: ../SettingsManager.cpp:603
 msgid "Core setting "
 msgstr "Опция ядра "
 
-#: ../SettingsManager.cpp:622
+#: ../SettingsManager.cpp:608
 msgid "Change core setting "
 msgstr "Изменить опцию ядра "
 
-#: ../SettingsManager.cpp:622
+#: ../SettingsManager.cpp:608
 msgid " to "
 msgstr " в "
-
-#: ../SettingsManager.cpp:624
-msgid "Error: segv parser :D"
-msgstr "Ошибка: парсер сломался :D"
 
 #: ../Socket.cpp:86
 #, c-format
@@ -722,3 +743,6 @@ msgstr "Записано больше байт чем требуется"
 #: ../MerkleCheckOutputStream.h:52 ../MerkleCheckOutputStream.h:112
 msgid "TTH inconsistency"
 msgstr "Несовпадение TTH"
+
+#~ msgid "Error: segv parser :D"
+#~ msgstr "Ошибка: парсер сломался :D"

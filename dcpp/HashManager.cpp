@@ -611,21 +611,26 @@ void HashManager::Hasher::hashFile(const string& fileName, int64_t size) {
     Lock l(cs);
     if (w.insert(make_pair(fileName, size)).second) {
         if(paused > 0)
-            paused++;
+            paused = 1 ;
         else
-        s.signal();
+            s.signal();
     }
 }
 
 bool HashManager::Hasher::pause() {
     Lock l(cs);
-    return paused++ > 0;
+    paused = 1;
+//    printf("pause::paused: %d\n", paused);fflush(stdout);
+    return true;
 }
 
 void HashManager::Hasher::resume() {
     Lock l(cs);
-    while(--paused > 0)
+    while(paused > 0) {
+        paused = 0;
+//        printf("resume::paused: %d\n", paused);fflush(stdout);
         s.signal();
+    }
 }
 
 bool HashManager::Hasher::isPaused() const {
@@ -662,12 +667,13 @@ void HashManager::Hasher::instantPause() {
     {
         Lock l(cs);
         if(paused > 0) {
-            paused++;
             wait = true;
         }
     }
-    if(wait)
+    if(wait) {
+//        printf("wait2: %d\n", wait); fflush(stdout);
         s.wait();
+    }
 }
 
 #ifdef _WIN32
@@ -800,6 +806,8 @@ static void sigbus_handler(int signum
 }
 
 bool HashManager::Hasher::fastHash(const string& filename, uint8_t* , TigerTree& tth, int64_t size, CRC32Filter* xcrc32) {
+    instantPause();
+
     static StreamStore streamStore;
 
     if (streamStore.loadTree(filename, tth, -1)){
@@ -937,7 +945,11 @@ int HashManager::Hasher::run() {
     bool last = false;
     pause();
     for(;;) {
-        s.wait();
+
+        if (w.empty()) {
+            s.wait();
+        }
+
         if(stop)
             break;
         if(rebuild) {
@@ -1066,7 +1078,7 @@ int HashManager::Hasher::run() {
     }
 
 HashManager::HashPauser::HashPauser() {
-    resume = !HashManager::getInstance()->pauseHashing();
+    resume = !HashManager::getInstance()->isHashingPaused();
 }
 
 HashManager::HashPauser::~HashPauser() {

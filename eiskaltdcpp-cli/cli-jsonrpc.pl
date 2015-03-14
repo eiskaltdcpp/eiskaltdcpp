@@ -39,6 +39,9 @@ BEGIN {
 	 "/usr/share/eiskaltdcpp/cli"
 }
 
+# use quit, exit or ctrl+d to exit
+$SIG{INT} = 'IGNORE';
+
 # preparing terminal
 use utf8;
 use locale;
@@ -46,8 +49,8 @@ binmode STDOUT, ':utf8';
 
 # configuration
 our %config;
-$config{version}=0.4;
-$config{revision}=20130518;
+$config{version}=0.7;
+$config{revision}=20140608;
 require "cli-jsonrpc-config.pl";
 
 # processing command line options
@@ -224,7 +227,6 @@ sub get_commands
 			maxargs => 1,
 			proc => \&sharelist
 		},
-
 		"share.refresh" =>
 		{
 			desc => "Refresh a share, hash up new files. Parameters: none",
@@ -321,15 +323,98 @@ sub get_commands
 			desc => "Pause hashing process. Parameters: none",
 			proc => \&hashpause
 		},
-		"methods.list" =>
+		"system.describe" =>
 		{
 			desc => "List all jsonrpc methods available. Parameters: none",
-			proc => \&methodslist
+			proc => \&sysdescr
 		},
 		"queue.matchlists" =>
 		{
 			desc => "Description here. Parameters: none",
 			proc => \&qmatchlists
+		},
+		"list.local" =>
+		{
+			desc => "List collected filelists. Parameters: separator",
+			maxargs => 1,
+			proc => \&listlocal
+		},
+		"list.open" =>
+		{
+			desc => "Open filelist. Parameters: filelist",
+			minargs => 1,
+			maxargs => 1,
+			proc => \&listopen
+		},
+		"list.close" =>
+		{
+			desc => "Close filelist. Parameters: filelist",
+			minargs => 1,
+			maxargs => 1,
+			proc => \&listclose
+		},
+		"list.listopened" =>
+		{
+			desc => "List opened filelists. Parameters: separator",
+			maxargs => 1,
+			proc => \&listopened
+		},
+		"list.closeall" =>
+		{
+			desc => "Close all opened filelists. Parameters: none",
+			proc => \&listcloseall
+		},
+		"list.lsdir" =>
+		{
+			desc => "List directory in filelist. Parameters: filelist, directory
+			Notes: filelist have it's own vfs, so you need to separate
+			path to target with '\\\\' like this:
+			'path\\\\to\\\\directory\\\\'",
+			minargs => 2,
+			maxargs => 2,
+			proc => \&listlsdir
+		},
+		"list.downloadfile" =>
+		{
+			desc => "Fetch file specified by target to local directory 
+			specified by downloadto using specified filelist. 
+			Parameters: target, downloadto, filelist
+			Notes: filelist have it's own vfs, so you need to separate
+			path to target with '\\\\' like this:
+			'path\\\\to\\\\file.txt'",
+			args => sub { shift->complete_onlydirs(@_) },
+			minargs => 2,
+			maxargs => 3,
+			proc => \&listdownloadfile
+		},
+		"list.downloaddir" =>
+		{
+			desc => "Fetch directory specified by target to local directory 
+			specified by downloadto using specified filelist. 
+			Parameters: target, downloadto, filelist
+			Notes: filelist have it's own vfs, so you need to separate
+			path to target with '\\\\' like this:
+			'path\\\\to\\\\dir\\\\'",
+			args => sub { shift->complete_onlydirs(@_) },
+			minargs => 2,
+			maxargs => 3,
+			proc => \&listdownloaddir
+		},
+		"queue.matchlists" =>
+		{
+			desc => "TODO. Parameters: none",
+			proc => \&queuematchlists
+		},
+		"queue.getiteminfo" =>
+		{
+			desc => "Get queue item full info. Parameters: target",
+			maxargs => 1,
+			proc => \&queuegetiteminfo
+		},
+		"queue.clear" =>
+		{
+			desc => "Clear download queue. Parameters: none",
+			proc => \&queueclear
 		},
 		# last
 		"prompt" =>
@@ -1199,11 +1284,11 @@ sub hashpause()
 	}
 }
 
-sub methodslist()
+sub sysdescr()
 {
 	use JSON;
 	$obj->{'id'} = int(rand(2**16));
-	$obj->{'method'} = 'methods.list';
+	$obj->{'method'} = 'system.describe';
 	if ($config{debug} > 0) { print("===Request===\n".Dumper($obj)."\n")};
 	$res = $client->call($config{eiskaltURL}, $obj);
 	if ($res)
@@ -1214,7 +1299,7 @@ sub methodslist()
 		}
 		else
 		{
-			print("===Reply===\n".$res->result."\n");
+			print("===Reply===\n".Dumper($res->result)."\n");
 		}
 	}
 	else
@@ -1246,12 +1331,311 @@ sub qmatchlists()
 	}
 }
 
+sub listlocal()
+{
+	$obj->{'id'} = int(rand(2**16));
+	$obj->{'method'} = 'list.local';
+	$obj->{'params'}->{'separator'}=($_[0] || $config{'separator'});
+	if ($config{debug} > 0) { print("===Request===\n".Dumper($obj)."\n") };
+	$res = $client->call($config{eiskaltURL}, $obj);
+	if ($res)
+	{
+		if ($res->is_error) 
+		{
+			print("===Error===\nCode: ".$res->error_message->{'code'}."===\n".$res->error_message->{'message'}."\n");
+		}
+		else
+		{
+			print("===Reply===\n".$res->result."\n");
+		}
+	}
+	else
+	{
+		print $client->status_line;
+	}
+	delete($obj->{'params'});
+}
+
+sub listopen($)
+{
+	$obj->{'id'} = int(rand(2**16));
+	$obj->{'method'} = 'list.open';
+	$obj->{'params'}->{'filelist'}=($_[0]);
+	if ($config{debug} > 0) { print("===Request===\n".Dumper($obj)."\n") };
+	$res = $client->call($config{eiskaltURL}, $obj);
+	if ($res)
+	{
+		if ($res->is_error) 
+		{
+			print("===Error===\nCode: ".$res->error_message->{'code'}."===\n".$res->error_message->{'message'}."\n");
+		}
+		else
+		{
+			print("===Reply===\n".$res->result."\n");
+		}
+	}
+	else
+	{
+		print $client->status_line;
+	}
+	delete($obj->{'params'});
+}
+
+sub listclose($)
+{
+	$obj->{'id'} = int(rand(2**16));
+	$obj->{'method'} = 'list.close';
+	$obj->{'params'}->{'filelist'}=($_[0]);
+	if ($config{debug} > 0) { print("===Request===\n".Dumper($obj)."\n") };
+	$res = $client->call($config{eiskaltURL}, $obj);
+	if ($res)
+	{
+		if ($res->is_error) 
+		{
+			print("===Error===\nCode: ".$res->error_message->{'code'}."===\n".$res->error_message->{'message'}."\n");
+		}
+		else
+		{
+			print("===Reply===\n".$res->result."\n");
+		}
+	}
+	else
+	{
+		print $client->status_line;
+	}
+	delete($obj->{'params'});
+}
+
+sub listopened($)
+{
+	$obj->{'id'} = int(rand(2**16));
+	$obj->{'method'} = 'list.listopened';
+	$obj->{'params'}->{'separator'}=($_[0] || $config{'separator'});
+	if ($config{debug} > 0) { print("===Request===\n".Dumper($obj)."\n") };
+	$res = $client->call($config{eiskaltURL}, $obj);
+	if ($res)
+	{
+		if ($res->is_error) 
+		{
+			print("===Error===\nCode: ".$res->error_message->{'code'}."===\n".$res->error_message->{'message'}."\n");
+		}
+		else
+		{
+			print("===Reply===\n".$res->result."\n");
+		}
+	}
+	else
+	{
+		print $client->status_line;
+	}
+	delete($obj->{'params'});
+}
+
+sub listcloseall()
+{
+	$obj->{'id'} = int(rand(2**16));
+	$obj->{'method'} = 'list.closeall';
+	if ($config{debug} > 0) { print("===Request===\n".Dumper($obj)."\n") };
+	$res = $client->call($config{eiskaltURL}, $obj);
+	if ($res)
+	{
+		if ($res->is_error) 
+		{
+			print("===Error===\nCode: ".$res->error_message->{'code'}."===\n".$res->error_message->{'message'}."\n");
+		}
+		else
+		{
+			print("===Reply===\n".$res->result."\n");
+		}
+	}
+	else
+	{
+		print $client->status_line;
+	}
+}
+
+sub listlsdir($$)
+{
+	$obj->{'id'} = int(rand(2**16));
+	$obj->{'method'} = 'list.lsdir';
+	$obj->{'params'}->{'filelist'}=$_[0];
+	$obj->{'params'}->{'directory'}=$_[1];
+	if ($config{debug} > 0) { print("===Request===\n".Dumper($obj)."\n") };
+	$res = $client->call($config{eiskaltURL}, $obj);
+	if ($res)
+	{
+		if ($res->is_error) 
+		{
+			print("===Error===\nCode: ".$res->error_message->{'code'}."===\n".$res->error_message->{'message'}."\n");
+		}
+		else
+		{
+			print("===Reply===\n");
+			if (defined($res->result))
+			{
+				for my $key (keys %{$res->result})
+				{
+					print("$key\n");
+					foreach ($res->result->{$key})
+					{
+						print("Size:\t".$_->{'Size preformatted'}."\n");
+						print("Name:\t".$_->{Name}."\n");
+					}
+				}
+			}
+			else {print("Wrong client name, empty share or unknown directory\n");}
+		}
+	}
+	else
+	{
+		print $client->status_line;
+	}
+	delete($obj->{'params'});
+}
+
+sub listdownloadfile()
+{
+	$obj->{'id'} = int(rand(2**16));
+	$obj->{'method'} = 'list.downloadfile';
+	$obj->{'params'}->{'target'}=($_[0]);
+	if (@_==2)
+	{
+		$obj->{'params'}->{'filelist'}=($_[1]);
+	}
+	else
+	{
+		$obj->{'params'}->{'downloadto'}=($_[1]);
+		$obj->{'params'}->{'filelist'}=($_[2]);
+	}
+	if ($config{debug} > 0) { print("===Request===\n".Dumper($obj)."\n") };
+	$res = $client->call($config{eiskaltURL}, $obj);
+	if ($res)
+	{
+		if ($res->is_error) 
+		{
+			print("===Error===\nCode: ".$res->error_message->{'code'}."===\n".$res->error_message->{'message'}."\n");
+		}
+		else
+		{
+			print("===Reply===\n".$res->result."\n");
+		}
+	}
+	else
+	{
+		print $client->status_line;
+	}
+	delete($obj->{'params'});
+}
+
+sub listdownloaddir()
+{
+	$obj->{'id'} = int(rand(2**16));
+	$obj->{'method'} = 'list.downloaddir';
+	$obj->{'params'}->{'target'}=($_[0]);
+	if (@_==2)
+	{
+		$obj->{'params'}->{'filelist'}=($_[1]);
+	}
+	else
+	{
+		$obj->{'params'}->{'downloadto'}=($_[1]);
+		$obj->{'params'}->{'filelist'}=($_[2]);
+	}
+	if ($config{debug} > 0) { print("===Request===\n".Dumper($obj)."\n") };
+	$res = $client->call($config{eiskaltURL}, $obj);
+	if ($res)
+	{
+		if ($res->is_error) 
+		{
+			print("===Error===\nCode: ".$res->error_message->{'code'}."===\n".$res->error_message->{'message'}."\n");
+		}
+		else
+		{
+			print("===Reply===\n".$res->result."\n");
+		}
+	}
+	else
+	{
+		print $client->status_line;
+	}
+	delete($obj->{'params'});
+}
+
+sub queuematchlists()
+{
+	$obj->{'id'} = int(rand(2**16));
+	$obj->{'method'} = 'queue.matchlists';
+	if ($config{debug} > 0) { print("===Request===\n".Dumper($obj)."\n") };
+	$res = $client->call($config{eiskaltURL}, $obj);
+	if ($res)
+	{
+		if ($res->is_error) 
+		{
+			print("===Error===\nCode: ".$res->error_message->{'code'}."===\n".$res->error_message->{'message'}."\n");
+		}
+		else
+		{
+			print("===Reply===\n".$res->result."\n");
+		}
+	}
+	else
+	{
+		print $client->status_line;
+	}
+}
+
+sub queuegetiteminfo()
+{
+	$obj->{'id'} = int(rand(2**16));
+	$obj->{'method'} = 'queue.getiteminfo';
+	$obj->{'params'}->{'target'}=($_[0]);
+	if ($config{debug} > 0) { print("===Request===\n".Dumper($obj)."\n") };
+	$res = $client->call($config{eiskaltURL}, $obj);
+	if ($res)
+	{
+		if ($res->is_error) 
+		{
+			print("===Error===\nCode: ".$res->error_message->{'code'}."===\n".$res->error_message->{'message'}."\n");
+		}
+		else
+		{
+			print("===Reply===\n".$res->result."\n");
+		}
+	}
+	else
+	{
+		print $client->status_line;
+	}
+	delete($obj->{'params'});
+}
+
+sub queueclear()
+{
+	$obj->{'id'} = int(rand(2**16));
+	$obj->{'method'} = 'queue.clear';
+	if ($config{debug} > 0) { print("===Request===\n".Dumper($obj)."\n") };
+	$res = $client->call($config{eiskaltURL}, $obj);
+	if ($res)
+	{
+		if ($res->is_error) 
+		{
+			print("===Error===\nCode: ".$res->error_message->{'code'}."===\n".$res->error_message->{'message'}."\n");
+		}
+		else
+		{
+			print("===Reply===\n".$res->result."\n");
+		}
+	}
+	else
+	{
+		print $client->status_line;
+	}
+}
 
 __END__
 
 =pod
 
-# known methods as for 0.2.17062012
 # grep "AddMethod" eiskaltdcpp-daemon/ServerThread.cpp | egrep -o "std::string\(.*\)"
 magnet.add +0.3
 daemon.stop +0.3
@@ -1280,11 +1664,22 @@ queue.list +0.3
 queue.getsources +0.3
 hash.status +0.3
 hash.pause +0.3
-methods.list +0.3
 queue.matchlists +0.3
 hub.listfulldesc +0.4
-hub.getusers
-hub.getuserinfo
-
+hub.getusers +0.4
+hub.getuserinfo +0.4
+list.local +0.5
+list.open +0.5
+list.close +0.5
+list.listopened +0.5
+list.closeall +0.5
+list.lsdir +0.5
+system.describe +0.6
+list.downloadfile +0.6
+list.downloaddir +0.6
+queue.matchlists +0.6
+queue.getiteminfo +0.6
+queue.add
+queue.clear +0.7
 =cut
 

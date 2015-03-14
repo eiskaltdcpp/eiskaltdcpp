@@ -74,3 +74,14 @@ void ServerStop()
     logging(bDaemon, bsyslog, true, "library was stopped");
     bServerRunning = false;
 }
+
+
+void ConfigReload()
+{
+    if (ServerThread::getInstance()) {
+        ServerThread::getInstance()->configReload();
+        logging(bDaemon, bsyslog, true, "reload configuration success");
+    } else {
+        logging(bDaemon, bsyslog, true, "reload configuration failed");
+    }
+}

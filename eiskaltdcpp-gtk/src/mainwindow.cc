@@ -205,7 +205,7 @@ MainWindow::MainWindow():
     {
         _("Developers"),
         "  2010-2014 Boris Pek <tehnick-8@mail.ru>",
-        "  2010-2013 Eugene Petrov <dhamp@ya.ru>",
+        "  2010-2014 Eugene Petrov <dhamp@ya.ru>",
         "  ",
         _("Contributors"),
         "  2001-2012 LinuxDC++ Team http://launchpad.net/linuxdcpp",
@@ -226,10 +226,10 @@ MainWindow::MainWindow():
         string("\n")+
         _("Hungarian translation\n")+
         string("  2010-2012 Akos Berki aka sumo <husumo@gmail.com>\n")+
-        string("  2011-2013 Márk Lutring <marcus@elitemail.hu>\n")+
+        string("  2011-2014 Márk Lutring <marcus@elitemail.hu>\n")+
         string("\n")+
         _("French translation\n")+
-        string("  2010-2012 Alexandre Wallimann aka Ale <alexandre.wallimann@gmail.com>\n")+
+        string("  2010-2014 Alexandre Wallimann aka Jellyffs <alexandre.wallimann@gmail.com>\n")+
         string("\n")+
         _("Polish translation\n")+
         string("  2010-2012 Arahael <arahael@gmail.com>\n")+
@@ -238,12 +238,19 @@ MainWindow::MainWindow():
         string("  2010 Dmytro Demenko <dmytro.demenko@gmail.com>\n")+
         string("  2013-2014 gray aka grayich <grayich@ukr.net>\n")+
         string("\n")+
+        _("Serbian (Cyrillic) translation\n")+
+        string("  2014 Marko Trifunović <trifunovic@openmailbox.org>\n")+
+        string("\n")+
         _("Serbian (Latin) translation\n")+
         string("  2010-2014 Miroslav Petrovic <miroslav031@gmail.com>\n")+
+        string("  2014 Marko Trifunović <trifunovic@openmailbox.org>\n")+
         string("\n")+
         _("Spanish translation\n")+
-        string("  2010-2013 Gustavo Alvarez aka sL1pKn07 <sl1pkn07@gmail.com>\n")+
+        string("  2010-2014 Gustavo Alvarez aka sL1pKn07 <sl1pkn07@gmail.com>\n")+
         string("  2012-2014 Francisco Blas Izquierdo Riera aka klondike <klondike at klondike.es>\n")+
+        string("\n")+
+        _("Basque translation\n")+
+        string("  2014 Egoitz Rodriguez <egoitzro2@hotmail.com>\n")+
         string("\n")+
         _("Bulgarian translation\n")+
         string("  2010-2012 Rusi Dimitrov aka PsyTrip <dimitrov.rusi@gmail.com>\n")+
@@ -258,7 +265,7 @@ MainWindow::MainWindow():
         string("  2011 Chris Leick <c.leick@vollbio.de>\n")+
         string("  2011-2012 Konstantinos Georgokitsos <kgeorgokitsos@yahoo.de>\n")+
         string("  2011-2012 Tillmann Karras <tilkax@gmail.com>\n")+
-        string("  2012-2013 Benjamin Weber <be.w@mail.ru>\n")+
+        string("  2012-2014 Benjamin Weber <be.w@mail.ru>\n")+
         string("\n")+
         _("Greek translation\n")+
         string("  2011-2012 Konstantinos Georgokitsos <kgeorgokitsos@yahoo.de>\n")+
@@ -272,6 +279,9 @@ MainWindow::MainWindow():
         string("\n")+
         _("Chinese (China) translation\n")+
         string("  2013 Syaoming Lai <syaomingl@gmail.com>\n")+
+        string("\n")+
+        _("Swedish (Sweden) translation\n")+
+        string("  2014 Sopor <sopor@hotmail.com>\n")+
         string("\n");
     gtk_about_dialog_set_translator_credits(GTK_ABOUT_DIALOG(getWidget("aboutDialog")),
         (const gchar *)translator_credits.c_str());

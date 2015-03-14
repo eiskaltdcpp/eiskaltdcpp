@@ -282,6 +282,11 @@ void SpyModel::clearModel(){
     emit layoutChanged();
 }
 
+void SpyModel::reset() {
+    beginResetModel();
+    endResetModel();
+}
+
 void SpyModel::setSort(bool sort){
     isSort = sort;
 }

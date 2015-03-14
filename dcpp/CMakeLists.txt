@@ -1,21 +1,24 @@
 project (dcpp)
-include_directories(${CMAKE_CURRENT_BINARY_DIR})
+include_directories(${PROJECT_BINARY_DIR})
 cmake_minimum_required (VERSION 2.6)
 
 aux_source_directory(${PROJECT_SOURCE_DIR} dcpp_srcs)
 file (GLOB dcpp_hdrs ${PROJECT_SOURCE_DIR}/*.h)
-set (DCPP_SRCS @dcpp_srcs@ PARENT_SCOPE)
-set (DCPP_HDRS @dcpp_hdrs@ PARENT_SCOPE)
+
+list (REMOVE_ITEM dcpp_srcs ${PROJECT_SOURCE_DIR}/FileReader.cpp)
+list (REMOVE_ITEM dcpp_hdrs ${PROJECT_SOURCE_DIR}/FileReader.h)
+
+set (DCPP_SRCS ${dcpp_srcs} PARENT_SCOPE)
+set (DCPP_HDRS ${dcpp_hdrs} PARENT_SCOPE)
 
 if (NOT LUA_SCRIPT)
-  list (REMOVE_ITEM dcpp_srcs ${CMAKE_CURRENT_SOURCE_DIR}/ScriptManager.cpp)
+  list (REMOVE_ITEM dcpp_srcs ${PROJECT_SOURCE_DIR}/ScriptManager.cpp)
 endif ()
 
 include_directories (${Boost_INCLUDE_DIR} ${BZIP2_INCLUDE_DIR} ${ZLIB_INCLUDE_DIR} ${OPENSSL_INCLUDE_DIR} ${GETTEXT_INCLUDE_DIR} ${LUA_INCLUDE_DIR} ${IDNA_INCLUDE_DIR})
 
 if (WIN32)
   set (LINK STATIC)
-  set (WIN32_LIBS "ws2_32")
 else (WIN32)
   if (NOT CMAKE_CROSSCOMPILING)
     if (HAIKU)
@@ -81,7 +84,7 @@ else(WIN32)
 endif (WIN32)
 
 target_link_libraries (dcpp ${DHT_LIB} ${PTHREADS} ${BZIP2_LIBRARIES} ${ZLIB_LIBRARIES}
-${OPENSSL_LIBRARIES} ${GETTEXT_LIBRARIES} ${ICONV_LIBRARIES} ${WIN32_LIBS} ${APPLE_LIBS} ${LUA_LIBRARIES} ${UPNP} ${PCRE} ${IDNA_LIBRARIES} ${XATTR_LIBRARIES} ${HAIKU_LIB} ${Boost_LIBRARIES})
+${OPENSSL_LIBRARIES} ${GETTEXT_LIBRARIES} ${ICONV_LIBRARIES} ${APPLE_LIBS} ${LUA_LIBRARIES} ${UPNP} ${PCRE} ${IDNA_LIBRARIES} ${XATTR_LIBRARIES} ${HAIKU_LIB} ${Boost_LIBRARIES})
 set_target_properties(dcpp PROPERTIES VERSION ${SOVERSION} OUTPUT_NAME "eiskaltdcpp")
 
 if (APPLE)

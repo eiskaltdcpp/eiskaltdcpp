@@ -1071,12 +1071,16 @@ void Settings::initAppearance_gui()
         vectorLangShortNames.push_back("pl");
         vectorLangFullNames.push_back(_("Portuguese (Brazil)"));
         vectorLangShortNames.push_back("pt_BR");
+        vectorLangFullNames.push_back(_("Serbian (Cyrillic)"));
+        vectorLangShortNames.push_back("sr");
         vectorLangFullNames.push_back(_("Serbian (Latin)"));
         vectorLangShortNames.push_back("sr@latin");
         vectorLangFullNames.push_back(_("Ukrainian"));
         vectorLangShortNames.push_back("uk");
         vectorLangFullNames.push_back(_("Spanish"));
         vectorLangShortNames.push_back("es");
+        vectorLangFullNames.push_back(_("Basque"));
+        vectorLangShortNames.push_back("eu");
         vectorLangFullNames.push_back(_("Bulgarian"));
         vectorLangShortNames.push_back("bg");
         vectorLangFullNames.push_back(_("Slovak"));
@@ -1093,6 +1097,8 @@ void Settings::initAppearance_gui()
         vectorLangShortNames.push_back("vi");
         vectorLangFullNames.push_back(_("Chinese (China)"));
         vectorLangShortNames.push_back("zh_CN");
+        vectorLangFullNames.push_back(_("Swedish (Sweden)"));
+        vectorLangShortNames.push_back("sv_SE");
 
         // Fill language drop-down list
         uint8_t lang_ind = 0;
@@ -1722,6 +1728,7 @@ void Settings::initAdvanced_gui()
         addOption_gui(certificatesStore, _("Use TLS when remote client supports it"), SettingsManager::USE_TLS);
         addOption_gui(certificatesStore, _("Allow TLS connections to hubs without trusted certificate"), SettingsManager::ALLOW_UNTRUSTED_HUBS);
         addOption_gui(certificatesStore, _("Allow TLS connections to clients without trusted certificate"), SettingsManager::ALLOW_UNTRUSTED_CLIENTS);
+        addOption_gui(certificatesStore, _("Allow only TLS connections to clients"), SettingsManager::REQUIRE_TLS);
 
         g_signal_connect(getWidget("generateCertificatesButton"), "clicked", G_CALLBACK(onGenerateCertificatesClicked_gui), (gpointer)this);
     }

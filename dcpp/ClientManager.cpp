@@ -213,13 +213,7 @@ string ClientManager::findHub(const string& ipPort) const {
 
     string ip;
     uint16_t port = 411;
-    string::size_type i = ipPort.find(':');
-    if(i == string::npos) {
-        ip = ipPort;
-    } else {
-        ip = ipPort.substr(0, i);
-        port = static_cast<uint16_t>(Util::toInt(ipPort.substr(i+1)));
-    }
+    Util::parseIpPort(ipPort, ip, port);
 
     string url;
     for(auto i = clients.begin(); i != clients.end(); ++i) {
@@ -308,10 +302,9 @@ bool ClientManager::isOp(const UserPtr& user, const string& aHubUrl) const {
 }
 
 CID ClientManager::makeCid(const string& aNick, const string& aHubUrl) const noexcept {
-    string n = Text::toLower(aNick);
     TigerHash th;
-    th.update(n.c_str(), n.length());
-    th.update(Text::toLower(aHubUrl).c_str(), aHubUrl.length());
+    th.update(aNick.c_str(), aNick.length());
+    th.update(aHubUrl.c_str(), aHubUrl.length());
     // Construct hybrid CID from the bits of the tiger hash - should be
     // fairly random, and hopefully low-collision
     return CID(th.finalize());
@@ -504,9 +497,9 @@ void ClientManager::on(NmdcSearch, Client* aClient, const string& aSeeker, int a
 
         } else {
             try {
-                string ip, file, proto, query, fragment;
+                string ip;
                 uint16_t port = 0;
-                Util::decodeUrl(aSeeker, proto, ip, port, file, query, fragment);
+                Util::parseIpPort(aSeeker, ip, port);
                 ip = Socket::resolve(ip);
                 if(static_cast<NmdcHub*>(aClient)->isProtectedIP(ip))
                     return;
@@ -530,9 +523,12 @@ void ClientManager::on(NmdcSearch, Client* aClient, const string& aSeeker, int a
             }
         }
 
-        string ip, file, proto, query, fragment;
+        string ip;
         uint16_t port = 0;
-        Util::decodeUrl(aSeeker, proto, ip, port, file, query, fragment);
+        Util::parseIpPort(aSeeker, ip, port);
+        if (port == 0) {
+            return;
+        }
 
         try {
             AdcCommand cmd = SearchManager::getInstance()->toPSR(true, aClient->getMyNick(), aClient->getIpPort(), aTTH.toBase32(), partialInfo);
@@ -557,6 +553,27 @@ void ClientManager::on(AdcSearch, Client* c, const AdcCommand& adc, const CID& f
 
     }
     SearchManager::getInstance()->respond(adc, from, isUdpActive, c->getIpPort());
+
+    Speaker<ClientManagerListener>::fire(ClientManagerListener::IncomingSearch(), [&adc]() -> string
+    {
+        auto toCode = [](char a, char b) -> uint16_t {
+            return (uint16_t)a | ((uint16_t)b)<<8;
+        };
+
+        string result;
+        const StringList &params = adc.getParameters();
+
+        for(const string &param: params) {
+            if(param.length() <= 2)
+                continue;
+            uint16_t cmd = toCode(param[0], param[1]);
+            if (toCode('T', 'R') == cmd)
+                result = "TTH:" + param.substr(2);
+            else if (toCode('A', 'N') == cmd)
+                result += param.substr(2) + ' ';
+        }
+        return result;
+    }());
 }
 
 

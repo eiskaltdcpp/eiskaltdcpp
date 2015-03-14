@@ -17,8 +17,8 @@
 #include <QTextCodec>
 #include <QTreeView>
 #include <QAbstractItemModel>
-#include <QHttp>
-#include <QHttpHeader>
+//#include <QHttp>
+//#include <QHttpHeader>
 
 #include "dcpp/stdinc.h"
 #include "dcpp/Singleton.h"
@@ -177,6 +177,7 @@ public:
 
     static bool isTTH(const QString &text);
 
+    QString getNickViaOnlineUser(const QString &cid, const QString &hintUrl);
 public Q_SLOTS:
     const QPixmap &getPixmap(Icons);
     QString getNicks(const QString&,const QString& = "");
@@ -190,8 +191,6 @@ private:
     bool loadUserIconsFromFile(QString);
     void clearUserIconCache();
     void initFileTypes();
-
-    static QString formatBytes(int64_t bytes, int base);
 
     QPixmap loadPixmap(const QString& file);
 

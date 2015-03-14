@@ -108,7 +108,9 @@ bool dockClickHandler(id self,SEL _cmd,...)
 
 int main(int argc, char *argv[])
 {
+#if QT_VERSION < 0x050000
     QTextCodec::setCodecForCStrings(QTextCodec::codecForName("UTF-8"));
+#endif
     setlocale(LC_ALL, "");
 
     EiskaltApp app(argc, argv, _q(dcpp::Util::getLoginName()+"EDCPP"));
@@ -137,9 +139,9 @@ int main(int argc, char *argv[])
     dcpp::TimerManager::getInstance()->start();
 
     HashManager::getInstance()->setPriority(Thread::IDLE);
-
+#if QT_VERSION < 0x050000
     QTextCodec::setCodecForCStrings(QTextCodec::codecForName("UTF-8"));
-
+#endif
     app.setOrganizationName("EiskaltDC++ Team");
     app.setApplicationName("EiskaltDC++ Qt");
     app.setApplicationVersion(EISKALTDCPP_VERSION);
@@ -306,6 +308,12 @@ void installHandlers(){
 
     if (sigaction(SIGPIPE, &sa, NULL) == -1)
         printf("Cannot handle SIGPIPE\n");
+    else {
+        sigset_t set;
+        sigemptyset (&set);
+        sigaddset (&set, SIGPIPE);
+        pthread_sigmask(SIG_BLOCK, &set, NULL);
+    }
 
     catchSignals<SIGSEGV, SIGABRT, SIGBUS, SIGTERM>();
 

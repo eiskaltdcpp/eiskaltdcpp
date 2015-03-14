@@ -177,4 +177,6 @@ private:
     SearchItem *rootItem;
     /** */
     QHash<QString, SearchItem*> tths;
+
+    void reset();
 };

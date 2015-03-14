@@ -1,120 +1,142 @@
 project (${PROJECT_NAME_GLOBAL}-qt)
 
-cmake_minimum_required (VERSION 2.6)
-include_directories(${CMAKE_CURRENT_BINARY_DIR})
+if (USE_QT)
+    cmake_minimum_required (VERSION 2.6)
+elseif (USE_QT5)
+    cmake_minimum_required (VERSION 2.8.8)
+endif ()
+
+include_directories(${PROJECT_BINARY_DIR})
+
+if (USE_QT)
+    find_package (Qt4 4.7.0 COMPONENTS QtCore QtGui QtXml QtNetwork REQUIRED)
+elseif (USE_QT5)
+    find_package (Qt5Widgets       5.0.2 REQUIRED)
+    find_package (Qt5Xml           5.0.2 REQUIRED)
+    find_package (Qt5Network       5.0.2 REQUIRED)
+    # This is temporary workaround which fixes build with Qt5 on Travis CI:
+    find_package (Qt5LinguistTools       REQUIRED)
+    find_package (Qt5Multimedia    5.0.2 REQUIRED)
+    find_package (Qt5Concurrent    5.0.2 REQUIRED)
+endif ()
+
+set (QT_USE_QTNETWORK 1)
+set (QT_USE_QTXML 1)
+set (QT_USE_QTWEBKIT 0)
 
 if (USE_QT_QML)
-  find_package (Qt4 4.7.0 COMPONENTS QtCore QtGui QtXml QtNetwork QtDeclarative REQUIRED)
-  message (STATUS "Building with Qt Declarative UI support")
-  set (USE_JS ON)
+    if (USE_QT)
+        find_package (Qt4 4.7.0 COMPONENTS QtDeclarative REQUIRED)
+    elseif (USE_QT5)
+        find_package (Qt5Declarative 5.0.2 REQUIRED)
+    endif ()
+    add_definitions(-DUSE_QML)
+    set (QT_USE_QTDECLARATIVE 1)
+    set (USE_JS ON)
+    message (STATUS "Building with Qt Declarative UI support")
 else (USE_QT_QML)
-  find_package (Qt4 4.6.0 COMPONENTS QtCore QtGui QtXml QtNetwork REQUIRED)
-  message (STATUS "Building without Qt Declarative UI support")
+    message (STATUS "Building without Qt Declarative UI support")
 endif (USE_QT_QML)
 
-if (APPLE OR WIN32 OR HAIKU)
+if (APPLE OR HAIKU)
     set (DBUS_NOTIFY OFF)
 endif ()
 
 if (DBUS_NOTIFY)
-    find_package (Qt4 4.6.0 COMPONENTS QtDBus REQUIRED)
+    if (USE_QT)
+        find_package (Qt4 4.6.0 COMPONENTS QtDBus REQUIRED)
+    elseif (USE_QT5)
+        find_package (Qt5DBus 5.0.2 REQUIRED)
+    endif ()
+    add_definitions (-DDBUS_NOTIFY)
+    set (QT_USE_QTDBUS 1)
     message (STATUS "Building with Qt DBus support")
 else (DBUS_NOTIFY)
     message (STATUS "Building without Qt DBus support")
 endif (DBUS_NOTIFY)
 
 if (USE_JS)
-    find_package (Qt4 4.6.0 COMPONENTS QtScript REQUIRED)
-message (STATUS "Building with Qt Script support")
+    if (USE_QT)
+        find_package (Qt4 4.6.0 COMPONENTS QtScript REQUIRED)
+    elseif (USE_QT5)
+        find_package(Qt5Script 5.0.2 REQUIRED)
+    endif ()
+    add_definitions (-DUSE_JS)
+    set (QT_USE_QTSCRIPT 1)
+    message (STATUS "Building with Qt Script support")
 else (USE_JS)
     message (STATUS "Building without Qt Script support")
 endif (USE_JS)
 
 if (USE_QT_SQLITE)
-    find_package (Qt4 4.6.0 COMPONENTS QtSql REQUIRED)
+    if (USE_QT)
+        find_package (Qt4 4.6.0 COMPONENTS QtSql REQUIRED)
+    elseif (USE_QT5)
+        find_package(Qt5Sql 5.0.2 REQUIRED)
+    endif ()
+    add_definitions (-DUSE_QT_SQLITE)
+    set (QT_USE_QTSQL 1)
     message (STATUS "Building with Qt SQLite support")
 else (USE_QT_SQLITE)
     message (STATUS "Building without Qt SQLite support")
 endif (USE_QT_SQLITE)
 
-set (QT_USE_QTNETWORK 1)
-set (QT_USE_QTXML 1)
-set (QT_USE_QTWEBKIT 0)
-
-if (DBUS_NOTIFY)
-  set (QT_USE_QTDBUS 1)
-  add_definitions (-DDBUS_NOTIFY)
-endif (DBUS_NOTIFY)
-
-if (USE_JS)
-  add_definitions (-DUSE_JS)
-  set (QT_USE_QTSCRIPT  1)
-endif (USE_JS)
-
-if (USE_QT_QML)
-  add_definitions(-DUSE_QML)
-  set (QT_USE_QTDECLARATIVE 1)
-endif(USE_QT_QML)
-
 if (WITH_DHT)
-  add_definitions ( -DWITH_DHT )
+    add_definitions ( -DWITH_DHT )
 endif (WITH_DHT)
-
-if (USE_QT_SQLITE)
-  set (QT_USE_QTSQL 1)
-
-  add_definitions (-DUSE_QT_SQLITE)
-endif (USE_QT_SQLITE)
-
-include (${QT_USE_FILE})
 
 aux_source_directory(${PROJECT_SOURCE_DIR}/src SRCS)
 
 if (NOT HAIKU)
-        list(APPEND SRCS src/qtsingleapp/qtsinglecoreapplication.cpp)
+    list(APPEND SRCS src/qtsingleapp/qtsinglecoreapplication.cpp)
 endif (NOT HAIKU)
 
 file (GLOB MOC_HDRS ${PROJECT_SOURCE_DIR}/src/*.h)
 
 if (NOT HAIKU AND NOT APPLE)
-        list(APPEND MOC_HDRS
-                    src/qtsingleapp/qtsinglecoreapplication.h)
-        list(REMOVE_ITEM MOC_HDRS
-                    ${PROJECT_SOURCE_DIR}/src/EiskaltApp_haiku.h)
-        list(REMOVE_ITEM MOC_HDRS
-                    ${PROJECT_SOURCE_DIR}/src/EiskaltApp_mac.h)
+    list(APPEND MOC_HDRS
+                src/qtsingleapp/qtsinglecoreapplication.h)
+    list(REMOVE_ITEM MOC_HDRS
+                ${PROJECT_SOURCE_DIR}/src/EiskaltApp_haiku.h)
+    list(REMOVE_ITEM MOC_HDRS
+                ${PROJECT_SOURCE_DIR}/src/EiskaltApp_mac.h)
 elseif (HAIKU)
-        list(REMOVE_ITEM MOC_HDRS
-                    ${PROJECT_SOURCE_DIR}/src/EiskaltApp.h)
-        list(REMOVE_ITEM MOC_HDRS
-                    ${PROJECT_SOURCE_DIR}/src/EiskaltApp_mac.h)
+    list(REMOVE_ITEM MOC_HDRS
+                ${PROJECT_SOURCE_DIR}/src/EiskaltApp.h)
+    list(REMOVE_ITEM MOC_HDRS
+                ${PROJECT_SOURCE_DIR}/src/EiskaltApp_mac.h)
 elseif (APPLE)
-        list(APPEND MOC_HDRS
-                    src/qtsingleapp/qtsinglecoreapplication.h)
-        list(REMOVE_ITEM MOC_HDRS
-                    ${PROJECT_SOURCE_DIR}/src/EiskaltApp.h)
-        list(REMOVE_ITEM MOC_HDRS
-                    ${PROJECT_SOURCE_DIR}/src/EiskaltApp_haiku.h)
+    list(APPEND MOC_HDRS
+                src/qtsingleapp/qtsinglecoreapplication.h)
+    list(REMOVE_ITEM MOC_HDRS
+                ${PROJECT_SOURCE_DIR}/src/EiskaltApp.h)
+    list(REMOVE_ITEM MOC_HDRS
+                ${PROJECT_SOURCE_DIR}/src/EiskaltApp_haiku.h)
 endif ()
 
 file (GLOB UI_FORMS ${PROJECT_SOURCE_DIR}/ui/*.ui)
 
 if (WIN32)
-  list (APPEND SRCS ../win32/applink.c)
+    if (OPENSSL_MSVC)
+        list (APPEND SRCS ../windows/applink.c)
+    endif (OPENSSL_MSVC)
+    if (USE_QT5)
+        add_definitions (-DQ_WS_WIN)
+    endif (USE_QT5)
 endif (WIN32)
 
 set (WIN_RESOURCES)
 if (MINGW AND WIN32)
-  ADD_CUSTOM_COMMAND (OUTPUT
-            "${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}_rc.o"
+  add_custom_command (OUTPUT
+            "${PROJECT_BINARY_DIR}/${PROJECT_NAME}_rc.o"
             COMMAND ${CMAKE_RC_COMPILER}
-            -I"${CMAKE_CURRENT_SOURCE_DIR}/"
-            -i "${CMAKE_CURRENT_SOURCE_DIR}/${PROJECT_NAME}.rc"
-            -o "${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}_rc.o"
+            -I"${PROJECT_SOURCE_DIR}/"
+            -i "${PROJECT_SOURCE_DIR}/${PROJECT_NAME}.rc"
+            -o "${PROJECT_BINARY_DIR}/${PROJECT_NAME}_rc.o"
             )
-  SET (WIN_RESOURCES ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}_rc.o)
+  set (WIN_RESOURCES ${PROJECT_BINARY_DIR}/${PROJECT_NAME}_rc.o)
 elseif (NOT MINGW AND WIN32)
-  SET (WIN_RESOURCES"${CMAKE_CURRENT_SOURCE_DIR}/${PROJECT_NAME}.rc")
+  set (WIN_RESOURCES"${PROJECT_SOURCE_DIR}/${PROJECT_NAME}.rc")
 endif (MINGW AND WIN32)
 
 if (NOT USE_ASPELL)
@@ -154,12 +176,24 @@ foreach (LANGUAGE ${LANGUAGES})
   list (APPEND COMPILED_TRANSLATIONS ${PROJECT_BINARY_DIR}/translations/${LANGUAGE}.qm)
 endforeach()
 
-#Create moc files
-QT4_WRAP_CPP (M_SRCS ${MOC_HDRS})
-#Create .h files from ui files
-QT4_WRAP_UI (U_SRCS ${UI_FORMS})
+if (USE_QT)
+    #Create moc files
+    QT4_WRAP_CPP (M_SRCS ${MOC_HDRS} OPTIONS -nn)
+    #Create .h files from ui files
+    QT4_WRAP_UI (U_SRCS ${UI_FORMS})
+elseif (USE_QT5)
+    #Create moc files
+    QT5_WRAP_CPP (M_SRCS ${MOC_HDRS} OPTIONS -nn)
+    #Create .h files from ui files
+    QT5_WRAP_UI (U_SRCS ${UI_FORMS})
+endif()
+
+if (USE_QT5 AND NOT USE_QT)
+    set(QT_LRELEASE_EXECUTABLE ${Qt5_LRELEASE_EXECUTABLE})
+    get_target_property(QT_RCC_EXECUTABLE Qt5::rcc LOCATION)
+endif()
+
 #Create translations
-set (target_basename "translations_qt")
 file(MAKE_DIRECTORY ${PROJECT_BINARY_DIR}/translations/)
 foreach (LANGUAGE ${LANGUAGES})
         set (TS ${PROJECT_SOURCE_DIR}/translations/${LANGUAGE}.ts)
@@ -171,36 +205,63 @@ foreach (LANGUAGE ${LANGUAGES})
                 DEPENDS "${TS}"
                 COMMAND ${QT_LRELEASE_EXECUTABLE}
                 ARGS "${TS}" -qm "${QM}")
-        add_custom_target(${target_basename}_${LANGUAGE} DEPENDS ${QM})
 endforeach()
 
-add_custom_target(${target_basename} ALL DEPENDS ${TRANSLATIONS_BINARY})
+add_custom_target(${PROJECT_NAME}_tr ALL DEPENDS ${TRANSLATIONS_BINARY})
 
-set (DEFAULT_QRC_FILE ${CMAKE_CURRENT_SOURCE_DIR}/icons/appl/default/default.qrc)
+set (DEFAULT_QRC_FILE ${PROJECT_SOURCE_DIR}/icons/appl/default/default.qrc)
 
 if (UNIX)
   EXECUTE_PROCESS (
                 OUTPUT_FILE ${PROJECT_BINARY_DIR}/${PROJECT_NAME}.1.gz
                 COMMAND "${GZIP_CMD}" -9
                 INPUT_FILE eiskaltdcpp-qt.1
-                WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/)
+                WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/)
     install (FILES ${PROJECT_BINARY_DIR}/${PROJECT_NAME}.1.gz DESTINATION ${MAN_DIR})
 endif (UNIX)
 
 EXECUTE_PROCESS (
     COMMAND ${QT_RCC_EXECUTABLE} -binary  ${DEFAULT_QRC_FILE} -o ${PROJECT_BINARY_DIR}/default.rcc
-    WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/
+    WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/
   )
 
+if (USE_QT)
+    include (${QT_USE_FILE})
+    include_directories (${QT_INCLUDES})
+    list (APPEND LIBS ${QT_LIBRARIES})
+elseif (USE_QT5)
+    include_directories (
+        ${Qt5Widgets_INCLUDE_DIRS}
+        ${Qt5Xml_INCLUDE_DIRS}
+        ${Qt5Network_INCLUDE_DIRS}
+        ${Qt5Multimedia_INCLUDE_DIRS}
+        ${Qt5Concurrent_INCLUDE_DIRS}
+        ${Qt5Declarative_INCLUDE_DIRS}
+        ${Qt5DBus_INCLUDE_DIRS}
+        ${Qt5Script_INCLUDE_DIRS}
+        ${Qt5Sql_INCLUDE_DIRS}
+        )
+    list (APPEND LIBS
+        ${Qt5Widgets_LIBRARIES}
+        ${Qt5Xml_LIBRARIES}
+        ${Qt5Network_LIBRARIES}
+        ${Qt5Multimedia_LIBRARIES}
+        ${Qt5Concurrent_LIBRARIES}
+        ${Qt5Declarative_LIBRARIES}
+        ${Qt5DBus_LIBRARIES}
+        ${Qt5Script_LIBRARIES}
+        ${Qt5Sql_LIBRARIES}
+        )
+endif ()
+
 include_directories (
-        ${QT_INCLUDES}
         ${PROJECT_SOURCE_DIR}
         ${PROJECT_SOURCE_DIR}/src
         ${PROJECT_SOURCE_DIR}/scriptengine
         ${PROJECT_SOURCE_DIR}/..
         ${Boost_INCLUDE_DIRS}
         )
-list (APPEND LIBS ${QT_LIBRARIES} ${Boost_LIBRARIES} ${ICONV_LIBRARIES})
+list (APPEND LIBS ${Boost_LIBRARIES} ${ICONV_LIBRARIES})
 
 if (APPLE)
   find_library (COCOA_LIBRARY Cocoa)
@@ -257,8 +318,8 @@ add_executable (${PROJECT_NAME} MACOSX_BUNDLE WIN32 src/main.cpp
                 ${MOC_HDRS}
                 ${TRANSLATIONS}
                 ${WIN_RESOURCES}
-                translations
-                )
+                translations)
+
 add_definitions (-DCLIENT_DATA_DIR="${CLIENT_DATA_DIR}"
                  -DCLIENT_SOUNDS_DIR="${CLIENT_SOUNDS_DEST}"
                  -DCLIENT_TRANSLATIONS_DIR="${CLIENT_TRANSLATIONS_DEST}"
@@ -312,7 +373,7 @@ if (APPLE)
     set(CPACK_PACKAGE_FILE_NAME "${PROJECT_NAME_GLOBAL}-${VERSION}-stable-${CMAKE_SYSTEM_PROCESSOR}")
   endif ()
   set (MACOSX_BUNDLE_INFO_STRING "Direct Connect and ADC client")
-  set_target_properties(${PROJECT_NAME} PROPERTIES MACOSX_BUNDLE_INFO_PLIST ${CMAKE_CURRENT_SOURCE_DIR}/Info.plist.in)
+  set_target_properties(${PROJECT_NAME} PROPERTIES MACOSX_BUNDLE_INFO_PLIST ${PROJECT_SOURCE_DIR}/Info.plist.in)
   set (MACOSX_BUNDLE_GUI_IDENTIFIER "http://code.google.com/p/eiskaltdc/")
   set (MACOSX_BUNDLE_LONG_VERSION_STRING ${PROJECT_NAME_GLOBAL} ${VERSION})
   set (MACOSX_BUNDLE_BUNDLE_NAME ${PROJECT_NAME_GLOBAL})
@@ -326,11 +387,10 @@ endif (APPLE)
       PATTERN "*.sh"
       PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE
       PATTERN "*.php"
-      PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE
-      PATTERN ".svn" EXCLUDE )
+      PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE)
   endif (USE_JS)
 
-  install (DIRECTORY icons/appl icons/user DESTINATION "${CLIENT_DATA_DIR}/qt/icons" PATTERN ".svn" EXCLUDE)
+  install (DIRECTORY icons/appl icons/user DESTINATION "${CLIENT_DATA_DIR}/qt/icons")
   install (FILES ${TRANSLATIONS_BINARY} DESTINATION ${CLIENT_TRANSLATIONS_DEST})
 if (APPLE)
   install (FILES eiskaltdcpp-qt.desktop DESTINATION ${PROJECT_NAME_GLOBAL}.app/applications)
@@ -345,15 +405,15 @@ endif (APPLE)
 if (APPLE)
   install (DIRECTORY ${QT_LIBRARY_DIR}/QtGui.framework/Resources/qt_menu.nib DESTINATION ${PROJECT_NAME_GLOBAL}.app/Contents/Resources)
 
-  INSTALL(CODE "
+  install (CODE "
     file(WRITE \"\${CMAKE_INSTALL_PREFIX}/${qtconf_dest_dir}/qt.conf\" \"\")")
 
-  INSTALL(CODE "
+  install (CODE "
     file(GLOB_RECURSE QTPLUGINS
       \"\${CMAKE_INSTALL_PREFIX}/${plugin_dest_dir}/plugins/*${CMAKE_SHARED_LIBRARY_SUFFIX}\")
     include(BundleUtilities)
     fixup_bundle(\"${APPS}\" \"\${QTPLUGINS}\" \"${DIRS}\")")
-    set(CPACK_BINARY_DRAGNDROP ON)
+    set (CPACK_BINARY_DRAGNDROP ON)
 
 endif (APPLE)
 

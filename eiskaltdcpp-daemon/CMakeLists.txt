@@ -18,7 +18,6 @@ if (JSONRPC_DAEMON)
     if (LOCAL_JSONCPP)
         include_directories(${PROJECT_SOURCE_DIR}/../json/jsoncpp)
     else(LOCAL_JSONCPP)
-        #message("eidcpp JSONCPP_INCLUDE_DIR: "${JSONCPP_INCLUDE_DIR})
         include_directories(${JSONCPP_INCLUDE_DIR})
         set(JSONRPCLIBS ${JSONCPP_LIBRARY} ${JSONRPCLIBS})
     endif (LOCAL_JSONCPP)
@@ -47,7 +46,9 @@ if (HAVE_DAEMON)
 endif(HAVE_DAEMON)
 
 if (WIN32)
-  list (APPEND nasdc_SRCS ../win32/applink.c)
+    if (OPENSSL_MSVC)
+        list (APPEND nasdc_SRCS ../windows/applink.c)
+    endif (OPENSSL_MSVC)
 endif (WIN32)
 
 if (LUA_SCRIPT)
@@ -85,6 +86,6 @@ if (UNIX)
                 OUTPUT_FILE ${PROJECT_BINARY_DIR}/${PROJECT_NAME}.1.gz
                 COMMAND "${GZIP_CMD}" -9
                 INPUT_FILE ${PROJECT_NAME}.1
-                WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/)
+                WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/)
   install (FILES ${PROJECT_BINARY_DIR}/${PROJECT_NAME}.1.gz DESTINATION ${MAN_DIR})
 endif (UNIX)

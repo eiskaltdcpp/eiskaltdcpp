@@ -19,6 +19,7 @@
 #include <QUrl>
 #include <QFileInfo>
 #include <QDir>
+#include <QMimeData>
 
 ChatEdit::ChatEdit(QWidget *parent) : QTextEdit(parent), cc(NULL)
 {

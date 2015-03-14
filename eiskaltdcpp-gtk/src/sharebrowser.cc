@@ -90,10 +90,13 @@ ShareBrowser::ShareBrowser(UserPtr user, const string &file, const string &initi
     fileView.insertColumn(_("Resolution"), G_TYPE_STRING, TreeView::STRING, 70);
     fileView.insertColumn(_("Video"), G_TYPE_STRING, TreeView::STRING, 100);
     fileView.insertColumn(_("Audio"), G_TYPE_STRING, TreeView::STRING, 70);
+    fileView.insertColumn(_("Downloaded"), G_TYPE_STRING, TreeView::STRING, 70);
+    fileView.insertColumn(_("Shared"), G_TYPE_STRING, TreeView::STRING, 70);
     fileView.insertHiddenColumn("DL File", G_TYPE_POINTER);
     fileView.insertHiddenColumn("Icon", G_TYPE_STRING);
     fileView.insertHiddenColumn("Size Order", G_TYPE_INT64);
     fileView.insertHiddenColumn("File Order", G_TYPE_STRING);
+    fileView.insertHiddenColumn("Shared Order", G_TYPE_INT64);
     fileView.finalize();
     fileStore = gtk_list_store_newv(fileView.getColCount(), fileView.getGTypes());
     gtk_tree_view_set_model(fileView.get(), GTK_TREE_MODEL(fileStore));
@@ -106,6 +109,7 @@ ShareBrowser::ShareBrowser(UserPtr user, const string &file, const string &initi
     fileView.setSortColumn_gui(_("Filename"), "File Order");
     fileView.setSortColumn_gui(_("Size"), "Size Order");
     fileView.setSortColumn_gui(_("Exact Size"), "Size Order");
+    fileView.setSortColumn_gui(_("Shared"), "Shared Order");
 
     // Initialize the directory treeview
     dirView.setView(GTK_TREE_VIEW(getWidget("dirView")));
@@ -364,6 +368,9 @@ void ShareBrowser::updateFiles_gui(DirectoryListing::Directory *dir)
             fileView.col(_("Resolution")), !(*it_file)->mediaInfo.video_info.empty() ? (*it_file)->mediaInfo.resolution.c_str() : Util::emptyString.c_str(),
             fileView.col(_("Video")), (*it_file)->mediaInfo.video_info.c_str(),
             fileView.col(_("Audio")), (*it_file)->mediaInfo.audio_info.c_str(),
+            fileView.col(_("Downloaded")), (Util::toString((*it_file)->getHit())).c_str(),
+            fileView.col(_("Shared")), (Util::formatTime("%Y-%m-%d %H:%M", (*it_file)->getTS())).c_str(),
+            fileView.col("Shared Order"), (*it_file)->getTS(),
             -1);
 
         currentSize += size;

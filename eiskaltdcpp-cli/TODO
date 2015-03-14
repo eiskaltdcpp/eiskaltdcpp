@@ -10,7 +10,7 @@ API Layers:
         (+) Изменить место назначения для элемента очереди (queue.move)
                 Args: source (string), target (string)
                 Return: 0 | 1 (integer)
-        (+) Удаление элемента очереди (queue.remove)
+        (+) Удаление элемента очереди (queue.remove {alias - queue.del})
                 Args: target (string)
                 Return: 0 | 1 (integer)
         (+) Постановка в очередь магнета (magnet.add)
@@ -19,20 +19,25 @@ API Layers:
         (+) Установка приоритета элемента очереди (queue.setpriority)
                 Args: target (string), priority (integer; 0-PAUSED, 1-LOWEST, 2-LOW, 3-NORMAL, 4-HIGH, 5-HIGHEST)
                 Return: 0 | 1 (integer)
-                Comment: починил
         (+) Список источников для элемента очереди (queue.getsources)
                 Args: target (string), separator (string)
                 Return: online (integer), sources (string)
-        (wip) Запуск согласования текущей очереди для всех скачанных файллистов (queue.matchlists)
+        (+) Запуск согласования текущей очереди для всех скачанных файллистов (queue.matchlists)
                 Args: none
                 Return: 0 | 1 (integer)
-        Просмотр конкретного элемента очереди
+        (+-) Просмотр конкретного элемента очереди (queue.getiteminfo)
+                Args: target (string)
+                Return: @info about item@ (string map)
+                Comment: not tested
         Добавление источника к элементу очереди.
         Удаление источника для элемента очереди.
         (wip) Добавление элемента очереди (queue.add)
-            Args: directory (string), filename (string), tth (string), size (int64_t)
-            Return: 0 | 1 (integer)
-            Comment: add file in queue by tth
+                Args: directory (string), filename (string), tth (string), size (int64_t)
+                Return: 0 | 1 (integer)
+                Comment: add file in queue by tth
+        (+) Очистка очереди (queue.clear)
+                Args: none
+                Return: 0 (integer)
 
 -----------------------
 РАБОТА С ФАЙЛЛИСТАМИ
@@ -40,37 +45,52 @@ API Layers:
                 Args: huburl (string), nick (string)
                 Return: 0 | 1 (integer)
                 Comment:
-        (wip) Список файллистов (list.local)
+        (+) Список файллистов (list.local)
                 Args: separator (string)
                 Return: @all filelists in filelist dir@ (string) | 1 (integer)
                 Comment:
+        (+) Список файллистов (list.ls) alias to list.local
         (wip) Передача файллиста на клиента (list.get)
                 Args: filelist (string)
                 Return: @base32 encoded xml.bz2 file@ | 1 (integer)
                 Comment:
-        (wip) Открыть файллист (list.open)
+		(wip) Передача файллиста на клиента (list.fetch) alias to list.get
+        (+) Открыть файллист (list.open)
                 Args: filelist (string)
                 Return: 0 | 1 (integer)
                 Comment:
-        (wip) Закрыть файллист (list.close)
+        (+) Закрыть файллист (list.close)
                 Args: filelist (string)
                 Return: 0 | 1 (integer)
                 Comment:
-        (wip) Закрыть все файллисты (list.closeall)
+        (+) Закрыть все файллисты (list.closeall)
                 Args: none
                 Return: 0 (integer)
                 Comment:
-        (wip) Вернуть список открытых файллистов (list.listopened)
+        (+) Вернуть список открытых файллистов (list.listopened)
                 Args: separator (string)
                 Return: @all opened file lists@ (string)
                 Comment:
-        (wip) Список файлов и директории в (list.lsdir)
+        (+) Список файлов и директории в (list.lsdir)
                 Args: filelist (string), directory(string)
                 Return: @all files and dirs in directory of filelist@ (string)
+                Comment: In return if item is directory param Name prepended "d".
+                         In args directory should finished by "\\".
+        (+) Постановка файла в очередь с указанием директории назначения (list.downloadfile)
+                Args: target(string), downloadto(string), filelist (string)
+                Return: 0 | 1 (integer)
                 Comment:
-        Постановка файла из файллиста в очередь с указанием директории назначения (зависит от ОЧЕРЕДЬ::Добавление элемента очереди)
-        Постановка директории из файллиста в очередь с указанием директории назначения (зависит от ОЧЕРЕДЬ::Добавление элемента очереди)
------------------------
+                        For argument target directory separator should be "\\".
+                        If downloadto is empty, it's set to SETTING(DOWNLOAD_DIRECTORY) on server.
+                        Now works for latin encoded targets only. l10n is wip for now
+        (+) Постановка директории в очередь с указанием директории назначения (list.downloaddir)
+                Args: target(string), downloadto(string), filelist (string)
+                Return: 0 | 1 (integer)
+                Comment:
+                        In args target should finished by "\\".
+                        If downloadto is empty, it's set to SETTING(DOWNLOAD_DIRECTORY) on server.
+                        Now works for latin encoded targets only. l10n is wip for now
+
 УПРАВЛЕНИЕ ШАРОЙ
         (+) Добавление (share.add)
                 Args: directory (string), virtual name (string)
@@ -84,7 +104,7 @@ API Layers:
         (+) Листинг (share.list)
                 Args: separator (string)
                 Return: @list of shared directoriess in string with separator@ (string)
-        (+) Обновлние (share.refresh)
+        (+) Обновление (share.refresh)
                 Args : none
                 Return: 0 | 1 (integer)
         (+) Показать статус хеширования (hash.status)
@@ -139,20 +159,46 @@ API Layers:
         (+) Байт принято/отдано (show.ratio)
                 Args: none
                 Return: @ratio@ (string)
-        (+) Список методов (methods.list)
+        (+) Список методов (methods.list) //deleted
                 Args: none
                 Return: separated list of methods
+                Comment: This method has been deleted - use system.describe
 -----------------------
 IPFILTER
-        Добавление
-        Удаление
-        Список
-        Вкл/выкл
+        (wip) Добавление (ipfilter.addrules)
+                Args: rules {list rules with direction(in,out,both) and action(drop,accept) separated by ";"} (string)
+                Return: 0 (integer)
+                Example: "rules" = "192.168.1.0/23|in;!192.168.6.0/24|both"
+        (wip) Удаление (ipfilter.purgerules)
+                Args: rules {list rules separated by ";"} (string)
+                Return: 0 (integer)
+                Example: "rules" = "192.168.1.0/23;192.168.6.0/24"
+        (wip) Список (ipfilter.list)
+                Args: separator (string)
+                Return: separated list of rules in ipfilter (string)
+        (wip) Вкл/выкл (ipfilter.onoff)
+                Args: on (int{0,1})
+                Return: 0 (integer)
+        (wip) Переместить правило выше/ниже (ipfilter.updown)
+                Args: up (int{0,1}), rule (string)
+                Return: 0 (integer)
 -----------------------
 УПРАВЛЕНИЕ ДЕМОНОМ
         (+) Стоп демона (daemon.stop)
                 Args: none
                 Return: 0 | 1 (integer)
+        (wip) Изменение/просмотр настроек (settings.getset)
+                Args: param (string), value (string)
+                Return:
+                    if param empty - return 1 (integer)
+                    if value is empty - value (string)
+                    if value isn't empty - try set param to value,
+                        return 0 (integer) on success,
+                        return 1 (integer) on fail
+                    (string)
+                Example: 
+                    Request:  {"jsonrpc": "2.0", "id": "1", "method": "settings.getset", "params" : { "key": "DownloadDirectory"}}
+                    Reply:    {"id":"1","jsonrpc":"2.0","result":{"value":"/home/egik/Downloads1/"}}
 -----------------------
 ПОЛЬЗОВАТЕЛИ
         (+) Просмотр списка пользователей хаба (hub.getusers)
@@ -166,3 +212,6 @@ IPFILTER
 Пожелания:
         (+) Выполнение команды и выход (./cli.pl -c show.version)
         (+) Поддерка UTF8
+        (wip) queue.remove -> queue.del
+        (wip) list.local -> list.ls
+        (wip) list.get -> list.fetch

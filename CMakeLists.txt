@@ -47,7 +47,7 @@ CHECK_INCLUDE_FILES ("malloc.h;dlfcn.h;inttypes.h;memory.h;stdlib.h;strings.h;sy
 CHECK_INCLUDE_FILES ("sys/socket.h;net/if.h;ifaddrs.h;sys/types.h" HAVE_IFADDRS_H)
 CHECK_INCLUDE_FILES ("sys/types.h;sys/statvfs.h;limits.h;stdbool.h;stdint.h" FS_USAGE_C)
 
-set (CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
+set (CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${PROJECT_SOURCE_DIR}/cmake")
 
 find_package (PkgConfig)
 find_package (BZip2 REQUIRED)
@@ -59,19 +59,22 @@ find_package (Iconv REQUIRED)
 find_package (Git)
 find_package (Xattr)
 
-option (USE_QT "Qt interface" ON)
+option (USE_QT  "Qt 4.x interface" ON)
+option (USE_QT5 "Qt 5.x interface." OFF)
 option (USE_QT_QML "Build with Qt Declarative Ui support" OFF)
 option (USE_QT_SQLITE "Build with SQLite support" OFF)
-option (USE_GTK "GTK interface" OFF)
+option (USE_GTK  "GTK+ 2.x interface" OFF)
+option (USE_GTK3 "GTK+ 3.x interface" OFF)
+option (NO_UI_DAEMON "Daemon without any UI" OFF)
 option (WITH_DHT "DHT support for libeiskaltdcpp" ON)
 option (LUA_SCRIPT "Lua script" OFF)
 option (USE_MINIUPNP "Use miniupnpc for forward ports" OFF)
 option (LOCAL_MINIUPNP "Use local miniupnpc" OFF)
 option (USE_ASPELL "Use aspell for spellchecking" OFF)
 option (FORCE_XDG "Respect freedesktop.org standards" ON)
-option (USE_LIBGNOME2 "Use LibGnome2 in GTK interface (sound notification)" OFF)
-option (USE_LIBNOTIFY "Use libnotify in GTK interface" ON)
-option (FREE_SPACE_BAR_C "Free space progressbar in Qt and Gtk interface" ON)
+option (USE_LIBGNOME2 "Use LibGnome2 in GTK+ interface (sound notification)" OFF)
+option (USE_LIBNOTIFY "Use libnotify in GTK+ interface" ON)
+option (FREE_SPACE_BAR_C "Free space progressbar in Qt and GTK+ interface" ON)
 option (WITH_EMOTICONS "Install emoticon packs" ON)
 option (WITH_EXAMPLES "Install examples sh and others scripts" ON)
 option (WITH_LUASCRIPTS "Install examples of lua scripts" OFF)
@@ -79,31 +82,30 @@ option (WITH_SOUNDS "Install sound files" OFF)
 option (WITH_DEV_FILES "Install development files (headers for libeiskaltdcpp)" OFF)
 option (DBUS_NOTIFY "QtDbus support in Qt interface" ON)
 option (USE_JS "QtScript support in Qt interface")
-option (NO_UI_DAEMON "Daemon without any UI" OFF)
 option (XMLRPC_DAEMON "Make daemon as xmlrpc server" OFF)
 option (PERL_REGEX "Use pcre lib for regex in perl style" OFF)
 option (ENABLE_STACKTRACE "Show stacktrace when program receive SIGSEGV" OFF)
 option (USE_IDNA "Use libidn for punycode generation" ON)
 option (JSONRPC_DAEMON "Make daemon as jsonrpc server" OFF)
-option (USE_GTK3 "GTK3 interface" OFF)
 option (USE_CLI_XMLRPC "Command line interface to control daemon via XMLRPC" OFF)
 option (USE_CLI_JSONRPC "Command line interface to control daemon via JSONRPC" OFF)
 option (HAIKU_PKG "Make Haiku package" OFF)
-option (CHECK_GTK_DEPRECATED "Check gtk backend for deprecated function" OFF)
-option (USE_LIBCANBERRA "Use LibCanberra in GTK interface (sound notification)" OFF)
+option (CHECK_GTK_DEPRECATED "Check GTK+ backend for deprecated function" OFF)
+option (USE_LIBCANBERRA "Use LibCanberra in GTK+ interface (sound notification)" OFF)
 option (INSTALL_RUNTIME_PATH "Install rpath" OFF)
 option (USE_GOLD "Use ld.gold instead ld.bfd" OFF)
 option (DO_NOT_USE_MUTEX "Do not use mutex (necessary for Haiku and WINE)" OFF)
 option (LOCAL_JSONCPP "Use local JsonCpp" ON)
 option (LOCAL_BOOST "Use local boost headers" OFF)
+option (OPENSSL_MSVC "Use MSVC build openssl (only for Windows)" OFF)
 
 if (DO_NOT_USE_MUTEX OR HAIKU OR APPLE)
   add_definitions ( -DDO_NOT_USE_MUTEX )
 endif ()
 
-if (USE_QT OR USE_GTK OR USE_GTK3)
+if (USE_QT OR USE_QT5 OR USE_GTK OR USE_GTK3)
     find_package (X11)
-endif(USE_QT OR USE_GTK OR USE_GTK3)
+endif()
 
 if (PERL_REGEX)
     find_package(Pcre REQUIRED)
@@ -134,7 +136,7 @@ if (USE_MINIUPNP)
     set (MINIUPNP_LIBRARY)
   if (LOCAL_MINIUPNP)
     add_subdirectory(upnp)
-    set (MINIUPNP_INCLUDE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/upnp")
+    set (MINIUPNP_INCLUDE_DIR "${PROJECT_SOURCE_DIR}/upnp")
     set (MINIUPNP_LIBRARY "miniupnpc")
   else (LOCAL_MINIUPNP)
     find_package (Miniupnpc REQUIRED)
@@ -199,12 +201,12 @@ endif (INSTALL_RUNTIME_PATH)
 
 if (NOT CMAKE_BUILD_TYPE)
   set (CMAKE_BUILD_TYPE "RelWithDebInfo")
-elseif (CMAKE_BUILD_TYPE STREQUAL "Debug" AND USE_QT)
+elseif (CMAKE_BUILD_TYPE STREQUAL "Debug" AND (USE_QT OR USE_QT5))
   message(STATUS "EiskaltDC++ Qt with CMAKE_BUILD_TYPE=Debug is very unstable now!\n"
                  "\tYou can build it for your own risk.\n"
                  "\tBut do not even try to write bug reports in this case.\n"
                  "\tPlease use RelWithDebInfo instead it.")
-elseif (CMAKE_BUILD_TYPE STREQUAL "Gentoo" AND USE_QT)
+elseif (CMAKE_BUILD_TYPE STREQUAL "Gentoo" AND (USE_QT OR USE_QT5))
   message(STATUS "EiskaltDC++ Qt with CMAKE_BUILD_TYPE=Gentoo may be unstable now.\n"
                  "\tPlease try to use RelWithDebInfo instead it if some troubles happend.")
 endif (NOT CMAKE_BUILD_TYPE)
@@ -274,12 +276,7 @@ add_definitions (-D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -D_REENTRANT
                  -D_DATADIR="${CLIENT_DATA_DIR}" -DLOCALE_DIR="${LOCALE_DIR}" -DBUILDING_DCPP)
 
 if (CMAKE_CXX_COMPILER_ID STREQUAL GNU OR CMAKE_CXX_COMPILER_ID STREQUAL Clang)
-    if (MINGW AND NOT CMAKE_CXX_COMPILER_ID STREQUAL Clang)
-        set (CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -Wl,--enable-auto-import")
-        set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=gnu++0x")
-    else ()
-        set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++0x -pipe -Wformat -Werror=format-security")
-    endif ()
+    set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++0x -pipe -Wformat -Werror=format-security")
     if (USE_GOLD)
         set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fuse-linker-plugin")
         set (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fuse-linker-plugin")
@@ -303,17 +300,20 @@ list (APPEND AllLanguages
             el
             en
             es
+            eu
             fr
             hu
             it
             pl
             pt_BR
             ru
+            sr
             sr@latin
             sk
             uk
             vi
             zh_CN
+            sv_SE
             )
 if (NOT DEFINED linguas)
   set (LANGUAGES ${AllLanguages} CACHE STRING "Using translations" FORCE)
@@ -352,9 +352,13 @@ if (HAIKU AND HAIKU_PKG)
   add_subdirectory (haiku)
 endif ()
 
-if (USE_QT)
+if (JSONRPC_DAEMON)
+add_subdirectory (json)
+endif (JSONRPC_DAEMON)
+
+if (USE_QT OR USE_QT5)
   add_subdirectory (eiskaltdcpp-qt)
-endif (USE_QT)
+endif (USE_QT OR USE_QT5)
 
 if (USE_GTK OR USE_GTK3)
   add_subdirectory (eiskaltdcpp-gtk)
@@ -368,9 +372,6 @@ if (USE_CLI_XMLRPC OR USE_CLI_JSONRPC)
   add_subdirectory (eiskaltdcpp-cli)
 endif ()
 
-if (JSONRPC_DAEMON)
-add_subdirectory (json)
-endif (JSONRPC_DAEMON)
 
 if(GETTEXT_FOUND)
     option (UPDATE_PO "Update po files" OFF)
@@ -398,8 +399,8 @@ message(STATUS "CMAKE will use this libs (and headers) during build:
     ")
 
 CONFIGURE_FILE(
-  "${CMAKE_CURRENT_SOURCE_DIR}/cmake/cmake_uninstall.cmake.in"
-  "${CMAKE_CURRENT_BINARY_DIR}/cmake_uninstall.cmake"
+  "${PROJECT_SOURCE_DIR}/cmake/cmake_uninstall.cmake.in"
+  "${PROJECT_BINARY_DIR}/cmake_uninstall.cmake"
   IMMEDIATE @ONLY)
 ADD_CUSTOM_TARGET(uninstall
-  "${CMAKE_COMMAND}" -P "${CMAKE_CURRENT_BINARY_DIR}/cmake_uninstall.cmake")
+  "${CMAKE_COMMAND}" -P "${PROJECT_BINARY_DIR}/cmake_uninstall.cmake")

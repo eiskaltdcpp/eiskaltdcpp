@@ -131,6 +131,7 @@ PMWindow::PMWindow(QString cid, QString hubUrl):
     connect(toolButton_HIDE, SIGNAL(clicked()), this, SLOT(slotHideFindFrame()));
     connect(toolButton_BACK, SIGNAL(clicked()), this, SLOT(slotFindBackward()));
     connect(toolButton_FORWARD, SIGNAL(clicked()), this, SLOT(slotFindForward()));
+    connect(toolButton_ALL, SIGNAL(clicked()), this, SLOT(slotFindAll()));
 
     out_messages_index = 0;
     out_messages_unsent = false;
@@ -300,7 +301,7 @@ void PMWindow::slotActivate(){
 }
 
 QString PMWindow::getArenaTitle(){
-    QString nick = (cid.length() > 24)? _q(ClientManager::getInstance()->getNicks(CID(cid.toStdString()), _tq(hubUrl)).at(0)) : cid;
+    QString nick = (cid.length() > 24)? WulforUtil::getInstance()->getNickViaOnlineUser(cid, hubUrl) : cid;
 
     nick_ = nick.isEmpty()? nick_ : nick;
 
@@ -308,7 +309,7 @@ QString PMWindow::getArenaTitle(){
 }
 
 QString PMWindow::getArenaShortTitle(){
-    QString nick = (cid.length() > 24)? _q(ClientManager::getInstance()->getNicks(CID(cid.toStdString()), _tq(hubUrl)).at(0)) : cid;
+    QString nick = (cid.length() > 24)? WulforUtil::getInstance()->getNickViaOnlineUser(cid, hubUrl) : cid;
 
     nick_ = nick.isEmpty()? nick_ : nick;
 
@@ -673,12 +674,11 @@ void PMWindow::slotFindTextEdited(const QString & text){
 
     c.movePosition(QTextCursor::StartOfLine,QTextCursor::MoveAnchor,1);
     c = textEdit_CHAT->document()->find(lineEdit_FIND->text(), c, 0);
-
-    textEdit_CHAT->setExtraSelections(QList<QTextEdit::ExtraSelection>());
-
-    textEdit_CHAT->setTextCursor(c);
-
-    slotFindAll();
+    if (!c.isNull()) {
+        textEdit_CHAT->setExtraSelections(QList<QTextEdit::ExtraSelection>());
+        textEdit_CHAT->setTextCursor(c);
+        slotFindAll();
+    }
 }
 
 void PMWindow::slotFindAll(){
@@ -729,7 +729,8 @@ void PMWindow::findText(QTextDocument::FindFlags flag){
 
     c = textEdit_CHAT->document()->find(lineEdit_FIND->text(), c, flag);
 
-    textEdit_CHAT->setTextCursor(c);
-
-    slotFindAll();
+    if (!c.isNull()) {
+        textEdit_CHAT->setTextCursor(c);
+        slotFindAll();
+    }
 }

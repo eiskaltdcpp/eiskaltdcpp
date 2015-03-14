@@ -201,7 +201,7 @@ void TigerHash::update(const void* data, size_t length) {
 			buf[j^7]=((uint8_t*)str)[j];
 		tiger_compress_macro(((uint64_t*)buf), res);
 #else
-// Small fix by Boris Pek <tehnick@debian.org>
+// Small fix by Boris Pek <tehnick-8@mail.ru>
 // Bug report: https://github.com/eiskaltdcpp/eiskaltdcpp/pull/25
 // Description: The ARM EABI requires 8-byte stack alignment at public
 // function entry points, compared to the previous 4-byte alignment.

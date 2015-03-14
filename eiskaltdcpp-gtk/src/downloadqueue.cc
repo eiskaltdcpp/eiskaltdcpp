@@ -1054,8 +1054,6 @@ void DownloadQueue::onFileRemoveClicked_gui(GtkMenuItem *menuitem, gpointer data
 void DownloadQueue::buildList_client()
 {
     StringMap params;
-    typedef Func2<DownloadQueue, StringMap, bool> F2;
-    //F2 *func;
     const QueueItem::StringMap &ll = QueueManager::getInstance()->lockQueue();
 
     for (auto it = ll.begin(); it != ll.end(); ++it)
@@ -1064,8 +1062,6 @@ void DownloadQueue::buildList_client()
         params["Path"] = Util::getFilePath(*it->first);
 
         addFile_gui(params, TRUE);
-        //func = new F2(this, &DownloadQueue::addFile_gui, params, TRUE);
-        //WulforManager::get()->dispatchGuiFunc(func);
     }
 
     QueueManager::getInstance()->unlockQueue();

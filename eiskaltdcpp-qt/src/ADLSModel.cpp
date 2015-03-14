@@ -264,6 +264,11 @@ void ADLSModel::clearModel(){
     emit layoutChanged();
 }
 
+void ADLSModel::reset() {
+    beginResetModel();
+    endResetModel();
+}
+
 bool ADLSModel::removeItem(const QModelIndex &el){
     if (!el.isValid())
         return false;
