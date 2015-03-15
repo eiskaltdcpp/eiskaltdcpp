@@ -383,8 +383,6 @@ void TransferView::getParams(TransferView::VarMap &params, const dcpp::Transfer 
 
     params["CID"]   = _q(user->getCID().toBase32());
 
-    LogManager::getInstance()->message(_("TransferView::getParams"));
-
     if (trf->getType() == Transfer::TYPE_PARTIAL_LIST || trf->getType() == Transfer::TYPE_FULL_LIST)
         params["FNAME"] = tr("File list");
     else if (trf->getType() == Transfer::TYPE_TREE)
