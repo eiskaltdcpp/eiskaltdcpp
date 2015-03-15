@@ -57,6 +57,13 @@
      </property>
     </widget>
    </item>
+   <item row="1" column="0">
+    <widget class="QCheckBox" name="checkBox_showTranferedFilesOnly">
+     <property name="text">
+      <string>Show only transfered files</string>
+     </property>
+    </widget>
+   </item>
   </layout>
  </widget>
  <resources/>

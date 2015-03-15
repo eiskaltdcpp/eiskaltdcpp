@@ -216,6 +216,8 @@ void TransferView::init(){
     connect(treeView_TRANSFERS, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotContextMenu(QPoint)));
     connect(treeView_TRANSFERS->header(), SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotHeaderMenu(QPoint)));
 
+    connect (checkBox_showTranferedFilesOnly, SIGNAL(stateChanged(int)), this, SLOT(slotcheckState(int)));
+
     connect(this, SIGNAL(coreDMRequesting(VarMap)),     model, SLOT(initTransfer(VarMap)), Qt::QueuedConnection);
     connect(this, SIGNAL(coreDMStarting(VarMap)),       model, SLOT(updateTransfer(VarMap)), Qt::QueuedConnection);
     connect(this, SIGNAL(coreDMTick(VarMap)),           model, SLOT(updateTransfer(VarMap)), Qt::QueuedConnection);
@@ -239,6 +241,10 @@ void TransferView::init(){
 
     load();
 }
+
+void TransferView::slotcheckState(int state){
+    model->handleShowTranferedFilesOnlyState(state);
+};
 
 void TransferView::getFileList(const QString &cid, const QString &host){
     if (cid.isEmpty() || host.isEmpty())

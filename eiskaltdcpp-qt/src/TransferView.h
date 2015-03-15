@@ -148,6 +148,7 @@ private Q_SLOTS:
     void slotContextMenu(const QPoint&);
     void slotHeaderMenu(const QPoint&);
     void downloadComplete(QString);
+    void slotcheckState(int);
     \
 private:
     TransferView(QWidget* = NULL);
