@@ -34,7 +34,8 @@ public:
         Logs,
         UserCommands,
         Shortcuts,
-        History
+        History,
+        Advanced
     };
 
     Settings();
