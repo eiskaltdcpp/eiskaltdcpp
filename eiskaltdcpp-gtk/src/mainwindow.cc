@@ -250,7 +250,7 @@ MainWindow::MainWindow():
         string("  2012-2014 Francisco Blas Izquierdo Riera aka klondike <klondike at klondike.es>\n")+
         string("\n")+
         _("Basque translation\n")+
-        string("  2014 Egoitz Rodriguez <egoitzro2@hotmail.com>\n")+
+        string("  2014-2015 Egoitz Rodriguez <egoitzro2@hotmail.com>\n")+
         string("\n")+
         _("Bulgarian translation\n")+
         string("  2010-2012 Rusi Dimitrov aka PsyTrip <dimitrov.rusi@gmail.com>\n")+
