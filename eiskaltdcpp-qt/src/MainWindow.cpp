@@ -52,6 +52,7 @@
 #include "QuickConnect.h"
 #include "SearchFrame.h"
 #include "ADLS.h"
+#include "CmdDebug.h"
 #include "Settings.h"
 #include "FavoriteHubs.h"
 #include "PublicHubs.h"
@@ -143,6 +144,7 @@ public:
         QMenu   *menuTools;
         QAction *toolsSearch;
         QAction *toolsADLS;
+        QAction *toolsCmdDebug;
         QAction *toolsTransfers;
         QAction *toolsDownloadQueue;
         QAction *toolsQueuedUsers;
@@ -793,6 +795,10 @@ void MainWindow::initActions(){
         d->toolsADLS->setIcon(WU->getPixmap(WulforUtil::eiADLS));
         connect(d->toolsADLS, SIGNAL(triggered()), this, SLOT(slotToolsADLS()));
 
+        d->toolsCmdDebug = new QAction("", this);
+        d->toolsCmdDebug->setObjectName("toolsCmdDebug");
+        connect(d->toolsCmdDebug, SIGNAL(triggered()), this, SLOT(slotToolsCmdDebug()));
+
         d->toolsTransfers = new QAction("", this);
         d->toolsTransfers->setObjectName("toolsTransfers");
         SM->registerShortcut(d->toolsTransfers, tr("Ctrl+T"));
@@ -986,6 +992,7 @@ void MainWindow::initActions(){
 
         d->toolsMenuActions << d->toolsSearch
                 << d->toolsADLS
+                << d->toolsCmdDebug
                 << separator0
                 << d->toolsTransfers
                 << d->toolsDownloadQueue
@@ -1370,6 +1377,8 @@ void MainWindow::retranslateUi(){
 
         d->toolsADLS->setText(tr("ADLSearch"));
 
+        d->toolsCmdDebug->setText(tr("CmdDebug"));
+
         d->toolsSwitchSpeedLimit->setText(tr("Speed limit On/Off"));
 
 #ifdef USE_JS
@@ -1600,6 +1609,13 @@ ArenaWidget *MainWindow::widgetForRole(ArenaWidget::Role r) const{
 
             break;
         }
+    case ArenaWidget::CmdDebug:
+    {
+        awgt = ArenaWidgetFactory().create<dcpp::Singleton, CmdDebug>();
+        awgt->setToolButton(d->toolsCmdDebug);
+
+        break;
+    }
     case ArenaWidget::QueuedUsers:
         {
             awgt = ArenaWidgetFactory().create<dcpp::Singleton, QueuedUsers>();
@@ -2180,6 +2196,11 @@ void MainWindow::slotHubsReconnect(){
 
 void MainWindow::slotToolsADLS(){
     toggleSingletonWidget(widgetForRole(ArenaWidget::ADLS));
+}
+
+void MainWindow::slotToolsCmdDebug()
+{
+    toggleSingletonWidget(widgetForRole(ArenaWidget::CmdDebug));
 }
 
 void MainWindow::slotToolsSearch() {
