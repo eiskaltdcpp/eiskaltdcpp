@@ -184,6 +184,7 @@ public:
     GETSET(string, hubUrl, HubUrl);
     GETSET(string, token, Token);
     GETSET(string, encoding, Encoding);
+    GETSET(uint16_t, port, Port);
     GETSET(States, state, State);
     GETSET(uint64_t, lastActivity, LastActivity);
     GETSET(double, speed, Speed);

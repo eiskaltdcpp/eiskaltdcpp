@@ -28,6 +28,7 @@
 #include "ScriptManager.h"
 #endif
 #include "DebugManager.h"
+#include "ConnectionManager.h"
 
 namespace dcpp {
 
@@ -97,8 +98,11 @@ void UserConnection::on(BufferedSocketListener::Line, const string& aLine) throw
         if(Util::stricmp(param.c_str(), FILE_NOT_AVAILABLE) == 0 ||
             param.rfind(/*path/file*/" no more exists") != string::npos) {
             fire(UserConnectionListener::FileNotAvailable(), this);
+        } else if (::strncmp(param.c_str(), "CTM2HUB", 7) == 0 ) {
+            ConnectionManager::getInstance()->addCTM2HUB(socket->getIp(), Util::toString(getPort()));
+            fire(UserConnectionListener::ProtocolError(), this, param);
         } else {
-                        fire(UserConnectionListener::ProtocolError(), this, param);
+            fire(UserConnectionListener::ProtocolError(), this, param);
         }
     } else if(cmd == "$GetListLen") {
         fire(UserConnectionListener::GetListLength(), this);
@@ -158,6 +162,7 @@ bool UserConnectionScriptInstance::onUserConnectionMessageOut(UserConnection* aC
 void UserConnection::connect(const string& aServer, uint16_t aPort, uint16_t localPort, BufferedSocket::NatRoles natRole) throw(SocketException, ThreadException) {
     dcassert(!socket);
 
+    setPort(aPort);
     socket = BufferedSocket::getSocket(0);
     socket->addListener(this);
     socket->connect(aServer, aPort, localPort, natRole, isSet(FLAG_SECURE), BOOLSETTING(ALLOW_UNTRUSTED_CLIENTS), true);

@@ -38,8 +38,7 @@ namespace dcpp {
 NmdcHub::NmdcHub(const string& aHubURL, bool secure) :
 Client(aHubURL, '|', secure),
 supportFlags(0),
-lastUpdate(0),
-lastProtectedIPsUpdate(0)
+lastUpdate(0)
 {
 }
 
@@ -449,9 +448,7 @@ void NmdcHub::onLine(const string& aLine) noexcept {
         if(j == string::npos) {
             return;
         }
-        string server = Socket::resolve(param.substr(i, j-i));
-        if(isProtectedIP(server))
-            return;
+        string server = param.substr(i, j-i);
         if(j+1 >= param.size()) {
             return;
         }
@@ -1020,14 +1017,6 @@ void NmdcHub::clearFlooders(uint64_t aTick) {
     }
 }
 
-bool NmdcHub::isProtectedIP(const string& ip) {
-    if(find(protectedIPs.begin(), protectedIPs.end(), ip) != protectedIPs.end()) {
-        fire(ClientListener::StatusMessage(), this, str(F_("This hub is trying to use your client to spam %1%, please urge hub owner to fix this") % ip));
-        return true;
-    }
-    return false;
-}
-
 void NmdcHub::on(Connected) noexcept {
     Client::on(Connected());
     if(state != STATE_PROTOCOL) {
@@ -1062,26 +1051,6 @@ void NmdcHub::on(Second, uint64_t aTick) noexcept {
 
     if(state == STATE_NORMAL && (aTick > (getLastActivity() + 120*1000)) ) {
         send("|", 1);
-    }
-}
-
-void NmdcHub::on(Minute, uint64_t aTick) noexcept {
-    if(aTick > (lastProtectedIPsUpdate + 24*3600*1000)) {
-        protectedIPs.clear();
-
-        protectedIPs.push_back("dcpp.net");
-        protectedIPs.push_back("hublist.org");
-        protectedIPs.push_back("openhublist.org");
-        protectedIPs.push_back("dchublist.com");
-        protectedIPs.push_back("hublista.hu");
-        for(auto i = protectedIPs.begin(); i != protectedIPs.end();) {
-            *i = Socket::resolve(*i);
-            if(Util::isPrivateIp(*i))
-                i = protectedIPs.erase(i);
-            else
-                ++i;
-        }
-        lastProtectedIPsUpdate = aTick;
     }
 }
 
