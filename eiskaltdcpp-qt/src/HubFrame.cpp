@@ -2401,10 +2401,10 @@ void HubFrame::newMsg(const VarMap &map){
         MainWindow::getInstance()->redrawToolPanel();
     }
 
+    QTextDocument *chatDoc = textEdit_CHAT->document();
+
     if (d->drawLine && WBGET("hubframe/unreaden-draw-line", true)){
         QString hr = "<hr />";
-
-        QTextDocument *chatDoc = textEdit_CHAT->document();
 
         int scrollbarValue = textEdit_CHAT->verticalScrollBar()->value();
 
@@ -2433,6 +2433,13 @@ void HubFrame::newMsg(const VarMap &map){
 
         addOutput(output);
 
+        for (QTextBlock itu = chatDoc->lastBlock(); itu != chatDoc->begin(); itu = itu.previous()){
+            if (!itu.userData())
+                itu.setUserData(new UserListUserData(nick));
+            else
+                break;
+        }
+
         for (QTextBlock it = chatDoc->begin(); it != chatDoc->end(); it = it.next()){
             if(!it.userState()){
                 it.setUserState(-1); // delete label for the last of the old messages
@@ -2457,6 +2464,14 @@ void HubFrame::newMsg(const VarMap &map){
     }
 
     addOutput(output);
+
+    for (QTextBlock itu = chatDoc->lastBlock(); itu != chatDoc->begin(); itu = itu.previous()){
+        if (!itu.userData())
+            itu.setUserData(new UserListUserData(nick));
+        else
+            break;
+    }
+
 }
 
 void HubFrame::newPm(const VarMap &map){
@@ -2944,30 +2959,10 @@ void HubFrame::slotChatMenu(const QPoint &){
 
     if (!editor)
         return;
-
     QTextCursor cursor = editor->cursorForPosition(editor->mapFromGlobal(QCursor::pos()));
-
-    cursor.movePosition(QTextCursor::StartOfBlock);
-
-    QString pressedParagraph = cursor.block().text();
-
-    int row_counter = 0;
-    QRegExp nick_exp("<((.+))>");
-    QRegExp thirdPerson_exp("\\*\\W+((\\w+))");// * Some_nick say something
-
     QString nick = "";
-
-    while (!(pressedParagraph.contains(nick_exp) || pressedParagraph.contains(thirdPerson_exp)) && row_counter < 600){//try to find nick in above rows (max 600 rows)
-        cursor.movePosition(QTextCursor::PreviousBlock);
-        pressedParagraph = cursor.block().text();
-
-        row_counter++;
-    }
-
-    if (nick_exp.captureCount() >= 2)
-        nick = nick_exp.cap(1);
-    else if (thirdPerson_exp.exactMatch(pressedParagraph) && thirdPerson_exp.captureCount() >= 2)
-        nick = thirdPerson_exp.cap(1);
+    if(cursor.block().userData())
+        nick = static_cast<UserListUserData*>(cursor.block().userData())->data;
 
     Q_D(HubFrame);
 
