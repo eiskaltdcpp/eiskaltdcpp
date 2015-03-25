@@ -82,7 +82,7 @@ if(UPDATE_PO)
 				${dcpp_SOURCE_DIR}/po/libeiskaltdcpp.pot
 			DEPENDS "${dcpp_files_from}"
 			WORKING_DIRECTORY ${dcpp_SOURCE_DIR}/po
-			COMMENT "pot-update [libeiskaltdcpp]: Generated source pot file."
+			COMMENT "pot-update {ibeiskaltdcpp}: Generated source pot file."
 		)
 		if (USE_GTK OR USE_GTK3)
 		add_custom_command(
@@ -105,7 +105,7 @@ if(UPDATE_PO)
 				${eiskaltdcpp-gtk_SOURCE_DIR}/po/eiskaltdcpp-gtk.cpp.pot
 			DEPENDS "${gtk_cpp_files_from}"
 			WORKING_DIRECTORY ${eiskaltdcpp-gtk_SOURCE_DIR}/po
-			COMMENT "pot-update [eiskaltdcpp-gtk.cpp]: Generated source pot file."
+			COMMENT "pot-update {eiskaltdcpp-gtk.cpp}: Generated source pot file."
 		)
 
 		# Generate pot file for ui files.
@@ -127,7 +127,7 @@ if(UPDATE_PO)
 				${eiskaltdcpp-gtk_SOURCE_DIR}/po/eiskaltdcpp-gtk.ui.pot
 			DEPENDS "${gtk_ui_files_from}"
 			WORKING_DIRECTORY ${eiskaltdcpp-gtk_SOURCE_DIR}/po
-			COMMENT "pot-update [eiskaltdcpp-gtk.ui]: Generated source pot file."
+			COMMENT "pot-update {eiskaltdcpp-gtk.ui}: Generated source pot file."
 		    )
 
 		# Merge both pot files
@@ -150,7 +150,7 @@ if(UPDATE_PO)
 			DEPENDS
 					${eiskaltdcpp-gtk_SOURCE_DIR}/po/eiskaltdcpp-gtk.cpp.pot
 					${eiskaltdcpp-gtk_SOURCE_DIR}/po/eiskaltdcpp-gtk.ui.pot
-			COMMENT "pot-update [eiskaltdcpp-gtk]: Generated pot file."
+			COMMENT "pot-update {eiskaltdcpp-gtk}: Generated pot file."
 		)
 		endif (USE_GTK OR USE_GTK3)
 		# Update / generate the po files for all languages
@@ -175,7 +175,7 @@ if(UPDATE_PO)
 					DEPENDS
 						${dcpp_SOURCE_DIR}/po/libeiskaltdcpp.pot
 					COMMENT
-						"pot-update [libeiskaltdcpp-${LANG}]: Initialized po file."
+						"pot-update {libeiskaltdcpp-${LANG}}: Initialized po file."
 				)
 			endif(NOT EXISTS ${dcpp_SOURCE_DIR}/po/${LANG}.po)
 
@@ -192,7 +192,7 @@ if(UPDATE_PO)
 					${dcpp_SOURCE_DIR}/po/libeiskaltdcpp.pot
 					${dcpp_SOURCE_DIR}/po/${LANG}.po
 				WORKING_DIRECTORY ${dcpp_SOURCE_DIR}/po
-				COMMENT "pot-update [dcpp-${LANG}]: Updated po file."
+				COMMENT "pot-update {dcpp-${LANG}}: Updated po file."
 			)
 
 			if (USE_GTK OR USE_GTK3)
@@ -208,7 +208,7 @@ if(UPDATE_PO)
 					DEPENDS
 						${eiskaltdcpp-gtk_SOURCE_DIR}/po/eiskaltdcpp-gtk.pot
 					COMMENT
-						"pot-update [eiskaltdcpp-gtk-${LANG}]: Initialized po file."
+						"pot-update {eiskaltdcpp-gtk-${LANG}}: Initialized po file."
 				)
 			endif(NOT EXISTS ${eiskaltdcpp-gtk_SOURCE_DIR}/po/${LANG}.po)
 
@@ -226,7 +226,7 @@ if(UPDATE_PO)
 					${eiskaltdcpp-gtk_SOURCE_DIR}/po/eiskaltdcpp-gtk.pot
 					${eiskaltdcpp-gtk_SOURCE_DIR}/po/${LANG}.po
 				WORKING_DIRECTORY ${eiskaltdcpp-gtk_SOURCE_DIR}/po
-				COMMENT "pot-update [eiskaltdcpp-gtk-${LANG}]: Updated po file."
+				COMMENT "pot-update {eiskaltdcpp-gtk-${LANG}}: Updated po file."
 			)
 			SET(pot-update-SRC ${pot-update-SRC} ${eiskaltdcpp-gtk_SOURCE_DIR}/po/${LANG}.po.dummy )
 			endif (USE_GTK OR USE_GTK3)
@@ -277,7 +277,7 @@ if(UPDATE_PO)
 						-U ${LANG}.po
 						libeiskaltdcpp.pot
 				WORKING_DIRECTORY ${dcpp_SOURCE_DIR}/po
-				COMMENT "po-update [libeiskaltdcpp-${LANG}]: Updated po file."
+				COMMENT "po-update {libeiskaltdcpp-${LANG}}: Updated po file."
 			)
 			if (USE_GTK OR USE_GTK3)
 			add_custom_command(
@@ -302,7 +302,7 @@ if(UPDATE_PO)
 						-U ${LANG}.po
 						eiskaltdcpp-gtk.pot
 				WORKING_DIRECTORY ${eiskaltdcpp-gtk_SOURCE_DIR}/po
-				COMMENT "po-update [eiskaltdcpp-gtk-${LANG}]: Updated po file."
+				COMMENT "po-update {eiskaltdcpp-gtk-${LANG}}: Updated po file."
 			)
 			set(po-update-LANG-SRC ${po-update-LANG-SRC}
 				${eiskaltdcpp-gtk_SOURCE_DIR}/po/${LANG}.po.lang.dummy
@@ -333,7 +333,7 @@ if(CREATE_MO)
 				OUTPUT ${dcpp_BINARY_DIR}/locale/${LANG}/LC_MESSAGES
 				COMMAND ${CMAKE_COMMAND} -E make_directory
 						${dcpp_BINARY_DIR}/locale/${LANG}/LC_MESSAGES
-				COMMENT "mo-update [${LANG}]: Creating locale directory."
+				COMMENT "mo-update {${LANG}} Creating locale directory."
 			)
 			add_custom_command(
 				OUTPUT ${dcpp_BINARY_DIR}/locale/${LANG}/LC_MESSAGES/libeiskaltdcpp.mo
@@ -344,14 +344,14 @@ if(CREATE_MO)
 					${dcpp_BINARY_DIR}/locale/${LANG}/LC_MESSAGES
 					${dcpp_SOURCE_DIR}/po/${LANG}.po
 				WORKING_DIRECTORY ${dcpp_SOURCE_DIR}/po
-				COMMENT "mo-update [dcpp-${LANG}]: Creating mo file."
+				COMMENT "Creating mo file ${dcpp_BINARY_DIR}/locale/${LANG}/LC_MESSAGES/libeiskaltdcpp.mo"
 			)
 			if (USE_GTK OR USE_GTK3)
 			add_custom_command(
 				OUTPUT ${eiskaltdcpp-gtk_BINARY_DIR}/locale/${LANG}/LC_MESSAGES
 				COMMAND ${CMAKE_COMMAND} -E make_directory
 						${eiskaltdcpp-gtk_BINARY_DIR}/locale/${LANG}/LC_MESSAGES
-				COMMENT "mo-update [${LANG}]: Creating locale directory."
+				COMMENT "mo-update {${LANG}} Creating locale directory."
 			)
 
 			add_custom_command(
@@ -363,7 +363,7 @@ if(CREATE_MO)
 					${eiskaltdcpp-gtk_BINARY_DIR}/locale/${LANG}/LC_MESSAGES
 					${eiskaltdcpp-gtk_SOURCE_DIR}/po/${LANG}.po
 				WORKING_DIRECTORY ${eiskaltdcpp-gtk_SOURCE_DIR}/po
-				COMMENT "mo-update [eiskaltdcpp-gtk-${LANG}]: Creating mo file."
+				COMMENT "Creating mo file ${eiskaltdcpp-gtk_BINARY_DIR}/locale/${LANG}/LC_MESSAGES/eiskaltdcpp-gtk.mo"
 			)
 
 			set(mo-update-SRC ${mo-update-SRC}
