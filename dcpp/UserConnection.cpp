@@ -163,7 +163,7 @@ bool UserConnectionScriptInstance::onUserConnectionMessageOut(UserConnection* aC
 
 void UserConnection::connect(const string& aServer, const string& aPort, const string& localPort, BufferedSocket::NatRoles natRole) {
     dcassert(!socket);
-    port = aPort;
+
     setPort(aPort);
     socket = BufferedSocket::getSocket(0);
     socket->addListener(this);
