@@ -2374,11 +2374,11 @@ void HubFrame::newMsg(const VarMap &map){
 
     bool third = map["3RD"].toBool();
 
-    nick = third? ("* " + nick + " ") : ("<" + nick + "> ");
+    QString nicktoout = third? ("* " + nick + " ") : ("<" + nick + "> ");
 
     message = LinkParser::parseForLinks(message, true);
 
-    WulforUtil::getInstance()->textToHtml(nick, true);
+    WulforUtil::getInstance()->textToHtml(nicktoout, true);
 
     message = "<font color=\"" + WSGET(msg_color) + "\">" + message + "</font>";
 
@@ -2389,7 +2389,7 @@ void HubFrame::newMsg(const VarMap &map){
         output  += " <font color=\"" + WSGET(WS_CHAT_TIME_COLOR)+ "\">" + _q(info) + "</font>";
 
     output  += QString(" <a style=\"text-decoration:none\" href=\"user://%1\"><font color=\"%2\"><b>%3</b></font></a>")
-               .arg(nick).arg(WSGET(color)).arg(nick.replace("\"", "&quot;"));
+               .arg(nicktoout).arg(WSGET(color)).arg(nicktoout.replace("\"", "&quot;"));
     output  += message;
 
     if (!isVisible()){
