@@ -59,6 +59,7 @@ void UserConnection::on(BufferedSocketListener::Line, const string& aLine) throw
             fire(UserConnectionListener::ProtocolError(), this, _("Non-UTF-8 data in an ADC connection"));
             return;
         }
+        COMMAND_DEBUG(aLine, DebugManager::CLIENT_IN, getRemoteIp());
         dispatch(aLine);
         return;
     } else if(aLine[0] == '$') {
