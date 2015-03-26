@@ -123,7 +123,8 @@ public:
     void key(const string& aKey) { send("$Key " + aKey + '|'); }
     void direction(const string& aDirection, int aNumber) { send("$Direction " + aDirection + " " + Util::toString(aNumber) + '|'); }
     void fileLength(const string& aLength) { send("$FileLength " + aLength + '|'); }
-    void error(const string& aError) { send("$Error " + aError + '|'); }
+    void error(const string& aError) { isSet(FLAG_NMDC) ? send("$Error " + aError + '|') :
+ send(AdcCommand(AdcCommand::SEV_FATAL, AdcCommand::ERROR_TRANSFER_GENERIC, aError)); }
     void listLen(const string& aLength) { send("$ListLen " + aLength + '|'); }
     void maxedOut() { isSet(FLAG_NMDC) ? send("$MaxedOut|") : send(AdcCommand(AdcCommand::SEV_RECOVERABLE, AdcCommand::ERROR_SLOTS_FULL, "Slots full")); }
     void fileNotAvail(const std::string& msg = FILE_NOT_AVAILABLE) { isSet(FLAG_NMDC) ? send("$Error " + msg + "|") : send(AdcCommand(AdcCommand::SEV_RECOVERABLE, AdcCommand::ERROR_FILE_NOT_AVAILABLE, msg)); }
