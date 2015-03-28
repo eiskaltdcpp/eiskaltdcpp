@@ -2630,16 +2630,16 @@ void MainWindow::slotAboutOpenUrl(){
 
     QAction *act = qobject_cast<QAction *>(sender());
     if (act == d->aboutHomepage){
-        QDesktopServices::openUrl(QUrl("http://code.google.com/p/eiskaltdc/"));
+        QDesktopServices::openUrl(QUrl("http://github.com/eiskaltdcpp/eiskaltdcpp/"));
     }
     else if (act == d->aboutSource){
         QDesktopServices::openUrl(QUrl("http://github.com/eiskaltdcpp/eiskaltdcpp/"));
     }
     else if (act == d->aboutIssues){
-        QDesktopServices::openUrl(QUrl("http://code.google.com/p/eiskaltdc/issues/list"));
+        QDesktopServices::openUrl(QUrl("https://github.com/eiskaltdcpp/eiskaltdcpp/issues"));
     }
     else if (act == d->aboutWiki){
-        QDesktopServices::openUrl(QUrl("http://code.google.com/p/eiskaltdc/w/list"));
+        QDesktopServices::openUrl(QUrl("https://github.com/eiskaltdcpp/eiskaltdcpp/wiki"));
     }
     else if (act == d->aboutChangelog){
         // Now available: ChangeLog.txt, ChangeLog_ru.txt, ChangeLog_uk.txt
@@ -2647,7 +2647,7 @@ void MainWindow::slotAboutOpenUrl(){
     }
 }
 
-void MainWindow::slotAboutClient(){
+void MainWindow::slotAboutClient() {
     About a(this);
 
     double ratio;
@@ -2671,8 +2671,8 @@ void MainWindow::slotAboutClient(){
                             ""
                             "DC++ core version: %1 (modified)<br/><br/>"
                             ""
-                            "Home page: <a href=\"http://code.google.com/p/eiskaltdc/\">"
-                            "http://code.google.com/p/eiskaltdc/</a><br/><br/>"
+                            "Home page: <a href=\"https://github.com/eiskaltdcpp/eiskaltdcpp/\">"
+                            "https://github.com/eiskaltdcpp/eiskaltdcpp/</a><br/><br/>"
                             ""
                             "Total up: <b>%2</b><br/>"
                             "Total down: <b>%3</b><br/>"
@@ -2687,8 +2687,8 @@ void MainWindow::slotAboutClient(){
     a.textBrowser_AUTHORS->document()->setDefaultStyleSheet(html_format);
 
     a.textBrowser_AUTHORS->setText(
-        tr("Please use <a href=\"http://code.google.com/p/eiskaltdc/issues/list\">"
-        "http://code.google.com/p/eiskaltdc/issues/list</a> to report bugs.<br/>")+
+        tr("Please use <a href=\"https://github.com/eiskaltdcpp/eiskaltdcpp/issues\">"
+        "https://github.com/eiskaltdcpp/eiskaltdcpp/issues</a> to report bugs.<br/>")+
         QString("<br/>")+
         tr("<b>Developers</b><br/>")+
         QString("<br/>")+
