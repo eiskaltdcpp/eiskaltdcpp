@@ -1750,6 +1750,13 @@ bool HubFrame::parseForCmd(QString line, QWidget *wg){
                 pm->addStatus(line);
         }
     }
+    else if (cmd == "/rebuild") {
+        HashManager::getInstance()->rebuild();
+    }
+    else if (cmd == "/refresh") {
+        ShareManager::getInstance()->setDirty();
+        ShareManager::getInstance()->refresh(true);
+    }
 #ifdef USE_ASPELL
     else if (cmd == "/aspell" && !emptyParam){
         WBSET(WB_APP_ENABLE_ASPELL, param.trimmed() == "on");
@@ -1848,6 +1855,8 @@ bool HubFrame::parseForCmd(QString line, QWidget *wg){
         out += tr("/help, /?, /h - show this help\n");
         out += tr("/info <nick> - show info about user\n");
         out += tr("/ratio [show] - show ratio [send in chat]\n");
+        out += tr("/rebuild - rebuild hash\n");
+        out += tr("/refresh - update own file list\n");
         out += tr("/me - say a third person\n");
         out += tr("/pm <nick> - begin private chat with user\n");
         out += tr("/ws param value - set gui option param in value (without value return current value of option)\n");
@@ -1856,9 +1865,7 @@ bool HubFrame::parseForCmd(QString line, QWidget *wg){
         out += tr("/luafile <file> - load Lua file\n");
         out += tr("/lua <chunk> - execute Lua chunk\n");
 #endif
-
-        if (out.endsWith("\n"))
-            out.remove(out.size()-1, 1);
+        out = out.trimmed();
 
         if (fr == this)
             addStatus(out);
