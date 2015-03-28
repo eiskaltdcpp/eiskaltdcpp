@@ -247,7 +247,7 @@ if (DCPP_REVISION)
     set (eiskaltdcpp_WC_REVISION ${DCPP_REVISION})
     message (STATUS "DCPP_REVISION is set to: ${eiskaltdcpp_WC_REVISION}")
 elseif (GIT_FOUND)
-    execute_process (COMMAND ${GIT_EXECUTABLE} rev-parse --short HEAD
+    execute_process (COMMAND ${GIT_EXECUTABLE} describe --tags
                 WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}
                 OUTPUT_VARIABLE eiskaltdcpp_WC_REVISION
                 OUTPUT_STRIP_TRAILING_WHITESPACE)
