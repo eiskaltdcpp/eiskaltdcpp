@@ -330,55 +330,41 @@ if(CREATE_MO)
 	foreach(LANG ${LANGUAGES})
 
 			add_custom_command(
-				OUTPUT ${dcpp_BINARY_DIR}/locale/${LANG}/LC_MESSAGES
-				COMMAND ${CMAKE_COMMAND} -E make_directory
-						${dcpp_BINARY_DIR}/locale/${LANG}/LC_MESSAGES
-				COMMENT "mo-update {${LANG}} Creating locale directory."
-			)
-			add_custom_command(
-				OUTPUT ${dcpp_BINARY_DIR}/locale/${LANG}/LC_MESSAGES/libeiskaltdcpp.mo
+				OUTPUT ${dcpp_BINARY_DIR}/${LANG}_libeiskaltdcpp.mo
 				COMMAND ${GETTEXT_MSGFMT_EXECUTABLE}
 						${GETTEXT_MSGFMT_PARAMETER}
-						-o ${dcpp_BINARY_DIR}/locale/${LANG}/LC_MESSAGES/libeiskaltdcpp.mo ${LANG}.po
+						-o ${dcpp_BINARY_DIR}/${LANG}_libeiskaltdcpp.mo ${LANG}.po
 				DEPENDS
-					${dcpp_BINARY_DIR}/locale/${LANG}/LC_MESSAGES
 					${dcpp_SOURCE_DIR}/po/${LANG}.po
 				WORKING_DIRECTORY ${dcpp_SOURCE_DIR}/po
-				COMMENT "Creating mo file ${dcpp_BINARY_DIR}/locale/${LANG}/LC_MESSAGES/libeiskaltdcpp.mo"
+				COMMENT "Creating mo file ${dcpp_BINARY_DIR}/${LANG}_libeiskaltdcpp.mo"
 			)
 			if (USE_GTK OR USE_GTK3)
-			add_custom_command(
-				OUTPUT ${eiskaltdcpp-gtk_BINARY_DIR}/locale/${LANG}/LC_MESSAGES
-				COMMAND ${CMAKE_COMMAND} -E make_directory
-						${eiskaltdcpp-gtk_BINARY_DIR}/locale/${LANG}/LC_MESSAGES
-				COMMENT "mo-update {${LANG}} Creating locale directory."
-			)
 
 			add_custom_command(
-				OUTPUT ${eiskaltdcpp-gtk_BINARY_DIR}/locale/${LANG}/LC_MESSAGES/eiskaltdcpp-gtk.mo
+				OUTPUT ${eiskaltdcpp-gtk_BINARY_DIR}/${LANG}_eiskaltdcpp-gtk.mo
 				COMMAND ${GETTEXT_MSGFMT_EXECUTABLE}
 						${GETTEXT_MSGFMT_PARAMETER}
-						-o ${eiskaltdcpp-gtk_BINARY_DIR}/locale/${LANG}/LC_MESSAGES/eiskaltdcpp-gtk.mo ${LANG}.po
+						-o ${eiskaltdcpp-gtk_BINARY_DIR}/${LANG}_eiskaltdcpp-gtk.mo ${LANG}.po
 				DEPENDS
-					${eiskaltdcpp-gtk_BINARY_DIR}/locale/${LANG}/LC_MESSAGES
 					${eiskaltdcpp-gtk_SOURCE_DIR}/po/${LANG}.po
 				WORKING_DIRECTORY ${eiskaltdcpp-gtk_SOURCE_DIR}/po
-				COMMENT "Creating mo file ${eiskaltdcpp-gtk_BINARY_DIR}/locale/${LANG}/LC_MESSAGES/eiskaltdcpp-gtk.mo"
+				COMMENT "Creating mo file ${eiskaltdcpp-gtk_BINARY_DIR}/${LANG}_eiskaltdcpp-gtk.mo"
 			)
 
-			set(mo-update-SRC ${mo-update-SRC}
-			    ${eiskaltdcpp-gtk_BINARY_DIR}/locale/${LANG}/LC_MESSAGES/eiskaltdcpp-gtk.mo
+			list(APPEND mo-update-SRC
+				${eiskaltdcpp-gtk_BINARY_DIR}/${LANG}_eiskaltdcpp-gtk.mo
 			)
-			set(mo-update-LANG-SRC ${mo-update-LANG-SRC}
-			    ${eiskaltdcpp-gtk_BINARY_DIR}/locale/${LANG}/LC_MESSAGES/eiskaltdcpp-gtk.mo
+			list(APPEND mo-update-LANG-SRC
+				${eiskaltdcpp-gtk_BINARY_DIR}/${LANG}_eiskaltdcpp-gtk.mo
 			)
 			endif (USE_GTK OR USE_GTK3)
 
-			set(mo-update-SRC ${mo-update-SRC}
-			    ${dcpp_BINARY_DIR}/locale/${LANG}/LC_MESSAGES/libeiskaltdcpp.mo
+			list(APPEND mo-update-SRC
+				${dcpp_BINARY_DIR}/${LANG}_libeiskaltdcpp.mo
 			)
-			set(mo-update-LANG-SRC ${mo-update-LANG-SRC}
-			    ${dcpp_BINARY_DIR}/locale/${LANG}/LC_MESSAGES/libeiskaltdcpp.mo
+			list(APPEND mo-update-LANG-SRC
+				${dcpp_BINARY_DIR}/${LANG}_libeiskaltdcpp.mo
 			)
 
 		if(UPDATE_PO)

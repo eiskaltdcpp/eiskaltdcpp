@@ -114,6 +114,7 @@ endif (WITH_DEV_FILES)
 
 foreach(LANG ${LANGUAGES})
     install(FILES
-        ${dcpp_BINARY_DIR}/locale/${LANG}/LC_MESSAGES/libeiskaltdcpp.mo
-            DESTINATION ${LOCALE_DIR}/${LANG}/LC_MESSAGES)
+        ${dcpp_BINARY_DIR}/${LANG}_libeiskaltdcpp.mo
+            DESTINATION ${LOCALE_DIR}/${LANG}/LC_MESSAGES
+            RENAME libeiskaltdcpp.mo)
 endforeach(LANG ${LANGUAGES})

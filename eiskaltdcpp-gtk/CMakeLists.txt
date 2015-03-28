@@ -160,6 +160,7 @@ endif (APPLE)
 
 foreach(LANG ${LANGUAGES})
     install(FILES
-        ${PROJECT_BINARY_DIR}/locale/${LANG}/LC_MESSAGES/${PROJECT_NAME}.mo
-            DESTINATION ${LOCALE_DIR}/${LANG}/LC_MESSAGES)
+        ${PROJECT_BINARY_DIR}/${LANG}_${PROJECT_NAME}.mo
+            DESTINATION ${LOCALE_DIR}/${LANG}/LC_MESSAGES
+        RENAME ${PROJECT_NAME}.mo)
 endforeach(LANG ${LANGUAGES})
