@@ -116,7 +116,7 @@ bool SSLSocket::waitWant(int ret, uint32_t millis) {
 
 int SSLSocket::read(void* aBuffer, int aBufLen) {
     if(!ssl) {
-        return -1;
+        return 0;
     }
     int len = checkSSL(SSL_read(ssl, aBuffer, aBufLen));
 
