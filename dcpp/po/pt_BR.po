@@ -1,25 +1,25 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR EiskaltDC++ team
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Translators:
 # Translators:
-# Helder <heldercro@gmail.com>, 2013
+# Translators:
+# Helder <heldercro@gmail.com>, 2013,2015
 # Helder <heldercro@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
 "POT-Creation-Date: 2014-11-09 02:35+0300\n"
-"PO-Revision-Date: 2013-11-19 16:45+0000\n"
+"PO-Revision-Date: 2015-04-04 22:20+0000\n"
 "Last-Translator: Helder <heldercro@gmail.com>\n"
-"Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/"
-"eiskaltdcpp/language/pt_BR/)\n"
-"Language: pt_BR\n"
+"Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/eiskaltdcpp/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: pt_BR\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: ../SearchManager.cpp:36
@@ -102,7 +102,7 @@ msgstr "Impossível ler dados do hash"
 
 #: ../HashManager.cpp:606
 msgid "Error creating hash data file: %1%"
-msgstr ""
+msgstr "Erro ao criar hash do arquivo: %1%"
 
 #: ../HashManager.cpp:958
 msgid "Hash database rebuilt"
@@ -111,9 +111,7 @@ msgstr "Banco de hash refeito"
 #: ../HashManager.cpp:1052
 msgid ""
 "%1% not shared; calculated CRC32 does not match the one found in SFV file."
-msgstr ""
-"%1% nao compartilhado; o CRC32 calculado não combina com nenhum do aquivo "
-"SFV."
+msgstr "%1% nao compartilhado; o CRC32 calculado não combina com nenhum do aquivo SFV."
 
 #: ../HashManager.cpp:1057
 msgid "Error hashing %1%: %2%"
@@ -129,10 +127,9 @@ msgstr "Determinar a melhor configuração..."
 
 #: ../ConnectivityManager.cpp:85
 msgid ""
-"Unable to open %1% port(s); connectivity settings must be configured manually"
-msgstr ""
-"Não foi possível abrir %1% porta(s); as configurações de conexão devem ser "
-"definidas manualmente"
+"Unable to open %1% port(s); connectivity settings must be configured "
+"manually"
+msgstr "Não foi possível abrir %1% porta(s); as configurações de conexão devem ser definidas manualmente"
 
 #: ../ConnectivityManager.cpp:95
 msgid ""
@@ -143,17 +140,13 @@ msgstr "IP público detectado, selecionado modo ativo com conexão direta"
 msgid ""
 "Local network with possible NAT detected, trying to map the ports using "
 "UPnP..."
-msgstr ""
-"Rede local com possivel NAT detectado, tentando mapear as portas utilizando "
-"UPnP..."
+msgstr "Rede local com possivel NAT detectado, tentando mapear as portas utilizando UPnP..."
 
 #: ../ConnectivityManager.cpp:130
 msgid ""
 "Automatic setup of active mode has failed. You may want to set up your "
 "connection manually for better connectivity"
-msgstr ""
-"A configuração automática do modo ativo falhou. Talvez seja melhor "
-"configurar manualmente"
+msgstr "A configuração automática do modo ativo falhou. Talvez seja melhor configurar manualmente"
 
 #: ../ConnectivityManager.cpp:142
 msgid "Transfer (TCP)"
@@ -252,9 +245,7 @@ msgstr "Arquivo de nome muito longo"
 msgid ""
 "Invalid target file (missing directory, check default download directory "
 "setting)"
-msgstr ""
-"Nome de arquivo inválido (a localização não existe, tente a pasta padrão de "
-"download)"
+msgstr "Nome de arquivo inválido (a localização não existe, tente a pasta padrão de download)"
 
 #: ../QueueManager.cpp:864
 msgid "File already exists at the target location"
@@ -266,7 +257,7 @@ msgstr "Fonte duplicada: %1%"
 
 #: ../QueueManager.cpp:1148
 msgid "Target removed"
-msgstr ""
+msgstr "Local removido"
 
 #: ../QueueManager.cpp:1156
 msgid "Target file is missing or wrong size"
@@ -274,11 +265,11 @@ msgstr "Arquivo inexistente ou o tamanho está errado"
 
 #: ../QueueManager.cpp:1205
 msgid "Unable to move %1% to %2% (%3%); renamed to %4%"
-msgstr ""
+msgstr "Não foi possível mover %1% para %2% (%3%); arquivo renomeado para %4%"
 
 #: ../QueueManager.cpp:1208
 msgid "Unable to move %1% to %2% (%3%) nor to rename to %4% (%5%)"
-msgstr ""
+msgstr "Não foi possível mover %1% para %2% (%3%) ou renomear para %4% (%5%)"
 
 #: ../QueueManager.cpp:1403
 msgid "Unable to open filelist: %1%"
@@ -289,8 +280,9 @@ msgid "%1%: Matched %2% file"
 msgstr "%1% : possui %2% arquivo"
 
 #: ../QueueManager.cpp:1796
-msgid "Target path for this item is not available: %1%; pause this queue item."
-msgstr ""
+msgid ""
+"Target path for this item is not available: %1%; pause this queue item."
+msgstr "O local de destino não está disponível: %1%; item pausado."
 
 #: ../QueueManager.cpp:2035 ../QueueManager.cpp:2044
 msgid "CRC32 inconsistency (SFV-Check)"
@@ -312,9 +304,7 @@ msgstr "Falha ao negociar um protocolo base"
 msgid ""
 "Hub probably uses an old version of ADC, please encourage the owner to "
 "upgrade"
-msgstr ""
-"O hub usa uma versão antiga do ADC, por favor peça ao administrador para "
-"atualizar"
+msgstr "O hub usa uma versão antiga do ADC, por favor peça ao administrador para atualizar"
 
 #: ../AdcHub.cpp:305
 msgid "%1% was kicked by %2%: %3%"
@@ -352,9 +342,7 @@ msgstr "Tópico do hub:"
 msgid ""
 "This hub is trying to use your client to spam %1%, please urge hub owner to "
 "fix this"
-msgstr ""
-"Este hub está tentando usar seu cliente para enviar spam %1%, por favor "
-"contacte o dono do hub para corrigir isso"
+msgstr "Este hub está tentando usar seu cliente para enviar spam %1%, por favor contacte o dono do hub para corrigir isso"
 
 #: ../ConnectionManager.cpp:179
 msgid "All download slots taken"
@@ -416,9 +404,7 @@ msgstr " Porta DHT (%1% UDP)"
 msgid ""
 "Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%), mapped "
 "using the %4% interface"
-msgstr ""
-"Mapeamento feito com sucesso (TCP: %1%, UDP: %2%, TLS: %3%), mapeado "
-"utilizando a interface %4%"
+msgstr "Mapeamento feito com sucesso (TCP: %1%, UDP: %2%, TLS: %3%), mapeado utilizando a interface %4%"
 
 #: ../UPnPManager.cpp:119
 msgid "Failed to get external IP"
@@ -430,11 +416,11 @@ msgstr "Falha ao mapear portas"
 
 #: ../UPnPManager.cpp:138
 msgid "Successfully removed port mappings with the %1% interface"
-msgstr ""
+msgstr "Mapeamento removido com sucesso da interface %1%"
 
 #: ../UPnPManager.cpp:139
 msgid "Failed to remove port mappings with the %1% interface"
-msgstr ""
+msgstr "Falha ao remover o mapeamento da interface %1%"
 
 #: ../UPnPManager.cpp:144
 msgid "UPnP: %1%"
@@ -519,9 +505,9 @@ msgid "%.02f KiB"
 msgstr "%.02f KiB"
 
 #: ../Util.cpp:646
-#, fuzzy, c-format
+#, c-format
 msgid "%.02f KB"
-msgstr "%.02f KiB"
+msgstr "%.02f KB"
 
 #: ../Util.cpp:648
 #, c-format
@@ -529,9 +515,9 @@ msgid "%.02f MiB"
 msgstr "%.02f MiB"
 
 #: ../Util.cpp:648
-#, fuzzy, c-format
+#, c-format
 msgid "%.02f MB"
-msgstr "%.02f MiB"
+msgstr "%.02f MB"
 
 #: ../Util.cpp:650
 #, c-format
@@ -539,9 +525,9 @@ msgid "%.02f GiB"
 msgstr "%.02f GiB"
 
 #: ../Util.cpp:650
-#, fuzzy, c-format
+#, c-format
 msgid "%.02f GB"
-msgstr "%.02f GiB"
+msgstr "%.02f GB"
 
 #: ../Util.cpp:652
 #, c-format
@@ -549,9 +535,9 @@ msgid "%.02f TiB"
 msgstr "%.02f TiB"
 
 #: ../Util.cpp:652
-#, fuzzy, c-format
+#, c-format
 msgid "%.02f TB"
-msgstr "%.02f TiB"
+msgstr "%.02f TB"
 
 #: ../Util.cpp:654
 #, c-format
@@ -559,9 +545,9 @@ msgid "%.02f PiB"
 msgstr "%.02f PiB"
 
 #: ../Util.cpp:654
-#, fuzzy, c-format
+#, c-format
 msgid "%.02f PB"
-msgstr "%.02f PiB"
+msgstr "%.02f PB"
 
 #: ../Util.cpp:688
 #, c-format
@@ -595,23 +581,22 @@ msgstr "Encontrado nome de arquivo inválido %1%"
 
 #: ../ShareManager.cpp:661
 msgid "Skip share file: %1% (Size: %2%)"
-msgstr ""
+msgstr "Ignorando arquivo: %1% (Tamanho: %2%)"
 
 #: ../ShareManager.cpp:682
 msgid "Skip share temp file: %1% (Size: %2%)"
-msgstr ""
+msgstr "Ignorando arquivo temporário: %1% (Tamanho: %2%)"
 
 #: ../ShareManager.cpp:772
 msgid ""
 "Duplicate file will not be shared: %1% (Size: %2% B) Dupe matched against: "
 "%3%"
-msgstr ""
-"Arquivo duplicado não será compartilhado: %1% (Tamanho: %2% B) Duplicata: %3%"
+msgstr "Arquivo duplicado não será compartilhado: %1% (Tamanho: %2% B) Duplicata: %3%"
 
 #: ../ShareManager.cpp:793
 msgid ""
-"File list refresh in progress, please wait for it to finish before trying to "
-"refresh again"
+"File list refresh in progress, please wait for it to finish before trying to"
+" refresh again"
 msgstr "Atualizando a lista, espere até terminar para atualizar novamente"
 
 #: ../ShareManager.cpp:814
@@ -688,9 +673,7 @@ msgstr "Falha na autenticação (login/senha errados?)"
 msgid ""
 "Failed to set up the socks server for UDP relay (check socks address and "
 "port)"
-msgstr ""
-"Falha ao configurar socket por causa de atraso UDP (verifique o endereço do "
-"socket e porta)"
+msgstr "Falha ao configurar socket por causa de atraso UDP (verifique o endereço do socket e porta)"
 
 #: ../CryptoManager.cpp:134
 msgid "No private key file chosen"
@@ -714,7 +697,7 @@ msgstr "Gerar novo certificado TLS"
 
 #: ../CryptoManager.cpp:222
 msgid "TLS disabled, failed to generate certificate: %1%"
-msgstr ""
+msgstr "TLS desabilitado, falha ao gerar certificado: %1%"
 
 #: ../CryptoManager.cpp:227 ../CryptoManager.cpp:231 ../CryptoManager.cpp:236
 #: ../CryptoManager.cpp:240
@@ -732,11 +715,11 @@ msgstr "Enviou"
 
 #: ../Streams.h:141
 msgid "More bytes written than requested"
-msgstr ""
+msgstr "Foram escritos mais bytes do que o requisitado"
 
 #: ../MerkleCheckOutputStream.h:52 ../MerkleCheckOutputStream.h:112
 msgid "TTH inconsistency"
 msgstr "Inconsistência de TTH"
 
 #~ msgid "Error: segv parser :D"
-#~ msgstr "Erro: parse segv :D"
+#~ msgstr "Error: segv parser :D"
