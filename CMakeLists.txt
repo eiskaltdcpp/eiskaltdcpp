@@ -63,6 +63,17 @@ find_package (Iconv REQUIRED)
 find_package (Git)
 find_package (Xattr)
 
+if (CMAKE_VERSION VERSION_GREATER "2.8.5")
+    set(CMAKE_AUTOMOC ON)
+    set(CMAKE_AUTOUIC OFF)
+    set(CMAKE_AUTORCC OFF)
+endif()
+
+if (CMAKE_VERSION VERSION_GREATER "3.0.0")
+#    set(CMAKE_AUTOUIC ON)
+#	set(CMAKE_AUTORCC ON)
+endif()
+
 option (USE_QT  "Qt 4.x interface" ON)
 option (USE_QT5 "Qt 5.x interface." OFF)
 option (USE_QT_QML "Build with Qt Declarative Ui support" OFF)

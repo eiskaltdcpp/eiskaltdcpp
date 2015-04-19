@@ -1,5 +1,5 @@
 project(${PROJECT_NAME_GLOBAL}-cli)
-cmake_minimum_required(VERSION 2.6)
+cmake_minimum_required(VERSION 2.6.3)
 
 if (USE_CLI_XMLRPC)
     install (FILES cli-xmlrpc.pl DESTINATION ${BINDIR} RENAME ${PROJECT_NAME}-xmlrpc

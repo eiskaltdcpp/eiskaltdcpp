@@ -1,6 +1,6 @@
 project (${PROJECT_NAME_GLOBAL}-gtk)
 
-cmake_minimum_required (VERSION 2.6)
+cmake_minimum_required (VERSION 2.6.3)
 
 set (GTK2_DIR "${PROJECT_SOURCE_DIR}/cmake/")
 

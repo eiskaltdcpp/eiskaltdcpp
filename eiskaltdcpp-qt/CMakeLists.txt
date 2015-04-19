@@ -1,7 +1,7 @@
 project (${PROJECT_NAME_GLOBAL}-qt)
 
 if (USE_QT)
-    cmake_minimum_required (VERSION 2.6)
+    cmake_minimum_required (VERSION 2.6.3)
 elseif (USE_QT5)
     cmake_minimum_required (VERSION 2.8.8)
 endif ()
@@ -177,15 +177,37 @@ foreach (LANGUAGE ${LANGUAGES})
 endforeach()
 
 if (USE_QT)
-    #Create moc files
-    QT4_WRAP_CPP (M_SRCS ${MOC_HDRS} OPTIONS -nn)
-    #Create .h files from ui files
-    QT4_WRAP_UI (U_SRCS ${UI_FORMS})
+    if (NOT CMAKE_AUTOMOC)
+        #Create moc files
+        QT4_WRAP_CPP (M_SRCS ${MOC_HDRS} OPTIONS -nn)
+        list(APPEND SRCS ${M_SRCS})
+    else()
+        list(APPEND SRCS ${MOC_HDRS})
+    endif()
+
+    if (NOT CMAKE_AUTOUIC)
+        #Create .h files from ui files
+        QT4_WRAP_UI (U_SRCS ${UI_FORMS})
+        list(APPEND SRCS ${U_SRCS})
+    else()
+        list(APPEND SRCS ${UI_FORMS})
+    endif()
 elseif (USE_QT5)
-    #Create moc files
-    QT5_WRAP_CPP (M_SRCS ${MOC_HDRS} OPTIONS -nn)
-    #Create .h files from ui files
-    QT5_WRAP_UI (U_SRCS ${UI_FORMS})
+    if (NOT CMAKE_AUTOMOC)
+        #Create moc files
+        QT5_WRAP_CPP (M_SRCS ${MOC_HDRS} OPTIONS -nn)
+        list(APPEND SRCS ${M_SRCS})
+    else()
+        list(APPEND SRCS ${MOC_HDRS})
+    endif()
+
+    if (NOT CMAKE_AUTOUIC)
+        #Create .h files from ui files
+        QT5_WRAP_UI (U_SRCS ${UI_FORMS})
+        list(APPEND SRCS ${U_SRCS})
+    else()
+        list(APPEND SRCS ${UI_FORMS})
+    endif()
 endif()
 
 if (USE_QT5 AND NOT USE_QT)
@@ -310,12 +332,8 @@ if (APPLE)
   list (APPEND SRCS ${MACOSICON})
 endif (APPLE)
 
-add_executable (${PROJECT_NAME} MACOSX_BUNDLE WIN32 src/main.cpp
-                ${M_SRCS}
-                ${U_SRCS}
+add_executable (${PROJECT_NAME} MACOSX_BUNDLE WIN32
                 ${SRCS}
-                ${HDRS}
-                ${MOC_HDRS}
                 ${TRANSLATIONS}
                 ${WIN_RESOURCES}
                 translations)

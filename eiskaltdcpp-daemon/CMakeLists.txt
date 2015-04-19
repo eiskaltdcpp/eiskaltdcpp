@@ -1,5 +1,5 @@
 project(${PROJECT_NAME_GLOBAL}-daemon)
-cmake_minimum_required(VERSION 2.6)
+cmake_minimum_required(VERSION 2.6.3)
 # ######### General setup ##########
 include_directories(${PROJECT_SOURCE_DIR} ${PROJECT_SOURCE_DIR}/.. ${Boost_INCLUDE_DIRS})
 
