@@ -1,20 +1,15 @@
 EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC
-protocols. It is compatible with other DC clients, such as the original DC from
-Neomodus, DC++ and derivatives. EiskaltDC++ also interoperates with all common
-DC hub software.
+protocols. It is compatible with DC++, FlylinkDC++, LinuxDC++ and other DC
+clients. EiskaltDC++ also interoperates with all common DC hub software.
 
-The minimum number of our patches to original DC++ kernel makes it easy to
-upgrade to new versions and ensures compatibility with other clients.
-Unfortunately, the number of patches is growing...
+Home page: http://sourceforge.net/projects/eiskaltdcpp/
 
-Home page: http://code.google.com/p/eiskaltdc/
-
-Wiki: http://code.google.com/p/eiskaltdc/w/list
+Wiki: https://github.com/eiskaltdcpp/eiskaltdcpp/wiki
 
 Sources: http://github.com/eiskaltdcpp/eiskaltdcpp
- http://gitorious.org/eiskaltdcpp/eiskaltdcpp (the mirror)
+         http://gitorious.org/eiskaltdcpp/eiskaltdcpp (the mirror)
 
-Translations: http://code.google.com/p/eiskaltdc/wiki/MakingTranslations
- https://www.transifex.com/projects/p/eiskaltdcpp/r/all-resources/
+Translations: https://www.transifex.com/projects/p/eiskaltdcpp/
+              https://github.com/eiskaltdcpp/eiskaltdcpp/wiki/Translations
 
-Please use http://code.google.com/p/eiskaltdc/issues/list to report bugs.
+Please use https://github.com/eiskaltdcpp/eiskaltdcpp/issues to report bugs.

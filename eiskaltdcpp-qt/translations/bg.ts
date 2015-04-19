@@ -2433,101 +2433,111 @@ Favorite user</source>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2724"/>
-        <source>Serbian (Latin) translation&lt;br/&gt;</source>
+        <source>Serbian (Cyrillic) translation&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2727"/>
-        <source>Spanish translation&lt;br/&gt;</source>
+        <source>Serbian (Latin) translation&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2731"/>
+        <source>Spanish translation&lt;br/&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="2735"/>
+        <source>Basque translation&lt;br/&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="2738"/>
         <source>Bulgarian translation&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2734"/>
+        <location filename="../src/MainWindow.cpp" line="2741"/>
         <source>Slovak translation&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2737"/>
+        <location filename="../src/MainWindow.cpp" line="2744"/>
         <source>Czech translation&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2740"/>
+        <location filename="../src/MainWindow.cpp" line="2747"/>
         <source>German translation&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2745"/>
+        <location filename="../src/MainWindow.cpp" line="2752"/>
         <source>Greek translation&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2748"/>
+        <location filename="../src/MainWindow.cpp" line="2755"/>
         <source>Italian translation&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2752"/>
+        <location filename="../src/MainWindow.cpp" line="2759"/>
         <source>Portuguese (Brazil) translation&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2755"/>
+        <location filename="../src/MainWindow.cpp" line="2762"/>
         <source>Vietnamese translation&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2758"/>
+        <location filename="../src/MainWindow.cpp" line="2765"/>
         <source>Chinese (China) translation&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2761"/>
+        <location filename="../src/MainWindow.cpp" line="2768"/>
         <source>Swedish (Sweden) translation&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2994"/>
+        <location filename="../src/MainWindow.cpp" line="3001"/>
         <source>Additional</source>
         <translation type="unfinished">Допълнителни</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2995"/>
+        <location filename="../src/MainWindow.cpp" line="3002"/>
         <source>Suppress sound notifications</source>
         <translation type="unfinished">Спиране на звуковото уведомяване</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2996"/>
+        <location filename="../src/MainWindow.cpp" line="3003"/>
         <source>Suppress text notifications</source>
         <translation type="unfinished">Спиране на текстовото уведомяване</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2990"/>
+        <location filename="../src/MainWindow.cpp" line="2997"/>
         <source>Setup speed limits</source>
         <translation type="unfinished">Задаване ограничение на скоростта</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2801"/>
+        <location filename="../src/MainWindow.cpp" line="2808"/>
         <source>Show close buttons</source>
         <translation>Показване бутони за затваряне</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2836"/>
+        <location filename="../src/MainWindow.cpp" line="2843"/>
         <source>[No name]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2924"/>
+        <location filename="../src/MainWindow.cpp" line="2931"/>
         <source>Download Queue</source>
         <translation>Опашка за сваляне</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2924"/>
+        <location filename="../src/MainWindow.cpp" line="2931"/>
         <source>All downloads complete</source>
         <translation>Всички сваляния са завършени</translation>
     </message>
@@ -3347,126 +3357,136 @@ Downloaded: %3 Uploaded: %4</source>
     </message>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="83"/>
+        <source>Serbian (Cyrillic)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/SettingsGUI.cpp" line="84"/>
         <source>Serbian (Latin)</source>
         <translation>Сръбски (латиница)</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="84"/>
+        <location filename="../src/SettingsGUI.cpp" line="85"/>
         <source>Ukrainian</source>
         <translation>Украински</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="85"/>
+        <location filename="../src/SettingsGUI.cpp" line="86"/>
         <source>Spanish</source>
         <translation>Испански</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="86"/>
+        <location filename="../src/SettingsGUI.cpp" line="87"/>
+        <source>Basque</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/SettingsGUI.cpp" line="88"/>
         <source>Bulgarian</source>
         <translation>Български</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="87"/>
+        <location filename="../src/SettingsGUI.cpp" line="89"/>
         <source>Slovak</source>
         <translation>Словашки</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="88"/>
+        <location filename="../src/SettingsGUI.cpp" line="90"/>
         <source>Czech</source>
         <translation>Чешки</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="89"/>
+        <location filename="../src/SettingsGUI.cpp" line="91"/>
         <source>German</source>
         <translation>Немски</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="90"/>
+        <location filename="../src/SettingsGUI.cpp" line="92"/>
         <source>Greek</source>
         <translation>Гръцки</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="91"/>
+        <location filename="../src/SettingsGUI.cpp" line="93"/>
         <source>Italian</source>
         <translation>Италиански</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="92"/>
+        <location filename="../src/SettingsGUI.cpp" line="94"/>
         <source>Vietnamese</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="93"/>
+        <location filename="../src/SettingsGUI.cpp" line="95"/>
         <source>Chinese (China)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="94"/>
+        <location filename="../src/SettingsGUI.cpp" line="96"/>
         <source>Swedish (Sweden)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="243"/>
+        <location filename="../src/SettingsGUI.cpp" line="245"/>
         <source>Local user</source>
         <translation>Локален потребител</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="247"/>
+        <location filename="../src/SettingsGUI.cpp" line="249"/>
         <source>Operator</source>
         <translation>Оператор</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="251"/>
+        <location filename="../src/SettingsGUI.cpp" line="253"/>
         <source>Bot</source>
         <translation>Бот</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="255"/>
+        <location filename="../src/SettingsGUI.cpp" line="257"/>
         <source>Private: local user</source>
         <translation>Личен чат: локален потребител</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="259"/>
+        <location filename="../src/SettingsGUI.cpp" line="261"/>
         <source>Private: user</source>
         <translation>Личен чат: потребител</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="263"/>
+        <location filename="../src/SettingsGUI.cpp" line="265"/>
         <source>Chat: Say nick</source>
         <translation>Чат: упоменат прякор</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="267"/>
+        <location filename="../src/SettingsGUI.cpp" line="269"/>
         <source>Status</source>
         <translation>Състояние</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="271"/>
+        <location filename="../src/SettingsGUI.cpp" line="273"/>
         <source>User</source>
         <translation>Потребител</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="275"/>
+        <location filename="../src/SettingsGUI.cpp" line="277"/>
         <source>Favorite User</source>
         <translation>Предпочитан потребител</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="279"/>
+        <location filename="../src/SettingsGUI.cpp" line="281"/>
         <source>Time stamp</source>
         <translation>Време</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="283"/>
+        <location filename="../src/SettingsGUI.cpp" line="285"/>
         <source>Message</source>
         <translation>Съобщение</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="599"/>
+        <location filename="../src/SettingsGUI.cpp" line="602"/>
         <source>Select translation</source>
         <translation>Избор на превод</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="599"/>
+        <location filename="../src/SettingsGUI.cpp" line="602"/>
         <source>Translation (*.qm)</source>
         <translation>Превод (*.qm)</translation>
     </message>
@@ -4033,10 +4053,6 @@ Do you want to stop it?
         <location filename="../src/TransferView.cpp" line="75"/>
         <source>Filename</source>
         <translation>Име на файл</translation>
-    </message>
-    <message>
-        <source>Host</source>
-        <translation type="obsolete">Хост</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="76"/>
@@ -4668,10 +4684,13 @@ p, li { white-space: pre-wrap; }
         <translation>Описание</translation>
     </message>
     <message>
-        <location filename="../ui/UIFavoriteHubEditor.ui" line="85"/>
-        <location filename="../ui/UIFavoriteHubEditor.ui" line="234"/>
         <source>This description will show in the user list.</source>
-        <translation>Това описание ще е видимо в списъка с потребители.</translation>
+        <translation type="obsolete">Това описание ще е видимо в списъка с потребители.</translation>
+    </message>
+    <message>
+        <location filename="../ui/UIFavoriteHubEditor.ui" line="85"/>
+        <source>This description will be shown in the list of favorite hubs.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="92"/>
@@ -4737,6 +4756,11 @@ p, li { white-space: pre-wrap; }
         <location filename="../ui/UIFavoriteHubEditor.ui" line="221"/>
         <source>If hub requires password, define it here.</source>
         <translation>Ако хъба изисква парола, въведете я тук.</translation>
+    </message>
+    <message>
+        <location filename="../ui/UIFavoriteHubEditor.ui" line="234"/>
+        <source>This description will be shown in the user list.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="241"/>
@@ -6355,10 +6379,8 @@ from other words by spaces.</source>
         <translation>Лично съобщение</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="457"/>
-        <location filename="../ui/UISettingsGUI.ui" line="493"/>
         <source>show kibibyte (KiB) or kilobyte (KB), etc.</source>
-        <translation>показване на кибибайт (KiB) или килобайт (KB), и т.н.</translation>
+        <translation type="obsolete">показване на кибибайт (KiB) или килобайт (KB), и т.н.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="460"/>
@@ -6366,157 +6388,180 @@ from other words by spaces.</source>
         <translation>Базова единица в програмата</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="474"/>
         <source>1024</source>
-        <translation>1024</translation>
+        <translation type="obsolete">1024</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="479"/>
         <source>1000</source>
-        <translation>1000</translation>
+        <translation type="obsolete">1000</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="496"/>
+        <location filename="../ui/UISettingsGUI.ui" line="501"/>
         <source>Timestamp</source>
         <translation>Формат на времето</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="509"/>
+        <location filename="../ui/UISettingsGUI.ui" line="571"/>
         <source>hh:mm:ss</source>
         <translation>чч:мм:сс</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="522"/>
+        <location filename="../ui/UISettingsGUI.ui" line="520"/>
         <source>Middle click action</source>
         <translation>Натискане със среден бутон на мишката</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="541"/>
+        <location filename="../ui/UISettingsGUI.ui" line="457"/>
+        <source>Show kibibyte (KiB) or kilobyte (KB), etc.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsGUI.ui" line="474"/>
+        <source>IEC</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsGUI.ui" line="479"/>
+        <source>JEDEC</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsGUI.ui" line="484"/>
+        <source>Metric</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsGUI.ui" line="498"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;These expressions may be used for the time:&lt;/p&gt;&lt;table border=&quot;0&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px;&quot; cellspacing=&quot;2&quot; cellpadding=&quot;0&quot;&gt;&lt;thead&gt;&lt;tr&gt;&lt;td&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Expression&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Output&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;h&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;the hour without a leading zero (0 to 23 or 1 to 12 if AM/PM display)&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;hh&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;the hour with a leading zero (00 to 23 or 01 to 12 if AM/PM display)&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;H&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;the hour without a leading zero (0 to 23, even with AM/PM display)&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;HH&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;the hour with a leading zero (00 to 23, even with AM/PM display)&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;m&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;the minute without a leading zero (0 to 59)&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;mm&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;the minute with a leading zero (00 to 59)&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;s&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;the second without a leading zero (0 to 59)&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;ss&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;the second with a leading zero (00 to 59)&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;z&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;the milliseconds without leading zeroes (0 to 999)&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;zzz&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;the milliseconds with leading zeroes (000 to 999)&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;AP or A&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;use AM/PM display. &lt;span style=&quot; font-style:italic;&quot;&gt;A/AP&lt;/span&gt; will be replaced by either &amp;quot;AM&amp;quot; or &amp;quot;PM&amp;quot;.&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;ap or a&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;use am/pm display. &lt;span style=&quot; font-style:italic;&quot;&gt;a/ap&lt;/span&gt; will be replaced by either &amp;quot;am&amp;quot; or &amp;quot;pm&amp;quot;.&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;t&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;the timezone (for example &amp;quot;CEST&amp;quot;)&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsGUI.ui" line="539"/>
         <source>Default action with magnet</source>
         <translation>Действие при натискане на магнитна връзка</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="555"/>
+        <location filename="../ui/UISettingsGUI.ui" line="553"/>
         <source>Ask</source>
         <translation>Питане за действие</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="560"/>
+        <location filename="../ui/UISettingsGUI.ui" line="558"/>
         <source>Search</source>
         <translation>Търсене</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="565"/>
-        <location filename="../ui/UISettingsGUI.ui" line="870"/>
+        <location filename="../ui/UISettingsGUI.ui" line="563"/>
+        <location filename="../ui/UISettingsGUI.ui" line="875"/>
         <source>Download</source>
         <translation>Сваляне</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="583"/>
+        <location filename="../ui/UISettingsGUI.ui" line="588"/>
         <source>Remember outgoing messages (0 = don&apos;t remember)</source>
         <translation>Запомняне на изходящи съобщения (0 = без запомняне)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="612"/>
+        <location filename="../ui/UISettingsGUI.ui" line="617"/>
         <source>Maximum paragraphs</source>
         <translation>Максимум редове</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="638"/>
+        <location filename="../ui/UISettingsGUI.ui" line="643"/>
         <source>Separator in chat</source>
         <translation>Разделител в чата</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="652"/>
+        <location filename="../ui/UISettingsGUI.ui" line="657"/>
         <source>:</source>
         <translation>:</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="657"/>
+        <location filename="../ui/UISettingsGUI.ui" line="662"/>
         <source>,</source>
         <translation>,</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="667"/>
+        <location filename="../ui/UISettingsGUI.ui" line="672"/>
         <source>Highlight favorite users in user list</source>
         <translation>Открояване на предпочитаните потребители в списъка с потребители</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="674"/>
+        <location filename="../ui/UISettingsGUI.ui" line="679"/>
         <source>Depending on hub configuration: information about
 them is usually available only to operators</source>
         <translation>В зависимост от настройките на хъба: информацията 
 обикновено е достъпна само за оператори</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="678"/>
+        <location filename="../ui/UISettingsGUI.ui" line="683"/>
         <source>Show ip-addresses of users in chat</source>
         <translation>Показване IP-адресите на потребителите в чата</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="685"/>
+        <location filename="../ui/UISettingsGUI.ui" line="690"/>
         <source>Show country of users in chat</source>
         <translation>Показване държавата на потребителите в чата</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="692"/>
+        <location filename="../ui/UISettingsGUI.ui" line="697"/>
         <source>Parse BBCode</source>
         <translation>Обработка на BBCode</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="713"/>
+        <location filename="../ui/UISettingsGUI.ui" line="718"/>
         <source>Colors</source>
         <translation>Цветове</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="719"/>
+        <location filename="../ui/UISettingsGUI.ui" line="724"/>
         <source>Text colors in chat</source>
         <translation>Цветове на текста в чата</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="741"/>
+        <location filename="../ui/UISettingsGUI.ui" line="746"/>
         <source>Highlighting of search results in the chat</source>
         <translation>Открояване на намерените резултати в чата</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="750"/>
-        <location filename="../ui/UISettingsGUI.ui" line="808"/>
+        <location filename="../ui/UISettingsGUI.ui" line="755"/>
+        <location filename="../ui/UISettingsGUI.ui" line="813"/>
         <source>Color</source>
         <translation>Цвят</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="770"/>
-        <location filename="../ui/UISettingsGUI.ui" line="825"/>
+        <location filename="../ui/UISettingsGUI.ui" line="775"/>
+        <location filename="../ui/UISettingsGUI.ui" line="830"/>
         <source>Transparency</source>
         <translation>Прозрачност</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="799"/>
+        <location filename="../ui/UISettingsGUI.ui" line="804"/>
         <source>Highlighting of already shared files</source>
         <translation>Открояване на споделените от мен файлове</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="854"/>
+        <location filename="../ui/UISettingsGUI.ui" line="859"/>
         <source>Transfer colors</source>
         <translation>Цветове на прехвърлянията</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="877"/>
+        <location filename="../ui/UISettingsGUI.ui" line="882"/>
         <source>Upload</source>
         <translation>Качване</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="904"/>
+        <location filename="../ui/UISettingsGUI.ui" line="909"/>
         <source>Reset</source>
         <translation>Нулиране</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="916"/>
+        <location filename="../ui/UISettingsGUI.ui" line="921"/>
         <source>Change background color in the chat</source>
         <translation>Промяна цвета на фона в чата</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="959"/>
+        <location filename="../ui/UISettingsGUI.ui" line="964"/>
         <source>Fonts</source>
         <translation>Шрифтове</translation>
     </message>
@@ -7227,10 +7272,6 @@ EiskaltDC++ поддържа качване на файлове и списъц�
         <translation type="unfinished">Име</translation>
     </message>
     <message>
-        <source>Filename</source>
-        <translation type="obsolete">Име на файл</translation>
-    </message>
-    <message>
         <location filename="../ui/UIShareBrowserSearch.ui" line="59"/>
         <source>Directory</source>
         <translation>Директория</translation>
@@ -7439,68 +7480,56 @@ EiskaltDC++ поддържа качване на файлове и списъц�
         <translation>По подразбиране</translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="978"/>
-        <location filename="../src/WulforUtil.cpp" line="992"/>
         <source>%1 B</source>
-        <translation>%1 B</translation>
+        <translation type="obsolete">%1 B</translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="980"/>
         <source>%1 KiB</source>
-        <translation>%1 KiB</translation>
+        <translation type="obsolete">%1 KiB</translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="982"/>
         <source>%1 MiB</source>
-        <translation>%1 MiB</translation>
+        <translation type="obsolete">%1 MiB</translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="984"/>
         <source>%1 GiB</source>
-        <translation>%1 GiB</translation>
+        <translation type="obsolete">%1 GiB</translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="986"/>
         <source>%1 TiB</source>
-        <translation>%1 TiB</translation>
+        <translation type="obsolete">%1 TiB</translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="988"/>
         <source>%1 PiB</source>
-        <translation>%1 PiB</translation>
+        <translation type="obsolete">%1 PiB</translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="994"/>
         <source>%1 KB</source>
-        <translation>%1 KB</translation>
+        <translation type="obsolete">%1 KB</translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="996"/>
         <source>%1 MB</source>
-        <translation>%1 MB</translation>
+        <translation type="obsolete">%1 MB</translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="998"/>
         <source>%1 GB</source>
-        <translation>%1 GB</translation>
+        <translation type="obsolete">%1 GB</translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="1000"/>
         <source>%1 TB</source>
-        <translation>%1 TB</translation>
+        <translation type="obsolete">%1 TB</translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="1002"/>
         <source>%1 PB</source>
-        <translation>%1 PB</translation>
+        <translation type="obsolete">%1 PB</translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="1052"/>
+        <location filename="../src/WulforUtil.cpp" line="1015"/>
         <source>Offline</source>
         <translation>Извън линия</translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="1155"/>
+        <location filename="../src/WulforUtil.cpp" line="1118"/>
         <source>User commands</source>
         <translation>Потребителски команди</translation>
     </message>

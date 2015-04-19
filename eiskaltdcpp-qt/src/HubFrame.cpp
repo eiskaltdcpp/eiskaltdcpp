@@ -2471,6 +2471,7 @@ void HubFrame::newMsg(const VarMap &map){
     }
 
     addOutput(output);
+
     for (QTextBlock itu = chatDoc->lastBlock(); itu != chatDoc->begin(); itu = itu.previous()){
         if (!itu.userData())
             itu.setUserData(new UserListUserData(nick));
@@ -2964,7 +2965,6 @@ void HubFrame::slotChatMenu(const QPoint &){
 
     if (!editor)
         return;
-
     QTextCursor cursor = editor->cursorForPosition(editor->mapFromGlobal(QCursor::pos()));
     QString nick = "";
     if(cursor.block().userData())

@@ -15,7 +15,6 @@
 class JsonRpcMethods
 {
   public:
-
     bool StopDaemon(const Json::Value&, Json::Value&);
     bool MagnetAdd(const Json::Value&, Json::Value&);
     bool HubAdd(const Json::Value&, Json::Value&);

@@ -610,10 +610,6 @@ void HashManager::HashStore::createDataFile(const string& name) {
 void HashManager::Hasher::hashFile(const string& fileName, int64_t size) {
     Lock l(cs);
     if (w.insert(make_pair(fileName, size)).second) {
-        //if(paused)
-            //paused = true;
-        //else
-            //s.signal();
         if (!paused)
             s.signal();
     }
@@ -670,7 +666,7 @@ void HashManager::Hasher::instantPause() {
         }
     }
     if(wait) {
-        printf("wait2: %d\n", wait); fflush(stdout);
+//        printf("wait2: %d\n", wait); fflush(stdout);
         s.wait();
     }
 }

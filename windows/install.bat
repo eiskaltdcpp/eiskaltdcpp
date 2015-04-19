@@ -5,7 +5,7 @@ mingw32-make -k install
 strip "%INSTALL_DIR%\eiskaltdcpp-qt.exe"
 strip "%INSTALL_DIR%\eiskaltdcpp-daemon.exe"
 
-copy /Y %SOURCES_DIR%\win32\dcppboot.xml                        "%INSTALL_DIR%"
+copy /Y %SOURCES_DIR%\windows\dcppboot.xml                      "%INSTALL_DIR%"
 copy /Y %SOURCES_DIR%\eiskaltdcpp-cli\cli-jsonrpc-config.pl     "%INSTALL_DIR%"
 echo [Paths] > "%INSTALL_DIR%\qt.conf"
 echo Plugins = ./plugins >> "%INSTALL_DIR%\qt.conf"
@@ -33,8 +33,8 @@ copy /Y "%MINGW32_DEPENDS_DIR%\script\qtscript_xml.dll"         "%INSTALL_DIR%\s
 copy /Y "%MINGW32_DEPENDS_DIR%\script\qtscript_xmlpatterns.dll" "%INSTALL_DIR%\script\"
 
 copy /Y "%MINGW32_DIR%\bin\libstdc++-6.dll"                     "%INSTALL_DIR%"
+copy /Y "%MINGW32_DIR%\bin\libwinpthread-1.dll"                 "%INSTALL_DIR%"
 copy /Y "%MINGW32_DIR%\bin\libgcc_s_dw2-1.dll"                  "%INSTALL_DIR%"
-copy /Y "%MINGW32_DIR%\bin\mingwm10.dll"                        "%INSTALL_DIR%"
 
 copy /Y "%GETTEXT_DIR%\bin\libintl-8.dll"                       "%INSTALL_DIR%"
 copy /Y "%LIBICONV_DIR%\bin\libiconv-2.dll"                     "%INSTALL_DIR%"

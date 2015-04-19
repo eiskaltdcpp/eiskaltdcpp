@@ -201,6 +201,7 @@ public:
     GETSET(States, state, State)
     GETSET(uint64_t, lastActivity, LastActivity)
     GETSET(double, speed, Speed)
+
 private:
     int64_t chunkSize;
     BufferedSocket* socket;

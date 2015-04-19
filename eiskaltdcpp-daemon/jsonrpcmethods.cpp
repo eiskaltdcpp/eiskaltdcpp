@@ -355,6 +355,7 @@ bool JsonRpcMethods::SendSearch(const Json::Value& root, Json::Value& response)
                                                       root["params"]["sizetype"].asInt(),
                                                       root["params"]["size"].asDouble(),
                                                       root["params"]["huburls"].asString()))
+
         response["result"] = 0;
     else
         response["result"] = 1;

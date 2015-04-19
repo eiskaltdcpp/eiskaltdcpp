@@ -70,7 +70,7 @@ static void SigHandler(int sig) {
 
 // code of this function based on function tr_daemon from transmission daemon
 
-#if defined(WIN32)
+#if defined(_WIN32)
 #define USE_NO_DAEMON
 #elif !defined(HAVE_DAEMON) || defined(__UCLIBC__)
 #define USE_EIDCPP_DAEMON

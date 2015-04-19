@@ -38,7 +38,7 @@ macro(GETTEXT_FIND_POTENTIAL_DIRS)
     get_filename_component(path "${filepath}" PATH)
     set(potential_bin_dirs ${potential_bin_dirs} "${path}/../bin")
     set(potential_lib_dirs ${potential_lib_dirs} "${path}/../lib")
-    set(potential_include_dirs ${potential_include_dirs} "${path}/../include")
+    set(potential_include_dirs ${potential_include_dirs} "${path}/../include" "${path}/../include/gettext")
   endforeach(filepath)
 
   foreach(path

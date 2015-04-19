@@ -46,7 +46,9 @@ if (HAVE_DAEMON)
 endif(HAVE_DAEMON)
 
 if (WIN32)
-  list (APPEND nasdc_SRCS ../win32/applink.c)
+    if (OPENSSL_MSVC)
+        list (APPEND nasdc_SRCS ../windows/applink.c)
+    endif (OPENSSL_MSVC)
 endif (WIN32)
 
 if (LUA_SCRIPT)

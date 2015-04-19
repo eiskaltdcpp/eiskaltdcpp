@@ -163,8 +163,7 @@ SettingsManager::SettingsManager()
     setDefault(BUFFER_SIZE, 64);
     setDefault(HUBLIST_SERVERS,
                "http://dchublist.com/hublist.xml.bz2;"
-               "http://dchublist.ru/hublist.xml.bz2;"
-               "http://hublista.hu/hublist.xml.bz2"
+               "http://dchublist.ru/hublist.xml.bz2"
                );
     setDefault(DOWNLOAD_SLOTS, 3);
     setDefault(SKIPLIST_SHARE, "*.~*|*.*~");
@@ -309,7 +308,6 @@ SettingsManager::SettingsManager()
     setDefault(SHARE_SKIP_ZERO_BYTE, false);
     setDefault(BIND_ADDRESS6, "::");
     setDefault(APP_UNIT_BASE, 0);
-
     setSearchTypeDefaults();
 }
 

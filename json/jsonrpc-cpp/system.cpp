@@ -45,7 +45,7 @@ namespace system_util
   {
   }
 
-#ifndef WIN32
+#ifndef _WIN32
   
   /* POSIX specific part for thread and mutex */
 
