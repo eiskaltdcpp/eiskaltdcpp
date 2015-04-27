@@ -546,6 +546,10 @@ void TransferViewModel::handleShowTranferedFilesOnlyState(int checkState){
     };
 };
 
+void TransferViewModel::handleShowTranferedFilesOnlyState(bool state){
+    showTranferedFilesOnly = state;
+};
+
 void TransferViewModel::updateParent(TransferViewItem *p){
     if (!p || p->childCount() < 1 || p == rootItem)
         return;

@@ -153,6 +153,7 @@ public Q_SLOTS:
 
     // method to hide/show ulesess transfer info
     void handleShowTranferedFilesOnlyState(int checkState);
+    void handleShowTranferedFilesOnlyState(bool state);
 
 private:
     inline QString      vstr(const QVariant &var) { return var.toString(); }

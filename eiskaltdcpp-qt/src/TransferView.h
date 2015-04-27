@@ -59,6 +59,7 @@ public:
         RemoveFromQueue,
         Force,
         Close,
+        showTransferedFieldsOnly,
         None
     };
 
@@ -149,7 +150,8 @@ private Q_SLOTS:
     void slotHeaderMenu(const QPoint&);
     void downloadComplete(QString);
     void slotcheckState(int);
-    \
+    void show_only_transfered_files_slot_changed(bool);
+
 private:
     TransferView(QWidget* = NULL);
     virtual ~TransferView();

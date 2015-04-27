@@ -93,6 +93,20 @@ TransferView::Menu::Menu():
     QAction *close = new QAction(tr("Close connection(s)"), menu);
     close->setIcon(WU->getPixmap(WulforUtil::eiCONNECT_NO));
 
+    QAction *show_only_transfered_files = new QAction(tr("Show only transfered files"), menu);
+    show_only_transfered_files->setCheckable(true);
+    show_only_transfered_files->setChecked(false);
+
+
+    //connect (show_only_transfered_files, SIGNAL(changed()), this, SLOT(slotcheckState(int)));
+    //connect (show_only_transfered_files, SIGNAL(toggled (bool)), this, SLOT(slotcheckState(bool)));
+
+    connect(show_only_transfered_files, SIGNAL(toggled (bool)), [=](const bool& state)
+    {
+        show_only_transfered_files->setChecked(!state);
+    });
+
+
     actions.insert(browse, Browse);
     actions.insert(match, MatchQueue);
     actions.insert(send_pm, SendPM);
@@ -102,6 +116,7 @@ TransferView::Menu::Menu():
     actions.insert(force, Force);
     actions.insert(close, Close);
     actions.insert(search, SearchAlternates);
+    actions.insert(show_only_transfered_files, showTransferedFieldsOnly);
 
     menu->addActions(QList<QAction*>() << browse
                                        << search
@@ -115,6 +130,7 @@ TransferView::Menu::Menu():
                                        << sep3
                                        << force
                                        << close
+                                       << show_only_transfered_files
                                        );
 }
 
@@ -245,6 +261,12 @@ void TransferView::init(){
 void TransferView::slotcheckState(int state){
     model->handleShowTranferedFilesOnlyState(state);
 };
+
+void TransferView::show_only_transfered_files_slot_changed(bool state){
+    model->handleShowTranferedFilesOnlyState(state);
+};
+
+
 
 void TransferView::getFileList(const QString &cid, const QString &host){
     if (cid.isEmpty() || host.isEmpty())
@@ -548,6 +570,13 @@ void TransferView::slotContextMenu(const QPoint &){
         for (const auto &i : items)
             forceAttempt(i->cid);
 
+        break;
+    }
+    case Menu::showTransferedFieldsOnly:
+    {
+
+        act.
+        //m.actions.find(Menu::showTransferedFieldsOnly).
         break;
     }
     case Menu::Close:
