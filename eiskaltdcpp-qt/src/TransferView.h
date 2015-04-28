@@ -63,7 +63,7 @@ public:
         None
     };
 
-    Menu();
+    Menu(bool);
     virtual ~Menu();
 
     Action exec();
@@ -149,8 +149,6 @@ private Q_SLOTS:
     void slotContextMenu(const QPoint&);
     void slotHeaderMenu(const QPoint&);
     void downloadComplete(QString);
-    void slotcheckState(int);
-    void show_only_transfered_files_slot_changed(bool);
 
 private:
     TransferView(QWidget* = NULL);

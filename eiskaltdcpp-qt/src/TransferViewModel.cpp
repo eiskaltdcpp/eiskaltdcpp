@@ -46,7 +46,7 @@
 #include <set>
 
 TransferViewModel::TransferViewModel(QObject *parent)
-    : QAbstractItemModel(parent), iconsScaled(false)
+    : QAbstractItemModel(parent), iconsScaled(false), showTranferedFilesOnly(false)
 {
     QList<QVariant> rootData;
     rootData << tr("Users") << tr("Speed") << tr("Status") << tr("Flags") << tr("Size")
@@ -532,22 +532,12 @@ void TransferViewModel::updateParents(){
     emit layoutChanged();
 }
 
-void TransferViewModel::handleShowTranferedFilesOnlyState(int checkState){
-
-    switch (checkState){
-        case Qt::Unchecked : {
-            showTranferedFilesOnly = false;
-            break;
-        };
-        case Qt::Checked : {
-            showTranferedFilesOnly = true;
-            break;
-        };
-    };
+void TransferViewModel::setShowTranferedFilesOnlyState(bool state){
+    showTranferedFilesOnly = state;
 };
 
-void TransferViewModel::handleShowTranferedFilesOnlyState(bool state){
-    showTranferedFilesOnly = state;
+bool TransferViewModel::getShowTranferedFilesOnlyState(){
+    return showTranferedFilesOnly;
 };
 
 void TransferViewModel::updateParent(TransferViewItem *p){

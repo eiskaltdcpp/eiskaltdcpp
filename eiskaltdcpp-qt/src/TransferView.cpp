@@ -38,7 +38,7 @@
 #include <QFileInfo>
 #include <QDir>
 
-TransferView::Menu::Menu():
+TransferView::Menu::Menu(bool showTransferedFilesOnly):
         menu(NULL),
         selectedColumn(0)
 {
@@ -95,17 +95,7 @@ TransferView::Menu::Menu():
 
     QAction *show_only_transfered_files = new QAction(tr("Show only transfered files"), menu);
     show_only_transfered_files->setCheckable(true);
-    show_only_transfered_files->setChecked(false);
-
-
-    //connect (show_only_transfered_files, SIGNAL(changed()), this, SLOT(slotcheckState(int)));
-    //connect (show_only_transfered_files, SIGNAL(toggled (bool)), this, SLOT(slotcheckState(bool)));
-
-    connect(show_only_transfered_files, SIGNAL(toggled (bool)), [=](const bool& state)
-    {
-        show_only_transfered_files->setChecked(!state);
-    });
-
+    show_only_transfered_files->setChecked(showTransferedFilesOnly);
 
     actions.insert(browse, Browse);
     actions.insert(match, MatchQueue);
@@ -232,8 +222,6 @@ void TransferView::init(){
     connect(treeView_TRANSFERS, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotContextMenu(QPoint)));
     connect(treeView_TRANSFERS->header(), SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotHeaderMenu(QPoint)));
 
-    connect (checkBox_showTranferedFilesOnly, SIGNAL(stateChanged(int)), this, SLOT(slotcheckState(int)));
-
     connect(this, SIGNAL(coreDMRequesting(VarMap)),     model, SLOT(initTransfer(VarMap)), Qt::QueuedConnection);
     connect(this, SIGNAL(coreDMStarting(VarMap)),       model, SLOT(updateTransfer(VarMap)), Qt::QueuedConnection);
     connect(this, SIGNAL(coreDMTick(VarMap)),           model, SLOT(updateTransfer(VarMap)), Qt::QueuedConnection);
@@ -257,16 +245,6 @@ void TransferView::init(){
 
     load();
 }
-
-void TransferView::slotcheckState(int state){
-    model->handleShowTranferedFilesOnlyState(state);
-};
-
-void TransferView::show_only_transfered_files_slot_changed(bool state){
-    model->handleShowTranferedFilesOnlyState(state);
-};
-
-
 
 void TransferView::getFileList(const QString &cid, const QString &host){
     if (cid.isEmpty() || host.isEmpty())
@@ -451,7 +429,7 @@ void TransferView::slotContextMenu(const QPoint &){
         return;
 
     Menu::Action act;
-    Menu m;
+    Menu m(model->getShowTranferedFilesOnlyState());
 
     act = m.exec();
 
@@ -574,9 +552,7 @@ void TransferView::slotContextMenu(const QPoint &){
     }
     case Menu::showTransferedFieldsOnly:
     {
-
-        act.
-        //m.actions.find(Menu::showTransferedFieldsOnly).
+        model->setShowTranferedFilesOnlyState(!model->getShowTranferedFilesOnlyState());
         break;
     }
     case Menu::Close:
