@@ -151,6 +151,10 @@ public Q_SLOTS:
     /** Just resort*/
     virtual void sort() { sort(sortColumn, sortOrder); }
 
+    // method to hide/show ulesess transfer info
+    void setShowTranferedFilesOnlyState (bool state);
+    bool getShowTranferedFilesOnlyState ();
+
 private:
     inline QString      vstr(const QVariant &var) { return var.toString(); }
     inline int          vint(const QVariant &var) { return var.toInt(); }
@@ -176,4 +180,6 @@ private:
     bool iconsScaled;
     /** */
     QSize iconsSize;
+
+    bool showTranferedFilesOnly;
 };
