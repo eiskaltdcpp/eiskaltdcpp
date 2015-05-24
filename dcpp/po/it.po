@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2014-11-09 02:35+0300\n"
+"POT-Creation-Date: 2015-05-24 21:44+0300\n"
 "PO-Revision-Date: 2013-11-19 16:45+0000\n"
 "Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/eiskaltdcpp/"
@@ -345,21 +345,13 @@ msgstr "Rediretta utente(i)"
 msgid "Auto-connect group (converted)"
 msgstr "Auto-connect group (converted)"
 
-#: ../NmdcHub.cpp:289
+#: ../NmdcHub.cpp:295
 msgid "%1% (Nick unknown)"
 msgstr "%1% (Nick sconosciuto)"
 
-#: ../NmdcHub.cpp:668
+#: ../NmdcHub.cpp:672
 msgid "Hub topic:"
 msgstr "Argomento hub:"
-
-#: ../NmdcHub.cpp:1018
-msgid ""
-"This hub is trying to use your client to spam %1%, please urge hub owner to "
-"fix this"
-msgstr ""
-"L'hub stà tentando di utilizzare il tuo client per inviare il messaggio spam "
-"%1%, segnalalo al proprietario dell'hub per correggere il problema"
 
 #: ../ConnectionManager.cpp:179
 msgid "All download slots taken"
@@ -485,11 +477,11 @@ msgstr "Nessun slot disponibile"
 msgid "%1%: File not available"
 msgstr "File non disponibile"
 
-#: ../UserConnection.cpp:52 ../UserConnection.cpp:66 ../UserConnection.cpp:140
+#: ../UserConnection.cpp:53 ../UserConnection.cpp:68 ../UserConnection.cpp:145
 msgid "Invalid data"
 msgstr "Dimensione non valida"
 
-#: ../UserConnection.cpp:58
+#: ../UserConnection.cpp:59
 msgid "Non-UTF-8 data in an ADC connection"
 msgstr "Dati non in UTF-8 in una connessione ADC"
 
@@ -513,67 +505,67 @@ msgstr "Coda download"
 msgid "Users"
 msgstr "Utenti"
 
-#: ../Util.cpp:644
+#: ../Util.cpp:654
 #, c-format
 msgid "%d B"
 msgstr "%d B"
 
-#: ../Util.cpp:646
+#: ../Util.cpp:656
 #, c-format
 msgid "%.02f KiB"
 msgstr "%.02f KiB"
 
-#: ../Util.cpp:646
+#: ../Util.cpp:656
 #, fuzzy, c-format
 msgid "%.02f KB"
 msgstr "%.02f KiB"
 
-#: ../Util.cpp:648
+#: ../Util.cpp:658
 #, c-format
 msgid "%.02f MiB"
 msgstr "%.02f MiB"
 
-#: ../Util.cpp:648
+#: ../Util.cpp:658
 #, fuzzy, c-format
 msgid "%.02f MB"
 msgstr "%.02f MiB"
 
-#: ../Util.cpp:650
+#: ../Util.cpp:660
 #, c-format
 msgid "%.02f GiB"
 msgstr "%.02f GiB"
 
-#: ../Util.cpp:650
+#: ../Util.cpp:660
 #, fuzzy, c-format
 msgid "%.02f GB"
 msgstr "%.02f GiB"
 
-#: ../Util.cpp:652
+#: ../Util.cpp:662
 #, c-format
 msgid "%.02f TiB"
 msgstr "%.02f TiB"
 
-#: ../Util.cpp:652
+#: ../Util.cpp:662
 #, fuzzy, c-format
 msgid "%.02f TB"
 msgstr "%.02f TiB"
 
-#: ../Util.cpp:654
+#: ../Util.cpp:664
 #, c-format
 msgid "%.02f PiB"
 msgstr "%.02f PiB"
 
-#: ../Util.cpp:654
+#: ../Util.cpp:664
 #, fuzzy, c-format
 msgid "%.02f PB"
 msgstr "%.02f PiB"
 
-#: ../Util.cpp:688
+#: ../Util.cpp:698
 #, c-format
 msgid "%s B"
 msgstr "%s B"
 
-#: ../Util.cpp:692
+#: ../Util.cpp:702
 #, c-format
 msgid "%'lld B"
 msgstr "%'lld B"
@@ -638,35 +630,35 @@ msgstr "Aggiornamento lista file terminato"
 msgid "File list %1% generated"
 msgstr "Inizio aggiornamento lista file"
 
-#: ../SettingsManager.cpp:180
+#: ../SettingsManager.cpp:179
 msgid "downloaded from"
 msgstr "scaricato da"
 
-#: ../SettingsManager.cpp:517
+#: ../SettingsManager.cpp:516
 msgid "Invalid search type name"
 msgstr "Nome del tipo di ricerca non valido"
 
-#: ../SettingsManager.cpp:521 ../SettingsManager.cpp:543
+#: ../SettingsManager.cpp:520 ../SettingsManager.cpp:542
 msgid "This search type already exists"
 msgstr "Il tipo di ricerca esiste già"
 
-#: ../SettingsManager.cpp:575
+#: ../SettingsManager.cpp:574
 msgid "No such search type"
 msgstr "Tipo di ricerca non esistente"
 
-#: ../SettingsManager.cpp:603 ../SettingsManager.cpp:608
+#: ../SettingsManager.cpp:602 ../SettingsManager.cpp:607
 msgid "Error: setting not found!"
 msgstr "Errore: impostazioni non trovate!"
 
-#: ../SettingsManager.cpp:603
+#: ../SettingsManager.cpp:602
 msgid "Core setting "
 msgstr ""
 
-#: ../SettingsManager.cpp:608
+#: ../SettingsManager.cpp:607
 msgid "Change core setting "
 msgstr "Cabmia le impostazioni del core"
 
-#: ../SettingsManager.cpp:608
+#: ../SettingsManager.cpp:607
 msgid " to "
 msgstr " a "
 
@@ -745,3 +737,10 @@ msgstr "Sono stati scritti più byte di quelli richiesti"
 #: ../MerkleCheckOutputStream.h:52 ../MerkleCheckOutputStream.h:112
 msgid "TTH inconsistency"
 msgstr "Inconsistenza TTH"
+
+#~ msgid ""
+#~ "This hub is trying to use your client to spam %1%, please urge hub owner "
+#~ "to fix this"
+#~ msgstr ""
+#~ "L'hub stà tentando di utilizzare il tuo client per inviare il messaggio "
+#~ "spam %1%, segnalalo al proprietario dell'hub per correggere il problema"

@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR EiskaltDC++ team
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Translators:
 # Translators:
@@ -12,14 +12,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2014-11-09 02:35+0300\n"
+"POT-Creation-Date: 2015-05-24 21:44+0300\n"
 "PO-Revision-Date: 2014-11-09 23:06+0000\n"
 "Last-Translator: Sopor\n"
-"Language-Team: Swedish (Sweden) (http://www.transifex.com/projects/p/eiskaltdcpp/language/sv_SE/)\n"
+"Language-Team: Swedish (Sweden) (http://www.transifex.com/projects/p/"
+"eiskaltdcpp/language/sv_SE/)\n"
+"Language: sv_SE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sv_SE\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../SearchManager.cpp:36
@@ -111,7 +112,9 @@ msgstr "Indexdatabas återskapad"
 #: ../HashManager.cpp:1052
 msgid ""
 "%1% not shared; calculated CRC32 does not match the one found in SFV file."
-msgstr "%1% inte utdelad; beräknat CRC32-värde stämmer inte med det värdet som finns i SFV-filen."
+msgstr ""
+"%1% inte utdelad; beräknat CRC32-värde stämmer inte med det värdet som finns "
+"i SFV-filen."
 
 #: ../HashManager.cpp:1057
 msgid "Error hashing %1%: %2%"
@@ -127,26 +130,31 @@ msgstr "Fastställer bästa anslutningsinställningar..."
 
 #: ../ConnectivityManager.cpp:85
 msgid ""
-"Unable to open %1% port(s); connectivity settings must be configured "
-"manually"
-msgstr "Kan inte öppna %1% port(ar); anslutningsinställningarna måste konfigureras manuellt"
+"Unable to open %1% port(s); connectivity settings must be configured manually"
+msgstr ""
+"Kan inte öppna %1% port(ar); anslutningsinställningarna måste konfigureras "
+"manuellt"
 
 #: ../ConnectivityManager.cpp:95
 msgid ""
 "Public IP address detected, selecting active mode with direct connection"
-msgstr "En publik IP-adress upptäcktes, väljer aktivt läge med direktanslutning"
+msgstr ""
+"En publik IP-adress upptäcktes, väljer aktivt läge med direktanslutning"
 
 #: ../ConnectivityManager.cpp:102
 msgid ""
 "Local network with possible NAT detected, trying to map the ports using "
 "UPnP..."
-msgstr "Lokalt nätverk med NAT upptäckt, försöker skapa portmappning med UPnP..."
+msgstr ""
+"Lokalt nätverk med NAT upptäckt, försöker skapa portmappning med UPnP..."
 
 #: ../ConnectivityManager.cpp:130
 msgid ""
 "Automatic setup of active mode has failed. You may want to set up your "
 "connection manually for better connectivity"
-msgstr "Den automatiska uppkopplingen för aktivt läge har misslyckats. Du rekommeneras att manuellt konfigurera för en bättre anslutning"
+msgstr ""
+"Den automatiska uppkopplingen för aktivt läge har misslyckats. Du "
+"rekommeneras att manuellt konfigurera för en bättre anslutning"
 
 #: ../ConnectivityManager.cpp:142
 msgid "Transfer (TCP)"
@@ -245,7 +253,9 @@ msgstr "Målfilens namn är för långt"
 msgid ""
 "Invalid target file (missing directory, check default download directory "
 "setting)"
-msgstr "Ogiltig målfil (katalogen finns inte, kontrollera inställningarna för standard nedladdningskatalog)"
+msgstr ""
+"Ogiltig målfil (katalogen finns inte, kontrollera inställningarna för "
+"standard nedladdningskatalog)"
 
 #: ../QueueManager.cpp:864
 msgid "File already exists at the target location"
@@ -280,9 +290,9 @@ msgid "%1%: Matched %2% file"
 msgstr "%1%: Matchar %2% filen"
 
 #: ../QueueManager.cpp:1796
-msgid ""
-"Target path for this item is not available: %1%; pause this queue item."
-msgstr "Målsökvägen för detta objekt finns inte tillgängligt: %1%; objektet pausad."
+msgid "Target path for this item is not available: %1%; pause this queue item."
+msgstr ""
+"Målsökvägen för detta objekt finns inte tillgängligt: %1%; objektet pausad."
 
 #: ../QueueManager.cpp:2035 ../QueueManager.cpp:2044
 msgid "CRC32 inconsistency (SFV-Check)"
@@ -304,7 +314,9 @@ msgstr "Kunde inte upprätthålla basprotokoll"
 msgid ""
 "Hub probably uses an old version of ADC, please encourage the owner to "
 "upgrade"
-msgstr "Hubben använder troligen en äldre version av ADC, be ägaren av hubben att uppdatera"
+msgstr ""
+"Hubben använder troligen en äldre version av ADC, be ägaren av hubben att "
+"uppdatera"
 
 #: ../AdcHub.cpp:305
 msgid "%1% was kicked by %2%: %3%"
@@ -330,19 +342,13 @@ msgstr "Omdirigera användare"
 msgid "Auto-connect group (converted)"
 msgstr "Anslut automatiskt grupp"
 
-#: ../NmdcHub.cpp:289
+#: ../NmdcHub.cpp:295
 msgid "%1% (Nick unknown)"
 msgstr "%1% (Användarnamn okänt)"
 
-#: ../NmdcHub.cpp:668
+#: ../NmdcHub.cpp:672
 msgid "Hub topic:"
 msgstr "Rubrik:"
-
-#: ../NmdcHub.cpp:1018
-msgid ""
-"This hub is trying to use your client to spam %1%, please urge hub owner to "
-"fix this"
-msgstr "Denna hubben försöker använda din klient till att spamma %1%, be hubbägaren att åtgärda detta"
 
 #: ../ConnectionManager.cpp:179
 msgid "All download slots taken"
@@ -404,7 +410,9 @@ msgstr "DHT-port (%1% UDP)"
 msgid ""
 "Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%), mapped "
 "using the %4% interface"
-msgstr "Lyckades skapa portmappningar (Överföring: %1%, Sök: %2%, Krypterad överföring: %3%) på enheten %4%"
+msgstr ""
+"Lyckades skapa portmappningar (Överföring: %1%, Sök: %2%, Krypterad "
+"överföring: %3%) på enheten %4%"
 
 #: ../UPnPManager.cpp:119
 msgid "Failed to get external IP"
@@ -456,7 +464,8 @@ msgstr "Kan inte öppna målfil: %1%"
 
 #: ../DownloadManager.cpp:328
 msgid "Full tree does not match TTH root"
-msgstr "Felaktigt TTH-värde nedladdat för filen eller så är indexdatabasen korrupt"
+msgstr ""
+"Felaktigt TTH-värde nedladdat för filen eller så är indexdatabasen korrupt"
 
 #: ../DownloadManager.cpp:393
 msgid "No slots available"
@@ -466,11 +475,11 @@ msgstr "Inga slottar lediga"
 msgid "%1%: File not available"
 msgstr "%1%: Filen är inte tillgänglig"
 
-#: ../UserConnection.cpp:52 ../UserConnection.cpp:66 ../UserConnection.cpp:140
+#: ../UserConnection.cpp:53 ../UserConnection.cpp:68 ../UserConnection.cpp:145
 msgid "Invalid data"
 msgstr "Ogiltig data"
 
-#: ../UserConnection.cpp:58
+#: ../UserConnection.cpp:59
 msgid "Non-UTF-8 data in an ADC connection"
 msgstr "Non-UTF-8 data i ADC-anslutningen"
 
@@ -494,67 +503,67 @@ msgstr "Nedladdningskö"
 msgid "Users"
 msgstr "Användare"
 
-#: ../Util.cpp:644
+#: ../Util.cpp:654
 #, c-format
 msgid "%d B"
 msgstr "%d B"
 
-#: ../Util.cpp:646
+#: ../Util.cpp:656
 #, c-format
 msgid "%.02f KiB"
 msgstr "%.02f KiB"
 
-#: ../Util.cpp:646
+#: ../Util.cpp:656
 #, c-format
 msgid "%.02f KB"
 msgstr "%.02f KB"
 
-#: ../Util.cpp:648
+#: ../Util.cpp:658
 #, c-format
 msgid "%.02f MiB"
 msgstr "%.02f MiB"
 
-#: ../Util.cpp:648
+#: ../Util.cpp:658
 #, c-format
 msgid "%.02f MB"
 msgstr "%.02f MB"
 
-#: ../Util.cpp:650
+#: ../Util.cpp:660
 #, c-format
 msgid "%.02f GiB"
 msgstr "%.02f GiB"
 
-#: ../Util.cpp:650
+#: ../Util.cpp:660
 #, c-format
 msgid "%.02f GB"
 msgstr "%.02f GB"
 
-#: ../Util.cpp:652
+#: ../Util.cpp:662
 #, c-format
 msgid "%.02f TiB"
 msgstr "%.02f TiB"
 
-#: ../Util.cpp:652
+#: ../Util.cpp:662
 #, c-format
 msgid "%.02f TB"
 msgstr "%.02f TB"
 
-#: ../Util.cpp:654
+#: ../Util.cpp:664
 #, c-format
 msgid "%.02f PiB"
 msgstr "%.02f PiB"
 
-#: ../Util.cpp:654
+#: ../Util.cpp:664
 #, c-format
 msgid "%.02f PB"
 msgstr "%.02f PB"
 
-#: ../Util.cpp:688
+#: ../Util.cpp:698
 #, c-format
 msgid "%s B"
 msgstr "%s B"
 
-#: ../Util.cpp:692
+#: ../Util.cpp:702
 #, c-format
 msgid "%'lld B"
 msgstr "%'lld B"
@@ -591,13 +600,17 @@ msgstr "Uteslut utdelad temp-fil: %1% (Storlek: %2%)"
 msgid ""
 "Duplicate file will not be shared: %1% (Size: %2% B) Dupe matched against: "
 "%3%"
-msgstr "Dubblettfil kommer inte att delas ut: %1% (Storlek: %2% B) Dubblett matchad mot: %3%"
+msgstr ""
+"Dubblettfil kommer inte att delas ut: %1% (Storlek: %2% B) Dubblett matchad "
+"mot: %3%"
 
 #: ../ShareManager.cpp:793
 msgid ""
-"File list refresh in progress, please wait for it to finish before trying to"
-" refresh again"
-msgstr "Fillistan uppdateras, du måste vänta tills den är klar innan du uppdaterar igen"
+"File list refresh in progress, please wait for it to finish before trying to "
+"refresh again"
+msgstr ""
+"Fillistan uppdateras, du måste vänta tills den är klar innan du uppdaterar "
+"igen"
 
 #: ../ShareManager.cpp:814
 msgid "File list refresh failed: %1%"
@@ -615,35 +628,35 @@ msgstr "Fillistan har uppdaterats"
 msgid "File list %1% generated"
 msgstr "Fillistan %1% har skapats"
 
-#: ../SettingsManager.cpp:180
+#: ../SettingsManager.cpp:179
 msgid "downloaded from"
 msgstr "nedladdat från"
 
-#: ../SettingsManager.cpp:517
+#: ../SettingsManager.cpp:516
 msgid "Invalid search type name"
 msgstr "Ogiltig söktyp"
 
-#: ../SettingsManager.cpp:521 ../SettingsManager.cpp:543
+#: ../SettingsManager.cpp:520 ../SettingsManager.cpp:542
 msgid "This search type already exists"
 msgstr "Denna söktyp finns redan"
 
-#: ../SettingsManager.cpp:575
+#: ../SettingsManager.cpp:574
 msgid "No such search type"
 msgstr "Söktypen finns inte"
 
-#: ../SettingsManager.cpp:603 ../SettingsManager.cpp:608
+#: ../SettingsManager.cpp:602 ../SettingsManager.cpp:607
 msgid "Error: setting not found!"
 msgstr "Fel: inställning finns inte!"
 
-#: ../SettingsManager.cpp:603
+#: ../SettingsManager.cpp:602
 msgid "Core setting "
 msgstr "Inställning"
 
-#: ../SettingsManager.cpp:608
+#: ../SettingsManager.cpp:607
 msgid "Change core setting "
 msgstr "Ändra huvudinställning"
 
-#: ../SettingsManager.cpp:608
+#: ../SettingsManager.cpp:607
 msgid " to "
 msgstr "till"
 
@@ -667,13 +680,16 @@ msgstr "Socks-servern stöder inte användarnamn / lösenords autentisering"
 
 #: ../Socket.cpp:330 ../Socket.cpp:334
 msgid "Socks server authentication failed (bad login / password?)"
-msgstr "Kunde inte logga in på socks-server (ogiltligt användarnamn / lösenord?)"
+msgstr ""
+"Kunde inte logga in på socks-server (ogiltligt användarnamn / lösenord?)"
 
 #: ../Socket.cpp:471
 msgid ""
 "Failed to set up the socks server for UDP relay (check socks address and "
 "port)"
-msgstr "Misslyckades med att upprätta socks-server för UDP-relä (kontrollera socks-adress och port)"
+msgstr ""
+"Misslyckades med att upprätta socks-server för UDP-relä (kontrollera socks-"
+"adress och port)"
 
 #: ../CryptoManager.cpp:134
 msgid "No private key file chosen"
@@ -720,6 +736,13 @@ msgstr "Fler bytes skrivna än begärt"
 #: ../MerkleCheckOutputStream.h:52 ../MerkleCheckOutputStream.h:112
 msgid "TTH inconsistency"
 msgstr "TTH-värden stämmer inte överens"
+
+#~ msgid ""
+#~ "This hub is trying to use your client to spam %1%, please urge hub owner "
+#~ "to fix this"
+#~ msgstr ""
+#~ "Denna hubben försöker använda din klient till att spamma %1%, be "
+#~ "hubbägaren att åtgärda detta"
 
 #~ msgid "Error: segv parser :D"
 #~ msgstr "Error: segv parser :D"
