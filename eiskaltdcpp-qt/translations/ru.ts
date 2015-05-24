@@ -167,7 +167,7 @@ EiskaltDC++ - кроссплатформенная программа для р�
     <message>
         <location filename="../src/CmdDebug.cpp" line="38"/>
         <source>CmdDebug</source>
-        <translation type="unfinished"></translation>
+        <translation>Консоль отладки</translation>
     </message>
 </context>
 <context>
@@ -1377,13 +1377,13 @@ Favorite user</source>
         <location filename="../src/HubFrame.cpp" line="1858"/>
         <source>/rebuild - rebuild hash
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/rebuild - обновить хэш</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1859"/>
         <source>/refresh - update own file list
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/refresh - обновить свой список файлов</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1860"/>
@@ -2114,7 +2114,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="1380"/>
         <source>CmdDebug</source>
-        <translation type="unfinished"></translation>
+        <translation>Консоль отладки</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1382"/>
@@ -2546,12 +2546,12 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="2670"/>
         <source>EiskaltDC++ is a graphical client for Direct Connect and ADC protocols.&lt;br/&gt;&lt;br/&gt;DC++ core version: %1 (modified)&lt;br/&gt;&lt;br/&gt;Home page: &lt;a href=&quot;https://github.com/eiskaltdcpp/eiskaltdcpp/&quot;&gt;https://github.com/eiskaltdcpp/eiskaltdcpp/&lt;/a&gt;&lt;br/&gt;&lt;br/&gt;Total up: &lt;b&gt;%2&lt;/b&gt;&lt;br/&gt;Total down: &lt;b&gt;%3&lt;/b&gt;&lt;br/&gt;Ratio: &lt;b&gt;%4&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>EiskaltDC++ - графический клиент для протоколов Direct Connect и ADC.&lt;br/&gt;&lt;br/&gt;Версия ядра DC++: %1 (изменённое)&lt;br/&gt;&lt;br/&gt;Домашняя страница: &lt;a href=&quot;https://github.com/eiskaltdcpp/eiskaltdcpp/&quot;&gt;https://github.com/eiskaltdcpp/eiskaltdcpp/&lt;/a&gt;&lt;br/&gt;&lt;br/&gt;Отдано (всего): &lt;b&gt;%2&lt;/b&gt;&lt;br/&gt;Загружено (всего): &lt;b&gt;%3&lt;/b&gt;&lt;br/&gt;Коэффициент: &lt;b&gt;%4&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2690"/>
         <source>Please use &lt;a href=&quot;https://github.com/eiskaltdcpp/eiskaltdcpp/issues&quot;&gt;https://github.com/eiskaltdcpp/eiskaltdcpp/issues&lt;/a&gt; to report bugs.&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Используйте &lt;a href=&quot;https://github.com/eiskaltdcpp/eiskaltdcpp/issues&quot;&gt;https://github.com/eiskaltdcpp/eiskaltdcpp/issues&lt;/a&gt; для сообщений об ошибках.&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2829"/>
@@ -3299,7 +3299,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/Settings.cpp" line="96"/>
         <source>Advanced</source>
-        <translation type="unfinished"></translation>
+        <translation>Дополнительно</translation>
     </message>
 </context>
 <context>
@@ -3307,7 +3307,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SettingsAdvanced.cpp" line="44"/>
         <source>Select mime handler binary</source>
-        <translation type="unfinished"></translation>
+        <translation>Программа для запуска файлов данного типа</translation>
     </message>
 </context>
 <context>
@@ -3911,7 +3911,7 @@ Downloaded: %3 Uploaded: %4</source>
         <location filename="../src/SideBar.cpp" line="69"/>
         <location filename="../src/SideBar.cpp" line="419"/>
         <source>CmdDebug</source>
-        <translation type="unfinished"></translation>
+        <translation>Консоль отладки</translation>
     </message>
     <message>
         <location filename="../src/SideBar.cpp" line="71"/>
@@ -4143,7 +4143,7 @@ Do you want to stop it?
     <message>
         <location filename="../src/TransferView.cpp" line="96"/>
         <source>Show only transfered files</source>
-        <translation type="unfinished"></translation>
+        <translation>Показывать только переданные файлы</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="349"/>
@@ -4681,37 +4681,37 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UICmdDebug.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished">Форма</translation>
+        <translation>Форма</translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="29"/>
         <source>CL_IN</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="36"/>
         <source>CL_OUT</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="43"/>
         <source>HUB_IN</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="50"/>
         <source>HUB_OUT</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="57"/>
         <source>Filter by IP</source>
-        <translation type="unfinished"></translation>
+        <translation>Фильтровать по IP</translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="67"/>
         <source>Lines:</source>
-        <translation type="unfinished"></translation>
+        <translation>Строк:</translation>
     </message>
 </context>
 <context>
@@ -5243,7 +5243,7 @@ in options, file will be downloaded without opening search dialog.</source>
     <message>
         <location filename="../ui/PrivateMessage.ui" line="87"/>
         <source>Shift+F3</source>
-        <translation type="unfinished">Shift+F3</translation>
+        <translation>Shift+F3</translation>
     </message>
     <message>
         <location filename="../ui/PrivateMessage.ui" line="94"/>
@@ -5258,7 +5258,7 @@ in options, file will be downloaded without opening search dialog.</source>
     <message>
         <location filename="../ui/PrivateMessage.ui" line="100"/>
         <source>F3</source>
-        <translation type="unfinished">F3</translation>
+        <translation>F3</translation>
     </message>
     <message>
         <location filename="../ui/PrivateMessage.ui" line="107"/>
@@ -5407,12 +5407,12 @@ in options, file will be downloaded without opening search dialog.</source>
     <message>
         <location filename="../ui/UISettingsAdvanced.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished">Форма</translation>
+        <translation>Форма</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsAdvanced.ui" line="36"/>
         <source>Mime Handler</source>
-        <translation type="unfinished"></translation>
+        <translation>Привязки файлов</translation>
     </message>
 </context>
 <context>
