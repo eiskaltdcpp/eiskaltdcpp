@@ -15,5 +15,5 @@ Comment[be]=Паздяляйцеся файламі праз сетку DC++
 Categories=Network;FileTransfer;P2P;Qt;
 GenericName[ru_RU]=Клиент сетей DC++
 GenericName[be_BY]=Кліент сеткі DC++
-MimeType=x-scheme-handler/magnet;
+MimeType=x-scheme-handler/magnet;x-scheme-handler/dchub;x-scheme-handler/adc;x-scheme-handler/adcs;
 Keywords=FileSharing;Chat;p2p;DirectConnect;ADC;DHT;
