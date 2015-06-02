@@ -1540,22 +1540,22 @@ Favorite user</source>
 <context>
     <name>IPFilter</name>
     <message>
-        <location filename="../src/IPFilter.cpp" line="453"/>
+        <location filename="../src/IPFilter.cpp" line="552"/>
         <source>Nothing to export.</source>
         <translation>Експортувати нічого.</translation>
     </message>
     <message>
-        <location filename="../src/IPFilter.cpp" line="465"/>
+        <location filename="../src/IPFilter.cpp" line="564"/>
         <source>Unable to export settings.</source>
         <translation>Неможливо експортувати налаштування.</translation>
     </message>
     <message>
-        <location filename="../src/IPFilter.cpp" line="481"/>
+        <location filename="../src/IPFilter.cpp" line="580"/>
         <source>Nothing to import.</source>
         <translation>Імпортувати нічого.</translation>
     </message>
     <message>
-        <location filename="../src/IPFilter.cpp" line="505"/>
+        <location filename="../src/IPFilter.cpp" line="604"/>
         <source>Invalid signature.</source>
         <translation>Неправильний підпис.</translation>
     </message>
@@ -1563,42 +1563,58 @@ Favorite user</source>
 <context>
     <name>IPFilterFrame</name>
     <message>
-        <location filename="../src/IPFilterFrame.cpp" line="189"/>
+        <location filename="../src/IPFilterFrame.cpp" line="182"/>
+        <location filename="../src/IPFilterFrame.cpp" line="204"/>
+        <source>Forbid</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/IPFilterFrame.cpp" line="194"/>
         <source>Change rule direction</source>
         <translation>Змінити спрямування правила</translation>
     </message>
     <message>
-        <location filename="../src/IPFilterFrame.cpp" line="197"/>
+        <location filename="../src/IPFilterFrame.cpp" line="202"/>
+        <source>Change rule action</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/IPFilterFrame.cpp" line="206"/>
+        <source>Allow</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/IPFilterFrame.cpp" line="211"/>
         <source>Change IP/Mask</source>
         <translation>Змінити IP/маску</translation>
     </message>
     <message>
-        <location filename="../src/IPFilterFrame.cpp" line="198"/>
+        <location filename="../src/IPFilterFrame.cpp" line="212"/>
         <source>Delete rule</source>
         <translation>Видалити правило</translation>
     </message>
     <message>
-        <location filename="../src/IPFilterFrame.cpp" line="230"/>
+        <location filename="../src/IPFilterFrame.cpp" line="255"/>
         <source>Enter new rule</source>
         <translation>Введіть нове правило</translation>
     </message>
     <message>
-        <location filename="../src/IPFilterFrame.cpp" line="230"/>
+        <location filename="../src/IPFilterFrame.cpp" line="255"/>
         <source>Rule:</source>
         <translation>Правило:</translation>
     </message>
     <message>
-        <location filename="../src/IPFilterFrame.cpp" line="320"/>
+        <location filename="../src/IPFilterFrame.cpp" line="347"/>
         <source>Import list</source>
         <translation>Імпорт списку</translation>
     </message>
     <message>
-        <location filename="../src/IPFilterFrame.cpp" line="373"/>
+        <location filename="../src/IPFilterFrame.cpp" line="400"/>
         <source>Export list</source>
         <translation>Експорт списку</translation>
     </message>
     <message>
-        <location filename="../src/IPFilterFrame.cpp" line="374"/>
+        <location filename="../src/IPFilterFrame.cpp" line="401"/>
         <source>All Files (*)</source>
         <translation>Усі файли (*.*)</translation>
     </message>
@@ -1614,6 +1630,11 @@ Favorite user</source>
         <location filename="../src/IPFilterModel.cpp" line="25"/>
         <source>Direction</source>
         <translation>Спрямування</translation>
+    </message>
+    <message>
+        <location filename="../src/IPFilterModel.cpp" line="25"/>
+        <source>Action</source>
+        <translation type="unfinished">Дія</translation>
     </message>
 </context>
 <context>
@@ -5104,44 +5125,54 @@ p, li { white-space: pre-wrap; }
         <translation>Імпорт</translation>
     </message>
     <message>
-        <location filename="../ui/UIIPFilter.ui" line="108"/>
+        <location filename="../ui/UIIPFilter.ui" line="99"/>
         <source>Direction</source>
         <translation>Спрямування</translation>
     </message>
     <message>
-        <location filename="../ui/UIIPFilter.ui" line="114"/>
+        <location filename="../ui/UIIPFilter.ui" line="105"/>
         <source>BOTH</source>
         <translation>Обидва</translation>
     </message>
     <message>
-        <location filename="../ui/UIIPFilter.ui" line="121"/>
+        <location filename="../ui/UIIPFilter.ui" line="112"/>
         <source>IN</source>
         <translation>Вх</translation>
     </message>
     <message>
-        <location filename="../ui/UIIPFilter.ui" line="128"/>
+        <location filename="../ui/UIIPFilter.ui" line="119"/>
         <source>OUT</source>
         <translation>Вих</translation>
     </message>
     <message>
-        <location filename="../ui/UIIPFilter.ui" line="141"/>
+        <location filename="../ui/UIIPFilter.ui" line="132"/>
         <source>UP</source>
         <translation>Вгору</translation>
     </message>
     <message>
-        <location filename="../ui/UIIPFilter.ui" line="148"/>
+        <location filename="../ui/UIIPFilter.ui" line="139"/>
         <source>DOWN</source>
         <translation>Вниз</translation>
     </message>
     <message>
-        <location filename="../ui/UIIPFilter.ui" line="158"/>
+        <location filename="../ui/UIIPFilter.ui" line="149"/>
         <source>Add</source>
         <translation>Додати</translation>
     </message>
     <message>
-        <location filename="../ui/UIIPFilter.ui" line="165"/>
+        <location filename="../ui/UIIPFilter.ui" line="156"/>
         <source>OK</source>
         <translation>ОК</translation>
+    </message>
+    <message>
+        <location filename="../ui/UIIPFilter.ui" line="169"/>
+        <source>Action</source>
+        <translation type="unfinished">Дія</translation>
+    </message>
+    <message>
+        <location filename="../ui/UIIPFilter.ui" line="181"/>
+        <source>Allow</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -71,6 +71,7 @@ void IPFilterFrame::slotCheckBoxClick() {
     pushButton_IMPORT->setEnabled(b);
     treeView_RULES->setEnabled(b);
     groupBox_DIRECTION->setEnabled(b);
+    groupBox_ACTION->setEnabled(b);
     lineEdit_RULE->setEnabled(b);
     pushButton_ADD->setEnabled(b);
     pushButton_DOWN->setEnabled(b);
@@ -85,7 +86,7 @@ void IPFilterFrame::slotCheckBoxClick() {
 
         loadItems();
 
-        connect(IPFilter::getInstance(), SIGNAL(ruleAdded(QString,eDIRECTION)), this, SLOT(slotRuleAdded(QString,eDIRECTION)));
+        connect(IPFilter::getInstance(), SIGNAL(ruleAdded(QString,eDIRECTION,eTableAction)), this, SLOT(slotRuleAdded(QString,eDIRECTION,eTableAction)));
 
     } else {
         if (IPFilter::getInstance()) {
@@ -100,8 +101,9 @@ void IPFilterFrame::slotCheckBoxClick() {
     WBSET(WB_IPFILTER_ENABLED, b);
 }
 
-void IPFilterFrame::slotRuleAdded(QString exp, eDIRECTION direction) {
+void IPFilterFrame::slotRuleAdded(QString exp, eDIRECTION direction, eTableAction act) {
     QString type = "OUT";
+    QString action  = "Forbid";
 
     switch (direction) {
         case eDIRECTION_BOTH:
@@ -116,7 +118,10 @@ void IPFilterFrame::slotRuleAdded(QString exp, eDIRECTION direction) {
             break;
     }
 
-    model->addResult(exp, type);
+    if (act == etaACPT)
+        action = "Allow";
+
+    model->addResult(exp, type, tr(action.toStdString().c_str()));
 }
 
 void IPFilterFrame::loadItems() {
@@ -130,7 +135,7 @@ void IPFilterFrame::loadItems() {
     for (int i = 0; i < list.size(); i++){
 
         IPFilterElem *el = list.at(i);
-        QString prefix = (el->action == etaDROP?"!":"");
+        QString action = (el->action == etaDROP ? "Forbid" : "Allow");
         QString type = "OUT";
 
         switch (el->direction) {
@@ -146,7 +151,7 @@ void IPFilterFrame::loadItems() {
                 break;
         }
 
-        model->addResult(prefix+QString(IPFilter::Uint32ToString(el->ip)) + "/" + QString().setNum(IPFilter::MaskToCIDR(el->mask)), type);
+        model->addResult(QString(IPFilter::Uint32ToString(el->ip)) + "/" + QString().setNum(IPFilter::MaskToCIDR(el->mask)), type, tr(action.toStdString().c_str()));
     }
 }
 
@@ -158,7 +163,7 @@ void IPFilterFrame::slotTreeViewContextMenu(QPoint){
 
     eTableAction act = etaACPT;
     eDIRECTION   direction = eDIRECTION_OUT;
-    QString      str_ip, str_d;
+    QString      str_ip, str_d, str_a;
 
     QModelIndexList mindexes = treeView_RULES->selectionModel()->selectedIndexes();
 
@@ -172,10 +177,10 @@ void IPFilterFrame::slotTreeViewContextMenu(QPoint){
 
     str_ip = elem->data(COLUMN_RULE_NAME).toString();
     str_d  = elem->data(COLUMN_RULE_DIRECTION).toString();
+    str_a  = elem->data(COLUMN_RULE_ACTION).toString();
 
-    if(!str_ip.indexOf("!")){
+    if(str_a == tr("Forbid")){
         act = etaDROP;
-        str_ip.replace("!", "");
     }
 
     if (str_d == "BOTH")
@@ -193,7 +198,16 @@ void IPFilterFrame::slotTreeViewContextMenu(QPoint){
     directions << (ch_d->addAction(QIcon(), "IN"));
     directions << (ch_d->addAction(QIcon(), "OUT"));
 
+    QMenu *ch_a = new QMenu(this);
+    ch_a->setTitle(tr("Change rule action"));
+    QList<QAction*> actions;
+    actions << (ch_a->addAction(QIcon(), tr("Forbid")));
+    actions[actions.length()-1]->setData(etaDROP);
+    actions << (ch_a->addAction(QIcon(), tr("Allow")));
+    actions[actions.length()-1]->setData(etaACPT);
+
     m->addMenu(ch_d);
+    m->addMenu(ch_a);
     QAction *ch  = m->addAction(QIcon(), tr("Change IP/Mask"));
     QAction *del = m->addAction(WU->getPixmap(WulforUtil::eiEDITDELETE), tr("Delete rule"));
 
@@ -217,13 +231,24 @@ void IPFilterFrame::slotTreeViewContextMenu(QPoint){
             elem->updateColumn(COLUMN_RULE_DIRECTION, txt);
         }
     }
+    else if (actions.contains(result)){
+        eTableAction a = etaDROP;
+
+        if (result->data() == etaACPT)
+            a = etaACPT;
+
+        if (a != act){
+            IPFilter::getInstance()->changeRuleDirection(str_ip, direction, a);
+
+            elem->updateColumn(COLUMN_RULE_ACTION, result->text());
+        }
+    }
     else if (result == del){
         IPFilter::getInstance()->remFromRules(str_ip, act);
         model->removeItem(elem);
     }
     else if (result == ch){
         quint32 ip, mask, old_ip, old_mask;
-        eTableAction act, old_act;
 
         bool ok = false;
 
@@ -231,10 +256,10 @@ void IPFilterFrame::slotTreeViewContextMenu(QPoint){
                                               QLineEdit::Normal, elem->data(COLUMN_RULE_NAME).toString(), &ok);
 
         if (ok &&
-            IPFilter::ParseString(input, ip, mask, act) &&
-            IPFilter::ParseString(elem->data(COLUMN_RULE_NAME).toString(), old_ip, old_mask, old_act))
+            IPFilter::ParseIPString(input, ip, mask) &&
+            IPFilter::ParseIPString(elem->data(COLUMN_RULE_NAME).toString(), old_ip, old_mask))
         {
-            if ((ip != old_ip) || (mask != old_mask) || (act != old_act)){
+            if ((ip != old_ip) || (mask != old_mask)){
                 const QIPHash &hash = IPFilter::getInstance()->getHash();
                 auto it = hash.find(old_ip);
                 IPFilterElem *el = NULL;
@@ -242,7 +267,7 @@ void IPFilterFrame::slotTreeViewContextMenu(QPoint){
                 while (it != hash.end() && it.key() == old_ip){
                     IPFilterElem *t = it.value();
 
-                    if (t->action == old_act && t->mask == old_mask){
+                    if (t->mask == old_mask){
                         el = t;
 
                         break;
@@ -252,15 +277,13 @@ void IPFilterFrame::slotTreeViewContextMenu(QPoint){
                 }
 
                 if (el){
-                    el->action = act;
                     el->ip     = ip;
                     el->mask   = mask;
 
-                    QString prefix = (act == etaDROP?"!":"");
                     QString str_ip     = IPFilter::Uint32ToString(ip);
                     QString str_mask   = QString().setNum(IPFilter::MaskToCIDR(mask));
 
-                    elem->updateColumn(COLUMN_RULE_NAME, prefix+str_ip+"/"+str_mask);
+                    elem->updateColumn(COLUMN_RULE_NAME, str_ip+"/"+str_mask);
                 }
             }
         }
@@ -293,6 +316,10 @@ void IPFilterFrame::slotAddRule() {
         else if (radioButton_IN->isChecked())
             direction = eDIRECTION_IN;
 
+        eTableAction act = etaDROP;
+        if (checkBox_ALLOW->isChecked())
+            act = etaACPT;
+
         QStringList rule_list;
 
         if (rule.indexOf(",") > 0)
@@ -305,7 +332,7 @@ void IPFilterFrame::slotAddRule() {
 
             ip.replace(" ", "");
 
-            IPFilter::getInstance()->addToRules(ip.trimmed(), direction);
+            IPFilter::getInstance()->addToRules(ip.trimmed(), direction, act);
         }
     }
 

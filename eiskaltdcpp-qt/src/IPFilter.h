@@ -63,6 +63,8 @@ public:
     /** */
     static bool ParseString(QString, quint32&, quint32&, eTableAction&);
     /** */
+    static bool ParseIPString(QString exp, quint32 &ip, quint32 &mask);
+    /** */
     static bool isIP(QString &exp);
 
     /** */
@@ -77,6 +79,8 @@ public:
 
     /** */
     void addToRules(QString exp, eDIRECTION direction);
+    /** */
+    void addToRules(QString exp, eDIRECTION direction, eTableAction act);
     /** */
     void remFromRules(QString exp, eTableAction);
     /** */
@@ -115,7 +119,7 @@ private:
     QIPList rules;
 
 signals:
-    void ruleAdded(QString, eDIRECTION);
+    void ruleAdded(QString, eDIRECTION, eTableAction);
     void ruleRemoved(QString, eDIRECTION, eTableAction);
     void ruleChanged(QString, eDIRECTION, eDIRECTION, eTableAction);
 };
