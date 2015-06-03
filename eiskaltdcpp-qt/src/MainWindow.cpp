@@ -2746,11 +2746,11 @@ void MainWindow::slotAboutClient() {
         QString("&nbsp;&nbsp;&nbsp; 2014 <a href=\"mailto:trifunovic@openmailbox.org\">Marko Trifunović</a><br/>")+
         QString("<br/>")+
         tr("Serbian (Latin) translation<br/>")+
-        QString("&nbsp;&nbsp;&nbsp; 2010-2014 <a href=\"mailto:miroslav031@gmail.com\">Miroslav Petrovic</a><br/>")+
+        QString("&nbsp;&nbsp;&nbsp; 2010-2015 <a href=\"mailto:miroslav031@gmail.com\">Miroslav Petrovic</a><br/>")+
         QString("&nbsp;&nbsp;&nbsp; 2014 <a href=\"mailto:trifunovic@openmailbox.org\">Marko Trifunović</a><br/>")+
         QString("<br/>")+
         tr("Spanish translation<br/>")+
-        QString("&nbsp;&nbsp;&nbsp; 2010-2014 <a href=\"mailto:sl1pkn07@gmail.com\">Gustavo Alvarez</a> aka sL1pKn07<br/>")+
+        QString("&nbsp;&nbsp;&nbsp; 2010-2015 <a href=\"mailto:sl1pkn07@gmail.com\">Gustavo Alvarez</a> aka sL1pKn07<br/>")+
         QString("&nbsp;&nbsp;&nbsp; 2012-2014 <a href=\"mailto:klondike at klondike.es\">Francisco Blas Izquierdo Riera</a> aka klondike<br/>")+
         QString("<br/>")+
         tr("Basque translation<br/>")+
@@ -2787,7 +2787,7 @@ void MainWindow::slotAboutClient() {
         QString("&nbsp;&nbsp;&nbsp; 2013 <a href=\"mailto:syaomingl@gmail.com\">Syaoming Lai</a><br/>")+
         QString("<br/>")+
         tr("Swedish (Sweden) translation<br/>")+
-        QString("&nbsp;&nbsp;&nbsp; 2014 <a href=\"mailto:sopor@hotmail.com\">Sopor</a><br/>")+
+        QString("&nbsp;&nbsp;&nbsp; 2014-2015 <a href=\"mailto:sopor@hotmail.com\">Sopor</a><br/>")+
         QString("<br/>")
         );
 

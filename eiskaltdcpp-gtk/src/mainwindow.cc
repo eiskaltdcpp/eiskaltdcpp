@@ -242,11 +242,11 @@ MainWindow::MainWindow():
         string("  2014 Marko Trifunović <trifunovic@openmailbox.org>\n")+
         string("\n")+
         _("Serbian (Latin) translation\n")+
-        string("  2010-2014 Miroslav Petrovic <miroslav031@gmail.com>\n")+
+        string("  2010-2015 Miroslav Petrovic <miroslav031@gmail.com>\n")+
         string("  2014 Marko Trifunović <trifunovic@openmailbox.org>\n")+
         string("\n")+
         _("Spanish translation\n")+
-        string("  2010-2014 Gustavo Alvarez aka sL1pKn07 <sl1pkn07@gmail.com>\n")+
+        string("  2010-2015 Gustavo Alvarez aka sL1pKn07 <sl1pkn07@gmail.com>\n")+
         string("  2012-2014 Francisco Blas Izquierdo Riera aka klondike <klondike at klondike.es>\n")+
         string("\n")+
         _("Basque translation\n")+
@@ -281,7 +281,7 @@ MainWindow::MainWindow():
         string("  2013 Syaoming Lai <syaomingl@gmail.com>\n")+
         string("\n")+
         _("Swedish (Sweden) translation\n")+
-        string("  2014 Sopor <sopor@hotmail.com>\n")+
+        string("  2014-2015 Sopor <sopor@hotmail.com>\n")+
         string("\n");
     gtk_about_dialog_set_translator_credits(GTK_ABOUT_DIALOG(getWidget("aboutDialog")),
         (const gchar *)translator_credits.c_str());
