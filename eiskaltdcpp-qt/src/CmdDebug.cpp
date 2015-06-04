@@ -8,6 +8,7 @@
 ***************************************************************************/
 
 #include "CmdDebug.h"
+#include "dcpp/Text.h"
 #include <QStringList>
 
 CmdDebug::CmdDebug(QWidget *parent) :
@@ -51,12 +52,20 @@ void CmdDebug::on(DebugManagerListener::DebugDetection, const string &com) noexc
 }
 
 void CmdDebug::on(DebugManagerListener::DebugCommand, const string &mess, int typedir, const string &ip) noexcept {
+    QString qmess = _q(mess);
+    if (checkBoxDECODE->isChecked())
+    {
+        try {
+            qmess = QString::fromUtf8(Text::toUtf8(mess, Text::hubDefaultCharset).c_str());
+        } catch (...) {}
+    }
+
     switch(typedir) {
         case dcpp::DebugManager::HUB_IN :
             if(checkBoxHUB_IN->isChecked())
             {
                 QString qip = _q(ip);
-                QString msg = "Hub: [Incoming][" + qip + "] "+ _q(mess);
+                QString msg = "Hub: [Incoming][" + qip + "] "+ qmess;
                 emit coreDebugCommand(msg, qip);
             }
             break;
@@ -64,7 +73,7 @@ void CmdDebug::on(DebugManagerListener::DebugCommand, const string &mess, int ty
             if(checkBoxHUB_OUT->isChecked())
             {
                 QString qip = _q(ip);
-                QString msg = "Hub: [Outgoing][" + qip + "] "+ _q(mess);
+                QString msg = "Hub: [Outgoing][" + qip + "] "+ qmess;
                 emit coreDebugCommand(msg, qip);
             }
             break;
@@ -72,7 +81,7 @@ void CmdDebug::on(DebugManagerListener::DebugCommand, const string &mess, int ty
             if(checkBoxCL_IN->isChecked())
             {
                 QString qip = _q(ip);
-                QString msg = "Client: [Incoming]["  + qip + "] "+ _q(mess);
+                QString msg = "Client: [Incoming]["  + qip + "] "+ qmess;
                 emit coreDebugCommand(msg, qip);
             }
             break;
@@ -80,7 +89,23 @@ void CmdDebug::on(DebugManagerListener::DebugCommand, const string &mess, int ty
             if(checkBoxCL_OUT->isChecked())
             {
                 QString qip = _q(ip);
-                QString msg = "Client: [Outgoing][" + qip + "] "+ _q(mess);
+                QString msg = "Client: [Outgoing][" + qip + "] "+ qmess;
+                emit coreDebugCommand(msg, qip);
+            }
+            break;
+        case dcpp::DebugManager::DHT_IN:
+            if(checkBoxDHT_IN->isChecked())
+            {
+                QString qip = _q(ip);
+                QString msg = "DHT: [Incoming]["  + qip + "] "+ qmess;
+                emit coreDebugCommand(msg, qip);
+            }
+            break;
+        case dcpp::DebugManager::DHT_OUT:
+            if(checkBoxDHT_OUT->isChecked())
+            {
+                QString qip = _q(ip);
+                QString msg = "DHT: [Outgoing][" + qip + "] "+ qmess;
                 emit coreDebugCommand(msg, qip);
             }
             break;
