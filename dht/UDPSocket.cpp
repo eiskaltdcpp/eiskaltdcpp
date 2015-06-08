@@ -140,7 +140,7 @@ namespace dht
                 {
                     string ip = inet_ntoa(remoteAddr.sin_addr);
                     uint16_t port = ntohs(remoteAddr.sin_port);
-                    COMMAND_DEBUG(s.substr(0, s.length() - 1), DebugManager::HUB_IN,  ip + ":" + Util::toString(port));
+                    COMMAND_DEBUG(s.substr(0, s.length() - 1), DebugManager::DHT_IN,  ip + ":" + Util::toString(port));
                     DHT::getInstance()->dispatch(s.substr(0, s.length() - 1), ip, port, isUdpKeyValid);
                 }
 
@@ -284,7 +284,7 @@ namespace dht
         // pack data
         cmd.addParam("UK", Utils::getUdpKey(ip).toBase32()); // add our key for the IP address
         string command = cmd.toString(ClientManager::getInstance()->getMe()->getCID());
-        COMMAND_DEBUG(command, DebugManager::HUB_OUT, ip + ":" + Util::toString(port));
+        COMMAND_DEBUG(command, DebugManager::DHT_OUT, ip + ":" + Util::toString(port));
 
         Packet* p = new Packet(ip, port, command, targetCID, udpKey);
 

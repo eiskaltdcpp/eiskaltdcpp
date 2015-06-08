@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>636</width>
+    <width>779</width>
     <height>300</height>
    </rect>
   </property>
@@ -52,6 +52,20 @@
       </widget>
      </item>
      <item>
+      <widget class="QCheckBox" name="checkBoxDHT_IN">
+       <property name="text">
+        <string>DHT_IN</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QCheckBox" name="checkBoxDHT_OUT">
+       <property name="text">
+        <string>DHT_OUT</string>
+       </property>
+      </widget>
+     </item>
+     <item>
       <widget class="QCheckBox" name="checkBoxFilterIP">
        <property name="text">
         <string>Filter by IP</string>
@@ -60,6 +74,13 @@
      </item>
      <item>
       <widget class="QLineEdit" name="lineEditIP"/>
+     </item>
+     <item>
+      <widget class="QCheckBox" name="checkBoxDECODE">
+       <property name="text">
+        <string>Deocde from default hub encoding</string>
+       </property>
+      </widget>
      </item>
      <item>
       <widget class="QLabel" name="label">
