@@ -1155,6 +1155,7 @@ void HubFrame::init(){
     treeView_USERS->setUniformRowHeights(true);
     treeView_USERS->setContextMenuPolicy(Qt::CustomContextMenu);
     treeView_USERS->header()->setContextMenuPolicy(Qt::CustomContextMenu);
+    treeView_USERS->header()->hideSection(COLUMN_EXACT_SHARE);
     treeView_USERS->viewport()->installEventFilter(this);
 
     installEventFilter(this);
