@@ -199,14 +199,16 @@ HubFrame::Menu::Menu(){
 
     // submenu copy_data for user list
     QAction *copy_data_nick  = new QAction(tr("Nick"), NULL);
+    QAction *copy_data_cmnt  = new QAction(tr("Comment"), NULL);
     QAction *copy_data_ip    = new QAction(tr("IP"), NULL);
     QAction *copy_data_share = new QAction(tr("Share"), NULL);
     QAction *copy_data_tag   = new QAction(tr("Tag"), NULL);
+    QAction *copy_data_email = new QAction(tr("Email"), NULL);
     QAction *sep4            = new QAction(NULL);
     QAction *copy_data_all   = new QAction(tr("All"), NULL);
 
     QMenu *menuCopyData = new QMenu(NULL);
-    menuCopyData->addActions(QList<QAction*>() << copy_data_nick << copy_data_ip << copy_data_share << copy_data_tag << sep4 << copy_data_all);
+    menuCopyData->addActions(QList<QAction*>() << copy_data_nick << copy_data_cmnt << copy_data_ip << copy_data_share << copy_data_tag << copy_data_email << sep4 << copy_data_all);
 
     QAction *copy_data   = new QAction(WU->getPixmap(WulforUtil::eiEDITCOPY), tr("Copy data"), NULL);
     copy_data->setMenu(menuCopyData);
@@ -274,9 +276,11 @@ HubFrame::Menu::Menu(){
     chat_actions_map.insert(zoom_out, ZoomOutChat);
 
     chat_actions_map.insert(copy_data_nick,  CopyNick);
+    chat_actions_map.insert(copy_data_cmnt,  CopyComment);
     chat_actions_map.insert(copy_data_ip,    CopyIP);
     chat_actions_map.insert(copy_data_share, CopyShare);
     chat_actions_map.insert(copy_data_tag,   CopyTag);
+    chat_actions_map.insert(copy_data_email, CopyEmail);
     chat_actions_map.insert(copy_data_all,   CopyText);
 }
 
@@ -2857,6 +2861,12 @@ void HubFrame::slotUserListMenu(const QPoint&){
 
             break;
         }
+        case Menu::CopyComment:
+        {
+            copyTagToClipboard<&UserListItem::getComment> (list);
+
+            break;
+        }
         case Menu::CopyIP:
         {
             copyTagToClipboard<&UserListItem::getIP> (list);
@@ -2872,6 +2882,12 @@ void HubFrame::slotUserListMenu(const QPoint&){
         case Menu::CopyTag:
         {
             copyTagToClipboard<&UserListItem::getTag> (list);
+
+            break;
+        }
+        case Menu::CopyEmail:
+        {
+            copyTagToClipboard<&UserListItem::getEmail> (list);
 
             break;
         }
