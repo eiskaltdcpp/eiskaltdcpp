@@ -203,7 +203,7 @@ HubFrame::Menu::Menu(){
     QAction *copy_data_ip    = new QAction(tr("IP"), NULL);
     QAction *copy_data_share = new QAction(tr("Share"), NULL);
     QAction *copy_data_tag   = new QAction(tr("Tag"), NULL);
-    QAction *copy_data_email = new QAction(tr("Email"), NULL);
+    QAction *copy_data_email = new QAction(tr("E-mail"), NULL);
     QAction *sep4            = new QAction(NULL);
     QAction *copy_data_all   = new QAction(tr("All"), NULL);
 

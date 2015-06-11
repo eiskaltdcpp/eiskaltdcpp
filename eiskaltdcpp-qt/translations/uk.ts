@@ -1044,8 +1044,8 @@ EiskaltDC++ - кросплатформенна програма для робо�
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="206"/>
-        <source>Email</source>
-        <translation type="unfinished"></translation>
+        <source>E-mail</source>
+        <translation type="unfinished">E-Mail</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="208"/>

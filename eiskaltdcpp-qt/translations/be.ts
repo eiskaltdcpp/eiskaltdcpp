@@ -1044,8 +1044,8 @@ EiskaltDC++ — гэта міжплятформавая праґрама, яка
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="206"/>
-        <source>Email</source>
-        <translation type="unfinished"></translation>
+        <source>E-mail</source>
+        <translation type="unfinished">Эл. пошта</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="208"/>

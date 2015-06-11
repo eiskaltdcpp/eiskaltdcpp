@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="ru">
+<TS version="2.0" language="ru">
 <context>
     <name>ADLS</name>
     <message>
@@ -1044,8 +1044,8 @@ EiskaltDC++ - кроссплатформенная программа для р�
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="206"/>
-        <source>Email</source>
-        <translation></translation>
+        <source>E-mail</source>
+        <translation>E-mail</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="208"/>
@@ -7373,17 +7373,17 @@ if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</sourc
         <source>Form</source>
         <translation>Форма</translation>
     </message>
-    <message>
+    <message utf8="true">
         <location filename="../ui/UIShareBrowser.ui" line="103"/>
         <source>←</source>
         <translation>←</translation>
     </message>
-    <message>
+    <message utf8="true">
         <location filename="../ui/UIShareBrowser.ui" line="110"/>
         <source>→</source>
         <translation>→</translation>
     </message>
-    <message>
+    <message utf8="true">
         <location filename="../ui/UIShareBrowser.ui" line="117"/>
         <source>↑</source>
         <translation>↑</translation>

@@ -1043,7 +1043,7 @@ Kľúčové skratky:
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="206"/>
-        <source>Email</source>
+        <source>E-mail</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

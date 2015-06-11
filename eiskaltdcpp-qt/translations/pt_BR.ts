@@ -1044,8 +1044,8 @@ Comandos:
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="206"/>
-        <source>Email</source>
-        <translation type="unfinished"></translation>
+        <source>E-mail</source>
+        <translation type="unfinished">E-mail</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="208"/>
