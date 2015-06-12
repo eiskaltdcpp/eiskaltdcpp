@@ -46,7 +46,7 @@
 #include <set>
 
 TransferViewModel::TransferViewModel(QObject *parent)
-    : QAbstractItemModel(parent), iconsScaled(false)
+    : QAbstractItemModel(parent), iconsScaled(false), showTranferedFilesOnly(false)
 {
     QList<QVariant> rootData;
     rootData << tr("Users") << tr("Speed") << tr("Status") << tr("Flags") << tr("Size")
@@ -360,6 +360,13 @@ void TransferViewModel::addConnection(const VarMap &params){
 
     transfer_hash.insertMulti(item->cid, item);
 
+    if (showTranferedFilesOnly){
+        if (vstr(params["FNAME"]).isEmpty() || (tr("File list") == params["FNAME"]) ){
+            return;
+        };
+    };
+
+
     if (!to)
         rootItem->appendChild(item);
     else
@@ -391,7 +398,16 @@ void TransferViewModel::updateTransfer(const VarMap &params){
     item->fail = vbol(params["FAIL"]);
     item->tth = vstr(params["TTH"]);
 
+
+
     if (!vbol(params["DOWN"])){
+
+        if (showTranferedFilesOnly){
+            if (vstr(params["FNAME"]).isEmpty() || (tr("File list") == params["FNAME"]) ){
+                return;
+            };
+        };
+
         if (!rootItem->childItems.contains(item))
             rootItem->appendChild(item);
     }
@@ -515,6 +531,14 @@ void TransferViewModel::updateParents(){
 
     emit layoutChanged();
 }
+
+void TransferViewModel::setShowTranferedFilesOnlyState(bool state){
+    showTranferedFilesOnly = state;
+};
+
+bool TransferViewModel::getShowTranferedFilesOnlyState(){
+    return showTranferedFilesOnly;
+};
 
 void TransferViewModel::updateParent(TransferViewItem *p){
     if (!p || p->childCount() < 1 || p == rootItem)

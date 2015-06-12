@@ -90,9 +90,11 @@ class HubFrame :
             None,
 
             /** Additional actions for userlist */
+            CopyComment,
             CopyIP,
             CopyShare,
             CopyTag,
+            CopyEmail,
 
             /** Additional actions for AntiSpam */
             AntiSpamWhite,

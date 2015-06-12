@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2014-11-09 02:35+0300\n"
+"POT-Creation-Date: 2015-05-24 21:44+0300\n"
 "PO-Revision-Date: 2013-11-19 16:45+0000\n"
 "Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
 "Language-Team: Czech (http://www.transifex.com/projects/p/eiskaltdcpp/"
@@ -336,19 +336,13 @@ msgstr "Přesměrovat uživatele"
 msgid "Auto-connect group (converted)"
 msgstr ""
 
-#: ../NmdcHub.cpp:289
+#: ../NmdcHub.cpp:295
 msgid "%1% (Nick unknown)"
 msgstr "%1% (Nick neznámý)"
 
-#: ../NmdcHub.cpp:668
+#: ../NmdcHub.cpp:672
 msgid "Hub topic:"
 msgstr "Topic Hubu:"
-
-#: ../NmdcHub.cpp:1018
-msgid ""
-"This hub is trying to use your client to spam %1%, please urge hub owner to "
-"fix this"
-msgstr ""
 
 #: ../ConnectionManager.cpp:179
 msgid "All download slots taken"
@@ -472,11 +466,11 @@ msgstr "Nejsou volné žádné sloty"
 msgid "%1%: File not available"
 msgstr "%1%: Soubor není dostupný"
 
-#: ../UserConnection.cpp:52 ../UserConnection.cpp:66 ../UserConnection.cpp:140
+#: ../UserConnection.cpp:53 ../UserConnection.cpp:68 ../UserConnection.cpp:145
 msgid "Invalid data"
 msgstr "Velikost nesouhlasí"
 
-#: ../UserConnection.cpp:58
+#: ../UserConnection.cpp:59
 msgid "Non-UTF-8 data in an ADC connection"
 msgstr ""
 
@@ -500,67 +494,67 @@ msgstr "Fronta souborů ke stáhnutí"
 msgid "Users"
 msgstr "Uživatelé"
 
-#: ../Util.cpp:644
+#: ../Util.cpp:654
 #, c-format
 msgid "%d B"
 msgstr "%d B"
 
-#: ../Util.cpp:646
+#: ../Util.cpp:656
 #, c-format
 msgid "%.02f KiB"
 msgstr "%.02f KiB"
 
-#: ../Util.cpp:646
+#: ../Util.cpp:656
 #, fuzzy, c-format
 msgid "%.02f KB"
 msgstr "%.02f KiB"
 
-#: ../Util.cpp:648
+#: ../Util.cpp:658
 #, c-format
 msgid "%.02f MiB"
 msgstr "%.02f MiB"
 
-#: ../Util.cpp:648
+#: ../Util.cpp:658
 #, fuzzy, c-format
 msgid "%.02f MB"
 msgstr "%.02f MiB"
 
-#: ../Util.cpp:650
+#: ../Util.cpp:660
 #, c-format
 msgid "%.02f GiB"
 msgstr "%.02f GiB"
 
-#: ../Util.cpp:650
+#: ../Util.cpp:660
 #, fuzzy, c-format
 msgid "%.02f GB"
 msgstr "%.02f GiB"
 
-#: ../Util.cpp:652
+#: ../Util.cpp:662
 #, c-format
 msgid "%.02f TiB"
 msgstr "%.02f TiB"
 
-#: ../Util.cpp:652
+#: ../Util.cpp:662
 #, fuzzy, c-format
 msgid "%.02f TB"
 msgstr "%.02f TiB"
 
-#: ../Util.cpp:654
+#: ../Util.cpp:664
 #, c-format
 msgid "%.02f PiB"
 msgstr "%.02f PiB"
 
-#: ../Util.cpp:654
+#: ../Util.cpp:664
 #, fuzzy, c-format
 msgid "%.02f PB"
 msgstr "%.02f PiB"
 
-#: ../Util.cpp:688
+#: ../Util.cpp:698
 #, c-format
 msgid "%s B"
 msgstr "%s B"
 
-#: ../Util.cpp:692
+#: ../Util.cpp:702
 #, c-format
 msgid "%'lld B"
 msgstr "%'lld B"
@@ -621,35 +615,35 @@ msgstr "Obnovení seznamu souborů dokončeno"
 msgid "File list %1% generated"
 msgstr "Spuštěno obnovení filelistu"
 
-#: ../SettingsManager.cpp:180
+#: ../SettingsManager.cpp:179
 msgid "downloaded from"
 msgstr "staženo z"
 
-#: ../SettingsManager.cpp:517
+#: ../SettingsManager.cpp:516
 msgid "Invalid search type name"
 msgstr "Nevhodný název typu hledání"
 
-#: ../SettingsManager.cpp:521 ../SettingsManager.cpp:543
+#: ../SettingsManager.cpp:520 ../SettingsManager.cpp:542
 msgid "This search type already exists"
 msgstr "Tento typ hledání již existuje"
 
-#: ../SettingsManager.cpp:575
+#: ../SettingsManager.cpp:574
 msgid "No such search type"
 msgstr "Takový typ hledávání není"
 
-#: ../SettingsManager.cpp:603 ../SettingsManager.cpp:608
+#: ../SettingsManager.cpp:602 ../SettingsManager.cpp:607
 msgid "Error: setting not found!"
 msgstr "Chyba: nastaveni nenalezeno!"
 
-#: ../SettingsManager.cpp:603
+#: ../SettingsManager.cpp:602
 msgid "Core setting "
 msgstr ""
 
-#: ../SettingsManager.cpp:608
+#: ../SettingsManager.cpp:607
 msgid "Change core setting "
 msgstr "Změna nastavení jádra "
 
-#: ../SettingsManager.cpp:608
+#: ../SettingsManager.cpp:607
 msgid " to "
 msgstr " na "
 

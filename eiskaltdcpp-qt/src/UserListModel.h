@@ -51,11 +51,12 @@ public:
 
 static const unsigned COLUMN_NICK       = 0;
 static const unsigned COLUMN_SHARE      = 1;
-static const unsigned COLUMN_COMMENT    = 2;
-static const unsigned COLUMN_TAG        = 3;
-static const unsigned COLUMN_CONN       = 4;
-static const unsigned COLUMN_IP         = 5;
-static const unsigned COLUMN_EMAIL      = 6;
+static const unsigned COLUMN_EXACT_SHARE= 2;
+static const unsigned COLUMN_COMMENT    = 3;
+static const unsigned COLUMN_TAG        = 4;
+static const unsigned COLUMN_CONN       = 5;
+static const unsigned COLUMN_IP         = 6;
+static const unsigned COLUMN_EMAIL      = 7;
 
 typedef QHash<QString, QVariant> UserMap;
 

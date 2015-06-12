@@ -137,7 +137,7 @@ namespace dht
                 string s((char*)destBuf.get(), destLen);
                 if(s[0] == ADC_PACKET_HEADER && s[s.length() - 1] == ADC_PACKET_FOOTER) // is it valid ADC command?
                 {
-                    COMMAND_DEBUG(s.substr(0, s.length() - 1), DebugManager::HUB_IN,  remoteAddr + ":" + remotePort);
+                    COMMAND_DEBUG(s.substr(0, s.length() - 1), DebugManager::DHT_IN,  remoteAddr + ":" + remotePort);
                     DHT::getInstance()->dispatch(s.substr(0, s.length() - 1), remoteAddr, remotePort, isUdpKeyValid);
                 }
 
@@ -278,7 +278,7 @@ namespace dht
         // pack data
         cmd.addParam("UK", Utils::getUdpKey(ip).toBase32()); // add our key for the IP address
         string command = cmd.toString(ClientManager::getInstance()->getMe()->getCID());
-        COMMAND_DEBUG(command, DebugManager::HUB_OUT, ip + ":" + port);
+        COMMAND_DEBUG(command, DebugManager::DHT_OUT, ip + ":" + port);
 
         Packet* p = new Packet(ip, port, command, targetCID, udpKey);
 

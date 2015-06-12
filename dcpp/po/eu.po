@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR EiskaltDC++ team
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Translators:
 # Translators:
@@ -12,14 +12,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2014-11-09 02:35+0300\n"
+"POT-Creation-Date: 2015-05-24 21:44+0300\n"
 "PO-Revision-Date: 2015-03-18 08:47+0000\n"
 "Last-Translator: Egoitz Rodriguez Obieta <egoitzro@gmail.com>\n"
-"Language-Team: Basque (http://www.transifex.com/projects/p/eiskaltdcpp/language/eu/)\n"
+"Language-Team: Basque (http://www.transifex.com/projects/p/eiskaltdcpp/"
+"language/eu/)\n"
+"Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: eu\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../SearchManager.cpp:36
@@ -127,8 +128,7 @@ msgstr "Konektibitate konfigurazio onena zehazten..."
 
 #: ../ConnectivityManager.cpp:85
 msgid ""
-"Unable to open %1% port(s); connectivity settings must be configured "
-"manually"
+"Unable to open %1% port(s); connectivity settings must be configured manually"
 msgstr ""
 
 #: ../ConnectivityManager.cpp:95
@@ -280,8 +280,7 @@ msgid "%1%: Matched %2% file"
 msgstr ""
 
 #: ../QueueManager.cpp:1796
-msgid ""
-"Target path for this item is not available: %1%; pause this queue item."
+msgid "Target path for this item is not available: %1%; pause this queue item."
 msgstr ""
 
 #: ../QueueManager.cpp:2035 ../QueueManager.cpp:2044
@@ -330,19 +329,13 @@ msgstr ""
 msgid "Auto-connect group (converted)"
 msgstr ""
 
-#: ../NmdcHub.cpp:289
+#: ../NmdcHub.cpp:295
 msgid "%1% (Nick unknown)"
 msgstr ""
 
-#: ../NmdcHub.cpp:668
+#: ../NmdcHub.cpp:672
 msgid "Hub topic:"
 msgstr "Hub gaia:"
-
-#: ../NmdcHub.cpp:1018
-msgid ""
-"This hub is trying to use your client to spam %1%, please urge hub owner to "
-"fix this"
-msgstr ""
 
 #: ../ConnectionManager.cpp:179
 msgid "All download slots taken"
@@ -466,11 +459,11 @@ msgstr ""
 msgid "%1%: File not available"
 msgstr ""
 
-#: ../UserConnection.cpp:52 ../UserConnection.cpp:66 ../UserConnection.cpp:140
+#: ../UserConnection.cpp:53 ../UserConnection.cpp:68 ../UserConnection.cpp:145
 msgid "Invalid data"
 msgstr "Datu baliogabeak"
 
-#: ../UserConnection.cpp:58
+#: ../UserConnection.cpp:59
 msgid "Non-UTF-8 data in an ADC connection"
 msgstr ""
 
@@ -494,67 +487,67 @@ msgstr "Deskarga Ilara"
 msgid "Users"
 msgstr "Erabiltzaileak"
 
-#: ../Util.cpp:644
+#: ../Util.cpp:654
 #, c-format
 msgid "%d B"
 msgstr "%d B"
 
-#: ../Util.cpp:646
+#: ../Util.cpp:656
 #, c-format
 msgid "%.02f KiB"
 msgstr "%.02f KiB"
 
-#: ../Util.cpp:646
+#: ../Util.cpp:656
 #, c-format
 msgid "%.02f KB"
 msgstr ""
 
-#: ../Util.cpp:648
+#: ../Util.cpp:658
 #, c-format
 msgid "%.02f MiB"
 msgstr "%.02f MiB"
 
-#: ../Util.cpp:648
+#: ../Util.cpp:658
 #, c-format
 msgid "%.02f MB"
 msgstr ""
 
-#: ../Util.cpp:650
+#: ../Util.cpp:660
 #, c-format
 msgid "%.02f GiB"
 msgstr "%.02f GiB"
 
-#: ../Util.cpp:650
+#: ../Util.cpp:660
 #, c-format
 msgid "%.02f GB"
 msgstr ""
 
-#: ../Util.cpp:652
+#: ../Util.cpp:662
 #, c-format
 msgid "%.02f TiB"
 msgstr "%.02f TiB"
 
-#: ../Util.cpp:652
+#: ../Util.cpp:662
 #, c-format
 msgid "%.02f TB"
 msgstr ""
 
-#: ../Util.cpp:654
+#: ../Util.cpp:664
 #, c-format
 msgid "%.02f PiB"
 msgstr "%.02f PiB"
 
-#: ../Util.cpp:654
+#: ../Util.cpp:664
 #, c-format
 msgid "%.02f PB"
 msgstr ""
 
-#: ../Util.cpp:688
+#: ../Util.cpp:698
 #, c-format
 msgid "%s B"
 msgstr "%s B"
 
-#: ../Util.cpp:692
+#: ../Util.cpp:702
 #, c-format
 msgid "%'lld B"
 msgstr "%'lld B"
@@ -595,8 +588,8 @@ msgstr ""
 
 #: ../ShareManager.cpp:793
 msgid ""
-"File list refresh in progress, please wait for it to finish before trying to"
-" refresh again"
+"File list refresh in progress, please wait for it to finish before trying to "
+"refresh again"
 msgstr ""
 
 #: ../ShareManager.cpp:814
@@ -615,35 +608,35 @@ msgstr ""
 msgid "File list %1% generated"
 msgstr ""
 
-#: ../SettingsManager.cpp:180
+#: ../SettingsManager.cpp:179
 msgid "downloaded from"
 msgstr ""
 
-#: ../SettingsManager.cpp:517
+#: ../SettingsManager.cpp:516
 msgid "Invalid search type name"
 msgstr ""
 
-#: ../SettingsManager.cpp:521 ../SettingsManager.cpp:543
+#: ../SettingsManager.cpp:520 ../SettingsManager.cpp:542
 msgid "This search type already exists"
 msgstr ""
 
-#: ../SettingsManager.cpp:575
+#: ../SettingsManager.cpp:574
 msgid "No such search type"
 msgstr ""
 
-#: ../SettingsManager.cpp:603 ../SettingsManager.cpp:608
+#: ../SettingsManager.cpp:602 ../SettingsManager.cpp:607
 msgid "Error: setting not found!"
 msgstr ""
 
-#: ../SettingsManager.cpp:603
+#: ../SettingsManager.cpp:602
 msgid "Core setting "
 msgstr ""
 
-#: ../SettingsManager.cpp:608
+#: ../SettingsManager.cpp:607
 msgid "Change core setting "
 msgstr ""
 
-#: ../SettingsManager.cpp:608
+#: ../SettingsManager.cpp:607
 msgid " to "
 msgstr ""
 
