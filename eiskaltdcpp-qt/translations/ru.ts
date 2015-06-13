@@ -4731,7 +4731,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UICmdDebug.ui" line="81"/>
         <source>Decode from default hub encoding</source>
-        <translation type="unfinished"></translation>
+        <translation>Использовать кодировку хаба по умолчанию</translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="88"/>
@@ -7602,7 +7602,7 @@ if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</sourc
     <message>
         <location filename="../src/UserListModel.cpp" line="174"/>
         <source>Exact share size</source>
-        <translation type="unfinished"></translation>
+        <translation>Точный размер шары</translation>
     </message>
     <message>
         <location filename="../src/UserListModel.cpp" line="175"/>
