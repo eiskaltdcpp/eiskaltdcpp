@@ -4731,7 +4731,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="81"/>
-        <source>Deocde from default hub encoding</source>
+        <source>Decode from default hub encoding</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -7600,7 +7600,7 @@ EiskaltDC++ поддържа качване на файлове и списъц�
     </message>
     <message>
         <location filename="../src/UserListModel.cpp" line="174"/>
-        <source>Exact share</source>
+        <source>Exact share size</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
