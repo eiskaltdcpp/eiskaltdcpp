@@ -10,6 +10,7 @@
 #include "PublicHubs.h"
 #include "MainWindow.h"
 #include "WulforSettings.h"
+#include "AutoToolTip.h"
 
 #include <QApplication>
 #include <QClipboard>
@@ -29,6 +30,7 @@ PublicHubs::PublicHubs(QWidget *parent) :
     model = new PublicHubModel();
 
     treeView->setModel(model);
+    treeView->setItemDelegate(new AutoToolTipDelegate(treeView));
     treeView->header()->restoreState(WVGET(WS_PUBLICHUBS_STATE, QByteArray()).toByteArray());
 
     lineEdit_FILTER->installEventFilter(this);
@@ -75,6 +77,8 @@ PublicHubs::PublicHubs(QWidget *parent) :
     connect(WulforSettings::getInstance(), SIGNAL(strValueChanged(QString,QString)), this, SLOT(slotSettingsChanged(QString,QString)));
     
     ArenaWidget::setState( ArenaWidget::Flags(ArenaWidget::state() | ArenaWidget::Singleton | ArenaWidget::Hidden) );
+    if (comboBox_HUBS->count())
+        slotHubChanged(comboBox_HUBS->currentIndex());
 }
 
 PublicHubs::~PublicHubs(){
