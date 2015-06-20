@@ -4716,12 +4716,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UICmdDebug.ui" line="57"/>
         <source>DHT_IN</source>
-        <translation type="unfinished"></translation>
+        <translation>DHT_IN</translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="64"/>
         <source>DHT_OUT</source>
-        <translation type="unfinished"></translation>
+        <translation>DHT_OUT</translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="71"/>
@@ -4730,8 +4730,8 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="81"/>
-        <source>Deocde from default hub encoding</source>
-        <translation type="unfinished"></translation>
+        <source>Decode from default hub encoding</source>
+        <translation>Использовать кодировку хаба по умолчанию</translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="88"/>
@@ -7601,8 +7601,8 @@ if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</sourc
     </message>
     <message>
         <location filename="../src/UserListModel.cpp" line="174"/>
-        <source>Exact share</source>
-        <translation>Точная шара</translation>
+        <source>Exact share size</source>
+        <translation>Точный размер шары</translation>
     </message>
     <message>
         <location filename="../src/UserListModel.cpp" line="175"/>

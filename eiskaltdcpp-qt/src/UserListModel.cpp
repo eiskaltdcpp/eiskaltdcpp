@@ -171,7 +171,7 @@ QVariant UserListModel::headerData(int section, Qt::Orientation orientation, int
             case COLUMN_CONN: return tr("Connection");
             case COLUMN_EMAIL: return tr("E-mail");
             case COLUMN_SHARE: return tr("Share");
-            case COLUMN_EXACT_SHARE: return tr("Exact share");
+            case COLUMN_EXACT_SHARE: return tr("Exact share size");
             case COLUMN_IP: return tr("IP");
         }
     }

@@ -78,7 +78,7 @@
      <item>
       <widget class="QCheckBox" name="checkBoxDECODE">
        <property name="text">
-        <string>Deocde from default hub encoding</string>
+        <string>Decode from default hub encoding</string>
        </property>
       </widget>
      </item>
