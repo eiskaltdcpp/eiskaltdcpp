@@ -341,12 +341,6 @@ msgstr "%1% (Nick unbekannt)"
 msgid "Hub topic:"
 msgstr "Thema des Hubs:"
 
-#: ../NmdcHub.cpp:1018
-msgid ""
-"This hub is trying to use your client to spam %1%, please urge hub owner to "
-"fix this"
-msgstr "Dieser Hub versucht, Ihren Client zum Spammen von %1% zu benutzen. Bitte drängen Sie den Besitzer dies zu beheben."
-
 #: ../ConnectionManager.cpp:179
 msgid "All download slots taken"
 msgstr "alle Download-Slots in Anspruch genommen"

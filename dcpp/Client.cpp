@@ -211,29 +211,6 @@ vector<uint8_t> Client::getKeyprint() const {
     return isConnected() ? sock->getKeyprint() : vector<uint8_t>();
 }
 void Client::updateCounts(bool aRemove) {
-//    // We always remove the count and then add the correct one if requested...
-//    if(countType == COUNT_NORMAL) {
-//        counts.normal.dec();
-//    } else if(countType == COUNT_REGISTERED) {
-//        counts.registered.dec();
-//    } else if(countType == COUNT_OP) {
-//        counts.op.dec();
-//    }
-
-//    countType = COUNT_UNCOUNTED;
-
-//    if(!aRemove) {
-//        if(getMyIdentity().isOp()) {
-//            counts.op.inc();
-//            countType = COUNT_OP;
-//        } else if(getMyIdentity().isRegistered()) {
-//            counts.registered.inc();
-//            countType = COUNT_REGISTERED;
-//        } else {
-//            counts.normal.inc();
-//            countType = COUNT_NORMAL;
-//        }
-//    }
     // We always remove the count and then add the correct one if requested...
     if(countType != COUNT_UNCOUNTED) {
         --counts[countType];
@@ -250,6 +227,16 @@ void Client::updateCounts(bool aRemove) {
         }
         ++counts[countType];
     }
+}
+
+void Client::updated(OnlineUser &user)
+{
+    fire(ClientListener::UserUpdated(), this, user);
+}
+
+void Client::updated(OnlineUserList &users)
+{
+    fire(ClientListener::UsersUpdated(), this, users);
 }
 
 string Client::getLocalIp() const {

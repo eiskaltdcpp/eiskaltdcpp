@@ -16,7 +16,6 @@
 #include "Notification.h"
 #include "SearchFrame.h"
 #include "DownloadQueue.h"
-#include "IPFilter.h"
 #include "ArenaWidgetFactory.h"
 
 #include "dcpp/Util.h"
@@ -592,13 +591,6 @@ void TransferView::on(dcpp::DownloadManagerListener::Requesting, dcpp::Download*
 
     getParams(params, dl);
 
-    if (IPFilter::getInstance()){
-        if (!IPFilter::getInstance()->OK(vstr(params["IP"]), eDIRECTION_IN)){
-            closeConection(vstr(params["CID"]), true);
-            return;
-        }
-    }
-
     params["ESIZE"] = (qlonglong)QueueManager::getInstance()->getSize(dl->getPath());
     params["FPOS"]  = (qlonglong)QueueManager::getInstance()->getPos(dl->getPath());
     params["STAT"]  = tr("Requesting");
@@ -782,13 +774,6 @@ void TransferView::on(dcpp::UploadManagerListener::Starting, dcpp::Upload* ul) n
     VarMap params;
 
     getParams(params, ul);
-
-    if (IPFilter::getInstance()){
-        if (!IPFilter::getInstance()->OK(vstr(params["IP"]), eDIRECTION_OUT)){
-            closeConection(vstr(params["CID"]), false);
-            return;
-        }
-    }
 
     params["STAT"] = tr("Upload starting...");
     params["DOWN"] = false;

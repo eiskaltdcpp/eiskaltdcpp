@@ -188,8 +188,8 @@ protected:
 
     virtual void search(int aSizeMode, int64_t aSize, int aFileType, const string& aString, const string& aToken, const StringList& aExtList) = 0;
 
-    //void updated(OnlineUser& user);
-    //void updated(OnlineUserList& users);
+    void updated(OnlineUser& user);
+    void updated(OnlineUserList& users);
 
     /** Reload details from favmanager or settings */
     //void reloadSettings(bool updateNick);

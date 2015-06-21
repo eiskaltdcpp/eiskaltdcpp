@@ -13,6 +13,14 @@
 #include "dcpp/stdinc.h"
 #include "dcpp/Singleton.h"
 
+enum eRULE {
+    eRULE_NOACTION = 0,
+    eRULE_ADDED,
+    eRULE_CHANGED,
+    eRULE_REMOVED
+};
+
+
 enum eDIRECTION {
     eDIRECTION_IN = 0,
     eDIRECTION_OUT,
@@ -50,7 +58,7 @@ public:
     /** */
     static uint32_t MaskForBits(uint32_t);
     /** */
-    static bool ParseString(std::string, uint32_t&, uint32_t&, eTableAction&);
+    static bool ParseString(const std::string &, uint32_t&, uint32_t&, eTableAction&);
 
     void load();
     void shutdown();
@@ -65,11 +73,11 @@ public:
     const QIPHash &getHash ();
 
     /** */
-    void addToRules(std::string exp, eDIRECTION direction);
+    uint32_t addToRules(const std::string& exp, eDIRECTION direction);
     /** */
-    void remFromRules(std::string exp, eTableAction);
+    uint32_t remFromRules(const std::string& exp, eTableAction);
     /** */
-    void changeRuleDirection(std::string exp, eDIRECTION, eTableAction);
+    uint32_t changeRuleDirection(const std::string& exp, eDIRECTION, eTableAction);
     /** */
     void clearRules();
 
@@ -79,12 +87,12 @@ public:
     void moveRuleDown(uint32_t, eTableAction);
 
     /** */
-    bool OK(const std::string &exp, eDIRECTION direction);
+    bool OK(const std::string& exp, eDIRECTION direction);
 
     /** */
-    void exportTo(std::string path);
+    void exportTo(const std::string& path);
     /** */
-    void importFrom(std::string path);
+    void importFrom(const std::string& path);
 
 #ifdef _DEBUG_
     void printHash();

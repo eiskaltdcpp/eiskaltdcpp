@@ -170,7 +170,6 @@ void WulforSettings::load(){
             settings.setValue(WB_ANTISPAM_ENABLED,      static_cast<int>(false));
             settings.setValue(WB_ANTISPAM_AS_FILTER,    static_cast<int>(false));
             settings.setValue(WB_ANTISPAM_FILTER_OPS,   static_cast<int>(false));
-            settings.setValue(WB_IPFILTER_ENABLED,      static_cast<int>(false));
             settings.setValue(WB_TRAY_ENABLED,          static_cast<int>(true));
             settings.setValue(WB_EXIT_CONFIRM,          static_cast<int>(false));
             settings.setValue(WB_SHOW_IP_IN_CHAT,       static_cast<int>(false));
@@ -308,7 +307,6 @@ void WulforSettings::loadOldConfig(){
         intmap.insert(WB_ANTISPAM_ENABLED,      static_cast<int>(false));
         intmap.insert(WB_ANTISPAM_AS_FILTER,    static_cast<int>(false));
         intmap.insert(WB_ANTISPAM_FILTER_OPS,   static_cast<int>(false));
-        intmap.insert(WB_IPFILTER_ENABLED,      static_cast<int>(false));
         intmap.insert(WB_TRAY_ENABLED,          static_cast<int>(true));
         intmap.insert(WB_EXIT_CONFIRM,          static_cast<int>(false));
         intmap.insert(WB_SHOW_IP_IN_CHAT,       static_cast<int>(false));

@@ -98,7 +98,7 @@ uint32_t ipfilter::MaskForBits(uint32_t bits){
     return mask;
 }
 
-bool ipfilter::ParseString(string exp, uint32_t &ip, uint32_t &mask, eTableAction &act){
+bool ipfilter::ParseString(const string& exp, uint32_t &ip, uint32_t &mask, eTableAction &act){
     if (exp.empty())
         return false;
 
@@ -152,12 +152,12 @@ bool ipfilter::ParseString(string exp, uint32_t &ip, uint32_t &mask, eTableActio
     return true;
 }
 
-void ipfilter::addToRules(string exp, eDIRECTION direction) {
+uint32_t ipfilter::addToRules(const string& exp, eDIRECTION direction) {
     uint32_t exp_ip, exp_mask;
     eTableAction act;
 
     if (!ParseString(exp, exp_ip, exp_mask, act))
-        return;
+        return eRULE_NOACTION;
 
     IPFilterElem *el = NULL;
 
@@ -176,10 +176,10 @@ void ipfilter::addToRules(string exp, eDIRECTION direction) {
 #endif
                 el->direction = eDIRECTION_BOTH;
 
-                return;
+                return eRULE_CHANGED;
             }
             else if (el->direction == direction && el->action == act)
-                return;
+                return eRULE_NOACTION;
 
             ++it;
         }
@@ -205,20 +205,21 @@ void ipfilter::addToRules(string exp, eDIRECTION direction) {
 
     list_ip.insert(pair<uint32_t, IPFilterElem*>(el->ip,el));
     rules.push_back(el);
+    return eRULE_ADDED;
 }
 
-void ipfilter::remFromRules(string exp, eTableAction act) {
+uint32_t ipfilter::remFromRules(const string& exp, eTableAction act) {
     uint32_t exp_ip, exp_mask;
     eTableAction exp_act;
 
     if (!ParseString(exp, exp_ip, exp_mask, exp_act))
-        return;
+        return eRULE_NOACTION;
     if (exp_act != act)
-        return;
+        return eRULE_NOACTION;
 
     QIPHash::iterator it = list_ip.find(exp_ip);
 
-    if (it != list_ip.end() && it->first == exp_ip){
+    if (it != list_ip.end() && it->first == exp_ip) {
         IPFilterElem *el = it->second;
 #ifdef _DEBUG_IPFILTER_
     fprintf(stdout,"\tThis element will be deleted:\n");
@@ -238,23 +239,23 @@ void ipfilter::remFromRules(string exp, eTableAction act) {
             rules.erase( remove( rules.begin(), rules.end(), el ), rules.end());
 #ifdef _DEBUG_IPFILTER_
         printf("element is deleted.\n");
-#endif
-        }
-#ifdef _DEBUG_IPFILTER_
         printf("delete *el\n");
 #endif
-        delete el;
+            delete el;
+            return eRULE_REMOVED;
+        }
     }
+    return eRULE_NOACTION;
 }
 
-void ipfilter::changeRuleDirection(string exp, eDIRECTION direction, eTableAction act) {
+uint32_t ipfilter::changeRuleDirection(const string& exp, eDIRECTION direction, eTableAction act) {
     string str_ip;
     size_t pos = exp.find("/");
 #ifdef _DEBUG_IPFILTER_
     printf("pos / - %i\n", (uint32_t)pos);
 #endif
     if (pos != string::npos)
-        str_ip = exp.erase(pos);
+        str_ip = exp.substr(0, pos);
     else
         str_ip = exp;
 
@@ -264,10 +265,13 @@ void ipfilter::changeRuleDirection(string exp, eDIRECTION direction, eTableActio
     if (it != list_ip.end() && it->first == exp_ip) {
         IPFilterElem *el = it->second;
 
-        if (el->action == act){
+        if (el->action == act) {
             el->direction = direction;
+            return eRULE_CHANGED;
         }
     }
+
+    return eRULE_NOACTION;
 }
 
 bool ipfilter::OK(const string &exp, eDIRECTION direction){
@@ -470,7 +474,7 @@ void ipfilter::saveList(){
     f.close();
 }
 
-void ipfilter::exportTo(string path) {
+void ipfilter::exportTo(const string& path) {
     string file = Util::getPath(Util::PATH_USER_CONFIG) + "ipfilter";
     saveList();
     if (!Util::fileExists(path)) {
@@ -481,15 +485,15 @@ void ipfilter::exportTo(string path) {
     try{
         File::copyFile(file,path);
     } catch (...) {
-    fprintf(stdout,"Unable to export settings.");fflush(stdout);
-    return;
+        fprintf(stdout,"Unable to export settings.");fflush(stdout);
+        return;
     }
     return;
 }
 
-void ipfilter::importFrom(string path) {
+void ipfilter::importFrom(const string& path) {
     if (!Util::fileExists(path)) {
-        fprintf(stdout,"Nothing to export.");fflush(stdout);
+        fprintf(stdout,"Nothing to import.");fflush(stdout);
         return;
     }
     File f(path, File::READ, File::OPEN);
@@ -520,6 +524,9 @@ const QIPHash &ipfilter::getHash() {
 }
 
 void ipfilter::clearRules() {
+    for(auto i = list_ip.begin(); i != list_ip.end(); i++) {
+        delete i->second;
+    }
     list_ip.clear();
     rules.clear();
 }

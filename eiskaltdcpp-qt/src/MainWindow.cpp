@@ -68,7 +68,6 @@
 #include "SideBar.h"
 #include "ActionCustomizer.h"
 #include "MultiLineToolBar.h"
-#include "IPFilter.h"
 #include "SearchBlacklist.h"
 #include "QueuedUsers.h"
 #ifdef FREE_SPACE_BAR_C
@@ -244,11 +243,11 @@ MainWindow::MainWindow (QWidget *parent):
         AntiSpam::getInstance()->loadSettings();
     }
 
-    if (WBGET(WB_IPFILTER_ENABLED)){
-        IPFilter::newInstance();
+//    if (WBGET(WB_IPFILTER_ENABLED)){
+//        ipfilter::newInstance();
 
-        IPFilter::getInstance()->loadList();
-    }
+//        ipfilter::getInstance()->loadList();
+//    }
 
     ShortcutManager::newInstance();
 
@@ -847,7 +846,7 @@ void MainWindow::initActions(){
         d->toolsIPFilter->setObjectName("toolsIPFilter");
         d->toolsIPFilter->setIcon(WU->getPixmap(WulforUtil::eiFILTER));
         d->toolsIPFilter->setCheckable(true);
-        d->toolsIPFilter->setChecked(IPFilter::getInstance() != NULL);
+        d->toolsIPFilter->setChecked(ipfilter::getInstance() != NULL);
         connect(d->toolsIPFilter, SIGNAL(triggered()), this, SLOT(slotToolsIPFilter()));
 
         d->toolsAwayOn = new QAction("", this);
@@ -2270,7 +2269,7 @@ void MainWindow::slotToolsIPFilter(){
 
     Q_D(MainWindow);
 
-    d->toolsIPFilter->setChecked(IPFilter::getInstance() != NULL);
+    d->toolsIPFilter->setChecked(ipfilter::getInstance() != NULL);
 }
 
 void MainWindow::slotToolsAutoAway(){
