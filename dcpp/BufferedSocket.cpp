@@ -327,6 +327,11 @@ void BufferedSocket::threadSendFile(InputStream* file) {
             if(disconnecting)
                 return;
 
+            int w = sock->wait(0, Socket::WAIT_READ);
+            if(w & Socket::WAIT_READ) {
+                threadRead();
+            }
+
             if(written == -1) {
                 // workaround for OpenSSL (crashes when previous write failed and now retrying with different writeSize)
                 try {
