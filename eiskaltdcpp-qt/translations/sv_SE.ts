@@ -4737,7 +4737,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UICmdDebug.ui" line="81"/>
         <source>Decode from default hub encoding</source>
-        <translation type="unfinished"/>
+        <translation>Avkoda från standard hubbkodning</translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="88"/>
