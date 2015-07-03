@@ -426,7 +426,7 @@ void WulforSettings::loadTranslation(){
     if (file.isEmpty() || !QFile::exists(file)){
         QString lc_prefix = QLocale::system().name();
 
-#if !defined(Q_WS_WIN)
+#if !defined(Q_OS_WIN)
         file = QString(CLIENT_TRANSLATIONS_DIR) + QDir::separator();
 #else
         file = qApp->applicationDirPath()+QDir::separator()+QString(CLIENT_TRANSLATIONS_DIR)+QDir::separator();

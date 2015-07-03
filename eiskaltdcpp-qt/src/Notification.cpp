@@ -57,11 +57,11 @@ void Notification::enableTray(bool enable){
 
         tray = NULL;
 
-#if defined(Q_WS_MAC)
+#if defined(Q_OS_MAC)
         MainWindow::getInstance()->setUnload(false);
-#else // defined(Q_WS_MAC)
+#else // defined(Q_OS_MAC)
         MainWindow::getInstance()->setUnload(true);
-#endif // defined(Q_WS_MAC)
+#endif // defined(Q_OS_MAC)
 
         //WBSET(WB_TRAY_ENABLED, false);
     }
@@ -173,17 +173,17 @@ void Notification::showMessage(int t, const QString &title, const QString &msg){
             if (!(static_cast<unsigned>(WIGET(WI_NOTIFY_EVENTMAP)) & static_cast<unsigned>(t)))
                 break;
 
-#if defined(Q_WS_MAC)
+#if defined(Q_OS_MAC)
             qApp->setWindowIcon(WICON(WulforUtil::eiMESSAGE_TRAY_ICON));
             qApp->alert(MainWindow::getInstance(), 0);
-#else // defined(Q_WS_MAC)
+#else // defined(Q_OS_MAC)
             if (tray && t == PM && (!MainWindow::getInstance()->isVisible() || WBGET(WB_NOTIFY_CH_ICON_ALWAYS))){
                 tray->setIcon(WICON(WulforUtil::eiMESSAGE_TRAY_ICON));
 
                 if (MainWindow::getInstance()->isVisible())
                     QApplication::alert(MainWindow::getInstance(), 0);
             }
-#endif // defined(Q_WS_MAC)
+#endif // defined(Q_OS_MAC)
 
             if (notify)
                 notify->showMessage(title, msg, tray);
@@ -225,7 +225,7 @@ void Notification::setToolTip(const QString &DSPEED, const QString &USPEED, cons
     if (!WBGET(WB_TRAY_ENABLED) || !tray)
         return;
 
-#if defined(Q_WS_X11)
+#if defined(Q_OS_X11)
     QString out = tr("<b>Speed</b><br/>"
                      "Download: <font_color=\"green\">%1</font> "
                      "Upload: <font_color=\"red\">%2</font><br/>"
@@ -268,9 +268,9 @@ void Notification::slotShowHide(){
     MainWindow *MW = MainWindow::getInstance();
 
     if (MW->isVisible()){
-#if defined(Q_WS_WIN)
+#if defined(Q_OS_WIN)
         MW->hide();
-#elif defined(Q_WS_MAC)
+#elif defined(Q_OS_MAC)
         if (!MW->isActiveWindow()){
             MW->activateWindow();
             MW->raise();
@@ -291,12 +291,12 @@ void Notification::slotShowHide(){
     else{
         MW->show();
         MW->raise();
-#if defined(Q_WS_MAC)
+#if defined(Q_OS_MAC)
         MW->redrawToolPanel();
-#else // defined(Q_WS_MAC)
+#else // defined(Q_OS_MAC)
         if (tray)
             MW->redrawToolPanel();
-#endif // defined(Q_WS_MAC)
+#endif // defined(Q_OS_MAC)
     }
 }
 

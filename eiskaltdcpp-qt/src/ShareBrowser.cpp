@@ -1025,7 +1025,7 @@ void ShareBrowser::slotCustomContextMenu(const QPoint &){
 
                 for (const auto &it : lst){
                     if (QDir(_q(it)).exists())
-#ifndef Q_WS_WIN
+#ifndef Q_OS_WIN
                         QDesktopServices::openUrl(QUrl("file://"+_q(it)));
 #else
                         QDesktopServices::openUrl(QUrl("file:///"+_q(it)));

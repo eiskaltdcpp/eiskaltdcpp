@@ -3459,7 +3459,7 @@ void HubFrame::slotSmileClicked(){
 }
 
 void HubFrame::slotSmileContextMenu(){
-#if !defined(Q_WS_WIN)
+#if !defined(Q_OS_WIN)
     QString emot = CLIENT_DATA_DIR "/emoticons/";
 #else
     QString emot = qApp->applicationDirPath()+QDir::separator()+CLIENT_DATA_DIR "/emoticons/";

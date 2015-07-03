@@ -27,7 +27,7 @@ static const QString EmoticonSectionName = "emoticons-map";
 static const QString EmoticonSubsectionName = "emoticon";
 static const QString EmoticonTextSectionName = "name";
 
-#if !defined (Q_WS_WIN)
+#if !defined (Q_OS_WIN)
 static const QString EmotionPath = CLIENT_DATA_DIR "/emoticons/";
 #else
 static QString EmotionPath = "";
@@ -36,7 +36,7 @@ static QString EmotionPath = "";
 EmoticonFactory::EmoticonFactory() :
     QObject(NULL)
 {
-#if defined (Q_WS_WIN)
+#if defined (Q_OS_WIN)
     EmotionPath = qApp->applicationDirPath() + QDir::separator() + CLIENT_DATA_DIR "/emoticons/";
 #endif
     currentTheme = "";
