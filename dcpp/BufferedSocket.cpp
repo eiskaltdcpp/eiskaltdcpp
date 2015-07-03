@@ -342,8 +342,9 @@ void BufferedSocket::threadSendFile(InputStream* file) {
             if(disconnecting)
                 return;
 
-            int w = sock->wait(0, Socket::WAIT_READ);
-            if(w & Socket::WAIT_READ) {
+            auto w = sock->wait(POLL_TIMEOUT, true, true);
+
+            if(w.first) {
                 threadRead();
             }
 
