@@ -333,11 +333,11 @@ void MainWindow::setUnload ( bool b ) {
 void MainWindow::closeEvent(QCloseEvent *c_e){
     Q_D(MainWindow);
 
-#if defined(Q_WS_MAC)
+#if defined(Q_OS_MAC)
     if (!d->isUnload){
-#else // defined(Q_WS_MAC)
+#else // defined(Q_OS_MAC)
     if (!d->isUnload && WBGET(WB_TRAY_ENABLED)){
-#endif // defined(Q_WS_MAC)
+#endif // defined(Q_OS_MAC)
         hide();
         c_e->ignore();
 
@@ -559,7 +559,7 @@ void MainWindow::init(){
     initActions();
 
     initMenuBar();
-#if defined(Q_WS_MAC)
+#if defined(Q_OS_MAC)
     initDockMenuBar();
 #endif
 
@@ -1148,7 +1148,7 @@ void MainWindow::initActions(){
 }
 
 void MainWindow::initMenuBar(){
-#if defined(Q_WS_MAC)
+#if defined(Q_OS_MAC)
     setMenuBar(new QMenuBar());
     menuBar()->setParent(NULL);
     connect(this, SIGNAL(destroyed()), menuBar(), SLOT(deleteLater()));
@@ -1909,16 +1909,16 @@ void MainWindow::redrawToolPanel(){
             setWindowTitle(awgt->getArenaTitle() + " :: " + QString("%1").arg(EISKALTDCPP_WND_TITLE));
     }
 
-#if !defined(Q_WS_MAC)
+#if !defined(Q_OS_MAC)
     if (!has_unread)
         Notify->resetTrayIcon();
-#else // !defined(Q_WS_MAC)
+#else // !defined(Q_OS_MAC)
     // Change program icon in dock when there are new unread personal messages.
     if (has_unread)
         qApp->setWindowIcon(WICON(WulforUtil::eiMESSAGE_TRAY_ICON));
     else
         qApp->setWindowIcon(WICON(WulforUtil::eiICON_APPL));
-#endif // !defined(Q_WS_MAC)
+#endif // !defined(Q_OS_MAC)
 
     emit redrawWidgetPanels();
 }
@@ -3009,7 +3009,7 @@ void MainWindow::slotSuppressSnd(){
         N->setSuppressSnd(act->isChecked());
 }
 
-#if defined(Q_WS_MAC)
+#if defined(Q_OS_MAC)
 extern void qt_mac_set_dock_menu(QMenu *menu); // Qt internal function
 
 void MainWindow::initDockMenuBar(){
@@ -3038,5 +3038,5 @@ void MainWindow::initDockMenuBar(){
 
     qt_mac_set_dock_menu(menu);
 }
-#endif // defined(Q_WS_MAC)
+#endif // defined(Q_OS_MAC)
 

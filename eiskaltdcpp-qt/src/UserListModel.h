@@ -17,7 +17,7 @@
 #include <QStringList>
 #include <QRegExp>
 
-#if !defined(Q_WS_WIN)
+#if !defined(Q_OS_WIN)
 #include <limits.h>
 #endif
 
