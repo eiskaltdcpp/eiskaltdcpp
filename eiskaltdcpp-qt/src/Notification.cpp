@@ -225,7 +225,7 @@ void Notification::setToolTip(const QString &DSPEED, const QString &USPEED, cons
     if (!WBGET(WB_TRAY_ENABLED) || !tray)
         return;
 
-#if defined(Q_OS_X11)
+#if defined(Q_OS_LINUX)
     QString out = tr("<b>Speed</b><br/>"
                      "Download: <font_color=\"green\">%1</font> "
                      "Upload: <font_color=\"red\">%2</font><br/>"
