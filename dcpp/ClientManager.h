@@ -116,12 +116,9 @@ public:
         Lock l(cs);
         OnlineMap::const_iterator i = onlineUsers.find(user->getCID());
         if ( i != onlineUsers.end() ) {
-            const string &oldIp = i->second->getIdentity().getIp();
             i->second->getIdentity().setIp(IP);
             if(udpPort > 0)
                 i->second->getIdentity().setUdpPort(Util::toString(udpPort));
-            if (oldIp.compare(IP) != 0)
-                i->second->getClient().updated(*i->second);
         }
     }
 
