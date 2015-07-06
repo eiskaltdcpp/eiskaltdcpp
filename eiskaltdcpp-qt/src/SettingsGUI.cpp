@@ -190,7 +190,7 @@ void SettingsGUI::init(){
         else
             comboBox_TABBAR->setCurrentIndex(0);
 
-#if defined(Q_OS_LINUX)
+#if defined(Q_OS_UNIX) && !defined(Q_OS_MAC)
         checkBox_ICONTHEME->setChecked(WBGET("app/use-icon-theme", false));
 #endif
         checkBox_HIDE_ICONS_IN_MENU->setChecked(WBGET("mainwindow/dont-show-icons-in-menus", false));

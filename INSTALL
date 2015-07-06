@@ -159,9 +159,9 @@ Keys for cmake
 ----------------
 :eiskaltdcpp-qt:
 ----------------
--DUSE_QT=ON/OFF (default: ON)
+-DUSE_QT=ON/OFF (default: OFF)
     build EiskaltDC++ with Qt interface using Qt 4.x libraries
--DUSE_QT5=ON/OFF (default: OFF)
+-DUSE_QT5=ON/OFF (default: ON)
     build EiskaltDC++ with Qt interface using Qt 5.x libraries
 -DUSE_ASPELL=ON/OFF (default: OFF)
     use or not use aspell

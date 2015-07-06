@@ -70,8 +70,8 @@ if (CMAKE_VERSION VERSION_GREATER "2.8.5")
 endif()
 
 if (CMAKE_VERSION VERSION_GREATER "3.0.0")
-#    set(CMAKE_AUTOUIC ON)
-#	set(CMAKE_AUTORCC ON)
+#   set(CMAKE_AUTOUIC ON)
+#   set(CMAKE_AUTORCC ON)
 endif()
 
 option (USE_QT  "Qt 4.x interface" ON)
