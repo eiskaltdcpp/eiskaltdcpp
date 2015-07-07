@@ -976,7 +976,10 @@ void SearchFrame::slotStartSearch(){
 
     quint64 llsize = (quint64)lsize;
 
-    if (!d->searchHistory.contains(s)){
+    {
+        if (d->searchHistory.contains(s))
+            d->searchHistory.removeAt(d->searchHistory.indexOf(s));
+
         bool isTTH = WulforUtil::isTTH(s);
 
         if ((WBGET("memorize-tth-search-phrases", false) && isTTH) || !isTTH)
