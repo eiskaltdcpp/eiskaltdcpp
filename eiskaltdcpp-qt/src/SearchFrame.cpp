@@ -1001,7 +1001,7 @@ void SearchFrame::slotStartSearch(){
     }
 
     {
-        d->currentSearch = StringTokenizer<tstring>(s.toStdString(), ' ').getTokens();
+        d->currentSearch = StringTokenizer<string>(s.toStdString(), ' ').getTokens();
         s = "";
 
         //strip out terms beginning with -
@@ -1670,8 +1670,8 @@ void SearchFrame::on(SearchManagerListener::SR, const dcpp::SearchResultPtr& aRe
     }
     else {
         for (const auto &j : d->currentSearch) {
-            if((*j.begin() != ('-') && Util::findSubString(aResult->getFile(), j) == tstring::npos) ||
-               (*j.begin() == ('-') && j.size() != 1 && Util::findSubString(aResult->getFile(), j.substr(1)) != tstring::npos)
+            if((*j.begin() != ('-') && Util::findSubString(aResult->getFile(), j) == string::npos) ||
+               (*j.begin() == ('-') && j.size() != 1 && Util::findSubString(aResult->getFile(), j.substr(1)) != string::npos)
               )
            {
                     d->dropped++;
