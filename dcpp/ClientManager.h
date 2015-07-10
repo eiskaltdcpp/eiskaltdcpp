@@ -137,9 +137,9 @@ public:
         Lock l(cs);
         OnlineMap::const_iterator i = onlineUsers.find(user->getCID());
         if ( i != onlineUsers.end() ) {
-            i->second->getIdentity().setIp(IP);
+            i->second->getIdentity().setIp4(IP);
             if(udpPort > 0)
-                i->second->getIdentity().setUdpPort(Util::toString(udpPort));
+                i->second->getIdentity().setUdp4Port(Util::toString(udpPort));
         }
     }
 

@@ -16,6 +16,7 @@
 
 #include "dcpp/stdinc.h"
 #include "dcpp/Singleton.h"
+#include "extra/noncopyable.h"
 
 class SearchBlacklist:
         public QObject,

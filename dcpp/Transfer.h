@@ -25,6 +25,8 @@
 #include "Segment.h"
 #include "GetSet.h"
 
+#include "extra/noncopyable.h"
+
 namespace dcpp {
 
 using std::deque;

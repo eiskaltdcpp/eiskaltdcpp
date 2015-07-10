@@ -24,6 +24,7 @@
 #include "FastAlloc.h"
 #include "CriticalSection.h"
 #include "Flags.h"
+#include "extra/noncopyable.h"
 
 namespace dcpp {
 

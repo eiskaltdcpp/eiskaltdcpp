@@ -92,7 +92,7 @@ void* FileReader::align(void *buf, size_t alignment) {
 
 #ifdef _WIN32
 
-struct Handle : boost::noncopyable {
+struct Handle : ::noncopyable {
         Handle(HANDLE h) : h(h) { }
         ~Handle() { ::CloseHandle(h); }
 

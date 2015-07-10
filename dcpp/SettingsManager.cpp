@@ -188,7 +188,7 @@ SettingsManager::SettingsManager()
     setDefault(LOG_FORMAT_STATUS,        "[%Y-%m-%d %H:%M:%S] %[message]");
     setDefault(LOG_FORMAT_SYSTEM,        "[%Y-%m-%d %H:%M:%S] %[message]");
     setDefault(LOG_FORMAT_SPY,        "[%Y-%m-%d %H:%M:%S] %[message] (%[count])");
-    setDefault(LOG_FORMAT_SPY,        "[%Y-%m-%d %H:%M:%S]%[ip]: %[cmd]");
+    setDefault(LOG_FORMAT_CMD_DEBUG,  "[%Y-%m-%d %H:%M:%S] %[type] %[ip]: %[cmd]");
     setDefault(LOG_FILE_MAIN_CHAT,    "CHAT/%B - %Y/%[hubNI] (%[hubURL]).log");
     setDefault(LOG_FILE_STATUS,       "STATUS/%B - %Y/%[hubNI] (%[hubURL]).log");
     setDefault(LOG_FILE_PRIVATE_CHAT, "PM/%B - %Y/%[userNI] (%[userCID]).log");

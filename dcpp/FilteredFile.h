@@ -18,7 +18,6 @@
 
 #pragma once
 
-#include <boost/scoped_array.hpp>
 #include "Streams.h"
 #include "Exception.h"
 
@@ -152,7 +151,7 @@ private:
     OutputStream* f;
     Filter filter;
 
-    boost::scoped_array<uint8_t> buf;
+    std::unique_ptr<uint8_t[]> buf;
     bool flushed;
     bool more;
 };
@@ -202,7 +201,7 @@ private:
 
     InputStream* f;
     Filter filter;
-    boost::scoped_array<uint8_t> buf;
+    std::unique_ptr<uint8_t[]> buf;
     size_t pos;
     size_t valid;
     bool more;

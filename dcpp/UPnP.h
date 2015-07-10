@@ -20,6 +20,8 @@
 
 #include <string>
 
+#include "extra/noncopyable.h"
+
 namespace dcpp {
 
 using std::string;

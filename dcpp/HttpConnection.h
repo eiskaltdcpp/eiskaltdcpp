@@ -25,6 +25,8 @@
 #include "Speaker.h"
 #include "Util.h"
 
+#include "extra/noncopyable.h"
+
 namespace dcpp {
 using std::string;
 

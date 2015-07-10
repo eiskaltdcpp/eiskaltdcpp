@@ -66,9 +66,6 @@
 #include <utility>
 #include <vector>
 
-#include <boost/format.hpp>
-#include "extra/noncopyable.h"
-
 #include <bzlib.h>
 
 #include <openssl/ssl.h>

@@ -53,12 +53,6 @@ void CmdDebug::on(DebugManagerListener::DebugDetection, const string &com) noexc
 
 void CmdDebug::on(DebugManagerListener::DebugCommand, const string &mess, int typedir, const string &ip) noexcept {
     QString qmess = _q(mess);
-    if (checkBoxDECODE->isChecked())
-    {
-        try {
-            qmess = QString::fromUtf8(Text::toUtf8(mess, Text::hubDefaultCharset).c_str());
-        } catch (...) {}
-    }
 
     switch(typedir) {
         case dcpp::DebugManager::HUB_IN :

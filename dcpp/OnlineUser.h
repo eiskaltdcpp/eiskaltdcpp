@@ -2,8 +2,6 @@
 
 #include <map>
 
-#include <boost/noncopyable.hpp>
-
 #include "forward.h"
 #include "Flags.h"
 #include "FastAlloc.h"
