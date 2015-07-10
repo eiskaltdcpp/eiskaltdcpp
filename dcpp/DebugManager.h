@@ -18,6 +18,8 @@
 
 #include "Singleton.h"
 #include "TimerManager.h"
+#include "LogManager.h"
+#include "SettingsManager.h"
 
 namespace dcpp {
 
@@ -36,6 +38,13 @@ class DebugManager : public Singleton<DebugManager>, public Speaker<DebugManager
 public:
     void SendCommandMessage(const string& mess, int typeDir, const string& ip) {
         fire(DebugManagerListener::DebugCommand(), mess, typeDir, ip);
+        if (BOOLSETTING(LOG_CMD_DEBUG)) {
+            dcpp::StringMap params;
+            params["cmd"] = mess;
+            params["ip"] = ip;
+            params["type"] = typeDir;
+            LOG(LogManager::CMD_DEBUG, params);
+        }
     }
     void SendDetectionMessage(const string& mess) {
         fire(DebugManagerListener::DebugDetection(), mess);
