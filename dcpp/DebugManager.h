@@ -42,7 +42,7 @@ public:
             dcpp::StringMap params;
             params["cmd"] = mess;
             params["ip"] = ip;
-            params["type"] = typeDir;
+            params["type"] = typeDirToString(typeDir);
             LOG(LogManager::CMD_DEBUG, params);
         }
     }
@@ -57,6 +57,7 @@ private:
     friend class Singleton<DebugManager>;
     DebugManager() noexcept { };
     ~DebugManager() noexcept { };
+    static string typeDirToString(int typeDir);
 };
 #define COMMAND_DEBUG(a,b,c) if (DebugManager::getInstance()) DebugManager::getInstance()->SendCommandMessage(a,b,c);
 #define DETECTION_DEBUG(m) if (DebugManager::getInstance()) DebugManager::getInstance()->SendDetectionMessage(m);

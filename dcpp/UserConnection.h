@@ -223,7 +223,7 @@ private:
 
     void send(const string& aString) {
         lastActivity = GET_TICK();
-        COMMAND_DEBUG(aString, DebugManager::CLIENT_OUT, getRemoteIp());
+        COMMAND_DEBUG((Util::stricmp(getEncoding(), Text::utf8) != 0 ? Text::toUtf8(aString, getEncoding()) : aString), DebugManager::CLIENT_OUT, getRemoteIp());
 #ifdef LUA_SCRIPT
         if(onUserConnectionMessageOut(this, aString)) {
             disconnect(true);

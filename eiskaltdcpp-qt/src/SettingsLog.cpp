@@ -57,6 +57,10 @@ void SettingsLog::init(){
     lineEdit_SPYFMT->setText(_q(SETTING(LOG_FORMAT_SPY)));
     lineEdit_FILE_SPYFMT->setText(_q(SETTING(LOG_FILE_SPY)));
 
+    groupBox_CMD_DEBUG->setChecked(BOOLSETTING(LOG_CMD_DEBUG));
+    lineEdit_CMD_DEBUGFMT->setText(_q(SETTING(LOG_FORMAT_CMD_DEBUG)));
+    lineEdit_FILE_CMD_DEBUGFMT->setText(_q(SETTING(LOG_FILE_CMD_DEBUG)));
+
     toolButton_BROWSE->setIcon(WulforUtil::getInstance()->getPixmap(WulforUtil::eiFOLDER_BLUE));
 
     connect(toolButton_BROWSE, SIGNAL(clicked()), this, SLOT(slotBrowse()));
@@ -85,6 +89,9 @@ void SettingsLog::ok(){
     sm->set(SettingsManager::LOG_FINISHED_DOWNLOADS, groupBox_FINISH_DOWN->isChecked());
     sm->set(SettingsManager::LOG_FORMAT_POST_FINISHED_DOWNLOAD, _tq(lineEdit_FINISH_DOWNFMT->text()));
     sm->set(SettingsManager::LOG_FILE_FINISHED_DOWNLOAD, _tq(lineEdit_FILE_FINISH_DOWNFMT->text()));
+    sm->set(SettingsManager::LOG_CMD_DEBUG, groupBox_CMD_DEBUG->isChecked());
+    sm->set(SettingsManager::LOG_FORMAT_CMD_DEBUG, _tq(lineEdit_CMD_DEBUGFMT->text()));
+    sm->set(SettingsManager::LOG_FILE_CMD_DEBUG, _tq(lineEdit_FILE_CMD_DEBUGFMT->text()));
     sm->set(SettingsManager::LOG_SYSTEM, checkBox_SYSTEM->isChecked());
     sm->set(SettingsManager::LOG_STATUS_MESSAGES, checkBox_STAT->isChecked());
     sm->set(SettingsManager::LOG_FILELIST_TRANSFERS, checkBox_FILELIST->isChecked());
