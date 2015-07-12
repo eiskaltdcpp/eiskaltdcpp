@@ -27,40 +27,38 @@
 #include <string>
 #include <cstring>
 #include <cstdlib>
-#include "mongoose.h"
+#include "extra/fossa.h"
 
 namespace Json
 {
 
   namespace Rpc
   {
-    struct mg_server *server;
+    struct ns_mgr *server;
     static int exit_flag;
 
-    static int ev_handler(struct mg_connection *conn, enum mg_event ev) {
-        int result = MG_FALSE;
-        if (ev == MG_AUTH) {
-          return MG_TRUE;   // Authorize all requests
-        }
-        if (ev == MG_REQUEST) {
-            if(strcmp(conn->request_method,"OPTIONS") == 0) {
-                std::string res = "";
-                reinterpret_cast<HTTPServer*>(conn->server_param)->sendResponse(res, conn);
-            }
-            else if(strcmp(conn->request_method,"POST") == 0) {
+    static void Json_Rpc_HTTPServer_ev_handler(struct ns_connection *nc, int ev, void *ev_data) {
+        struct http_message *hm = (struct http_message *) ev_data;
+        switch (ev) {
+          case NS_HTTP_REQUEST:
+            if (ns_vcmp(&hm->method, "OPTIONS") == 0) {
+                std::string tmp = "";
+                reinterpret_cast<HTTPServer*>(nc->user_data)->sendResponse(tmp, nc);
+            } else if (ns_vcmp(&hm->method, "POST") == 0) {
                 std::string tmp;
-                tmp.assign(conn->content, conn->content_len);
-                reinterpret_cast<HTTPServer*>(conn->server_param)->onRequest(tmp, conn);
+                tmp.assign(hm->body.p, hm->body.len);
+                reinterpret_cast<HTTPServer*>(nc->user_data)->onRequest(tmp, nc);
             }
-            result = MG_TRUE;
+            break;
+          default:
+            break;
         }
-        return result;
     }
 
     static void *serving_thread_func(void *param) {
-      struct mg_server *srv = (struct mg_server *) param;
+      struct ns_mgr *srv = (struct ns_mgr *) param;
       while (exit_flag == 0) {
-        mg_poll_server(srv, 1000);
+        ns_mgr_poll(srv, 1000);
       }
       return NULL;
     }
@@ -88,12 +86,10 @@ namespace Json
     bool HTTPServer::startPolling()
     {
         // Create and configure the server
-        if ((server = mg_create_server(this, ev_handler)) == NULL) {
-            return false;
-        }
+        ns_mgr_init(server, this);
         char tmp_port[30];
         sprintf(tmp_port,"%s:%d", GetAddress().c_str(),GetPort());
-        mg_set_option(server, "listening_port", tmp_port);
+        ns_bind(server, tmp_port, Json_Rpc_HTTPServer_ev_handler);
         serving_thread_func(server);
         return true;
     }
@@ -101,7 +97,7 @@ namespace Json
     bool HTTPServer::stopPolling()
     {
         exit_flag = 1;
-        mg_destroy_server(&server);
+        ns_mgr_free(server);
         return true;
     }
 
@@ -125,16 +121,16 @@ namespace Json
       m_jsonHandler.DeleteMethod(method);
     }
 
-    bool HTTPServer::sendResponse(std::string & response, void *addInfo)
+    bool HTTPServer::sendResponse(std::string& response, void *addInfo)
     {
-        struct mg_connection* conn = (struct mg_connection*)addInfo;
+        struct ns_connection* conn = (struct ns_connection*)addInfo;
         std::string tmp = "HTTP/1.1 200 OK\r\nServer: eidcppd server\r\nAccess-Control-Allow-Origin: *\r\nAccess-Control-Allow-Headers: Content-Type\r\nContent-Type: application/json; charset=utf-8\r\nContent-Length: ";
         char v[16];
         snprintf(v, sizeof(v), "%lu", response.size());
         tmp += v;
         tmp += "\r\n\r\n";
         tmp += response;
-        if(mg_write(conn, tmp.c_str(), tmp.size()) > 0) {
+        if(ns_send(conn, tmp.c_str(), tmp.size()) > 0) {
             return true;
         } else {
             return false;

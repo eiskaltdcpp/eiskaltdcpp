@@ -25,4 +25,4 @@ include_directories(${JSONCPP_INCLUDE_DIR})
 
 add_library (jsonrpc-cpp STATIC ${jsonrpcpp_SRCS})
 add_cppcheck(jsonrpc-cpp STYLE POSSIBLE_ERROR)
-target_link_libraries (jsonrpc-cpp ${JSONCPP_LIBRARY})
+target_link_libraries (jsonrpc-cpp extra ${JSONCPP_LIBRARY})
