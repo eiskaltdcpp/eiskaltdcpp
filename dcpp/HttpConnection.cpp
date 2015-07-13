@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2001-2012 Jacek Sieka, arnetheduck on gmail point com
+ * Copyright (C) 2015 Eugene Petrov, dhamp on ya point ru
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -19,282 +20,114 @@
 #include "stdinc.h"
 
 #include "HttpConnection.h"
-
-#include "BufferedSocket.h"
 #include "format.h"
 #include "SettingsManager.h"
 #include "TimerManager.h"
 #include "version.h"
 
+#include "extra/fossa.h"
+#include <thread>
+
 namespace dcpp {
 
-static const std::string CORAL_SUFFIX = ".nyud.net";
+static void dcpp_HttpConnection_ev_handler(struct ns_connection *nc, int ev, void *ev_data) {
+    struct http_message *hm = (struct http_message *) ev_data;
+    HttpConnection* c = ((HttpConnection*)nc->mgr->user_data);
+
+    switch (ev) {
+        case NS_CLOSE: {
+//          printf("Address %s Close connection\n", c->getUrl().c_str() ); fflush(stdout);
+          break;
+        }
+        case NS_RECV: {
+//          printf("Address %s Received %lu \n", c->getUrl().c_str(), nc->recv_mbuf.len); fflush(stdout);
+//          printf("Data: %s", string(nc->recv_mbuf.buf, nc->recv_mbuf.len).c_str());fflush(stdout);
+          break;
+        }
+        case NS_CONNECT: {
+            if (* (int *) ev_data != 0) {
+//                printf("Download failed\n"); fflush(stdout);
+                c->fire(HttpConnectionListener::Failed(), c, str(F_("%1%") % (strerror(* (int *) ev_data))));
+                c->poll = false;
+            }
+            break;
+        }
+        case NS_HTTP_REPLY: {
+//            printf("Address %s Download finished\n", c->getUrl().c_str()); fflush(stdout);
+            nc->flags |= NSF_CLOSE_IMMEDIATELY;
+            c->poll = false;
+            string check(nc->recv_mbuf.buf, nc->recv_mbuf.len);
+            if (check.find("301") != string::npos || check.find("302") != string::npos) {
+                size_t start = check.find("Location");
+                if (start != string::npos) {
+                    size_t end = check.find("\r\n", start);
+                    if (end == string::npos) {
+                        break;
+                    }
+//                    printf("Document moved\n"); fflush(stdout);
+                    string location = check.substr(start + 10, end - start - 10);
+//                    printf("Locaton: %s\n", location.c_str()); fflush(stdout);
+                    if (location.compare(c->getUrl()) != 0) {
+//                        printf("Continue download\n"); fflush(stdout);
+                        c->setUrl(location);
+                        c->download();
+                    }
+                }
+            } else {
+                ns_str buf;
+                buf = hm->body;
+                c->fire(HttpConnectionListener::Complete(), c, buf);
+            }
+            break;
+        }
+        default:
+          break;
+    }
+}
+
 HttpConnection::HttpConnection(const string& aUserAgent) :
-coralized(false),
-userAgent(aUserAgent),
-port("80"),
-size(-1),
-done(0),
-speed(0),
-lastPos(0),
-lastTick(0),
-connState(CONN_UNKNOWN),
-socket(0)
+    poll(false),
+    userAgent(aUserAgent)
 {
+    ns_mgr_init(&mgr, this);
 }
 
 HttpConnection::~HttpConnection() {
-    abort();
-}
-/**
- * Downloads a file and returns it as a string
- * @todo Report exceptions
- * @todo Abort download
- * @param aUrl Full URL of file
- * @return A string with the content, or empty if download failed
- */
-void HttpConnection::download() {
-    prepareRequest(TYPE_GET);
-}
-/**
- * Initiates a basic urlencoded form submission
- * @param aFile Fully qualified file URL
- * @param aData StringMap with the args and values
- */
-void HttpConnection::download(const StringMap& postData) {
-    requestBody.clear();
-
-    for(auto& i: postData)
-        requestBody += "&" + Util::encodeURI(i.first) + "=" + Util::encodeURI(i.second);
-
-    if (!requestBody.empty()) requestBody = requestBody.substr(1);
-        prepareRequest(TYPE_POST);
+    ns_mgr_free(&mgr);
 }
 
-void HttpConnection::abort() {
-    if(socket) {
-        abortRequest(true);
+void HttpConnection::poll_func(void* ptr)
+{
+    HttpConnection* c = (HttpConnection*) ptr;
+    while(c->poll) {
+        ns_mgr_poll(&(c->mgr), 1000);
     }
 }
 
-void HttpConnection::prepareRequest(RequestType type) {
-    dcassert(Util::findSubString(url, "http://") == 0 || Util::findSubString(url, "https://") == 0);
-    //Util::sanitizeUrl(url);
-
-    // Reset the connection states
-    if(connState == CONN_OK || connState == CONN_FAILED)
-            userAgent.clear();
-
-    size = -1;
-    done = 0;
-    speed = 0;
-    lastPos = 0;
-    lastTick = GET_TICK();
-
-    connState = CONN_UNKNOWN;
-    connType = type;
-
-    // method selection
-    method = (connType == TYPE_POST) ? "POST" : "GET";
-
-    // set download type
-    if(::strcmp(url.substr(url.size() - 4).c_str(), ".bz2") == 0) {
-            mimeType = "application/x-bzip2";
-    } else mimeType.clear();
-
-
-    string proto, query, fragment;
-    if(SETTING(HTTP_PROXY).empty()) {
-        Util::decodeUrl(url, proto, server, port, file, query, fragment);
-        if(file.empty())
-            file = "/";
-    } else {
-        Util::decodeUrl(SETTING(HTTP_PROXY), proto, server, port, file, query, fragment);
-        file = url;
-    }
-
-    if(!query.empty())
-        file += '?' + query;
-
-    if(coralized && server.size() > CORAL_SUFFIX.size() &&
-        server.compare(server.size() - CORAL_SUFFIX.size(), CORAL_SUFFIX.size(), CORAL_SUFFIX) != 0)
-    {
-        server += CORAL_SUFFIX;
-    }
-
-    if(port.empty())
-        port = "80";
+void HttpConnection::download(const string& post_data) {
+    string extraHeaders;
 
     if(userAgent.empty()) {
-        if (server == "strongdc.sourceforge.net")
-            userAgent = "User-Agent: StrongDC++ v2.42";
-        else
-            userAgent = "User-Agent: " APPNAME " v" VERSIONSTRING;
+        userAgent = "User-Agent: " APPNAME " v" VERSIONSTRING "\r\n";
     }
 
-    if(!socket)
-        socket = BufferedSocket::getSocket(0x0a);
+    extraHeaders.append(userAgent);
 
-    socket->addListener(this);
-    try {
-        socket->connect(server, port, (proto == "https"), true, false);
-    } catch(const Exception& e) {
-        connState = CONN_FAILED;
-        fire(HttpConnectionListener::Failed(), this, str(F_("%1% (%2%)") % e.getError() % url));
-    }
-}
-
-void HttpConnection::abortRequest(bool disconnect) {
-    dcassert(socket);
-
-    socket->removeListener(this);
-    if(disconnect) socket->disconnect();
-
-    BufferedSocket::putSocket(socket);
-    socket = NULL;
-}
-
-void HttpConnection::updateSpeed() {
-    if(done > lastPos) {
-        auto tick = GET_TICK();
-
-        auto tickDelta = static_cast<double>(tick - lastTick);
-        if(tickDelta > 0) {
-            speed = static_cast<double>(done - lastPos) / tickDelta * 1000.0;
-        }
-
-        lastPos = done;
-        lastTick = tick;
-    }
-}
-
-void HttpConnection::on(BufferedSocketListener::Connected) noexcept {
-    dcassert(socket);
-    socket->write("GET " + file + " HTTP/1.1\r\n");
-
-    string sRemoteServer = server;
-    if(!SETTING(HTTP_PROXY).empty())
-    {
-        string tfile, tport, proto, query, fragment;
-        Util::decodeUrl(file, proto, sRemoteServer, tport, tfile, query, fragment);
-    }
-
-#ifdef WITH_DHT
-    if (sRemoteServer == "strongdc.sourceforge.net")
-        socket->write("User-Agent: StrongDC++ v2.42\r\n");
-    else
-        socket->write("User-Agent: " APPNAME " v" VERSIONSTRING "\r\n");
-#else
-    socket->write("User-Agent: " APPNAME " v" VERSIONSTRING "\r\n");
-#endif
-
-    socket->write("Host: " + sRemoteServer + "\r\n");
-    socket->write("Connection: close\r\n"); // we'll only be doing one request
-    socket->write("Cache-Control: no-cache\r\n\r\n");
-    if (connType == TYPE_POST) socket->write(requestBody);
-}
-
-void HttpConnection::on(BufferedSocketListener::Line, const string& aLine) noexcept {
-    if(connState == CONN_CHUNKED && aLine.size() > 1) {
-        string::size_type i;
-        string chunkSizeStr;
-        if((i = aLine.find(";")) == string::npos) {
-            chunkSizeStr = aLine.substr(0, aLine.length() - 1);
-        } else chunkSizeStr = aLine.substr(0, i);
-
-        unsigned long chunkSize = strtoul(chunkSizeStr.c_str(), NULL, 16);
-        if(chunkSize == 0 || chunkSize == ULONG_MAX) {
-            abortRequest(true);
-
-            if(chunkSize == 0) {
-                    connState = CONN_OK;
-                    fire(HttpConnectionListener::Complete(), this);
-            } else {
-                connState = CONN_FAILED;
-                fire(HttpConnectionListener::Failed(), this, str(F_("Transfer-encoding error (%1%)") % url));
-            }
-        } else socket->setDataMode(chunkSize);
-
-    } else if(connState == CONN_UNKNOWN) {
-        if(aLine.find("200") != string::npos) {
-            connState = CONN_OK;
-        } else if(aLine.find("301") != string::npos || aLine.find("302") != string::npos) {
-            connState = CONN_MOVED;
-        } else {
-            abortRequest(true);
-            connState = CONN_FAILED;
-            fire(HttpConnectionListener::Failed(), this, str(F_("%1% (%2%)") % aLine % url));
-        }
-    } else if(connState == CONN_MOVED && Util::findSubString(aLine, "Location") != string::npos) {
-        abortRequest(true);
-
-        string location = aLine.substr(10, aLine.length() - 10);
-        //Util::sanitizeUrl(location);
-
-        // make sure we can also handle redirects with relative paths
-        if(location.find("://") == string::npos) {
-            if(location[0] == '/') {
-                string proto, query, fragment;
-                Util::decodeUrl(url, proto, server, port, file, query, fragment);
-                string tmp = proto + "://" + server;
-                if(port != "80" || port != "443")
-                    tmp += ':' + port;
-                location = tmp + location;
-            } else {
-                auto i = url.rfind('/');
-                dcassert(i != string::npos);
-                location = url.substr(0, i + 1) + location;
-            }
-        }
-        if(location == url) {
-            connState = CONN_FAILED;
-            fire(HttpConnectionListener::Failed(), this, str(F_("Endless redirection loop (%1%)") % url));
-            return;
-        }
-
-        fire(HttpConnectionListener::Redirected(), this, location);
-        url = location;
-        download();
-
-    } else if(aLine[0] == 0x0d) {
-        if(size != -1) {
-            socket->setDataMode(size);
-        } else connState = CONN_CHUNKED;
-    } else if(Util::findSubString(aLine, "Content-Length") != string::npos) {
-        size = Util::toInt(aLine.substr(16, aLine.length() - 17));
-
-    } else if(mimeType.empty()) {
-        if(Util::findSubString(aLine, "Content-Encoding") != string::npos) {
-            if(aLine.substr(18, aLine.length() - 19) == "x-bzip2")
+    if(::strcmp(url.substr(url.size() - 4).c_str(), ".bz2") == 0) {
                 mimeType = "application/x-bzip2";
-        } else if(Util::findSubString(aLine, "Content-Type") != string::npos) {
-            mimeType = aLine.substr(14, aLine.length() - 15);
-        }
-    }
-}
+    } else mimeType.clear();
 
-void HttpConnection::on(BufferedSocketListener::Failed, const string& aLine) noexcept {
-    abortRequest(false);
-    connState = CONN_FAILED;
-    fire(HttpConnectionListener::Failed(), this, str(F_("%1% (%2%)") % aLine % url));
-}
+    ns_connect_http(&mgr, &dcpp_HttpConnection_ev_handler, url.c_str(),
+                    (extraHeaders.empty() ? NULL : extraHeaders.c_str()),
+                    (post_data.empty() ? NULL : post_data.c_str()));
 
-void HttpConnection::on(BufferedSocketListener::ModeChange) noexcept {
-    if(connState != CONN_CHUNKED) {
-        abortRequest(true);
-        fire(HttpConnectionListener::Complete(), this);
+//    printf("Start download: %s\n", url.c_str());fflush(stdout);
+
+    if (!poll) {
+        poll = true;
+        std::thread t(poll_func, this);
+        t.detach();
     }
-}
-void HttpConnection::on(BufferedSocketListener::Data, uint8_t* aBuf, size_t aLen) noexcept {
-    if(size != -1 && static_cast<size_t>(size - done)  < aLen) {
-        abortRequest(true);
-        connState = CONN_FAILED;
-        fire(HttpConnectionListener::Failed(), this, str(F_("Too much data in response body (%1%)") % url));
-        return;
-    }
-    done += aLen;
-    updateSpeed();
-    fire(HttpConnectionListener::Data(), this, aBuf, aLen);
 }
 
 } // namespace dcpp

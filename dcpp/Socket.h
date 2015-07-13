@@ -36,7 +36,7 @@ typedef SOCKET socket_t;
 #include <errno.h>
 
 typedef int socket_t;
-const int INVALID_SOCKET = -1;
+#define INVALID_SOCKET (-1)
 #define SOCKET_ERROR -1
 #endif
 

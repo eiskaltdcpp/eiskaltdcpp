@@ -20,7 +20,7 @@
 
 #include "SettingsManager.h"
 #include "CriticalSection.h"
-#include "HttpManagerListener.h"
+#include "HttpConnectionListener.h"
 #include "UserCommand.h"
 #include "FavoriteUser.h"
 #include "Singleton.h"
@@ -38,7 +38,7 @@ class SimpleXML;
  * Public hub list, favorites (hub&user). Assumed to be called only by UI thread.
  */
 class FavoriteManager : public Speaker<FavoriteManagerListener>, public Singleton<FavoriteManager>,
-private ClientManagerListener, private HttpManagerListener, private SettingsManagerListener
+private ClientManagerListener, private HttpConnectionListener, private SettingsManagerListener
 {
 public:
 // Public Hubs
@@ -111,6 +111,9 @@ public:
     void save();
     void shutdown();
 private:
+
+    std::unique_ptr<HttpConnection> c;
+
     FavoriteHubEntryList favoriteHubs;
     FavHubGroups favHubGroups;
     StringPairList favoriteDirs;
@@ -126,7 +129,6 @@ private:
     PubListMap publicListMatrix;
     string publicListServer;
     bool useHttp, running;
-    HttpConnection* c;
     int lastServer;
     HubTypes listType;
 
@@ -145,10 +147,9 @@ private:
     void on(UserConnected, const UserPtr& user) noexcept;
     void on(UserDisconnected, const UserPtr& user) noexcept;
 
-    // HttpManagerListener
-    void on(HttpManagerListener::Added, HttpConnection*) noexcept;
-    void on(HttpManagerListener::Failed, HttpConnection*, const string&) noexcept;
-    void on(HttpManagerListener::Complete, HttpConnection*, OutputStream*) noexcept;
+    // HttpConnectionListener
+    void on(HttpConnectionListener::Failed, HttpConnection*, const string&) noexcept;
+    void on(HttpConnectionListener::Complete, HttpConnection*, ns_str) noexcept;
 
     bool onHttpFinished(const string& buf) noexcept;
 

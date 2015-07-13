@@ -8,42 +8,40 @@
  ***************************************************************************/
 
 #include "dyndns.h"
-#include <functional>
-#include "dcpp/HttpManager.h"
 #include "dcpp/SettingsManager.h"
-#include "dcpp/Streams.h"
 #include "dcpp/ClientManager.h"
+#include "dcpp/HttpConnection.h"
 
 namespace dcpp {
 
 DynDNS::DynDNS() {
-    HttpManager::getInstance()->addListener(this);
     Request();
 }
 
-
 DynDNS::~DynDNS() {
-    HttpManager::getInstance()->removeListener(this);
 }
 
-void DynDNS::on(HttpManagerListener::Failed, HttpConnection* c, const string& str) noexcept {
-    if(c != this->c) { return; }
-    this->c = nullptr;
+void DynDNS::on(HttpConnectionListener::Failed, HttpConnection* c, const string& str) noexcept {
+    if(c != this->c.get()) { return; }
+    c->removeListener(this);
+    this->c.release();
     completeDownload(false, str);
 }
 
-void DynDNS::on(HttpManagerListener::Complete, HttpConnection* c, OutputStream* stream) noexcept {
-    if(c != this->c) { return; }
-    this->c = nullptr;
-
-    auto str = static_cast<StringOutputStream*>(stream)->getString();
-    completeDownload(true, str);
+void DynDNS::on(HttpConnectionListener::Complete, HttpConnection* c, ns_str data) noexcept {
+    if(c != this->c.get()) { return; }
+    c->removeListener(this);
+    this->c.release();
+    completeDownload(true, string(data.p, data.len));
 }
 
 void DynDNS::Request() {
     if (BOOLSETTING(DYNDNS_ENABLE)) {
         string tmps = !SETTING(DYNDNS_SERVER).compare(0,7,"http://") ? SETTING(DYNDNS_SERVER) : "http://" + SETTING(DYNDNS_SERVER);
-        c = HttpManager::getInstance()->download(tmps);
+        c.reset(new HttpConnection());
+        c->addListener(this);
+        c->setUrl(tmps);
+        c->download();
     }
 }
 

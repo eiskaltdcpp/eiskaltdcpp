@@ -21,11 +21,9 @@
 #include "FavoriteManager.h"
 #include "BZUtils.h"
 #include "ClientManager.h"
-#include "CryptoManager.h"
 #include "File.h"
 #include "FilteredFile.h"
 #include "HttpConnection.h"
-#include "HttpManager.h"
 #include "SimpleXML.h"
 #include "StringTokenizer.h"
 #include "UserCommand.h"
@@ -37,7 +35,6 @@ using std::swap;
 
 FavoriteManager::FavoriteManager() : lastId(0), useHttp(false), running(false), c(nullptr), lastServer(0), listType(TYPE_NORMAL), dontSave(false) {
     ClientManager::getInstance()->addListener(this);
-    HttpManager::getInstance()->addListener(this);
     SettingsManager::getInstance()->addListener(this);
 
     File::ensureDirectory(Util::getHubListsPath());
@@ -49,7 +46,6 @@ FavoriteManager::~FavoriteManager() {
 
 void FavoriteManager::shutdown() {
     ClientManager::getInstance()->removeListener(this);
-    HttpManager::getInstance()->removeListener(this);
     SettingsManager::getInstance()->removeListener(this);
 }
 
@@ -303,10 +299,10 @@ bool FavoriteManager::onHttpFinished(const string& buf) noexcept {
 
     if(useHttp) {
         try {
-            File f(Util::getHubListsPath() + Util::validateFileName(publicListServer), File::WRITE, File::CREATE | File::TRUNCATE);
+            File f(Util::getHubListsPath() + Util::validateFileName(publicListServer, "/"), File::WRITE, File::CREATE | File::TRUNCATE);
             f.write(buf);
             f.close();
-        } catch(const FileException&) { }
+        } catch(const FileException&) {}
     }
 
     return success;
@@ -672,7 +668,11 @@ void FavoriteManager::refresh(bool forceDownload /* = false */) {
             publicListMatrix[publicListServer].clear();
         }
         fire(FavoriteManagerListener::DownloadStarting(), publicListServer);
-        c = HttpManager::getInstance()->download(publicListServer);
+
+        c.reset(new HttpConnection());
+        c->addListener(this);
+        c->setUrl(publicListServer);
+        c->download();
         running = true;
     }
 }
@@ -722,14 +722,10 @@ UserCommand::List FavoriteManager::getUserCommands(int ctx, const StringList& hu
     return lst;
 }
 
-void FavoriteManager::on(HttpManagerListener::Added, HttpConnection* c) noexcept {
-    if(c != this->c) { return; }
-    fire(FavoriteManagerListener::DownloadStarting(), c->getUrl());
-}
-
-void FavoriteManager::on(HttpManagerListener::Failed, HttpConnection* c, const string& str) noexcept {
-    if(c != this->c) { return; }
-    this->c = nullptr;
+void FavoriteManager::on(HttpConnectionListener::Failed, HttpConnection* c, const string& str) noexcept {
+    if(c != this->c.get()) { return; }
+    c->removeListener(this);
+    this->c.release();
     lastServer++;
     running = false;
     if(useHttp) {
@@ -737,19 +733,21 @@ void FavoriteManager::on(HttpManagerListener::Failed, HttpConnection* c, const s
     }
 }
 
-void FavoriteManager::on(HttpManagerListener::Complete, HttpConnection* c, OutputStream* stream) noexcept {
-    if(c != this->c) { return; }
-    this->c = nullptr;
+void FavoriteManager::on(HttpConnectionListener::Complete, HttpConnection* c, ns_str stream) noexcept {
+    if(c != this->c.get()) { return; }
+    c->removeListener(this);
+
     bool parseSuccess = false;
     if(useHttp) {
         if(c->getMimeType() == "application/x-bzip2")
             listType = TYPE_BZIP2;
-        parseSuccess = onHttpFinished(static_cast<StringOutputStream*>(stream)->getString());
+        parseSuccess = onHttpFinished(string(stream.p, stream.len));
     }
     running = false;
     if(parseSuccess) {
-        fire(FavoriteManagerListener::DownloadFinished(), c->getUrl(), c->getCoralized());
+        fire(FavoriteManagerListener::DownloadFinished(), c->getUrl(), false);
     }
+    this->c.release();
 }
 
 void FavoriteManager::on(UserUpdated, const OnlineUser& user) noexcept {

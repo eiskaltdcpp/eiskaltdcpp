@@ -10,26 +10,26 @@
 #pragma once
 
 #include "dcpp/stdinc.h"
-#include "dcpp/HttpManagerListener.h"
+#include "dcpp/forward.h"
+#include "dcpp/HttpConnectionListener.h"
 #include "dcpp/Singleton.h"
 #include "dcpp/TimerManager.h"
 
 namespace dcpp {
 
-class DynDNS : public Singleton<DynDNS>, private HttpManagerListener
+class DynDNS : public Singleton<DynDNS>, private HttpConnectionListener
 {
     public:
         DynDNS();
         ~DynDNS();
 
     private:
-        HttpConnection* c;
+        std::unique_ptr<HttpConnection> c;
         void Request();
         void completeDownload(bool success, const string& html);
 
-        // HttpManagerListener
-        void on(HttpManagerListener::Failed, HttpConnection*, const string&) noexcept;
-        void on(HttpManagerListener::Complete, HttpConnection*, OutputStream*) noexcept;
+        void on(HttpConnectionListener::Failed, HttpConnection*, const string&) noexcept;
+        void on(HttpConnectionListener::Complete, HttpConnection*, ns_str) noexcept;
 
         // TimerManagerListener
         void on(TimerManagerListener::Minute, uint64_t aTick) noexcept;

@@ -28,7 +28,6 @@
 #include "FavoriteManager.h"
 #include "FinishedManager.h"
 #include "HashManager.h"
-#include "HttpManager.h"
 #include "LogManager.h"
 #include "UploadManager.h"
 #include "SearchManager.h"
@@ -87,7 +86,6 @@ void startup(void (*f)(void*, const string&), void* p) {
     UploadManager::newInstance();
     ThrottleManager::newInstance();
     QueueManager::newInstance();
-    HttpManager::newInstance();
     ShareManager::newInstance();
     FavoriteManager::newInstance();
     FinishedManager::newInstance();
@@ -150,7 +148,6 @@ void shutdown() {
     HashManager::getInstance()->shutdown();
 
     ConnectionManager::getInstance()->shutdown();
-    HttpManager::getInstance()->shutdown();
     UPnPManager::getInstance()->close();
 
     BufferedSocket::waitShutdown();
@@ -162,7 +159,6 @@ void shutdown() {
 
     UPnPManager::deleteInstance();
     ConnectivityManager::deleteInstance();
-    HttpManager::deleteInstance();
     ADLSearchManager::deleteInstance();
     FinishedManager::deleteInstance();
     ShareManager::deleteInstance();

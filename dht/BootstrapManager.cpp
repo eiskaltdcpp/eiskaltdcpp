@@ -25,7 +25,7 @@
 
 #include "dcpp/AdcCommand.h"
 #include "dcpp/ClientManager.h"
-#include "dcpp/HttpManager.h"
+#include "dcpp/HttpConnection.h"
 #include "dcpp/LogManager.h"
 #include "dcpp/Streams.h"
 #include <zlib.h>
@@ -38,13 +38,10 @@ namespace dht
     {
         dhtservers.push_back("http://strongdc.sourceforge.net/bootstrap/");
         dhtservers.push_back("http://ssa.in.ua/dcDHT.php");
-
-        HttpManager::getInstance()->addListener(this);
     }
 
     BootstrapManager::~BootstrapManager(void)
     {
-        HttpManager::getInstance()->removeListener(this);
     }
 
     void BootstrapManager::bootstrap()
@@ -61,22 +58,27 @@ namespace dht
             {
                     url += "&u4=" + DHT::getInstance()->getPort();
             }
-            c = HttpManager::getInstance()->download(url);
+            c.reset(new HttpConnection("User-Agent: StrongDC++ v2.42"));
+            c->addListener(this);
+            c->setUrl(url);
+            c->download();
         }
     }
 
-    void BootstrapManager::on(HttpManagerListener::Failed, HttpConnection* c, const string& str) noexcept {
-        if(c != this->c) { return; }
-        c = nullptr;
+    void BootstrapManager::on(HttpConnectionListener::Failed, HttpConnection* c, const string& str) noexcept {
+        if(c != this->c.get()) { return; }
+        c->removeListener(this);
+        this->c.release();
         LogManager::getInstance()->message("DHT bootstrap error: " + str);
         bootstrap();
     }
 
-    void BootstrapManager::on(HttpManagerListener::Complete, HttpConnection* c, OutputStream* stream) noexcept {
-        if(c != this->c) { return; }
-        c = nullptr;
+    void BootstrapManager::on(HttpConnectionListener::Complete, HttpConnection* c, ns_str data) noexcept {
+        if(c != this->c.get()) { return; }
+        c->removeListener(this);
+        this->c.release();
 
-        nodesXML = static_cast<StringOutputStream*>(stream)->getString();
+        nodesXML = string(data.p, data.len);
         complete();
     }
 

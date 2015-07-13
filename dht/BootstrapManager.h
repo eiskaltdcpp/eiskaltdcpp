@@ -23,13 +23,13 @@
 #include "KBucket.h"
 
 #include "dcpp/CID.h"
-#include "dcpp/HttpManagerListener.h"
+#include "dcpp/HttpConnectionListener.h"
 #include "dcpp/Singleton.h"
 
 namespace dht
 {
 
-class BootstrapManager : public Singleton<BootstrapManager>, private HttpManagerListener
+class BootstrapManager : public Singleton<BootstrapManager>, private HttpConnectionListener
 {
 public:
     BootstrapManager(void);
@@ -45,6 +45,8 @@ public:
 
 private:
 
+    std::unique_ptr<HttpConnection> c;
+
     CriticalSection cs;
 
     struct BootstrapNode
@@ -58,15 +60,12 @@ private:
     /** List of bootstrap nodes */
     deque<BootstrapNode> bootstrapNodes;
 
-    /** HTTP connection for bootstrapping */
-    HttpConnection* c;
-
     /** Downloaded node list */
     string nodesXML;
 
-    // HttpManagerListener
-    void on(HttpManagerListener::Failed, HttpConnection*, const string&) noexcept;
-    void on(HttpManagerListener::Complete, HttpConnection*, OutputStream*) noexcept;
+    // HttpConnectionListener
+    void on(HttpConnectionListener::Failed, HttpConnection*, const string&) noexcept;
+    void on(HttpConnectionListener::Complete, HttpConnection*, ns_str) noexcept;
 
 };
 

@@ -171,7 +171,7 @@ else (FREE_SPACE_BAR_C)
 endif (FREE_SPACE_BAR_C)
 
 if (LOCAL_BOOST)
-set (boost_file_name "boost.tar.gz")
+set (boost_file_name "boost_1.55_small.tar.bz2")
 file(GLOB BOOST_TAR_EXISTS ${PROJECT_BINARY_DIR}/${boost_file_name})
 if (NOT BOOST_TAR_EXISTS)
 file(DOWNLOAD http://sf.net/projects/eiskaltdcpp/files/Other/${boost_file_name} ${PROJECT_BINARY_DIR}/${boost_file_name} SHOW_PROGRESS)
@@ -180,6 +180,7 @@ file(GLOB BOOST_TAR_EXISTS ${PROJECT_BINARY_DIR}/${boost_file_name})
 execute_process (COMMAND ${CMAKE_COMMAND} -E tar xf ${BOOST_TAR_EXISTS}
                  WORKING_DIRECTORY ${PROJECT_BINARY_DIR}/)
 set (Boost_INCLUDE_DIR ${PROJECT_BINARY_DIR})
+add_definitions(-DBOOST_ERROR_CODE_HEADER_ONLY -DBOOST_SYSTEM_NO_DEPRECATED)
 if (HAIKU)
 EXECUTE_PROCESS (
                 COMMAND patch -p0 -i ${PROJECT_SOURCE_DIR}/haiku/boost.diff
@@ -290,7 +291,7 @@ add_definitions (-D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -D_REENTRANT
                  -D_DATADIR="${CLIENT_DATA_DIR}" -DLOCALE_DIR="${LOCALE_DIR}" -DBUILDING_DCPP)
 
 if (CMAKE_CXX_COMPILER_ID STREQUAL GNU OR CMAKE_CXX_COMPILER_ID STREQUAL Clang)
-    set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++0x -pipe -Wformat -Werror=format-security")
+    set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++0x -pipe -Wformat -Werror=format-security -Wno-deprecated")
     if (USE_GOLD)
         set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fuse-linker-plugin")
         set (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fuse-linker-plugin")

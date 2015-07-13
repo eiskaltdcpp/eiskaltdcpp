@@ -68,8 +68,6 @@
 
 #include <bzlib.h>
 
-#include <openssl/ssl.h>
-
 #include <utility>
 using std::move;
 

@@ -22,24 +22,21 @@
 #include "forward.h"
 #include "noexcept.h"
 
+struct ns_str;
+
 namespace dcpp {
 
 using std::string;
 
 class HttpConnectionListener {
 public:
-        virtual ~HttpConnectionListener() { }
-        template<int I> struct X { enum { TYPE = I }; };
+    virtual ~HttpConnectionListener() { }
+    template<int I> struct X { enum { TYPE = I }; };
+    typedef X<0> Complete;
+    typedef X<1> Failed;
 
-        typedef X<0> Data;
-        typedef X<1> Failed;
-        typedef X<2> Complete;
-        typedef X<3> Redirected;
-
-        virtual void on(Data, HttpConnection*, const uint8_t*, size_t) noexcept = 0;
-        virtual void on(Failed, HttpConnection*, const string&) noexcept = 0;
-        virtual void on(Complete, HttpConnection*) noexcept = 0;
-        virtual void on(Redirected, HttpConnection*, const string&) noexcept = 0;
+    virtual void on(Failed, HttpConnection*, const string&) noexcept = 0;
+    virtual void on(Complete, HttpConnection*, ns_str) noexcept = 0;
 };
 
 } // namespace dcpp
