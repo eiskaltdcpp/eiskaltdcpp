@@ -36,8 +36,9 @@ namespace dht
 
     BootstrapManager::BootstrapManager(void)
     {
+        // TODO: move this in config
         dhtservers.push_back("http://strongdc.sourceforge.net/bootstrap/");
-        dhtservers.push_back("http://ssa.in.ua/dcDHT.php");
+        dhtservers.push_back("http://dht.fly-server.ru/dcDHT.php");
     }
 
     BootstrapManager::~BootstrapManager(void)
