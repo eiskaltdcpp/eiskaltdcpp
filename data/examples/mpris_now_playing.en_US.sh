@@ -89,6 +89,7 @@ for app in $DBUS_COLLECTION; do
 	else
 		PLAYER="";
 		STATUS="";
+		tag["player"]="";
 	fi
 done
 
