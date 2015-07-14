@@ -180,6 +180,7 @@ void Client::on(Connected) noexcept {
         }
     }
     fire(ClientListener::Connected(), this);
+//    printf("address %s cipher %s\n", address.c_str(), sock->getCipherName().c_str()); fflush(stdout);
     state = STATE_PROTOCOL;
 }
 
