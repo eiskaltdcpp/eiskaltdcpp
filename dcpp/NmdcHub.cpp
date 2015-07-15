@@ -942,8 +942,10 @@ void NmdcHub::myInfo(bool alwaysSend) {
         ">$ $" + uploadSpeed + StatusMode + "$" + fromUtf8(escape(SETTING(EMAIL))) + '$';
     string myInfoD = ShareManager::getInstance()->getShareSizeString() + "$|";
     // we always send A and C; however, B (slots) and D (share size) can frequently change so we delay them if needed
-    if(lastMyInfoA != myInfoA || lastMyInfoC != myInfoC ||
-        alwaysSend || ((lastMyInfoB != myInfoB || lastMyInfoD != myInfoD) && lastUpdate + 15*60*1000 < GET_TICK())) {
+    if(alwaysSend ||
+        ((lastMyInfoA != myInfoA || lastMyInfoC != myInfoC) && lastUpdate + 2*60*1000 < GET_TICK())
+        ||
+        ((lastMyInfoB != myInfoB || lastMyInfoD != myInfoD) && lastUpdate + 15*60*1000 < GET_TICK())) {
         dcdebug("MyInfo %s...\n", getMyNick().c_str());
         send(myInfoA + myInfoB + myInfoC + myInfoD);
         lastMyInfoA = myInfoA;
