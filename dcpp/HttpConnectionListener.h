@@ -22,8 +22,6 @@
 #include "forward.h"
 #include "noexcept.h"
 
-struct ns_str;
-
 namespace dcpp {
 
 using std::string;
@@ -36,7 +34,7 @@ public:
     typedef X<1> Failed;
 
     virtual void on(Failed, HttpConnection*, const string&) noexcept = 0;
-    virtual void on(Complete, HttpConnection*, ns_str) noexcept = 0;
+    virtual void on(Complete, HttpConnection*, const string&) noexcept = 0;
 };
 
 } // namespace dcpp

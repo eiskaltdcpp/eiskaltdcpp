@@ -25,109 +25,120 @@
 #include "TimerManager.h"
 #include "version.h"
 
-#include "extra/fossa.h"
 #include <thread>
 
 namespace dcpp {
 
-static void dcpp_HttpConnection_ev_handler(struct ns_connection *nc, int ev, void *ev_data) {
+void HttpConnection::ev_handler(struct ns_connection *nc, int ev, void *ev_data) {
     struct http_message *hm = (struct http_message *) ev_data;
     HttpConnection* c = ((HttpConnection*)nc->mgr->user_data);
+    if (c->curr_ns_con != nc) { return; }
 
     switch (ev) {
         case NS_CLOSE: {
-//          printf("Address %s Close connection\n", c->getUrl().c_str() ); fflush(stdout);
-          break;
+            c->poll = false;
+//            printf("NS_CLOSE Address %s Close connection\n", c->getUrl().c_str() ); fflush(stdout);
+            break;
         }
         case NS_RECV: {
-//          printf("Address %s Received %lu \n", c->getUrl().c_str(), nc->recv_mbuf.len); fflush(stdout);
-//          printf("Data: %s", string(nc->recv_mbuf.buf, nc->recv_mbuf.len).c_str());fflush(stdout);
-          break;
+            c->received += nc->recv_mbuf.len - c->received;
+//            printf("NS_RECV Address %s Received %u \n", c->getUrl().c_str(), c->received.load()); fflush(stdout);
+//            printf("Data: %s\n", string(nc->recv_mbuf.buf, nc->recv_mbuf.len).c_str());fflush(stdout);
+            break;
         }
         case NS_CONNECT: {
             if (* (int *) ev_data != 0) {
-//                printf("Download failed\n"); fflush(stdout);
+//                printf("NS_CONNECT Connect failed\n"); fflush(stdout);
                 c->fire(HttpConnectionListener::Failed(), c, str(F_("%1%") % (strerror(* (int *) ev_data))));
                 c->poll = false;
+            } else {
+//                printf("NS_CONNECT Connect successful\n"); fflush(stdout);
             }
             break;
         }
         case NS_HTTP_REPLY: {
-//            printf("Address %s Download finished\n", c->getUrl().c_str()); fflush(stdout);
+//            printf("NS_HTTP_REPLY Address %s Download finished\n", c->getUrl().c_str()); fflush(stdout);
             nc->flags |= NSF_CLOSE_IMMEDIATELY;
-            c->poll = false;
-            string check(nc->recv_mbuf.buf, nc->recv_mbuf.len);
-            if (check.find("301") != string::npos || check.find("302") != string::npos) {
-                size_t start = check.find("Location");
-                if (start != string::npos) {
-                    size_t end = check.find("\r\n", start);
-                    if (end == string::npos) {
+            if (hm->resp_code == 301 || hm->resp_code == 302) {
+                string location;
+                for(auto i = 0; i < NS_MAX_HTTP_HEADERS; ++i) {
+                    if (ns_vcmp(&hm->header_names[i], "Location") == 0) {
+                        location.assign(hm->header_values[i].p, hm->header_values[i].len);
                         break;
                     }
-//                    printf("Document moved\n"); fflush(stdout);
-                    string location = check.substr(start + 10, end - start - 10);
-//                    printf("Locaton: %s\n", location.c_str()); fflush(stdout);
-                    if (location.compare(c->getUrl()) != 0) {
-//                        printf("Continue download\n"); fflush(stdout);
-                        c->setUrl(location);
-                        c->download();
-                    }
                 }
+                if (location.empty()) {
+                    break;
+                }
+//                printf("Document moved\n"); fflush(stdout);
+//                printf("Locaton: %s\n", location.c_str()); fflush(stdout);
+                if (location.compare(c->getUrl()) != 0) {
+//                    printf("Continue download\n"); fflush(stdout);
+                    c->setUrl(location);
+                    c->download();
+                }
+            } else if (hm->resp_code == 404) {
+                c->fire(HttpConnectionListener::Failed(), c, _("No data received"));
             } else {
-                ns_str buf;
-                buf = hm->body;
-                c->fire(HttpConnectionListener::Complete(), c, buf);
+                string data(hm->body.p, hm->body.len);
+                c->fire(HttpConnectionListener::Complete(), c, data);
             }
             break;
         }
-        default:
-          break;
+        default: break;
     }
 }
 
 HttpConnection::HttpConnection(const string& aUserAgent) :
     poll(false),
-    userAgent(aUserAgent)
+    userAgent(aUserAgent),
+    received(0)
 {
-    ns_mgr_init(&mgr, this);
 }
 
-HttpConnection::~HttpConnection() {
-    ns_mgr_free(&mgr);
-}
-
-void HttpConnection::poll_func(void* ptr)
+void HttpConnection::download_async(void* ptr, const string& post_data)
 {
+    struct ns_mgr mgr;
     HttpConnection* c = (HttpConnection*) ptr;
-    while(c->poll) {
-        ns_mgr_poll(&(c->mgr), 1000);
-    }
-}
 
-void HttpConnection::download(const string& post_data) {
+    ns_mgr_init(&mgr, ptr);
+
+    c->poll_time = 0;
+
     string extraHeaders;
 
-    if(userAgent.empty()) {
-        userAgent = "User-Agent: " APPNAME " v" VERSIONSTRING "\r\n";
+    if(c->userAgent.empty()) {
+        c->userAgent = "User-Agent: " APPNAME " v" VERSIONSTRING "\r\n";
     }
 
-    extraHeaders.append(userAgent);
+    extraHeaders.append(c->userAgent);
 
-    if(::strcmp(url.substr(url.size() - 4).c_str(), ".bz2") == 0) {
-                mimeType = "application/x-bzip2";
-    } else mimeType.clear();
+    if(::strcmp(c->url.substr(c->url.size() - 4).c_str(), ".bz2") == 0) {
+                c->mimeType = "application/x-bzip2";
+    } else c->mimeType.clear();
 
-    ns_connect_http(&mgr, &dcpp_HttpConnection_ev_handler, url.c_str(),
+    c->curr_ns_con = ns_connect_http(&mgr, &ev_handler, c->url.c_str(),
                     (extraHeaders.empty() ? NULL : extraHeaders.c_str()),
                     (post_data.empty() ? NULL : post_data.c_str()));
 
-//    printf("Start download: %s\n", url.c_str());fflush(stdout);
+//    printf("Start download: %s\n", c->url.c_str());fflush(stdout);
 
-    if (!poll) {
-        poll = true;
-        std::thread t(poll_func, this);
-        t.detach();
+    c->poll = true;
+
+    while(c->poll) {
+        ns_mgr_poll(&mgr, 1000);
+        c->poll_time += 1000;
+        if (c->poll_time == 1000*60 && c->received == 0) {
+            c->curr_ns_con->flags |= NSF_CLOSE_IMMEDIATELY;
+            c->fire(HttpConnectionListener::Failed(), c, _("No data received"));
+        }
     }
+    ns_mgr_free(&mgr);
+}
+
+void HttpConnection::download(const string& post_data) {
+    std::thread t(download_async, this, post_data);
+    t.detach();
 }
 
 } // namespace dcpp

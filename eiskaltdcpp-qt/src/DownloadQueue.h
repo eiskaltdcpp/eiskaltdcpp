@@ -104,11 +104,6 @@ public Q_SLOTS:
     void removeTarget(const QString&);
     void removeSource(const QString&, const QString&);
 
-signals:
-    void added  (const QString&);
-    void moved  (const QString&, const QString&);
-    void removed(const QString&);
-
 private Q_SLOTS:
     void slotContextMenu(const QPoint&);
     void slotCollapseRow(const QModelIndex &);

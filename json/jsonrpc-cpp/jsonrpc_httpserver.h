@@ -27,12 +27,14 @@
 
 #include "jsonrpc_common.h"
 #include "jsonrpc_handler.h"
+#include "extra/fossa.h"
 
 namespace Json
 {
 
   namespace Rpc
   {
+
     /**
      * \class HTTPServer
      * \brief Abstract JSON-RPC HTTPServer.
@@ -113,6 +115,8 @@ namespace Json
          * \brief Local port.
          */
         uint16_t m_port;
+
+        struct ns_mgr server;
     };
 
   } /* namespace Rpc */

@@ -803,7 +803,6 @@ void DownloadQueue::on(QueueManagerListener::Added, QueueItem *item) noexcept{
     getParams(params, item);
 
     emit coreAdded(params);
-    emit added(_q(item->getTargetFileName()));
 }
 
 void DownloadQueue::on(QueueManagerListener::Moved, QueueItem *item, const std::string &oldTarget) noexcept{
@@ -811,7 +810,6 @@ void DownloadQueue::on(QueueManagerListener::Moved, QueueItem *item, const std::
     getParams(params, item);
 
     emit coreMoved(params);
-    emit moved(_q(oldTarget), _q(item->getTargetFileName()));
 }
 
 void DownloadQueue::on(QueueManagerListener::Removed, QueueItem *item) noexcept{
@@ -819,7 +817,6 @@ void DownloadQueue::on(QueueManagerListener::Removed, QueueItem *item) noexcept{
     getParams(params, item);
 
     emit coreRemoved(params);
-    emit removed(_q(item->getTargetFileName()));
 }
 
 void DownloadQueue::on(QueueManagerListener::SourcesUpdated, QueueItem *item) noexcept{

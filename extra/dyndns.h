@@ -29,7 +29,7 @@ class DynDNS : public Singleton<DynDNS>, private HttpConnectionListener
         void completeDownload(bool success, const string& html);
 
         void on(HttpConnectionListener::Failed, HttpConnection*, const string&) noexcept;
-        void on(HttpConnectionListener::Complete, HttpConnection*, ns_str) noexcept;
+        void on(HttpConnectionListener::Complete, HttpConnection*, const string&) noexcept;
 
         // TimerManagerListener
         void on(TimerManagerListener::Minute, uint64_t aTick) noexcept;

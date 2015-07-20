@@ -733,7 +733,7 @@ void FavoriteManager::on(HttpConnectionListener::Failed, HttpConnection* c, cons
     }
 }
 
-void FavoriteManager::on(HttpConnectionListener::Complete, HttpConnection* c, ns_str stream) noexcept {
+void FavoriteManager::on(HttpConnectionListener::Complete, HttpConnection* c, const std::string &stream) noexcept {
     if(c != this->c.get()) { return; }
     c->removeListener(this);
 
@@ -741,7 +741,7 @@ void FavoriteManager::on(HttpConnectionListener::Complete, HttpConnection* c, ns
     if(useHttp) {
         if(c->getMimeType() == "application/x-bzip2")
             listType = TYPE_BZIP2;
-        parseSuccess = onHttpFinished(string(stream.p, stream.len));
+        parseSuccess = onHttpFinished(stream);
     }
     running = false;
     if(parseSuccess) {

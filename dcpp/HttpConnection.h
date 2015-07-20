@@ -37,22 +37,28 @@ class HttpConnection : public Speaker<HttpConnectionListener>, ::noncopyable
 {
 public:
     HttpConnection(const string& aUserAgent = Util::emptyString);
-    virtual ~HttpConnection();
+    virtual ~HttpConnection() {}
 
     void download(const string& post_data = Util::emptyString);
 
     GETSET(string, url, Url)
+    GETSET(string, shorturl, ShortUrl)
+
     std::atomic<bool> poll;
+    std::atomic<uint32_t> received;
+    std::atomic<uint32_t> poll_time;
+    ns_connection* curr_ns_con;
+
     const string& getMimeType() const { return mimeType; }
 
+    static void download_async(void* ptr, const string& post_data);
+
 private:
-    struct ns_mgr mgr;
 
     string userAgent;
     string mimeType;
 
-    static void poll_func(void *ptr);
-
+    static void ev_handler(ns_connection *nc, int ev, void *ev_data);
 };
 
 } // namespace dcpp

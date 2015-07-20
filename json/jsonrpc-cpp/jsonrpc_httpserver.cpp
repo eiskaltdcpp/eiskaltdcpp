@@ -27,31 +27,30 @@
 #include <string>
 #include <cstring>
 #include <cstdlib>
-#include "extra/fossa.h"
 
 namespace Json
 {
 
   namespace Rpc
   {
-    struct ns_mgr *server;
     static int exit_flag;
 
     static void Json_Rpc_HTTPServer_ev_handler(struct ns_connection *nc, int ev, void *ev_data) {
-        struct http_message *hm = (struct http_message *) ev_data;
+        HTTPServer* c = ((HTTPServer*)nc->mgr->user_data);
+
         switch (ev) {
-          case NS_HTTP_REQUEST:
-            if (ns_vcmp(&hm->method, "OPTIONS") == 0) {
-                std::string tmp = "";
-                reinterpret_cast<HTTPServer*>(nc->user_data)->sendResponse(tmp, nc);
-            } else if (ns_vcmp(&hm->method, "POST") == 0) {
-                std::string tmp;
-                tmp.assign(hm->body.p, hm->body.len);
-                reinterpret_cast<HTTPServer*>(nc->user_data)->onRequest(tmp, nc);
+            case NS_HTTP_REQUEST: {
+                struct http_message *hm = (struct http_message *) ev_data;
+                if (ns_vcmp(&hm->method, "OPTIONS") == 0) {
+                    std::string tmp = "";
+                    c->sendResponse(tmp, nc);
+                } else if (ns_vcmp(&hm->method, "POST") == 0) {
+                    std::string tmp(hm->body.p, hm->body.len);
+                    c->onRequest(tmp, nc);
+                }
+                break;
             }
-            break;
-          default:
-            break;
+            default: break;
         }
     }
 
@@ -86,18 +85,19 @@ namespace Json
     bool HTTPServer::startPolling()
     {
         // Create and configure the server
-        ns_mgr_init(server, this);
+        ns_mgr_init(&server, this);
         char tmp_port[30];
         sprintf(tmp_port,"%s:%d", GetAddress().c_str(),GetPort());
-        ns_bind(server, tmp_port, Json_Rpc_HTTPServer_ev_handler);
-        serving_thread_func(server);
+        ns_connection* nc = ns_bind(&server, tmp_port, Json_Rpc_HTTPServer_ev_handler);
+        ns_set_protocol_http_websocket(nc);
+        serving_thread_func(&server);
         return true;
     }
 
     bool HTTPServer::stopPolling()
     {
         exit_flag = 1;
-        ns_mgr_free(server);
+        ns_mgr_free(&server);
         return true;
     }
 

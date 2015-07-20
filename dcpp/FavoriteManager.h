@@ -149,7 +149,7 @@ private:
 
     // HttpConnectionListener
     void on(HttpConnectionListener::Failed, HttpConnection*, const string&) noexcept;
-    void on(HttpConnectionListener::Complete, HttpConnection*, ns_str) noexcept;
+    void on(HttpConnectionListener::Complete, HttpConnection*, const string&) noexcept;
 
     bool onHttpFinished(const string& buf) noexcept;
 

@@ -28,11 +28,11 @@ void DynDNS::on(HttpConnectionListener::Failed, HttpConnection* c, const string&
     completeDownload(false, str);
 }
 
-void DynDNS::on(HttpConnectionListener::Complete, HttpConnection* c, ns_str data) noexcept {
+void DynDNS::on(HttpConnectionListener::Complete, HttpConnection* c, const string& data) noexcept {
     if(c != this->c.get()) { return; }
     c->removeListener(this);
     this->c.release();
-    completeDownload(true, string(data.p, data.len));
+    completeDownload(true, data);
 }
 
 void DynDNS::Request() {

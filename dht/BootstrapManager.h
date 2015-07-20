@@ -39,13 +39,13 @@ public:
 
     void process();
 
-    void complete();
+    void complete(const string& url, const std::string &data);
 
     void addBootstrapNode(const string& ip, const string& udpPort, const CID& targetCID, const UDPKey& udpKey);
 
 private:
 
-    std::unique_ptr<HttpConnection> c;
+    std::list<std::unique_ptr<HttpConnection>> httpcons;
 
     CriticalSection cs;
 
@@ -60,12 +60,9 @@ private:
     /** List of bootstrap nodes */
     deque<BootstrapNode> bootstrapNodes;
 
-    /** Downloaded node list */
-    string nodesXML;
-
     // HttpConnectionListener
     void on(HttpConnectionListener::Failed, HttpConnection*, const string&) noexcept;
-    void on(HttpConnectionListener::Complete, HttpConnection*, ns_str) noexcept;
+    void on(HttpConnectionListener::Complete, HttpConnection*, const string &) noexcept;
 
 };
 
