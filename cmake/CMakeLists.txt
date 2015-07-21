@@ -68,7 +68,7 @@ if(UPDATE_PO)
 				--add-comments=TRANSLATORS
 				--files-from="${dcpp_files_from}"
 				--copyright-holder=\"EiskaltDC++ team\"
-				--msgid-bugs-address=\"http://code.google.com/p/eiskaltdc/issues/list\"
+				--msgid-bugs-address=\"https://github.com/eiskaltdcpp/eiskaltdcpp/issues\"
 				--from-code=UTF-8
 				--keyword=_
 				--keyword=N_
@@ -91,7 +91,7 @@ if(UPDATE_PO)
 				--add-comments=TRANSLATORS
 				--files-from="${gtk_cpp_files_from}"
 				--copyright-holder=\"EiskaltDC++ team\"
-				--msgid-bugs-address=\"http://code.google.com/p/eiskaltdc/issues/list\"
+				--msgid-bugs-address=\"https://github.com/eiskaltdcpp/eiskaltdcpp/issues\"
 				--from-code=UTF-8
 				--keyword=_
 				--keyword=N_
@@ -115,7 +115,7 @@ if(UPDATE_PO)
 				--add-comments=TRANSLATORS
 				--files-from="${gtk_ui_files_from}"
 				--copyright-holder=\"EiskaltDC++ team\"
-				--msgid-bugs-address=\"http://code.google.com/p/eiskaltdc/issues/list\"
+				--msgid-bugs-address=\"https://github.com/eiskaltdcpp/eiskaltdcpp/issues\"
 				--from-code=UTF-8
 				--sort-output
 				--language=Glade
