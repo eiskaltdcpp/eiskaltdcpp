@@ -51,14 +51,13 @@ public:
 
     const string& getMimeType() const { return mimeType; }
 
-    static void download_async(void* ptr, const string& post_data);
-
 private:
 
     string userAgent;
     string mimeType;
 
     static void ev_handler(ns_connection *nc, int ev, void *ev_data);
+    static void download_async(void* ptr, const string& post_data);
 };
 
 } // namespace dcpp
