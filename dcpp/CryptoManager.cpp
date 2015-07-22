@@ -27,6 +27,7 @@
 #include "version.h"
 
 #include <openssl/bn.h>
+#include <openssl/ssl.h>
 
 #include <bzlib.h>
 
