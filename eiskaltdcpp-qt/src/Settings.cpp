@@ -18,6 +18,7 @@
 #include "SettingsUC.h"
 #include "SettingsShortcuts.h"
 #include "SettingsHistory.h"
+#include "SettingsAdvanced.h"
 
 #include "WulforUtil.h"
 
@@ -92,6 +93,11 @@ void Settings::init(){
     connect(this, SIGNAL(timeToDie()), shist, SLOT(ok()));
     widgets.insert(item, (int)Page::History);
 
+    item = new QListWidgetItem(WU->getPixmap(WulforUtil::eiCONSOLE), tr("Advanced"), listWidget);
+    SettingsAdvanced *sadv = new SettingsAdvanced(this);
+    connect(this, SIGNAL(timeToDie()), sadv, SLOT(ok()));
+    widgets.insert(item, (int)Page::Advanced);
+
     stackedWidget->insertWidget((int)Page::Personal, personal);
     stackedWidget->insertWidget((int)Page::Connection, connection);
     stackedWidget->insertWidget((int)Page::Downloads, downloads);
@@ -102,6 +108,7 @@ void Settings::init(){
     stackedWidget->insertWidget((int)Page::UserCommands, ucs);
     stackedWidget->insertWidget((int)Page::Shortcuts, sshs);
     stackedWidget->insertWidget((int)Page::History, shist);
+    stackedWidget->insertWidget((int)Page::Advanced, sadv);
 
     stackedWidget->setCurrentIndex(0);
 

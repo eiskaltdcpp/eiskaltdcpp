@@ -131,6 +131,7 @@ PMWindow::PMWindow(QString cid, QString hubUrl):
     connect(toolButton_HIDE, SIGNAL(clicked()), this, SLOT(slotHideFindFrame()));
     connect(toolButton_BACK, SIGNAL(clicked()), this, SLOT(slotFindBackward()));
     connect(toolButton_FORWARD, SIGNAL(clicked()), this, SLOT(slotFindForward()));
+    connect(toolButton_ALL, SIGNAL(clicked()), this, SLOT(slotFindAll()));
 
     out_messages_index = 0;
     out_messages_unsent = false;
@@ -572,7 +573,7 @@ void PMWindow::slotSmileClicked(){
 
 
 void PMWindow::slotSmileContextMenu(){
-#if !defined(Q_WS_WIN)
+#if !defined(Q_OS_WIN)
     QString emot = CLIENT_DATA_DIR "/emoticons/";
 #else
     QString emot = qApp->applicationDirPath()+QDir::separator()+CLIENT_DATA_DIR "/emoticons/";
@@ -673,12 +674,11 @@ void PMWindow::slotFindTextEdited(const QString & text){
 
     c.movePosition(QTextCursor::StartOfLine,QTextCursor::MoveAnchor,1);
     c = textEdit_CHAT->document()->find(lineEdit_FIND->text(), c, 0);
-
-    textEdit_CHAT->setExtraSelections(QList<QTextEdit::ExtraSelection>());
-
-    textEdit_CHAT->setTextCursor(c);
-
-    slotFindAll();
+    if (!c.isNull()) {
+        textEdit_CHAT->setExtraSelections(QList<QTextEdit::ExtraSelection>());
+        textEdit_CHAT->setTextCursor(c);
+        slotFindAll();
+    }
 }
 
 void PMWindow::slotFindAll(){
@@ -729,7 +729,8 @@ void PMWindow::findText(QTextDocument::FindFlags flag){
 
     c = textEdit_CHAT->document()->find(lineEdit_FIND->text(), c, flag);
 
-    textEdit_CHAT->setTextCursor(c);
-
-    slotFindAll();
+    if (!c.isNull()) {
+        textEdit_CHAT->setTextCursor(c);
+        slotFindAll();
+    }
 }

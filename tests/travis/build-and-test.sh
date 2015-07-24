@@ -78,6 +78,7 @@ fi
 if [ ! -z "${USE_GTK}" ]; then
     CMAKEOPTS="${CMAKEOPTS}
                -DUSE_QT=OFF
+               -DUSE_QT5=OFF
                -DUSE_LIBGNOME2=OFF
                -DCHECK_GTK_DEPRECATED=OFF"
     if [ "${USE_GTK}" = "gtk2" ]; then
@@ -103,6 +104,7 @@ fi
 if [ ! -z "${USE_DAEMON}" ]; then
     CMAKEOPTS="${CMAKEOPTS}
                -DUSE_QT=OFF
+               -DUSE_QT5=OFF
                -DNO_UI_DAEMON=ON
                -DXMLRPC_DAEMON=OFF"
     if [ "${CONFIG}" = "full" ]; then
@@ -114,6 +116,7 @@ fi
 if [ ! -z "${USE_CLI}" ]; then
     CMAKEOPTS="${CMAKEOPTS}
                -DUSE_QT=OFF
+               -DUSE_QT5=OFF
                -DUSE_CLI_JSONRPC=ON
                -DUSE_CLI_XMLRPC=OFF"
 fi

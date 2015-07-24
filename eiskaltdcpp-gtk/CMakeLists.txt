@@ -36,9 +36,9 @@ aux_source_directory(${PROJECT_SOURCE_DIR}/src gtk_srcs)
 file (GLOB gtk_hdrs ${PROJECT_SOURCE_DIR}/src/*.hh)
 file (GLOB gtk_ui ${PROJECT_SOURCE_DIR}/ui/*.ui)
 
-set (GTK_SRCS @gtk_srcs@ PARENT_SCOPE)
-set (GTK_HDRS @gtk_hdrs@ PARENT_SCOPE)
-set (GTK_UI   @gtk_ui@   PARENT_SCOPE)
+set (GTK_SRCS ${gtk_srcs} PARENT_SCOPE)
+set (GTK_HDRS ${gtk_hdrs} PARENT_SCOPE)
+set (GTK_UI   ${gtk_ui}  PARENT_SCOPE)
 set (GTHREAD "-lgthread-2.0")
 
 if (USE_GTK)
@@ -158,6 +158,7 @@ endif (APPLE)
 
 foreach(LANG ${LANGUAGES})
     install(FILES
-        ${PROJECT_BINARY_DIR}/locale/${LANG}/LC_MESSAGES/${PROJECT_NAME}.mo
-            DESTINATION ${LOCALE_DIR}/${LANG}/LC_MESSAGES)
+        ${PROJECT_BINARY_DIR}/${LANG}_${PROJECT_NAME}.mo
+            DESTINATION ${LOCALE_DIR}/${LANG}/LC_MESSAGES
+        RENAME ${PROJECT_NAME}.mo)
 endforeach(LANG ${LANGUAGES})

@@ -4,15 +4,16 @@
 #
 # Translators:
 # Translators:
-# Jackl <be.w@mail.ru>, 2013-2014
+# Translators:
+# Jackl <be.w@mail.ru>, 2013-2015
 # Jackl <be.w@mail.ru>, 2012
 # Jackl <be.w@mail.ru>, 2012-2013
 msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2014-10-16 21:06+0400\n"
-"PO-Revision-Date: 2014-06-03 17:47+0000\n"
+"POT-Creation-Date: 2015-05-24 21:44+0300\n"
+"PO-Revision-Date: 2015-04-27 12:35+0000\n"
 "Last-Translator: Jackl <be.w@mail.ru>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/eiskaltdcpp/"
 "language/de/)\n"
@@ -873,12 +874,11 @@ msgstr "Hintergrundfarbe"
 
 #: ../src/settingsdialog.cc:1082
 msgid "Basque"
-msgstr ""
+msgstr "Baskisch"
 
 #: ../src/mainwindow.cc:252
-#, fuzzy
 msgid "Basque translation\n"
-msgstr "Spanische Übersetzung\n"
+msgstr "Baskische Übersetzung\n"
 
 #: ../src/settingsdialog.cc:1064
 msgid "Belarusian"
@@ -3122,14 +3122,12 @@ msgid "Separators"
 msgstr "Trennzeichen"
 
 #: ../src/settingsdialog.cc:1074
-#, fuzzy
 msgid "Serbian (Cyrillic)"
-msgstr "Serbische (Latein) Übersetzung"
+msgstr "Serbisch (kyrillisch)"
 
 #: ../src/mainwindow.cc:241
-#, fuzzy
 msgid "Serbian (Cyrillic) translation\n"
-msgstr "Serbische (Latein) Übersetzung\n"
+msgstr "Serbische (kyrillisch) Übersetzung\n"
 
 #: ../src/settingsdialog.cc:1076
 msgid "Serbian (Latin)"

@@ -159,9 +159,9 @@ Keys for cmake
 ----------------
 :eiskaltdcpp-qt:
 ----------------
--DUSE_QT=ON/OFF (default: ON)
+-DUSE_QT=ON/OFF (default: OFF)
     build EiskaltDC++ with Qt interface using Qt 4.x libraries
--DUSE_QT5=ON/OFF (default: OFF)
+-DUSE_QT5=ON/OFF (default: ON)
     build EiskaltDC++ with Qt interface using Qt 5.x libraries
 -DUSE_ASPELL=ON/OFF (default: OFF)
     use or not use aspell
@@ -315,7 +315,7 @@ macosx/build.sh
 *******************************************************************************
 MS Windows specific notes
 *******************************************************************************
-Instructions are available in the file: win32/READ_ME.txt
+Instructions are available in the file: windows/READ_ME.txt
 
 
 *******************************************************************************

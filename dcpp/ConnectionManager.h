@@ -117,7 +117,12 @@ public:
 
     uint16_t getPort() { return server ? static_cast<uint16_t>(server->getPort()) : 0; }
     uint16_t getSecurePort() { return secureServer ? static_cast<uint16_t>(secureServer->getPort()) : 0; }
+
+    void addCTM2HUB(const string &server, const string &port);
+
 private:
+
+    unordered_set<string> ddosctm2hub;
 
     class Server : public Thread {
     public:

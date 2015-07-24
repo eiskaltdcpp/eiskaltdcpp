@@ -59,10 +59,11 @@ public:
         RemoveFromQueue,
         Force,
         Close,
+        showTransferedFieldsOnly,
         None
     };
 
-    Menu();
+    Menu(bool);
     virtual ~Menu();
 
     Action exec();
@@ -148,7 +149,7 @@ private Q_SLOTS:
     void slotContextMenu(const QPoint&);
     void slotHeaderMenu(const QPoint&);
     void downloadComplete(QString);
-    \
+
 private:
     TransferView(QWidget* = NULL);
     virtual ~TransferView();

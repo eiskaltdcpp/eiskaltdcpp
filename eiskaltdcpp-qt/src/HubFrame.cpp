@@ -199,14 +199,16 @@ HubFrame::Menu::Menu(){
 
     // submenu copy_data for user list
     QAction *copy_data_nick  = new QAction(tr("Nick"), NULL);
+    QAction *copy_data_cmnt  = new QAction(tr("Comment"), NULL);
     QAction *copy_data_ip    = new QAction(tr("IP"), NULL);
     QAction *copy_data_share = new QAction(tr("Share"), NULL);
     QAction *copy_data_tag   = new QAction(tr("Tag"), NULL);
+    QAction *copy_data_email = new QAction(tr("E-mail"), NULL);
     QAction *sep4            = new QAction(NULL);
     QAction *copy_data_all   = new QAction(tr("All"), NULL);
 
     QMenu *menuCopyData = new QMenu(NULL);
-    menuCopyData->addActions(QList<QAction*>() << copy_data_nick << copy_data_ip << copy_data_share << copy_data_tag << sep4 << copy_data_all);
+    menuCopyData->addActions(QList<QAction*>() << copy_data_nick << copy_data_cmnt << copy_data_ip << copy_data_share << copy_data_tag << copy_data_email << sep4 << copy_data_all);
 
     QAction *copy_data   = new QAction(WU->getPixmap(WulforUtil::eiEDITCOPY), tr("Copy data"), NULL);
     copy_data->setMenu(menuCopyData);
@@ -274,9 +276,11 @@ HubFrame::Menu::Menu(){
     chat_actions_map.insert(zoom_out, ZoomOutChat);
 
     chat_actions_map.insert(copy_data_nick,  CopyNick);
+    chat_actions_map.insert(copy_data_cmnt,  CopyComment);
     chat_actions_map.insert(copy_data_ip,    CopyIP);
     chat_actions_map.insert(copy_data_share, CopyShare);
     chat_actions_map.insert(copy_data_tag,   CopyTag);
+    chat_actions_map.insert(copy_data_email, CopyEmail);
     chat_actions_map.insert(copy_data_all,   CopyText);
 }
 
@@ -1155,6 +1159,7 @@ void HubFrame::init(){
     treeView_USERS->setUniformRowHeights(true);
     treeView_USERS->setContextMenuPolicy(Qt::CustomContextMenu);
     treeView_USERS->header()->setContextMenuPolicy(Qt::CustomContextMenu);
+    treeView_USERS->header()->hideSection(COLUMN_EXACT_SHARE);
     treeView_USERS->viewport()->installEventFilter(this);
 
     installEventFilter(this);
@@ -1750,6 +1755,13 @@ bool HubFrame::parseForCmd(QString line, QWidget *wg){
                 pm->addStatus(line);
         }
     }
+    else if (cmd == "/rebuild") {
+        HashManager::getInstance()->rebuild();
+    }
+    else if (cmd == "/refresh") {
+        ShareManager::getInstance()->setDirty();
+        ShareManager::getInstance()->refresh(true);
+    }
 #ifdef USE_ASPELL
     else if (cmd == "/aspell" && !emptyParam){
         WBSET(WB_APP_ENABLE_ASPELL, param.trimmed() == "on");
@@ -1848,6 +1860,8 @@ bool HubFrame::parseForCmd(QString line, QWidget *wg){
         out += tr("/help, /?, /h - show this help\n");
         out += tr("/info <nick> - show info about user\n");
         out += tr("/ratio [show] - show ratio [send in chat]\n");
+        out += tr("/rebuild - rebuild hash\n");
+        out += tr("/refresh - update own file list\n");
         out += tr("/me - say a third person\n");
         out += tr("/pm <nick> - begin private chat with user\n");
         out += tr("/ws param value - set gui option param in value (without value return current value of option)\n");
@@ -1856,9 +1870,7 @@ bool HubFrame::parseForCmd(QString line, QWidget *wg){
         out += tr("/luafile <file> - load Lua file\n");
         out += tr("/lua <chunk> - execute Lua chunk\n");
 #endif
-
-        if (out.endsWith("\n"))
-            out.remove(out.size()-1, 1);
+        out = out.trimmed();
 
         if (fr == this)
             addStatus(out);
@@ -2374,11 +2386,11 @@ void HubFrame::newMsg(const VarMap &map){
 
     bool third = map["3RD"].toBool();
 
-    nick = third? ("* " + nick + " ") : ("<" + nick + "> ");
+    QString nicktoout = third? ("* " + nick + " ") : ("<" + nick + "> ");
 
     message = LinkParser::parseForLinks(message, true);
 
-    WulforUtil::getInstance()->textToHtml(nick, true);
+    WulforUtil::getInstance()->textToHtml(nicktoout, true);
 
     message = "<font color=\"" + WSGET(msg_color) + "\">" + message + "</font>";
 
@@ -2389,7 +2401,7 @@ void HubFrame::newMsg(const VarMap &map){
         output  += " <font color=\"" + WSGET(WS_CHAT_TIME_COLOR)+ "\">" + _q(info) + "</font>";
 
     output  += QString(" <a style=\"text-decoration:none\" href=\"user://%1\"><font color=\"%2\"><b>%3</b></font></a>")
-               .arg(nick).arg(WSGET(color)).arg(nick.replace("\"", "&quot;"));
+               .arg(nicktoout).arg(WSGET(color)).arg(nicktoout.replace("\"", "&quot;"));
     output  += message;
 
     if (!isVisible()){
@@ -2401,10 +2413,10 @@ void HubFrame::newMsg(const VarMap &map){
         MainWindow::getInstance()->redrawToolPanel();
     }
 
+    QTextDocument *chatDoc = textEdit_CHAT->document();
+
     if (d->drawLine && WBGET("hubframe/unreaden-draw-line", true)){
         QString hr = "<hr />";
-
-        QTextDocument *chatDoc = textEdit_CHAT->document();
 
         int scrollbarValue = textEdit_CHAT->verticalScrollBar()->value();
 
@@ -2433,6 +2445,13 @@ void HubFrame::newMsg(const VarMap &map){
 
         addOutput(output);
 
+        for (QTextBlock itu = chatDoc->lastBlock(); itu != chatDoc->begin(); itu = itu.previous()){
+            if (!itu.userData())
+                itu.setUserData(new UserListUserData(nick));
+            else
+                break;
+        }
+
         for (QTextBlock it = chatDoc->begin(); it != chatDoc->end(); it = it.next()){
             if(!it.userState()){
                 it.setUserState(-1); // delete label for the last of the old messages
@@ -2457,6 +2476,14 @@ void HubFrame::newMsg(const VarMap &map){
     }
 
     addOutput(output);
+
+    for (QTextBlock itu = chatDoc->lastBlock(); itu != chatDoc->begin(); itu = itu.previous()){
+        if (!itu.userData())
+            itu.setUserData(new UserListUserData(nick));
+        else
+            break;
+    }
+
 }
 
 void HubFrame::newPm(const VarMap &map){
@@ -2633,10 +2660,10 @@ void HubFrame::findText(QTextDocument::FindFlags flag){
         c.movePosition(QTextCursor::Start,QTextCursor::MoveAnchor,1);
 
     c = textEdit_CHAT->document()->find(lineEdit_FIND->text(), c, flag);
-
-    textEdit_CHAT->setTextCursor(c);
-
-    slotFindAll();
+    if (!c.isNull()) {
+        textEdit_CHAT->setTextCursor(c);
+        slotFindAll();
+    }
 }
 
 void HubFrame::updateStyles(){
@@ -2834,6 +2861,12 @@ void HubFrame::slotUserListMenu(const QPoint&){
 
             break;
         }
+        case Menu::CopyComment:
+        {
+            copyTagToClipboard<&UserListItem::getComment> (list);
+
+            break;
+        }
         case Menu::CopyIP:
         {
             copyTagToClipboard<&UserListItem::getIP> (list);
@@ -2849,6 +2882,12 @@ void HubFrame::slotUserListMenu(const QPoint&){
         case Menu::CopyTag:
         {
             copyTagToClipboard<&UserListItem::getTag> (list);
+
+            break;
+        }
+        case Menu::CopyEmail:
+        {
+            copyTagToClipboard<&UserListItem::getEmail> (list);
 
             break;
         }
@@ -2944,30 +2983,10 @@ void HubFrame::slotChatMenu(const QPoint &){
 
     if (!editor)
         return;
-
     QTextCursor cursor = editor->cursorForPosition(editor->mapFromGlobal(QCursor::pos()));
-
-    cursor.movePosition(QTextCursor::StartOfBlock);
-
-    QString pressedParagraph = cursor.block().text();
-
-    int row_counter = 0;
-    QRegExp nick_exp("<((.+))>");
-    QRegExp thirdPerson_exp("\\*\\W+((\\w+))");// * Some_nick say something
-
     QString nick = "";
-
-    while (!(pressedParagraph.contains(nick_exp) || pressedParagraph.contains(thirdPerson_exp)) && row_counter < 600){//try to find nick in above rows (max 600 rows)
-        cursor.movePosition(QTextCursor::PreviousBlock);
-        pressedParagraph = cursor.block().text();
-
-        row_counter++;
-    }
-
-    if (nick_exp.captureCount() >= 2)
-        nick = nick_exp.cap(1);
-    else if (thirdPerson_exp.exactMatch(pressedParagraph) && thirdPerson_exp.captureCount() >= 2)
-        nick = thirdPerson_exp.cap(1);
+    if(cursor.block().userData())
+        nick = static_cast<UserListUserData*>(cursor.block().userData())->data;
 
     Q_D(HubFrame);
 
@@ -3343,12 +3362,11 @@ void HubFrame::slotFindTextEdited(const QString & text){
 
     c.movePosition(QTextCursor::StartOfLine,QTextCursor::MoveAnchor,1);
     c = textEdit_CHAT->document()->find(lineEdit_FIND->text(), c, 0);
-
-    textEdit_CHAT->setExtraSelections(QList<QTextEdit::ExtraSelection>());
-
-    textEdit_CHAT->setTextCursor(c);
-
-    slotFindAll();
+    if (!c.isNull()) {
+        textEdit_CHAT->setExtraSelections(QList<QTextEdit::ExtraSelection>());
+        textEdit_CHAT->setTextCursor(c);
+        slotFindAll();
+    }
 }
 
 void HubFrame::slotFindAll(){
@@ -3371,14 +3389,13 @@ void HubFrame::slotFindAll(){
 
         QTextCursor c = textEdit_CHAT->document()->find(lineEdit_FIND->text(), 0, 0);
 
-        while (!c.isNull()){
+        while (!c.isNull()) {
             selection.cursor = c;
             extraSelections.append(selection);
 
             c = textEdit_CHAT->document()->find(lineEdit_FIND->text(), c, 0);
         }
     }
-
     textEdit_CHAT->setExtraSelections(extraSelections);
 }
 
@@ -3442,7 +3459,7 @@ void HubFrame::slotSmileClicked(){
 }
 
 void HubFrame::slotSmileContextMenu(){
-#if !defined(Q_WS_WIN)
+#if !defined(Q_OS_WIN)
     QString emot = CLIENT_DATA_DIR "/emoticons/";
 #else
     QString emot = qApp->applicationDirPath()+QDir::separator()+CLIENT_DATA_DIR "/emoticons/";

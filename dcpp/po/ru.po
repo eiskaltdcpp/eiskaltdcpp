@@ -11,15 +11,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2014-11-09 02:35+0300\n"
-"PO-Revision-Date: 2014-11-09 02:37+0300\n"
+"POT-Creation-Date: 2015-05-24 21:44+0300\n"
+"PO-Revision-Date: 2014-11-09 22:00+0300\n"
 "Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
-"language/ru/)\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"language/ru/)\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Lokalize 1.5\n"
@@ -344,21 +344,13 @@ msgstr "Перенаправление пользователя(ей)"
 msgid "Auto-connect group (converted)"
 msgstr "Авто-подключение группы (сконвертированный)"
 
-#: ../NmdcHub.cpp:289
+#: ../NmdcHub.cpp:295
 msgid "%1% (Nick unknown)"
 msgstr "%1% (Ник неизвестен)"
 
-#: ../NmdcHub.cpp:668
+#: ../NmdcHub.cpp:672
 msgid "Hub topic:"
 msgstr "Тема хаба:"
-
-#: ../NmdcHub.cpp:1018
-msgid ""
-"This hub is trying to use your client to spam %1%, please urge hub owner to "
-"fix this"
-msgstr ""
-"Этот хаб пытается использовать ваш клиент для спама %1%, пожалуйста сообщите "
-"владельцу хаба, чтобы он исправил это"
 
 #: ../ConnectionManager.cpp:179
 msgid "All download slots taken"
@@ -484,11 +476,11 @@ msgstr "Нет доступных слотов"
 msgid "%1%: File not available"
 msgstr "%1%: Файл недоступен"
 
-#: ../UserConnection.cpp:52 ../UserConnection.cpp:66 ../UserConnection.cpp:140
+#: ../UserConnection.cpp:53 ../UserConnection.cpp:68 ../UserConnection.cpp:145
 msgid "Invalid data"
 msgstr "Неверные данные"
 
-#: ../UserConnection.cpp:58
+#: ../UserConnection.cpp:59
 msgid "Non-UTF-8 data in an ADC connection"
 msgstr "Данные не в UTF-8 при ADC подключении"
 
@@ -512,67 +504,67 @@ msgstr "Очередь загрузок"
 msgid "Users"
 msgstr "Пользователи"
 
-#: ../Util.cpp:644
+#: ../Util.cpp:654
 #, c-format
 msgid "%d B"
 msgstr "%d Б"
 
-#: ../Util.cpp:646
+#: ../Util.cpp:656
 #, c-format
 msgid "%.02f KiB"
-msgstr "%.02f КБ"
+msgstr "%.02f КиБ"
 
-#: ../Util.cpp:646
+#: ../Util.cpp:656
 #, c-format
 msgid "%.02f KB"
 msgstr "%.02f КБ"
 
-#: ../Util.cpp:648
+#: ../Util.cpp:658
 #, c-format
 msgid "%.02f MiB"
-msgstr "%.02f МБ"
+msgstr "%.02f МиБ"
 
-#: ../Util.cpp:648
+#: ../Util.cpp:658
 #, c-format
 msgid "%.02f MB"
 msgstr "%.02f МБ"
 
-#: ../Util.cpp:650
+#: ../Util.cpp:660
 #, c-format
 msgid "%.02f GiB"
-msgstr "%.02f ГБ"
+msgstr "%.02f ГиБ"
 
-#: ../Util.cpp:650
+#: ../Util.cpp:660
 #, c-format
 msgid "%.02f GB"
 msgstr "%.02f ГБ"
 
-#: ../Util.cpp:652
+#: ../Util.cpp:662
 #, c-format
 msgid "%.02f TiB"
-msgstr "%.02f ТБ"
+msgstr "%.02f ТиБ"
 
-#: ../Util.cpp:652
+#: ../Util.cpp:662
 #, c-format
 msgid "%.02f TB"
 msgstr "%.02f ТБ"
 
-#: ../Util.cpp:654
+#: ../Util.cpp:664
 #, c-format
 msgid "%.02f PiB"
-msgstr "%.02f ПБ"
+msgstr "%.02f ПиБ"
 
-#: ../Util.cpp:654
+#: ../Util.cpp:664
 #, c-format
 msgid "%.02f PB"
 msgstr "%.02f ПБ"
 
-#: ../Util.cpp:688
+#: ../Util.cpp:698
 #, c-format
 msgid "%s B"
 msgstr "%s Б"
 
-#: ../Util.cpp:692
+#: ../Util.cpp:702
 #, c-format
 msgid "%'lld B"
 msgstr "%'lld Б"
@@ -636,35 +628,35 @@ msgstr "Обновление списка файлов завершено"
 msgid "File list %1% generated"
 msgstr "Запущено обновление списка файлов %1%"
 
-#: ../SettingsManager.cpp:180
+#: ../SettingsManager.cpp:179
 msgid "downloaded from"
 msgstr "загружено из"
 
-#: ../SettingsManager.cpp:517
+#: ../SettingsManager.cpp:516
 msgid "Invalid search type name"
 msgstr "Неверное имя поискового типа"
 
-#: ../SettingsManager.cpp:521 ../SettingsManager.cpp:543
+#: ../SettingsManager.cpp:520 ../SettingsManager.cpp:542
 msgid "This search type already exists"
 msgstr "Этот поисковый тип уже существует"
 
-#: ../SettingsManager.cpp:575
+#: ../SettingsManager.cpp:574
 msgid "No such search type"
 msgstr "Нет такого поискового типа"
 
-#: ../SettingsManager.cpp:603 ../SettingsManager.cpp:608
+#: ../SettingsManager.cpp:602 ../SettingsManager.cpp:607
 msgid "Error: setting not found!"
 msgstr "Ошибка: опция не обнаружена!"
 
-#: ../SettingsManager.cpp:603
+#: ../SettingsManager.cpp:602
 msgid "Core setting "
 msgstr "Опция ядра "
 
-#: ../SettingsManager.cpp:608
+#: ../SettingsManager.cpp:607
 msgid "Change core setting "
 msgstr "Изменить опцию ядра "
 
-#: ../SettingsManager.cpp:608
+#: ../SettingsManager.cpp:607
 msgid " to "
 msgstr " в "
 
@@ -743,6 +735,13 @@ msgstr "Записано больше байт чем требуется"
 #: ../MerkleCheckOutputStream.h:52 ../MerkleCheckOutputStream.h:112
 msgid "TTH inconsistency"
 msgstr "Несовпадение TTH"
+
+#~ msgid ""
+#~ "This hub is trying to use your client to spam %1%, please urge hub owner "
+#~ "to fix this"
+#~ msgstr ""
+#~ "Этот хаб пытается использовать ваш клиент для спама %1%, пожалуйста "
+#~ "сообщите владельцу хаба, чтобы он исправил это"
 
 #~ msgid "Error: segv parser :D"
 #~ msgstr "Ошибка: парсер сломался :D"

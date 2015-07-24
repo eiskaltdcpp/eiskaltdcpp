@@ -243,9 +243,9 @@ void Util::initialize(PathsMap pathOverrides) {
     try {
         // This product includes GeoIP data created by MaxMind, available from http://maxmind.com/
         // Updates at http://www.maxmind.com/app/geoip_country
-#ifdef WIN32
+#ifdef _WIN32
         string file = getPath(PATH_RESOURCES) + "GeoIPCountryWhois.csv";
-#else //WIN32
+#else //_WIN32
         string file_usr = getPath(PATH_RESOURCES) + "GeoIPCountryWhois.csv";
         string file_sys = string(_DATADIR) + PATH_SEPARATOR + "GeoIPCountryWhois.csv";
         string file = "";
@@ -255,7 +255,7 @@ void Util::initialize(PathsMap pathOverrides) {
             file = file_usr;
         else
             file = file_sys;
-#endif //WIN32
+#endif //_WIN32
         string data = File(file, File::READ, File::OPEN).read();
 
         const char* start = data.c_str();
@@ -603,6 +603,16 @@ void Util::decodeUrl(const string& url, string& protocol, string& host, uint16_t
     //printf ("%s\n", host.c_str());
 #endif
     //printf("protocol:%s\n host:%s\n port:%d\n path:%s\n query:%s\n fragment:%s\n", protocol.c_str(), host.c_str(), port, path.c_str(), query.c_str(), fragment.c_str());
+}
+
+void Util::parseIpPort(const string& aIpPort, string& ip, uint16_t& port) {
+    string::size_type i = aIpPort.rfind(':');
+    if (i == string::npos) {
+        ip = aIpPort;
+    } else {
+        ip = aIpPort.substr(0, i);
+        port = Util::toInt(aIpPort.substr(i + 1));
+    }
 }
 
 map<string, string> Util::decodeQuery(const string& query) {

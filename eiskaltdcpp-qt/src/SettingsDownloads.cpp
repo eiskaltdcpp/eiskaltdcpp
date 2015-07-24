@@ -21,9 +21,6 @@
 
 using namespace dcpp;
 
-#define CSTD(a) (QString::fromStdString((a)))
-#define CQST(a) (a.toStdString())
-
 SettingsDownloads::SettingsDownloads(QWidget *parent):
         QWidget(parent)
 {
@@ -64,25 +61,25 @@ void SettingsDownloads::ok(){
     SM->set(SettingsManager::NO_USE_TEMP_DIR, !checkBox_NO_USE_TEMP_DIR->isChecked());
     SM->set(SettingsManager::AUTO_SEARCH_TIME, spinBox_AUTO_SEARCH_TIME->value());
     SM->set(SettingsManager::SEGMENT_SIZE, spinBox_SEGMENT_SIZE->value());
-    SM->set(SettingsManager::DOWNLOAD_DIRECTORY, CQST(dl_dir));
-    SM->set(SettingsManager::TEMP_DOWNLOAD_DIRECTORY, CQST(udl_dir));
+    SM->set(SettingsManager::DOWNLOAD_DIRECTORY, _tq(dl_dir));
+    SM->set(SettingsManager::TEMP_DOWNLOAD_DIRECTORY, _tq(udl_dir));
     SM->set(SettingsManager::DOWNLOAD_SLOTS, spinBox_MAXDL->value());
     SM->set(SettingsManager::MAX_DOWNLOAD_SPEED, spinBox_NONEWDL->value());
-    SM->set(SettingsManager::HTTP_PROXY, CQST(lineEdit_PROXY->text()));
+    SM->set(SettingsManager::HTTP_PROXY, _tq(lineEdit_PROXY->text()));
 
     //Auto-priority
-    SM->set(SettingsManager::PRIO_HIGHEST_SIZE, CQST(QString().setNum(spinBox_HTPMAX->value())));
-    SM->set(SettingsManager::PRIO_HIGH_SIZE, CQST(QString().setNum(spinBox_HPMAX->value())));
-    SM->set(SettingsManager::PRIO_NORMAL_SIZE, CQST(QString().setNum(spinBox_NPMAX->value())));
-    SM->set(SettingsManager::PRIO_LOW_SIZE, CQST(QString().setNum(spinBox_LPMAX->value())));
+    SM->set(SettingsManager::PRIO_HIGHEST_SIZE, _tq(QString().setNum(spinBox_HTPMAX->value())));
+    SM->set(SettingsManager::PRIO_HIGH_SIZE, _tq(QString().setNum(spinBox_HPMAX->value())));
+    SM->set(SettingsManager::PRIO_NORMAL_SIZE, _tq(QString().setNum(spinBox_NPMAX->value())));
+    SM->set(SettingsManager::PRIO_LOW_SIZE, _tq(QString().setNum(spinBox_LPMAX->value())));
 
     // Auto-drop
-    SM->set(SettingsManager::AUTODROP_SPEED, CQST(QString().setNum(spinBox_DROPSB->value())));
-    SM->set(SettingsManager::AUTODROP_ELAPSED, CQST(QString().setNum(spinBox_MINELAPSED->value())));
-    SM->set(SettingsManager::AUTODROP_MINSOURCES, CQST(QString().setNum(spinBox_MINSRCONLINE->value())));
-    SM->set(SettingsManager::AUTODROP_INTERVAL, CQST(QString().setNum(spinBox_CHECKEVERY->value())));
-    SM->set(SettingsManager::AUTODROP_INACTIVITY, CQST(QString().setNum(spinBox_MAXINACT->value())));
-    SM->set(SettingsManager::AUTODROP_FILESIZE, CQST(QString().setNum(spinBox_MINFSZ->value())));
+    SM->set(SettingsManager::AUTODROP_SPEED, _tq(QString().setNum(spinBox_DROPSB->value())));
+    SM->set(SettingsManager::AUTODROP_ELAPSED, _tq(QString().setNum(spinBox_MINELAPSED->value())));
+    SM->set(SettingsManager::AUTODROP_MINSOURCES, _tq(QString().setNum(spinBox_MINSRCONLINE->value())));
+    SM->set(SettingsManager::AUTODROP_INTERVAL, _tq(QString().setNum(spinBox_CHECKEVERY->value())));
+    SM->set(SettingsManager::AUTODROP_INACTIVITY, _tq(QString().setNum(spinBox_MAXINACT->value())));
+    SM->set(SettingsManager::AUTODROP_FILESIZE, _tq(QString().setNum(spinBox_MINFSZ->value())));
 
     auto it = other_settings.constBegin();
 
@@ -95,9 +92,9 @@ void SettingsDownloads::ok(){
 
 void SettingsDownloads::init(){
     {//Downloads
-        lineEdit_DLDIR->setText(CSTD(SETTING(DOWNLOAD_DIRECTORY)));
-        lineEdit_UNF_DL_DIR->setText(CSTD(SETTING(TEMP_DOWNLOAD_DIRECTORY)));
-        lineEdit_PROXY->setText(CSTD(SETTING(HTTP_PROXY)));
+        lineEdit_DLDIR->setText(_q(SETTING(DOWNLOAD_DIRECTORY)));
+        lineEdit_UNF_DL_DIR->setText(_q(SETTING(TEMP_DOWNLOAD_DIRECTORY)));
+        lineEdit_PROXY->setText(_q(SETTING(HTTP_PROXY)));
 
         checkBox_NO_USE_TEMP_DIR->setChecked(!(((bool)SettingsManager::getInstance()->get(SettingsManager::NO_USE_TEMP_DIR))? Qt::Checked : Qt::Unchecked));
         spinBox_AUTO_SEARCH_TIME->setValue(SETTING(AUTO_SEARCH_TIME));

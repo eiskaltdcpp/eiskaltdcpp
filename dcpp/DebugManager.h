@@ -41,7 +41,7 @@ public:
         fire(DebugManagerListener::DebugDetection(), mess);
     }
     enum {
-        HUB_IN, HUB_OUT, CLIENT_IN, CLIENT_OUT
+        HUB_IN, HUB_OUT, CLIENT_IN, CLIENT_OUT, DHT_IN, DHT_OUT
     };
 
 private:

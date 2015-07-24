@@ -38,7 +38,7 @@ using namespace std;
 
 #if defined (__HAIKU__)
 #include "EiskaltApp_haiku.h"
-#elif defined(Q_WS_MAC)
+#elif defined(Q_OS_MAC)
 #include "EiskaltApp_mac.h"
 #else
 #include "EiskaltApp.h"
@@ -69,7 +69,7 @@ void callBack(void* x, const std::string& a)
 
 void parseCmdLine(const QStringList &);
 
-#if !defined(Q_WS_WIN)
+#if !defined(Q_OS_WIN)
 #include <unistd.h>
 #include <signal.h>
 #if !defined (__HAIKU__)
@@ -91,7 +91,7 @@ void migrateConfig();
 #include <locale.h>
 #endif
 
-#if defined(Q_WS_MAC)
+#if defined(Q_OS_MAC)
 #include <objc/objc.h>
 #include <objc/message.h>
 
@@ -127,11 +127,11 @@ int main(int argc, char *argv[])
         return 0;
     }
 
-#if !defined (Q_WS_WIN) && !defined (__HAIKU__)
+#if !defined (Q_OS_WIN) && !defined (__HAIKU__)
     installHandlers();
 #endif
 
-#if defined(FORCE_XDG) && !defined(Q_WS_WIN)
+#if defined(FORCE_XDG) && !defined(Q_OS_WIN)
     migrateConfig();
 #endif
 
@@ -154,7 +154,7 @@ int main(int argc, char *argv[])
     WulforSettings::getInstance()->loadTheme();
 
     WulforUtil::newInstance();
-#if defined(Q_WS_MAC)
+#if defined(Q_OS_MAC)
     // Disable system tray functionality in Mac OS X:
     WBSET(WB_TRAY_ENABLED, false);
 #endif
@@ -172,11 +172,11 @@ int main(int argc, char *argv[])
     ArenaWidgetManager::newInstance();
 
     MainWindow::newInstance();
-#if defined(Q_WS_MAC)
+#if defined(Q_OS_MAC)
     MainWindow::getInstance()->setUnload(false);
-#else // defined(Q_WS_MAC)
+#else // defined(Q_OS_MAC)
     MainWindow::getInstance()->setUnload(!WBGET(WB_TRAY_ENABLED));
-#endif // defined(Q_WS_MAC)
+#endif // defined(Q_OS_MAC)
 
     app.connect(&app, SIGNAL(messageReceived(QString)), MainWindow::getInstance(), SLOT(parseInstanceLine(QString)));
 
@@ -268,7 +268,7 @@ void parseCmdLine(const QStringList &args){
     }
 }
 
-#if !defined (Q_WS_WIN) && !defined (__HAIKU__)
+#if !defined (Q_OS_WIN) && !defined (__HAIKU__)
 
 void catchSIG(int sigNum) {
     psignal(sigNum, "Catching signal ");

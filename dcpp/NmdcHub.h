@@ -97,8 +97,6 @@ friend class ClientManager;
     typedef FloodMap::iterator FloodIter;
     FloodMap seekers;
     FloodMap flooders;
-    uint64_t lastProtectedIPsUpdate;
-    StringList protectedIPs;
 
     NmdcHub(const string& aHubURL, bool secure);
     virtual ~NmdcHub();
@@ -125,7 +123,6 @@ friend class ClientManager;
     void myInfo(bool alwaysSend);
     void supports(const StringList& feat);
     void clearFlooders(uint64_t tick);
-    bool isProtectedIP(const string& ip);
 
     void updateFromTag(Identity& id, const string& tag);
 
@@ -133,7 +130,6 @@ friend class ClientManager;
 
     // TimerManagerListener
     virtual void on(Second, uint64_t aTick) noexcept;
-    virtual void on(Minute, uint64_t aTick) noexcept;
 
     virtual void on(Connected) noexcept;
     virtual void on(Line, const string& l) noexcept;

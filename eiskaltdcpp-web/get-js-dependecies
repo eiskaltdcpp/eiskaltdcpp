@@ -1,0 +1,64 @@
+#!/bin/bash
+
+# Author:  Boris Pek <tehnick-8@mail.ru>
+# License: Public Domain
+# Created: 2013-10-19
+# Updated: 2013-10-19
+# Version: N/A
+
+set -e
+
+if [ "${1}" == "system" ]; then
+
+    rm -rf js/lib
+    mkdir -p js/lib
+    cd js/lib
+
+    ln -s /usr/share/javascript/jquery/jquery.js                                jquery.js
+    ln -s /usr/share/javascript/jquery-easytabs/jquery.easytabs.js              jquery.easytabs.js
+    ln -s /usr/share/javascript/jquery-hashchange/jquery.hashchange.js          jquery.hashchange.js
+    ln -s /usr/share/javascript/jquery-jsonrpc/jquery.jsonrpc.js                jquery.jsonrpc.js
+    ln -s /usr/share/javascript/jquery-plugin/jquery.plugin.js                  jquery.plugin.js
+    ln -s /usr/share/javascript/jquery-timer/jquery.timer.js                    jquery.timer.js
+    ln -s /usr/share/javascript/jquery-tablesorter/jquery.tablesorter.js        jquery.tablesorter.js
+    ln -s /usr/share/javascript/requirejs/require.js                            require.js
+
+elif [ "${1}" == "local" ]; then
+
+    rm -rf js/lib
+    mkdir -p js/lib
+    cd js/lib
+
+    wget -nv -c http://code.jquery.com/jquery-1.7.2.min.js                                              -O jquery.js
+    wget -nv -c http://raw.github.com/JangoSteve/jQuery-EasyTabs/v3.2.0/lib/jquery.easytabs.min.js      -O jquery.easytabs.js
+    wget -nv -c http://raw.github.com/cowboy/jquery-hashchange/v1.3/jquery.ba-hashchange.min.js         -O jquery.hashchange.js
+    wget -nv -c http://raw.github.com/datagraph/jquery-jsonrpc/master/jquery.jsonrpc.js                 -O jquery.jsonrpc.js
+    wget -nv -c http://raw.github.com/Cyntax/jquery-timer/0.1.1/jquery.plugin.js                        -O jquery.plugin.js
+    wget -nv -c http://raw.github.com/Cyntax/jquery-timer/0.1.1/jquery.timer.js                         -O jquery.timer.js
+    wget -nv -c http://raw.github.com/Mottie/tablesorter/v2.12.0/js/jquery.tablesorter.min.js           -O jquery.tablesorter.js
+    wget -nv -c http://requirejs.org/docs/release/2.1.9/minified/require.js                             -O require.js
+
+elif [ "${1}" == "mixed" ]; then
+
+    "${0}" local
+    rm -rf js/lib.local
+    mv js/lib js/lib.local
+
+    "${0}" system
+    for JS in ${@} ; do
+        if [ "${JS}" != "${1}" ]; then
+            rm -f "js/lib/jquery.${JS}.js"
+            cp "js/lib.local/jquery.${JS}.js" "js/lib/jquery.${JS}.js"
+        fi
+    done
+    rm -r js/lib.local
+
+else
+
+    echo "Usage:"
+    echo "  ${0} system"
+    echo "  ${0} local"
+    echo "  ${0} [mixed easytabs hashchange jsonrpc plugin timer]"
+
+fi
+

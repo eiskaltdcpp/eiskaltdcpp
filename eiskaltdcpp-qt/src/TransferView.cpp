@@ -38,7 +38,7 @@
 #include <QFileInfo>
 #include <QDir>
 
-TransferView::Menu::Menu():
+TransferView::Menu::Menu(bool showTransferedFilesOnly):
         menu(NULL),
         selectedColumn(0)
 {
@@ -93,6 +93,10 @@ TransferView::Menu::Menu():
     QAction *close = new QAction(tr("Close connection(s)"), menu);
     close->setIcon(WU->getPixmap(WulforUtil::eiCONNECT_NO));
 
+    QAction *show_only_transfered_files = new QAction(tr("Show only transfered files"), menu);
+    show_only_transfered_files->setCheckable(true);
+    show_only_transfered_files->setChecked(showTransferedFilesOnly);
+
     actions.insert(browse, Browse);
     actions.insert(match, MatchQueue);
     actions.insert(send_pm, SendPM);
@@ -102,6 +106,7 @@ TransferView::Menu::Menu():
     actions.insert(force, Force);
     actions.insert(close, Close);
     actions.insert(search, SearchAlternates);
+    actions.insert(show_only_transfered_files, showTransferedFieldsOnly);
 
     menu->addActions(QList<QAction*>() << browse
                                        << search
@@ -115,6 +120,7 @@ TransferView::Menu::Menu():
                                        << sep3
                                        << force
                                        << close
+                                       << show_only_transfered_files
                                        );
 }
 
@@ -423,7 +429,7 @@ void TransferView::slotContextMenu(const QPoint &){
         return;
 
     Menu::Action act;
-    Menu m;
+    Menu m(model->getShowTranferedFilesOnlyState());
 
     act = m.exec();
 
@@ -542,6 +548,11 @@ void TransferView::slotContextMenu(const QPoint &){
         for (const auto &i : items)
             forceAttempt(i->cid);
 
+        break;
+    }
+    case Menu::showTransferedFieldsOnly:
+    {
+        model->setShowTranferedFilesOnlyState(!model->getShowTranferedFilesOnlyState());
         break;
     }
     case Menu::Close:

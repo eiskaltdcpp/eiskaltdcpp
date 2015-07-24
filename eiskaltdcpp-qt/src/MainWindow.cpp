@@ -52,6 +52,7 @@
 #include "QuickConnect.h"
 #include "SearchFrame.h"
 #include "ADLS.h"
+#include "CmdDebug.h"
 #include "Settings.h"
 #include "FavoriteHubs.h"
 #include "PublicHubs.h"
@@ -143,6 +144,7 @@ public:
         QMenu   *menuTools;
         QAction *toolsSearch;
         QAction *toolsADLS;
+        QAction *toolsCmdDebug;
         QAction *toolsTransfers;
         QAction *toolsDownloadQueue;
         QAction *toolsQueuedUsers;
@@ -332,11 +334,11 @@ void MainWindow::setUnload ( bool b ) {
 void MainWindow::closeEvent(QCloseEvent *c_e){
     Q_D(MainWindow);
 
-#if defined(Q_WS_MAC)
+#if defined(Q_OS_MAC)
     if (!d->isUnload){
-#else // defined(Q_WS_MAC)
+#else // defined(Q_OS_MAC)
     if (!d->isUnload && WBGET(WB_TRAY_ENABLED)){
-#endif // defined(Q_WS_MAC)
+#endif // defined(Q_OS_MAC)
         hide();
         c_e->ignore();
 
@@ -558,7 +560,7 @@ void MainWindow::init(){
     initActions();
 
     initMenuBar();
-#if defined(Q_WS_MAC)
+#if defined(Q_OS_MAC)
     initDockMenuBar();
 #endif
 
@@ -793,6 +795,10 @@ void MainWindow::initActions(){
         d->toolsADLS->setIcon(WU->getPixmap(WulforUtil::eiADLS));
         connect(d->toolsADLS, SIGNAL(triggered()), this, SLOT(slotToolsADLS()));
 
+        d->toolsCmdDebug = new QAction("", this);
+        d->toolsCmdDebug->setObjectName("toolsCmdDebug");
+        connect(d->toolsCmdDebug, SIGNAL(triggered()), this, SLOT(slotToolsCmdDebug()));
+
         d->toolsTransfers = new QAction("", this);
         d->toolsTransfers->setObjectName("toolsTransfers");
         SM->registerShortcut(d->toolsTransfers, tr("Ctrl+T"));
@@ -986,6 +992,7 @@ void MainWindow::initActions(){
 
         d->toolsMenuActions << d->toolsSearch
                 << d->toolsADLS
+                << d->toolsCmdDebug
                 << separator0
                 << d->toolsTransfers
                 << d->toolsDownloadQueue
@@ -1142,7 +1149,7 @@ void MainWindow::initActions(){
 }
 
 void MainWindow::initMenuBar(){
-#if defined(Q_WS_MAC)
+#if defined(Q_OS_MAC)
     setMenuBar(new QMenuBar());
     menuBar()->setParent(NULL);
     connect(this, SIGNAL(destroyed()), menuBar(), SLOT(deleteLater()));
@@ -1369,6 +1376,8 @@ void MainWindow::retranslateUi(){
         d->toolsSearch->setText(tr("Search"));
 
         d->toolsADLS->setText(tr("ADLSearch"));
+
+        d->toolsCmdDebug->setText(tr("CmdDebug"));
 
         d->toolsSwitchSpeedLimit->setText(tr("Speed limit On/Off"));
 
@@ -1600,6 +1609,13 @@ ArenaWidget *MainWindow::widgetForRole(ArenaWidget::Role r) const{
 
             break;
         }
+    case ArenaWidget::CmdDebug:
+    {
+        awgt = ArenaWidgetFactory().create<dcpp::Singleton, CmdDebug>();
+        awgt->setToolButton(d->toolsCmdDebug);
+
+        break;
+    }
     case ArenaWidget::QueuedUsers:
         {
             awgt = ArenaWidgetFactory().create<dcpp::Singleton, QueuedUsers>();
@@ -1894,16 +1910,16 @@ void MainWindow::redrawToolPanel(){
             setWindowTitle(awgt->getArenaTitle() + " :: " + QString("%1").arg(EISKALTDCPP_WND_TITLE));
     }
 
-#if !defined(Q_WS_MAC)
+#if !defined(Q_OS_MAC)
     if (!has_unread)
         Notify->resetTrayIcon();
-#else // !defined(Q_WS_MAC)
+#else // !defined(Q_OS_MAC)
     // Change program icon in dock when there are new unread personal messages.
     if (has_unread)
         qApp->setWindowIcon(WICON(WulforUtil::eiMESSAGE_TRAY_ICON));
     else
         qApp->setWindowIcon(WICON(WulforUtil::eiICON_APPL));
-#endif // !defined(Q_WS_MAC)
+#endif // !defined(Q_OS_MAC)
 
     emit redrawWidgetPanels();
 }
@@ -2180,6 +2196,11 @@ void MainWindow::slotHubsReconnect(){
 
 void MainWindow::slotToolsADLS(){
     toggleSingletonWidget(widgetForRole(ArenaWidget::ADLS));
+}
+
+void MainWindow::slotToolsCmdDebug()
+{
+    toggleSingletonWidget(widgetForRole(ArenaWidget::CmdDebug));
 }
 
 void MainWindow::slotToolsSearch() {
@@ -2609,16 +2630,16 @@ void MainWindow::slotAboutOpenUrl(){
 
     QAction *act = qobject_cast<QAction *>(sender());
     if (act == d->aboutHomepage){
-        QDesktopServices::openUrl(QUrl("http://code.google.com/p/eiskaltdc/"));
+        QDesktopServices::openUrl(QUrl("http://github.com/eiskaltdcpp/eiskaltdcpp/"));
     }
     else if (act == d->aboutSource){
         QDesktopServices::openUrl(QUrl("http://github.com/eiskaltdcpp/eiskaltdcpp/"));
     }
     else if (act == d->aboutIssues){
-        QDesktopServices::openUrl(QUrl("http://code.google.com/p/eiskaltdc/issues/list"));
+        QDesktopServices::openUrl(QUrl("https://github.com/eiskaltdcpp/eiskaltdcpp/issues"));
     }
     else if (act == d->aboutWiki){
-        QDesktopServices::openUrl(QUrl("http://code.google.com/p/eiskaltdc/w/list"));
+        QDesktopServices::openUrl(QUrl("https://github.com/eiskaltdcpp/eiskaltdcpp/wiki"));
     }
     else if (act == d->aboutChangelog){
         // Now available: ChangeLog.txt, ChangeLog_ru.txt, ChangeLog_uk.txt
@@ -2626,7 +2647,7 @@ void MainWindow::slotAboutOpenUrl(){
     }
 }
 
-void MainWindow::slotAboutClient(){
+void MainWindow::slotAboutClient() {
     About a(this);
 
     double ratio;
@@ -2650,8 +2671,8 @@ void MainWindow::slotAboutClient(){
                             ""
                             "DC++ core version: %1 (modified)<br/><br/>"
                             ""
-                            "Home page: <a href=\"http://code.google.com/p/eiskaltdc/\">"
-                            "http://code.google.com/p/eiskaltdc/</a><br/><br/>"
+                            "Home page: <a href=\"https://github.com/eiskaltdcpp/eiskaltdcpp/\">"
+                            "https://github.com/eiskaltdcpp/eiskaltdcpp/</a><br/><br/>"
                             ""
                             "Total up: <b>%2</b><br/>"
                             "Total down: <b>%3</b><br/>"
@@ -2666,8 +2687,8 @@ void MainWindow::slotAboutClient(){
     a.textBrowser_AUTHORS->document()->setDefaultStyleSheet(html_format);
 
     a.textBrowser_AUTHORS->setText(
-        tr("Please use <a href=\"http://code.google.com/p/eiskaltdc/issues/list\">"
-        "http://code.google.com/p/eiskaltdc/issues/list</a> to report bugs.<br/>")+
+        tr("Please use <a href=\"https://github.com/eiskaltdcpp/eiskaltdcpp/issues\">"
+        "https://github.com/eiskaltdcpp/eiskaltdcpp/issues</a> to report bugs.<br/>")+
         QString("<br/>")+
         tr("<b>Developers</b><br/>")+
         QString("<br/>")+
@@ -2725,15 +2746,15 @@ void MainWindow::slotAboutClient(){
         QString("&nbsp;&nbsp;&nbsp; 2014 <a href=\"mailto:trifunovic@openmailbox.org\">Marko Trifunović</a><br/>")+
         QString("<br/>")+
         tr("Serbian (Latin) translation<br/>")+
-        QString("&nbsp;&nbsp;&nbsp; 2010-2014 <a href=\"mailto:miroslav031@gmail.com\">Miroslav Petrovic</a><br/>")+
+        QString("&nbsp;&nbsp;&nbsp; 2010-2015 <a href=\"mailto:miroslav031@gmail.com\">Miroslav Petrovic</a><br/>")+
         QString("&nbsp;&nbsp;&nbsp; 2014 <a href=\"mailto:trifunovic@openmailbox.org\">Marko Trifunović</a><br/>")+
         QString("<br/>")+
         tr("Spanish translation<br/>")+
-        QString("&nbsp;&nbsp;&nbsp; 2010-2014 <a href=\"mailto:sl1pkn07@gmail.com\">Gustavo Alvarez</a> aka sL1pKn07<br/>")+
+        QString("&nbsp;&nbsp;&nbsp; 2010-2015 <a href=\"mailto:sl1pkn07@gmail.com\">Gustavo Alvarez</a> aka sL1pKn07<br/>")+
         QString("&nbsp;&nbsp;&nbsp; 2012-2014 <a href=\"mailto:klondike at klondike.es\">Francisco Blas Izquierdo Riera</a> aka klondike<br/>")+
         QString("<br/>")+
         tr("Basque translation<br/>")+
-        QString("&nbsp;&nbsp;&nbsp; 2014 <a href=\"mailto:egoitzro2@hotmail.com\">Egoitz Rodriguez</a><br/>")+
+        QString("&nbsp;&nbsp;&nbsp; 2014-2015 <a href=\"mailto:egoitzro2@hotmail.com\">Egoitz Rodriguez</a><br/>")+
         QString("<br/>")+
         tr("Bulgarian translation<br/>")+
         QString("&nbsp;&nbsp;&nbsp; 2010-2012 <a href=\"mailto:dimitrov.rusi@gmail.com\">Rusi Dimitrov</a> aka PsyTrip<br/>")+
@@ -2747,7 +2768,7 @@ void MainWindow::slotAboutClient(){
         tr("German translation<br/>")+
         QString("&nbsp;&nbsp;&nbsp; 2011-2012 <a href=\"mailto:kgeorgokitsos@yahoo.de\">Konstantinos Georgokitsos</a><br/>")+
         QString("&nbsp;&nbsp;&nbsp; 2011-2012 <a href=\"mailto:tilkax@gmail.com\">Tillmann Karras</a><br/>")+
-        QString("&nbsp;&nbsp;&nbsp; 2012-2014 <a href=\"mailto:be.w@mail.ru\">Benjamin Weber</a><br/>")+
+        QString("&nbsp;&nbsp;&nbsp; 2012-2015 <a href=\"mailto:be.w@mail.ru\">Benjamin Weber</a><br/>")+
         QString("<br/>")+
         tr("Greek translation<br/>")+
         QString("&nbsp;&nbsp;&nbsp; 2011-2012 <a href=\"mailto:kgeorgokitsos@yahoo.de\">Konstantinos Georgokitsos</a><br/>")+
@@ -2757,7 +2778,7 @@ void MainWindow::slotAboutClient(){
         QString("&nbsp;&nbsp;&nbsp; 2012 <a href=\"mailto:lorenzo.keller@gmail.com\">Lorenzo Keller</a><br/>")+
         QString("<br/>")+
         tr("Portuguese (Brazil) translation<br/>")+
-        QString("&nbsp;&nbsp;&nbsp; 2013 <a href=\"mailto:heldercro@gmail.com\">Helder Cesar</a> aka redrum<br/>")+
+        QString("&nbsp;&nbsp;&nbsp; 2013-2015 <a href=\"mailto:heldercro@gmail.com\">Helder Cesar</a> aka redrum<br/>")+
         QString("<br/>")+
         tr("Vietnamese translation<br/>")+
         QString("&nbsp;&nbsp;&nbsp; 2013 <a href=\"mailto:ppanhh@gmail.com\">Anh Phan</a><br/>")+
@@ -2766,7 +2787,7 @@ void MainWindow::slotAboutClient(){
         QString("&nbsp;&nbsp;&nbsp; 2013 <a href=\"mailto:syaomingl@gmail.com\">Syaoming Lai</a><br/>")+
         QString("<br/>")+
         tr("Swedish (Sweden) translation<br/>")+
-        QString("&nbsp;&nbsp;&nbsp; 2014 <a href=\"mailto:sopor@hotmail.com\">Sopor</a><br/>")+
+        QString("&nbsp;&nbsp;&nbsp; 2014-2015 <a href=\"mailto:sopor@hotmail.com\">Sopor</a><br/>")+
         QString("<br/>")
         );
 
@@ -2989,7 +3010,7 @@ void MainWindow::slotSuppressSnd(){
         N->setSuppressSnd(act->isChecked());
 }
 
-#if defined(Q_WS_MAC)
+#if defined(Q_OS_MAC)
 extern void qt_mac_set_dock_menu(QMenu *menu); // Qt internal function
 
 void MainWindow::initDockMenuBar(){
@@ -3018,5 +3039,5 @@ void MainWindow::initDockMenuBar(){
 
     qt_mac_set_dock_menu(menu);
 }
-#endif // defined(Q_WS_MAC)
+#endif // defined(Q_OS_MAC)
 

@@ -21,6 +21,7 @@
 #include <QSortFilterProxyModel>
 #include <QCompleter>
 #include <QMetaType>
+#include <QTextBlockUserData>
 
 #include "ui_HubFrame.h"
 
@@ -42,6 +43,13 @@ class PMWindow;
 class HubFramePrivate;
 
 using namespace dcpp;
+
+class UserListUserData : public QTextBlockUserData
+{
+public:
+    UserListUserData(const QString& nick) : data(nick) { }
+    QString data;
+};
 
 class HubFrame :
         public  QWidget,
@@ -83,9 +91,11 @@ class HubFrame :
             None,
 
             /** Additional actions for userlist */
+            CopyComment,
             CopyIP,
             CopyShare,
             CopyTag,
+            CopyEmail,
 
             /** Additional actions for AntiSpam */
             AntiSpamWhite,

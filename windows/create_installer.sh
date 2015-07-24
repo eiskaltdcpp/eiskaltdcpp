@@ -11,7 +11,7 @@ rm -rf tmp_dir
 strip "$INSTALLER_DIR/eiskaltdcpp-qt.exe"
 strip "$INSTALLER_DIR/eiskaltdcpp-daemon.exe"
 
-cp $SOURCES_DIR/win32/dcppboot.xml                        "$INSTALLER_DIR"
+cp $SOURCES_DIR/windows/dcppboot.xml                      "$INSTALLER_DIR"
 cp $SOURCES_DIR/eiskaltdcpp-cli/cli-jsonrpc-config.pl     "$INSTALLER_DIR"
 echo [Paths] > "$INSTALLER_DIR/qt.conf"
 echo Plugins = ./plugins >> "$INSTALLER_DIR/qt.conf"

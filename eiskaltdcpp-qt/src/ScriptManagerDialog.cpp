@@ -157,7 +157,7 @@ QModelIndex ScriptManagerModel::parent(const QModelIndex & ) const {
 void ScriptManagerModel::load(){
     enabled = QString(QByteArray::fromBase64(WSGET(WS_APP_ENABLED_SCRIPTS).toUtf8())).split("\n");
 
-#if !defined(Q_WS_WIN)
+#if !defined(Q_OS_WIN)
     QDir dir(CLIENT_SCRIPTS_DIR);
 #else
     QDir dir(qApp->applicationDirPath()+QDir::separator()+CLIENT_SCRIPTS_DIR);

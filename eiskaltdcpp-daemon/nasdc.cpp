@@ -68,7 +68,7 @@ static void SigHandler(int sig) {
 
 // code of this function based on function tr_daemon from transmission daemon
 
-#if defined(WIN32)
+#if defined(_WIN32)
 #define USE_NO_DAEMON
 #elif !defined(HAVE_DAEMON) || defined(__UCLIBC__)
 #define USE_EIDCPP_DAEMON
@@ -259,7 +259,8 @@ int main(int argc, char* argv[])
     Util::initialize(override);
 
     if (isDebug) {
-        printf("PATH_GLOBAL_CONFIG: %s\n\
+        printf("\
+            PATH_GLOBAL_CONFIG: %s\n\
             PATH_USER_CONFIG: %s\n\
             PATH_USER_LOCAL: %s\n\
             PATH_RESOURCES: %s\n\
@@ -277,7 +278,7 @@ int main(int argc, char* argv[])
             Util::getPath(Util::PATH_FILE_LISTS).c_str(),
             Util::getPath(Util::PATH_HUB_LISTS).c_str(),
             Util::getPath(Util::PATH_NOTEPAD).c_str()
-                                    );
+            );
         fflush(stdout);
     }
 

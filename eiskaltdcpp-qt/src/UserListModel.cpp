@@ -46,7 +46,7 @@ int UserListModel::rowCount(const QModelIndex & ) const {
 }
 
 int UserListModel::columnCount(const QModelIndex & ) const {
-    return 7;
+    return 8;
 }
 
 bool UserListModel::hasChildren(const QModelIndex &parent) const{
@@ -76,6 +76,7 @@ QVariant UserListModel::data(const QModelIndex & index, int role) const {
                 case COLUMN_CONN: return item->getConnection();
                 case COLUMN_EMAIL: return item->getEmail();
                 case COLUMN_SHARE: return WulforUtil::formatBytes(item->getShare());
+                case COLUMN_EXACT_SHARE: return item->getShare();
                 case COLUMN_IP: return item->getIP();
             }
 
@@ -170,6 +171,7 @@ QVariant UserListModel::headerData(int section, Qt::Orientation orientation, int
             case COLUMN_CONN: return tr("Connection");
             case COLUMN_EMAIL: return tr("E-mail");
             case COLUMN_SHARE: return tr("Share");
+            case COLUMN_EXACT_SHARE: return tr("Exact share size");
             case COLUMN_IP: return tr("IP");
         }
     }
@@ -240,11 +242,12 @@ struct Compare {
         template <typename T>
         inline bool static Cmp(const T& l, const T& r) __attribute__((always_inline));
         
-        static AttrComp attrs[7];
+        static AttrComp attrs[8];
 };
 
 template <Qt::SortOrder order>
-typename Compare<order>::AttrComp Compare<order>::attrs[7]  = {     AttrCmp<QString, &UserListItem::getNick>,
+typename Compare<order>::AttrComp Compare<order>::attrs[8]  = {     AttrCmp<QString, &UserListItem::getNick>,
+                                                                    AttrCmp<qulonglong, &UserListItem::getShare>,
                                                                     AttrCmp<qulonglong, &UserListItem::getShare>,
                                                                     AttrCmp<QString, &UserListItem::getComment>,
                                                                     AttrCmp<QString, &UserListItem::getTag>,
@@ -356,6 +359,7 @@ void UserListModel::updateUser(UserListItem *item, const Identity& _id, const QS
                 needSorted = needSorted || (item->getIdentity().getNick() != _id.getNick());
                 break;
             case COLUMN_SHARE:
+            case COLUMN_EXACT_SHARE:
                 needSorted = needSorted || (item->getIdentity().getBytesShared() != _id.getBytesShared());
                 break;
             case COLUMN_COMMENT:
@@ -584,7 +588,7 @@ int UserListItem::childCount() const {
 }
 
 int UserListItem::columnCount() const {
-    return 7;
+    return 8;
 }
 UserListItem *UserListItem::parent() {
     return parentItem;

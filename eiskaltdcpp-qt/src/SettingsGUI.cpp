@@ -67,7 +67,7 @@ void SettingsGUI::init(){
 
         int i = 0;
         int k = -1;
-#if !defined(Q_WS_WIN)
+#if !defined(Q_OS_WIN)
         QDir translationsDir(CLIENT_TRANSLATIONS_DIR);
 #else
         QDir translationsDir(qApp->applicationDirPath()+QDir::separator()+CLIENT_TRANSLATIONS_DIR);
@@ -113,7 +113,7 @@ void SettingsGUI::init(){
         }
         comboBox_LANGS->setCurrentIndex(k);
 
-#if !defined(Q_WS_WIN)
+#if !defined(Q_OS_WIN)
         QString users = CLIENT_ICONS_DIR "/user/";
 #else
         QString users = qApp->applicationDirPath()+QDir::separator()+CLIENT_ICONS_DIR "/user/";
@@ -132,7 +132,7 @@ void SettingsGUI::init(){
         }
         comboBox_USERS->setCurrentIndex(k);
 
-#if !defined(Q_WS_WIN)
+#if !defined(Q_OS_WIN)
         QString icons = CLIENT_ICONS_DIR "/appl/";
 #else
         QString icons = qApp->applicationDirPath()+QDir::separator()+CLIENT_ICONS_DIR "/appl/";
@@ -151,7 +151,7 @@ void SettingsGUI::init(){
         }
         comboBox_ICONS->setCurrentIndex(k);
 
-#if !defined(Q_WS_WIN)
+#if !defined(Q_OS_WIN)
         QString emot = CLIENT_DATA_DIR "/emoticons/";
 #else
         QString emot = qApp->applicationDirPath()+QDir::separator()+CLIENT_DATA_DIR "/emoticons/";
@@ -190,15 +190,15 @@ void SettingsGUI::init(){
         else
             comboBox_TABBAR->setCurrentIndex(0);
 
-#if defined(Q_WS_X11)
+#if defined(Q_OS_UNIX) && !defined(Q_OS_MAC)
         checkBox_ICONTHEME->setChecked(WBGET("app/use-icon-theme", false));
 #endif
         checkBox_HIDE_ICONS_IN_MENU->setChecked(WBGET("mainwindow/dont-show-icons-in-menus", false));
 
         // Hide options which do not work in Mac OS X, MS Windows or Haiku:
-#if defined (Q_WS_WIN) || defined (__HAIKU__)
+#if defined (Q_OS_WIN) || defined (__HAIKU__)
         checkBox_ICONTHEME->hide();
-#elif defined(Q_WS_MAC)
+#elif defined(Q_OS_MAC)
         checkBox_ICONTHEME->hide();
         groupBox_TRAY->hide();
 #endif

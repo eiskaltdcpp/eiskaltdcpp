@@ -306,6 +306,14 @@ void ConnectionManager::accept(const Socket& sock, bool secure) noexcept {
         delete uc;
     }
 }
+
+void ConnectionManager::addCTM2HUB(const string &server, const string &port)
+{
+    Lock l(cs);
+    const string key = server + ':' + port;
+    ddosctm2hub.insert(key);
+}
+
 void ConnectionManager::nmdcConnect(const string& aServer, uint16_t aPort, const string& aNick, const string& hubUrl, const string& encoding, bool secure) {
     nmdcConnect(aServer, aPort, 0, BufferedSocket::NAT_NONE, aNick, hubUrl, encoding, secure);
 }
@@ -313,7 +321,12 @@ void ConnectionManager::nmdcConnect(const string& aServer, uint16_t aPort, const
 void ConnectionManager::nmdcConnect(const string& aServer, uint16_t aPort, uint16_t localPort, BufferedSocket::NatRoles natRole, const string& aNick, const string& hubUrl, const string& encoding, bool secure) {
     if(shuttingDown)
         return;
-
+    {
+        Lock l(cs);
+        if (!ddosctm2hub.empty() && ddosctm2hub.find(aServer + ":" + Util::toString(aPort)) != ddosctm2hub.end()) {
+            return;
+        }
+    }
     UserConnection* uc = getConnection(true, secure);
     uc->setToken(aNick);
     uc->setHubUrl(hubUrl);

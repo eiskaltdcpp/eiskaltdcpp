@@ -260,11 +260,11 @@ int LuaManager::GetScriptsPath(lua_State* L) {
     scripts_path = Text::utf8ToAcp(Util::getPath(Util::PATH_USER_CONFIG)) + "luascripts" + PATH_SEPARATOR;
 
     if(!Util::fileExists(scripts_path)) {
-#ifdef WIN32
+#ifdef _WIN32
         scripts_path = Text::utf8ToAcp(Util::getPath(Util::PATH_GLOBAL_CONFIG)) + "resources" + PATH_SEPARATOR + "luascripts" + PATH_SEPARATOR;
-#else //WIN32
+#else //_WIN32
         scripts_path = string(_DATADIR) + PATH_SEPARATOR + "luascripts" + PATH_SEPARATOR;
-#endif //WIN32
+#endif //_WIN32
     }
     lua_pushstring(L, scripts_path.c_str());
     return 1;
@@ -386,7 +386,7 @@ void ScriptInstance::EvaluateFile(const string& fn) {
     } else {
         string test_path_0;
         string test_path_1;
-#ifdef WIN32
+#ifdef _WIN32
         test_path_0 = Text::utf8ToAcp(Util::getPath(Util::PATH_USER_CONFIG)) + "luascripts" + PATH_SEPARATOR + fn;
         test_path_1 = Text::utf8ToAcp(Util::getPath(Util::PATH_GLOBAL_CONFIG)) + "resources" + PATH_SEPARATOR + "luascripts" + PATH_SEPARATOR + fn;
 
@@ -399,7 +399,7 @@ void ScriptInstance::EvaluateFile(const string& fn) {
             dcdebug("File '%s' not found!\n",fn.c_str()); // temporary
             return;
         }
-#else //WIN32
+#else //_WIN32
         test_path_0 = Text::utf8ToAcp(Util::getPath(Util::PATH_USER_CONFIG)) + "luascripts" + PATH_SEPARATOR + fn;
         test_path_1 = string(_DATADIR) + PATH_SEPARATOR + "luascripts" + PATH_SEPARATOR + fn;
 
@@ -412,7 +412,7 @@ void ScriptInstance::EvaluateFile(const string& fn) {
             printf("File '%s' not found!\n",fn.c_str()); fflush(stdout);// temporary
             return;
         }
-#endif //WIN32
+#endif //_WIN32
     }
     lua_dofile(L, script_full_name.c_str());
 }

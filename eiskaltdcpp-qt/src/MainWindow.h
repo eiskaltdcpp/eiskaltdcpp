@@ -201,6 +201,7 @@ friend class dcpp::Singleton<MainWindow>;
         void slotToolsAutoAway();
         void slotToolsSearch();
         void slotToolsADLS();
+        void slotToolsCmdDebug();
         void slotToolsCopyWindowTitle();
         void slotToolsSettings();
         void slotToolsJS();
@@ -279,7 +280,7 @@ friend class dcpp::Singleton<MainWindow>;
         void initToolbar();
         void initSideBar();
         void initFavHubMenu();
-#if defined(Q_WS_MAC)
+#if defined(Q_OS_MAC)
         void initDockMenuBar();
 #endif
 

@@ -27,12 +27,18 @@
 #include "version.h"
 
 #include <openssl/bn.h>
-
+#include <openssl/rand.h>
 #include <bzlib.h>
 
 namespace dcpp {
 
-
+static const char ciphersuites[] =
+        "ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES128-GCM-SHA256:"
+        "ECDHE-ECDSA-AES256-SHA384:ECDHE-ECDSA-AES128-SHA256:"
+        "ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:"
+        "ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA256:"
+        "ECDHE-ECDSA-AES256-SHA:ECDHE-RSA-AES256-SHA:"
+        "!aNULL:!eNULL:!EXPORT:!DES:!RC4:!3DES:!MD5:!PSK";
 
 CryptoManager::CryptoManager()
 :
@@ -42,10 +48,10 @@ CryptoManager::CryptoManager()
 {
     SSL_library_init();
 
-    clientContext.reset(SSL_CTX_new(TLSv1_client_method()));
-    clientVerContext.reset(SSL_CTX_new(TLSv1_client_method()));
-    serverContext.reset(SSL_CTX_new(TLSv1_server_method()));
-    serverVerContext.reset(SSL_CTX_new(TLSv1_server_method()));
+    clientContext.reset(SSL_CTX_new(SSLv23_client_method()));
+    clientVerContext.reset(SSL_CTX_new(SSLv23_client_method()));
+    serverContext.reset(SSL_CTX_new(SSLv23_server_method()));
+    serverVerContext.reset(SSL_CTX_new(SSLv23_server_method()));
 
     if(clientContext && clientVerContext && serverContext && serverVerContext) {
         dh.reset(DH_new());
@@ -104,7 +110,7 @@ CryptoManager::CryptoManager()
             dh->p = BN_bin2bn(dh4096_p, sizeof(dh4096_p), 0);
             dh->g = BN_bin2bn(dh4096_g, sizeof(dh4096_g), 0);
 
-            if (!dh->p || !dh->g) {
+            if(!dh->p || !dh->g) {
                 dh.reset();
             } else {
                 SSL_CTX_set_options(serverContext, SSL_OP_SINGLE_DH_USE);
@@ -112,6 +118,26 @@ CryptoManager::CryptoManager()
                 SSL_CTX_set_tmp_dh(serverContext, (DH*)dh);
                 SSL_CTX_set_tmp_dh(serverVerContext, (DH*)dh);
             }
+        }
+
+        SSL_CTX_set_options(clientContext, SSL_OP_NO_SSLv2 | SSL_OP_NO_SSLv3 | SSL_OP_NO_COMPRESSION);
+        SSL_CTX_set_cipher_list(clientContext, ciphersuites);
+        SSL_CTX_set_options(serverContext, SSL_OP_SINGLE_DH_USE | SSL_OP_NO_SSLv2 | SSL_OP_NO_SSLv3 | SSL_OP_NO_COMPRESSION);
+        SSL_CTX_set_cipher_list(serverContext, ciphersuites);
+        SSL_CTX_set_options(clientVerContext, SSL_OP_NO_SSLv2 | SSL_OP_NO_SSLv3 | SSL_OP_NO_COMPRESSION);
+        SSL_CTX_set_cipher_list(clientVerContext, ciphersuites);
+        SSL_CTX_set_options(serverVerContext, SSL_OP_SINGLE_DH_USE | SSL_OP_NO_SSLv2 | SSL_OP_NO_SSLv3 | SSL_OP_NO_COMPRESSION);
+        SSL_CTX_set_cipher_list(serverVerContext, ciphersuites);
+
+        EC_KEY* tmp_ecdh;
+        /* NID_X9_62_prime256v1 is not secure, more secure is NID_secp384r1 or NID_secp521r1*/
+        if((tmp_ecdh = EC_KEY_new_by_curve_name(NID_X9_62_prime256v1)) != NULL) {
+            SSL_CTX_set_options(serverContext, SSL_OP_SINGLE_ECDH_USE);
+            SSL_CTX_set_tmp_ecdh(serverContext, tmp_ecdh);
+            SSL_CTX_set_options(serverVerContext, SSL_OP_SINGLE_ECDH_USE);
+            SSL_CTX_set_tmp_ecdh(serverVerContext, tmp_ecdh);
+
+            EC_KEY_free(tmp_ecdh);
         }
 
         SSL_CTX_set_verify(serverContext, SSL_VERIFY_NONE, 0);
