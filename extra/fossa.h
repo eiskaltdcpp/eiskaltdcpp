@@ -1,14 +1,6 @@
 #ifdef __AVR__
 #include "avrsupport.h"
 #endif
-#ifndef ONFLASH_HEADER_INCLUDED
-#define ONFLASH_HEADER_INCLUDED
-
-#ifndef ON_FLASH
-#define ON_FLASH
-#endif
-
-#endif
 /*
  * Copyright (c) 2014 Cesanta Software Limited
  * All rights reserved
@@ -79,7 +71,7 @@
 #pragma warning(disable : 4204) /* missing c99 support */
 #endif
 
-#ifndef AVR_LIBC
+#if !(defined(AVR_LIBC) || defined(PICOTCP))
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
@@ -87,10 +79,18 @@
 #include <signal.h>
 #endif
 
-#include <assert.h>
-#ifndef NO_LIBC
-#include <ctype.h>
+#ifdef PICOTCP
+#define time(x) PICO_TIME()
+#ifndef SOMAXCONN
+#define SOMAXCONN (16)
 #endif
+#ifdef _POSIX_VERSION
+#define signal(...)
+#endif
+#endif
+
+#include <assert.h>
+#include <ctype.h>
 #include <errno.h>
 #include <stdarg.h>
 #include <stddef.h>
@@ -197,7 +197,7 @@ typedef struct stat ns_stat_t;
 #define DIRSEP '/'
 #endif
 #ifdef __APPLE__
-int64_t strtoll(const char* str, char** endptr, int base);
+int64_t strtoll(const char *str, char **endptr, int base);
 #endif
 #endif /* _WIN32 */
 
@@ -217,8 +217,8 @@ int64_t strtoll(const char* str, char** endptr, int base);
 #define ARRAY_SIZE(array) (sizeof(array) / sizeof(array[0]))
 #endif
 
-#ifndef NO_LIBC
-typedef FILE* c_file_t;
+#if !defined(NO_LIBC) && !defined(NS_DISABLE_FILESYSTEM)
+typedef FILE *c_file_t;
 /*
  * Cannot use fopen & Co directly and
  * override them with -D because
@@ -324,7 +324,6 @@ void mbuf_resize(struct mbuf *, size_t new_size);
 /* Shrink an Mbuf by resizing its `size` to `len`. */
 void mbuf_trim(struct mbuf *);
 
-
 #if defined(__cplusplus)
 }
 #endif /* __cplusplus */
@@ -394,7 +393,6 @@ void MD5_Final(unsigned char *md, MD5_CTX *c);
 
 #if !defined(BASE64_H_INCLUDED) && !defined(DISABLE_BASE64)
 #define BASE64_H_INCLUDED
-
 
 #ifdef __cplusplus
 extern "C" {
@@ -633,6 +631,7 @@ struct ns_connection {
 #define NSF_DONT_SEND (1 << 11)           /* Do not send data to peer */
 #define NSF_CLOSE_IMMEDIATELY (1 << 12)   /* Disconnect */
 #define NSF_WEBSOCKET_NO_DEFRAG (1 << 13) /* Websocket specific */
+#define NSF_DELETE_CHUNK (1 << 14)        /* HTTP specific */
 
 #define NSF_USER_1 (1 << 20) /* Flags left for application */
 #define NSF_USER_2 (1 << 21)
@@ -1212,6 +1211,7 @@ struct websocket_message {
 /* HTTP and websocket events. void *ev_data is described in a comment. */
 #define NS_HTTP_REQUEST 100 /* struct http_message * */
 #define NS_HTTP_REPLY 101   /* struct http_message * */
+#define NS_HTTP_CHUNK 102   /* struct http_message * */
 #define NS_SSI_CALL 105     /* char * */
 
 #define NS_WEBSOCKET_HANDSHAKE_REQUEST 111 /* NULL */
@@ -1227,6 +1227,17 @@ struct websocket_message {
  *   `struct http_message` through the handler's `void *ev_data` pointer.
  * - NS_HTTP_REPLY: HTTP reply has arrived. Parsed HTTP reply is passed as
  *   `struct http_message` through the handler's `void *ev_data` pointer.
+ * - NS_HTTP_CHUNK: HTTP chunked-encoding chunk has arrived.
+ *   Parsed HTTP reply is passed as `struct http_message` through the
+ *   handler's `void *ev_data` pointer. `http_message::body` would contain
+ *   incomplete, reassembled HTTP body.
+ *   It will grow with every new chunk arrived, and
+ *   potentially can consume a lot of memory. An event handler may process
+ *   the body as chunks are coming, and signal Fossa to delete processed
+ *   body by setting `NSF_DELETE_CHUNK` in `ns_connection::flags`. When
+ *   the last zero chunk is received, Fossa sends `NS_HTTP_REPLY` event will
+ *   full reassembled body (if handler did not signal to delete chunks) or
+ *   with empty body (if handler did signal to delete chunks).
  * - NS_WEBSOCKET_HANDSHAKE_REQUEST: server has received websocket handshake
  *   request. `ev_data` contains parsed HTTP request.
  * - NS_WEBSOCKET_HANDSHAKE_DONE: server has completed Websocket handshake.
