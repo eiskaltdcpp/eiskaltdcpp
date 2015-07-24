@@ -29,7 +29,7 @@ namespace dcpp {
 
 FastCriticalSection Identity::cs;
 
-OnlineUser::OnlineUser(const UserPtr& ptr, ClientBase& client_, uint32_t sid_) : identity(ptr, sid_), client(client_) {
+OnlineUser::OnlineUser(const UserPtr& ptr, ClientBase& client_, uint32_t sid_) : identity(ptr, sid_), client(client_), isInList(false) {
 
 }
 
