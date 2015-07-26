@@ -90,6 +90,9 @@ set_target_properties(dcpp PROPERTIES VERSION ${SOVERSION} OUTPUT_NAME "eiskaltd
 if (APPLE)
   set (LIBDIR1 .)
   set (LIBDIR ${PROJECT_NAME_GLOBAL}.app/Contents/MacOS)
+  if (USE_QT5)
+    set (LIBDIR ${PROJECT_NAME_GLOBAL}.app/Contents/Frameworks)
+  endif (USE_QT5)
 endif(APPLE)
 
 if (LINK STREQUAL SHARED)
