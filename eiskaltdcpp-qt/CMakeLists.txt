@@ -412,8 +412,14 @@ if (APPLE)
       include(BundleUtilities)
       fixup_bundle(\"${APPS}\" \"\${QTPLUGINS}\" \"${DIRS}\")")
   elseif (USE_QT5)
+    if (${_qt5Core_install_prefix} STREQUAL "")
+      message(WARNING "_qt5Core_install_prefix is not set, will use macdeployqt found in PATH")
+      set(MACDEPLOYQT "macdeployqt")
+    else (${_qt5Core_install_prefix} STREQUAL "")
+      set(MACDEPLOYQT "${_qt5Core_install_prefix}/bin/macdeployqt")
+    endif (${_qt5Core_install_prefix} STREQUAL "")
     install (CODE "
-      execute_process(COMMAND macdeployqt ${PROJECT_NAME_GLOBAL}.app -verbose=2
+      execute_process(COMMAND ${MACDEPLOYQT} ${PROJECT_NAME_GLOBAL}.app -verbose=2
         WORKING_DIRECTORY \${CMAKE_INSTALL_PREFIX})")
   endif (USE_QT)
   set (CPACK_BINARY_DRAGNDROP ON)
