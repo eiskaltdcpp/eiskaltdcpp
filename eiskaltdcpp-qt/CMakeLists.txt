@@ -400,18 +400,23 @@ else (APPLE)
 endif (APPLE)
 
 if (APPLE)
-  install (DIRECTORY ${QT_LIBRARY_DIR}/QtGui.framework/Resources/qt_menu.nib DESTINATION ${PROJECT_NAME_GLOBAL}.app/Contents/Resources)
+  if (USE_QT)
+    install (DIRECTORY ${QT_LIBRARY_DIR}/QtGui.framework/Resources/qt_menu.nib DESTINATION ${PROJECT_NAME_GLOBAL}.app/Contents/Resources)
 
-  install (CODE "
-    file(WRITE \"\${CMAKE_INSTALL_PREFIX}/${qtconf_dest_dir}/qt.conf\" \"\")")
+    install (CODE "
+      file(WRITE \"\${CMAKE_INSTALL_PREFIX}/${qtconf_dest_dir}/qt.conf\" \"\")")
 
-  install (CODE "
-    file(GLOB_RECURSE QTPLUGINS
-      \"\${CMAKE_INSTALL_PREFIX}/${plugin_dest_dir}/plugins/*${CMAKE_SHARED_LIBRARY_SUFFIX}\")
-    include(BundleUtilities)
-    fixup_bundle(\"${APPS}\" \"\${QTPLUGINS}\" \"${DIRS}\")")
-    set (CPACK_BINARY_DRAGNDROP ON)
-
+    install (CODE "
+      file(GLOB_RECURSE QTPLUGINS
+        \"\${CMAKE_INSTALL_PREFIX}/${plugin_dest_dir}/plugins/*${CMAKE_SHARED_LIBRARY_SUFFIX}\")
+      include(BundleUtilities)
+      fixup_bundle(\"${APPS}\" \"\${QTPLUGINS}\" \"${DIRS}\")")
+  elseif (USE_QT5)
+    install (CODE "
+      execute_process(COMMAND macdeployqt ${PROJECT_NAME_GLOBAL}.app -verbose=2
+        WORKING_DIRECTORY \${CMAKE_INSTALL_PREFIX})")
+  endif (USE_QT)
+  set (CPACK_BINARY_DRAGNDROP ON)
 endif (APPLE)
 
 include(CPack)
