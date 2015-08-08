@@ -135,3 +135,13 @@ Check variables.sh for correct paths and run:
 
 If you need installer run:
         ./create_installer.sh
+
+*******************************************************************************
+Compilation in Linux ( cross-compile in MXE )
+*******************************************************************************
+Install MXE: http://mxe.cc/#tutorial
+
+cd /path/to/mxe && make zlib bzip2 libiconv gettext jsoncpp aspell libidn openssl pcre lua boost qt5
+cmake -DCMAKE_INSTALL_PREFIX=./EiskaltDC++ -DSHARE_DIR=resources -DOPENSSL_MSVC=OFF -DDO_NOT_USE_MUTEX=ON -DUSE_ASPELL=ON -DFORCE_XDG=OFF -DDBUS_NOTIFY=OFF -DUSE_JS=ON -DUSE_MINIUPNP=ON -DLOCAL_MINIUPNP=ON -DWITH_SOUNDS=ON -DPERL_REGEX=ON -DUSE_QT_QML=ON -DLUA_SCRIPT=ON -DWITH_LUASCRIPTS=ON -DUSE_QT_SQLITE=ON -DNO_UI_DAEMON=ON -DJSONRPC_DAEMON=ON -DUSE_CLI_JSONRPC=ON /path/to/source/eiskaltdcpp
+make -j4
+make install
