@@ -49,8 +49,8 @@ TransferViewModel::TransferViewModel(QObject *parent)
     : QAbstractItemModel(parent), iconsScaled(false), showTranferedFilesOnly(false)
 {
     QList<QVariant> rootData;
-    rootData << tr("Users") << tr("Speed") << tr("Status") << tr("Flags") << tr("Size")
-             << tr("Time left") << tr("File name") << tr("Host") << tr("IP")
+    rootData << tr("Users") << tr("Speed") << tr("Status") << tr("Done") << tr("Flags") << tr("Size")
+             << tr("Total size") << tr("Time left") << tr("File name") << tr("Host") << tr("IP")
              << tr("Encryption");
 
     rootItem = new TransferViewItem(rootData, NULL);
@@ -58,15 +58,17 @@ TransferViewModel::TransferViewModel(QObject *parent)
     column_map.insert("USER", COLUMN_TRANSFER_USERS);
     column_map.insert("SPEED", COLUMN_TRANSFER_SPEED);
     column_map.insert("STAT", COLUMN_TRANSFER_STATS);
+    column_map.insert("DONE", COLUMN_TRANSFER_DONE);
     column_map.insert("FLAGS", COLUMN_TRANSFER_FLAGS);
-    column_map.insert("ESIZE", COLUMN_TRANSFER_SIZE);
+    column_map.insert("SIZE", COLUMN_TRANSFER_SIZE);
+    column_map.insert("ESIZE", COLUMN_TRANSFER_TOTAL_SIZE);
     column_map.insert("TLEFT", COLUMN_TRANSFER_TLEFT);
     column_map.insert("FNAME", COLUMN_TRANSFER_FNAME);
     column_map.insert("HOST", COLUMN_TRANSFER_HOST);
     column_map.insert("IP", COLUMN_TRANSFER_IP);
     column_map.insert("ENCRYPTION", COLUMN_TRANSFER_ENCRYPTION);
 
-    sortColumn = COLUMN_TRANSFER_SIZE;
+    sortColumn = COLUMN_TRANSFER_TOTAL_SIZE;
     sortOrder = Qt::DescendingOrder;
 }
 
@@ -106,13 +108,13 @@ QVariant TransferViewModel::data(const QModelIndex &index, int role) const
         }
         case Qt::DisplayRole:
         {
-            if (item->download && index.column() != COLUMN_TRANSFER_SIZE && item->childCount() == 1)//This parent item has hidden child, so just copy child column text into parent
+            if (item->download && index.column() != COLUMN_TRANSFER_TOTAL_SIZE && item->childCount() == 1)//This parent item has hidden child, so just copy child column text into parent
                                 return data(createIndex(0, index.column(), reinterpret_cast<void*>(item->childItems.first())), role);
 
             if (index.column() == COLUMN_TRANSFER_SPEED)
                 return WulforUtil::formatBytes(item->data(COLUMN_TRANSFER_SPEED).toDouble()) + tr("/s");
-            else if (index.column() == COLUMN_TRANSFER_SIZE)
-                return WulforUtil::formatBytes(item->data(COLUMN_TRANSFER_SIZE).toLongLong());
+            else if (index.column() == COLUMN_TRANSFER_TOTAL_SIZE)
+                return WulforUtil::formatBytes(item->data(COLUMN_TRANSFER_TOTAL_SIZE).toLongLong());
             else if (index.column() == COLUMN_TRANSFER_TLEFT){
                 int time = item->data(COLUMN_TRANSFER_TLEFT).toInt();
 
@@ -126,7 +128,7 @@ QVariant TransferViewModel::data(const QModelIndex &index, int role) const
         }
         case Qt::TextAlignmentRole:
         {
-            if (index.column() == COLUMN_TRANSFER_SPEED || index.column() == COLUMN_TRANSFER_SIZE)
+            if (index.column() == COLUMN_TRANSFER_SPEED || index.column() == COLUMN_TRANSFER_TOTAL_SIZE)
                 return static_cast<int>(Qt::AlignRight | Qt::AlignVCenter);
             else
                 return static_cast<int>(Qt::AlignLeft | Qt::AlignVCenter);
@@ -176,14 +178,16 @@ struct Compare {
         template <typename T>
         bool static Cmp(const T& l, const T& r);
 
-        static AttrComp attrs[10];
+        static AttrComp attrs[12];
 };
 template <Qt::SortOrder order>
-typename Compare<order>::AttrComp Compare<order>::attrs[10] = {  AttrCmp<COLUMN_TRANSFER_USERS>,
+typename Compare<order>::AttrComp Compare<order>::attrs[12] = {  AttrCmp<COLUMN_TRANSFER_USERS>,
                                                                  NumCmp<COLUMN_TRANSFER_SPEED>,
                                                                  AttrCmp<COLUMN_TRANSFER_STATS>,
+                                                                 NumCmp<COLUMN_TRANSFER_DONE>,
                                                                  AttrCmp<COLUMN_TRANSFER_FLAGS>,
                                                                  NumCmp<COLUMN_TRANSFER_SIZE>,
+                                                                 NumCmp<COLUMN_TRANSFER_TOTAL_SIZE>,
                                                                  NumCmp<COLUMN_TRANSFER_TLEFT>,
                                                                  AttrCmp<COLUMN_TRANSFER_FNAME>,
                                                                  AttrCmp<COLUMN_TRANSFER_HOST>,
@@ -349,7 +353,7 @@ void TransferViewModel::addConnection(const VarMap &params){
 
     QList<QVariant> data;
 
-    data << params["USER"] << "" << params["STAT"] << "" << "" << "" << params["FNAME"] << params["HOST"] << "" << "";
+    data << params["USER"] << "" << params["STAT"] << "" << "" << "" << "" << "" << params["FNAME"] << params["HOST"] << "" << "";
     TransferViewItem *item = new TransferViewItem(data, (to && bGroup) ? to : rootItem);
 
     item->download = vbol(params["DOWN"]);
@@ -495,7 +499,7 @@ TransferViewItem *TransferViewModel::getParent(const QString &target, const VarM
 
     QList<QVariant> data;
 
-    data << params["USER"] << 0 << "" << "" << params["ESIZE"]
+    data << params["USER"] << 0 << "" << "" << "" << "" << params["ESIZE"]
          << params["TLEFT"] << params["FNAME"] << params["HOST"] << "" << "";
 
     p = new TransferViewItem(data, rootItem);
@@ -552,7 +556,7 @@ void TransferViewModel::updateParent(TransferViewItem *p){
     qint64 timeLeft = 0;
     double progress = 0.0;
 
-    totalSize = vlng(p->data(COLUMN_TRANSFER_SIZE));
+    totalSize = vlng(p->data(COLUMN_TRANSFER_TOTAL_SIZE));
 
     for (const auto &i : p->childItems){
         if (!i->fail){
@@ -566,7 +570,7 @@ void TransferViewModel::updateParent(TransferViewItem *p){
         actual += i->dpos;
     }
 
-    if (actual <= vlng(p->data(COLUMN_TRANSFER_SIZE)))
+    if (actual <= vlng(p->data(COLUMN_TRANSFER_TOTAL_SIZE)))
         p->dpos = actual;
 
     if (totalSize > 0)
@@ -575,12 +579,11 @@ void TransferViewModel::updateParent(TransferViewItem *p){
         timeLeft = (totalSize - p->dpos) / speed;
 
     if (active && !p->finished)
-        p->updateColumn(COLUMN_TRANSFER_STATS, tr("Downloaded "));
+        p->updateColumn(COLUMN_TRANSFER_STATS, tr("Download"));
     else if (!p->finished)
         p->updateColumn(COLUMN_TRANSFER_STATS, tr("Waiting for slot "));
 
-    QString stat = vstr(p->data(COLUMN_TRANSFER_STATS)) + WulforUtil::formatBytes(p->dpos)
-                   + QString(" (%1%)").arg(progress, 0, 'f', 1);
+    QString stat = vstr(p->data(COLUMN_TRANSFER_STATS));
 
     QString hubs_str;
     for (const QString &s : hubs)
@@ -594,7 +597,9 @@ void TransferViewModel::updateParent(TransferViewItem *p){
     }
 
     p->updateColumn(COLUMN_TRANSFER_USERS, tr("%1/%2").arg(active).arg(p->childCount()));
+    p->updateColumn(COLUMN_TRANSFER_DONE, tr("%1%").arg(progress, 0, 'f', 1));
     p->updateColumn(COLUMN_TRANSFER_FLAGS, "");
+    p->updateColumn(COLUMN_TRANSFER_SIZE, WulforUtil::formatBytes(p->dpos));
     p->updateColumn(COLUMN_TRANSFER_TLEFT, timeLeft);
     p->updateColumn(COLUMN_TRANSFER_HOST, hubs_str);
     p->updateColumn(COLUMN_TRANSFER_SPEED, speed);
@@ -602,7 +607,8 @@ void TransferViewModel::updateParent(TransferViewItem *p){
     if (!p->finished)
         p->updateColumn(COLUMN_TRANSFER_STATS, stat);
 
-    p->percent = p->percent == 100.0? 100.0 : progress;
+    p->percent = p->percent == 100.0 ? 100.0 : progress;
+    printf("percent=%f fin=%d\n", p->percent, p->finished);
 }
 
 void TransferViewModel::updateTransferPos(const VarMap &params, qint64 pos){
@@ -760,7 +766,7 @@ TransferViewDelegate::~TransferViewDelegate(){
 void TransferViewDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const{
     TransferViewItem *item = reinterpret_cast<TransferViewItem*>(index.internalPointer());
 
-    if (index.column() != COLUMN_TRANSFER_STATS || !item){
+    if (index.column() != COLUMN_TRANSFER_DONE || !item){
         QStyledItemDelegate::paint(painter, option, index);
 
         return;
@@ -786,7 +792,7 @@ void TransferViewDelegate::paint(QPainter *painter, const QStyleOptionViewItem &
     progressBarOption.palette = pal;
 
     double percent = item->percent;
-    QString status = item->data(COLUMN_TRANSFER_STATS).toString();
+    QString status = item->data(COLUMN_TRANSFER_DONE).toString();
 
     progressBarOption.text = status;
     progressBarOption.progress = static_cast<int>(percent);

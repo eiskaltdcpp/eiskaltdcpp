@@ -19,13 +19,15 @@
 static const int COLUMN_TRANSFER_USERS       = 0;
 static const int COLUMN_TRANSFER_SPEED       = 1;
 static const int COLUMN_TRANSFER_STATS       = 2;
-static const int COLUMN_TRANSFER_FLAGS       = 3;
-static const int COLUMN_TRANSFER_SIZE        = 4;
-static const int COLUMN_TRANSFER_TLEFT       = 5;
-static const int COLUMN_TRANSFER_FNAME       = 6;
-static const int COLUMN_TRANSFER_HOST        = 7;
-static const int COLUMN_TRANSFER_IP          = 8;
-static const int COLUMN_TRANSFER_ENCRYPTION  = 9;
+static const int COLUMN_TRANSFER_DONE        = 3;
+static const int COLUMN_TRANSFER_FLAGS       = 4;
+static const int COLUMN_TRANSFER_SIZE        = 5;
+static const int COLUMN_TRANSFER_TOTAL_SIZE  = 6;
+static const int COLUMN_TRANSFER_TLEFT       = 7;
+static const int COLUMN_TRANSFER_FNAME       = 8;
+static const int COLUMN_TRANSFER_HOST        = 9;
+static const int COLUMN_TRANSFER_IP          = 10;
+static const int COLUMN_TRANSFER_ENCRYPTION  = 11;
 
 class TransferViewDelegate:
         public QStyledItemDelegate
