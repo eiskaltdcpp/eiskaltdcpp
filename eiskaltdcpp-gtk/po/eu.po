@@ -1,23 +1,25 @@
+# SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR EiskaltDC++ team
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Translators:
-# Boris Pek <tehnick-8@yandex.ru>, 2014.
+# Translators:
+# Boris Pek <tehnick-8@yandex.ru>, 2014
+# Egoitz Rodriguez Obieta <egoitzro@gmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
 "POT-Creation-Date: 2014-10-16 21:06+0400\n"
-"PO-Revision-Date: 2014-10-12 19:59+0400\n"
-"Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
-"Language-Team: Russian <kde-russian@lists.kde.ru>\n"
-"Language: eu\n"
+"PO-Revision-Date: 2015-08-20 11:09+0000\n"
+"Last-Translator: Egoitz Rodriguez Obieta <egoitzro@gmail.com>\n"
+"Language-Team: Basque (http://www.transifex.com/tehnick/eiskaltdcpp/language/eu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: eu\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 1.5\n"
 
 #: ../src/privatemessage.cc:565 ../src/privatemessage.cc:644
 #: ../src/hub.cc:1065 ../src/hub.cc:1144
@@ -38,7 +40,7 @@ msgstr ""
 
 #: ../src/hub.cc:461 ../src/hub.cc:479
 msgid " Users"
-msgstr ""
+msgstr "Erabiltzaileak"
 
 #: ../src/hub.cc:2790
 msgid " added to favorites list"
@@ -46,15 +48,15 @@ msgstr ""
 
 #: ../src/hub.cc:1946
 msgid " empty..."
-msgstr ""
+msgstr "hutsik..."
 
 #: ../src/sharebrowser.cc:1118 ../src/finishedtransfers.cc:265
 msgid " files"
-msgstr ""
+msgstr "fitxategiak"
 
 #: ../src/hub.cc:444 ../src/hub.cc:455
 msgid " has joined"
-msgstr ""
+msgstr "sartu da"
 
 #: ../src/hub.cc:445 ../src/hub.cc:454
 msgid " has joined hub "
@@ -74,15 +76,15 @@ msgstr ""
 
 #: ../src/privatemessage.cc:1412 ../src/hub.cc:1937 ../src/hub.cc:2761
 msgid " is not favorite user"
-msgstr ""
+msgstr "Ez da erabiltzaile gogokoena"
 
 #: ../src/hashdialog.cc:64 ../src/hashdialog.cc:73 ../src/hashdialog.cc:82
 msgid " left"
-msgstr ""
+msgstr "ezker"
 
 #: ../src/downloadqueue.cc:1290
 msgid " of "
-msgstr ""
+msgstr "-ren"
 
 #: ../src/hub.cc:2817
 msgid " removed from favorites list"
@@ -90,19 +92,19 @@ msgstr ""
 
 #: ../src/settingsmanager.cc:526
 msgid " to "
-msgstr ""
+msgstr "-ra"
 
 #: ../src/search.cc:716
 msgid " user(s)"
-msgstr ""
+msgstr "erabiltzaile(ak)"
 
 #: ../src/downloadqueue.cc:1290
 msgid " user(s) online"
-msgstr ""
+msgstr "lerroan erabiltzaile(ak)"
 
 #: ../src/finishedtransfers.cc:274
 msgid " users"
-msgstr ""
+msgstr "erabiltzaileak"
 
 #: ../ui/settingsdialog.ui:4768
 msgid ""
@@ -131,7 +133,7 @@ msgstr ""
 #: ../src/settingsdialog.cc:1470 ../ui/mainwindow.ui:251
 #: ../ui/mainwindow.ui:2375 ../ui/mainwindow.ui:2393
 msgid "+/-"
-msgstr ""
+msgstr "+/-"
 
 #: ../src/hashdialog.cc:65 ../src/hashdialog.cc:77
 msgid "-:--:-- left"
@@ -148,7 +150,7 @@ msgstr ""
 
 #: ../src/downloadqueue.cc:1316
 msgid "0 B (0.00%)"
-msgstr ""
+msgstr "0 B (0.00%)"
 
 #: ../src/hub.cc:525
 msgid "0 Users"
@@ -172,7 +174,7 @@ msgstr ""
 
 #: ../ui/settingsdialog.ui:8969
 msgid "16x16"
-msgstr ""
+msgstr "16x16"
 
 #: ../ui/settingsdialog.ui:8754 ../ui/settingsdialog.ui:8834
 msgid "1AM"
@@ -184,11 +186,11 @@ msgstr ""
 
 #: ../ui/settingsdialog.ui:8972
 msgid "22x22"
-msgstr ""
+msgstr "22x22"
 
 #: ../ui/settingsdialog.ui:8975
 msgid "24x24"
-msgstr ""
+msgstr "24x24"
 
 #: ../ui/settingsdialog.ui:8757 ../ui/settingsdialog.ui:8837
 msgid "2AM"
@@ -200,11 +202,11 @@ msgstr ""
 
 #: ../ui/settingsdialog.ui:8978
 msgid "32x32"
-msgstr ""
+msgstr "32x32"
 
 #: ../ui/settingsdialog.ui:8981
 msgid "36x36"
-msgstr ""
+msgstr "36x36"
 
 #: ../ui/settingsdialog.ui:8760 ../ui/settingsdialog.ui:8840
 msgid "3AM"
@@ -216,7 +218,7 @@ msgstr ""
 
 #: ../ui/settingsdialog.ui:8984
 msgid "48x48"
-msgstr ""
+msgstr "48x48"
 
 #: ../ui/settingsdialog.ui:8763 ../ui/settingsdialog.ui:8843
 msgid "4AM"
@@ -236,7 +238,7 @@ msgstr ""
 
 #: ../ui/settingsdialog.ui:8987
 msgid "64x64"
-msgstr ""
+msgstr "64x64"
 
 #: ../ui/settingsdialog.ui:8769 ../ui/settingsdialog.ui:8849
 msgid "6AM"
@@ -276,9 +278,9 @@ msgstr ""
 
 #: ../ui/settingsdialog.ui:7259
 msgid ""
-"<a href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html"
-"\">Help</a>"
-msgstr ""
+"<a "
+"href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html\">Help</a>"
+msgstr "<a href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html\">Laguntza</a>"
 
 #: ../ui/settingsdialog.ui:3855
 msgid "<b>Add player</b>"
@@ -306,11 +308,11 @@ msgstr ""
 
 #: ../ui/settingsdialog.ui:6462
 msgid "<b>Colors</b>"
-msgstr ""
+msgstr "<b>Koloreak</b>"
 
 #: ../ui/settingsdialog.ui:646
 msgid "<b>Command Type</b>"
-msgstr ""
+msgstr "<b>Komando Mota</b>"
 
 #: ../ui/settingsdialog.ui:5035
 msgid "<b>Confirmation Dialog Options</b>"
@@ -322,7 +324,7 @@ msgstr ""
 
 #: ../ui/settingsdialog.ui:743
 msgid "<b>Context</b>"
-msgstr ""
+msgstr "<b>Testuingurua</b>"
 
 #: ../ui/settingsdialog.ui:5993
 msgid "<b>Current theme name:</b>"
@@ -334,15 +336,15 @@ msgstr ""
 
 #: ../ui/favoriteusers.ui:96
 msgid "<b>Description</b>"
-msgstr ""
+msgstr "<b>Deskribapena</b>"
 
 #: ../ui/adlsearch.ui:295
 msgid "<b>Destination Directory</b>"
-msgstr ""
+msgstr "<b>Helburu direktorioa</b>"
 
 #: ../ui/settingsdialog.ui:2743
 msgid "<b>Directories</b>"
-msgstr ""
+msgstr "<b>Direktorioa</b>"
 
 #: ../ui/settingsdialog.ui:4396
 msgid "<b>Do not share files and folders containing:</b>"
@@ -354,7 +356,7 @@ msgstr ""
 
 #: ../src/settingsdialog.cc:2210
 msgid "<b>Extension</b>"
-msgstr ""
+msgstr "<b>Hedapenen</b>"
 
 #: ../ui/settingsdialog.ui:3106
 msgid "<b>Favorite download to directories</b>"
@@ -362,31 +364,31 @@ msgstr ""
 
 #: ../ui/publichubs.ui:236
 msgid "<b>Filter</b>"
-msgstr ""
+msgstr "<b>Iragazki</b>"
 
 #: ../ui/settingsdialog.ui:6648
 msgid "<b>Frame</b>"
-msgstr ""
+msgstr "<b>Fotograma</b>"
 
 #: ../ui/publichubs.ui:292
 msgid "<b>Hub List</b>"
-msgstr ""
+msgstr "<b>Hub Zerrenda</b>"
 
 #: ../ui/favoritehubs.ui:81
 msgid "<b>Hub</b>"
-msgstr ""
+msgstr "<b>Hub</b>"
 
 #: ../ui/settingsdialog.ui:5621
 msgid "<b>Icon size</b>"
-msgstr ""
+msgstr "<b>Ikono tamaina</b>"
 
 #: ../ui/settingsdialog.ui:5929
 msgid "<b>Icons</b>"
-msgstr ""
+msgstr "<b>Ikonoak</b>"
 
 #: ../ui/favoritehubs.ui:328
 msgid "<b>Identification</b>"
-msgstr ""
+msgstr "<b>Identifikazio</b>"
 
 #: ../ui/settingsdialog.ui:1604
 msgid "<b>Incoming connection settings</b>"
@@ -394,11 +396,11 @@ msgstr ""
 
 #: ../ui/settingsdialog.ui:4538
 msgid "<b>Language</b>"
-msgstr ""
+msgstr "<b>Hizkuntza</b>"
 
 #: ../ui/settingsdialog.ui:2859
 msgid "<b>Limits</b>"
-msgstr ""
+msgstr "<b>Mugak</b>"
 
 #: ../ui/settingsdialog.ui:7275
 msgid "<b>Logging</b>"
@@ -442,11 +444,11 @@ msgstr ""
 
 #: ../ui/settingsdialog.ui:5545
 msgid "<b>Notify</b>"
-msgstr ""
+msgstr "<b>Jakinarazi</b>"
 
 #: ../ui/settingsdialog.ui:4582
 msgid "<b>Options</b>"
-msgstr ""
+msgstr "<b>Aukerak</b>"
 
 #: ../ui/settingsdialog.ui:8247
 msgid "<b>Other Security Options</b>"
@@ -462,7 +464,7 @@ msgstr ""
 
 #: ../ui/settingsdialog.ui:940
 msgid "<b>Parameters</b>"
-msgstr ""
+msgstr "<b>Parametroak</b>"
 
 #: ../ui/settingsdialog.ui:1250
 msgid "<b>Personal Information</b>"
@@ -482,7 +484,7 @@ msgstr ""
 
 #: ../ui/settingsdialog.ui:5840
 msgid "<b>Private message</b>"
-msgstr ""
+msgstr "<b>Mezu pribatua</b>"
 
 #: ../ui/hash.ui:55
 msgid "<b>Processing file:</b>"
@@ -518,7 +520,7 @@ msgstr ""
 
 #: ../ui/settingsdialog.ui:5094
 msgid "<b>Sounds</b>"
-msgstr ""
+msgstr "<b>Soinuak</b>"
 
 #: ../ui/adlsearch.ui:128
 msgid "<b>Source Type</b>"
@@ -526,7 +528,7 @@ msgstr ""
 
 #: ../ui/hash.ui:124
 msgid "<b>Statistics</b>"
-msgstr ""
+msgstr "<b>Estatistikak</b>"
 
 #: ../ui/settingsdialog.ui:4640
 msgid "<b>Tab Position</b>"
@@ -550,7 +552,7 @@ msgstr ""
 
 #: ../ui/settingsdialog.ui:5588
 msgid "<b>Title</b>"
-msgstr ""
+msgstr "<b>Izenburua</b>"
 
 #: ../ui/settingsdialog.ui:6173
 msgid "<b>Toolbar buttons</b>"
@@ -570,7 +572,7 @@ msgstr ""
 
 #: ../src/mainwindow.cc:2349
 msgid "<b>file:</b> "
-msgstr ""
+msgstr "<b>fitxategia:</b> "
 
 #: ../ui/favoritehubs.ui:444
 msgid "<small>Note: Leave unchecked for default values</small>"
@@ -578,7 +580,7 @@ msgstr ""
 
 #: ../src/sharebrowser.hh:149 ../src/sharebrowser.hh:152
 msgid "?"
-msgstr ""
+msgstr "?"
 
 #: ../ui/mainwindow.ui:2306 ../ui/mainwindow.ui:2489
 msgid "ADL"
@@ -594,7 +596,7 @@ msgstr ""
 
 #: ../ui/mainwindow.ui:1628
 msgid "About EiskaltDC++"
-msgstr ""
+msgstr "EiskaltDC++-ri buruz"
 
 #: ../src/settingsdialog.cc:1654
 msgid "Accept custom user commands from hub"
@@ -602,15 +604,15 @@ msgstr ""
 
 #: ../ui/favoritehubs.ui:555 ../ui/settingsdialog.ui:1456
 msgid "Active"
-msgstr ""
+msgstr "Aktibo"
 
 #: ../ui/settingsdialog.ui:4326 ../ui/settingsdialog.ui:8361
 msgid "Add"
-msgstr ""
+msgstr "Gehitu"
 
 #: ../ui/mainwindow.ui:2373
 msgid "Add / Remove"
-msgstr ""
+msgstr "Gehitu / Ezabatu"
 
 #: ../src/hub.cc:2043 ../ui/hub.ui:39
 msgid "Add a hub to favorites"
@@ -644,12 +646,12 @@ msgstr ""
 
 #: ../ui/adlsearch.ui:452 ../ui/adlsearch.ui:535
 msgid "Add..."
-msgstr ""
+msgstr "Gehitu..."
 
 #: ../src/downloadqueue.cc:81 ../src/downloadqueue.cc:293
 #: ../src/downloadqueue.cc:400
 msgid "Added"
-msgstr ""
+msgstr "Gehituta"
 
 #: ../ui/settingsdialog.ui:6284
 msgid "Adding string or TTH to the top"
@@ -663,12 +665,12 @@ msgstr ""
 #: ../src/publichubs.cc:50 ../src/publichubs.cc:162 ../src/publichubs.cc:272
 #: ../src/publichubs.cc:297
 msgid "Address"
-msgstr ""
+msgstr "Helbidea"
 
 #: ../ui/settingsdialog.ui:2569 ../ui/settingsdialog.ui:4470
 #: ../ui/settingsdialog.ui:7341
 msgid "Advanced"
-msgstr ""
+msgstr "Aurreratua"
 
 #: ../src/hub.cc:2070
 msgid "Alias A executing"
@@ -720,17 +722,17 @@ msgstr ""
 
 #: ../ui/settingsdialog.ui:4829 ../ui/settingsdialog.ui:6691
 msgid "Appearance"
-msgstr ""
+msgstr "Itxura"
 
 #: ../src/settingsdialog.cc:927 ../src/settingsdialog.cc:962
 #: ../src/settingsdialog.cc:2990 ../src/settingsdialog.cc:3024
 #: ../src/settingsdialog.cc:3042 ../src/settingsdialog.cc:3073
 msgid "Application"
-msgstr ""
+msgstr "Aplikazioa"
 
 #: ../ui/settingsdialog.ui:3802
 msgid "Application:"
-msgstr ""
+msgstr "Aplikazioa:"
 
 #: ../ui/searchspy.ui:241
 msgid "Apply settings"
@@ -759,7 +761,7 @@ msgstr ""
 
 #: ../src/sharebrowser.cc:92 ../src/sharebrowser.cc:370
 msgid "Audio"
-msgstr ""
+msgstr "Soinu"
 
 #: ../src/favoritehubs.cc:52 ../src/favoritehubs.cc:72
 #: ../src/favoritehubs.cc:131 ../src/favoritehubs.cc:313
@@ -847,19 +849,19 @@ msgstr ""
 
 #: ../src/settingsdialog.cc:1082
 msgid "Basque"
-msgstr ""
+msgstr "Euskera"
 
 #: ../src/mainwindow.cc:252
 msgid "Basque translation\n"
-msgstr ""
+msgstr "Euskerazko itzulpena\n"
 
 #: ../src/settingsdialog.cc:1064
 msgid "Belarusian"
-msgstr ""
+msgstr "Bieloerrusiera"
 
 #: ../src/mainwindow.cc:224
 msgid "Belarusian translation\n"
-msgstr ""
+msgstr "Bieloerrusiar itzulpena\n"
 
 #: ../ui/settingsdialog.ui:7772
 msgid "Bind address"
@@ -871,7 +873,7 @@ msgstr ""
 
 #: ../ui/settingsdialog.ui:5451
 msgid "Black/White"
-msgstr ""
+msgstr "Beltz/Zuri"
 
 #: ../ui/settingsdialog.ui:5362
 msgid "Bold Authors of message in chat"
@@ -879,7 +881,7 @@ msgstr ""
 
 #: ../ui/settingsdialog.ui:8949
 msgid "Both"
-msgstr ""
+msgstr "Bietan"
 
 #: ../ui/settingsdialog.ui:8952
 msgid "Both horizontal"
@@ -907,15 +909,15 @@ msgstr ""
 #: ../ui/settingsdialog.ui:6749 ../ui/settingsdialog.ui:8062
 #: ../ui/settingsdialog.ui:8080 ../ui/settingsdialog.ui:8098
 msgid "Browse..."
-msgstr ""
+msgstr "Arakatu..."
 
 #: ../src/settingsdialog.cc:1084
 msgid "Bulgarian"
-msgstr ""
+msgstr "Bulgariera"
 
 #: ../src/mainwindow.cc:255
 msgid "Bulgarian translation\n"
-msgstr ""
+msgstr "Bulgariar itzulpena\n"
 
 #: ../src/settingsdialog.cc:1421
 msgid "Button smile"
@@ -2048,19 +2050,19 @@ msgstr ""
 #: ../src/settingsdialog.cc:2290 ../src/settingsdialog.cc:2324
 #: ../src/settingsdialog.cc:2401 ../src/settingsdialog.cc:2437
 msgid "Icon"
-msgstr ""
+msgstr "Ikono"
 
 #: ../src/emoticonsdialog.cc:66
 msgid "Icon size"
-msgstr ""
+msgstr "Ikono tamaina"
 
 #: ../ui/settingsdialog.ui:5677
 msgid "Icon..."
-msgstr ""
+msgstr "Ikono..."
 
 #: ../ui/settingsdialog.ui:8943
 msgid "Icons"
-msgstr ""
+msgstr "Ikonoak"
 
 #: ../ui/searchspy.ui:209
 msgid "Ignore TTH"
@@ -2563,7 +2565,8 @@ msgid "Note: New files are added to the share only once they've been hashed!"
 msgstr ""
 
 #: ../ui/settingsdialog.ui:2845
-msgid "Note; because of changing download speeds, this is not 100% accurate..."
+msgid ""
+"Note; because of changing download speeds, this is not 100% accurate..."
 msgstr ""
 
 #: ../src/settingsdialog.cc:1339 ../ui/settingsdialog.ui:5883
@@ -3090,7 +3093,8 @@ msgstr ""
 
 #: ../src/hub.cc:2066
 msgid ""
-"Set Core option param in value (without value return current value of option)"
+"Set Core option param in value (without value return current value of "
+"option)"
 msgstr ""
 
 #: ../src/hub.cc:2065
@@ -3111,7 +3115,8 @@ msgid "Set download limit image: "
 msgstr ""
 
 #: ../src/settingsdialog.cc:986
-msgid "Set lowest priority for newly added files larger than low priority size"
+msgid ""
+"Set lowest priority for newly added files larger than low priority size"
 msgstr ""
 
 #: ../ui/settingsdialog.ui:4054
@@ -3363,7 +3368,7 @@ msgstr ""
 
 #: ../ui/settingsdialog.ui:6089
 msgid "System icons"
-msgstr ""
+msgstr "Sistemaren ikonoak"
 
 #: ../src/settingsdialog.cc:1235
 msgid "System message"
@@ -3568,8 +3573,8 @@ msgstr ""
 
 #: ../src/mainwindow.cc:2291
 msgid ""
-"Unable to open %1% port. Searching or file transfers will not work correctly "
-"until you change settings or turn off any application that might be using "
+"Unable to open %1% port. Searching or file transfers will not work correctly"
+" until you change settings or turn off any application that might be using "
 "that port."
 msgstr ""
 
@@ -3803,8 +3808,7 @@ msgid ""
 "Using:\n"
 "  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n"
 "  eiskaltdcpp-gtk <Key>\n"
-"EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC "
-"protocol.\n"
+"EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC protocol.\n"
 "\n"
 "Keys:\n"
 "  -h, --help\t Show this message\n"
@@ -4144,7 +4148,7 @@ msgstr ""
 
 #: ../src/settingsdialog.cc:2510
 msgid "default icons"
-msgstr ""
+msgstr "lehenetsitako ikonoak"
 
 #: ../src/settingsdialog.cc:2542
 msgid "default theme"

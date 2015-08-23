@@ -3023,7 +3023,7 @@ Nedladdat: %3 Uppladdat: %4</translation>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="205"/>
         <source>Don&apos;t hide this panel when search</source>
-        <translation>Göm denna panelen när du söker</translation>
+        <translation>Göm inte denna panelen när du söker</translation>
     </message>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="221"/>
