@@ -28,6 +28,7 @@
 
 #include <sys/stat.h>
 #include <sys/types.h>
+#include <sys/socket.h>
 #include <unistd.h>
 #include <cstdlib>
 #include <vector>
@@ -403,8 +404,8 @@ public:
     }
 
     static string encodeURI(const string& /*aString*/, bool reverse = false);
-    static string getLocalIp();
-    static std::vector<string> getLocalIPs();
+    static string getLocalIp(unsigned short sa_family = AF_UNSPEC);
+    static std::vector<string> getLocalIPs(unsigned short sa_family = AF_UNSPEC);
     static bool isPrivateIp(string const& ip);
     static string formatAdditionalInfo(const std::string& aIp, bool sIp, bool sCC);
     /**
