@@ -344,7 +344,7 @@ Keys:
     <message>
         <location filename="../src/DownloadQueue.cpp" line="397"/>
         <source>Passive user</source>
-        <translation type="unfinished"/>
+        <translation>Erabiltzaile pasiboa</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueue.cpp" line="399"/>
@@ -359,7 +359,7 @@ Keys:
     <message>
         <location filename="../src/DownloadQueue.cpp" line="403"/>
         <source>Source too slow</source>
-        <translation type="unfinished"/>
+        <translation>Iturria motelegia</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueue.cpp" line="405"/>
@@ -566,14 +566,14 @@ Keys:
     <message>
         <location filename="../src/FavoriteHubs.cpp" line="58"/>
         <source>Favorite hubs</source>
-        <translation type="unfinished"/>
+        <translation>Hub gogokoak</translation>
     </message>
     <message>
         <location filename="../src/FavoriteHubs.cpp" line="170"/>
         <location filename="../src/FavoriteHubs.cpp" line="200"/>
         <location filename="../src/FavoriteHubs.cpp" line="312"/>
         <source>System default</source>
-        <translation type="unfinished"/>
+        <translation>Sistema lehenetsia</translation>
     </message>
     <message>
         <location filename="../src/FavoriteHubs.cpp" line="372"/>
@@ -7073,7 +7073,7 @@ and may cause the client to appear to freeze.</source>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="353"/>
         <source>No reserve</source>
-        <translation type="unfinished"/>
+        <translation>Erreserba gabe</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="367"/>
@@ -7129,7 +7129,7 @@ if your system becomes slow while hashing files.</source>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="524"/>
         <source>Upload slots</source>
-        <translation type="unfinished"/>
+        <translation>Slot-ak igo</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="534"/>
@@ -7178,12 +7178,12 @@ if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</sourc
     <message>
         <location filename="../ui/UISettingsUC.ui" line="63"/>
         <source>Up</source>
-        <translation type="unfinished"/>
+        <translation>Gora</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsUC.ui" line="83"/>
         <source>Down</source>
-        <translation type="unfinished"/>
+        <translation>Behera</translation>
     </message>
 </context>
 <context>
@@ -7294,12 +7294,12 @@ if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</sourc
     <message>
         <location filename="../ui/UIUserCommands.ui" line="32"/>
         <source>Separator</source>
-        <translation type="unfinished"/>
+        <translation>Banatzailea</translation>
     </message>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="42"/>
         <source>Chat</source>
-        <translation type="unfinished"/>
+        <translation>Txat</translation>
     </message>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="49"/>
@@ -7319,7 +7319,7 @@ if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</sourc
     <message>
         <location filename="../ui/UIUserCommands.ui" line="75"/>
         <source>Hub</source>
-        <translation type="unfinished"/>
+        <translation>Hub</translation>
     </message>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="82"/>

@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
 "POT-Creation-Date: 2014-10-16 21:06+0400\n"
-"PO-Revision-Date: 2015-08-20 11:09+0000\n"
+"PO-Revision-Date: 2015-08-27 14:59+0000\n"
 "Last-Translator: Egoitz Rodriguez Obieta <egoitzro@gmail.com>\n"
 "Language-Team: Basque (http://www.transifex.com/tehnick/eiskaltdcpp/language/eu/)\n"
 "MIME-Version: 1.0\n"
@@ -154,7 +154,7 @@ msgstr "0 B (0.00%)"
 
 #: ../src/hub.cc:525
 msgid "0 Users"
-msgstr ""
+msgstr "0 Erabiltzile"
 
 #: ../ui/settingsdialog.ui:8781 ../ui/settingsdialog.ui:8861
 msgid "10AM"
@@ -284,11 +284,11 @@ msgstr "<a href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html\"
 
 #: ../ui/settingsdialog.ui:3855
 msgid "<b>Add player</b>"
-msgstr ""
+msgstr "<b>Gehitu jokalaria</b>"
 
 #: ../ui/settingsdialog.ui:3651
 msgid "<b>Auto-drop settings</b>"
-msgstr ""
+msgstr "<b>Auto-jaregin ezarpenak</b>"
 
 #: ../ui/settingsdialog.ui:4947
 msgid "<b>Auto-open on startup</b>"
@@ -300,11 +300,11 @@ msgstr ""
 
 #: ../ui/settingsdialog.ui:5306
 msgid "<b>Available styles</b>"
-msgstr ""
+msgstr "<b>Estilo eskuragarri</b>"
 
 #: ../ui/settingsdialog.ui:8204
 msgid "<b>Certificate Paths</b>"
-msgstr ""
+msgstr "<b>Ziurtagiri Bideak</b>"
 
 #: ../ui/settingsdialog.ui:6462
 msgid "<b>Colors</b>"
@@ -320,7 +320,7 @@ msgstr ""
 
 #: ../ui/mainwindow.ui:714
 msgid "<b>Connect to address:</b>"
-msgstr ""
+msgstr "<b>Helbidearekin harremanetan jarri:</b>"
 
 #: ../ui/settingsdialog.ui:743
 msgid "<b>Context</b>"
@@ -328,7 +328,7 @@ msgstr "<b>Testuingurua</b>"
 
 #: ../ui/settingsdialog.ui:5993
 msgid "<b>Current theme name:</b>"
-msgstr ""
+msgstr "<b>Oraingo gaiaren izena:</b>"
 
 #: ../ui/settingsdialog.ui:4743
 msgid "<b>Default away message</b>"
@@ -468,7 +468,7 @@ msgstr "<b>Parametroak</b>"
 
 #: ../ui/settingsdialog.ui:1250
 msgid "<b>Personal Information</b>"
-msgstr ""
+msgstr "<b>Informazio Pertsonala</b>"
 
 #: ../ui/settingsdialog.ui:3748
 msgid "<b>Players list</b>"

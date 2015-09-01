@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
 "POT-Creation-Date: 2015-05-24 21:44+0300\n"
-"PO-Revision-Date: 2015-08-13 16:16+0000\n"
+"PO-Revision-Date: 2015-08-27 14:58+0000\n"
 "Last-Translator: Egoitz Rodriguez Obieta <egoitzro@gmail.com>\n"
 "Language-Team: Basque (http://www.transifex.com/tehnick/eiskaltdcpp/language/eu/)\n"
 "MIME-Version: 1.0\n"
@@ -454,7 +454,7 @@ msgstr ""
 
 #: ../DownloadManager.cpp:393
 msgid "No slots available"
-msgstr ""
+msgstr "Ez dago slot-ik eskuragarri"
 
 #: ../DownloadManager.cpp:504
 msgid "%1%: File not available"
