@@ -287,8 +287,6 @@ endif ()
 include_directories(${eiskaltdcpp_BINARY_DIR}
    ${eiskaltdcpp_SOURCE_DIR}
    ${GMP_INCLUDE_DIR}
-   ${GETTEXT_INCLUDE_DIR}
-   ${OPENSSL_INCLUDE_DIR}
    )
 
 option (LANGUAGES "Using translations")
