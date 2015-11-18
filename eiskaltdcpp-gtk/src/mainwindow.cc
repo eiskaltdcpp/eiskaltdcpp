@@ -204,8 +204,8 @@ MainWindow::MainWindow():
     const gchar * const authors[] =
     {
         _("Developers"),
-        "  2010-2014 Boris Pek <tehnick-8@mail.ru>",
-        "  2010-2014 Eugene Petrov <dhamp@ya.ru>",
+        "  2010-2015 Boris Pek <tehnick-8@mail.ru>",
+        "  2010-2015 Eugene Petrov <dhamp@ya.ru>",
         "  ",
         _("Contributors"),
         "  2001-2012 LinuxDC++ Team http://launchpad.net/linuxdcpp",
@@ -218,7 +218,7 @@ MainWindow::MainWindow():
 
     string translator_credits =
         _("Russian translation\n")+
-        string("  2010-2014 Boris Pek aka Tehnick <tehnick-8@mail.ru>\n")+
+        string("  2010-2015 Boris Pek aka Tehnick <tehnick-8@mail.ru>\n")+
         string("  2012 Vyacheslav Tretyakov <tret2003@gmail.com>\n")+
         string("\n")+
         _("Belarusian translation\n")+
