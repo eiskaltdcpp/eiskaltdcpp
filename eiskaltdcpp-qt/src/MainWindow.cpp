@@ -2659,10 +2659,9 @@ void MainWindow::slotAboutClient() {
     else
         ratio = 0;
 
-    a.label->setText(QString("<b>%1</b> %2 (%3)")
+    a.label->setText(QString("<b>%1</b> %2")
                      .arg(EISKALTDCPP_WND_TITLE)
-                     .arg(EISKALTDCPP_VERSION)
-                     .arg(EISKALTDCPP_VERSION_SFX));
+                     .arg(EISKALTDCPP_VERSION));
 
     QString html_format = "a { text-decoration:none; }\n"
                           "a:hover { text-decoration: underline; }\n";

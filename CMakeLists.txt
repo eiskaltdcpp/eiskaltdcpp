@@ -10,7 +10,6 @@ endif (APPLE)
 set (PROJECT_NAME "EiskaltDC++")
 set (VERSION "2.3.0")
 set (SOVERSION "2.3" )
-set (VERSION_SUFFIX "GIT")
 
 include (CheckIncludeFile)
 include (CheckIncludeFiles)
@@ -242,19 +241,17 @@ endif (APPLE)
 message (STATUS "Data directory: ${CLIENT_DATA_DIR}")
 
 if (DCPP_REVISION)
-    set (eiskaltdcpp_WC_REVISION ${DCPP_REVISION})
-    message (STATUS "DCPP_REVISION is set to: ${eiskaltdcpp_WC_REVISION}")
+    set (VERSION_SUFFIX ${DCPP_REVISION})
+    set (VERSION "${VERSION}-${VERSION_SUFFIX}")
+    message (STATUS "DCPP_REVISION is set to: ${VERSION_SUFFIX}")
+    message (STATUS "Current VERSION: ${VERSION}")
 elseif (GIT_FOUND)
     execute_process (COMMAND ${GIT_EXECUTABLE} describe --tags
-                WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}
-                OUTPUT_VARIABLE eiskaltdcpp_WC_REVISION
-                OUTPUT_STRIP_TRAILING_WHITESPACE)
-    message (STATUS "Build Git commit ID: ${eiskaltdcpp_WC_REVISION}")
-    if (NOT eiskaltdcpp_WC_REVISION MATCHES [0-9a-z]+)
-        set (eiskaltdcpp_WC_REVISION "${VERSION_SUFFIX}")
-    endif ()
-elseif (NOT DCPP_REVISION)
-    set (eiskaltdcpp_WC_REVISION "${VERSION_SUFFIX}")
+                     WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}
+                     OUTPUT_VARIABLE VERSION
+                     OUTPUT_STRIP_TRAILING_WHITESPACE)
+    string (REGEX REPLACE "^v" "" VERSION "${VERSION}")
+    message (STATUS "Build Git snapshot: ${VERSION}")
 endif ()
 
 configure_file(${PROJECT_SOURCE_DIR}/Version.h.in ${PROJECT_BINARY_DIR}/VersionGlobal.h)

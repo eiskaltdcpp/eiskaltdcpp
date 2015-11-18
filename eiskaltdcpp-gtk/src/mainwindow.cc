@@ -183,9 +183,9 @@ MainWindow::MainWindow():
     // About dialog
     gchar *comments = g_strdup_printf(_("DC++ Client based on the source code of FreeDC++ and LinuxDC++\n"
                                         "\n"
-                                        "EiskaltDC++ version: %s (%s)\n"
+                                        "EiskaltDC++ version: %s\n"
                                         "DC++ core version: %s"),
-        EISKALTDCPP_VERSION, EISKALTDCPP_VERSION_SFX, DCVERSIONSTRING);
+                                        EISKALTDCPP_VERSION, DCVERSIONSTRING);
 
     gtk_about_dialog_set_comments(GTK_ABOUT_DIALOG(getWidget("aboutDialog")), comments);
     g_free(comments);
