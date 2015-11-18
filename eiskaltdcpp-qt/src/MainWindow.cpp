@@ -2642,8 +2642,7 @@ void MainWindow::slotAboutOpenUrl(){
         QDesktopServices::openUrl(QUrl("https://github.com/eiskaltdcpp/eiskaltdcpp/wiki"));
     }
     else if (act == d->aboutChangelog){
-        // Now available: ChangeLog.txt, ChangeLog_ru.txt, ChangeLog_uk.txt
-        QDesktopServices::openUrl(QUrl(tr("http://github.com/eiskaltdcpp/eiskaltdcpp/raw/master/ChangeLog.txt")));
+        QDesktopServices::openUrl(QUrl("https://github.com/eiskaltdcpp/eiskaltdcpp/blob/master/ChangeLog.txt"));
     }
 }
 

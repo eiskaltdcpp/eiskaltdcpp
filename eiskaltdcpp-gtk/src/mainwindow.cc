@@ -380,9 +380,8 @@ MainWindow::MainWindow():
         g_strdup("http://code.google.com/p/eiskaltdc/w/list"), g_free);
     g_signal_connect(getWidget("wikiItem"), "activate", G_CALLBACK(onLinkClicked_gui), NULL);
 
-    // Now available: ChangeLog.txt, ChangeLog_ru.txt, ChangeLog_uk.txt
     g_object_set_data_full(G_OBJECT(getWidget("changeLogItem")), "link",
-        g_strdup(_("http://github.com/eiskaltdcpp/eiskaltdcpp/raw/master/ChangeLog.txt")), g_free);
+        g_strdup("https://github.com/eiskaltdcpp/eiskaltdcpp/blob/master/ChangeLog.txt"), g_free);
     g_signal_connect(getWidget("changeLogItem"), "activate", G_CALLBACK(onLinkClicked_gui), NULL);
 
     onQuit = FALSE;
