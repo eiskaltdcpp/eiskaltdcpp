@@ -69,10 +69,8 @@ TransferView::Menu::Menu(bool showTransferedFilesOnly):
     copy_column->addAction(tr("Users"));
     copy_column->addAction(tr("Speed"));
     copy_column->addAction(tr("Status"));
-    copy_column->addAction(tr("Done"));
     copy_column->addAction(tr("Flags"));
     copy_column->addAction(tr("Size"));
-    copy_column->addAction(tr("Total size"));
     copy_column->addAction(tr("Time left"));
     copy_column->addAction(tr("Filename"));
     copy_column->addAction(tr("Hub"));
@@ -644,13 +642,9 @@ void TransferView::on(dcpp::DownloadManagerListener::Tick, const dcpp::DownloadL
         
         params["FLAGS"] = str;
 
-        str = QString("%1%").arg(vdbl(params["PERC"]), 0, 'f', 1);
-        params["DONE"] = str;
+        str = QString(tr("Downloaded %1")).arg(WulforUtil::formatBytes(dl->getPos()))
+            + QString(tr(" (%1%)")).arg(vdbl(params["PERC"]), 0, 'f', 1);
 
-        str = QString("%1").arg(WulforUtil::formatBytes(dl->getPos()));
-        params["SIZE"] = str;
-
-        str = QString(tr("Download"));
         params["STAT"] = str;
 
         emit coreDMTick(params);
@@ -661,18 +655,11 @@ void TransferView::on(dcpp::DownloadManagerListener::Tick, const dcpp::DownloadL
 
 void TransferView::on(dcpp::DownloadManagerListener::Complete, dcpp::Download* dl) noexcept{
     VarMap params;
-    QString str;
 
     getParams(params, dl);
 
     params["STAT"]  = tr("Download complete");
     params["SPEED"] = 0;
-
-//    str = QString("%1%").arg(vdbl(params["PERC"]), 0, 'f', 1);
-//    params["DONE"] = str;
-
-//    str = QString("%1").arg(WulforUtil::formatBytes(dl->getPos()));
-//    params["SIZE"] = str;
 
     qint64 pos = QueueManager::getInstance()->getPos(dl->getPath()) + dl->getPos();
 
@@ -814,31 +801,25 @@ void TransferView::on(dcpp::UploadManagerListener::Tick, const dcpp::UploadList&
     for (const auto &it : uls){
         Upload* ul = it;
         VarMap params;
-        QString str = "";
+        QString stat = "";
 
         getParams(params, ul);
 
         if (ul->getUserConnection().isSecure())
         {
             if (ul->getUserConnection().isTrusted())
-                str += tr("[S]");
+                stat += tr("[S]");
             else
-                str += tr("[U]");
+                stat += tr("[U]");
         }
         if (ul->isSet(Upload::FLAG_ZUPLOAD))
-            str += tr("[Z]");
+            stat += tr("[Z]");
         
-        params["FLAGS"] = str;
+        params["FLAGS"] = stat;
 
-        str = QString("%1%").arg(vdbl(params["PERC"]), 0, 'f', 1);
-        params["DONE"] = str;
+        stat = QString(tr("Uploaded %1 (%2%) ")).arg(WulforUtil::formatBytes(ul->getPos())).arg(vdbl(params["PERC"]), 0, 'f', 1);
 
-        str = QString("%1").arg(WulforUtil::formatBytes(ul->getPos()));
-        params["SIZE"] = str;
-
-        str = QString(tr("Upload"));
-
-        params["STAT"] = str;
+        params["STAT"] = stat;
         params["DOWN"] = false;
         params["FAIL"] = false;
 
