@@ -228,7 +228,7 @@ void SettingsGUI::init(){
         checkBox_HIGHLIGHTFAVS->setChecked(WBGET(WB_CHAT_HIGHLIGHT_FAVS));
         checkBox_CHAT_SHOW_IP->setChecked(BOOLSETTING(USE_IP));
         checkBox_CHAT_SHOW_CC->setChecked(BOOLSETTING(GET_USER_COUNTRY));
-        checkBox_BB_CODE->setChecked(WBGET("hubframe/use-bb-code", false));
+        checkBox_BB_CODE->setChecked(WBGET("hubframe/use-bb-code", true));
         lineEdit_TIMESTAMP->setText(WSGET(WS_CHAT_TIMESTAMP));
 
         spinBox_OUT_IN_HIST->setValue(WIGET(WI_OUT_IN_HIST));
