@@ -1414,7 +1414,8 @@ Favorite user</source>
         <location filename="../src/HubFrame.cpp" line="1867"/>
         <source>/ws param value - set gui option param in value (without value return current value of option)
 </source>
-        <translation type="unfinished"/>
+        <translation>/ws param value - задаць &quot;value&quot; параметр графічнага інтэрфейсу  (без &quot;value&quot; - вяртаецца дзейнае значэнне параметру)
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1868"/>
@@ -2562,7 +2563,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="2690"/>
         <source>Please use &lt;a href=&quot;https://github.com/eiskaltdcpp/eiskaltdcpp/issues&quot;&gt;https://github.com/eiskaltdcpp/eiskaltdcpp/issues&lt;/a&gt; to report bugs.&lt;br/&gt;</source>
-        <translation type="unfinished"/>
+        <translation>Выкарыстоўвайце &lt;a href=&quot;https://github.com/eiskaltdcpp/eiskaltdcpp/issues&quot;&gt;https://github.com/eiskaltdcpp/eiskaltdcpp/issues&lt;/a&gt; каб паведаміць пра памылкі.&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2829"/>
