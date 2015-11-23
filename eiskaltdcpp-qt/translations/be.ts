@@ -1421,7 +1421,8 @@ Favorite user</source>
         <location filename="../src/HubFrame.cpp" line="1868"/>
         <source>/dcpps param value - set core option param in value (without value return current value of option)
 </source>
-        <translation type="unfinished"/>
+        <translation>/dcpps param value - задаць &quot;value&quot; параметр ядра  (без &quot;value&quot; - вяртаецца дзейнае значэнне параметру)
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1870"/>
