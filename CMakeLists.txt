@@ -305,6 +305,7 @@ list (APPEND AllLanguages
             sr
             sr@latin
             sk
+            tr
             uk
             vi
             zh_CN

@@ -1099,6 +1099,8 @@ void Settings::initAppearance_gui()
         vectorLangShortNames.push_back("zh_CN");
         vectorLangFullNames.push_back(_("Swedish (Sweden)"));
         vectorLangShortNames.push_back("sv_SE");
+        vectorLangFullNames.push_back(_("Turkish"));
+        vectorLangShortNames.push_back("tr");
 
         // Fill language drop-down list
         uint8_t lang_ind = 0;

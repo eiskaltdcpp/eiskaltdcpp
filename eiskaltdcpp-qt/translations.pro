@@ -18,4 +18,5 @@ TRANSLATIONS = translations/en.ts \
     translations/sk.ts \
     translations/sr.ts \
     translations/sr@latin.ts \
+    translations/tr.ts \
     translations/uk.ts
