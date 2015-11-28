@@ -12,8 +12,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
-"Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2015-05-24 21:44+0300\n"
+"Report-Msgid-Bugs-To: https://github.com/eiskaltdcpp/eiskaltdcpp/issues\n"
+"POT-Creation-Date: 2015-11-28 22:15+0300\n"
 "PO-Revision-Date: 2015-04-27 12:19+0000\n"
 "Last-Translator: Jackl <be.w@mail.ru>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/eiskaltdcpp/"
@@ -189,7 +189,7 @@ msgstr "Verbindung geschlossen"
 msgid "Maximum command length exceeded"
 msgstr "maximale Befehlslänge überschritten"
 
-#: ../BufferedSocket.cpp:456
+#: ../BufferedSocket.cpp:461
 msgid "Disconnected"
 msgstr "getrennt"
 
@@ -385,7 +385,7 @@ msgid "Error during compression"
 msgstr "Fehler beim Komprimieren"
 
 #: ../BZUtils.cpp:74 ../BZUtils.cpp:96 ../BZUtils.cpp:99
-#: ../CryptoManager.cpp:372 ../CryptoManager.cpp:391 ../CryptoManager.cpp:405
+#: ../CryptoManager.cpp:400 ../CryptoManager.cpp:419 ../CryptoManager.cpp:433
 #: ../ZUtils.cpp:104 ../ZUtils.cpp:127 ../ZUtils.cpp:137
 msgid "Error during decompression"
 msgstr "Fehler beim Dekomprimieren "
@@ -423,7 +423,16 @@ msgstr " Suchport (%1% UDP)"
 msgid " DHT Port (%1% UDP)"
 msgstr " DHT-Port (%1% UDP)"
 
-#: ../UPnPManager.cpp:108
+#: ../UPnPManager.cpp:111
+#, fuzzy
+msgid ""
+"Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%, DHT: %4%), "
+"mapped using the %5% interface"
+msgstr ""
+"erfolgreich erstellte Portzuordnungen (TCP: %1%, UDP: %2%, TLS: %3%), "
+"zugeordnet unter Benutzung der Schnittstelle %4%"
+
+#: ../UPnPManager.cpp:113 ../UPnPManager.cpp:115
 msgid ""
 "Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%), mapped "
 "using the %4% interface"
@@ -431,24 +440,24 @@ msgstr ""
 "erfolgreich erstellte Portzuordnungen (TCP: %1%, UDP: %2%, TLS: %3%), "
 "zugeordnet unter Benutzung der Schnittstelle %4%"
 
-#: ../UPnPManager.cpp:119
+#: ../UPnPManager.cpp:127
 msgid "Failed to get external IP"
 msgstr "Externe IP konnte nicht erlangt werden."
 
-#: ../UPnPManager.cpp:129
+#: ../UPnPManager.cpp:137
 msgid "Failed to create port mappings"
 msgstr "Portzuordnungen konnten nicht erstellt werden."
 
-#: ../UPnPManager.cpp:138
+#: ../UPnPManager.cpp:146
 msgid "Successfully removed port mappings with the %1% interface"
 msgstr "Portzuordnungen mit der Schnittstelle %1% wurden erfolgreich entfernt."
 
-#: ../UPnPManager.cpp:139
+#: ../UPnPManager.cpp:147
 msgid "Failed to remove port mappings with the %1% interface"
 msgstr ""
 "Portzuordnungen mit der Schnittstelle %1% konnten nicht entfernt werden."
 
-#: ../UPnPManager.cpp:144
+#: ../UPnPManager.cpp:152
 msgid "UPnP: %1%"
 msgstr "UPnP: %1%"
 
@@ -647,35 +656,35 @@ msgstr "Erneuern der Dateiliste abgeschlossen"
 msgid "File list %1% generated"
 msgstr "Dateiliste %1% erzeugt"
 
-#: ../SettingsManager.cpp:179
+#: ../SettingsManager.cpp:182
 msgid "downloaded from"
 msgstr "heruntergeladen von"
 
-#: ../SettingsManager.cpp:516
+#: ../SettingsManager.cpp:521
 msgid "Invalid search type name"
 msgstr "ungültiger Suchtypname"
 
-#: ../SettingsManager.cpp:520 ../SettingsManager.cpp:542
+#: ../SettingsManager.cpp:525 ../SettingsManager.cpp:547
 msgid "This search type already exists"
 msgstr "Dieser Suchtyp existiert bereits."
 
-#: ../SettingsManager.cpp:574
+#: ../SettingsManager.cpp:579
 msgid "No such search type"
 msgstr "kein derartiger Suchtyp"
 
-#: ../SettingsManager.cpp:602 ../SettingsManager.cpp:607
+#: ../SettingsManager.cpp:607 ../SettingsManager.cpp:612
 msgid "Error: setting not found!"
 msgstr "Fehler: Einstellung nicht gefunden!"
 
-#: ../SettingsManager.cpp:602
+#: ../SettingsManager.cpp:607
 msgid "Core setting "
 msgstr "Kern Einstellungen"
 
-#: ../SettingsManager.cpp:607
+#: ../SettingsManager.cpp:612
 msgid "Change core setting "
 msgstr "Ändern der Kerneinstellung "
 
-#: ../SettingsManager.cpp:607
+#: ../SettingsManager.cpp:612
 msgid " to "
 msgstr " auf "
 
@@ -713,37 +722,37 @@ msgstr ""
 "Einrichtung des SOCKS-Servers für UDP-Relay ist fehlgeschlagen (prüfen Sie "
 "SOCKS-Adresse und Port)"
 
-#: ../CryptoManager.cpp:134
+#: ../CryptoManager.cpp:162
 msgid "No private key file chosen"
 msgstr "kein privater Schlüssel ausgewählt"
 
-#: ../CryptoManager.cpp:137
+#: ../CryptoManager.cpp:165
 msgid "No certificate file chosen"
 msgstr "keine Zertifikatsdatei ausgewählt"
 
-#: ../CryptoManager.cpp:149
+#: ../CryptoManager.cpp:177
 msgid "Error generating certificate"
 msgstr "Fehler beim Erstellen des Zertifikats"
 
-#: ../CryptoManager.cpp:212
+#: ../CryptoManager.cpp:240
 msgid "TLS disabled, no certificate file set"
 msgstr "TLS deaktiviert, keine Zertifikatsdatei gesetzt"
 
-#: ../CryptoManager.cpp:220
+#: ../CryptoManager.cpp:248
 msgid "Generated new TLS certificate"
 msgstr "neues TLS-Zertifikat erstellt"
 
-#: ../CryptoManager.cpp:222
+#: ../CryptoManager.cpp:250
 msgid "TLS disabled, failed to generate certificate: %1%"
 msgstr "TLS desaktiviert, Erstellen des Zertifikats fehlgeschlagen: %1%"
 
-#: ../CryptoManager.cpp:227 ../CryptoManager.cpp:231 ../CryptoManager.cpp:236
-#: ../CryptoManager.cpp:240
+#: ../CryptoManager.cpp:255 ../CryptoManager.cpp:259 ../CryptoManager.cpp:264
+#: ../CryptoManager.cpp:268
 msgid "Failed to load certificate file"
 msgstr "Laden der Zertifikatsdatei fehlgeschlagen"
 
-#: ../CryptoManager.cpp:245 ../CryptoManager.cpp:249 ../CryptoManager.cpp:254
-#: ../CryptoManager.cpp:258
+#: ../CryptoManager.cpp:273 ../CryptoManager.cpp:277 ../CryptoManager.cpp:282
+#: ../CryptoManager.cpp:286
 msgid "Failed to load private key"
 msgstr "Laden des privaten Schlüssels fehlgeschlagen"
 

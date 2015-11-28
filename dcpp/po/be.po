@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR EiskaltDC++ team
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Translators:
 # Translators:
@@ -10,16 +10,19 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
-"Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2015-05-24 21:44+0300\n"
+"Report-Msgid-Bugs-To: https://github.com/eiskaltdcpp/eiskaltdcpp/issues\n"
+"POT-Creation-Date: 2015-11-28 22:15+0300\n"
 "PO-Revision-Date: 2015-11-15 16:19+0000\n"
 "Last-Translator: Zmicer <m_d@mail.by>\n"
-"Language-Team: Belarusian (http://www.transifex.com/tehnick/eiskaltdcpp/language/be/)\n"
+"Language-Team: Belarusian (http://www.transifex.com/tehnick/eiskaltdcpp/"
+"language/be/)\n"
+"Language: be\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: be\n"
-"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
+"%100>=11 && n%100<=14)? 2 : 3);\n"
 
 #: ../SearchManager.cpp:36
 msgid "Any"
@@ -110,7 +113,8 @@ msgstr "Адбудавалі базу зьвестак"
 #: ../HashManager.cpp:1052
 msgid ""
 "%1% not shared; calculated CRC32 does not match the one found in SFV file."
-msgstr "%1% не абагулілі: падлічаная сума CRC32 не адпавядае знойдзенай у файле SFV."
+msgstr ""
+"%1% не абагулілі: падлічаная сума CRC32 не адпавядае знойдзенай у файле SFV."
 
 #: ../HashManager.cpp:1057
 msgid "Error hashing %1%: %2%"
@@ -126,8 +130,7 @@ msgstr "Вызначаюцца найлепшыя налады злучэньн�
 
 #: ../ConnectivityManager.cpp:85
 msgid ""
-"Unable to open %1% port(s); connectivity settings must be configured "
-"manually"
+"Unable to open %1% port(s); connectivity settings must be configured manually"
 msgstr "Не ўдаецца адчыніць порт(ы) %1%; настаўце злучэньне самастойна"
 
 #: ../ConnectivityManager.cpp:95
@@ -139,13 +142,17 @@ msgstr "Выявілі публічны адрас IP; абіраем дзейн
 msgid ""
 "Local network with possible NAT detected, trying to map the ports using "
 "UPnP..."
-msgstr "Выявілі мясцовую сетку і, магчыма, NAT; спрабуем адлюстраваць порты з дапамогаю UPnP…"
+msgstr ""
+"Выявілі мясцовую сетку і, магчыма, NAT; спрабуем адлюстраваць порты з "
+"дапамогаю UPnP…"
 
 #: ../ConnectivityManager.cpp:130
 msgid ""
 "Automatic setup of active mode has failed. You may want to set up your "
 "connection manually for better connectivity"
-msgstr "Не ўдалося самарушна наладзіць злучэньне дзейным спосабам. Мажліва, вы захочаце наладзіць злучэньне самастойна для лепшае сувязі"
+msgstr ""
+"Не ўдалося самарушна наладзіць злучэньне дзейным спосабам. Мажліва, вы "
+"захочаце наладзіць злучэньне самастойна для лепшае сувязі"
 
 #: ../ConnectivityManager.cpp:142
 msgid "Transfer (TCP)"
@@ -176,7 +183,7 @@ msgstr "Злучэньне зачынілі"
 msgid "Maximum command length exceeded"
 msgstr "Загад задаўгі"
 
-#: ../BufferedSocket.cpp:456
+#: ../BufferedSocket.cpp:461
 msgid "Disconnected"
 msgstr "Адлучаны"
 
@@ -244,7 +251,9 @@ msgstr "Прызначылі задаўгую назву файла"
 msgid ""
 "Invalid target file (missing directory, check default download directory "
 "setting)"
-msgstr "Хібнае прызначэньне (адсутнічае каталёґ; спраўдзіце перадвызначаныя налады каталёґа сьцягваць)"
+msgstr ""
+"Хібнае прызначэньне (адсутнічае каталёґ; спраўдзіце перадвызначаныя налады "
+"каталёґа сьцягваць)"
 
 #: ../QueueManager.cpp:864
 msgid "File already exists at the target location"
@@ -268,7 +277,8 @@ msgstr "Не ўдаецца перасунуць %1% у %2% (%3%); далі но
 
 #: ../QueueManager.cpp:1208
 msgid "Unable to move %1% to %2% (%3%) nor to rename to %4% (%5%)"
-msgstr "Не ўдаецца ані перасунуць %1% у %2% (%3%), ані даць новую назву: %4% (%5%)"
+msgstr ""
+"Не ўдаецца ані перасунуць %1% у %2% (%3%), ані даць новую назву: %4% (%5%)"
 
 #: ../QueueManager.cpp:1403
 msgid "Unable to open filelist: %1%"
@@ -279,8 +289,7 @@ msgid "%1%: Matched %2% file"
 msgstr "%1%: супаў файл %2%"
 
 #: ../QueueManager.cpp:1796
-msgid ""
-"Target path for this item is not available: %1%; pause this queue item."
+msgid "Target path for this item is not available: %1%; pause this queue item."
 msgstr "Да прызначанага шляху няма доступу: %1%; пункт чаргі прыпынілі."
 
 #: ../QueueManager.cpp:2035 ../QueueManager.cpp:2044
@@ -303,7 +312,9 @@ msgstr "Не ўдалося дамовіцца пра галоўны прата�
 msgid ""
 "Hub probably uses an old version of ADC, please encourage the owner to "
 "upgrade"
-msgstr "Магчыма, асяродак выкарыстоўвае старую вэрсію ADC. Паспрыяйце, каб уладальнік абнавіў яе"
+msgstr ""
+"Магчыма, асяродак выкарыстоўвае старую вэрсію ADC. Паспрыяйце, каб "
+"уладальнік абнавіў яе"
 
 #: ../AdcHub.cpp:305
 msgid "%1% was kicked by %2%: %3%"
@@ -355,7 +366,7 @@ msgid "Error during compression"
 msgstr "Не ўдалося сьціснуць"
 
 #: ../BZUtils.cpp:74 ../BZUtils.cpp:96 ../BZUtils.cpp:99
-#: ../CryptoManager.cpp:372 ../CryptoManager.cpp:391 ../CryptoManager.cpp:405
+#: ../CryptoManager.cpp:400 ../CryptoManager.cpp:419 ../CryptoManager.cpp:433
 #: ../ZUtils.cpp:104 ../ZUtils.cpp:127 ../ZUtils.cpp:137
 msgid "Error during decompression"
 msgstr "Не ўдалося распакаваць"
@@ -393,29 +404,38 @@ msgstr " Порт пошуку (%1% UDP)"
 msgid " DHT Port (%1% UDP)"
 msgstr " Порт DHT (%1% UDP)"
 
-#: ../UPnPManager.cpp:108
+#: ../UPnPManager.cpp:111
+#, fuzzy
+msgid ""
+"Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%, DHT: %4%), "
+"mapped using the %5% interface"
+msgstr ""
+"Адлюстравалі порты (TCP: %1%, UDP: %2%, TLS: %3%) з дапамогаю інтэрфэйсу %4%"
+
+#: ../UPnPManager.cpp:113 ../UPnPManager.cpp:115
 msgid ""
 "Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%), mapped "
 "using the %4% interface"
-msgstr "Адлюстравалі порты (TCP: %1%, UDP: %2%, TLS: %3%) з дапамогаю інтэрфэйсу %4%"
+msgstr ""
+"Адлюстравалі порты (TCP: %1%, UDP: %2%, TLS: %3%) з дапамогаю інтэрфэйсу %4%"
 
-#: ../UPnPManager.cpp:119
+#: ../UPnPManager.cpp:127
 msgid "Failed to get external IP"
 msgstr "Не ўдалося атрымаць вонкавы адрас IP"
 
-#: ../UPnPManager.cpp:129
+#: ../UPnPManager.cpp:137
 msgid "Failed to create port mappings"
 msgstr "Не ўдалося адлюстраваць порты"
 
-#: ../UPnPManager.cpp:138
+#: ../UPnPManager.cpp:146
 msgid "Successfully removed port mappings with the %1% interface"
 msgstr "Зьнішчылі люстры портаў на інтэрфэйсе %1%"
 
-#: ../UPnPManager.cpp:139
+#: ../UPnPManager.cpp:147
 msgid "Failed to remove port mappings with the %1% interface"
 msgstr "Не ўдалося зьнішчыць люстры портаў на інтэрфэйсе %1%"
 
-#: ../UPnPManager.cpp:144
+#: ../UPnPManager.cpp:152
 msgid "UPnP: %1%"
 msgstr "UPnP: %1%"
 
@@ -588,9 +608,11 @@ msgstr "Файл %1% (памер: %2% Б) — блізьнюк файла %3%"
 
 #: ../ShareManager.cpp:793
 msgid ""
-"File list refresh in progress, please wait for it to finish before trying to"
-" refresh again"
-msgstr "Сьпіс файлаў абнаўляецца. Пачакайце, пакуль ён абновіцца, каб паспрабаваць абнавіць ізноў."
+"File list refresh in progress, please wait for it to finish before trying to "
+"refresh again"
+msgstr ""
+"Сьпіс файлаў абнаўляецца. Пачакайце, пакуль ён абновіцца, каб паспрабаваць "
+"абнавіць ізноў."
 
 #: ../ShareManager.cpp:814
 msgid "File list refresh failed: %1%"
@@ -608,35 +630,35 @@ msgstr "Сьпіс файлаў абнавілі"
 msgid "File list %1% generated"
 msgstr "Стварылі сьпіс файлаў %1%"
 
-#: ../SettingsManager.cpp:179
+#: ../SettingsManager.cpp:182
 msgid "downloaded from"
 msgstr "сьцягнулі з"
 
-#: ../SettingsManager.cpp:516
+#: ../SettingsManager.cpp:521
 msgid "Invalid search type name"
 msgstr "Хібная назва віду пошуку"
 
-#: ../SettingsManager.cpp:520 ../SettingsManager.cpp:542
+#: ../SettingsManager.cpp:525 ../SettingsManager.cpp:547
 msgid "This search type already exists"
 msgstr "Гэты від пошуку ўжо існуе"
 
-#: ../SettingsManager.cpp:574
+#: ../SettingsManager.cpp:579
 msgid "No such search type"
 msgstr "Такі від пошуку не існуе"
 
-#: ../SettingsManager.cpp:602 ../SettingsManager.cpp:607
+#: ../SettingsManager.cpp:607 ../SettingsManager.cpp:612
 msgid "Error: setting not found!"
 msgstr "Памылка: не знайшлі налады!"
 
-#: ../SettingsManager.cpp:602
+#: ../SettingsManager.cpp:607
 msgid "Core setting "
 msgstr "Наладкі ядра"
 
-#: ../SettingsManager.cpp:607
+#: ../SettingsManager.cpp:612
 msgid "Change core setting "
 msgstr "Зьмяніць наладу асновы "
 
-#: ../SettingsManager.cpp:607
+#: ../SettingsManager.cpp:612
 msgid " to "
 msgstr " да "
 
@@ -660,45 +682,48 @@ msgstr "Паслужнік SOCKS не падтрымвае апазнавань�
 
 #: ../Socket.cpp:330 ../Socket.cpp:334
 msgid "Socks server authentication failed (bad login / password?)"
-msgstr "Не ўдалося апазнацца на паслужніку SOCKS (кепскі пароль ці ўліковае ймя?)"
+msgstr ""
+"Не ўдалося апазнацца на паслужніку SOCKS (кепскі пароль ці ўліковае ймя?)"
 
 #: ../Socket.cpp:471
 msgid ""
 "Failed to set up the socks server for UDP relay (check socks address and "
 "port)"
-msgstr "Не ўдалося наладзіць паслужнік SOCKS перасылаць UDP (спраўдзіце адрас і порт SOCKS)"
+msgstr ""
+"Не ўдалося наладзіць паслужнік SOCKS перасылаць UDP (спраўдзіце адрас і порт "
+"SOCKS)"
 
-#: ../CryptoManager.cpp:134
+#: ../CryptoManager.cpp:162
 msgid "No private key file chosen"
 msgstr "Не абралі файл асабістага ключа"
 
-#: ../CryptoManager.cpp:137
+#: ../CryptoManager.cpp:165
 msgid "No certificate file chosen"
 msgstr "Не абралі пасьведчаньня"
 
-#: ../CryptoManager.cpp:149
+#: ../CryptoManager.cpp:177
 msgid "Error generating certificate"
 msgstr "Не ўдалося стварыць пасьведчаньне"
 
-#: ../CryptoManager.cpp:212
+#: ../CryptoManager.cpp:240
 msgid "TLS disabled, no certificate file set"
 msgstr "TLS не задзейнічаны, файл пасьведчаньня ня вызначаны"
 
-#: ../CryptoManager.cpp:220
+#: ../CryptoManager.cpp:248
 msgid "Generated new TLS certificate"
 msgstr "Стварылі новае пасьведчаньне TLS"
 
-#: ../CryptoManager.cpp:222
+#: ../CryptoManager.cpp:250
 msgid "TLS disabled, failed to generate certificate: %1%"
 msgstr "Не ўдалося стварыць пасьведчаньне — TLS не задзейнічалі: %1%"
 
-#: ../CryptoManager.cpp:227 ../CryptoManager.cpp:231 ../CryptoManager.cpp:236
-#: ../CryptoManager.cpp:240
+#: ../CryptoManager.cpp:255 ../CryptoManager.cpp:259 ../CryptoManager.cpp:264
+#: ../CryptoManager.cpp:268
 msgid "Failed to load certificate file"
 msgstr "Не ўдалося прачытаць файл пасьведчаньня"
 
-#: ../CryptoManager.cpp:245 ../CryptoManager.cpp:249 ../CryptoManager.cpp:254
-#: ../CryptoManager.cpp:258
+#: ../CryptoManager.cpp:273 ../CryptoManager.cpp:277 ../CryptoManager.cpp:282
+#: ../CryptoManager.cpp:286
 msgid "Failed to load private key"
 msgstr "Не ўдалося прачытаць асабісты ключ"
 
@@ -715,11 +740,11 @@ msgid "TTH inconsistency"
 msgstr "Разыходжаньне TTH"
 
 #~ msgid ""
-#~ "This hub is trying to use your client to spam %1%, please urge hub owner to "
-#~ "fix this"
+#~ "This hub is trying to use your client to spam %1%, please urge hub owner "
+#~ "to fix this"
 #~ msgstr ""
-#~ "This hub is trying to use your client to spam %1%, please urge hub owner to "
-#~ "fix this"
+#~ "This hub is trying to use your client to spam %1%, please urge hub owner "
+#~ "to fix this"
 
 #~ msgid "Error: segv parser :D"
 #~ msgstr "Error: segv parser :D"

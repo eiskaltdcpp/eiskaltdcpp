@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR EiskaltDC++ team
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Translators:
 # Translators:
@@ -10,19 +10,20 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
-"Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2014-10-16 21:06+0400\n"
+"Report-Msgid-Bugs-To: https://github.com/eiskaltdcpp/eiskaltdcpp/issues\n"
+"POT-Creation-Date: 2015-11-28 22:15+0300\n"
 "PO-Revision-Date: 2015-08-13 13:04+0000\n"
 "Last-Translator: mauron\n"
-"Language-Team: Turkish (http://www.transifex.com/tehnick/eiskaltdcpp/language/tr/)\n"
+"Language-Team: Turkish (http://www.transifex.com/tehnick/eiskaltdcpp/"
+"language/tr/)\n"
+"Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: tr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: ../src/privatemessage.cc:565 ../src/privatemessage.cc:644
-#: ../src/hub.cc:1065 ../src/hub.cc:1144
+#: ../src/privatemessage.cc:565 ../src/privatemessage.cc:644 ../src/hub.cc:1065
+#: ../src/hub.cc:1144
 msgid " *** Emoticons limit"
 msgstr "*** Gülümseme ikonları sınırı"
 
@@ -34,7 +35,7 @@ msgstr "*** Gülümseme ikonları kipi kapalı"
 msgid " *** Emoticons not loaded"
 msgstr "*** Gülümseme ikonları yüklenmedi"
 
-#: ../src/settingsdialog.cc:2519
+#: ../src/settingsdialog.cc:2521
 msgid " + system icons"
 msgstr " + sistem ikonları"
 
@@ -42,7 +43,7 @@ msgstr " + sistem ikonları"
 msgid " Users"
 msgstr "Kullanıcılar"
 
-#: ../src/hub.cc:2790
+#: ../src/hub.cc:2794
 msgid " added to favorites list"
 msgstr "favoriler listesine ilave edildi"
 
@@ -70,11 +71,11 @@ msgstr "ayrıldı"
 msgid " has quit hub "
 msgstr "hub'dan ayrıldı"
 
-#: ../src/privatemessage.cc:1391 ../src/hub.cc:1919 ../src/hub.cc:2722
+#: ../src/privatemessage.cc:1395 ../src/hub.cc:1919 ../src/hub.cc:2726
 msgid " is favorite user"
 msgstr "favori kullanıcı"
 
-#: ../src/privatemessage.cc:1412 ../src/hub.cc:1937 ../src/hub.cc:2761
+#: ../src/privatemessage.cc:1416 ../src/hub.cc:1937 ../src/hub.cc:2765
 msgid " is not favorite user"
 msgstr "favori kullanıcı değil"
 
@@ -86,7 +87,7 @@ msgstr "çıktı"
 msgid " of "
 msgstr " şundan"
 
-#: ../src/hub.cc:2817
+#: ../src/hub.cc:2821
 msgid " removed from favorites list"
 msgstr "favoriler listesinden kaldırıldı"
 
@@ -116,21 +117,29 @@ msgid ""
 "%% a literal '%' character.\n"
 "\n"
 "see man strftime for details."
-msgstr "%a kısaltılmış hafta günü ismi.\n%b kısaltılmış ay ismi.\n%H 24 saat formatında bir ondalık sayı olarak saat.\n%M ondalık sayı olarak dakika (00 ila 59).\n%S ondalık sayı olarak saniye (00 ila 59).\n%% kelimesi kelimesine bir '%' karakteri.\n\nAyrıntılar için man strftime sayfasına bakınız."
+msgstr ""
+"%a kısaltılmış hafta günü ismi.\n"
+"%b kısaltılmış ay ismi.\n"
+"%H 24 saat formatında bir ondalık sayı olarak saat.\n"
+"%M ondalık sayı olarak dakika (00 ila 59).\n"
+"%S ondalık sayı olarak saniye (00 ila 59).\n"
+"%% kelimesi kelimesine bir '%' karakteri.\n"
+"\n"
+"Ayrıntılar için man strftime sayfasına bakınız."
 
-#: ../src/hub.cc:2369
+#: ../src/hub.cc:2373
 msgid "': type /help for a list of available commands"
 msgstr "': mevcut komutların listesi için /help yazın"
 
-#: ../src/privatemessage.cc:1022 ../src/hub.cc:2038
+#: ../src/privatemessage.cc:1026 ../src/hub.cc:2042
 msgid "*** Available commands:"
 msgstr "*** Mevcut komutlar:"
 
-#: ../src/settingsdialog.cc:2292
+#: ../src/settingsdialog.cc:2294
 msgid "*** T E S T ***"
 msgstr "*** DENEME ***"
 
-#: ../src/settingsdialog.cc:1470 ../ui/mainwindow.ui:251
+#: ../src/settingsdialog.cc:1472 ../ui/mainwindow.ui:251
 #: ../ui/mainwindow.ui:2375 ../ui/mainwindow.ui:2393
 msgid "+/-"
 msgstr "+/-"
@@ -139,12 +148,12 @@ msgstr "+/-"
 msgid "-:--:-- left"
 msgstr "-:--:-- ayrıldı"
 
-#: ../src/settingsdialog.cc:2471 ../src/settingsdialog.cc:2495
+#: ../src/settingsdialog.cc:2473 ../src/settingsdialog.cc:2497
 msgid "...must be *.theme"
 msgstr "... *.theme olmalı"
 
-#: ../src/settingsdialog.cc:2374 ../src/settingsdialog.cc:2403
-#: ../src/settingsdialog.cc:2440
+#: ../src/settingsdialog.cc:2376 ../src/settingsdialog.cc:2405
+#: ../src/settingsdialog.cc:2442
 msgid "...must not be empty"
 msgstr "... boş olmamalı"
 
@@ -272,15 +281,17 @@ msgstr "9"
 msgid "9PM"
 msgstr "21"
 
-#: ../src/privatemessage.cc:1038
+#: ../src/privatemessage.cc:1042
 msgid ": type /help for a list of available commands"
 msgstr ": mevcut komutların listesi için /help yazınız"
 
 #: ../ui/settingsdialog.ui:7259
 msgid ""
-"<a "
-"href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html\">Help</a>"
-msgstr "<a href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html\">Yardım</a>"
+"<a href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html"
+"\">Help</a>"
+msgstr ""
+"<a href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html"
+"\">Yardım</a>"
 
 #: ../ui/settingsdialog.ui:3855
 msgid "<b>Add player</b>"
@@ -354,7 +365,7 @@ msgstr "<b>Şunları içeren dosya ve klasörleri paylaşma:</b>"
 msgid "<b>Enter your password</b>"
 msgstr "<b>Parolanızı girin</b>"
 
-#: ../src/settingsdialog.cc:2210
+#: ../src/settingsdialog.cc:2212
 msgid "<b>Extension</b>"
 msgstr "<b>Uzantılar</b>"
 
@@ -422,25 +433,27 @@ msgstr "<b>Azami Dosya Boyutu</b>"
 msgid "<b>Min FileSize</b>"
 msgstr "<b>Asgari Dosya Boyutu</b>"
 
-#: ../src/settingsdialog.cc:1856
+#: ../src/settingsdialog.cc:1858
 msgid "<b>Name of the new search type</b>"
 msgstr "<b>Yeni arama türünün ismi</b>"
 
-#: ../src/settingsdialog.cc:3103
+#: ../src/settingsdialog.cc:3105
 msgid "<b>Name under which the others see the directory</b>"
 msgstr "<b>Başkalarının klasörü hangi isim altında göreceği</b>"
 
-#: ../src/settingsdialog.cc:3743
+#: ../src/settingsdialog.cc:3745
 msgid "<b>Name, under which you see the directory</b>"
 msgstr "<b>Sizin klasörü hangi isim altında göreceğiniz</b>"
 
-#: ../src/settingsdialog.cc:2109
+#: ../src/settingsdialog.cc:2111
 msgid "<b>New name</b>"
 msgstr "<b>Yeni isim</b>"
 
 #: ../ui/settingsdialog.ui:9258 ../ui/publichubs.ui:151
 msgid "<b>Note:</b> Edit urls in the list by clicking them once when selected"
-msgstr "<b>Not:</b> listedeki bağlantıları seçildiklerinde üzerlerine tıklayarak düzenleyin"
+msgstr ""
+"<b>Not:</b> listedeki bağlantıları seçildiklerinde üzerlerine tıklayarak "
+"düzenleyin"
 
 #: ../ui/settingsdialog.ui:5545
 msgid "<b>Notify</b>"
@@ -570,7 +583,7 @@ msgstr "<b>Ne yapmak istersiniz?</b>"
 msgid "<b>Window Options</b>"
 msgstr "<b>Pencere Seçenekleri</b>"
 
-#: ../src/mainwindow.cc:2349
+#: ../src/mainwindow.cc:2352
 msgid "<b>file:</b> "
 msgstr "<b>dosya:</b>"
 
@@ -598,7 +611,7 @@ msgstr "ADL Arama Özellikleri"
 msgid "About EiskaltDC++"
 msgstr "EistkaltDC++ Hakkında"
 
-#: ../src/settingsdialog.cc:1654
+#: ../src/settingsdialog.cc:1656
 msgid "Accept custom user commands from hub"
 msgstr "Hub'dan özel komutları kabul et"
 
@@ -614,19 +627,22 @@ msgstr "Ekle"
 msgid "Add / Remove"
 msgstr "Ekle / Kaldır"
 
-#: ../src/hub.cc:2043 ../ui/hub.ui:39
+#: ../src/hub.cc:2047 ../ui/hub.ui:39
 msgid "Add a hub to favorites"
 msgstr "Favorilere bir hub ekle"
 
-#: ../src/settingsdialog.cc:1656
+#: ../src/settingsdialog.cc:1658
 msgid "Add finished files to share instantly (if shared)"
 msgstr "Tamamlanan dosyaları hemen paylaşıma ekle (paylaşılıyorsa)"
 
-#: ../src/hub.cc:2075
+#: ../src/hub.cc:2079
 msgid ""
 "Add rule 192.168.1.0/23 where direction incoming and action is allow and "
 "192.168.6.0/24 where direction is incoming or outcoming and action is drop"
-msgstr "Yönün içeri ve etkinliğin kabul et olduğu 192.168.1.0/23 kuralıyla yönün içeri ya da dışarı olduğu ve etkinliğin at olduğu 192.168.6.0/24 kurallarını ekle"
+msgstr ""
+"Yönün içeri ve etkinliğin kabul et olduğu 192.168.1.0/23 kuralıyla yönün "
+"içeri ya da dışarı olduğu ve etkinliğin at olduğu 192.168.6.0/24 kurallarını "
+"ekle"
 
 #: ../ui/mainwindow.ui:288
 msgid "Add this file to your download queue"
@@ -640,7 +656,7 @@ msgstr "Favori Kullanıcılara Ekle"
 msgid "Add to favorites"
 msgstr "Favorilere ekle"
 
-#: ../src/privatemessage.cc:1027 ../src/hub.cc:2044 ../ui/privatemessage.ui:48
+#: ../src/privatemessage.cc:1031 ../src/hub.cc:2048 ../ui/privatemessage.ui:48
 msgid "Add user to favorites list"
 msgstr "Kullanıcıyı favoriler listesine ekle"
 
@@ -672,47 +688,49 @@ msgstr "Adres"
 msgid "Advanced"
 msgstr "Gelişmiş"
 
-#: ../src/hub.cc:2070
+#: ../src/hub.cc:2074
 msgid "Alias A executing"
 msgstr "A aliası çalışıyor"
 
-#: ../src/hub.cc:2067
+#: ../src/hub.cc:2071
 msgid "Alias List"
 msgstr "Alias Listesi"
 
-#: ../src/hub.cc:2068
+#: ../src/hub.cc:2072
 msgid "Alias Remove A"
 msgstr "Alias A'yı Kaldır"
 
-#: ../src/hub.cc:2069
+#: ../src/hub.cc:2073
 msgid "Alias add uname -a as A"
 msgstr "Alias uname -a'yı A olarak ekle"
 
-#: ../src/hub.cc:2269
+#: ../src/hub.cc:2273
 msgid "Aliases not found."
 msgstr "Aliaslar bulunamadı"
 
-#: ../src/settingsdialog.cc:1730
+#: ../src/settingsdialog.cc:1732
 msgid "Allow TLS connections to clients without trusted certificate"
-msgstr "Güvenilen sertifikası bulunmayan istemcilerle TLS bağlantılarına izin ver"
+msgstr ""
+"Güvenilen sertifikası bulunmayan istemcilerle TLS bağlantılarına izin ver"
 
-#: ../src/settingsdialog.cc:1729
+#: ../src/settingsdialog.cc:1731
 msgid "Allow TLS connections to hubs without trusted certificate"
-msgstr "Güvenilen sertifikası bulunmayan hub'lar ile TLS bağlantılarına izin ver"
+msgstr ""
+"Güvenilen sertifikası bulunmayan hub'lar ile TLS bağlantılarına izin ver"
 
-#: ../src/settingsdialog.cc:1664
+#: ../src/settingsdialog.cc:1666
 msgid "Allow few connections from one IP"
 msgstr "Belli bir IP'den az sayıda bağlantıya izin ver"
 
-#: ../src/settingsdialog.cc:1731
+#: ../src/settingsdialog.cc:1733
 msgid "Allow only TLS connections to clients"
 msgstr "İstemcilerle sadece TLS bağlantılara izin ver"
 
-#: ../src/settingsdialog.cc:1663
+#: ../src/settingsdialog.cc:1665
 msgid "Allow overlap chunks"
 msgstr "Örtüşen parçalara izin ver"
 
-#: ../src/settingsdialog.cc:1665
+#: ../src/settingsdialog.cc:1667
 msgid "Allow some connections for one user"
 msgstr "Belli bir kullanıcı için bazı bağlantılara izin ver"
 
@@ -725,8 +743,8 @@ msgid "Appearance"
 msgstr "Görünüş"
 
 #: ../src/settingsdialog.cc:927 ../src/settingsdialog.cc:962
-#: ../src/settingsdialog.cc:2990 ../src/settingsdialog.cc:3024
-#: ../src/settingsdialog.cc:3042 ../src/settingsdialog.cc:3073
+#: ../src/settingsdialog.cc:2992 ../src/settingsdialog.cc:3026
+#: ../src/settingsdialog.cc:3044 ../src/settingsdialog.cc:3075
 msgid "Application"
 msgstr "Uygulama"
 
@@ -787,19 +805,21 @@ msgstr "Otomatik tazeleme süresi"
 msgid "Auto update IP from internet"
 msgstr "IP adresini İnternet'ten otomatik güncelle"
 
-#: ../src/settingsdialog.cc:1645
+#: ../src/settingsdialog.cc:1647
 msgid "Auto-away on minimize (and back on restore)"
 msgstr "Küçültüldüğünde otomatik uzakta (ve büyültüldüğünde geri gelmiş)"
 
 #: ../src/settingsdialog.cc:987
 msgid "Auto-drop slow sources for all queue items (except filelists)"
-msgstr "Yavaş kaynakları tüm kuyruk unsurları için otomatik at (dosya listesi dışında)"
+msgstr ""
+"Yavaş kaynakları tüm kuyruk unsurları için otomatik at (dosya listesi "
+"dışında)"
 
-#: ../src/settingsdialog.cc:1650
+#: ../src/settingsdialog.cc:1652
 msgid "Automatically disconnect users who leave the hub"
 msgstr "Hub'dan ayrılan kullanıcıların bağlantısını otomatik kes"
 
-#: ../src/settingsdialog.cc:1646
+#: ../src/settingsdialog.cc:1648
 msgid "Automatically follow redirects"
 msgstr "Yeniden yönlendirmeleri otomatik izle"
 
@@ -819,14 +839,14 @@ msgstr "Otomatik olarak alternatif indirme konumları ara"
 msgid "Automatically update external IP (restart required)"
 msgstr "Harici IP adresini otomatik güncelle (tekrar başlatma gerektirir)"
 
-#: ../src/privatemessage.cc:1023 ../src/hub.cc:2039 ../ui/privatemessage.ui:12
+#: ../src/privatemessage.cc:1027 ../src/hub.cc:2043 ../ui/privatemessage.ui:12
 #: ../ui/hub.ui:12
 msgid "Away mode message on/off"
 msgstr "Uzakta kipi mesajı açık/kapalı"
 
 #: ../src/privatemessage.cc:911 ../src/privatemessage.cc:925
-#: ../src/privatemessage.cc:1024 ../src/hub.cc:1862 ../src/hub.cc:1875
-#: ../src/hub.cc:2040 ../ui/privatemessage.ui:21 ../ui/hub.ui:21
+#: ../src/privatemessage.cc:1028 ../src/hub.cc:1862 ../src/hub.cc:1875
+#: ../src/hub.cc:2044 ../ui/privatemessage.ui:21 ../ui/hub.ui:21
 msgid "Away mode off"
 msgstr "Uzakta kipi kapalı"
 
@@ -851,7 +871,7 @@ msgstr "Arka Renk"
 msgid "Basque"
 msgstr "Baskça"
 
-#: ../src/mainwindow.cc:252
+#: ../src/mainwindow.cc:253
 msgid "Basque translation\n"
 msgstr "Baskça tercüme\n"
 
@@ -915,11 +935,11 @@ msgstr "Tara..."
 msgid "Bulgarian"
 msgstr "Bulgarca"
 
-#: ../src/mainwindow.cc:255
+#: ../src/mainwindow.cc:256
 msgid "Bulgarian translation\n"
 msgstr "Bulgarca tercüme\n"
 
-#: ../src/settingsdialog.cc:1421
+#: ../src/settingsdialog.cc:1423
 msgid "Button smile"
 msgstr "Gülümse düğmesi"
 
@@ -1033,7 +1053,7 @@ msgstr "Her şu kadarda kontrol et:"
 msgid "Chinese (China)"
 msgstr "Çince (Çin)"
 
-#: ../src/mainwindow.cc:280
+#: ../src/mainwindow.cc:281
 msgid "Chinese (China) translation\n"
 msgstr "Çince (Çin) tercüme\n"
 
@@ -1041,8 +1061,8 @@ msgstr "Çince (Çin) tercüme\n"
 msgid "Choose a File"
 msgstr "Bir Dosya Seç"
 
-#: ../src/privatemessage.cc:1298 ../src/hub.cc:2651 ../src/mainwindow.cc:1331
-#: ../src/mainwindow.cc:1399 ../ui/search.ui:7 ../ui/sharebrowser.ui:7
+#: ../src/privatemessage.cc:1302 ../src/hub.cc:2655 ../src/mainwindow.cc:1334
+#: ../src/mainwindow.cc:1402 ../ui/search.ui:7 ../ui/sharebrowser.ui:7
 #: ../ui/settingsdialog.ui:8510
 msgid "Choose a directory"
 msgstr "Bir klasör seç"
@@ -1055,11 +1075,11 @@ msgstr "Bir dosya seçildi"
 msgid "Clear"
 msgstr "Temizle"
 
-#: ../src/privatemessage.cc:1025 ../ui/privatemessage.ui:30
+#: ../src/privatemessage.cc:1029 ../ui/privatemessage.ui:30
 msgid "Clear PM"
 msgstr "Özel mesajı temizle"
 
-#: ../src/hub.cc:2041 ../ui/hub.ui:30
+#: ../src/hub.cc:2045 ../ui/hub.ui:30
 msgid "Clear chat"
 msgstr "Sohbeti temizle"
 
@@ -1067,11 +1087,11 @@ msgstr "Sohbeti temizle"
 msgid "Clear frame search"
 msgstr "Arama dördülünü temizle"
 
-#: ../src/settingsdialog.cc:1647
+#: ../src/settingsdialog.cc:1649
 msgid "Clear search box after each search"
 msgstr "Her aramadan sonra arama kutusunu temizle"
 
-#: ../src/privatemessage.cc:1026 ../ui/privatemessage.ui:39
+#: ../src/privatemessage.cc:1030 ../ui/privatemessage.ui:39
 msgid "Close PM"
 msgstr "Özel mesajı kapat"
 
@@ -1087,7 +1107,7 @@ msgstr "Tüm hub'ları kapat"
 msgid "Close all search"
 msgstr "Tüm aramaları kapat"
 
-#: ../src/hub.cc:2042
+#: ../src/hub.cc:2046
 msgid "Close chat"
 msgstr "Sohbeti kapat"
 
@@ -1111,13 +1131,13 @@ msgstr "Renk seçimi"
 msgid "Colors & Fonts"
 msgstr "Renkler & Yazıtipleri"
 
-#: ../src/settingsdialog.cc:1677 ../src/settingsdialog.cc:1685
-#: ../src/settingsdialog.cc:3352 ../src/settingsdialog.cc:3426
+#: ../src/settingsdialog.cc:1679 ../src/settingsdialog.cc:1687
+#: ../src/settingsdialog.cc:3354 ../src/settingsdialog.cc:3428
 #: ../ui/settingsdialog.ui:812
 msgid "Command"
 msgstr "Komut"
 
-#: ../src/settingsdialog.cc:3470 ../src/settingsdialog.cc:3476
+#: ../src/settingsdialog.cc:3472 ../src/settingsdialog.cc:3478
 msgid "Command name already exists"
 msgstr "Komut ismi zaten mevcut"
 
@@ -1129,20 +1149,20 @@ msgstr "Herkese Açık Hub Listesini Yapılandır"
 msgid "Configure hub lists"
 msgstr "Hub listelerini yapılandır"
 
-#: ../src/settingsdialog.cc:1577
+#: ../src/settingsdialog.cc:1579
 msgid "Confirm application exit"
 msgstr "Uygulamadan çıkışı teyit et"
 
-#: ../src/settingsdialog.cc:1578
+#: ../src/settingsdialog.cc:1580
 msgid "Confirm favorite hub removal"
 msgstr "Favori hub'un kaldırılmasını teyit et"
 
-#: ../src/settingsdialog.cc:1437 ../src/settingsdialog.cc:1476
+#: ../src/settingsdialog.cc:1439 ../src/settingsdialog.cc:1478
 #: ../ui/mainwindow.ui:2144 ../ui/mainwindow.ui:2417
 msgid "Connect"
 msgstr "Bağlan"
 
-#: ../src/hub.cc:3496
+#: ../src/hub.cc:3500
 msgid "Connect failed: "
 msgstr "Bağlantı başarısız:"
 
@@ -1154,11 +1174,11 @@ msgstr "Bir hub'a bağlan"
 msgid "Connect to hub"
 msgstr "Hub'a bağlan"
 
-#: ../src/hub.cc:2050 ../ui/hub.ui:57
+#: ../src/hub.cc:2054 ../ui/hub.ui:57
 msgid "Connect to the hub"
 msgstr "Hub'a bağlan"
 
-#: ../src/hub.cc:3440 ../src/transfers.cc:1029
+#: ../src/hub.cc:3444 ../src/transfers.cc:1029
 msgid "Connected"
 msgstr "Bağlandı"
 
@@ -1170,7 +1190,7 @@ msgstr "Bağlanıyor"
 msgid "Connecting (forced)..."
 msgstr "Bağlanıyor (zorla)..."
 
-#: ../src/hub.cc:3433
+#: ../src/hub.cc:3437
 msgid "Connecting to "
 msgstr "Şuna bağlanıyor:"
 
@@ -1185,7 +1205,7 @@ msgstr "Bağlanıyor..."
 msgid "Connection"
 msgstr "Bağlantı"
 
-#: ../src/mainwindow.cc:2293
+#: ../src/mainwindow.cc:2296
 msgid "Connectivity Manager: Warning"
 msgstr "Bağlantı Yöneticisi: İkaz"
 
@@ -1206,18 +1226,22 @@ msgstr "Ülke"
 msgid "Czech"
 msgstr "Çekçe"
 
-#: ../src/mainwindow.cc:261
+#: ../src/mainwindow.cc:262
 msgid "Czech translation\n"
 msgstr "Çekçe tercüme\n"
 
 #: ../src/mainwindow.cc:184
-#, c-format
+#, fuzzy, c-format
 msgid ""
 "DC++ Client based on the source code of FreeDC++ and LinuxDC++\n"
 "\n"
-"EiskaltDC++ version: %s (%s)\n"
+"EiskaltDC++ version: %s\n"
 "DC++ core version: %s"
-msgstr "FreeDC++ ve LinuxDC++ kaynak koduna dayalı DC++ istemcisi\n\nEiskaltDC++ sürümü: %s (%s)\nDC++ çekirdeği sürümü: %s"
+msgstr ""
+"FreeDC++ ve LinuxDC++ kaynak koduna dayalı DC++ istemcisi\n"
+"\n"
+"EiskaltDC++ sürümü: %s (%s)\n"
+"DC++ çekirdeği sürümü: %s"
 
 #: ../ui/cmddebug.ui:99
 msgid "DETECTION"
@@ -1284,16 +1308,16 @@ msgid "Direct connection"
 msgstr "Doğrudan bağlantı"
 
 #: ../src/settingsdialog.cc:905 ../src/settingsdialog.cc:919
-#: ../src/settingsdialog.cc:1033 ../src/settingsdialog.cc:1440
-#: ../src/settingsdialog.cc:3759 ../src/settingsdialog.cc:3779
-#: ../src/settingsdialog.cc:3808 ../src/settingsdialog.cc:3822
-#: ../src/settingsdialog.cc:3877 ../src/sharebrowser.cc:334
+#: ../src/settingsdialog.cc:1033 ../src/settingsdialog.cc:1442
+#: ../src/settingsdialog.cc:3761 ../src/settingsdialog.cc:3781
+#: ../src/settingsdialog.cc:3810 ../src/settingsdialog.cc:3824
+#: ../src/settingsdialog.cc:3879 ../src/sharebrowser.cc:334
 #: ../src/UserCommandMenu.cc:66 ../src/search.cc:921 ../src/search.cc:1757
 #: ../ui/adlsearch.ui:392 ../ui/settingsdialog.ui:6725
 msgid "Directory"
 msgstr "Klasör"
 
-#: ../src/settingsdialog.cc:3764
+#: ../src/settingsdialog.cc:3766
 msgid "Directory or favorite name already exists"
 msgstr "Klasör ya da favori ismi zaten mevcut"
 
@@ -1301,7 +1325,7 @@ msgstr "Klasör ya da favori ismi zaten mevcut"
 msgid "Disable chat"
 msgstr "Sohbeti devre dışı bırak"
 
-#: ../src/settingsdialog.cc:1127
+#: ../src/settingsdialog.cc:1129
 msgid "Do not close the program, hide in the system tray"
 msgstr "Programı kapatma, sistem çekmecesine küçült"
 
@@ -1333,7 +1357,7 @@ msgstr "Aramada köşe panelini saklama"
 msgid "Don't remove the source when auto-dropping, only disconnect"
 msgstr "Otomatik atmada kaynağı kaldırma, sadece bağlantıyı kes"
 
-#: ../src/settingsdialog.cc:1657
+#: ../src/settingsdialog.cc:1659
 msgid "Don't send the away message to bots"
 msgstr "Uzakta mesajını robotlara gönderme"
 
@@ -1341,7 +1365,7 @@ msgstr "Uzakta mesajını robotlara gönderme"
 msgid "Done"
 msgstr "Tamamlandı"
 
-#: ../src/settingsdialog.cc:1422 ../ui/sharebrowser.ui:80
+#: ../src/settingsdialog.cc:1424 ../ui/sharebrowser.ui:80
 #: ../ui/sharebrowser.ui:126
 msgid "Download"
 msgstr "İndir"
@@ -1350,7 +1374,7 @@ msgstr "İndir"
 msgid "Download Matches"
 msgstr "İndirme Eşleşmeleri"
 
-#: ../src/settingsdialog.cc:1146 ../src/settingsdialog.cc:1556
+#: ../src/settingsdialog.cc:1148 ../src/settingsdialog.cc:1558
 #: ../src/downloadqueue.cc:33 ../ui/mainwindow.ui:1268
 msgid "Download Queue"
 msgstr "İndirme Kuyruğu"
@@ -1371,12 +1395,12 @@ msgstr "İndirme tamamlandı..."
 msgid "Download failed: "
 msgstr "İndirme başarısız oldu:"
 
-#: ../src/settingsdialog.cc:1176 ../src/settingsdialog.cc:1358
+#: ../src/settingsdialog.cc:1178 ../src/settingsdialog.cc:1360
 #: ../src/transfers.cc:1090 ../src/settingsmanager.cc:236
 msgid "Download finished"
 msgstr "İndirme tamamlandı"
 
-#: ../src/settingsdialog.cc:1177 ../src/settingsdialog.cc:1362
+#: ../src/settingsdialog.cc:1179 ../src/settingsdialog.cc:1364
 #: ../src/settingsmanager.cc:238
 msgid "Download finished file list"
 msgstr "Dosya listesi indirme tamamlandı"
@@ -1401,7 +1425,7 @@ msgstr "Resim indir: sınırsız"
 msgid "Download limit image: "
 msgstr "Resim indirme sınırı:"
 
-#: ../src/hub.cc:2056
+#: ../src/hub.cc:2060
 msgid "Download limit image: 0 - disable, n < 0 - unlimit, empty - info"
 msgstr "Resim indirme sınırı: 0 - devre dışı, n < 0 - sınırsız, boş - bilgi"
 
@@ -1433,7 +1457,7 @@ msgstr "Şuraya indir..."
 msgid "Download whole director_y to..."
 msgstr "Tüm klas_örü şuraya indir..."
 
-#: ../src/mainwindow.cc:768
+#: ../src/mainwindow.cc:771
 msgid "Download: "
 msgstr "İndir:"
 
@@ -1487,7 +1511,7 @@ msgstr "Gülümseme ikonları kipi kapalı"
 msgid "Emoticons mode on"
 msgstr "Gülümseme ikonları kipi açık"
 
-#: ../src/privatemessage.cc:1031 ../src/hub.cc:2059
+#: ../src/privatemessage.cc:1035 ../src/hub.cc:2063
 msgid "Emoticons on/off"
 msgstr "Gülümseme ikonları açık/kapalı"
 
@@ -1495,15 +1519,15 @@ msgstr "Gülümseme ikonları açık/kapalı"
 msgid "Emotion packs"
 msgstr "Gülümseme ikonları paketleri"
 
-#: ../src/settingsdialog.cc:1652
+#: ../src/settingsdialog.cc:1654
 msgid "Enable automatic SFV checking"
 msgstr "Otomatik SFV kontrolünü etkinleştir"
 
-#: ../src/settingsdialog.cc:1653
+#: ../src/settingsdialog.cc:1655
 msgid "Enable safe and compressed transfers"
 msgstr "Güvenli ve sıkıştırılmış aktarımları etkinleştir"
 
-#: ../src/settingsdialog.cc:1651
+#: ../src/settingsdialog.cc:1653
 msgid "Enable segmented downloads"
 msgstr "Parçalı indirmeleri etkinleştir"
 
@@ -1535,12 +1559,12 @@ msgstr "Kullanıcı komutu için satır gir"
 msgid "Enter text to search for"
 msgstr "Aranacak metin gir"
 
-#: ../src/mainwindow.cc:1265
+#: ../src/mainwindow.cc:1268
 msgid "Enter value for "
 msgstr "Şunun için değer gir:"
 
-#: ../src/settingsdialog.cc:1917 ../src/settingsdialog.cc:1961
-#: ../src/settingsdialog.cc:2980
+#: ../src/settingsdialog.cc:1919 ../src/settingsdialog.cc:1963
+#: ../src/settingsdialog.cc:2982
 msgid "Error"
 msgstr "Hata"
 
@@ -1578,11 +1602,11 @@ msgstr "Tam boyut"
 msgid "Exceptions"
 msgstr "İstisnalar"
 
-#: ../src/hub.cc:2062
+#: ../src/hub.cc:2066
 msgid "Execute Lua Chunk"
 msgstr "Lua Parçası Çalıştır"
 
-#: ../src/hub.cc:2064
+#: ../src/hub.cc:2068
 msgid "Execute code (bash)"
 msgstr "Kod çalıştır (bash)"
 
@@ -1602,15 +1626,15 @@ msgstr "Sadece uzmanlar için"
 msgid "Export..."
 msgstr "Dışa Aktar..."
 
-#: ../src/settingsdialog.cc:2209
+#: ../src/settingsdialog.cc:2211
 msgid "Extension edition"
 msgstr "Uzantı düzenlemesi"
 
 #: ../src/settingsdialog.cc:928 ../src/settingsdialog.cc:963
-#: ../src/settingsdialog.cc:1743 ../src/settingsdialog.cc:1884
-#: ../src/settingsdialog.cc:1935 ../src/settingsdialog.cc:1990
-#: ../src/settingsdialog.cc:2991 ../src/settingsdialog.cc:3025
-#: ../src/settingsdialog.cc:3043 ../src/settingsdialog.cc:3074
+#: ../src/settingsdialog.cc:1745 ../src/settingsdialog.cc:1886
+#: ../src/settingsdialog.cc:1937 ../src/settingsdialog.cc:1992
+#: ../src/settingsdialog.cc:2993 ../src/settingsdialog.cc:3027
+#: ../src/settingsdialog.cc:3045 ../src/settingsdialog.cc:3076
 msgid "Extensions"
 msgstr "Uzantılar"
 
@@ -1626,52 +1650,52 @@ msgstr "Harici IP"
 msgid "Favorite Hub Properties"
 msgstr "Favori Hub Özellikleri"
 
-#: ../src/settingsdialog.cc:1424 ../src/settingsdialog.cc:1478
-#: ../src/settingsdialog.cc:1555 ../src/favoritehubs.cc:31
+#: ../src/settingsdialog.cc:1426 ../src/settingsdialog.cc:1480
+#: ../src/settingsdialog.cc:1557 ../src/favoritehubs.cc:31
 #: ../ui/mainwindow.ui:1174 ../ui/mainwindow.ui:2168
 msgid "Favorite Hubs"
 msgstr "Favori Hub'lar"
 
 #: ../src/settingsdialog.cc:904 ../src/settingsdialog.cc:918
-#: ../src/settingsdialog.cc:3758
+#: ../src/settingsdialog.cc:3760
 msgid "Favorite Name"
 msgstr "Favori İsim"
 
-#: ../src/settingsdialog.cc:1247
+#: ../src/settingsdialog.cc:1249
 msgid "Favorite User"
 msgstr "Favori Kullanıcı"
 
-#: ../src/settingsdialog.cc:1425 ../src/settingsdialog.cc:1480
-#: ../src/settingsdialog.cc:1559 ../src/favoriteusers.cc:33
+#: ../src/settingsdialog.cc:1427 ../src/settingsdialog.cc:1482
+#: ../src/settingsdialog.cc:1561 ../src/favoriteusers.cc:33
 #: ../ui/mainwindow.ui:1204 ../ui/mainwindow.ui:2184
 msgid "Favorite Users"
 msgstr "Favori Kullanıcılar"
 
-#: ../src/hub.cc:3040
+#: ../src/hub.cc:3044
 msgid "Favorite hub added"
 msgstr "Favori hub eklendi"
 
-#: ../src/hub.cc:3045
+#: ../src/hub.cc:3049
 msgid "Favorite hub already exists"
 msgstr "Favori hub zaten mevcut"
 
-#: ../src/settingsdialog.cc:3741 ../ui/settingsdialog.ui:8996
+#: ../src/settingsdialog.cc:3743 ../ui/settingsdialog.ui:8996
 msgid "Favorite name"
 msgstr "Favori isim"
 
-#: ../src/settingsdialog.cc:1182 ../src/settingsdialog.cc:1378
+#: ../src/settingsdialog.cc:1184 ../src/settingsdialog.cc:1380
 #: ../src/settingsmanager.cc:246
 msgid "Favorite user joined"
 msgstr "Favori kullanıcı katıldı"
 
-#: ../src/settingsdialog.cc:1183 ../src/settingsdialog.cc:1382
+#: ../src/settingsdialog.cc:1185 ../src/settingsdialog.cc:1384
 #: ../src/settingsmanager.cc:248
 msgid "Favorite user quit"
 msgstr "Favori kullanıcı ayrıldı"
 
-#: ../src/settingsdialog.cc:364 ../src/settingsdialog.cc:1160
-#: ../src/settingsdialog.cc:1439 ../src/settingsdialog.cc:2908
-#: ../src/settingsdialog.cc:2927 ../src/UserCommandMenu.cc:68
+#: ../src/settingsdialog.cc:364 ../src/settingsdialog.cc:1162
+#: ../src/settingsdialog.cc:1441 ../src/settingsdialog.cc:2910
+#: ../src/settingsdialog.cc:2929 ../src/UserCommandMenu.cc:68
 #: ../ui/settingsdialog.ui:6826 ../ui/settingsdialog.ui:6910
 #: ../ui/settingsdialog.ui:6994 ../ui/settingsdialog.ui:7078
 #: ../ui/settingsdialog.ui:7159
@@ -1737,7 +1761,7 @@ msgstr "IP adresiyle filtrele"
 msgid "Filter files already in share"
 msgstr "Zaten paylaşımda olan dosyaları filtrele"
 
-#: ../src/settingsdialog.cc:1116
+#: ../src/settingsdialog.cc:1118
 msgid "Filter kick and NMDC debug messages"
 msgstr "Kovma ve NMDC hata ayıklama mesajlarını filtrele"
 
@@ -1757,15 +1781,15 @@ msgstr "Bul"
 msgid "Find files"
 msgstr "Dosya bul"
 
-#: ../src/settingsdialog.cc:1144 ../src/settingsdialog.cc:1426
-#: ../src/settingsdialog.cc:1500 ../src/settingsdialog.cc:1557
+#: ../src/settingsdialog.cc:1146 ../src/settingsdialog.cc:1428
+#: ../src/settingsdialog.cc:1502 ../src/settingsdialog.cc:1559
 #: ../src/finishedtransfers.cc:35 ../ui/mainwindow.ui:1280
 #: ../ui/mainwindow.ui:2263 ../ui/mainwindow.ui:2513
 msgid "Finished Downloads"
 msgstr "Tamamlanan İndirmeler"
 
-#: ../src/settingsdialog.cc:1145 ../src/settingsdialog.cc:1427
-#: ../src/settingsdialog.cc:1502 ../src/settingsdialog.cc:1558
+#: ../src/settingsdialog.cc:1147 ../src/settingsdialog.cc:1429
+#: ../src/settingsdialog.cc:1504 ../src/settingsdialog.cc:1560
 #: ../src/finishedtransfers.cc:40 ../ui/mainwindow.ui:1291
 #: ../ui/mainwindow.ui:2280 ../ui/mainwindow.ui:2521
 msgid "Finished Uploads"
@@ -1817,13 +1841,15 @@ msgstr "Dördül (boyut)"
 msgid ""
 "Frame size determines the width of the review, higher values affect "
 "performance"
-msgstr "Dördülün boyutu gözden geçirmenin genişliğini belirler, yüksek değerler performansı etkiler"
+msgstr ""
+"Dördülün boyutu gözden geçirmenin genişliğini belirler, yüksek değerler "
+"performansı etkiler"
 
 #: ../ui/searchspy.ui:313
 msgid "Frame:"
 msgstr "Dördül:"
 
-#: ../src/mainwindow.cc:2408
+#: ../src/mainwindow.cc:2411
 msgid "Free "
 msgstr "Boş"
 
@@ -1831,7 +1857,7 @@ msgstr "Boş"
 msgid "French"
 msgstr "Fransızca"
 
-#: ../src/mainwindow.cc:231
+#: ../src/mainwindow.cc:232
 msgid "French translation\n"
 msgstr "Fransızca tercüme\n"
 
@@ -1847,7 +1873,7 @@ msgstr "Tüm ağaç TTH köküyle eşleşmiyor"
 msgid "GB18030"
 msgstr "GB18030"
 
-#: ../src/settingsdialog.cc:1223
+#: ../src/settingsdialog.cc:1225
 msgid "General text"
 msgstr "Genel metin"
 
@@ -1859,11 +1885,11 @@ msgstr "Sertifikaları oluştur"
 msgid "German"
 msgstr "Almanca"
 
-#: ../src/mainwindow.cc:264
+#: ../src/mainwindow.cc:265
 msgid "German translation\n"
 msgstr "Almanca tercüme\n"
 
-#: ../src/privatemessage.cc:1029 ../src/hub.cc:2047 ../ui/privatemessage.ui:66
+#: ../src/privatemessage.cc:1033 ../src/hub.cc:2051 ../ui/privatemessage.ui:66
 msgid "Get file list"
 msgstr "Dosya listesi al"
 
@@ -1871,7 +1897,7 @@ msgstr "Dosya listesi al"
 msgid "GiB"
 msgstr "GiB"
 
-#: ../src/hub.cc:2857 ../src/favoritehubs.cc:362
+#: ../src/hub.cc:2861 ../src/favoritehubs.cc:362
 msgid "Global hub default"
 msgstr "Genel hub varsayılanı"
 
@@ -1879,7 +1905,7 @@ msgstr "Genel hub varsayılanı"
 msgid "Grant Slot"
 msgstr "Oluk ver"
 
-#: ../src/privatemessage.cc:1030 ../src/hub.cc:2048 ../ui/privatemessage.ui:75
+#: ../src/privatemessage.cc:1034 ../src/hub.cc:2052 ../ui/privatemessage.ui:75
 msgid "Grant extra slot"
 msgstr "Ekstra oluk ver"
 
@@ -1887,7 +1913,7 @@ msgstr "Ekstra oluk ver"
 msgid "Greek"
 msgstr "Yunanca"
 
-#: ../src/mainwindow.cc:270
+#: ../src/mainwindow.cc:271
 msgid "Greek translation\n"
 msgstr "Yunanca tercüme\n"
 
@@ -1923,7 +1949,7 @@ msgstr "HUB DIŞARI"
 msgid "H_igh"
 msgstr "Y_üksek"
 
-#: ../src/settingsdialog.cc:1430 ../src/settingsdialog.cc:1490
+#: ../src/settingsdialog.cc:1432 ../src/settingsdialog.cc:1492
 #: ../ui/mainwindow.ui:2101 ../ui/mainwindow.ui:2473
 msgid "Hash"
 msgstr "Karma değer"
@@ -1960,17 +1986,17 @@ msgstr "En yüksek öncelik azami boyut"
 msgid "Homepage"
 msgstr "Ana sayfa"
 
-#: ../src/settingsdialog.cc:1676 ../src/settingsdialog.cc:1686
-#: ../src/settingsdialog.cc:3351 ../src/settingsdialog.cc:3425
-#: ../src/settingsdialog.cc:3999 ../src/settingsdialog.cc:4090
-#: ../src/settingsdialog.cc:4113 ../src/settingsdialog.cc:4132
+#: ../src/settingsdialog.cc:1678 ../src/settingsdialog.cc:1688
+#: ../src/settingsdialog.cc:3353 ../src/settingsdialog.cc:3427
+#: ../src/settingsdialog.cc:4001 ../src/settingsdialog.cc:4092
+#: ../src/settingsdialog.cc:4115 ../src/settingsdialog.cc:4134
 #: ../src/finishedtransfers.cc:85 ../src/finishedtransfers.cc:194
 #: ../src/search.cc:107 ../src/search.cc:658 ../src/search.cc:755
 #: ../src/search.cc:884 ../ui/search.ui:150
 msgid "Hub"
 msgstr "Hub"
 
-#: ../src/settingsdialog.cc:1147
+#: ../src/settingsdialog.cc:1149
 msgid "Hub (also sets urgency hint)"
 msgstr "Hub (aynı zamanda aciliyet ipucunu ayarlar)"
 
@@ -1992,12 +2018,12 @@ msgstr "Hub Menüsü"
 msgid "Hub Name"
 msgstr "Hub İsmi"
 
-#: ../src/settingsdialog.cc:1180 ../src/settingsdialog.cc:1370
+#: ../src/settingsdialog.cc:1182 ../src/settingsdialog.cc:1372
 #: ../src/settingsmanager.cc:244
 msgid "Hub connected"
 msgstr "Hub'a bağlanıldı"
 
-#: ../src/settingsdialog.cc:1181 ../src/settingsdialog.cc:1374
+#: ../src/settingsdialog.cc:1183 ../src/settingsdialog.cc:1376
 #: ../src/settingsmanager.cc:242
 msgid "Hub disconnected"
 msgstr "Hub'la bağlantı kesildi"
@@ -2018,7 +2044,7 @@ msgstr "Hub'lar:"
 msgid "Hungarian"
 msgstr "Macarca"
 
-#: ../src/mainwindow.cc:227
+#: ../src/mainwindow.cc:228
 msgid "Hungarian translation\n"
 msgstr "Macarca tercüme\n"
 
@@ -2046,9 +2072,9 @@ msgstr "ISO-8859-8"
 msgid "ISO-8859-9"
 msgstr "ISO-8859-9"
 
-#: ../src/settingsdialog.cc:403 ../src/settingsdialog.cc:1341
-#: ../src/settingsdialog.cc:2290 ../src/settingsdialog.cc:2324
-#: ../src/settingsdialog.cc:2401 ../src/settingsdialog.cc:2437
+#: ../src/settingsdialog.cc:403 ../src/settingsdialog.cc:1343
+#: ../src/settingsdialog.cc:2292 ../src/settingsdialog.cc:2326
+#: ../src/settingsdialog.cc:2403 ../src/settingsdialog.cc:2439
 msgid "Icon"
 msgstr "İkon"
 
@@ -2072,19 +2098,19 @@ msgstr "TTH'i görmezden gel"
 msgid "Ignore TTH search"
 msgstr "TTH aramasını görmezden gel"
 
-#: ../src/settingsdialog.cc:1570
+#: ../src/settingsdialog.cc:1572
 msgid "Ignore private messages from bots"
 msgstr "Robotlardan özel mesajları görmezden gel"
 
-#: ../src/settingsdialog.cc:1569
+#: ../src/settingsdialog.cc:1571
 msgid "Ignore private messages from the hub"
 msgstr "Hub'dan özel mesajları görmezden gel"
 
-#: ../src/hub.cc:3566
+#: ../src/hub.cc:3570
 msgid "Ignored private message from bot "
 msgstr "Robottan özel mesaj görmezden gelindi"
 
-#: ../src/hub.cc:3559
+#: ../src/hub.cc:3563
 msgid "Ignored private message from hub"
 msgstr "Hub'dan özel mesaj görmezden gelindi"
 
@@ -2104,19 +2130,19 @@ msgstr "Dosyalar endeksleniyor..."
 msgid "Installing handler for"
 msgstr "Şunun için yönetici kuruluyor:"
 
-#: ../src/settingsdialog.cc:2037 ../src/settingsdialog.cc:2225
+#: ../src/settingsdialog.cc:2039 ../src/settingsdialog.cc:2227
 msgid "Invalid extension: "
 msgstr "Geçersiz uzantı:"
 
-#: ../src/hub.cc:2213
+#: ../src/hub.cc:2217
 msgid "Ipfilter is disable"
 msgstr "IP filtresi devre dışı"
 
-#: ../src/hub.cc:2206
+#: ../src/hub.cc:2210
 msgid "Ipfilter is enable"
 msgstr "IP filtresi faal"
 
-#: ../src/hub.cc:2071
+#: ../src/hub.cc:2075
 msgid "Ipfilter on/off"
 msgstr "Ip filtresi açık/kapalı"
 
@@ -2124,7 +2150,7 @@ msgstr "Ip filtresi açık/kapalı"
 msgid "Italian"
 msgstr "İtalyanca"
 
-#: ../src/mainwindow.cc:273
+#: ../src/mainwindow.cc:274
 msgid "Italian translation\n"
 msgstr "İtalyanca tercüme\n"
 
@@ -2144,17 +2170,19 @@ msgstr "KOI8-R"
 msgid "Kaffeine player"
 msgstr "Kaffeine oynatıcı"
 
-#: ../src/settingsdialog.cc:1667
+#: ../src/settingsdialog.cc:1669
 msgid "Keep downloaded files and dirs in queue"
 msgstr "İndirilen dosyaları ve klasörleri kuyrukta tut"
 
-#: ../src/settingsdialog.cc:1648
+#: ../src/settingsdialog.cc:1650
 msgid ""
 "Keep duplicate files in your file list (duplicates never count towards your "
 "share size)"
-msgstr "Çift dosyaları dosya listesinde tut (çift dosyalar asla paylaşım boyutunuzda hesaplanmaz)"
+msgstr ""
+"Çift dosyaları dosya listesinde tut (çift dosyalar asla paylaşım boyutunuzda "
+"hesaplanmaz)"
 
-#: ../src/settingsdialog.cc:1649
+#: ../src/settingsdialog.cc:1651
 msgid "Keep filelists when exiting"
 msgstr "Çıkışta dosya listesini tut"
 
@@ -2183,9 +2211,9 @@ msgstr "Sınırlar"
 
 #: ../src/settingsdialog.cc:329 ../src/settingsdialog.cc:887
 #: ../src/settingsdialog.cc:1010 ../src/settingsdialog.cc:1028
-#: ../src/settingsdialog.cc:3639 ../src/settingsdialog.cc:3652
-#: ../src/settingsdialog.cc:3669 ../src/settingsdialog.cc:4347
-#: ../src/settingsdialog.cc:4383 ../src/publichubs.cc:69
+#: ../src/settingsdialog.cc:3641 ../src/settingsdialog.cc:3654
+#: ../src/settingsdialog.cc:3671 ../src/settingsdialog.cc:4349
+#: ../src/settingsdialog.cc:4385 ../src/publichubs.cc:69
 #: ../src/publichubs.cc:339 ../src/publichubs.cc:364 ../src/publichubs.cc:414
 msgid "List"
 msgstr "Liste"
@@ -2194,7 +2222,7 @@ msgstr "Liste"
 msgid "List: "
 msgstr "Liste:"
 
-#: ../src/hub.cc:2061
+#: ../src/hub.cc:2065
 msgid "Load Lua file"
 msgstr "Lua dosyası yükle"
 
@@ -2202,7 +2230,7 @@ msgstr "Lua dosyası yükle"
 msgid "Loaded from cache: "
 msgstr "Tampondan yüklendi:"
 
-#: ../src/mainwindow.cc:2064
+#: ../src/mainwindow.cc:2067
 msgid "Loading file list"
 msgstr "Dosya listesi yükleniyor"
 
@@ -2266,11 +2294,11 @@ msgstr "En düşük"
 msgid "Magnet"
 msgstr "Magnet"
 
-#: ../src/mainwindow.cc:1392
+#: ../src/mainwindow.cc:1395
 msgid "Magnet Choice"
 msgstr "Magnet Seçmesi"
 
-#: ../src/mainwindow.cc:1322
+#: ../src/mainwindow.cc:1325
 msgid "Magnet Properties / Choice"
 msgstr "Magnet Özellikleri / Seçmesi"
 
@@ -2376,7 +2404,7 @@ msgstr "Asgari çevrimiçi kaynak"
 msgid "Mini slot size"
 msgstr "Asgari oluk boyutu"
 
-#: ../src/settingsdialog.cc:1131
+#: ../src/settingsdialog.cc:1133
 msgid "Minimize to tray on startup"
 msgstr "Başlangıçta sistem çekmecesine küçült"
 
@@ -2404,7 +2432,7 @@ msgstr "Aşağı Taşı"
 msgid "Move Up"
 msgstr "Yukarı Taşı"
 
-#: ../src/hub.cc:2073
+#: ../src/hub.cc:2077
 msgid "Move rule up/down"
 msgstr "Kuralı aşağı/yukarı taşı"
 
@@ -2416,15 +2444,15 @@ msgstr "Şuraya taşı..."
 msgid "Mplayer player"
 msgstr "Mplayer oynatıcısı"
 
-#: ../src/settingsdialog.cc:2972 ../src/settingsdialog.cc:3058
+#: ../src/settingsdialog.cc:2974 ../src/settingsdialog.cc:3060
 msgid "Must not be empty..."
 msgstr "Boş olmamalı..."
 
-#: ../src/settingsdialog.cc:1226
+#: ../src/settingsdialog.cc:1228
 msgid "My nick"
 msgstr "Rumuzum"
 
-#: ../src/settingsdialog.cc:1229
+#: ../src/settingsdialog.cc:1231
 msgid "My own message"
 msgstr "Kendi mesajım"
 
@@ -2434,17 +2462,17 @@ msgstr "R_umuz:"
 
 #: ../src/settingsdialog.cc:690 ../src/settingsdialog.cc:699
 #: ../src/settingsdialog.cc:926 ../src/settingsdialog.cc:961
-#: ../src/settingsdialog.cc:1401 ../src/settingsdialog.cc:1455
-#: ../src/settingsdialog.cc:1675 ../src/settingsdialog.cc:1684
-#: ../src/settingsdialog.cc:1753 ../src/settingsdialog.cc:1909
-#: ../src/settingsdialog.cc:1953 ../src/settingsdialog.cc:2002
-#: ../src/settingsdialog.cc:2202 ../src/settingsdialog.cc:2989
-#: ../src/settingsdialog.cc:3005 ../src/settingsdialog.cc:3023
-#: ../src/settingsdialog.cc:3041 ../src/settingsdialog.cc:3067
-#: ../src/settingsdialog.cc:3072 ../src/settingsdialog.cc:3350
-#: ../src/settingsdialog.cc:3424 ../src/settingsdialog.cc:3998
-#: ../src/settingsdialog.cc:4089 ../src/settingsdialog.cc:4112
-#: ../src/settingsdialog.cc:4131 ../src/favoritehubs.cc:53
+#: ../src/settingsdialog.cc:1403 ../src/settingsdialog.cc:1457
+#: ../src/settingsdialog.cc:1677 ../src/settingsdialog.cc:1686
+#: ../src/settingsdialog.cc:1755 ../src/settingsdialog.cc:1911
+#: ../src/settingsdialog.cc:1955 ../src/settingsdialog.cc:2004
+#: ../src/settingsdialog.cc:2204 ../src/settingsdialog.cc:2991
+#: ../src/settingsdialog.cc:3007 ../src/settingsdialog.cc:3025
+#: ../src/settingsdialog.cc:3043 ../src/settingsdialog.cc:3069
+#: ../src/settingsdialog.cc:3074 ../src/settingsdialog.cc:3352
+#: ../src/settingsdialog.cc:3426 ../src/settingsdialog.cc:4000
+#: ../src/settingsdialog.cc:4091 ../src/settingsdialog.cc:4114
+#: ../src/settingsdialog.cc:4133 ../src/favoritehubs.cc:53
 #: ../src/favoritehubs.cc:77 ../src/favoritehubs.cc:78
 #: ../src/favoritehubs.cc:132 ../src/favoritehubs.cc:306
 #: ../src/favoritehubs.cc:450 ../src/publichubs.cc:47 ../src/publichubs.cc:159
@@ -2453,7 +2481,7 @@ msgstr "R_umuz:"
 msgid "Name"
 msgstr "İsim"
 
-#: ../src/settingsdialog.cc:3464
+#: ../src/settingsdialog.cc:3466
 msgid "Name and command must not be empty"
 msgstr "İsim ve komut boş olmamalı"
 
@@ -2461,15 +2489,15 @@ msgstr "İsim ve komut boş olmamalı"
 msgid "Name:"
 msgstr "İsim:"
 
-#: ../src/settingsdialog.cc:4347
+#: ../src/settingsdialog.cc:4349
 msgid "New exception"
 msgstr "Yeni istisna"
 
-#: ../src/settingsdialog.cc:3669 ../src/publichubs.cc:364
+#: ../src/settingsdialog.cc:3671 ../src/publichubs.cc:364
 msgid "New list"
 msgstr "Yeni liste"
 
-#: ../src/settingsdialog.cc:1855
+#: ../src/settingsdialog.cc:1857
 msgid "New search type"
 msgstr "Yeni arama türü"
 
@@ -2483,8 +2511,8 @@ msgstr "Sonraki"
 
 #: ../src/hub.cc:86 ../src/hub.cc:106 ../src/hub.cc:108 ../src/hub.cc:390
 #: ../src/hub.cc:405 ../src/hub.cc:425 ../src/hub.cc:473 ../src/hub.cc:1282
-#: ../src/hub.cc:1585 ../src/hub.cc:1648 ../src/hub.cc:2395 ../src/hub.cc:2426
-#: ../src/hub.cc:2711 ../src/hub.cc:2750 ../src/finishedtransfers.cc:84
+#: ../src/hub.cc:1585 ../src/hub.cc:1648 ../src/hub.cc:2399 ../src/hub.cc:2430
+#: ../src/hub.cc:2715 ../src/hub.cc:2754 ../src/finishedtransfers.cc:84
 #: ../src/finishedtransfers.cc:193 ../src/favoritehubs.cc:56
 #: ../src/favoritehubs.cc:134 ../src/favoritehubs.cc:309
 #: ../src/favoriteusers.cc:48 ../src/favoriteusers.cc:63
@@ -2496,7 +2524,7 @@ msgstr "Sonraki"
 msgid "Nick"
 msgstr "Rumuz"
 
-#: ../src/hub.cc:3663
+#: ../src/hub.cc:3667
 msgid "Nick already taken"
 msgstr "Rumuz zaten kullanımda"
 
@@ -2548,7 +2576,7 @@ msgstr "Normal"
 msgid "Normal priority max size"
 msgstr "Normal öncelik azami boyut"
 
-#: ../src/hub.cc:1921 ../src/hub.cc:1956 ../src/hub.cc:1966 ../src/hub.cc:2112
+#: ../src/hub.cc:1921 ../src/hub.cc:1956 ../src/hub.cc:1966 ../src/hub.cc:2116
 msgid "Not found user: "
 msgstr "Kullanıcı bulunamadı:"
 
@@ -2562,14 +2590,14 @@ msgstr "Not: bu seçeneklerin çoğu uygulamayı tekrar başlatmanızı gerektir
 
 #: ../ui/settingsdialog.ui:4022
 msgid "Note: New files are added to the share only once they've been hashed!"
-msgstr "Not: yeni dosyalar paylaşıma karma değerleri hesaplandıktan sonra eklenir!"
+msgstr ""
+"Not: yeni dosyalar paylaşıma karma değerleri hesaplandıktan sonra eklenir!"
 
 #: ../ui/settingsdialog.ui:2845
-msgid ""
-"Note; because of changing download speeds, this is not 100% accurate..."
+msgid "Note; because of changing download speeds, this is not 100% accurate..."
 msgstr "Not; değişen indirme hızları dolayısıyla bu %100 doğru değildir..."
 
-#: ../src/settingsdialog.cc:1339 ../ui/settingsdialog.ui:5883
+#: ../src/settingsdialog.cc:1341 ../ui/settingsdialog.ui:5883
 msgid "Notify"
 msgstr "Bildir"
 
@@ -2586,7 +2614,7 @@ msgstr "Çevrimdışı"
 msgid "Online"
 msgstr "Çevrimiçi"
 
-#: ../src/settingsdialog.cc:1121
+#: ../src/settingsdialog.cc:1123
 msgid "Only show joins / parts for favorite users"
 msgstr "Katılma / ayrılmaları sadece favori kullanıcılar için göster"
 
@@ -2610,7 +2638,7 @@ msgstr "İçeren klas_örü aç"
 msgid "Open file"
 msgstr "Dosya aç"
 
-#: ../src/settingsdialog.cc:1566
+#: ../src/settingsdialog.cc:1568
 msgid "Open file list window in the background"
 msgstr "Dosya listesi penceresini arka planda aç"
 
@@ -2622,11 +2650,11 @@ msgstr "Klasör aç"
 msgid "Open image"
 msgstr "Resim aç"
 
-#: ../src/settingsdialog.cc:1567
+#: ../src/settingsdialog.cc:1569
 msgid "Open new private messages from other users in the background"
 msgstr "Diğer kullanıcılardan yeni özel mesajları arka planda aç"
 
-#: ../src/settingsdialog.cc:1568
+#: ../src/settingsdialog.cc:1570
 msgid "Open new window when using /join"
 msgstr "/join kullanıldığında yeni pencere aç"
 
@@ -2634,11 +2662,11 @@ msgstr "/join kullanıldığında yeni pencere aç"
 msgid "Open own file list"
 msgstr "Kendi dosya listesini aç"
 
-#: ../src/settingsdialog.cc:1250
+#: ../src/settingsdialog.cc:1252
 msgid "Operator"
 msgstr "Operatör"
 
-#: ../src/settingsdialog.cc:1428 ../src/settingsdialog.cc:1486
+#: ../src/settingsdialog.cc:1430 ../src/settingsdialog.cc:1488
 #: ../ui/mainwindow.ui:2067 ../ui/mainwindow.ui:2457
 msgid "Own file list"
 msgstr "Kendi dosya listeniz"
@@ -2715,11 +2743,11 @@ msgstr "Oynat"
 msgid "Polish"
 msgstr "Lehçe"
 
-#: ../src/mainwindow.cc:234
+#: ../src/mainwindow.cc:235
 msgid "Polish translation\n"
 msgstr "Lehçe tercüme\n"
 
-#: ../src/settingsdialog.cc:1571
+#: ../src/settingsdialog.cc:1573
 msgid "Popup box to input password for hubs"
 msgstr "Hub'lar için parola girme kutusu"
 
@@ -2735,12 +2763,12 @@ msgstr "Portlar"
 msgid "Portuguese (Brazil)"
 msgstr "Portekizce (Brezilya)"
 
-#: ../src/settingsdialog.cc:1742 ../src/settingsdialog.cc:1843
-#: ../src/settingsdialog.cc:1934
+#: ../src/settingsdialog.cc:1744 ../src/settingsdialog.cc:1845
+#: ../src/settingsdialog.cc:1936
 msgid "Predefined"
 msgstr "Öntanımlı"
 
-#: ../src/settingsdialog.cc:1431 ../src/settingsdialog.cc:1484
+#: ../src/settingsdialog.cc:1433 ../src/settingsdialog.cc:1486
 #: ../ui/mainwindow.ui:2041 ../ui/mainwindow.ui:2449
 #: ../ui/settingsdialog.ui:1011
 msgid "Preferences"
@@ -2755,7 +2783,7 @@ msgstr "Ön izleme"
 msgid "Priority"
 msgstr "Öncelik"
 
-#: ../src/settingsdialog.cc:1148
+#: ../src/settingsdialog.cc:1150
 msgid "Private Message (also sets urgency hint)"
 msgstr "Özel Mesaj (aynı zamanda aciliyet ipucunu ayarlar)"
 
@@ -2763,8 +2791,8 @@ msgstr "Özel Mesaj (aynı zamanda aciliyet ipucunu ayarlar)"
 msgid "Private key file"
 msgstr "Özel anahtar dosyası"
 
-#: ../src/settingsdialog.cc:1179 ../src/settingsdialog.cc:1232
-#: ../src/settingsdialog.cc:1366 ../src/hub.cc:2052
+#: ../src/settingsdialog.cc:1181 ../src/settingsdialog.cc:1234
+#: ../src/settingsdialog.cc:1368 ../src/hub.cc:2056
 #: ../src/settingsmanager.cc:240
 msgid "Private message"
 msgstr "Özel mesaj"
@@ -2777,8 +2805,8 @@ msgstr "İlerleme"
 msgid "Properties"
 msgstr "Özellikler"
 
-#: ../src/settingsdialog.cc:1432 ../src/settingsdialog.cc:1482
-#: ../src/settingsdialog.cc:1554 ../src/publichubs.cc:29
+#: ../src/settingsdialog.cc:1434 ../src/settingsdialog.cc:1484
+#: ../src/settingsdialog.cc:1556 ../src/publichubs.cc:29
 #: ../ui/mainwindow.ui:1186 ../ui/mainwindow.ui:2220 ../ui/mainwindow.ui:2441
 msgid "Public Hubs"
 msgstr "Herkese Açık Hub'lar"
@@ -2787,7 +2815,7 @@ msgstr "Herkese Açık Hub'lar"
 msgid "Public Hubs list URL"
 msgstr "Herkese Açık Hub listesi URL'i"
 
-#: ../src/settingsdialog.cc:1433 ../src/settingsdialog.cc:1498
+#: ../src/settingsdialog.cc:1435 ../src/settingsdialog.cc:1500
 #: ../ui/mainwindow.ui:2246 ../ui/mainwindow.ui:2505
 #: ../ui/settingsdialog.ui:3710
 msgid "Queue"
@@ -2797,7 +2825,7 @@ msgstr "Kuyruk"
 msgid "Quick connect to the hub"
 msgstr "Hub'a çabuk bağlan"
 
-#: ../src/settingsdialog.cc:1436 ../src/settingsdialog.cc:1504
+#: ../src/settingsdialog.cc:1438 ../src/settingsdialog.cc:1506
 #: ../ui/mainwindow.ui:2349 ../ui/mainwindow.ui:2529
 msgid "Quit"
 msgstr "Çık"
@@ -2826,11 +2854,11 @@ msgstr "Tekr_ar kaynak ekle"
 msgid "Re_connect"
 msgstr "Tekrar ba_ğlan"
 
-#: ../src/hub.cc:2053 ../ui/hub.ui:75
+#: ../src/hub.cc:2057 ../ui/hub.ui:75
 msgid "Rebuild hash"
 msgstr "Karma değeri tekrar oluştur"
 
-#: ../src/settingsdialog.cc:1438 ../src/settingsdialog.cc:1474
+#: ../src/settingsdialog.cc:1440 ../src/settingsdialog.cc:1476
 #: ../ui/mainwindow.ui:2127 ../ui/mainwindow.ui:2409
 msgid "Reconnect"
 msgstr "Tekrar bağlan"
@@ -2843,7 +2871,7 @@ msgstr "Tüm hub'lara tekrar bağlan"
 msgid "Reconnect to the hub"
 msgstr "Hub'a tekrar bağlan"
 
-#: ../src/settingsdialog.cc:1429 ../src/settingsdialog.cc:1488
+#: ../src/settingsdialog.cc:1431 ../src/settingsdialog.cc:1490
 #: ../ui/mainwindow.ui:2084 ../ui/mainwindow.ui:2465
 msgid "Refresh"
 msgstr "Tazele"
@@ -2852,11 +2880,13 @@ msgstr "Tazele"
 msgid "Refresh file list"
 msgstr "Dosya listesini tazele"
 
-#: ../src/settingsdialog.cc:1659
+#: ../src/settingsdialog.cc:1661
 msgid "Register with the OS to handle dchub:// and adc:// URL links"
-msgstr "İşletim Sistemi ile dchub:// ve adc:// URL bağlantılarını yönetmek için kayıt yap"
+msgstr ""
+"İşletim Sistemi ile dchub:// ve adc:// URL bağlantılarını yönetmek için "
+"kayıt yap"
 
-#: ../src/settingsdialog.cc:1660
+#: ../src/settingsdialog.cc:1662
 msgid "Register with the OS to handle magnet: URL links"
 msgstr "İşletim Sistemi ile magnet: URL bağlantılarını yönetmek için kayıt yap"
 
@@ -2866,7 +2896,8 @@ msgstr "Seçimi hatırla"
 
 #: ../src/downloadqueue.cc:1366
 msgid "Remote client does not fully support TTH - cannot download"
-msgstr "Uzaktaki istemci TTH değerini tamamıyla desteklemiyor - indirme yapılamaz"
+msgstr ""
+"Uzaktaki istemci TTH değerini tamamıyla desteklemiyor - indirme yapılamaz"
 
 #: ../ui/uploadqueue.ui:69 ../ui/adlsearch.ui:508 ../ui/settingsdialog.ui:4341
 #: ../ui/settingsdialog.ui:8406
@@ -2885,7 +2916,7 @@ msgstr "Kaynağ_ı kaldır"
 msgid "Remove image"
 msgstr "Resmi kaldır"
 
-#: ../src/hub.cc:2074
+#: ../src/hub.cc:2078
 msgid "Remove rules from list"
 msgstr "Kuralları listeden kaldır"
 
@@ -2893,7 +2924,7 @@ msgstr "Kuralları listeden kaldır"
 msgid "Remove slow filelists"
 msgstr "Yavaş dosya listelerini kaldır"
 
-#: ../src/privatemessage.cc:1028 ../src/hub.cc:2045 ../ui/privatemessage.ui:57
+#: ../src/privatemessage.cc:1032 ../src/hub.cc:2049 ../ui/privatemessage.ui:57
 msgid "Remove user favorite"
 msgstr "Kullanıcı favorisini kaldır"
 
@@ -2905,7 +2936,7 @@ msgstr "Kullanıcıyı k_uyruktan kaldır"
 msgid "Rename"
 msgstr "Tekrar adlandır"
 
-#: ../src/settingsdialog.cc:2108
+#: ../src/settingsdialog.cc:2110
 msgid "Rename a search type"
 msgstr "Arama türünü tekrar adlandır"
 
@@ -2949,12 +2980,12 @@ msgstr "Rusça tercüme\n"
 msgid "SJIS"
 msgstr "SJIS"
 
-#: ../src/hub.cc:2051 ../ui/hub.ui:66
+#: ../src/hub.cc:2055 ../ui/hub.ui:66
 msgid "Say a third person"
 msgstr "Üçüncü bir kişi olarak söyle"
 
-#: ../src/settingsdialog.cc:1149 ../src/settingsdialog.cc:1434
-#: ../src/settingsdialog.cc:1492 ../src/search.cc:40 ../src/search.cc:86
+#: ../src/settingsdialog.cc:1151 ../src/settingsdialog.cc:1436
+#: ../src/settingsdialog.cc:1494 ../src/search.cc:40 ../src/search.cc:86
 #: ../src/search.cc:93 ../src/search.cc:259 ../src/search.cc:457
 #: ../src/search.cc:471 ../src/search.cc:1130 ../src/search.cc:1131
 #: ../src/search.cc:2015 ../ui/searchspy.ui:94 ../ui/searchspy.ui:401
@@ -2963,7 +2994,7 @@ msgstr "Üçüncü bir kişi olarak söyle"
 msgid "Search"
 msgstr "Ara"
 
-#: ../src/settingsdialog.cc:1441 ../ui/mainwindow.ui:1242
+#: ../src/settingsdialog.cc:1443 ../ui/mainwindow.ui:1242
 msgid "Search ADL"
 msgstr "ADL Ara"
 
@@ -2971,8 +3002,8 @@ msgstr "ADL Ara"
 msgid "Search Menu"
 msgstr "Arama Menüsü"
 
-#: ../src/settingsdialog.cc:1150 ../src/settingsdialog.cc:1435
-#: ../src/settingsdialog.cc:1496 ../src/settingsdialog.cc:1560
+#: ../src/settingsdialog.cc:1152 ../src/settingsdialog.cc:1437
+#: ../src/settingsdialog.cc:1498 ../src/settingsdialog.cc:1562
 #: ../src/searchspy.cc:35 ../ui/mainwindow.ui:1317 ../ui/mainwindow.ui:2321
 #: ../ui/settingsdialog.ui:6675
 msgid "Search Spy"
@@ -3003,13 +3034,13 @@ msgstr "Tarihçede ara"
 msgid "Search options"
 msgstr "Arama seçenekleri"
 
-#: ../src/hub.cc:3670
+#: ../src/hub.cc:3674
 msgid "Search spam detected from "
 msgstr "Şundan arama spamı tespit edildi:"
 
-#: ../src/settingsdialog.cc:1741 ../src/settingsdialog.cc:1933
-#: ../src/settingsdialog.cc:1966 ../src/settingsdialog.cc:2052
-#: ../src/settingsdialog.cc:2101 ../src/settingsdialog.cc:2149
+#: ../src/settingsdialog.cc:1743 ../src/settingsdialog.cc:1935
+#: ../src/settingsdialog.cc:1968 ../src/settingsdialog.cc:2054
+#: ../src/settingsdialog.cc:2103 ../src/settingsdialog.cc:2151
 msgid "Search type"
 msgstr "Arama türü"
 
@@ -3025,23 +3056,23 @@ msgstr "Şu aranıyor:"
 msgid "Security Certificates"
 msgstr "Güvenlik Sertifikaları"
 
-#: ../src/settingsdialog.cc:3175
+#: ../src/settingsdialog.cc:3177
 msgid "Select Color"
 msgstr "Renk Seç"
 
-#: ../src/settingsdialog.cc:3298
+#: ../src/settingsdialog.cc:3300
 msgid "Select Font"
 msgstr "Yazıtipi Seç"
 
-#: ../src/mainwindow.cc:2434
+#: ../src/mainwindow.cc:2437
 msgid "Select file to Get TTH"
 msgstr "TTH almak için dosya seç"
 
-#: ../src/mainwindow.cc:2027 ../ui/mainwindow.ui:809
+#: ../src/mainwindow.cc:2030 ../ui/mainwindow.ui:809
 msgid "Select filelist to browse"
 msgstr "Taranacak dosya listesi seç"
 
-#: ../src/settingsdialog.cc:1128
+#: ../src/settingsdialog.cc:1130
 msgid "Send PM when double clicked in the user list"
 msgstr "Kullanıcı listesinde çift tıklandığında özel mesaj gönder"
 
@@ -3057,7 +3088,7 @@ msgstr "_Özel mesaj gönder"
 msgid "Send once per nick"
 msgstr "Rumuz başına bir kez gönder"
 
-#: ../src/settingsdialog.cc:1655
+#: ../src/settingsdialog.cc:1657
 msgid "Send unknown /commands to the hub"
 msgstr "Bilinmeyen /commands (komutları) hub'a gönder"
 
@@ -3066,12 +3097,12 @@ msgstr "Bilinmeyen /commands (komutları) hub'a gönder"
 msgid "Sent ADC extensions : %s\n"
 msgstr "ADC uzantıları gönderildi: %s\n"
 
-#: ../src/settingsdialog.cc:3376 ../src/settingsdialog.cc:3474
+#: ../src/settingsdialog.cc:3378 ../src/settingsdialog.cc:3476
 #: ../ui/settingsdialog.ui:627
 msgid "Separator"
 msgstr "Ayraç"
 
-#: ../src/settingsdialog.cc:1472 ../ui/mainwindow.ui:2401
+#: ../src/settingsdialog.cc:1474 ../ui/mainwindow.ui:2401
 msgid "Separators"
 msgstr "Ayraçlar"
 
@@ -3079,7 +3110,7 @@ msgstr "Ayraçlar"
 msgid "Serbian (Cyrillic)"
 msgstr "Sıprça (Kiril)"
 
-#: ../src/mainwindow.cc:241
+#: ../src/mainwindow.cc:242
 msgid "Serbian (Cyrillic) translation\n"
 msgstr "Sırpça (Kiril) tercüme\n"
 
@@ -3087,20 +3118,23 @@ msgstr "Sırpça (Kiril) tercüme\n"
 msgid "Serbian (Latin)"
 msgstr "Sırpça (Latin)"
 
-#: ../src/mainwindow.cc:244
+#: ../src/mainwindow.cc:245
 msgid "Serbian (Latin) translation\n"
 msgstr "Sırpça (Latin) tercüme\n"
 
-#: ../src/hub.cc:2066
+#: ../src/hub.cc:2070
 msgid ""
-"Set Core option param in value (without value return current value of "
-"option)"
-msgstr "Çekirdek seçenek parametresini değerde ayarla (değersiz olursa seçeneğin güncel değerini verir)"
+"Set Core option param in value (without value return current value of option)"
+msgstr ""
+"Çekirdek seçenek parametresini değerde ayarla (değersiz olursa seçeneğin "
+"güncel değerini verir)"
 
-#: ../src/hub.cc:2065
+#: ../src/hub.cc:2069
 msgid ""
 "Set GUI option param in value (without value return current value of option)"
-msgstr "Grafik arayüz seçenek parametresini değerde ayarla (değersiz olursa seçeneğin güncel değerini verir)"
+msgstr ""
+"Grafik arayüz seçenek parametresini değerde ayarla (değersiz olursa "
+"seçeneğin güncel değerini verir)"
 
 #: ../ui/downloadqueue.ui:81 ../ui/downloadqueue.ui:215
 msgid "Set Priorit_y"
@@ -3115,9 +3149,10 @@ msgid "Set download limit image: "
 msgstr "İndirme sınırı resmini seç:"
 
 #: ../src/settingsdialog.cc:986
-msgid ""
-"Set lowest priority for newly added files larger than low priority size"
-msgstr "Yeni eklenen ve düşük öncelik boyutundan büyük dosyalar için en düşük önceliği ayarla"
+msgid "Set lowest priority for newly added files larger than low priority size"
+msgstr ""
+"Yeni eklenen ve düşük öncelik boyutundan büyük dosyalar için en düşük "
+"önceliği ayarla"
 
 #: ../ui/settingsdialog.ui:4054
 msgid "Share hidden files"
@@ -3134,7 +3169,7 @@ msgstr "Paylaşılan"
 msgid "Sharing"
 msgstr "Paylaşıyor"
 
-#: ../src/settingsdialog.cc:1661
+#: ../src/settingsdialog.cc:1663
 msgid "Show IP's' in chats"
 msgstr "IP adreslerini sohbetlerde göster"
 
@@ -3142,7 +3177,7 @@ msgstr "IP adreslerini sohbetlerde göster"
 msgid "Show Interface"
 msgstr "Arayüzü Göster"
 
-#: ../src/hub.cc:2046 ../ui/hub.ui:48
+#: ../src/hub.cc:2050 ../ui/hub.ui:48
 msgid "Show favorites list"
 msgstr "Favoriler listesini göster"
 
@@ -3150,16 +3185,16 @@ msgstr "Favoriler listesini göster"
 msgid "Show free space bar"
 msgstr "Boş alan çubuğunu göster"
 
-#: ../src/privatemessage.cc:1034 ../src/hub.cc:2049
-#: ../ui/privatemessage.ui:102 ../ui/hub.ui:111
+#: ../src/privatemessage.cc:1038 ../src/hub.cc:2053 ../ui/privatemessage.ui:102
+#: ../ui/hub.ui:111
 msgid "Show help"
 msgstr "Yardımı göster"
 
-#: ../src/hub.cc:2072
+#: ../src/hub.cc:2076
 msgid "Show ipfilter rules list"
 msgstr "Ipfiltresi kuralları listesini göster"
 
-#: ../src/settingsdialog.cc:1120
+#: ../src/settingsdialog.cc:1122
 msgid "Show joins / parts in chat by default"
 msgstr "Varsayılan olarak sohbette katılımları / ayrılmaları göster"
 
@@ -3167,7 +3202,7 @@ msgstr "Varsayılan olarak sohbette katılımları / ayrılmaları göster"
 msgid "Show magnet dialog"
 msgstr "Magnet diyaloğunu göster"
 
-#: ../src/settingsdialog.cc:1572
+#: ../src/settingsdialog.cc:1574
 msgid "Show nicklist in hub frame on the left side"
 msgstr "Sol köşede hub çerçevesinde rumuz listesini göster"
 
@@ -3179,16 +3214,16 @@ msgstr "Sadece tamamlanmış indirimleri göster"
 msgid "Show only when the application is not active."
 msgstr "Sadece uygulama etkin olmadığında göster."
 
-#: ../src/privatemessage.cc:1033 ../src/hub.cc:2058 ../ui/privatemessage.ui:93
+#: ../src/privatemessage.cc:1037 ../src/hub.cc:2062 ../ui/privatemessage.ui:93
 #: ../ui/hub.ui:102
 msgid "Show ratio [send in chat]"
 msgstr "Oranı göster [sohbette gönder]"
 
-#: ../src/settingsdialog.cc:1117
+#: ../src/settingsdialog.cc:1119
 msgid "Show status icon in the system tray"
 msgstr "Durum ikonunu sistem çekmecesinde göster"
 
-#: ../src/settingsdialog.cc:1118
+#: ../src/settingsdialog.cc:1120
 msgid "Show timestamps in chat by default"
 msgstr "Varsayılan değer olarak sohbette zaman etiketlerini göster"
 
@@ -3196,11 +3231,11 @@ msgstr "Varsayılan değer olarak sohbette zaman etiketlerini göster"
 msgid "Show top search"
 msgstr "En çok kullanılan aramayı göster"
 
-#: ../src/settingsdialog.cc:1662
+#: ../src/settingsdialog.cc:1664
 msgid "Show user country in chat"
 msgstr "Sohbette kullanıcı ülkesini göster"
 
-#: ../src/privatemessage.cc:1032 ../src/hub.cc:2057 ../ui/privatemessage.ui:84
+#: ../src/privatemessage.cc:1036 ../src/hub.cc:2061 ../ui/privatemessage.ui:84
 #: ../ui/hub.ui:93
 msgid "Show version"
 msgstr "Sürümü göster"
@@ -3223,16 +3258,15 @@ msgid "Signal handlers installed.\n"
 msgstr "Sinyal yöneticiler kuruldu.\n"
 
 #: ../src/settingsdialog.cc:1034 ../src/settingsdialog.cc:1040
-#: ../src/settingsdialog.cc:3809 ../src/settingsdialog.cc:3878
+#: ../src/settingsdialog.cc:3811 ../src/settingsdialog.cc:3880
 #: ../src/downloadqueue.cc:74 ../src/downloadqueue.cc:93
 #: ../src/downloadqueue.cc:285 ../src/downloadqueue.cc:392
 #: ../src/sharebrowser.cc:85 ../src/sharebrowser.cc:110
-#: ../src/sharebrowser.cc:331 ../src/sharebrowser.cc:362
-#: ../src/transfers.cc:67 ../src/transfers.cc:548 ../src/transfers.cc:717
-#: ../src/transfers.cc:729 ../src/search.cc:103 ../src/search.cc:130
-#: ../src/search.cc:654 ../src/search.cc:737 ../src/search.cc:746
-#: ../src/search.cc:872 ../ui/search.ui:138 ../ui/search.ui:294
-#: ../ui/mainwindow.ui:118
+#: ../src/sharebrowser.cc:331 ../src/sharebrowser.cc:362 ../src/transfers.cc:67
+#: ../src/transfers.cc:548 ../src/transfers.cc:717 ../src/transfers.cc:729
+#: ../src/search.cc:103 ../src/search.cc:130 ../src/search.cc:654
+#: ../src/search.cc:737 ../src/search.cc:746 ../src/search.cc:872
+#: ../ui/search.ui:138 ../ui/search.ui:294 ../ui/mainwindow.ui:118
 msgid "Size"
 msgstr "Boyut"
 
@@ -3253,11 +3287,11 @@ msgstr "Sıfır boyutlu dosyaları atla"
 msgid "Skip zero-byte files"
 msgstr "Sıfır boyutlu dosyaları atla"
 
-#: ../src/privatemessage.cc:1444
+#: ../src/privatemessage.cc:1448
 msgid "Slot granted"
 msgstr "Oluk verildi"
 
-#: ../src/hub.cc:2961 ../src/favoriteusers.cc:513
+#: ../src/hub.cc:2965 ../src/favoriteusers.cc:513
 msgid "Slot granted to "
 msgstr "Oluk şuna verildi:"
 
@@ -3269,7 +3303,7 @@ msgstr "Oluklar"
 msgid "Slovak"
 msgstr "Slovakça"
 
-#: ../src/mainwindow.cc:258
+#: ../src/mainwindow.cc:259
 msgid "Slovak translation\n"
 msgstr "Slovakça tercüme\n"
 
@@ -3289,11 +3323,11 @@ msgstr "Soket yazma tamponu"
 msgid "Socks IP"
 msgstr "SOCKS IP"
 
-#: ../src/settingsdialog.cc:1122
+#: ../src/settingsdialog.cc:1124
 msgid "Sort favorite users first"
 msgstr "Favori kullanıcıları önce sırala"
 
-#: ../src/settingsdialog.cc:1159 ../ui/settingsdialog.ui:5255
+#: ../src/settingsdialog.cc:1161 ../ui/settingsdialog.ui:5255
 msgid "Sounds"
 msgstr "Sesler"
 
@@ -3314,7 +3348,7 @@ msgstr "Kaynak çok yavaş"
 msgid "Spanish"
 msgstr "İspanyolca"
 
-#: ../src/mainwindow.cc:248
+#: ../src/mainwindow.cc:249
 msgid "Spanish translation\n"
 msgstr "İspanyolca tercüme\n"
 
@@ -3345,7 +3379,7 @@ msgstr "Hazırlılık durumu"
 msgid "Status"
 msgstr "Durum"
 
-#: ../src/settingsdialog.cc:1238
+#: ../src/settingsdialog.cc:1240
 msgid "Status message"
 msgstr "Durum mesajı"
 
@@ -3357,7 +3391,7 @@ msgstr "Durdur"
 msgid "Swedish (Sweden)"
 msgstr "İsveççe"
 
-#: ../src/mainwindow.cc:283
+#: ../src/mainwindow.cc:284
 msgid "Swedish (Sweden) translation\n"
 msgstr "İsveççe (İsveç) tercüme\n"
 
@@ -3370,7 +3404,7 @@ msgstr "Sistem varsayılanı"
 msgid "System icons"
 msgstr "Sistem ikonları"
 
-#: ../src/settingsdialog.cc:1235
+#: ../src/settingsdialog.cc:1237
 msgid "System message"
 msgstr "Sistem mesajı"
 
@@ -3423,7 +3457,9 @@ msgstr "Metin biçemi"
 msgid ""
 "The increase in waiting time increases the likelihood of adding to top, but "
 "reduces the dynamics (updating) frame"
-msgstr "Bekleme vaktindeki artış en üste ekleme ihtimalini arttırır, fakat bu dördülün dinamikliğini (güncellenmesini) azaltır"
+msgstr ""
+"Bekleme vaktindeki artış en üste ekleme ihtimalini arttırır, fakat bu "
+"dördülün dinamikliğini (güncellenmesini) azaltır"
 
 #: ../src/favoritehubs.cc:419
 msgid "The name and address fields are required"
@@ -3455,15 +3491,15 @@ msgstr "Kalan Zaman"
 msgid "Time last seen"
 msgstr "Son görüldüğü vakit"
 
-#: ../src/settingsdialog.cc:1241 ../src/settingsdialog.cc:1271
-#: ../src/settingsdialog.cc:1276
+#: ../src/settingsdialog.cc:1243 ../src/settingsdialog.cc:1273
+#: ../src/settingsdialog.cc:1278
 msgid "Timestamp"
 msgstr "Zaman etiketi"
 
-#: ../src/settingsdialog.cc:402 ../src/settingsdialog.cc:1340
-#: ../src/settingsdialog.cc:2289 ../src/settingsdialog.cc:2345
-#: ../src/settingsdialog.cc:2361 ../src/settingsdialog.cc:2383
-#: ../src/settingsdialog.cc:2387 ../src/settingsdialog.cc:2437
+#: ../src/settingsdialog.cc:402 ../src/settingsdialog.cc:1342
+#: ../src/settingsdialog.cc:2291 ../src/settingsdialog.cc:2347
+#: ../src/settingsdialog.cc:2363 ../src/settingsdialog.cc:2385
+#: ../src/settingsdialog.cc:2389 ../src/settingsdialog.cc:2439
 msgid "Title"
 msgstr "Başlık"
 
@@ -3475,7 +3511,9 @@ msgstr "Şuna (seçilen kullanıcı için boş)"
 msgid ""
 "To start downloading file you need turn on auto search alternatives "
 "(Settings/Downloads/Queue)"
-msgstr "Dosyayı indirmeye başlamak için otomatik arama alternatiflerini etkinleştirmeniz gerekmektedir (Ayarlar/İndirmeler/Kuyruk)"
+msgstr ""
+"Dosyayı indirmeye başlamak için otomatik arama alternatiflerini "
+"etkinleştirmeniz gerekmektedir (Ayarlar/İndirmeler/Kuyruk)"
 
 #: ../ui/settingsdialog.ui:6193
 msgid "Toolbar"
@@ -3509,7 +3547,7 @@ msgstr "Toplam alınan"
 msgid "Total sent"
 msgstr "Toplan gönderilen"
 
-#: ../src/settingsdialog.cc:3883
+#: ../src/settingsdialog.cc:3885
 msgid "Total size: "
 msgstr "Toplam boyut:"
 
@@ -3537,13 +3575,22 @@ msgstr "Transfers::updateTransfer, CID bulunamadı %s\n"
 msgid "Trusted certificates path"
 msgstr "Güvenilen sertifikalar yolu"
 
+#: ../src/settingsdialog.cc:1102
+msgid "Turkish"
+msgstr ""
+
+#: ../src/mainwindow.cc:287
+#, fuzzy
+msgid "Turkish translation\n"
+msgstr "Lehçe tercüme\n"
+
 #: ../src/sharebrowser.cc:86 ../src/sharebrowser.cc:334
 #: ../src/sharebrowser.cc:355 ../src/search.cc:102 ../src/search.cc:656
 #: ../src/search.cc:760 ../src/search.cc:887 ../src/search.cc:921
 msgid "Type"
 msgstr "Tür"
 
-#: ../src/settingsdialog.cc:1244
+#: ../src/settingsdialog.cc:1246
 msgid "URL"
 msgstr "URL"
 
@@ -3555,11 +3602,11 @@ msgstr "UTF-8"
 msgid "Ukrainian"
 msgstr "Ukraynaca"
 
-#: ../src/mainwindow.cc:237
+#: ../src/mainwindow.cc:238
 msgid "Ukrainian translation\n"
 msgstr "Ukraynaca tercüme\n"
 
-#: ../src/hub.cc:2986
+#: ../src/hub.cc:2990
 msgid "Unable to connect: already connected to the requested hub"
 msgstr "Bağlanılamadı: istenilen hub ile zaten bağlantı var"
 
@@ -3567,32 +3614,35 @@ msgstr "Bağlanılamadı: istenilen hub ile zaten bağlantı var"
 msgid "Unable to load file list: "
 msgstr "Dosya listesi yüklenemedi:"
 
-#: ../src/mainwindow.cc:2052
+#: ../src/mainwindow.cc:2055
 msgid "Unable to load file list: Invalid file list name"
 msgstr "Dosya listesi yüklenemedi: geçersiz dosya listesi ismi"
 
-#: ../src/mainwindow.cc:2291
+#: ../src/mainwindow.cc:2294
 msgid ""
-"Unable to open %1% port. Searching or file transfers will not work correctly"
-" until you change settings or turn off any application that might be using "
+"Unable to open %1% port. Searching or file transfers will not work correctly "
+"until you change settings or turn off any application that might be using "
 "that port."
-msgstr "%1% portu açılamadı. Aramalar ve dosya transferleri ayarları değiştirmediğiniz veya bu portu kullanan uygulamayı kapatmadığınız sürece doğru şekilde çalışamayacaktır."
+msgstr ""
+"%1% portu açılamadı. Aramalar ve dosya transferleri ayarları "
+"değiştirmediğiniz veya bu portu kullanan uygulamayı kapatmadığınız sürece "
+"doğru şekilde çalışamayacaktır."
 
 #: ../ui/settingsdialog.ui:2688
 msgid "Unfinished downloads directory"
 msgstr "Kısmi indirmeler klasörü"
 
 #: ../src/downloadqueue.cc:1298 ../src/downloadqueue.cc:1299
-#: ../src/WulforUtil.cc:332 ../src/WulforUtil.cc:334 ../src/mainwindow.cc:1091
-#: ../src/mainwindow.cc:1481
+#: ../src/WulforUtil.cc:332 ../src/WulforUtil.cc:334 ../src/mainwindow.cc:1094
+#: ../src/mainwindow.cc:1484
 msgid "Unknown"
 msgstr "Bilinmeyen"
 
-#: ../src/privatemessage.cc:1038
+#: ../src/privatemessage.cc:1042
 msgid "Unknown command "
 msgstr "Bilinmeyen komut"
 
-#: ../src/hub.cc:2369
+#: ../src/hub.cc:2373
 msgid "Unknown command '"
 msgstr "Bilinmeyen komut '"
 
@@ -3604,7 +3654,7 @@ msgstr "Güncelle"
 msgid "Update frame search"
 msgstr "Arama dördülünü güncelle"
 
-#: ../src/hub.cc:2054
+#: ../src/hub.cc:2058
 msgid "Update own file list"
 msgstr "Kendi dosya listenizi güncelle"
 
@@ -3612,7 +3662,7 @@ msgstr "Kendi dosya listenizi güncelle"
 msgid "Updating string or TTH"
 msgstr "Metin ya da TTH güncelleniyor"
 
-#: ../src/settingsdialog.cc:1423
+#: ../src/settingsdialog.cc:1425
 msgid "Upload"
 msgstr "Gönderme"
 
@@ -3628,7 +3678,7 @@ msgstr "Gönderme Olukları"
 msgid "Upload complete..."
 msgstr "Gönderme tamamlandı..."
 
-#: ../src/settingsdialog.cc:1178
+#: ../src/settingsdialog.cc:1180
 msgid "Upload finished"
 msgstr "Gönderme sona erdi"
 
@@ -3644,7 +3694,7 @@ msgstr "Gönderme hızı"
 msgid "Upload starting..."
 msgstr "Gönderme başlıyor..."
 
-#: ../src/mainwindow.cc:768
+#: ../src/mainwindow.cc:771
 msgid "Upload: "
 msgstr "Gönderme:"
 
@@ -3655,13 +3705,13 @@ msgstr "Gönderiliyor"
 #: ../src/settingsdialog.cc:363 ../src/settingsdialog.cc:401
 #: ../src/settingsdialog.cc:435 ../src/settingsdialog.cc:689
 #: ../src/settingsdialog.cc:702 ../src/settingsdialog.cc:718
-#: ../src/settingsdialog.cc:1158 ../src/settingsdialog.cc:1169
-#: ../src/settingsdialog.cc:1338 ../src/settingsdialog.cc:1353
-#: ../src/settingsdialog.cc:1454 ../src/settingsdialog.cc:1464
+#: ../src/settingsdialog.cc:1160 ../src/settingsdialog.cc:1171
+#: ../src/settingsdialog.cc:1340 ../src/settingsdialog.cc:1355
+#: ../src/settingsdialog.cc:1456 ../src/settingsdialog.cc:1466
 msgid "Use"
 msgstr "Kullan"
 
-#: ../src/settingsdialog.cc:1666
+#: ../src/settingsdialog.cc:1668
 msgid "Use ADL search only in own file list"
 msgstr "ADL aramayı sadece kendi dosya listenizde kullan"
 
@@ -3673,19 +3723,20 @@ msgstr "Yanıp Sönen İkon Kullan"
 msgid "Use DHT"
 msgstr "DHT'yi Kullan"
 
-#: ../src/privatemessage.cc:1212 ../src/hub.cc:1769
+#: ../src/privatemessage.cc:1216 ../src/hub.cc:1769
 msgid "Use Emoticons"
 msgstr "Gülümseme İkonları Kullan"
 
-#: ../src/settingsdialog.cc:1123
+#: ../src/settingsdialog.cc:1125
 msgid "Use OEM monospaced font for chat windows"
-msgstr "Sohbet pencereleri için bilgisayarın ölçeklendirilemez yazıtipini kullan"
+msgstr ""
+"Sohbet pencereleri için bilgisayarın ölçeklendirilemez yazıtipini kullan"
 
 #: ../ui/settingsdialog.ui:1684
 msgid "Use SOCKS5 server to resolve hostnames"
 msgstr "Bilgisayar isimlerini ayrıştırmak için SOCKS5 sunucusu kullan"
 
-#: ../src/settingsdialog.cc:1728
+#: ../src/settingsdialog.cc:1730
 msgid "Use TLS when remote client supports it"
 msgstr "Uzaktaki istemci desteklediğinde TLS kullan"
 
@@ -3697,19 +3748,21 @@ msgstr "Yönlendiricimi istemcimin yapılandırması için UPnP kullan"
 msgid "Use bandwidth limits"
 msgstr "Bant genişliği sınırları kullan"
 
-#: ../src/settingsdialog.cc:1125
+#: ../src/settingsdialog.cc:1127
 msgid "Use blinking status icon"
 msgstr "Yanıp sönen durum ikonu kullan"
 
-#: ../src/settingsdialog.cc:1126
+#: ../src/settingsdialog.cc:1128
 msgid "Use emoticons"
 msgstr "Gülümseme ikonları kullan"
 
-#: ../src/settingsdialog.cc:1658
+#: ../src/settingsdialog.cc:1660
 msgid "Use fast hashing method (disable if you have problems with hashing)"
-msgstr "Hızlı karma değeri hesaplama metodunu kullan (hesapla sorun olursa devre dışı bırakın)"
+msgstr ""
+"Hızlı karma değeri hesaplama metodunu kullan (hesapla sorun olursa devre "
+"dışı bırakın)"
 
-#: ../src/settingsdialog.cc:1124
+#: ../src/settingsdialog.cc:1126
 msgid "Use magnet split"
 msgstr "Magnet bölünmesini kullan"
 
@@ -3726,11 +3779,11 @@ msgstr "Uzantı ayraçları kullan (doc;xls;ppt;docx;xlsx;pptx)"
 msgid "User"
 msgstr "Kullanıcı"
 
-#: ../src/settingsdialog.cc:1413
+#: ../src/settingsdialog.cc:1415
 msgid "User (dc)"
 msgstr "Kullanıcı (dc)"
 
-#: ../src/settingsdialog.cc:1417
+#: ../src/settingsdialog.cc:1419
 msgid "User (normal)"
 msgstr "Kullanıcı (normal)"
 
@@ -3751,39 +3804,39 @@ msgstr "Kullanıcı komutları"
 msgid "User favorite list:"
 msgstr "Kullanıcı favori listesi:"
 
-#: ../src/settingsdialog.cc:1414
+#: ../src/settingsdialog.cc:1416
 msgid "User firewall (dc)"
 msgstr "Kullanıcı güvenlik duvarı (dc)"
 
-#: ../src/settingsdialog.cc:1418
+#: ../src/settingsdialog.cc:1420
 msgid "User firewall (normal)"
 msgstr "Kullanıcı güvenlik duvarı (normal)"
 
-#: ../src/hub.cc:2055
+#: ../src/hub.cc:2059
 msgid "User list show/hide"
 msgstr "Kullanıcı listesini göster/sakla"
 
-#: ../src/hub.cc:2932 ../src/hub.cc:2952
+#: ../src/hub.cc:2936 ../src/hub.cc:2956
 msgid "User not found"
 msgstr "Kullanıcı bulunamadı"
 
-#: ../src/settingsdialog.cc:1416
+#: ../src/settingsdialog.cc:1418
 msgid "User operator (dc)"
 msgstr "Operatör"
 
-#: ../src/settingsdialog.cc:1420
+#: ../src/settingsdialog.cc:1422
 msgid "User operator (normal)"
 msgstr "Kullanıcı operatörü (normal) "
 
-#: ../src/settingsdialog.cc:1415
+#: ../src/settingsdialog.cc:1417
 msgid "User operator firewall (dc)"
 msgstr "Kullanıcı operatörü güvenlik duvarı (dc) "
 
-#: ../src/settingsdialog.cc:1419
+#: ../src/settingsdialog.cc:1421
 msgid "User operator firewall (normal)"
 msgstr "Kullanıcı operatörü güvenlik duvarı (normal)"
 
-#: ../src/privatemessage.cc:1379
+#: ../src/privatemessage.cc:1383
 msgid "User went offline"
 msgstr "Kullanıcı çevimdışına gitti"
 
@@ -3808,12 +3861,22 @@ msgid ""
 "Using:\n"
 "  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n"
 "  eiskaltdcpp-gtk <Key>\n"
-"EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC protocol.\n"
+"EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC "
+"protocol.\n"
 "\n"
 "Keys:\n"
 "  -h, --help\t Show this message\n"
 "  -V, --version\t Show version string\n"
-msgstr "Kullanılan:\neiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\neiskaltdcpp-gtk <Anahtar>\nEiskaltDC++, Direct Connect ve ADC protokollerini kullanan bir çapraz platform programıdır.\n\nAnahtarlar:\n-h, --help\t\tBu mesajı göster\n-V, --version\t\tSürümü göster\n"
+msgstr ""
+"Kullanılan:\n"
+"eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n"
+"eiskaltdcpp-gtk <Anahtar>\n"
+"EiskaltDC++, Direct Connect ve ADC protokollerini kullanan bir çapraz "
+"platform programıdır.\n"
+"\n"
+"Anahtarlar:\n"
+"-h, --help\t\tBu mesajı göster\n"
+"-V, --version\t\tSürümü göster\n"
 
 #: ../src/sharebrowser.cc:91 ../src/sharebrowser.cc:369
 msgid "Video"
@@ -3823,11 +3886,11 @@ msgstr "Video"
 msgid "Vietnamese"
 msgstr "Vietnamca"
 
-#: ../src/mainwindow.cc:277
+#: ../src/mainwindow.cc:278
 msgid "Vietnamese translation\n"
 msgstr "Vietnamca tercüme\n"
 
-#: ../src/settingsdialog.cc:1119
+#: ../src/settingsdialog.cc:1121
 msgid "View status messages in main chat"
 msgstr "Durum mesajlarını ana sohbette görüntüle"
 
@@ -3847,12 +3910,12 @@ msgstr "Tamamlanan indirmelerin listesini görüntüle"
 msgid "View the list of finished uploads"
 msgstr "Tamamlanan göndermelerin listesini görüntüle"
 
-#: ../src/settingsdialog.cc:1032 ../src/settingsdialog.cc:3807
-#: ../src/settingsdialog.cc:3876
+#: ../src/settingsdialog.cc:1032 ../src/settingsdialog.cc:3809
+#: ../src/settingsdialog.cc:3878
 msgid "Virtual Name"
 msgstr "Sanal İsim"
 
-#: ../src/settingsdialog.cc:3100
+#: ../src/settingsdialog.cc:3102
 msgid "Virtual name"
 msgstr "Sanal isim"
 
@@ -3863,7 +3926,8 @@ msgstr "Bekliyor (saniye)"
 #: ../src/hub.cc:559
 msgid ""
 "Waiting for input password (don't remove /password before your password)"
-msgstr "Parola girdisi bekleniyor (parolanızdan önce /password unsurunu kaldırmayın)"
+msgstr ""
+"Parola girdisi bekleniyor (parolanızdan önce /password unsurunu kaldırmayın)"
 
 #: ../src/transfers.cc:583
 msgid "Waiting for slot"
@@ -3877,7 +3941,7 @@ msgstr "Tekrar deneme bekleniyor"
 msgid "Waiting:"
 msgstr "Bekliyor:"
 
-#: ../src/mainwindow.cc:398
+#: ../src/mainwindow.cc:401
 msgid "Welcome to "
 msgstr "Hoş geldiniz"
 
@@ -3905,7 +3969,7 @@ msgstr "Xine oynatıcı"
 msgid "Yes"
 msgstr "Evet"
 
-#: ../src/settingsdialog.cc:3869
+#: ../src/settingsdialog.cc:3871
 msgid "[HIDDEN SHARE] "
 msgstr "[GİZLİ PAYLAŞIM]"
 
@@ -4138,7 +4202,7 @@ msgstr "_Kullanıcı komutları"
 msgid "_Widgets"
 msgstr "_Widgetler"
 
-#: ../src/hub.cc:3166
+#: ../src/hub.cc:3170
 msgid "bad image"
 msgstr "kötü resim"
 
@@ -4146,11 +4210,11 @@ msgstr "kötü resim"
 msgid "default"
 msgstr "varsayılan"
 
-#: ../src/settingsdialog.cc:2510
+#: ../src/settingsdialog.cc:2512
 msgid "default icons"
 msgstr "varsayılan ikonlar"
 
-#: ../src/settingsdialog.cc:2542
+#: ../src/settingsdialog.cc:2544
 msgid "default theme"
 msgstr "varsayılan tema"
 
@@ -4158,12 +4222,12 @@ msgstr "varsayılan tema"
 msgid "eMail"
 msgstr "e-posta"
 
-#: ../src/settingsdialog.cc:2775
+#: ../src/settingsdialog.cc:2777
 #, c-format
 msgid "eiskaltdcpp-gtk: load theme %s...\n"
 msgstr "eiskaltdcpp-gtk: %s temasını yükle...\n"
 
-#: ../src/mainwindow.cc:2339
+#: ../src/mainwindow.cc:2342
 msgid "file list from "
 msgstr "şundan dosya listesi"
 
@@ -4175,15 +4239,11 @@ msgstr "şundan"
 msgid "from Coral"
 msgstr "Coral'den"
 
-#: ../src/mainwindow.cc:384
-msgid "http://github.com/eiskaltdcpp/eiskaltdcpp/raw/master/ChangeLog.txt"
-msgstr "http://github.com/eiskaltdcpp/eiskaltdcpp/raw/master/ChangeLog.txt"
-
 #: ../ui/settingsdialog.ui:5129
 msgid "in program"
 msgstr "programda"
 
-#: ../src/hub.cc:3157
+#: ../src/hub.cc:3161
 msgid "loading error"
 msgstr "yükleme hatası"
 
@@ -4191,25 +4251,25 @@ msgstr "yükleme hatası"
 msgid "none"
 msgstr "boş"
 
-#: ../src/privatemessage.cc:977 ../src/hub.cc:2004
+#: ../src/privatemessage.cc:979 ../src/hub.cc:2006
 msgid "project home: "
 msgstr "proje sayfası:"
 
-#: ../src/privatemessage.cc:996 ../src/hub.cc:2023
+#: ../src/privatemessage.cc:1000 ../src/hub.cc:2027
 msgid "ratio: %1% (uploads: %2%, downloads: %3% )"
 msgstr "oran:  %1% (göndermeler: %2%, indirmeler: %3% )"
 
-#: ../src/treeview.cc:211 ../src/mainwindow.cc:2373 ../src/mainwindow.cc:2375
+#: ../src/treeview.cc:211 ../src/mainwindow.cc:2376 ../src/mainwindow.cc:2378
 #: ../src/hashdialog.cc:73 ../ui/settingsdialog.ui:3522
 #: ../ui/settingsdialog.ui:3538 ../ui/settingsdialog.ui:3582
 msgid "s"
 msgstr "s"
 
-#: ../src/settingsdialog.cc:1494
+#: ../src/settingsdialog.cc:1496
 msgid "searchADL"
 msgstr "ADLara"
 
-#: ../src/settingsdialog.cc:3167 ../src/settingsdialog.cc:3294
+#: ../src/settingsdialog.cc:3169 ../src/settingsdialog.cc:3296
 msgid "selected style failed"
 msgstr "seçilen biçem başarısız oldu"
 
@@ -4232,3 +4292,6 @@ msgstr "üst/bekliyor/dördül:"
 #: ../src/searchspy.cc:298 ../src/searchspy.cc:366
 msgid "waiting..."
 msgstr "bekliyor..."
+
+#~ msgid "http://github.com/eiskaltdcpp/eiskaltdcpp/raw/master/ChangeLog.txt"
+#~ msgstr "http://github.com/eiskaltdcpp/eiskaltdcpp/raw/master/ChangeLog.txt"
