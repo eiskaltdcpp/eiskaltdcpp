@@ -2698,6 +2698,8 @@ void MainWindow::slotAboutClient() {
         QString("<br/>")+
         QString("&nbsp; 2010-2015 <a href=\"mailto:tehnick-8@mail.ru\">Boris Pek</a> aka Tehnick<br/>")+
         tr("&nbsp;&nbsp;&nbsp; (Debian/Ubuntu maintainer and developer since version 1.89.0)<br/>")+
+        tr("&nbsp;&nbsp;&nbsp; (translations coordinator since version 2.0.1)<br/>")+
+        tr("&nbsp;&nbsp;&nbsp; (release manager since version 2.0.3)<br/>")+
         QString("<br/>")+
         QString("&nbsp; 2010-2015 <a href=\"mailto:pavelvat@gmail.com\">Pavel Vatagin</a><br/>")+
         tr("&nbsp;&nbsp;&nbsp; (MS Windows maintainer and developer since version 2.2.4)<br/>")+
@@ -2789,6 +2791,9 @@ void MainWindow::slotAboutClient() {
         QString("<br/>")+
         tr("Swedish (Sweden) translation<br/>")+
         QString("&nbsp;&nbsp;&nbsp; 2014-2015 <a href=\"mailto:sopor@hotmail.com\">Sopor</a><br/>")+
+        QString("<br/>")+
+        tr("Turkish translation<br/>")+
+        QString("&nbsp;&nbsp;&nbsp; 2015 <a href=\"https://www.transifex.com/user/profile/mauron/\">mauron</a><br/>")+
         QString("<br/>")
         );
 

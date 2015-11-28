@@ -283,6 +283,9 @@ MainWindow::MainWindow():
         string("\n")+
         _("Swedish (Sweden) translation\n")+
         string("  2014-2015 Sopor <sopor@hotmail.com>\n")+
+        string("\n")+
+        _("Turkish translation\n")+
+        string("  2015 mauron <https://www.transifex.com/user/profile/mauron/>\n")+
         string("\n");
     gtk_about_dialog_set_translator_credits(GTK_ABOUT_DIALOG(getWidget("aboutDialog")),
         (const gchar *)translator_credits.c_str());
