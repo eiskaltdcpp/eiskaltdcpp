@@ -2410,12 +2410,12 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="2701"/>
         <source>&amp;nbsp;&amp;nbsp;&amp;nbsp; (translations coordinator since version 2.0.1)&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;nbsp;&amp;nbsp;&amp;nbsp; (координатор переводов с версии 2.0.1)&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2702"/>
         <source>&amp;nbsp;&amp;nbsp;&amp;nbsp; (release manager since version 2.0.3)&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;nbsp;&amp;nbsp;&amp;nbsp; (менеджер релизов с версии 2.0.3)&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2705"/>
@@ -2440,7 +2440,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="2715"/>
         <source>&amp;nbsp;&amp;nbsp;&amp;nbsp; (tiny updates of the logo)&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;nbsp;&amp;nbsp;&amp;nbsp; (небольшие обновления логотипа)&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2722"/>
@@ -2550,7 +2550,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="2795"/>
         <source>Turkish translation&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Турецкий перевод</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="3028"/>
@@ -3502,7 +3502,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="97"/>
         <source>Turkish</source>
-        <translation type="unfinished"></translation>
+        <translation>Турецкий</translation>
     </message>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="246"/>
@@ -6844,7 +6844,7 @@ them is usually available only to operators</source>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="294"/>
         <source>Cmd Debug</source>
-        <translation type="unfinished"></translation>
+        <translation>Консоль отладки</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="346"/>

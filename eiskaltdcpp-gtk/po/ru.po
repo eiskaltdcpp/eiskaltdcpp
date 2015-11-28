@@ -6,14 +6,14 @@
 # Translators:
 # Boris Pek <tehnick-8@mail.ru>, 2012.
 # Boris Pek <tehnick-8@yandex.ru>, 2012-2014.
-# Boris Pek <tehnick-8@yandex.ru>, 2014.
+# Boris Pek <tehnick-8@yandex.ru>, 2014, 2015.
 # Вячеслав Третьяков <tret2003@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: https://github.com/eiskaltdcpp/eiskaltdcpp/issues\n"
 "POT-Creation-Date: 2015-11-28 22:15+0300\n"
-"PO-Revision-Date: 2014-11-09 22:01+0300\n"
+"PO-Revision-Date: 2015-11-28 22:37+0300\n"
 "Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
@@ -21,9 +21,9 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "language/ru/)\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Lokalize 1.5\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<"
+"=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Lokalize 2.0\n"
 
 #: ../src/privatemessage.cc:565 ../src/privatemessage.cc:644 ../src/hub.cc:1065
 #: ../src/hub.cc:1144
@@ -1232,7 +1232,7 @@ msgid "Czech translation\n"
 msgstr "Чешский перевод\n"
 
 #: ../src/mainwindow.cc:184
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "DC++ Client based on the source code of FreeDC++ and LinuxDC++\n"
 "\n"
@@ -1241,7 +1241,7 @@ msgid ""
 msgstr ""
 "Клиент основан на исходном коде FreeDC++ и LinuxDC++\n"
 "\n"
-"Версия EiskaltDC++: %s (%s)\n"
+"Версия EiskaltDC++: %s\n"
 "Версия ядра DC++: %s"
 
 #: ../ui/cmddebug.ui:99
@@ -3578,12 +3578,11 @@ msgstr "Путь к довер. сертиф."
 
 #: ../src/settingsdialog.cc:1102
 msgid "Turkish"
-msgstr ""
+msgstr "Турецкий"
 
 #: ../src/mainwindow.cc:287
-#, fuzzy
 msgid "Turkish translation\n"
-msgstr "Польский перевод\n"
+msgstr "Турецкий перевод\n"
 
 #: ../src/sharebrowser.cc:86 ../src/sharebrowser.cc:334
 #: ../src/sharebrowser.cc:355 ../src/search.cc:102 ../src/search.cc:656
