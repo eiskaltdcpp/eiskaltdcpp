@@ -1,24 +1,24 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR EiskaltDC++ team
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Translators:
 # Translators:
 # Translators:
+# mauron, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: https://github.com/eiskaltdcpp/eiskaltdcpp/issues\n"
 "POT-Creation-Date: 2015-11-28 22:15+0300\n"
-"PO-Revision-Date: 2015-08-12 10:23+0000\n"
+"PO-Revision-Date: 2015-11-28 20:22+0000\n"
 "Last-Translator: mauron\n"
-"Language-Team: Turkish (http://www.transifex.com/tehnick/eiskaltdcpp/"
-"language/tr/)\n"
-"Language: tr\n"
+"Language-Team: Turkish (http://www.transifex.com/tehnick/eiskaltdcpp/language/tr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: tr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: ../SearchManager.cpp:36
@@ -126,30 +126,26 @@ msgstr "En iyi bağlanabilirlik ayarları belirleniyor..."
 
 #: ../ConnectivityManager.cpp:85
 msgid ""
-"Unable to open %1% port(s); connectivity settings must be configured manually"
+"Unable to open %1% port(s); connectivity settings must be configured "
+"manually"
 msgstr "%1% port açılamadı, bağlantı ayarları elle ayarlanmalıdır"
 
 #: ../ConnectivityManager.cpp:95
 msgid ""
 "Public IP address detected, selecting active mode with direct connection"
-msgstr ""
-"Kamu IP adresi tespit edildi, doğrudan bağlantı ile etkin kip seçiliyor"
+msgstr "Kamu IP adresi tespit edildi, doğrudan bağlantı ile etkin kip seçiliyor"
 
 #: ../ConnectivityManager.cpp:102
 msgid ""
 "Local network with possible NAT detected, trying to map the ports using "
 "UPnP..."
-msgstr ""
-"Muhtemel NAT ve yerel ağ tespit edildi, portlar UPnP ile haritalanmaya "
-"çalışılıyor..."
+msgstr "Muhtemel NAT ve yerel ağ tespit edildi, portlar UPnP ile haritalanmaya çalışılıyor..."
 
 #: ../ConnectivityManager.cpp:130
 msgid ""
 "Automatic setup of active mode has failed. You may want to set up your "
 "connection manually for better connectivity"
-msgstr ""
-"Etkin kipin otomatik kurulması başarısız oldu. Daha iyi bağlantı için "
-"bağlantınızı elle ayarlamak isteyebilirsiniz"
+msgstr "Etkin kipin otomatik kurulması başarısız oldu. Daha iyi bağlantı için bağlantınızı elle ayarlamak isteyebilirsiniz"
 
 #: ../ConnectivityManager.cpp:142
 msgid "Transfer (TCP)"
@@ -248,9 +244,7 @@ msgstr "Hedef dosya ismi çok uzun"
 msgid ""
 "Invalid target file (missing directory, check default download directory "
 "setting)"
-msgstr ""
-"Geçersiz hedef dosya (eksik klasör, varsayılan indirme klasörü ayarını "
-"kontrol edin)"
+msgstr "Geçersiz hedef dosya (eksik klasör, varsayılan indirme klasörü ayarını kontrol edin)"
 
 #: ../QueueManager.cpp:864
 msgid "File already exists at the target location"
@@ -274,9 +268,7 @@ msgstr "%1%, %2% (%3%) konumuna taşınamadı; %4% olarak yeniden adlandırıld�
 
 #: ../QueueManager.cpp:1208
 msgid "Unable to move %1% to %2% (%3%) nor to rename to %4% (%5%)"
-msgstr ""
-"%1%, %2% (%3%) konumuna taşınamadı ve %4% (%5%) olarak yeniden "
-"adlandırılamadı"
+msgstr "%1%, %2% (%3%) konumuna taşınamadı ve %4% (%5%) olarak yeniden adlandırılamadı"
 
 #: ../QueueManager.cpp:1403
 msgid "Unable to open filelist: %1%"
@@ -287,9 +279,9 @@ msgid "%1%: Matched %2% file"
 msgstr "%1%: %2% dosya ile eşleşti"
 
 #: ../QueueManager.cpp:1796
-msgid "Target path for this item is not available: %1%; pause this queue item."
-msgstr ""
-"Bu unsur için hedef yol mevcut değildir: %1%; bu kuyruk unsurunu duraklat."
+msgid ""
+"Target path for this item is not available: %1%; pause this queue item."
+msgstr "Bu unsur için hedef yol mevcut değildir: %1%; bu kuyruk unsurunu duraklat."
 
 #: ../QueueManager.cpp:2035 ../QueueManager.cpp:2044
 msgid "CRC32 inconsistency (SFV-Check)"
@@ -301,9 +293,7 @@ msgstr "%1% : %2% dosya ile eşleşti"
 
 #: ../AdcHub.cpp:156
 msgid "%1% (%2%) has same CID {%3%} as %4% (%5%), ignoring"
-msgstr ""
-"%1% (%2%) unsurunun {%3%} CID değeri %4% (%5%) unsuruyla aynı, görmezden "
-"geliniyor"
+msgstr "%1% (%2%) unsurunun {%3%} CID değeri %4% (%5%) unsuruyla aynı, görmezden geliniyor"
 
 #: ../AdcHub.cpp:228
 msgid "Failed to negotiate base protocol"
@@ -313,9 +303,7 @@ msgstr "Temel protokol görüşmesi başarısız oldu"
 msgid ""
 "Hub probably uses an old version of ADC, please encourage the owner to "
 "upgrade"
-msgstr ""
-"Hub muhtemelen eski bir ADC sürümü kullanıyor, lütfen sahibini güncellemeye "
-"teşvik edin"
+msgstr "Hub muhtemelen eski bir ADC sürümü kullanıyor, lütfen sahibini güncellemeye teşvik edin"
 
 #: ../AdcHub.cpp:305
 msgid "%1% was kicked by %2%: %3%"
@@ -406,21 +394,16 @@ msgid " DHT Port (%1% UDP)"
 msgstr "DHT Portu (%1% UDP)"
 
 #: ../UPnPManager.cpp:111
-#, fuzzy
 msgid ""
-"Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%, DHT: %4%), "
-"mapped using the %5% interface"
-msgstr ""
-"Başarıyla port haritalama yapıldı (TCP: %1%, UDP: %2%, TLS: %3%), %4% "
-"arayüzü kullanılarak haritalandı"
+"Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%, DHT: %4%),"
+" mapped using the %5% interface"
+msgstr "Başarıyla port haritalama yapıldı (TCP: %1%, UDP: %2%, TLS: %3%, DHT: %4%), %5% arayüzü kullanılarak haritalandı"
 
 #: ../UPnPManager.cpp:113 ../UPnPManager.cpp:115
 msgid ""
 "Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%), mapped "
 "using the %4% interface"
-msgstr ""
-"Başarıyla port haritalama yapıldı (TCP: %1%, UDP: %2%, TLS: %3%), %4% "
-"arayüzü kullanılarak haritalandı"
+msgstr "Başarıyla port haritalama yapıldı (TCP: %1%, UDP: %2%, TLS: %3%), %4% arayüzü kullanılarak haritalandı"
 
 #: ../UPnPManager.cpp:127
 msgid "Failed to get external IP"
@@ -607,17 +590,13 @@ msgstr "Geçici dosyanın paylaşımını atla: %1% (Boyut: %2%)"
 msgid ""
 "Duplicate file will not be shared: %1% (Size: %2% B) Dupe matched against: "
 "%3%"
-msgstr ""
-"Çift dosyanın ikinci nüshası paylaşılmayacaktır: %1% (Boyut: %2% B) Çift "
-"şununla eşleşti: %3%"
+msgstr "Çift dosyanın ikinci nüshası paylaşılmayacaktır: %1% (Boyut: %2% B) Çift şununla eşleşti: %3%"
 
 #: ../ShareManager.cpp:793
 msgid ""
-"File list refresh in progress, please wait for it to finish before trying to "
-"refresh again"
-msgstr ""
-"Dosya listesinin tazelenmesi sürmektedir, tekrar tazelemeden lütfen bu "
-"işlemin bitmesini bekleyin"
+"File list refresh in progress, please wait for it to finish before trying to"
+" refresh again"
+msgstr "Dosya listesinin tazelenmesi sürmektedir, tekrar tazelemeden lütfen bu işlemin bitmesini bekleyin"
 
 #: ../ShareManager.cpp:814
 msgid "File list refresh failed: %1%"
@@ -683,22 +662,17 @@ msgstr "SOCKS sunucusu kimlik doğrulama gerektiriyor"
 
 #: ../Socket.cpp:316
 msgid "The socks server doesn't support login / password authentication"
-msgstr ""
-"SOCKS sunucusu kullanıcı ismi / parola ile kimlik doğrulamayı desteklemiyor"
+msgstr "SOCKS sunucusu kullanıcı ismi / parola ile kimlik doğrulamayı desteklemiyor"
 
 #: ../Socket.cpp:330 ../Socket.cpp:334
 msgid "Socks server authentication failed (bad login / password?)"
-msgstr ""
-"SOCKS sunucusunda kimlik doğrulama başarısız oldu (yanlış rumuz / parola "
-"olmasın?)"
+msgstr "SOCKS sunucusunda kimlik doğrulama başarısız oldu (yanlış rumuz / parola olmasın?)"
 
 #: ../Socket.cpp:471
 msgid ""
 "Failed to set up the socks server for UDP relay (check socks address and "
 "port)"
-msgstr ""
-"UDP geçişi için SOCKS sunucu kurulumu başarısız oldu (SOCKS adresini ve "
-"portunu kontrol edin)"
+msgstr "UDP geçişi için SOCKS sunucu kurulumu başarısız oldu (SOCKS adresini ve portunu kontrol edin)"
 
 #: ../CryptoManager.cpp:162
 msgid "No private key file chosen"
@@ -747,11 +721,11 @@ msgid "TTH inconsistency"
 msgstr "TTH tutarsızlığı"
 
 #~ msgid ""
-#~ "This hub is trying to use your client to spam %1%, please urge hub owner "
-#~ "to fix this"
+#~ "This hub is trying to use your client to spam %1%, please urge hub owner to "
+#~ "fix this"
 #~ msgstr ""
-#~ "This hub is trying to use your client to spam %1%, please urge hub owner "
-#~ "to fix this"
+#~ "This hub is trying to use your client to spam %1%, please urge hub owner to "
+#~ "fix this"
 
 #~ msgid "Error: segv parser :D"
 #~ msgstr "Error: segv parser :D"
