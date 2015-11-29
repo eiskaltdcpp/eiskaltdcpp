@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR EiskaltDC++ team
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Translators:
 # Translators:
@@ -11,18 +11,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: https://github.com/eiskaltdcpp/eiskaltdcpp/issues\n"
-"POT-Creation-Date: 2015-11-28 22:15+0300\n"
+"POT-Creation-Date: 2015-11-30 00:28+0300\n"
 "PO-Revision-Date: 2015-11-28 20:25+0000\n"
 "Last-Translator: mauron\n"
-"Language-Team: Turkish (http://www.transifex.com/tehnick/eiskaltdcpp/language/tr/)\n"
+"Language-Team: Turkish (http://www.transifex.com/tehnick/eiskaltdcpp/"
+"language/tr/)\n"
+"Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: tr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: ../src/privatemessage.cc:565 ../src/privatemessage.cc:644
-#: ../src/hub.cc:1065 ../src/hub.cc:1144
+#: ../src/privatemessage.cc:565 ../src/privatemessage.cc:644 ../src/hub.cc:1065
+#: ../src/hub.cc:1144
 msgid " *** Emoticons limit"
 msgstr "*** Gülümseme ikonları sınırı"
 
@@ -116,7 +117,15 @@ msgid ""
 "%% a literal '%' character.\n"
 "\n"
 "see man strftime for details."
-msgstr "%a kısaltılmış hafta günü ismi.\n%b kısaltılmış ay ismi.\n%H 24 saat formatında bir ondalık sayı olarak saat.\n%M ondalık sayı olarak dakika (00 ila 59).\n%S ondalık sayı olarak saniye (00 ila 59).\n%% kelimesi kelimesine bir '%' karakteri.\n\nAyrıntılar için man strftime sayfasına bakınız."
+msgstr ""
+"%a kısaltılmış hafta günü ismi.\n"
+"%b kısaltılmış ay ismi.\n"
+"%H 24 saat formatında bir ondalık sayı olarak saat.\n"
+"%M ondalık sayı olarak dakika (00 ila 59).\n"
+"%S ondalık sayı olarak saniye (00 ila 59).\n"
+"%% kelimesi kelimesine bir '%' karakteri.\n"
+"\n"
+"Ayrıntılar için man strftime sayfasına bakınız."
 
 #: ../src/hub.cc:2373
 msgid "': type /help for a list of available commands"
@@ -278,9 +287,11 @@ msgstr ": mevcut komutların listesi için /help yazınız"
 
 #: ../ui/settingsdialog.ui:7259
 msgid ""
-"<a "
-"href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html\">Help</a>"
-msgstr "<a href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html\">Yardım</a>"
+"<a href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html"
+"\">Help</a>"
+msgstr ""
+"<a href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html"
+"\">Yardım</a>"
 
 #: ../ui/settingsdialog.ui:3855
 msgid "<b>Add player</b>"
@@ -440,7 +451,9 @@ msgstr "<b>Yeni isim</b>"
 
 #: ../ui/settingsdialog.ui:9258 ../ui/publichubs.ui:151
 msgid "<b>Note:</b> Edit urls in the list by clicking them once when selected"
-msgstr "<b>Not:</b> listedeki bağlantıları seçildiklerinde üzerlerine tıklayarak düzenleyin"
+msgstr ""
+"<b>Not:</b> listedeki bağlantıları seçildiklerinde üzerlerine tıklayarak "
+"düzenleyin"
 
 #: ../ui/settingsdialog.ui:5545
 msgid "<b>Notify</b>"
@@ -570,7 +583,7 @@ msgstr "<b>Ne yapmak istersiniz?</b>"
 msgid "<b>Window Options</b>"
 msgstr "<b>Pencere Seçenekleri</b>"
 
-#: ../src/mainwindow.cc:2352
+#: ../src/mainwindow.cc:2353
 msgid "<b>file:</b> "
 msgstr "<b>dosya:</b>"
 
@@ -626,7 +639,10 @@ msgstr "Tamamlanan dosyaları hemen paylaşıma ekle (paylaşılıyorsa)"
 msgid ""
 "Add rule 192.168.1.0/23 where direction incoming and action is allow and "
 "192.168.6.0/24 where direction is incoming or outcoming and action is drop"
-msgstr "Yönün içeri ve etkinliğin kabul et olduğu 192.168.1.0/23 kuralıyla yönün içeri ya da dışarı olduğu ve etkinliğin at olduğu 192.168.6.0/24 kurallarını ekle"
+msgstr ""
+"Yönün içeri ve etkinliğin kabul et olduğu 192.168.1.0/23 kuralıyla yönün "
+"içeri ya da dışarı olduğu ve etkinliğin at olduğu 192.168.6.0/24 kurallarını "
+"ekle"
 
 #: ../ui/mainwindow.ui:288
 msgid "Add this file to your download queue"
@@ -694,11 +710,13 @@ msgstr "Aliaslar bulunamadı"
 
 #: ../src/settingsdialog.cc:1732
 msgid "Allow TLS connections to clients without trusted certificate"
-msgstr "Güvenilen sertifikası bulunmayan istemcilerle TLS bağlantılarına izin ver"
+msgstr ""
+"Güvenilen sertifikası bulunmayan istemcilerle TLS bağlantılarına izin ver"
 
 #: ../src/settingsdialog.cc:1731
 msgid "Allow TLS connections to hubs without trusted certificate"
-msgstr "Güvenilen sertifikası bulunmayan hub'lar ile TLS bağlantılarına izin ver"
+msgstr ""
+"Güvenilen sertifikası bulunmayan hub'lar ile TLS bağlantılarına izin ver"
 
 #: ../src/settingsdialog.cc:1666
 msgid "Allow few connections from one IP"
@@ -793,7 +811,9 @@ msgstr "Küçültüldüğünde otomatik uzakta (ve büyültüldüğünde geri ge
 
 #: ../src/settingsdialog.cc:987
 msgid "Auto-drop slow sources for all queue items (except filelists)"
-msgstr "Yavaş kaynakları tüm kuyruk unsurları için otomatik at (dosya listesi dışında)"
+msgstr ""
+"Yavaş kaynakları tüm kuyruk unsurları için otomatik at (dosya listesi "
+"dışında)"
 
 #: ../src/settingsdialog.cc:1652
 msgid "Automatically disconnect users who leave the hub"
@@ -851,7 +871,7 @@ msgstr "Arka Renk"
 msgid "Basque"
 msgstr "Baskça"
 
-#: ../src/mainwindow.cc:253
+#: ../src/mainwindow.cc:254
 msgid "Basque translation\n"
 msgstr "Baskça tercüme\n"
 
@@ -915,7 +935,7 @@ msgstr "Tara..."
 msgid "Bulgarian"
 msgstr "Bulgarca"
 
-#: ../src/mainwindow.cc:256
+#: ../src/mainwindow.cc:257
 msgid "Bulgarian translation\n"
 msgstr "Bulgarca tercüme\n"
 
@@ -1033,7 +1053,7 @@ msgstr "Her şu kadarda kontrol et:"
 msgid "Chinese (China)"
 msgstr "Çince (Çin)"
 
-#: ../src/mainwindow.cc:281
+#: ../src/mainwindow.cc:282
 msgid "Chinese (China) translation\n"
 msgstr "Çince (Çin) tercüme\n"
 
@@ -1041,8 +1061,8 @@ msgstr "Çince (Çin) tercüme\n"
 msgid "Choose a File"
 msgstr "Bir Dosya Seç"
 
-#: ../src/privatemessage.cc:1302 ../src/hub.cc:2655 ../src/mainwindow.cc:1334
-#: ../src/mainwindow.cc:1402 ../ui/search.ui:7 ../ui/sharebrowser.ui:7
+#: ../src/privatemessage.cc:1302 ../src/hub.cc:2655 ../src/mainwindow.cc:1335
+#: ../src/mainwindow.cc:1403 ../ui/search.ui:7 ../ui/sharebrowser.ui:7
 #: ../ui/settingsdialog.ui:8510
 msgid "Choose a directory"
 msgstr "Bir klasör seç"
@@ -1185,7 +1205,7 @@ msgstr "Bağlanıyor..."
 msgid "Connection"
 msgstr "Bağlantı"
 
-#: ../src/mainwindow.cc:2296
+#: ../src/mainwindow.cc:2297
 msgid "Connectivity Manager: Warning"
 msgstr "Bağlantı Yöneticisi: İkaz"
 
@@ -1206,7 +1226,7 @@ msgstr "Ülke"
 msgid "Czech"
 msgstr "Çekçe"
 
-#: ../src/mainwindow.cc:262
+#: ../src/mainwindow.cc:263
 msgid "Czech translation\n"
 msgstr "Çekçe tercüme\n"
 
@@ -1217,7 +1237,11 @@ msgid ""
 "\n"
 "EiskaltDC++ version: %s\n"
 "DC++ core version: %s"
-msgstr "FreeDC++ ve LinuxDC++ kaynak koduna dayalı DC++ istemcisi\n\nEiskaltDC++ sürümü: %s\nDC++ çekirdeği sürümü: %s"
+msgstr ""
+"FreeDC++ ve LinuxDC++ kaynak koduna dayalı DC++ istemcisi\n"
+"\n"
+"EiskaltDC++ sürümü: %s\n"
+"DC++ çekirdeği sürümü: %s"
 
 #: ../ui/cmddebug.ui:99
 msgid "DETECTION"
@@ -1433,7 +1457,7 @@ msgstr "Şuraya indir..."
 msgid "Download whole director_y to..."
 msgstr "Tüm klas_örü şuraya indir..."
 
-#: ../src/mainwindow.cc:771
+#: ../src/mainwindow.cc:772
 msgid "Download: "
 msgstr "İndir:"
 
@@ -1535,7 +1559,7 @@ msgstr "Kullanıcı komutu için satır gir"
 msgid "Enter text to search for"
 msgstr "Aranacak metin gir"
 
-#: ../src/mainwindow.cc:1268
+#: ../src/mainwindow.cc:1269
 msgid "Enter value for "
 msgstr "Şunun için değer gir:"
 
@@ -1817,13 +1841,15 @@ msgstr "Dördül (boyut)"
 msgid ""
 "Frame size determines the width of the review, higher values affect "
 "performance"
-msgstr "Dördülün boyutu gözden geçirmenin genişliğini belirler, yüksek değerler performansı etkiler"
+msgstr ""
+"Dördülün boyutu gözden geçirmenin genişliğini belirler, yüksek değerler "
+"performansı etkiler"
 
 #: ../ui/searchspy.ui:313
 msgid "Frame:"
 msgstr "Dördül:"
 
-#: ../src/mainwindow.cc:2411
+#: ../src/mainwindow.cc:2412
 msgid "Free "
 msgstr "Boş"
 
@@ -1859,7 +1885,7 @@ msgstr "Sertifikaları oluştur"
 msgid "German"
 msgstr "Almanca"
 
-#: ../src/mainwindow.cc:265
+#: ../src/mainwindow.cc:266
 msgid "German translation\n"
 msgstr "Almanca tercüme\n"
 
@@ -1887,7 +1913,7 @@ msgstr "Ekstra oluk ver"
 msgid "Greek"
 msgstr "Yunanca"
 
-#: ../src/mainwindow.cc:271
+#: ../src/mainwindow.cc:272
 msgid "Greek translation\n"
 msgstr "Yunanca tercüme\n"
 
@@ -2124,7 +2150,7 @@ msgstr "Ip filtresi açık/kapalı"
 msgid "Italian"
 msgstr "İtalyanca"
 
-#: ../src/mainwindow.cc:274
+#: ../src/mainwindow.cc:275
 msgid "Italian translation\n"
 msgstr "İtalyanca tercüme\n"
 
@@ -2152,7 +2178,9 @@ msgstr "İndirilen dosyaları ve klasörleri kuyrukta tut"
 msgid ""
 "Keep duplicate files in your file list (duplicates never count towards your "
 "share size)"
-msgstr "Çift dosyaları dosya listesinde tut (çift dosyalar asla paylaşım boyutunuzda hesaplanmaz)"
+msgstr ""
+"Çift dosyaları dosya listesinde tut (çift dosyalar asla paylaşım boyutunuzda "
+"hesaplanmaz)"
 
 #: ../src/settingsdialog.cc:1651
 msgid "Keep filelists when exiting"
@@ -2202,7 +2230,7 @@ msgstr "Lua dosyası yükle"
 msgid "Loaded from cache: "
 msgstr "Tampondan yüklendi:"
 
-#: ../src/mainwindow.cc:2067
+#: ../src/mainwindow.cc:2068
 msgid "Loading file list"
 msgstr "Dosya listesi yükleniyor"
 
@@ -2266,11 +2294,11 @@ msgstr "En düşük"
 msgid "Magnet"
 msgstr "Magnet"
 
-#: ../src/mainwindow.cc:1395
+#: ../src/mainwindow.cc:1396
 msgid "Magnet Choice"
 msgstr "Magnet Seçmesi"
 
-#: ../src/mainwindow.cc:1325
+#: ../src/mainwindow.cc:1326
 msgid "Magnet Properties / Choice"
 msgstr "Magnet Özellikleri / Seçmesi"
 
@@ -2562,11 +2590,11 @@ msgstr "Not: bu seçeneklerin çoğu uygulamayı tekrar başlatmanızı gerektir
 
 #: ../ui/settingsdialog.ui:4022
 msgid "Note: New files are added to the share only once they've been hashed!"
-msgstr "Not: yeni dosyalar paylaşıma karma değerleri hesaplandıktan sonra eklenir!"
+msgstr ""
+"Not: yeni dosyalar paylaşıma karma değerleri hesaplandıktan sonra eklenir!"
 
 #: ../ui/settingsdialog.ui:2845
-msgid ""
-"Note; because of changing download speeds, this is not 100% accurate..."
+msgid "Note; because of changing download speeds, this is not 100% accurate..."
 msgstr "Not; değişen indirme hızları dolayısıyla bu %100 doğru değildir..."
 
 #: ../src/settingsdialog.cc:1341 ../ui/settingsdialog.ui:5883
@@ -2854,7 +2882,9 @@ msgstr "Dosya listesini tazele"
 
 #: ../src/settingsdialog.cc:1661
 msgid "Register with the OS to handle dchub:// and adc:// URL links"
-msgstr "İşletim Sistemi ile dchub:// ve adc:// URL bağlantılarını yönetmek için kayıt yap"
+msgstr ""
+"İşletim Sistemi ile dchub:// ve adc:// URL bağlantılarını yönetmek için "
+"kayıt yap"
 
 #: ../src/settingsdialog.cc:1662
 msgid "Register with the OS to handle magnet: URL links"
@@ -2866,7 +2896,8 @@ msgstr "Seçimi hatırla"
 
 #: ../src/downloadqueue.cc:1366
 msgid "Remote client does not fully support TTH - cannot download"
-msgstr "Uzaktaki istemci TTH değerini tamamıyla desteklemiyor - indirme yapılamaz"
+msgstr ""
+"Uzaktaki istemci TTH değerini tamamıyla desteklemiyor - indirme yapılamaz"
 
 #: ../ui/uploadqueue.ui:69 ../ui/adlsearch.ui:508 ../ui/settingsdialog.ui:4341
 #: ../ui/settingsdialog.ui:8406
@@ -3033,11 +3064,11 @@ msgstr "Renk Seç"
 msgid "Select Font"
 msgstr "Yazıtipi Seç"
 
-#: ../src/mainwindow.cc:2437
+#: ../src/mainwindow.cc:2438
 msgid "Select file to Get TTH"
 msgstr "TTH almak için dosya seç"
 
-#: ../src/mainwindow.cc:2030 ../ui/mainwindow.ui:809
+#: ../src/mainwindow.cc:2031 ../ui/mainwindow.ui:809
 msgid "Select filelist to browse"
 msgstr "Taranacak dosya listesi seç"
 
@@ -3087,20 +3118,23 @@ msgstr "Sırpça (Kiril) tercüme\n"
 msgid "Serbian (Latin)"
 msgstr "Sırpça (Latin)"
 
-#: ../src/mainwindow.cc:245
+#: ../src/mainwindow.cc:246
 msgid "Serbian (Latin) translation\n"
 msgstr "Sırpça (Latin) tercüme\n"
 
 #: ../src/hub.cc:2070
 msgid ""
-"Set Core option param in value (without value return current value of "
-"option)"
-msgstr "Çekirdek seçenek parametresini değerde ayarla (değersiz olursa seçeneğin güncel değerini verir)"
+"Set Core option param in value (without value return current value of option)"
+msgstr ""
+"Çekirdek seçenek parametresini değerde ayarla (değersiz olursa seçeneğin "
+"güncel değerini verir)"
 
 #: ../src/hub.cc:2069
 msgid ""
 "Set GUI option param in value (without value return current value of option)"
-msgstr "Grafik arayüz seçenek parametresini değerde ayarla (değersiz olursa seçeneğin güncel değerini verir)"
+msgstr ""
+"Grafik arayüz seçenek parametresini değerde ayarla (değersiz olursa "
+"seçeneğin güncel değerini verir)"
 
 #: ../ui/downloadqueue.ui:81 ../ui/downloadqueue.ui:215
 msgid "Set Priorit_y"
@@ -3115,9 +3149,10 @@ msgid "Set download limit image: "
 msgstr "İndirme sınırı resmini seç:"
 
 #: ../src/settingsdialog.cc:986
-msgid ""
-"Set lowest priority for newly added files larger than low priority size"
-msgstr "Yeni eklenen ve düşük öncelik boyutundan büyük dosyalar için en düşük önceliği ayarla"
+msgid "Set lowest priority for newly added files larger than low priority size"
+msgstr ""
+"Yeni eklenen ve düşük öncelik boyutundan büyük dosyalar için en düşük "
+"önceliği ayarla"
 
 #: ../ui/settingsdialog.ui:4054
 msgid "Share hidden files"
@@ -3150,8 +3185,8 @@ msgstr "Favoriler listesini göster"
 msgid "Show free space bar"
 msgstr "Boş alan çubuğunu göster"
 
-#: ../src/privatemessage.cc:1038 ../src/hub.cc:2053
-#: ../ui/privatemessage.ui:102 ../ui/hub.ui:111
+#: ../src/privatemessage.cc:1038 ../src/hub.cc:2053 ../ui/privatemessage.ui:102
+#: ../ui/hub.ui:111
 msgid "Show help"
 msgstr "Yardımı göster"
 
@@ -3227,12 +3262,11 @@ msgstr "Sinyal yöneticiler kuruldu.\n"
 #: ../src/downloadqueue.cc:74 ../src/downloadqueue.cc:93
 #: ../src/downloadqueue.cc:285 ../src/downloadqueue.cc:392
 #: ../src/sharebrowser.cc:85 ../src/sharebrowser.cc:110
-#: ../src/sharebrowser.cc:331 ../src/sharebrowser.cc:362
-#: ../src/transfers.cc:67 ../src/transfers.cc:548 ../src/transfers.cc:717
-#: ../src/transfers.cc:729 ../src/search.cc:103 ../src/search.cc:130
-#: ../src/search.cc:654 ../src/search.cc:737 ../src/search.cc:746
-#: ../src/search.cc:872 ../ui/search.ui:138 ../ui/search.ui:294
-#: ../ui/mainwindow.ui:118
+#: ../src/sharebrowser.cc:331 ../src/sharebrowser.cc:362 ../src/transfers.cc:67
+#: ../src/transfers.cc:548 ../src/transfers.cc:717 ../src/transfers.cc:729
+#: ../src/search.cc:103 ../src/search.cc:130 ../src/search.cc:654
+#: ../src/search.cc:737 ../src/search.cc:746 ../src/search.cc:872
+#: ../ui/search.ui:138 ../ui/search.ui:294 ../ui/mainwindow.ui:118
 msgid "Size"
 msgstr "Boyut"
 
@@ -3269,7 +3303,7 @@ msgstr "Oluklar"
 msgid "Slovak"
 msgstr "Slovakça"
 
-#: ../src/mainwindow.cc:259
+#: ../src/mainwindow.cc:260
 msgid "Slovak translation\n"
 msgstr "Slovakça tercüme\n"
 
@@ -3314,7 +3348,7 @@ msgstr "Kaynak çok yavaş"
 msgid "Spanish"
 msgstr "İspanyolca"
 
-#: ../src/mainwindow.cc:249
+#: ../src/mainwindow.cc:250
 msgid "Spanish translation\n"
 msgstr "İspanyolca tercüme\n"
 
@@ -3357,7 +3391,7 @@ msgstr "Durdur"
 msgid "Swedish (Sweden)"
 msgstr "İsveççe"
 
-#: ../src/mainwindow.cc:284
+#: ../src/mainwindow.cc:285
 msgid "Swedish (Sweden) translation\n"
 msgstr "İsveççe (İsveç) tercüme\n"
 
@@ -3423,7 +3457,9 @@ msgstr "Metin biçemi"
 msgid ""
 "The increase in waiting time increases the likelihood of adding to top, but "
 "reduces the dynamics (updating) frame"
-msgstr "Bekleme vaktindeki artış en üste ekleme ihtimalini arttırır, fakat bu dördülün dinamikliğini (güncellenmesini) azaltır"
+msgstr ""
+"Bekleme vaktindeki artış en üste ekleme ihtimalini arttırır, fakat bu "
+"dördülün dinamikliğini (güncellenmesini) azaltır"
 
 #: ../src/favoritehubs.cc:419
 msgid "The name and address fields are required"
@@ -3475,7 +3511,9 @@ msgstr "Şuna (seçilen kullanıcı için boş)"
 msgid ""
 "To start downloading file you need turn on auto search alternatives "
 "(Settings/Downloads/Queue)"
-msgstr "Dosyayı indirmeye başlamak için otomatik arama alternatiflerini etkinleştirmeniz gerekmektedir (Ayarlar/İndirmeler/Kuyruk)"
+msgstr ""
+"Dosyayı indirmeye başlamak için otomatik arama alternatiflerini "
+"etkinleştirmeniz gerekmektedir (Ayarlar/İndirmeler/Kuyruk)"
 
 #: ../ui/settingsdialog.ui:6193
 msgid "Toolbar"
@@ -3541,7 +3579,7 @@ msgstr "Güvenilen sertifikalar yolu"
 msgid "Turkish"
 msgstr "Türkçe"
 
-#: ../src/mainwindow.cc:287
+#: ../src/mainwindow.cc:288
 msgid "Turkish translation\n"
 msgstr "Türkçe tercüme\n"
 
@@ -3575,24 +3613,27 @@ msgstr "Bağlanılamadı: istenilen hub ile zaten bağlantı var"
 msgid "Unable to load file list: "
 msgstr "Dosya listesi yüklenemedi:"
 
-#: ../src/mainwindow.cc:2055
+#: ../src/mainwindow.cc:2056
 msgid "Unable to load file list: Invalid file list name"
 msgstr "Dosya listesi yüklenemedi: geçersiz dosya listesi ismi"
 
-#: ../src/mainwindow.cc:2294
+#: ../src/mainwindow.cc:2295
 msgid ""
-"Unable to open %1% port. Searching or file transfers will not work correctly"
-" until you change settings or turn off any application that might be using "
+"Unable to open %1% port. Searching or file transfers will not work correctly "
+"until you change settings or turn off any application that might be using "
 "that port."
-msgstr "%1% portu açılamadı. Aramalar ve dosya transferleri ayarları değiştirmediğiniz veya bu portu kullanan uygulamayı kapatmadığınız sürece doğru şekilde çalışamayacaktır."
+msgstr ""
+"%1% portu açılamadı. Aramalar ve dosya transferleri ayarları "
+"değiştirmediğiniz veya bu portu kullanan uygulamayı kapatmadığınız sürece "
+"doğru şekilde çalışamayacaktır."
 
 #: ../ui/settingsdialog.ui:2688
 msgid "Unfinished downloads directory"
 msgstr "Kısmi indirmeler klasörü"
 
 #: ../src/downloadqueue.cc:1298 ../src/downloadqueue.cc:1299
-#: ../src/WulforUtil.cc:332 ../src/WulforUtil.cc:334 ../src/mainwindow.cc:1094
-#: ../src/mainwindow.cc:1484
+#: ../src/WulforUtil.cc:332 ../src/WulforUtil.cc:334 ../src/mainwindow.cc:1095
+#: ../src/mainwindow.cc:1485
 msgid "Unknown"
 msgstr "Bilinmeyen"
 
@@ -3652,7 +3693,7 @@ msgstr "Gönderme hızı"
 msgid "Upload starting..."
 msgstr "Gönderme başlıyor..."
 
-#: ../src/mainwindow.cc:771
+#: ../src/mainwindow.cc:772
 msgid "Upload: "
 msgstr "Gönderme:"
 
@@ -3687,7 +3728,8 @@ msgstr "Gülümseme İkonları Kullan"
 
 #: ../src/settingsdialog.cc:1125
 msgid "Use OEM monospaced font for chat windows"
-msgstr "Sohbet pencereleri için bilgisayarın ölçeklendirilemez yazıtipini kullan"
+msgstr ""
+"Sohbet pencereleri için bilgisayarın ölçeklendirilemez yazıtipini kullan"
 
 #: ../ui/settingsdialog.ui:1684
 msgid "Use SOCKS5 server to resolve hostnames"
@@ -3715,7 +3757,9 @@ msgstr "Gülümseme ikonları kullan"
 
 #: ../src/settingsdialog.cc:1660
 msgid "Use fast hashing method (disable if you have problems with hashing)"
-msgstr "Hızlı karma değeri hesaplama metodunu kullan (hesapla sorun olursa devre dışı bırakın)"
+msgstr ""
+"Hızlı karma değeri hesaplama metodunu kullan (hesapla sorun olursa devre "
+"dışı bırakın)"
 
 #: ../src/settingsdialog.cc:1126
 msgid "Use magnet split"
@@ -3816,12 +3860,22 @@ msgid ""
 "Using:\n"
 "  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n"
 "  eiskaltdcpp-gtk <Key>\n"
-"EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC protocol.\n"
+"EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC "
+"protocol.\n"
 "\n"
 "Keys:\n"
 "  -h, --help\t Show this message\n"
 "  -V, --version\t Show version string\n"
-msgstr "Kullanılan:\neiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\neiskaltdcpp-gtk <Anahtar>\nEiskaltDC++, Direct Connect ve ADC protokollerini kullanan bir çapraz platform programıdır.\n\nAnahtarlar:\n-h, --help\t\tBu mesajı göster\n-V, --version\t\tSürümü göster\n"
+msgstr ""
+"Kullanılan:\n"
+"eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n"
+"eiskaltdcpp-gtk <Anahtar>\n"
+"EiskaltDC++, Direct Connect ve ADC protokollerini kullanan bir çapraz "
+"platform programıdır.\n"
+"\n"
+"Anahtarlar:\n"
+"-h, --help\t\tBu mesajı göster\n"
+"-V, --version\t\tSürümü göster\n"
 
 #: ../src/sharebrowser.cc:91 ../src/sharebrowser.cc:369
 msgid "Video"
@@ -3831,7 +3885,7 @@ msgstr "Video"
 msgid "Vietnamese"
 msgstr "Vietnamca"
 
-#: ../src/mainwindow.cc:278
+#: ../src/mainwindow.cc:279
 msgid "Vietnamese translation\n"
 msgstr "Vietnamca tercüme\n"
 
@@ -3871,7 +3925,8 @@ msgstr "Bekliyor (saniye)"
 #: ../src/hub.cc:559
 msgid ""
 "Waiting for input password (don't remove /password before your password)"
-msgstr "Parola girdisi bekleniyor (parolanızdan önce /password unsurunu kaldırmayın)"
+msgstr ""
+"Parola girdisi bekleniyor (parolanızdan önce /password unsurunu kaldırmayın)"
 
 #: ../src/transfers.cc:583
 msgid "Waiting for slot"
@@ -3885,7 +3940,7 @@ msgstr "Tekrar deneme bekleniyor"
 msgid "Waiting:"
 msgstr "Bekliyor:"
 
-#: ../src/mainwindow.cc:401
+#: ../src/mainwindow.cc:402
 msgid "Welcome to "
 msgstr "Hoş geldiniz"
 
@@ -4171,7 +4226,7 @@ msgstr "e-posta"
 msgid "eiskaltdcpp-gtk: load theme %s...\n"
 msgstr "eiskaltdcpp-gtk: %s temasını yükle...\n"
 
-#: ../src/mainwindow.cc:2342
+#: ../src/mainwindow.cc:2343
 msgid "file list from "
 msgstr "şundan dosya listesi"
 
@@ -4203,7 +4258,7 @@ msgstr "proje sayfası:"
 msgid "ratio: %1% (uploads: %2%, downloads: %3% )"
 msgstr "oran:  %1% (göndermeler: %2%, indirmeler: %3% )"
 
-#: ../src/treeview.cc:211 ../src/mainwindow.cc:2376 ../src/mainwindow.cc:2378
+#: ../src/treeview.cc:211 ../src/mainwindow.cc:2377 ../src/mainwindow.cc:2379
 #: ../src/hashdialog.cc:73 ../ui/settingsdialog.ui:3522
 #: ../ui/settingsdialog.ui:3538 ../ui/settingsdialog.ui:3582
 msgid "s"

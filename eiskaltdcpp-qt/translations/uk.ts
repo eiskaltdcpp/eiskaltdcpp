@@ -2466,92 +2466,92 @@ Favorite user</source>
         <translation>Сербський (кирилиця) переклад&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2751"/>
+        <location filename="../src/MainWindow.cpp" line="2752"/>
         <source>Serbian (Latin) translation&lt;br/&gt;</source>
         <translation>Сербський (латиниця) переклад&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2755"/>
+        <location filename="../src/MainWindow.cpp" line="2756"/>
         <source>Spanish translation&lt;br/&gt;</source>
         <translation>Iспанський переклад&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2759"/>
+        <location filename="../src/MainWindow.cpp" line="2760"/>
         <source>Basque translation&lt;br/&gt;</source>
         <translation>Баскiйський переклад&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2762"/>
+        <location filename="../src/MainWindow.cpp" line="2763"/>
         <source>Bulgarian translation&lt;br/&gt;</source>
         <translation>Болгарський переклад&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2765"/>
+        <location filename="../src/MainWindow.cpp" line="2766"/>
         <source>Slovak translation&lt;br/&gt;</source>
         <translation>Словацький переклад&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2768"/>
+        <location filename="../src/MainWindow.cpp" line="2769"/>
         <source>Czech translation&lt;br/&gt;</source>
         <translation>Чеський переклад&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2771"/>
+        <location filename="../src/MainWindow.cpp" line="2772"/>
         <source>German translation&lt;br/&gt;</source>
         <translation>Німецький переклад&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2776"/>
+        <location filename="../src/MainWindow.cpp" line="2777"/>
         <source>Greek translation&lt;br/&gt;</source>
         <translation>Грецький переклад&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2779"/>
+        <location filename="../src/MainWindow.cpp" line="2780"/>
         <source>Italian translation&lt;br/&gt;</source>
         <translation>Iталійський переклад&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2783"/>
+        <location filename="../src/MainWindow.cpp" line="2784"/>
         <source>Portuguese (Brazil) translation&lt;br/&gt;</source>
         <translation>Португальський (Бразилія)  переклад&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2786"/>
+        <location filename="../src/MainWindow.cpp" line="2787"/>
         <source>Vietnamese translation&lt;br/&gt;</source>
         <translation>В&apos;єтнамський переклад&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2789"/>
+        <location filename="../src/MainWindow.cpp" line="2790"/>
         <source>Chinese (China) translation&lt;br/&gt;</source>
         <translation>Китайський (Китайська) переклад&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2792"/>
+        <location filename="../src/MainWindow.cpp" line="2793"/>
         <source>Swedish (Sweden) translation&lt;br/&gt;</source>
         <translation>Шведський (Швеція) переклад&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2795"/>
+        <location filename="../src/MainWindow.cpp" line="2796"/>
         <source>Turkish translation&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="3028"/>
+        <location filename="../src/MainWindow.cpp" line="3029"/>
         <source>Additional</source>
         <translation>Додатковий</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="3029"/>
+        <location filename="../src/MainWindow.cpp" line="3030"/>
         <source>Suppress sound notifications</source>
         <translation>Подавляти звукові повідомлення</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="3030"/>
+        <location filename="../src/MainWindow.cpp" line="3031"/>
         <source>Suppress text notifications</source>
         <translation>Подавляти текстові повідомлення</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="3024"/>
+        <location filename="../src/MainWindow.cpp" line="3025"/>
         <source>Setup speed limits</source>
         <translation>Встановити обмеження швидкості</translation>
     </message>
@@ -2566,22 +2566,22 @@ Favorite user</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2835"/>
+        <location filename="../src/MainWindow.cpp" line="2836"/>
         <source>Show close buttons</source>
         <translation>Показувати кнопки закриття</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2870"/>
+        <location filename="../src/MainWindow.cpp" line="2871"/>
         <source>[No name]</source>
         <translation>[Без імені]</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2958"/>
+        <location filename="../src/MainWindow.cpp" line="2959"/>
         <source>Download Queue</source>
         <translation>Черга завантажень</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2958"/>
+        <location filename="../src/MainWindow.cpp" line="2959"/>
         <source>All downloads complete</source>
         <translation>Усі завантаження завершено</translation>
     </message>

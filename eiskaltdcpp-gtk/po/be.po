@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: https://github.com/eiskaltdcpp/eiskaltdcpp/issues\n"
-"POT-Creation-Date: 2015-11-28 22:15+0300\n"
+"POT-Creation-Date: 2015-11-30 00:28+0300\n"
 "PO-Revision-Date: 2015-11-15 16:46+0000\n"
 "Last-Translator: Zmicer <m_d@mail.by>\n"
 "Language-Team: Belarusian (http://www.transifex.com/tehnick/eiskaltdcpp/"
@@ -586,7 +586,7 @@ msgstr "<b>Што вы хочаце рабіць?</b>"
 msgid "<b>Window Options</b>"
 msgstr "<b>Можнасьці вокнаў</b>"
 
-#: ../src/mainwindow.cc:2352
+#: ../src/mainwindow.cc:2353
 msgid "<b>file:</b> "
 msgstr "<b>файл:</b> "
 
@@ -872,7 +872,7 @@ msgstr "Колер тла"
 msgid "Basque"
 msgstr "Баскiйськая"
 
-#: ../src/mainwindow.cc:253
+#: ../src/mainwindow.cc:254
 msgid "Basque translation\n"
 msgstr "Баскiйскі переклад\n"
 
@@ -936,7 +936,7 @@ msgstr "Зірнуць…"
 msgid "Bulgarian"
 msgstr "Баўгарская"
 
-#: ../src/mainwindow.cc:256
+#: ../src/mainwindow.cc:257
 msgid "Bulgarian translation\n"
 msgstr "Баўгарская мова\n"
 
@@ -1054,7 +1054,7 @@ msgstr "Спраўджваць кожныя"
 msgid "Chinese (China)"
 msgstr "Кітайская (Кітай)"
 
-#: ../src/mainwindow.cc:281
+#: ../src/mainwindow.cc:282
 msgid "Chinese (China) translation\n"
 msgstr "Кітайскі (Кітай) пераклад\n"
 
@@ -1062,8 +1062,8 @@ msgstr "Кітайскі (Кітай) пераклад\n"
 msgid "Choose a File"
 msgstr "Абярыце файл"
 
-#: ../src/privatemessage.cc:1302 ../src/hub.cc:2655 ../src/mainwindow.cc:1334
-#: ../src/mainwindow.cc:1402 ../ui/search.ui:7 ../ui/sharebrowser.ui:7
+#: ../src/privatemessage.cc:1302 ../src/hub.cc:2655 ../src/mainwindow.cc:1335
+#: ../src/mainwindow.cc:1403 ../ui/search.ui:7 ../ui/sharebrowser.ui:7
 #: ../ui/settingsdialog.ui:8510
 msgid "Choose a directory"
 msgstr "Абярыце каталёґ"
@@ -1206,7 +1206,7 @@ msgstr "Злучаемся…"
 msgid "Connection"
 msgstr "Злучэньне"
 
-#: ../src/mainwindow.cc:2296
+#: ../src/mainwindow.cc:2297
 msgid "Connectivity Manager: Warning"
 msgstr "Кіраўнік злучэньняў: перасьцярога"
 
@@ -1227,7 +1227,7 @@ msgstr "Краіна"
 msgid "Czech"
 msgstr "Чэская"
 
-#: ../src/mainwindow.cc:262
+#: ../src/mainwindow.cc:263
 msgid "Czech translation\n"
 msgstr "Чэская мова\n"
 
@@ -1459,7 +1459,7 @@ msgstr "Сьцягнуць у…"
 msgid "Download whole director_y to..."
 msgstr "Сьцягнуць увесь _каталёґ у…"
 
-#: ../src/mainwindow.cc:771
+#: ../src/mainwindow.cc:772
 msgid "Download: "
 msgstr "Сьцягнулі: "
 
@@ -1561,7 +1561,7 @@ msgstr "Упішыце радок карыстальніцкага загаду"
 msgid "Enter text to search for"
 msgstr "Упішыце тэкст, які трэба шукаць"
 
-#: ../src/mainwindow.cc:1268
+#: ../src/mainwindow.cc:1269
 msgid "Enter value for "
 msgstr "Упішыце значэньне "
 
@@ -1851,7 +1851,7 @@ msgstr ""
 msgid "Frame:"
 msgstr "Кадар:"
 
-#: ../src/mainwindow.cc:2411
+#: ../src/mainwindow.cc:2412
 msgid "Free "
 msgstr "Вольных "
 
@@ -1887,7 +1887,7 @@ msgstr "Стварыць пасьведчаньні"
 msgid "German"
 msgstr "Нямецкая"
 
-#: ../src/mainwindow.cc:265
+#: ../src/mainwindow.cc:266
 msgid "German translation\n"
 msgstr "Нямецкая мова\n"
 
@@ -1915,7 +1915,7 @@ msgstr "Даць дадатковую шчыліну"
 msgid "Greek"
 msgstr "Грэцкая"
 
-#: ../src/mainwindow.cc:271
+#: ../src/mainwindow.cc:272
 msgid "Greek translation\n"
 msgstr "Грэцкая мова\n"
 
@@ -2152,7 +2152,7 @@ msgstr "Задзейнічаць (on) ці не (off) сіта IP"
 msgid "Italian"
 msgstr "Італьянская"
 
-#: ../src/mainwindow.cc:274
+#: ../src/mainwindow.cc:275
 msgid "Italian translation\n"
 msgstr "Італьянская мова\n"
 
@@ -2232,7 +2232,7 @@ msgstr "Прачытаць файл Lua"
 msgid "Loaded from cache: "
 msgstr "Прачыталі з запасьніку: "
 
-#: ../src/mainwindow.cc:2067
+#: ../src/mainwindow.cc:2068
 msgid "Loading file list"
 msgstr "Чытаецца сьпіс файлаў"
 
@@ -2296,11 +2296,11 @@ msgstr "Найніжэйшае"
 msgid "Magnet"
 msgstr "Маґніт-спасылка"
 
-#: ../src/mainwindow.cc:1395
+#: ../src/mainwindow.cc:1396
 msgid "Magnet Choice"
 msgstr "Выбар па маґніт-спасылцы"
 
-#: ../src/mainwindow.cc:1325
+#: ../src/mainwindow.cc:1326
 msgid "Magnet Properties / Choice"
 msgstr "Уласьцівасьці маґніт-спасылкі (выбар)"
 
@@ -3067,11 +3067,11 @@ msgstr "Абраць колер"
 msgid "Select Font"
 msgstr "Абярыце шрыфт"
 
-#: ../src/mainwindow.cc:2437
+#: ../src/mainwindow.cc:2438
 msgid "Select file to Get TTH"
 msgstr "Абярыце файл, скарот якога трэба вылічыць"
 
-#: ../src/mainwindow.cc:2030 ../ui/mainwindow.ui:809
+#: ../src/mainwindow.cc:2031 ../ui/mainwindow.ui:809
 msgid "Select filelist to browse"
 msgstr "Абярыце сьпіс файлаў"
 
@@ -3122,7 +3122,7 @@ msgstr "Сербскі (Кірыліца) пераклад\n"
 msgid "Serbian (Latin)"
 msgstr "Сэрбская (лацінка)"
 
-#: ../src/mainwindow.cc:245
+#: ../src/mainwindow.cc:246
 msgid "Serbian (Latin) translation\n"
 msgstr "Сэрбская мова (лацінка)\n"
 
@@ -3303,7 +3303,7 @@ msgstr "Шчыліны"
 msgid "Slovak"
 msgstr "Славацкая"
 
-#: ../src/mainwindow.cc:259
+#: ../src/mainwindow.cc:260
 msgid "Slovak translation\n"
 msgstr "Славацкая мова\n"
 
@@ -3348,7 +3348,7 @@ msgstr "Запавольная крыніца"
 msgid "Spanish"
 msgstr "Гішпанская"
 
-#: ../src/mainwindow.cc:249
+#: ../src/mainwindow.cc:250
 msgid "Spanish translation\n"
 msgstr "Гішпанская мова\n"
 
@@ -3391,7 +3391,7 @@ msgstr "Спыніць"
 msgid "Swedish (Sweden)"
 msgstr "Шведская (Швецыя)"
 
-#: ../src/mainwindow.cc:284
+#: ../src/mainwindow.cc:285
 msgid "Swedish (Sweden) translation\n"
 msgstr ""
 
@@ -3579,7 +3579,7 @@ msgstr "Шлях да давераных пасьведч."
 msgid "Turkish"
 msgstr ""
 
-#: ../src/mainwindow.cc:287
+#: ../src/mainwindow.cc:288
 #, fuzzy
 msgid "Turkish translation\n"
 msgstr "Польская мова\n"
@@ -3614,11 +3614,11 @@ msgstr "Не магу злучыцца: з запытаным асяродкам
 msgid "Unable to load file list: "
 msgstr "Не магу прачытаць сьпіс файлаў: "
 
-#: ../src/mainwindow.cc:2055
+#: ../src/mainwindow.cc:2056
 msgid "Unable to load file list: Invalid file list name"
 msgstr "Не магу прачытаць сьпіс файлаў: хібная назва сьпісу файлаў"
 
-#: ../src/mainwindow.cc:2294
+#: ../src/mainwindow.cc:2295
 msgid ""
 "Unable to open %1% port. Searching or file transfers will not work correctly "
 "until you change settings or turn off any application that might be using "
@@ -3633,8 +3633,8 @@ msgid "Unfinished downloads directory"
 msgstr "Каталёґ яшчэ ня сьцягнутага"
 
 #: ../src/downloadqueue.cc:1298 ../src/downloadqueue.cc:1299
-#: ../src/WulforUtil.cc:332 ../src/WulforUtil.cc:334 ../src/mainwindow.cc:1094
-#: ../src/mainwindow.cc:1484
+#: ../src/WulforUtil.cc:332 ../src/WulforUtil.cc:334 ../src/mainwindow.cc:1095
+#: ../src/mainwindow.cc:1485
 msgid "Unknown"
 msgstr "Невядома"
 
@@ -3694,7 +3694,7 @@ msgstr "Хуткасьць зацягваць"
 msgid "Upload starting..."
 msgstr "Пачынаем зацягваць…"
 
-#: ../src/mainwindow.cc:771
+#: ../src/mainwindow.cc:772
 msgid "Upload: "
 msgstr "Зацягнулі: "
 
@@ -3885,7 +3885,7 @@ msgstr "Відэа"
 msgid "Vietnamese"
 msgstr "В'етнамская"
 
-#: ../src/mainwindow.cc:278
+#: ../src/mainwindow.cc:279
 msgid "Vietnamese translation\n"
 msgstr ""
 
@@ -3939,7 +3939,7 @@ msgstr "Чакаем паспрабаваць зноўку"
 msgid "Waiting:"
 msgstr "Чакаем:"
 
-#: ../src/mainwindow.cc:401
+#: ../src/mainwindow.cc:402
 msgid "Welcome to "
 msgstr "Вітаем вас у "
 
@@ -4225,7 +4225,7 @@ msgstr "Пошта"
 msgid "eiskaltdcpp-gtk: load theme %s...\n"
 msgstr "eiskaltdcpp-gtk: прачыталі аздабленьне %s…\n"
 
-#: ../src/mainwindow.cc:2342
+#: ../src/mainwindow.cc:2343
 msgid "file list from "
 msgstr "сьпіс файлаў ад "
 
@@ -4257,7 +4257,7 @@ msgstr "бачына праекту: "
 msgid "ratio: %1% (uploads: %2%, downloads: %3% )"
 msgstr "суадносіны: %1% (зацягнулі: %2%, сьцягнулі: %3%)"
 
-#: ../src/treeview.cc:211 ../src/mainwindow.cc:2376 ../src/mainwindow.cc:2378
+#: ../src/treeview.cc:211 ../src/mainwindow.cc:2377 ../src/mainwindow.cc:2379
 #: ../src/hashdialog.cc:73 ../ui/settingsdialog.ui:3522
 #: ../ui/settingsdialog.ui:3538 ../ui/settingsdialog.ui:3582
 msgid "s"
