@@ -1,10 +1,91 @@
+*******************************************************************************
+Compilation in Linux ( cross-compile in MXE ) [ Recommended ]
+*******************************************************************************
+Install MXE: http://mxe.cc/#tutorial
+
+cd /path/to/mxe
+make zlib bzip2 libiconv gettext miniupnpc jsoncpp aspell libidn openssl pcre lua boost qt5 MXE_TARGETS=x86_64-w64-mingw32.shared
+/path/to/mxe/usr/bin/x86_64-w64-mingw32.shared-cmake -DCMAKE_INSTALL_PREFIX=./EiskaltDC++ -DSHARE_DIR=resources -DOPENSSL_MSVC=OFF -DDO_NOT_USE_MUTEX=ON -DUSE_ASPELL=ON -DFORCE_XDG=OFF -DDBUS_NOTIFY=OFF -DUSE_JS=ON -DUSE_MINIUPNP=ON -DLOCAL_MINIUPNP=OFF -DWITH_SOUNDS=ON -DPERL_REGEX=ON -DUSE_QT_QML=ON -DLUA_SCRIPT=ON -DWITH_LUASCRIPTS=ON -DUSE_QT_SQLITE=ON -DNO_UI_DAEMON=ON -DJSONRPC_DAEMON=ON -DUSE_CLI_JSONRPC=ON /path/to/source/eiskaltdcpp
+make -j4
+make install
+
+
+*******************************************************************************
+Compilation in MS Windows
+*******************************************************************************
 You can get the lastest program sources from git repository:
 download sources on link https://codeload.github.com/eiskaltdcpp/eiskaltdcpp/tar.gz/master
 or download and install git from http://git-scm.com/
 and run in command line: git clone git://github.com/eiskaltdcpp/eiskaltdcpp.git
 
+The list of dependencies of EiskaltDC++ can see below.
+
+Install:
+	qt-opensource-windows-x86-*.exe
+	Win32OpenSSL-*.exe
+	cmake-*.exe
+	nsis-*.exe
+
+Unpack i686-*-release-posix-dwarf-*.7z archive to C:\
+
+Make directory mingw32-depends and go into it, create directories there: aspell, boost, gettext, bzip2, iconv, idna, zip, lua, pcre.
+
+Unpack directory boost from boost* archive to mingw32-depends\boost\include\
+Unpack bzip2-*, libbz2-* archives to mingw32-depends\bzip2\
+Unpack libz-* archives to mingw32-depends\zip\
+Unpack gettext-*, libgettextpo-*, libintl-* archives to mingw32-depends\gettext\
+Unpack libiconv-* archives to mingw32-depends\iconv\
+Unpack mingw32-lua-*/mingw32-lua-*/ archive to mingw32-depends\lua\
+Unpack aspell-* archives to mingw32-depends\aspell\
+Unpack libidn-* archive to mingw32-depends\idna\
+Unpack mingw32-pcre-* archive to mingw32-depends\pcre\
+Unpack mingw32-qtscriptgenerator-* archive to mingw32-depends\
+Unpack ShellExecAsUser.dll from ShellExecAsUser.zip archive to C:\Program Files\NSIS\Plugins\ (for 64-bit to C:\Program Files (x86)\NSIS\Plugins\)
+--Note: If the libidn-* archive have a file "lib/Libidn.dll" delete it.
+
+Check variables.bat for correct paths and run:
+	configure.bat
+	build.bat
+	install.bat
+
+If you need installer run:
+	create_installer.bat
+
 *******************************************************************************
-Build Depends
+Compilation in Linux ( cross-compile )
+*******************************************************************************
+The list of dependencies of EiskaltDC++ can see below.
+
+Install packages for cross-compile - mingw-w64*
+Install package cmake
+Install package nsis
+Install (in "wine") qt-opensource-windows-x86-*.exe and Win32OpenSSL-*.exe
+
+Make directory mingw32-depends and go into it, create directories there: aspell, boost, gettext, bzip2, iconv, idna, zip, lua, pcre.
+
+Unpack directory boost from boost* archive to mingw32-depends/boost/include/
+Unpack bzip2-*, libbz2-* archives to mingw32-depends/bzip2/
+Unpack libz-* archives to mingw32-depends/zip/
+Unpack gettext-*, libgettextpo-*, libintl-* archives to mingw32-depends/gettext/
+Unpack libiconv-* archives to mingw32-depends/iconv/
+Unpack mingw32-lua-*/mingw32-lua-*/ archive to mingw32-depends/lua/
+Unpack aspell-* archives to mingw32-depends/aspell/
+Unpack libidn-* archive to mingw32-depends/idna/
+Unpack mingw32-pcre-* archive to mingw32-depends/pcre/
+Unpack mingw32-qtscriptgenerator-* archive to mingw32-depends/
+Unpack ShellExecAsUser.dll from ShellExecAsUser.zip archive to /usr/share/nsis/Plugins/
+--Note: If the libidn-* archive have a file "lib/Libidn.dll" delete it.
+
+Check variables.sh for correct paths and run:
+        ./configure.sh
+        ./build.sh
+        ./install.sh
+
+If you need installer run:
+        ./create_installer.sh
+
+*******************************************************************************
+The list of dependencies
 *******************************************************************************
 i686-4.9.1-release-posix-dwarf-rt_v3-rev1.7z or later
 	http://sourceforge.net/projects/mingw-w64/files/Toolchains%20targetting%20Win32/Personal%20Builds/mingw-builds/4.9.1/threads-posix/dwarf/i686-4.9.1-release-posix-dwarf-rt_v3-rev1.7z/download
@@ -71,77 +152,4 @@ mingw32-pcre-8.21.tar.xz or later
 
 ShellExecAsUser.zip
 	http://nsis.sourceforge.net/mediawiki/images/c/c7/ShellExecAsUser.zip
-*******************************************************************************
-Compilation in MS Windows
-*******************************************************************************
-Install:
-	qt-opensource-windows-x86-*.exe
-	Win32OpenSSL-*.exe
-	cmake-*.exe
-	nsis-*.exe
 
-Unpack i686-*-release-posix-dwarf-*.7z archive to C:\
-
-Make directory mingw32-depends and go into it, create directories there: aspell, boost, gettext, bzip2, iconv, idna, zip, lua, pcre.
-
-Unpack directory boost from boost* archive to mingw32-depends\boost\include\
-Unpack bzip2-*, libbz2-* archives to mingw32-depends\bzip2\
-Unpack libz-* archives to mingw32-depends\zip\
-Unpack gettext-*, libgettextpo-*, libintl-* archives to mingw32-depends\gettext\
-Unpack libiconv-* archives to mingw32-depends\iconv\
-Unpack mingw32-lua-*/mingw32-lua-*/ archive to mingw32-depends\lua\
-Unpack aspell-* archives to mingw32-depends\aspell\
-Unpack libidn-* archive to mingw32-depends\idna\
-Unpack mingw32-pcre-* archive to mingw32-depends\pcre\
-Unpack mingw32-qtscriptgenerator-* archive to mingw32-depends\
-Unpack ShellExecAsUser.dll from ShellExecAsUser.zip archive to C:\Program Files\NSIS\Plugins\ (for 64-bit to C:\Program Files (x86)\NSIS\Plugins\)
---Note: If the libidn-* archive have a file "lib/Libidn.dll" delete it.
-
-Check variables.bat for correct paths and run:
-	configure.bat
-	build.bat
-	install.bat
-
-If you need installer run:
-	create_installer.bat
-
-*******************************************************************************
-Compilation in Linux ( cross-compile )
-*******************************************************************************
-Install packages for cross-compile - mingw-w64*
-Install package cmake
-Install package nsis
-Install (in "wine") qt-opensource-windows-x86-*.exe and Win32OpenSSL-*.exe
-
-Make directory mingw32-depends and go into it, create directories there: aspell, boost, gettext, bzip2, iconv, idna, zip, lua, pcre.
-
-Unpack directory boost from boost* archive to mingw32-depends/boost/include/
-Unpack bzip2-*, libbz2-* archives to mingw32-depends/bzip2/
-Unpack libz-* archives to mingw32-depends/zip/
-Unpack gettext-*, libgettextpo-*, libintl-* archives to mingw32-depends/gettext/
-Unpack libiconv-* archives to mingw32-depends/iconv/
-Unpack mingw32-lua-*/mingw32-lua-*/ archive to mingw32-depends/lua/
-Unpack aspell-* archives to mingw32-depends/aspell/
-Unpack libidn-* archive to mingw32-depends/idna/
-Unpack mingw32-pcre-* archive to mingw32-depends/pcre/
-Unpack mingw32-qtscriptgenerator-* archive to mingw32-depends/
-Unpack ShellExecAsUser.dll from ShellExecAsUser.zip archive to /usr/share/nsis/Plugins/
---Note: If the libidn-* archive have a file "lib/Libidn.dll" delete it.
-
-Check variables.sh for correct paths and run:
-        ./configure.sh
-        ./build.sh
-        ./install.sh
-
-If you need installer run:
-        ./create_installer.sh
-
-*******************************************************************************
-Compilation in Linux ( cross-compile in MXE )
-*******************************************************************************
-Install MXE: http://mxe.cc/#tutorial
-
-cd /path/to/mxe && make zlib bzip2 libiconv gettext jsoncpp aspell libidn openssl pcre lua boost qt5 MXE_TARGETS=x86_64-w64-mingw32.shared
-/path/to/mxe/usr/bin/x86_64-w64-mingw32.shared-cmake -DCMAKE_INSTALL_PREFIX=./EiskaltDC++ -DSHARE_DIR=resources -DOPENSSL_MSVC=OFF -DDO_NOT_USE_MUTEX=ON -DUSE_ASPELL=ON -DFORCE_XDG=OFF -DDBUS_NOTIFY=OFF -DUSE_JS=ON -DUSE_MINIUPNP=ON -DLOCAL_MINIUPNP=ON -DWITH_SOUNDS=ON -DPERL_REGEX=ON -DUSE_QT_QML=ON -DLUA_SCRIPT=ON -DWITH_LUASCRIPTS=ON -DUSE_QT_SQLITE=ON -DNO_UI_DAEMON=ON -DJSONRPC_DAEMON=ON -DUSE_CLI_JSONRPC=ON /path/to/source/eiskaltdcpp
-make -j4
-make install
