@@ -3,6 +3,7 @@ compiler:
   - gcc
   - clang
 env:
+  - OS=mingw
   - USE_QT=qt4    ; CONFIG=minimal
   - USE_QT=qt4    ; CONFIG=full
   - USE_QT=qt5    ; CONFIG=minimal

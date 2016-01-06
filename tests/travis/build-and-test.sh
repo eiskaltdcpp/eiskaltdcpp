@@ -6,10 +6,12 @@
 
 set -x
 
-export CXXFLAGS="$(dpkg-buildflags --get CXXFLAGS) $(dpkg-buildflags --get CPPFLAGS)"
-export LDFLAGS="$(dpkg-buildflags --get LDFLAGS) -Wl,--as-needed"
-if [ "${USE_QT}" = "qt5" ]; then
-    CXXFLAGS="${CXXFLAGS} -fPIC"
+if [ "${OS}" != "mingw" ]; then
+    export CXXFLAGS="$(dpkg-buildflags --get CXXFLAGS) $(dpkg-buildflags --get CPPFLAGS)"
+    export LDFLAGS="$(dpkg-buildflags --get LDFLAGS) -Wl,--as-needed"
+    if [ "${USE_QT}" = "qt5" ]; then
+        CXXFLAGS="${CXXFLAGS} -fPIC"
+    fi
 fi
 
 mkdir -p builddir
@@ -122,18 +124,50 @@ if [ ! -z "${USE_CLI}" ]; then
 fi
 
 
-cmake ${CMAKEOPTS} \
-      -DCMAKE_CXX_FLAGS="${CXXFLAGS}" \
-      -DCMAKE_SHARED_LINKER_FLAGS="${LDFLAGS}" \
-      -DCMAKE_EXE_LINKER_FLAGS="${LDFLAGS}"
-make VERBOSE=1
-sudo make install
+if [ "${OS}" != "mingw" ]; then
+    cmake ${CMAKEOPTS} \
+          -DCMAKE_CXX_FLAGS="${CXXFLAGS}" \
+          -DCMAKE_SHARED_LINKER_FLAGS="${LDFLAGS}" \
+          -DCMAKE_EXE_LINKER_FLAGS="${LDFLAGS}"
+    make VERBOSE=1
+    sudo make install
 
 
-du -shc /usr/bin/eiskaltdcpp-*
-du -shc /usr/lib*/libeiskaltdcpp.so*
+    du -shc /usr/bin/eiskaltdcpp-*
+    du -shc /usr/lib*/libeiskaltdcpp.so*
 
-if [ -z "${USE_DAEMON}" ]; then
-    du -shc /usr/share/eiskaltdcpp/*
+    if [ -z "${USE_DAEMON}" ]; then
+        du -shc /usr/share/eiskaltdcpp/*
+    fi
 fi
 
+if [ "${OS}" = "mingw" ]; then
+    CMAKEOPTS="..
+               -DCMAKE_INSTALL_PREFIX=./EiskaltDC++
+               -DCMAKE_BUILD_TYPE=Release
+               -DSHARE_DIR=resources
+               -DOPENSSL_MSVC=OFF
+               -DDO_NOT_USE_MUTEX=ON
+               -DUSE_ASPELL=ON
+               -DFORCE_XDG=OFF
+               -DDBUS_NOTIFY=OFF
+               -DUSE_JS=ON
+               -DUSE_MINIUPNP=ON
+               -DLOCAL_MINIUPNP=OFF
+               -DWITH_SOUNDS=ON
+               -DPERL_REGEX=OFF
+               -DUSE_QT_QML=ON
+               -DLUA_SCRIPT=ON
+               -DWITH_LUASCRIPTS=ON
+               -DUSE_QT_SQLITE=ON
+               -DNO_UI_DAEMON=ON
+               -DJSONRPC_DAEMON=ON
+               -DLOCAL_JSONCPP=OFF
+               -DUSE_CLI_JSONRPC=ON"
+
+    /usr/lib/mxe/usr/bin/x86_64-w64-mingw32.shared-cmake ${CMAKEOPTS}
+    make VERBOSE=1
+    make install
+
+    du -shc ./EiskaltDC++/eiskaltdcpp-*
+fi

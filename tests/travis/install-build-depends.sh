@@ -6,19 +6,30 @@
 
 set -x
 
+# Add debian packages built from MXE packages
+if [ "${OS}" = "mingw" ]; then
+    echo "deb http://pkg.mxe.cc/repos/apt/debian wheezy main" | sudo tee --append /etc/apt/sources.list.d/mxeapt.list
+    sudo apt-key adv --keyserver x-hkp://keys.gnupg.net --recv-keys D43A795B73B16ABE9643FE1AFD8FFF16DB45C6AB
+fi
+
 # This  is an ugly hack for partial updating of build environment from
 # Ubuntu 12.04 (Precise Pangolin) to Ubuntu 14.04 (Trusty Tahr):
-sudo sed -i 's/precise/trusty/g' /etc/apt/sources.list
+if [ "${OS}" != "mingw" ]; then
+    sudo sed -i 's/precise/trusty/g' /etc/apt/sources.list
+fi
+
 sudo apt-get update -qq
 
 # Common build dependencies:
-sudo apt-get install -qq cmake \
-                         libbz2-dev \
-                         libboost-dev \
-                         libboost-system-dev \
-                         libssl-dev \
-                         libattr1-dev \
-                         zlib1g-dev
+if [ "${OS}" != "mingw" ]; then
+    sudo apt-get install -qq cmake \
+                             libbz2-dev \
+                             libboost-dev \
+                             libboost-system-dev \
+                             libssl-dev \
+                             libattr1-dev \
+                             zlib1g-dev
+fi
 
 if [ "${CONFIG}" = "full" ]; then
     sudo apt-get install -qq libidn11-dev \
@@ -71,3 +82,20 @@ if [ "${USE_CLI}" = "ON" ]; then
                              libterm-shellui-perl
 fi
 
+if [ "${OS}" = "mingw" ]; then
+    sudo apt-get install -qq mxe-x86-64-w64-mingw32.shared-aspell \
+                             mxe-x86-64-w64-mingw32.shared-boost \
+                             mxe-x86-64-w64-mingw32.shared-bzip2 \
+                             mxe-x86-64-w64-mingw32.shared-gettext \
+                             mxe-x86-64-w64-mingw32.shared-jsoncpp \
+                             mxe-x86-64-w64-mingw32.shared-libiconv \
+                             mxe-x86-64-w64-mingw32.shared-libidn \
+                             mxe-x86-64-w64-mingw32.shared-lua \
+                             mxe-x86-64-w64-mingw32.shared-miniupnpc \
+                             mxe-x86-64-w64-mingw32.shared-openssl \
+                             mxe-x86-64-w64-mingw32.shared-qtbase \
+                             mxe-x86-64-w64-mingw32.shared-qtmultimedia \
+                             mxe-x86-64-w64-mingw32.shared-qtquick1 \
+                             mxe-x86-64-w64-mingw32.shared-qttools \
+                             mxe-x86-64-w64-mingw32.shared-zlib
+fi
