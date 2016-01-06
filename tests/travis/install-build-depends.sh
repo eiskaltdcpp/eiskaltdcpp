@@ -45,7 +45,7 @@ if [ "${USE_QT}" = "qt4" ]; then
         sudo apt-get install -qq libaspell-dev
     fi
 elif [ "${USE_QT}" = "qt5" ]; then
-    sudo apt-get install -qq qtbase5-dev \
+    yes | sudo apt-get --yes --force-yes install -qq qtbase5-dev \
                              qttools5-dev \
                              qtmultimedia5-dev \
                              qtquick1-5-dev \
@@ -64,7 +64,7 @@ if [ "${USE_GTK}" = "gtk2" ]; then
                                  libcanberra-gtk-dev
     fi
 elif [ "${USE_GTK}" = "gtk3" ]; then
-    sudo apt-get install -qq libgtk-3-dev
+    yes | sudo apt-get --yes --force-yes install -qq libgtk-3-dev
     if [ "${CONFIG}" = "full" ]; then
         sudo apt-get install -qq libnotify-dev \
                                  libcanberra-gtk3-dev
