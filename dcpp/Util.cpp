@@ -171,8 +171,8 @@ void Util::initialize(PathsMap pathOverrides) {
     ::GetShortPathName(localePath_.c_str(), buf, sizeof(buf)/sizeof(TCHAR));
     if (Util::getPath(Util::PATH_LOCALE).empty())
         paths[PATH_LOCALE] = Text::fromT(buf);
-    if (Util::getPath(Util::PATH_DOWNLOADS).empty())
-        paths[PATH_DOWNLOADS] = getDownloadsPath(paths[PATH_USER_CONFIG]);
+    //if (Util::getPath(Util::PATH_DOWNLOADS).empty())
+    //    paths[PATH_DOWNLOADS] = getDownloadsPath(paths[PATH_USER_CONFIG]);
 
 #else
     if (Util::getPath(Util::PATH_GLOBAL_CONFIG).empty())
