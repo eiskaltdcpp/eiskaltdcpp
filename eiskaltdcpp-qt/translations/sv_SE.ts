@@ -2486,92 +2486,92 @@ Favoritanvändare</translation>
         <translation>Serbiska (Kyrilliska) översättning&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2751"/>
+        <location filename="../src/MainWindow.cpp" line="2752"/>
         <source>Serbian (Latin) translation&lt;br/&gt;</source>
         <translation>Serbisk (Latin) översättning&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2755"/>
+        <location filename="../src/MainWindow.cpp" line="2756"/>
         <source>Spanish translation&lt;br/&gt;</source>
         <translation>Spansk översättning&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2759"/>
+        <location filename="../src/MainWindow.cpp" line="2760"/>
         <source>Basque translation&lt;br/&gt;</source>
         <translation>Baskisk översättning&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2762"/>
+        <location filename="../src/MainWindow.cpp" line="2763"/>
         <source>Bulgarian translation&lt;br/&gt;</source>
         <translation>Bulgarisk översättning&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2765"/>
+        <location filename="../src/MainWindow.cpp" line="2766"/>
         <source>Slovak translation&lt;br/&gt;</source>
         <translation>Slovakisk översättning&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2768"/>
+        <location filename="../src/MainWindow.cpp" line="2769"/>
         <source>Czech translation&lt;br/&gt;</source>
         <translation>Tjeckisk översättning&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2771"/>
+        <location filename="../src/MainWindow.cpp" line="2772"/>
         <source>German translation&lt;br/&gt;</source>
         <translation>Tysk översättning&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2776"/>
+        <location filename="../src/MainWindow.cpp" line="2777"/>
         <source>Greek translation&lt;br/&gt;</source>
         <translation>Grekisk översättning&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2779"/>
+        <location filename="../src/MainWindow.cpp" line="2780"/>
         <source>Italian translation&lt;br/&gt;</source>
         <translation>Italiensk översättning&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2783"/>
+        <location filename="../src/MainWindow.cpp" line="2784"/>
         <source>Portuguese (Brazil) translation&lt;br/&gt;</source>
         <translation>Portugisisk (Brasilien) översättning&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2786"/>
+        <location filename="../src/MainWindow.cpp" line="2787"/>
         <source>Vietnamese translation&lt;br/&gt;</source>
         <translation>Vietnamesiskt översättning&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2789"/>
+        <location filename="../src/MainWindow.cpp" line="2790"/>
         <source>Chinese (China) translation&lt;br/&gt;</source>
         <translation>Kinesiska (Kina) översättning&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2792"/>
+        <location filename="../src/MainWindow.cpp" line="2793"/>
         <source>Swedish (Sweden) translation&lt;br/&gt;</source>
         <translation>Svensk (Sverige) översättning&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2795"/>
+        <location filename="../src/MainWindow.cpp" line="2796"/>
         <source>Turkish translation&lt;br/&gt;</source>
         <translation>Turkisk översättning&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="3028"/>
+        <location filename="../src/MainWindow.cpp" line="3029"/>
         <source>Additional</source>
         <translation>Extra</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="3029"/>
+        <location filename="../src/MainWindow.cpp" line="3030"/>
         <source>Suppress sound notifications</source>
         <translation>Ignorera ljudmeddelanden</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="3030"/>
+        <location filename="../src/MainWindow.cpp" line="3031"/>
         <source>Suppress text notifications</source>
         <translation>Ignorera textmeddelande</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="3024"/>
+        <location filename="../src/MainWindow.cpp" line="3025"/>
         <source>Setup speed limits</source>
         <translation>Inställning för hastighetsbegränsning</translation>
     </message>
@@ -2586,22 +2586,22 @@ Favoritanvändare</translation>
         <translation>Använd &lt;a href=&quot;https://github.com/eiskaltdcpp/eiskaltdcpp/issues&quot;&gt;https://github.com/eiskaltdcpp/eiskaltdcpp/issues&lt;/a&gt; för att rapportera fel.&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2835"/>
+        <location filename="../src/MainWindow.cpp" line="2836"/>
         <source>Show close buttons</source>
         <translation>Visa stäng-knapparna</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2870"/>
+        <location filename="../src/MainWindow.cpp" line="2871"/>
         <source>[No name]</source>
         <translation>[Namnlös]</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2958"/>
+        <location filename="../src/MainWindow.cpp" line="2959"/>
         <source>Download Queue</source>
         <translation>Nedladdningskö</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2958"/>
+        <location filename="../src/MainWindow.cpp" line="2959"/>
         <source>All downloads complete</source>
         <translation>Alla nedladdningar är klara</translation>
     </message>
@@ -5249,7 +5249,7 @@ p, li { white-space: pre-wrap; }
         <location filename="../ui/UIMagnet.ui" line="137"/>
         <source>Adds magnet to download queue. If autosearch for alternatives is enabled
 in options, file will be downloaded without opening search dialog.</source>
-        <translation>Lägger till MAGNET-länkar i nerladdningskön. Om automatisk sökning är
+        <translation>Lägger till MAGNET-länkar i nedladdningskön. Om automatisk sökning är
 aktiverad i inställningarna, kommer filen att laddas ned utan att sökfönstret
 öppnas.</translation>
     </message>
@@ -5517,7 +5517,7 @@ You will need to specify the external IP address of your router using
 the setting below if you want downloads to work properly.
 Use this mode only if the previous ones are not options for you.</source>
         <translation>Välj detta läge om du använder en brandvägg (router) och vill ställa in TCP-, UDP- och TLS-portarna manuellt.
-Du kommer att behöva ange extern IP-adress på din router med hjälp av inställningarna här under om du vill att nerladdningarna ska fungera som de ska.
+Du kommer att behöva ange extern IP-adress på din router med hjälp av inställningarna här under om du vill att nedladdningarna ska fungera som de ska.
 Använd detta alternativ bara om föregånde alternativ inte var rätt för dig.</translation>
     </message>
     <message>
