@@ -11,6 +11,8 @@ include_directories(${PROJECT_BINARY_DIR})
 if (USE_QT)
     find_package (Qt4 4.7.0 COMPONENTS QtCore QtGui QtXml QtNetwork REQUIRED)
 elseif (USE_QT5)
+    find_package (Qt5Core          5.0.2 REQUIRED)
+    find_package (Qt5Gui           5.0.2 REQUIRED)
     find_package (Qt5Widgets       5.0.2 REQUIRED)
     find_package (Qt5Xml           5.0.2 REQUIRED)
     find_package (Qt5Network       5.0.2 REQUIRED)
@@ -29,6 +31,7 @@ if (USE_QT_QML)
         find_package (Qt4 4.7.0 COMPONENTS QtDeclarative REQUIRED)
     elseif (USE_QT5)
         find_package (Qt5Declarative 5.0.2 REQUIRED)
+        find_package (Qt5XmlPatterns 5.0.2 REQUIRED)
     endif ()
     add_definitions(-DUSE_QML)
     set (QT_USE_QTDECLARATIVE 1)
@@ -115,12 +118,6 @@ elseif (APPLE)
 endif ()
 
 file (GLOB UI_FORMS ${PROJECT_SOURCE_DIR}/ui/*.ui)
-
-if (WIN32)
-    if (OPENSSL_MSVC)
-        list (APPEND SRCS ../windows/applink.c)
-    endif (OPENSSL_MSVC)
-endif (WIN32)
 
 set (WIN_RESOURCES)
 if (MINGW AND WIN32)
@@ -228,26 +225,32 @@ if (USE_QT)
     list (APPEND LIBS ${QT_LIBRARIES})
 elseif (USE_QT5)
     include_directories (
+        ${Qt5Core_INCLUDE_DIRS}
+        ${Qt5Gui_INCLUDE_DIRS}
         ${Qt5Widgets_INCLUDE_DIRS}
         ${Qt5Xml_INCLUDE_DIRS}
-        ${Qt5Network_INCLUDE_DIRS}
         ${Qt5Multimedia_INCLUDE_DIRS}
         ${Qt5Concurrent_INCLUDE_DIRS}
         ${Qt5Declarative_INCLUDE_DIRS}
+        ${Qt5XmlPatterns_INCLUDE_DIRS}
         ${Qt5DBus_INCLUDE_DIRS}
         ${Qt5Script_INCLUDE_DIRS}
         ${Qt5Sql_INCLUDE_DIRS}
+        ${Qt5Network_INCLUDE_DIRS}
         )
     list (APPEND LIBS
+        ${Qt5Core_LIBRARIES}
+        ${Qt5Gui_LIBRARIES}
         ${Qt5Widgets_LIBRARIES}
         ${Qt5Xml_LIBRARIES}
-        ${Qt5Network_LIBRARIES}
         ${Qt5Multimedia_LIBRARIES}
         ${Qt5Concurrent_LIBRARIES}
         ${Qt5Declarative_LIBRARIES}
+        ${Qt5XmlPatterns_LIBRARIES}
         ${Qt5DBus_LIBRARIES}
         ${Qt5Script_LIBRARIES}
         ${Qt5Sql_LIBRARIES}
+        ${Qt5Network_LIBRARIES}
         )
 endif ()
 
@@ -259,6 +262,36 @@ include_directories (
         ${Boost_INCLUDE_DIRS}
         )
 list (APPEND LIBS ${Boost_LIBRARIES} ${ICONV_LIBRARIES})
+
+if (WIN32)
+    if (STATIC)
+        if (USE_QT5)
+            add_definitions ( -DSTATIC )
+            list (APPEND LIBS Qt5::QWindowsIntegrationPlugin
+                              Qt5::QSQLiteDriverPlugin
+                              Qt5::Sql
+                              Qt5::QWindowsAudioPlugin
+                              Qt5::Multimedia
+                              -lpcre16
+                              -lfreetype
+                              -lharfbuzz
+                              -lglib-2.0
+                              -lwinmm
+                              -limm32
+                              -lsqlite3
+                              -ljpeg
+                              -lpng
+                              -lopengl32
+                              -lwinmm
+                              -lcrypt32
+                              -lstrmiids
+                 )
+        endif (USE_QT5)
+    endif (STATIC)
+    if (OPENSSL_MSVC)
+        list (APPEND SRCS ../windows/applink.c)
+    endif (OPENSSL_MSVC)
+endif (WIN32)
 
 if (APPLE)
   find_library (COCOA_LIBRARY Cocoa)
