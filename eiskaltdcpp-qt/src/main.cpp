@@ -7,6 +7,15 @@
 *                                                                         *
 ***************************************************************************/
 
+#ifdef STATIC
+#ifdef _WIN32
+#include <QtPlugin>
+Q_IMPORT_PLUGIN (QWindowsAudioPlugin);
+Q_IMPORT_PLUGIN (QWindowsIntegrationPlugin);
+Q_IMPORT_PLUGIN (QSQLiteDriverPlugin);
+#endif
+#endif
+
 #include <stdlib.h>
 #include <iostream>
 #include <string>
