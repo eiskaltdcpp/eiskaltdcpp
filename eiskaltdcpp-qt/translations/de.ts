@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.0" language="de">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="de" version="2.0">
 <context>
     <name>ADLS</name>
     <message>
@@ -167,7 +165,7 @@ Optionen:
     <message>
         <location filename="../src/CmdDebug.cpp" line="39"/>
         <source>CmdDebug</source>
-        <translation type="unfinished"></translation>
+        <translation>CmdDebug</translation>
     </message>
 </context>
 <context>
@@ -1025,7 +1023,7 @@ Optionen:
     <message>
         <location filename="../src/HubFrame.cpp" line="202"/>
         <source>Comment</source>
-        <translation type="unfinished">Kommentar</translation>
+        <translation>Kommentar</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="203"/>
@@ -1045,7 +1043,7 @@ Optionen:
     <message>
         <location filename="../src/HubFrame.cpp" line="206"/>
         <source>E-mail</source>
-        <translation type="unfinished">E-Mail</translation>
+        <translation>E-Mail</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="208"/>
@@ -1387,13 +1385,15 @@ Bevorzugte Benutzer</translation>
         <location filename="../src/HubFrame.cpp" line="1863"/>
         <source>/rebuild - rebuild hash
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/rebuild - Hash neu erzeugen
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1864"/>
         <source>/refresh - update own file list
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/refresh - Eigene Dateiliste updaten
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1865"/>
@@ -2123,7 +2123,7 @@ Bevorzugte Benutzer</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="1380"/>
         <source>CmdDebug</source>
-        <translation type="unfinished"></translation>
+        <translation>CmdDebug</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1382"/>
@@ -2376,15 +2376,15 @@ Bevorzugte Benutzer</translation>
     </message>
     <message>
         <source>http://github.com/eiskaltdcpp/eiskaltdcpp/raw/master/ChangeLog.txt</source>
-        <translation type="obsolete">http://github.com/eiskaltdcpp/eiskaltdcpp/raw/master/ChangeLog.txt</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>EiskaltDC++ is a graphical client for Direct Connect and ADC protocols.&lt;br/&gt;&lt;br/&gt;DC++ core version: %1 (modified)&lt;br/&gt;&lt;br/&gt;Home page: &lt;a href=&quot;http://code.google.com/p/eiskaltdc/&quot;&gt;http://code.google.com/p/eiskaltdc/&lt;/a&gt;&lt;br/&gt;&lt;br/&gt;Total up: &lt;b&gt;%2&lt;/b&gt;&lt;br/&gt;Total down: &lt;b&gt;%3&lt;/b&gt;&lt;br/&gt;Ratio: &lt;b&gt;%4&lt;/b&gt;</source>
-        <translation type="obsolete">EiskaltDC++ ist ein grafischer Client für das Direct Connect und das ADC Protokoll.&lt;br/&gt;&lt;br/&gt;DC++ Core Version: %1 (geändert)&lt;br/&gt;&lt;br/&gt;Webseite: &lt;a href=&quot;http://code.google.com/p/eiskaltdc/&quot;&gt;http://code.google.com/p/eiskaltdc/&lt;/a&gt;&lt;br/&gt;&lt;br/&gt;Gesamt Up: &lt;b&gt;%2&lt;/b&gt;&lt;br/&gt;Gesamt Down: &lt;b&gt;%3&lt;/b&gt;&lt;br/&gt;Rate: &lt;b&gt;%4&lt;/b&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Please use &lt;a href=&quot;http://code.google.com/p/eiskaltdc/issues/list&quot;&gt;http://code.google.com/p/eiskaltdc/issues/list&lt;/a&gt; to report bugs.&lt;br/&gt;</source>
-        <translation type="obsolete">Bitte benutze &lt;a href=&quot;http://code.google.com/p/eiskaltdc/issues/list&quot;&gt;http://code.google.com/p/eiskaltdc/issues/list&lt;/a&gt; um Fehler zu melden&lt;br/&gt;</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2691"/>
@@ -2409,12 +2409,12 @@ Bevorzugte Benutzer</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="2701"/>
         <source>&amp;nbsp;&amp;nbsp;&amp;nbsp; (translations coordinator since version 2.0.1)&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;nbsp;&amp;nbsp;&amp;nbsp; (Übersetzungskoordinator seit Version 2.0.1)&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2702"/>
         <source>&amp;nbsp;&amp;nbsp;&amp;nbsp; (release manager since version 2.0.3)&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;nbsp;&amp;nbsp;&amp;nbsp; (Releasemanager seit Version 2.0.3)&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2705"/>
@@ -2439,7 +2439,7 @@ Bevorzugte Benutzer</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="2715"/>
         <source>&amp;nbsp;&amp;nbsp;&amp;nbsp; (tiny updates of the logo)&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;nbsp;&amp;nbsp;&amp;nbsp; (kleine Updates des Logos)&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2722"/>
@@ -2549,7 +2549,7 @@ Bevorzugte Benutzer</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="2796"/>
         <source>Turkish translation&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Türkische Übersetzung&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="3029"/>
@@ -2574,12 +2574,12 @@ Bevorzugte Benutzer</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="2668"/>
         <source>EiskaltDC++ is a graphical client for Direct Connect and ADC protocols.&lt;br/&gt;&lt;br/&gt;DC++ core version: %1 (modified)&lt;br/&gt;&lt;br/&gt;Home page: &lt;a href=&quot;https://github.com/eiskaltdcpp/eiskaltdcpp/&quot;&gt;https://github.com/eiskaltdcpp/eiskaltdcpp/&lt;/a&gt;&lt;br/&gt;&lt;br/&gt;Total up: &lt;b&gt;%2&lt;/b&gt;&lt;br/&gt;Total down: &lt;b&gt;%3&lt;/b&gt;&lt;br/&gt;Ratio: &lt;b&gt;%4&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>EiskaltDC++ ist ein grafischer Client für das Direct Connect und das ADC Protokoll.&lt;br/&gt;&lt;br/&gt;DC++ Core Version: %1 (geändert)&lt;br/&gt;&lt;br/&gt;Webseite: &lt;a href=&quot;https://github.com/eiskaltdcpp/eiskaltdcpp/&quot;&gt;https://github.com/eiskaltdcpp/eiskaltdcpp/&lt;/a&gt;&lt;br/&gt;&lt;br/&gt;Gesamt Up: &lt;b&gt;%2&lt;/b&gt;&lt;br/&gt;Gesamt Down: &lt;b&gt;%3&lt;/b&gt;&lt;br/&gt;Rate: &lt;b&gt;%4&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2688"/>
         <source>Please use &lt;a href=&quot;https://github.com/eiskaltdcpp/eiskaltdcpp/issues&quot;&gt;https://github.com/eiskaltdcpp/eiskaltdcpp/issues&lt;/a&gt; to report bugs.&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Bitte &lt;a href=&quot;https://github.com/eiskaltdcpp/eiskaltdcpp/issues&quot;&gt;https://github.com/eiskaltdcpp/eiskaltdcpp/issues&lt;/a&gt; benutzen um Fehler zu melden.&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2836"/>
@@ -3326,7 +3326,7 @@ Heruntergeladen: %3 Hochgeladen: %4</translation>
     <message>
         <location filename="../src/Settings.cpp" line="96"/>
         <source>Advanced</source>
-        <translation type="unfinished">Erweitert</translation>
+        <translation>Fortgeschritten</translation>
     </message>
 </context>
 <context>
@@ -3334,7 +3334,7 @@ Heruntergeladen: %3 Hochgeladen: %4</translation>
     <message>
         <location filename="../src/SettingsAdvanced.cpp" line="44"/>
         <source>Select mime handler binary</source>
-        <translation type="unfinished"></translation>
+        <translation>Mime Handler Binary auswählen</translation>
     </message>
 </context>
 <context>
@@ -3500,7 +3500,7 @@ Heruntergeladen: %3 Hochgeladen: %4</translation>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="97"/>
         <source>Turkish</source>
-        <translation type="unfinished"></translation>
+        <translation>Türkisch</translation>
     </message>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="246"/>
@@ -3943,7 +3943,7 @@ Heruntergeladen: %3 Hochgeladen: %4</translation>
         <location filename="../src/SideBar.cpp" line="69"/>
         <location filename="../src/SideBar.cpp" line="419"/>
         <source>CmdDebug</source>
-        <translation type="unfinished"></translation>
+        <translation>CmdDebug</translation>
     </message>
     <message>
         <location filename="../src/SideBar.cpp" line="71"/>
@@ -4175,7 +4175,7 @@ Willst du ihn stoppen?
     <message>
         <location filename="../src/TransferView.cpp" line="96"/>
         <source>Show only transfered files</source>
-        <translation type="unfinished"></translation>
+        <translation>Nur übertragene Dateien anzeigen</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="349"/>
@@ -4517,7 +4517,7 @@ Willst du ihn stoppen?
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;EiskaltDC++&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
@@ -4542,7 +4542,7 @@ p, li { white-space: pre-wrap; }
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
@@ -4717,47 +4717,47 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UICmdDebug.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished">Form</translation>
+        <translation>Form</translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="29"/>
         <source>CL_IN</source>
-        <translation type="unfinished"></translation>
+        <translation>CL_IN</translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="36"/>
         <source>CL_OUT</source>
-        <translation type="unfinished"></translation>
+        <translation>CL_OUT</translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="43"/>
         <source>HUB_IN</source>
-        <translation type="unfinished"></translation>
+        <translation>HUB_IN</translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="50"/>
         <source>HUB_OUT</source>
-        <translation type="unfinished"></translation>
+        <translation>HUB_OUT</translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="57"/>
         <source>DHT_IN</source>
-        <translation type="unfinished"></translation>
+        <translation>DHT_IN</translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="64"/>
         <source>DHT_OUT</source>
-        <translation type="unfinished"></translation>
+        <translation>DHT_OUT</translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="71"/>
         <source>Filter by IP</source>
-        <translation type="unfinished"></translation>
+        <translation>Nach IP filtern</translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="81"/>
         <source>Lines:</source>
-        <translation type="unfinished"></translation>
+        <translation>Zeilen:</translation>
     </message>
 </context>
 <context>
@@ -4824,6 +4824,10 @@ p, li { white-space: pre-wrap; }
         <location filename="../ui/UIFavoriteHubEditor.ui" line="78"/>
         <source>Description</source>
         <translation>Beschreibung</translation>
+    </message>
+    <message>
+        <source>This description will show in the user list.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="85"/>
@@ -5286,7 +5290,7 @@ einen Suchdialog zu öffnen.</translation>
     <message>
         <location filename="../ui/PrivateMessage.ui" line="87"/>
         <source>Shift+F3</source>
-        <translation type="unfinished">Shift+F3</translation>
+        <translation>Umschalt+F3</translation>
     </message>
     <message>
         <location filename="../ui/PrivateMessage.ui" line="94"/>
@@ -5301,7 +5305,7 @@ einen Suchdialog zu öffnen.</translation>
     <message>
         <location filename="../ui/PrivateMessage.ui" line="100"/>
         <source>F3</source>
-        <translation type="unfinished">F3</translation>
+        <translation>F3</translation>
     </message>
     <message>
         <location filename="../ui/PrivateMessage.ui" line="107"/>
@@ -5450,12 +5454,12 @@ einen Suchdialog zu öffnen.</translation>
     <message>
         <location filename="../ui/UISettingsAdvanced.ui" line="14"/>
         <source>Form</source>
-        <translation type="unfinished">Form</translation>
+        <translation>Form</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsAdvanced.ui" line="36"/>
         <source>Mime Handler</source>
-        <translation type="unfinished"></translation>
+        <translation>Mime Handler</translation>
     </message>
 </context>
 <context>
@@ -5485,7 +5489,7 @@ einen Suchdialog zu öffnen.</translation>
         <source>Select this mode if your computer is connected directly to the internet.
 Do not select this mode if you have a router or any external firewall.
 If your computer is not behind a router all you have to do is to choose
-this option and usually you don&apos;t need to alter anything more in the
+this option and usually you don't need to alter anything more in the
 connection settings.
 However, if you have a software firewall installed, you may need further configuration in the firewall to allow Internet access for EiskaltDC++.</source>
         <translation>Wähle diesen Modus wenn Ihr Computer direkt mit dem Internet
@@ -5546,7 +5550,7 @@ Dieser Modus beinhaltet einige starke Einschränkungen:
         <source>Select this mode if you are behind a firewall/router that supports
 the UPnP standard for program auto-configuration.
 Most routers do support UPnP but you may need to enable it
-in the router&apos;s configuration page.
+in the router's configuration page.
 This way EiskaltDC++ will automatically open the ports it needs
 and obtain your external IP address as well.</source>
         <translation>Wähle diesen Modus wenn du dich hinter einer/m Firewall/Router befindest
@@ -5752,13 +5756,13 @@ DC++ SOCKS5 Unterstützung beinhaltet kein GSSAPI.</translation>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Set the Type-Of-Service (TOS) field that is sent with every &lt;a href=&quot;http://en.wikipedia.org/wiki/IP_packet&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0057ae;&quot;&gt;IP packet&lt;/span&gt;&lt;/a&gt; originating from this socket. It is used to prioritize packets on the network. TOS is a byte. There are some standard TOS flags defined: &lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; - &amp;quot;Low delay&amp;quot;&lt;/span&gt; to minimize delays for interactive traffic&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; - &amp;quot;Throughput&amp;quot;&lt;/span&gt; to optimize throughput&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; - &amp;quot;Reliability&amp;quot;&lt;/span&gt; to optimize for reliability&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; - &amp;quot;Minimal cost&amp;quot;&lt;/span&gt; should be used for &amp;quot;filler data&amp;quot; where slow transmission doesn&apos;t matter&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; - &amp;quot;Minimal cost&amp;quot;&lt;/span&gt; should be used for &amp;quot;filler data&amp;quot; where slow transmission doesn't matter&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;At most one of these TOS values can be specified. Linux sends &lt;span style=&quot; font-weight:600;&quot;&gt;&amp;quot;Low delay&amp;quot;&lt;/span&gt; datagrams first by default, but the exact behaviour depends on the configured queueing discipline.&lt;span style=&quot; font-weight:600;&quot;&gt; Warning! This option needs superuser privileges!&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
@@ -5876,7 +5880,7 @@ p, li { white-space: pre-wrap; }
         <location filename="../ui/UISettingsDownloads.ui" line="106"/>
         <source>This is another method of limiting simultaneous downloads,
 designed to prevent new downloads if your existing downloads
-exceed a specific threshold. It&apos;s measured in kibibytes per second,
+exceed a specific threshold. It's measured in kibibytes per second,
 and a value of zero will disable this limit.</source>
         <translation>Dies ist eine andere Methode gleichzeitige Downloads zu beschränken,
 darauf abzielend neue Downloads zu verhindern, falls die existierenden
@@ -6145,7 +6149,7 @@ aber nicht aus der Warteschlange entfernt.</translation>
         <source>Every few minutes, the client will search for files in your
 Download Queue to find more download locations (more users/sources).
 The autosearch will find exact matches by searching via hash.
-The drawback is that it may won&apos;t find much more sources
+The drawback is that it may won't find much more sources
 and will prevent manual searches on hubs where
 a predefined search interval rule is in effect.</source>
         <translation>Alle paar Minuten sucht der Client nach Datein in deiner Download-
@@ -6162,11 +6166,11 @@ festgelegt ist.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="712"/>
-        <source>Enable to automatically download a user&apos;s list and match them
-as sources for files in your Download Queue when they&apos;ve been
-discovered as a source for one of the files you&apos;re downloading.
+        <source>Enable to automatically download a user's list and match them
+as sources for files in your Download Queue when they've been
+discovered as a source for one of the files you're downloading.
 If you download files in sets, that user is probably a source
-for many more files you&apos;re downloading. Enable if unsure.
+for many more files you're downloading. Enable if unsure.
 The drawbacks are that it might add slower sources, possibly
 increasing the time needed to complete a download,
 and that you&apos;ll download a lot of file lists.</source>
@@ -6232,12 +6236,12 @@ die sich bereits in der Warteschlange befinden.</translation>
         <location filename="../ui/UISettingsDownloads.ui" line="791"/>
         <source>Enable this option if you want to keep downloaded filelists
 in the download queue after they have been finished.
-After downloaded the queue items will have &apos;Finished&apos; status
+After downloaded the queue items will have 'Finished' status
 and you can delete these finished entries anytime later.
 Note that if you physically move/delete your downloaded files from
-their target location, it won&apos;t result automatic deletion of
+their target location, it won't result automatic deletion of
 the corresponding finished entries from the queue.
-If you disable this function, it won&apos;t remove existing finished items
+If you disable this function, it won't remove existing finished items
 from the queue either, you must do that manually.</source>
         <translation>Aktiviere diese Einstellung, falls du heruntergeladene Dateilisten in der
 Downloadwarteschlange behalten willst, nachdem sie beendet wurden.
@@ -6257,15 +6261,15 @@ automatisch löschen, man man dies manuell tun.</translation>
         <location filename="../ui/UISettingsDownloads.ui" line="810"/>
         <source>Enable this option if you want to keep downloaded files and folders
 in the download queue after they have been finished.
-After downloaded the queue items will have &apos;Finished&apos; status
+After downloaded the queue items will have 'Finished' status
 and you can delete these finished entries anytime later.
 Using this function you can keep track of what files are already
 downloaded right there in the download queue without the need
 of checking the Finished Downloads window.
 Note that if you physically move/delete your downloaded files from
-their target location, it won&apos;t result automatic deletion of
+their target location, it won't result automatic deletion of
 the corresponding finished entries from the queue.
-If you disable this function, it won&apos;t remove existing finished items
+If you disable this function, it won't remove existing finished items
 from the queue either, you must do that manually.</source>
         <translation>Aktiviere diese Option, wenn heruntergeladene Dateien und Ordner in der
 Downloadwarteschlange verbleiben sollen nachdem sie beendet wurden.
@@ -6485,8 +6489,8 @@ nicht aus der Warteschlange entfernt, man muss dies manuell ausführen.</transla
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="373"/>
-        <source>If checked, you&apos;ll see emoticons even in the middle of words.
-If unchecked, you&apos;ll see emoticons only if they are isolated
+        <source>If checked, you'll see emoticons even in the middle of words.
+If unchecked, you'll see emoticons only if they are isolated
 from other words by spaces.</source>
         <translation>Wenn aktiviert sieht man Emoticons auch in der mitte von Wörtern.
 Daktiviert sieht man Emoticons nur wenn sie durch Leerzeichen
@@ -6536,9 +6540,21 @@ isoliert von anderen Wörtern stehen.</translation>
         <translation>Private Nachricht</translation>
     </message>
     <message>
+        <source>show kibibyte (KiB) or kilobyte (KB), etc.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <location filename="../ui/UISettingsGUI.ui" line="487"/>
         <source>Application unit base</source>
         <translation>Anwendugs Einheiten Basis</translation>
+    </message>
+    <message>
+        <source>1024</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>1000</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="528"/>
@@ -6817,7 +6833,7 @@ them is usually available only to operators</source>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="294"/>
         <source>Cmd Debug</source>
-        <translation type="unfinished"></translation>
+        <translation>Cmd Debug</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="346"/>
@@ -6849,7 +6865,7 @@ them is usually available only to operators</source>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;http://dcplusplus.sourceforge.net/webhelp/settings_logs.html&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#296fbe;&quot;&gt;Help&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
@@ -6973,7 +6989,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="355"/>
-        <source>If your sound files&apos; format is unsupported by Qt, you can define
+        <source>If your sound files' format is unsupported by Qt, you can define
 custom media player here to play them.
 For example: /usr/bin/mplayer</source>
         <translation>Falls Sounddateiformate von Qt nicht unterstützt werden, kann man hier
@@ -7306,10 +7322,10 @@ falls dein System während dem Hashing langsam wird.</translation>
         <location filename="../ui/UISettingsSharing.ui" line="534"/>
         <source>Configure the number of slots that other users can occupy
 to download files from you. A remote user can use only
-one slot for each hub that they&apos;re on with you.
+one slot for each hub that they're on with you.
 EiskaltDC++ supports uploading file lists and files below 64 KiB
 to other DC++ users without requiring a slot.
-There&apos;s a max of 3 connections in addition to normal slots,
+There's a max of 3 connections in addition to normal slots,
 these are called mini slots.
 Note: If a user leaves the hub, EiskaltDC++ will close his slots;
 if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</source>
@@ -7602,7 +7618,7 @@ gewährt EiskaltDC++ ihm wieder einen Slot.</translation>
     <message>
         <location filename="../src/UserListModel.cpp" line="174"/>
         <source>Exact share size</source>
-        <translation type="unfinished"></translation>
+        <translation>Genaue Sharegröße</translation>
     </message>
     <message>
         <location filename="../src/UserListModel.cpp" line="175"/>
@@ -7629,6 +7645,50 @@ gewährt EiskaltDC++ ihm wieder einen Slot.</translation>
         <location filename="../src/WulforUtil.cpp" line="704"/>
         <source>System default</source>
         <translation>Systemstandard</translation>
+    </message>
+    <message>
+        <source>%1 B</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>%1 KiB</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>%1 MiB</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>%1 GiB</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>%1 TiB</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>%1 PiB</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>%1 KB</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>%1 MB</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>%1 GB</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>%1 TB</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>%1 PB</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/WulforUtil.cpp" line="1015"/>
