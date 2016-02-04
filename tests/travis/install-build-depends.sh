@@ -51,6 +51,7 @@ elif [ "${USE_QT}" = "qt5" ]; then
                              qtquick1-5-dev \
                              qtscript5-dev \
                              qt5-default \
+                             libqt5xmlpatterns5-dev \
                              qttools5-dev-tools
     if [ "${CONFIG}" = "full" ]; then
         sudo apt-get install -qq libaspell-dev
