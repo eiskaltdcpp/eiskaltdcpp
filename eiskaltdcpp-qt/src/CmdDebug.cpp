@@ -87,6 +87,7 @@ void CmdDebug::on(DebugManagerListener::DebugCommand, const string &mess, int ty
                 emit coreDebugCommand(msg, qip);
             }
             break;
+#ifdef WITH_DHT
         case dcpp::DebugManager::DHT_IN:
             if(checkBoxDHT_IN->isChecked())
             {
@@ -103,6 +104,7 @@ void CmdDebug::on(DebugManagerListener::DebugCommand, const string &mess, int ty
                 emit coreDebugCommand(msg, qip);
             }
             break;
+#endif
         default: break;
     }
 }

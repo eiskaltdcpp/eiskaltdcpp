@@ -51,7 +51,10 @@ const string SettingsManager::settingTags[] =
     "LogFormatSystem", "LogFormatStatus", "LogFileSpy", "LogFormatSpy", "TLSPrivateKeyFile",
     "TLSCertificateFile", "TLSTrustedCertificatesPath",
     "Language", "SkipListShare", "InternetIp", "BindIfaceName",
-    "DHTKey", "DynDNSServer", "MimeHandler",
+#ifdef WITH_DHT
+    "DHTKey",
+#endif
+    "DynDNSServer", "MimeHandler",
     "LogFileCmdDebug", "LogFormatCmdDebug",
     "SENTRY",
     // Ints
@@ -87,7 +90,9 @@ const string SettingsManager::settingTags[] =
     "Coral", "SearchFilterShared", "FinishedDLOnlyFull",
     "SearchMerge", "HashBufferSize", "HashBufferPopulate",
     "HashBufferNoReserve", "HashBufferPrivate",
+#ifdef WITH_DHT
     "UseDHT", "DHTPort",
+#endif
     "ReconnectDelay", "AutoDetectIncomingConnection",
     "BandwidthLimitStart", "BandwidthLimitEnd", "EnableThrottle","TimeDependentThrottle",
     "MaxDownloadSpeedAlternate", "MaxUploadSpeedAlternate",
@@ -273,8 +278,10 @@ SettingsManager::SettingsManager()
     setDefault(HASH_BUFFER_NORESERVE, true);
     setDefault(HASH_BUFFER_PRIVATE, true);
     setDefault(RECONNECT_DELAY, 15);
+#ifdef WITH_DHT
     setDefault(DHT_PORT, 6250);
     setDefault(USE_DHT, false);
+#endif
     setDefault(SEARCH_PASSIVE, false);
     setDefault(AUTO_DETECT_CONNECTION, false);
     setDefault(MAX_UPLOAD_SPEED_MAIN, 0);
@@ -440,8 +447,10 @@ void SettingsManager::load(string const& aFileName)
         if(CID(SETTING(PRIVATE_ID)).isZero())
             set(PRIVATE_ID, CID::generate().toBase32());
     }
+#ifdef WITH_DHT
     if (SETTING(DHT_KEY).length() != 39 || CID(SETTING(DHT_KEY)).isZero())
         set(DHT_KEY, CID::generate().toBase32());
+#endif
 }
 
 void SettingsManager::save(string const& aFileName) {

@@ -43,5 +43,9 @@ private:
 
     bool dirty;
 
-    int old_tcp, old_udp, old_tls, old_dht;
+    int old_tcp, old_udp, old_tls
+#ifdef WITH_DHT
+        , old_dht
+#endif
+        ;
 };
