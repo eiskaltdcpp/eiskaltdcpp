@@ -285,8 +285,6 @@ if (WIN32)
                               -lwinmm
                               -lcrypt32
                               -lstrmiids
-                              -lpthread
-                              -ldl
                  )
         endif (USE_QT5)
     endif (STATIC)
