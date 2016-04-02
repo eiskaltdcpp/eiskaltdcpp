@@ -16,7 +16,14 @@
 !macroend
 !define !defineifexist "!insertmacro !defineifexist"
 
-${!defineifexist} arch_x86 "installer\libgcc_s_sjlj-1.dll"
+!if ${static} == 32
+  !define arch_x86
+!else
+  !if ${static} != 64
+    !define shared
+    ${!defineifexist} arch_x86 "installer\libgcc_s_sjlj-1.dll"
+  !endif
+!endif
 
 !define PRODUCT_DISPLAY_VERSION      "2.4.0"
 !define PRODUCT_PUBLISHER            "EiskaltDC++"
@@ -106,7 +113,9 @@ Section "EiskaltDC++"
   File "installer\eiskaltdcpp-cli-jsonrpc"
   File "installer\cli-jsonrpc-config.pl"
   File "installer\dcppboot.xml"
-  File "installer\qt.conf"
+
+!ifdef shared
+  ;File "installer\qt.conf"
   File "installer\Qt5Concurrent.dll"
   File "installer\Qt5Core.dll"
   File "installer\Qt5Declarative.dll"
@@ -143,12 +152,21 @@ Section "EiskaltDC++"
   File "installer\libpng16-16.dll"
   File "installer\libsqlite3-0.dll"
   File "installer\libstdc++-6.dll"
-  File "installer\libwinpthread-1.dll"
+  ;File "installer\libwinpthread-1.dll"
   File "installer\ssleay32.dll"
   File "installer\zlib1.dll"
 
+  SetOutPath "$INSTDIR\audio"
+  File "/oname=qtaudio_windows.dll" "installer\audio\qtaudio_windows.dll"
+  SetOutPath "$INSTDIR\platforms"
+  File "/oname=qwindows.dll" "installer\platforms\qwindows.dll"
+  SetOutPath "$INSTDIR\sqldrivers"
+  File "/oname=qsqlite.dll" "installer\sqldrivers\qsqlite.dll"
+!endif
+
+  SetOutPath $INSTDIR
   File /r "installer\aspell"
-  File /r "installer\plugins"
+  ;File /r "installer\plugins"
   File /r "installer\resources"
 
   WriteUninstaller "$INSTDIR\uninstall.exe"
