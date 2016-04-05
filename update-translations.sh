@@ -3,15 +3,10 @@
 # Author:  Boris Pek <tehnick-8@mail.ru>
 # License: Public Domain
 # Created: 2011-11-26
-# Updated: 2013-06-26
+# Updated: 2016-04-06
 # Version: N/A
 
-if [[ ${0} =~ ^/.+$ ]]; then
-    export CUR_DIR="$(dirname ${0})"
-else
-    export CUR_DIR="${PWD}/$(dirname ${0})"
-fi
-
+export CUR_DIR="$(dirname $(realpath -s ${0}))"
 export MAIN_DIR="${CUR_DIR}/.."
 
 cd "${CUR_DIR}" || exit 1
@@ -24,7 +19,7 @@ case "${1}" in
 ;;
 "cm")
 
-    git commit -a -m 'Translations were updated from Transifex.' || exit 1
+    git commit -a -m 'Translations are updated from Transifex.' || exit 1
 
 ;;
 "make")
@@ -43,7 +38,7 @@ case "${1}" in
 "tr")
 
     # Test Internet connection:
-    host transifex.net > /dev/null || exit 1
+    host transifex.com > /dev/null || exit 1
 
     git status || exit 1
 
@@ -133,7 +128,7 @@ case "${1}" in
     echo "Usage:"
     echo "  up cm make"
     echo "  tr tr_up tr_cl tr_co"
-    echo "  tr_push <arg> (arg: src, all or language)"
+    echo "  tr_push <arg> (arg: src, all or language code)"
     echo ;
     echo "Examples:"
     echo "  ./update-translations.sh tr_push src"
