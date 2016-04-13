@@ -231,6 +231,10 @@ void FavoriteHubs::initHubEditor(FavoriteHubEditor &editor, StrMap &map){
     if (tags.indexOf(tag) > 0){
         editor.comboBox_CID->setCurrentIndex(tags.indexOf(tag));
     }
+	else if (tag.indexOf(APPNAME) == -1) {
+		editor.comboBox_CID->insertItem(1, tag);
+		editor.comboBox_CID->setCurrentIndex(1);
+	}
     else {
         editor.comboBox_CID->setCurrentIndex(0);
     }
