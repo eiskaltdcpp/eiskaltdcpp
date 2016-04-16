@@ -267,7 +267,9 @@ if (WIN32)
     if (STATIC)
         if (USE_QT5)
             add_definitions ( -DSTATIC )
+            find_library(QT5PLATFORMSUPPORT Qt5PlatformSupport)
             list (APPEND LIBS Qt5::QWindowsIntegrationPlugin
+                              ${QT5PLATFORMSUPPORT}
                               Qt5::QSQLiteDriverPlugin
                               Qt5::Sql
                               Qt5::QWindowsAudioPlugin
