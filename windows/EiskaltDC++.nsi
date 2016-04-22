@@ -93,9 +93,17 @@ FunctionEnd
 
 Name "${PRODUCT_NAME}"
 !ifdef arch_x86
-  OutFile "EiskaltDC++-${PRODUCT_DISPLAY_VERSION}-x86.exe"
+  !ifdef shared
+    OutFile "EiskaltDC++-${PRODUCT_DISPLAY_VERSION}-x86.exe"
+  !else
+    OutFile "EiskaltDC++-${PRODUCT_DISPLAY_VERSION}-x86-static.exe"
+  !endif
 !else
-  OutFile "EiskaltDC++-${PRODUCT_DISPLAY_VERSION}-x86_64.exe"
+  !ifdef shared
+    OutFile "EiskaltDC++-${PRODUCT_DISPLAY_VERSION}-x86_64.exe"
+  !else
+    OutFile "EiskaltDC++-${PRODUCT_DISPLAY_VERSION}-x86_64-static.exe"
+  !endif
 !endif
 InstallDir "${PRODUCT_INSTALL_DIR}"
 ShowInstDetails show
