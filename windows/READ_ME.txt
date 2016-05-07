@@ -4,12 +4,25 @@ Compilation in Linux ( cross-compile in MXE ) [ Recommended ]
 Install MXE: http://mxe.cc/#tutorial
 
 cd /path/to/mxe
-make zlib bzip2 libiconv gettext miniupnpc jsoncpp aspell libidn openssl pcre lua boost qt5 MXE_TARGETS=x86_64-w64-mingw32.shared
-/path/to/mxe/usr/bin/x86_64-w64-mingw32.shared-cmake -DCMAKE_INSTALL_PREFIX=./EiskaltDC++ -DSHARE_DIR=resources -DOPENSSL_MSVC=OFF -DDO_NOT_USE_MUTEX=ON -DUSE_ASPELL=ON -DFORCE_XDG=OFF -DDBUS_NOTIFY=OFF -DUSE_JS=ON -DUSE_MINIUPNP=ON -DLOCAL_MINIUPNP=OFF -DWITH_SOUNDS=ON -DPERL_REGEX=ON -DUSE_QT_QML=OFF -DLUA_SCRIPT=ON -DWITH_LUASCRIPTS=ON -DUSE_QT_SQLITE=ON -DNO_UI_DAEMON=ON -DJSONRPC_DAEMON=ON -DUSE_CLI_JSONRPC=ON /path/to/source/eiskaltdcpp
+make aspell boost jsoncpp libidn lua miniupnpc qtmultimedia qttools MXE_TARGETS=x86_64-w64-mingw32.shared
+/path/to/mxe/usr/bin/x86_64-w64-mingw32.shared-cmake -DCMAKE_INSTALL_PREFIX=./EiskaltDC++ -DSHARE_DIR=resources -DOPENSSL_MSVC=OFF -DDO_NOT_USE_MUTEX=ON -DUSE_ASPELL=ON -DFORCE_XDG=OFF -DDBUS_NOTIFY=OFF -DUSE_JS=OFF -DWITH_EXAMPLES=OFF -DUSE_MINIUPNP=ON -DLOCAL_MINIUPNP=OFF -DWITH_SOUNDS=ON -DPERL_REGEX=ON -DUSE_QT_QML=OFF -DLUA_SCRIPT=ON -DWITH_LUASCRIPTS=ON -DUSE_QT_SQLITE=ON -DNO_UI_DAEMON=ON -DJSONRPC_DAEMON=ON -DUSE_CLI_JSONRPC=ON /path/to/source/eiskaltdcpp
 make -j4
 make install
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+Deprecated and unsupported:
 *******************************************************************************
 Compilation in MS Windows
 *******************************************************************************
