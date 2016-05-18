@@ -638,7 +638,7 @@ void DownloadQueue::slotContextMenu(const QPoint &){
 
                 if (!magnet.isEmpty()){
                     Magnet m(this);
-                    m.setLink(magnet);
+                    m.setLink(magnet, Magnet::MAGNET_ACTION_SHOW_UI);
                     m.exec();
                 }
             }

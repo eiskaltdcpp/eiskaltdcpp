@@ -46,6 +46,7 @@ Magnet::Magnet(QWidget *parent) :
     else {
         pushButton_DOWNLOAD->setToolTip(tr("Download file via auto search alternatives"));
     }
+    currentAction = (MagnetAction)WIGET(WI_DEF_MAGNET_ACTION);
 }
 
 Magnet::~Magnet() {}
@@ -76,12 +77,17 @@ void Magnet::showUI(const QString &name, const qulonglong &size, const QString &
 }
 
 void Magnet::setLink(const QString &link){
+    setLink(link, currentAction);
+}
+
+void Magnet::setLink(const QString &link, MagnetAction action){
     QString name = "", tth = "";
     int64_t size = 0;
 
     WulforUtil::splitMagnet(link, size, tth, name);
+    currentAction = action;
 
-    switch (WIGET(WI_DEF_MAGNET_ACTION)) {
+    switch (action) {
         case MAGNET_ACTION_SEARCH: // search
             search(name, size, tth);
             break;
@@ -105,6 +111,14 @@ void Magnet::setLink(const QString &link){
             showUI(name, size, tth);
         }
     }
+}
+
+int Magnet::exec() {
+    if (currentAction != MAGNET_ACTION_SHOW_UI){
+        accept();
+        return result();
+    }
+    return QDialog::exec();
 }
 
 void Magnet::search(const QString &file, const qulonglong &size, const QString &tth){

@@ -740,9 +740,7 @@ bool WulforUtil::openUrl(const QString &url){
         Magnet *m = new Magnet(MainWindow::getInstance());
 
         m->setLink(magnet);
-        if (WIGET(WI_DEF_MAGNET_ACTION) == 0) {
-            m->exec();
-        }
+        m->exec();
 
         m->deleteLater();
     }

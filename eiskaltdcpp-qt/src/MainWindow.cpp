@@ -1834,9 +1834,7 @@ void MainWindow::parseCmdLine(const QStringList &args){
         if (arg.startsWith("magnet:?")){
             Magnet m(this);
             m.setLink(arg);
-            if (WIGET(WI_DEF_MAGNET_ACTION) == 0) {
-                m.exec();
-            }
+            m.exec();
         }
         else if (arg.startsWith("dchub://")){
             newHubFrame(arg, "");
@@ -2180,9 +2178,7 @@ void MainWindow::slotOpenMagnet(){
 
     if (result.startsWith("magnet:?")){
         Magnet m(this);
-
         m.setLink(result);
-
         m.exec();
     }
 }
