@@ -26,13 +26,16 @@ public:
     explicit Magnet(QWidget *parent = 0);
     virtual ~Magnet();
 
-    void setLink(const QString&);
-    enum {
+    void setLink(const QString &);
+    enum MagnetAction {
       MAGNET_ACTION_SHOW_UI = 0,
       MAGNET_ACTION_SEARCH = 1,
       MAGNET_ACTION_DOWNLOAD = 2
     };
-
+    void setLink(const QString &, MagnetAction action);
+    virtual int exec();
+private:
+    MagnetAction currentAction;
 private slots:
     void search();
     void download();

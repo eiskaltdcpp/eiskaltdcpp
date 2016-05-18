@@ -1360,7 +1360,7 @@ void SearchFrame::slotContextMenu(const QPoint &){
 
                     if (!magnet.isEmpty()){
                         Magnet m(this);
-                        m.setLink(magnet + "\n");
+                        m.setLink(magnet + "\n", Magnet::MAGNET_ACTION_SHOW_UI);
                         m.exec();
                     }
                 }
