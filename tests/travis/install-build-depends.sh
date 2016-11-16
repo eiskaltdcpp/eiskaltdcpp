@@ -86,17 +86,10 @@ fi
 if [ "${OS}" = "mingw" ]; then
     sudo apt-get install -qq mxe-x86-64-w64-mingw32.shared-aspell \
                              mxe-x86-64-w64-mingw32.shared-boost \
-                             mxe-x86-64-w64-mingw32.shared-bzip2 \
-                             mxe-x86-64-w64-mingw32.shared-gettext \
                              mxe-x86-64-w64-mingw32.shared-jsoncpp \
-                             mxe-x86-64-w64-mingw32.shared-libiconv \
                              mxe-x86-64-w64-mingw32.shared-libidn \
                              mxe-x86-64-w64-mingw32.shared-lua \
                              mxe-x86-64-w64-mingw32.shared-miniupnpc \
-                             mxe-x86-64-w64-mingw32.shared-openssl \
-                             mxe-x86-64-w64-mingw32.shared-qtbase \
                              mxe-x86-64-w64-mingw32.shared-qtmultimedia \
-                             mxe-x86-64-w64-mingw32.shared-qtquick1 \
                              mxe-x86-64-w64-mingw32.shared-qttools \
-                             mxe-x86-64-w64-mingw32.shared-zlib
 fi
