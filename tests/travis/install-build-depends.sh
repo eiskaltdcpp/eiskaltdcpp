@@ -91,5 +91,5 @@ if [ "${OS}" = "mingw" ]; then
                              mxe-x86-64-w64-mingw32.shared-lua \
                              mxe-x86-64-w64-mingw32.shared-miniupnpc \
                              mxe-x86-64-w64-mingw32.shared-qtmultimedia \
-                             mxe-x86-64-w64-mingw32.shared-qttools \
+                             mxe-x86-64-w64-mingw32.shared-qttools
 fi
