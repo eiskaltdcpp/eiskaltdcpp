@@ -1,21 +1,25 @@
 language: cpp
+
 compiler:
   - gcc
   - clang
+
 env:
-  - OS=mingw
-  - USE_QT=qt4    ; CONFIG=minimal
-  - USE_QT=qt4    ; CONFIG=full
-  - USE_QT=qt5    ; CONFIG=minimal
-  - USE_QT=qt5    ; CONFIG=full
-  - USE_GTK=gtk2  ; CONFIG=minimal
-  - USE_GTK=gtk2  ; CONFIG=full
-  - USE_GTK=gtk3  ; CONFIG=minimal
-  - USE_GTK=gtk3  ; CONFIG=full
-  - USE_DAEMON=ON ; CONFIG=minimal
-  - USE_DAEMON=ON ; CONFIG=full
-  - USE_CLI=ON
+  - OS=Windows
+  - USE_QT=qt4
+  - USE_QT=qt5
+  - USE_GTK=gtk2
+  - USE_GTK=gtk3
+  - USE_DAEMON=ON
+
+# avoid twice build for OS=Windows
+matrix:
+  exclude:
+    - compiler: clang
+      env: OS=Windows
+
 install:
   - tests/travis/install-build-depends.sh
+
 script:
   - tests/travis/build-and-test.sh
