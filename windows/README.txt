@@ -9,8 +9,9 @@ make aspell boost jsoncpp libidn lua miniupnpc qtmultimedia qttools MXE_TARGETS=
 make -j4
 make install
 
-
-
+Note: to temporal fix problem with sprintf:
+/usr/lib/mxe/usr/x86_64-w64-mingw32.shared/include/boost/interprocess/detail/win32_api.hpp:2255:19: error: 'libintl_sprintf' is not a member of 'std'
+see https://github.com/eiskaltdcpp/eiskaltdcpp/commit/8d920bf
 
 
 
