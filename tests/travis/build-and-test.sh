@@ -164,6 +164,7 @@ if [ "${OS}" = "mingw" ]; then
                -DLOCAL_JSONCPP=OFF
                -DUSE_CLI_JSONRPC=ON"
 
+    sudo sed -i 's/std::sprintf/sprintf/' /usr/lib/mxe/usr/x86_64-w64-mingw32.shared/include/boost/interprocess/detail/win32_api.hpp
     /usr/lib/mxe/usr/bin/x86_64-w64-mingw32.shared-cmake ${CMAKEOPTS}
     make VERBOSE=1
     make install
