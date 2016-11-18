@@ -7,11 +7,6 @@
 set -x
 
 if [ "${OS}" != "Windows" ]; then
-    # This  is an ugly hack for partial updating of build environment from
-    # Ubuntu 12.04 (Precise Pangolin) to Ubuntu 14.04 (Trusty Tahr):
-    sudo sed -i 's/precise/trusty/g' /etc/apt/sources.list
-
-    sudo apt-get update -qq
     sudo apt-get install -qq cmake \
                              libbz2-dev \
                              libboost-dev \
