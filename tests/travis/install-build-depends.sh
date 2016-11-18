@@ -24,15 +24,15 @@ if [ "${OS}" != "Windows" ]; then
                                  qt4-dev-tools \
                                  libaspell-dev
     elif [ "${USE_QT}" = "qt5" ]; then
-        yes | sudo apt-get install -qq qtbase5-dev \
-                                       qttools5-dev \
-                                       qtmultimedia5-dev \
-                                       qtquick1-5-dev \
-                                       qtscript5-dev \
-                                       qt5-default \
-                                       libqt5xmlpatterns5-dev \
-                                       qttools5-dev-tools \
-                                       libaspell-dev
+        sudo apt-get install -qq qtbase5-dev \
+                                 qttools5-dev \
+                                 qtmultimedia5-dev \
+                                 qtquick1-5-dev \
+                                 qtscript5-dev \
+                                 qt5-default \
+                                 libqt5xmlpatterns5-dev \
+                                 qttools5-dev-tools \
+                                 libaspell-dev
     fi
 
     if [ "${USE_GTK}" = "gtk2" ]; then
@@ -40,9 +40,9 @@ if [ "${OS}" != "Windows" ]; then
                                  libnotify-dev \
                                  libcanberra-gtk-dev
     elif [ "${USE_GTK}" = "gtk3" ]; then
-        yes | sudo apt-get install -qq libgtk-3-dev \
-                                       libnotify-dev \
-                                       libcanberra-gtk3-dev
+        sudo apt-get install -qq libgtk-3-dev \
+                                 libnotify-dev \
+                                 libcanberra-gtk3-dev
     fi
 
     if [ "${USE_DAEMON}" = "ON" ]; then
