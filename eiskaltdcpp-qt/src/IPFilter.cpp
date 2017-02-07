@@ -131,6 +131,40 @@ bool IPFilter::ParseString(QString exp, quint32 &ip, quint32 &mask, eTableAction
     return true;
 }
 
+bool IPFilter::ParseIPString(QString exp, quint32 &ip, quint32 &mask){
+    if (exp.isEmpty())
+        return false;
+
+    if (exp.indexOf("/0") >= 0){
+        ip = mask = 0x00000000;
+
+        return true;
+    }
+
+    QString str_ip = "", str_mask = "";
+
+    int c_pos;
+    if ((c_pos = exp.indexOf("/")) > 0){
+
+        str_ip = exp.left(c_pos);
+        str_mask = exp.mid(c_pos+1,exp.length()-c_pos-1);
+    }
+    else
+        str_ip = exp;
+
+    if (!isIP(str_ip))
+        return false;
+
+    if (str_mask != "")
+        mask = MaskForBits(str_mask.toULong() > 32?32:str_mask.toULong());
+    else
+        mask = MaskForBits(32);
+
+    ip = StringToUint32(str_ip);
+
+    return true;
+}
+
 void IPFilter::addToRules(QString exp, eDIRECTION direction) {
     quint32 exp_ip, exp_mask;
     eTableAction act;
@@ -187,7 +221,65 @@ void IPFilter::addToRules(QString exp, eDIRECTION direction) {
     list_ip.insert(el->ip, el);
     rules.push_back(el);
 
-    emit ruleAdded(exp, direction);
+    emit ruleAdded(exp, direction, act);
+}
+
+void IPFilter::addToRules(QString exp, eDIRECTION direction, eTableAction act) {
+    quint32 exp_ip, exp_mask;
+
+    if (!ParseIPString(exp, exp_ip, exp_mask))
+        return;
+
+    IPFilterElem *el = NULL;
+
+    if (list_ip.contains(exp_ip)) {
+#ifdef _DEBUG_IPFILTER_
+    qDebug() << "\tIP already in list";
+#endif
+        auto it = list_ip.find(exp_ip);
+
+        while (it != list_ip.end() && it.key() == exp_ip){
+            el = it.value();
+
+            if ((el->direction != direction) && (el->action == act)){
+#ifdef _DEBUG_IPFILTER_
+                qDebug() << "\tChange direction of IP";
+#endif
+                emit ruleChanged(exp, el->direction, eDIRECTION_BOTH, act);
+
+                el->direction = eDIRECTION_BOTH;
+
+                return;
+            }
+            else if (el->direction == direction && el->action == act)
+                return;
+
+            ++it;
+        }
+    }
+
+    el = new IPFilterElem;
+
+    el->mask      = exp_mask;
+    el->ip        = exp_ip;
+    el->direction = direction;
+    el->action    = act;
+
+#ifdef _DEBUG_IPFILTER_
+    qDebug() << "\tCreated new element:";
+    printf("\t\tMASK: 0x%x\n"
+           "\t\tIP  : %s\n"
+           "\t\tD   : %i\n"
+           "\t\tA   : %i\n",
+           el->mask, IPFilter::Uint32ToString(el->ip).toUtf8().constData(),
+           (int)el->direction, (int)el->action
+          );
+#endif
+
+    list_ip.insert(el->ip, el);
+    rules.push_back(el);
+
+    emit ruleAdded(exp, direction, act);
 }
 
 void IPFilter::remFromRules(QString exp, eTableAction act) {
@@ -252,6 +344,13 @@ void IPFilter::changeRuleDirection(QString exp, eDIRECTION direction, eTableActi
             emit ruleChanged(exp, el->direction, direction, act);
 
             el->direction = direction;
+
+            return;
+        }
+        else if (el->direction == direction){
+            emit ruleChanged(exp, el->direction, direction, el->action);
+
+            el->action = act;
 
             return;
         }

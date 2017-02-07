@@ -22,7 +22,7 @@ IPFilterModel::IPFilterModel(QObject *parent)
     : QAbstractItemModel(parent)
 {
     QList<QVariant> rootData;
-    rootData << tr("IP/Mask") << tr("Direction");
+    rootData << tr("IP/Mask") << tr("Direction") << tr("Action");
 
     rootItem = new IPFilterModelItem(rootData, NULL);
 }
@@ -132,8 +132,8 @@ void IPFilterModel::sort(int column, Qt::SortOrder order) {
     return;
 }
 
-void IPFilterModel::addResult(const QString &ip_mask, const QString &direction){
-    IPFilterModelItem *item = new IPFilterModelItem(QList<QVariant>() << ip_mask << direction, rootItem);
+void IPFilterModel::addResult(const QString &ip_mask, const QString &direction, const QString &action){
+    IPFilterModelItem *item = new IPFilterModelItem(QList<QVariant>() << ip_mask << direction << action, rootItem);
 
     rootItem->appendChild(item);
 

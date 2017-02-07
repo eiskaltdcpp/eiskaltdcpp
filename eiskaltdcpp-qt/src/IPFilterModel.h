@@ -14,6 +14,7 @@
 
 #define COLUMN_RULE_NAME        0
 #define COLUMN_RULE_DIRECTION   1
+#define COLUMN_RULE_ACTION      2
 
 class IPFilterModelItem{
 
@@ -65,7 +66,7 @@ public:
     virtual void sort(int column, Qt::SortOrder order = Qt::AscendingOrder);
 
     /** */
-    void addResult(const QString &, const QString &);
+    void addResult(const QString &, const QString &, const QString &);
 
     /** */
     void clearModel();
