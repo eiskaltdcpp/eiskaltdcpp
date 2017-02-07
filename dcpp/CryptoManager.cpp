@@ -109,10 +109,15 @@ CryptoManager::CryptoManager()
                 };
 
         if(dh) {
-            dh->p = BN_bin2bn(dh4096_p, sizeof(dh4096_p), 0);
-            dh->g = BN_bin2bn(dh4096_g, sizeof(dh4096_g), 0);
-
-            if(!dh->p || !dh->g) {
+            BIGNUM *p = BN_bin2bn(dh4096_p, sizeof(dh4096_p), 0);
+            BIGNUM *g = BN_bin2bn(dh4096_g, sizeof(dh4096_g), 0);
+#if OPENSSL_VERSION_NUMBER < 0x10100000L
+            dh->p = p;
+            dh->g = g;
+            if (!dh->p || !dh->g) {
+#else
+            if (!DH_set0_pqg(dh, p, NULL, g)) {
+#endif
                 dh.reset();
             } else {
                 SSL_CTX_set_options(serverContext, SSL_OP_SINGLE_DH_USE);
@@ -120,6 +125,8 @@ CryptoManager::CryptoManager()
                 SSL_CTX_set_tmp_dh(serverContext, (DH*)dh);
                 SSL_CTX_set_tmp_dh(serverVerContext, (DH*)dh);
             }
+            BN_free(p);
+            BN_free(g);
         }
 
         SSL_CTX_set_options(clientContext, SSL_OP_NO_SSLv2 | SSL_OP_NO_SSLv3 | SSL_OP_NO_COMPRESSION);
