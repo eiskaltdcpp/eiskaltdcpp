@@ -55,7 +55,6 @@ class ScriptConsole;
 
 extern const char * const EISKALTDCPP_VERSION;
 extern const char * const EISKALTDCPP_WND_TITLE;
-extern const char * const EISKALTDCPP_VERSION_SFX;
 
 class QProgressBar;
 
@@ -83,7 +82,7 @@ public:
     }
 
     void printVersion() const {
-        printf("%s (%s)\n", EISKALTDCPP_VERSION, EISKALTDCPP_VERSION_SFX);
+        printf("%s\n", EISKALTDCPP_VERSION);
     }
 };
 

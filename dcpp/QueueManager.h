@@ -103,7 +103,7 @@ public:
     void setPriority(const string& aTarget, QueueItem::Priority p) noexcept;
 
     void getTargets(const TTHValue& tth, StringList& sl);
-    QueueItem::StringMap& lockQueue() noexcept { cs.lock(); return fileQueue.getQueue(); } ;
+    QueueItem::StringMap& lockQueue() noexcept { cs.lock(); return fileQueue.getQueue(); }
     void unlockQueue() noexcept { cs.unlock(); }
 
     Download* getDownload(UserConnection& aSource, bool supportsTrees) noexcept;

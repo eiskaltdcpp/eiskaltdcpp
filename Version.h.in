@@ -16,6 +16,5 @@
 
 const char * const EISKALTDCPP_VERSION         = "@VERSION@";
 const char * const EISKALTDCPP_WND_TITLE       = "@PROJECT_NAME@";
-const char * const EISKALTDCPP_VERSION_SFX     = "@eiskaltdcpp_WC_REVISION@";
 
 #endif // VERSION_H

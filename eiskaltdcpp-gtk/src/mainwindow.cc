@@ -183,9 +183,9 @@ MainWindow::MainWindow():
     // About dialog
     gchar *comments = g_strdup_printf(_("DC++ Client based on the source code of FreeDC++ and LinuxDC++\n"
                                         "\n"
-                                        "EiskaltDC++ version: %s (%s)\n"
+                                        "EiskaltDC++ version: %s\n"
                                         "DC++ core version: %s"),
-        EISKALTDCPP_VERSION, EISKALTDCPP_VERSION_SFX, DCVERSIONSTRING);
+                                        EISKALTDCPP_VERSION, DCVERSIONSTRING);
 
     gtk_about_dialog_set_comments(GTK_ABOUT_DIALOG(getWidget("aboutDialog")), comments);
     g_free(comments);
@@ -204,8 +204,8 @@ MainWindow::MainWindow():
     const gchar * const authors[] =
     {
         _("Developers"),
-        "  2010-2014 Boris Pek <tehnick-8@mail.ru>",
-        "  2010-2014 Eugene Petrov <dhamp@ya.ru>",
+        "  2010-2015 Boris Pek <tehnick-8@mail.ru>",
+        "  2010-2015 Eugene Petrov <dhamp@ya.ru>",
         "  ",
         _("Contributors"),
         "  2001-2012 LinuxDC++ Team http://launchpad.net/linuxdcpp",
@@ -218,18 +218,19 @@ MainWindow::MainWindow():
 
     string translator_credits =
         _("Russian translation\n")+
-        string("  2010-2014 Boris Pek aka Tehnick <tehnick-8@mail.ru>\n")+
+        string("  2010-2015 Boris Pek aka Tehnick <tehnick-8@mail.ru>\n")+
         string("  2012 Vyacheslav Tretyakov <tret2003@gmail.com>\n")+
         string("\n")+
         _("Belarusian translation\n")+
         string("  2009-2013 Paval Shalamitski aka Klyok <i.kliok@gmail.com>\n")+
+        string("  2015 Zmicer Melayok <m_d@tut.by>\n")+
         string("\n")+
         _("Hungarian translation\n")+
         string("  2010-2012 Akos Berki aka sumo <husumo@gmail.com>\n")+
         string("  2011-2014 Márk Lutring <marcus@elitemail.hu>\n")+
         string("\n")+
         _("French translation\n")+
-        string("  2010-2014 Alexandre Wallimann aka Jellyffs <alexandre.wallimann@gmail.com>\n")+
+        string("  2010-2015 Alexandre Wallimann aka Jellyffs <alexandre.wallimann@gmail.com>\n")+
         string("\n")+
         _("Polish translation\n")+
         string("  2010-2012 Arahael <arahael@gmail.com>\n")+
@@ -240,6 +241,7 @@ MainWindow::MainWindow():
         string("\n")+
         _("Serbian (Cyrillic) translation\n")+
         string("  2014 Marko Trifunović <trifunovic@openmailbox.org>\n")+
+        string("  2015 Miroslav Petrovic <miroslav031@gmail.com>\n")+
         string("\n")+
         _("Serbian (Latin) translation\n")+
         string("  2010-2015 Miroslav Petrovic <miroslav031@gmail.com>\n")+
@@ -247,7 +249,7 @@ MainWindow::MainWindow():
         string("\n")+
         _("Spanish translation\n")+
         string("  2010-2015 Gustavo Alvarez aka sL1pKn07 <sl1pkn07@gmail.com>\n")+
-        string("  2012-2014 Francisco Blas Izquierdo Riera aka klondike <klondike at klondike.es>\n")+
+        string("  2012-2015 Francisco Blas Izquierdo Riera aka klondike <klondike at klondike.es>\n")+
         string("\n")+
         _("Basque translation\n")+
         string("  2014-2015 Egoitz Rodriguez <egoitzro2@hotmail.com>\n")+
@@ -265,7 +267,7 @@ MainWindow::MainWindow():
         string("  2011 Chris Leick <c.leick@vollbio.de>\n")+
         string("  2011-2012 Konstantinos Georgokitsos <kgeorgokitsos@yahoo.de>\n")+
         string("  2011-2012 Tillmann Karras <tilkax@gmail.com>\n")+
-        string("  2012-2015 Benjamin Weber <be.w@mail.ru>\n")+
+        string("  2012-2016 Benjamin Weber <be.w@mail.ru>\n")+
         string("\n")+
         _("Greek translation\n")+
         string("  2011-2012 Konstantinos Georgokitsos <kgeorgokitsos@yahoo.de>\n")+
@@ -282,6 +284,9 @@ MainWindow::MainWindow():
         string("\n")+
         _("Swedish (Sweden) translation\n")+
         string("  2014-2015 Sopor <sopor@hotmail.com>\n")+
+        string("\n")+
+        _("Turkish translation\n")+
+        string("  2015 mauron <https://www.transifex.com/user/profile/mauron/>\n")+
         string("\n");
     gtk_about_dialog_set_translator_credits(GTK_ABOUT_DIALOG(getWidget("aboutDialog")),
         (const gchar *)translator_credits.c_str());
@@ -379,9 +384,8 @@ MainWindow::MainWindow():
         g_strdup("http://code.google.com/p/eiskaltdc/w/list"), g_free);
     g_signal_connect(getWidget("wikiItem"), "activate", G_CALLBACK(onLinkClicked_gui), NULL);
 
-    // Now available: ChangeLog.txt, ChangeLog_ru.txt, ChangeLog_uk.txt
     g_object_set_data_full(G_OBJECT(getWidget("changeLogItem")), "link",
-        g_strdup(_("http://github.com/eiskaltdcpp/eiskaltdcpp/raw/master/ChangeLog.txt")), g_free);
+        g_strdup("https://github.com/eiskaltdcpp/eiskaltdcpp/blob/master/ChangeLog.txt"), g_free);
     g_signal_connect(getWidget("changeLogItem"), "activate", G_CALLBACK(onLinkClicked_gui), NULL);
 
     onQuit = FALSE;

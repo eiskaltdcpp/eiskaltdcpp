@@ -2,3 +2,4 @@ eiskaltdcpp-web/js/lib/
 CMakeLists.txt.user*
 .gitignore
 build*/
+tags

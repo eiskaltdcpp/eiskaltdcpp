@@ -132,7 +132,7 @@ void printHelp() {
 }
 
 void printVersion() {
-    printf("%s (%s)\n", EISKALTDCPP_VERSION, EISKALTDCPP_VERSION_SFX);
+    printf("%s\n", EISKALTDCPP_VERSION);
 }
 
 #ifndef _WIN32

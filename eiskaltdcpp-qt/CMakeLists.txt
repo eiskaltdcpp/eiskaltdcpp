@@ -11,6 +11,8 @@ include_directories(${PROJECT_BINARY_DIR})
 if (USE_QT)
     find_package (Qt4 4.7.0 COMPONENTS QtCore QtGui QtXml QtNetwork REQUIRED)
 elseif (USE_QT5)
+    find_package (Qt5Core          5.0.2 REQUIRED)
+    find_package (Qt5Gui           5.0.2 REQUIRED)
     find_package (Qt5Widgets       5.0.2 REQUIRED)
     find_package (Qt5Xml           5.0.2 REQUIRED)
     find_package (Qt5Network       5.0.2 REQUIRED)
@@ -29,6 +31,7 @@ if (USE_QT_QML)
         find_package (Qt4 4.7.0 COMPONENTS QtDeclarative REQUIRED)
     elseif (USE_QT5)
         find_package (Qt5Declarative 5.0.2 REQUIRED)
+        find_package (Qt5XmlPatterns 5.0.2 REQUIRED)
     endif ()
     add_definitions(-DUSE_QML)
     set (QT_USE_QTDECLARATIVE 1)
@@ -115,12 +118,6 @@ elseif (APPLE)
 endif ()
 
 file (GLOB UI_FORMS ${PROJECT_SOURCE_DIR}/ui/*.ui)
-
-if (WIN32)
-    if (OPENSSL_MSVC)
-        list (APPEND SRCS ../windows/applink.c)
-    endif (OPENSSL_MSVC)
-endif (WIN32)
 
 set (WIN_RESOURCES)
 if (MINGW AND WIN32)
@@ -228,26 +225,32 @@ if (USE_QT)
     list (APPEND LIBS ${QT_LIBRARIES})
 elseif (USE_QT5)
     include_directories (
+        ${Qt5Core_INCLUDE_DIRS}
+        ${Qt5Gui_INCLUDE_DIRS}
         ${Qt5Widgets_INCLUDE_DIRS}
         ${Qt5Xml_INCLUDE_DIRS}
-        ${Qt5Network_INCLUDE_DIRS}
         ${Qt5Multimedia_INCLUDE_DIRS}
         ${Qt5Concurrent_INCLUDE_DIRS}
         ${Qt5Declarative_INCLUDE_DIRS}
+        ${Qt5XmlPatterns_INCLUDE_DIRS}
         ${Qt5DBus_INCLUDE_DIRS}
         ${Qt5Script_INCLUDE_DIRS}
         ${Qt5Sql_INCLUDE_DIRS}
+        ${Qt5Network_INCLUDE_DIRS}
         )
     list (APPEND LIBS
+        ${Qt5Core_LIBRARIES}
+        ${Qt5Gui_LIBRARIES}
         ${Qt5Widgets_LIBRARIES}
         ${Qt5Xml_LIBRARIES}
-        ${Qt5Network_LIBRARIES}
         ${Qt5Multimedia_LIBRARIES}
         ${Qt5Concurrent_LIBRARIES}
         ${Qt5Declarative_LIBRARIES}
+        ${Qt5XmlPatterns_LIBRARIES}
         ${Qt5DBus_LIBRARIES}
         ${Qt5Script_LIBRARIES}
         ${Qt5Sql_LIBRARIES}
+        ${Qt5Network_LIBRARIES}
         )
 endif ()
 
@@ -259,6 +262,38 @@ include_directories (
         ${Boost_INCLUDE_DIRS}
         )
 list (APPEND LIBS ${Boost_LIBRARIES} ${ICONV_LIBRARIES})
+
+if (WIN32)
+    if (STATIC)
+        if (USE_QT5)
+            add_definitions ( -DSTATIC )
+            find_library(QT5PLATFORMSUPPORT Qt5PlatformSupport)
+            list (APPEND LIBS Qt5::QWindowsIntegrationPlugin
+                              ${QT5PLATFORMSUPPORT}
+                              Qt5::QSQLiteDriverPlugin
+                              Qt5::Sql
+                              Qt5::QWindowsAudioPlugin
+                              Qt5::Multimedia
+                              -lpcre16
+                              -lfreetype
+                              -lharfbuzz
+                              -lglib-2.0
+                              -lwinmm
+                              -limm32
+                              -lsqlite3
+                              -ljpeg
+                              -lpng
+                              -lopengl32
+                              -lwinmm
+                              -lcrypt32
+                              -lstrmiids
+                 )
+        endif (USE_QT5)
+    endif (STATIC)
+    if (OPENSSL_MSVC)
+        list (APPEND SRCS ../windows/applink.c)
+    endif (OPENSSL_MSVC)
+endif (WIN32)
 
 if (APPLE)
   find_library (COCOA_LIBRARY Cocoa)
@@ -364,14 +399,10 @@ if (APPLE)
   set(CPACK_PACKAGE_ICON ${MACOSICON})
   set(CPACK_BUNDLE_ICON ${MACOSICON})
   set(CPACK_BUNDLE_NAME ${PROJECT_NAME_GLOBAL})
-  if (eiskaltdcpp_WC_REVISION MATCHES [0-9]+)
-    set(CPACK_PACKAGE_FILE_NAME "${PROJECT_NAME_GLOBAL}-${VERSION}-${eiskaltdcpp_WC_REVISION}-${CMAKE_SYSTEM_PROCESSOR}")
-  else ()
-    set(CPACK_PACKAGE_FILE_NAME "${PROJECT_NAME_GLOBAL}-${VERSION}-stable-${CMAKE_SYSTEM_PROCESSOR}")
-  endif ()
+  set(CPACK_PACKAGE_FILE_NAME "${PROJECT_NAME_GLOBAL}-${VERSION}-${CMAKE_SYSTEM_PROCESSOR}")
   set (MACOSX_BUNDLE_INFO_STRING "Direct Connect and ADC client")
   set_target_properties(${PROJECT_NAME} PROPERTIES MACOSX_BUNDLE_INFO_PLIST ${PROJECT_SOURCE_DIR}/Info.plist.in)
-  set (MACOSX_BUNDLE_GUI_IDENTIFIER "http://code.google.com/p/eiskaltdc/")
+  set (MACOSX_BUNDLE_GUI_IDENTIFIER "https://github.com/eiskaltdcpp/eiskaltdcpp")
   set (MACOSX_BUNDLE_LONG_VERSION_STRING ${PROJECT_NAME_GLOBAL} ${VERSION})
   set (MACOSX_BUNDLE_BUNDLE_NAME ${PROJECT_NAME_GLOBAL})
   set (MACOSX_BUNDLE_SHORT_VERSION_STRING ${VERSION})
@@ -400,18 +431,29 @@ else (APPLE)
 endif (APPLE)
 
 if (APPLE)
-  install (DIRECTORY ${QT_LIBRARY_DIR}/QtGui.framework/Resources/qt_menu.nib DESTINATION ${PROJECT_NAME_GLOBAL}.app/Contents/Resources)
+  if (USE_QT)
+    install (DIRECTORY ${QT_LIBRARY_DIR}/QtGui.framework/Resources/qt_menu.nib DESTINATION ${PROJECT_NAME_GLOBAL}.app/Contents/Resources)
 
-  install (CODE "
-    file(WRITE \"\${CMAKE_INSTALL_PREFIX}/${qtconf_dest_dir}/qt.conf\" \"\")")
+    install (CODE "
+      file(WRITE \"\${CMAKE_INSTALL_PREFIX}/${qtconf_dest_dir}/qt.conf\" \"\")")
 
-  install (CODE "
-    file(GLOB_RECURSE QTPLUGINS
-      \"\${CMAKE_INSTALL_PREFIX}/${plugin_dest_dir}/plugins/*${CMAKE_SHARED_LIBRARY_SUFFIX}\")
-    include(BundleUtilities)
-    fixup_bundle(\"${APPS}\" \"\${QTPLUGINS}\" \"${DIRS}\")")
-    set (CPACK_BINARY_DRAGNDROP ON)
-
+    install (CODE "
+      file(GLOB_RECURSE QTPLUGINS
+        \"\${CMAKE_INSTALL_PREFIX}/${plugin_dest_dir}/plugins/*${CMAKE_SHARED_LIBRARY_SUFFIX}\")
+      include(BundleUtilities)
+      fixup_bundle(\"${APPS}\" \"\${QTPLUGINS}\" \"${DIRS}\")")
+  elseif (USE_QT5)
+    if (${_qt5Core_install_prefix} STREQUAL "")
+      message(WARNING "_qt5Core_install_prefix is not set, will use macdeployqt found in PATH")
+      set(MACDEPLOYQT "macdeployqt")
+    else (${_qt5Core_install_prefix} STREQUAL "")
+      set(MACDEPLOYQT "${_qt5Core_install_prefix}/bin/macdeployqt")
+    endif (${_qt5Core_install_prefix} STREQUAL "")
+    install (CODE "
+      execute_process(COMMAND ${MACDEPLOYQT} ${PROJECT_NAME_GLOBAL}.app -verbose=2
+        WORKING_DIRECTORY \${CMAKE_INSTALL_PREFIX})")
+  endif (USE_QT)
+  set (CPACK_BINARY_DRAGNDROP ON)
 endif (APPLE)
 
 include(CPack)

@@ -578,7 +578,7 @@ void ServerThread::getChatPubFromClient(string& chat, const string& hub, const s
 void ServerThread::parseSearchResult(SearchResultPtr result, StringMap &resultMap) {
     if (result->getType() == SearchResult::TYPE_FILE) {
         string file = revertSeparator(result->getFile());
-        if (file.rfind('/') == tstring::npos) {
+        if (file.rfind('/') == string::npos) {
             resultMap["Filename"] = file;
         } else {
             resultMap["Filename"] = Util::getFileName(file);

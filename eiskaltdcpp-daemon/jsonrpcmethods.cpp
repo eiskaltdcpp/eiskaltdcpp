@@ -382,9 +382,6 @@ bool JsonRpcMethods::ShowVersion(const Json::Value& root, Json::Value& response)
     response["jsonrpc"] = "2.0";
     response["id"] = root["id"];
     string version(EISKALTDCPP_VERSION);
-    version.append(" (");
-    version.append(EISKALTDCPP_VERSION_SFX);
-    version.append(")");
     response["result"] = version;
     if (isDebug) std::cout << "ShowVersion (response): " << response << std::endl;
     return true;

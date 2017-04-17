@@ -7,15 +7,15 @@
 # Translators:
 # Translators:
 # Sopor, 2014
-# Sopor, 2014
+# Sopor, 2014-2015
 msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
-"Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2015-05-24 21:44+0300\n"
-"PO-Revision-Date: 2014-11-09 23:06+0000\n"
+"Report-Msgid-Bugs-To: https://github.com/eiskaltdcpp/eiskaltdcpp/issues\n"
+"POT-Creation-Date: 2015-11-30 00:28+0300\n"
+"PO-Revision-Date: 2015-11-28 20:15+0000\n"
 "Last-Translator: Sopor\n"
-"Language-Team: Swedish (Sweden) (http://www.transifex.com/projects/p/"
+"Language-Team: Swedish (Sweden) (http://www.transifex.com/tehnick/"
 "eiskaltdcpp/language/sv_SE/)\n"
 "Language: sv_SE\n"
 "MIME-Version: 1.0\n"
@@ -185,7 +185,7 @@ msgstr "Anslutningen stängdes"
 msgid "Maximum command length exceeded"
 msgstr "Maximal kommandolängd överskriden"
 
-#: ../BufferedSocket.cpp:456
+#: ../BufferedSocket.cpp:461
 msgid "Disconnected"
 msgstr "Frånkopplad"
 
@@ -235,7 +235,7 @@ msgstr "En fil med ett annat tth-värde finns redan i nedladdningskön"
 
 #: ../QueueManager.cpp:739
 msgid "You're trying to download from yourself!"
-msgstr "Du försöker ladda ned din egen fillista!"
+msgstr "Du försöker ladda ned från dig själv!"
 
 #: ../QueueManager.cpp:802
 msgid "A file with a different TTH root already exists in the queue"
@@ -368,7 +368,7 @@ msgid "Error during compression"
 msgstr "Fel vid komprimering"
 
 #: ../BZUtils.cpp:74 ../BZUtils.cpp:96 ../BZUtils.cpp:99
-#: ../CryptoManager.cpp:372 ../CryptoManager.cpp:391 ../CryptoManager.cpp:405
+#: ../CryptoManager.cpp:400 ../CryptoManager.cpp:419 ../CryptoManager.cpp:433
 #: ../ZUtils.cpp:104 ../ZUtils.cpp:127 ../ZUtils.cpp:137
 msgid "Error during decompression"
 msgstr "Fel vid uppackning"
@@ -406,7 +406,15 @@ msgstr "Sökport (%1% UDP)"
 msgid " DHT Port (%1% UDP)"
 msgstr "DHT-port (%1% UDP)"
 
-#: ../UPnPManager.cpp:108
+#: ../UPnPManager.cpp:111
+msgid ""
+"Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%, DHT: %4%), "
+"mapped using the %5% interface"
+msgstr ""
+"Lyckades skapa portmappningar (TCP: %1%, UDP: %2%, TLS: %3%, DHT: %4%), via "
+"gränssnittet %5%"
+
+#: ../UPnPManager.cpp:113 ../UPnPManager.cpp:115
 msgid ""
 "Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%), mapped "
 "using the %4% interface"
@@ -414,23 +422,23 @@ msgstr ""
 "Lyckades skapa portmappningar (Överföring: %1%, Sök: %2%, Krypterad "
 "överföring: %3%) på enheten %4%"
 
-#: ../UPnPManager.cpp:119
+#: ../UPnPManager.cpp:127
 msgid "Failed to get external IP"
 msgstr "Kan inte hämta den publika IP-adressen"
 
-#: ../UPnPManager.cpp:129
+#: ../UPnPManager.cpp:137
 msgid "Failed to create port mappings"
 msgstr "Kunde inte skapa portmappningar"
 
-#: ../UPnPManager.cpp:138
+#: ../UPnPManager.cpp:146
 msgid "Successfully removed port mappings with the %1% interface"
 msgstr "Lyckades ta bort portmappningar med gränssnittet %1%"
 
-#: ../UPnPManager.cpp:139
+#: ../UPnPManager.cpp:147
 msgid "Failed to remove port mappings with the %1% interface"
 msgstr "Misslyckades att ta bort portmappningar med gränssnittet %1%"
 
-#: ../UPnPManager.cpp:144
+#: ../UPnPManager.cpp:152
 msgid "UPnP: %1%"
 msgstr "UPnP: %1%"
 
@@ -628,35 +636,35 @@ msgstr "Fillistan har uppdaterats"
 msgid "File list %1% generated"
 msgstr "Fillistan %1% har skapats"
 
-#: ../SettingsManager.cpp:179
+#: ../SettingsManager.cpp:182
 msgid "downloaded from"
 msgstr "nedladdat från"
 
-#: ../SettingsManager.cpp:516
+#: ../SettingsManager.cpp:521
 msgid "Invalid search type name"
 msgstr "Ogiltig söktyp"
 
-#: ../SettingsManager.cpp:520 ../SettingsManager.cpp:542
+#: ../SettingsManager.cpp:525 ../SettingsManager.cpp:547
 msgid "This search type already exists"
 msgstr "Denna söktyp finns redan"
 
-#: ../SettingsManager.cpp:574
+#: ../SettingsManager.cpp:579
 msgid "No such search type"
 msgstr "Söktypen finns inte"
 
-#: ../SettingsManager.cpp:602 ../SettingsManager.cpp:607
+#: ../SettingsManager.cpp:607 ../SettingsManager.cpp:612
 msgid "Error: setting not found!"
 msgstr "Fel: inställning finns inte!"
 
-#: ../SettingsManager.cpp:602
+#: ../SettingsManager.cpp:607
 msgid "Core setting "
 msgstr "Inställning"
 
-#: ../SettingsManager.cpp:607
+#: ../SettingsManager.cpp:612
 msgid "Change core setting "
 msgstr "Ändra huvudinställning"
 
-#: ../SettingsManager.cpp:607
+#: ../SettingsManager.cpp:612
 msgid " to "
 msgstr "till"
 
@@ -691,37 +699,37 @@ msgstr ""
 "Misslyckades med att upprätta socks-server för UDP-relä (kontrollera socks-"
 "adress och port)"
 
-#: ../CryptoManager.cpp:134
+#: ../CryptoManager.cpp:162
 msgid "No private key file chosen"
 msgstr "Ingen privat nyckel vald"
 
-#: ../CryptoManager.cpp:137
+#: ../CryptoManager.cpp:165
 msgid "No certificate file chosen"
 msgstr "Ingen certifikatfil vald"
 
-#: ../CryptoManager.cpp:149
+#: ../CryptoManager.cpp:177
 msgid "Error generating certificate"
 msgstr "Kunde inte skapa certifikatfilen"
 
-#: ../CryptoManager.cpp:212
+#: ../CryptoManager.cpp:240
 msgid "TLS disabled, no certificate file set"
 msgstr "TLS är inaktiverad, ingen certifikatfil angiven"
 
-#: ../CryptoManager.cpp:220
+#: ../CryptoManager.cpp:248
 msgid "Generated new TLS certificate"
 msgstr "Ett nytt TLS-certifikat skapades"
 
-#: ../CryptoManager.cpp:222
+#: ../CryptoManager.cpp:250
 msgid "TLS disabled, failed to generate certificate: %1%"
 msgstr "TLS inaktiverad, kunde inte skapa certifikat: %1%"
 
-#: ../CryptoManager.cpp:227 ../CryptoManager.cpp:231 ../CryptoManager.cpp:236
-#: ../CryptoManager.cpp:240
+#: ../CryptoManager.cpp:255 ../CryptoManager.cpp:259 ../CryptoManager.cpp:264
+#: ../CryptoManager.cpp:268
 msgid "Failed to load certificate file"
 msgstr "Kunde inte ladda certifikatfil"
 
-#: ../CryptoManager.cpp:245 ../CryptoManager.cpp:249 ../CryptoManager.cpp:254
-#: ../CryptoManager.cpp:258
+#: ../CryptoManager.cpp:273 ../CryptoManager.cpp:277 ../CryptoManager.cpp:282
+#: ../CryptoManager.cpp:286
 msgid "Failed to load private key"
 msgstr "Kunde inte ladda privat nyckel"
 
@@ -741,8 +749,8 @@ msgstr "TTH-värden stämmer inte överens"
 #~ "This hub is trying to use your client to spam %1%, please urge hub owner "
 #~ "to fix this"
 #~ msgstr ""
-#~ "Denna hubben försöker använda din klient till att spamma %1%, be "
-#~ "hubbägaren att åtgärda detta"
+#~ "This hub is trying to use your client to spam %1%, please urge hub owner "
+#~ "to fix this"
 
 #~ msgid "Error: segv parser :D"
 #~ msgstr "Error: segv parser :D"

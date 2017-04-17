@@ -9,8 +9,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
-"Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2015-05-24 21:44+0300\n"
+"Report-Msgid-Bugs-To: https://github.com/eiskaltdcpp/eiskaltdcpp/issues\n"
+"POT-Creation-Date: 2015-11-28 22:15+0300\n"
 "PO-Revision-Date: 2013-11-19 16:45+0000\n"
 "Last-Translator: gray <grayich@ukr.net>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/projects/p/eiskaltdcpp/"
@@ -185,7 +185,7 @@ msgstr "З'єднання закрито"
 msgid "Maximum command length exceeded"
 msgstr "Перевищена максимальна довжина команди"
 
-#: ../BufferedSocket.cpp:456
+#: ../BufferedSocket.cpp:461
 msgid "Disconnected"
 msgstr "Відключено"
 
@@ -369,7 +369,7 @@ msgid "Error during compression"
 msgstr "Помилка під час компресії"
 
 #: ../BZUtils.cpp:74 ../BZUtils.cpp:96 ../BZUtils.cpp:99
-#: ../CryptoManager.cpp:372 ../CryptoManager.cpp:391 ../CryptoManager.cpp:405
+#: ../CryptoManager.cpp:400 ../CryptoManager.cpp:419 ../CryptoManager.cpp:433
 #: ../ZUtils.cpp:104 ../ZUtils.cpp:127 ../ZUtils.cpp:137
 msgid "Error during decompression"
 msgstr "Помилка під час декомпресії"
@@ -407,7 +407,16 @@ msgstr " Порт для пошуку (%1% UDP)"
 msgid " DHT Port (%1% UDP)"
 msgstr "DHT порт (%1% UDP)"
 
-#: ../UPnPManager.cpp:108
+#: ../UPnPManager.cpp:111
+#, fuzzy
+msgid ""
+"Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%, DHT: %4%), "
+"mapped using the %5% interface"
+msgstr ""
+"Успішно виконане прокидання портів (TCP: %1%, UDP: %2%, TLS: %3%), "
+"використовується інтерфейс %4%"
+
+#: ../UPnPManager.cpp:113 ../UPnPManager.cpp:115
 msgid ""
 "Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%), mapped "
 "using the %4% interface"
@@ -415,23 +424,23 @@ msgstr ""
 "Успішно виконане прокидання портів (TCP: %1%, UDP: %2%, TLS: %3%), "
 "використовується інтерфейс %4%"
 
-#: ../UPnPManager.cpp:119
+#: ../UPnPManager.cpp:127
 msgid "Failed to get external IP"
 msgstr "Не вдалося отримати зовнішній IP"
 
-#: ../UPnPManager.cpp:129
+#: ../UPnPManager.cpp:137
 msgid "Failed to create port mappings"
 msgstr "Неможливо створити перенаправлення портів"
 
-#: ../UPnPManager.cpp:138
+#: ../UPnPManager.cpp:146
 msgid "Successfully removed port mappings with the %1% interface"
 msgstr "Успішно видалено кидок портів з інтерфейсу %1%"
 
-#: ../UPnPManager.cpp:139
+#: ../UPnPManager.cpp:147
 msgid "Failed to remove port mappings with the %1% interface"
 msgstr "Не вдалося видалити кидок портів з інтерфейсу %1%"
 
-#: ../UPnPManager.cpp:144
+#: ../UPnPManager.cpp:152
 msgid "UPnP: %1%"
 msgstr "UPnP: %1%"
 
@@ -627,35 +636,35 @@ msgstr "Оновлення списку файлів закінчено"
 msgid "File list %1% generated"
 msgstr "Список файлів %1% згенеровано"
 
-#: ../SettingsManager.cpp:179
+#: ../SettingsManager.cpp:182
 msgid "downloaded from"
 msgstr "завантажено з"
 
-#: ../SettingsManager.cpp:516
+#: ../SettingsManager.cpp:521
 msgid "Invalid search type name"
 msgstr "Неправильне ім'я типу пошуку"
 
-#: ../SettingsManager.cpp:520 ../SettingsManager.cpp:542
+#: ../SettingsManager.cpp:525 ../SettingsManager.cpp:547
 msgid "This search type already exists"
 msgstr "Цей тип пошуку вже використовується"
 
-#: ../SettingsManager.cpp:574
+#: ../SettingsManager.cpp:579
 msgid "No such search type"
 msgstr "Немає такого типу пошуку"
 
-#: ../SettingsManager.cpp:602 ../SettingsManager.cpp:607
+#: ../SettingsManager.cpp:607 ../SettingsManager.cpp:612
 msgid "Error: setting not found!"
 msgstr "Помилка: опцію не знайдено!"
 
-#: ../SettingsManager.cpp:602
+#: ../SettingsManager.cpp:607
 msgid "Core setting "
 msgstr "Опція ядра"
 
-#: ../SettingsManager.cpp:607
+#: ../SettingsManager.cpp:612
 msgid "Change core setting "
 msgstr "Змінити опцію ядра"
 
-#: ../SettingsManager.cpp:607
+#: ../SettingsManager.cpp:612
 msgid " to "
 msgstr "в"
 
@@ -690,37 +699,37 @@ msgstr ""
 "Не вдалось налаштувати сокет-сервер для UDP передачі (перевірте адресу і "
 "порт сокета)"
 
-#: ../CryptoManager.cpp:134
+#: ../CryptoManager.cpp:162
 msgid "No private key file chosen"
 msgstr "Не вибрано файл приватного ключа"
 
-#: ../CryptoManager.cpp:137
+#: ../CryptoManager.cpp:165
 msgid "No certificate file chosen"
 msgstr "Не вибраний файл сертифікату"
 
-#: ../CryptoManager.cpp:149
+#: ../CryptoManager.cpp:177
 msgid "Error generating certificate"
 msgstr "Помилка генерування сертифікату"
 
-#: ../CryptoManager.cpp:212
+#: ../CryptoManager.cpp:240
 msgid "TLS disabled, no certificate file set"
 msgstr "TLS заборонений, не встановлено сертифікат файлу"
 
-#: ../CryptoManager.cpp:220
+#: ../CryptoManager.cpp:248
 msgid "Generated new TLS certificate"
 msgstr "Новий TLS сертифікат згенеровано"
 
-#: ../CryptoManager.cpp:222
+#: ../CryptoManager.cpp:250
 msgid "TLS disabled, failed to generate certificate: %1%"
 msgstr "TLS заборонений, не вдалось сгенерувати сертифікат: %1%"
 
-#: ../CryptoManager.cpp:227 ../CryptoManager.cpp:231 ../CryptoManager.cpp:236
-#: ../CryptoManager.cpp:240
+#: ../CryptoManager.cpp:255 ../CryptoManager.cpp:259 ../CryptoManager.cpp:264
+#: ../CryptoManager.cpp:268
 msgid "Failed to load certificate file"
 msgstr "Файл сертифікату не завантажено"
 
-#: ../CryptoManager.cpp:245 ../CryptoManager.cpp:249 ../CryptoManager.cpp:254
-#: ../CryptoManager.cpp:258
+#: ../CryptoManager.cpp:273 ../CryptoManager.cpp:277 ../CryptoManager.cpp:282
+#: ../CryptoManager.cpp:286
 msgid "Failed to load private key"
 msgstr "Особовий ключ не завантажено"
 

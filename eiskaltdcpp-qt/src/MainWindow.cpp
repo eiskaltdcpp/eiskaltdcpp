@@ -1834,9 +1834,7 @@ void MainWindow::parseCmdLine(const QStringList &args){
         if (arg.startsWith("magnet:?")){
             Magnet m(this);
             m.setLink(arg);
-            if (WIGET(WI_DEF_MAGNET_ACTION) == 0) {
-                m.exec();
-            }
+            m.exec();
         }
         else if (arg.startsWith("dchub://")){
             newHubFrame(arg, "");
@@ -2180,9 +2178,7 @@ void MainWindow::slotOpenMagnet(){
 
     if (result.startsWith("magnet:?")){
         Magnet m(this);
-
         m.setLink(result);
-
         m.exec();
     }
 }
@@ -2642,8 +2638,7 @@ void MainWindow::slotAboutOpenUrl(){
         QDesktopServices::openUrl(QUrl("https://github.com/eiskaltdcpp/eiskaltdcpp/wiki"));
     }
     else if (act == d->aboutChangelog){
-        // Now available: ChangeLog.txt, ChangeLog_ru.txt, ChangeLog_uk.txt
-        QDesktopServices::openUrl(QUrl(tr("http://github.com/eiskaltdcpp/eiskaltdcpp/raw/master/ChangeLog.txt")));
+        QDesktopServices::openUrl(QUrl("https://github.com/eiskaltdcpp/eiskaltdcpp/blob/master/ChangeLog.txt"));
     }
 }
 
@@ -2659,10 +2654,9 @@ void MainWindow::slotAboutClient() {
     else
         ratio = 0;
 
-    a.label->setText(QString("<b>%1</b> %2 (%3)")
+    a.label->setText(QString("<b>%1</b> %2")
                      .arg(EISKALTDCPP_WND_TITLE)
-                     .arg(EISKALTDCPP_VERSION)
-                     .arg(EISKALTDCPP_VERSION_SFX));
+                     .arg(EISKALTDCPP_VERSION));
 
     QString html_format = "a { text-decoration:none; }\n"
                           "a:hover { text-decoration: underline; }\n";
@@ -2695,13 +2689,15 @@ void MainWindow::slotAboutClient() {
         QString("&nbsp; 2009-2012 <a href=\"mailto:dein.negativ@gmail.com\">Andrey Karlov</a><br/>")+
         tr("&nbsp;&nbsp;&nbsp; (main developer since version 0.4.10)<br/>")+
         QString("<br/>")+
-        QString("&nbsp; 2009-2014 <a href=\"mailto:dhamp@ya.ru\">Eugene Petrov</a><br/>")+
+        QString("&nbsp; 2009-2015 <a href=\"mailto:dhamp@ya.ru\">Eugene Petrov</a><br/>")+
         tr("&nbsp;&nbsp;&nbsp; (Arch Linux maintainer and developer since version 0.4.10)<br/>")+
         QString("<br/>")+
-        QString("&nbsp; 2010-2014 <a href=\"mailto:tehnick-8@mail.ru\">Boris Pek</a> aka Tehnick<br/>")+
+        QString("&nbsp; 2010-2015 <a href=\"mailto:tehnick-8@mail.ru\">Boris Pek</a> aka Tehnick<br/>")+
         tr("&nbsp;&nbsp;&nbsp; (Debian/Ubuntu maintainer and developer since version 1.89.0)<br/>")+
+        tr("&nbsp;&nbsp;&nbsp; (translations coordinator since version 2.0.1)<br/>")+
+        tr("&nbsp;&nbsp;&nbsp; (release manager since version 2.0.3)<br/>")+
         QString("<br/>")+
-        QString("&nbsp; 2010-2014 <a href=\"mailto:pavelvat@gmail.com\">Pavel Vatagin</a><br/>")+
+        QString("&nbsp; 2010-2015 <a href=\"mailto:pavelvat@gmail.com\">Pavel Vatagin</a><br/>")+
         tr("&nbsp;&nbsp;&nbsp; (MS Windows maintainer and developer since version 2.2.4)<br/>")+
         QString("<br/>")+
         QString("&nbsp; 2010-2014 <a href=\"mailto:tka4ev@gmail.com\">Alexandr Tkachev</a><br/>")+
@@ -2711,6 +2707,8 @@ void MainWindow::slotAboutClient() {
         QString("<br/>")+
         QString("&nbsp; 2009-2010 <a href=\"mailto:wiselord1983@gmail.com\">Uladzimir Bely</a><br/>")+
         tr("&nbsp;&nbsp;&nbsp; (creator of the logo of the project)<br/>")+
+        QString("&nbsp; 2010-2015 <a href=\"mailto:tehnick-8@mail.ru\">Boris Pek</a> aka Tehnick<br/>")+
+        tr("&nbsp;&nbsp;&nbsp; (tiny updates of the logo)<br/>")+
         QString("<br/>")
         );
 
@@ -2723,17 +2721,18 @@ void MainWindow::slotAboutClient() {
         QString("<br/>")+
         tr("Russian translation<br/>")+
         QString("&nbsp;&nbsp;&nbsp; 2009-2010 <a href=\"mailto:wiselord1983@gmail.com\">Uladzimir Bely</a><br/>")+
-        QString("&nbsp;&nbsp;&nbsp; 2010-2014 <a href=\"mailto:tehnick-8@mail.ru\">Boris Pek</a> aka Tehnick<br/>")+
+        QString("&nbsp;&nbsp;&nbsp; 2010-2015 <a href=\"mailto:tehnick-8@mail.ru\">Boris Pek</a> aka Tehnick<br/>")+
         QString("<br/>")+
         tr("Belarusian translation<br/>")+
         QString("&nbsp;&nbsp;&nbsp; 2009-2013 <a href=\"mailto:i.kliok@gmail.com\">Paval Shalamitski</a> aka Klyok<br/>")+
+        QString("&nbsp;&nbsp;&nbsp; 2015 <a href=\"mailto:m_d@tut.by\">Zmicer Melayok</a><br/>")+
         QString("<br/>")+
         tr("Hungarian translation<br/>")+
         QString("&nbsp;&nbsp;&nbsp; 2010-2012 <a href=\"mailto:husumo@gmail.com\">Akos Berki</a> aka sumo<br/>")+
         QString("&nbsp;&nbsp;&nbsp; 2011-2014 <a href=\"mailto:marcus@elitemail.hu\">Márk Lutring</a><br/>")+
         QString("<br/>")+
         tr("French translation<br/>")+
-        QString("&nbsp;&nbsp;&nbsp; 2010-2014 <a href=\"mailto:alexandre.wallimann@gmail.com\">Alexandre Wallimann</a> aka Jellyffs<br/>")+
+        QString("&nbsp;&nbsp;&nbsp; 2010-2015 <a href=\"mailto:alexandre.wallimann@gmail.com\">Alexandre Wallimann</a> aka Jellyffs<br/>")+
         QString("<br/>")+
         tr("Polish translation<br/>")+
         QString("&nbsp;&nbsp;&nbsp; 2010-2012 <a href=\"mailto:arahael@gmail.com\">Arahael</a><br/>")+
@@ -2744,6 +2743,7 @@ void MainWindow::slotAboutClient() {
         QString("<br/>")+
         tr("Serbian (Cyrillic) translation<br/>")+
         QString("&nbsp;&nbsp;&nbsp; 2014 <a href=\"mailto:trifunovic@openmailbox.org\">Marko Trifunović</a><br/>")+
+        QString("&nbsp;&nbsp;&nbsp; 2015 <a href=\"mailto:miroslav031@gmail.com\">Miroslav Petrovic</a><br/>")+
         QString("<br/>")+
         tr("Serbian (Latin) translation<br/>")+
         QString("&nbsp;&nbsp;&nbsp; 2010-2015 <a href=\"mailto:miroslav031@gmail.com\">Miroslav Petrovic</a><br/>")+
@@ -2751,7 +2751,7 @@ void MainWindow::slotAboutClient() {
         QString("<br/>")+
         tr("Spanish translation<br/>")+
         QString("&nbsp;&nbsp;&nbsp; 2010-2015 <a href=\"mailto:sl1pkn07@gmail.com\">Gustavo Alvarez</a> aka sL1pKn07<br/>")+
-        QString("&nbsp;&nbsp;&nbsp; 2012-2014 <a href=\"mailto:klondike at klondike.es\">Francisco Blas Izquierdo Riera</a> aka klondike<br/>")+
+        QString("&nbsp;&nbsp;&nbsp; 2012-2015 <a href=\"mailto:klondike at klondike.es\">Francisco Blas Izquierdo Riera</a> aka klondike<br/>")+
         QString("<br/>")+
         tr("Basque translation<br/>")+
         QString("&nbsp;&nbsp;&nbsp; 2014-2015 <a href=\"mailto:egoitzro2@hotmail.com\">Egoitz Rodriguez</a><br/>")+
@@ -2768,7 +2768,7 @@ void MainWindow::slotAboutClient() {
         tr("German translation<br/>")+
         QString("&nbsp;&nbsp;&nbsp; 2011-2012 <a href=\"mailto:kgeorgokitsos@yahoo.de\">Konstantinos Georgokitsos</a><br/>")+
         QString("&nbsp;&nbsp;&nbsp; 2011-2012 <a href=\"mailto:tilkax@gmail.com\">Tillmann Karras</a><br/>")+
-        QString("&nbsp;&nbsp;&nbsp; 2012-2015 <a href=\"mailto:be.w@mail.ru\">Benjamin Weber</a><br/>")+
+        QString("&nbsp;&nbsp;&nbsp; 2012-2016 <a href=\"mailto:be.w@mail.ru\">Benjamin Weber</a><br/>")+
         QString("<br/>")+
         tr("Greek translation<br/>")+
         QString("&nbsp;&nbsp;&nbsp; 2011-2012 <a href=\"mailto:kgeorgokitsos@yahoo.de\">Konstantinos Georgokitsos</a><br/>")+
@@ -2788,6 +2788,9 @@ void MainWindow::slotAboutClient() {
         QString("<br/>")+
         tr("Swedish (Sweden) translation<br/>")+
         QString("&nbsp;&nbsp;&nbsp; 2014-2015 <a href=\"mailto:sopor@hotmail.com\">Sopor</a><br/>")+
+        QString("<br/>")+
+        tr("Turkish translation<br/>")+
+        QString("&nbsp;&nbsp;&nbsp; 2015 <a href=\"https://www.transifex.com/user/profile/mauron/\">mauron</a><br/>")+
         QString("<br/>")
         );
 

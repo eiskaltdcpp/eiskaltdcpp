@@ -18,6 +18,8 @@
 
 #include "Singleton.h"
 #include "TimerManager.h"
+#include "LogManager.h"
+#include "SettingsManager.h"
 
 namespace dcpp {
 
@@ -36,18 +38,29 @@ class DebugManager : public Singleton<DebugManager>, public Speaker<DebugManager
 public:
     void SendCommandMessage(const string& mess, int typeDir, const string& ip) {
         fire(DebugManagerListener::DebugCommand(), mess, typeDir, ip);
+        if (BOOLSETTING(LOG_CMD_DEBUG)) {
+            dcpp::StringMap params;
+            params["cmd"] = mess;
+            params["ip"] = ip;
+            params["type"] = typeDirToString(typeDir);
+            LOG(LogManager::CMD_DEBUG, params);
+        }
     }
     void SendDetectionMessage(const string& mess) {
         fire(DebugManagerListener::DebugDetection(), mess);
     }
     enum {
-        HUB_IN, HUB_OUT, CLIENT_IN, CLIENT_OUT, DHT_IN, DHT_OUT
+        HUB_IN, HUB_OUT, CLIENT_IN, CLIENT_OUT
+#ifdef WITH_DHT
+, DHT_IN, DHT_OUT
+#endif
     };
 
 private:
     friend class Singleton<DebugManager>;
     DebugManager() noexcept { };
     ~DebugManager() noexcept { };
+    static string typeDirToString(int typeDir);
 };
 #define COMMAND_DEBUG(a,b,c) if (DebugManager::getInstance()) DebugManager::getInstance()->SendCommandMessage(a,b,c);
 #define DETECTION_DEBUG(m) if (DebugManager::getInstance()) DebugManager::getInstance()->SendDetectionMessage(m);

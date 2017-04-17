@@ -181,9 +181,6 @@ public:
             xmlrpc_c::value *   const  retvalP) {
 
         string version(EISKALTDCPP_VERSION);
-        version.append(" (");
-        version.append(EISKALTDCPP_VERSION_SFX);
-        version.append(")");
         *retvalP = xmlrpc_c::value_string(version);
     }
 };

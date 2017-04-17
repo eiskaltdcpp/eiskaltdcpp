@@ -90,7 +90,7 @@ void ConnectivityManager::detectConnection() {
 
    autoDetected = true;
 
-   if (!Util::isPrivateIp(Util::getLocalIp())) {
+   if (!Util::isPrivateIp(Util::getLocalIp(AF_INET))) {
        SettingsManager::getInstance()->set(SettingsManager::INCOMING_CONNECTIONS, SettingsManager::INCOMING_DIRECT);
        log(_("Public IP address detected, selecting active mode with direct connection"));
        fire(ConnectivityManagerListener::Finished());
@@ -176,7 +176,7 @@ void ConnectivityManager::log(const string& message) {
 void ConnectivityManager::updateLast() {
     lastTcp = (unsigned short)SETTING(TCP_PORT);
     lastUdp = (unsigned short)SETTING(UDP_PORT);
-    lastTls = (unsigned short)(SETTING(TLS_PORT));
+    lastTls = (unsigned short)SETTING(TLS_PORT);
     lastConn = SETTING(INCOMING_CONNECTIONS);
     lastBind = SETTING(BIND_ADDRESS);
     //lastMapper = SETTING(MAPPER);

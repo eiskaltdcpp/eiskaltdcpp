@@ -171,8 +171,8 @@ void Util::initialize(PathsMap pathOverrides) {
     ::GetShortPathName(localePath_.c_str(), buf, sizeof(buf)/sizeof(TCHAR));
     if (Util::getPath(Util::PATH_LOCALE).empty())
         paths[PATH_LOCALE] = Text::fromT(buf);
-    if (Util::getPath(Util::PATH_DOWNLOADS).empty())
-        paths[PATH_DOWNLOADS] = getDownloadsPath(paths[PATH_USER_CONFIG]);
+    //if (Util::getPath(Util::PATH_DOWNLOADS).empty())
+    //    paths[PATH_DOWNLOADS] = getDownloadsPath(paths[PATH_USER_CONFIG]);
 
 #else
     if (Util::getPath(Util::PATH_GLOBAL_CONFIG).empty())
@@ -704,7 +704,7 @@ string Util::formatExactSize(int64_t aBytes) {
 #endif
 }
 
-vector<string> Util::getLocalIPs() {
+vector<string> Util::getLocalIPs(unsigned short sa_family) {
     vector<string> addresses;
 
 #ifdef HAVE_IFADDRS_H
@@ -712,6 +712,9 @@ vector<string> Util::getLocalIPs() {
 
     if (getifaddrs(&ifap) == 0)
     {
+        bool ipv4 = (sa_family == AF_UNSPEC) || (sa_family == AF_INET);
+        bool ipv6 = (sa_family == AF_UNSPEC) || (sa_family == AF_INET6);
+
         for (struct ifaddrs *i = ifap; i != NULL; i = i->ifa_next)
         {
             struct sockaddr *sa = i->ifa_addr;
@@ -723,14 +726,14 @@ vector<string> Util::getLocalIPs() {
                 socklen_t len;
 
                 // IPv4 address
-                if (sa->sa_family == AF_INET)
+                if (ipv4 && (sa->sa_family == AF_INET))
                 {
                     struct sockaddr_in* sai = (struct sockaddr_in*)sa;
                     src = (void*) &(sai->sin_addr);
                     len = INET_ADDRSTRLEN;
                 }
                 // IPv6 address
-                else if (sa->sa_family == AF_INET6)
+                else if (ipv6 && (sa->sa_family == AF_INET6))
                 {
                     struct sockaddr_in6* sai6 = (struct sockaddr_in6*)sa;
                     src = (void*) &(sai6->sin6_addr);
@@ -752,9 +755,13 @@ vector<string> Util::getLocalIPs() {
 
     return addresses;
 }
-string Util::getLocalIp() {
+string Util::getLocalIp(unsigned short as_family) {
 #ifdef HAVE_IFADDRS_H
-    return getLocalIPs().empty() ? "0.0.0.0" : getLocalIPs()[0];
+    vector<string> addresses = getLocalIPs(as_family);
+    if (addresses.empty())
+        return (((as_family == AF_UNSPEC) || (as_family == AF_INET)) ? "0.0.0.0" : "::");
+
+    return addresses[0];
 #else
     string tmp;
 

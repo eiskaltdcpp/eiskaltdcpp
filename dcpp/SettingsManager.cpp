@@ -52,6 +52,7 @@ const string SettingsManager::settingTags[] =
     "TLSCertificateFile", "TLSTrustedCertificatesPath",
     "Language", "SkipListShare", "InternetIp", "BindIfaceName",
     "DHTKey", "DynDNSServer", "MimeHandler",
+    "LogFileCmdDebug", "LogFormatCmdDebug",
     "SENTRY",
     // Ints
     "IncomingConnections", "InPort", "Slots", "AutoFollow",
@@ -97,6 +98,7 @@ const string SettingsManager::settingTags[] =
     "BindIface", "MinimumSearchInterval", "EnableDynDNS", "AllowUploadOverMultiHubs",
     "UseADLOnlyOnOwnList", "AllowSimUploads", "CheckTargetsPathsOnStart", "NmdcDebug",
     "ShareSkipZeroByte", "RequireTLS", "LogSpy", "AppUnitBase",
+    "LogCmdDebug",
     "SENTRY",
     // Int64
     "TotalUpload", "TotalDownload",
@@ -173,6 +175,7 @@ SettingsManager::SettingsManager()
     setDefault(LOG_PRIVATE_CHAT, false);
     setDefault(LOG_MAIN_CHAT, false);
     setDefault(LOG_SPY, false);
+    setDefault(LOG_CMD_DEBUG, false);
     setDefault(UPLOAD_SPEED, connectionSpeeds[11]);
     setDefault(MIN_UPLOAD_SPEED, 0);
     setDefault(LOG_FORMAT_POST_DOWNLOAD, "[%Y-%m-%d %H:%M:%S] %[target] downloaded from %[userNI] (%[userCID]), %[fileSI] (%[fileSIchunk]), %[speed], %[time], %[fileTR]");
@@ -183,6 +186,7 @@ SettingsManager::SettingsManager()
     setDefault(LOG_FORMAT_STATUS,        "[%Y-%m-%d %H:%M:%S] %[message]");
     setDefault(LOG_FORMAT_SYSTEM,        "[%Y-%m-%d %H:%M:%S] %[message]");
     setDefault(LOG_FORMAT_SPY,        "[%Y-%m-%d %H:%M:%S] %[message] (%[count])");
+    setDefault(LOG_FORMAT_CMD_DEBUG,  "[%Y-%m-%d %H:%M:%S] %[type] %[ip]: %[cmd]");
     setDefault(LOG_FILE_MAIN_CHAT,    "CHAT/%B - %Y/%[hubNI] (%[hubURL]).log");
     setDefault(LOG_FILE_STATUS,       "STATUS/%B - %Y/%[hubNI] (%[hubURL]).log");
     setDefault(LOG_FILE_PRIVATE_CHAT, "PM/%B - %Y/%[userNI] (%[userCID]).log");
@@ -191,6 +195,7 @@ SettingsManager::SettingsManager()
     setDefault(LOG_FILE_FINISHED_DOWNLOAD, "Finished_downloads.log");
     setDefault(LOG_FILE_SYSTEM,       "System.log");
     setDefault(LOG_FILE_SPY,       "Spy.log");
+    setDefault(LOG_FILE_CMD_DEBUG,       "CmdDebug.log");
     setDefault(AUTO_AWAY, false);
     setDefault(BIND_ADDRESS, "0.0.0.0");
     setDefault(SOCKS_PORT, 1080);

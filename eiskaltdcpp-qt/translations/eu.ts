@@ -101,7 +101,7 @@
 <context>
     <name>About</name>
     <message>
-        <location filename="../src/MainWindow.h" line="72"/>
+        <location filename="../src/MainWindow.h" line="71"/>
         <source>Using:
   eiskaltdcpp-qt &lt;magnet link&gt; &lt;dchub://link&gt; &lt;adc(s)://link&gt;
   eiskaltdcpp-qt &lt;Key&gt;
@@ -118,7 +118,7 @@ Keys:
     <message>
         <location filename="../src/ActionCustomizer.cpp" line="17"/>
         <source>Customize actions</source>
-        <translation type="unfinished"></translation>
+        <translation>Pertsonalizatu ekintzak</translation>
     </message>
     <message>
         <location filename="../src/ActionCustomizer.cpp" line="26"/>
@@ -246,7 +246,7 @@ Keys:
     <message>
         <location filename="../src/DownloadQueue.cpp" line="63"/>
         <source>Copy magnet</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopiatu magnet</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueue.cpp" line="64"/>
@@ -266,7 +266,7 @@ Keys:
     <message>
         <location filename="../src/DownloadQueue.cpp" line="71"/>
         <source>Set priority</source>
-        <translation type="unfinished"></translation>
+        <translation>Ezarri lehentasuna</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueue.cpp" line="73"/>
@@ -276,7 +276,7 @@ Keys:
     <message>
         <location filename="../src/DownloadQueue.cpp" line="76"/>
         <source>Lowest</source>
-        <translation type="unfinished"></translation>
+        <translation>Baxuena</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueue.cpp" line="79"/>
@@ -301,22 +301,22 @@ Keys:
     <message>
         <location filename="../src/DownloadQueue.cpp" line="94"/>
         <source>Browse files</source>
-        <translation type="unfinished"></translation>
+        <translation>Arakatu fitxategiak</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueue.cpp" line="95"/>
         <source>Send private message</source>
-        <translation type="unfinished"></translation>
+        <translation>Bidali mezu pribatua</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueue.cpp" line="100"/>
         <source>Remove source</source>
-        <translation type="unfinished"></translation>
+        <translation>Ezabatu iturria</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueue.cpp" line="101"/>
         <source>Remove user</source>
-        <translation type="unfinished"></translation>
+        <translation>Ezabatu erabiltzailea</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueue.cpp" line="103"/>
@@ -346,7 +346,7 @@ Keys:
     <message>
         <location filename="../src/DownloadQueue.cpp" line="397"/>
         <source>Passive user</source>
-        <translation type="unfinished"></translation>
+        <translation>Erabiltzaile pasiboa</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueue.cpp" line="399"/>
@@ -361,7 +361,7 @@ Keys:
     <message>
         <location filename="../src/DownloadQueue.cpp" line="403"/>
         <source>Source too slow</source>
-        <translation type="unfinished"></translation>
+        <translation>Iturria motelegia</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueue.cpp" line="405"/>
@@ -381,7 +381,7 @@ Keys:
     <message>
         <location filename="../src/DownloadQueue.cpp" line="653"/>
         <source>All files (*.*)</source>
-        <translation type="unfinished"></translation>
+        <translation>Fitxategi guztiak (*.*)</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueue.cpp" line="793"/>
@@ -391,7 +391,7 @@ Keys:
     <message>
         <location filename="../src/DownloadQueue.h" line="85"/>
         <source>Download Queue</source>
-        <translation type="unfinished"></translation>
+        <translation>Deskargatutako Ilara</translation>
     </message>
 </context>
 <context>
@@ -418,13 +418,13 @@ Keys:
         <location filename="../src/DownloadQueueModel.cpp" line="81"/>
         <location filename="../src/DownloadQueueModel.cpp" line="283"/>
         <source>Downloaded</source>
-        <translation type="unfinished"></translation>
+        <translation>Deskargatuta</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueueModel.cpp" line="82"/>
         <location filename="../src/DownloadQueueModel.cpp" line="284"/>
         <source>Priority</source>
-        <translation type="unfinished"></translation>
+        <translation>Lehentasuna</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueueModel.cpp" line="82"/>
@@ -442,35 +442,35 @@ Keys:
         <location filename="../src/DownloadQueueModel.cpp" line="82"/>
         <location filename="../src/DownloadQueueModel.cpp" line="284"/>
         <source>Exact size</source>
-        <translation type="unfinished"></translation>
+        <translation>Tamaina zehatza</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueueModel.cpp" line="83"/>
         <location filename="../src/DownloadQueueModel.cpp" line="285"/>
         <source>Errors</source>
-        <translation type="unfinished"></translation>
+        <translation>Akatsak</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueueModel.cpp" line="83"/>
         <location filename="../src/DownloadQueueModel.cpp" line="285"/>
         <source>Added</source>
-        <translation type="unfinished"></translation>
+        <translation>Gehituta</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueueModel.cpp" line="83"/>
         <location filename="../src/DownloadQueueModel.cpp" line="285"/>
         <source>TTH</source>
-        <translation type="unfinished"></translation>
+        <translation>TTH</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueueModel.cpp" line="139"/>
         <source>Paused</source>
-        <translation type="unfinished">Pausatu</translation>
+        <translation>Pausatuta</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueueModel.cpp" line="142"/>
         <source>Lowest</source>
-        <translation type="unfinished"></translation>
+        <translation>Baxuena</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueueModel.cpp" line="145"/>
@@ -480,12 +480,12 @@ Keys:
     <message>
         <location filename="../src/DownloadQueueModel.cpp" line="148"/>
         <source>High</source>
-        <translation type="unfinished">Altu</translation>
+        <translation>Altu</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueueModel.cpp" line="151"/>
         <source>Highest</source>
-        <translation type="unfinished">Altuena</translation>
+        <translation>Altuena</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueueModel.cpp" line="154"/>
@@ -496,7 +496,7 @@ Keys:
         <location filename="../src/DownloadQueueModel.cpp" line="175"/>
         <location filename="../src/DownloadQueueModel.cpp" line="192"/>
         <source>No errors</source>
-        <translation type="unfinished">Akatsik ez</translation>
+        <translation>Akatsik ez</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueueModel.cpp" line="194"/>
@@ -520,7 +520,7 @@ Keys:
     <message>
         <location filename="../src/FavoriteHubModel.cpp" line="19"/>
         <source>Autoconnect</source>
-        <translation type="unfinished"></translation>
+        <translation>Auto-konektatu</translation>
     </message>
     <message>
         <location filename="../src/FavoriteHubModel.cpp" line="19"/>
@@ -540,7 +540,7 @@ Keys:
     <message>
         <location filename="../src/FavoriteHubModel.cpp" line="20"/>
         <source>Nick</source>
-        <translation type="unfinished"></translation>
+        <translation>Ezizena</translation>
     </message>
     <message>
         <location filename="../src/FavoriteHubModel.cpp" line="20"/>
@@ -550,7 +550,7 @@ Keys:
     <message>
         <location filename="../src/FavoriteHubModel.cpp" line="20"/>
         <source>User description</source>
-        <translation type="unfinished"></translation>
+        <translation>Erabiltzile deskribapena</translation>
     </message>
     <message>
         <location filename="../src/FavoriteHubModel.cpp" line="21"/>
@@ -568,35 +568,35 @@ Keys:
     <message>
         <location filename="../src/FavoriteHubs.cpp" line="58"/>
         <source>Favorite hubs</source>
-        <translation type="unfinished"></translation>
+        <translation>Hub gogokoak</translation>
     </message>
     <message>
         <location filename="../src/FavoriteHubs.cpp" line="170"/>
         <location filename="../src/FavoriteHubs.cpp" line="200"/>
         <location filename="../src/FavoriteHubs.cpp" line="312"/>
         <source>System default</source>
-        <translation type="unfinished"></translation>
+        <translation>Sistema lehenetsia</translation>
     </message>
     <message>
         <location filename="../src/FavoriteHubs.cpp" line="372"/>
         <location filename="../src/FavoriteHubs.cpp" line="402"/>
         <source>Add new</source>
-        <translation type="unfinished">Berria gehitu</translation>
+        <translation>Berria gehitu</translation>
     </message>
     <message>
         <location filename="../src/FavoriteHubs.cpp" line="403"/>
         <source>Change</source>
-        <translation type="unfinished">Aldatu</translation>
+        <translation>Aldatu</translation>
     </message>
     <message>
         <location filename="../src/FavoriteHubs.cpp" line="404"/>
         <source>Delete</source>
-        <translation type="unfinished">Ezabatu</translation>
+        <translation>Ezabatu</translation>
     </message>
     <message>
         <location filename="../src/FavoriteHubs.cpp" line="405"/>
         <source>Connect</source>
-        <translation type="unfinished"></translation>
+        <translation>Konektatu</translation>
     </message>
 </context>
 <context>
@@ -611,22 +611,22 @@ Keys:
         <location filename="../src/FavoriteUsers.cpp" line="196"/>
         <location filename="../src/FavoriteUsers.cpp" line="272"/>
         <source>Description</source>
-        <translation type="unfinished">Deskribapena</translation>
+        <translation>Deskribapena</translation>
     </message>
     <message>
         <location filename="../src/FavoriteUsers.cpp" line="269"/>
         <source>Remove</source>
-        <translation type="unfinished">Ezabatu</translation>
+        <translation>Ezabatu</translation>
     </message>
     <message>
         <location filename="../src/FavoriteUsers.cpp" line="275"/>
         <source>Grant/Remove slot</source>
-        <translation type="unfinished"></translation>
+        <translation>Egoztu/Kendu slot</translation>
     </message>
     <message>
         <location filename="../src/FavoriteUsers.cpp" line="278"/>
         <source>Browse Files</source>
-        <translation type="unfinished"></translation>
+        <translation>Arakatu fitxategiak</translation>
     </message>
     <message>
         <location filename="../src/FavoriteUsers.h" line="46"/>
@@ -639,12 +639,12 @@ Keys:
     <message>
         <location filename="../src/FavoriteUsersModel.cpp" line="27"/>
         <source>Nick</source>
-        <translation type="unfinished"></translation>
+        <translation>Ezizena</translation>
     </message>
     <message>
         <location filename="../src/FavoriteUsersModel.cpp" line="27"/>
         <source>Hub</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Hub</translation>
     </message>
     <message>
         <location filename="../src/FavoriteUsersModel.cpp" line="27"/>
@@ -654,7 +654,7 @@ Keys:
     <message>
         <location filename="../src/FavoriteUsersModel.cpp" line="27"/>
         <source>Description</source>
-        <translation type="unfinished">Deskribapena</translation>
+        <translation>Deskribapena</translation>
     </message>
 </context>
 <context>
@@ -677,12 +677,12 @@ Keys:
     <message>
         <location filename="../src/FileBrowserModel.cpp" line="192"/>
         <source>&amp;nbsp;&amp;nbsp;&lt;b&gt;Video:&lt;/b&gt; %1&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;nbsp;&amp;nbsp;&lt;b&gt;Bideoa:&lt;/b&gt; %1&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/FileBrowserModel.cpp" line="194"/>
         <source>&amp;nbsp;&amp;nbsp;&lt;b&gt;Audio:&lt;/b&gt; %1&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;nbsp;&amp;nbsp;&lt;b&gt;Audioa:&lt;/b&gt; %1&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/FileBrowserModel.cpp" line="196"/>
@@ -692,7 +692,7 @@ Keys:
     <message>
         <location filename="../src/FileBrowserModel.cpp" line="198"/>
         <source>&amp;nbsp;&amp;nbsp;&lt;b&gt;Resolution:&lt;/b&gt; %1&lt;br/&gt;&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;nbsp;&amp;nbsp;&lt;b&gt;Bereizmena:&lt;/b&gt; %1&lt;br/&gt;&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/FileBrowserModel.cpp" line="209"/>
@@ -702,22 +702,22 @@ Keys:
     <message>
         <location filename="../src/FileBrowserModel.cpp" line="311"/>
         <source>Name</source>
-        <translation type="unfinished">Izena</translation>
+        <translation>Izena</translation>
     </message>
     <message>
         <location filename="../src/FileBrowserModel.cpp" line="311"/>
         <source>Size</source>
-        <translation type="unfinished">Tamaina</translation>
+        <translation>Tamaina</translation>
     </message>
     <message>
         <location filename="../src/FileBrowserModel.cpp" line="311"/>
         <source>Exact size</source>
-        <translation type="unfinished"></translation>
+        <translation>Tamaina zehatza</translation>
     </message>
     <message>
         <location filename="../src/FileBrowserModel.cpp" line="311"/>
         <source>TTH</source>
-        <translation type="unfinished"></translation>
+        <translation>TTH</translation>
     </message>
     <message>
         <location filename="../src/FileBrowserModel.cpp" line="312"/>
@@ -727,27 +727,27 @@ Keys:
     <message>
         <location filename="../src/FileBrowserModel.cpp" line="312"/>
         <source>Resolution</source>
-        <translation type="unfinished"></translation>
+        <translation>Bereizmena</translation>
     </message>
     <message>
         <location filename="../src/FileBrowserModel.cpp" line="312"/>
         <source>Video</source>
-        <translation type="unfinished"></translation>
+        <translation>Bideoak</translation>
     </message>
     <message>
         <location filename="../src/FileBrowserModel.cpp" line="312"/>
         <source>Audio</source>
-        <translation type="unfinished"></translation>
+        <translation>Soinu</translation>
     </message>
     <message>
         <location filename="../src/FileBrowserModel.cpp" line="313"/>
         <source>Downloaded</source>
-        <translation type="unfinished"></translation>
+        <translation>Deskargatuta</translation>
     </message>
     <message>
         <location filename="../src/FileBrowserModel.cpp" line="313"/>
         <source>Shared</source>
-        <translation type="unfinished"></translation>
+        <translation>Partekatuta</translation>
     </message>
 </context>
 <context>
@@ -760,7 +760,7 @@ Keys:
     <message>
         <location filename="../src/FileHasher.cpp" line="102"/>
         <source>All files (*.*)</source>
-        <translation type="unfinished"></translation>
+        <translation>Fitxategi guztiak (*.*)</translation>
     </message>
 </context>
 <context>
@@ -795,12 +795,12 @@ Keys:
         <location filename="../src/FinishedTransfersModel.cpp" line="50"/>
         <location filename="../src/FinishedTransfersModel.cpp" line="56"/>
         <source>User</source>
-        <translation type="unfinished">Erabiltzailea</translation>
+        <translation>Erabiltzailea</translation>
     </message>
     <message>
         <location filename="../src/FinishedTransfersModel.cpp" line="50"/>
         <source>Files</source>
-        <translation type="unfinished"></translation>
+        <translation>Fitxategiak</translation>
     </message>
     <message>
         <location filename="../src/FinishedTransfersModel.cpp" line="50"/>
@@ -812,13 +812,13 @@ Keys:
         <location filename="../src/FinishedTransfersModel.cpp" line="50"/>
         <location filename="../src/FinishedTransfersModel.cpp" line="57"/>
         <source>Transferred</source>
-        <translation type="unfinished"></translation>
+        <translation>Transferituta</translation>
     </message>
     <message>
         <location filename="../src/FinishedTransfersModel.cpp" line="51"/>
         <location filename="../src/FinishedTransfersModel.cpp" line="57"/>
         <source>Speed</source>
-        <translation type="unfinished"></translation>
+        <translation>Abiadura</translation>
     </message>
     <message>
         <location filename="../src/FinishedTransfersModel.cpp" line="51"/>
@@ -830,17 +830,17 @@ Keys:
         <location filename="../src/FinishedTransfersModel.cpp" line="51"/>
         <location filename="../src/FinishedTransfersModel.cpp" line="58"/>
         <source>Full</source>
-        <translation type="unfinished"></translation>
+        <translation>Osoa</translation>
     </message>
     <message>
         <location filename="../src/FinishedTransfersModel.cpp" line="56"/>
         <source>Filename</source>
-        <translation type="unfinished">Fitxategi izena</translation>
+        <translation>Fitxategi izena</translation>
     </message>
     <message>
         <location filename="../src/FinishedTransfersModel.cpp" line="56"/>
         <source>Path</source>
-        <translation type="unfinished">Bidea</translation>
+        <translation>Bidea</translation>
     </message>
     <message>
         <location filename="../src/FinishedTransfersModel.cpp" line="57"/>
@@ -850,7 +850,7 @@ Keys:
     <message>
         <location filename="../src/FinishedTransfersModel.cpp" line="58"/>
         <source>Target</source>
-        <translation type="unfinished"></translation>
+        <translation>Helburua</translation>
     </message>
     <message>
         <location filename="../src/FinishedTransfersModel.cpp" line="121"/>
@@ -880,7 +880,7 @@ Keys:
         <location filename="../src/HashProgress.cpp" line="127"/>
         <location filename="../src/HashProgress.cpp" line="138"/>
         <source>-:--:--</source>
-        <translation type="unfinished"></translation>
+        <translation>-:--:--</translation>
     </message>
     <message>
         <location filename="../src/HashProgress.cpp" line="132"/>
@@ -900,22 +900,22 @@ Keys:
     <message>
         <location filename="../src/HashProgress.cpp" line="150"/>
         <source>Done</source>
-        <translation type="unfinished"></translation>
+        <translation>Eginda</translation>
     </message>
     <message>
         <location filename="../src/HashProgress.cpp" line="218"/>
         <source>Start</source>
-        <translation type="unfinished">Hasi</translation>
+        <translation>Hasi</translation>
     </message>
     <message>
         <location filename="../src/HashProgress.cpp" line="222"/>
         <source>Pause</source>
-        <translation type="unfinished"></translation>
+        <translation>Pausatu</translation>
     </message>
     <message>
         <location filename="../src/HashProgress.cpp" line="226"/>
         <source>Resume</source>
-        <translation type="unfinished"></translation>
+        <translation>Berrekin</translation>
     </message>
 </context>
 <context>
@@ -924,17 +924,17 @@ Keys:
         <location filename="../src/HubFrame.cpp" line="177"/>
         <location filename="../src/HubFrame.cpp" line="1269"/>
         <source>Copy</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopiatu</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="178"/>
         <source>Search text</source>
-        <translation type="unfinished"></translation>
+        <translation>Bilaketa testua</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="179"/>
         <source>Copy nick</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopiatu ezizena</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="180"/>
@@ -944,7 +944,7 @@ Keys:
     <message>
         <location filename="../src/HubFrame.cpp" line="181"/>
         <source>Browse files</source>
-        <translation type="unfinished"></translation>
+        <translation>Arakatu fitxategiak</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="182"/>
@@ -954,7 +954,7 @@ Keys:
     <message>
         <location filename="../src/HubFrame.cpp" line="183"/>
         <source>Private Message</source>
-        <translation type="unfinished"></translation>
+        <translation>Mezu Pribatua</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="184"/>
@@ -970,7 +970,7 @@ Keys:
     <message>
         <location filename="../src/HubFrame.cpp" line="186"/>
         <source>Grant slot</source>
-        <translation type="unfinished"></translation>
+        <translation>Egoztu slot</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="187"/>
@@ -1010,37 +1010,37 @@ Keys:
     <message>
         <location filename="../src/HubFrame.cpp" line="201"/>
         <source>Nick</source>
-        <translation type="unfinished"></translation>
+        <translation>Ezizena</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="202"/>
         <source>Comment</source>
-        <translation type="unfinished"></translation>
+        <translation>Iruzkina</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="203"/>
         <source>IP</source>
-        <translation type="unfinished">IP</translation>
+        <translation>IP</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="204"/>
         <source>Share</source>
-        <translation type="unfinished"></translation>
+        <translation>Partekatu</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="205"/>
         <source>Tag</source>
-        <translation type="unfinished"></translation>
+        <translation>Etiketa</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="206"/>
         <source>E-mail</source>
-        <translation type="unfinished"></translation>
+        <translation>E-posta</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="208"/>
         <source>All</source>
-        <translation type="unfinished"></translation>
+        <translation>Guztia</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="213"/>
@@ -1094,7 +1094,7 @@ Keys:
     <message>
         <location filename="../src/HubFrame.cpp" line="1266"/>
         <source>Reconnect</source>
-        <translation type="unfinished"></translation>
+        <translation>Birkonektatu</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1267"/>
@@ -1119,7 +1119,7 @@ Keys:
     <message>
         <location filename="../src/HubFrame.cpp" line="1276"/>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Itxi</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1290"/>
@@ -1411,7 +1411,7 @@ Favorite user</source>
         <location filename="../src/HubFrame.cpp" line="2126"/>
         <location filename="../src/HubFrame.cpp" line="2183"/>
         <source>Favorites</source>
-        <translation type="unfinished"></translation>
+        <translation>Gogokoak</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="2126"/>
@@ -1477,7 +1477,7 @@ Favorite user</source>
     <message>
         <location filename="../src/HubFrame.cpp" line="2614"/>
         <source>Password</source>
-        <translation type="unfinished">Pasahitza</translation>
+        <translation>Pasahitza</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="2628"/>
@@ -1503,7 +1503,7 @@ Favorite user</source>
     <message>
         <location filename="../src/HubFrame.cpp" line="3570"/>
         <source>Suggestions</source>
-        <translation type="unfinished"></translation>
+        <translation>Iradokizunak</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="3735"/>
@@ -1602,12 +1602,12 @@ Favorite user</source>
     <message>
         <location filename="../src/IPFilterModel.cpp" line="25"/>
         <source>IP/Mask</source>
-        <translation type="unfinished"></translation>
+        <translation>IP/Maskara</translation>
     </message>
     <message>
         <location filename="../src/IPFilterModel.cpp" line="25"/>
         <source>Direction</source>
-        <translation type="unfinished"></translation>
+        <translation>Helbidea</translation>
     </message>
 </context>
 <context>
@@ -1625,7 +1625,7 @@ Favorite user</source>
     <message>
         <location filename="../src/Magnet.cpp" line="168"/>
         <source>Browse</source>
-        <translation type="unfinished"></translation>
+        <translation>Arakatu</translation>
     </message>
     <message>
         <location filename="../src/Magnet.cpp" line="188"/>
@@ -1635,7 +1635,7 @@ Favorite user</source>
     <message>
         <location filename="../src/Magnet.cpp" line="205"/>
         <source>Error</source>
-        <translation type="unfinished"></translation>
+        <translation>Akats</translation>
     </message>
     <message>
         <location filename="../src/Magnet.cpp" line="205"/>
@@ -1649,7 +1649,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="265"/>
         <source>Ready</source>
-        <translation type="unfinished"></translation>
+        <translation>Prest</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="351"/>
@@ -1669,12 +1669,12 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="456"/>
         <source>Nick</source>
-        <translation type="unfinished"></translation>
+        <translation>Ezizena</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="456"/>
         <source>User</source>
-        <translation type="unfinished">Erabiltzailea</translation>
+        <translation>Erabiltzailea</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="461"/>
@@ -1684,102 +1684,102 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="692"/>
         <source>Ctrl+I</source>
-        <translation type="unfinished"></translation>
+        <translation>Ktrl+I</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="698"/>
         <source>Ctrl+L</source>
-        <translation type="unfinished"></translation>
+        <translation>Ktrl+L</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="729"/>
         <source>Ctrl+E</source>
-        <translation type="unfinished"></translation>
+        <translation>Ktrl+E</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="735"/>
         <source>Ctrl+Alt+H</source>
-        <translation type="unfinished"></translation>
+        <translation>Ktrl+Alt+H</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="741"/>
         <source>Ctrl+Q</source>
-        <translation type="unfinished"></translation>
+        <translation>Ktrl+Q</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="748"/>
         <source>Ctrl+R</source>
-        <translation type="unfinished"></translation>
+        <translation>Ktrl+R</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="754"/>
         <source>Ctrl+N</source>
-        <translation type="unfinished"></translation>
+        <translation>Ktrl+N</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="760"/>
         <source>Ctrl+H</source>
-        <translation type="unfinished"></translation>
+        <translation>Ktrl+H</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="766"/>
         <source>Ctrl+P</source>
-        <translation type="unfinished"></translation>
+        <translation>Ktrl+P</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="772"/>
         <source>Ctrl+U</source>
-        <translation type="unfinished"></translation>
+        <translation>Ktrl+U</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="788"/>
         <source>Ctrl+O</source>
-        <translation type="unfinished"></translation>
+        <translation>Ktrl+O</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="804"/>
         <source>Ctrl+T</source>
-        <translation type="unfinished"></translation>
+        <translation>Ktrl+T</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="812"/>
         <source>Ctrl+D</source>
-        <translation type="unfinished"></translation>
+        <translation>Ktrl+D</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="818"/>
         <source>Ctrl+Shift+U</source>
-        <translation type="unfinished"></translation>
+        <translation>Ktrl+Shift+U</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="824"/>
         <source>Ctrl+[</source>
-        <translation type="unfinished"></translation>
+        <translation>Ktrl+[</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="830"/>
         <source>Ctrl+]</source>
-        <translation type="unfinished"></translation>
+        <translation>Ktrl+]</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="876"/>
         <source>Ctrl+Alt+J</source>
-        <translation type="unfinished"></translation>
+        <translation>Ktrl+Alt+J</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="902"/>
         <source>Ctrl+S</source>
-        <translation type="unfinished"></translation>
+        <translation>Ktrl+S</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="927"/>
         <source>Ctrl+K</source>
-        <translation type="unfinished"></translation>
+        <translation>Ktrl+K</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="940"/>
         <source>Ctrl+F</source>
-        <translation type="unfinished"></translation>
+        <translation>Ktrl+F</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1074"/>
@@ -1834,12 +1834,12 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="1092"/>
         <source>Ctrl+W</source>
-        <translation type="unfinished"></translation>
+        <translation>Ktrl+W</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1093"/>
         <source>Ctrl+M</source>
-        <translation type="unfinished"></translation>
+        <translation>Ktrl+M</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1221"/>
@@ -1929,7 +1929,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="1315"/>
         <source>Quit</source>
-        <translation type="unfinished"></translation>
+        <translation>Irten</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1317"/>
@@ -2080,7 +2080,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="1376"/>
         <source>Search</source>
-        <translation type="unfinished"></translation>
+        <translation>Bilatu</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1378"/>
@@ -2196,7 +2196,7 @@ Favorite user</source>
         <location filename="../src/MainWindow.cpp" line="1426"/>
         <location filename="../src/MainWindow.cpp" line="1458"/>
         <source>Actions</source>
-        <translation type="unfinished"></translation>
+        <translation>Ekintzak</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1429"/>
@@ -2244,12 +2244,12 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="1747"/>
         <source>Delayed</source>
-        <translation type="unfinished"></translation>
+        <translation>Atzeratuta</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1762"/>
         <source>Paused</source>
-        <translation type="unfinished">Pausatu</translation>
+        <translation>Pausatuta</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1776"/>
@@ -2274,7 +2274,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="1871"/>
         <source>All files</source>
-        <translation type="unfinished"></translation>
+        <translation>Fitxategi guztiak</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1882"/>
@@ -2284,7 +2284,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="2047"/>
         <source>Menu</source>
-        <translation type="unfinished"></translation>
+        <translation>Menua</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2084"/>
@@ -2339,31 +2339,40 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="2589"/>
         <source>Customize</source>
-        <translation type="unfinished"></translation>
+        <translation>Pertsonalizatu</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2646"/>
         <source>http://github.com/eiskaltdcpp/eiskaltdcpp/raw/master/ChangeLog.txt</source>
-        <translation>http://github.com/eiskaltdcpp/eiskaltdcpp/raw/master/ChangeLog.txt</translation>
+        <translation type="obsolete">http://github.com/eiskaltdcpp/eiskaltdcpp/raw/master/ChangeLog.txt</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2693"/>
+        <location filename="../src/MainWindow.cpp" line="2691"/>
         <source>&lt;b&gt;Developers&lt;/b&gt;&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;b&gt;Garatzileak&lt;/b&gt;&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2696"/>
+        <location filename="../src/MainWindow.cpp" line="2694"/>
         <source>&amp;nbsp;&amp;nbsp;&amp;nbsp; (main developer since version 0.4.10)&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2699"/>
+        <location filename="../src/MainWindow.cpp" line="2697"/>
         <source>&amp;nbsp;&amp;nbsp;&amp;nbsp; (Arch Linux maintainer and developer since version 0.4.10)&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2702"/>
+        <location filename="../src/MainWindow.cpp" line="2700"/>
         <source>&amp;nbsp;&amp;nbsp;&amp;nbsp; (Debian/Ubuntu maintainer and developer since version 1.89.0)&lt;br/&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="2701"/>
+        <source>&amp;nbsp;&amp;nbsp;&amp;nbsp; (translations coordinator since version 2.0.1)&lt;br/&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="2702"/>
+        <source>&amp;nbsp;&amp;nbsp;&amp;nbsp; (release manager since version 2.0.3)&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2387,157 +2396,167 @@ Favorite user</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2720"/>
+        <location filename="../src/MainWindow.cpp" line="2715"/>
+        <source>&amp;nbsp;&amp;nbsp;&amp;nbsp; (tiny updates of the logo)&lt;br/&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="2722"/>
         <source>Participate in the translation. It is easy: &lt;a href=&quot;https://www.transifex.com/projects/p/eiskaltdcpp/&quot;&gt;https://www.transifex.com/projects/p/eiskaltdcpp/&lt;/a&gt;&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2724"/>
+        <location filename="../src/MainWindow.cpp" line="2726"/>
         <source>Russian translation&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Errusiar itzulpena&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2728"/>
+        <location filename="../src/MainWindow.cpp" line="2730"/>
         <source>Belarusian translation&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Bieloerrusiar itzulpena&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2731"/>
+        <location filename="../src/MainWindow.cpp" line="2734"/>
         <source>Hungarian translation&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="2735"/>
-        <source>French translation&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Hungariar itzulpena&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2738"/>
+        <source>French translation&lt;br/&gt;</source>
+        <translation>Frantses itzulpena&lt;br/&gt;</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="2741"/>
         <source>Polish translation&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2741"/>
+        <location filename="../src/MainWindow.cpp" line="2744"/>
         <source>Ukrainian translation&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2745"/>
+        <location filename="../src/MainWindow.cpp" line="2748"/>
         <source>Serbian (Cyrillic) translation&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2748"/>
+        <location filename="../src/MainWindow.cpp" line="2752"/>
         <source>Serbian (Latin) translation&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2752"/>
+        <location filename="../src/MainWindow.cpp" line="2756"/>
         <source>Spanish translation&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2756"/>
+        <location filename="../src/MainWindow.cpp" line="2760"/>
         <source>Basque translation&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Euskerazko itzulpena&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2759"/>
+        <location filename="../src/MainWindow.cpp" line="2763"/>
         <source>Bulgarian translation&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2762"/>
+        <location filename="../src/MainWindow.cpp" line="2766"/>
         <source>Slovak translation&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2765"/>
+        <location filename="../src/MainWindow.cpp" line="2769"/>
         <source>Czech translation&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2768"/>
+        <location filename="../src/MainWindow.cpp" line="2772"/>
         <source>German translation&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2773"/>
+        <location filename="../src/MainWindow.cpp" line="2777"/>
         <source>Greek translation&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2776"/>
+        <location filename="../src/MainWindow.cpp" line="2780"/>
         <source>Italian translation&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2780"/>
+        <location filename="../src/MainWindow.cpp" line="2784"/>
         <source>Portuguese (Brazil) translation&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2783"/>
+        <location filename="../src/MainWindow.cpp" line="2787"/>
         <source>Vietnamese translation&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2786"/>
+        <location filename="../src/MainWindow.cpp" line="2790"/>
         <source>Chinese (China) translation&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2789"/>
+        <location filename="../src/MainWindow.cpp" line="2793"/>
         <source>Swedish (Sweden) translation&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="3022"/>
-        <source>Additional</source>
+        <location filename="../src/MainWindow.cpp" line="2796"/>
+        <source>Turkish translation&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="3023"/>
+        <location filename="../src/MainWindow.cpp" line="3029"/>
+        <source>Additional</source>
+        <translation>Gehigarria</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="3030"/>
         <source>Suppress sound notifications</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="3024"/>
+        <location filename="../src/MainWindow.cpp" line="3031"/>
         <source>Suppress text notifications</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="3018"/>
+        <location filename="../src/MainWindow.cpp" line="3025"/>
         <source>Setup speed limits</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2670"/>
+        <location filename="../src/MainWindow.cpp" line="2668"/>
         <source>EiskaltDC++ is a graphical client for Direct Connect and ADC protocols.&lt;br/&gt;&lt;br/&gt;DC++ core version: %1 (modified)&lt;br/&gt;&lt;br/&gt;Home page: &lt;a href=&quot;https://github.com/eiskaltdcpp/eiskaltdcpp/&quot;&gt;https://github.com/eiskaltdcpp/eiskaltdcpp/&lt;/a&gt;&lt;br/&gt;&lt;br/&gt;Total up: &lt;b&gt;%2&lt;/b&gt;&lt;br/&gt;Total down: &lt;b&gt;%3&lt;/b&gt;&lt;br/&gt;Ratio: &lt;b&gt;%4&lt;/b&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2690"/>
+        <location filename="../src/MainWindow.cpp" line="2688"/>
         <source>Please use &lt;a href=&quot;https://github.com/eiskaltdcpp/eiskaltdcpp/issues&quot;&gt;https://github.com/eiskaltdcpp/eiskaltdcpp/issues&lt;/a&gt; to report bugs.&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2829"/>
+        <location filename="../src/MainWindow.cpp" line="2836"/>
         <source>Show close buttons</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2864"/>
+        <location filename="../src/MainWindow.cpp" line="2871"/>
         <source>[No name]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2952"/>
+        <location filename="../src/MainWindow.cpp" line="2959"/>
         <source>Download Queue</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Deskargatutako Ilara</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2952"/>
+        <location filename="../src/MainWindow.cpp" line="2959"/>
         <source>All downloads complete</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2555,7 +2574,7 @@ Favorite user</source>
     <message>
         <location filename="../src/Notification.cpp" line="101"/>
         <source>Additional</source>
-        <translation type="unfinished"></translation>
+        <translation>Gehigarria</translation>
     </message>
     <message>
         <location filename="../src/Notification.cpp" line="102"/>
@@ -2580,7 +2599,7 @@ Favorite user</source>
     <message>
         <location filename="../src/Notification.cpp" line="115"/>
         <source>Exit</source>
-        <translation type="unfinished"></translation>
+        <translation>Irten</translation>
     </message>
     <message>
         <location filename="../src/Notification.cpp" line="229"/>
@@ -2601,12 +2620,12 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/PMWindow.cpp" line="105"/>
         <source>Private message</source>
-        <translation type="unfinished"></translation>
+        <translation>Mezu pribatua</translation>
     </message>
     <message>
         <location filename="../src/PMWindow.cpp" line="106"/>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Itxi</translation>
     </message>
     <message>
         <location filename="../src/PMWindow.cpp" line="308"/>
@@ -2654,7 +2673,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/PublicHubModel.cpp" line="28"/>
         <source>Shared</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Partekatuta</translation>
     </message>
     <message>
         <location filename="../src/PublicHubModel.cpp" line="28"/>
@@ -2690,57 +2709,57 @@ Downloaded: %3 Uploaded: %4</source>
 <context>
     <name>PublicHubs</name>
     <message>
-        <location filename="../src/PublicHubs.cpp" line="55"/>
+        <location filename="../src/PublicHubs.cpp" line="57"/>
         <source>Downloading public hub list...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/PublicHubs.cpp" line="154"/>
+        <location filename="../src/PublicHubs.cpp" line="158"/>
         <source>Connect</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Konektatu</translation>
     </message>
     <message>
-        <location filename="../src/PublicHubs.cpp" line="155"/>
+        <location filename="../src/PublicHubs.cpp" line="159"/>
         <source>Add to favorites</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/PublicHubs.cpp" line="156"/>
+        <location filename="../src/PublicHubs.cpp" line="160"/>
         <source>Copy &amp;address to clipboard</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/PublicHubs.cpp" line="278"/>
+        <location filename="../src/PublicHubs.cpp" line="282"/>
         <source>Downloading public hub list... (%1)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/PublicHubs.cpp" line="282"/>
+        <location filename="../src/PublicHubs.cpp" line="286"/>
         <source>Download failed: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/PublicHubs.cpp" line="286"/>
+        <location filename="../src/PublicHubs.cpp" line="290"/>
         <source>Hub list downloaded... (%1 %2) </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/PublicHubs.cpp" line="286"/>
+        <location filename="../src/PublicHubs.cpp" line="290"/>
         <source>from Coral</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/PublicHubs.cpp" line="290"/>
+        <location filename="../src/PublicHubs.cpp" line="294"/>
         <source>Locally cached (as of %1) version of the hub list loaded (%2)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/PublicHubs.cpp" line="295"/>
+        <location filename="../src/PublicHubs.cpp" line="299"/>
         <source>Cached hub list is corrupted or unsupported</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/PublicHubs.cpp" line="297"/>
+        <location filename="../src/PublicHubs.cpp" line="301"/>
         <source>Downloaded hub list is corrupted or unsupported (%1)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2798,7 +2817,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/QueuedUsers.cpp" line="68"/>
         <source>Grant slot</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Egoztu slot</translation>
     </message>
     <message>
         <location filename="../src/QueuedUsers.h" line="102"/>
@@ -2816,7 +2835,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/QueuedUsers.cpp" line="116"/>
         <source>File</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Fitxategia</translation>
     </message>
 </context>
 <context>
@@ -2845,7 +2864,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SearchBlacklistDialog.cpp" line="345"/>
         <source>TTH</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">TTH</translation>
     </message>
 </context>
 <context>
@@ -2871,7 +2890,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SearchBlacklistDialog.cpp" line="164"/>
         <source>TTH</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">TTH</translation>
     </message>
     <message>
         <location filename="../src/SearchBlacklistDialog.cpp" line="179"/>
@@ -2881,7 +2900,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SearchBlacklistDialog.cpp" line="180"/>
         <source>Type</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Mota</translation>
     </message>
     <message>
         <location filename="../src/SearchBlacklistDialog.cpp" line="279"/>
@@ -2900,7 +2919,7 @@ Downloaded: %3 Uploaded: %4</source>
         <location filename="../ui/UISearchFrame.ui" line="44"/>
         <location filename="../src/SearchFrame.cpp" line="362"/>
         <source>Search</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Bilatu</translation>
     </message>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="51"/>
@@ -3005,7 +3024,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SearchFrame.cpp" line="123"/>
         <source>Download</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Deskargatu</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="126"/>
@@ -3030,7 +3049,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SearchFrame.cpp" line="141"/>
         <source>Copy magnet</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Kopiatu magnet</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="144"/>
@@ -3045,7 +3064,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SearchFrame.cpp" line="150"/>
         <source>Browse files</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Arakatu fitxategiak</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="153"/>
@@ -3055,7 +3074,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SearchFrame.cpp" line="156"/>
         <source>Send Private Message</source>
-        <translation type="unfinished"></translation>
+        <translation>Bidali Mezu Pribatua</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="159"/>
@@ -3096,36 +3115,36 @@ Downloaded: %3 Uploaded: %4</source>
         <location filename="../src/SearchFrame.cpp" line="291"/>
         <location filename="../src/SearchFrame.cpp" line="294"/>
         <source>Browse</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Arakatu</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="481"/>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Itxi</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="1081"/>
+        <location filename="../src/SearchFrame.cpp" line="1084"/>
         <source>Search - %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="1189"/>
-        <location filename="../src/SearchFrame.cpp" line="1247"/>
+        <location filename="../src/SearchFrame.cpp" line="1192"/>
+        <location filename="../src/SearchFrame.cpp" line="1250"/>
         <source>Select directory</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="1554"/>
+        <location filename="../src/SearchFrame.cpp" line="1557"/>
         <source>Searching for %1 ...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="1571"/>
+        <location filename="../src/SearchFrame.cpp" line="1574"/>
         <source>&lt;b&gt;No results&lt;/b&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="1580"/>
+        <location filename="../src/SearchFrame.cpp" line="1583"/>
         <source>Found: &lt;b&gt;%1&lt;/b&gt;  Dropped: &lt;b&gt;%2&lt;/b&gt;</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3140,7 +3159,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SearchModel.cpp" line="55"/>
         <source>File</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Fitxategia</translation>
     </message>
     <message>
         <location filename="../src/SearchModel.cpp" line="55"/>
@@ -3155,12 +3174,12 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SearchModel.cpp" line="56"/>
         <source>Exact size</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Tamaina zehatza</translation>
     </message>
     <message>
         <location filename="../src/SearchModel.cpp" line="56"/>
         <source>TTH</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">TTH</translation>
     </message>
     <message>
         <location filename="../src/SearchModel.cpp" line="56"/>
@@ -3170,7 +3189,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SearchModel.cpp" line="56"/>
         <source>Nick</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Ezizena</translation>
     </message>
     <message>
         <location filename="../src/SearchModel.cpp" line="57"/>
@@ -3190,7 +3209,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SearchModel.cpp" line="58"/>
         <source>Hub</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Hub</translation>
     </message>
     <message>
         <location filename="../src/SearchModel.cpp" line="58"/>
@@ -3218,12 +3237,12 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/Settings.cpp" line="51"/>
         <source>Connection</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Konexioa</translation>
     </message>
     <message>
         <location filename="../src/Settings.cpp" line="56"/>
         <source>Downloads</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Deskargak</translation>
     </message>
     <message>
         <location filename="../src/Settings.cpp" line="61"/>
@@ -3263,7 +3282,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/Settings.cpp" line="96"/>
         <source>Advanced</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Aurreratua</translation>
     </message>
 </context>
 <context>
@@ -3435,67 +3454,72 @@ Downloaded: %3 Uploaded: %4</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="245"/>
+        <location filename="../src/SettingsGUI.cpp" line="97"/>
+        <source>Turkish</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/SettingsGUI.cpp" line="246"/>
         <source>Local user</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="249"/>
+        <location filename="../src/SettingsGUI.cpp" line="250"/>
         <source>Operator</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="253"/>
+        <location filename="../src/SettingsGUI.cpp" line="254"/>
         <source>Bot</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="257"/>
+        <location filename="../src/SettingsGUI.cpp" line="258"/>
         <source>Private: local user</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="261"/>
+        <location filename="../src/SettingsGUI.cpp" line="262"/>
         <source>Private: user</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="265"/>
+        <location filename="../src/SettingsGUI.cpp" line="266"/>
         <source>Chat: Say nick</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="269"/>
+        <location filename="../src/SettingsGUI.cpp" line="270"/>
         <source>Status</source>
         <translation type="unfinished">Egoera</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="273"/>
+        <location filename="../src/SettingsGUI.cpp" line="274"/>
         <source>User</source>
         <translation type="unfinished">Erabiltzailea</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="277"/>
+        <location filename="../src/SettingsGUI.cpp" line="278"/>
         <source>Favorite User</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="281"/>
+        <location filename="../src/SettingsGUI.cpp" line="282"/>
         <source>Time stamp</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="285"/>
+        <location filename="../src/SettingsGUI.cpp" line="286"/>
         <source>Message</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="602"/>
+        <location filename="../src/SettingsGUI.cpp" line="603"/>
         <source>Select translation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="602"/>
+        <location filename="../src/SettingsGUI.cpp" line="603"/>
         <source>Translation (*.qm)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3503,7 +3527,7 @@ Downloaded: %3 Uploaded: %4</source>
 <context>
     <name>SettingsLog</name>
     <message>
-        <location filename="../src/SettingsLog.cpp" line="96"/>
+        <location filename="../src/SettingsLog.cpp" line="103"/>
         <source>Choose the directory</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3518,7 +3542,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SettingsNotification.cpp" line="194"/>
         <source>All files (*.*)</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Fitxategi guztiak (*.*)</translation>
     </message>
 </context>
 <context>
@@ -3526,7 +3550,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SettingsPersonal.cpp" line="78"/>
         <source>System default</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Sistema lehenetsia</translation>
     </message>
 </context>
 <context>
@@ -3571,7 +3595,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SettingsSharing.cpp" line="290"/>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Gehitu</translation>
     </message>
     <message>
         <location filename="../src/SettingsSharing.cpp" line="294"/>
@@ -3587,7 +3611,7 @@ Downloaded: %3 Uploaded: %4</source>
         <location filename="../src/SettingsSharing.cpp" line="337"/>
         <location filename="../src/SettingsSharing.cpp" line="373"/>
         <source>Error</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Akats</translation>
     </message>
     <message>
         <location filename="../src/SettingsSharing.cpp" line="362"/>
@@ -3610,7 +3634,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="78"/>
         <source>Download</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Deskargatu</translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="80"/>
@@ -3625,7 +3649,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="85"/>
         <source>Copy magnet</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Kopiatu magnet</translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="87"/>
@@ -3660,7 +3684,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="172"/>
         <source>Browse</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Arakatu</translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="222"/>
@@ -3680,7 +3704,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="328"/>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Itxi</translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="416"/>
@@ -3747,7 +3771,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SettingsSharing.cpp" line="525"/>
         <source>Error</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Akats</translation>
     </message>
 </context>
 <context>
@@ -3803,13 +3827,13 @@ Downloaded: %3 Uploaded: %4</source>
         <location filename="../src/SideBar.cpp" line="57"/>
         <location filename="../src/SideBar.cpp" line="406"/>
         <source>Private Messages</source>
-        <translation type="unfinished"></translation>
+        <translation>Mezu Pribatua</translation>
     </message>
     <message>
         <location filename="../src/SideBar.cpp" line="58"/>
         <location filename="../src/SideBar.cpp" line="407"/>
         <source>Search</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Bilatu</translation>
     </message>
     <message>
         <location filename="../src/SideBar.cpp" line="59"/>
@@ -3827,7 +3851,7 @@ Downloaded: %3 Uploaded: %4</source>
         <location filename="../src/SideBar.cpp" line="61"/>
         <location filename="../src/SideBar.cpp" line="410"/>
         <source>Download Queue</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Deskargatutako Ilara</translation>
     </message>
     <message>
         <location filename="../src/SideBar.cpp" line="62"/>
@@ -3899,7 +3923,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SideBar.cpp" line="577"/>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Itxi</translation>
     </message>
     <message>
         <location filename="../src/SideBar.cpp" line="636"/>
@@ -3919,7 +3943,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SideBar.cpp" line="640"/>
         <source>All files</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Fitxategi guztiak</translation>
     </message>
     <message>
         <location filename="../src/SideBar.cpp" line="655"/>
@@ -3962,7 +3986,7 @@ Do you want to stop it?
     <message>
         <location filename="../src/SpyFrame.cpp" line="99"/>
         <source>Search</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Bilatu</translation>
     </message>
 </context>
 <context>
@@ -3983,7 +4007,7 @@ Do you want to stop it?
     <message>
         <location filename="../src/TabFrame.cpp" line="363"/>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Itxi</translation>
     </message>
 </context>
 <context>
@@ -3999,7 +4023,7 @@ Do you want to stop it?
     <message>
         <location filename="../src/TransferView.cpp" line="48"/>
         <source>Browse files</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Arakatu fitxategiak</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="51"/>
@@ -4014,7 +4038,7 @@ Do you want to stop it?
     <message>
         <location filename="../src/TransferView.cpp" line="57"/>
         <source>Send Private Message</source>
-        <translation type="unfinished"></translation>
+        <translation>Bidali Mezu Pribatua</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="60"/>
@@ -4029,7 +4053,7 @@ Do you want to stop it?
     <message>
         <location filename="../src/TransferView.cpp" line="66"/>
         <source>Copy</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Kopiatu</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="69"/>
@@ -4039,7 +4063,7 @@ Do you want to stop it?
     <message>
         <location filename="../src/TransferView.cpp" line="70"/>
         <source>Speed</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Abiadura</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="71"/>
@@ -4069,7 +4093,7 @@ Do you want to stop it?
     <message>
         <location filename="../src/TransferView.cpp" line="76"/>
         <source>Hub</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Hub</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="77"/>
@@ -4221,7 +4245,7 @@ Do you want to stop it?
     <message>
         <location filename="../src/TransferViewModel.cpp" line="52"/>
         <source>Speed</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Abiadura</translation>
     </message>
     <message>
         <location filename="../src/TransferViewModel.cpp" line="52"/>
@@ -4313,18 +4337,18 @@ Do you want to stop it?
     <message>
         <location filename="../src/UCModel.cpp" line="84"/>
         <source>Command</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Komandoa</translation>
     </message>
     <message>
         <location filename="../src/UCModel.cpp" line="85"/>
         <source>Hub</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Hub</translation>
     </message>
     <message>
         <location filename="../src/UCModel.cpp" line="151"/>
         <location filename="../src/UCModel.cpp" line="204"/>
         <source>Separator</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Banatzailea</translation>
     </message>
 </context>
 <context>
@@ -4426,7 +4450,7 @@ Do you want to stop it?
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="229"/>
         <source>Download</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Deskargatu</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="242"/>
@@ -4502,12 +4526,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIActionCustomizer.ui" line="88"/>
         <source>Up</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Gora</translation>
     </message>
     <message>
         <location filename="../ui/UIActionCustomizer.ui" line="95"/>
         <source>Down</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Behera</translation>
     </message>
 </context>
 <context>
@@ -4545,7 +4569,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIAntiSpam.ui" line="102"/>
         <source>OK</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Ados</translation>
     </message>
     <message>
         <location filename="../ui/UIAntiSpam.ui" line="109"/>
@@ -4677,11 +4701,6 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="81"/>
-        <source>Decode from default hub encoding</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../ui/UICmdDebug.ui" line="88"/>
         <source>Lines:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4714,7 +4733,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="20"/>
         <source>Hub</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Hub</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="31"/>
@@ -4829,12 +4848,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="241"/>
         <source>Nick</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Ezizena</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="248"/>
         <source>User description</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Erabiltzile deskribapena</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="255"/>
@@ -4867,7 +4886,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIFavoriteHubs.ui" line="100"/>
         <source>Connect</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Konektatu</translation>
     </message>
 </context>
 <context>
@@ -4908,7 +4927,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIFileHasher.ui" line="100"/>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Itxi</translation>
     </message>
 </context>
 <context>
@@ -4926,7 +4945,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIFinishedTransfers.ui" line="30"/>
         <source>Files</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Fitxategiak</translation>
     </message>
     <message>
         <location filename="../ui/UIFinishedTransfers.ui" line="35"/>
@@ -4992,7 +5011,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/HubFrame.ui" line="98"/>
         <source>&lt;</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">&lt;</translation>
     </message>
     <message>
         <location filename="../ui/HubFrame.ui" line="101"/>
@@ -5007,7 +5026,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/HubFrame.ui" line="111"/>
         <source>&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">&gt;</translation>
     </message>
     <message>
         <location filename="../ui/HubFrame.ui" line="114"/>
@@ -5045,7 +5064,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIHubManager.ui" line="33"/>
         <source>Hub</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Hub</translation>
     </message>
     <message>
         <location filename="../ui/UIHubManager.ui" line="38"/>
@@ -5060,7 +5079,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIHubManager.ui" line="48"/>
         <source>Share</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Partekatu</translation>
     </message>
 </context>
 <context>
@@ -5088,7 +5107,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIIPFilter.ui" line="108"/>
         <source>Direction</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Helbidea</translation>
     </message>
     <message>
         <location filename="../ui/UIIPFilter.ui" line="114"/>
@@ -5118,12 +5137,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIIPFilter.ui" line="158"/>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Gehitu</translation>
     </message>
     <message>
         <location filename="../ui/UIIPFilter.ui" line="165"/>
         <source>OK</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Ados</translation>
     </message>
 </context>
 <context>
@@ -5136,7 +5155,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIMagnet.ui" line="58"/>
         <source>TTH</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">TTH</translation>
     </message>
     <message>
         <location filename="../ui/UIMagnet.ui" line="65"/>
@@ -5151,7 +5170,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIMagnet.ui" line="89"/>
         <source>Size</source>
-        <translation type="unfinished">Tamaina</translation>
+        <translation>Tamaina</translation>
     </message>
     <message>
         <location filename="../ui/UIMagnet.ui" line="127"/>
@@ -5161,7 +5180,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UIMagnet.ui" line="130"/>
         <source>Search</source>
-        <translation type="unfinished"></translation>
+        <translation>Bilatu</translation>
     </message>
     <message>
         <location filename="../ui/UIMagnet.ui" line="137"/>
@@ -5177,7 +5196,7 @@ in options, file will be downloaded without opening search dialog.</source>
     <message>
         <location filename="../ui/UIMagnet.ui" line="161"/>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>Utzi</translation>
     </message>
     <message>
         <location filename="../ui/UIMagnet.ui" line="170"/>
@@ -5205,7 +5224,7 @@ in options, file will be downloaded without opening search dialog.</source>
     <message>
         <location filename="../ui/PrivateMessage.ui" line="84"/>
         <source>&lt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;</translation>
     </message>
     <message>
         <location filename="../ui/PrivateMessage.ui" line="87"/>
@@ -5220,7 +5239,7 @@ in options, file will be downloaded without opening search dialog.</source>
     <message>
         <location filename="../ui/PrivateMessage.ui" line="97"/>
         <source>&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&gt;</translation>
     </message>
     <message>
         <location filename="../ui/PrivateMessage.ui" line="100"/>
@@ -5271,27 +5290,27 @@ in options, file will be downloaded without opening search dialog.</source>
     <message>
         <location filename="../ui/UIPublicHubsList.ui" line="23"/>
         <source>Up</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Gora</translation>
     </message>
     <message>
         <location filename="../ui/UIPublicHubsList.ui" line="30"/>
         <source>Down</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Behera</translation>
     </message>
     <message>
         <location filename="../ui/UIPublicHubsList.ui" line="69"/>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Gehitu</translation>
     </message>
     <message>
         <location filename="../ui/UIPublicHubsList.ui" line="76"/>
         <source>Remove</source>
-        <translation type="unfinished">Ezabatu</translation>
+        <translation>Ezabatu</translation>
     </message>
     <message>
         <location filename="../ui/UIPublicHubsList.ui" line="83"/>
         <source>Edit</source>
-        <translation type="unfinished"></translation>
+        <translation>Editatu</translation>
     </message>
 </context>
 <context>
@@ -5353,12 +5372,12 @@ in options, file will be downloaded without opening search dialog.</source>
     <message>
         <location filename="../ui/UISearchBlacklist.ui" line="93"/>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>Utzi</translation>
     </message>
     <message>
         <location filename="../ui/UISearchBlacklist.ui" line="100"/>
         <source>OK</source>
-        <translation type="unfinished"></translation>
+        <translation>Ados</translation>
     </message>
 </context>
 <context>
@@ -5392,7 +5411,7 @@ in options, file will be downloaded without opening search dialog.</source>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="27"/>
         <source>Connection</source>
-        <translation type="unfinished"></translation>
+        <translation>Konexioa</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="33"/>
@@ -5536,17 +5555,17 @@ DC++&apos;s SOCKS5 support does not include GSSAPI.</source>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="332"/>
         <source>IP</source>
-        <translation type="unfinished">IP</translation>
+        <translation>IP</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="339"/>
         <source>User</source>
-        <translation type="unfinished">Erabiltzailea</translation>
+        <translation>Erabiltzailea</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="346"/>
         <source>Password</source>
-        <translation type="unfinished">Pasahitza</translation>
+        <translation>Pasahitza</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="353"/>
@@ -5593,7 +5612,7 @@ DC++&apos;s SOCKS5 support does not include GSSAPI.</source>
         <location filename="../ui/UISettingsConnection.ui" line="506"/>
         <location filename="../ui/UISettingsConnection.ui" line="658"/>
         <source>Download</source>
-        <translation type="unfinished"></translation>
+        <translation>Deskargatu</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="520"/>
@@ -5601,7 +5620,7 @@ DC++&apos;s SOCKS5 support does not include GSSAPI.</source>
         <location filename="../ui/UISettingsConnection.ui" line="699"/>
         <location filename="../ui/UISettingsConnection.ui" line="732"/>
         <source>KiB/s</source>
-        <translation type="unfinished"></translation>
+        <translation>KiB/s</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="540"/>
@@ -5632,7 +5651,7 @@ DC++&apos;s SOCKS5 support does not include GSSAPI.</source>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="765"/>
         <source>Advanced</source>
-        <translation type="unfinished"></translation>
+        <translation>Aurreratua</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="792"/>
@@ -5663,7 +5682,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="846"/>
         <source>No</source>
-        <translation type="unfinished"></translation>
+        <translation>Ez</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="851"/>
@@ -5736,12 +5755,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="30"/>
         <source>Downloads</source>
-        <translation type="unfinished"></translation>
+        <translation>Deskargak</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="36"/>
         <source>Directories</source>
-        <translation type="unfinished"></translation>
+        <translation>Direktorioak</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="51"/>
@@ -5817,7 +5836,7 @@ It&apos;s not used for uploads, downloads, or connecting to a hub.</source>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="264"/>
         <source>Path</source>
-        <translation type="unfinished">Bidea</translation>
+        <translation>Bidea</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="269"/>
@@ -5827,7 +5846,7 @@ It&apos;s not used for uploads, downloads, or connecting to a hub.</source>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="278"/>
         <source>Queue</source>
-        <translation type="unfinished"></translation>
+        <translation>Ilara</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="284"/>
@@ -6126,7 +6145,7 @@ from the queue either, you must do that manually.</source>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="855"/>
         <source>Advanced</source>
-        <translation type="unfinished"></translation>
+        <translation>Aurreratua</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="876"/>
@@ -6184,7 +6203,7 @@ from the queue either, you must do that manually.</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="122"/>
         <source>Change</source>
-        <translation type="unfinished">Aldatu</translation>
+        <translation>Aldatu</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="132"/>
@@ -6255,7 +6274,7 @@ from the queue either, you must do that manually.</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="274"/>
         <source>Chat</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Txat</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="280"/>
@@ -6365,7 +6384,7 @@ from other words by spaces.</source>
         <location filename="../ui/UISettingsGUI.ui" line="451"/>
         <location filename="../ui/UISettingsGUI.ui" line="470"/>
         <source>Private message</source>
-        <translation type="unfinished"></translation>
+        <translation>Mezu pribatua</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="487"/>
@@ -6420,18 +6439,18 @@ from other words by spaces.</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="580"/>
         <source>Ask</source>
-        <translation type="unfinished"></translation>
+        <translation>Galdetu</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="585"/>
         <source>Search</source>
-        <translation type="unfinished"></translation>
+        <translation>Bilatu</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="590"/>
         <location filename="../ui/UISettingsGUI.ui" line="938"/>
         <source>Download</source>
-        <translation type="unfinished"></translation>
+        <translation>Deskargatu</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="615"/>
@@ -6451,12 +6470,12 @@ from other words by spaces.</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="684"/>
         <source>:</source>
-        <translation type="unfinished"></translation>
+        <translation>:</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="689"/>
         <source>,</source>
-        <translation type="unfinished"></translation>
+        <translation>,</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="699"/>
@@ -6487,7 +6506,7 @@ them is usually available only to operators</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="745"/>
         <source>Colors</source>
-        <translation type="unfinished"></translation>
+        <translation>Koloreak</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="751"/>
@@ -6503,7 +6522,7 @@ them is usually available only to operators</source>
         <location filename="../ui/UISettingsGUI.ui" line="800"/>
         <location filename="../ui/UISettingsGUI.ui" line="867"/>
         <source>Color</source>
-        <translation type="unfinished"></translation>
+        <translation>Kolorea</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="820"/>
@@ -6589,93 +6608,104 @@ them is usually available only to operators</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsLog.ui" line="20"/>
+        <location filename="../ui/UISettingsLog.ui" line="430"/>
         <source>Log directory</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsLog.ui" line="29"/>
+        <location filename="../ui/UISettingsLog.ui" line="448"/>
         <source>All logs generated by EiskaltDC++ will be put in this subdirectory.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsLog.ui" line="46"/>
+        <location filename="../ui/UISettingsLog.ui" line="20"/>
         <source>Private messages</source>
-        <translation type="unfinished"></translation>
+        <translation>Mezu pribatuak</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsLog.ui" line="58"/>
-        <location filename="../ui/UISettingsLog.ui" line="93"/>
-        <location filename="../ui/UISettingsLog.ui" line="128"/>
-        <location filename="../ui/UISettingsLog.ui" line="163"/>
-        <location filename="../ui/UISettingsLog.ui" line="198"/>
-        <location filename="../ui/UISettingsLog.ui" line="236"/>
-        <source>File</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsLog.ui" line="68"/>
-        <location filename="../ui/UISettingsLog.ui" line="103"/>
-        <location filename="../ui/UISettingsLog.ui" line="138"/>
+        <location filename="../ui/UISettingsLog.ui" line="41"/>
+        <location filename="../ui/UISettingsLog.ui" line="85"/>
+        <location filename="../ui/UISettingsLog.ui" line="129"/>
         <location filename="../ui/UISettingsLog.ui" line="173"/>
-        <location filename="../ui/UISettingsLog.ui" line="208"/>
-        <location filename="../ui/UISettingsLog.ui" line="253"/>
-        <source>Text</source>
-        <translation type="unfinished"></translation>
+        <location filename="../ui/UISettingsLog.ui" line="217"/>
+        <location filename="../ui/UISettingsLog.ui" line="264"/>
+        <location filename="../ui/UISettingsLog.ui" line="315"/>
+        <source>File</source>
+        <translation>Fitxategia</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsLog.ui" line="81"/>
+        <location filename="../ui/UISettingsLog.ui" line="51"/>
+        <location filename="../ui/UISettingsLog.ui" line="95"/>
+        <location filename="../ui/UISettingsLog.ui" line="139"/>
+        <location filename="../ui/UISettingsLog.ui" line="183"/>
+        <location filename="../ui/UISettingsLog.ui" line="227"/>
+        <location filename="../ui/UISettingsLog.ui" line="281"/>
+        <location filename="../ui/UISettingsLog.ui" line="325"/>
+        <source>Text</source>
+        <translation>Testua</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsLog.ui" line="64"/>
         <source>Main chat</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsLog.ui" line="116"/>
+        <location filename="../ui/UISettingsLog.ui" line="108"/>
         <source>Downloads</source>
-        <translation type="unfinished"></translation>
+        <translation>Deskargak</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsLog.ui" line="151"/>
+        <location filename="../ui/UISettingsLog.ui" line="152"/>
         <source>Uploads</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsLog.ui" line="224"/>
+        <location filename="../ui/UISettingsLog.ui" line="243"/>
         <source>Search Spy</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsLog.ui" line="274"/>
+        <location filename="../ui/UISettingsLog.ui" line="294"/>
+        <source>Cmd Debug</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISettingsLog.ui" line="346"/>
         <source>System messages</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsLog.ui" line="287"/>
+        <location filename="../ui/UISettingsLog.ui" line="372"/>
         <source>Status messages</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsLog.ui" line="300"/>
+        <location filename="../ui/UISettingsLog.ui" line="408"/>
         <source>Auto search alternates</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsLog.ui" line="313"/>
+        <location filename="../ui/UISettingsLog.ui" line="359"/>
         <source>Own filelist uploads</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsLog.ui" line="186"/>
+        <location filename="../ui/UISettingsLog.ui" line="196"/>
         <source>Finished Downloads</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsLog.ui" line="326"/>
+        <location filename="../ui/UISettingsLog.ui" line="385"/>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;http://dcplusplus.sourceforge.net/webhelp/settings_logs.html&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#296fbe;&quot;&gt;Help&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;http://dcplusplus.sourceforge.net/webhelp/settings_logs.html&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#296fbe;&quot;&gt;Laguntza&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
 </context>
 <context>
@@ -6688,7 +6718,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="24"/>
         <source>Text</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Testua</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="30"/>
@@ -6710,7 +6740,7 @@ p, li { white-space: pre-wrap; }
         <location filename="../ui/UISettingsNotification.ui" line="56"/>
         <location filename="../ui/UISettingsNotification.ui" line="224"/>
         <source>Private message</source>
-        <translation type="unfinished"></translation>
+        <translation>Mezu pribatua</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="63"/>
@@ -6821,7 +6851,7 @@ who sends private message to you.</source>
     <message>
         <location filename="../ui/UISettingsPersonal.ui" line="54"/>
         <source>Nick</source>
-        <translation type="unfinished"></translation>
+        <translation>Ezizena</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsPersonal.ui" line="61"/>
@@ -6837,7 +6867,7 @@ It can be overridden on a per-hub basis in the Favorite Hub Properties.</source>
     <message>
         <location filename="../ui/UISettingsPersonal.ui" line="76"/>
         <source>Description</source>
-        <translation type="unfinished">Deskribapena</translation>
+        <translation>Deskribapena</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsPersonal.ui" line="83"/>
@@ -6870,7 +6900,7 @@ of how fast a source you are likely to be for other users.</source>
     <message>
         <location filename="../ui/UISettingsPersonal.ui" line="186"/>
         <source>MiB/s</source>
-        <translation type="unfinished"></translation>
+        <translation>MiB/s</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsPersonal.ui" line="199"/>
@@ -6898,17 +6928,17 @@ of how fast a source you are likely to be for other users.</source>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="65"/>
         <source>Path</source>
-        <translation type="unfinished">Bidea</translation>
+        <translation>Bidea</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="70"/>
         <source>Name</source>
-        <translation type="unfinished">Izena</translation>
+        <translation>Izena</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="75"/>
         <source>Size</source>
-        <translation type="unfinished">Tamaina</translation>
+        <translation>Tamaina</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="98"/>
@@ -6933,7 +6963,7 @@ of how fast a source you are likely to be for other users.</source>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="138"/>
         <source>Add new</source>
-        <translation type="unfinished">Berria gehitu</translation>
+        <translation>Berria gehitu</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="148"/>
@@ -6943,17 +6973,17 @@ of how fast a source you are likely to be for other users.</source>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="158"/>
         <source>Edit</source>
-        <translation type="unfinished"></translation>
+        <translation>Editatu</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="168"/>
         <source>Delete</source>
-        <translation type="unfinished">Ezabatu</translation>
+        <translation>Ezabatu</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="194"/>
         <source>Advanced</source>
-        <translation type="unfinished"></translation>
+        <translation>Aurreratua</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="206"/>
@@ -7002,37 +7032,37 @@ and may cause the client to appear to freeze.</source>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="292"/>
         <source>1</source>
-        <translation type="unfinished"></translation>
+        <translation>1</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="297"/>
         <source>2</source>
-        <translation type="unfinished"></translation>
+        <translation>2</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="302"/>
         <source>4</source>
-        <translation type="unfinished"></translation>
+        <translation>4</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="307"/>
         <source>8</source>
-        <translation type="unfinished"></translation>
+        <translation>8</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="312"/>
         <source>16</source>
-        <translation type="unfinished"></translation>
+        <translation>16</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="317"/>
         <source>32</source>
-        <translation type="unfinished"></translation>
+        <translation>32</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="322"/>
         <source>64</source>
-        <translation type="unfinished"></translation>
+        <translation>64</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="338"/>
@@ -7047,7 +7077,7 @@ and may cause the client to appear to freeze.</source>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="353"/>
         <source>No reserve</source>
-        <translation type="unfinished"></translation>
+        <translation>Erreserba gabe</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="367"/>
@@ -7103,7 +7133,7 @@ if your system becomes slow while hashing files.</source>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="524"/>
         <source>Upload slots</source>
-        <translation type="unfinished"></translation>
+        <translation>Slot-ak igo</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="534"/>
@@ -7137,27 +7167,27 @@ if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</sourc
     <message>
         <location filename="../ui/UISettingsUC.ui" line="42"/>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Gehitu</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsUC.ui" line="49"/>
         <source>Change</source>
-        <translation type="unfinished">Aldatu</translation>
+        <translation>Aldatu</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsUC.ui" line="56"/>
         <source>Remove</source>
-        <translation type="unfinished">Ezabatu</translation>
+        <translation>Ezabatu</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsUC.ui" line="63"/>
         <source>Up</source>
-        <translation type="unfinished"></translation>
+        <translation>Gora</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsUC.ui" line="83"/>
         <source>Down</source>
-        <translation type="unfinished"></translation>
+        <translation>Behera</translation>
     </message>
 </context>
 <context>
@@ -7170,17 +7200,17 @@ if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</sourc
     <message utf8="true">
         <location filename="../ui/UIShareBrowser.ui" line="103"/>
         <source>←</source>
-        <translation type="unfinished"></translation>
+        <translation>←</translation>
     </message>
     <message utf8="true">
         <location filename="../ui/UIShareBrowser.ui" line="110"/>
         <source>→</source>
-        <translation type="unfinished"></translation>
+        <translation>→</translation>
     </message>
     <message utf8="true">
         <location filename="../ui/UIShareBrowser.ui" line="117"/>
         <source>↑</source>
-        <translation type="unfinished"></translation>
+        <translation>↑</translation>
     </message>
 </context>
 <context>
@@ -7189,7 +7219,7 @@ if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</sourc
         <location filename="../ui/UIShareBrowserSearch.ui" line="14"/>
         <location filename="../ui/UIShareBrowserSearch.ui" line="25"/>
         <source>Search</source>
-        <translation type="unfinished"></translation>
+        <translation>Bilatu</translation>
     </message>
     <message>
         <location filename="../ui/UIShareBrowserSearch.ui" line="35"/>
@@ -7204,17 +7234,17 @@ if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</sourc
     <message>
         <location filename="../ui/UIShareBrowserSearch.ui" line="45"/>
         <source>Search all</source>
-        <translation type="unfinished"></translation>
+        <translation>Bilatu guztia</translation>
     </message>
     <message>
         <location filename="../ui/UIShareBrowserSearch.ui" line="54"/>
         <source>Name</source>
-        <translation type="unfinished">Izena</translation>
+        <translation>Izena</translation>
     </message>
     <message>
         <location filename="../ui/UIShareBrowserSearch.ui" line="59"/>
         <source>Directory</source>
-        <translation type="unfinished">Direktorioa</translation>
+        <translation>Direktorioa</translation>
     </message>
 </context>
 <context>
@@ -7237,12 +7267,12 @@ if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</sourc
     <message>
         <location filename="../ui/UISpy.ui" line="62"/>
         <source>Start</source>
-        <translation type="unfinished">Hasi</translation>
+        <translation>Hasi</translation>
     </message>
     <message>
         <location filename="../ui/UISpy.ui" line="69"/>
         <source>Clear</source>
-        <translation type="unfinished">Garbitu</translation>
+        <translation>Garbitu</translation>
     </message>
 </context>
 <context>
@@ -7258,22 +7288,22 @@ if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</sourc
     <message>
         <location filename="../ui/UIUserCommands.ui" line="14"/>
         <source>New command</source>
-        <translation type="unfinished"></translation>
+        <translation>Komando berria</translation>
     </message>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="23"/>
         <source>Type</source>
-        <translation type="unfinished"></translation>
+        <translation>Mota</translation>
     </message>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="32"/>
         <source>Separator</source>
-        <translation type="unfinished"></translation>
+        <translation>Banatzailea</translation>
     </message>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="42"/>
         <source>Chat</source>
-        <translation type="unfinished"></translation>
+        <translation>Txat</translation>
     </message>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="49"/>
@@ -7288,22 +7318,22 @@ if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</sourc
     <message>
         <location filename="../ui/UIUserCommands.ui" line="66"/>
         <source>Context</source>
-        <translation type="unfinished"></translation>
+        <translation>Testuingurua</translation>
     </message>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="75"/>
         <source>Hub</source>
-        <translation type="unfinished"></translation>
+        <translation>Hub</translation>
     </message>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="82"/>
         <source>Search</source>
-        <translation type="unfinished"></translation>
+        <translation>Bilatu</translation>
     </message>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="89"/>
         <source>User</source>
-        <translation type="unfinished">Erabiltzailea</translation>
+        <translation>Erabiltzailea</translation>
     </message>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="96"/>
@@ -7313,17 +7343,17 @@ if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</sourc
     <message>
         <location filename="../ui/UIUserCommands.ui" line="106"/>
         <source>Parameters</source>
-        <translation type="unfinished"></translation>
+        <translation>Parametroak</translation>
     </message>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="139"/>
         <source>Name</source>
-        <translation type="unfinished">Izena</translation>
+        <translation>Izena</translation>
     </message>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="146"/>
         <source>Command</source>
-        <translation type="unfinished"></translation>
+        <translation>Komandoa</translation>
     </message>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="153"/>
@@ -7366,32 +7396,32 @@ if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</sourc
     <message>
         <location filename="../src/UserListModel.cpp" line="168"/>
         <source>Nick</source>
-        <translation type="unfinished"></translation>
+        <translation>Ezizena</translation>
     </message>
     <message>
         <location filename="../src/UserListModel.cpp" line="169"/>
         <source>Comment</source>
-        <translation type="unfinished"></translation>
+        <translation>Iruzkina</translation>
     </message>
     <message>
         <location filename="../src/UserListModel.cpp" line="170"/>
         <source>Tag</source>
-        <translation type="unfinished"></translation>
+        <translation>Etiketa</translation>
     </message>
     <message>
         <location filename="../src/UserListModel.cpp" line="171"/>
         <source>Connection</source>
-        <translation type="unfinished"></translation>
+        <translation>Konexioa</translation>
     </message>
     <message>
         <location filename="../src/UserListModel.cpp" line="172"/>
         <source>E-mail</source>
-        <translation type="unfinished"></translation>
+        <translation>E-posta</translation>
     </message>
     <message>
         <location filename="../src/UserListModel.cpp" line="173"/>
         <source>Share</source>
-        <translation type="unfinished"></translation>
+        <translation>Partekatu</translation>
     </message>
     <message>
         <location filename="../src/UserListModel.cpp" line="174"/>
@@ -7422,7 +7452,7 @@ if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</sourc
     <message>
         <location filename="../src/WulforUtil.cpp" line="704"/>
         <source>System default</source>
-        <translation type="unfinished"></translation>
+        <translation>Sistema lehenetsia</translation>
     </message>
     <message>
         <location filename="../src/WulforUtil.cpp" line="1015"/>
@@ -7432,7 +7462,7 @@ if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</sourc
     <message>
         <location filename="../src/WulforUtil.cpp" line="1118"/>
         <source>User commands</source>
-        <translation type="unfinished"></translation>
+        <translation>erabiltzaile komandoak</translation>
     </message>
 </context>
 </TS>

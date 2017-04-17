@@ -84,7 +84,7 @@ void SettingsGUI::init(){
         langNames["sr@latin.qm"] = tr("Serbian (Latin)");
         langNames["uk.qm"]       = tr("Ukrainian");
         langNames["es.qm"]       = tr("Spanish");
-		langNames["eu.qm"]       = tr("Basque");
+        langNames["eu.qm"]       = tr("Basque");
         langNames["bg.qm"]       = tr("Bulgarian");
         langNames["sk.qm"]       = tr("Slovak");
         langNames["cs.qm"]       = tr("Czech");
@@ -94,6 +94,7 @@ void SettingsGUI::init(){
         langNames["vi.qm"]       = tr("Vietnamese");
         langNames["zh_CN.qm"]    = tr("Chinese (China)");
         langNames["sv_SE.qm"]    = tr("Swedish (Sweden)");
+        langNames["tr.qm"]       = tr("Turkish");
 
         QString full_path;
         QString lang;
@@ -228,7 +229,7 @@ void SettingsGUI::init(){
         checkBox_HIGHLIGHTFAVS->setChecked(WBGET(WB_CHAT_HIGHLIGHT_FAVS));
         checkBox_CHAT_SHOW_IP->setChecked(BOOLSETTING(USE_IP));
         checkBox_CHAT_SHOW_CC->setChecked(BOOLSETTING(GET_USER_COUNTRY));
-        checkBox_BB_CODE->setChecked(WBGET("hubframe/use-bb-code", false));
+        checkBox_BB_CODE->setChecked(WBGET("hubframe/use-bb-code", true));
         lineEdit_TIMESTAMP->setText(WSGET(WS_CHAT_TIMESTAMP));
 
         spinBox_OUT_IN_HIST->setValue(WIGET(WI_OUT_IN_HIST));

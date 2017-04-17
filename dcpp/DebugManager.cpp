@@ -16,3 +16,17 @@
 
 #include "stdinc.h"
 #include "DebugManager.h"
+
+std::string dcpp::DebugManager::typeDirToString(int typeDir) {
+    switch (typeDir) {
+    case HUB_IN: return "HUB_IN";
+    case HUB_OUT: return "HUB_OUT";
+    case CLIENT_IN: return "CLIENT_IN";
+    case CLIENT_OUT: return "CLIENT_OUT";
+#ifdef WITH_DHT
+    case DHT_IN: return "DHT_IN";
+    case DHT_OUT: return "DHT_OUT";
+#endif
+    default: return "Unknown";
+    }
+}

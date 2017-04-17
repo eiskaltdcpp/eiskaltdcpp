@@ -105,7 +105,15 @@ int UPnPManager::run() {
 #endif
 
         opened = true;
+
+#ifdef WITH_DHT
+        if(dht_port != 0)
+            log(str(F_("Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%, DHT: %4%), mapped using the %5% interface") % conn_port % search_port % secure_port % dht_port % impl.getName()));
+        else
+            log(str(F_("Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%), mapped using the %4% interface") % conn_port % search_port % secure_port % impl.getName()));
+#else
         log(str(F_("Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%), mapped using the %4% interface") % conn_port % search_port % secure_port % impl.getName()));
+#endif
 
         if(!BOOLSETTING(NO_IP_OVERRIDE)) {
             // now lets configure the external IP (connect to me) address

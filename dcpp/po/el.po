@@ -8,8 +8,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
-"Report-Msgid-Bugs-To: http://code.google.com/p/eiskaltdc/issues/list\n"
-"POT-Creation-Date: 2015-05-24 21:44+0300\n"
+"Report-Msgid-Bugs-To: https://github.com/eiskaltdcpp/eiskaltdcpp/issues\n"
+"POT-Creation-Date: 2015-11-28 22:15+0300\n"
 "PO-Revision-Date: 2013-11-19 16:45+0000\n"
 "Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
 "Language-Team: Greek (http://www.transifex.com/projects/p/eiskaltdcpp/"
@@ -184,7 +184,7 @@ msgstr "Τερματίστηκε η σύνδεση"
 msgid "Maximum command length exceeded"
 msgstr "Υπέρβαση μεγίστου μήκος εντολής"
 
-#: ../BufferedSocket.cpp:456
+#: ../BufferedSocket.cpp:461
 msgid "Disconnected"
 msgstr "Αποσυνδέθηκε"
 
@@ -368,7 +368,7 @@ msgid "Error during compression"
 msgstr "Σφάλμα κατά την διάρκεια συμπίεσης"
 
 #: ../BZUtils.cpp:74 ../BZUtils.cpp:96 ../BZUtils.cpp:99
-#: ../CryptoManager.cpp:372 ../CryptoManager.cpp:391 ../CryptoManager.cpp:405
+#: ../CryptoManager.cpp:400 ../CryptoManager.cpp:419 ../CryptoManager.cpp:433
 #: ../ZUtils.cpp:104 ../ZUtils.cpp:127 ../ZUtils.cpp:137
 msgid "Error during decompression"
 msgstr "Σφάλμα κατά την διάρκεια αποσυμπίεσης"
@@ -406,7 +406,16 @@ msgstr " Θύρα Αναζήτησης (%1% UDP)"
 msgid " DHT Port (%1% UDP)"
 msgstr " Θύρα DHT (%1% UDP)"
 
-#: ../UPnPManager.cpp:108
+#: ../UPnPManager.cpp:111
+#, fuzzy
+msgid ""
+"Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%, DHT: %4%), "
+"mapped using the %5% interface"
+msgstr ""
+"Επιτυχή δημιουργία αντιστοίχησης θυρών (TCP: %1%, UDP: %2%, TLS: %3%), "
+"αντιστοίχηση χρησιμοποιώντας την διεπαφή %4%"
+
+#: ../UPnPManager.cpp:113 ../UPnPManager.cpp:115
 msgid ""
 "Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%), mapped "
 "using the %4% interface"
@@ -414,23 +423,23 @@ msgstr ""
 "Επιτυχή δημιουργία αντιστοίχησης θυρών (TCP: %1%, UDP: %2%, TLS: %3%), "
 "αντιστοίχηση χρησιμοποιώντας την διεπαφή %4%"
 
-#: ../UPnPManager.cpp:119
+#: ../UPnPManager.cpp:127
 msgid "Failed to get external IP"
 msgstr "Αποτυχία ανάκτησης εξωτερικού IP"
 
-#: ../UPnPManager.cpp:129
+#: ../UPnPManager.cpp:137
 msgid "Failed to create port mappings"
 msgstr "Αδυναμία δημιουργίας νήματος"
 
-#: ../UPnPManager.cpp:138
+#: ../UPnPManager.cpp:146
 msgid "Successfully removed port mappings with the %1% interface"
 msgstr "Έναρξη ανανέωσης λίστας αρχείων"
 
-#: ../UPnPManager.cpp:139
+#: ../UPnPManager.cpp:147
 msgid "Failed to remove port mappings with the %1% interface"
 msgstr "Έναρξη ανανέωσης λίστας αρχείων"
 
-#: ../UPnPManager.cpp:144
+#: ../UPnPManager.cpp:152
 msgid "UPnP: %1%"
 msgstr "UPnP: %1%"
 
@@ -629,35 +638,35 @@ msgstr "Ολοκληρώθηκε η ανανέωση της λίστας αρχ�
 msgid "File list %1% generated"
 msgstr "Εκκίνηση ανανέωσης της λίστας αρχείων"
 
-#: ../SettingsManager.cpp:179
+#: ../SettingsManager.cpp:182
 msgid "downloaded from"
 msgstr "έχει ληφθεί από"
 
-#: ../SettingsManager.cpp:516
+#: ../SettingsManager.cpp:521
 msgid "Invalid search type name"
 msgstr "Μη έγκυρο όνομα τύπου αναζήτησης"
 
-#: ../SettingsManager.cpp:520 ../SettingsManager.cpp:542
+#: ../SettingsManager.cpp:525 ../SettingsManager.cpp:547
 msgid "This search type already exists"
 msgstr "Αυτός ο τύπος αναζήτησης υπάρχει ήδη"
 
-#: ../SettingsManager.cpp:574
+#: ../SettingsManager.cpp:579
 msgid "No such search type"
 msgstr "Δεν υπάρχει τέτοιος τύπος αναζήτησης"
 
-#: ../SettingsManager.cpp:602 ../SettingsManager.cpp:607
+#: ../SettingsManager.cpp:607 ../SettingsManager.cpp:612
 msgid "Error: setting not found!"
 msgstr "Σφάλμα: η ρύθμιση δεν βρέθηκε! "
 
-#: ../SettingsManager.cpp:602
+#: ../SettingsManager.cpp:607
 msgid "Core setting "
 msgstr ""
 
-#: ../SettingsManager.cpp:607
+#: ../SettingsManager.cpp:612
 msgid "Change core setting "
 msgstr "Αλλαγή ρύθμισής πυρήνα  "
 
-#: ../SettingsManager.cpp:607
+#: ../SettingsManager.cpp:612
 msgid " to "
 msgstr " σε "
 
@@ -693,37 +702,37 @@ msgstr ""
 "Αδυναμία ρύθμισης του εξυπηρετητή socks για αναμετάδοση UDP (ελέγξτε "
 "διεύθυνση και θύρα socks)"
 
-#: ../CryptoManager.cpp:134
+#: ../CryptoManager.cpp:162
 msgid "No private key file chosen"
 msgstr "Δεν έχει επιλεχθεί αρχείο ιδιωτικού κλειδιού "
 
-#: ../CryptoManager.cpp:137
+#: ../CryptoManager.cpp:165
 msgid "No certificate file chosen"
 msgstr "Δεν έχει επιλεχθεί αρχείο πιστοποιητικού"
 
-#: ../CryptoManager.cpp:149
+#: ../CryptoManager.cpp:177
 msgid "Error generating certificate"
 msgstr "Σφάλμα παραγωγής πιστοποιητικού"
 
-#: ../CryptoManager.cpp:212
+#: ../CryptoManager.cpp:240
 msgid "TLS disabled, no certificate file set"
 msgstr "Απενεργοποιήθηκε TLS, δεν ορίστηκε αρχείο πιστοποιητικού"
 
-#: ../CryptoManager.cpp:220
+#: ../CryptoManager.cpp:248
 msgid "Generated new TLS certificate"
 msgstr "Δημιουργήθηκε νέο πιστοποιητικό TLS "
 
-#: ../CryptoManager.cpp:222
+#: ../CryptoManager.cpp:250
 msgid "TLS disabled, failed to generate certificate: %1%"
 msgstr "Απενεργοποιήθηκε TLS, δεν ορίστηκε αρχείο πιστοποιητικού"
 
-#: ../CryptoManager.cpp:227 ../CryptoManager.cpp:231 ../CryptoManager.cpp:236
-#: ../CryptoManager.cpp:240
+#: ../CryptoManager.cpp:255 ../CryptoManager.cpp:259 ../CryptoManager.cpp:264
+#: ../CryptoManager.cpp:268
 msgid "Failed to load certificate file"
 msgstr "Αποτυχία φόρτωσης αρχείου πιστοποιητικού"
 
-#: ../CryptoManager.cpp:245 ../CryptoManager.cpp:249 ../CryptoManager.cpp:254
-#: ../CryptoManager.cpp:258
+#: ../CryptoManager.cpp:273 ../CryptoManager.cpp:277 ../CryptoManager.cpp:282
+#: ../CryptoManager.cpp:286
 msgid "Failed to load private key"
 msgstr "Αποτυχία φόρτωσης αρχείου ιδιωτικού κλειδιού"
 

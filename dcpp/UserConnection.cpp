@@ -68,7 +68,7 @@ void UserConnection::on(BufferedSocketListener::Line, const string& aLine) throw
         fire(UserConnectionListener::ProtocolError(), this, _("Invalid data"));
         return;
     }
-    COMMAND_DEBUG(aLine, DebugManager::CLIENT_IN, getRemoteIp());
+    COMMAND_DEBUG((Util::stricmp(getEncoding(), Text::utf8) != 0 ? Text::toUtf8(aLine, getEncoding()) : aLine), DebugManager::CLIENT_IN, getRemoteIp());
     string cmd;
     string param;
 

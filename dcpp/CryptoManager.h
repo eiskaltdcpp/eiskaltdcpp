@@ -18,6 +18,10 @@
 
 #pragma once
 
+#ifdef _WIN32
+#include <wincrypt.h>
+#endif
+
 #include "SettingsManager.h"
 #include "Exception.h"
 #include "Singleton.h"
