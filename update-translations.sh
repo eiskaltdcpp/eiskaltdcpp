@@ -1,9 +1,9 @@
 #! /bin/bash
 
-# Author:  Boris Pek <tehnick-8@mail.ru>
+# Author:  Boris Pek <tehnick-8@yandex.ru>
 # License: Public Domain
 # Created: 2011-11-26
-# Updated: 2016-04-06
+# Updated: 2017-06-19
 # Version: N/A
 
 export CUR_DIR="$(dirname $(realpath -s ${0}))"
@@ -27,11 +27,10 @@ case "${1}" in
     if [ -d "${CUR_DIR}/builddir" ]; then
         cd "${CUR_DIR}/builddir" || exit 1
         make translations_qt mo-update || exit 1
-        
     else
         mkdir -p builddir && cd builddir || exit 1
         cmake -DUSE_QT=ON -DUSE_GTK=ON .. || exit 1
-        "${0}" make || exit 1
+        make translations_qt mo-update || exit 1
     fi
 
 ;;
@@ -71,6 +70,7 @@ case "${1}" in
     cp -fa dcpp/po/libeiskaltdcpp.pot dcpp/po/en.po
     cp -fa eiskaltdcpp-gtk/po/eiskaltdcpp-gtk.pot eiskaltdcpp-gtk/po/en.po
 
+    cd "${CUR_DIR}" || exit 1
     git status || exit 1
 
 ;;
@@ -85,6 +85,7 @@ case "${1}" in
     cp -fa dcpp/po/libeiskaltdcpp.pot dcpp/po/en.po
     cp -fa eiskaltdcpp-gtk/po/eiskaltdcpp-gtk.pot eiskaltdcpp-gtk/po/en.po
 
+    cd "${CUR_DIR}" || exit 1
     git status || exit 1
 
 ;;
