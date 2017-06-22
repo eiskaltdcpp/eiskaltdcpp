@@ -4,13 +4,14 @@
 #
 # Translators:
 # Boris Pek <tehnick-8@yandex.ru>, 2017
+# Sopor <sopor@hotmail.com>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: https://github.com/eiskaltdcpp/eiskaltdcpp/issues\n"
 "POT-Creation-Date: 2015-11-30 00:28+0300\n"
 "PO-Revision-Date: 2013-11-19 16:45+0000\n"
-"Last-Translator: Boris Pek <tehnick-8@yandex.ru>, 2017\n"
+"Last-Translator: Sopor <sopor@hotmail.com>, 2017\n"
 "Language-Team: Swedish (Sweden) (https://www.transifex.com/tehnick/"
 "teams/11818/sv_SE/)\n"
 "Language: sv_SE\n"
@@ -336,7 +337,7 @@ msgstr "Omdirigera användare"
 
 #: ../FavoriteManager.cpp:489
 msgid "Auto-connect group (converted)"
-msgstr "Anslut automatiskt grupp"
+msgstr "Anslut automatiskt till grupp (konverterad)"
 
 #: ../NmdcHub.cpp:295
 msgid "%1% (Nick unknown)"
@@ -344,7 +345,7 @@ msgstr "%1% (Användarnamn okänt)"
 
 #: ../NmdcHub.cpp:672
 msgid "Hub topic:"
-msgstr "Rubrik:"
+msgstr "Hubbtopic:"
 
 #: ../ConnectionManager.cpp:179
 msgid "All download slots taken"
@@ -445,7 +446,7 @@ msgstr "<Enter string>"
 
 #: ../ADLSearch.cpp:487
 msgid "Discard"
-msgstr "Ta bort"
+msgstr "Kassera"
 
 #: ../SSLSocket.cpp:160
 msgid "SSL Error: %1% (%2%, %3%)"
@@ -494,7 +495,7 @@ msgstr "Kan inte skapa tråd"
 
 #: ../DCPlusPlus.cpp:121
 msgid "Hash database"
-msgstr "Index databas"
+msgstr "Indexdatabas"
 
 #: ../DCPlusPlus.cpp:124
 msgid "Shared Files"
