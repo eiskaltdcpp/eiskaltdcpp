@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR EiskaltDC++ team
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Boris Pek <tehnick-8@yandex.ru>, 2017
 msgid ""
@@ -12,10 +12,10 @@ msgstr ""
 "PO-Revision-Date: 2013-11-19 16:45+0000\n"
 "Last-Translator: Boris Pek <tehnick-8@yandex.ru>, 2017\n"
 "Language-Team: Spanish (https://www.transifex.com/tehnick/teams/11818/es/)\n"
-"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../SearchManager.cpp:36
@@ -125,7 +125,8 @@ msgstr "Determinando la mejor configuración de conexión..."
 
 #: ../ConnectivityManager.cpp:85
 msgid ""
-"Unable to open %1% port(s); connectivity settings must be configured manually"
+"Unable to open %1% port(s); connectivity settings must be configured "
+"manually"
 msgstr ""
 "No se puedo abrir el/los puerto(s) %1%. Tendrá que configurar su conexión "
 "manualmente"
@@ -285,7 +286,8 @@ msgid "%1%: Matched %2% file"
 msgstr "%1%: encajó con el archivo %2%"
 
 #: ../QueueManager.cpp:1796
-msgid "Target path for this item is not available: %1%; pause this queue item."
+msgid ""
+"Target path for this item is not available: %1%; pause this queue item."
 msgstr ""
 "La ruta de destino para este elemento no está disponible: %1% pausando este "
 "elemento en la cola."
@@ -311,8 +313,8 @@ msgid ""
 "Hub probably uses an old version of ADC, please encourage the owner to "
 "upgrade"
 msgstr ""
-"El hub probablemente utiliza una versión antigua de ADC, por favor, Inste al "
-"administrador a actualizarlo"
+"El hub probablemente utiliza una versión antigua de ADC, por favor, Inste al"
+" administrador a actualizarlo"
 
 #: ../AdcHub.cpp:305
 msgid "%1% was kicked by %2%: %3%"
@@ -401,15 +403,6 @@ msgstr " Puerto de búsquedas (1%% UDP)"
 #: ../UPnPManager.cpp:101
 msgid " DHT Port (%1% UDP)"
 msgstr " Puerto DHT (%1% UDP)"
-
-#: ../UPnPManager.cpp:111
-#, fuzzy
-msgid ""
-"Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%, DHT: %4%), "
-"mapped using the %5% interface"
-msgstr ""
-"Redirección de puertos realizada con éxito (TCP: %1%, UDP: %2%, TLS: %3%), "
-"la redirección ha usando la interfaz %4%"
 
 #: ../UPnPManager.cpp:113 ../UPnPManager.cpp:115
 msgid ""
@@ -517,19 +510,9 @@ msgstr "%d B"
 msgid "%.02f KiB"
 msgstr "%.02f KiB"
 
-#: ../Util.cpp:656
-#, fuzzy, c-format
-msgid "%.02f KB"
-msgstr "%.02f KiB"
-
 #: ../Util.cpp:658
 #, c-format
 msgid "%.02f MiB"
-msgstr "%.02f MiB"
-
-#: ../Util.cpp:658
-#, fuzzy, c-format
-msgid "%.02f MB"
 msgstr "%.02f MiB"
 
 #: ../Util.cpp:660
@@ -537,29 +520,14 @@ msgstr "%.02f MiB"
 msgid "%.02f GiB"
 msgstr "%.02f GiB"
 
-#: ../Util.cpp:660
-#, fuzzy, c-format
-msgid "%.02f GB"
-msgstr "%.02f GiB"
-
 #: ../Util.cpp:662
 #, c-format
 msgid "%.02f TiB"
 msgstr "%.02f TiB"
 
-#: ../Util.cpp:662
-#, fuzzy, c-format
-msgid "%.02f TB"
-msgstr "%.02f TiB"
-
 #: ../Util.cpp:664
 #, c-format
 msgid "%.02f PiB"
-msgstr "%.02f PiB"
-
-#: ../Util.cpp:664
-#, fuzzy, c-format
-msgid "%.02f PB"
 msgstr "%.02f PiB"
 
 #: ../Util.cpp:698
@@ -591,7 +559,8 @@ msgstr "La carpeta temporal de descargas no puede compartirse"
 #: ../ShareManager.cpp:642
 msgid "Invalid file name found while hashing folder %1%"
 msgstr ""
-"Encontrado nombre de archivo inválido mientras que se indexaba la carpeta %1%"
+"Encontrado nombre de archivo inválido mientras que se indexaba la carpeta "
+"%1%"
 
 #: ../ShareManager.cpp:661
 msgid "Skip share file: %1% (Size: %2%)"
@@ -607,12 +576,13 @@ msgid ""
 "Duplicate file will not be shared: %1% (Size: %2% B) Dupe matched against: "
 "%3%"
 msgstr ""
-"El archivo duplicado %1% no será compartido (Tamaño: %2% B) Duplicado de: %3%"
+"El archivo duplicado %1% no será compartido (Tamaño: %2% B) Duplicado de: "
+"%3%"
 
 #: ../ShareManager.cpp:793
 msgid ""
-"File list refresh in progress, please wait for it to finish before trying to "
-"refresh again"
+"File list refresh in progress, please wait for it to finish before trying to"
+" refresh again"
 msgstr ""
 "Refresco de la lista en curso, por favor espere a que termine este proceso "
 "antes de refrescar de nuevo"
@@ -745,11 +715,11 @@ msgid "TTH inconsistency"
 msgstr "Incnsistencia TTH"
 
 #~ msgid ""
-#~ "This hub is trying to use your client to spam %1%, please urge hub owner "
-#~ "to fix this"
+#~ "This hub is trying to use your client to spam %1%, please urge hub owner to "
+#~ "fix this"
 #~ msgstr ""
-#~ "This hub is trying to use your client to spam %1%, please urge hub owner "
-#~ "to fix this"
+#~ "This hub is trying to use your client to spam %1%, please urge hub owner to "
+#~ "fix this"
 
 #~ msgid "Error: segv parser :D"
 #~ msgstr "Error: segv parser :D"

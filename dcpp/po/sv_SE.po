@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR EiskaltDC++ team
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Boris Pek <tehnick-8@yandex.ru>, 2017
 # Sopor <sopor@hotmail.com>, 2017
@@ -12,12 +12,11 @@ msgstr ""
 "POT-Creation-Date: 2015-11-30 00:28+0300\n"
 "PO-Revision-Date: 2013-11-19 16:45+0000\n"
 "Last-Translator: Sopor <sopor@hotmail.com>, 2017\n"
-"Language-Team: Swedish (Sweden) (https://www.transifex.com/tehnick/"
-"teams/11818/sv_SE/)\n"
-"Language: sv_SE\n"
+"Language-Team: Swedish (Sweden) (https://www.transifex.com/tehnick/teams/11818/sv_SE/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: sv_SE\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../SearchManager.cpp:36
@@ -110,8 +109,8 @@ msgstr "Indexdatabas återskapad"
 msgid ""
 "%1% not shared; calculated CRC32 does not match the one found in SFV file."
 msgstr ""
-"%1% inte utdelad; beräknat CRC32-värde stämmer inte med det värdet som finns "
-"i SFV-filen."
+"%1% inte utdelad; beräknat CRC32-värde stämmer inte med det värdet som finns"
+" i SFV-filen."
 
 #: ../HashManager.cpp:1057
 msgid "Error hashing %1%: %2%"
@@ -127,7 +126,8 @@ msgstr "Fastställer bästa anslutningsinställningar..."
 
 #: ../ConnectivityManager.cpp:85
 msgid ""
-"Unable to open %1% port(s); connectivity settings must be configured manually"
+"Unable to open %1% port(s); connectivity settings must be configured "
+"manually"
 msgstr ""
 "Kan inte öppna %1% port(ar); anslutningsinställningarna måste konfigureras "
 "manuellt"
@@ -287,7 +287,8 @@ msgid "%1%: Matched %2% file"
 msgstr "%1%: Matchar %2% filen"
 
 #: ../QueueManager.cpp:1796
-msgid "Target path for this item is not available: %1%; pause this queue item."
+msgid ""
+"Target path for this item is not available: %1%; pause this queue item."
 msgstr ""
 "Målsökvägen för detta objekt finns inte tillgängligt: %1%; objektet pausad."
 
@@ -403,15 +404,6 @@ msgstr "Sökport (%1% UDP)"
 msgid " DHT Port (%1% UDP)"
 msgstr "DHT-port (%1% UDP)"
 
-#: ../UPnPManager.cpp:111
-#, fuzzy
-msgid ""
-"Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%, DHT: %4%), "
-"mapped using the %5% interface"
-msgstr ""
-"Lyckades skapa portmappningar (Överföring: %1%, Sök: %2%, Krypterad "
-"överföring: %3%) på enheten %4%"
-
 #: ../UPnPManager.cpp:113 ../UPnPManager.cpp:115
 msgid ""
 "Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%), mapped "
@@ -519,19 +511,9 @@ msgstr "%d B"
 msgid "%.02f KiB"
 msgstr "%.02f KiB"
 
-#: ../Util.cpp:656
-#, fuzzy, c-format
-msgid "%.02f KB"
-msgstr "%.02f KiB"
-
 #: ../Util.cpp:658
 #, c-format
 msgid "%.02f MiB"
-msgstr "%.02f MiB"
-
-#: ../Util.cpp:658
-#, fuzzy, c-format
-msgid "%.02f MB"
 msgstr "%.02f MiB"
 
 #: ../Util.cpp:660
@@ -539,29 +521,14 @@ msgstr "%.02f MiB"
 msgid "%.02f GiB"
 msgstr "%.02f GiB"
 
-#: ../Util.cpp:660
-#, fuzzy, c-format
-msgid "%.02f GB"
-msgstr "%.02f GiB"
-
 #: ../Util.cpp:662
 #, c-format
 msgid "%.02f TiB"
 msgstr "%.02f TiB"
 
-#: ../Util.cpp:662
-#, fuzzy, c-format
-msgid "%.02f TB"
-msgstr "%.02f TiB"
-
 #: ../Util.cpp:664
 #, c-format
 msgid "%.02f PiB"
-msgstr "%.02f PiB"
-
-#: ../Util.cpp:664
-#, fuzzy, c-format
-msgid "%.02f PB"
 msgstr "%.02f PiB"
 
 #: ../Util.cpp:698
@@ -612,8 +579,8 @@ msgstr ""
 
 #: ../ShareManager.cpp:793
 msgid ""
-"File list refresh in progress, please wait for it to finish before trying to "
-"refresh again"
+"File list refresh in progress, please wait for it to finish before trying to"
+" refresh again"
 msgstr ""
 "Fillistan uppdateras, du måste vänta tills den är klar innan du uppdaterar "
 "igen"
@@ -744,11 +711,11 @@ msgid "TTH inconsistency"
 msgstr "TTH-värden stämmer inte överens"
 
 #~ msgid ""
-#~ "This hub is trying to use your client to spam %1%, please urge hub owner "
-#~ "to fix this"
+#~ "This hub is trying to use your client to spam %1%, please urge hub owner to "
+#~ "fix this"
 #~ msgstr ""
-#~ "This hub is trying to use your client to spam %1%, please urge hub owner "
-#~ "to fix this"
+#~ "This hub is trying to use your client to spam %1%, please urge hub owner to "
+#~ "fix this"
 
 #~ msgid "Error: segv parser :D"
 #~ msgstr "Error: segv parser :D"

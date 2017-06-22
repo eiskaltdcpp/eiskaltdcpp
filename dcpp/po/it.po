@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR EiskaltDC++ team
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Boris Pek <tehnick-8@yandex.ru>, 2017
 msgid ""
@@ -12,10 +12,10 @@ msgstr ""
 "PO-Revision-Date: 2013-11-19 16:45+0000\n"
 "Last-Translator: Boris Pek <tehnick-8@yandex.ru>, 2017\n"
 "Language-Team: Italian (https://www.transifex.com/tehnick/teams/11818/it/)\n"
-"Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: it\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../SearchManager.cpp:36
@@ -125,7 +125,8 @@ msgstr "Determinazione in corso delle impostazioni migliori di connessione..."
 
 #: ../ConnectivityManager.cpp:85
 msgid ""
-"Unable to open %1% port(s); connectivity settings must be configured manually"
+"Unable to open %1% port(s); connectivity settings must be configured "
+"manually"
 msgstr ""
 "Impossibile aprire la porta(e) %1%; le impostazioni sulla connettività "
 "devono essere configurate manualmente"
@@ -276,7 +277,8 @@ msgstr "Impossibile spostare %1% in %2% (%3%); rinominato in %4%"
 
 #: ../QueueManager.cpp:1208
 msgid "Unable to move %1% to %2% (%3%) nor to rename to %4% (%5%)"
-msgstr "Impossibile spostare %1% in %2% (%3%) neppure rinominarlo in %4% (%5%)"
+msgstr ""
+"Impossibile spostare %1% in %2% (%3%) neppure rinominarlo in %4% (%5%)"
 
 #: ../QueueManager.cpp:1403
 msgid "Unable to open filelist: %1%"
@@ -287,7 +289,8 @@ msgid "%1%: Matched %2% file"
 msgstr "%1%: %2% files corrispondono"
 
 #: ../QueueManager.cpp:1796
-msgid "Target path for this item is not available: %1%; pause this queue item."
+msgid ""
+"Target path for this item is not available: %1%; pause this queue item."
 msgstr ""
 "Percorso di destinazione per questo elemento non disponibile: %1%; "
 "sospendere questo elemento nella coda."
@@ -313,8 +316,8 @@ msgid ""
 "Hub probably uses an old version of ADC, please encourage the owner to "
 "upgrade"
 msgstr ""
-"L'hub sta utilizzando una versione vecchia del protocollo ADC, incoraggia il "
-"proprietario dell'hub ad aggiornarlo"
+"L'hub sta utilizzando una versione vecchia del protocollo ADC, incoraggia il"
+" proprietario dell'hub ad aggiornarlo"
 
 #: ../AdcHub.cpp:305
 msgid "%1% was kicked by %2%: %3%"
@@ -403,15 +406,6 @@ msgstr "Porta ricerche (%1% UDP)"
 #: ../UPnPManager.cpp:101
 msgid " DHT Port (%1% UDP)"
 msgstr "Porta DHT (%1% UDP)"
-
-#: ../UPnPManager.cpp:111
-#, fuzzy
-msgid ""
-"Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%, DHT: %4%), "
-"mapped using the %5% interface"
-msgstr ""
-"Mappatura delle porte creata con successo (TCP: %1%, UDP: %2%, TLS:%3%), "
-"mappatura effettuata usando l'interfaccia di rete %4%"
 
 #: ../UPnPManager.cpp:113 ../UPnPManager.cpp:115
 msgid ""
@@ -519,19 +513,9 @@ msgstr "%d B"
 msgid "%.02f KiB"
 msgstr "%.02f KiB"
 
-#: ../Util.cpp:656
-#, fuzzy, c-format
-msgid "%.02f KB"
-msgstr "%.02f KiB"
-
 #: ../Util.cpp:658
 #, c-format
 msgid "%.02f MiB"
-msgstr "%.02f MiB"
-
-#: ../Util.cpp:658
-#, fuzzy, c-format
-msgid "%.02f MB"
 msgstr "%.02f MiB"
 
 #: ../Util.cpp:660
@@ -539,29 +523,14 @@ msgstr "%.02f MiB"
 msgid "%.02f GiB"
 msgstr "%.02f GiB"
 
-#: ../Util.cpp:660
-#, fuzzy, c-format
-msgid "%.02f GB"
-msgstr "%.02f GiB"
-
 #: ../Util.cpp:662
 #, c-format
 msgid "%.02f TiB"
 msgstr "%.02f TiB"
 
-#: ../Util.cpp:662
-#, fuzzy, c-format
-msgid "%.02f TB"
-msgstr "%.02f TiB"
-
 #: ../Util.cpp:664
 #, c-format
 msgid "%.02f PiB"
-msgstr "%.02f PiB"
-
-#: ../Util.cpp:664
-#, fuzzy, c-format
-msgid "%.02f PB"
 msgstr "%.02f PiB"
 
 #: ../Util.cpp:698
@@ -607,13 +576,13 @@ msgid ""
 "Duplicate file will not be shared: %1% (Size: %2% B) Dupe matched against: "
 "%3%"
 msgstr ""
-"I file duplicati non saranno condivisi: %1% (Dimensione: %2%) Corrispondenza "
-"rispetto: %3%"
+"I file duplicati non saranno condivisi: %1% (Dimensione: %2%) Corrispondenza"
+" rispetto: %3%"
 
 #: ../ShareManager.cpp:793
 msgid ""
-"File list refresh in progress, please wait for it to finish before trying to "
-"refresh again"
+"File list refresh in progress, please wait for it to finish before trying to"
+" refresh again"
 msgstr ""
 "Aggiornamento lista file in corso, attendi il termine prima di riprovare ad "
 "aggiornarla nuovamente"
@@ -743,8 +712,11 @@ msgid "TTH inconsistency"
 msgstr "Inconsistenza TTH"
 
 #~ msgid ""
-#~ "This hub is trying to use your client to spam %1%, please urge hub owner "
-#~ "to fix this"
+#~ "This hub is trying to use your client to spam %1%, please urge hub owner to "
+#~ "fix this"
 #~ msgstr ""
-#~ "L'hub stà tentando di utilizzare il tuo client per inviare il messaggio "
-#~ "spam %1%, segnalalo al proprietario dell'hub per correggere il problema"
+#~ "L'hub stà tentando di utilizzare il tuo client per inviare il messaggio spam"
+#~ " %1%, segnalalo al proprietario dell'hub per correggere il problema"
+
+#~ msgid "Error: segv parser :D"
+#~ msgstr ""

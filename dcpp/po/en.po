@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR EiskaltDC++ team
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Translators:
 # Translators:
@@ -12,12 +12,11 @@ msgstr ""
 "POT-Creation-Date: 2015-11-30 00:28+0300\n"
 "PO-Revision-Date: 2013-11-19 16:45+0000\n"
 "Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
-"Language-Team: English (http://www.transifex.com/projects/p/eiskaltdcpp/"
-"language/en/)\n"
-"Language: en\n"
+"Language-Team: English (http://www.transifex.com/projects/p/eiskaltdcpp/language/en/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: en\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../SearchManager.cpp:36
@@ -126,9 +125,11 @@ msgstr "Determining the best connectivity settings..."
 
 #: ../ConnectivityManager.cpp:85
 msgid ""
-"Unable to open %1% port(s); connectivity settings must be configured manually"
+"Unable to open %1% port(s); connectivity settings must be configured "
+"manually"
 msgstr ""
-"Unable to open %1% port(s); connectivity settings must be configured manually"
+"Unable to open %1% port(s); connectivity settings must be configured "
+"manually"
 
 #: ../ConnectivityManager.cpp:95
 msgid ""
@@ -286,7 +287,8 @@ msgid "%1%: Matched %2% file"
 msgstr "%1%: Matched %2% file"
 
 #: ../QueueManager.cpp:1796
-msgid "Target path for this item is not available: %1%; pause this queue item."
+msgid ""
+"Target path for this item is not available: %1%; pause this queue item."
 msgstr ""
 "Target path for this item is not available: %1%; pause this queue item."
 
@@ -402,15 +404,6 @@ msgstr " Search Port (%1% UDP)"
 msgid " DHT Port (%1% UDP)"
 msgstr " DHT Port (%1% UDP)"
 
-#: ../UPnPManager.cpp:111
-#, fuzzy
-msgid ""
-"Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%, DHT: %4%), "
-"mapped using the %5% interface"
-msgstr ""
-"Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%), mapped "
-"using the %4% interface"
-
 #: ../UPnPManager.cpp:113 ../UPnPManager.cpp:115
 msgid ""
 "Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%), mapped "
@@ -517,19 +510,9 @@ msgstr "%d B"
 msgid "%.02f KiB"
 msgstr "%.02f KiB"
 
-#: ../Util.cpp:656
-#, fuzzy, c-format
-msgid "%.02f KB"
-msgstr "%.02f KiB"
-
 #: ../Util.cpp:658
 #, c-format
 msgid "%.02f MiB"
-msgstr "%.02f MiB"
-
-#: ../Util.cpp:658
-#, fuzzy, c-format
-msgid "%.02f MB"
 msgstr "%.02f MiB"
 
 #: ../Util.cpp:660
@@ -537,29 +520,14 @@ msgstr "%.02f MiB"
 msgid "%.02f GiB"
 msgstr "%.02f GiB"
 
-#: ../Util.cpp:660
-#, fuzzy, c-format
-msgid "%.02f GB"
-msgstr "%.02f GiB"
-
 #: ../Util.cpp:662
 #, c-format
 msgid "%.02f TiB"
 msgstr "%.02f TiB"
 
-#: ../Util.cpp:662
-#, fuzzy, c-format
-msgid "%.02f TB"
-msgstr "%.02f TiB"
-
 #: ../Util.cpp:664
 #, c-format
 msgid "%.02f PiB"
-msgstr "%.02f PiB"
-
-#: ../Util.cpp:664
-#, fuzzy, c-format
-msgid "%.02f PB"
 msgstr "%.02f PiB"
 
 #: ../Util.cpp:698
@@ -610,11 +578,11 @@ msgstr ""
 
 #: ../ShareManager.cpp:793
 msgid ""
-"File list refresh in progress, please wait for it to finish before trying to "
-"refresh again"
+"File list refresh in progress, please wait for it to finish before trying to"
+" refresh again"
 msgstr ""
-"File list refresh in progress, please wait for it to finish before trying to "
-"refresh again"
+"File list refresh in progress, please wait for it to finish before trying to"
+" refresh again"
 
 #: ../ShareManager.cpp:814
 msgid "File list refresh failed: %1%"
@@ -741,11 +709,11 @@ msgid "TTH inconsistency"
 msgstr "TTH inconsistency"
 
 #~ msgid ""
-#~ "This hub is trying to use your client to spam %1%, please urge hub owner "
-#~ "to fix this"
+#~ "This hub is trying to use your client to spam %1%, please urge hub owner to "
+#~ "fix this"
 #~ msgstr ""
-#~ "This hub is trying to use your client to spam %1%, please urge hub owner "
-#~ "to fix this"
+#~ "This hub is trying to use your client to spam %1%, please urge hub owner to "
+#~ "fix this"
 
 #~ msgid "Error: segv parser :D"
 #~ msgstr "Error: segv parser :D"

@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR EiskaltDC++ team
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Boris Pek <tehnick-8@yandex.ru>, 2017
 msgid ""
@@ -11,12 +11,11 @@ msgstr ""
 "POT-Creation-Date: 2015-11-30 00:28+0300\n"
 "PO-Revision-Date: 2013-11-19 16:45+0000\n"
 "Last-Translator: Boris Pek <tehnick-8@yandex.ru>, 2017\n"
-"Language-Team: Hungarian (https://www.transifex.com/tehnick/teams/11818/"
-"hu/)\n"
-"Language: hu\n"
+"Language-Team: Hungarian (https://www.transifex.com/tehnick/teams/11818/hu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: hu\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../SearchManager.cpp:36
@@ -125,7 +124,8 @@ msgstr "Legjobb kapcsolat beállítások felderítése..."
 
 #: ../ConnectivityManager.cpp:85
 msgid ""
-"Unable to open %1% port(s); connectivity settings must be configured manually"
+"Unable to open %1% port(s); connectivity settings must be configured "
+"manually"
 msgstr ""
 "%1% port(ok) megnyitása sikertelen. A kapcsolatot kézzel kell beállítani"
 
@@ -141,16 +141,16 @@ msgid ""
 "Local network with possible NAT detected, trying to map the ports using "
 "UPnP..."
 msgstr ""
-"Helyi hálózat és lehetséges NAT észlelve, kísérlet a portok feltérképezésére "
-"UPnP használatával ..."
+"Helyi hálózat és lehetséges NAT észlelve, kísérlet a portok feltérképezésére"
+" UPnP használatával ..."
 
 #: ../ConnectivityManager.cpp:130
 msgid ""
 "Automatic setup of active mode has failed. You may want to set up your "
 "connection manually for better connectivity"
 msgstr ""
-"Az aktív mód automatikus beállítása nem sikerült. Érdemes lehet az aktív mód "
-"beállításait kézzel elvégezni, a jobb kapcsolatok érdekében."
+"Az aktív mód automatikus beállítása nem sikerült. Érdemes lehet az aktív mód"
+" beállításait kézzel elvégezni, a jobb kapcsolatok érdekében."
 
 #: ../ConnectivityManager.cpp:142
 msgid "Transfer (TCP)"
@@ -287,7 +287,8 @@ msgid "%1%: Matched %2% file"
 msgstr "%1%: Találat: %2% fájl"
 
 #: ../QueueManager.cpp:1796
-msgid "Target path for this item is not available: %1%; pause this queue item."
+msgid ""
+"Target path for this item is not available: %1%; pause this queue item."
 msgstr ""
 "Cél útvonal ehhez az elemhez nem elérhető: %1%; szüneteltesse ezt a "
 "várakozási sor elemet"
@@ -404,15 +405,6 @@ msgstr " Keresési port (%1% UDP)"
 msgid " DHT Port (%1% UDP)"
 msgstr " DHT port (%1% UDP)"
 
-#: ../UPnPManager.cpp:111
-#, fuzzy
-msgid ""
-"Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%, DHT: %4%), "
-"mapped using the %5% interface"
-msgstr ""
-"A port-hozzárendelés sikeresen létrehozva (TCP: %1%, UDP: %2%, TLS: %3%), a "
-"használt interfész: %4%"
-
 #: ../UPnPManager.cpp:113 ../UPnPManager.cpp:115
 msgid ""
 "Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%), mapped "
@@ -521,19 +513,9 @@ msgstr "%d B"
 msgid "%.02f KiB"
 msgstr "%.02f KiB"
 
-#: ../Util.cpp:656
-#, fuzzy, c-format
-msgid "%.02f KB"
-msgstr "%.02f KiB"
-
 #: ../Util.cpp:658
 #, c-format
 msgid "%.02f MiB"
-msgstr "%.02f MiB"
-
-#: ../Util.cpp:658
-#, fuzzy, c-format
-msgid "%.02f MB"
 msgstr "%.02f MiB"
 
 #: ../Util.cpp:660
@@ -541,29 +523,14 @@ msgstr "%.02f MiB"
 msgid "%.02f GiB"
 msgstr "%.02f GiB"
 
-#: ../Util.cpp:660
-#, fuzzy, c-format
-msgid "%.02f GB"
-msgstr "%.02f GiB"
-
 #: ../Util.cpp:662
 #, c-format
 msgid "%.02f TiB"
 msgstr "%.02f TiB"
 
-#: ../Util.cpp:662
-#, fuzzy, c-format
-msgid "%.02f TB"
-msgstr "%.02f TiB"
-
 #: ../Util.cpp:664
 #, c-format
 msgid "%.02f PiB"
-msgstr "%.02f PiB"
-
-#: ../Util.cpp:664
-#, fuzzy, c-format
-msgid "%.02f PB"
 msgstr "%.02f PiB"
 
 #: ../Util.cpp:698
@@ -619,8 +586,8 @@ msgstr ""
 
 #: ../ShareManager.cpp:793
 msgid ""
-"File list refresh in progress, please wait for it to finish before trying to "
-"refresh again"
+"File list refresh in progress, please wait for it to finish before trying to"
+" refresh again"
 msgstr ""
 "A fájl-lista frissítése már folyamatban van. Várd meg, amíg befejeződik, "
 "mielőtt újra frissíteni próbálnál!"
@@ -695,8 +662,8 @@ msgstr ""
 #: ../Socket.cpp:330 ../Socket.cpp:334
 msgid "Socks server authentication failed (bad login / password?)"
 msgstr ""
-"A hitelesítés a socks kiszolgálónál nem sikerült (rossz felhasználói név/"
-"jelszó?)"
+"A hitelesítés a socks kiszolgálónál nem sikerült (rossz felhasználói "
+"név/jelszó?)"
 
 #: ../Socket.cpp:471
 msgid ""
@@ -753,8 +720,8 @@ msgid "TTH inconsistency"
 msgstr "TTH inkonzisztencia"
 
 #~ msgid ""
-#~ "This hub is trying to use your client to spam %1%, please urge hub owner "
-#~ "to fix this"
+#~ "This hub is trying to use your client to spam %1%, please urge hub owner to "
+#~ "fix this"
 #~ msgstr ""
 #~ "Ez a hub a kliensedet spam küldésére próbálja felhasználni (%1%), kérlek "
 #~ "értesítsd a hub üzemeltetőit, hogy javítsák a problémát."
