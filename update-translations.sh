@@ -3,7 +3,7 @@
 # Author:  Boris Pek <tehnick-8@yandex.ru>
 # License: Public Domain
 # Created: 2011-11-26
-# Updated: 2017-06-22
+# Updated: 2017-07-26
 # Version: N/A
 
 set -e
@@ -108,9 +108,9 @@ case "${1}" in
     elif [ "${2}" = "src" ] ; then
         tx push -s
     elif [ "${2}" = "all" ] ; then
-        tx push -s -t
+        tx push -s -t --skip
     else
-        tx push -t -l ${2}
+        tx push -t -l ${2} --skip
     fi
 
 ;;
