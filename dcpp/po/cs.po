@@ -60,7 +60,7 @@ msgstr "CD Image"
 
 #: ../SearchManager.cpp:149
 msgid "Search enabled again"
-msgstr ""
+msgstr "Hashování selhalo: %1%"
 
 #: ../SearchManager.cpp:157
 msgid "Search disabled: %1%"
@@ -351,7 +351,7 @@ msgstr "Všechny download sloty jsou obsazené"
 
 #: ../ConnectionManager.cpp:253
 msgid "Connectivity restored"
-msgstr ""
+msgstr "Spojení obnoveno"
 
 #: ../ConnectionManager.cpp:261
 msgid "Connectivity error: %1%"

@@ -613,7 +613,7 @@ msgstr "Aldatu muinaren ezarpena"
 
 #: ../SettingsManager.cpp:612
 msgid " to "
-msgstr ""
+msgstr "-ra"
 
 #: ../Socket.cpp:86
 #, c-format

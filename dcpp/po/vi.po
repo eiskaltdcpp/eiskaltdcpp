@@ -4,13 +4,14 @@
 # 
 # Translators:
 # Boris Pek <tehnick-8@yandex.ru>, 2017
+# Anh Phan <vietnamesel10n@gmail.com>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: https://github.com/eiskaltdcpp/eiskaltdcpp/issues\n"
 "POT-Creation-Date: 2015-11-30 00:28+0300\n"
 "PO-Revision-Date: 2013-11-19 16:45+0000\n"
-"Last-Translator: Boris Pek <tehnick-8@yandex.ru>, 2017\n"
+"Last-Translator: Anh Phan <vietnamesel10n@gmail.com>, 2017\n"
 "Language-Team: Vietnamese (https://www.transifex.com/tehnick/teams/11818/vi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -48,7 +49,7 @@ msgstr ""
 
 #: ../SearchManager.cpp:43
 msgid "Directory"
-msgstr ""
+msgstr "Thư mục"
 
 #: ../SearchManager.cpp:44
 msgid "TTH"
@@ -446,7 +447,7 @@ msgstr ""
 
 #: ../DownloadManager.cpp:328
 msgid "Full tree does not match TTH root"
-msgstr ""
+msgstr "Cây dạng đầy đủ không khớp với TTH root"
 
 #: ../DownloadManager.cpp:393
 msgid "No slots available"
@@ -478,7 +479,7 @@ msgstr ""
 
 #: ../DCPlusPlus.cpp:133
 msgid "Download Queue"
-msgstr ""
+msgstr "Hàng đợi tải xuống"
 
 #: ../DCPlusPlus.cpp:136
 msgid "Users"

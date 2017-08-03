@@ -48,11 +48,11 @@ msgstr ""
 
 #: ../SearchManager.cpp:43
 msgid "Directory"
-msgstr ""
+msgstr "Priečinok"
 
 #: ../SearchManager.cpp:44
 msgid "TTH"
-msgstr ""
+msgstr "TTH"
 
 #: ../SearchManager.cpp:45
 msgid "CD Image"
@@ -487,7 +487,7 @@ msgstr "Front sťahovaní"
 
 #: ../DCPlusPlus.cpp:136
 msgid "Users"
-msgstr ""
+msgstr "Užívatelia"
 
 #: ../Util.cpp:654
 #, c-format
