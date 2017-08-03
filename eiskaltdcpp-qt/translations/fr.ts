@@ -4148,7 +4148,7 @@ Voulez-vous l&apos;arrêter?</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="96"/>
-        <source>Show only transfered files</source>
+        <source>Show only transferred files</source>
         <translation>Montrer uniquement les fichiers transférés</translation>
     </message>
     <message>
@@ -5806,7 +5806,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="957"/>
-        <source>Allow untrusted sertificate for clients</source>
+        <source>Allow untrusted certificate for clients</source>
         <translation>Autoriser les certificats inconnus des clients</translation>
     </message>
 </context>

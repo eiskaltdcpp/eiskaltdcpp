@@ -59,7 +59,7 @@ public:
         RemoveFromQueue,
         Force,
         Close,
-        showTransferedFieldsOnly,
+        showTransferredFieldsOnly,
         None
     };
 

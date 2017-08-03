@@ -4173,7 +4173,7 @@ Chcete jej vypnout?
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="96"/>
-        <source>Show only transfered files</source>
+        <source>Show only transferred files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -5831,7 +5831,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="957"/>
-        <source>Allow untrusted sertificate for clients</source>
+        <source>Allow untrusted certificate for clients</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
