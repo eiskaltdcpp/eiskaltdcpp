@@ -390,6 +390,9 @@ void MainWindow::closeEvent(QCloseEvent *c_e){
     if (ConnectionManager::getInstance())
         ConnectionManager::getInstance()->disconnect();
 
+    if (Notification::getInstance())
+        Notify->enableTray(false);
+
     d->arena->hide();
     d->arena->setWidget(NULL);
 
