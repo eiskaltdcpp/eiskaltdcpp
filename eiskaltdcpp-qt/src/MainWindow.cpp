@@ -93,15 +93,15 @@ class MainWindowPrivate {
 public:
         typedef QList<QAction*> ActionList;
 
-        bool isUnload;
-        bool exitBegin;
+        bool isUnload = false;
+        bool exitBegin = false;
 
         // position and geometry
-        bool showMax;
-        int w;
-        int h;
-        int xPos;
-        int yPos;
+        bool showMax = false;
+        int w = 800;
+        int h = 600;
+        int xPos = 0;
+        int yPos = 0;
 
         // Widgets
         QDockWidget *arena;
@@ -111,8 +111,9 @@ public:
         ToolBar *fBar; //for actions
         ToolBar *sBar; //for fast search
 
-        LineEdit   *searchLineEdit;
         QStringList core_msg_history;
+
+        LineEdit   *searchLineEdit;
         QLabel *statusLabel;
         QLabel *statusSPLabel;
         QLabel *statusDLabel;
@@ -389,6 +390,10 @@ void MainWindow::closeEvent(QCloseEvent *c_e){
 
     if (ConnectionManager::getInstance())
         ConnectionManager::getInstance()->disconnect();
+
+    if (Notification::getInstance()){
+        Notification::deleteInstance();
+    }
 
     d->arena->hide();
     d->arena->setWidget(NULL);
@@ -1910,7 +1915,7 @@ void MainWindow::redrawToolPanel(){
 
 #if !defined(Q_OS_MAC)
     if (!has_unread)
-        Notify->resetTrayIcon();
+        Notification::getInstance()->resetTrayIcon();
 #else // !defined(Q_OS_MAC)
     // Change program icon in dock when there are new unread personal messages.
     if (has_unread)

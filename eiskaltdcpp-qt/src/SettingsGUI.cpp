@@ -375,7 +375,7 @@ void SettingsGUI::ok(){
         if (WBGET(WB_TRAY_ENABLED) != groupBox_TRAY->isChecked()){
             WBSET(WB_TRAY_ENABLED, groupBox_TRAY->isChecked());
 
-            Notify->enableTray(WBGET(WB_TRAY_ENABLED));
+            Notification::getInstance()->enableTray(WBGET(WB_TRAY_ENABLED));
         }
 
         if (WSGET(WS_APP_EMOTICON_THEME) != comboBox_EMOT->currentText()){
