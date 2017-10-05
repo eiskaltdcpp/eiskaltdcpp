@@ -9,8 +9,8 @@ define([], function () {
         "debugLevel" : 3,
         "userlinks": {
             "google": {
-                "icon":  "http://www.google.com/favicon.ico",
-                "url":  "https://www.google.de/search?q=%Filename%",
+                "icon":  "https://www.google.com/favicon.ico",
+                "url":  "https://www.google.com/search?q=%Filename%",
                 "filter": function (text) {
                     return text.replace(/\.\w{2,}$/, '').replace(/[-._+]/g, ' ').replace(/\(.*\)/g, ' ').replace(/\[.*\]/g, ' ').replace(/\d{3,}.*/, '');
                 }
