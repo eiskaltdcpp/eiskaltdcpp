@@ -4,7 +4,7 @@
 #
 # Translators:
 # Translators:
-# Boris Pek <tehnick-8@mail.ru>, 2012
+# Boris Pek <tehnick-8@yandex.ru>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
