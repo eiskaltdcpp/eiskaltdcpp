@@ -1,3 +1,13 @@
+--- 2.4.0 2017-xx-xx ---
+*** common changes ***
+* Added support of OpenSSL >= 1.1.
+*** eiskaltdcpp-qt ***
+* Fixed Quit action in builds with Qt 5.x.
+*** eiskaltdcpp-gtk ***
+* GTK+ UI is not supported anymore. Use it at own risk. As far as we know
+  builds with GTK+ 3.x are almost unusable, but builds with GTK+ 2.x work
+  more or less fine.
+
 --- 2.2.10 2015-04-20 ---
 *** common changes ***
 * GCC < 4.6 and Clang < 3.1 are not supported anymore.
