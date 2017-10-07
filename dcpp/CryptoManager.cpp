@@ -114,10 +114,10 @@ CryptoManager::CryptoManager()
 #if OPENSSL_VERSION_NUMBER < 0x10100000L
             dh->p = p;
             dh->g = g;
-            if (!dh->p || !dh->g) {
 #else
-            if (!DH_set0_pqg(dh, p, NULL, g)) {
+            DH_set0_pqg(dh, p, NULL, g);
 #endif
+            if(!p || !g) {
                 dh.reset();
             } else {
                 SSL_CTX_set_options(serverContext, SSL_OP_SINGLE_DH_USE);

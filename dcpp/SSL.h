@@ -26,7 +26,11 @@ template<typename T, void (*Release)(T*)>
 class scoped_handle {
 public:
     explicit scoped_handle(T* t_ = 0) : t(t_) { }
-    ~scoped_handle() { Release(t); }
+    ~scoped_handle() {
+#if OPENSSL_VERSION_NUMBER < 0x10100000L
+        Release(t);
+#endif
+    }
 
     operator T*() { return t; }
     operator const T*() const { return t; }
