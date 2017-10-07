@@ -114,8 +114,6 @@ CryptoManager::CryptoManager()
 #if OPENSSL_VERSION_NUMBER < 0x10100000L
             dh->p = p;
             dh->g = g;
-            BN_free(p);
-            BN_free(g);
 #else
             DH_set0_pqg(dh, p, NULL, g);
 #endif
