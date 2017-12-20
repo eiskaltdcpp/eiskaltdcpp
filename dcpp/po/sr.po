@@ -1,29 +1,22 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR EiskaltDC++ team
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
-# Translators:
-# Translators:
-# Translators:
-# markosm <chajbo@ro.ru>, 2014
-# miroslav <miroslav031@yandex.com>, 2014-2015
-# markosm <chajbo@ro.ru>, 2014
+# Boris Pek <tehnick-8@yandex.ru>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: https://github.com/eiskaltdcpp/eiskaltdcpp/issues\n"
 "POT-Creation-Date: 2015-11-30 00:28+0300\n"
-"PO-Revision-Date: 2015-11-29 11:25+0000\n"
-"Last-Translator: miroslav <miroslav031@yandex.com>\n"
-"Language-Team: Serbian (http://www.transifex.com/tehnick/eiskaltdcpp/"
-"language/sr/)\n"
-"Language: sr\n"
+"PO-Revision-Date: 2013-11-19 16:45+0000\n"
+"Last-Translator: Boris Pek <tehnick-8@yandex.ru>, 2017\n"
+"Language-Team: Serbian (https://www.transifex.com/tehnick/teams/11818/sr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Language: sr\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: ../SearchManager.cpp:36
 msgid "Any"
@@ -130,7 +123,8 @@ msgstr "Одређивање најбољих подешавања за пове
 
 #: ../ConnectivityManager.cpp:85
 msgid ""
-"Unable to open %1% port(s); connectivity settings must be configured manually"
+"Unable to open %1% port(s); connectivity settings must be configured "
+"manually"
 msgstr ""
 "Није могуће отворити %1% порт(ове); подешавање мора бити ручно конфигурисано"
 
@@ -290,7 +284,8 @@ msgid "%1%: Matched %2% file"
 msgstr "%1%: Подударање %2% фајла"
 
 #: ../QueueManager.cpp:1796
-msgid "Target path for this item is not available: %1%; pause this queue item."
+msgid ""
+"Target path for this item is not available: %1%; pause this queue item."
 msgstr ""
 "Циљна путања за ову ставку није доступна: %1%; паузирај ову ставку у реду."
 
@@ -406,14 +401,6 @@ msgstr " Претрага порта (%1% UDP)"
 msgid " DHT Port (%1% UDP)"
 msgstr "ДХТ порт (%1% UDP)"
 
-#: ../UPnPManager.cpp:111
-msgid ""
-"Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%, DHT: %4%), "
-"mapped using the %5% interface"
-msgstr ""
-"Успешно креирано мапирање порта (TCP: %1%, UDP: %2%, TLS: %3%, DHT: %4%) "
-"мапирање користи %5% сучеља"
-
 #: ../UPnPManager.cpp:113 ../UPnPManager.cpp:115
 msgid ""
 "Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%), mapped "
@@ -520,50 +507,25 @@ msgstr "%d B"
 msgid "%.02f KiB"
 msgstr "%.02f KiB"
 
-#: ../Util.cpp:656
-#, c-format
-msgid "%.02f KB"
-msgstr "%.02f KB"
-
 #: ../Util.cpp:658
 #, c-format
 msgid "%.02f MiB"
 msgstr "%.02f MiB"
-
-#: ../Util.cpp:658
-#, c-format
-msgid "%.02f MB"
-msgstr "%.02f MB"
 
 #: ../Util.cpp:660
 #, c-format
 msgid "%.02f GiB"
 msgstr "%.02f GiB"
 
-#: ../Util.cpp:660
-#, c-format
-msgid "%.02f GB"
-msgstr "%.02f GB"
-
 #: ../Util.cpp:662
 #, c-format
 msgid "%.02f TiB"
 msgstr "%.02f TiB"
 
-#: ../Util.cpp:662
-#, c-format
-msgid "%.02f TB"
-msgstr "%.02f TB"
-
 #: ../Util.cpp:664
 #, c-format
 msgid "%.02f PiB"
 msgstr "%.02f PiB"
-
-#: ../Util.cpp:664
-#, c-format
-msgid "%.02f PB"
-msgstr "%.02f PB"
 
 #: ../Util.cpp:698
 #, c-format
@@ -608,13 +570,13 @@ msgid ""
 "Duplicate file will not be shared: %1% (Size: %2% B) Dupe matched against: "
 "%3%"
 msgstr ""
-"Дупликат датотеке неће бити дељен: %1%%2% (Величина: %3% B) Дуплика потврђен "
-"са: %4%%5%"
+"Дупликат датотеке неће бити дељен: %1%%2% (Величина: %3% B) Дуплика потврђен"
+" са: %4%%5%"
 
 #: ../ShareManager.cpp:793
 msgid ""
-"File list refresh in progress, please wait for it to finish before trying to "
-"refresh again"
+"File list refresh in progress, please wait for it to finish before trying to"
+" refresh again"
 msgstr ""
 "Освежавање листе дељених датотека је у току, молим сачекајте да се заврши "
 "пре поновног покретања"
@@ -743,11 +705,11 @@ msgid "TTH inconsistency"
 msgstr "TTH неусаглашеност"
 
 #~ msgid ""
-#~ "This hub is trying to use your client to spam %1%, please urge hub owner "
-#~ "to fix this"
+#~ "This hub is trying to use your client to spam %1%, please urge hub owner to "
+#~ "fix this"
 #~ msgstr ""
-#~ "This hub is trying to use your client to spam %1%, please urge hub owner "
-#~ "to fix this"
+#~ "This hub is trying to use your client to spam %1%, please urge hub owner to "
+#~ "fix this"
 
 #~ msgid "Error: segv parser :D"
 #~ msgstr "Error: segv parser :D"

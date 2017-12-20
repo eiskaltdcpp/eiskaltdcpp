@@ -1640,22 +1640,22 @@ Omiljeni korisnik</translation>
         <translation>Preuzmi fajl preko auto pretrage</translation>
     </message>
     <message>
-        <location filename="../src/Magnet.cpp" line="168"/>
+        <location filename="../src/Magnet.cpp" line="182"/>
         <source>Browse</source>
         <translation>Pregledaj</translation>
     </message>
     <message>
-        <location filename="../src/Magnet.cpp" line="188"/>
+        <location filename="../src/Magnet.cpp" line="202"/>
         <source>Select directory</source>
         <translation>Izaberi fasciklu</translation>
     </message>
     <message>
-        <location filename="../src/Magnet.cpp" line="205"/>
+        <location filename="../src/Magnet.cpp" line="219"/>
         <source>Error</source>
         <translation>Greška</translation>
     </message>
     <message>
-        <location filename="../src/Magnet.cpp" line="205"/>
+        <location filename="../src/Magnet.cpp" line="219"/>
         <source>Some error ocurred when starting download:
  %1</source>
         <translation>Greške prilikom preuzimanja fajla:
@@ -1891,13 +1891,13 @@ Omiljeni korisnik</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1294"/>
-        <location filename="../src/MainWindow.cpp" line="2176"/>
+        <location filename="../src/MainWindow.cpp" line="2174"/>
         <source>Open magnet link</source>
         <translation>Otvori magnet link</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1296"/>
-        <location filename="../src/MainWindow.cpp" line="2105"/>
+        <location filename="../src/MainWindow.cpp" line="2103"/>
         <source>Open log file</source>
         <translation>Otvori log fajl</translation>
     </message>
@@ -1934,13 +1934,13 @@ Omiljeni korisnik</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1310"/>
-        <location filename="../src/MainWindow.cpp" line="2392"/>
+        <location filename="../src/MainWindow.cpp" line="2388"/>
         <source>Hide window</source>
         <translation>Sakrij prozor</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1313"/>
-        <location filename="../src/MainWindow.cpp" line="2390"/>
+        <location filename="../src/MainWindow.cpp" line="2386"/>
         <source>Show/hide find frame</source>
         <translation>Pokaži/sakrij naći okvir</translation>
     </message>
@@ -2031,37 +2031,37 @@ Omiljeni korisnik</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1349"/>
-        <location filename="../src/MainWindow.cpp" line="2524"/>
+        <location filename="../src/MainWindow.cpp" line="2520"/>
         <source>Hide free space bar</source>
         <translation>Sakrij bar slobodnog prostora</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1352"/>
-        <location filename="../src/MainWindow.cpp" line="2519"/>
+        <location filename="../src/MainWindow.cpp" line="2515"/>
         <source>Show free space bar</source>
         <translation>Pokaži bar slobodnog prostora</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1354"/>
-        <location filename="../src/MainWindow.cpp" line="2540"/>
+        <location filename="../src/MainWindow.cpp" line="2536"/>
         <source>Hide last status message</source>
         <translation>Sakrij poslednju statusnu poruku</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1357"/>
-        <location filename="../src/MainWindow.cpp" line="2538"/>
+        <location filename="../src/MainWindow.cpp" line="2534"/>
         <source>Show last status message</source>
         <translation>Pokaži poslednju statusnu poruku</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1359"/>
-        <location filename="../src/MainWindow.cpp" line="2557"/>
+        <location filename="../src/MainWindow.cpp" line="2553"/>
         <source>Hide users statistics</source>
         <translation>Sakrij statistiku korisnika</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1362"/>
-        <location filename="../src/MainWindow.cpp" line="2555"/>
+        <location filename="../src/MainWindow.cpp" line="2551"/>
         <source>Show users statistics</source>
         <translation>Pokaži statistiku korisnika</translation>
     </message>
@@ -2275,303 +2275,303 @@ Omiljeni korisnik</translation>
         <translation>%p%</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1867"/>
+        <location filename="../src/MainWindow.cpp" line="1865"/>
         <source>Choose file to open</source>
         <translation>Biraj fajl za otvaranje</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1869"/>
+        <location filename="../src/MainWindow.cpp" line="1867"/>
         <source>Modern XML Filelists</source>
         <translation>Moderna XML Fajl lista</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1870"/>
+        <location filename="../src/MainWindow.cpp" line="1868"/>
         <source>Modern XML Filelists uncompressed</source>
         <translation>Moderna XML Fajl lista nekompresovana</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1871"/>
+        <location filename="../src/MainWindow.cpp" line="1869"/>
         <source>All files</source>
         <translation>Svi fajlovi</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1882"/>
+        <location filename="../src/MainWindow.cpp" line="1880"/>
         <source>Unable to load file list: Invalid file list name</source>
         <translation>Nije moguće učitati fajl listu: Nevažeće ime fajl liste</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2047"/>
+        <location filename="../src/MainWindow.cpp" line="2045"/>
         <source>Menu</source>
         <translation>Мeni</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2084"/>
+        <location filename="../src/MainWindow.cpp" line="2082"/>
         <source>Unable to open %1 port. Searching or file transfers will not work correctly until you change settings or turn off any application that might be using that port.</source>
         <translation>Ne može se otvoriti %1 port. Pretraga ili fajl transferi neće raditi korektno dok ne promenite podešavanja ili isključite bilo koju aplikaciju koja bi mogla da koristi taj port.
 </translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2085"/>
+        <location filename="../src/MainWindow.cpp" line="2083"/>
         <source>Connectivity Manager: Warning</source>
         <translation>Menadžer povezivanja: Upozorenje</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2105"/>
+        <location filename="../src/MainWindow.cpp" line="2103"/>
         <source>Log files (*.log);;All files (*.*)</source>
         <translation>Log fajlova (*.log);;All files (*.*)</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2176"/>
+        <location filename="../src/MainWindow.cpp" line="2174"/>
         <source>Enter magnet link:</source>
         <translation>Unesite magnet link:</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2332"/>
+        <location filename="../src/MainWindow.cpp" line="2328"/>
         <source>Script Engine</source>
         <translation>Skripta pogona</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2575"/>
+        <location filename="../src/MainWindow.cpp" line="2571"/>
         <source>Button style</source>
         <translation>Dugme stil</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2576"/>
+        <location filename="../src/MainWindow.cpp" line="2572"/>
         <source>Icons only</source>
         <translation>Samo ikone</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2577"/>
+        <location filename="../src/MainWindow.cpp" line="2573"/>
         <source>Text only</source>
         <translation>Samo tekst</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2578"/>
+        <location filename="../src/MainWindow.cpp" line="2574"/>
         <source>Text beside icons</source>
         <translation>Tekst pored ikone</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2579"/>
+        <location filename="../src/MainWindow.cpp" line="2575"/>
         <source>Text under icons</source>
         <translation>Tekst ispod ikona</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2589"/>
+        <location filename="../src/MainWindow.cpp" line="2585"/>
         <source>Customize</source>
         <translation>Prilagodjavanje</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2691"/>
+        <location filename="../src/MainWindow.cpp" line="2687"/>
         <source>&lt;b&gt;Developers&lt;/b&gt;&lt;br/&gt;</source>
         <translation>&lt;b&gt;Programeri&lt;/b&gt;&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2694"/>
+        <location filename="../src/MainWindow.cpp" line="2690"/>
         <source>&amp;nbsp;&amp;nbsp;&amp;nbsp; (main developer since version 0.4.10)&lt;br/&gt;</source>
         <translation>&amp;nbsp;&amp;nbsp;&amp;nbsp; (glavni programer od verzije  0.4.10)&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2697"/>
+        <location filename="../src/MainWindow.cpp" line="2693"/>
         <source>&amp;nbsp;&amp;nbsp;&amp;nbsp; (Arch Linux maintainer and developer since version 0.4.10)&lt;br/&gt;</source>
         <translation>&amp;nbsp;&amp;nbsp;&amp;nbsp; (Arch Linux održavatelj i programer od verzije  0.4.10)&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2700"/>
+        <location filename="../src/MainWindow.cpp" line="2696"/>
         <source>&amp;nbsp;&amp;nbsp;&amp;nbsp; (Debian/Ubuntu maintainer and developer since version 1.89.0)&lt;br/&gt;</source>
         <translation>&amp;nbsp;&amp;nbsp;&amp;nbsp; (Debian/Ubuntu održavatelj i programer od verzije  1.89.0)&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2701"/>
+        <location filename="../src/MainWindow.cpp" line="2697"/>
         <source>&amp;nbsp;&amp;nbsp;&amp;nbsp; (translations coordinator since version 2.0.1)&lt;br/&gt;</source>
         <translation>&amp;nbsp;&amp;nbsp;&amp;nbsp; (prevodilac od verzije 2.0.1)&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2702"/>
+        <location filename="../src/MainWindow.cpp" line="2698"/>
         <source>&amp;nbsp;&amp;nbsp;&amp;nbsp; (release manager since version 2.0.3)&lt;br/&gt;</source>
         <translation>&amp;nbsp;&amp;nbsp;&amp;nbsp; (menadžer izdanja od verzije 2.0.3)&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2705"/>
+        <location filename="../src/MainWindow.cpp" line="2701"/>
         <source>&amp;nbsp;&amp;nbsp;&amp;nbsp; (MS Windows maintainer and developer since version 2.2.4)&lt;br/&gt;</source>
         <translation>&amp;nbsp;&amp;nbsp;&amp;nbsp; (MS Windows održavatelj i programer od verzije  2.2.4)&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2708"/>
+        <location filename="../src/MainWindow.cpp" line="2704"/>
         <source>&amp;nbsp;&amp;nbsp;&amp;nbsp; (developer since version 2.0.3)&lt;br/&gt;</source>
         <translation>&amp;nbsp;&amp;nbsp;&amp;nbsp; (programer od verzije 2.0.3)&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2710"/>
+        <location filename="../src/MainWindow.cpp" line="2706"/>
         <source>&lt;b&gt;Graphic files&lt;/b&gt;&lt;br/&gt;</source>
         <translation>&lt;b&gt;Grafički fajlovi&lt;/b&gt;&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2713"/>
+        <location filename="../src/MainWindow.cpp" line="2709"/>
         <source>&amp;nbsp;&amp;nbsp;&amp;nbsp; (creator of the logo of the project)&lt;br/&gt;</source>
         <translation>&amp;nbsp;&amp;nbsp;&amp;nbsp; (kreator logotipa projekta)&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2715"/>
+        <location filename="../src/MainWindow.cpp" line="2711"/>
         <source>&amp;nbsp;&amp;nbsp;&amp;nbsp; (tiny updates of the logo)&lt;br/&gt;</source>
         <translation>&amp;nbsp;&amp;nbsp;&amp;nbsp; (ažuriranje logoa)&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2722"/>
+        <location filename="../src/MainWindow.cpp" line="2718"/>
         <source>Participate in the translation. It is easy: &lt;a href=&quot;https://www.transifex.com/projects/p/eiskaltdcpp/&quot;&gt;https://www.transifex.com/projects/p/eiskaltdcpp/&lt;/a&gt;&lt;br/&gt;</source>
         <translation>Učestvujte u prevodu. Lako je: &lt;a href=&quot;https://www.transifex.com/projects/p/eiskaltdcpp/&quot;&gt;https://www.transifex.com/projects/p/eiskaltdcpp/&lt;/a&gt;&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2726"/>
+        <location filename="../src/MainWindow.cpp" line="2722"/>
         <source>Russian translation&lt;br/&gt;</source>
         <translation>Ruski prevod&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2730"/>
+        <location filename="../src/MainWindow.cpp" line="2726"/>
         <source>Belarusian translation&lt;br/&gt;</source>
         <translation>Beloruski prevod&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2734"/>
+        <location filename="../src/MainWindow.cpp" line="2730"/>
         <source>Hungarian translation&lt;br/&gt;</source>
         <translation>Mađarski prevod&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2738"/>
+        <location filename="../src/MainWindow.cpp" line="2734"/>
         <source>French translation&lt;br/&gt;</source>
         <translation>Francuski prevod&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2741"/>
+        <location filename="../src/MainWindow.cpp" line="2737"/>
         <source>Polish translation&lt;br/&gt;</source>
         <translation>Poljski prevod&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2744"/>
+        <location filename="../src/MainWindow.cpp" line="2740"/>
         <source>Ukrainian translation&lt;br/&gt;</source>
         <translation>Ukrajinski prevod&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2748"/>
+        <location filename="../src/MainWindow.cpp" line="2744"/>
         <source>Serbian (Cyrillic) translation&lt;br/&gt;</source>
         <translation>Srpski (Ćirilica) prevod&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2752"/>
+        <location filename="../src/MainWindow.cpp" line="2748"/>
         <source>Serbian (Latin) translation&lt;br/&gt;</source>
         <translation>Srpski (Latinica) prevod&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2756"/>
+        <location filename="../src/MainWindow.cpp" line="2752"/>
         <source>Spanish translation&lt;br/&gt;</source>
         <translation>Španski prevod&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2760"/>
+        <location filename="../src/MainWindow.cpp" line="2756"/>
         <source>Basque translation&lt;br/&gt;</source>
         <translation>Baskijski prevod&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2763"/>
+        <location filename="../src/MainWindow.cpp" line="2759"/>
         <source>Bulgarian translation&lt;br/&gt;</source>
         <translation>Bugarski prevod&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2766"/>
+        <location filename="../src/MainWindow.cpp" line="2762"/>
         <source>Slovak translation&lt;br/&gt;</source>
         <translation>Slovački prevod&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2769"/>
+        <location filename="../src/MainWindow.cpp" line="2765"/>
         <source>Czech translation&lt;br/&gt;</source>
         <translation>Češki prevod&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2772"/>
+        <location filename="../src/MainWindow.cpp" line="2768"/>
         <source>German translation&lt;br/&gt;</source>
         <translation>Nemački prevod&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2777"/>
+        <location filename="../src/MainWindow.cpp" line="2773"/>
         <source>Greek translation&lt;br/&gt;</source>
         <translation>Grčki prevod&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2780"/>
+        <location filename="../src/MainWindow.cpp" line="2776"/>
         <source>Italian translation&lt;br/&gt;</source>
         <translation>Italijanski prevod&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2784"/>
+        <location filename="../src/MainWindow.cpp" line="2780"/>
         <source>Portuguese (Brazil) translation&lt;br/&gt;</source>
         <translation>Portugalski (Brazil) prevod&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2787"/>
+        <location filename="../src/MainWindow.cpp" line="2783"/>
         <source>Vietnamese translation&lt;br/&gt;</source>
         <translation>Vijetnamski prevod&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2790"/>
+        <location filename="../src/MainWindow.cpp" line="2786"/>
         <source>Chinese (China) translation&lt;br/&gt;</source>
         <translation>Kineski (Kina) prevod&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2793"/>
+        <location filename="../src/MainWindow.cpp" line="2789"/>
         <source>Swedish (Sweden) translation&lt;br/&gt;</source>
         <translation>Švedski (Švedska) prevod&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2796"/>
+        <location filename="../src/MainWindow.cpp" line="2792"/>
         <source>Turkish translation&lt;br/&gt;</source>
         <translation>Turski prevod&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="3029"/>
+        <location filename="../src/MainWindow.cpp" line="3025"/>
         <source>Additional</source>
         <translation>Dodatni</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="3030"/>
+        <location filename="../src/MainWindow.cpp" line="3026"/>
         <source>Suppress sound notifications</source>
         <translation>Suspenzija zvučnih obaveštenja</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="3031"/>
+        <location filename="../src/MainWindow.cpp" line="3027"/>
         <source>Suppress text notifications</source>
         <translation>Suspenzija tekstualnih obaveštenja</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="3025"/>
+        <location filename="../src/MainWindow.cpp" line="3021"/>
         <source>Setup speed limits</source>
         <translation>Podešavanje ograničenja brzine</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2668"/>
+        <location filename="../src/MainWindow.cpp" line="2664"/>
         <source>EiskaltDC++ is a graphical client for Direct Connect and ADC protocols.&lt;br/&gt;&lt;br/&gt;DC++ core version: %1 (modified)&lt;br/&gt;&lt;br/&gt;Home page: &lt;a href=&quot;https://github.com/eiskaltdcpp/eiskaltdcpp/&quot;&gt;https://github.com/eiskaltdcpp/eiskaltdcpp/&lt;/a&gt;&lt;br/&gt;&lt;br/&gt;Total up: &lt;b&gt;%2&lt;/b&gt;&lt;br/&gt;Total down: &lt;b&gt;%3&lt;/b&gt;&lt;br/&gt;Ratio: &lt;b&gt;%4&lt;/b&gt;</source>
         <translation>EiskaltDC++ je grafički klijent za direktno povezivanje i ADC protokole.&lt;br/&gt;&lt;br/&gt;DC++ core version: %1 (modified)&lt;br/&gt;&lt;br/&gt;Matična strana: &lt;a href=&quot;https://github.com/eiskaltdcpp/eiskaltdcpp/&quot;&gt;https://github.com/eiskaltdcpp/eiskaltdcpp/&lt;/a&gt;&lt;br/&gt;&lt;br/&gt;Total up: &lt;b&gt;%2&lt;/b&gt;&lt;br/&gt;Total down: &lt;b&gt;%3&lt;/b&gt;&lt;br/&gt;Ratio: &lt;b&gt;%4&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2688"/>
+        <location filename="../src/MainWindow.cpp" line="2684"/>
         <source>Please use &lt;a href=&quot;https://github.com/eiskaltdcpp/eiskaltdcpp/issues&quot;&gt;https://github.com/eiskaltdcpp/eiskaltdcpp/issues&lt;/a&gt; to report bugs.&lt;br/&gt;</source>
         <translation>Molim koristi &lt;a href=&quot;https://github.com/eiskaltdcpp/eiskaltdcpp/issues&quot;&gt;https://github.com/eiskaltdcpp/eiskaltdcpp/issues&lt;/a&gt; za prijavu greški.&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2836"/>
+        <location filename="../src/MainWindow.cpp" line="2832"/>
         <source>Show close buttons</source>
         <translation>Pokaži dugmad za zatvaranje</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2871"/>
+        <location filename="../src/MainWindow.cpp" line="2867"/>
         <source>[No name]</source>
         <translation>[Bez imena]</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2959"/>
+        <location filename="../src/MainWindow.cpp" line="2955"/>
         <source>Download Queue</source>
         <translation>Red za preuzimanje</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2959"/>
+        <location filename="../src/MainWindow.cpp" line="2955"/>
         <source>All downloads complete</source>
         <translation>Sva preuzimanja kompletna</translation>
     </message>
@@ -2802,27 +2802,27 @@ Downloaded: %3 Uploaded: %4</source>
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../src/main.cpp" line="67"/>
+        <location filename="../src/main.cpp" line="76"/>
         <source>Loading: </source>
         <translation>Učitavanje:</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="165"/>
+        <location filename="../src/main.cpp" line="174"/>
         <source>UserList icons has been loaded</source>
         <translation>Korisnička lista je učitana</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="168"/>
+        <location filename="../src/main.cpp" line="177"/>
         <source>Application icons has been loaded</source>
         <translation>Ikone aplikacija su učitane</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="216"/>
+        <location filename="../src/main.cpp" line="225"/>
         <source>Shutting down libdcpp...</source>
         <translation>Zatvaranje libdcpp...</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="251"/>
+        <location filename="../src/main.cpp" line="260"/>
         <source>Quit...</source>
         <translation>Napusti...</translation>
     </message>
@@ -4144,7 +4144,7 @@ Da li želite da zaustavite?</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="96"/>
-        <source>Show only transfered files</source>
+        <source>Show only transferred files</source>
         <translation>Prikaži samo prenete fajlove</translation>
     </message>
     <message>
@@ -5798,7 +5798,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="957"/>
-        <source>Allow untrusted sertificate for clients</source>
+        <source>Allow untrusted certificate for clients</source>
         <translation>Dozvoli neproveren sertifikat za klijente</translation>
     </message>
 </context>
@@ -7590,12 +7590,12 @@ if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</trans
         <translation>Podrazumevano</translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="1015"/>
+        <location filename="../src/WulforUtil.cpp" line="1013"/>
         <source>Offline</source>
         <translation>Nije povezan</translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="1118"/>
+        <location filename="../src/WulforUtil.cpp" line="1116"/>
         <source>User commands</source>
         <translation>Korisničke komande</translation>
     </message>

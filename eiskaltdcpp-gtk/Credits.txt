@@ -1,6 +1,6 @@
 EiskaltDC++ Gtk:
 ----------------
-Boris Pek <tehnick-8@mail.ru>
+Boris Pek <tehnick-8@yandex.ru>
 Eugene Petrov <dhamp@ya.ru>
 
 Contributors:

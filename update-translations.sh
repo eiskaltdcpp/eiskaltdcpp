@@ -1,125 +1,130 @@
 #! /bin/bash
 
-# Author:  Boris Pek <tehnick-8@mail.ru>
+# Author:  Boris Pek <tehnick-8@yandex.ru>
 # License: Public Domain
 # Created: 2011-11-26
-# Updated: 2016-04-06
+# Updated: 2017-07-26
 # Version: N/A
+
+set -e
 
 export CUR_DIR="$(dirname $(realpath -s ${0}))"
 export MAIN_DIR="${CUR_DIR}/.."
+export LANG_DIR="${MAIN_DIR}/eiskaltdcpp_transifex"
 
-cd "${CUR_DIR}" || exit 1
+cd "${CUR_DIR}"
 
 case "${1}" in
 "up")
 
-    git pull --all || exit 1
+    git pull --all
 
 ;;
 "cm")
 
-    git commit -a -m 'Translations are updated from Transifex.' || exit 1
+    git commit -a -m 'Translations are updated from Transifex.'
 
 ;;
 "make")
 
     if [ -d "${CUR_DIR}/builddir" ]; then
-        cd "${CUR_DIR}/builddir" || exit 1
-        make translations_qt mo-update || exit 1
-        
+        cd "${CUR_DIR}/builddir"
+        make eiskaltdcpp-qt_tr mo-update
     else
-        mkdir -p builddir && cd builddir || exit 1
-        cmake -DUSE_QT=ON -DUSE_GTK=ON .. || exit 1
-        "${0}" make || exit 1
+        mkdir -p builddir && cd builddir
+        cmake -DUSE_QT=ON -DUSE_GTK=ON ..
+        make eiskaltdcpp-qt_tr mo-update
     fi
 
 ;;
 "tr")
 
     # Test Internet connection:
-    host transifex.com > /dev/null || exit 1
+    host transifex.com > /dev/null
 
-    git status || exit 1
+    git status
 
-    LANG_DIR="${MAIN_DIR}/eiskaltdcpp_transifex"
+    if [ ! -d "${LANG_DIR}" ]; then
+        "${0}" tr_co
+    fi
 
-    cd "${LANG_DIR}" || exit 1
-    tx pull -a -s || exit 1
+    cd "${LANG_DIR}"
+    tx pull
 
-    cd "${LANG_DIR}/translations/eiskaltdcpp.dcpp" || exit 1
-    cp *.po "${CUR_DIR}/dcpp/po/" || exit 1
+    cd "${LANG_DIR}/translations/eiskaltdcpp.dcpp"
+    cp *.po "${CUR_DIR}/dcpp/po/"
 
-    cd "${LANG_DIR}/translations/eiskaltdcpp.eiskaltdcpp-gtk" || exit 1
-    cp *.po "${CUR_DIR}/eiskaltdcpp-gtk/po/" || exit 1
+    cd "${LANG_DIR}/translations/eiskaltdcpp.eiskaltdcpp-gtk"
+    cp *.po "${CUR_DIR}/eiskaltdcpp-gtk/po/"
 
-    cd "${LANG_DIR}/translations/eiskaltdcpp.eiskaltdcpp-qt" || exit 1
-    cp *.ts "${CUR_DIR}/eiskaltdcpp-qt/translations/" || exit 1
+    cd "${LANG_DIR}/translations/eiskaltdcpp.eiskaltdcpp-qt"
+    cp *.ts "${CUR_DIR}/eiskaltdcpp-qt/translations/"
 
-    cd "${CUR_DIR}" || exit 1
-    git status || exit 1
+    cd "${CUR_DIR}"
+    git status
 
 ;;
 "tr_up")
 
-    cd "${CUR_DIR}" || exit 1
+    cd "${CUR_DIR}"
 
     export QT_SELECT=qt4
-    lupdate eiskaltdcpp-qt/translations.pro || exit 1
+    lupdate eiskaltdcpp-qt/translations.pro
 
-    cd builddir && make pot-update || exit 1
+    cd builddir && make pot-update
     cp -fa dcpp/po/libeiskaltdcpp.pot dcpp/po/en.po
     cp -fa eiskaltdcpp-gtk/po/eiskaltdcpp-gtk.pot eiskaltdcpp-gtk/po/en.po
 
-    git status || exit 1
+    cd "${CUR_DIR}"
+    git status
 
 ;;
 "tr_cl")
 
-    cd "${CUR_DIR}" || exit 1
+    cd "${CUR_DIR}"
 
     export QT_SELECT=qt4
-    lupdate -verbose -no-obsolete eiskaltdcpp-qt/translations.pro || exit 1
+    lupdate -verbose -no-obsolete eiskaltdcpp-qt/translations.pro
 
-    cd builddir && make pot-update || exit 1
+    cd builddir && make pot-update
     cp -fa dcpp/po/libeiskaltdcpp.pot dcpp/po/en.po
     cp -fa eiskaltdcpp-gtk/po/eiskaltdcpp-gtk.pot eiskaltdcpp-gtk/po/en.po
 
-    git status || exit 1
+    cd "${CUR_DIR}"
+    git status
 
 ;;
 "tr_push")
 
-    LANG_DIR="${MAIN_DIR}/eiskaltdcpp_transifex"
-    cd "${LANG_DIR}/translations" || exit 1
+    cd "${LANG_DIR}/translations"
 
-    cp "${CUR_DIR}"/dcpp/po/*.po eiskaltdcpp.dcpp/ || exit 1
-    cp "${CUR_DIR}"/eiskaltdcpp-gtk/po/*.po eiskaltdcpp.eiskaltdcpp-gtk/ || exit 1
-    cp "${CUR_DIR}"/eiskaltdcpp-qt/translations/*.ts eiskaltdcpp.eiskaltdcpp-qt/ || exit 1
+    cp "${CUR_DIR}"/dcpp/po/*.po eiskaltdcpp.dcpp/
+    cp "${CUR_DIR}"/eiskaltdcpp-gtk/po/*.po eiskaltdcpp.eiskaltdcpp-gtk/
+    cp "${CUR_DIR}"/eiskaltdcpp-qt/translations/*.ts eiskaltdcpp.eiskaltdcpp-qt/
 
-    cd "${LANG_DIR}" || exit 1
+    cd "${LANG_DIR}"
     if [ -z "${2}" ]; then
         echo "<arg> is not specified!" ; exit 1
     elif [ "${2}" = "src" ] ; then
-        tx push -s || exit 1
+        tx push -s
     elif [ "${2}" = "all" ] ; then
-        tx push -s -t || exit 1
+        tx push -s -t --skip
     else
-        tx push -t -l ${2} || exit 1
+        tx push -t -l ${2} --skip
     fi
 
 ;;
 "tr_co")
 
-    if [ -d "${MAIN_DIR}/eiskaltdcpp_transifex" ]; then
-        echo "${MAIN_DIR}/eiskaltdcpp_transifex"
-        echo "directory already exists!"
+    if [ -d "${LANG_DIR}" ]; then
+        echo "\"${LANG_DIR}\" directory already exists!"
+        exit 1
     else
-        echo "Creating ${MAIN_DIR}/eiskaltdcpp_transifex"
-        mkdir -p "${MAIN_DIR}/eiskaltdcpp_transifex/.tx"
-        cp "transifex.config" "${MAIN_DIR}/eiskaltdcpp_transifex/.tx/config" || exit 1
-        cd "${MAIN_DIR}/eiskaltdcpp_transifex" || exit 1
-        tx pull -a -s || exit 1
+        echo "Creating ${LANG_DIR}"
+        mkdir -p "${LANG_DIR}/.tx"
+        cp "transifex.config" "${LANG_DIR}/.tx/config"
+        cd "${LANG_DIR}"
+        tx pull -a -s
     fi
 
 ;;

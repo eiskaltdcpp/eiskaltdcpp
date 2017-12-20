@@ -97,7 +97,5 @@ private:
     int checkSystemTrayCounter;
 };
 
-#define Notify Notification::getInstance()
-
 Q_DECLARE_METATYPE(Notification*)
 Q_DECLARE_METATYPE(Notification::Type)

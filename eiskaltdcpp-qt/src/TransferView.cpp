@@ -38,7 +38,7 @@
 #include <QFileInfo>
 #include <QDir>
 
-TransferView::Menu::Menu(bool showTransferedFilesOnly):
+TransferView::Menu::Menu(bool showTransferredFilesOnly):
         menu(NULL),
         selectedColumn(0)
 {
@@ -93,9 +93,9 @@ TransferView::Menu::Menu(bool showTransferedFilesOnly):
     QAction *close = new QAction(tr("Close connection(s)"), menu);
     close->setIcon(WU->getPixmap(WulforUtil::eiCONNECT_NO));
 
-    QAction *show_only_transfered_files = new QAction(tr("Show only transfered files"), menu);
-    show_only_transfered_files->setCheckable(true);
-    show_only_transfered_files->setChecked(showTransferedFilesOnly);
+    QAction *show_only_transferred_files = new QAction(tr("Show only transferred files"), menu);
+    show_only_transferred_files->setCheckable(true);
+    show_only_transferred_files->setChecked(showTransferredFilesOnly);
 
     actions.insert(browse, Browse);
     actions.insert(match, MatchQueue);
@@ -106,7 +106,7 @@ TransferView::Menu::Menu(bool showTransferedFilesOnly):
     actions.insert(force, Force);
     actions.insert(close, Close);
     actions.insert(search, SearchAlternates);
-    actions.insert(show_only_transfered_files, showTransferedFieldsOnly);
+    actions.insert(show_only_transferred_files, showTransferredFieldsOnly);
 
     menu->addActions(QList<QAction*>() << browse
                                        << search
@@ -120,7 +120,7 @@ TransferView::Menu::Menu(bool showTransferedFilesOnly):
                                        << sep3
                                        << force
                                        << close
-                                       << show_only_transfered_files
+                                       << show_only_transferred_files
                                        );
 }
 
@@ -550,7 +550,7 @@ void TransferView::slotContextMenu(const QPoint &){
 
         break;
     }
-    case Menu::showTransferedFieldsOnly:
+    case Menu::showTransferredFieldsOnly:
     {
         model->setShowTranferedFilesOnlyState(!model->getShowTranferedFilesOnlyState());
         break;

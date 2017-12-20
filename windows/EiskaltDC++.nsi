@@ -1,28 +1,11 @@
 !include MUI2.nsh
 
-; See http://nsis.sourceforge.net/Check_if_a_file_exists_at_compile_time for documentation
-!macro !defineifexist _VAR_NAME _FILE_NAME
-	!tempfile _TEMPFILE
-	!ifdef NSIS_WIN32_MAKENSIS
-		; Windows - cmd.exe
-		!system 'if exist "${_FILE_NAME}" echo !define ${_VAR_NAME} > "${_TEMPFILE}"'
-	!else
-		; Posix - sh
-		!system 'if [ -e "${_FILE_NAME}" ]; then echo "!define ${_VAR_NAME}" > "${_TEMPFILE}"; fi'
-	!endif
-	!include '${_TEMPFILE}'
-	!delfile '${_TEMPFILE}'
-	!undef _TEMPFILE
-!macroend
-!define !defineifexist "!insertmacro !defineifexist"
-
 !if ${static} == 32
   !define arch_x86
-!else
-  !if ${static} != 64
-    !define shared
-    ${!defineifexist} arch_x86 "installer\libgcc_s_sjlj-1.dll"
-  !endif
+!endif
+
+!if ${shared} == 32
+  !define arch_x86
 !endif
 
 !define PRODUCT_DISPLAY_VERSION      "2.4.0"
@@ -152,9 +135,9 @@ Section "EiskaltDC++"
   File "installer\libidn-11.dll"
   File "installer\libintl-8.dll"
   File "installer\libjsoncpp.dll"
-  File "installer\liblua5.3.dll"
+  File "installer\lua53.dll"
   File "installer\libminiupnpc.dll"
-  File "installer\libpcre16-0.dll"
+  File "installer\libpcre2-16-0.dll"
   File "installer\libpcre-1.dll"
   File "installer\libpcrecpp-0.dll"
   File "installer\libpng16-16.dll"

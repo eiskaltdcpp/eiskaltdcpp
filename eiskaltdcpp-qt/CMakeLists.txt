@@ -267,15 +267,18 @@ if (WIN32)
     if (STATIC)
         if (USE_QT5)
             add_definitions ( -DSTATIC )
-            find_library(QT5PLATFORMSUPPORT Qt5PlatformSupport)
+            find_library(QT5FontDatabaseSupport Qt5FontDatabaseSupport)
+            find_library(QT5EventDispatcherSupport Qt5EventDispatcherSupport)
+            find_library(QT5ThemeSupport Qt5ThemeSupport)
             list (APPEND LIBS Qt5::QWindowsIntegrationPlugin
-                              ${QT5PLATFORMSUPPORT}
+                              ${QT5FontDatabaseSupport}
+                              ${QT5EventDispatcherSupport}
+                              ${QT5ThemeSupport}
                               Qt5::QSQLiteDriverPlugin
                               Qt5::Sql
                               Qt5::QWindowsAudioPlugin
                               Qt5::Multimedia
                               -lpcre16
-                              -lfreetype
                               -lharfbuzz
                               -lglib-2.0
                               -lwinmm
@@ -287,6 +290,7 @@ if (WIN32)
                               -lwinmm
                               -lcrypt32
                               -lstrmiids
+                              -lfreetype
                  )
         endif (USE_QT5)
     endif (STATIC)

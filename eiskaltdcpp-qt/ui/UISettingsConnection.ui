@@ -954,7 +954,7 @@ p, li { white-space: pre-wrap; }
           <item>
            <widget class="QCheckBox" name="checkBox_UNTRUSTED_CLIENTS">
             <property name="text">
-             <string>Allow untrusted sertificate for clients</string>
+             <string>Allow untrusted certificate for clients</string>
             </property>
            </widget>
           </item>

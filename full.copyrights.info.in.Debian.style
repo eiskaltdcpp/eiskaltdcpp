@@ -1,8 +1,8 @@
 Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
-Debianized-By: Boris Pek <tehnick-8@mail.ru>
+Debianized-By: Boris Pek <tehnick-8@yandex.ru>
 Debianized-Date: Sat, 06 Feb 2010 03:43:21 +0300
 Upstream-Name: EiskaltDC++
-Upstream-Contact: Boris Pek <tehnick-8@mail.ru>
+Upstream-Contact: Boris Pek <tehnick-8@yandex.ru>
                   Eugene Petrov <dhamp@ya.ru>
                   Pavel Vatagin <pavelvat@gmail.com>
                   Andrey Karlov <dein.negativ@gmail.com>
@@ -10,9 +10,9 @@ Source: https://github.com/eiskaltdcpp/eiskaltdcpp
 
 Files: *
 Copyright: 2009-2012 Andrey Karlov <dein.negativ@gmail.com>
-           2009-2015 Eugene Petrov <dhamp@ya.ru>
-           2009-2015 Boris Pek aka Tehnick <tehnick-8@mail.ru>
-           2010-2015 Pavel Vatagin <pavelvat@gmail.com>
+           2009-2014 Eugene Petrov <dhamp@ya.ru>
+           2009-2017 Boris Pek aka Tehnick <tehnick-8@yandex.ru>
+           2010-2017 Pavel Vatagin <pavelvat@gmail.com>
            2010-2014 Alexandr Tkachev <tka4ev@gmail.com>
 License: GPL-3+ with OpenSSL exception
  This program is free software: you can redistribute it and/or modify it under
@@ -63,19 +63,15 @@ Copyright: 2001-2012 Jacek Sieka <arnetheduck@gmail.com>
            2003-2006 RevConnect (http://www.revconnect.com)
            1997 Makoto Matsumoto and Takuji Nishimura <matumoto@math.keio.ac.jp>
            2010 cologic <ne5@parsoma.net>
-           2010 ggrundik (http://code.google.com/u/ggrundik/)
+           2010 ggrundik
            2010 Gennady Proskurin (https://launchpad.net/~gpr)
            2011 Eugene Petrov <dhamp@ya.ru>
 License: GPL-2+
 
-Files: eiskaltdcpp-web/*
-Copyright: 2013 Dorian Scholz (https://github.com/DorianScholz)
-License: GPL-3+
-
 Files: data/examples/xmms2_audacious2.ru_RU.UTF-8.php
        data/examples/commands.ru_RU.UTF-8.php
        eiskaltdcpp-qt/qtscripts/gnome/commands.ru_RU.UTF-8.php
-       eiskaltdcpp-qt/qtscripts/qmpp_nowplaying/qmmp.sh
+       eiskaltdcpp-qt/qtscripts/qmmp_nowplaying/qmmp.sh
 Copyright: 2010 nE0sIghT
            2010 GoTLiuM InSPiRiT <gotlium@gmail.com>
            2012 Gustavo Alvarez <sl1pkn07@gmail.com>
@@ -92,13 +88,12 @@ Files: update-translations.sh
        data/examples/deadbeef.ru_RU.UTF-8.sh
        eiskaltdcpp-qt/qtscripts/amarok_nowplay/amarok.sh
        eiskaltdcpp-qt/qtscripts/clementine_nowplay/clementine.sh
-       eiskaltdcpp-web/get-jquery-scripts
        macosx/build-universal-binary.sh
        macosx/build.sh
        tests/travis/*.sh
 Copyright: not-applicable
 Comment: Authors:
-         2011-2015 Boris Pek <tehnick-8@mail.ru>
+         2011-2017 Boris Pek <tehnick-8@yandex.ru>
          2010 Uladzimir Bely (WiseLord) <wiselord1983@gmail.com>
          2010 Vovochka404 <vovochka13@gmail.com>
          2011 Mark Lutring
@@ -121,7 +116,6 @@ License: GPL-3+
 Files: data/icons/*
        eiskaltdcpp-qt/icons/*
        eiskaltdcpp-gtk/icons/*
-       eiskaltdcpp-web/images/*
 Copyright: 2010 Uladzimir Bely (WiseLord) <wiselord1983@gmail.com>
            2010 Oxygen icons theme team (see http://www.oxygen-icons.org/)
 License: LGPL-3
@@ -133,7 +127,7 @@ License: GPL-3
 Files: data/emoticons/*
        data/sounds/*.wav
 Copyright: 2010 ApexDC++ Project Team (http://www.apexdc.net/)
-           2010 FlylinkDC++ Project Team (http://code.google.com/p/flylinkdc/)
+           2010 FlylinkDC++ Project Team (https://github.com/pavel-pimenov/flylinkdc-r5xx)
            1996-2010 The KDE SC project (http://www.kde.org)
 License: GPL-2
 
@@ -185,10 +179,10 @@ License: BSD-3-clause
 Files: eiskaltdcpp-gtk/src/*
        eiskaltdcpp-gtk/ui/*
 Copyright: 2004-2010 Jens Oknelid <paskharen@gmail.com>
-           2009-2010 freedcpp (http://code.google.com/p/freedcpp)
+           2009-2010 freedcpp <freedcpp@narod.ru>
            2009-2010 Leliksan Floyd <leliksan@Quadrafon2>
-           2010-2015 Boris Pek <tehnick-8@mail.ru>
-           2010-2015 Eugene Petrov <dhamp@ya.ru>
+           2010-2014 Boris Pek <tehnick-8@yandex.ru>
+           2010-2014 Eugene Petrov <dhamp@ya.ru>
            2003 Bastien Nocera <hadess@hadess.net>
            2010 Mank <mank@besthub.eu>
 License: GPL-2+
@@ -223,7 +217,7 @@ Copyright: 2004-2013 Sergey Lyubka
 License: Expat
 
 Files: debian/*
-Copyright: 2010-2015 Boris Pek <tehnick-8@mail.ru>
+Copyright: 2010-2017 Boris Pek <tehnick-8@yandex.ru>
 License: GPL-2+
 
 License: GPL-2
