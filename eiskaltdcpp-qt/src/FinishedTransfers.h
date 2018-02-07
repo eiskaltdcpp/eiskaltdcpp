@@ -387,7 +387,7 @@ private:
     }
 
     void openFile(QString file){
-        if (!file.startsWith("/"))
+        if (!file.startsWith(QChar('/')))
             file.prepend("/");
 
         int sep = file.lastIndexOf(QDir::separator());
@@ -402,7 +402,7 @@ private:
                 file = path + QDir::separator() + files.first();
         }
 
-        if (file.startsWith("/"))
+        if (file.startsWith(QChar('/')))
             file.prepend("file://");
         else
             file.prepend("file:///");
@@ -505,7 +505,7 @@ private:
             for (auto &f : files){
                 f = f.left(f.lastIndexOf(QDir::separator())) + QDir::separator();
 
-                if (f.startsWith("/"))
+                if (f.startsWith(QChar('/')))
                     f.prepend("file://");
                 else
                     f.prepend("file:///");
