@@ -691,7 +691,7 @@ void AdcHub::connect(const OnlineUser& user, string const& token, bool secure) {
         uint16_t port = secure ? ConnectionManager::getInstance()->getSecurePort() : ConnectionManager::getInstance()->getPort();
         if(port == 0) {
             // Oops?
-            LogManager::getInstance()->message(str(F_("Not listening for connections - please restart %1%") % APPNAME));
+            LogManager::getInstance()->message(str(F_("Not listening for connections - please restart %1%") % EISKALTDCPP_APPNAME));
             return;
         }
         send(AdcCommand(AdcCommand::CMD_CTM, user.getIdentity().getSID(), AdcCommand::TYPE_DIRECT).addParam(*proto).addParam(Util::toString(port)).addParam(token));

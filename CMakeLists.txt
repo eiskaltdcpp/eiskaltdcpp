@@ -241,19 +241,18 @@ endif (APPLE)
 
 message (STATUS "Data directory: ${CLIENT_DATA_DIR}")
 
-if (DCPP_REVISION)
-    set (VERSION_SUFFIX ${DCPP_REVISION})
-    set (VERSION "${VERSION}-${VERSION_SUFFIX}")
-    message (STATUS "DCPP_REVISION is set to: ${VERSION_SUFFIX}")
-    message (STATUS "Current VERSION: ${VERSION}")
+if (REPLACE_VERSION)
+    set (VERSION "${REPLACE_VERSION}")
 elseif (GIT_FOUND)
     execute_process (COMMAND ${GIT_EXECUTABLE} describe --tags
                      WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}
                      OUTPUT_VARIABLE VERSION
                      OUTPUT_STRIP_TRAILING_WHITESPACE)
     string (REGEX REPLACE "^v" "" VERSION "${VERSION}")
-    message (STATUS "Build Git snapshot: ${VERSION}")
 endif ()
+string(REGEX REPLACE "^([0-9]+\\.[0-9]+\\.[0-9]+).*" "\\1" VERSION_BASE "${VERSION}")
+message (STATUS "${PROJECT_NAME} full version: ${VERSION}")
+message (STATUS "${PROJECT_NAME} base version: ${VERSION_BASE}")
 
 configure_file(${PROJECT_SOURCE_DIR}/Version.h.in ${PROJECT_BINARY_DIR}/VersionGlobal.h)
 

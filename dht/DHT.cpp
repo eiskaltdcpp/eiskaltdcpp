@@ -301,14 +301,8 @@ namespace dht
         // TODO: what info is needed?
         AdcCommand cmd(AdcCommand::CMD_INF, AdcCommand::TYPE_UDP);
 
-#ifdef SVNVERSION
-#define VER VERSIONSTRING SVNVERSION
-#else
-#define VER VERSIONSTRING
-#endif
-
         cmd.addParam("TY", Util::toString(type));
-        cmd.addParam("VE", ("EiskaltDC++ " VER));
+        cmd.addParam("VE", ("EiskaltDC++ " EISKALTDCPP_VERSION));
         cmd.addParam("NI", SETTING(NICK));
         cmd.addParam("SL", Util::toString(UploadManager::getInstance()->getSlots()));
 

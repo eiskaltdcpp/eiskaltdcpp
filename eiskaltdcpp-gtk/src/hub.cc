@@ -2001,7 +2001,7 @@ void Hub::onSendMessage_gui(GtkEntry *entry, gpointer data)
         }
         else if (command == "version")
         {
-            hub->addStatusMessage_gui(string(EISKALTDCPP_WND_TITLE) + " " + 
+            hub->addStatusMessage_gui(string(EISKALTDCPP_APPNAME_STRING) + " " + 
                                       string(EISKALTDCPP_VERSION) + 
                                       _("project home: ") + 
                                       "https://github.com/eiskaltdcpp/eiskaltdcpp",

@@ -10,11 +10,11 @@
 #ifndef VERSION_H
 #define VERSION_H
 
-#define APPNAME "@PROJECT_NAME@"
-#define VERSIONSTRING "@VERSION@"
-#define DCVERSIONSTRING "0.785"
+#define EISKALTDCPP_VERSION "@VERSION_BASE@"
+#define EISKALTDCPP_APPNAME "@PROJECT_NAME@"
+#define DCPP_VERSION "0.785"
 
-const char * const EISKALTDCPP_VERSION         = "@VERSION@";
-const char * const EISKALTDCPP_WND_TITLE       = "@PROJECT_NAME@";
+const char * const EISKALTDCPP_VERSION_STRING = "@VERSION@";
+const char * const EISKALTDCPP_APPNAME_STRING = "@PROJECT_NAME@";
 
 #endif // VERSION_H

@@ -53,8 +53,8 @@ class MultiLineToolBar;
 class ScriptConsole;
 #endif
 
-extern const char * const EISKALTDCPP_VERSION;
-extern const char * const EISKALTDCPP_WND_TITLE;
+extern const char * const EISKALTDCPP_VERSION_STRING;
+extern const char * const EISKALTDCPP_APPNAME_STRING;
 
 class QProgressBar;
 
@@ -82,7 +82,7 @@ public:
     }
 
     void printVersion() const {
-        printf("%s\n", EISKALTDCPP_VERSION);
+        printf("%s\n", EISKALTDCPP_VERSION_STRING);
     }
 };
 

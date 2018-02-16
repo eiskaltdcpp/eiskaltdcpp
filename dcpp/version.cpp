@@ -21,6 +21,6 @@
 #include "version.h"
 
 namespace dcpp {
-const char * const  fullVersionString = APPNAME " V:" VERSIONSTRING;
-const char * const  fullADCVersionString = APPNAME " " VERSIONSTRING;
+const char * const  fullVersionString = EISKALTDCPP_APPNAME " V:" EISKALTDCPP_VERSION;
+const char * const  fullADCVersionString = EISKALTDCPP_APPNAME " " EISKALTDCPP_VERSION;
 }

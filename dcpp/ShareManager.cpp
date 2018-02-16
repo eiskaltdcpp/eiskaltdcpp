@@ -906,7 +906,7 @@ void ShareManager::generateXmlList() {
                 CalcOutputStream<TTFilter<1024*1024*1024>, false> newXmlFile(&count);
 
                 newXmlFile.write(SimpleXML::utf8Header);
-                newXmlFile.write("<FileListing Version=\"1\" CID=\"" + ClientManager::getInstance()->getMe()->getCID().toBase32() + "\" Base=\"/\" Generator=\"" APPNAME " " VERSIONSTRING "\">\r\n");
+                newXmlFile.write("<FileListing Version=\"1\" CID=\"" + ClientManager::getInstance()->getMe()->getCID().toBase32() + "\" Base=\"/\" Generator=\"" EISKALTDCPP_APPNAME " " EISKALTDCPP_VERSION "\">\r\n");
                 for(auto i = directories.begin(); i != directories.end(); ++i) {
                     (*i)->toXml(newXmlFile, indent, tmp2, true);
                 }
@@ -958,7 +958,7 @@ MemoryInputStream* ShareManager::generatePartialList(const string& dir, bool rec
 
     string xml = SimpleXML::utf8Header;
     string tmp;
-    xml += "<FileListing Version=\"1\" CID=\"" + ClientManager::getInstance()->getMe()->getCID().toBase32() + "\" Base=\"" + SimpleXML::escape(dir, tmp, false) + "\" Generator=\"" APPNAME " " VERSIONSTRING "\">\r\n";
+    xml += "<FileListing Version=\"1\" CID=\"" + ClientManager::getInstance()->getMe()->getCID().toBase32() + "\" Base=\"" + SimpleXML::escape(dir, tmp, false) + "\" Generator=\"" EISKALTDCPP_APPNAME " " EISKALTDCPP_VERSION "\">\r\n";
     StringOutputStream sos(xml);
     string indent = "\t";
 

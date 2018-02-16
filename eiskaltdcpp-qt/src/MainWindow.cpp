@@ -560,7 +560,7 @@ void MainWindow::init(){
 
     this->setWindowIcon(WICON(WulforUtil::eiICON_APPL));
 
-    setWindowTitle(QString("%1").arg(EISKALTDCPP_WND_TITLE));
+    setWindowTitle(QString("%1").arg(EISKALTDCPP_APPNAME_STRING));
 
     initActions();
 
@@ -1910,7 +1910,7 @@ void MainWindow::redrawToolPanel(){
             has_unread = true;
 
         if (awgt && d->arena->widget() && d->arena->widget() == awgt->getWidget())
-            setWindowTitle(awgt->getArenaTitle() + " :: " + QString("%1").arg(EISKALTDCPP_WND_TITLE));
+            setWindowTitle(awgt->getArenaTitle() + " :: " + QString("%1").arg(EISKALTDCPP_APPNAME_STRING));
     }
 
 #if !defined(Q_OS_MAC)
@@ -1939,7 +1939,7 @@ void MainWindow::mapWidgetOnArena(ArenaWidget *awgt){
     if (d->arena->widget() != awgt->getWidget())
         d->arena->setWidget(awgt->getWidget());
 
-    setWindowTitle(awgt->getArenaTitle() + " :: " + QString("%1").arg(EISKALTDCPP_WND_TITLE));
+    setWindowTitle(awgt->getArenaTitle() + " :: " + QString("%1").arg(EISKALTDCPP_APPNAME_STRING));
 
     if (awgt->toolButton())
         awgt->toolButton()->setChecked(true);
@@ -2660,8 +2660,8 @@ void MainWindow::slotAboutClient() {
         ratio = 0;
 
     a.label->setText(QString("<b>%1</b> %2")
-                     .arg(EISKALTDCPP_WND_TITLE)
-                     .arg(EISKALTDCPP_VERSION));
+                     .arg(EISKALTDCPP_APPNAME_STRING)
+                     .arg(EISKALTDCPP_VERSION_STRING));
 
     QString html_format = "a { text-decoration:none; }\n"
                           "a:hover { text-decoration: underline; }\n";
@@ -2676,7 +2676,7 @@ void MainWindow::slotAboutClient() {
                             "Total up: <b>%2</b><br/>"
                             "Total down: <b>%3</b><br/>"
                             "Ratio: <b>%4</b>"
-                         ).arg(DCVERSIONSTRING)
+                         ).arg(DCPP_VERSION)
                           .arg(WulforUtil::formatBytes(up))
                           .arg(WulforUtil::formatBytes(down))
                           .arg(ratio, 0, 'f', 3);

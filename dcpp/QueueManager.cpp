@@ -1602,7 +1602,7 @@ void QueueManager::saveQueue(bool force) noexcept {
         BufferedOutputStream<false> f(&ff);
 
         f.write(SimpleXML::utf8Header);
-        f.write(LIT("<Downloads Version=\"" VERSIONSTRING "\">\r\n"));
+        f.write(LIT("<Downloads Version=\"" EISKALTDCPP_VERSION "\">\r\n"));
         string tmp;
         string b32tmp;
         for(QueueItem::StringIter i = fileQueue.getQueue().begin(); i != fileQueue.getQueue().end(); ++i) {

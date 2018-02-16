@@ -310,7 +310,7 @@ void ToolBar::redraw(){
 
     if (awgt)
         MainWindow::getInstance()->setWindowTitle(awgt->getArenaTitle() +
-                                   " :: " + QString("%1").arg(EISKALTDCPP_WND_TITLE));
+                                   " :: " + QString("%1").arg(EISKALTDCPP_APPNAME_STRING));
 }
 
 void ToolBar::nextTab(){

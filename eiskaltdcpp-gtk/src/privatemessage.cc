@@ -974,7 +974,7 @@ void PrivateMessage::onSendMessage_gui(GtkEntry *entry, gpointer data)
         }
         else if (command == "version")
         {
-            pm->addStatusMessage_gui(string(EISKALTDCPP_WND_TITLE) + " " +
+            pm->addStatusMessage_gui(string(EISKALTDCPP_APPNAME_STRING) + " " +
                                      string(EISKALTDCPP_VERSION) +
                                      _("project home: ") +
                                      "https://github.com/eiskaltdcpp/eiskaltdcpp",
