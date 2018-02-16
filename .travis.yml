@@ -7,7 +7,7 @@ compiler:
   - clang
 
 env:
-  - OS=Windows
+# - OS=Windows
   - USE_QT=qt4
   - USE_QT=qt5
   - USE_GTK=gtk2
