@@ -185,7 +185,7 @@ MainWindow::MainWindow():
                                         "\n"
                                         "EiskaltDC++ version: %s\n"
                                         "DC++ core version: %s"),
-                                        EISKALTDCPP_VERSION, DCPP_VERSION);
+                                        EISKALTDCPP_VERSION_STRING, DCPP_VERSION);
 
     gtk_about_dialog_set_comments(GTK_ABOUT_DIALOG(getWidget("aboutDialog")), comments);
     g_free(comments);
