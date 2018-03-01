@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2001-2012 Jacek Sieka, arnetheduck on gmail point com
+ * Copyright (C) 2018 Boris Pek <tehnick-8@yandex.ru>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -49,7 +50,15 @@
 #include <climits>
 
 #if !defined(_WIN32) && !defined(PATH_MAX) // Extra PATH_MAX check for Mac OS X
+#if defined(__linux)
 #include <sys/syslimits.h>
+#elif defined(__GNU__)
+// Fix for GNU/Hurd, see:
+// https://www.gnu.org/software/hurd/community/gsoc/project_ideas/maxpath.html
+// http://insanecoding.blogspot.com/2007/11/pathmax-simply-isnt.html
+// The same limitation as in Linux is used here (see <linux/limits.h>):
+#define PATH_MAX 4096
+#endif
 #endif
 
 #ifdef ff
