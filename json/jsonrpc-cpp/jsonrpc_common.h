@@ -37,6 +37,11 @@
 
 #endif
 
+// Fixes build in Debian GNU/Hurd:
+#if defined(__GNU__)
+#undef RAW
+#endif
+
 namespace Json
 {
   namespace Rpc
