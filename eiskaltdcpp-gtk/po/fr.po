@@ -1,24 +1,23 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR EiskaltDC++ team
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Translators:
 # Translators:
-# Alexandre Wallimann <adressalacon@gmail.com>, 2013,2015
+# Alexandre Wallimann <adressalacon@gmail.com>, 2013,2015,2017
 msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: https://github.com/eiskaltdcpp/eiskaltdcpp/issues\n"
 "POT-Creation-Date: 2017-06-14 23:33+0300\n"
-"PO-Revision-Date: 2015-11-29 18:32+0000\n"
-"Last-Translator: Alexandre Wallimann <adressalacon@gmail.com>\n"
-"Language-Team: French (http://www.transifex.com/tehnick/eiskaltdcpp/language/"
-"fr/)\n"
-"Language: fr\n"
+"PO-Revision-Date: 2018-05-06 22:24+0000\n"
+"Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
+"Language-Team: French (http://www.transifex.com/tehnick/eiskaltdcpp/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: ../src/hub.cc:1065 ../src/hub.cc:1144 ../src/privatemessage.cc:565
@@ -116,15 +115,7 @@ msgid ""
 "%% a literal '%' character.\n"
 "\n"
 "see man strftime for details."
-msgstr ""
-"%a abréviation du jour de la semaine.\n"
-"%b abréviation du nom de mois.\n"
-"%H heure en mode 24h.\n"
-"%M minute en chiffre (de 00 à 59).\n"
-"%S seconde en chiffre (de 00 à 59).\n"
-"%% a literal '%' character.\n"
-"\n"
-"voir man strftime pour plus de détails."
+msgstr "%a abréviation du jour de la semaine.\n%b abréviation du nom de mois.\n%H heure en mode 24h.\n%M minute en chiffre (de 00 à 59).\n%S seconde en chiffre (de 00 à 59).\n%% a literal '%' character.\n\nvoir man strftime pour plus de détails."
 
 #: ../src/hub.cc:2373
 msgid "': type /help for a list of available commands"
@@ -286,11 +277,9 @@ msgstr ": tapez /help pour la liste des commandes disponibles"
 
 #: ../ui/settingsdialog.ui:7259
 msgid ""
-"<a href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html"
-"\">Help</a>"
-msgstr ""
-"<a href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html"
-"\">Help</a>"
+"<a "
+"href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html\">Help</a>"
+msgstr "<a href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html\">Help</a>"
 
 #: ../ui/settingsdialog.ui:3855
 msgid "<b>Add player</b>"
@@ -450,9 +439,7 @@ msgstr "<b>fichier:</b> "
 
 #: ../ui/publichubs.ui:151 ../ui/settingsdialog.ui:9258
 msgid "<b>Note:</b> Edit urls in the list by clicking them once when selected"
-msgstr ""
-"<b>Note:</b> Éditez les url dans la liste en les cliquant une fois "
-"lorsqu'elles sont sélectionnées. "
+msgstr "<b>Note:</b> Éditez les url dans la liste en les cliquant une fois lorsqu'elles sont sélectionnées. "
 
 #: ../ui/settingsdialog.ui:5545
 msgid "<b>Notify</b>"
@@ -638,9 +625,7 @@ msgstr "Ajouter les fichiers téléchargés au partage immédiatement (si partag
 msgid ""
 "Add rule 192.168.1.0/23 where direction incoming and action is allow and "
 "192.168.6.0/24 where direction is incoming or outcoming and action is drop"
-msgstr ""
-"Ajoutez la règle 192.168.1.0/23 où l'entrée et l'action sont autorisées et "
-"192.168.6.0/24 où l'entrée / sortie et l'action sont refusées."
+msgstr "Ajoutez la règle 192.168.1.0/23 où l'entrée et l'action sont autorisées et 192.168.6.0/24 où l'entrée / sortie et l'action sont refusées."
 
 #: ../ui/mainwindow.ui:288
 msgid "Add this file to your download queue"
@@ -807,9 +792,7 @@ msgstr "\"Absence\" auto lors de la réduction de fenêtre (et inversement)"
 
 #: ../src/settingsdialog.cc:987
 msgid "Auto-drop slow sources for all queue items (except filelists)"
-msgstr ""
-"Déconnecter automatiquement les sources lentes de toutes les files d'attente "
-"(sauf listes de fichiers)"
+msgstr "Déconnecter automatiquement les sources lentes de toutes les files d'attente (sauf listes de fichiers)"
 
 #: ../src/settingsdialog.cc:1652
 msgid "Automatically disconnect users who leave the hub"
@@ -821,14 +804,11 @@ msgstr "Suivre les redirections automatiquement"
 
 #: ../src/settingsdialog.cc:991
 msgid "Automatically match queue for auto search hits"
-msgstr ""
-"Correspondre automatiquement avec la file d'attente lors des recherche "
-"\"auto search\""
+msgstr "Correspondre automatiquement avec la file d'attente lors des recherche \"auto search\""
 
 #: ../ui/settingsdialog.ui:4167
 msgid "Automatically open extra slot if speed is below (0 = disable)"
-msgstr ""
-"Ouvrir un slot automatiquement si la vitesse est inférieure à (0 = désactivé)"
+msgstr "Ouvrir un slot automatiquement si la vitesse est inférieure à (0 = désactivé)"
 
 #: ../src/settingsdialog.cc:990
 msgid "Automatically search for alternative download locations"
@@ -1062,8 +1042,8 @@ msgid "Choose a File"
 msgstr "Choisissez un répertoire"
 
 #: ../src/hub.cc:2655 ../src/mainwindow.cc:1335 ../src/mainwindow.cc:1403
-#: ../src/privatemessage.cc:1302 ../ui/search.ui:7 ../ui/settingsdialog.ui:8510
-#: ../ui/sharebrowser.ui:7
+#: ../src/privatemessage.cc:1302 ../ui/search.ui:7
+#: ../ui/settingsdialog.ui:8510 ../ui/sharebrowser.ui:7
 msgid "Choose a directory"
 msgstr "Choisissez un répertoire"
 
@@ -1237,11 +1217,7 @@ msgid ""
 "\n"
 "EiskaltDC++ version: %s\n"
 "DC++ core version: %s"
-msgstr ""
-"DC++ Client basé sur le code source de FreeDC++ et LinuxDC++\n"
-"\n"
-"Version EiskaltDC++: %s\n"
-"DC++ core version: %s"
+msgstr "DC++ Client basé sur le code source de FreeDC++ et LinuxDC++\n\nVersion EiskaltDC++: %s\nDC++ core version: %s"
 
 #: ../ui/cmddebug.ui:99
 msgid "DETECTION"
@@ -1283,8 +1259,8 @@ msgstr "Effacer l'élément"
 #: ../src/favoriteusers.cc:115 ../src/favoriteusers.cc:375
 #: ../src/favoriteusers.cc:400 ../src/favoriteusers.cc:589 ../src/hub.cc:88
 #: ../src/hub.cc:407 ../src/hub.cc:427 ../src/publichubs.cc:48
-#: ../src/publichubs.cc:160 ../src/publichubs.cc:296 ../ui/favoriteusers.ui:212
-#: ../ui/settingsdialog.ui:1171
+#: ../src/publichubs.cc:160 ../src/publichubs.cc:296
+#: ../ui/favoriteusers.ui:212 ../ui/settingsdialog.ui:1171
 msgid "Description"
 msgstr "Description"
 
@@ -1355,8 +1331,7 @@ msgstr "Ne pas cacher le panneau latéral lors d'une recherche"
 
 #: ../src/settingsdialog.cc:989
 msgid "Don't remove the source when auto-dropping, only disconnect"
-msgstr ""
-"Ne pas retirer la source lors d'un rejet automatique, déconnecter seulement"
+msgstr "Ne pas retirer la source lors d'un rejet automatique, déconnecter seulement"
 
 #: ../src/settingsdialog.cc:1659
 msgid "Don't send the away message to bots"
@@ -1428,9 +1403,7 @@ msgstr "Limite de téléchargement de l'image: "
 
 #: ../src/hub.cc:2060
 msgid "Download limit image: 0 - disable, n < 0 - unlimit, empty - info"
-msgstr ""
-"Image de limite de téléchargement: 0 - désactivé, n < 0 - pas de limite, "
-"vide - info"
+msgstr "Image de limite de téléchargement: 0 - désactivé, n < 0 - pas de limite, vide - info"
 
 #: ../src/transfers.cc:1099
 msgid "Download removed"
@@ -1589,10 +1562,11 @@ msgid "Every time a private message is received"
 msgstr "Chaque fois qu'un message privé est reçu"
 
 #: ../src/downloadqueue.cc:79 ../src/downloadqueue.cc:94
-#: ../src/downloadqueue.cc:286 ../src/downloadqueue.cc:393 ../src/search.cc:108
-#: ../src/search.cc:131 ../src/search.cc:659 ../src/search.cc:736
-#: ../src/search.cc:745 ../src/sharebrowser.cc:88 ../src/sharebrowser.cc:111
-#: ../src/sharebrowser.cc:332 ../src/sharebrowser.cc:363
+#: ../src/downloadqueue.cc:286 ../src/downloadqueue.cc:393
+#: ../src/search.cc:108 ../src/search.cc:131 ../src/search.cc:659
+#: ../src/search.cc:736 ../src/search.cc:745 ../src/sharebrowser.cc:88
+#: ../src/sharebrowser.cc:111 ../src/sharebrowser.cc:332
+#: ../src/sharebrowser.cc:363
 msgid "Exact Size"
 msgstr "Taille exacte"
 
@@ -1843,9 +1817,7 @@ msgstr "Frame (size)"
 msgid ""
 "Frame size determines the width of the review, higher values affect "
 "performance"
-msgstr ""
-"Détermine la largeur de la review, les valeurs élevées affectent les "
-"performances"
+msgstr "Détermine la largeur de la review, les valeurs élevées affectent les performances"
 
 #: ../ui/searchspy.ui:313
 msgid "Frame:"
@@ -2180,9 +2152,7 @@ msgstr "Garder les fichiers et dossiers téléchargés dans la liste"
 msgid ""
 "Keep duplicate files in your file list (duplicates never count towards your "
 "share size)"
-msgstr ""
-"Garder les doublons dans votre liste de fichier (ils ne comptent pas dans la "
-"taille de votre partage)"
+msgstr "Garder les doublons dans votre liste de fichier (ils ne comptent pas dans la taille de votre partage)"
 
 #: ../src/settingsdialog.cc:1651
 msgid "Keep filelists when exiting"
@@ -2552,8 +2522,7 @@ msgstr "Pas de correspondances"
 
 #: ../ui/settingsdialog.ui:2778
 msgid "No new downloads if speed exceeds (KiB/s, 0 = disable)"
-msgstr ""
-"Pas de nouveaux téléchargements si la vitesse dépasse (Ko/s, 0 = infini)"
+msgstr "Pas de nouveaux téléchargements si la vitesse dépasse (Ko/s, 0 = infini)"
 
 #: ../src/sharebrowser.cc:906
 msgid "No search text entered"
@@ -2585,26 +2554,20 @@ msgstr "Utilisateur non trouvé: "
 
 #: ../ui/settingsdialog.ui:8460
 msgid "Note: Custom search types will only be applied to ADC hubs!"
-msgstr ""
-"Note: Les types de recherche personnalisées seront uniquement appliquées aux "
-"serveur ADC !"
+msgstr "Note: Les types de recherche personnalisées seront uniquement appliquées aux serveur ADC !"
 
 #: ../ui/settingsdialog.ui:4815 ../ui/settingsdialog.ui:4885
 msgid "Note: Most of these options require that you restart the application"
-msgstr ""
-"Note: La majorité de ces options nécessitent un redémarrage de l'application"
+msgstr "Note: La majorité de ces options nécessitent un redémarrage de l'application"
 
 #: ../ui/settingsdialog.ui:4022
 msgid "Note: New files are added to the share only once they've been hashed!"
-msgstr ""
-"Note: Les nouveaux fichiers sont ajoutés au partage uniquement lorsque "
-"qu'ils ont été scannés!"
+msgstr "Note: Les nouveaux fichiers sont ajoutés au partage uniquement lorsque qu'ils ont été scannés!"
 
 #: ../ui/settingsdialog.ui:2845
-msgid "Note; because of changing download speeds, this is not 100% accurate..."
-msgstr ""
-"Note: Dû aux variations des vitesses de téléchargement, ceci n'est pas "
-"efficace à 100%..."
+msgid ""
+"Note; because of changing download speeds, this is not 100% accurate..."
+msgstr "Note: Dû aux variations des vitesses de téléchargement, ceci n'est pas efficace à 100%..."
 
 #: ../src/settingsdialog.cc:1341 ../ui/settingsdialog.ui:5883
 msgid "Notify"
@@ -2903,8 +2866,7 @@ msgstr "Se souvenir du choix"
 
 #: ../src/downloadqueue.cc:1366
 msgid "Remote client does not fully support TTH - cannot download"
-msgstr ""
-"Le client distant ne supporte pas pleinement TTH - impossible de télécharger"
+msgstr "Le client distant ne supporte pas pleinement TTH - impossible de télécharger"
 
 #: ../ui/adlsearch.ui:508 ../ui/settingsdialog.ui:4341
 #: ../ui/settingsdialog.ui:8406 ../ui/uploadqueue.ui:69
@@ -3131,15 +3093,14 @@ msgstr "Traduction Serbe (Latin)\n"
 
 #: ../src/hub.cc:2070
 msgid ""
-"Set Core option param in value (without value return current value of option)"
-msgstr ""
-"Set Core option param in value (without value return current value of option)"
+"Set Core option param in value (without value return current value of "
+"option)"
+msgstr "Set Core option param in value (without value return current value of option)"
 
 #: ../src/hub.cc:2069
 msgid ""
 "Set GUI option param in value (without value return current value of option)"
-msgstr ""
-"Set GUI option param in value (without value return current value of option)"
+msgstr "Set GUI option param in value (without value return current value of option)"
 
 #: ../ui/downloadqueue.ui:81 ../ui/downloadqueue.ui:215
 msgid "Set Priorit_y"
@@ -3154,10 +3115,9 @@ msgid "Set download limit image: "
 msgstr "Spécifiez la limite de téléchargement de l'image: "
 
 #: ../src/settingsdialog.cc:986
-msgid "Set lowest priority for newly added files larger than low priority size"
-msgstr ""
-"Priorité la plus base pour les nouveaux fichiers ajoutés de taille plus "
-"grande que la priorité de taille basse"
+msgid ""
+"Set lowest priority for newly added files larger than low priority size"
+msgstr "Priorité la plus base pour les nouveaux fichiers ajoutés de taille plus grande que la priorité de taille basse"
 
 #: ../ui/settingsdialog.ui:4054
 msgid "Share hidden files"
@@ -3263,15 +3223,16 @@ msgid "Signal handlers installed.\n"
 msgstr "Gestionnaire de signaux installé.\n"
 
 #: ../src/downloadqueue.cc:74 ../src/downloadqueue.cc:93
-#: ../src/downloadqueue.cc:285 ../src/downloadqueue.cc:392 ../src/search.cc:103
-#: ../src/search.cc:130 ../src/search.cc:654 ../src/search.cc:737
-#: ../src/search.cc:746 ../src/search.cc:872 ../src/settingsdialog.cc:1034
-#: ../src/settingsdialog.cc:1040 ../src/settingsdialog.cc:3811
-#: ../src/settingsdialog.cc:3880 ../src/sharebrowser.cc:85
-#: ../src/sharebrowser.cc:110 ../src/sharebrowser.cc:331
-#: ../src/sharebrowser.cc:362 ../src/transfers.cc:67 ../src/transfers.cc:548
-#: ../src/transfers.cc:717 ../src/transfers.cc:729 ../ui/mainwindow.ui:118
-#: ../ui/search.ui:138 ../ui/search.ui:294
+#: ../src/downloadqueue.cc:285 ../src/downloadqueue.cc:392
+#: ../src/search.cc:103 ../src/search.cc:130 ../src/search.cc:654
+#: ../src/search.cc:737 ../src/search.cc:746 ../src/search.cc:872
+#: ../src/settingsdialog.cc:1034 ../src/settingsdialog.cc:1040
+#: ../src/settingsdialog.cc:3811 ../src/settingsdialog.cc:3880
+#: ../src/sharebrowser.cc:85 ../src/sharebrowser.cc:110
+#: ../src/sharebrowser.cc:331 ../src/sharebrowser.cc:362
+#: ../src/transfers.cc:67 ../src/transfers.cc:548 ../src/transfers.cc:717
+#: ../src/transfers.cc:729 ../ui/mainwindow.ui:118 ../ui/search.ui:138
+#: ../ui/search.ui:294
 msgid "Size"
 msgstr "Taille"
 
@@ -3462,9 +3423,7 @@ msgstr "Style du texte"
 msgid ""
 "The increase in waiting time increases the likelihood of adding to top, but "
 "reduces the dynamics (updating) frame"
-msgstr ""
-"The increase in waiting time increases the likelihood of adding to top, but "
-"reduces the dynamics (updating) frame"
+msgstr "The increase in waiting time increases the likelihood of adding to top, but reduces the dynamics (updating) frame"
 
 #: ../src/favoritehubs.cc:419
 msgid "The name and address fields are required"
@@ -3516,9 +3475,7 @@ msgstr "Vers (vide pour utilisateur sélectionné)"
 msgid ""
 "To start downloading file you need turn on auto search alternatives "
 "(Settings/Downloads/Queue)"
-msgstr ""
-"Pour commencer à télécharger le fichier vous devez activer \"Recherche "
-"automatique de peers\" (Paramètres/Téléchargements/Liste d'attente)"
+msgstr "Pour commencer à télécharger le fichier vous devez activer \"Recherche automatique de peers\" (Paramètres/Téléchargements/Liste d'attente)"
 
 #: ../ui/settingsdialog.ui:6193
 msgid "Toolbar"
@@ -3624,13 +3581,10 @@ msgstr "Impossible de charger la liste de fichiers: Nom de liste invalide"
 
 #: ../src/mainwindow.cc:2295
 msgid ""
-"Unable to open %1% port. Searching or file transfers will not work correctly "
-"until you change settings or turn off any application that might be using "
+"Unable to open %1% port. Searching or file transfers will not work correctly"
+" until you change settings or turn off any application that might be using "
 "that port."
-msgstr ""
-"Impossible d'ouvrir le port %1%. Les recherches ou transferts de fichiers ne "
-"fonctionneront pas correctement tant que vous ne changerez pas vos "
-"paramètres ou fermiez toute application susceptible d'utiliser ce port."
+msgstr "Impossible d'ouvrir le port %1%. Les recherches ou transferts de fichiers ne fonctionneront pas correctement tant que vous ne changerez pas vos paramètres ou fermiez toute application susceptible d'utiliser ce port."
 
 #: ../ui/settingsdialog.ui:2688
 msgid "Unfinished downloads directory"
@@ -3761,9 +3715,7 @@ msgstr "Utiliser les smileys"
 
 #: ../src/settingsdialog.cc:1660
 msgid "Use fast hashing method (disable if you have problems with hashing)"
-msgstr ""
-"Utiliser la méthode rapide de scan (désactivez si vous rencontrez des "
-"problèmes) "
+msgstr "Utiliser la méthode rapide de scan (désactivez si vous rencontrez des problèmes) "
 
 #: ../src/settingsdialog.cc:1126
 msgid "Use magnet split"
@@ -3864,28 +3816,12 @@ msgid ""
 "Using:\n"
 "  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n"
 "  eiskaltdcpp-gtk <Key>\n"
-"EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC "
-"protocol.\n"
+"EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC protocol.\n"
 "\n"
 "Keys:\n"
 "  -h, --help\t Show this message\n"
 "  -V, --version\t Show version string\n"
-msgstr ""
-"Using:\n"
-"\n"
-"  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n"
-"\n"
-"  eiskaltdcpp-gtk <Key>\n"
-"\n"
-"EiskaltDC++ est un programme multi-plateformes qui utilisent les protocoles "
-"Direct Connect et ADC.\n"
-"\n"
-"\n"
-"Keys:\n"
-"\n"
-"  -h, --help⇥ Montre ce message\n"
-"\n"
-"  -V, --version⇥ Montre la version\n"
+msgstr "Using:\n\n  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n\n  eiskaltdcpp-gtk <Key>\n\nEiskaltDC++ est un programme multi-plateformes qui utilisent les protocoles Direct Connect et ADC.\n\n\nKeys:\n\n  -h, --help⇥ Montre ce message\n\n  -V, --version⇥ Montre la version\n"
 
 #: ../src/sharebrowser.cc:91 ../src/sharebrowser.cc:369
 msgid "Video"
@@ -3935,9 +3871,7 @@ msgstr "Attente (secondes)"
 #: ../src/hub.cc:559
 msgid ""
 "Waiting for input password (don't remove /password before your password)"
-msgstr ""
-"En attente du mot de passe (ne retirez pas /password avant votre mot de "
-"passe)"
+msgstr "En attente du mot de passe (ne retirez pas /password avant votre mot de passe)"
 
 #: ../src/transfers.cc:583
 msgid "Waiting for slot"
@@ -4166,9 +4100,9 @@ msgstr "_Quick connect"
 msgid "_Refresh file list"
 msgstr "_Refresh file list"
 
-#: ../ui/adlsearch.ui:553 ../ui/downloadqueue.ui:170 ../ui/downloadqueue.ui:359
-#: ../ui/favoriteusers.ui:227 ../ui/search.ui:814 ../ui/searchspy.ui:108
-#: ../ui/searchspy.ui:416
+#: ../ui/adlsearch.ui:553 ../ui/downloadqueue.ui:170
+#: ../ui/downloadqueue.ui:359 ../ui/favoriteusers.ui:227 ../ui/search.ui:814
+#: ../ui/searchspy.ui:108 ../ui/searchspy.ui:416
 msgid "_Remove"
 msgstr "_Remove"
 
