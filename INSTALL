@@ -308,8 +308,9 @@ sudo make install
 Mac OS X specific notes
 *******************************************************************************
 Examples of build scripts:
-macosx/build-universal-binary.sh
-macosx/build.sh
+macosx/build-universal-binary.sh (outdated)
+macosx/build-for-personal-use.sh (outdated)
+macosx/build-using-homebrew.sh (recommended)
 
 
 *******************************************************************************

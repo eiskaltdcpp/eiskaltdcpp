@@ -260,6 +260,7 @@ include_directories (
         ${PROJECT_SOURCE_DIR}/scriptengine
         ${PROJECT_SOURCE_DIR}/..
         ${Boost_INCLUDE_DIRS}
+        ${GETTEXT_INCLUDE_DIR}
         )
 list (APPEND LIBS ${Boost_LIBRARIES} ${ICONV_LIBRARIES})
 
