@@ -89,17 +89,14 @@ ${OPENSSL_LIBRARIES} ${GETTEXT_LIBRARIES} ${ICONV_LIBRARIES} ${WIN32_LIBS} ${APP
 set_target_properties(dcpp PROPERTIES VERSION ${SOVERSION} OUTPUT_NAME "eiskaltdcpp")
 
 if (APPLE)
-  set (LIBDIR1 .)
-  set (LIBDIR ${PROJECT_NAME_GLOBAL}.app/Contents/MacOS)
-  if (USE_QT5)
-    set (LIBDIR ${PROJECT_NAME_GLOBAL}.app/Contents/Frameworks)
-  endif (USE_QT5)
+  set (LIBDIR ${PROJECT_NAME_GLOBAL}.app/Contents/Frameworks)
+  set_target_properties(dcpp PROPERTIES BUILD_WITH_INSTALL_RPATH 1 INSTALL_NAME_DIR "@executable_path/../Frameworks")
 endif(APPLE)
 
 if (LINK STREQUAL SHARED)
 install (TARGETS dcpp
             LIBRARY DESTINATION ${LIBDIR} NAMELINK_SKIP
-            BUNDLE DESTINATION ${LIBDIR1})
+            BUNDLE DESTINATION ${LIBDIR})
 endif (LINK STREQUAL SHARED)
 
 if (WITH_DEV_FILES)
