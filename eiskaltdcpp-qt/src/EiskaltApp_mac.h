@@ -111,6 +111,8 @@ private:
     EiskaltEventFilter ef;
 
     void installMacHandlers(){
+        return; // temporary workaround for segfault on startup. TODO: real fix is needed!
+
         objc_object* cls = (objc_object*)objc_getClass("NSApplication");
         SEL sharedApplication = sel_registerName("sharedApplication");
         objc_object* appInst = objc_msgSend(cls, sharedApplication);
