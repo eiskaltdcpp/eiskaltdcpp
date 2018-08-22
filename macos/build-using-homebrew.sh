@@ -24,6 +24,7 @@ BUILD_OPTIONS="-DCMAKE_BUILD_TYPE=Release \
                -DLOCAL_MINIUPNP=OFF \
                -DFREE_SPACE_BAR_C=ON \
                -DWITH_SOUNDS=ON \
+               -DWITH_LUASCRIPTS=ON \
                -DUSE_ASPELL=ON \
                -DPERL_REGEX=ON \
                -DLUA_SCRIPT=ON \
