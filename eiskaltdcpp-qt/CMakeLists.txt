@@ -84,10 +84,6 @@ else (USE_QT_SQLITE)
     message (STATUS "Building without Qt SQLite support")
 endif (USE_QT_SQLITE)
 
-if (WITH_DHT)
-    add_definitions ( -DWITH_DHT )
-endif (WITH_DHT)
-
 aux_source_directory(${PROJECT_SOURCE_DIR}/src SRCS)
 
 if (NOT HAIKU)

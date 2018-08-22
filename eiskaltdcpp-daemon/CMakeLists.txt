@@ -37,10 +37,6 @@ if (XMLRPC_DAEMON)
     add_definitions (-DXMLRPC_DAEMON )
 endif (XMLRPC_DAEMON)
 
-if (WITH_DHT)
-  add_definitions ( -DWITH_DHT )
-endif (WITH_DHT)
-
 if (HAVE_DAEMON)
     add_definitions(-DHAVE_DAEMON)
 endif(HAVE_DAEMON)

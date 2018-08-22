@@ -47,7 +47,6 @@ set (UPNP "extra")
 add_library (dcpp ${LINK} ${dcpp_srcs})
 
 if (WITH_DHT)
-  add_definitions ( -DWITH_DHT )
   set (DHT_LIB "dht")
 endif (WITH_DHT)
 

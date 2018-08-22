@@ -155,7 +155,7 @@ Keys for cmake
 -DLINK=STATIC/SHARED (default: SHARED)
     make static or shared library
     Option available only on Unix-like systems.
-    On MS Windows platform it forcibly set to STATIC.
+    On MS Windows and macOS platforms it is forcibly set to STATIC.
 ----------------
 :eiskaltdcpp-qt:
 ----------------
