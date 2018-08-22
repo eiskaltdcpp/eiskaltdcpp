@@ -111,8 +111,6 @@ private:
     EiskaltEventFilter ef;
 
     void installMacHandlers(){
-        return; // temporary workaround for segfault on startup. TODO: real fix is needed!
-
         objc_object* cls = (objc_object*)objc_getClass("NSApplication");
         SEL sharedApplication = sel_registerName("sharedApplication");
         objc_object* appInst = objc_msgSend(cls, sharedApplication);
@@ -120,7 +118,6 @@ private:
         if (appInst){
             objc_object* delegate = objc_msgSend(appInst,  sel_registerName("delegate"));
             objc_object* delClass = objc_msgSend(delegate, sel_registerName("class"));
-            const char* tst = class_getName(delClass->isa);
             bool test = class_addMethod((objc_class*)delClass,
                                         sel_registerName("applicationShouldHandleReopen:hasVisibleWindows:"),
                                         (IMP)dockClickHandler,"B@:");
