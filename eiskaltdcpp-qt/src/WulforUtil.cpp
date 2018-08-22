@@ -145,7 +145,7 @@ bool WulforUtil::loadUserIcons(){
         return loadUserIconsFromFile(settings_path + PATH_SEPARATOR_STR + QString("usericons.png"));
 
 #if defined(Q_OS_MAC)
-    settings_path = bin_path + "../../qt/icons/user/" + user_theme;
+    settings_path = bin_path + "/../../qt/icons/user/" + user_theme;
     settings_path = QDir::toNativeSeparators(settings_path);
     if (QDir(settings_path).exists())
         return loadUserIconsFromFile(settings_path + PATH_SEPARATOR_STR + QString("usericons.png"));
@@ -190,7 +190,7 @@ QString WulforUtil::findAppIconsPath(){
         return settings_path;
 
 #if defined(Q_OS_MAC)
-    settings_path = bin_path + "../../qt/icons/appl/" + icon_theme;
+    settings_path = bin_path + "/../../qt/icons/appl/" + icon_theme;
     settings_path = QDir::toNativeSeparators(settings_path);
     if (QDir(settings_path).exists())
         return settings_path;
@@ -308,10 +308,14 @@ bool WulforUtil::loadIcons(){
 
     QString icon_theme = WSGET(WS_APP_ICONTHEME);
 #if !defined(Q_OS_WIN)
+#if defined(Q_OS_MAC)
+    QString fname = bin_path + QString("/../../" CLIENT_RES_DIR "/") + icon_theme + ".rcc";
+#else // defined(Q_OS_MAC)
     QString fname = QString(CLIENT_RES_DIR) + PATH_SEPARATOR_STR + icon_theme+".rcc";
-#else
+#endif // defined(Q_OS_MAC)
+#else // !defined(Q_OS_WIN)
     QString fname = bin_path + CLIENT_RES_DIR + PATH_SEPARATOR_STR + icon_theme + ".rcc";
-#endif
+#endif // !defined(Q_OS_WIN)
     bool resourceFound = false;
 
     if (QFile(fname).exists() && !WBGET("app/use-icon-theme", false))

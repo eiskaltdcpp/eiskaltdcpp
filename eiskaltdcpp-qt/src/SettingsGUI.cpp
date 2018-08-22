@@ -115,10 +115,14 @@ void SettingsGUI::init(){
         comboBox_LANGS->setCurrentIndex(k);
 
 #if !defined(Q_OS_WIN)
+#if defined(Q_OS_MAC)
+        QString users = qApp->applicationDirPath()+ "/../../" CLIENT_ICONS_DIR "/user/";
+#else // defined(Q_OS_MAC)
         QString users = CLIENT_ICONS_DIR "/user/";
-#else
+#endif // defined(Q_OS_MAC)
+#else // !defined(Q_OS_WIN)
         QString users = qApp->applicationDirPath()+QDir::separator()+CLIENT_ICONS_DIR "/user/";
-#endif
+#endif // !defined(Q_OS_WIN)
         i = 0;
         k = -1;
         for (const QString &f : QDir(users).entryList(QDir::Dirs | QDir::NoSymLinks | QDir::NoDotAndDotDot)){
@@ -134,10 +138,14 @@ void SettingsGUI::init(){
         comboBox_USERS->setCurrentIndex(k);
 
 #if !defined(Q_OS_WIN)
+#if defined(Q_OS_MAC)
+        QString icons = qApp->applicationDirPath()+ "/../../" CLIENT_ICONS_DIR "/appl/";
+#else // defined(Q_OS_MAC)
         QString icons = CLIENT_ICONS_DIR "/appl/";
-#else
+#endif // defined(Q_OS_MAC)
+#else // !defined(Q_OS_WIN)
         QString icons = qApp->applicationDirPath()+QDir::separator()+CLIENT_ICONS_DIR "/appl/";
-#endif
+#endif // !defined(Q_OS_WIN)
         i = 0;
         k = -1;
         for (const QString &f : QDir(icons).entryList(QDir::Dirs | QDir::NoSymLinks | QDir::NoDotAndDotDot)){

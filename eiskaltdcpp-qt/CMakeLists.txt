@@ -368,8 +368,8 @@ endif (USE_JS)
 
 if (APPLE)
   add_definitions(
-                  -DCLIENT_ICONS_DIR="${PROJECT_NAME_GLOBAL}.app/qt/icons"
-                  -DCLIENT_RES_DIR="${PROJECT_NAME_GLOBAL}.app/resources"
+                  -DCLIENT_ICONS_DIR="qt/icons"
+                  -DCLIENT_RES_DIR="resources"
                  )
 else (APPLE)
   add_definitions(

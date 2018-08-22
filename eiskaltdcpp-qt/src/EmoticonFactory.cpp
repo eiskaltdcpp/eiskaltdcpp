@@ -19,10 +19,6 @@
 
 #include <math.h>
 
-#ifndef CLIENT_ICONS_DIR
-#define CLIENT_ICONS_DIR ""
-#endif
-
 static const QString EmoticonSectionName = "emoticons-map";
 static const QString EmoticonSubsectionName = "emoticon";
 static const QString EmoticonTextSectionName = "name";
