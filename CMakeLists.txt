@@ -214,10 +214,6 @@ set (SHARE_DIR "share")
 endif (NOT SHARE_DIR)
 
 if (APPLE)
-    add_definitions(-DAPPLE)
-endif (APPLE)
-
-if (APPLE)
   set (CLIENT_DATA_DIR "${PROJECT_NAME_GLOBAL}.app")
 elseif (WIN32 OR HAIKU)
   set (CLIENT_DATA_DIR "${SHARE_DIR}")

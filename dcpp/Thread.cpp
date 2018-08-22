@@ -49,7 +49,7 @@ void Thread::setThreadName(const char* const threadName) const {
 
 #if defined(__HAIKU__)
     // TODO, see http://haiku-os.org/legacy-docs/bebook/TheKernelKit_ThreadsAndTeams.html#rename_thread
-#elif defined(APPLE) && (DARWIN_MAJOR_VERSION >= 10)
+#elif defined(__APPLE__) && defined(__MACH__) && (DARWIN_MAJOR_VERSION >= 10)
     // pthread_setname_np is supported starting Mac OS X 10.6
 
     // Mac OS X allegedly truncates thread names to 63 chars

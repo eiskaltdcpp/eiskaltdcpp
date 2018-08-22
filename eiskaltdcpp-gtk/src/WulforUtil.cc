@@ -235,7 +235,7 @@ void WulforUtil::openURI(const string &uri)
     if (!SETTING(MIME_HANDLER).empty())
         argv[0] = (gchar *)(SETTING(MIME_HANDLER)).c_str();
     else
-#if defined(__APPLE__)
+#if defined(__APPLE__) && defined(__MACH__)
     argv[0] = (gchar *)"open";
 #elif defined(_WIN32)
     argv[0] = (gchar *)"start";
