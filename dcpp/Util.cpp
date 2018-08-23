@@ -29,18 +29,18 @@
 #include "File.h"
 #include "SimpleXML.h"
 
-#ifdef _WIN32
+#if defined(_WIN32)
 #include "w.h"
 #include "shlobj.h"
 #include "lmcons.h"
-#else // _WIN32
+#else // defined(_WIN32)
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
 #include <netdb.h>
 #include <sys/utsname.h>
 #include <cctype>
-#endif // _WIN32
+#endif // defined(_WIN32)
 
 #ifdef HAVE_IFADDRS_H
 #include <ifaddrs.h>
@@ -104,7 +104,7 @@ extern "C" void bz_internal_error(int errcode) {
     dcdebug("bzip2 internal error: %d\n", errcode);
 }
 
-#ifdef _WIN32
+#if defined(_WIN32)
 
 typedef HRESULT (WINAPI* _SHGetKnownFolderPath)(GUID& rfid, DWORD dwFlags, HANDLE hToken, PWSTR *ppszPath);
 
@@ -134,7 +134,7 @@ static string getDownloadsPath(const string& def) {
     return def + "Downloads\\";
 }
 
-#endif // _WIN32
+#endif // defined(_WIN32)
 
 void Util::initialize(PathsMap pathOverrides) {
     static bool initDone = false;
@@ -152,7 +152,7 @@ void Util::initialize(PathsMap pathOverrides) {
             paths[it->first] = it->second;
     }
 
-#ifdef _WIN32
+#if defined(_WIN32)
     string exePath = winExecutablePath();
 
     // Global config path is DC++ executable path...
@@ -185,15 +185,15 @@ void Util::initialize(PathsMap pathOverrides) {
 
     // libintl doesn't support wide path names so we use the short (8.3) format.
     // https://sourceforge.net/forum/message.php?msg_id=4882703
-    tstring localePath_ = Text::toT(exePath) + _T("resources\\locale\\");
+    tstring localePathStr = Text::toT(exePath) + _T("resources\\locale\\");
     memset(buf, 0, sizeof(buf));
-    ::GetShortPathName(localePath_.c_str(), buf, sizeof(buf)/sizeof(TCHAR));
+    ::GetShortPathName(localePathStr.c_str(), buf, sizeof(buf)/sizeof(TCHAR));
     if (Util::getPath(Util::PATH_LOCALE).empty())
         paths[PATH_LOCALE] = Text::fromT(buf);
     //if (Util::getPath(Util::PATH_DOWNLOADS).empty())
     //    paths[PATH_DOWNLOADS] = getDownloadsPath(paths[PATH_USER_CONFIG]);
 
-#else // _WIN32
+#else // defined(_WIN32)
     if (Util::getPath(Util::PATH_GLOBAL_CONFIG).empty())
         paths[PATH_GLOBAL_CONFIG] = "/etc/";
     const char* home_ = getenv("HOME");
@@ -255,7 +255,7 @@ void Util::initialize(PathsMap pathOverrides) {
         paths[PATH_DOWNLOADS] = home + "/Downloads/";
 #endif
     }
-#endif // _WIN32
+#endif // defined(_WIN32)
     if (Util::getPath(Util::PATH_FILE_LISTS).empty())
         paths[PATH_FILE_LISTS] = paths[PATH_USER_LOCAL] + "FileLists" PATH_SEPARATOR_STR;
     if (Util::getPath(Util::PATH_HUB_LISTS).empty())
@@ -269,7 +269,7 @@ void Util::initialize(PathsMap pathOverrides) {
     try {
         // This product includes GeoIP data created by MaxMind, available from http://maxmind.com/
         // Updates at http://www.maxmind.com/app/geoip_country
-#ifdef _WIN32
+#if defined(_WIN32)
         string file = getPath(PATH_RESOURCES) + "GeoIPCountryWhois.csv";
 #else //_WIN32
         string file_usr = getPath(PATH_RESOURCES) + "GeoIPCountryWhois.csv";
@@ -343,7 +343,7 @@ void Util::migrate(const string& file) {
 string Util::getLoginName() {
     string loginName = "unknown";
 
-#ifdef _WIN32
+#if defined(_WIN32)
     char winUserName[UNLEN + 1]; // UNLEN is defined in LMCONS.H
     DWORD winUserNameSize = sizeof(winUserName);
     if(GetUserNameA(winUserName, &winUserNameSize))
@@ -351,7 +351,7 @@ string Util::getLoginName() {
 #else // not _WIN32
     const char *envUserName = getenv("LOGNAME");
     loginName = envUserName? Text::toUtf8(envUserName) : loginName;
-#endif // _WIN32
+#endif // defined(_WIN32)
 
     return loginName;
 }
@@ -369,7 +369,7 @@ void Util::loadBootConfig() {
 
         if(boot.findChild("ConfigPath")) {
             StringMap params;
-#ifdef _WIN32
+#if defined(_WIN32)
             // @todo load environment variables instead? would make it more useful on *nix
             TCHAR path[MAX_PATH];
 
@@ -383,7 +383,7 @@ void Util::loadBootConfig() {
     }
 }
 
-#ifdef _WIN32
+#if defined(_WIN32)
 static const char badChars[] = {
     1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16,
     17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30,
@@ -698,7 +698,7 @@ string Util::formatBytes(int64_t aBytes) {
 }
 
 string Util::formatExactSize(int64_t aBytes) {
-#ifdef _WIN32
+#if defined(_WIN32)
     TCHAR tbuf[128];
     TCHAR number[64];
     NUMBERFMT nf;
@@ -1105,7 +1105,7 @@ string Util::formatTime(const string &msg, const time_t t) {
             buf.resize(strftime(&buf[0], bufsize-1, msg.c_str(), loc));
         }
 
-#ifdef _WIN32
+#if defined(_WIN32)
         if(!Text::validateUtf8(buf))
 #endif
         {
@@ -1258,7 +1258,7 @@ string Util::toNmdcFile(const string& file) {
 }
 
 string Util::translateError(int aError) {
-#ifdef _WIN32
+#if defined(_WIN32)
     LPTSTR lpMsgBuf;
     DWORD chars = FormatMessage(
         FORMAT_MESSAGE_ALLOCATE_BUFFER |
@@ -1283,9 +1283,9 @@ string Util::translateError(int aError) {
         tmp.erase(i, 1);
     }
     return tmp;
-#else // _WIN32
+#else // defined(_WIN32)
     return Text::toUtf8(strerror(aError));
-#endif // _WIN32
+#endif // defined(_WIN32)
 }
 
 bool Util::getAway() {
@@ -1334,7 +1334,7 @@ string Util::formatAdditionalInfo(const string& aIp, bool sIp, bool sCC) {
 }
 
 bool Util::fileExists(const string &aFile) {
-#ifdef _WIN32
+#if defined(_WIN32)
     DWORD attr = GetFileAttributes(Text::toT(aFile).c_str());
     return (attr != 0xFFFFFFFF);
 #else
