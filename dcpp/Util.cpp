@@ -33,14 +33,15 @@
 #include "w.h"
 #include "shlobj.h"
 #include "lmcons.h"
-#else
+#else // _WIN32
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
 #include <netdb.h>
 #include <sys/utsname.h>
 #include <cctype>
-#endif
+#endif // _WIN32
+
 #ifdef HAVE_IFADDRS_H
 #include <ifaddrs.h>
 #include <net/if.h>
@@ -55,7 +56,28 @@
 #include <idna.h>
 #endif
 
+#if defined(__APPLE__) && defined(__MACH__)
+#include <mach-o/dyld.h> // _NSGetExecutablePath()
+#endif
+
 namespace dcpp {
+
+#if defined(_WIN32)
+string winExecutablePath()
+{
+    TCHAR buf[MAX_PATH+1] = { 0 };
+    ::GetModuleFileName(NULL, buf, MAX_PATH);
+    return Util::getFilePath(Text::fromT(buf));
+}
+#elif defined(__APPLE__) && defined(__MACH__)
+string macExecutablePath()
+{
+    char buf[PATH_MAX + 1];
+    uint32_t bufsize = sizeof(buf);
+    _NSGetExecutablePath(buf, &bufsize);
+    return Util::getFilePath(string(buf, bufsize));
+}
+#endif // defined(_WIN32)
 
 #ifndef _DEBUG
 FastCriticalSection FastAllocBase::cs;
@@ -112,7 +134,7 @@ static string getDownloadsPath(const string& def) {
     return def + "Downloads\\";
 }
 
-#endif
+#endif // _WIN32
 
 void Util::initialize(PathsMap pathOverrides) {
     static bool initDone = false;
@@ -131,10 +153,7 @@ void Util::initialize(PathsMap pathOverrides) {
     }
 
 #ifdef _WIN32
-    TCHAR buf[MAX_PATH+1] = { 0 };
-    ::GetModuleFileName(NULL, buf, MAX_PATH);
-
-    string exePath = Util::getFilePath(Text::fromT(buf));
+    string exePath = winExecutablePath();
 
     // Global config path is DC++ executable path...
     if (Util::getPath(Util::PATH_GLOBAL_CONFIG).empty())
@@ -166,7 +185,7 @@ void Util::initialize(PathsMap pathOverrides) {
 
     // libintl doesn't support wide path names so we use the short (8.3) format.
     // https://sourceforge.net/forum/message.php?msg_id=4882703
-    tstring localePath_ = Text::toT(exePath) + _T("locale\\");
+    tstring localePath_ = Text::toT(exePath) + _T("resources\\locale\\");
     memset(buf, 0, sizeof(buf));
     ::GetShortPathName(localePath_.c_str(), buf, sizeof(buf)/sizeof(TCHAR));
     if (Util::getPath(Util::PATH_LOCALE).empty())
@@ -174,7 +193,7 @@ void Util::initialize(PathsMap pathOverrides) {
     //if (Util::getPath(Util::PATH_DOWNLOADS).empty())
     //    paths[PATH_DOWNLOADS] = getDownloadsPath(paths[PATH_USER_CONFIG]);
 
-#else
+#else // _WIN32
     if (Util::getPath(Util::PATH_GLOBAL_CONFIG).empty())
         paths[PATH_GLOBAL_CONFIG] = "/etc/";
     const char* home_ = getenv("HOME");
@@ -189,7 +208,7 @@ void Util::initialize(PathsMap pathOverrides) {
         paths[PATH_USER_CONFIG] = home + "/config/settings/eiskaltdc++/";
 #else
         paths[PATH_USER_CONFIG] = home + "/.eiskaltdc++/";
-#endif
+#endif // FORCE_XDG
 
         loadBootConfig();
 
@@ -213,13 +232,20 @@ void Util::initialize(PathsMap pathOverrides) {
         paths[PATH_USER_LOCAL] = home + "/config/data/eiskaltdc++/";
 #else
         paths[PATH_USER_LOCAL] = paths[PATH_USER_CONFIG];
-#endif
+#endif // FORCE_XDG
     }
 
     if (Util::getPath(Util::PATH_RESOURCES).empty())
         paths[PATH_RESOURCES] = paths[PATH_USER_CONFIG];
     if (Util::getPath(Util::PATH_LOCALE).empty())
-        paths[PATH_LOCALE] = LOCALEDIR;
+#if defined(_WIN32)
+        paths[PATH_LOCALE] = winExecutablePath() + "resources\\locale\\";
+#elif defined(__APPLE__) && defined(__MACH__)
+        paths[PATH_LOCALE] = macExecutablePath() + "../../locale/";
+#else // Other systems
+        paths[PATH_LOCALE] = LOCALE_DIR PATH_SEPARATOR_STR;
+#endif // defined(_WIN32)
+
     if (Util::getPath(Util::PATH_DOWNLOADS).empty()) {
 #ifdef FORCE_XDG
         const char *xdg_config_down_ = getenv("XDG_DOWNLOAD_DIR");
@@ -229,7 +255,7 @@ void Util::initialize(PathsMap pathOverrides) {
         paths[PATH_DOWNLOADS] = home + "/Downloads/";
 #endif
     }
-#endif
+#endif // _WIN32
     if (Util::getPath(Util::PATH_FILE_LISTS).empty())
         paths[PATH_FILE_LISTS] = paths[PATH_USER_LOCAL] + "FileLists" PATH_SEPARATOR_STR;
     if (Util::getPath(Util::PATH_HUB_LISTS).empty())

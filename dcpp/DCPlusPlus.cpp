@@ -71,7 +71,7 @@ void startup(void (*f)(void*, const string&), void* p) {
 
     Util::initialize();
 
-    bindtextdomain(PACKAGE, LOCALEDIR);
+    bindtextdomain(PACKAGE, LOCALE_DIR);
     bind_textdomain_codeset(PACKAGE, "UTF-8");
 
     ResourceManager::newInstance();

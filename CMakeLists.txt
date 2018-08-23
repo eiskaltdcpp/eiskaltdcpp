@@ -210,7 +210,11 @@ elseif (CMAKE_BUILD_TYPE STREQUAL "Gentoo" AND (USE_QT OR USE_QT5))
 endif (NOT CMAKE_BUILD_TYPE)
 
 if (NOT SHARE_DIR)
-set (SHARE_DIR "share")
+  if (WIN32)
+    set (SHARE_DIR "resources")
+  else (WIN32)
+    set (SHARE_DIR "share")
+  endif (WIN32)
 endif (NOT SHARE_DIR)
 
 if (APPLE)
