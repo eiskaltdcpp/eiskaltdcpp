@@ -12,26 +12,32 @@ set (DCPP_SRCS ${dcpp_srcs} PARENT_SCOPE)
 set (DCPP_HDRS ${dcpp_hdrs} PARENT_SCOPE)
 
 if (NOT LUA_SCRIPT)
-  list (REMOVE_ITEM dcpp_srcs ${PROJECT_SOURCE_DIR}/ScriptManager.cpp)
-endif ()
+    list (REMOVE_ITEM dcpp_srcs ${PROJECT_SOURCE_DIR}/ScriptManager.cpp)
+endif (NOT LUA_SCRIPT)
 
-include_directories (${Boost_INCLUDE_DIR} ${BZIP2_INCLUDE_DIR} ${ZLIB_INCLUDE_DIR} ${OPENSSL_INCLUDE_DIR} ${GETTEXT_INCLUDE_DIR} ${LUA_INCLUDE_DIR} ${IDNA_INCLUDE_DIR})
+include_directories (${Boost_INCLUDE_DIR}
+                     ${BZIP2_INCLUDE_DIR}
+                     ${ZLIB_INCLUDE_DIR}
+                     ${OPENSSL_INCLUDE_DIR}
+                     ${GETTEXT_INCLUDE_DIR}
+                     ${LUA_INCLUDE_DIR}
+                     ${IDNA_INCLUDE_DIR})
 
 if (WIN32)
-  set (LINK STATIC)
-  set (WIN32_LIBS "ws2_32")
+    set (LINK STATIC)
+    set (WIN32_LIBS "ws2_32")
 else (WIN32)
-  if (NOT CMAKE_CROSSCOMPILING)
-    if (HAIKU)
-        set (PTHREADS "root")
-        set (HAIKU_LIB "network" "textencoding")
-    else (HAIKU)
-        set (PTHREADS "pthread")
-        if (APPLE)
-            set (LINK STATIC)
-        endif(APPLE)
-    endif(HAIKU)
-  endif (NOT CMAKE_CROSSCOMPILING)
+    if (NOT CMAKE_CROSSCOMPILING)
+        if (HAIKU)
+            set (PTHREADS "root")
+            set (HAIKU_LIB "network" "textencoding")
+        else (HAIKU)
+            set (PTHREADS "pthread")
+            if (APPLE)
+                set (LINK STATIC)
+            endif(APPLE)
+        endif(HAIKU)
+    endif (NOT CMAKE_CROSSCOMPILING)
 endif (WIN32)
 
 if (NOT LINK)
@@ -39,7 +45,7 @@ if (NOT LINK)
 endif (NOT LINK)
 
 if (APPLE)
-  set (APPLE_LIBS "iconv")
+    set (APPLE_LIBS "iconv")
 endif (APPLE)
 
 set (UPNP "extra")
@@ -47,12 +53,12 @@ set (UPNP "extra")
 add_library (dcpp ${LINK} ${dcpp_srcs})
 
 if (WITH_DHT)
-  set (DHT_LIB "dht")
+    set (DHT_LIB "dht")
 endif (WITH_DHT)
 
 if (PERL_REGEX)
-  set_property(SOURCE ${PROJECT_SOURCE_DIR}/ADLSearch.cpp PROPERTY COMPILE_DEFINITIONS USE_PCRE )
-  set(PCRE ${PCRE_LIBRARIES})
+    set_property(SOURCE ${PROJECT_SOURCE_DIR}/ADLSearch.cpp PROPERTY COMPILE_DEFINITIONS USE_PCRE )
+    set(PCRE ${PCRE_LIBRARIES})
 endif (PERL_REGEX)
 
 if (USE_IDNA)
@@ -86,19 +92,35 @@ else(WIN32)
    set_property(TARGET dcpp PROPERTY COMPILE_FLAGS -fPIC)
 endif (WIN32)
 
-target_link_libraries (dcpp ${DHT_LIB} ${PTHREADS} ${BZIP2_LIBRARIES} ${ZLIB_LIBRARIES}
-${OPENSSL_LIBRARIES} ${GETTEXT_LIBRARIES} ${ICONV_LIBRARIES} ${WIN32_LIBS} ${APPLE_LIBS} ${LUA_LIBRARIES} ${UPNP} ${PCRE} ${IDNA_LIBRARIES} ${XATTR_LIBRARIES} ${HAIKU_LIB} ${Boost_LIBRARIES})
+target_link_libraries (dcpp
+                       ${DHT_LIB}
+                       ${PTHREADS}
+                       ${BZIP2_LIBRARIES}
+                       ${ZLIB_LIBRARIES}
+                       ${OPENSSL_LIBRARIES}
+                       ${GETTEXT_LIBRARIES}
+                       ${ICONV_LIBRARIES}
+                       ${WIN32_LIBS}
+                       ${APPLE_LIBS}
+                       ${LUA_LIBRARIES}
+                       ${UPNP}
+                       ${PCRE}
+                       ${IDNA_LIBRARIES}
+                       ${XATTR_LIBRARIES}
+                       ${HAIKU_LIB}
+                       ${Boost_LIBRARIES})
 set_target_properties(dcpp PROPERTIES VERSION ${SOVERSION} OUTPUT_NAME "eiskaltdcpp")
 
 if (APPLE)
   set (LIBDIR ${PROJECT_NAME_GLOBAL}.app/Contents/Frameworks)
-  set_target_properties(dcpp PROPERTIES BUILD_WITH_INSTALL_RPATH 1 INSTALL_NAME_DIR "@executable_path/../Frameworks")
+  set_target_properties(dcpp PROPERTIES BUILD_WITH_INSTALL_RPATH 1
+                        INSTALL_NAME_DIR "@executable_path/../Frameworks")
 endif(APPLE)
 
 if (LINK STREQUAL SHARED)
-install (TARGETS dcpp
-            LIBRARY DESTINATION ${LIBDIR} NAMELINK_SKIP
-            BUNDLE DESTINATION ${LIBDIR})
+    install (TARGETS dcpp
+             DESTINATION ${LIBDIR} NAMELINK_SKIP
+             BUNDLE DESTINATION ${LIBDIR})
 endif (LINK STREQUAL SHARED)
 
 if (WITH_DEV_FILES)
@@ -110,8 +132,7 @@ if (WITH_DEV_FILES)
 endif (WITH_DEV_FILES)
 
 foreach(LANG ${LANGUAGES})
-    install(FILES
-        ${dcpp_BINARY_DIR}/${LANG}_libeiskaltdcpp.mo
+    install(FILES ${dcpp_BINARY_DIR}/${LANG}_libeiskaltdcpp.mo
             DESTINATION ${LOCALE_DIR}/${LANG}/LC_MESSAGES
             RENAME libeiskaltdcpp.mo)
 endforeach(LANG ${LANGUAGES})

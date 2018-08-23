@@ -50,7 +50,7 @@ if (DBUS_NOTIFY)
         find_package (Qt4 4.6.0 COMPONENTS QtDBus REQUIRED)
     elseif (USE_QT5)
         find_package (Qt5DBus 5.0.2 REQUIRED)
-    endif ()
+    endif (USE_QT)
     add_definitions (-DDBUS_NOTIFY)
     set (QT_USE_QTDBUS 1)
     message (STATUS "Building with Qt DBus support")
@@ -76,7 +76,7 @@ if (USE_QT_SQLITE)
         find_package (Qt4 4.6.0 COMPONENTS QtSql REQUIRED)
     elseif (USE_QT5)
         find_package(Qt5Sql 5.0.2 REQUIRED)
-    endif ()
+    endif (USE_QT)
     add_definitions (-DUSE_QT_SQLITE)
     set (QT_USE_QTSQL 1)
     message (STATUS "Building with Qt SQLite support")
@@ -87,46 +87,44 @@ endif (USE_QT_SQLITE)
 aux_source_directory(${PROJECT_SOURCE_DIR}/src SRCS)
 
 if (NOT HAIKU)
-    list(APPEND SRCS src/qtsingleapp/qtsinglecoreapplication.cpp)
+    list (APPEND SRCS src/qtsingleapp/qtsinglecoreapplication.cpp)
 endif (NOT HAIKU)
 
 file (GLOB MOC_HDRS ${PROJECT_SOURCE_DIR}/src/*.h)
 
 if (NOT HAIKU AND NOT APPLE)
-    list(APPEND MOC_HDRS
+    list (APPEND MOC_HDRS
                 src/qtsingleapp/qtsinglecoreapplication.h)
-    list(REMOVE_ITEM MOC_HDRS
+    list (REMOVE_ITEM MOC_HDRS
                 ${PROJECT_SOURCE_DIR}/src/EiskaltApp_haiku.h)
-    list(REMOVE_ITEM MOC_HDRS
+    list (REMOVE_ITEM MOC_HDRS
                 ${PROJECT_SOURCE_DIR}/src/EiskaltApp_mac.h)
 elseif (HAIKU)
-    list(REMOVE_ITEM MOC_HDRS
+    list (REMOVE_ITEM MOC_HDRS
                 ${PROJECT_SOURCE_DIR}/src/EiskaltApp.h)
-    list(REMOVE_ITEM MOC_HDRS
+    list (REMOVE_ITEM MOC_HDRS
                 ${PROJECT_SOURCE_DIR}/src/EiskaltApp_mac.h)
 elseif (APPLE)
-    list(APPEND MOC_HDRS
+    list (APPEND MOC_HDRS
                 src/qtsingleapp/qtsinglecoreapplication.h)
-    list(REMOVE_ITEM MOC_HDRS
+    list (REMOVE_ITEM MOC_HDRS
                 ${PROJECT_SOURCE_DIR}/src/EiskaltApp.h)
-    list(REMOVE_ITEM MOC_HDRS
+    list (REMOVE_ITEM MOC_HDRS
                 ${PROJECT_SOURCE_DIR}/src/EiskaltApp_haiku.h)
-endif ()
+endif (NOT HAIKU AND NOT APPLE)
 
 file (GLOB UI_FORMS ${PROJECT_SOURCE_DIR}/ui/*.ui)
 
 set (WIN_RESOURCES)
 if (MINGW AND WIN32)
-  add_custom_command (OUTPUT
-            "${PROJECT_BINARY_DIR}/${PROJECT_NAME}_rc.o"
-            COMMAND ${CMAKE_RC_COMPILER}
-            -I"${PROJECT_SOURCE_DIR}/"
-            -i "${PROJECT_SOURCE_DIR}/${PROJECT_NAME}.rc"
-            -o "${PROJECT_BINARY_DIR}/${PROJECT_NAME}_rc.o"
-            )
-  set (WIN_RESOURCES ${PROJECT_BINARY_DIR}/${PROJECT_NAME}_rc.o)
+    add_custom_command (OUTPUT "${PROJECT_BINARY_DIR}/${PROJECT_NAME}_rc.o"
+                        COMMAND ${CMAKE_RC_COMPILER}
+                                -I"${PROJECT_SOURCE_DIR}/"
+                                -i "${PROJECT_SOURCE_DIR}/${PROJECT_NAME}.rc"
+                                -o "${PROJECT_BINARY_DIR}/${PROJECT_NAME}_rc.o")
+    set (WIN_RESOURCES ${PROJECT_BINARY_DIR}/${PROJECT_NAME}_rc.o)
 elseif (NOT MINGW AND WIN32)
-  set (WIN_RESOURCES"${PROJECT_SOURCE_DIR}/${PROJECT_NAME}.rc")
+    set (WIN_RESOURCES"${PROJECT_SOURCE_DIR}/${PROJECT_NAME}.rc")
 endif (MINGW AND WIN32)
 
 if (NOT USE_ASPELL)
@@ -137,33 +135,33 @@ elseif (USE_ASPELL)
 endif (NOT USE_ASPELL)
 
 if (NOT ASPELL_FOUND)
-  list (REMOVE_ITEM SRCS ${PROJECT_SOURCE_DIR}/src/SpellCheck.cpp)
-  list (REMOVE_ITEM MOC_HDRS ${PROJECT_SOURCE_DIR}/src/SpellCheck.h)
+    list (REMOVE_ITEM SRCS ${PROJECT_SOURCE_DIR}/src/SpellCheck.cpp)
+    list (REMOVE_ITEM MOC_HDRS ${PROJECT_SOURCE_DIR}/src/SpellCheck.h)
 endif (NOT ASPELL_FOUND)
 
 if (USE_JS)
-  file (GLOB scriptengine_srcs ${PROJECT_SOURCE_DIR}/scriptengine/*.cpp)
-  file (GLOB scriptengine_hdrs ${PROJECT_SOURCE_DIR}/scriptengine/*.h)
-  list (APPEND SRCS
-        ${scriptengine_srcs}
-        src/codeeditor/codeeditor.cpp)
-  list (APPEND MOC_HDRS
-        ${scriptengine_hdrs}
-        src/codeeditor/codeeditor.h)
+    file (GLOB scriptengine_srcs ${PROJECT_SOURCE_DIR}/scriptengine/*.cpp)
+    file (GLOB scriptengine_hdrs ${PROJECT_SOURCE_DIR}/scriptengine/*.h)
+    list (APPEND SRCS
+            ${scriptengine_srcs}
+            src/codeeditor/codeeditor.cpp)
+    list (APPEND MOC_HDRS
+            ${scriptengine_hdrs}
+            src/codeeditor/codeeditor.h)
 endif (USE_JS)
 
 if (NOT USE_JS)
-  list (REMOVE_ITEM UI_FORMS
-        ${PROJECT_SOURCE_DIR}/ui/UIScriptManager.ui
-        ${PROJECT_SOURCE_DIR}/ui/UIDialogScriptConsole.ui)
-  list (REMOVE_ITEM SRCS
-        ${PROJECT_SOURCE_DIR}/src/ScriptManagerDialog.cpp)
-  list (REMOVE_ITEM MOC_HDRS
-        ${PROJECT_SOURCE_DIR}/src/ScriptManagerDialog.h)
+    list (REMOVE_ITEM UI_FORMS
+            ${PROJECT_SOURCE_DIR}/ui/UIScriptManager.ui
+            ${PROJECT_SOURCE_DIR}/ui/UIDialogScriptConsole.ui)
+    list (REMOVE_ITEM SRCS
+            ${PROJECT_SOURCE_DIR}/src/ScriptManagerDialog.cpp)
+    list (REMOVE_ITEM MOC_HDRS
+            ${PROJECT_SOURCE_DIR}/src/ScriptManagerDialog.h)
 endif (NOT USE_JS)
 
 foreach (LANGUAGE ${LANGUAGES})
-  list (APPEND COMPILED_TRANSLATIONS ${PROJECT_BINARY_DIR}/translations/${LANGUAGE}.qm)
+    list (APPEND COMPILED_TRANSLATIONS ${PROJECT_BINARY_DIR}/translations/${LANGUAGE}.qm)
 endforeach()
 
 if (USE_QT)
@@ -179,85 +177,76 @@ elseif (USE_QT5)
 endif()
 
 if (USE_QT5 AND NOT USE_QT)
-    set(QT_LRELEASE_EXECUTABLE ${Qt5_LRELEASE_EXECUTABLE})
+    set (QT_LRELEASE_EXECUTABLE ${Qt5_LRELEASE_EXECUTABLE})
     get_target_property(QT_RCC_EXECUTABLE Qt5::rcc LOCATION)
 endif()
 
 #Create translations
-file(MAKE_DIRECTORY ${PROJECT_BINARY_DIR}/translations/)
+file (MAKE_DIRECTORY ${PROJECT_BINARY_DIR}/translations/)
 foreach (LANGUAGE ${LANGUAGES})
         set (TS ${PROJECT_SOURCE_DIR}/translations/${LANGUAGE}.ts)
         set (QM ${PROJECT_BINARY_DIR}/translations/${LANGUAGE}.qm)
         list (APPEND TRANSLATIONS ${TS})
         list (APPEND TRANSLATIONS_BINARY ${QM})
-        add_custom_command (
-                OUTPUT "${QM}"
-                DEPENDS "${TS}"
-                COMMAND ${QT_LRELEASE_EXECUTABLE}
-                ARGS "${TS}" -qm "${QM}")
-endforeach()
+        add_custom_command (OUTPUT "${QM}"
+                            DEPENDS "${TS}"
+                            COMMAND ${QT_LRELEASE_EXECUTABLE}
+                            ARGS "${TS}" -qm "${QM}")
+endforeach ()
 
 add_custom_target(${PROJECT_NAME}_tr ALL DEPENDS ${TRANSLATIONS_BINARY})
 
 set (DEFAULT_QRC_FILE ${PROJECT_SOURCE_DIR}/icons/appl/default/default.qrc)
 
 if (UNIX)
-  EXECUTE_PROCESS (
-                OUTPUT_FILE ${PROJECT_BINARY_DIR}/${PROJECT_NAME}.1.gz
-                COMMAND "${GZIP_CMD}" -9
-                INPUT_FILE eiskaltdcpp-qt.1
-                WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/)
+    execute_process (OUTPUT_FILE ${PROJECT_BINARY_DIR}/${PROJECT_NAME}.1.gz
+                     COMMAND "${GZIP_CMD}" -9
+                     INPUT_FILE eiskaltdcpp-qt.1
+                     WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/)
     install (FILES ${PROJECT_BINARY_DIR}/${PROJECT_NAME}.1.gz DESTINATION ${MAN_DIR})
 endif (UNIX)
 
-EXECUTE_PROCESS (
-    COMMAND ${QT_RCC_EXECUTABLE} -binary  ${DEFAULT_QRC_FILE} -o ${PROJECT_BINARY_DIR}/default.rcc
-    WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/
-  )
+execute_process (COMMAND ${QT_RCC_EXECUTABLE} -binary  ${DEFAULT_QRC_FILE} 
+                                              -o ${PROJECT_BINARY_DIR}/default.rcc
+                 WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/)
 
 if (USE_QT)
     include (${QT_USE_FILE})
     include_directories (${QT_INCLUDES})
     list (APPEND LIBS ${QT_LIBRARIES})
 elseif (USE_QT5)
-    include_directories (
-        ${Qt5Core_INCLUDE_DIRS}
-        ${Qt5Gui_INCLUDE_DIRS}
-        ${Qt5Widgets_INCLUDE_DIRS}
-        ${Qt5Xml_INCLUDE_DIRS}
-        ${Qt5Multimedia_INCLUDE_DIRS}
-        ${Qt5Concurrent_INCLUDE_DIRS}
-        ${Qt5Declarative_INCLUDE_DIRS}
-        ${Qt5XmlPatterns_INCLUDE_DIRS}
-        ${Qt5DBus_INCLUDE_DIRS}
-        ${Qt5Script_INCLUDE_DIRS}
-        ${Qt5Sql_INCLUDE_DIRS}
-        ${Qt5Network_INCLUDE_DIRS}
-        )
-    list (APPEND LIBS
-        ${Qt5Core_LIBRARIES}
-        ${Qt5Gui_LIBRARIES}
-        ${Qt5Widgets_LIBRARIES}
-        ${Qt5Xml_LIBRARIES}
-        ${Qt5Multimedia_LIBRARIES}
-        ${Qt5Concurrent_LIBRARIES}
-        ${Qt5Declarative_LIBRARIES}
-        ${Qt5XmlPatterns_LIBRARIES}
-        ${Qt5DBus_LIBRARIES}
-        ${Qt5Script_LIBRARIES}
-        ${Qt5Sql_LIBRARIES}
-        ${Qt5Network_LIBRARIES}
-        )
+    include_directories (${Qt5Core_INCLUDE_DIRS}
+                         ${Qt5Gui_INCLUDE_DIRS}
+                         ${Qt5Widgets_INCLUDE_DIRS}
+                         ${Qt5Xml_INCLUDE_DIRS}
+                         ${Qt5Multimedia_INCLUDE_DIRS}
+                         ${Qt5Concurrent_INCLUDE_DIRS}
+                         ${Qt5Declarative_INCLUDE_DIRS}
+                         ${Qt5XmlPatterns_INCLUDE_DIRS}
+                         ${Qt5DBus_INCLUDE_DIRS}
+                         ${Qt5Script_INCLUDE_DIRS}
+                         ${Qt5Sql_INCLUDE_DIRS}
+                         ${Qt5Network_INCLUDE_DIRS})
+    list (APPEND LIBS ${Qt5Core_LIBRARIES}
+                      ${Qt5Gui_LIBRARIES}
+                      ${Qt5Widgets_LIBRARIES}
+                      ${Qt5Xml_LIBRARIES}
+                      ${Qt5Multimedia_LIBRARIES}
+                      ${Qt5Concurrent_LIBRARIES}
+                      ${Qt5Declarative_LIBRARIES}
+                      ${Qt5XmlPatterns_LIBRARIES}
+                      ${Qt5DBus_LIBRARIES}
+                      ${Qt5Script_LIBRARIES}
+                      ${Qt5Sql_LIBRARIES}
+                      ${Qt5Network_LIBRARIES})
 endif ()
 
-include_directories (
-        ${PROJECT_SOURCE_DIR}
-        ${PROJECT_SOURCE_DIR}/src
-        ${PROJECT_SOURCE_DIR}/scriptengine
-        ${PROJECT_SOURCE_DIR}/..
-        ${Boost_INCLUDE_DIRS}
-        ${GETTEXT_INCLUDE_DIR}
-        )
+include_directories (${PROJECT_SOURCE_DIR}
+                     ${PROJECT_SOURCE_DIR}/src
+                     ${PROJECT_SOURCE_DIR}/scriptengine
+                     ${PROJECT_SOURCE_DIR}/..
+                     ${Boost_INCLUDE_DIRS}
+                     ${GETTEXT_INCLUDE_DIR})
 list (APPEND LIBS ${Boost_LIBRARIES} ${ICONV_LIBRARIES})
 
 if (WIN32)
@@ -297,50 +286,54 @@ if (WIN32)
 endif (WIN32)
 
 if (APPLE)
-  find_library (COCOA_LIBRARY Cocoa)
-  list (APPEND LIBS ${COCOA_LIBRARY})
+    find_library (COCOA_LIBRARY Cocoa)
+    list (APPEND LIBS ${COCOA_LIBRARY})
 endif (APPLE)
 
 if (FREE_SPACE_BAR_C)
-  add_definitions (-DFREE_SPACE_BAR_C)
+    add_definitions (-DFREE_SPACE_BAR_C)
 endif (FREE_SPACE_BAR_C)
 
 if (USE_ASPELL)
-  add_definitions (-DUSE_ASPELL ${ASPELL_DEFINITIONS})
-  include_directories (${ASPELL_INCLUDE_DIR})
-  list (APPEND LIBS ${ASPELL_LIBRARIES})
+    add_definitions (-DUSE_ASPELL ${ASPELL_DEFINITIONS})
+    include_directories (${ASPELL_INCLUDE_DIR})
+    list (APPEND LIBS ${ASPELL_LIBRARIES})
 endif (USE_ASPELL)
 
 if (LUA_SCRIPT)
-  include_directories (${LUA_INCLUDE_DIR})
-  list (APPEND LIBS ${LUA_LIBRARIES})
+    include_directories (${LUA_INCLUDE_DIR})
+    list (APPEND LIBS ${LUA_LIBRARIES})
 endif (LUA_SCRIPT)
 
 if (USE_MINIUPNP)
-    set_property(SOURCE ${PROJECT_SOURCE_DIR}/src/SettingsConnection.cpp  PROPERTY COMPILE_DEFINITIONS USE_MINIUPNP )
+    set_property(SOURCE ${PROJECT_SOURCE_DIR}/src/SettingsConnection.cpp
+                 PROPERTY COMPILE_DEFINITIONS USE_MINIUPNP )
 endif()
 
 if (FORCE_XDG)
-   set_property(SOURCE ${PROJECT_SOURCE_DIR}/src/main.cpp PROPERTY COMPILE_DEFINITIONS FORCE_XDG )
+   set_property(SOURCE ${PROJECT_SOURCE_DIR}/src/main.cpp
+                PROPERTY COMPILE_DEFINITIONS FORCE_XDG )
 endif (FORCE_XDG)
 
 if (HAVE_IFADDRS_H)
-  set_property(SOURCE ${PROJECT_SOURCE_DIR}/src/WulforUtil.cpp PROPERTY COMPILE_DEFINITIONS HAVE_IFADDRS_H APPEND)
+  set_property(SOURCE ${PROJECT_SOURCE_DIR}/src/WulforUtil.cpp
+               PROPERTY COMPILE_DEFINITIONS HAVE_IFADDRS_H APPEND)
 endif (HAVE_IFADDRS_H)
 
 if (ENABLE_STACKTRACE)
-    set_property(SOURCE ${PROJECT_SOURCE_DIR}/src/main.cpp PROPERTY COMPILE_DEFINITIONS ENABLE_STACKTRACE)
+    set_property(SOURCE ${PROJECT_SOURCE_DIR}/src/main.cpp
+                 PROPERTY COMPILE_DEFINITIONS ENABLE_STACKTRACE)
 endif (ENABLE_STACKTRACE)
 
 if (APPLE)
-  set (MACOSICON "${PROJECT_SOURCE_DIR}/../data/icons/icon_128x128.icns")
-  set (MACOSICONINBUNDLE "icon_128x128.icns")
-  # set how it shows up in the Info.plist file
-  SET(MACOSX_BUNDLE_ICON_FILE ${MACOSICONINBUNDLE})
-  # set where in the bundle to put the icns file
-  SET_SOURCE_FILES_PROPERTIES(${MACOSICON} PROPERTIES MACOSX_PACKAGE_LOCATION Resources)
-  # include the icns file in the target
-  list (APPEND SRCS ${MACOSICON})
+    set (MACOSICON "${PROJECT_SOURCE_DIR}/../data/icons/icon_128x128.icns")
+    set (MACOSICONINBUNDLE "icon_128x128.icns")
+    # Set how it shows up in the Info.plist file
+    set (MACOSX_BUNDLE_ICON_FILE ${MACOSICONINBUNDLE})
+    # Set where in the bundle to put the icns file
+    set_source_files_properties(${MACOSICON} PROPERTIES MACOSX_PACKAGE_LOCATION Resources)
+    # Include the icns file in the target
+    list (APPEND SRCS ${MACOSICON})
 endif (APPLE)
 
 add_executable (${PROJECT_NAME} MACOSX_BUNDLE WIN32 src/main.cpp
@@ -358,97 +351,97 @@ add_definitions (-DCLIENT_SOUNDS_DIR="${CLIENT_SOUNDS_DEST}")
 add_definitions (-DCLIENT_TRANSLATIONS_DIR="${CLIENT_TRANSLATIONS_DEST}")
 
 if (USE_JS)
-  add_definitions (-DCLIENT_SCRIPTS_DIR="${CLIENT_SCRIPTS_DEST}")
+    add_definitions (-DCLIENT_SCRIPTS_DIR="${CLIENT_SCRIPTS_DEST}")
 endif (USE_JS)
 
 if (APPLE)
-  add_definitions (-DCLIENT_ICONS_DIR="qt/icons")
-  add_definitions (-DCLIENT_RES_DIR="resources")
+    add_definitions (-DCLIENT_ICONS_DIR="qt/icons")
+    add_definitions (-DCLIENT_RES_DIR="resources")
 else (APPLE)
-  add_definitions (-DCLIENT_ICONS_DIR="${CLIENT_DATA_DIR}/qt/icons")
-  add_definitions (-DCLIENT_RES_DIR="${CLIENT_DATA_DIR}/qt/resources")
+    add_definitions (-DCLIENT_ICONS_DIR="${CLIENT_DATA_DIR}/qt/icons")
+    add_definitions (-DCLIENT_RES_DIR="${CLIENT_DATA_DIR}/qt/resources")
 endif (APPLE)
 
 if (APPLE)
-  target_link_libraries (${PROJECT_NAME} ${LIBS} dcpp iconv)
+    target_link_libraries (${PROJECT_NAME} ${LIBS} dcpp iconv)
 elseif (HAIKU)
-  target_link_libraries (${PROJECT_NAME} ${LIBS} dcpp be)
+    target_link_libraries (${PROJECT_NAME} ${LIBS} dcpp be)
 else (APPLE)
-  target_link_libraries (${PROJECT_NAME} ${LIBS} dcpp)
+    target_link_libraries (${PROJECT_NAME} ${LIBS} dcpp)
 endif (APPLE)
 
 if (APPLE)
-  set_property (TARGET ${PROJECT_NAME} PROPERTY OUTPUT_NAME "${PROJECT_NAME_GLOBAL}")
+    set_property (TARGET ${PROJECT_NAME} PROPERTY OUTPUT_NAME "${PROJECT_NAME_GLOBAL}")
 else (APPLE)
-  set_property (TARGET ${PROJECT_NAME} PROPERTY OUTPUT_NAME "${PROJECT_NAME}")
+    set_property (TARGET ${PROJECT_NAME} PROPERTY OUTPUT_NAME "${PROJECT_NAME}")
 endif (APPLE)
 
-  install (TARGETS ${PROJECT_NAME}
-    RUNTIME DESTINATION ${BINDIR}
-    BUNDLE DESTINATION ${BUNDLEDIR})
+install (TARGETS ${PROJECT_NAME} RUNTIME DESTINATION ${BINDIR} BUNDLE DESTINATION ${BUNDLEDIR})
+
 if (APPLE)
-
-  set(plugin_dest_dir ${PROJECT_NAME_GLOBAL}.app/Contents/MacOS)
-  set(qtconf_dest_dir ${PROJECT_NAME_GLOBAL}.app/Contents/Resources)
-  set(APPS "\${CMAKE_INSTALL_PREFIX}/${PROJECT_NAME_GLOBAL}.app")
-  set(DIRS "\${QT_LIBRARY_DIRS}" "\${PC_UPNP_LIBRARY_DIRS}" "\${CMAKE_INSTALL_PREFIX}/${LIBDIR}")
-  set(CPACK_PACKAGE_ICON ${MACOSICON})
-  set(CPACK_BUNDLE_ICON ${MACOSICON})
-  set(CPACK_BUNDLE_NAME ${PROJECT_NAME_GLOBAL})
-  set(CPACK_PACKAGE_FILE_NAME "${PROJECT_NAME_GLOBAL}-${VERSION}-${CMAKE_SYSTEM_PROCESSOR}")
-  set (MACOSX_BUNDLE_INFO_STRING "Direct Connect and ADC client")
-  set_target_properties(${PROJECT_NAME} PROPERTIES MACOSX_BUNDLE_INFO_PLIST ${PROJECT_SOURCE_DIR}/Info.plist.in)
-  set (MACOSX_BUNDLE_GUI_IDENTIFIER "https://github.com/eiskaltdcpp/eiskaltdcpp")
-  set (MACOSX_BUNDLE_LONG_VERSION_STRING ${PROJECT_NAME_GLOBAL} ${VERSION})
-  set (MACOSX_BUNDLE_BUNDLE_NAME ${PROJECT_NAME_GLOBAL})
-  set (MACOSX_BUNDLE_SHORT_VERSION_STRING ${VERSION})
-  set (MACOSX_BUNDLE_BUNDLE_VERSION ${VERSION})
-  set (MACOSX_BUNDLE_COPYRIGH "Copyright 2009-2018 EiskaltDC++ developers")
+    set (plugin_dest_dir ${PROJECT_NAME_GLOBAL}.app/Contents/MacOS)
+    set (qtconf_dest_dir ${PROJECT_NAME_GLOBAL}.app/Contents/Resources)
+    set (APPS "\${CMAKE_INSTALL_PREFIX}/${PROJECT_NAME_GLOBAL}.app")
+    set (DIRS "\${QT_LIBRARY_DIRS}" "\${PC_UPNP_LIBRARY_DIRS}" "\${CMAKE_INSTALL_PREFIX}/${LIBDIR}")
+    set (CPACK_PACKAGE_ICON ${MACOSICON})
+    set (CPACK_BUNDLE_ICON ${MACOSICON})
+    set (CPACK_BUNDLE_NAME ${PROJECT_NAME_GLOBAL})
+    set (CPACK_PACKAGE_FILE_NAME "${PROJECT_NAME_GLOBAL}-${VERSION}-${CMAKE_SYSTEM_PROCESSOR}")
+    set (MACOSX_BUNDLE_INFO_STRING "Direct Connect and ADC client")
+    set_target_properties (${PROJECT_NAME} PROPERTIES MACOSX_BUNDLE_INFO_PLIST ${PROJECT_SOURCE_DIR}/Info.plist.in)
+    set (MACOSX_BUNDLE_GUI_IDENTIFIER "https://github.com/eiskaltdcpp/eiskaltdcpp")
+    set (MACOSX_BUNDLE_LONG_VERSION_STRING ${PROJECT_NAME_GLOBAL} ${VERSION})
+    set (MACOSX_BUNDLE_BUNDLE_NAME ${PROJECT_NAME_GLOBAL})
+    set (MACOSX_BUNDLE_SHORT_VERSION_STRING ${VERSION})
+    set (MACOSX_BUNDLE_BUNDLE_VERSION ${VERSION})
+    set (MACOSX_BUNDLE_COPYRIGH "Copyright 2009-2018 EiskaltDC++ developers")
 endif (APPLE)
 
-  if (USE_JS)
+if (USE_JS)
     install (DIRECTORY qtscripts/ DESTINATION ${CLIENT_DATA_DIR}/qt/qtscripts
-      PATTERN "*.sh"
-      PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE
-      PATTERN "*.php"
-      PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE)
-  endif (USE_JS)
+             PATTERN "*.sh"
+             PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE
+             PATTERN "*.php"
+             PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE)
+endif (USE_JS)
 
-  install (DIRECTORY icons/appl icons/user DESTINATION "${CLIENT_DATA_DIR}/qt/icons")
-  install (FILES ${TRANSLATIONS_BINARY} DESTINATION ${CLIENT_TRANSLATIONS_DEST})
+install (DIRECTORY icons/appl icons/user DESTINATION "${CLIENT_DATA_DIR}/qt/icons")
+install (FILES ${TRANSLATIONS_BINARY} DESTINATION ${CLIENT_TRANSLATIONS_DEST})
+
 if (APPLE)
-  install (FILES ${PROJECT_BINARY_DIR}/default.rcc DESTINATION ${PROJECT_NAME_GLOBAL}.app/resources)
+    install (FILES ${PROJECT_BINARY_DIR}/default.rcc DESTINATION ${PROJECT_NAME_GLOBAL}.app/resources)
 else (APPLE)
-  install (FILES ${PROJECT_BINARY_DIR}/default.rcc DESTINATION ${CLIENT_DATA_DIR}/qt/resources)
-  if (UNIX AND NOT HAIKU)
-    install (FILES ${PROJECT_NAME}.desktop DESTINATION ${SHARE_DIR}/applications)
-  endif (UNIX AND NOT HAIKU)
+    install (FILES ${PROJECT_BINARY_DIR}/default.rcc DESTINATION ${CLIENT_DATA_DIR}/qt/resources)
+    if (UNIX AND NOT HAIKU)
+        install (FILES ${PROJECT_NAME}.desktop DESTINATION ${SHARE_DIR}/applications)
+    endif (UNIX AND NOT HAIKU)
 endif (APPLE)
 
 if (APPLE)
-  if (USE_QT)
-    install (DIRECTORY ${QT_LIBRARY_DIR}/QtGui.framework/Resources/qt_menu.nib DESTINATION ${PROJECT_NAME_GLOBAL}.app/Contents/Resources)
+    if (USE_QT)
+        install (DIRECTORY ${QT_LIBRARY_DIR}/QtGui.framework/Resources/qt_menu.nib
+                 DESTINATION ${PROJECT_NAME_GLOBAL}.app/Contents/Resources)
 
-    install (CODE "
-      file(WRITE \"\${CMAKE_INSTALL_PREFIX}/${qtconf_dest_dir}/qt.conf\" \"\")")
+        install (CODE "
+        file(WRITE \"\${CMAKE_INSTALL_PREFIX}/${qtconf_dest_dir}/qt.conf\" \"\")")
 
-    install (CODE "
-      file(GLOB_RECURSE QTPLUGINS
-        \"\${CMAKE_INSTALL_PREFIX}/${plugin_dest_dir}/plugins/*${CMAKE_SHARED_LIBRARY_SUFFIX}\")
-      include(BundleUtilities)
-      fixup_bundle(\"${APPS}\" \"\${QTPLUGINS}\" \"${DIRS}\")")
-  elseif (USE_QT5)
-    if (${_qt5Core_install_prefix} STREQUAL "")
-      message(WARNING "Warning! \"_qt5Core_install_prefix\" is not set, macdeployqt found in PATH will be used")
-      set(MACDEPLOYQT "macdeployqt")
-    else (${_qt5Core_install_prefix} STREQUAL "")
-      set(MACDEPLOYQT "${_qt5Core_install_prefix}/bin/macdeployqt")
-    endif (${_qt5Core_install_prefix} STREQUAL "")
-    install (CODE "
-      execute_process(COMMAND ${MACDEPLOYQT} ${PROJECT_NAME_GLOBAL}.app -verbose=2
-        WORKING_DIRECTORY \${CMAKE_INSTALL_PREFIX})")
-  endif (USE_QT)
-  set (CPACK_BINARY_DRAGNDROP ON)
+        install (CODE "
+        file(GLOB_RECURSE QTPLUGINS
+            \"\${CMAKE_INSTALL_PREFIX}/${plugin_dest_dir}/plugins/*${CMAKE_SHARED_LIBRARY_SUFFIX}\")
+        include(BundleUtilities)
+        fixup_bundle(\"${APPS}\" \"\${QTPLUGINS}\" \"${DIRS}\")")
+    elseif (USE_QT5)
+        if (${_qt5Core_install_prefix} STREQUAL "")
+        message(WARNING "Warning! \"_qt5Core_install_prefix\" is not set, macdeployqt found in PATH will be used")
+        set (MACDEPLOYQT "macdeployqt")
+        else (${_qt5Core_install_prefix} STREQUAL "")
+        set (MACDEPLOYQT "${_qt5Core_install_prefix}/bin/macdeployqt")
+        endif (${_qt5Core_install_prefix} STREQUAL "")
+        install (CODE "
+        execute_process(COMMAND ${MACDEPLOYQT} ${PROJECT_NAME_GLOBAL}.app -verbose=2
+            WORKING_DIRECTORY \${CMAKE_INSTALL_PREFIX})")
+    endif (USE_QT)
+    set (CPACK_BINARY_DRAGNDROP ON)
 endif (APPLE)
 
 include(CPack)

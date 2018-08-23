@@ -2,9 +2,9 @@ project (eiskaltdcpp)
 cmake_minimum_required (VERSION 2.6.3)
 
 if (APPLE)
-  set (PROJECT_NAME_GLOBAL EiskaltDC++)
+    set (PROJECT_NAME_GLOBAL EiskaltDC++)
 else (APPLE)
-  set (PROJECT_NAME_GLOBAL eiskaltdcpp)
+    set (PROJECT_NAME_GLOBAL eiskaltdcpp)
 endif (APPLE)
 
 set (PROJECT_NAME "EiskaltDC++")
@@ -16,27 +16,6 @@ include (CheckIncludeFiles)
 include (CheckFunctionExists)
 include (FindPkgConfig)
 include (CheckCXXSourceCompiles)
-
-#IF (GPTOOLS_CPU AND GPTOOLS_MEM)
-#    SET (GPTOOLS_CPU FALSE)
-#    SET (GPTOOLS_MEM FALSE)
-#    SET (GPTOOLS_CPU_AND_MEM TRUE)
-#ENDIF (GPTOOLS_CPU AND GPTOOLS_MEM)
-#IF (GPTOOLS_MEM)
-#    MESSAGE (STATUS "Enabled memory profiling via Google perftools")
-#    SET (CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -ltcmalloc")
-#    SET (CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -ltcmalloc")
-#ENDIF (GPTOOLS_MEM)
-#IF (GPTOOLS_CPU)
-#    MESSAGE (STATUS "Enabled CPU profiling via Google perftools")
-#    SET (CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -lprofiler")
-#    SET (CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -lprofiler")
-#ENDIF (GPTOOLS_CPU)
-#IF (GPTOOLS_CPU_AND_MEM)
-#    MESSAGE (STATUS "Enabled both CPU and memory profiling via Google perftools")
-#    SET (CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -ltcmalloc_and_profiler")
-#    SET (CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -ltcmalloc_and_profiler")
-#ENDIF (GPTOOLS_CPU_AND_MEM)
 
 CHECK_FUNCTION_EXISTS(mallinfo HAVE_MALLINFO)
 CHECK_FUNCTION_EXISTS(malloc_stats HAVE_MALLOC_STATS)
@@ -100,7 +79,7 @@ option (OPENSSL_MSVC "Use MSVC build openssl (only for Windows)" OFF)
 option (STATIC "Static build (only for Windows)" OFF)
 
 if (DO_NOT_USE_MUTEX OR HAIKU OR APPLE)
-  add_definitions ( -DDO_NOT_USE_MUTEX )
+    add_definitions ( -DDO_NOT_USE_MUTEX )
 endif ()
 
 if (USE_QT OR USE_QT5 OR USE_GTK OR USE_GTK3)
@@ -135,7 +114,7 @@ if (USE_MINIUPNP)
     set (MINIUPNP_INCLUDE_DIR)
     set (MINIUPNP_LIBRARY)
   if (LOCAL_MINIUPNP)
-    add_subdirectory(upnp)
+    add_subdirectory (upnp)
     set (MINIUPNP_INCLUDE_DIR "${PROJECT_SOURCE_DIR}/upnp")
     set (MINIUPNP_LIBRARY "miniupnpc")
   else (LOCAL_MINIUPNP)
@@ -155,21 +134,22 @@ else (FREE_SPACE_BAR_C)
 endif (FREE_SPACE_BAR_C)
 
 if (LOCAL_BOOST)
-set (boost_file_name "boost.tar.gz")
-file(GLOB BOOST_TAR_EXISTS ${PROJECT_BINARY_DIR}/${boost_file_name})
-if (NOT BOOST_TAR_EXISTS)
-file(DOWNLOAD http://sf.net/projects/eiskaltdcpp/files/Other/${boost_file_name} ${PROJECT_BINARY_DIR}/${boost_file_name} SHOW_PROGRESS)
-endif (NOT BOOST_TAR_EXISTS)
-file(GLOB BOOST_TAR_EXISTS ${PROJECT_BINARY_DIR}/${boost_file_name})
-execute_process (COMMAND ${CMAKE_COMMAND} -E tar xf ${BOOST_TAR_EXISTS}
-                 WORKING_DIRECTORY ${PROJECT_BINARY_DIR}/)
-set (Boost_INCLUDE_DIR ${PROJECT_BINARY_DIR})
-if (HAIKU)
-EXECUTE_PROCESS (
-                COMMAND patch -p0 -i ${PROJECT_SOURCE_DIR}/haiku/boost.diff
-                WORKING_DIRECTORY ${PROJECT_BINARY_DIR}/)
-endif()
-message (STATUS "USED LOCAL BOOST HEADERS")
+    message (STATUS "LOCAL BOOST HEADERS WILL BE USED")
+    set (boost_file_name "boost.tar.gz")
+    file(GLOB BOOST_TAR_EXISTS ${PROJECT_BINARY_DIR}/${boost_file_name})
+    if (NOT BOOST_TAR_EXISTS)
+        message (STATUS "Downloading...")
+        file(DOWNLOAD http://sf.net/projects/eiskaltdcpp/files/Other/${boost_file_name}
+            ${PROJECT_BINARY_DIR}/${boost_file_name} SHOW_PROGRESS)
+    endif (NOT BOOST_TAR_EXISTS)
+    file(GLOB BOOST_TAR_EXISTS ${PROJECT_BINARY_DIR}/${boost_file_name})
+    execute_process (COMMAND ${CMAKE_COMMAND} -E tar xf ${BOOST_TAR_EXISTS}
+                     WORKING_DIRECTORY ${PROJECT_BINARY_DIR}/)
+    set (Boost_INCLUDE_DIR ${PROJECT_BINARY_DIR})
+    if (HAIKU)
+        execute_process (COMMAND patch -p0 -i ${PROJECT_SOURCE_DIR}/haiku/boost.diff
+                         WORKING_DIRECTORY ${PROJECT_BINARY_DIR}/)
+    endif()
 else (LOCAL_BOOST)
     find_package (Boost REQUIRED)
     if (Boost_VERSION VERSION_LESS 104200)
@@ -184,13 +164,12 @@ else (LOCAL_BOOST)
 endif(LOCAL_BOOST)
 
 if (LIB_INSTALL_DIR)
-  set (LIBDIR ${LIB_INSTALL_DIR})
+    set (LIBDIR ${LIB_INSTALL_DIR})
 endif (LIB_INSTALL_DIR)
 
 if (NOT LIBDIR)
   set (LIBDIR "lib")
 endif (NOT LIBDIR)
-
 message (STATUS "Library directory: ${CMAKE_INSTALL_PREFIX}/${LIBDIR}")
 
 if (INSTALL_RUNTIME_PATH)
@@ -198,45 +177,45 @@ if (INSTALL_RUNTIME_PATH)
 endif (INSTALL_RUNTIME_PATH)
 
 if (NOT CMAKE_BUILD_TYPE)
-  set (CMAKE_BUILD_TYPE "RelWithDebInfo")
+    set (CMAKE_BUILD_TYPE "RelWithDebInfo")
 elseif (CMAKE_BUILD_TYPE STREQUAL "Debug" AND (USE_QT OR USE_QT5))
-  message(STATUS "EiskaltDC++ Qt with CMAKE_BUILD_TYPE=Debug is very unstable now!\n"
-                 "\tYou can build it for your own risk.\n"
-                 "\tBut do not even try to write bug reports in this case.\n"
-                 "\tPlease use RelWithDebInfo instead it.")
+    message(STATUS "EiskaltDC++ Qt with CMAKE_BUILD_TYPE=Debug is very unstable now!\n"
+                   "\tYou can build it for your own risk.\n"
+                   "\tBut do not even try to write bug reports in this case.\n"
+                   "\tPlease use RelWithDebInfo instead it.")
 elseif (CMAKE_BUILD_TYPE STREQUAL "Gentoo" AND (USE_QT OR USE_QT5))
-  message(STATUS "EiskaltDC++ Qt with CMAKE_BUILD_TYPE=Gentoo may be unstable now.\n"
-                 "\tPlease try to use RelWithDebInfo instead it if some troubles happend.")
+    message(STATUS "EiskaltDC++ Qt with CMAKE_BUILD_TYPE=Gentoo may be unstable now.\n"
+                   "\tPlease try to use RelWithDebInfo instead it if some troubles happend.")
 endif (NOT CMAKE_BUILD_TYPE)
 
 if (NOT SHARE_DIR)
-  if (WIN32)
-    set (SHARE_DIR "resources")
-  else (WIN32)
-    set (SHARE_DIR "share")
-  endif (WIN32)
+    if (WIN32)
+        set (SHARE_DIR "resources")
+    else (WIN32)
+        set (SHARE_DIR "share")
+    endif (WIN32)
 endif (NOT SHARE_DIR)
 
 if (APPLE)
-  set (CLIENT_DATA_DIR "${PROJECT_NAME_GLOBAL}.app")
+    set (CLIENT_DATA_DIR "${PROJECT_NAME_GLOBAL}.app")
 elseif (WIN32 OR HAIKU)
-  set (CLIENT_DATA_DIR "${SHARE_DIR}")
+    set (CLIENT_DATA_DIR "${SHARE_DIR}")
 else (APPLE)
-  set (CLIENT_DATA_DIR "${CMAKE_INSTALL_PREFIX}/${SHARE_DIR}/${PROJECT_NAME_GLOBAL}")
+    set (CLIENT_DATA_DIR "${CMAKE_INSTALL_PREFIX}/${SHARE_DIR}/${PROJECT_NAME_GLOBAL}")
 endif (APPLE)
 
 if (APPLE)
-  set (LOCALE_DIR "${PROJECT_NAME_GLOBAL}.app/locale")
+    set (LOCALE_DIR "${PROJECT_NAME_GLOBAL}.app/locale")
 elseif (WIN32 OR HAIKU)
-  set (LOCALE_DIR "${SHARE_DIR}/locale")
+    set (LOCALE_DIR "${SHARE_DIR}/locale")
 else (APPLE)
-  set (LOCALE_DIR "${CMAKE_INSTALL_PREFIX}/${SHARE_DIR}/locale")
+    set (LOCALE_DIR "${CMAKE_INSTALL_PREFIX}/${SHARE_DIR}/locale")
 endif (APPLE)
 
 if (APPLE)
-  set (MAN_DIR "${PROJECT_NAME_GLOBAL}.app/man/man1")
+    set (MAN_DIR "${PROJECT_NAME_GLOBAL}.app/man/man1")
 else (APPLE)
-  set (MAN_DIR "${SHARE_DIR}/man/man1")
+    set (MAN_DIR "${SHARE_DIR}/man/man1")
 endif (APPLE)
 
 message (STATUS "Data directory: ${CLIENT_DATA_DIR}")
@@ -249,17 +228,17 @@ elseif (GIT_FOUND)
                      OUTPUT_VARIABLE VERSION
                      OUTPUT_STRIP_TRAILING_WHITESPACE)
     string (REGEX REPLACE "^v" "" VERSION "${VERSION}")
-endif ()
-string(REGEX REPLACE "^([0-9]+\\.[0-9]+\\.[0-9]+).*" "\\1" VERSION_BASE "${VERSION}")
+endif (REPLACE_VERSION)
+string (REGEX REPLACE "^([0-9]+\\.[0-9]+\\.[0-9]+).*" "\\1" VERSION_BASE "${VERSION}")
 message (STATUS "${PROJECT_NAME} full version: ${VERSION}")
 message (STATUS "${PROJECT_NAME} base version: ${VERSION_BASE}")
 
-configure_file(${PROJECT_SOURCE_DIR}/Version.h.in ${PROJECT_BINARY_DIR}/VersionGlobal.h)
+configure_file (${PROJECT_SOURCE_DIR}/Version.h.in ${PROJECT_BINARY_DIR}/VersionGlobal.h)
 
 if (UNIX)
-add_definitions (-D_GNU_SOURCE)
-find_program (GZIP_CMD gzip)
-mark_as_advanced(GZIP_CMD)
+    add_definitions (-D_GNU_SOURCE)
+    find_program (GZIP_CMD gzip)
+    mark_as_advanced (GZIP_CMD)
 endif (UNIX)
 
 set (CLIENT_TRANSLATIONS_DEST "${CLIENT_DATA_DIR}/qt/ts")
@@ -284,9 +263,8 @@ if (CMAKE_CXX_COMPILER_ID STREQUAL GNU OR CMAKE_CXX_COMPILER_ID STREQUAL Clang)
 endif ()
 
 include_directories(${eiskaltdcpp_BINARY_DIR}
-   ${eiskaltdcpp_SOURCE_DIR}
-   ${GMP_INCLUDE_DIR}
-   )
+                    ${eiskaltdcpp_SOURCE_DIR}
+                    ${GMP_INCLUDE_DIR})
 
 option (LANGUAGES "Using translations")
 list (APPEND AllLanguages
@@ -314,17 +292,17 @@ list (APPEND AllLanguages
             sv_SE
             )
 if (NOT DEFINED linguas)
-  set (LANGUAGES ${AllLanguages} CACHE STRING "Using translations" FORCE)
+    set (LANGUAGES ${AllLanguages} CACHE STRING "Using translations" FORCE)
 else (NOT DEFINED linguas)
-  if (NOT linguas)
-    set (LANGUAGES "" CACHE STRING "Using translations" FORCE)
-  elseif (linguas STREQUAL *)
+    if (NOT linguas)
+        set (LANGUAGES "" CACHE STRING "Using translations" FORCE)
+    elseif (linguas STREQUAL *)
         set (LANGUAGES ${AllLanguages} CACHE STRING "Using translations" FORCE)
-  else (NOT linguas)
-    string(REGEX MATCHALL [a-zA-Z_@]+
-           linguas1 ${linguas})
-    set (LANGUAGES ${linguas1} CACHE STRING "Using translations" FORCE)
-  endif (NOT linguas)
+    else (NOT linguas)
+        string(REGEX MATCHALL [a-zA-Z_@]+
+            linguas1 ${linguas})
+        set (LANGUAGES ${linguas1} CACHE STRING "Using translations" FORCE)
+    endif (NOT linguas)
 endif (NOT DEFINED linguas)
 message (STATUS "Translations: ${LANGUAGES}")
 
@@ -337,54 +315,54 @@ elseif (UNIX)
     endif (APPLE)
 endif (WIN32 OR HAIKU)
 
-add_subdirectory(extra)
-add_subdirectory(data)
+add_subdirectory (extra)
+add_subdirectory (data)
 
 if (WITH_DHT)
-  add_definitions ( -DWITH_DHT )
-  add_subdirectory (dht)
+    add_definitions ( -DWITH_DHT )
+    add_subdirectory (dht)
 endif (WITH_DHT)
 
 add_subdirectory (dcpp)
 
 if (HAIKU AND HAIKU_PKG)
-  add_subdirectory (haiku)
+    add_subdirectory (haiku)
 endif ()
 
 if (JSONRPC_DAEMON)
-add_subdirectory (json)
+    add_subdirectory (json)
 endif (JSONRPC_DAEMON)
 
 if (USE_QT OR USE_QT5)
-  add_subdirectory (eiskaltdcpp-qt)
+    add_subdirectory (eiskaltdcpp-qt)
 endif (USE_QT OR USE_QT5)
 
 if (USE_GTK OR USE_GTK3)
-  add_subdirectory (eiskaltdcpp-gtk)
+    add_subdirectory (eiskaltdcpp-gtk)
 endif (USE_GTK OR USE_GTK3)
 
 if (NO_UI_DAEMON OR XMLRPC_DAEMON OR JSONRPC_DAEMON)
-  add_subdirectory (eiskaltdcpp-daemon)
+    add_subdirectory (eiskaltdcpp-daemon)
 endif ()
 
 if (USE_CLI_XMLRPC OR USE_CLI_JSONRPC)
-  add_subdirectory (eiskaltdcpp-cli)
+    add_subdirectory (eiskaltdcpp-cli)
 endif ()
 
-
-if(GETTEXT_FOUND)
+if (GETTEXT_FOUND)
     option (UPDATE_PO "Update po files" OFF)
     option (CREATE_MO "Create mo files" ON)
-    add_subdirectory(cmake)
-endif(GETTEXT_FOUND)
+    add_subdirectory (cmake)
+endif (GETTEXT_FOUND)
 
 message(STATUS "CMAKE_SYSTEM: ${CMAKE_SYSTEM}")
 message(STATUS "CMAKE_SYSTEM_PROCESSOR: ${CMAKE_SYSTEM_PROCESSOR}")
+message(STATUS "CMAKE_CXX_COMPILER: ${CMAKE_CXX_COMPILER}")
 message(STATUS "CMAKE_CXX_COMPILER_ID: ${CMAKE_CXX_COMPILER_ID}")
 message(STATUS "CMAKE_C_COMPILER_ID: ${CMAKE_C_COMPILER_ID}")
-message(STATUS "CMAKE will use this libs (and headers) during build:
+message(STATUS "CMAKE will use these Libraries (and headers) during build:
 
-    miniupnpc (headers):${MINIUPNP_LIBRARY} (${MINIUPNP_INCLUDE_DIR})
+    miniupnpc (headers): ${MINIUPNP_LIBRARY} (${MINIUPNP_INCLUDE_DIR})
     lua (headers): ${LUA_LIBRARIES} (${LUA_INCLUDE_DIR})
     boost (headers): ${Boost_LIBRARIES} (${Boost_INCLUDE_DIR})
     bzip2 (headers): ${BZIP2_LIBRARIES} (${BZIP2_INCLUDE_DIR})
@@ -397,9 +375,8 @@ message(STATUS "CMAKE will use this libs (and headers) during build:
     idna (headers): ${IDNA_LIBRARIES} (${IDNA_INCLUDE_DIR})
     ")
 
-CONFIGURE_FILE(
-  "${PROJECT_SOURCE_DIR}/cmake/cmake_uninstall.cmake.in"
-  "${PROJECT_BINARY_DIR}/cmake_uninstall.cmake"
-  IMMEDIATE @ONLY)
-ADD_CUSTOM_TARGET(uninstall
-  "${CMAKE_COMMAND}" -P "${PROJECT_BINARY_DIR}/cmake_uninstall.cmake")
+configure_file("${PROJECT_SOURCE_DIR}/cmake/cmake_uninstall.cmake.in"
+    "${PROJECT_BINARY_DIR}/cmake_uninstall.cmake"
+    IMMEDIATE @ONLY)
+add_custom_target(uninstall
+    "${CMAKE_COMMAND}" -P "${PROJECT_BINARY_DIR}/cmake_uninstall.cmake")
