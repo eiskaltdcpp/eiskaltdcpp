@@ -92,11 +92,10 @@ endif (CHECK_GTK_DEPRECATED)
 
 remove_definitions(-DBUILDING_DCPP)
 
-add_definitions (-DCLIENT_DATA_DIR="${CLIENT_DATA_DIR}"
-                -DCLIENT_SOUNDS_DIR="${CLIENT_SOUNDS_DEST}"
-                -DCLIENT_TRANSLATIONS_DIR="${CLIENT_TRANSLATIONS_DEST}"
-                -DCLIENT_ICONS_DIR="${CLIENT_DATA_DIR}/gtk/icons"
-                )
+add_definitions (-DCLIENT_DATA_DIR="${CLIENT_DATA_DIR}")
+add_definitions (-DCLIENT_SOUNDS_DIR="${CLIENT_SOUNDS_DEST}")
+add_definitions (-DCLIENT_TRANSLATIONS_DIR="${CLIENT_TRANSLATIONS_DEST}")
+add_definitions (-DCLIENT_ICONS_DIR="${CLIENT_DATA_DIR}/gtk/icons")
 
 if (USE_MINIUPNP)
     set_property(SOURCE ${PROJECT_SOURCE_DIR}/src/settingsdialog.cc  PROPERTY COMPILE_DEFINITIONS USE_MINIUPNP )

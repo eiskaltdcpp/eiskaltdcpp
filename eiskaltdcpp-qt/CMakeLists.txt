@@ -263,7 +263,7 @@ list (APPEND LIBS ${Boost_LIBRARIES} ${ICONV_LIBRARIES})
 if (WIN32)
     if (STATIC)
         if (USE_QT5)
-            add_definitions ( -DSTATIC )
+            add_definitions (-DSTATIC)
             find_library(QT5FontDatabaseSupport Qt5FontDatabaseSupport)
             find_library(QT5EventDispatcherSupport Qt5EventDispatcherSupport)
             find_library(QT5ThemeSupport Qt5ThemeSupport)
@@ -353,25 +353,20 @@ add_executable (${PROJECT_NAME} MACOSX_BUNDLE WIN32 src/main.cpp
                 ${WIN_RESOURCES}
                 translations)
 
-add_definitions (-DCLIENT_DATA_DIR="${CLIENT_DATA_DIR}"
-                 -DCLIENT_SOUNDS_DIR="${CLIENT_SOUNDS_DEST}"
-                 -DCLIENT_TRANSLATIONS_DIR="${CLIENT_TRANSLATIONS_DEST}"
-                )
+add_definitions (-DCLIENT_DATA_DIR="${CLIENT_DATA_DIR}")
+add_definitions (-DCLIENT_SOUNDS_DIR="${CLIENT_SOUNDS_DEST}")
+add_definitions (-DCLIENT_TRANSLATIONS_DIR="${CLIENT_TRANSLATIONS_DEST}")
 
 if (USE_JS)
   add_definitions (-DCLIENT_SCRIPTS_DIR="${CLIENT_SCRIPTS_DEST}")
 endif (USE_JS)
 
 if (APPLE)
-  add_definitions(
-                  -DCLIENT_ICONS_DIR="qt/icons"
-                  -DCLIENT_RES_DIR="resources"
-                 )
+  add_definitions (-DCLIENT_ICONS_DIR="qt/icons")
+  add_definitions (-DCLIENT_RES_DIR="resources")
 else (APPLE)
-  add_definitions(
-                  -DCLIENT_ICONS_DIR="${CLIENT_DATA_DIR}/qt/icons"
-                  -DCLIENT_RES_DIR="${CLIENT_DATA_DIR}/qt/resources"
-                 )
+  add_definitions (-DCLIENT_ICONS_DIR="${CLIENT_DATA_DIR}/qt/icons")
+  add_definitions (-DCLIENT_RES_DIR="${CLIENT_DATA_DIR}/qt/resources")
 endif (APPLE)
 
 if (APPLE)

@@ -267,12 +267,10 @@ set (CLIENT_SOUNDS_DEST "${CLIENT_DATA_DIR}/sounds")
 set (CLIENT_ICONS_DEST "${CLIENT_DATA_DIR}/icons")
 set (CLIENT_SCRIPTS_DEST "${CLIENT_DATA_DIR}/qt/qtscripts")
 
-add_definitions ( -D_LARGEFILE_SOURCE
-                  -D_FILE_OFFSET_BITS=64
-                  -D_REENTRANT
-                  -D_DATADIR="${CLIENT_DATA_DIR}"
-                  -DLOCALE_DIR="${LOCALE_DIR}"
-                  -DBUILDING_DCPP )
+add_definitions (-D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -D_REENTRANT)
+add_definitions (-D_DATADIR="${CLIENT_DATA_DIR}")
+add_definitions (-DLOCALE_DIR="${LOCALE_DIR}")
+add_definitions (-DBUILDING_DCPP)
 
 if (CMAKE_CXX_COMPILER_ID STREQUAL GNU OR CMAKE_CXX_COMPILER_ID STREQUAL Clang)
     set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -pipe -Wformat -Werror=format-security -fpermissive")
