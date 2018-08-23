@@ -351,6 +351,7 @@ add_definitions (-DCLIENT_SOUNDS_DIR="${CLIENT_SOUNDS_DEST}")
 add_definitions (-DCLIENT_TRANSLATIONS_DIR="${CLIENT_TRANSLATIONS_DEST}")
 
 if (USE_JS)
+    set (CLIENT_SCRIPTS_DEST "${CLIENT_DATA_DIR}/qt/qtscripts")
     add_definitions (-DCLIENT_SCRIPTS_DIR="${CLIENT_SCRIPTS_DEST}")
 endif (USE_JS)
 
@@ -398,7 +399,7 @@ if (APPLE)
 endif (APPLE)
 
 if (USE_JS)
-    install (DIRECTORY qtscripts/ DESTINATION ${CLIENT_DATA_DIR}/qt/qtscripts
+    install (DIRECTORY qtscripts/ DESTINATION ${CLIENT_SCRIPTS_DEST}
              PATTERN "*.sh"
              PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE
              PATTERN "*.php"
@@ -423,13 +424,13 @@ if (APPLE)
                  DESTINATION ${PROJECT_NAME_GLOBAL}.app/Contents/Resources)
 
         install (CODE "
-        file(WRITE \"\${CMAKE_INSTALL_PREFIX}/${qtconf_dest_dir}/qt.conf\" \"\")")
+                    file(WRITE \"\${CMAKE_INSTALL_PREFIX}/${qtconf_dest_dir}/qt.conf\" \"\")")
 
         install (CODE "
-        file(GLOB_RECURSE QTPLUGINS
-            \"\${CMAKE_INSTALL_PREFIX}/${plugin_dest_dir}/plugins/*${CMAKE_SHARED_LIBRARY_SUFFIX}\")
-        include(BundleUtilities)
-        fixup_bundle(\"${APPS}\" \"\${QTPLUGINS}\" \"${DIRS}\")")
+                    file(GLOB_RECURSE QTPLUGINS
+                        \"\${CMAKE_INSTALL_PREFIX}/${plugin_dest_dir}/plugins/*${CMAKE_SHARED_LIBRARY_SUFFIX}\")
+                    include(BundleUtilities)
+                    fixup_bundle(\"${APPS}\" \"\${QTPLUGINS}\" \"${DIRS}\")")
     elseif (USE_QT5)
         if (${_qt5Core_install_prefix} STREQUAL "")
         message(WARNING "Warning! \"_qt5Core_install_prefix\" is not set, macdeployqt found in PATH will be used")
@@ -438,8 +439,8 @@ if (APPLE)
         set (MACDEPLOYQT "${_qt5Core_install_prefix}/bin/macdeployqt")
         endif (${_qt5Core_install_prefix} STREQUAL "")
         install (CODE "
-        execute_process(COMMAND ${MACDEPLOYQT} ${PROJECT_NAME_GLOBAL}.app -verbose=2
-            WORKING_DIRECTORY \${CMAKE_INSTALL_PREFIX})")
+                    execute_process(COMMAND ${MACDEPLOYQT} ${PROJECT_NAME_GLOBAL}.app -verbose=2
+                        WORKING_DIRECTORY \${CMAKE_INSTALL_PREFIX})")
     endif (USE_QT)
     set (CPACK_BINARY_DRAGNDROP ON)
 endif (APPLE)
