@@ -370,7 +370,7 @@ void DBusNotifyModule::showMessage(const QString &title, const QString &msg, QOb
     QVariantList args;
     args << QString("EiskaltDC++");
     args << QVariant(QVariant::UInt);
-    args << QVariant(WulforUtil::getInstance()->getIconsPath() + "/" + "icon_appl_big.png");
+    args << QVariant(WulforUtil::getInstance()->getAppIconsPath() + "/" + "icon_appl_big.png");
     args << QString(title);
     args << QString(msg);
     args << QStringList();

@@ -138,7 +138,9 @@ public:
 
     QString getNicks(const CID &cid, const QString& = "");
 
-    const QString &getIconsPath() { return app_icons_path; }
+    QString getAppIconsPath() const;
+    QString getEmoticonsPath() const;
+    QString getTranslationsPath() const;
 
     const QPixmap &getPixmapForFile(const QString&);
 
@@ -200,10 +202,12 @@ private:
     QPixmap FROMTHEME(const QString &name, bool resource);
     QPixmap FROMTHEME_SIDE(const QString &name, bool resource, const int side);
 
-    QString findAppIconsPath();
+    QString findAppIconsPath() const;
+    QString findUserIconsPath() const;
+    QString getClientResourcesPath() const;
 
-    QString app_icons_path;
     QString bin_path;
+    QString app_icons_path;
 
     QPixmap *userIconCache[USERLIST_XPM_COLUMNS][USERLIST_XPM_ROWS];
     QImage  *userIcons;

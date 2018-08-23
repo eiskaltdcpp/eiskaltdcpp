@@ -32,10 +32,6 @@
 
 #include <QtDebug>
 
-#ifndef CLIENT_TRANSLATIONS_DIR
-#define CLIENT_TRANSLATIONS_DIR ""
-#endif
-
 using namespace dcpp;
 
 
@@ -426,11 +422,8 @@ void WulforSettings::loadTranslation(){
     if (file.isEmpty() || !QFile::exists(file)){
         QString lc_prefix = QLocale::system().name();
 
-#if !defined(Q_OS_WIN)
-        file = QString(CLIENT_TRANSLATIONS_DIR) + QDir::separator();
-#else
-        file = qApp->applicationDirPath()+QDir::separator()+QString(CLIENT_TRANSLATIONS_DIR)+QDir::separator();
-#endif
+        file = WulforUtil::getInstance()->getTranslationsPath();
+
         lc_prefix = lc_prefix.left(lc_prefix.indexOf("_"));
         file += lc_prefix + ".qm";
 

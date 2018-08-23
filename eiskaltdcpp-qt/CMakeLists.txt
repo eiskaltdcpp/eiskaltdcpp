@@ -206,7 +206,7 @@ if (UNIX)
     install (FILES ${PROJECT_BINARY_DIR}/${PROJECT_NAME}.1.gz DESTINATION ${MAN_DIR})
 endif (UNIX)
 
-execute_process (COMMAND ${QT_RCC_EXECUTABLE} -binary  ${DEFAULT_QRC_FILE} 
+execute_process (COMMAND ${QT_RCC_EXECUTABLE} -binary  ${DEFAULT_QRC_FILE}
                                               -o ${PROJECT_BINARY_DIR}/default.rcc
                  WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/)
 
@@ -357,7 +357,7 @@ endif (USE_JS)
 
 if (APPLE)
     add_definitions (-DCLIENT_ICONS_DIR="qt/icons")
-    add_definitions (-DCLIENT_RES_DIR="resources")
+    add_definitions (-DCLIENT_RES_DIR="qt/resources")
 else (APPLE)
     add_definitions (-DCLIENT_ICONS_DIR="${CLIENT_DATA_DIR}/qt/icons")
     add_definitions (-DCLIENT_RES_DIR="${CLIENT_DATA_DIR}/qt/resources")
@@ -410,7 +410,7 @@ install (DIRECTORY icons/appl icons/user DESTINATION "${CLIENT_DATA_DIR}/qt/icon
 install (FILES ${TRANSLATIONS_BINARY} DESTINATION ${CLIENT_TRANSLATIONS_DEST})
 
 if (APPLE)
-    install (FILES ${PROJECT_BINARY_DIR}/default.rcc DESTINATION ${PROJECT_NAME_GLOBAL}.app/resources)
+    install (FILES ${PROJECT_BINARY_DIR}/default.rcc DESTINATION ${PROJECT_NAME_GLOBAL}.app/qt/resources)
 else (APPLE)
     install (FILES ${PROJECT_BINARY_DIR}/default.rcc DESTINATION ${CLIENT_DATA_DIR}/qt/resources)
     if (UNIX AND NOT HAIKU)

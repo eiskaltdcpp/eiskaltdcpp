@@ -67,11 +67,9 @@ void SettingsGUI::init(){
 
         int i = 0;
         int k = -1;
-#if !defined(Q_OS_WIN)
-        QDir translationsDir(CLIENT_TRANSLATIONS_DIR);
-#else
-        QDir translationsDir(qApp->applicationDirPath()+QDir::separator()+CLIENT_TRANSLATIONS_DIR);
-#endif
+
+        QDir translationsDir(WulforUtil::getInstance()->getTranslationsPath());
+
         QMap<QString, QString> langNames;
         langNames["en.qm"]       = tr("English");
         langNames["ru.qm"]       = tr("Russian");
@@ -160,21 +158,17 @@ void SettingsGUI::init(){
         }
         comboBox_ICONS->setCurrentIndex(k);
 
-#if !defined(Q_OS_WIN)
-        QString emot = CLIENT_DATA_DIR "/emoticons/";
-#else
-        QString emot = qApp->applicationDirPath()+QDir::separator()+CLIENT_DATA_DIR "/emoticons/";
-#endif
         comboBox_EMOT->setCurrentIndex(0);
         i = 0;
-        for (const QString &f : QDir(emot).entryList(QDir::Dirs | QDir::NoSymLinks | QDir::NoDotAndDotDot)){
+        for (const QString &f : QDir(WulforUtil::getInstance()->getEmoticonsPath())
+                                     .entryList(QDir::Dirs | QDir::NoSymLinks | QDir::NoDotAndDotDot)){
             if (!f.isEmpty()){
                 comboBox_EMOT->addItem(f);
 
                 if (f == WSGET(WS_APP_EMOTICON_THEME))
                     comboBox_EMOT->setCurrentIndex(i);
 
-                i++;
+                ++i;
             }
         }
 
@@ -608,7 +602,10 @@ void SettingsGUI::slotBrowseFont(){
 }
 
 void SettingsGUI::slotBrowseLng(){
-    QString file = QFileDialog::getOpenFileName(this, tr("Select translation"), QString(CLIENT_TRANSLATIONS_DIR), tr("Translation (*.qm)"));
+    QString file = QFileDialog::getOpenFileName(this,
+                                                tr("Select translation"),
+                                                WulforUtil::getInstance()->getTranslationsPath(),
+                                                tr("Translation (*.qm)"));
 
     if (!file.isEmpty()){
         file = QDir::toNativeSeparators(file);

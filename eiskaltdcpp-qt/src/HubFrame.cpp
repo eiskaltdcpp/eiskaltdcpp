@@ -3459,15 +3459,10 @@ void HubFrame::slotSmileClicked(){
 }
 
 void HubFrame::slotSmileContextMenu(){
-#if !defined(Q_OS_WIN)
-    QString emot = CLIENT_DATA_DIR "/emoticons/";
-#else
-    QString emot = qApp->applicationDirPath()+QDir::separator()+CLIENT_DATA_DIR "/emoticons/";
-#endif
-
     QMenu *m = new QMenu(this);
 
-    for (const auto &f : QDir(emot).entryList(QDir::Dirs | QDir::NoSymLinks | QDir::NoDotAndDotDot)){
+    for (const auto &f : QDir(WulforUtil::getInstance()->getEmoticonsPath())
+                              .entryList(QDir::Dirs | QDir::NoSymLinks | QDir::NoDotAndDotDot)){
         if (!f.isEmpty()){
             QAction * act = m->addAction(f);
             act->setCheckable(true);

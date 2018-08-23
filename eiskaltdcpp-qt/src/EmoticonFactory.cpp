@@ -9,6 +9,7 @@
 
 #include "EmoticonFactory.h"
 #include "WulforSettings.h"
+#include "WulforUtil.h"
 
 #include <QDir>
 #include <QFile>
@@ -23,18 +24,9 @@ static const QString EmoticonSectionName = "emoticons-map";
 static const QString EmoticonSubsectionName = "emoticon";
 static const QString EmoticonTextSectionName = "name";
 
-#if !defined (Q_OS_WIN)
-static const QString EmotionPath = CLIENT_DATA_DIR "/emoticons/";
-#else
-static QString EmotionPath = "";
-#endif
-
 EmoticonFactory::EmoticonFactory() :
     QObject(NULL)
 {
-#if defined (Q_OS_WIN)
-    EmotionPath = qApp->applicationDirPath() + QDir::separator() + CLIENT_DATA_DIR "/emoticons/";
-#endif
     currentTheme = "";
 }
 
@@ -43,15 +35,15 @@ EmoticonFactory::~EmoticonFactory(){
 }
 
 void EmoticonFactory::load(){
-    QString emoTheme = WSGET(WS_APP_EMOTICON_THEME, "default");
+    const QString emoTheme = WSGET(WS_APP_EMOTICON_THEME, "default");
 
     if (emoTheme.isEmpty() || (currentTheme == emoTheme))
         return;
 
-    if (!QDir(EmotionPath+emoTheme).exists())
+    if (!QDir(WulforUtil::getInstance()->getEmoticonsPath() + emoTheme).exists())
         return;
 
-    QString xmlFile = EmotionPath+emoTheme+".xml";
+    const QString xmlFile = WulforUtil::getInstance()->getEmoticonsPath() + emoTheme + ".xml";
 
     if (!QFile::exists(xmlFile))
         return;
@@ -226,7 +218,8 @@ void EmoticonFactory::createEmoticonMap(const QDomNode &root){
         emot->fileName  = el.attribute("file").toUtf8();
         emot->id        = list.size();
         emot->pixmap    = QPixmap();
-        emot->pixmap.load(EmotionPath+emoTheme+QDir::separator()+emot->fileName);
+        emot->pixmap.load(WulforUtil::getInstance()->getEmoticonsPath() +
+                          emoTheme + QDir::separator() + emot->fileName);
 
         DomNodeList emoTexts;
         getSubSectionsByName(node, emoTexts, EmoticonTextSectionName);
