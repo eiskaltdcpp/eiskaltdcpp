@@ -160,10 +160,6 @@ if (NOT USE_JS)
             ${PROJECT_SOURCE_DIR}/src/ScriptManagerDialog.h)
 endif (NOT USE_JS)
 
-foreach (LANGUAGE ${LANGUAGES})
-    list (APPEND COMPILED_TRANSLATIONS ${PROJECT_BINARY_DIR}/translations/${LANGUAGE}.qm)
-endforeach()
-
 if (USE_QT)
     #Create moc files
     QT4_WRAP_CPP (M_SRCS ${MOC_HDRS} OPTIONS -nn)
@@ -193,6 +189,24 @@ foreach (LANGUAGE ${LANGUAGES})
                             COMMAND ${QT_LRELEASE_EXECUTABLE}
                             ARGS "${TS}" -qm "${QM}")
 endforeach ()
+
+if (WIN32 OR APPLE)
+    # Qt translations
+    get_target_property (QtCore_location Qt5::Core LOCATION)
+    get_filename_component (QtCore_DIR "${QtCore_location}" PATH)
+    set (QT_ROOT_DIR "${QtCore_DIR}/../..")
+    set (QT_TRANSLATIONS_DIR "${QT_ROOT_DIR}/translations/")
+    file (GLOB QT_TRANSLATIONS "${QT_TRANSLATIONS_DIR}/qt_*.qm")
+    foreach (FILE ${QT_TRANSLATIONS})
+        if (NOT FILE MATCHES "_help_")
+            list (APPEND TRANSLATIONS_BINARY ${FILE})
+        endif ()
+    endforeach ()
+    file (GLOB QT_TRANSLATIONS "${QT_TRANSLATIONS_DIR}/qtbase_*.qm")
+    foreach (FILE ${QT_TRANSLATIONS})
+        list (APPEND TRANSLATIONS_BINARY ${FILE})
+    endforeach()
+endif (WIN32 OR APPLE)
 
 add_custom_target(${PROJECT_NAME}_tr ALL DEPENDS ${TRANSLATIONS_BINARY})
 
