@@ -2538,7 +2538,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="2792"/>
         <source>Turkish translation&lt;br/&gt;</source>
-        <translation>Турецкий перевод</translation>
+        <translation>Турецкий перевод&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="3025"/>

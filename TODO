@@ -1,17 +1,21 @@
 The most important changes:
 
-*** common changes ***
+*** dcpp ***
+* Rewrite code from Boost to C++14.
 * Add IPv6 support.
-* Rewrite code from Boost to C++11 where it is possible.
 * Improve Lua support.
 
 *** eiskaltdcpp-qt ***
-* Add Qt5 support.
+* Stop support of build with Qt 4.x.
+* Actively usage new features from Qt 5.x and C++14.
+* Full code refactoring using strong QA rules!
 * Add dialog widget for debugging Lua scripts.
 
 *** eiskaltdcpp-gtk ***
-* Get rid of deprecated Gtk+ 3.x elements.
 * Confirugation dialog for IP filter.
+* Get rid of deprecated GTK+ 3.x elements?
+* Stop support of GTK+ 3.x? (Support only GTK+ 2.x.)
+* Stop support of GTK+ UI completelly?
 
 *** eiskaltdcpp-daemon ***
 * See: eiskaltdcpp-cli/TODO

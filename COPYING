@@ -1,4 +1,5 @@
-Copyright (c) 2009-2013  EiskaltDC++ developers
+Copyright (c) 2009-2018  EiskaltDC++ developers (see file AUTHORS)
+
 
 This program is free software: you can redistribute it and/or modify it under
 the terms of the GNU General Public License as published by the Free Software
@@ -32,6 +33,5 @@ exception statement from your version.
 
 
 Program includes third-party components and scripts. Full list of their
-copyrights and licenses can be found in the file:
-full.copyrights.info.in.Debian.style
+copyrights and licenses is listed in file "full.copyrights.info.in.Debian.style"
 

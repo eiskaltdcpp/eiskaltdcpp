@@ -11,7 +11,7 @@ Source: https://github.com/eiskaltdcpp/eiskaltdcpp
 Files: *
 Copyright: 2009-2012 Andrey Karlov <dein.negativ@gmail.com>
            2009-2014 Eugene Petrov <dhamp@ya.ru>
-           2009-2017 Boris Pek aka Tehnick <tehnick-8@yandex.ru>
+           2009-2018 Boris Pek aka Tehnick <tehnick-8@yandex.ru>
            2010-2017 Pavel Vatagin <pavelvat@gmail.com>
            2010-2014 Alexandr Tkachev <tka4ev@gmail.com>
 License: GPL-3+ with OpenSSL exception
@@ -88,12 +88,11 @@ Files: update-translations.sh
        data/examples/deadbeef.ru_RU.UTF-8.sh
        eiskaltdcpp-qt/qtscripts/amarok_nowplay/amarok.sh
        eiskaltdcpp-qt/qtscripts/clementine_nowplay/clementine.sh
-       macosx/build-universal-binary.sh
-       macosx/build.sh
+       macosx/*
        tests/travis/*.sh
 Copyright: not-applicable
 Comment: Authors:
-         2011-2017 Boris Pek <tehnick-8@yandex.ru>
+         2011-2018 Boris Pek <tehnick-8@yandex.ru>
          2010 Uladzimir Bely (WiseLord) <wiselord1983@gmail.com>
          2010 Vovochka404 <vovochka13@gmail.com>
          2011 Mark Lutring
@@ -181,7 +180,7 @@ Files: eiskaltdcpp-gtk/src/*
 Copyright: 2004-2010 Jens Oknelid <paskharen@gmail.com>
            2009-2010 freedcpp <freedcpp@narod.ru>
            2009-2010 Leliksan Floyd <leliksan@Quadrafon2>
-           2010-2014 Boris Pek <tehnick-8@yandex.ru>
+           2010-2018 Boris Pek <tehnick-8@yandex.ru>
            2010-2014 Eugene Petrov <dhamp@ya.ru>
            2003 Bastien Nocera <hadess@hadess.net>
            2010 Mank <mank@besthub.eu>
@@ -217,7 +216,7 @@ Copyright: 2004-2013 Sergey Lyubka
 License: Expat
 
 Files: debian/*
-Copyright: 2010-2017 Boris Pek <tehnick-8@yandex.ru>
+Copyright: 2010-2018 Boris Pek <tehnick-8@yandex.ru>
 License: GPL-2+
 
 License: GPL-2

@@ -2666,20 +2666,22 @@ void MainWindow::slotAboutClient() {
     QString html_format = "a { text-decoration:none; }\n"
                           "a:hover { text-decoration: underline; }\n";
 
-    QString about_text = tr("EiskaltDC++ is a graphical client for Direct Connect and ADC protocols.<br/><br/>"
-                            ""
-                            "DC++ core version: %1 (modified)<br/><br/>"
-                            ""
-                            "Home page: <a href=\"https://github.com/eiskaltdcpp/eiskaltdcpp/\">"
-                            "https://github.com/eiskaltdcpp/eiskaltdcpp/</a><br/><br/>"
-                            ""
-                            "Total up: <b>%2</b><br/>"
-                            "Total down: <b>%3</b><br/>"
-                            "Ratio: <b>%4</b>"
-                         ).arg(DCPP_VERSION)
-                          .arg(WulforUtil::formatBytes(up))
-                          .arg(WulforUtil::formatBytes(down))
-                          .arg(ratio, 0, 'f', 3);
+    QString about_text = tr("EiskaltDC++ is a graphical client for Direct Connect and ADC protocols.")+
+                         QString("<br/>")+
+                         QString("<br/>")+
+                         tr("DC++ core version: %1 (modified)").arg(DCPP_VERSION)+
+                         QString("<br/>")+
+                         QString("<br/>")+
+                         tr("Home page: ")+
+                         QString("<a href=\"https://github.com/eiskaltdcpp/eiskaltdcpp/\">"
+                                 "https://github.com/eiskaltdcpp/eiskaltdcpp/</a>")+
+                         QString("<br/>")+
+                         QString("<br/>")+
+                         tr("Total up: <b>%1</b>").arg(WulforUtil::formatBytes(up))+
+                         QString("<br/>")+
+                         tr("Total down: <b>%1</b>").arg(WulforUtil::formatBytes(down))+
+                         QString("<br/>")+
+                         tr("Ratio: <b>%1</b>").arg(ratio, 0, 'f', 3);
 
     a.label_ABOUT->setText(about_text);
 
@@ -2692,41 +2694,78 @@ void MainWindow::slotAboutClient() {
         tr("<b>Developers</b><br/>")+
         QString("<br/>")+
         QString("&nbsp; 2009-2012 <a href=\"mailto:dein.negativ@gmail.com\">Andrey Karlov</a><br/>")+
-        tr("&nbsp;&nbsp;&nbsp; (main developer since version 0.4.10)<br/>")+
+        QString("&nbsp;&nbsp;&nbsp; * ")+
+        tr("lead developer")+QString(", 2009-2012")+
+        QString("<br/>")+
+        QString("&nbsp;&nbsp;&nbsp; * ")+
+        tr("release manager")+QString(", 2009-2010")+
+        QString("<br/>")+
         QString("<br/>")+
         QString("&nbsp; 2009-2015 <a href=\"mailto:dhamp@ya.ru\">Eugene Petrov</a><br/>")+
-        tr("&nbsp;&nbsp;&nbsp; (Arch Linux maintainer and developer since version 0.4.10)<br/>")+
+        QString("&nbsp;&nbsp;&nbsp; * ")+
+        tr("Arch Linux maintainer")+QString(", 2009-2015")+
         QString("<br/>")+
-        QString("&nbsp; 2010-2017 <a href=\"mailto:tehnick-8@yandex.ru\">Boris Pek</a> aka Tehnick<br/>")+
-        tr("&nbsp;&nbsp;&nbsp; (Debian/Ubuntu maintainer and developer since version 1.89.0)<br/>")+
-        tr("&nbsp;&nbsp;&nbsp; (translations coordinator since version 2.0.1)<br/>")+
-        tr("&nbsp;&nbsp;&nbsp; (release manager since version 2.0.3)<br/>")+
+        QString("&nbsp;&nbsp;&nbsp; * ")+
+        tr("developer")+QString(", 2009-2015")+
+        QString("<br/>")+
+        QString("<br/>")+
+        QString("&nbsp; 2010-2018 <a href=\"mailto:tehnick-8@yandex.ru\">Boris Pek</a><br/>")+
+        QString("&nbsp;&nbsp;&nbsp; * ")+
+        tr("Debian/Ubuntu maintainer")+QString(", 2010-2018")+
+        QString("<br/>")+
+        QString("&nbsp;&nbsp;&nbsp; * ")+
+        tr("developer")+QString(", 2010-2018")+
+        QString("<br/>")+
+        QString("&nbsp;&nbsp;&nbsp; * ")+
+        tr("translations coordinator")+QString(", 2010-2018")+
+        QString("<br/>")+
+        QString("&nbsp;&nbsp;&nbsp; * ")+
+        tr("release manager")+QString(", 2010-2018")+
+        QString("<br/>")+
+        QString("&nbsp;&nbsp;&nbsp; * ")+
+        tr("lead developer")+QString(", 2012-2018")+
+        QString("<br/>")+
+        QString("&nbsp;&nbsp;&nbsp; * ")+
+        tr("macOS maintainer")+QString(", 2018")+
+        QString("<br/>")+
         QString("<br/>")+
         QString("&nbsp; 2010-2015 <a href=\"mailto:pavelvat@gmail.com\">Pavel Vatagin</a><br/>")+
-        tr("&nbsp;&nbsp;&nbsp; (MS Windows maintainer and developer since version 2.2.4)<br/>")+
+        QString("&nbsp;&nbsp;&nbsp; * ")+
+        tr("MS Windows maintainer")+QString(", 2010-2017")+
+        QString("<br/>")+
+        QString("&nbsp;&nbsp;&nbsp; * ")+
+        tr("developer")+QString(", 2010-2017")+
+        QString("<br/>")+
         QString("<br/>")+
         QString("&nbsp; 2010-2014 <a href=\"mailto:tka4ev@gmail.com\">Alexandr Tkachev</a><br/>")+
-        tr("&nbsp;&nbsp;&nbsp; (developer since version 2.0.3)<br/>")+
+        QString("&nbsp;&nbsp;&nbsp; * ")+
+        tr("developer")+QString(", 2010-2014")+
+        QString("<br/>")+
         QString("<br/>")+
         tr("<b>Graphic files</b><br/>")+
         QString("<br/>")+
         QString("&nbsp; 2009-2010 <a href=\"mailto:wiselord1983@gmail.com\">Uladzimir Bely</a><br/>")+
-        tr("&nbsp;&nbsp;&nbsp; (creator of the logo of the project)<br/>")+
-        QString("&nbsp; 2010-2015 <a href=\"mailto:tehnick-8@yandex.ru\">Boris Pek</a> aka Tehnick<br/>")+
-        tr("&nbsp;&nbsp;&nbsp; (tiny updates of the logo)<br/>")+
+        QString("&nbsp;&nbsp;&nbsp; * ")+
+        tr("creator of the logo of the project")+
+        QString("<br/>")+
+        QString("<br/>")+
+        QString("&nbsp; 2010-2015 <a href=\"mailto:tehnick-8@yandex.ru\">Boris Pek</a><br/>")+
+        QString("&nbsp;&nbsp;&nbsp; * ")+
+        tr("tiny updates of the logo")+
+        QString("<br/>")+
         QString("<br/>")
         );
 
     a.textBrowser_TRANSLATION->document()->setDefaultStyleSheet(html_format);
 
     a.textBrowser_TRANSLATION->setText(
-        tr("Participate in the translation. It is easy: "
-        "<a href=\"https://www.transifex.com/projects/p/eiskaltdcpp/\">"
-        "https://www.transifex.com/projects/p/eiskaltdcpp/</a><br/>")+
+        tr("Participate in the translation. It is easy:")+
+        QString("<br/>")+
+        QString("<a href=\"https://www.transifex.com/tehnick/eiskaltdcpp/\">https://www.transifex.com/tehnick/eiskaltdcpp/</a><br/>")+
         QString("<br/>")+
         tr("Russian translation<br/>")+
         QString("&nbsp;&nbsp;&nbsp; 2009-2010 <a href=\"mailto:wiselord1983@gmail.com\">Uladzimir Bely</a><br/>")+
-        QString("&nbsp;&nbsp;&nbsp; 2010-2017 <a href=\"mailto:tehnick-8@yandex.ru\">Boris Pek</a> aka Tehnick<br/>")+
+        QString("&nbsp;&nbsp;&nbsp; 2010-2018 <a href=\"mailto:tehnick-8@yandex.ru\">Boris Pek</a> aka Tehnick<br/>")+
         QString("<br/>")+
         tr("Belarusian translation<br/>")+
         QString("&nbsp;&nbsp;&nbsp; 2009-2013 <a href=\"mailto:i.kliok@gmail.com\">Paval Shalamitski</a> aka Klyok<br/>")+
