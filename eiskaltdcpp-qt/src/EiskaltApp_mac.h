@@ -22,9 +22,13 @@
 bool dockClickHandler(id self,SEL _cmd,...);
 
 class EiskaltEventFilter: public QObject{
-Q_OBJECT
+    Q_OBJECT
+
+signals:
+    void clickedOnDock();
+
 public:
-    EiskaltEventFilter(): counter(0), has_activity(true) {
+    EiskaltEventFilter(): counter(0), has_activity(true), prevAppState(Qt::ApplicationHidden) {
         timer.setInterval(60000);
 
         connect(&timer, SIGNAL(timeout()), this, SLOT(tick()));
@@ -37,25 +41,34 @@ public:
 protected:
     virtual bool eventFilter(QObject *obj, QEvent *event){
         switch (event->type()){
-            case QEvent::MouseButtonPress:
-            case QEvent::MouseButtonRelease:
-            case QEvent::MouseButtonDblClick:
-            case QEvent::MouseMove:
-            case QEvent::KeyPress:
-            case QEvent::KeyRelease:
-            case QEvent::Wheel:
-            {
-                has_activity = true;
-                counter = 0;
+        case QEvent::MouseButtonPress:
+        case QEvent::MouseButtonRelease:
+        case QEvent::MouseButtonDblClick:
+        case QEvent::MouseMove:
+        case QEvent::KeyPress:
+        case QEvent::KeyRelease:
+        case QEvent::Wheel:
+        {
+            has_activity = true;
+            counter = 0;
 
-                break;
+            break;
+        }
+        case QEvent::ApplicationStateChange:
+        {
+            // https://stackoverflow.com/questions/15143369/qt-on-os-x-how-to-detect-clicking-the-app-dock-icon/46488514#46488514
+            QApplicationStateChangeEvent *ev = static_cast<QApplicationStateChangeEvent*>(event);
+            if (prevAppState == Qt::ApplicationActive && ev->applicationState() == Qt::ApplicationActive) {
+                emit clickedOnDock();
             }
-            default:
-            {
-                has_activity = false;
+            prevAppState = ev->applicationState();
+        }
+        default:
+        {
+            has_activity = false;
 
-                break;
-            }
+            break;
+        }
         }
 
         return QObject::eventFilter(obj, event);
@@ -85,15 +98,22 @@ private:
     QTimer timer;
     int counter;
     bool has_activity;
+    Qt::ApplicationState prevAppState;
 };
 
-class EiskaltApp: public QtSingleCoreApplication {
-Q_OBJECT
+class EiskaltApp: public QtSingleCoreApplication{
+    Q_OBJECT
+
+signals:
+    void clickedOnDock();
+
 public:
     EiskaltApp(int &argc, char *argv[], const QString& uniqKey): QtSingleCoreApplication(argc, argv, uniqKey)
     {
         installEventFilter(&ef);
         installMacHandlers();
+
+        connect(&ef, SIGNAL(clickedOnDock()), this, SIGNAL(clickedOnDock()));
     }
 
     void commitData(QSessionManager& manager){
