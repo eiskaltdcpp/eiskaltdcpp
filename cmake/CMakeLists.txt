@@ -312,7 +312,8 @@ if(UPDATE_PO)
 				${dcpp_SOURCE_DIR}/po/${LANG}.po.lang.dummy
 			)
 
-		add_custom_target(po-update-${LANG}
+		string (REPLACE "@" "_" SAFE_LANG_NAME ${LANG})
+		add_custom_target(po-update-${SAFE_LANG_NAME}
 			COMMENT "po-update ${LANG}: Done."
 			DEPENDS ${po-update-LANG-SRC}
 		)
@@ -368,7 +369,8 @@ if(CREATE_MO)
 			)
 
 		if(UPDATE_PO)
-			add_custom_target(mo-update-${LANG}
+			string (REPLACE "@" "_" SAFE_LANG_NAME ${LANG})
+			add_custom_target(mo-update-${SAFE_LANG_NAME}
 				COMMENT "mo-update ${LANG}: Done."
 				DEPENDS ${mo-update-LANG-SRC}
 			)
