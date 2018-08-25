@@ -208,9 +208,8 @@ Kapcsolók:
 <context>
     <name>DialogScriptConsole</name>
     <message>
-        <location filename="../ui/UIDialogScriptConsole.ui" line="17"/>
         <source>Dialog</source>
-        <translation>Beállítások</translation>
+        <translation type="obsolete">Beállítások</translation>
     </message>
     <message>
         <location filename="../ui/UIDialogScriptConsole.ui" line="30"/>
@@ -464,10 +463,8 @@ Kapcsolók:
         <translation>Hozzáadva</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueueModel.cpp" line="83"/>
-        <location filename="../src/DownloadQueueModel.cpp" line="285"/>
         <source>TTH</source>
-        <translation>TTH</translation>
+        <translation type="obsolete">TTH</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueueModel.cpp" line="139"/>
@@ -568,9 +565,8 @@ Kapcsolók:
         <translation>Karakterkódolás</translation>
     </message>
     <message>
-        <location filename="../src/FavoriteHubModel.cpp" line="58"/>
         <source>******</source>
-        <translation>******</translation>
+        <translation type="obsolete">******</translation>
     </message>
 </context>
 <context>
@@ -725,9 +721,8 @@ Kapcsolók:
         <translation>Pontos méret</translation>
     </message>
     <message>
-        <location filename="../src/FileBrowserModel.cpp" line="311"/>
         <source>TTH</source>
-        <translation>TTH</translation>
+        <translation type="obsolete">TTH</translation>
     </message>
     <message>
         <location filename="../src/FileBrowserModel.cpp" line="312"/>
@@ -1717,104 +1712,84 @@ Kedvenc felhasználó</translation>
         <translation>Szeretnél megváltoztatni más beállításokat is?</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="697"/>
         <source>Ctrl+I</source>
-        <translation>Ctrl+I</translation>
+        <translation type="obsolete">Ctrl+I</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="703"/>
         <source>Ctrl+L</source>
-        <translation>Ctrl+L</translation>
+        <translation type="obsolete">Ctrl+L</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="734"/>
         <source>Ctrl+E</source>
-        <translation>Ctrl+E</translation>
+        <translation type="obsolete">Ctrl+E</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="740"/>
         <source>Ctrl+Alt+H</source>
-        <translation>Ctrl+Alt+H</translation>
+        <translation type="obsolete">Ctrl+Alt+H</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="746"/>
         <source>Ctrl+Q</source>
-        <translation>Ctrl+Q</translation>
+        <translation type="obsolete">Ctrl+Q</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="753"/>
         <source>Ctrl+R</source>
-        <translation>Ctrl+R</translation>
+        <translation type="obsolete">Ctrl+R</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="759"/>
         <source>Ctrl+N</source>
-        <translation>Ctrl+N</translation>
+        <translation type="obsolete">Ctrl+N</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="765"/>
         <source>Ctrl+H</source>
-        <translation>Ctrl+H</translation>
+        <translation type="obsolete">Ctrl+H</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="771"/>
         <source>Ctrl+P</source>
-        <translation>Ctrl+P</translation>
+        <translation type="obsolete">Ctrl+P</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="777"/>
         <source>Ctrl+U</source>
-        <translation>Ctrl+U</translation>
+        <translation type="obsolete">Ctrl+U</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="793"/>
         <source>Ctrl+O</source>
-        <translation>Ctrl+O</translation>
+        <translation type="obsolete">Ctrl+O</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="809"/>
         <source>Ctrl+T</source>
-        <translation>Ctrl+T</translation>
+        <translation type="obsolete">Ctrl+T</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="817"/>
         <source>Ctrl+D</source>
-        <translation>Ctrl+D</translation>
+        <translation type="obsolete">Ctrl+D</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="823"/>
         <source>Ctrl+Shift+U</source>
-        <translation>Ctrl+Shift+U</translation>
+        <translation type="obsolete">Ctrl+Shift+U</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="829"/>
         <source>Ctrl+[</source>
-        <translation>Ctrl+[</translation>
+        <translation type="obsolete">Ctrl+[</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="835"/>
         <source>Ctrl+]</source>
-        <translation>Ctrl+]</translation>
+        <translation type="obsolete">Ctrl+]</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="881"/>
         <source>Ctrl+Alt+J</source>
-        <translation>Ctrl + Alt + J</translation>
+        <translation type="obsolete">Ctrl + Alt + J</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="907"/>
         <source>Ctrl+S</source>
-        <translation>Ctrl+S</translation>
+        <translation type="obsolete">Ctrl+S</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="932"/>
         <source>Ctrl+K</source>
-        <translation>Ctrl+K</translation>
+        <translation type="obsolete">Ctrl+K</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="945"/>
         <source>Ctrl+F</source>
-        <translation>Ctrl+F</translation>
+        <translation type="obsolete">Ctrl+F</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1079"/>
@@ -1847,34 +1822,28 @@ Kedvenc felhasználó</translation>
         <translation>Főmenü váltása</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1093"/>
         <source>Ctrl+PgDown</source>
-        <translation>Ctrl+PgDown</translation>
+        <translation type="obsolete">Ctrl+PgDown</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1094"/>
         <source>Ctrl+PgUp</source>
-        <translation>Ctrl+PgUp</translation>
+        <translation type="obsolete">Ctrl+PgUp</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1095"/>
         <source>Ctrl+Down</source>
-        <translation>Ctrl+Down</translation>
+        <translation type="obsolete">Ctrl+Down</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1096"/>
         <source>Ctrl+Up</source>
-        <translation>Ctrl+Up</translation>
+        <translation type="obsolete">Ctrl+Up</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1097"/>
         <source>Ctrl+W</source>
-        <translation>Ctrl+W</translation>
+        <translation type="obsolete">Ctrl+W</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1098"/>
         <source>Ctrl+M</source>
-        <translation>Ctrl+M</translation>
+        <translation type="obsolete">Ctrl+M</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1226"/>
@@ -2971,9 +2940,8 @@ Letöltve: %3 Feltöltve: %4</translation>
         <translation>Fájlnév</translation>
     </message>
     <message>
-        <location filename="../src/SearchBlacklistDialog.cpp" line="345"/>
         <source>TTH</source>
-        <translation>TTH</translation>
+        <translation type="obsolete">TTH</translation>
     </message>
 </context>
 <context>
@@ -2997,9 +2965,8 @@ Letöltve: %3 Feltöltve: %4</translation>
         <translation>Fájlnév</translation>
     </message>
     <message>
-        <location filename="../src/SearchBlacklistDialog.cpp" line="164"/>
         <source>TTH</source>
-        <translation>TTH</translation>
+        <translation type="obsolete">TTH</translation>
     </message>
     <message>
         <location filename="../src/SearchBlacklistDialog.cpp" line="179"/>
@@ -3020,108 +2987,107 @@ Letöltve: %3 Feltöltve: %4</translation>
 <context>
     <name>SearchFrame</name>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="14"/>
         <source>Form</source>
-        <translation>Keresés</translation>
+        <translation type="obsolete">Keresés</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="44"/>
+        <location filename="../ui/UISearchFrame.ui" line="53"/>
         <location filename="../src/SearchFrame.cpp" line="362"/>
         <source>Search</source>
         <translation>Keresés</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="51"/>
+        <location filename="../ui/UISearchFrame.ui" line="60"/>
         <source>Search for</source>
         <translation>Keresés erre</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="58"/>
+        <location filename="../ui/UISearchFrame.ui" line="67"/>
         <source>Clear</source>
         <translation>Töröl</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="65"/>
+        <location filename="../ui/UISearchFrame.ui" line="74"/>
         <source>Show/Hide side panel</source>
         <translation>Oldalsó panel mutatása/elrejtése</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="82"/>
+        <location filename="../ui/UISearchFrame.ui" line="91"/>
         <source>Stop</source>
         <translation>Állj</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="132"/>
+        <location filename="../ui/UISearchFrame.ui" line="150"/>
         <source>Hubs</source>
         <translation>Hubok</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="139"/>
+        <location filename="../ui/UISearchFrame.ui" line="157"/>
         <source>Only users with free slots</source>
         <translation>Csak szabad slottal rendelkező felhasználók</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="146"/>
+        <location filename="../ui/UISearchFrame.ui" line="164"/>
         <source>Size</source>
         <translation>Méret</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="157"/>
+        <location filename="../ui/UISearchFrame.ui" line="175"/>
         <source>B</source>
         <translation>B</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="162"/>
+        <location filename="../ui/UISearchFrame.ui" line="180"/>
         <source>KiB</source>
         <translation>KiB</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="167"/>
+        <location filename="../ui/UISearchFrame.ui" line="185"/>
         <source>MiB</source>
         <translation>MiB</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="172"/>
+        <location filename="../ui/UISearchFrame.ui" line="190"/>
         <source>GiB</source>
         <translation>GiB</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="184"/>
+        <location filename="../ui/UISearchFrame.ui" line="202"/>
         <source>Normal</source>
         <translation>Normál</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="189"/>
+        <location filename="../ui/UISearchFrame.ui" line="207"/>
         <source>At least</source>
         <translation>Legalább</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="194"/>
+        <location filename="../ui/UISearchFrame.ui" line="212"/>
         <source>At most</source>
         <translation>Legfeljebb</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="205"/>
+        <location filename="../ui/UISearchFrame.ui" line="223"/>
         <source>Don&apos;t hide this panel when search</source>
         <translation>Ne rejtse el ezt a panelt keresés közben</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="221"/>
+        <location filename="../ui/UISearchFrame.ui" line="239"/>
         <source>Already shared files</source>
         <translation>Már megosztott fájlok</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="234"/>
+        <location filename="../ui/UISearchFrame.ui" line="261"/>
         <source>Do nothing</source>
         <translation>Ne csináljon semmit</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="239"/>
+        <location filename="../ui/UISearchFrame.ui" line="266"/>
         <source>Hide</source>
         <translation>Elrejtés</translation>
     </message>
     <message>
-        <location filename="../ui/UISearchFrame.ui" line="244"/>
+        <location filename="../ui/UISearchFrame.ui" line="271"/>
         <source>Highlight</source>
         <translation>Kiemelés</translation>
     </message>
@@ -3286,9 +3252,8 @@ Letöltve: %3 Feltöltve: %4</translation>
         <translation>Pontos méret</translation>
     </message>
     <message>
-        <location filename="../src/SearchModel.cpp" line="56"/>
         <source>TTH</source>
-        <translation>TTH</translation>
+        <translation type="obsolete">TTH</translation>
     </message>
     <message>
         <location filename="../src/SearchModel.cpp" line="56"/>
@@ -4254,9 +4219,8 @@ Biztosan le akarod állítani?
         <translation>Fájllista</translation>
     </message>
     <message>
-        <location filename="../src/TransferView.cpp" line="389"/>
         <source>TTH: </source>
-        <translation>TTH:</translation>
+        <translation type="obsolete">TTH:</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="604"/>
@@ -4269,27 +4233,20 @@ Biztosan le akarod állítani?
         <translation>Letöltés kezdése...</translation>
     </message>
     <message>
-        <location filename="../src/TransferView.cpp" line="633"/>
-        <location filename="../src/TransferView.cpp" line="811"/>
         <source>[S]</source>
-        <translation>[S]</translation>
+        <translation type="obsolete">[S]</translation>
     </message>
     <message>
-        <location filename="../src/TransferView.cpp" line="635"/>
-        <location filename="../src/TransferView.cpp" line="813"/>
         <source>[U]</source>
-        <translation>[U]</translation>
+        <translation type="obsolete">[U]</translation>
     </message>
     <message>
-        <location filename="../src/TransferView.cpp" line="639"/>
         <source>[T]</source>
-        <translation>[T]</translation>
+        <translation type="obsolete">[T]</translation>
     </message>
     <message>
-        <location filename="../src/TransferView.cpp" line="641"/>
-        <location filename="../src/TransferView.cpp" line="816"/>
         <source>[Z]</source>
-        <translation>[Z]</translation>
+        <translation type="obsolete">[Z]</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="645"/>
@@ -4297,9 +4254,8 @@ Biztosan le akarod állítani?
         <translation>Letöltve: %1</translation>
     </message>
     <message>
-        <location filename="../src/TransferView.cpp" line="646"/>
         <source> (%1%)</source>
-        <translation> (%1%)</translation>
+        <translation type="obsolete"> (%1%)</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="700"/>
@@ -4422,15 +4378,12 @@ Biztosan le akarod állítani?
         <translation>Várakozás slotra </translation>
     </message>
     <message>
-        <location filename="../src/TransferViewModel.cpp" line="589"/>
-        <location filename="../src/TransferViewModel.cpp" line="591"/>
         <source>TTH: </source>
-        <translation>TTH:</translation>
+        <translation type="obsolete">TTH:</translation>
     </message>
     <message>
-        <location filename="../src/TransferViewModel.cpp" line="596"/>
         <source>%1/%2</source>
-        <translation>%1/%2</translation>
+        <translation type="obsolete">%1/%2</translation>
     </message>
     <message>
         <location filename="../src/TransferViewModel.cpp" line="634"/>
@@ -4466,9 +4419,8 @@ Biztosan le akarod állítani?
 <context>
     <name>UIADLS</name>
     <message>
-        <location filename="../ui/UIADLSearch.ui" line="14"/>
         <source>Form</source>
-        <translation>ADL Keresés</translation>
+        <translation type="obsolete">ADL Keresés</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearch.ui" line="56"/>
@@ -4499,73 +4451,72 @@ Biztosan le akarod állítani?
 <context>
     <name>UIADLSEditor</name>
     <message>
-        <location filename="../ui/UIADLSearchEditor.ui" line="20"/>
         <source>Dialog</source>
-        <translation>ADL Beállítások</translation>
+        <translation type="obsolete">ADL Beállítások</translation>
     </message>
     <message>
-        <location filename="../ui/UIADLSearchEditor.ui" line="29"/>
+        <location filename="../ui/UIADLSearchEditor.ui" line="38"/>
         <source>Favorite hub name.</source>
         <translation>Kedvenc hubnév.</translation>
     </message>
     <message>
-        <location filename="../ui/UIADLSearchEditor.ui" line="42"/>
+        <location filename="../ui/UIADLSearchEditor.ui" line="51"/>
         <source>Search string</source>
         <translation>Keresendő kifejezés</translation>
     </message>
     <message>
-        <location filename="../ui/UIADLSearchEditor.ui" line="65"/>
-        <location filename="../ui/UIADLSearchEditor.ui" line="99"/>
+        <location filename="../ui/UIADLSearchEditor.ui" line="74"/>
+        <location filename="../ui/UIADLSearchEditor.ui" line="117"/>
         <source>Directory</source>
         <translation>Könyvtár</translation>
     </message>
     <message>
-        <location filename="../ui/UIADLSearchEditor.ui" line="78"/>
+        <location filename="../ui/UIADLSearchEditor.ui" line="87"/>
         <source>Type source</source>
         <translation>Forrás</translation>
     </message>
     <message>
-        <location filename="../ui/UIADLSearchEditor.ui" line="94"/>
+        <location filename="../ui/UIADLSearchEditor.ui" line="112"/>
         <source>Filename</source>
         <translation>Fájlnév</translation>
     </message>
     <message>
-        <location filename="../ui/UIADLSearchEditor.ui" line="104"/>
+        <location filename="../ui/UIADLSearchEditor.ui" line="122"/>
         <source>Full path</source>
         <translation>Teljes elérési út</translation>
     </message>
     <message>
-        <location filename="../ui/UIADLSearchEditor.ui" line="115"/>
+        <location filename="../ui/UIADLSearchEditor.ui" line="133"/>
         <source>Min/Max Size</source>
         <translation>Min/Max méret</translation>
     </message>
     <message>
-        <location filename="../ui/UIADLSearchEditor.ui" line="166"/>
+        <location filename="../ui/UIADLSearchEditor.ui" line="193"/>
         <source>B</source>
         <translation>B</translation>
     </message>
     <message>
-        <location filename="../ui/UIADLSearchEditor.ui" line="171"/>
+        <location filename="../ui/UIADLSearchEditor.ui" line="198"/>
         <source>KiB</source>
         <translation>KiB</translation>
     </message>
     <message>
-        <location filename="../ui/UIADLSearchEditor.ui" line="176"/>
+        <location filename="../ui/UIADLSearchEditor.ui" line="203"/>
         <source>MiB</source>
         <translation>MiB</translation>
     </message>
     <message>
-        <location filename="../ui/UIADLSearchEditor.ui" line="181"/>
+        <location filename="../ui/UIADLSearchEditor.ui" line="208"/>
         <source>GiB</source>
         <translation>GiB</translation>
     </message>
     <message>
-        <location filename="../ui/UIADLSearchEditor.ui" line="229"/>
+        <location filename="../ui/UIADLSearchEditor.ui" line="265"/>
         <source>Download</source>
         <translation>Letöltés</translation>
     </message>
     <message>
-        <location filename="../ui/UIADLSearchEditor.ui" line="242"/>
+        <location filename="../ui/UIADLSearchEditor.ui" line="278"/>
         <source>On</source>
         <translation>Be</translation>
     </message>
@@ -4578,13 +4529,12 @@ Biztosan le akarod állítani?
         <translation>Az EiskaltDC++-ról</translation>
     </message>
     <message>
-        <location filename="../ui/UIAbout.ui" line="20"/>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;EiskaltDC++&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+        <translation type="obsolete">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
@@ -4601,15 +4551,12 @@ p, li { white-space: pre-wrap; }
         <translation>Közreműködők</translation>
     </message>
     <message>
-        <location filename="../ui/UIAbout.ui" line="73"/>
-        <location filename="../ui/UIAbout.ui" line="97"/>
-        <location filename="../ui/UIAbout.ui" line="118"/>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+        <translation type="obsolete">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
@@ -4629,19 +4576,16 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>UIActionCustomizer</name>
     <message>
-        <location filename="../ui/UIActionCustomizer.ui" line="14"/>
         <source>Dialog</source>
-        <translation>Dialog</translation>
+        <translation type="obsolete">Dialog</translation>
     </message>
     <message>
-        <location filename="../ui/UIActionCustomizer.ui" line="29"/>
         <source>&gt;&gt;</source>
-        <translation>&gt;&gt;</translation>
+        <translation type="obsolete">&gt;&gt;</translation>
     </message>
     <message>
-        <location filename="../ui/UIActionCustomizer.ui" line="45"/>
         <source>&lt;&lt;</source>
-        <translation>&lt;&lt;</translation>
+        <translation type="obsolete">&lt;&lt;</translation>
     </message>
     <message>
         <location filename="../ui/UIActionCustomizer.ui" line="88"/>
@@ -4702,18 +4646,12 @@ p, li { white-space: pre-wrap; }
         <translation>Fekete lista</translation>
     </message>
     <message>
-        <location filename="../ui/UIAntiSpam.ui" line="131"/>
-        <location filename="../ui/UIAntiSpam.ui" line="197"/>
-        <location filename="../ui/UIAntiSpam.ui" line="263"/>
         <source>+</source>
-        <translation>+</translation>
+        <translation type="obsolete">+</translation>
     </message>
     <message>
-        <location filename="../ui/UIAntiSpam.ui" line="144"/>
-        <location filename="../ui/UIAntiSpam.ui" line="210"/>
-        <location filename="../ui/UIAntiSpam.ui" line="276"/>
         <source>-</source>
-        <translation>-</translation>
+        <translation type="obsolete">-</translation>
     </message>
     <message>
         <location filename="../ui/UIAntiSpam.ui" line="157"/>
@@ -4746,11 +4684,8 @@ p, li { white-space: pre-wrap; }
         <translation>Felhasználó áthelyezése a fehér listába</translation>
     </message>
     <message>
-        <location filename="../ui/UIAntiSpam.ui" line="317"/>
-        <location filename="../ui/UIAntiSpam.ui" line="330"/>
-        <location filename="../ui/UIAntiSpam.ui" line="385"/>
         <source>&gt;&gt;&gt;</source>
-        <translation>&gt;&gt;&gt;</translation>
+        <translation type="obsolete">&gt;&gt;&gt;</translation>
     </message>
     <message>
         <location filename="../ui/UIAntiSpam.ui" line="327"/>
@@ -4759,11 +4694,8 @@ p, li { white-space: pre-wrap; }
         <translation>Felhasználó áthelyezése a szürke listába</translation>
     </message>
     <message>
-        <location filename="../ui/UIAntiSpam.ui" line="343"/>
-        <location filename="../ui/UIAntiSpam.ui" line="356"/>
-        <location filename="../ui/UIAntiSpam.ui" line="372"/>
         <source>&lt;&lt;&lt;</source>
-        <translation>&lt;&lt;&lt;</translation>
+        <translation type="obsolete">&lt;&lt;&lt;</translation>
     </message>
     <message>
         <location filename="../ui/UIAntiSpam.ui" line="353"/>
@@ -4780,47 +4712,12 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>UICmdDebug</name>
     <message>
-        <location filename="../ui/UICmdDebug.ui" line="14"/>
-        <source>Form</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../ui/UICmdDebug.ui" line="29"/>
-        <source>CL_IN</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../ui/UICmdDebug.ui" line="36"/>
-        <source>CL_OUT</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../ui/UICmdDebug.ui" line="43"/>
-        <source>HUB_IN</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../ui/UICmdDebug.ui" line="50"/>
-        <source>HUB_OUT</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../ui/UICmdDebug.ui" line="57"/>
-        <source>DHT_IN</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../ui/UICmdDebug.ui" line="64"/>
-        <source>DHT_OUT</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../ui/UICmdDebug.ui" line="71"/>
+        <location filename="../ui/UICmdDebug.ui" line="52"/>
         <source>Filter by IP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UICmdDebug.ui" line="81"/>
+        <location filename="../ui/UICmdDebug.ui" line="100"/>
         <source>Lines:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4828,9 +4725,8 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>UIDownloadQueue</name>
     <message>
-        <location filename="../ui/UIDownloadQueue.ui" line="14"/>
         <source>Form</source>
-        <translation>Letöltési sor</translation>
+        <translation type="obsolete">Letöltési sor</translation>
     </message>
     <message>
         <location filename="../ui/UIDownloadQueue.ui" line="41"/>
@@ -4846,9 +4742,8 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>UIFavoriteHubEditor</name>
     <message>
-        <location filename="../ui/UIFavoriteHubEditor.ui" line="14"/>
         <source>Dialog</source>
-        <translation>Beállítások</translation>
+        <translation type="obsolete">Beállítások</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="20"/>
@@ -4935,9 +4830,8 @@ p, li { white-space: pre-wrap; }
         <translation>Külső IP</translation>
     </message>
     <message>
-        <location filename="../ui/UIFavoriteHubEditor.ui" line="152"/>
         <source>000.000.000.000; </source>
-        <translation>000.000.000.000; </translation>
+        <translation type="obsolete">000.000.000.000; </translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="162"/>
@@ -4955,32 +4849,32 @@ p, li { white-space: pre-wrap; }
         <translation>Azonosítás</translation>
     </message>
     <message>
-        <location filename="../ui/UIFavoriteHubEditor.ui" line="214"/>
+        <location filename="../ui/UIFavoriteHubEditor.ui" line="223"/>
         <source>This nickname, or handle, will identify you when you join a hub.</source>
         <translation>Ez a nick lesz használva, ha a csatlakozol a hubhoz.</translation>
     </message>
     <message>
-        <location filename="../ui/UIFavoriteHubEditor.ui" line="221"/>
+        <location filename="../ui/UIFavoriteHubEditor.ui" line="230"/>
         <source>If hub requires password, define it here.</source>
         <translation>Ha a hub jelszót kér (ha regisztrálva vagy a hubon), add meg itt.</translation>
     </message>
     <message>
-        <location filename="../ui/UIFavoriteHubEditor.ui" line="234"/>
+        <location filename="../ui/UIFavoriteHubEditor.ui" line="243"/>
         <source>This description will be shown in the user list.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UIFavoriteHubEditor.ui" line="241"/>
+        <location filename="../ui/UIFavoriteHubEditor.ui" line="250"/>
         <source>Nick</source>
         <translation>Nick</translation>
     </message>
     <message>
-        <location filename="../ui/UIFavoriteHubEditor.ui" line="248"/>
+        <location filename="../ui/UIFavoriteHubEditor.ui" line="257"/>
         <source>User description</source>
         <translation>Leírás</translation>
     </message>
     <message>
-        <location filename="../ui/UIFavoriteHubEditor.ui" line="255"/>
+        <location filename="../ui/UIFavoriteHubEditor.ui" line="264"/>
         <source>Password</source>
         <translation>Jelszó</translation>
     </message>
@@ -4988,9 +4882,8 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>UIFavoriteHubs</name>
     <message>
-        <location filename="../ui/UIFavoriteHubs.ui" line="14"/>
         <source>Form</source>
-        <translation>Kedvenc hubok</translation>
+        <translation type="obsolete">Kedvenc hubok</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubs.ui" line="56"/>
@@ -5016,9 +4909,8 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>UIFavoriteUsers</name>
     <message>
-        <location filename="../ui/UIFavoriteUsers.ui" line="14"/>
         <source>Form</source>
-        <translation>Kedvenc felhasználók</translation>
+        <translation type="obsolete">Kedvenc felhasználók</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteUsers.ui" line="41"/>
@@ -5034,22 +4926,21 @@ p, li { white-space: pre-wrap; }
         <translation>TTH Kalkulátor</translation>
     </message>
     <message>
-        <location filename="../ui/UIFileHasher.ui" line="54"/>
         <source>...</source>
-        <translation>...</translation>
+        <translation type="obsolete">...</translation>
     </message>
     <message>
-        <location filename="../ui/UIFileHasher.ui" line="73"/>
+        <location filename="../ui/UIFileHasher.ui" line="82"/>
         <source>Compute</source>
         <translation>Számítás</translation>
     </message>
     <message>
-        <location filename="../ui/UIFileHasher.ui" line="80"/>
+        <location filename="../ui/UIFileHasher.ui" line="89"/>
         <source>Get magnet</source>
         <translation>Magnetlink másolása</translation>
     </message>
     <message>
-        <location filename="../ui/UIFileHasher.ui" line="100"/>
+        <location filename="../ui/UIFileHasher.ui" line="109"/>
         <source>Close</source>
         <translation>Bezárás</translation>
     </message>
@@ -5057,9 +4948,8 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>UIFinishedTransfers</name>
     <message>
-        <location filename="../ui/UIFinishedTransfers.ui" line="14"/>
         <source>Form</source>
-        <translation>Befejezett átvitelek</translation>
+        <translation type="obsolete">Befejezett átvitelek</translation>
     </message>
     <message>
         <location filename="../ui/UIFinishedTransfers.ui" line="22"/>
@@ -5118,62 +5008,58 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>UIHubFrame</name>
     <message>
-        <location filename="../ui/HubFrame.ui" line="14"/>
         <source>Form</source>
-        <translation>Hub</translation>
+        <translation type="obsolete">Hub</translation>
     </message>
     <message>
-        <location filename="../ui/HubFrame.ui" line="81"/>
+        <location filename="../ui/HubFrame.ui" line="97"/>
         <source>Find: </source>
         <translation>Keresés:</translation>
     </message>
     <message>
-        <location filename="../ui/HubFrame.ui" line="95"/>
+        <location filename="../ui/HubFrame.ui" line="111"/>
         <source>Previous (Shift+F3)</source>
         <translation>Előző (Shift+F3)</translation>
     </message>
     <message>
-        <location filename="../ui/HubFrame.ui" line="98"/>
         <source>&lt;</source>
-        <translation>&lt;</translation>
+        <translation type="obsolete">&lt;</translation>
     </message>
     <message>
-        <location filename="../ui/HubFrame.ui" line="101"/>
+        <location filename="../ui/HubFrame.ui" line="117"/>
         <source>Shift+F3</source>
         <translation>Shift+F3</translation>
     </message>
     <message>
-        <location filename="../ui/HubFrame.ui" line="108"/>
+        <location filename="../ui/HubFrame.ui" line="124"/>
         <source>Next (F3)</source>
         <translation>Következő (F3)</translation>
     </message>
     <message>
-        <location filename="../ui/HubFrame.ui" line="111"/>
         <source>&gt;</source>
-        <translation>&gt;</translation>
+        <translation type="obsolete">&gt;</translation>
     </message>
     <message>
-        <location filename="../ui/HubFrame.ui" line="114"/>
+        <location filename="../ui/HubFrame.ui" line="130"/>
         <source>F3</source>
         <translation>F3</translation>
     </message>
     <message>
-        <location filename="../ui/HubFrame.ui" line="121"/>
+        <location filename="../ui/HubFrame.ui" line="137"/>
         <source>Highlight all</source>
         <translation>Összes kiemelése</translation>
     </message>
     <message>
-        <location filename="../ui/HubFrame.ui" line="124"/>
         <source>A</source>
-        <translation>A</translation>
+        <translation type="obsolete">A</translation>
     </message>
     <message>
-        <location filename="../ui/HubFrame.ui" line="137"/>
+        <location filename="../ui/HubFrame.ui" line="153"/>
         <source>Hide find frame (Ctrl+F)</source>
         <translation>Kereső ablak elrejtése (Ctrl+F)</translation>
     </message>
     <message>
-        <location filename="../ui/HubFrame.ui" line="281"/>
+        <location filename="../ui/HubFrame.ui" line="306"/>
         <source>Last status message on hub</source>
         <translation>Utolsó állapotüzenet a hubon</translation>
     </message>
@@ -5181,9 +5067,8 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>UIHubManager</name>
     <message>
-        <location filename="../ui/UIHubManager.ui" line="14"/>
         <source>Form</source>
-        <translation>Form</translation>
+        <translation type="obsolete">Form</translation>
     </message>
     <message>
         <location filename="../ui/UIHubManager.ui" line="33"/>
@@ -5229,42 +5114,42 @@ p, li { white-space: pre-wrap; }
         <translation>Import</translation>
     </message>
     <message>
-        <location filename="../ui/UIIPFilter.ui" line="108"/>
+        <location filename="../ui/UIIPFilter.ui" line="99"/>
         <source>Direction</source>
         <translation>Irány</translation>
     </message>
     <message>
-        <location filename="../ui/UIIPFilter.ui" line="114"/>
+        <location filename="../ui/UIIPFilter.ui" line="105"/>
         <source>BOTH</source>
         <translation>MINDKETTŐ</translation>
     </message>
     <message>
-        <location filename="../ui/UIIPFilter.ui" line="121"/>
+        <location filename="../ui/UIIPFilter.ui" line="112"/>
         <source>IN</source>
         <translation>BE</translation>
     </message>
     <message>
-        <location filename="../ui/UIIPFilter.ui" line="128"/>
+        <location filename="../ui/UIIPFilter.ui" line="119"/>
         <source>OUT</source>
         <translation>KI</translation>
     </message>
     <message>
-        <location filename="../ui/UIIPFilter.ui" line="141"/>
+        <location filename="../ui/UIIPFilter.ui" line="132"/>
         <source>UP</source>
         <translation>FEL</translation>
     </message>
     <message>
-        <location filename="../ui/UIIPFilter.ui" line="148"/>
+        <location filename="../ui/UIIPFilter.ui" line="139"/>
         <source>DOWN</source>
         <translation>LE</translation>
     </message>
     <message>
-        <location filename="../ui/UIIPFilter.ui" line="158"/>
+        <location filename="../ui/UIIPFilter.ui" line="149"/>
         <source>Add</source>
         <translation>Hozzáadás</translation>
     </message>
     <message>
-        <location filename="../ui/UIIPFilter.ui" line="165"/>
+        <location filename="../ui/UIIPFilter.ui" line="156"/>
         <source>OK</source>
         <translation>OK</translation>
     </message>
@@ -5272,59 +5157,57 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>UIMagnet</name>
     <message>
-        <location filename="../ui/UIMagnet.ui" line="20"/>
         <source>Form</source>
-        <translation>Magnet</translation>
+        <translation type="obsolete">Magnet</translation>
     </message>
     <message>
-        <location filename="../ui/UIMagnet.ui" line="58"/>
         <source>TTH</source>
-        <translation>TTH</translation>
+        <translation type="obsolete">TTH</translation>
     </message>
     <message>
-        <location filename="../ui/UIMagnet.ui" line="65"/>
+        <location filename="../ui/UIMagnet.ui" line="74"/>
         <source>Filename</source>
         <translation>Fájlnév</translation>
     </message>
     <message>
-        <location filename="../ui/UIMagnet.ui" line="75"/>
+        <location filename="../ui/UIMagnet.ui" line="84"/>
         <source>Filepath</source>
         <translation>Útvonal</translation>
     </message>
     <message>
-        <location filename="../ui/UIMagnet.ui" line="89"/>
+        <location filename="../ui/UIMagnet.ui" line="98"/>
         <source>Size</source>
         <translation>Méret</translation>
     </message>
     <message>
-        <location filename="../ui/UIMagnet.ui" line="127"/>
+        <location filename="../ui/UIMagnet.ui" line="136"/>
         <source>Opens search dialog and searches file.</source>
         <translation>Keresési ablak megnyitása és fájlok keresése.</translation>
     </message>
     <message>
-        <location filename="../ui/UIMagnet.ui" line="130"/>
+        <location filename="../ui/UIMagnet.ui" line="139"/>
         <source>Search</source>
         <translation>Keresés</translation>
     </message>
     <message>
-        <location filename="../ui/UIMagnet.ui" line="137"/>
+        <location filename="../ui/UIMagnet.ui" line="146"/>
         <source>Adds magnet to download queue. If autosearch for alternatives is enabled
 in options, file will be downloaded without opening search dialog.</source>
         <translation>Magnetlink hozzáadása a letöltési sorhoz. Ha az alternatívák automatikus keresése
 be van kapcsolva a beállításokban, a fájl automatikusan letötésre kerül a keresési ablak megnyitása nélkül.</translation>
     </message>
     <message>
-        <location filename="../ui/UIMagnet.ui" line="141"/>
+        <location filename="../ui/UIMagnet.ui" line="150"/>
         <source>Add to queue</source>
         <translation>Hozzáadás a letöltési sorhoz</translation>
     </message>
     <message>
-        <location filename="../ui/UIMagnet.ui" line="161"/>
+        <location filename="../ui/UIMagnet.ui" line="170"/>
         <source>Cancel</source>
         <translation>Mégsem</translation>
     </message>
     <message>
-        <location filename="../ui/UIMagnet.ui" line="170"/>
+        <location filename="../ui/UIMagnet.ui" line="179"/>
         <source>Remember my choice</source>
         <translation>Emlékezz a választásomra</translation>
     </message>
@@ -5332,67 +5215,63 @@ be van kapcsolva a beállításokban, a fájl automatikusan letötésre kerül a
 <context>
     <name>UIPrivateMessage</name>
     <message>
-        <location filename="../ui/PrivateMessage.ui" line="14"/>
         <source>Form</source>
-        <translation>Privát üzenet</translation>
+        <translation type="obsolete">Privát üzenet</translation>
     </message>
     <message>
-        <location filename="../ui/PrivateMessage.ui" line="74"/>
+        <location filename="../ui/PrivateMessage.ui" line="81"/>
         <source>Find:</source>
         <translation>Keresés:</translation>
     </message>
     <message>
-        <location filename="../ui/PrivateMessage.ui" line="81"/>
+        <location filename="../ui/PrivateMessage.ui" line="88"/>
         <source>Previous (Shift+F3)</source>
         <translation>Előző (Shift+F3)</translation>
     </message>
     <message>
-        <location filename="../ui/PrivateMessage.ui" line="84"/>
         <source>&lt;</source>
-        <translation>&lt;</translation>
+        <translation type="obsolete">&lt;</translation>
     </message>
     <message>
-        <location filename="../ui/PrivateMessage.ui" line="87"/>
+        <location filename="../ui/PrivateMessage.ui" line="94"/>
         <source>Shift+F3</source>
         <translation type="unfinished">Shift+F3</translation>
     </message>
     <message>
-        <location filename="../ui/PrivateMessage.ui" line="94"/>
+        <location filename="../ui/PrivateMessage.ui" line="101"/>
         <source>Next (F3)</source>
         <translation>Következő (F3)</translation>
     </message>
     <message>
-        <location filename="../ui/PrivateMessage.ui" line="97"/>
         <source>&gt;</source>
-        <translation>&gt;</translation>
+        <translation type="obsolete">&gt;</translation>
     </message>
     <message>
-        <location filename="../ui/PrivateMessage.ui" line="100"/>
+        <location filename="../ui/PrivateMessage.ui" line="107"/>
         <source>F3</source>
         <translation type="unfinished">F3</translation>
     </message>
     <message>
-        <location filename="../ui/PrivateMessage.ui" line="107"/>
+        <location filename="../ui/PrivateMessage.ui" line="114"/>
         <source>Hide find frame (Ctrl+F)</source>
         <translation>Keresőmező elrejtése (Ctrl+F)</translation>
     </message>
     <message>
-        <location filename="../ui/PrivateMessage.ui" line="117"/>
+        <location filename="../ui/PrivateMessage.ui" line="124"/>
         <source>Highlight all</source>
         <translation>Összes kiemelése</translation>
     </message>
     <message>
-        <location filename="../ui/PrivateMessage.ui" line="120"/>
         <source>A</source>
-        <translation>A</translation>
+        <translation type="obsolete">A</translation>
     </message>
     <message>
-        <location filename="../ui/PrivateMessage.ui" line="222"/>
+        <location filename="../ui/PrivateMessage.ui" line="229"/>
         <source>Go to hub</source>
         <translation>Irány a hub</translation>
     </message>
     <message>
-        <location filename="../ui/PrivateMessage.ui" line="229"/>
+        <location filename="../ui/PrivateMessage.ui" line="236"/>
         <source>User share</source>
         <translation>Felhasználó megosztása</translation>
     </message>
@@ -5400,17 +5279,15 @@ be van kapcsolva a beállításokban, a fájl automatikusan letötésre kerül a
 <context>
     <name>UIPublicHubs</name>
     <message>
-        <location filename="../ui/UIPublicHubs.ui" line="14"/>
         <source>Form</source>
-        <translation>Publikus hubok</translation>
+        <translation type="obsolete">Publikus hubok</translation>
     </message>
 </context>
 <context>
     <name>UIPublicHubsList</name>
     <message>
-        <location filename="../ui/UIPublicHubsList.ui" line="14"/>
         <source>Dialog</source>
-        <translation>Beállítások</translation>
+        <translation type="obsolete">Beállítások</translation>
     </message>
     <message>
         <location filename="../ui/UIPublicHubsList.ui" line="23"/>
@@ -5441,9 +5318,8 @@ be van kapcsolva a beállításokban, a fájl automatikusan letötésre kerül a
 <context>
     <name>UIQueuedUsers</name>
     <message>
-        <location filename="../ui/UIQueuedUsers.ui" line="14"/>
         <source>Form</source>
-        <translation>Felhasználók a sorban</translation>
+        <translation type="obsolete">Felhasználók a sorban</translation>
     </message>
 </context>
 <context>
@@ -5462,9 +5338,8 @@ be van kapcsolva a beállításokban, a fájl automatikusan letötésre kerül a
 <context>
     <name>UIScriptManager</name>
     <message>
-        <location filename="../ui/UIScriptManager.ui" line="14"/>
         <source>Dialog</source>
-        <translation>Beállítások</translation>
+        <translation type="obsolete">Beállítások</translation>
     </message>
     <message>
         <location filename="../ui/UIScriptManager.ui" line="21"/>
@@ -5516,11 +5391,6 @@ be van kapcsolva a beállításokban, a fájl automatikusan letötésre kerül a
 <context>
     <name>UISettingsAdvanced</name>
     <message>
-        <location filename="../ui/UISettingsAdvanced.ui" line="14"/>
-        <source>Form</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../ui/UISettingsAdvanced.ui" line="36"/>
         <source>Mime Handler</source>
         <translation type="unfinished"></translation>
@@ -5529,9 +5399,8 @@ be van kapcsolva a beállításokban, a fájl automatikusan letötésre kerül a
 <context>
     <name>UISettingsConnection</name>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="14"/>
         <source>Form</source>
-        <translation>Kapcsolat beállításai</translation>
+        <translation type="obsolete">Kapcsolat beállításai</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="27"/>
@@ -5549,7 +5418,7 @@ be van kapcsolva a beállításokban, a fájl automatikusan letötésre kerül a
         <translation>Bejövő kapcsolatok</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="55"/>
+        <location filename="../ui/UISettingsConnection.ui" line="73"/>
         <source>Select this mode if your computer is connected directly to the internet.
 Do not select this mode if you have a router or any external firewall.
 If your computer is not behind a router all you have to do is to choose
@@ -5564,12 +5433,12 @@ Ezen túl, ha telepítve van valamilyen szoftveres tűzfalprogram a számítóg�
 hogy az EiskaltDC++ számára engedélyezve van-e minden ki és bejövő kapcsolat a tűzfalon.</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="63"/>
+        <location filename="../ui/UISettingsConnection.ui" line="81"/>
         <source>Active mode</source>
         <translation>Aktív mód</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="73"/>
+        <location filename="../ui/UISettingsConnection.ui" line="91"/>
         <source>Select this mode if you are behind a firewall (router), and will set up
 the TCP, UDP and TLS port forwarding on your own.
 You will need to specify the external IP address of your router using
@@ -5582,12 +5451,12 @@ egyezzenek meg, valamint a routeredben helyesen add meg a géped belső IP cím�
 A kliens beállításainál ügyelj a külső IP cím helyes megadására.</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="80"/>
+        <location filename="../ui/UISettingsConnection.ui" line="98"/>
         <source>Firewall with port forwarding</source>
         <translation>Tűzfal kézi port-továbbítással (magam állítom be a routerem)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="90"/>
+        <location filename="../ui/UISettingsConnection.ui" line="108"/>
         <source>Select this mode if none of the previous modes apply. In this mode,
 EiskaltDC++ will not try to make inbound connections, only outbound ones.
 This mode carries some serious limitations:
@@ -5603,12 +5472,12 @@ csak a kimenőket kezeli.
   * elképzelhető, hogy a keresés és/vagy a letöltés nem fog működni a hubokon.</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="98"/>
+        <location filename="../ui/UISettingsConnection.ui" line="116"/>
         <source>Passive mode</source>
         <translation>Passzív mód</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="105"/>
+        <location filename="../ui/UISettingsConnection.ui" line="123"/>
         <source>Select this mode if you are behind a firewall/router that supports
 the UPnP standard for program auto-configuration.
 Most routers do support UPnP but you may need to enable it
@@ -5623,52 +5492,52 @@ Ezzel a beállítással az EiskaltDC++ automatikusan megnyitja a megfelelő port
 és a külső IP címet is meghatározza.</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="113"/>
+        <location filename="../ui/UISettingsConnection.ui" line="131"/>
         <source>Firewall with UPnP</source>
         <translation>Tűzfal UPnP-vel</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="138"/>
+        <location filename="../ui/UISettingsConnection.ui" line="165"/>
         <source>External/WAN IP:</source>
         <translation>Külső/WAN IP:</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="152"/>
+        <location filename="../ui/UISettingsConnection.ui" line="179"/>
         <source>Don&apos;t allow Hub/UPnP/DHT to override</source>
         <translation>Ne engedje a hubnak/UPnP-nek/DHT-nek felülírni</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="161"/>
+        <location filename="../ui/UISettingsConnection.ui" line="188"/>
         <source>TCP port</source>
         <translation>TCP port</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="168"/>
+        <location filename="../ui/UISettingsConnection.ui" line="195"/>
         <source>UDP port</source>
         <translation>UDP port</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="175"/>
+        <location filename="../ui/UISettingsConnection.ui" line="202"/>
         <source>TLS port</source>
         <translation>TLS port</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="235"/>
+        <location filename="../ui/UISettingsConnection.ui" line="262"/>
         <source>Bind to address</source>
         <translation>Kötés címhez</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="245"/>
+        <location filename="../ui/UISettingsConnection.ui" line="272"/>
         <source>Bind to interface</source>
         <translation>Kötés interfészhez</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="261"/>
+        <location filename="../ui/UISettingsConnection.ui" line="288"/>
         <source>Outgoing connections</source>
         <translation>Kimenő kapcsolatok</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="276"/>
+        <location filename="../ui/UISettingsConnection.ui" line="321"/>
         <source>Select this mode if you can make unrestricted outbound connections.
 This includes connecting to any IP address on any port.
 Choose this option if unsure.</source>
@@ -5677,12 +5546,12 @@ Ezzel lehetőség nyílik kapcsolódni bármilyen porton bármilyen IP címhez.
 Válaszd ezt a lehetőséget ha bizonytalan vagy.</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="281"/>
+        <location filename="../ui/UISettingsConnection.ui" line="326"/>
         <source>Direct connection</source>
         <translation>Közvetlen kapcsolat</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="291"/>
+        <location filename="../ui/UISettingsConnection.ui" line="336"/>
         <source>Select this mode if you want to make outbound connections through
 a SOCKS proxy. The caveats for Passive mode also apply here.
 SOCKS5 proxies are not the same as HTTP proxies.
@@ -5692,128 +5561,126 @@ A passzív mód hátrányai itt is érvényesek. A SOCKS5 proxy nem azonos a HTT
 Az EiskaltDC++ SOCKS5 támogatása nem tartalmazza a GSSAPI modult.</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="297"/>
+        <location filename="../ui/UISettingsConnection.ui" line="342"/>
         <source>SOCKS5</source>
         <translation>SOCKS5</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="319"/>
         <source>000.000.000.000; </source>
-        <translation>000.000.000.000; </translation>
+        <translation type="obsolete">000.000.000.000; </translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="332"/>
+        <location filename="../ui/UISettingsConnection.ui" line="386"/>
         <source>IP</source>
         <translation>IP</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="339"/>
+        <location filename="../ui/UISettingsConnection.ui" line="393"/>
         <source>User</source>
         <translation>Felhasználó</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="346"/>
+        <location filename="../ui/UISettingsConnection.ui" line="400"/>
         <source>Password</source>
         <translation>Jelszó</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="353"/>
+        <location filename="../ui/UISettingsConnection.ui" line="407"/>
         <source>Port</source>
         <translation>Port</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="366"/>
         <source>00000; </source>
-        <translation>00000; </translation>
+        <translation type="obsolete">00000; </translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="373"/>
+        <location filename="../ui/UISettingsConnection.ui" line="427"/>
         <source>Use to resolve hostnames</source>
         <translation>Használd a hosztnevek feloldásához</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="401"/>
+        <location filename="../ui/UISettingsConnection.ui" line="455"/>
         <source>DynDNS Address:</source>
         <translation>DynDNS cím:</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="427"/>
+        <location filename="../ui/UISettingsConnection.ui" line="481"/>
         <source>When enabled can hang program on exit.</source>
         <translation>Ha be van jelölve, a program beragadhat kilépéskor.</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="430"/>
+        <location filename="../ui/UISettingsConnection.ui" line="484"/>
         <source>Automatically update external IP (restart required)</source>
         <translation>Külső IP cím automatikus frissítése (újraindítást igényel)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="454"/>
-        <location filename="../ui/UISettingsConnection.ui" line="469"/>
+        <location filename="../ui/UISettingsConnection.ui" line="508"/>
+        <location filename="../ui/UISettingsConnection.ui" line="523"/>
         <source>Limits</source>
         <translation>Sebességkorlátok</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="475"/>
+        <location filename="../ui/UISettingsConnection.ui" line="529"/>
         <source>Enable Throttle</source>
         <translation>Limitálás engedélyezése</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="506"/>
-        <location filename="../ui/UISettingsConnection.ui" line="658"/>
+        <location filename="../ui/UISettingsConnection.ui" line="569"/>
+        <location filename="../ui/UISettingsConnection.ui" line="721"/>
         <source>Download</source>
         <translation>Letöltés</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="520"/>
-        <location filename="../ui/UISettingsConnection.ui" line="554"/>
-        <location filename="../ui/UISettingsConnection.ui" line="699"/>
-        <location filename="../ui/UISettingsConnection.ui" line="732"/>
+        <location filename="../ui/UISettingsConnection.ui" line="583"/>
+        <location filename="../ui/UISettingsConnection.ui" line="617"/>
+        <location filename="../ui/UISettingsConnection.ui" line="762"/>
+        <location filename="../ui/UISettingsConnection.ui" line="795"/>
         <source>KiB/s</source>
         <translation>KiB/s</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="540"/>
-        <location filename="../ui/UISettingsConnection.ui" line="685"/>
+        <location filename="../ui/UISettingsConnection.ui" line="603"/>
+        <location filename="../ui/UISettingsConnection.ui" line="748"/>
         <source>Upload</source>
         <translation>Feltöltés</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="583"/>
+        <location filename="../ui/UISettingsConnection.ui" line="646"/>
         <source>Alternate speed limit at time from </source>
         <translation>Alternatív sebességkorlát használata a következő időben </translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="609"/>
+        <location filename="../ui/UISettingsConnection.ui" line="672"/>
         <source>to</source>
         <translation>-</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="623"/>
+        <location filename="../ui/UISettingsConnection.ui" line="686"/>
         <source>hour(s)</source>
         <translation>óra</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="722"/>
+        <location filename="../ui/UISettingsConnection.ui" line="785"/>
         <source>Slots</source>
         <translation>Slotok</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="765"/>
+        <location filename="../ui/UISettingsConnection.ui" line="828"/>
         <source>Advanced</source>
         <translation>Haladó</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="792"/>
+        <location filename="../ui/UISettingsConnection.ui" line="855"/>
         <source>Reconnect to hub (seconds)</source>
         <translation>Újracsatlakozás a hubhoz (másodpercben)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="815"/>
+        <location filename="../ui/UISettingsConnection.ui" line="878"/>
         <source>Type-of-Service (ToS)</source>
         <translation>Type-of-Service (ToS)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="831"/>
+        <location filename="../ui/UISettingsConnection.ui" line="894"/>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
@@ -5840,67 +5707,67 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Legfeljebb egy TOS érték adható meg. A Linux alapértelmezés szerint az &lt;span style=&quot; font-weight:600;&quot;&gt;&amp;quot;Alacsony késleltetés&amp;quot;&lt;/span&gt; adatcsomagot küldi el elsőként, de a pontos viselkedése függ a beállított sorkezelési rendszertől.&lt;span style=&quot; font-weight:600;&quot;&gt; Figyelem! Ez az opció rendszergazdai jogosultságot igényelhet!&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="846"/>
+        <location filename="../ui/UISettingsConnection.ui" line="909"/>
         <source>No</source>
         <translation>Nincs</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="851"/>
+        <location filename="../ui/UISettingsConnection.ui" line="914"/>
         <source>Low delay</source>
         <translation>Alacsony késleltetés</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="856"/>
+        <location filename="../ui/UISettingsConnection.ui" line="919"/>
         <source>Throughput</source>
         <translation>Teljesítmény</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="861"/>
+        <location filename="../ui/UISettingsConnection.ui" line="924"/>
         <source>Reliability</source>
         <translation>Megbízhatóság</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="866"/>
+        <location filename="../ui/UISettingsConnection.ui" line="929"/>
         <source>Minimal cost</source>
         <translation>Minimális felhasználás</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="876"/>
+        <location filename="../ui/UISettingsConnection.ui" line="939"/>
         <source>Enable DHT</source>
         <translation>DHT engedélyezése</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="900"/>
+        <location filename="../ui/UISettingsConnection.ui" line="963"/>
         <source>DHT port</source>
         <translation>DHT port</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="925"/>
+        <location filename="../ui/UISettingsConnection.ui" line="988"/>
         <source>TLS settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="932"/>
+        <location filename="../ui/UISettingsConnection.ui" line="995"/>
         <source>Disable TLS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="937"/>
+        <location filename="../ui/UISettingsConnection.ui" line="1000"/>
         <source>Allow TLS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="942"/>
+        <location filename="../ui/UISettingsConnection.ui" line="1005"/>
         <source>Require TLS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="950"/>
+        <location filename="../ui/UISettingsConnection.ui" line="1013"/>
         <source>Allow untrusted certificate for hubs</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsConnection.ui" line="957"/>
+        <location filename="../ui/UISettingsConnection.ui" line="1020"/>
         <source>Allow untrusted certificate for clients</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5908,9 +5775,8 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>UISettingsDownloads</name>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="14"/>
         <source>Form</source>
-        <translation>Letöltés beállításai</translation>
+        <translation type="obsolete">Letöltés beállításai</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="30"/>
@@ -5923,22 +5789,22 @@ p, li { white-space: pre-wrap; }
         <translation>Könyvtárak</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="51"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="60"/>
         <source>Download directory</source>
         <translation>Letöltési könyvtár</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="84"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="93"/>
         <source>Use unfinished downloads directory</source>
         <translation>Befejezetlen letöltési könyvtár használata</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="97"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="106"/>
         <source>Limits</source>
         <translation>Sebességkorlátok</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="106"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="124"/>
         <source>This is another method of limiting simultaneous downloads,
 designed to prevent new downloads if your existing downloads
 exceed a specific threshold. It&apos;s measured in kibibytes per second,
@@ -5949,34 +5815,34 @@ A sebességet KiB/mp-ben kell megadni, nulla érték kikapcsolja ezt a korlátoz
 Megjegyés: a változó letöltési sebességek miatt a korlátozó funkció nem 100%-ig pontos.</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="119"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="137"/>
         <source>This limits the number of simultaneous downloads.
 A value of 0 means no limit.</source>
         <translation>Ez a limit az egyszerre folytatható letöltések száma.
 Ha a megadott érték 0, akkor nincs limit.</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="133"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="151"/>
         <source>Maximum simultaneous downloads (0 = infinite)</source>
         <translation>Egyszerre folytatható letöltések száma (0 = korlátlan)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="149"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="167"/>
         <source>No new downloads if speed exceeds (KiB/s, 0 = infinite)</source>
         <translation>Ne legyen új letöltés, ha a sebesség ezt túllépi (KiB/s; 0 = letiltás)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="159"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="177"/>
         <source>Note: Because of changing download speeds, this is not 100% accurate</source>
         <translation>Megjegyzés: A letöltési sebesség folytonos változása miatt ez nem 100% pontosságú</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="172"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="190"/>
         <source>Public Hub lists</source>
         <translation>Publikus hublisták</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="181"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="208"/>
         <source>This HTTP proxy will only be used to request
 the Public Hub List specified above.
 It&apos;s not used for uploads, downloads, or connecting to a hub.</source>
@@ -5985,49 +5851,49 @@ Publikus Hublisták eléréséhez lesz használva.
 Nem használható le, vagy feltöltéshez, vagy hubhoz való kapcsolódáshoz.</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="190"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="217"/>
         <source>Http proxy (hub list only)</source>
         <translation>Http proxy (csak hublistákhoz)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="197"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="224"/>
         <source>Configure Public Hub Lists</source>
         <translation>Publikus hublisták beállítása</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="221"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="248"/>
         <source>Download to</source>
         <translation>Letöltés ide</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="264"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="291"/>
         <source>Path</source>
         <translation>Útvonal</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="269"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="296"/>
         <source>Alias</source>
         <translation>Álnév</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="278"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="305"/>
         <source>Queue</source>
         <translation>Letöltési sor</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="284"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="311"/>
         <source>Auto-priority settings</source>
         <translation>Automatikus fontossági sorrend beállítása</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="293"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="329"/>
         <source>Files with the same or under the entered size
 will be set to Highest as priority. (default: 64 KiB)</source>
         <translation>Az itt meghatározott méretű, vagy annál kisebb fájlok,
 legmagasabb prioritásra lesznek beállítva. (alapértelmezés: 64 KiB)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="304"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="340"/>
         <source>Files with the same or under the entered size, but above Highest
 prio max size, will be set to High as priority. (default: 0 KiB)</source>
         <translation>Az itt megadott mérettel egyező, vagy annál nagyobb fájlok,
@@ -6035,7 +5901,7 @@ de még így is kisebbek mint a legmagasabb prioritású fájlok maximális mér
 magas prioritásra lesznek állítva. (alapértelmezés: 0 KiB)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="315"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="351"/>
         <source>Files with the same or under the entered size, but above Highest and
 High prio max size, will be set to Normal as priority. (default: 0 KiB)</source>
         <translation>Az itt megadott méretű, vagy annál nagyobb fájlok,
@@ -6043,7 +5909,7 @@ de még így is kisebbek, mint a legmagasabb és a magas prioritású fájlok
 maximális mérete, normál prioritásúra lesznek állítva. (alapértelmezett: 0 KiB)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="326"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="362"/>
         <source>Files with the same or under the entered size, but above Highest, High
 and Normal prio max size, will be set to Low as priority. (default: 0 KiB)</source>
         <translation>Az itt megadott méretű, vagy annál nagyobb fájlok, de még így is kisebbek,
@@ -6051,51 +5917,51 @@ mint a legmagasabb, magas és normál prioritású fájlok maximális mérete,
 alacsony prioritásúra lesznek állítva. (alapértelmezés: 0 KiB)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="343"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="379"/>
         <source>Highest priority max size (KiB)</source>
         <translation>Legmagasabb prioritás max mérete (KiB)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="359"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="395"/>
         <source>High priority max size (KiB)</source>
         <translation>Magas prioritás max mérete (KiB)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="375"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="411"/>
         <source>Normal priority max size (KiB)</source>
         <translation>Normál prioritás max mérete (KiB)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="391"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="427"/>
         <source>Low priority max size (KiB)</source>
         <translation>Alacsony prioritás max mérete (KiB)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="420"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="456"/>
         <source>Auto-drop settings</source>
         <translation>Automatikus elvetés beállításai</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="429"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="474"/>
         <source>If the download speed of a file is below the entered value,
 the source will be dropped. (default: 1024 B/s)</source>
         <translation>Ha a fájl letöltési sebessége alacsonyabb a megadott értéknél,
 akkor a forrás dobva lesz. (alapértelmezés: 1024 B/s)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="440"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="485"/>
         <source>Check every x second(s) if the source is slow. (default: 10 s)</source>
         <translation>Ellenőrzés minden x másodpercben, ha a forrás túl lassú. (alapértelmezés: 10 s)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="450"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="495"/>
         <source>Amount of time (in seconds) that has to pass since the download
 started before a source can be dropped. (default: 15 s)</source>
         <translation>Meghatározott idő (másodpercben) aminek el kell telnie a letöltés
 megkezdése előtt, mielőtt a forrás eldobható. (alapértelmezett: 15 s)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="461"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="506"/>
         <source>This is the maximal time since the last chunk of data for
 the file was received. It is meant to improve speed measurement
 accuracy and to prevent dropping sources that are going to be
@@ -6107,59 +5973,59 @@ ha az egyébként gyors forrás esetén az adatfolyam közben rövidebb szünete
 (alapértelmezés: 10s)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="474"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="519"/>
         <source>Minimum amount of sources before any sources
 will be dropped. (default: 1)</source>
         <translation>Az a minimális mennyiségű online lévő forrás, ami után egy fájl forrásai eldobhatóak.
 (alapértelmezés: 1)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="485"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="530"/>
         <source>Minimum filesize before sources will be dropped (in KiB). (default: 0 KiB)</source>
         <translation>Minimum fájlméret, mielőtt a forrás eldobásra kerül (KiB-ban). (alapértelmezés: 0 KiB)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="501"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="546"/>
         <source>Drop sources below (B/s)</source>
         <translation>Forrás eldobása ekkora sebesség alatt (B/s)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="517"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="562"/>
         <source>Check every (s)</source>
         <translation>Ellenőrzés ennyi időnként (s)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="533"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="578"/>
         <source>Min. elapsed (s)</source>
         <translation>Minimum eltelt idő (s)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="549"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="594"/>
         <source>Max inactivity (s)</source>
         <translation>Maximális tétlenség ideje (s)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="565"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="610"/>
         <source>Min sources online</source>
         <translation>Minimális online forrás</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="581"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="626"/>
         <source>Min filesize (KiB)</source>
         <translation>Minimális fájlméret (KiB)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="610"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="655"/>
         <source>Other options</source>
         <translation>Egyéb beállítások</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="626"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="680"/>
         <source>Set lowest priority for newly added files larger than low priority size</source>
         <translation>Legalacsonyabb prioritás beállítása az Alacsony prio méretnél nagyobb új fájlokhoz</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="629"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="683"/>
         <source>With this enabled, files that are larger than Low prio max size
 are set to Lowest as priority.
 If disabled, the files will be set to Normal as priority.</source>
@@ -6168,12 +6034,12 @@ az alacsony prioritású fájlok maximális méreténél, legalacsonyabb priorit
 Ha nem engedélyezett, akkor ezek a fájlok normál prioritásra lesznek álítva.</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="642"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="696"/>
         <source>Auto-drop slow sources for all queue items (except filelists)</source>
         <translation>Lassú források automatikus eldobása a sor minden eleménél (kivéve fájllistáknál)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="645"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="699"/>
         <source>This option removes the slow sources for all queue items (except file lists).
 To enable autodrop, turn on either &quot;Autodrop slow sources for all queue items&quot;
 or &quot;Remove slow file lists&quot; (or both of them).</source>
@@ -6182,12 +6048,12 @@ Az automatikus forrás eldobás engedélyezéséhez a &quot;Lassú források aut
 és a &quot;Lassú fájllisták eltávolítása&quot; beállítások közül az egyiknek (vagy mindkettőnek) engedélyezve kell lennie.</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="658"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="712"/>
         <source>Remove slow filelists</source>
         <translation>Lassú fájllisták eltávolítása</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="661"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="715"/>
         <source>With this option enabled, EiskaltDC++ will delete a file list whose speed
 was recognized as too slow.
 To enable autodrop, turn on either &quot;Autodrop slow sources for all queue items&quot;
@@ -6197,23 +6063,23 @@ Az automatikus forrás eldobás engedélyezéséhez a &quot;Lassú források aut
 és a &quot;Lassú fájllisták eltávolítása&quot; beállítások közül az egyiknek (vagy mindkettőnek) engedélyezve kell lennie.</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="675"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="729"/>
         <source>Don&apos;t remove the source when auto-dropping, only disconnect</source>
         <translation>Ne távolítsa el a forrást automatikus eldobásnál, csak szétkapcsolás legyen</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="678"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="732"/>
         <source>With this option enabled, sources will only be disconnected
 but not removed from the queue.</source>
         <translation>Ezt engedélyezve az lassú források eldobása helyett csak szétkapcsolás történik.</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="690"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="744"/>
         <source>Automatically search for alternative download locations</source>
         <translation>Alternatív letöltési helyek automatikus keresése</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="693"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="747"/>
         <source>Every few minutes, the client will search for files in your
 Download Queue to find more download locations (more users/sources).
 The autosearch will find exact matches by searching via hash.
@@ -6227,12 +6093,12 @@ Az állandó automatikus keresés korlátozható keresésből hozzáadott maxim�
 az &quot;Alternatívák automatikus keresése (keresési intervallum, percben)&quot; beállításban.</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="709"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="763"/>
         <source>Automatically match queue for auto search hits</source>
         <translation>Listák automatikus egyeztetése a letöltésekkel alternatív forrás találásakor</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="712"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="766"/>
         <source>Enable to automatically download a user&apos;s list and match them
 as sources for files in your Download Queue when they&apos;ve been
 discovered as a source for one of the files you&apos;re downloading.
@@ -6248,12 +6114,12 @@ Ennek automatikus ellenőrzése történik meg. Ha nem vagy biztos a jelentésé
 Hátránya, hogy esetleg lassú forrásokat is hozzáadhat a letöltési sorban lévő fájlokhoz, valamint hogy sok fájllista letöltést kezdeményez.</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="730"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="784"/>
         <source>Skip zero-byte files</source>
         <translation>Nulla hosszúságú fájlok kihagyása</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="733"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="787"/>
         <source>When this option is enabled, any zero byte files you
 try to download will be silently skipped.
 Sometimes empty files contain information through their naming.
@@ -6263,39 +6129,39 @@ Néha az üres fájlok neve is tartalmazhat hasznos információt,
 de jó tudni, hogy még a nulla hosszúságú fájl is foglal némi lemezterületet.</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="747"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="801"/>
         <source>Don&apos;t download files already in share</source>
         <translation>Már megosztott fájlok letöltésének kihagyása</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="750"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="804"/>
         <source>This option will stop you from downloading files
 which already exist in one of your shared directories.</source>
         <translation>Megakadályozza a már megosztott fájloknak a letöltését (letöltési sorhoz való hozzáadását).</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="762"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="816"/>
         <source>Don&apos;t download files already in the queue</source>
         <translation>Ne töltse le azokat a fájlokat, amik már a Letöltési sorban vannak</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="765"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="819"/>
         <source>This option will stop you from downloading files
 which already exist in your queue.</source>
         <translation>Megakadályozza a már a letöltési sorban lévő fájloknak az újbóli hozzáadását.</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="777"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="831"/>
         <source>SFV Check</source>
         <translation>SFV Ellenőrzés</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="788"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="842"/>
         <source>Keep downloaded filelists</source>
         <translation>Letöltött fájllisták megtartása</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="791"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="845"/>
         <source>Enable this option if you want to keep downloaded filelists
 in the download queue after they have been finished.
 After downloaded the queue items will have &apos;Finished&apos; status
@@ -6308,12 +6174,12 @@ from the queue either, you must do that manually.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="807"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="861"/>
         <source>Keep downloaded files</source>
         <translation>Letöltött fájlok megtartása</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="810"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="864"/>
         <source>Enable this option if you want to keep downloaded files and folders
 in the download queue after they have been finished.
 After downloaded the queue items will have &apos;Finished&apos; status
@@ -6336,37 +6202,37 @@ nem törli automatikusan annak bejegyzését a letöltési sorból.
 Ezen kívül a funkció kikapcsolása nem törli a már meglévő befejezett elemeket sem a sorból - ezeket kézzel kell kitörölnöd.</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="829"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="883"/>
         <source>Compressed transfers</source>
         <translation>Tömörített átvitel</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="840"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="894"/>
         <source>Segmented downloads</source>
         <translation>Szegmentált letöltés</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="855"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="909"/>
         <source>Advanced</source>
         <translation>Haladó</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="876"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="930"/>
         <source>Interval for auto search alternates (minutes)</source>
         <translation>Alternatívák automatikus keresése (keresési intervallum, percben)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="899"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="953"/>
         <source>Segment size (in MB, 0 = auto segment size)</source>
         <translation>Fájl szegmens méret (MiB-ban, 0 = automatikus beállítás)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="916"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="970"/>
         <source>Allow simultaneous uploads by one user from few NMDC hubs</source>
         <translation>Többszörös feltöltés engedélyezése egy felhasználótól, több hubról</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsDownloads.ui" line="923"/>
+        <location filename="../ui/UISettingsDownloads.ui" line="977"/>
         <source>Allow simultaneous uploads by one IP</source>
         <translation>Többszörös feltöltés engedélyezése egy IP-ről</translation>
     </message>
@@ -6374,9 +6240,8 @@ Ezen kívül a funkció kikapcsolása nem törli a már meglévő befejezett ele
 <context>
     <name>UISettingsGUI</name>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="14"/>
         <source>Form</source>
-        <translation>GUI beállításai</translation>
+        <translation type="obsolete">GUI beállításai</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="24"/>
@@ -6609,17 +6474,16 @@ ha azok egy szóközzel el vannak választva a szavaktól.</translation>
         <translation type="obsolete">1000</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="528"/>
+        <location filename="../ui/UISettingsGUI.ui" line="531"/>
         <source>Timestamp</source>
         <translation>Időbélyeg</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="598"/>
         <source>hh:mm:ss</source>
-        <translation>hh:mm:ss</translation>
+        <translation type="obsolete">hh:mm:ss</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="547"/>
+        <location filename="../ui/UISettingsGUI.ui" line="550"/>
         <source>Middle click action</source>
         <translation>Művelet középső kattintásra (egérgörgő)</translation>
     </message>
@@ -6629,152 +6493,140 @@ ha azok egy szóközzel el vannak választva a szavaktól.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="501"/>
-        <source>IEC</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsGUI.ui" line="506"/>
-        <source>JEDEC</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsGUI.ui" line="511"/>
+        <location filename="../ui/UISettingsGUI.ui" line="514"/>
         <source>Metric</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="525"/>
+        <location filename="../ui/UISettingsGUI.ui" line="528"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;These expressions may be used for the time:&lt;/p&gt;&lt;table border=&quot;0&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px;&quot; cellspacing=&quot;2&quot; cellpadding=&quot;0&quot;&gt;&lt;thead&gt;&lt;tr&gt;&lt;td&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Expression&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Output&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;h&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;the hour without a leading zero (0 to 23 or 1 to 12 if AM/PM display)&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;hh&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;the hour with a leading zero (00 to 23 or 01 to 12 if AM/PM display)&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;H&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;the hour without a leading zero (0 to 23, even with AM/PM display)&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;HH&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;the hour with a leading zero (00 to 23, even with AM/PM display)&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;m&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;the minute without a leading zero (0 to 59)&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;mm&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;the minute with a leading zero (00 to 59)&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;s&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;the second without a leading zero (0 to 59)&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;ss&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;the second with a leading zero (00 to 59)&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;z&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;the milliseconds without leading zeroes (0 to 999)&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;zzz&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;the milliseconds with leading zeroes (000 to 999)&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;AP or A&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;use AM/PM display. &lt;span style=&quot; font-style:italic;&quot;&gt;A/AP&lt;/span&gt; will be replaced by either &amp;quot;AM&amp;quot; or &amp;quot;PM&amp;quot;.&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;ap or a&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;use am/pm display. &lt;span style=&quot; font-style:italic;&quot;&gt;a/ap&lt;/span&gt; will be replaced by either &amp;quot;am&amp;quot; or &amp;quot;pm&amp;quot;.&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;t&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;the timezone (for example &amp;quot;CEST&amp;quot;)&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="566"/>
+        <location filename="../ui/UISettingsGUI.ui" line="569"/>
         <source>Default action with magnet</source>
         <translation>Alapértelmezett művelet magnet linkekkel</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="580"/>
+        <location filename="../ui/UISettingsGUI.ui" line="583"/>
         <source>Ask</source>
         <translation>Rákérdez</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="585"/>
+        <location filename="../ui/UISettingsGUI.ui" line="588"/>
         <source>Search</source>
         <translation>Keresés</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="590"/>
-        <location filename="../ui/UISettingsGUI.ui" line="938"/>
+        <location filename="../ui/UISettingsGUI.ui" line="593"/>
+        <location filename="../ui/UISettingsGUI.ui" line="941"/>
         <source>Download</source>
         <translation>Letöltés</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="615"/>
+        <location filename="../ui/UISettingsGUI.ui" line="618"/>
         <source>Remember outgoing messages (0 = don&apos;t remember)</source>
         <translation>Kimenő üzenetek megjegyzése (0 = tiltás)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="644"/>
+        <location filename="../ui/UISettingsGUI.ui" line="647"/>
         <source>Maximum paragraphs</source>
         <translation>Maximum sorok a chaten</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="670"/>
+        <location filename="../ui/UISettingsGUI.ui" line="673"/>
         <source>Separator in chat</source>
         <translation>Elválasztó a chaten</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="684"/>
         <source>:</source>
-        <translation>:</translation>
+        <translation type="obsolete">:</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="689"/>
         <source>,</source>
-        <translation>,</translation>
+        <translation type="obsolete">,</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="699"/>
+        <location filename="../ui/UISettingsGUI.ui" line="702"/>
         <source>Highlight favorite users in user list</source>
         <translation>Kedvenc felhasználók kiemelése a felhasználói listában</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="706"/>
+        <location filename="../ui/UISettingsGUI.ui" line="709"/>
         <source>Depending on hub configuration: information about
 them is usually available only to operators</source>
         <translation>Az adott hub konfigurációjától függhet: erről használható információt
 a hub operátoraitól kaphatsz</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="710"/>
+        <location filename="../ui/UISettingsGUI.ui" line="713"/>
         <source>Show ip-addresses of users in chat</source>
         <translation>Felhasználók IP címének mutatása a chaten</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="717"/>
+        <location filename="../ui/UISettingsGUI.ui" line="720"/>
         <source>Show country of users in chat</source>
         <translation>Felhasználók országkódjainak mutatása a chaten</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="724"/>
+        <location filename="../ui/UISettingsGUI.ui" line="727"/>
         <source>Parse BBCode</source>
         <translation>BBCode feldolgozása</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="745"/>
+        <location filename="../ui/UISettingsGUI.ui" line="748"/>
         <source>Colors</source>
         <translation>Színek</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="751"/>
+        <location filename="../ui/UISettingsGUI.ui" line="754"/>
         <source>Text colors in chat</source>
         <translation>Szövegek színei a chaten</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="782"/>
+        <location filename="../ui/UISettingsGUI.ui" line="785"/>
         <source>Highlighting of search results in the chat</source>
         <translation>Keresési találatok kiemelése a chaten</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="800"/>
-        <location filename="../ui/UISettingsGUI.ui" line="867"/>
+        <location filename="../ui/UISettingsGUI.ui" line="803"/>
+        <location filename="../ui/UISettingsGUI.ui" line="870"/>
         <source>Color</source>
         <translation>Szín</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="820"/>
-        <location filename="../ui/UISettingsGUI.ui" line="884"/>
+        <location filename="../ui/UISettingsGUI.ui" line="823"/>
+        <location filename="../ui/UISettingsGUI.ui" line="887"/>
         <source>Transparency</source>
         <translation>Áttetszőség</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="849"/>
+        <location filename="../ui/UISettingsGUI.ui" line="852"/>
         <source>Highlighting of already shared files</source>
         <translation>A már megosztásban lévő fájlok kiemelése</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="913"/>
+        <location filename="../ui/UISettingsGUI.ui" line="916"/>
         <source>Transfer colors</source>
         <translation>Átvitelek színei</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="945"/>
+        <location filename="../ui/UISettingsGUI.ui" line="948"/>
         <source>Upload</source>
         <translation>Feltöltés</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="972"/>
+        <location filename="../ui/UISettingsGUI.ui" line="975"/>
         <source>Reset</source>
         <translation>Visszaállítás</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="984"/>
+        <location filename="../ui/UISettingsGUI.ui" line="987"/>
         <source>Change background color in the chat</source>
         <translation>A chat háttérszinének megváltoztatása</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="1027"/>
+        <location filename="../ui/UISettingsGUI.ui" line="1030"/>
         <source>Fonts</source>
         <translation>Betűtípusok</translation>
     </message>
@@ -6782,38 +6634,37 @@ a hub operátoraitól kaphatsz</translation>
 <context>
     <name>UISettingsHistory</name>
     <message>
-        <location filename="../ui/UISettingsHistory.ui" line="14"/>
         <source>Form</source>
-        <translation>Űrlap</translation>
+        <translation type="obsolete">Űrlap</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsHistory.ui" line="44"/>
+        <location filename="../ui/UISettingsHistory.ui" line="53"/>
         <source>Clear search history on program exit</source>
         <translation>Keresési előzmények törlése kilépéskor</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsHistory.ui" line="57"/>
+        <location filename="../ui/UISettingsHistory.ui" line="66"/>
         <source>Clear download directories history on program exit</source>
         <translation>Letöltési könyvtár előzményeinek törlése kilépéskor</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsHistory.ui" line="67"/>
-        <location filename="../ui/UISettingsHistory.ui" line="74"/>
+        <location filename="../ui/UISettingsHistory.ui" line="76"/>
+        <location filename="../ui/UISettingsHistory.ui" line="83"/>
         <source>Clear now</source>
         <translation>Törlés most</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsHistory.ui" line="87"/>
+        <location filename="../ui/UISettingsHistory.ui" line="96"/>
         <source>Number of search history elements to store:</source>
         <translation>Mennyi eleme legyen eltárolva a keresési előzményeknek, számokban:</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsHistory.ui" line="113"/>
+        <location filename="../ui/UISettingsHistory.ui" line="122"/>
         <source>Number of download directories history elements to store:</source>
         <translation>Mennyi eleme legyen eltárolva a letöltési könyvtár előzményeiknek, számokban:</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsHistory.ui" line="152"/>
+        <location filename="../ui/UISettingsHistory.ui" line="161"/>
         <source>Memorize TTH search phrases</source>
         <translation>TTH keresési kifejezések megjegyzése</translation>
     </message>
@@ -6821,9 +6672,8 @@ a hub operátoraitól kaphatsz</translation>
 <context>
     <name>UISettingsLog</name>
     <message>
-        <location filename="../ui/UISettingsLog.ui" line="14"/>
         <source>Form</source>
-        <translation>Naplózás beállításai</translation>
+        <translation type="obsolete">Naplózás beállításai</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="430"/>
@@ -6929,9 +6779,8 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>UISettingsNotification</name>
     <message>
-        <location filename="../ui/UISettingsNotification.ui" line="14"/>
         <source>Form</source>
-        <translation>Értesítések beállításai</translation>
+        <translation type="obsolete">Értesítések beállításai</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="24"/>
@@ -6950,19 +6799,19 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="49"/>
-        <location filename="../ui/UISettingsNotification.ui" line="192"/>
+        <location filename="../ui/UISettingsNotification.ui" line="201"/>
         <source>Your nick is mentioned in main chat</source>
         <translation>Ha a nicked megjelenik a main chaten</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="56"/>
-        <location filename="../ui/UISettingsNotification.ui" line="224"/>
+        <location filename="../ui/UISettingsNotification.ui" line="242"/>
         <source>Private message</source>
         <translation>Privát üzenet</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="63"/>
-        <location filename="../ui/UISettingsNotification.ui" line="263"/>
+        <location filename="../ui/UISettingsNotification.ui" line="290"/>
         <source>Transfer done</source>
         <translation>Átvitel kész</translation>
     </message>
@@ -6992,55 +6841,55 @@ p, li { white-space: pre-wrap; }
         <translation>Ikon megváltoztatása mikor a főablak látható</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsNotification.ui" line="124"/>
+        <location filename="../ui/UISettingsNotification.ui" line="133"/>
         <source>Notification module</source>
         <translation>Értesítési modul</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsNotification.ui" line="144"/>
+        <location filename="../ui/UISettingsNotification.ui" line="153"/>
         <source>Default (Qt)</source>
         <translation>Alapértelmezett (Qt)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsNotification.ui" line="149"/>
+        <location filename="../ui/UISettingsNotification.ui" line="158"/>
         <source>D-Bus</source>
         <translation>D-Bus</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsNotification.ui" line="177"/>
+        <location filename="../ui/UISettingsNotification.ui" line="186"/>
         <source>Sound</source>
         <translation>Hangok</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsNotification.ui" line="183"/>
+        <location filename="../ui/UISettingsNotification.ui" line="192"/>
         <source>Enable sounds</source>
         <translation>Hangok engedélyezése</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsNotification.ui" line="207"/>
-        <location filename="../ui/UISettingsNotification.ui" line="239"/>
-        <location filename="../ui/UISettingsNotification.ui" line="278"/>
-        <location filename="../ui/UISettingsNotification.ui" line="310"/>
+        <location filename="../ui/UISettingsNotification.ui" line="225"/>
+        <location filename="../ui/UISettingsNotification.ui" line="266"/>
+        <location filename="../ui/UISettingsNotification.ui" line="314"/>
+        <location filename="../ui/UISettingsNotification.ui" line="355"/>
         <source>Test</source>
         <translation>Teszt</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsNotification.ui" line="253"/>
+        <location filename="../ui/UISettingsNotification.ui" line="280"/>
         <source>Play sound on active PM window</source>
         <translation>Hang lejátszása az aktív Privát ablakban</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsNotification.ui" line="295"/>
+        <location filename="../ui/UISettingsNotification.ui" line="331"/>
         <source>Favorite user event</source>
         <translation>Kedvenc felhasználói esemény</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsNotification.ui" line="343"/>
+        <location filename="../ui/UISettingsNotification.ui" line="388"/>
         <source>Use external command</source>
         <translation>Külső parancs használata</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsNotification.ui" line="355"/>
+        <location filename="../ui/UISettingsNotification.ui" line="409"/>
         <source>If your sound files&apos; format is unsupported by Qt, you can define
 custom media player here to play them.
 For example: /usr/bin/mplayer</source>
@@ -7052,67 +6901,66 @@ Például: /usr/bin/mplayer</translation>
 <context>
     <name>UISettingsPersonal</name>
     <message>
-        <location filename="../ui/UISettingsPersonal.ui" line="20"/>
         <source>Form</source>
-        <translation>Személyes beállítások</translation>
+        <translation type="obsolete">Személyes beállítások</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsPersonal.ui" line="38"/>
+        <location filename="../ui/UISettingsPersonal.ui" line="47"/>
         <source>This description will show in the user list.
 It can be overridden on a per-hub basis in the Favorite Hub Properties.</source>
         <translation>Ez a leírás megjelenik a felhasználók listájában.
 Hubonként megváltoztatható a &quot;Kedvenc Hubok&quot; tulajdonságaiban.</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsPersonal.ui" line="46"/>
+        <location filename="../ui/UISettingsPersonal.ui" line="55"/>
         <source>If you are in away mode, this message will be sent to everybody
 who sends private message to you.</source>
         <translation>Ez az üzenet jelenik meg ha valaki privát üzenetet küld neked mialatt Away-módban vagy.</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsPersonal.ui" line="54"/>
+        <location filename="../ui/UISettingsPersonal.ui" line="63"/>
         <source>Nick</source>
         <translation>Nick</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsPersonal.ui" line="61"/>
+        <location filename="../ui/UISettingsPersonal.ui" line="70"/>
         <source>This nickname, or handle, will identify you when you join a hub.
 It can be overridden on a per-hub basis in the Favorite Hub Properties.</source>
         <translation>A nicknév azonosít, amikor belépsz egy hubra.
 Az általánosan használt nick hubonként megváltoztatható a &quot;Kedvenc Hubok&quot; tulajdonságaiban.</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsPersonal.ui" line="69"/>
+        <location filename="../ui/UISettingsPersonal.ui" line="78"/>
         <source>E-Mail</source>
         <translation>E-mail</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsPersonal.ui" line="76"/>
+        <location filename="../ui/UISettingsPersonal.ui" line="85"/>
         <source>Description</source>
         <translation>Leírás</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsPersonal.ui" line="83"/>
+        <location filename="../ui/UISettingsPersonal.ui" line="92"/>
         <source>Away message</source>
         <translation>Away üzenet</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsPersonal.ui" line="90"/>
+        <location filename="../ui/UISettingsPersonal.ui" line="99"/>
         <source>Auto away interval (min)</source>
         <translation>Automatikus távollét (perc)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsPersonal.ui" line="110"/>
+        <location filename="../ui/UISettingsPersonal.ui" line="119"/>
         <source>This field is for sharing your email address, if you wish it.</source>
         <translation>Az ebben a mezőben megadott e-mail cím megosztásra kerül, így mindenki láthatja azt.</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsPersonal.ui" line="151"/>
+        <location filename="../ui/UISettingsPersonal.ui" line="169"/>
         <source>Line speed (upload)</source>
         <translation>Feltöltési sávszélesség</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsPersonal.ui" line="170"/>
+        <location filename="../ui/UISettingsPersonal.ui" line="188"/>
         <source>This drop-down contains a number of common upload speeds (in MiB/s),
 please choose the one closest to your own.
 Do not put in your download speed; this setting is a measure
@@ -7123,12 +6971,12 @@ Ne a letöltésed sebességét add meg itt, ez az adat másoknak adja meg,
 hogy te mint forrás kb. mekkora sebességre vagy képes, ha letöltenek tőled.</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsPersonal.ui" line="186"/>
+        <location filename="../ui/UISettingsPersonal.ui" line="204"/>
         <source>MiB/s</source>
         <translation>MiB/s</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsPersonal.ui" line="199"/>
+        <location filename="../ui/UISettingsPersonal.ui" line="217"/>
         <source>Default hub encoding</source>
         <translation>Alapértelmezett karakterkódolás</translation>
     </message>
@@ -7136,9 +6984,8 @@ hogy te mint forrás kb. mekkora sebességre vagy képes, ha letöltenek tőled.
 <context>
     <name>UISettingsSharing</name>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="14"/>
         <source>Form</source>
-        <translation>Megosztás beállításai</translation>
+        <translation type="obsolete">Megosztás beállításai</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="27"/>
@@ -7166,57 +7013,57 @@ hogy te mint forrás kb. mekkora sebességre vagy képes, ha letöltenek tőled.
         <translation>Méret</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="98"/>
+        <location filename="../ui/UISettingsSharing.ui" line="107"/>
         <source>Total shared: %1</source>
         <translation>Összes megosztás: %1</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="116"/>
+        <location filename="../ui/UISettingsSharing.ui" line="125"/>
         <source>Exceptions</source>
         <translation>Kivételek</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="122"/>
+        <location filename="../ui/UISettingsSharing.ui" line="131"/>
         <source>Don&apos;t share files and folders containing:</source>
         <translation>A következő fájlok és könyvtárak megosztásának tiltása:</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="129"/>
+        <location filename="../ui/UISettingsSharing.ui" line="138"/>
         <source>Here you can specify templates for files you don&apos;t want to share. </source>
         <translation>Példákkal megadható, hogy milyen fájlok ne legyen megosztva (regexp használtata lehetséges). </translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="138"/>
+        <location filename="../ui/UISettingsSharing.ui" line="147"/>
         <source>Add new</source>
         <translation>Új hozzáadása</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="148"/>
+        <location filename="../ui/UISettingsSharing.ui" line="157"/>
         <source>Select and add the directory</source>
         <translation>Könyvtár kiválasztása és hozzáadása</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="158"/>
+        <location filename="../ui/UISettingsSharing.ui" line="167"/>
         <source>Edit</source>
         <translation>Szerkesztés</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="168"/>
+        <location filename="../ui/UISettingsSharing.ui" line="177"/>
         <source>Delete</source>
         <translation>Törlés</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="194"/>
+        <location filename="../ui/UISettingsSharing.ui" line="203"/>
         <source>Advanced</source>
         <translation>Haladó</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="206"/>
+        <location filename="../ui/UISettingsSharing.ui" line="215"/>
         <source>Follow symlinks</source>
         <translation>Szimbólikus linkek követése</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="219"/>
+        <location filename="../ui/UISettingsSharing.ui" line="228"/>
         <source>Share files with the Hidden attribute set and files inside directory with
 the Hidden attribute set.
 With this option off, files starting with a . (full stop) will not be shared.
@@ -7227,102 +7074,96 @@ Ha ki van kapcsolva, a ponttal (.) kezdődő fájlok sem lesznek megosztva.
 Az opció megváltoztatása a fájllista frissítését eredményezi, ezért ekkor előfordulhat, hogy a program átmeneti ideig nem reagál.</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="226"/>
+        <location filename="../ui/UISettingsSharing.ui" line="235"/>
         <source>Share hidden files</source>
         <translation>Rejtett fájlok megosztása</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="239"/>
+        <location filename="../ui/UISettingsSharing.ui" line="248"/>
         <source>Share temporary files</source>
         <translation>Ideiglenes fájlok megosztása</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="246"/>
+        <location filename="../ui/UISettingsSharing.ui" line="255"/>
         <source>Skip zero sized files</source>
         <translation>Nulla hosszúságú fájlok kihagyása</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="253"/>
+        <location filename="../ui/UISettingsSharing.ui" line="262"/>
         <source>Auto remove non-existing directories</source>
         <translation>Nem létező könyvtárak automatikus eltávolítása</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="262"/>
+        <location filename="../ui/UISettingsSharing.ui" line="271"/>
         <source>Use fast hash</source>
         <translation>Gyors indexelés használata</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="275"/>
+        <location filename="../ui/UISettingsSharing.ui" line="284"/>
         <source>Buffer size (MiB)</source>
         <translation>Buffer méret (MiB)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="292"/>
         <source>1</source>
-        <translation>1</translation>
+        <translation type="obsolete">1</translation>
+    </message>
+    <message>
+        <source>2</source>
+        <translation type="obsolete">2</translation>
+    </message>
+    <message>
+        <source>4</source>
+        <translation type="obsolete">4</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="297"/>
-        <source>2</source>
-        <translation>2</translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsSharing.ui" line="302"/>
-        <source>4</source>
-        <translation>4</translation>
-    </message>
-    <message>
-        <location filename="../ui/UISettingsSharing.ui" line="307"/>
         <source>8</source>
         <translation>8</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="312"/>
         <source>16</source>
-        <translation>16</translation>
+        <translation type="obsolete">16</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="317"/>
         <source>32</source>
-        <translation>32</translation>
+        <translation type="obsolete">32</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="322"/>
         <source>64</source>
-        <translation>64</translation>
+        <translation type="obsolete">64</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="338"/>
+        <location filename="../ui/UISettingsSharing.ui" line="350"/>
         <source>FastHash options (restart needed)</source>
         <translation>Gyors Indexelés beállításai (újraindítás szükséges)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="346"/>
+        <location filename="../ui/UISettingsSharing.ui" line="358"/>
         <source>Private page mapping</source>
         <translation>Privát lapozás</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="353"/>
+        <location filename="../ui/UISettingsSharing.ui" line="365"/>
         <source>No reserve</source>
         <translation>Nincs lefoglalás</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="367"/>
+        <location filename="../ui/UISettingsSharing.ui" line="379"/>
         <source>Proactive read from disk</source>
         <translation>Proaktív lemezolvasás</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="379"/>
+        <location filename="../ui/UISettingsSharing.ui" line="391"/>
         <source>Use ADL search only in own file list</source>
         <translation>ADL keresés használata csak saját fájllistában</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="394"/>
+        <location filename="../ui/UISettingsSharing.ui" line="406"/>
         <source>Automatically open extra slot if speed is below (KiB/s, 0 = infinite)</source>
         <translation>Automatikus extra slot nyitása, ha a sebesség ez alá kerül (KiB/s, 0 = letiltva)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="410"/>
+        <location filename="../ui/UISettingsSharing.ui" line="422"/>
         <source>If the average upload speed drops below the given number,
 an additional upload slot will be granted.
 These slots are granted once every 30 seconds at maximum.
@@ -7333,29 +7174,29 @@ the granted slot will not be closed.</source>
 Ha a korábbi feltöltések sebessége újból növekedni kezd, a már kiadott extra slotok nem lesznek visszavéve.</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="430"/>
+        <location filename="../ui/UISettingsSharing.ui" line="442"/>
         <source>Hashing delay on startup (seconds, -1 = infinity)</source>
         <translation>Indexelés elhalasztása indításkor (másodpercben, -1 = letiltva)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="446"/>
-        <location filename="../ui/UISettingsSharing.ui" line="481"/>
+        <location filename="../ui/UISettingsSharing.ui" line="458"/>
+        <location filename="../ui/UISettingsSharing.ui" line="493"/>
         <source>Here you can set time interval of auto refreshing your share.</source>
         <translation>Ez a beállítás szabályozza, hogy mennyi időnként lesz a megosztásod automatikusan újra ellenőrizve
 az újabb vagy megváltozott tartalom indexelése céljából.</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="465"/>
+        <location filename="../ui/UISettingsSharing.ui" line="477"/>
         <source>Auto refresh time (minutes, 0 = off)</source>
         <translation>Automatikus újraellenőrzés ideje (percben, 0 = letiltva)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="497"/>
+        <location filename="../ui/UISettingsSharing.ui" line="509"/>
         <source>Max hash speed (MB/s) (0 = infinite)</source>
         <translation>Maximális indexelési sebesség (MB/s, 0 = letiltva)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="510"/>
+        <location filename="../ui/UISettingsSharing.ui" line="522"/>
         <source>You can limit maximum hash speed here
 if your system becomes slow while hashing files.</source>
         <translation>Ezzel a MiB/mp-ben megadott sebességgel fogja az EiskaltDC++ indexelni a fájlaidat.
@@ -7364,12 +7205,12 @@ ezzel a beállítással az indexelés lassabra vehető, így kevésbe terheli le
 A &quot;normális&quot; indexelési sebesség kb. 20 és 50 MiB között mozog másodpercenként.</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="524"/>
+        <location filename="../ui/UISettingsSharing.ui" line="536"/>
         <source>Upload slots</source>
         <translation>Feltöltési slotok</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="534"/>
+        <location filename="../ui/UISettingsSharing.ui" line="546"/>
         <source>Configure the number of slots that other users can occupy
 to download files from you. A remote user can use only
 one slot for each hub that they&apos;re on with you.
@@ -7393,40 +7234,38 @@ Mivel az eltellt idő alatt a megüresedett feltöltési slotot más is elfoglal
 <context>
     <name>UISettingsShortcuts</name>
     <message>
-        <location filename="../ui/UISettingsShortcuts.ui" line="14"/>
         <source>Form</source>
-        <translation>Form</translation>
+        <translation type="obsolete">Form</translation>
     </message>
 </context>
 <context>
     <name>UISettingsUC</name>
     <message>
-        <location filename="../ui/UISettingsUC.ui" line="14"/>
         <source>Form</source>
-        <translation>Felhasználó parancsok</translation>
+        <translation type="obsolete">Felhasználó parancsok</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsUC.ui" line="42"/>
+        <location filename="../ui/UISettingsUC.ui" line="51"/>
         <source>Add</source>
         <translation>Hozzáadás</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsUC.ui" line="49"/>
+        <location filename="../ui/UISettingsUC.ui" line="58"/>
         <source>Change</source>
         <translation>Szerkesztés</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsUC.ui" line="56"/>
+        <location filename="../ui/UISettingsUC.ui" line="65"/>
         <source>Remove</source>
         <translation>Törlés</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsUC.ui" line="63"/>
+        <location filename="../ui/UISettingsUC.ui" line="72"/>
         <source>Up</source>
         <translation>Fel</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsUC.ui" line="83"/>
+        <location filename="../ui/UISettingsUC.ui" line="92"/>
         <source>Down</source>
         <translation>Le</translation>
     </message>
@@ -7434,24 +7273,20 @@ Mivel az eltellt idő alatt a megüresedett feltöltési slotot más is elfoglal
 <context>
     <name>UIShareBrowser</name>
     <message>
-        <location filename="../ui/UIShareBrowser.ui" line="20"/>
         <source>Form</source>
-        <translation>Megosztás</translation>
+        <translation type="obsolete">Megosztás</translation>
     </message>
     <message utf8="true">
-        <location filename="../ui/UIShareBrowser.ui" line="103"/>
         <source>←</source>
-        <translation>←</translation>
+        <translation type="obsolete">←</translation>
     </message>
     <message utf8="true">
-        <location filename="../ui/UIShareBrowser.ui" line="110"/>
         <source>→</source>
-        <translation>→</translation>
+        <translation type="obsolete">→</translation>
     </message>
     <message utf8="true">
-        <location filename="../ui/UIShareBrowser.ui" line="117"/>
         <source>↑</source>
-        <translation>↑</translation>
+        <translation type="obsolete">↑</translation>
     </message>
 </context>
 <context>
@@ -7491,9 +7326,8 @@ Mivel az eltellt idő alatt a megüresedett feltöltési slotot más is elfoglal
 <context>
     <name>UISpy</name>
     <message>
-        <location filename="../ui/UISpy.ui" line="14"/>
         <source>Form</source>
-        <translation>Keresések megfigyelése</translation>
+        <translation type="obsolete">Keresések megfigyelése</translation>
     </message>
     <message>
         <location filename="../ui/UISpy.ui" line="35"/>
@@ -7519,9 +7353,8 @@ Mivel az eltellt idő alatt a megüresedett feltöltési slotot más is elfoglal
 <context>
     <name>UITransferView</name>
     <message>
-        <location filename="../ui/UITransferView.ui" line="20"/>
         <source>Form</source>
-        <translation>Átvitelek</translation>
+        <translation type="obsolete">Átvitelek</translation>
     </message>
 </context>
 <context>
