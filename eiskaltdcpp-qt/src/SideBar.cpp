@@ -45,7 +45,7 @@
     } while (0)
 
 static const QString &SIDEBAR_SHOW_CLOSEBUTTONS = "mainwindow/sidebar-with-close-buttons";
-    
+
 SideBarModel::SideBarModel(QObject *parent) :
     QAbstractItemModel(parent)
 {
@@ -66,7 +66,7 @@ SideBarModel::SideBarModel(QObject *parent) :
     CREATE_ROOT_EL(rootItem, eiFAVUSERS,    tr("Favorite Users"),   roots,  FavoriteUsers);
     CREATE_ROOT_EL(rootItem, eiSERVER,      tr("Public Hubs"),      roots,  PublicHubs);
     CREATE_ROOT_EL(rootItem, eiSPY,         tr("Spy"),              roots,  Spy);
-    CREATE_ROOT_EL(rootItem, eiCONSOLE,     tr("CmdDebug"),          roots,  CmdDebug);
+    CREATE_ROOT_EL(rootItem, eiCONSOLE,     tr("Debug Console"),    roots,  CmdDebug);
     //CREATE_ROOT_EL(rootItem, eiSERVER,      tr("Hub Manager"),      roots,  HubManager);
     CREATE_ROOT_EL(rootItem, eiGUI,         tr("Other Widgets"),    roots,  CustomWidget);
 
@@ -416,7 +416,7 @@ void SideBarModel::slotSettingsChanged(const QString &key, const QString &value)
         RETRANSLATE_ROOT_EL(tr("Spy"),              roots,  Spy);
         RETRANSLATE_ROOT_EL(tr("Other Widgets"),    roots,  CustomWidget);
         RETRANSLATE_ROOT_EL(tr("Queued Users"),     roots,  QueuedUsers);
-        RETRANSLATE_ROOT_EL(tr("CmdDebug"),          roots,  CmdDebug);
+        RETRANSLATE_ROOT_EL(tr("Debug Console"),    roots,  CmdDebug);
     }
 }
 

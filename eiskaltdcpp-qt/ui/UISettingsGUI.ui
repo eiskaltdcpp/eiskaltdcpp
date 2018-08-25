@@ -7,11 +7,11 @@
     <x>0</x>
     <y>0</y>
     <width>579</width>
-    <height>483</height>
+    <height>555</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string notr="true"/>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">
@@ -496,14 +496,17 @@ from other words by spaces.</string>
          </item>
          <item row="3" column="1">
           <widget class="QComboBox" name="comboBox_APP_UNIT_BASE">
+           <property name="currentText">
+            <string notr="true">IEC</string>
+           </property>
            <item>
             <property name="text">
-             <string>IEC</string>
+             <string notr="true">IEC</string>
             </property>
            </item>
            <item>
             <property name="text">
-             <string>JEDEC</string>
+             <string notr="true">JEDEC</string>
             </property>
            </item>
            <item>
@@ -595,7 +598,7 @@ from other words by spaces.</string>
          <item row="4" column="1">
           <widget class="QLineEdit" name="lineEdit_TIMESTAMP">
            <property name="text">
-            <string>hh:mm:ss</string>
+            <string notr="true">hh:mm:ss</string>
            </property>
           </widget>
          </item>
@@ -681,12 +684,12 @@ from other words by spaces.</string>
           <widget class="QComboBox" name="comboBox_CHAT_SEPARATOR">
            <item>
             <property name="text">
-             <string>:</string>
+             <string notr="true">:</string>
             </property>
            </item>
            <item>
             <property name="text">
-             <string>,</string>
+             <string notr="true">,</string>
             </property>
            </item>
           </widget>

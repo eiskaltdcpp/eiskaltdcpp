@@ -161,7 +161,7 @@ QVariant SearchBlackListModel::data(const QModelIndex & index, int role) const {
             if (!index.column())
                 return item->title;
             else
-                return (item->argument == SearchBlacklist::NAME? tr("Filename") : tr("TTH"));
+                return (item->argument == SearchBlacklist::NAME? tr("Filename") : QString("TTH"));
 
             break;
         }
@@ -342,7 +342,7 @@ QWidget *SearchBlackListDelegate::createEditor(QWidget *parent, const QStyleOpti
         QComboBox *edit = new QComboBox(parent);
 
         edit->addItem(tr("Filename"));
-        edit->addItem(tr("TTH"));
+        edit->addItem(QString("TTH"));
 
         return edit;
     }

@@ -36,7 +36,7 @@ QWidget *CmdDebug::getWidget() {
 }
 
 QString CmdDebug::getArenaTitle() {
-    return tr("CmdDebug");
+    return tr("Debug Console");
 }
 
 QString CmdDebug::getArenaShortTitle() {

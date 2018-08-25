@@ -308,7 +308,7 @@ QVariant FileBrowserModel::headerData(int section, Qt::Orientation orientation,
                                int role) const
 {
     QList<QVariant> rootData;
-    rootData << tr("Name") << tr("Size") << tr("Exact size") << tr("TTH")
+    rootData << tr("Name") << tr("Size") << tr("Exact size") << QString("TTH")
              << tr("Bitrate") << tr("Resolution") << tr("Video") << tr("Audio")
              << tr("Downloaded") << tr("Shared");
 

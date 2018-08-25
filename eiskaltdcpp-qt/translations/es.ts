@@ -166,7 +166,7 @@ Opciones:
     <name>CmdDebug</name>
     <message>
         <location filename="../src/CmdDebug.cpp" line="39"/>
-        <source>CmdDebug</source>
+        <source>Debug Console</source>
         <translation>CmdDebug</translation>
     </message>
 </context>
@@ -2127,7 +2127,7 @@ Usuario favorito</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1385"/>
-        <source>CmdDebug</source>
+        <source>Debug Console</source>
         <translation>CmdDebug</translation>
     </message>
     <message>
@@ -4014,7 +4014,7 @@ Descargas: %3 Subidas: %4</translation>
     <message>
         <location filename="../src/SideBar.cpp" line="69"/>
         <location filename="../src/SideBar.cpp" line="419"/>
-        <source>CmdDebug</source>
+        <source>Debug Console</source>
         <translation>CmdDebug</translation>
     </message>
     <message>
@@ -6921,8 +6921,8 @@ ellas suele estar disponible únicamente para los operadores</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="294"/>
-        <source>Cmd Debug</source>
-        <translation>Cmd Debug</translation>
+        <source>Debug Console</source>
+        <translation>Debug Console</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="346"/>
@@ -7722,12 +7722,12 @@ volverá a conceder un slot a dicho usuario.</translation>
     <name>WulforSettings</name>
     <message>
         <location filename="../src/WulforSettings.cpp" line="406"/>
-        <source>Gui setting %1: %2</source>
+        <source>GUI setting %1: %2</source>
         <translation>Configuración de la GUI %1: %2</translation>
     </message>
     <message>
         <location filename="../src/WulforSettings.cpp" line="415"/>
-        <source>Change gui setting %1 to %2</source>
+        <source>Change GUI setting %1 to %2</source>
         <translation>Cambiar la configuración de la GUI %1 a %2</translation>
     </message>
 </context>

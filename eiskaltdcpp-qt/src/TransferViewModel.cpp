@@ -586,14 +586,14 @@ void TransferViewModel::updateParent(TransferViewItem *p){
     for (const QString &s : hubs)
         hubs_str += s + " ";
 
-    if (vstr(p->data(COLUMN_TRANSFER_FNAME)).startsWith(tr("TTH: "))){
+    if (vstr(p->data(COLUMN_TRANSFER_FNAME)).startsWith(QString("TTH: "))){
         QString name = vstr(p->data(COLUMN_TRANSFER_FNAME));
-        name.remove(0, tr("TTH: ").length());
+        name.remove(0, QString("TTH: ").length());
 
         p->updateColumn(COLUMN_TRANSFER_FNAME, name);
     }
 
-    p->updateColumn(COLUMN_TRANSFER_USERS, tr("%1/%2").arg(active).arg(p->childCount()));
+    p->updateColumn(COLUMN_TRANSFER_USERS, QString("%1/%2").arg(active).arg(p->childCount()));
     p->updateColumn(COLUMN_TRANSFER_FLAGS, "");
     p->updateColumn(COLUMN_TRANSFER_TLEFT, timeLeft);
     p->updateColumn(COLUMN_TRANSFER_HOST, hubs_str);

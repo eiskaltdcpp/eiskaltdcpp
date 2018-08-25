@@ -55,7 +55,7 @@ QVariant FavoriteHubModel::data(const QModelIndex &index, int role) const
             else if (index.column() != COLUMN_HUB_PASSWORD)
                 return item->data(index.column());
             else
-                return tr("******");
+                return QString("******");
 
             break;
         case Qt::TextAlignmentRole:

@@ -6,12 +6,12 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>620</width>
-    <height>611</height>
+    <width>638</width>
+    <height>625</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string notr="true"/>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">
@@ -40,13 +40,31 @@
           <string>Incoming connections</string>
          </property>
          <layout class="QGridLayout" name="gridLayout_5">
-          <property name="margin">
+          <property name="leftMargin">
+           <number>1</number>
+          </property>
+          <property name="topMargin">
+           <number>1</number>
+          </property>
+          <property name="rightMargin">
+           <number>1</number>
+          </property>
+          <property name="bottomMargin">
            <number>1</number>
           </property>
           <item row="1" column="0">
            <widget class="QWidget" name="widget" native="true">
             <layout class="QGridLayout" name="gridLayout_2">
-             <property name="margin">
+             <property name="leftMargin">
+              <number>0</number>
+             </property>
+             <property name="topMargin">
+              <number>0</number>
+             </property>
+             <property name="rightMargin">
+              <number>0</number>
+             </property>
+             <property name="bottomMargin">
               <number>0</number>
              </property>
              <item row="1" column="0">
@@ -129,7 +147,16 @@ and obtain your external IP address as well.</string>
              <enum>QFrame::Raised</enum>
             </property>
             <layout class="QFormLayout" name="formLayout">
-             <property name="margin">
+             <property name="leftMargin">
+              <number>0</number>
+             </property>
+             <property name="topMargin">
+              <number>0</number>
+             </property>
+             <property name="rightMargin">
+              <number>0</number>
+             </property>
+             <property name="bottomMargin">
               <number>0</number>
              </property>
              <item row="3" column="0">
@@ -261,13 +288,31 @@ and obtain your external IP address as well.</string>
           <string>Outgoing connections</string>
          </property>
          <layout class="QGridLayout" name="gridLayout_7">
-          <property name="margin">
+          <property name="leftMargin">
+           <number>1</number>
+          </property>
+          <property name="topMargin">
+           <number>1</number>
+          </property>
+          <property name="rightMargin">
+           <number>1</number>
+          </property>
+          <property name="bottomMargin">
            <number>1</number>
           </property>
           <item row="0" column="0">
            <widget class="QWidget" name="widget_2" native="true">
             <layout class="QGridLayout" name="gridLayout_6">
-             <property name="margin">
+             <property name="leftMargin">
+              <number>0</number>
+             </property>
+             <property name="topMargin">
+              <number>0</number>
+             </property>
+             <property name="rightMargin">
+              <number>0</number>
+             </property>
+             <property name="bottomMargin">
               <number>0</number>
              </property>
              <item row="1" column="0">
@@ -310,13 +355,22 @@ DC++'s SOCKS5 support does not include GSSAPI.</string>
              <enum>QFrame::Raised</enum>
             </property>
             <layout class="QGridLayout" name="gridLayout_8">
-             <property name="margin">
+             <property name="leftMargin">
+              <number>0</number>
+             </property>
+             <property name="topMargin">
+              <number>0</number>
+             </property>
+             <property name="rightMargin">
+              <number>0</number>
+             </property>
+             <property name="bottomMargin">
               <number>0</number>
              </property>
              <item row="0" column="1">
               <widget class="LineEdit" name="lineEdit_SIP">
                <property name="inputMask">
-                <string>000.000.000.000; </string>
+                <string notr="true">000.000.000.000</string>
                </property>
               </widget>
              </item>
@@ -363,7 +417,7 @@ DC++'s SOCKS5 support does not include GSSAPI.</string>
                 </size>
                </property>
                <property name="inputMask">
-                <string>00000; </string>
+                <string notr="true">00000</string>
                </property>
               </widget>
              </item>
@@ -491,7 +545,16 @@ DC++'s SOCKS5 support does not include GSSAPI.</string>
              <enum>QFrame::Raised</enum>
             </property>
             <layout class="QVBoxLayout" name="verticalLayout_4">
-             <property name="margin">
+             <property name="leftMargin">
+              <number>0</number>
+             </property>
+             <property name="topMargin">
+              <number>0</number>
+             </property>
+             <property name="rightMargin">
+              <number>0</number>
+             </property>
+             <property name="bottomMargin">
               <number>0</number>
              </property>
              <item>

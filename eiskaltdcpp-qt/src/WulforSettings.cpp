@@ -403,7 +403,7 @@ void WulforSettings::parseCmd(const QString &cmd, QString& res) {
     QStringList args = cmd.split(" ", QString::SkipEmptyParts);
 
     if (args.size() == 1) {
-        res = tr("Gui setting %1: %2").arg(args.at(0)).arg(getStr(args.at(0)));
+        res = tr("GUI setting %1: %2").arg(args.at(0)).arg(getStr(args.at(0)));
         return;
     } else if (args.size() > 2)
         return;
@@ -412,7 +412,7 @@ void WulforSettings::parseCmd(const QString &cmd, QString& res) {
     QString svalue  = args.at(1);
 
     setStr(sname, svalue);
-    res = tr("Change gui setting %1 to %2").arg(sname).arg(svalue);
+    res = tr("Change GUI setting %1 to %2").arg(sname).arg(svalue);
 }
 
 void WulforSettings::loadTranslation(){

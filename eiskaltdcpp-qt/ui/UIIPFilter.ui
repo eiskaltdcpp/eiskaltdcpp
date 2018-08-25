@@ -9,7 +9,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>367</width>
+    <width>380</width>
     <height>340</height>
    </rect>
   </property>
@@ -76,15 +76,6 @@
      <property name="expandsOnDoubleClick">
       <bool>false</bool>
      </property>
-     <attribute name="headerDefaultSectionSize">
-      <number>150</number>
-     </attribute>
-     <attribute name="headerMinimumSectionSize">
-      <number>150</number>
-     </attribute>
-     <attribute name="headerStretchLastSection">
-      <bool>false</bool>
-     </attribute>
      <attribute name="headerDefaultSectionSize">
       <number>150</number>
      </attribute>

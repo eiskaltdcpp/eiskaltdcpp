@@ -166,7 +166,7 @@ Keys:
     <name>CmdDebug</name>
     <message>
         <location filename="../src/CmdDebug.cpp" line="39"/>
-        <source>CmdDebug</source>
+        <source>Debug Console</source>
         <translation>CmdDebug</translation>
     </message>
 </context>
@@ -2109,7 +2109,7 @@ Utilisateur favoris</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1385"/>
-        <source>CmdDebug</source>
+        <source>Debug Console</source>
         <translation>CmdDebug</translation>
     </message>
     <message>
@@ -3996,7 +3996,7 @@ Téléchargé: %3 Envoyé: %4</translation>
     <message>
         <location filename="../src/SideBar.cpp" line="69"/>
         <location filename="../src/SideBar.cpp" line="419"/>
-        <source>CmdDebug</source>
+        <source>Debug Console</source>
         <translation>CmdDebug</translation>
     </message>
     <message>
@@ -6843,8 +6843,8 @@ them is usually available only to operators</source>
     </message>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="294"/>
-        <source>Cmd Debug</source>
-        <translation>CMD Debug</translation>
+        <source>Debug Console</source>
+        <translation>Debug Console</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="346"/>
@@ -7631,12 +7631,12 @@ les dix minutes, EiskaltDC++ lui redonne automatiquement un slot.</translation>
     <name>WulforSettings</name>
     <message>
         <location filename="../src/WulforSettings.cpp" line="406"/>
-        <source>Gui setting %1: %2</source>
+        <source>GUI setting %1: %2</source>
         <translation>Paramètre GUI %1: %2</translation>
     </message>
     <message>
         <location filename="../src/WulforSettings.cpp" line="415"/>
-        <source>Change gui setting %1 to %2</source>
+        <source>Change GUI setting %1 to %2</source>
         <translation>Changement paramètre GUI %1 à %2</translation>
     </message>
 </context>

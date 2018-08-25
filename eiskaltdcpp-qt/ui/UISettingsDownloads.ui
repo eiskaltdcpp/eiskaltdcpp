@@ -7,11 +7,11 @@
     <x>0</x>
     <y>0</y>
     <width>536</width>
-    <height>422</height>
+    <height>448</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string notr="true"/>
   </property>
   <layout class="QGridLayout" name="gridLayout_5">
    <item row="0" column="1">
@@ -36,7 +36,16 @@
           <string>Directories</string>
          </property>
          <layout class="QGridLayout" name="gridLayout_2">
-          <property name="margin">
+          <property name="leftMargin">
+           <number>1</number>
+          </property>
+          <property name="topMargin">
+           <number>1</number>
+          </property>
+          <property name="rightMargin">
+           <number>1</number>
+          </property>
+          <property name="bottomMargin">
            <number>1</number>
           </property>
           <item row="1" column="0">
@@ -97,7 +106,16 @@
           <string>Limits</string>
          </property>
          <layout class="QGridLayout" name="gridLayout_4">
-          <property name="margin">
+          <property name="leftMargin">
+           <number>1</number>
+          </property>
+          <property name="topMargin">
+           <number>1</number>
+          </property>
+          <property name="rightMargin">
+           <number>1</number>
+          </property>
+          <property name="bottomMargin">
            <number>1</number>
           </property>
           <item row="1" column="0">
@@ -172,7 +190,16 @@ A value of 0 means no limit.</string>
           <string>Public Hub lists</string>
          </property>
          <layout class="QGridLayout" name="gridLayout">
-          <property name="margin">
+          <property name="leftMargin">
+           <number>1</number>
+          </property>
+          <property name="topMargin">
+           <number>1</number>
+          </property>
+          <property name="rightMargin">
+           <number>1</number>
+          </property>
+          <property name="bottomMargin">
            <number>1</number>
           </property>
           <item row="1" column="0">
@@ -284,7 +311,16 @@ It's not used for uploads, downloads, or connecting to a hub.</string>
           <string>Auto-priority settings</string>
          </property>
          <layout class="QGridLayout" name="gridLayout_8">
-          <property name="margin">
+          <property name="leftMargin">
+           <number>1</number>
+          </property>
+          <property name="topMargin">
+           <number>1</number>
+          </property>
+          <property name="rightMargin">
+           <number>1</number>
+          </property>
+          <property name="bottomMargin">
            <number>1</number>
           </property>
           <item row="0" column="1">
@@ -420,7 +456,16 @@ and Normal prio max size, will be set to Low as priority. (default: 0 KiB)</stri
           <string>Auto-drop settings</string>
          </property>
          <layout class="QGridLayout" name="gridLayout_9">
-          <property name="margin">
+          <property name="leftMargin">
+           <number>1</number>
+          </property>
+          <property name="topMargin">
+           <number>1</number>
+          </property>
+          <property name="rightMargin">
+           <number>1</number>
+          </property>
+          <property name="bottomMargin">
            <number>1</number>
           </property>
           <item row="0" column="1">
@@ -610,7 +655,16 @@ will be dropped. (default: 1)</string>
           <string>Other options</string>
          </property>
          <layout class="QGridLayout" name="gridLayout_10">
-          <property name="margin">
+          <property name="leftMargin">
+           <number>1</number>
+          </property>
+          <property name="topMargin">
+           <number>1</number>
+          </property>
+          <property name="rightMargin">
+           <number>1</number>
+          </property>
+          <property name="bottomMargin">
            <number>1</number>
           </property>
           <item row="0" column="0">

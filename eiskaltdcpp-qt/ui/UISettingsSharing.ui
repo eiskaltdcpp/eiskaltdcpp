@@ -7,11 +7,11 @@
     <x>0</x>
     <y>0</y>
     <width>573</width>
-    <height>522</height>
+    <height>581</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string notr="true"/>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -89,7 +89,16 @@
           <enum>QFrame::Raised</enum>
          </property>
          <layout class="QGridLayout" name="gridLayout">
-          <property name="margin">
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
            <number>0</number>
           </property>
           <item row="0" column="0">
@@ -284,42 +293,45 @@ and may cause the client to appear to freeze.</string>
          </item>
          <item>
           <widget class="QComboBox" name="comboBox_BUFSIZE">
+           <property name="currentText">
+            <string>8</string>
+           </property>
            <property name="currentIndex">
             <number>3</number>
            </property>
            <item>
             <property name="text">
-             <string>1</string>
+             <string notr="true">1</string>
             </property>
            </item>
            <item>
             <property name="text">
-             <string>2</string>
+             <string notr="true">2</string>
             </property>
            </item>
            <item>
             <property name="text">
-             <string>4</string>
+             <string notr="true">4</string>
             </property>
            </item>
            <item>
             <property name="text">
-             <string>8</string>
+             <string notr="true">8</string>
             </property>
            </item>
            <item>
             <property name="text">
-             <string>16</string>
+             <string notr="true">16</string>
             </property>
            </item>
            <item>
             <property name="text">
-             <string>32</string>
+             <string notr="true">32</string>
             </property>
            </item>
            <item>
             <property name="text">
-             <string>64</string>
+             <string notr="true">64</string>
             </property>
            </item>
           </widget>

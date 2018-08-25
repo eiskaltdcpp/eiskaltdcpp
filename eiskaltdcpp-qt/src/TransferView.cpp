@@ -386,7 +386,7 @@ void TransferView::getParams(TransferView::VarMap &params, const dcpp::Transfer 
     if (trf->getType() == Transfer::TYPE_PARTIAL_LIST || trf->getType() == Transfer::TYPE_FULL_LIST)
         params["FNAME"] = tr("File list");
     else if (trf->getType() == Transfer::TYPE_TREE)
-        params["FNAME"] = tr("TTH: ") + _q(Util::getFileName(trf->getPath()));
+        params["FNAME"] = QString("TTH: ") + _q(Util::getFileName(trf->getPath()));
     else
         params["FNAME"] = _q(Util::getFileName(trf->getPath()));
 
@@ -630,20 +630,20 @@ void TransferView::on(dcpp::DownloadManagerListener::Tick, const dcpp::DownloadL
         if (dl->getUserConnection().isSecure())
         {
             if (dl->getUserConnection().isTrusted())
-               str += tr("[S]");
+               str += QString("[S]");
             else
-               str += tr("[U]");
+               str += QString("[U]");
         }
 
         if (dl->isSet(Download::FLAG_TTH_CHECK))
-            str += tr("[T]");
+            str += QString("[T]");
         if (dl->isSet(Download::FLAG_ZDOWNLOAD))
-            str += tr("[Z]");
+            str += QString("[Z]");
         
         params["FLAGS"] = str;
 
         str = QString(tr("Downloaded %1")).arg(WulforUtil::formatBytes(dl->getPos()))
-            + QString(tr(" (%1%)")).arg(vdbl(params["PERC"]), 0, 'f', 1);
+            + QString(QString(" (%1%)")).arg(vdbl(params["PERC"]), 0, 'f', 1);
 
         params["STAT"] = str;
 
@@ -808,12 +808,12 @@ void TransferView::on(dcpp::UploadManagerListener::Tick, const dcpp::UploadList&
         if (ul->getUserConnection().isSecure())
         {
             if (ul->getUserConnection().isTrusted())
-                stat += tr("[S]");
+                stat += QString("[S]");
             else
-                stat += tr("[U]");
+                stat += QString("[U]");
         }
         if (ul->isSet(Upload::FLAG_ZUPLOAD))
-            stat += tr("[Z]");
+            stat += QString("[Z]");
         
         params["FLAGS"] = stat;
 

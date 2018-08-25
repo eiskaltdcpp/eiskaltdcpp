@@ -80,7 +80,7 @@ DownloadQueueModel::DownloadQueueModel(QObject *parent)
     QList<QVariant> rootData;
     rootData << tr("Name") << tr("Status") << tr("Size") << tr("Downloaded")
              << tr("Priority") << tr("User") << tr("Path") << tr("Exact size")
-             << tr("Errors") << tr("Added") << tr("TTH");
+             << tr("Errors") << tr("Added") << QString("TTH");
 
     d->rootItem = new DownloadQueueItem(rootData, NULL);
 
@@ -282,7 +282,7 @@ QVariant DownloadQueueModel::headerData(int section, Qt::Orientation orientation
     QList<QVariant> rootData;
     rootData << tr("Name") << tr("Status") << tr("Size") << tr("Downloaded")
              << tr("Priority") << tr("User") << tr("Path") << tr("Exact size")
-             << tr("Errors") << tr("Added") << tr("TTH");
+             << tr("Errors") << tr("Added") << QString("TTH");
 
     if (orientation == Qt::Horizontal && role == Qt::DisplayRole)
         return rootData.at(section);

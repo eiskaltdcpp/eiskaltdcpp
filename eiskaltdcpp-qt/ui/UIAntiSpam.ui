@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>571</width>
-    <height>383</height>
+    <width>615</width>
+    <height>425</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -128,7 +128,7 @@
          </size>
         </property>
         <property name="text">
-         <string>+</string>
+         <string notr="true">+</string>
         </property>
        </widget>
       </item>
@@ -141,7 +141,7 @@
          </size>
         </property>
         <property name="text">
-         <string>-</string>
+         <string notr="true">–</string>
         </property>
        </widget>
       </item>
@@ -194,7 +194,7 @@
          </size>
         </property>
         <property name="text">
-         <string>+</string>
+         <string notr="true">+</string>
         </property>
        </widget>
       </item>
@@ -207,7 +207,7 @@
          </size>
         </property>
         <property name="text">
-         <string>-</string>
+         <string notr="true">–</string>
         </property>
        </widget>
       </item>
@@ -260,7 +260,7 @@
          </size>
         </property>
         <property name="text">
-         <string>+</string>
+         <string notr="true">+</string>
         </property>
        </widget>
       </item>
@@ -273,7 +273,7 @@
          </size>
         </property>
         <property name="text">
-         <string>-</string>
+         <string notr="true">–</string>
         </property>
        </widget>
       </item>
@@ -314,7 +314,7 @@
       <string>Move user to &quot;White&quot; list</string>
      </property>
      <property name="text">
-      <string>&gt;&gt;&gt;</string>
+      <string notr="true">&gt;&gt;&gt;</string>
      </property>
      <property name="flat">
       <bool>true</bool>
@@ -327,7 +327,7 @@
       <string>Move user to &quot;Gray&quot; list</string>
      </property>
      <property name="text">
-      <string>&gt;&gt;&gt;</string>
+      <string notr="true">&gt;&gt;&gt;</string>
      </property>
      <property name="flat">
       <bool>true</bool>
@@ -340,7 +340,7 @@
       <string>Move user to &quot;Gray&quot; list</string>
      </property>
      <property name="text">
-      <string>&lt;&lt;&lt;</string>
+      <string notr="true">&lt;&lt;&lt;</string>
      </property>
      <property name="flat">
       <bool>true</bool>
@@ -353,7 +353,7 @@
       <string>Move user to &quot;Black&quot; list</string>
      </property>
      <property name="text">
-      <string>&lt;&lt;&lt;</string>
+      <string notr="true">&lt;&lt;&lt;</string>
      </property>
      <property name="checkable">
       <bool>false</bool>
@@ -369,7 +369,7 @@
       <string>Move user to &quot;White&quot; list</string>
      </property>
      <property name="text">
-      <string>&lt;&lt;&lt;</string>
+      <string notr="true">&lt;&lt;&lt;</string>
      </property>
      <property name="flat">
       <bool>true</bool>
@@ -382,7 +382,7 @@
       <string>Move user to &quot;Black&quot; list</string>
      </property>
      <property name="text">
-      <string>&gt;&gt;&gt;</string>
+      <string notr="true">&gt;&gt;&gt;</string>
      </property>
      <property name="flat">
       <bool>true</bool>

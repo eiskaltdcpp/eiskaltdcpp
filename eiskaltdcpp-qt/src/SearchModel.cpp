@@ -53,7 +53,7 @@ SearchModel::SearchModel(QObject *parent):
 {
     QList<QVariant> rootData;
     rootData << tr("Count") << tr("File") << tr("Ext") << tr("Size")
-             << tr("Exact size") << tr("TTH")   << tr("Path") << tr("Nick")
+             << tr("Exact size") << QString("TTH")   << tr("Path") << tr("Nick")
              << tr("Free slots") << tr("Total slots")
              << tr("IP") << tr("Hub") << tr("Host");
 

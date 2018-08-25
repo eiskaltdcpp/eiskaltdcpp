@@ -6,12 +6,12 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>425</width>
-    <height>401</height>
+    <width>435</width>
+    <height>460</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string notr="true"/>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">
@@ -109,7 +109,16 @@
           <item>
            <widget class="QFrame" name="frame">
             <layout class="QHBoxLayout" name="horizontalLayout">
-             <property name="margin">
+             <property name="leftMargin">
+              <number>0</number>
+             </property>
+             <property name="topMargin">
+              <number>0</number>
+             </property>
+             <property name="rightMargin">
+              <number>0</number>
+             </property>
+             <property name="bottomMargin">
               <number>0</number>
              </property>
              <item>
@@ -195,7 +204,16 @@
              <bool>true</bool>
             </property>
             <layout class="QGridLayout" name="gridLayout_7">
-             <property name="margin">
+             <property name="leftMargin">
+              <number>1</number>
+             </property>
+             <property name="topMargin">
+              <number>1</number>
+             </property>
+             <property name="rightMargin">
+              <number>1</number>
+             </property>
+             <property name="bottomMargin">
               <number>1</number>
              </property>
              <item row="0" column="0">
@@ -227,7 +245,16 @@
              <bool>true</bool>
             </property>
             <layout class="QGridLayout" name="gridLayout_8">
-             <property name="margin">
+             <property name="leftMargin">
+              <number>1</number>
+             </property>
+             <property name="topMargin">
+              <number>1</number>
+             </property>
+             <property name="rightMargin">
+              <number>1</number>
+             </property>
+             <property name="bottomMargin">
               <number>1</number>
              </property>
              <item row="0" column="0">
@@ -266,7 +293,16 @@
              <bool>true</bool>
             </property>
             <layout class="QGridLayout" name="gridLayout_9">
-             <property name="margin">
+             <property name="leftMargin">
+              <number>1</number>
+             </property>
+             <property name="topMargin">
+              <number>1</number>
+             </property>
+             <property name="rightMargin">
+              <number>1</number>
+             </property>
+             <property name="bottomMargin">
               <number>1</number>
              </property>
              <item row="0" column="0">
@@ -298,7 +334,16 @@
              <bool>true</bool>
             </property>
             <layout class="QGridLayout" name="gridLayout_2">
-             <property name="margin">
+             <property name="leftMargin">
+              <number>1</number>
+             </property>
+             <property name="topMargin">
+              <number>1</number>
+             </property>
+             <property name="rightMargin">
+              <number>1</number>
+             </property>
+             <property name="bottomMargin">
               <number>1</number>
              </property>
              <item row="0" column="0">
@@ -346,7 +391,16 @@
           <bool>true</bool>
          </property>
          <layout class="QGridLayout" name="gridLayout_6">
-          <property name="margin">
+          <property name="leftMargin">
+           <number>1</number>
+          </property>
+          <property name="topMargin">
+           <number>1</number>
+          </property>
+          <property name="rightMargin">
+           <number>1</number>
+          </property>
+          <property name="bottomMargin">
            <number>1</number>
           </property>
           <item row="0" column="0">
