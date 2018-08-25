@@ -201,10 +201,6 @@ Keys:
 <context>
     <name>DialogScriptConsole</name>
     <message>
-        <source>Dialog</source>
-        <translation type="obsolete">对话</translation>
-    </message>
-    <message>
         <location filename="../ui/UIDialogScriptConsole.ui" line="30"/>
         <source>Output</source>
         <translation>输出</translation>
@@ -456,10 +452,6 @@ Keys:
         <translation>添加时间</translation>
     </message>
     <message>
-        <source>TTH</source>
-        <translation type="obsolete">TTH</translation>
-    </message>
-    <message>
         <location filename="../src/DownloadQueueModel.cpp" line="139"/>
         <source>Paused</source>
         <translation>暂停</translation>
@@ -556,10 +548,6 @@ Keys:
         <location filename="../src/FavoriteHubModel.cpp" line="21"/>
         <source>Remote encoding</source>
         <translation>远程编码</translation>
-    </message>
-    <message>
-        <source>******</source>
-        <translation type="obsolete">******</translation>
     </message>
 </context>
 <context>
@@ -712,10 +700,6 @@ Keys:
         <location filename="../src/FileBrowserModel.cpp" line="311"/>
         <source>Exact size</source>
         <translation>实际大小</translation>
-    </message>
-    <message>
-        <source>TTH</source>
-        <translation type="obsolete">TTH</translation>
     </message>
     <message>
         <location filename="../src/FileBrowserModel.cpp" line="312"/>
@@ -1706,74 +1690,6 @@ Favorite user</source>
         <translation>要更改其他设置吗？</translation>
     </message>
     <message>
-        <source>Ctrl+I</source>
-        <translation type="obsolete">Ctrl+I</translation>
-    </message>
-    <message>
-        <source>Ctrl+L</source>
-        <translation type="obsolete">Ctrl+L</translation>
-    </message>
-    <message>
-        <source>Ctrl+E</source>
-        <translation type="obsolete">Ctrl+E</translation>
-    </message>
-    <message>
-        <source>Ctrl+Alt+H</source>
-        <translation type="obsolete">Ctrl+Alt+H</translation>
-    </message>
-    <message>
-        <source>Ctrl+Q</source>
-        <translation type="obsolete">Ctrl+Q</translation>
-    </message>
-    <message>
-        <source>Ctrl+R</source>
-        <translation type="obsolete">Ctrl+R</translation>
-    </message>
-    <message>
-        <source>Ctrl+N</source>
-        <translation type="obsolete">Ctrl+N</translation>
-    </message>
-    <message>
-        <source>Ctrl+H</source>
-        <translation type="obsolete">Ctrl+H</translation>
-    </message>
-    <message>
-        <source>Ctrl+P</source>
-        <translation type="obsolete">Ctrl+P</translation>
-    </message>
-    <message>
-        <source>Ctrl+U</source>
-        <translation type="obsolete">Ctrl+U</translation>
-    </message>
-    <message>
-        <source>Ctrl+O</source>
-        <translation type="obsolete">Ctrl+O</translation>
-    </message>
-    <message>
-        <source>Ctrl+T</source>
-        <translation type="obsolete">Ctrl+T</translation>
-    </message>
-    <message>
-        <source>Ctrl+D</source>
-        <translation type="obsolete">Ctrl+D</translation>
-    </message>
-    <message>
-        <source>Ctrl+Shift+U</source>
-        <translation type="obsolete">Ctrl+Shift+U</translation>
-    </message>
-    <message>
-        <source>Ctrl+Alt+J</source>
-        <translation type="obsolete">Ctrl+Alt+J</translation>
-    </message>
-    <message>
-        <source>Ctrl+S</source>
-        <translation type="obsolete">Ctrl+S</translation>
-    </message>
-    <message>
-        <source>Ctrl+F</source>
-        <translation type="obsolete">Ctrl+F</translation>
-    </message>
-    <message>
         <location filename="../src/MainWindow.cpp" line="1079"/>
         <source>Next widget</source>
         <translation>下一个挂件</translation>
@@ -1802,30 +1718,6 @@ Favorite user</source>
         <location filename="../src/MainWindow.cpp" line="1084"/>
         <source>Toggle main menu</source>
         <translation>切换主菜单</translation>
-    </message>
-    <message>
-        <source>Ctrl+PgDown</source>
-        <translation type="obsolete">Ctrl+PgDown</translation>
-    </message>
-    <message>
-        <source>Ctrl+PgUp</source>
-        <translation type="obsolete">Ctrl+PgUp</translation>
-    </message>
-    <message>
-        <source>Ctrl+Down</source>
-        <translation type="obsolete">Ctrl+Down</translation>
-    </message>
-    <message>
-        <source>Ctrl+Up</source>
-        <translation type="obsolete">Ctrl+Up</translation>
-    </message>
-    <message>
-        <source>Ctrl+W</source>
-        <translation type="obsolete">Ctrl+W</translation>
-    </message>
-    <message>
-        <source>Ctrl+M</source>
-        <translation type="obsolete">Ctrl+M</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1226"/>
@@ -2326,14 +2218,6 @@ Favorite user</source>
         <location filename="../src/MainWindow.cpp" line="2590"/>
         <source>Customize</source>
         <translation>自定义</translation>
-    </message>
-    <message>
-        <source>EiskaltDC++ is a graphical client for Direct Connect and ADC protocols.&lt;br/&gt;&lt;br/&gt;DC++ core version: %1 (modified)&lt;br/&gt;&lt;br/&gt;Home page: &lt;a href=&quot;http://code.google.com/p/eiskaltdc/&quot;&gt;http://code.google.com/p/eiskaltdc/&lt;/a&gt;&lt;br/&gt;&lt;br/&gt;Total up: &lt;b&gt;%2&lt;/b&gt;&lt;br/&gt;Total down: &lt;b&gt;%3&lt;/b&gt;&lt;br/&gt;Ratio: &lt;b&gt;%4&lt;/b&gt;</source>
-        <translation type="obsolete">EiskaltDC++ 是应用 Direct Connect 和 ADC 协议的一个图形化客户端。&lt;br/&gt;&lt;br/&gt;DC++ 内核版本: %1 (修改版)&lt;br/&gt;&lt;br/&gt;主页: &lt;a href=&quot;http://code.google.com/p/eiskaltdc/&quot;&gt;http://code.google.com/p/eiskaltdc/&lt;/a&gt;&lt;br/&gt;&lt;br/&gt;总上传: &lt;b&gt;%2&lt;/b&gt;&lt;br/&gt;总下载: &lt;b&gt;%3&lt;/b&gt;&lt;br/&gt;比率: &lt;b&gt;%4&lt;/b&gt;</translation>
-    </message>
-    <message>
-        <source>Please use &lt;a href=&quot;http://code.google.com/p/eiskaltdc/issues/list&quot;&gt;http://code.google.com/p/eiskaltdc/issues/list&lt;/a&gt; to report bugs.&lt;br/&gt;</source>
-        <translation type="obsolete">请通过 &lt;a href=&quot;http://code.google.com/p/eiskaltdc/issues/list&quot;&gt;http://code.google.com/p/eiskaltdc/issues/list&lt;/a&gt; 报告漏洞。&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2694"/>
@@ -2889,10 +2773,6 @@ Downloaded: %3 Uploaded: %4</source>
         <source>Filename</source>
         <translation>文件名</translation>
     </message>
-    <message>
-        <source>TTH</source>
-        <translation type="obsolete">TTH</translation>
-    </message>
 </context>
 <context>
     <name>SearchBlackListDialog</name>
@@ -2913,10 +2793,6 @@ Downloaded: %3 Uploaded: %4</source>
         <location filename="../src/SearchBlacklistDialog.cpp" line="164"/>
         <source>Filename</source>
         <translation>文件名</translation>
-    </message>
-    <message>
-        <source>TTH</source>
-        <translation type="obsolete">TTH</translation>
     </message>
     <message>
         <location filename="../src/SearchBlacklistDialog.cpp" line="179"/>
@@ -3196,10 +3072,6 @@ Downloaded: %3 Uploaded: %4</source>
         <location filename="../src/SearchModel.cpp" line="56"/>
         <source>Exact size</source>
         <translation type="unfinished">实际大小</translation>
-    </message>
-    <message>
-        <source>TTH</source>
-        <translation type="obsolete">TTH</translation>
     </message>
     <message>
         <location filename="../src/SearchModel.cpp" line="56"/>
@@ -4358,10 +4230,6 @@ Do you want to stop it?
 <context>
     <name>UIADLSEditor</name>
     <message>
-        <source>Dialog</source>
-        <translation type="obsolete">对话</translation>
-    </message>
-    <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="38"/>
         <source>Favorite hub name.</source>
         <translation type="unfinished"></translation>
@@ -4458,10 +4326,6 @@ Do you want to stop it?
 </context>
 <context>
     <name>UIActionCustomizer</name>
-    <message>
-        <source>Dialog</source>
-        <translation type="obsolete">对话</translation>
-    </message>
     <message>
         <location filename="../ui/UIActionCustomizer.ui" line="88"/>
         <source>Up</source>
@@ -4596,10 +4460,6 @@ Do you want to stop it?
 </context>
 <context>
     <name>UIFavoriteHubEditor</name>
-    <message>
-        <source>Dialog</source>
-        <translation type="obsolete">对话</translation>
-    </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="20"/>
         <source>Hub</source>
@@ -4968,10 +4828,6 @@ Do you want to stop it?
 <context>
     <name>UIMagnet</name>
     <message>
-        <source>TTH</source>
-        <translation type="obsolete">TTH</translation>
-    </message>
-    <message>
         <location filename="../ui/UIMagnet.ui" line="74"/>
         <source>Filename</source>
         <translation type="unfinished">文件名</translation>
@@ -5069,10 +4925,6 @@ in options, file will be downloaded without opening search dialog.</source>
 <context>
     <name>UIPublicHubsList</name>
     <message>
-        <source>Dialog</source>
-        <translation type="obsolete">对话</translation>
-    </message>
-    <message>
         <location filename="../ui/UIPublicHubsList.ui" line="23"/>
         <source>Up</source>
         <translation type="unfinished"></translation>
@@ -5113,10 +4965,6 @@ in options, file will be downloaded without opening search dialog.</source>
 </context>
 <context>
     <name>UIScriptManager</name>
-    <message>
-        <source>Dialog</source>
-        <translation type="obsolete">对话</translation>
-    </message>
     <message>
         <location filename="../ui/UIScriptManager.ui" line="21"/>
         <source>Do nothing</source>

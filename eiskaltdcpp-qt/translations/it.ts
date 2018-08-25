@@ -208,10 +208,6 @@ Chiavi:
 <context>
     <name>DialogScriptConsole</name>
     <message>
-        <source>Dialog</source>
-        <translation type="obsolete">Finestra</translation>
-    </message>
-    <message>
         <location filename="../ui/UIDialogScriptConsole.ui" line="30"/>
         <source>Output</source>
         <translation>Output</translation>
@@ -463,10 +459,6 @@ Chiavi:
         <translation>Aggiunto</translation>
     </message>
     <message>
-        <source>TTH</source>
-        <translation type="obsolete">TTH</translation>
-    </message>
-    <message>
         <location filename="../src/DownloadQueueModel.cpp" line="139"/>
         <source>Paused</source>
         <translation>In pausa</translation>
@@ -563,10 +555,6 @@ Chiavi:
         <location filename="../src/FavoriteHubModel.cpp" line="21"/>
         <source>Remote encoding</source>
         <translation>Codifica remota</translation>
-    </message>
-    <message>
-        <source>******</source>
-        <translation type="obsolete">******</translation>
     </message>
 </context>
 <context>
@@ -719,10 +707,6 @@ Chiavi:
         <location filename="../src/FileBrowserModel.cpp" line="311"/>
         <source>Exact size</source>
         <translation>Dimonsione esatta</translation>
-    </message>
-    <message>
-        <source>TTH</source>
-        <translation type="obsolete">TTH</translation>
     </message>
     <message>
         <location filename="../src/FileBrowserModel.cpp" line="312"/>
@@ -1711,74 +1695,6 @@ Utente preferito</translation>
         <translation>Vuoi cambiare le altre impostazioni?</translation>
     </message>
     <message>
-        <source>Ctrl+I</source>
-        <translation type="obsolete">Ctrl+I</translation>
-    </message>
-    <message>
-        <source>Ctrl+L</source>
-        <translation type="obsolete">Ctrl+L</translation>
-    </message>
-    <message>
-        <source>Ctrl+E</source>
-        <translation type="obsolete">Ctrl+E</translation>
-    </message>
-    <message>
-        <source>Ctrl+Alt+H</source>
-        <translation type="obsolete">Ctrl+Alt+H</translation>
-    </message>
-    <message>
-        <source>Ctrl+Q</source>
-        <translation type="obsolete">Ctrl+Q</translation>
-    </message>
-    <message>
-        <source>Ctrl+R</source>
-        <translation type="obsolete">Ctrl+R</translation>
-    </message>
-    <message>
-        <source>Ctrl+N</source>
-        <translation type="obsolete">Ctrl+N</translation>
-    </message>
-    <message>
-        <source>Ctrl+H</source>
-        <translation type="obsolete">Ctrl+H</translation>
-    </message>
-    <message>
-        <source>Ctrl+P</source>
-        <translation type="obsolete">Ctrl+P</translation>
-    </message>
-    <message>
-        <source>Ctrl+U</source>
-        <translation type="obsolete">Ctrl+U</translation>
-    </message>
-    <message>
-        <source>Ctrl+O</source>
-        <translation type="obsolete">Ctrl+O</translation>
-    </message>
-    <message>
-        <source>Ctrl+T</source>
-        <translation type="obsolete">Ctrl+T</translation>
-    </message>
-    <message>
-        <source>Ctrl+D</source>
-        <translation type="obsolete">Ctrl+D</translation>
-    </message>
-    <message>
-        <source>Ctrl+Shift+U</source>
-        <translation type="obsolete">Ctrl+Shift+U</translation>
-    </message>
-    <message>
-        <source>Ctrl+Alt+J</source>
-        <translation type="obsolete">Ctrl+Alt+J</translation>
-    </message>
-    <message>
-        <source>Ctrl+S</source>
-        <translation type="obsolete">Ctrl+S</translation>
-    </message>
-    <message>
-        <source>Ctrl+F</source>
-        <translation type="obsolete">Ctrl+F</translation>
-    </message>
-    <message>
         <location filename="../src/MainWindow.cpp" line="1079"/>
         <source>Next widget</source>
         <translation>Widget successivo</translation>
@@ -1807,30 +1723,6 @@ Utente preferito</translation>
         <location filename="../src/MainWindow.cpp" line="1084"/>
         <source>Toggle main menu</source>
         <translation>Mostra/nascondi menu principale.</translation>
-    </message>
-    <message>
-        <source>Ctrl+PgDown</source>
-        <translation type="obsolete">Ctrl+PgDown</translation>
-    </message>
-    <message>
-        <source>Ctrl+PgUp</source>
-        <translation type="obsolete">Ctrl+PgUp</translation>
-    </message>
-    <message>
-        <source>Ctrl+Down</source>
-        <translation type="obsolete">Ctrl+Down</translation>
-    </message>
-    <message>
-        <source>Ctrl+Up</source>
-        <translation type="obsolete">Ctrl+Up</translation>
-    </message>
-    <message>
-        <source>Ctrl+W</source>
-        <translation type="obsolete">Ctrl+W</translation>
-    </message>
-    <message>
-        <source>Ctrl+M</source>
-        <translation type="obsolete">Ctrl+M</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1226"/>
@@ -2363,18 +2255,6 @@ Utente preferito</translation>
         <translation>Rapporto: &lt;b&gt;%1&lt;/b&gt;</translation>
     </message>
     <message>
-        <source>http://github.com/eiskaltdcpp/eiskaltdcpp/raw/master/ChangeLog.txt</source>
-        <translation type="obsolete">http://github.com/eiskaltdcpp/eiskaltdcpp/raw/master/ChangeLog.txt</translation>
-    </message>
-    <message>
-        <source>EiskaltDC++ is a graphical client for Direct Connect and ADC protocols.&lt;br/&gt;&lt;br/&gt;DC++ core version: %1 (modified)&lt;br/&gt;&lt;br/&gt;Home page: &lt;a href=&quot;http://code.google.com/p/eiskaltdc/&quot;&gt;http://code.google.com/p/eiskaltdc/&lt;/a&gt;&lt;br/&gt;&lt;br/&gt;Total up: &lt;b&gt;%2&lt;/b&gt;&lt;br/&gt;Total down: &lt;b&gt;%3&lt;/b&gt;&lt;br/&gt;Ratio: &lt;b&gt;%4&lt;/b&gt;</source>
-        <translation type="obsolete">EiskaltDC++ è un interfaccia grafica per i protocolli Direct Connect e ADC.&lt;br/&gt;&lt;br/&gt;Versione DC++ core: %1 (modified)&lt;br/&gt;&lt;br/&gt;Home page: &lt;a href=&quot;http://code.google.com/p/eiskaltdc/&quot;&gt;http://code.google.com/p/eiskaltdc/&lt;/a&gt;&lt;br/&gt;&lt;br/&gt;Total up: &lt;b&gt;%2&lt;/b&gt;&lt;br/&gt;Download totale: &lt;b&gt;%3&lt;/b&gt;&lt;br/&gt;Rapporto: &lt;b&gt;%4&lt;/b&gt;</translation>
-    </message>
-    <message>
-        <source>Please use &lt;a href=&quot;http://code.google.com/p/eiskaltdc/issues/list&quot;&gt;http://code.google.com/p/eiskaltdc/issues/list&lt;/a&gt; to report bugs.&lt;br/&gt;</source>
-        <translation type="obsolete">Utilizza &lt;a href=&quot;http://code.google.com/p/eiskaltdc/issues/list&quot;&gt;http://code.google.com/p/eiskaltdc/issues/list&lt;/a&gt; per segnalare dei bugs.&lt;br/&gt;</translation>
-    </message>
-    <message>
         <location filename="../src/MainWindow.cpp" line="2694"/>
         <source>&lt;b&gt;Developers&lt;/b&gt;&lt;br/&gt;</source>
         <translation>&lt;b&gt;Sviluppatori&lt;/b&gt;&lt;br/&gt;</translation>
@@ -2898,10 +2778,6 @@ Scaricato: %3 Caricato: %4</translation>
         <source>Filename</source>
         <translation>Nome file</translation>
     </message>
-    <message>
-        <source>TTH</source>
-        <translation type="obsolete">TTH</translation>
-    </message>
 </context>
 <context>
     <name>SearchBlackListDialog</name>
@@ -2924,10 +2800,6 @@ Scaricato: %3 Caricato: %4</translation>
         <translation>Nome file</translation>
     </message>
     <message>
-        <source>TTH</source>
-        <translation type="obsolete">TTH</translation>
-    </message>
-    <message>
         <location filename="../src/SearchBlacklistDialog.cpp" line="179"/>
         <source>Key</source>
         <translation>Chiave</translation>
@@ -2945,10 +2817,6 @@ Scaricato: %3 Caricato: %4</translation>
 </context>
 <context>
     <name>SearchFrame</name>
-    <message>
-        <source>Form</source>
-        <translation type="obsolete">Form</translation>
-    </message>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="53"/>
         <location filename="../src/SearchFrame.cpp" line="362"/>
@@ -3209,10 +3077,6 @@ Scaricato: %3 Caricato: %4</translation>
         <location filename="../src/SearchModel.cpp" line="56"/>
         <source>Exact size</source>
         <translation>Dimensione esatta</translation>
-    </message>
-    <message>
-        <source>TTH</source>
-        <translation type="obsolete">TTH</translation>
     </message>
     <message>
         <location filename="../src/SearchModel.cpp" line="56"/>
@@ -4177,10 +4041,6 @@ Vuoi arrestarla?</translation>
         <translation>Lista file</translation>
     </message>
     <message>
-        <source>TTH: </source>
-        <translation type="obsolete">TTH:</translation>
-    </message>
-    <message>
         <location filename="../src/TransferView.cpp" line="604"/>
         <source>Requesting</source>
         <translation>Richiesta</translation>
@@ -4191,29 +4051,9 @@ Vuoi arrestarla?</translation>
         <translation>Avvio scaricamento...</translation>
     </message>
     <message>
-        <source>[S]</source>
-        <translation type="obsolete">[S]</translation>
-    </message>
-    <message>
-        <source>[U]</source>
-        <translation type="obsolete">[U]</translation>
-    </message>
-    <message>
-        <source>[T]</source>
-        <translation type="obsolete">[T]</translation>
-    </message>
-    <message>
-        <source>[Z]</source>
-        <translation type="obsolete">[Z]</translation>
-    </message>
-    <message>
         <location filename="../src/TransferView.cpp" line="645"/>
         <source>Downloaded %1</source>
         <translation>Scaricato %1</translation>
-    </message>
-    <message>
-        <source> (%1%)</source>
-        <translation type="obsolete"> (%1%)</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="700"/>
@@ -4336,14 +4176,6 @@ Vuoi arrestarla?</translation>
         <translation>In attesa di uno slot </translation>
     </message>
     <message>
-        <source>TTH: </source>
-        <translation type="obsolete">TTH: </translation>
-    </message>
-    <message>
-        <source>%1/%2</source>
-        <translation type="obsolete">%1/%2</translation>
-    </message>
-    <message>
         <location filename="../src/TransferViewModel.cpp" line="634"/>
         <location filename="../src/TransferViewModel.cpp" line="640"/>
         <source>Finished</source>
@@ -4377,10 +4209,6 @@ Vuoi arrestarla?</translation>
 <context>
     <name>UIADLS</name>
     <message>
-        <source>Form</source>
-        <translation type="obsolete">Form</translation>
-    </message>
-    <message>
         <location filename="../ui/UIADLSearch.ui" line="56"/>
         <source>Add new</source>
         <translation>Aggiungi nuovo</translation>
@@ -4408,10 +4236,6 @@ Vuoi arrestarla?</translation>
 </context>
 <context>
     <name>UIADLSEditor</name>
-    <message>
-        <source>Dialog</source>
-        <translation type="obsolete">Finestra</translation>
-    </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="38"/>
         <source>Favorite hub name.</source>
@@ -4487,18 +4311,6 @@ Vuoi arrestarla?</translation>
         <translation>Informazionis su EiskaltDC++</translation>
     </message>
     <message>
-        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;EiskaltDC++&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="obsolete">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;EiskaltDC++&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
         <location filename="../ui/UIAbout.ui" line="41"/>
         <source>About program</source>
         <translation>Info sul programma</translation>
@@ -4521,18 +4333,6 @@ p, li { white-space: pre-wrap; }
 </context>
 <context>
     <name>UIActionCustomizer</name>
-    <message>
-        <source>Dialog</source>
-        <translation type="obsolete">Finestra</translation>
-    </message>
-    <message>
-        <source>&gt;&gt;</source>
-        <translation type="obsolete">&gt;&gt;</translation>
-    </message>
-    <message>
-        <source>&lt;&lt;</source>
-        <translation type="obsolete">&lt;&lt;</translation>
-    </message>
     <message>
         <location filename="../ui/UIActionCustomizer.ui" line="88"/>
         <source>Up</source>
@@ -4592,14 +4392,6 @@ p, li { white-space: pre-wrap; }
         <translation>Lista nera</translation>
     </message>
     <message>
-        <source>+</source>
-        <translation type="obsolete">+</translation>
-    </message>
-    <message>
-        <source>-</source>
-        <translation type="obsolete">-</translation>
-    </message>
-    <message>
         <location filename="../ui/UIAntiSpam.ui" line="157"/>
         <location filename="../ui/UIAntiSpam.ui" line="223"/>
         <location filename="../ui/UIAntiSpam.ui" line="289"/>
@@ -4630,18 +4422,10 @@ p, li { white-space: pre-wrap; }
         <translation>Sposta l&apos;utente nella lista &quot;bianca&quot;</translation>
     </message>
     <message>
-        <source>&gt;&gt;&gt;</source>
-        <translation type="obsolete">&gt;&gt;&gt;</translation>
-    </message>
-    <message>
         <location filename="../ui/UIAntiSpam.ui" line="327"/>
         <location filename="../ui/UIAntiSpam.ui" line="340"/>
         <source>Move user to &quot;Gray&quot; list</source>
         <translation>Sposta l&apos;utente nella lista &quot;grigia&quot;</translation>
-    </message>
-    <message>
-        <source>&lt;&lt;&lt;</source>
-        <translation type="obsolete">&lt;&lt;&lt;</translation>
     </message>
     <message>
         <location filename="../ui/UIAntiSpam.ui" line="353"/>
@@ -4658,10 +4442,6 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>UICmdDebug</name>
     <message>
-        <source>Form</source>
-        <translation type="obsolete">Form</translation>
-    </message>
-    <message>
         <location filename="../ui/UICmdDebug.ui" line="52"/>
         <source>Filter by IP</source>
         <translation type="unfinished"></translation>
@@ -4675,10 +4455,6 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>UIDownloadQueue</name>
     <message>
-        <source>Form</source>
-        <translation type="obsolete">Form</translation>
-    </message>
-    <message>
         <location filename="../ui/UIDownloadQueue.ui" line="41"/>
         <source>Expand all</source>
         <translation>Espandi tutti</translation>
@@ -4691,10 +4467,6 @@ p, li { white-space: pre-wrap; }
 </context>
 <context>
     <name>UIFavoriteHubEditor</name>
-    <message>
-        <source>Dialog</source>
-        <translation type="obsolete">Finestra</translation>
-    </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="20"/>
         <source>Hub</source>
@@ -4736,10 +4508,6 @@ p, li { white-space: pre-wrap; }
         <translation>Descrizione</translation>
     </message>
     <message>
-        <source>This description will show in the user list.</source>
-        <translation type="obsolete">Questra descrizione sarà mostrata nella lista utenti.</translation>
-    </message>
-    <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="85"/>
         <source>This description will be shown in the list of favorite hubs.</source>
         <translation type="unfinished"></translation>
@@ -4778,10 +4546,6 @@ p, li { white-space: pre-wrap; }
         <location filename="../ui/UIFavoriteHubEditor.ui" line="142"/>
         <source>External IP</source>
         <translation>IP esterno</translation>
-    </message>
-    <message>
-        <source>000.000.000.000; </source>
-        <translation type="obsolete">000.000.000.000; </translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="162"/>
@@ -4832,10 +4596,6 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>UIFavoriteHubs</name>
     <message>
-        <source>Form</source>
-        <translation type="obsolete">Form</translation>
-    </message>
-    <message>
         <location filename="../ui/UIFavoriteHubs.ui" line="56"/>
         <source>Add new</source>
         <translation>Aggiungi nuovo</translation>
@@ -4859,10 +4619,6 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>UIFavoriteUsers</name>
     <message>
-        <source>Form</source>
-        <translation type="obsolete">Form</translation>
-    </message>
-    <message>
         <location filename="../ui/UIFavoriteUsers.ui" line="41"/>
         <source>Auto grant slot to all users</source>
         <translation>Auto concedi slot a tutti gli utenti</translation>
@@ -4874,10 +4630,6 @@ p, li { white-space: pre-wrap; }
         <location filename="../ui/UIFileHasher.ui" line="29"/>
         <source>TTH Calculator</source>
         <translation>Calcolatore TTH</translation>
-    </message>
-    <message>
-        <source>...</source>
-        <translation type="obsolete">...</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="82"/>
@@ -4897,10 +4649,6 @@ p, li { white-space: pre-wrap; }
 </context>
 <context>
     <name>UIFinishedTransfers</name>
-    <message>
-        <source>Form</source>
-        <translation type="obsolete">Form</translation>
-    </message>
     <message>
         <location filename="../ui/UIFinishedTransfers.ui" line="22"/>
         <source>Show</source>
@@ -4958,10 +4706,6 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>UIHubFrame</name>
     <message>
-        <source>Form</source>
-        <translation type="obsolete">Form</translation>
-    </message>
-    <message>
         <location filename="../ui/HubFrame.ui" line="97"/>
         <source>Find: </source>
         <translation>Trova: </translation>
@@ -4970,10 +4714,6 @@ p, li { white-space: pre-wrap; }
         <location filename="../ui/HubFrame.ui" line="111"/>
         <source>Previous (Shift+F3)</source>
         <translation>Precedente (Shift+F3)</translation>
-    </message>
-    <message>
-        <source>&lt;</source>
-        <translation type="obsolete">&lt;</translation>
     </message>
     <message>
         <location filename="../ui/HubFrame.ui" line="117"/>
@@ -4986,10 +4726,6 @@ p, li { white-space: pre-wrap; }
         <translation>Successivo (F3)</translation>
     </message>
     <message>
-        <source>&gt;</source>
-        <translation type="obsolete">&gt;</translation>
-    </message>
-    <message>
         <location filename="../ui/HubFrame.ui" line="130"/>
         <source>F3</source>
         <translation>F3</translation>
@@ -4998,10 +4734,6 @@ p, li { white-space: pre-wrap; }
         <location filename="../ui/HubFrame.ui" line="137"/>
         <source>Highlight all</source>
         <translation>Evidenzia tutto</translation>
-    </message>
-    <message>
-        <source>A</source>
-        <translation type="obsolete">A</translation>
     </message>
     <message>
         <location filename="../ui/HubFrame.ui" line="153"/>
@@ -5016,10 +4748,6 @@ p, li { white-space: pre-wrap; }
 </context>
 <context>
     <name>UIHubManager</name>
-    <message>
-        <source>Form</source>
-        <translation type="obsolete">Form</translation>
-    </message>
     <message>
         <location filename="../ui/UIHubManager.ui" line="33"/>
         <source>Hub</source>
@@ -5107,14 +4835,6 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>UIMagnet</name>
     <message>
-        <source>Form</source>
-        <translation type="obsolete">Form</translation>
-    </message>
-    <message>
-        <source>TTH</source>
-        <translation type="obsolete">TTH</translation>
-    </message>
-    <message>
         <location filename="../ui/UIMagnet.ui" line="74"/>
         <source>Filename</source>
         <translation>Nome file</translation>
@@ -5165,10 +4885,6 @@ nelle opzioni, il file sarà scaricato senza aprire una finestra di ricerca.</tr
 <context>
     <name>UIPrivateMessage</name>
     <message>
-        <source>Form</source>
-        <translation type="obsolete">Form</translation>
-    </message>
-    <message>
         <location filename="../ui/PrivateMessage.ui" line="81"/>
         <source>Find:</source>
         <translation>Trovato:</translation>
@@ -5179,10 +4895,6 @@ nelle opzioni, il file sarà scaricato senza aprire una finestra di ricerca.</tr
         <translation>Precedente (Shift+F3)</translation>
     </message>
     <message>
-        <source>&lt;</source>
-        <translation type="obsolete">&lt;</translation>
-    </message>
-    <message>
         <location filename="../ui/PrivateMessage.ui" line="94"/>
         <source>Shift+F3</source>
         <translation type="unfinished">Shift+F3</translation>
@@ -5191,10 +4903,6 @@ nelle opzioni, il file sarà scaricato senza aprire una finestra di ricerca.</tr
         <location filename="../ui/PrivateMessage.ui" line="101"/>
         <source>Next (F3)</source>
         <translation>Successivo (F3)</translation>
-    </message>
-    <message>
-        <source>&gt;</source>
-        <translation type="obsolete">&gt;</translation>
     </message>
     <message>
         <location filename="../ui/PrivateMessage.ui" line="107"/>
@@ -5212,10 +4920,6 @@ nelle opzioni, il file sarà scaricato senza aprire una finestra di ricerca.</tr
         <translation>Evidenzia tutti</translation>
     </message>
     <message>
-        <source>A</source>
-        <translation type="obsolete">A</translation>
-    </message>
-    <message>
         <location filename="../ui/PrivateMessage.ui" line="229"/>
         <source>Go to hub</source>
         <translation>Vai all&apos;hub</translation>
@@ -5227,18 +4931,7 @@ nelle opzioni, il file sarà scaricato senza aprire una finestra di ricerca.</tr
     </message>
 </context>
 <context>
-    <name>UIPublicHubs</name>
-    <message>
-        <source>Form</source>
-        <translation type="obsolete">Form</translation>
-    </message>
-</context>
-<context>
     <name>UIPublicHubsList</name>
-    <message>
-        <source>Dialog</source>
-        <translation type="obsolete">Finestra</translation>
-    </message>
     <message>
         <location filename="../ui/UIPublicHubsList.ui" line="23"/>
         <source>Up</source>
@@ -5266,13 +4959,6 @@ nelle opzioni, il file sarà scaricato senza aprire una finestra di ricerca.</tr
     </message>
 </context>
 <context>
-    <name>UIQueuedUsers</name>
-    <message>
-        <source>Form</source>
-        <translation type="obsolete">Form</translation>
-    </message>
-</context>
-<context>
     <name>UIQuickConnect</name>
     <message>
         <location filename="../ui/UIQuickConnect.ui" line="32"/>
@@ -5287,10 +4973,6 @@ nelle opzioni, il file sarà scaricato senza aprire una finestra di ricerca.</tr
 </context>
 <context>
     <name>UIScriptManager</name>
-    <message>
-        <source>Dialog</source>
-        <translation type="obsolete">Finestra</translation>
-    </message>
     <message>
         <location filename="../ui/UIScriptManager.ui" line="21"/>
         <source>Do nothing</source>
@@ -5341,10 +5023,6 @@ nelle opzioni, il file sarà scaricato senza aprire una finestra di ricerca.</tr
 <context>
     <name>UISettingsAdvanced</name>
     <message>
-        <source>Form</source>
-        <translation type="obsolete">Form</translation>
-    </message>
-    <message>
         <location filename="../ui/UISettingsAdvanced.ui" line="36"/>
         <source>Mime Handler</source>
         <translation type="unfinished"></translation>
@@ -5352,10 +5030,6 @@ nelle opzioni, il file sarà scaricato senza aprire una finestra di ricerca.</tr
 </context>
 <context>
     <name>UISettingsConnection</name>
-    <message>
-        <source>Form</source>
-        <translation type="obsolete">Form</translation>
-    </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="27"/>
         <source>Connection</source>
@@ -5517,10 +5191,6 @@ L&apos;implementazione SOCKS5 di DC++&apos;s non supporta GSSAPI.</translation>
         <translation>SOCKS5</translation>
     </message>
     <message>
-        <source>000.000.000.000; </source>
-        <translation type="obsolete">000.000.000.000; </translation>
-    </message>
-    <message>
         <location filename="../ui/UISettingsConnection.ui" line="386"/>
         <source>IP</source>
         <translation>IP</translation>
@@ -5539,10 +5209,6 @@ L&apos;implementazione SOCKS5 di DC++&apos;s non supporta GSSAPI.</translation>
         <location filename="../ui/UISettingsConnection.ui" line="407"/>
         <source>Port</source>
         <translation>Porta</translation>
-    </message>
-    <message>
-        <source>00000; </source>
-        <translation type="obsolete">0000; </translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="427"/>
@@ -5725,10 +5391,6 @@ p, li { white-space: pre-wrap; }
 </context>
 <context>
     <name>UISettingsDownloads</name>
-    <message>
-        <source>Form</source>
-        <translation type="obsolete">Form</translation>
-    </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="30"/>
         <source>Downloads</source>
@@ -6189,10 +5851,6 @@ Se i files vengono rimossi o spostati dalla loro posizione di destinazione non s
 <context>
     <name>UISettingsGUI</name>
     <message>
-        <source>Form</source>
-        <translation type="obsolete">Form</translation>
-    </message>
-    <message>
         <location filename="../ui/UISettingsGUI.ui" line="24"/>
         <source>Basic</source>
         <translation>Generale</translation>
@@ -6405,30 +6063,14 @@ from other words by spaces.</source>
         <translation>Messaggo privato</translation>
     </message>
     <message>
-        <source>show kibibyte (KiB) or kilobyte (KB), etc.</source>
-        <translation type="obsolete">mostra kibibyte (KiB) o kilobyte (KB), ecc.</translation>
-    </message>
-    <message>
         <location filename="../ui/UISettingsGUI.ui" line="487"/>
         <source>Application unit base</source>
         <translation>Unità di base applicazione</translation>
     </message>
     <message>
-        <source>1024</source>
-        <translation type="obsolete">1024</translation>
-    </message>
-    <message>
-        <source>1000</source>
-        <translation type="obsolete">1000</translation>
-    </message>
-    <message>
         <location filename="../ui/UISettingsGUI.ui" line="531"/>
         <source>Timestamp</source>
         <translation>Marcatura oraria</translation>
-    </message>
-    <message>
-        <source>hh:mm:ss</source>
-        <translation type="obsolete">oo:mm:ss</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="550"/>
@@ -6485,14 +6127,6 @@ from other words by spaces.</source>
         <location filename="../ui/UISettingsGUI.ui" line="673"/>
         <source>Separator in chat</source>
         <translation>Separatore in chat</translation>
-    </message>
-    <message>
-        <source>:</source>
-        <translation type="obsolete">:</translation>
-    </message>
-    <message>
-        <source>,</source>
-        <translation type="obsolete">,</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="702"/>
@@ -6582,10 +6216,6 @@ them is usually available only to operators</source>
 <context>
     <name>UISettingsHistory</name>
     <message>
-        <source>Form</source>
-        <translation type="obsolete">Form</translation>
-    </message>
-    <message>
         <location filename="../ui/UISettingsHistory.ui" line="53"/>
         <source>Clear search history on program exit</source>
         <translation>Pulisci la cronologia delle ricerche all&apos;uscita del programma</translation>
@@ -6619,10 +6249,6 @@ them is usually available only to operators</source>
 </context>
 <context>
     <name>UISettingsLog</name>
-    <message>
-        <source>Form</source>
-        <translation type="obsolete">Form</translation>
-    </message>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="430"/>
         <source>Log directory</source>
@@ -6726,10 +6352,6 @@ p, li { white-space: pre-wrap; }
 </context>
 <context>
     <name>UISettingsNotification</name>
-    <message>
-        <source>Form</source>
-        <translation type="obsolete">Form</translation>
-    </message>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="24"/>
         <source>Text</source>
@@ -6849,10 +6471,6 @@ lettore multimediale personalizzato per eseguirli. Per esempio:
 <context>
     <name>UISettingsPersonal</name>
     <message>
-        <source>Form</source>
-        <translation type="obsolete">Form</translation>
-    </message>
-    <message>
         <location filename="../ui/UISettingsPersonal.ui" line="47"/>
         <source>This description will show in the user list.
 It can be overridden on a per-hub basis in the Favorite Hub Properties.</source>
@@ -6928,10 +6546,6 @@ of how fast a source you are likely to be for other users.</source>
 </context>
 <context>
     <name>UISettingsSharing</name>
-    <message>
-        <source>Form</source>
-        <translation type="obsolete">Form</translation>
-    </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="27"/>
         <source>Basic</source>
@@ -7050,33 +6664,9 @@ e può bloccare temporaneamente il client.</translation>
         <translation>Dimensione buffer (MiB)</translation>
     </message>
     <message>
-        <source>1</source>
-        <translation type="obsolete">1</translation>
-    </message>
-    <message>
-        <source>2</source>
-        <translation type="obsolete">2</translation>
-    </message>
-    <message>
-        <source>4</source>
-        <translation type="obsolete">4</translation>
-    </message>
-    <message>
         <location filename="../ui/UISettingsSharing.ui" line="297"/>
         <source>8</source>
         <translation>8</translation>
-    </message>
-    <message>
-        <source>16</source>
-        <translation type="obsolete">16</translation>
-    </message>
-    <message>
-        <source>32</source>
-        <translation type="obsolete">32</translation>
-    </message>
-    <message>
-        <source>64</source>
-        <translation type="obsolete">64</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="350"/>
@@ -7170,18 +6760,7 @@ se l&apos;utente torna prima di 10 minuti EiskaltDC++ riassegna lo slot all&apos
     </message>
 </context>
 <context>
-    <name>UISettingsShortcuts</name>
-    <message>
-        <source>Form</source>
-        <translation type="obsolete">Form</translation>
-    </message>
-</context>
-<context>
     <name>UISettingsUC</name>
-    <message>
-        <source>Form</source>
-        <translation type="obsolete">Form</translation>
-    </message>
     <message>
         <location filename="../ui/UISettingsUC.ui" line="51"/>
         <source>Add</source>
@@ -7206,25 +6785,6 @@ se l&apos;utente torna prima di 10 minuti EiskaltDC++ riassegna lo slot all&apos
         <location filename="../ui/UISettingsUC.ui" line="92"/>
         <source>Down</source>
         <translation>Giù</translation>
-    </message>
-</context>
-<context>
-    <name>UIShareBrowser</name>
-    <message>
-        <source>Form</source>
-        <translation type="obsolete">Form</translation>
-    </message>
-    <message utf8="true">
-        <source>←</source>
-        <translation type="obsolete">←</translation>
-    </message>
-    <message utf8="true">
-        <source>→</source>
-        <translation type="obsolete">→</translation>
-    </message>
-    <message utf8="true">
-        <source>↑</source>
-        <translation type="obsolete">↑</translation>
     </message>
 </context>
 <context>
@@ -7264,10 +6824,6 @@ se l&apos;utente torna prima di 10 minuti EiskaltDC++ riassegna lo slot all&apos
 <context>
     <name>UISpy</name>
     <message>
-        <source>Form</source>
-        <translation type="obsolete">Form</translation>
-    </message>
-    <message>
         <location filename="../ui/UISpy.ui" line="35"/>
         <source>Ignore TTH search</source>
         <translation>Ignora ricerca TTH</translation>
@@ -7286,13 +6842,6 @@ se l&apos;utente torna prima di 10 minuti EiskaltDC++ riassegna lo slot all&apos
         <location filename="../ui/UISpy.ui" line="69"/>
         <source>Clear</source>
         <translation>Pulisci</translation>
-    </message>
-</context>
-<context>
-    <name>UITransferView</name>
-    <message>
-        <source>Form</source>
-        <translation type="obsolete">Form</translation>
     </message>
 </context>
 <context>
@@ -7465,50 +7014,6 @@ se l&apos;utente torna prima di 10 minuti EiskaltDC++ riassegna lo slot all&apos
         <location filename="../src/WulforUtil.cpp" line="711"/>
         <source>System default</source>
         <translation>Predefinita di sistema</translation>
-    </message>
-    <message>
-        <source>%1 B</source>
-        <translation type="obsolete">%1 B</translation>
-    </message>
-    <message>
-        <source>%1 KiB</source>
-        <translation type="obsolete">%1 KiB</translation>
-    </message>
-    <message>
-        <source>%1 MiB</source>
-        <translation type="obsolete">%1 MiB</translation>
-    </message>
-    <message>
-        <source>%1 GiB</source>
-        <translation type="obsolete">%1 GiB</translation>
-    </message>
-    <message>
-        <source>%1 TiB</source>
-        <translation type="obsolete">%1 TiB</translation>
-    </message>
-    <message>
-        <source>%1 PiB</source>
-        <translation type="obsolete">%1 PiB</translation>
-    </message>
-    <message>
-        <source>%1 KB</source>
-        <translation type="obsolete">%1 KB</translation>
-    </message>
-    <message>
-        <source>%1 MB</source>
-        <translation type="obsolete">%1 MB</translation>
-    </message>
-    <message>
-        <source>%1 GB</source>
-        <translation type="obsolete">%1 GB</translation>
-    </message>
-    <message>
-        <source>%1 TB</source>
-        <translation type="obsolete">%1 TB</translation>
-    </message>
-    <message>
-        <source>%1 PB</source>
-        <translation type="obsolete">%1 PB</translation>
     </message>
     <message>
         <location filename="../src/WulforUtil.cpp" line="1020"/>

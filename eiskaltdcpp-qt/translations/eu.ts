@@ -201,10 +201,6 @@ Keys:
 <context>
     <name>DialogScriptConsole</name>
     <message>
-        <source>Dialog</source>
-        <translation type="obsolete">Elkarrizketa</translation>
-    </message>
-    <message>
         <location filename="../ui/UIDialogScriptConsole.ui" line="30"/>
         <source>Output</source>
         <translation>Irteera</translation>
@@ -456,10 +452,6 @@ Keys:
         <translation>Gehituta</translation>
     </message>
     <message>
-        <source>TTH</source>
-        <translation type="obsolete">TTH</translation>
-    </message>
-    <message>
         <location filename="../src/DownloadQueueModel.cpp" line="139"/>
         <source>Paused</source>
         <translation>Pausatuta</translation>
@@ -553,10 +545,6 @@ Keys:
         <location filename="../src/FavoriteHubModel.cpp" line="21"/>
         <source>Remote encoding</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>******</source>
-        <translation type="obsolete">******</translation>
     </message>
 </context>
 <context>
@@ -709,10 +697,6 @@ Keys:
         <location filename="../src/FileBrowserModel.cpp" line="311"/>
         <source>Exact size</source>
         <translation>Tamaina zehatza</translation>
-    </message>
-    <message>
-        <source>TTH</source>
-        <translation type="obsolete">TTH</translation>
     </message>
     <message>
         <location filename="../src/FileBrowserModel.cpp" line="312"/>
@@ -1677,86 +1661,6 @@ Favorite user</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Ctrl+I</source>
-        <translation type="obsolete">Ktrl+I</translation>
-    </message>
-    <message>
-        <source>Ctrl+L</source>
-        <translation type="obsolete">Ktrl+L</translation>
-    </message>
-    <message>
-        <source>Ctrl+E</source>
-        <translation type="obsolete">Ktrl+E</translation>
-    </message>
-    <message>
-        <source>Ctrl+Alt+H</source>
-        <translation type="obsolete">Ktrl+Alt+H</translation>
-    </message>
-    <message>
-        <source>Ctrl+Q</source>
-        <translation type="obsolete">Ktrl+Q</translation>
-    </message>
-    <message>
-        <source>Ctrl+R</source>
-        <translation type="obsolete">Ktrl+R</translation>
-    </message>
-    <message>
-        <source>Ctrl+N</source>
-        <translation type="obsolete">Ktrl+N</translation>
-    </message>
-    <message>
-        <source>Ctrl+H</source>
-        <translation type="obsolete">Ktrl+H</translation>
-    </message>
-    <message>
-        <source>Ctrl+P</source>
-        <translation type="obsolete">Ktrl+P</translation>
-    </message>
-    <message>
-        <source>Ctrl+U</source>
-        <translation type="obsolete">Ktrl+U</translation>
-    </message>
-    <message>
-        <source>Ctrl+O</source>
-        <translation type="obsolete">Ktrl+O</translation>
-    </message>
-    <message>
-        <source>Ctrl+T</source>
-        <translation type="obsolete">Ktrl+T</translation>
-    </message>
-    <message>
-        <source>Ctrl+D</source>
-        <translation type="obsolete">Ktrl+D</translation>
-    </message>
-    <message>
-        <source>Ctrl+Shift+U</source>
-        <translation type="obsolete">Ktrl+Shift+U</translation>
-    </message>
-    <message>
-        <source>Ctrl+[</source>
-        <translation type="obsolete">Ktrl+[</translation>
-    </message>
-    <message>
-        <source>Ctrl+]</source>
-        <translation type="obsolete">Ktrl+]</translation>
-    </message>
-    <message>
-        <source>Ctrl+Alt+J</source>
-        <translation type="obsolete">Ktrl+Alt+J</translation>
-    </message>
-    <message>
-        <source>Ctrl+S</source>
-        <translation type="obsolete">Ktrl+S</translation>
-    </message>
-    <message>
-        <source>Ctrl+K</source>
-        <translation type="obsolete">Ktrl+K</translation>
-    </message>
-    <message>
-        <source>Ctrl+F</source>
-        <translation type="obsolete">Ktrl+F</translation>
-    </message>
-    <message>
         <location filename="../src/MainWindow.cpp" line="1079"/>
         <source>Next widget</source>
         <translation type="unfinished"></translation>
@@ -1785,14 +1689,6 @@ Favorite user</source>
         <location filename="../src/MainWindow.cpp" line="1084"/>
         <source>Toggle main menu</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Ctrl+W</source>
-        <translation type="obsolete">Ktrl+W</translation>
-    </message>
-    <message>
-        <source>Ctrl+M</source>
-        <translation type="obsolete">Ktrl+M</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1226"/>
@@ -2325,10 +2221,6 @@ Favorite user</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>http://github.com/eiskaltdcpp/eiskaltdcpp/raw/master/ChangeLog.txt</source>
-        <translation type="obsolete">http://github.com/eiskaltdcpp/eiskaltdcpp/raw/master/ChangeLog.txt</translation>
-    </message>
-    <message>
         <location filename="../src/MainWindow.cpp" line="2694"/>
         <source>&lt;b&gt;Developers&lt;/b&gt;&lt;br/&gt;</source>
         <translation>&lt;b&gt;Garatzileak&lt;/b&gt;&lt;br/&gt;</translation>
@@ -2849,10 +2741,6 @@ Downloaded: %3 Uploaded: %4</source>
         <source>Filename</source>
         <translation type="unfinished">Fitxategi izena</translation>
     </message>
-    <message>
-        <source>TTH</source>
-        <translation type="obsolete">TTH</translation>
-    </message>
 </context>
 <context>
     <name>SearchBlackListDialog</name>
@@ -2873,10 +2761,6 @@ Downloaded: %3 Uploaded: %4</source>
         <location filename="../src/SearchBlacklistDialog.cpp" line="164"/>
         <source>Filename</source>
         <translation type="unfinished">Fitxategi izena</translation>
-    </message>
-    <message>
-        <source>TTH</source>
-        <translation type="obsolete">TTH</translation>
     </message>
     <message>
         <location filename="../src/SearchBlacklistDialog.cpp" line="179"/>
@@ -3156,10 +3040,6 @@ Downloaded: %3 Uploaded: %4</source>
         <location filename="../src/SearchModel.cpp" line="56"/>
         <source>Exact size</source>
         <translation type="unfinished">Tamaina zehatza</translation>
-    </message>
-    <message>
-        <source>TTH</source>
-        <translation type="obsolete">TTH</translation>
     </message>
     <message>
         <location filename="../src/SearchModel.cpp" line="56"/>
@@ -4318,10 +4198,6 @@ Do you want to stop it?
 <context>
     <name>UIADLSEditor</name>
     <message>
-        <source>Dialog</source>
-        <translation type="obsolete">Elkarrizketa</translation>
-    </message>
-    <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="38"/>
         <source>Favorite hub name.</source>
         <translation type="unfinished"></translation>
@@ -4418,10 +4294,6 @@ Do you want to stop it?
 </context>
 <context>
     <name>UIActionCustomizer</name>
-    <message>
-        <source>Dialog</source>
-        <translation type="obsolete">Elkarrizketa</translation>
-    </message>
     <message>
         <location filename="../ui/UIActionCustomizer.ui" line="88"/>
         <source>Up</source>
@@ -4556,10 +4428,6 @@ Do you want to stop it?
 </context>
 <context>
     <name>UIFavoriteHubEditor</name>
-    <message>
-        <source>Dialog</source>
-        <translation type="obsolete">Elkarrizketa</translation>
-    </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="20"/>
         <source>Hub</source>
@@ -4809,10 +4677,6 @@ Do you want to stop it?
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&lt;</source>
-        <translation type="obsolete">&lt;</translation>
-    </message>
-    <message>
         <location filename="../ui/HubFrame.ui" line="117"/>
         <source>Shift+F3</source>
         <translation type="unfinished"></translation>
@@ -4821,10 +4685,6 @@ Do you want to stop it?
         <location filename="../ui/HubFrame.ui" line="124"/>
         <source>Next (F3)</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>&gt;</source>
-        <translation type="obsolete">&gt;</translation>
     </message>
     <message>
         <location filename="../ui/HubFrame.ui" line="130"/>
@@ -4936,10 +4796,6 @@ Do you want to stop it?
 <context>
     <name>UIMagnet</name>
     <message>
-        <source>TTH</source>
-        <translation type="obsolete">TTH</translation>
-    </message>
-    <message>
         <location filename="../ui/UIMagnet.ui" line="74"/>
         <source>Filename</source>
         <translation type="unfinished">Fitxategi izena</translation>
@@ -4999,10 +4855,6 @@ in options, file will be downloaded without opening search dialog.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&lt;</source>
-        <translation type="obsolete">&lt;</translation>
-    </message>
-    <message>
         <location filename="../ui/PrivateMessage.ui" line="94"/>
         <source>Shift+F3</source>
         <translation type="unfinished"></translation>
@@ -5011,10 +4863,6 @@ in options, file will be downloaded without opening search dialog.</source>
         <location filename="../ui/PrivateMessage.ui" line="101"/>
         <source>Next (F3)</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>&gt;</source>
-        <translation type="obsolete">&gt;</translation>
     </message>
     <message>
         <location filename="../ui/PrivateMessage.ui" line="107"/>
@@ -5044,10 +4892,6 @@ in options, file will be downloaded without opening search dialog.</source>
 </context>
 <context>
     <name>UIPublicHubsList</name>
-    <message>
-        <source>Dialog</source>
-        <translation type="obsolete">Elkarrizketa</translation>
-    </message>
     <message>
         <location filename="../ui/UIPublicHubsList.ui" line="23"/>
         <source>Up</source>
@@ -5089,10 +4933,6 @@ in options, file will be downloaded without opening search dialog.</source>
 </context>
 <context>
     <name>UIScriptManager</name>
-    <message>
-        <source>Dialog</source>
-        <translation type="obsolete">Elkarrizketa</translation>
-    </message>
     <message>
         <location filename="../ui/UIScriptManager.ui" line="21"/>
         <source>Do nothing</source>
@@ -6175,14 +6015,6 @@ from other words by spaces.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>:</source>
-        <translation type="obsolete">:</translation>
-    </message>
-    <message>
-        <source>,</source>
-        <translation type="obsolete">,</translation>
-    </message>
-    <message>
         <location filename="../ui/UISettingsGUI.ui" line="702"/>
         <source>Highlight favorite users in user list</source>
         <translation type="unfinished"></translation>
@@ -6710,33 +6542,9 @@ and may cause the client to appear to freeze.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>1</source>
-        <translation type="obsolete">1</translation>
-    </message>
-    <message>
-        <source>2</source>
-        <translation type="obsolete">2</translation>
-    </message>
-    <message>
-        <source>4</source>
-        <translation type="obsolete">4</translation>
-    </message>
-    <message>
         <location filename="../ui/UISettingsSharing.ui" line="297"/>
         <source>8</source>
         <translation>8</translation>
-    </message>
-    <message>
-        <source>16</source>
-        <translation type="obsolete">16</translation>
-    </message>
-    <message>
-        <source>32</source>
-        <translation type="obsolete">32</translation>
-    </message>
-    <message>
-        <source>64</source>
-        <translation type="obsolete">64</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="350"/>
@@ -6849,21 +6657,6 @@ if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</sourc
         <location filename="../ui/UISettingsUC.ui" line="92"/>
         <source>Down</source>
         <translation>Behera</translation>
-    </message>
-</context>
-<context>
-    <name>UIShareBrowser</name>
-    <message utf8="true">
-        <source>←</source>
-        <translation type="obsolete">←</translation>
-    </message>
-    <message utf8="true">
-        <source>→</source>
-        <translation type="obsolete">→</translation>
-    </message>
-    <message utf8="true">
-        <source>↑</source>
-        <translation type="obsolete">↑</translation>
     </message>
 </context>
 <context>

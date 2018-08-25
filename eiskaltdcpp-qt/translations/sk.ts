@@ -207,10 +207,6 @@ Kľúčové skratky:
 <context>
     <name>DialogScriptConsole</name>
     <message>
-        <source>Dialog</source>
-        <translation type="obsolete">Dialóg</translation>
-    </message>
-    <message>
         <location filename="../ui/UIDialogScriptConsole.ui" line="30"/>
         <source>Output</source>
         <translation type="unfinished"></translation>
@@ -462,10 +458,6 @@ Kľúčové skratky:
         <translation>pridané</translation>
     </message>
     <message>
-        <source>TTH</source>
-        <translation type="obsolete">TTH</translation>
-    </message>
-    <message>
         <location filename="../src/DownloadQueueModel.cpp" line="139"/>
         <source>Paused</source>
         <translation>pozastavené</translation>
@@ -562,10 +554,6 @@ Kľúčové skratky:
         <location filename="../src/FavoriteHubModel.cpp" line="21"/>
         <source>Remote encoding</source>
         <translation>diaľkové kódovanie</translation>
-    </message>
-    <message>
-        <source>******</source>
-        <translation type="obsolete">******</translation>
     </message>
 </context>
 <context>
@@ -718,10 +706,6 @@ Kľúčové skratky:
         <location filename="../src/FileBrowserModel.cpp" line="311"/>
         <source>Exact size</source>
         <translation>presná veľkosť</translation>
-    </message>
-    <message>
-        <source>TTH</source>
-        <translation type="obsolete">TTH</translation>
     </message>
     <message>
         <location filename="../src/FileBrowserModel.cpp" line="312"/>
@@ -1705,58 +1689,6 @@ Favorite user</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Ctrl+L</source>
-        <translation type="obsolete">Ctrl+L</translation>
-    </message>
-    <message>
-        <source>Ctrl+E</source>
-        <translation type="obsolete">Ctrl+E</translation>
-    </message>
-    <message>
-        <source>Ctrl+Q</source>
-        <translation type="obsolete">Ctrl+Q</translation>
-    </message>
-    <message>
-        <source>Ctrl+R</source>
-        <translation type="obsolete">Ctrl+R</translation>
-    </message>
-    <message>
-        <source>Ctrl+N</source>
-        <translation type="obsolete">Ctrl+N</translation>
-    </message>
-    <message>
-        <source>Ctrl+H</source>
-        <translation type="obsolete">Ctrl+H</translation>
-    </message>
-    <message>
-        <source>Ctrl+P</source>
-        <translation type="obsolete">Ctrl+P</translation>
-    </message>
-    <message>
-        <source>Ctrl+U</source>
-        <translation type="obsolete">Ctrl+U</translation>
-    </message>
-    <message>
-        <source>Ctrl+O</source>
-        <translation type="obsolete">Ctrl+O</translation>
-    </message>
-    <message>
-        <source>Ctrl+T</source>
-        <translation type="obsolete">Ctrl+T</translation>
-    </message>
-    <message>
-        <source>Ctrl+D</source>
-        <translation type="obsolete">Ctrl+D</translation>
-    </message>
-    <message>
-        <source>Ctrl+S</source>
-        <translation type="obsolete">Ctrl+S</translation>
-    </message>
-    <message>
-        <source>Ctrl+F</source>
-        <translation type="obsolete">Ctrl+F</translation>
-    </message>
-    <message>
         <location filename="../src/MainWindow.cpp" line="1079"/>
         <source>Next widget</source>
         <translation>Nasledujúci widget</translation>
@@ -1785,30 +1717,6 @@ Favorite user</source>
         <location filename="../src/MainWindow.cpp" line="1084"/>
         <source>Toggle main menu</source>
         <translation>Zapnúť/Vypnúť hlavné menu</translation>
-    </message>
-    <message>
-        <source>Ctrl+PgDown</source>
-        <translation type="obsolete">Ctrl+PgDown</translation>
-    </message>
-    <message>
-        <source>Ctrl+PgUp</source>
-        <translation type="obsolete">Ctrl+PgUp</translation>
-    </message>
-    <message>
-        <source>Ctrl+Down</source>
-        <translation type="obsolete">Ctrl+Dole</translation>
-    </message>
-    <message>
-        <source>Ctrl+Up</source>
-        <translation type="obsolete">Ctrl+Hore</translation>
-    </message>
-    <message>
-        <source>Ctrl+W</source>
-        <translation type="obsolete">Ctrl+W</translation>
-    </message>
-    <message>
-        <source>Ctrl+M</source>
-        <translation type="obsolete">Ctrl+M</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1226"/>
@@ -2341,14 +2249,6 @@ Favorite user</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>http://github.com/eiskaltdcpp/eiskaltdcpp/raw/master/ChangeLog.txt</source>
-        <translation type="obsolete">http://github.com/eiskaltdcpp/eiskaltdcpp/raw/master/ChangeLog.txt</translation>
-    </message>
-    <message>
-        <source>Please use &lt;a href=&quot;http://code.google.com/p/eiskaltdc/issues/list&quot;&gt;http://code.google.com/p/eiskaltdc/issues/list&lt;/a&gt; to report bugs.&lt;br/&gt;</source>
-        <translation type="obsolete">Ak zistíte nieakú chybu prosím nahláste je tu &lt;a href=&quot;http://code.google.com/p/eiskaltdc/issues/list&quot;&gt;http://code.google.com/p/eiskaltdc/issues/list&lt;/a&gt;.&lt;br/&gt;</translation>
-    </message>
-    <message>
         <location filename="../src/MainWindow.cpp" line="2694"/>
         <source>&lt;b&gt;Developers&lt;/b&gt;&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
@@ -2872,10 +2772,6 @@ Stiahnuté: %3 Uploadované: %4</translation>
         <source>Filename</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <source>TTH</source>
-        <translation type="obsolete">TTH</translation>
-    </message>
 </context>
 <context>
     <name>SearchBlackListDialog</name>
@@ -2898,10 +2794,6 @@ Stiahnuté: %3 Uploadované: %4</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>TTH</source>
-        <translation type="obsolete">TTH</translation>
-    </message>
-    <message>
         <location filename="../src/SearchBlacklistDialog.cpp" line="179"/>
         <source>Key</source>
         <translation type="unfinished">Kľúč</translation>
@@ -2919,10 +2811,6 @@ Stiahnuté: %3 Uploadované: %4</translation>
 </context>
 <context>
     <name>SearchFrame</name>
-    <message>
-        <source>Form</source>
-        <translation type="obsolete">Formulár</translation>
-    </message>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="53"/>
         <location filename="../src/SearchFrame.cpp" line="362"/>
@@ -3183,10 +3071,6 @@ Stiahnuté: %3 Uploadované: %4</translation>
         <location filename="../src/SearchModel.cpp" line="56"/>
         <source>Exact size</source>
         <translation>Presná veľkosť</translation>
-    </message>
-    <message>
-        <source>TTH</source>
-        <translation type="obsolete">TTH</translation>
     </message>
     <message>
         <location filename="../src/SearchModel.cpp" line="56"/>
@@ -4320,10 +4204,6 @@ Prajete si hľadanie zastaviť?
 <context>
     <name>UIADLS</name>
     <message>
-        <source>Form</source>
-        <translation type="obsolete">Formulár</translation>
-    </message>
-    <message>
         <location filename="../ui/UIADLSearch.ui" line="56"/>
         <source>Add new</source>
         <translation>Pridať nové</translation>
@@ -4351,10 +4231,6 @@ Prajete si hľadanie zastaviť?
 </context>
 <context>
     <name>UIADLSEditor</name>
-    <message>
-        <source>Dialog</source>
-        <translation type="obsolete">Dialóg</translation>
-    </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="38"/>
         <source>Favorite hub name.</source>
@@ -4452,10 +4328,6 @@ Prajete si hľadanie zastaviť?
 </context>
 <context>
     <name>UIActionCustomizer</name>
-    <message>
-        <source>Dialog</source>
-        <translation type="obsolete">Dialóg</translation>
-    </message>
     <message>
         <location filename="../ui/UIActionCustomizer.ui" line="88"/>
         <source>Up</source>
@@ -4565,10 +4437,6 @@ Prajete si hľadanie zastaviť?
 <context>
     <name>UICmdDebug</name>
     <message>
-        <source>Form</source>
-        <translation type="obsolete">Formulár</translation>
-    </message>
-    <message>
         <location filename="../ui/UICmdDebug.ui" line="52"/>
         <source>Filter by IP</source>
         <translation type="unfinished"></translation>
@@ -4582,10 +4450,6 @@ Prajete si hľadanie zastaviť?
 <context>
     <name>UIDownloadQueue</name>
     <message>
-        <source>Form</source>
-        <translation type="obsolete">Formulár</translation>
-    </message>
-    <message>
         <location filename="../ui/UIDownloadQueue.ui" line="41"/>
         <source>Expand all</source>
         <translation>Zväčšiť všetko</translation>
@@ -4598,10 +4462,6 @@ Prajete si hľadanie zastaviť?
 </context>
 <context>
     <name>UIFavoriteHubEditor</name>
-    <message>
-        <source>Dialog</source>
-        <translation type="obsolete">Dialóg</translation>
-    </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="20"/>
         <source>Hub</source>
@@ -4641,10 +4501,6 @@ Prajete si hľadanie zastaviť?
         <location filename="../ui/UIFavoriteHubEditor.ui" line="78"/>
         <source>Description</source>
         <translation>Popis</translation>
-    </message>
-    <message>
-        <source>This description will show in the user list.</source>
-        <translation type="obsolete">Tento popis sa bude zobrazovať v zozname používateľov.</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="85"/>
@@ -4735,10 +4591,6 @@ Prajete si hľadanie zastaviť?
 <context>
     <name>UIFavoriteHubs</name>
     <message>
-        <source>Form</source>
-        <translation type="obsolete">Formulár</translation>
-    </message>
-    <message>
         <location filename="../ui/UIFavoriteHubs.ui" line="56"/>
         <source>Add new</source>
         <translation>Pridať nové</translation>
@@ -4761,10 +4613,6 @@ Prajete si hľadanie zastaviť?
 </context>
 <context>
     <name>UIFavoriteUsers</name>
-    <message>
-        <source>Form</source>
-        <translation type="obsolete">Formulár</translation>
-    </message>
     <message>
         <location filename="../ui/UIFavoriteUsers.ui" line="41"/>
         <source>Auto grant slot to all users</source>
@@ -4796,10 +4644,6 @@ Prajete si hľadanie zastaviť?
 </context>
 <context>
     <name>UIFinishedTransfers</name>
-    <message>
-        <source>Form</source>
-        <translation type="obsolete">Formulár</translation>
-    </message>
     <message>
         <location filename="../ui/UIFinishedTransfers.ui" line="22"/>
         <source>Show</source>
@@ -4857,10 +4701,6 @@ Prajete si hľadanie zastaviť?
 <context>
     <name>UIHubFrame</name>
     <message>
-        <source>Form</source>
-        <translation type="obsolete">Formulár</translation>
-    </message>
-    <message>
         <location filename="../ui/HubFrame.ui" line="97"/>
         <source>Find: </source>
         <translation>Hľadať:</translation>
@@ -4903,10 +4743,6 @@ Prajete si hľadanie zastaviť?
 </context>
 <context>
     <name>UIHubManager</name>
-    <message>
-        <source>Form</source>
-        <translation type="obsolete">Formulár</translation>
-    </message>
     <message>
         <location filename="../ui/UIHubManager.ui" line="33"/>
         <source>Hub</source>
@@ -4994,14 +4830,6 @@ Prajete si hľadanie zastaviť?
 <context>
     <name>UIMagnet</name>
     <message>
-        <source>Form</source>
-        <translation type="obsolete">Formulár</translation>
-    </message>
-    <message>
-        <source>TTH</source>
-        <translation type="obsolete">TTH</translation>
-    </message>
-    <message>
         <location filename="../ui/UIMagnet.ui" line="74"/>
         <source>Filename</source>
         <translation>Názov súboru</translation>
@@ -5051,10 +4879,6 @@ in options, file will be downloaded without opening search dialog.</source>
 <context>
     <name>UIPrivateMessage</name>
     <message>
-        <source>Form</source>
-        <translation type="obsolete">Formulár</translation>
-    </message>
-    <message>
         <location filename="../ui/PrivateMessage.ui" line="81"/>
         <source>Find:</source>
         <translation type="unfinished"></translation>
@@ -5101,18 +4925,7 @@ in options, file will be downloaded without opening search dialog.</source>
     </message>
 </context>
 <context>
-    <name>UIPublicHubs</name>
-    <message>
-        <source>Form</source>
-        <translation type="obsolete">Formulár</translation>
-    </message>
-</context>
-<context>
     <name>UIPublicHubsList</name>
-    <message>
-        <source>Dialog</source>
-        <translation type="obsolete">Dialóg</translation>
-    </message>
     <message>
         <location filename="../ui/UIPublicHubsList.ui" line="23"/>
         <source>Up</source>
@@ -5140,13 +4953,6 @@ in options, file will be downloaded without opening search dialog.</source>
     </message>
 </context>
 <context>
-    <name>UIQueuedUsers</name>
-    <message>
-        <source>Form</source>
-        <translation type="obsolete">Formulár</translation>
-    </message>
-</context>
-<context>
     <name>UIQuickConnect</name>
     <message>
         <location filename="../ui/UIQuickConnect.ui" line="32"/>
@@ -5161,10 +4967,6 @@ in options, file will be downloaded without opening search dialog.</source>
 </context>
 <context>
     <name>UIScriptManager</name>
-    <message>
-        <source>Dialog</source>
-        <translation type="obsolete">Dialóg</translation>
-    </message>
     <message>
         <location filename="../ui/UIScriptManager.ui" line="21"/>
         <source>Do nothing</source>
@@ -5215,10 +5017,6 @@ in options, file will be downloaded without opening search dialog.</source>
 <context>
     <name>UISettingsAdvanced</name>
     <message>
-        <source>Form</source>
-        <translation type="obsolete">Formulár</translation>
-    </message>
-    <message>
         <location filename="../ui/UISettingsAdvanced.ui" line="36"/>
         <source>Mime Handler</source>
         <translation type="unfinished"></translation>
@@ -5226,10 +5024,6 @@ in options, file will be downloaded without opening search dialog.</source>
 </context>
 <context>
     <name>UISettingsConnection</name>
-    <message>
-        <source>Form</source>
-        <translation type="obsolete">Formulár</translation>
-    </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="27"/>
         <source>Connection</source>
@@ -5577,10 +5371,6 @@ p, li { white-space: pre-wrap; }
 </context>
 <context>
     <name>UISettingsDownloads</name>
-    <message>
-        <source>Form</source>
-        <translation type="obsolete">Formulár</translation>
-    </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="30"/>
         <source>Downloads</source>
@@ -6004,10 +5794,6 @@ from the queue either, you must do that manually.</source>
 <context>
     <name>UISettingsGUI</name>
     <message>
-        <source>Form</source>
-        <translation type="obsolete">Formulár</translation>
-    </message>
-    <message>
         <location filename="../ui/UISettingsGUI.ui" line="24"/>
         <source>Basic</source>
         <translation>Základné nastavenia</translation>
@@ -6220,10 +6006,6 @@ Ak nie je zaškrtnuté, tak neuvidíš smajlíkov ak nie je medzera medzi slovom
         <translation>Súkromná správa</translation>
     </message>
     <message>
-        <source>show kibibyte (KiB) or kilobyte (KB), etc.</source>
-        <translation type="obsolete">zobraz kibibyte (KiB) alebo kilobyte (KB), atď.</translation>
-    </message>
-    <message>
         <location filename="../ui/UISettingsGUI.ui" line="487"/>
         <source>Application unit base</source>
         <translation type="unfinished"></translation>
@@ -6376,10 +6158,6 @@ them is usually available only to operators</source>
 <context>
     <name>UISettingsHistory</name>
     <message>
-        <source>Form</source>
-        <translation type="obsolete">Formulár</translation>
-    </message>
-    <message>
         <location filename="../ui/UISettingsHistory.ui" line="53"/>
         <source>Clear search history on program exit</source>
         <translation type="unfinished"></translation>
@@ -6413,10 +6191,6 @@ them is usually available only to operators</source>
 </context>
 <context>
     <name>UISettingsLog</name>
-    <message>
-        <source>Form</source>
-        <translation type="obsolete">Formulár</translation>
-    </message>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="430"/>
         <source>Log directory</source>
@@ -6516,10 +6290,6 @@ p, li { white-space: pre-wrap; }
 </context>
 <context>
     <name>UISettingsNotification</name>
-    <message>
-        <source>Form</source>
-        <translation type="obsolete">Formulár</translation>
-    </message>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="24"/>
         <source>Text</source>
@@ -6638,10 +6408,6 @@ Príklad: /usr/bin/mplayer</translation>
 <context>
     <name>UISettingsPersonal</name>
     <message>
-        <source>Form</source>
-        <translation type="obsolete">Formulár</translation>
-    </message>
-    <message>
         <location filename="../ui/UISettingsPersonal.ui" line="47"/>
         <source>This description will show in the user list.
 It can be overridden on a per-hub basis in the Favorite Hub Properties.</source>
@@ -6717,10 +6483,6 @@ of how fast a source you are likely to be for other users.</source>
 </context>
 <context>
     <name>UISettingsSharing</name>
-    <message>
-        <source>Form</source>
-        <translation type="obsolete">Formulár</translation>
-    </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="27"/>
         <source>Basic</source>
@@ -6933,18 +6695,7 @@ avšak ak sa vráti do 10 min, EiskaltDC++ mu udelí spät jeho slot.</translati
     </message>
 </context>
 <context>
-    <name>UISettingsShortcuts</name>
-    <message>
-        <source>Form</source>
-        <translation type="obsolete">Formulár</translation>
-    </message>
-</context>
-<context>
     <name>UISettingsUC</name>
-    <message>
-        <source>Form</source>
-        <translation type="obsolete">Formulár</translation>
-    </message>
     <message>
         <location filename="../ui/UISettingsUC.ui" line="51"/>
         <source>Add</source>
@@ -6969,13 +6720,6 @@ avšak ak sa vráti do 10 min, EiskaltDC++ mu udelí spät jeho slot.</translati
         <location filename="../ui/UISettingsUC.ui" line="92"/>
         <source>Down</source>
         <translation>Dole</translation>
-    </message>
-</context>
-<context>
-    <name>UIShareBrowser</name>
-    <message>
-        <source>Form</source>
-        <translation type="obsolete">Formulár</translation>
     </message>
 </context>
 <context>
@@ -7015,10 +6759,6 @@ avšak ak sa vráti do 10 min, EiskaltDC++ mu udelí spät jeho slot.</translati
 <context>
     <name>UISpy</name>
     <message>
-        <source>Form</source>
-        <translation type="obsolete">Formulár</translation>
-    </message>
-    <message>
         <location filename="../ui/UISpy.ui" line="35"/>
         <source>Ignore TTH search</source>
         <translation>Ignorovať TTH hľadanie </translation>
@@ -7037,13 +6777,6 @@ avšak ak sa vráti do 10 min, EiskaltDC++ mu udelí spät jeho slot.</translati
         <location filename="../ui/UISpy.ui" line="69"/>
         <source>Clear</source>
         <translation>Vyčistiť</translation>
-    </message>
-</context>
-<context>
-    <name>UITransferView</name>
-    <message>
-        <source>Form</source>
-        <translation type="obsolete">Formulár</translation>
     </message>
 </context>
 <context>

@@ -208,10 +208,6 @@ Comandos:
 <context>
     <name>DialogScriptConsole</name>
     <message>
-        <source>Dialog</source>
-        <translation type="obsolete">Janela</translation>
-    </message>
-    <message>
         <location filename="../ui/UIDialogScriptConsole.ui" line="30"/>
         <source>Output</source>
         <translation>Saida</translation>
@@ -463,10 +459,6 @@ Comandos:
         <translation>Adicionado</translation>
     </message>
     <message>
-        <source>TTH</source>
-        <translation type="obsolete">TTH</translation>
-    </message>
-    <message>
         <location filename="../src/DownloadQueueModel.cpp" line="139"/>
         <source>Paused</source>
         <translation>Pausado</translation>
@@ -563,10 +555,6 @@ Comandos:
         <location filename="../src/FavoriteHubModel.cpp" line="21"/>
         <source>Remote encoding</source>
         <translation>Codificação remova</translation>
-    </message>
-    <message>
-        <source>******</source>
-        <translation type="obsolete">******</translation>
     </message>
 </context>
 <context>
@@ -719,10 +707,6 @@ Comandos:
         <location filename="../src/FileBrowserModel.cpp" line="311"/>
         <source>Exact size</source>
         <translation>Tamanho exato</translation>
-    </message>
-    <message>
-        <source>TTH</source>
-        <translation type="obsolete">TTH</translation>
     </message>
     <message>
         <location filename="../src/FileBrowserModel.cpp" line="312"/>
@@ -1701,86 +1685,6 @@ Usuário favorito</translation>
         <translation>Gostaria de mudar outras configurações?</translation>
     </message>
     <message>
-        <source>Ctrl+I</source>
-        <translation type="obsolete">Ctrl+I</translation>
-    </message>
-    <message>
-        <source>Ctrl+L</source>
-        <translation type="obsolete">Ctrl+L</translation>
-    </message>
-    <message>
-        <source>Ctrl+E</source>
-        <translation type="obsolete">Ctrl+E</translation>
-    </message>
-    <message>
-        <source>Ctrl+Alt+H</source>
-        <translation type="obsolete">Ctrl+Alt+H</translation>
-    </message>
-    <message>
-        <source>Ctrl+Q</source>
-        <translation type="obsolete">Ctrl+Q</translation>
-    </message>
-    <message>
-        <source>Ctrl+R</source>
-        <translation type="obsolete">Ctrl+R</translation>
-    </message>
-    <message>
-        <source>Ctrl+N</source>
-        <translation type="obsolete">Ctrl+N</translation>
-    </message>
-    <message>
-        <source>Ctrl+H</source>
-        <translation type="obsolete">Ctrl+H</translation>
-    </message>
-    <message>
-        <source>Ctrl+P</source>
-        <translation type="obsolete">Ctrl+P</translation>
-    </message>
-    <message>
-        <source>Ctrl+U</source>
-        <translation type="obsolete">Ctrl+U</translation>
-    </message>
-    <message>
-        <source>Ctrl+O</source>
-        <translation type="obsolete">Ctrl+O</translation>
-    </message>
-    <message>
-        <source>Ctrl+T</source>
-        <translation type="obsolete">Ctrl+T</translation>
-    </message>
-    <message>
-        <source>Ctrl+D</source>
-        <translation type="obsolete">Ctrl+D</translation>
-    </message>
-    <message>
-        <source>Ctrl+Shift+U</source>
-        <translation type="obsolete">Ctrl+Shift+U</translation>
-    </message>
-    <message>
-        <source>Ctrl+[</source>
-        <translation type="obsolete">Ctrl+[</translation>
-    </message>
-    <message>
-        <source>Ctrl+]</source>
-        <translation type="obsolete">Ctrl+]</translation>
-    </message>
-    <message>
-        <source>Ctrl+Alt+J</source>
-        <translation type="obsolete">Ctrl+Alt+J</translation>
-    </message>
-    <message>
-        <source>Ctrl+S</source>
-        <translation type="obsolete">Ctrl+S</translation>
-    </message>
-    <message>
-        <source>Ctrl+K</source>
-        <translation type="obsolete">Ctrl+K</translation>
-    </message>
-    <message>
-        <source>Ctrl+F</source>
-        <translation type="obsolete">Ctrl+F</translation>
-    </message>
-    <message>
         <location filename="../src/MainWindow.cpp" line="1079"/>
         <source>Next widget</source>
         <translation type="unfinished"></translation>
@@ -1809,30 +1713,6 @@ Usuário favorito</translation>
         <location filename="../src/MainWindow.cpp" line="1084"/>
         <source>Toggle main menu</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Ctrl+PgDown</source>
-        <translation type="obsolete">Ctrl+PgDown</translation>
-    </message>
-    <message>
-        <source>Ctrl+PgUp</source>
-        <translation type="obsolete">Ctrl+PgUp</translation>
-    </message>
-    <message>
-        <source>Ctrl+Down</source>
-        <translation type="obsolete">Ctrl+Down</translation>
-    </message>
-    <message>
-        <source>Ctrl+Up</source>
-        <translation type="obsolete">Ctrl+Up</translation>
-    </message>
-    <message>
-        <source>Ctrl+W</source>
-        <translation type="obsolete">Ctrl+W</translation>
-    </message>
-    <message>
-        <source>Ctrl+M</source>
-        <translation type="obsolete">Ctrl+M</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1226"/>
@@ -2365,10 +2245,6 @@ Usuário favorito</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>http://github.com/eiskaltdcpp/eiskaltdcpp/raw/master/ChangeLog.txt</source>
-        <translation type="obsolete">http://github.com/eiskaltdcpp/eiskaltdcpp/raw/master/ChangeLog.txt</translation>
-    </message>
-    <message>
         <location filename="../src/MainWindow.cpp" line="2694"/>
         <source>&lt;b&gt;Developers&lt;/b&gt;&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
@@ -2889,10 +2765,6 @@ Downloaded: %3 Uploaded: %4</source>
         <source>Filename</source>
         <translation>Arquivo</translation>
     </message>
-    <message>
-        <source>TTH</source>
-        <translation type="obsolete">TTH</translation>
-    </message>
 </context>
 <context>
     <name>SearchBlackListDialog</name>
@@ -2913,10 +2785,6 @@ Downloaded: %3 Uploaded: %4</source>
         <location filename="../src/SearchBlacklistDialog.cpp" line="164"/>
         <source>Filename</source>
         <translation type="unfinished">Arquivo</translation>
-    </message>
-    <message>
-        <source>TTH</source>
-        <translation type="obsolete">TTH</translation>
     </message>
     <message>
         <location filename="../src/SearchBlacklistDialog.cpp" line="179"/>
@@ -3196,10 +3064,6 @@ Downloaded: %3 Uploaded: %4</source>
         <location filename="../src/SearchModel.cpp" line="56"/>
         <source>Exact size</source>
         <translation>Tamanho exato</translation>
-    </message>
-    <message>
-        <source>TTH</source>
-        <translation type="obsolete">TTH</translation>
     </message>
     <message>
         <location filename="../src/SearchModel.cpp" line="56"/>
@@ -4162,10 +4026,6 @@ Do you want to stop it?
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>TTH: </source>
-        <translation type="obsolete">TTH: </translation>
-    </message>
-    <message>
         <location filename="../src/TransferView.cpp" line="604"/>
         <source>Requesting</source>
         <translation type="unfinished"></translation>
@@ -4176,29 +4036,9 @@ Do you want to stop it?
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>[S]</source>
-        <translation type="obsolete">[S]</translation>
-    </message>
-    <message>
-        <source>[U]</source>
-        <translation type="obsolete">[U]</translation>
-    </message>
-    <message>
-        <source>[T]</source>
-        <translation type="obsolete">[T]</translation>
-    </message>
-    <message>
-        <source>[Z]</source>
-        <translation type="obsolete">[Z]</translation>
-    </message>
-    <message>
         <location filename="../src/TransferView.cpp" line="645"/>
         <source>Downloaded %1</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source> (%1%)</source>
-        <translation type="obsolete"> (%1%)</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="700"/>
@@ -4321,10 +4161,6 @@ Do you want to stop it?
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>TTH: </source>
-        <translation type="obsolete">TTH: </translation>
-    </message>
-    <message>
         <location filename="../src/TransferViewModel.cpp" line="634"/>
         <location filename="../src/TransferViewModel.cpp" line="640"/>
         <source>Finished</source>
@@ -4385,10 +4221,6 @@ Do you want to stop it?
 </context>
 <context>
     <name>UIADLSEditor</name>
-    <message>
-        <source>Dialog</source>
-        <translation type="obsolete">Janela</translation>
-    </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="38"/>
         <source>Favorite hub name.</source>
@@ -4464,18 +4296,6 @@ Do you want to stop it?
         <translation>Sobre o EiskaltDC++</translation>
     </message>
     <message>
-        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;EiskaltDC++&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="obsolete">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;EiskaltDC++&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
         <location filename="../ui/UIAbout.ui" line="41"/>
         <source>About program</source>
         <translation>Sobre</translation>
@@ -4498,18 +4318,6 @@ p, li { white-space: pre-wrap; }
 </context>
 <context>
     <name>UIActionCustomizer</name>
-    <message>
-        <source>Dialog</source>
-        <translation type="obsolete">Janela</translation>
-    </message>
-    <message>
-        <source>&gt;&gt;</source>
-        <translation type="obsolete">&gt;&gt;</translation>
-    </message>
-    <message>
-        <source>&lt;&lt;</source>
-        <translation type="obsolete">&lt;&lt;</translation>
-    </message>
     <message>
         <location filename="../ui/UIActionCustomizer.ui" line="88"/>
         <source>Up</source>
@@ -4569,14 +4377,6 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>+</source>
-        <translation type="obsolete">+</translation>
-    </message>
-    <message>
-        <source>-</source>
-        <translation type="obsolete">-</translation>
-    </message>
-    <message>
         <location filename="../ui/UIAntiSpam.ui" line="157"/>
         <location filename="../ui/UIAntiSpam.ui" line="223"/>
         <location filename="../ui/UIAntiSpam.ui" line="289"/>
@@ -4607,18 +4407,10 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&gt;&gt;&gt;</source>
-        <translation type="obsolete">&gt;&gt;&gt;</translation>
-    </message>
-    <message>
         <location filename="../ui/UIAntiSpam.ui" line="327"/>
         <location filename="../ui/UIAntiSpam.ui" line="340"/>
         <source>Move user to &quot;Gray&quot; list</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>&lt;&lt;&lt;</source>
-        <translation type="obsolete">&lt;&lt;&lt;</translation>
     </message>
     <message>
         <location filename="../ui/UIAntiSpam.ui" line="353"/>
@@ -4660,10 +4452,6 @@ p, li { white-space: pre-wrap; }
 </context>
 <context>
     <name>UIFavoriteHubEditor</name>
-    <message>
-        <source>Dialog</source>
-        <translation type="obsolete">Janela</translation>
-    </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="20"/>
         <source>Hub</source>
@@ -4743,10 +4531,6 @@ p, li { white-space: pre-wrap; }
         <location filename="../ui/UIFavoriteHubEditor.ui" line="142"/>
         <source>External IP</source>
         <translation>IP Externo</translation>
-    </message>
-    <message>
-        <source>000.000.000.000; </source>
-        <translation type="obsolete">000.000.000.000; </translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="162"/>
@@ -4831,10 +4615,6 @@ p, li { white-space: pre-wrap; }
         <location filename="../ui/UIFileHasher.ui" line="29"/>
         <source>TTH Calculator</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>...</source>
-        <translation type="obsolete">...</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="82"/>
@@ -5040,10 +4820,6 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>UIMagnet</name>
     <message>
-        <source>TTH</source>
-        <translation type="obsolete">TTH</translation>
-    </message>
-    <message>
         <location filename="../ui/UIMagnet.ui" line="74"/>
         <source>Filename</source>
         <translation type="unfinished">Arquivo</translation>
@@ -5141,10 +4917,6 @@ in options, file will be downloaded without opening search dialog.</source>
 <context>
     <name>UIPublicHubsList</name>
     <message>
-        <source>Dialog</source>
-        <translation type="obsolete">Janela</translation>
-    </message>
-    <message>
         <location filename="../ui/UIPublicHubsList.ui" line="23"/>
         <source>Up</source>
         <translation type="unfinished"></translation>
@@ -5185,10 +4957,6 @@ in options, file will be downloaded without opening search dialog.</source>
 </context>
 <context>
     <name>UIScriptManager</name>
-    <message>
-        <source>Dialog</source>
-        <translation type="obsolete">Janela</translation>
-    </message>
     <message>
         <location filename="../ui/UIScriptManager.ui" line="21"/>
         <source>Do nothing</source>
@@ -5386,10 +5154,6 @@ DC++&apos;s SOCKS5 support does not include GSSAPI.</source>
         <translation>SOCKS5</translation>
     </message>
     <message>
-        <source>000.000.000.000; </source>
-        <translation type="obsolete">000.000.000.000; </translation>
-    </message>
-    <message>
         <location filename="../ui/UISettingsConnection.ui" line="386"/>
         <source>IP</source>
         <translation>IP</translation>
@@ -5408,10 +5172,6 @@ DC++&apos;s SOCKS5 support does not include GSSAPI.</source>
         <location filename="../ui/UISettingsConnection.ui" line="407"/>
         <source>Port</source>
         <translation>Porta</translation>
-    </message>
-    <message>
-        <source>00000; </source>
-        <translation type="obsolete">00000; </translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="427"/>
@@ -6233,14 +5993,6 @@ from other words by spaces.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>IEC</source>
-        <translation type="obsolete">IEC</translation>
-    </message>
-    <message>
-        <source>JEDEC</source>
-        <translation type="obsolete">JEDEC</translation>
-    </message>
-    <message>
         <location filename="../ui/UISettingsGUI.ui" line="514"/>
         <source>Metric</source>
         <translation type="unfinished"></translation>
@@ -6810,33 +6562,9 @@ and may cause the client to appear to freeze.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>1</source>
-        <translation type="obsolete">1</translation>
-    </message>
-    <message>
-        <source>2</source>
-        <translation type="obsolete">2</translation>
-    </message>
-    <message>
-        <source>4</source>
-        <translation type="obsolete">4</translation>
-    </message>
-    <message>
         <location filename="../ui/UISettingsSharing.ui" line="297"/>
         <source>8</source>
         <translation>8</translation>
-    </message>
-    <message>
-        <source>16</source>
-        <translation type="obsolete">16</translation>
-    </message>
-    <message>
-        <source>32</source>
-        <translation type="obsolete">32</translation>
-    </message>
-    <message>
-        <source>64</source>
-        <translation type="obsolete">64</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="350"/>
@@ -6949,21 +6677,6 @@ if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</sourc
         <location filename="../ui/UISettingsUC.ui" line="92"/>
         <source>Down</source>
         <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>UIShareBrowser</name>
-    <message utf8="true">
-        <source>←</source>
-        <translation type="obsolete">←</translation>
-    </message>
-    <message utf8="true">
-        <source>→</source>
-        <translation type="obsolete">→</translation>
-    </message>
-    <message utf8="true">
-        <source>↑</source>
-        <translation type="obsolete">↑</translation>
     </message>
 </context>
 <context>

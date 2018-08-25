@@ -201,10 +201,6 @@ Keys:
 <context>
     <name>DialogScriptConsole</name>
     <message>
-        <source>Dialog</source>
-        <translation type="obsolete">Hộp thoại</translation>
-    </message>
-    <message>
         <location filename="../ui/UIDialogScriptConsole.ui" line="30"/>
         <source>Output</source>
         <translation>Xuất ra</translation>
@@ -456,10 +452,6 @@ Keys:
         <translation>Đã thêm vào</translation>
     </message>
     <message>
-        <source>TTH</source>
-        <translation type="obsolete">TTH</translation>
-    </message>
-    <message>
         <location filename="../src/DownloadQueueModel.cpp" line="139"/>
         <source>Paused</source>
         <translation>Tạm dừng</translation>
@@ -556,10 +548,6 @@ Keys:
         <location filename="../src/FavoriteHubModel.cpp" line="21"/>
         <source>Remote encoding</source>
         <translation>Mã hóa phần điều khiển từ xa</translation>
-    </message>
-    <message>
-        <source>******</source>
-        <translation type="obsolete">******</translation>
     </message>
 </context>
 <context>
@@ -712,10 +700,6 @@ Keys:
         <location filename="../src/FileBrowserModel.cpp" line="311"/>
         <source>Exact size</source>
         <translation>Kích thước chính xác</translation>
-    </message>
-    <message>
-        <source>TTH</source>
-        <translation type="obsolete">TTH</translation>
     </message>
     <message>
         <location filename="../src/FileBrowserModel.cpp" line="312"/>
@@ -2762,10 +2746,6 @@ Downloaded: %3 Uploaded: %4</source>
         <source>Filename</source>
         <translation type="unfinished">Tên tập tin</translation>
     </message>
-    <message>
-        <source>TTH</source>
-        <translation type="obsolete">TTH</translation>
-    </message>
 </context>
 <context>
     <name>SearchBlackListDialog</name>
@@ -2786,10 +2766,6 @@ Downloaded: %3 Uploaded: %4</source>
         <location filename="../src/SearchBlacklistDialog.cpp" line="164"/>
         <source>Filename</source>
         <translation type="unfinished">Tên tập tin</translation>
-    </message>
-    <message>
-        <source>TTH</source>
-        <translation type="obsolete">TTH</translation>
     </message>
     <message>
         <location filename="../src/SearchBlacklistDialog.cpp" line="179"/>
@@ -3069,10 +3045,6 @@ Downloaded: %3 Uploaded: %4</source>
         <location filename="../src/SearchModel.cpp" line="56"/>
         <source>Exact size</source>
         <translation type="unfinished">Kích thước chính xác</translation>
-    </message>
-    <message>
-        <source>TTH</source>
-        <translation type="obsolete">TTH</translation>
     </message>
     <message>
         <location filename="../src/SearchModel.cpp" line="56"/>
@@ -4231,10 +4203,6 @@ Do you want to stop it?
 <context>
     <name>UIADLSEditor</name>
     <message>
-        <source>Dialog</source>
-        <translation type="obsolete">Hộp thoại</translation>
-    </message>
-    <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="38"/>
         <source>Favorite hub name.</source>
         <translation type="unfinished"></translation>
@@ -4331,10 +4299,6 @@ Do you want to stop it?
 </context>
 <context>
     <name>UIActionCustomizer</name>
-    <message>
-        <source>Dialog</source>
-        <translation type="obsolete">Hộp thoại</translation>
-    </message>
     <message>
         <location filename="../ui/UIActionCustomizer.ui" line="88"/>
         <source>Up</source>
@@ -4469,10 +4433,6 @@ Do you want to stop it?
 </context>
 <context>
     <name>UIFavoriteHubEditor</name>
-    <message>
-        <source>Dialog</source>
-        <translation type="obsolete">Hộp thoại</translation>
-    </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="20"/>
         <source>Hub</source>
@@ -4841,10 +4801,6 @@ Do you want to stop it?
 <context>
     <name>UIMagnet</name>
     <message>
-        <source>TTH</source>
-        <translation type="obsolete">TTH</translation>
-    </message>
-    <message>
         <location filename="../ui/UIMagnet.ui" line="74"/>
         <source>Filename</source>
         <translation type="unfinished">Tên tập tin</translation>
@@ -4942,10 +4898,6 @@ in options, file will be downloaded without opening search dialog.</source>
 <context>
     <name>UIPublicHubsList</name>
     <message>
-        <source>Dialog</source>
-        <translation type="obsolete">Hộp thoại</translation>
-    </message>
-    <message>
         <location filename="../ui/UIPublicHubsList.ui" line="23"/>
         <source>Up</source>
         <translation type="unfinished"></translation>
@@ -4986,10 +4938,6 @@ in options, file will be downloaded without opening search dialog.</source>
 </context>
 <context>
     <name>UIScriptManager</name>
-    <message>
-        <source>Dialog</source>
-        <translation type="obsolete">Hộp thoại</translation>
-    </message>
     <message>
         <location filename="../ui/UIScriptManager.ui" line="21"/>
         <source>Do nothing</source>

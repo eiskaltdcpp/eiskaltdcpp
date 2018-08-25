@@ -209,10 +209,6 @@ Anahtarlar:
 <context>
     <name>DialogScriptConsole</name>
     <message>
-        <source>Dialog</source>
-        <translation type="obsolete">Diyalog</translation>
-    </message>
-    <message>
         <location filename="../ui/UIDialogScriptConsole.ui" line="30"/>
         <source>Output</source>
         <translation>Çıktı</translation>
@@ -464,10 +460,6 @@ Anahtarlar:
         <translation>Eklendi</translation>
     </message>
     <message>
-        <source>TTH</source>
-        <translation type="obsolete">TTH</translation>
-    </message>
-    <message>
         <location filename="../src/DownloadQueueModel.cpp" line="139"/>
         <source>Paused</source>
         <translation>Duraklatıldı</translation>
@@ -563,10 +555,6 @@ Anahtarlar:
         <location filename="../src/FavoriteHubModel.cpp" line="21"/>
         <source>Remote encoding</source>
         <translation>Uzaktaki kodlama</translation>
-    </message>
-    <message>
-        <source>******</source>
-        <translation type="obsolete">******</translation>
     </message>
 </context>
 <context>
@@ -719,10 +707,6 @@ Anahtarlar:
         <location filename="../src/FileBrowserModel.cpp" line="311"/>
         <source>Exact size</source>
         <translation>Tam boyut</translation>
-    </message>
-    <message>
-        <source>TTH</source>
-        <translation type="obsolete">TTH</translation>
     </message>
     <message>
         <location filename="../src/FileBrowserModel.cpp" line="312"/>
@@ -1691,86 +1675,6 @@ Favori kullanıcı</translation>
         <translation>Diğer ayarları değiştirmek ister misiniz?</translation>
     </message>
     <message>
-        <source>Ctrl+I</source>
-        <translation type="obsolete">Ctrl+I</translation>
-    </message>
-    <message>
-        <source>Ctrl+L</source>
-        <translation type="obsolete">Ctrl+L</translation>
-    </message>
-    <message>
-        <source>Ctrl+E</source>
-        <translation type="obsolete">Ctrl+E</translation>
-    </message>
-    <message>
-        <source>Ctrl+Alt+H</source>
-        <translation type="obsolete">Ctrl+Alt+H</translation>
-    </message>
-    <message>
-        <source>Ctrl+Q</source>
-        <translation type="obsolete">Ctrl+Q</translation>
-    </message>
-    <message>
-        <source>Ctrl+R</source>
-        <translation type="obsolete">Ctrl+R</translation>
-    </message>
-    <message>
-        <source>Ctrl+N</source>
-        <translation type="obsolete">Ctrl+N</translation>
-    </message>
-    <message>
-        <source>Ctrl+H</source>
-        <translation type="obsolete">Ctrl+H</translation>
-    </message>
-    <message>
-        <source>Ctrl+P</source>
-        <translation type="obsolete">Ctrl+P</translation>
-    </message>
-    <message>
-        <source>Ctrl+U</source>
-        <translation type="obsolete">Ctrl+U</translation>
-    </message>
-    <message>
-        <source>Ctrl+O</source>
-        <translation type="obsolete">Ctrl+O</translation>
-    </message>
-    <message>
-        <source>Ctrl+T</source>
-        <translation type="obsolete">Ctrl+T</translation>
-    </message>
-    <message>
-        <source>Ctrl+D</source>
-        <translation type="obsolete">Ctrl+D</translation>
-    </message>
-    <message>
-        <source>Ctrl+Shift+U</source>
-        <translation type="obsolete">Ctrl+Shift+U</translation>
-    </message>
-    <message>
-        <source>Ctrl+[</source>
-        <translation type="obsolete">Ctrl+[</translation>
-    </message>
-    <message>
-        <source>Ctrl+]</source>
-        <translation type="obsolete">Ctrl+]</translation>
-    </message>
-    <message>
-        <source>Ctrl+Alt+J</source>
-        <translation type="obsolete">Ctrl+Alt+J</translation>
-    </message>
-    <message>
-        <source>Ctrl+S</source>
-        <translation type="obsolete">Ctrl+S</translation>
-    </message>
-    <message>
-        <source>Ctrl+K</source>
-        <translation type="obsolete">Ctrl+K</translation>
-    </message>
-    <message>
-        <source>Ctrl+F</source>
-        <translation type="obsolete">Ctrl+F</translation>
-    </message>
-    <message>
         <location filename="../src/MainWindow.cpp" line="1079"/>
         <source>Next widget</source>
         <translation>Sonraki widget</translation>
@@ -1799,30 +1703,6 @@ Favori kullanıcı</translation>
         <location filename="../src/MainWindow.cpp" line="1084"/>
         <source>Toggle main menu</source>
         <translation>Ana menüde geçiş yap</translation>
-    </message>
-    <message>
-        <source>Ctrl+PgDown</source>
-        <translation type="obsolete">Ctrl+SayfaAşağı</translation>
-    </message>
-    <message>
-        <source>Ctrl+PgUp</source>
-        <translation type="obsolete">Ctrl+SayfaYukarı</translation>
-    </message>
-    <message>
-        <source>Ctrl+Down</source>
-        <translation type="obsolete">Ctrl+Aşağı</translation>
-    </message>
-    <message>
-        <source>Ctrl+Up</source>
-        <translation type="obsolete">Ctrl+Yukarı</translation>
-    </message>
-    <message>
-        <source>Ctrl+W</source>
-        <translation type="obsolete">Ctrl+W</translation>
-    </message>
-    <message>
-        <source>Ctrl+M</source>
-        <translation type="obsolete">Ctrl+M</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1226"/>
@@ -2360,49 +2240,9 @@ Favori kullanıcı</translation>
         <translation>&lt;b&gt;Geliştiriciler&lt;/b&gt;&lt;br/&gt;</translation>
     </message>
     <message>
-        <source>&amp;nbsp;&amp;nbsp;&amp;nbsp; (main developer since version 0.4.10)&lt;br/&gt;</source>
-        <translation type="obsolete">&amp;nbsp;&amp;nbsp;&amp;nbsp; (0.4.10 sürümünden beri lider geliştirici)&lt;br/&gt;</translation>
-    </message>
-    <message>
-        <source>&amp;nbsp;&amp;nbsp;&amp;nbsp; (Arch Linux maintainer and developer since version 0.4.10)&lt;br/&gt;</source>
-        <translation type="obsolete">&amp;nbsp;&amp;nbsp;&amp;nbsp; (Arch Linux bakımcısı ve 0.4.10 sürümünden beri geliştirici)&lt;br/&gt;</translation>
-    </message>
-    <message>
-        <source>&amp;nbsp;&amp;nbsp;&amp;nbsp; (Debian/Ubuntu maintainer and developer since version 1.89.0)&lt;br/&gt;</source>
-        <translation type="obsolete">&amp;nbsp;&amp;nbsp;&amp;nbsp; (Debian/Ubuntu bakımcısı ve 1.89.0 sürümünden beri geliştirici)&lt;br/&gt;</translation>
-    </message>
-    <message>
-        <source>&amp;nbsp;&amp;nbsp;&amp;nbsp; (translations coordinator since version 2.0.1)&lt;br/&gt;</source>
-        <translation type="obsolete">&amp;nbsp;&amp;nbsp;&amp;nbsp; (2.0.1 sürümünden beri tercüme koordinatörü)&lt;br/&gt;</translation>
-    </message>
-    <message>
-        <source>&amp;nbsp;&amp;nbsp;&amp;nbsp; (release manager since version 2.0.3)&lt;br/&gt;</source>
-        <translation type="obsolete">&amp;nbsp;&amp;nbsp;&amp;nbsp; (2.0.3 sürümünden beri yayın yöneticisi)&lt;br/&gt;</translation>
-    </message>
-    <message>
-        <source>&amp;nbsp;&amp;nbsp;&amp;nbsp; (MS Windows maintainer and developer since version 2.2.4)&lt;br/&gt;</source>
-        <translation type="obsolete">&amp;nbsp;&amp;nbsp;&amp;nbsp; (MS Windows bakımcısı ve 2.2.4 sürümünden beri geliştirici)&lt;br/&gt;</translation>
-    </message>
-    <message>
-        <source>&amp;nbsp;&amp;nbsp;&amp;nbsp; (developer since version 2.0.3)&lt;br/&gt;</source>
-        <translation type="obsolete">&amp;nbsp;&amp;nbsp;&amp;nbsp; (2.0.3 sürümünden beri geliştirici)&lt;br/&gt;</translation>
-    </message>
-    <message>
         <location filename="../src/MainWindow.cpp" line="2745"/>
         <source>&lt;b&gt;Graphic files&lt;/b&gt;&lt;br/&gt;</source>
         <translation>&lt;b&gt;Grafik dosyalar&lt;/b&gt;&lt;br/&gt;</translation>
-    </message>
-    <message>
-        <source>&amp;nbsp;&amp;nbsp;&amp;nbsp; (creator of the logo of the project)&lt;br/&gt;</source>
-        <translation type="obsolete">&amp;nbsp;&amp;nbsp;&amp;nbsp; (proje logosunun yaratıcısı)&lt;br/&gt;</translation>
-    </message>
-    <message>
-        <source>&amp;nbsp;&amp;nbsp;&amp;nbsp; (tiny updates of the logo)&lt;br/&gt;</source>
-        <translation type="obsolete">&amp;nbsp;&amp;nbsp;&amp;nbsp; (logoya küçük güncellemeler)&lt;br/&gt;</translation>
-    </message>
-    <message>
-        <source>Participate in the translation. It is easy: &lt;a href=&quot;https://www.transifex.com/projects/p/eiskaltdcpp/&quot;&gt;https://www.transifex.com/projects/p/eiskaltdcpp/&lt;/a&gt;&lt;br/&gt;</source>
-        <translation type="obsolete">Tercümelere katılın. Bu çok kolaydır: &lt;a href=&quot;https://www.transifex.com/projects/p/eiskaltdcpp/&quot;&gt;https://www.transifex.com/projects/p/eiskaltdcpp/&lt;/a&gt;&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2766"/>
@@ -2528,10 +2368,6 @@ Favori kullanıcı</translation>
         <location filename="../src/MainWindow.cpp" line="3065"/>
         <source>Setup speed limits</source>
         <translation>Hız sınırlarını ayarla</translation>
-    </message>
-    <message>
-        <source>EiskaltDC++ is a graphical client for Direct Connect and ADC protocols.&lt;br/&gt;&lt;br/&gt;DC++ core version: %1 (modified)&lt;br/&gt;&lt;br/&gt;Home page: &lt;a href=&quot;https://github.com/eiskaltdcpp/eiskaltdcpp/&quot;&gt;https://github.com/eiskaltdcpp/eiskaltdcpp/&lt;/a&gt;&lt;br/&gt;&lt;br/&gt;Total up: &lt;b&gt;%2&lt;/b&gt;&lt;br/&gt;Total down: &lt;b&gt;%3&lt;/b&gt;&lt;br/&gt;Ratio: &lt;b&gt;%4&lt;/b&gt;</source>
-        <translation type="obsolete">EiskaltDC++, Direct Connect ve ADC protokolleri için grafik arayüzlü bir istemcidir.&lt;br/&gt;&lt;br/&gt;DC++ çekirdek sürümü: %1 (değiştirilmiştir)&lt;br/&gt;&lt;br/&gt;Ana sayfa: &lt;a href=&quot;https://github.com/eiskaltdcpp/eiskaltdcpp/&quot;&gt;https://github.com/eiskaltdcpp/eiskaltdcpp/&lt;/a&gt;&lt;br/&gt;&lt;br/&gt;Toplam gönderilen: &lt;b&gt;%2&lt;/b&gt;&lt;br/&gt;Toplam indirilen: &lt;b&gt;%3&lt;/b&gt;&lt;br/&gt;Oran: &lt;b&gt;%4&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2691"/>
@@ -2922,10 +2758,6 @@ Downloaded: %3 Uploaded: %4</source>
         <source>Filename</source>
         <translation>Dosya ismi</translation>
     </message>
-    <message>
-        <source>TTH</source>
-        <translation type="obsolete">TTH</translation>
-    </message>
 </context>
 <context>
     <name>SearchBlackListDialog</name>
@@ -2948,10 +2780,6 @@ Downloaded: %3 Uploaded: %4</source>
         <translation>Dosya ismi</translation>
     </message>
     <message>
-        <source>TTH</source>
-        <translation type="obsolete">TTH</translation>
-    </message>
-    <message>
         <location filename="../src/SearchBlacklistDialog.cpp" line="179"/>
         <source>Key</source>
         <translation>Anahtar</translation>
@@ -2969,10 +2797,6 @@ Downloaded: %3 Uploaded: %4</source>
 </context>
 <context>
     <name>SearchFrame</name>
-    <message>
-        <source>Form</source>
-        <translation type="obsolete">Form</translation>
-    </message>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="53"/>
         <location filename="../src/SearchFrame.cpp" line="362"/>
@@ -3233,10 +3057,6 @@ Downloaded: %3 Uploaded: %4</source>
         <location filename="../src/SearchModel.cpp" line="56"/>
         <source>Exact size</source>
         <translation>Tam boyutu</translation>
-    </message>
-    <message>
-        <source>TTH</source>
-        <translation type="obsolete">TTH</translation>
     </message>
     <message>
         <location filename="../src/SearchModel.cpp" line="56"/>
@@ -4201,10 +4021,6 @@ Onu durdurmak istiyor musunuz?</translation>
         <translation>Dosya listesi</translation>
     </message>
     <message>
-        <source>TTH: </source>
-        <translation type="obsolete">TTH:</translation>
-    </message>
-    <message>
         <location filename="../src/TransferView.cpp" line="604"/>
         <source>Requesting</source>
         <translation>Talep ediliyor</translation>
@@ -4215,29 +4031,9 @@ Onu durdurmak istiyor musunuz?</translation>
         <translation>İndirme başlıyor...</translation>
     </message>
     <message>
-        <source>[S]</source>
-        <translation type="obsolete">[S]</translation>
-    </message>
-    <message>
-        <source>[U]</source>
-        <translation type="obsolete">[U]</translation>
-    </message>
-    <message>
-        <source>[T]</source>
-        <translation type="obsolete">[T]</translation>
-    </message>
-    <message>
-        <source>[Z]</source>
-        <translation type="obsolete">[Z]</translation>
-    </message>
-    <message>
         <location filename="../src/TransferView.cpp" line="645"/>
         <source>Downloaded %1</source>
         <translation>%1 indirildi</translation>
-    </message>
-    <message>
-        <source> (%1%)</source>
-        <translation type="obsolete"> (%1%)</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="700"/>
@@ -4360,14 +4156,6 @@ Onu durdurmak istiyor musunuz?</translation>
         <translation>Oluk bekleniyor</translation>
     </message>
     <message>
-        <source>TTH: </source>
-        <translation type="obsolete">TTH:</translation>
-    </message>
-    <message>
-        <source>%1/%2</source>
-        <translation type="obsolete">%1/%2</translation>
-    </message>
-    <message>
         <location filename="../src/TransferViewModel.cpp" line="634"/>
         <location filename="../src/TransferViewModel.cpp" line="640"/>
         <source>Finished</source>
@@ -4401,10 +4189,6 @@ Onu durdurmak istiyor musunuz?</translation>
 <context>
     <name>UIADLS</name>
     <message>
-        <source>Form</source>
-        <translation type="obsolete">Form</translation>
-    </message>
-    <message>
         <location filename="../ui/UIADLSearch.ui" line="56"/>
         <source>Add new</source>
         <translation>Yeni ekle</translation>
@@ -4432,10 +4216,6 @@ Onu durdurmak istiyor musunuz?</translation>
 </context>
 <context>
     <name>UIADLSEditor</name>
-    <message>
-        <source>Dialog</source>
-        <translation type="obsolete">Diyalog</translation>
-    </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="38"/>
         <source>Favorite hub name.</source>
@@ -4511,18 +4291,6 @@ Onu durdurmak istiyor musunuz?</translation>
         <translation>EiskaltDC++ Hakkında</translation>
     </message>
     <message>
-        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;EiskaltDC++&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="obsolete">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;EiskaltDC++&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
         <location filename="../ui/UIAbout.ui" line="41"/>
         <source>About program</source>
         <translation>Program Hakkında</translation>
@@ -4531,18 +4299,6 @@ p, li { white-space: pre-wrap; }
         <location filename="../ui/UIAbout.ui" line="67"/>
         <source>Authors</source>
         <translation>Hazırlayanlar</translation>
-    </message>
-    <message>
-        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="obsolete">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../ui/UIAbout.ui" line="91"/>
@@ -4557,18 +4313,6 @@ p, li { white-space: pre-wrap; }
 </context>
 <context>
     <name>UIActionCustomizer</name>
-    <message>
-        <source>Dialog</source>
-        <translation type="obsolete">Diyalog</translation>
-    </message>
-    <message>
-        <source>&gt;&gt;</source>
-        <translation type="obsolete">&gt;&gt;</translation>
-    </message>
-    <message>
-        <source>&lt;&lt;</source>
-        <translation type="obsolete">&lt;&lt;</translation>
-    </message>
     <message>
         <location filename="../ui/UIActionCustomizer.ui" line="88"/>
         <source>Up</source>
@@ -4628,14 +4372,6 @@ p, li { white-space: pre-wrap; }
         <translation>Kara Liste</translation>
     </message>
     <message>
-        <source>+</source>
-        <translation type="obsolete">+</translation>
-    </message>
-    <message>
-        <source>-</source>
-        <translation type="obsolete">-</translation>
-    </message>
-    <message>
         <location filename="../ui/UIAntiSpam.ui" line="157"/>
         <location filename="../ui/UIAntiSpam.ui" line="223"/>
         <location filename="../ui/UIAntiSpam.ui" line="289"/>
@@ -4666,18 +4402,10 @@ p, li { white-space: pre-wrap; }
         <translation>Kullanıcıyı &quot;Beyaz&quot; listeye taşı</translation>
     </message>
     <message>
-        <source>&gt;&gt;&gt;</source>
-        <translation type="obsolete">&gt;&gt;&gt;</translation>
-    </message>
-    <message>
         <location filename="../ui/UIAntiSpam.ui" line="327"/>
         <location filename="../ui/UIAntiSpam.ui" line="340"/>
         <source>Move user to &quot;Gray&quot; list</source>
         <translation>Kullanıcıyı &quot;Gri&quot; listeye taşı</translation>
-    </message>
-    <message>
-        <source>&lt;&lt;&lt;</source>
-        <translation type="obsolete">&lt;&lt;&lt;</translation>
     </message>
     <message>
         <location filename="../ui/UIAntiSpam.ui" line="353"/>
@@ -4694,34 +4422,6 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>UICmdDebug</name>
     <message>
-        <source>Form</source>
-        <translation type="obsolete">Form</translation>
-    </message>
-    <message>
-        <source>CL_IN</source>
-        <translation type="obsolete">İSTEMCİ_İÇERİ</translation>
-    </message>
-    <message>
-        <source>CL_OUT</source>
-        <translation type="obsolete">İSTEMCİ_DIŞARI</translation>
-    </message>
-    <message>
-        <source>HUB_IN</source>
-        <translation type="obsolete">HUB_İÇERİ</translation>
-    </message>
-    <message>
-        <source>HUB_OUT</source>
-        <translation type="obsolete">HUB_DIŞARI</translation>
-    </message>
-    <message>
-        <source>DHT_IN</source>
-        <translation type="obsolete">DHT_İÇERİ</translation>
-    </message>
-    <message>
-        <source>DHT_OUT</source>
-        <translation type="obsolete">DHT_DIŞARI</translation>
-    </message>
-    <message>
         <location filename="../ui/UICmdDebug.ui" line="52"/>
         <source>Filter by IP</source>
         <translation>IP adresine göre filtrele</translation>
@@ -4735,10 +4435,6 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>UIDownloadQueue</name>
     <message>
-        <source>Form</source>
-        <translation type="obsolete">Form</translation>
-    </message>
-    <message>
         <location filename="../ui/UIDownloadQueue.ui" line="41"/>
         <source>Expand all</source>
         <translation>Tümünü genişlet</translation>
@@ -4751,10 +4447,6 @@ p, li { white-space: pre-wrap; }
 </context>
 <context>
     <name>UIFavoriteHubEditor</name>
-    <message>
-        <source>Dialog</source>
-        <translation type="obsolete">Diyalog</translation>
-    </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="20"/>
         <source>Hub</source>
@@ -4836,10 +4528,6 @@ p, li { white-space: pre-wrap; }
         <translation>Harici IP</translation>
     </message>
     <message>
-        <source>000.000.000.000; </source>
-        <translation type="obsolete">000.000.000.000;</translation>
-    </message>
-    <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="162"/>
         <source>Auto update from Internet</source>
         <translation>İnternet&apos;ten otomatik güncelle</translation>
@@ -4888,10 +4576,6 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>UIFavoriteHubs</name>
     <message>
-        <source>Form</source>
-        <translation type="obsolete">Form</translation>
-    </message>
-    <message>
         <location filename="../ui/UIFavoriteHubs.ui" line="56"/>
         <source>Add new</source>
         <translation>Yeni ekle</translation>
@@ -4915,10 +4599,6 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>UIFavoriteUsers</name>
     <message>
-        <source>Form</source>
-        <translation type="obsolete">Form</translation>
-    </message>
-    <message>
         <location filename="../ui/UIFavoriteUsers.ui" line="41"/>
         <source>Auto grant slot to all users</source>
         <translation>Tüm kullanıcılara otomatik oluk ver</translation>
@@ -4930,10 +4610,6 @@ p, li { white-space: pre-wrap; }
         <location filename="../ui/UIFileHasher.ui" line="29"/>
         <source>TTH Calculator</source>
         <translation>TTH Hesaplayıcısı</translation>
-    </message>
-    <message>
-        <source>...</source>
-        <translation type="obsolete">...</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="82"/>
@@ -4953,10 +4629,6 @@ p, li { white-space: pre-wrap; }
 </context>
 <context>
     <name>UIFinishedTransfers</name>
-    <message>
-        <source>Form</source>
-        <translation type="obsolete">Form</translation>
-    </message>
     <message>
         <location filename="../ui/UIFinishedTransfers.ui" line="22"/>
         <source>Show</source>
@@ -5014,10 +4686,6 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>UIHubFrame</name>
     <message>
-        <source>Form</source>
-        <translation type="obsolete">Form</translation>
-    </message>
-    <message>
         <location filename="../ui/HubFrame.ui" line="97"/>
         <source>Find: </source>
         <translation>Bul:</translation>
@@ -5026,10 +4694,6 @@ p, li { white-space: pre-wrap; }
         <location filename="../ui/HubFrame.ui" line="111"/>
         <source>Previous (Shift+F3)</source>
         <translation>Önceki (Shift+F3)</translation>
-    </message>
-    <message>
-        <source>&lt;</source>
-        <translation type="obsolete">&lt;</translation>
     </message>
     <message>
         <location filename="../ui/HubFrame.ui" line="117"/>
@@ -5042,10 +4706,6 @@ p, li { white-space: pre-wrap; }
         <translation>Sonraki (F3)</translation>
     </message>
     <message>
-        <source>&gt;</source>
-        <translation type="obsolete">&gt;</translation>
-    </message>
-    <message>
         <location filename="../ui/HubFrame.ui" line="130"/>
         <source>F3</source>
         <translation>F3</translation>
@@ -5054,10 +4714,6 @@ p, li { white-space: pre-wrap; }
         <location filename="../ui/HubFrame.ui" line="137"/>
         <source>Highlight all</source>
         <translation>Tümünü vurgula</translation>
-    </message>
-    <message>
-        <source>A</source>
-        <translation type="obsolete">A</translation>
     </message>
     <message>
         <location filename="../ui/HubFrame.ui" line="153"/>
@@ -5072,10 +4728,6 @@ p, li { white-space: pre-wrap; }
 </context>
 <context>
     <name>UIHubManager</name>
-    <message>
-        <source>Form</source>
-        <translation type="obsolete">Form</translation>
-    </message>
     <message>
         <location filename="../ui/UIHubManager.ui" line="33"/>
         <source>Hub</source>
@@ -5163,14 +4815,6 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>UIMagnet</name>
     <message>
-        <source>Form</source>
-        <translation type="obsolete">Form</translation>
-    </message>
-    <message>
-        <source>TTH</source>
-        <translation type="obsolete">TTH</translation>
-    </message>
-    <message>
         <location filename="../ui/UIMagnet.ui" line="74"/>
         <source>Filename</source>
         <translation>Dosya adı</translation>
@@ -5221,10 +4865,6 @@ etkinleştirildiyse, dosya arama diyaloğu açılmadan indirilecektir.</translat
 <context>
     <name>UIPrivateMessage</name>
     <message>
-        <source>Form</source>
-        <translation type="obsolete">Form</translation>
-    </message>
-    <message>
         <location filename="../ui/PrivateMessage.ui" line="81"/>
         <source>Find:</source>
         <translation>Bul:</translation>
@@ -5235,10 +4875,6 @@ etkinleştirildiyse, dosya arama diyaloğu açılmadan indirilecektir.</translat
         <translation>Önceki (Shift+F3)</translation>
     </message>
     <message>
-        <source>&lt;</source>
-        <translation type="obsolete">&lt;</translation>
-    </message>
-    <message>
         <location filename="../ui/PrivateMessage.ui" line="94"/>
         <source>Shift+F3</source>
         <translation>Shift+F3</translation>
@@ -5247,10 +4883,6 @@ etkinleştirildiyse, dosya arama diyaloğu açılmadan indirilecektir.</translat
         <location filename="../ui/PrivateMessage.ui" line="101"/>
         <source>Next (F3)</source>
         <translation>Sonraki (F3)</translation>
-    </message>
-    <message>
-        <source>&gt;</source>
-        <translation type="obsolete">&gt;</translation>
     </message>
     <message>
         <location filename="../ui/PrivateMessage.ui" line="107"/>
@@ -5268,10 +4900,6 @@ etkinleştirildiyse, dosya arama diyaloğu açılmadan indirilecektir.</translat
         <translation>Tümünü vurgula</translation>
     </message>
     <message>
-        <source>A</source>
-        <translation type="obsolete">A</translation>
-    </message>
-    <message>
         <location filename="../ui/PrivateMessage.ui" line="229"/>
         <source>Go to hub</source>
         <translation>Hub&apos;a git</translation>
@@ -5283,18 +4911,7 @@ etkinleştirildiyse, dosya arama diyaloğu açılmadan indirilecektir.</translat
     </message>
 </context>
 <context>
-    <name>UIPublicHubs</name>
-    <message>
-        <source>Form</source>
-        <translation type="obsolete">Form</translation>
-    </message>
-</context>
-<context>
     <name>UIPublicHubsList</name>
-    <message>
-        <source>Dialog</source>
-        <translation type="obsolete">Diyalog</translation>
-    </message>
     <message>
         <location filename="../ui/UIPublicHubsList.ui" line="23"/>
         <source>Up</source>
@@ -5322,13 +4939,6 @@ etkinleştirildiyse, dosya arama diyaloğu açılmadan indirilecektir.</translat
     </message>
 </context>
 <context>
-    <name>UIQueuedUsers</name>
-    <message>
-        <source>Form</source>
-        <translation type="obsolete">Form</translation>
-    </message>
-</context>
-<context>
     <name>UIQuickConnect</name>
     <message>
         <location filename="../ui/UIQuickConnect.ui" line="32"/>
@@ -5343,10 +4953,6 @@ etkinleştirildiyse, dosya arama diyaloğu açılmadan indirilecektir.</translat
 </context>
 <context>
     <name>UIScriptManager</name>
-    <message>
-        <source>Dialog</source>
-        <translation type="obsolete">Diyalog</translation>
-    </message>
     <message>
         <location filename="../ui/UIScriptManager.ui" line="21"/>
         <source>Do nothing</source>
@@ -5397,10 +5003,6 @@ etkinleştirildiyse, dosya arama diyaloğu açılmadan indirilecektir.</translat
 <context>
     <name>UISettingsAdvanced</name>
     <message>
-        <source>Form</source>
-        <translation type="obsolete">Form</translation>
-    </message>
-    <message>
         <location filename="../ui/UISettingsAdvanced.ui" line="36"/>
         <source>Mime Handler</source>
         <translation>MIME Yöneticisi</translation>
@@ -5408,10 +5010,6 @@ etkinleştirildiyse, dosya arama diyaloğu açılmadan indirilecektir.</translat
 </context>
 <context>
     <name>UISettingsConnection</name>
-    <message>
-        <source>Form</source>
-        <translation type="obsolete">Form</translation>
-    </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="27"/>
         <source>Connection</source>
@@ -5577,10 +5175,6 @@ DC++&apos;nın SOCKS5 desteği GSSAPI içermez.</translation>
         <translation>SOCKS5</translation>
     </message>
     <message>
-        <source>000.000.000.000; </source>
-        <translation type="obsolete">000.000.000.000; </translation>
-    </message>
-    <message>
         <location filename="../ui/UISettingsConnection.ui" line="386"/>
         <source>IP</source>
         <translation>IP</translation>
@@ -5599,10 +5193,6 @@ DC++&apos;nın SOCKS5 desteği GSSAPI içermez.</translation>
         <location filename="../ui/UISettingsConnection.ui" line="407"/>
         <source>Port</source>
         <translation>Port</translation>
-    </message>
-    <message>
-        <source>00000; </source>
-        <translation type="obsolete">00000; </translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="427"/>
@@ -5785,10 +5375,6 @@ p, li { white-space: pre-wrap; }
 </context>
 <context>
     <name>UISettingsDownloads</name>
-    <message>
-        <source>Form</source>
-        <translation type="obsolete">Form</translation>
-    </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="30"/>
         <source>Downloads</source>
@@ -6265,10 +5851,6 @@ unsurlar kuyruktan kaldırılmayacaktır, bunu elle yapmanız gerekir. </transla
 <context>
     <name>UISettingsGUI</name>
     <message>
-        <source>Form</source>
-        <translation type="obsolete">Form</translation>
-    </message>
-    <message>
         <location filename="../ui/UISettingsGUI.ui" line="24"/>
         <source>Basic</source>
         <translation>Temel</translation>
@@ -6492,10 +6074,6 @@ diğer kelimelerden boşluklarla ayrılmışlar ise görürsünüz.</translation
         <translation>Zaman etiketi</translation>
     </message>
     <message>
-        <source>hh:mm:ss</source>
-        <translation type="obsolete">hh:mm:ss</translation>
-    </message>
-    <message>
         <location filename="../ui/UISettingsGUI.ui" line="550"/>
         <source>Middle click action</source>
         <translation>Orta tıklama etkinliği</translation>
@@ -6504,14 +6082,6 @@ diğer kelimelerden boşluklarla ayrılmışlar ise görürsünüz.</translation
         <location filename="../ui/UISettingsGUI.ui" line="484"/>
         <source>Show kibibyte (KiB) or kilobyte (KB), etc.</source>
         <translation>Kibibayt (KiB) ya da kilobayt (KB) vs. göster</translation>
-    </message>
-    <message>
-        <source>IEC</source>
-        <translation type="obsolete">IEC</translation>
-    </message>
-    <message>
-        <source>JEDEC</source>
-        <translation type="obsolete">JEDEC</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="514"/>
@@ -6558,14 +6128,6 @@ diğer kelimelerden boşluklarla ayrılmışlar ise görürsünüz.</translation
         <location filename="../ui/UISettingsGUI.ui" line="673"/>
         <source>Separator in chat</source>
         <translation>Sohbette ayraç</translation>
-    </message>
-    <message>
-        <source>:</source>
-        <translation type="obsolete">:</translation>
-    </message>
-    <message>
-        <source>,</source>
-        <translation type="obsolete">,</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="702"/>
@@ -6655,10 +6217,6 @@ sadece operatörler için mevcuttur</translation>
 <context>
     <name>UISettingsHistory</name>
     <message>
-        <source>Form</source>
-        <translation type="obsolete">Form</translation>
-    </message>
-    <message>
         <location filename="../ui/UISettingsHistory.ui" line="53"/>
         <source>Clear search history on program exit</source>
         <translation>Programdan çıkışta arama tarihçesini temizle</translation>
@@ -6692,10 +6250,6 @@ sadece operatörler için mevcuttur</translation>
 </context>
 <context>
     <name>UISettingsLog</name>
-    <message>
-        <source>Form</source>
-        <translation type="obsolete">Form</translation>
-    </message>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="430"/>
         <source>Log directory</source>
@@ -6799,10 +6353,6 @@ p, li { white-space: pre-wrap; }
 </context>
 <context>
     <name>UISettingsNotification</name>
-    <message>
-        <source>Form</source>
-        <translation type="obsolete">Form</translation>
-    </message>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="24"/>
         <source>Text</source>
@@ -6922,10 +6472,6 @@ Mesela: /usr/bin/mplayer</translation>
 <context>
     <name>UISettingsPersonal</name>
     <message>
-        <source>Form</source>
-        <translation type="obsolete">Form</translation>
-    </message>
-    <message>
         <location filename="../ui/UISettingsPersonal.ui" line="47"/>
         <source>This description will show in the user list.
 It can be overridden on a per-hub basis in the Favorite Hub Properties.</source>
@@ -7005,10 +6551,6 @@ olacağınızı gösterir. </translation>
 </context>
 <context>
     <name>UISettingsSharing</name>
-    <message>
-        <source>Form</source>
-        <translation type="obsolete">Form</translation>
-    </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="27"/>
         <source>Basic</source>
@@ -7128,33 +6670,9 @@ donmuş gibi görünmesine yol açabilir.</translation>
         <translation>Tampon boyutu (MiB)</translation>
     </message>
     <message>
-        <source>1</source>
-        <translation type="obsolete">1</translation>
-    </message>
-    <message>
-        <source>2</source>
-        <translation type="obsolete">2</translation>
-    </message>
-    <message>
-        <source>4</source>
-        <translation type="obsolete">4</translation>
-    </message>
-    <message>
         <location filename="../ui/UISettingsSharing.ui" line="297"/>
         <source>8</source>
         <translation>8</translation>
-    </message>
-    <message>
-        <source>16</source>
-        <translation type="obsolete">16</translation>
-    </message>
-    <message>
-        <source>32</source>
-        <translation type="obsolete">32</translation>
-    </message>
-    <message>
-        <source>64</source>
-        <translation type="obsolete">64</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="350"/>
@@ -7253,18 +6771,7 @@ kapatacaktır; 10 dakika içinde dönerse EiskaltDC++ ona bir oluk verecektir.</
     </message>
 </context>
 <context>
-    <name>UISettingsShortcuts</name>
-    <message>
-        <source>Form</source>
-        <translation type="obsolete">Form</translation>
-    </message>
-</context>
-<context>
     <name>UISettingsUC</name>
-    <message>
-        <source>Form</source>
-        <translation type="obsolete">Form</translation>
-    </message>
     <message>
         <location filename="../ui/UISettingsUC.ui" line="51"/>
         <source>Add</source>
@@ -7289,25 +6796,6 @@ kapatacaktır; 10 dakika içinde dönerse EiskaltDC++ ona bir oluk verecektir.</
         <location filename="../ui/UISettingsUC.ui" line="92"/>
         <source>Down</source>
         <translation>Aşağı</translation>
-    </message>
-</context>
-<context>
-    <name>UIShareBrowser</name>
-    <message>
-        <source>Form</source>
-        <translation type="obsolete">Form</translation>
-    </message>
-    <message utf8="true">
-        <source>←</source>
-        <translation type="obsolete">←</translation>
-    </message>
-    <message utf8="true">
-        <source>→</source>
-        <translation type="obsolete">→</translation>
-    </message>
-    <message utf8="true">
-        <source>↑</source>
-        <translation type="obsolete">↑</translation>
     </message>
 </context>
 <context>
@@ -7347,10 +6835,6 @@ kapatacaktır; 10 dakika içinde dönerse EiskaltDC++ ona bir oluk verecektir.</
 <context>
     <name>UISpy</name>
     <message>
-        <source>Form</source>
-        <translation type="obsolete">Form</translation>
-    </message>
-    <message>
         <location filename="../ui/UISpy.ui" line="35"/>
         <source>Ignore TTH search</source>
         <translation>TTH aramasını yok say</translation>
@@ -7369,13 +6853,6 @@ kapatacaktır; 10 dakika içinde dönerse EiskaltDC++ ona bir oluk verecektir.</
         <location filename="../ui/UISpy.ui" line="69"/>
         <source>Clear</source>
         <translation>Temizle</translation>
-    </message>
-</context>
-<context>
-    <name>UITransferView</name>
-    <message>
-        <source>Form</source>
-        <translation type="obsolete">Form</translation>
     </message>
 </context>
 <context>

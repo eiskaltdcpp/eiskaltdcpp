@@ -208,10 +208,6 @@ Keys:
 <context>
     <name>DialogScriptConsole</name>
     <message>
-        <source>Dialog</source>
-        <translation type="obsolete">Dialog</translation>
-    </message>
-    <message>
         <location filename="../ui/UIDialogScriptConsole.ui" line="30"/>
         <source>Output</source>
         <translation>Výstup</translation>
@@ -463,10 +459,6 @@ Keys:
         <translation>Vloženo</translation>
     </message>
     <message>
-        <source>TTH</source>
-        <translation type="obsolete">TTH</translation>
-    </message>
-    <message>
         <location filename="../src/DownloadQueueModel.cpp" line="139"/>
         <source>Paused</source>
         <translation>Pozastaveno</translation>
@@ -563,10 +555,6 @@ Keys:
         <location filename="../src/FavoriteHubModel.cpp" line="21"/>
         <source>Remote encoding</source>
         <translation>Vzdálené kódování</translation>
-    </message>
-    <message>
-        <source>******</source>
-        <translation type="obsolete">******</translation>
     </message>
 </context>
 <context>
@@ -719,10 +707,6 @@ Keys:
         <location filename="../src/FileBrowserModel.cpp" line="311"/>
         <source>Exact size</source>
         <translation>Přesná velikost</translation>
-    </message>
-    <message>
-        <source>TTH</source>
-        <translation type="obsolete">TTH</translation>
     </message>
     <message>
         <location filename="../src/FileBrowserModel.cpp" line="312"/>
@@ -1709,86 +1693,6 @@ Oblíbený uživatel</translation>
         <translation>Chceš změnit další nastavení?</translation>
     </message>
     <message>
-        <source>Ctrl+I</source>
-        <translation type="obsolete">Ctrl+I</translation>
-    </message>
-    <message>
-        <source>Ctrl+L</source>
-        <translation type="obsolete">Ctrl+L</translation>
-    </message>
-    <message>
-        <source>Ctrl+E</source>
-        <translation type="obsolete">Ctrl+E</translation>
-    </message>
-    <message>
-        <source>Ctrl+Alt+H</source>
-        <translation type="obsolete">Ctrl+Alt+H</translation>
-    </message>
-    <message>
-        <source>Ctrl+Q</source>
-        <translation type="obsolete">Ctrl+Q</translation>
-    </message>
-    <message>
-        <source>Ctrl+R</source>
-        <translation type="obsolete">Ctrl+R</translation>
-    </message>
-    <message>
-        <source>Ctrl+N</source>
-        <translation type="obsolete">Ctrl+N</translation>
-    </message>
-    <message>
-        <source>Ctrl+H</source>
-        <translation type="obsolete">Ctrl+H</translation>
-    </message>
-    <message>
-        <source>Ctrl+P</source>
-        <translation type="obsolete">Ctrl+P</translation>
-    </message>
-    <message>
-        <source>Ctrl+U</source>
-        <translation type="obsolete">Ctrl+U</translation>
-    </message>
-    <message>
-        <source>Ctrl+O</source>
-        <translation type="obsolete">Ctrl+O</translation>
-    </message>
-    <message>
-        <source>Ctrl+T</source>
-        <translation type="obsolete">Ctrl+T</translation>
-    </message>
-    <message>
-        <source>Ctrl+D</source>
-        <translation type="obsolete">Ctrl+D</translation>
-    </message>
-    <message>
-        <source>Ctrl+Shift+U</source>
-        <translation type="obsolete">Ctrl+Shift+U</translation>
-    </message>
-    <message>
-        <source>Ctrl+[</source>
-        <translation type="obsolete">Ctrl+[</translation>
-    </message>
-    <message>
-        <source>Ctrl+]</source>
-        <translation type="obsolete">Ctrl+]</translation>
-    </message>
-    <message>
-        <source>Ctrl+Alt+J</source>
-        <translation type="obsolete">Ctrl+Alt+J</translation>
-    </message>
-    <message>
-        <source>Ctrl+S</source>
-        <translation type="obsolete">Ctrl+S</translation>
-    </message>
-    <message>
-        <source>Ctrl+K</source>
-        <translation type="obsolete">Ctrl+K</translation>
-    </message>
-    <message>
-        <source>Ctrl+F</source>
-        <translation type="obsolete">Ctrl+F</translation>
-    </message>
-    <message>
         <location filename="../src/MainWindow.cpp" line="1079"/>
         <source>Next widget</source>
         <translation>Další widget</translation>
@@ -1817,30 +1721,6 @@ Oblíbený uživatel</translation>
         <location filename="../src/MainWindow.cpp" line="1084"/>
         <source>Toggle main menu</source>
         <translation>Zapnout/Vypnout hlavní menu</translation>
-    </message>
-    <message>
-        <source>Ctrl+PgDown</source>
-        <translation type="obsolete">Ctrl+PgDown</translation>
-    </message>
-    <message>
-        <source>Ctrl+PgUp</source>
-        <translation type="obsolete">Ctrl+PgUp</translation>
-    </message>
-    <message>
-        <source>Ctrl+Down</source>
-        <translation type="obsolete">Ctrl+Down</translation>
-    </message>
-    <message>
-        <source>Ctrl+Up</source>
-        <translation type="obsolete">Ctrl+Up</translation>
-    </message>
-    <message>
-        <source>Ctrl+W</source>
-        <translation type="obsolete">Ctrl+W</translation>
-    </message>
-    <message>
-        <source>Ctrl+M</source>
-        <translation type="obsolete">Ctrl+M</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1226"/>
@@ -2373,18 +2253,6 @@ Oblíbený uživatel</translation>
         <translation>Poměr: &lt;b&gt;%1&lt;/b&gt;</translation>
     </message>
     <message>
-        <source>http://github.com/eiskaltdcpp/eiskaltdcpp/raw/master/ChangeLog.txt</source>
-        <translation type="obsolete">http://github.com/eiskaltdcpp/eiskaltdcpp/raw/master/ChangeLog.txt</translation>
-    </message>
-    <message>
-        <source>EiskaltDC++ is a graphical client for Direct Connect and ADC protocols.&lt;br/&gt;&lt;br/&gt;DC++ core version: %1 (modified)&lt;br/&gt;&lt;br/&gt;Home page: &lt;a href=&quot;http://code.google.com/p/eiskaltdc/&quot;&gt;http://code.google.com/p/eiskaltdc/&lt;/a&gt;&lt;br/&gt;&lt;br/&gt;Total up: &lt;b&gt;%2&lt;/b&gt;&lt;br/&gt;Total down: &lt;b&gt;%3&lt;/b&gt;&lt;br/&gt;Ratio: &lt;b&gt;%4&lt;/b&gt;</source>
-        <translation type="obsolete">EiskaltDC++ je grafický klient pro Direct Connect a ADC protokoly.&lt;br/&gt;&lt;br/&gt;DC++ core verze: %1 (upraveno)&lt;br/&gt;&lt;br/&gt;Domovská stránka: &lt;a href=&quot;http://code.google.com/p/eiskaltdc/&quot;&gt;http://code.google.com/p/eiskaltdc/&lt;/a&gt;&lt;br/&gt;&lt;br/&gt;Celkem odesláno: &lt;b&gt;%2&lt;/b&gt;&lt;br/&gt;Celkem staženo: &lt;b&gt;%3&lt;/b&gt;&lt;br/&gt;Poměr: &lt;b&gt;%4&lt;/b&gt;</translation>
-    </message>
-    <message>
-        <source>Please use &lt;a href=&quot;http://code.google.com/p/eiskaltdc/issues/list&quot;&gt;http://code.google.com/p/eiskaltdc/issues/list&lt;/a&gt; to report bugs.&lt;br/&gt;</source>
-        <translation type="obsolete">Použijte &lt;a href=&quot;http://code.google.com/p/eiskaltdc/issues/list&quot;&gt;http://code.google.com/p/eiskaltdc/issues/list&lt;/a&gt; k nahlášení chyb.&lt;br/&gt;</translation>
-    </message>
-    <message>
         <location filename="../src/MainWindow.cpp" line="2694"/>
         <source>&lt;b&gt;Developers&lt;/b&gt;&lt;br/&gt;</source>
         <translation>&lt;b&gt;Vývojáři&lt;/b&gt;&lt;br/&gt;</translation>
@@ -2908,10 +2776,6 @@ Staženo: %3 Odesláno: %4</translation>
         <source>Filename</source>
         <translation>Soubor</translation>
     </message>
-    <message>
-        <source>TTH</source>
-        <translation type="obsolete">TTH</translation>
-    </message>
 </context>
 <context>
     <name>SearchBlackListDialog</name>
@@ -2934,10 +2798,6 @@ Staženo: %3 Odesláno: %4</translation>
         <translation>Soubor</translation>
     </message>
     <message>
-        <source>TTH</source>
-        <translation type="obsolete">TTH</translation>
-    </message>
-    <message>
         <location filename="../src/SearchBlacklistDialog.cpp" line="179"/>
         <source>Key</source>
         <translation>Klíč</translation>
@@ -2955,10 +2815,6 @@ Staženo: %3 Odesláno: %4</translation>
 </context>
 <context>
     <name>SearchFrame</name>
-    <message>
-        <source>Form</source>
-        <translation type="obsolete">Hledat</translation>
-    </message>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="53"/>
         <location filename="../src/SearchFrame.cpp" line="362"/>
@@ -3219,10 +3075,6 @@ Staženo: %3 Odesláno: %4</translation>
         <location filename="../src/SearchModel.cpp" line="56"/>
         <source>Exact size</source>
         <translation>Přesná velikost</translation>
-    </message>
-    <message>
-        <source>TTH</source>
-        <translation type="obsolete">TTH</translation>
     </message>
     <message>
         <location filename="../src/SearchModel.cpp" line="56"/>
@@ -4188,10 +4040,6 @@ Chcete jej vypnout?
         <translation>Seznam souborů</translation>
     </message>
     <message>
-        <source>TTH: </source>
-        <translation type="obsolete">TTH: </translation>
-    </message>
-    <message>
         <location filename="../src/TransferView.cpp" line="604"/>
         <source>Requesting</source>
         <translation>Připojuji</translation>
@@ -4202,29 +4050,9 @@ Chcete jej vypnout?
         <translation>Začíná stahování...</translation>
     </message>
     <message>
-        <source>[S]</source>
-        <translation type="obsolete">[S]</translation>
-    </message>
-    <message>
-        <source>[U]</source>
-        <translation type="obsolete">[U]</translation>
-    </message>
-    <message>
-        <source>[T]</source>
-        <translation type="obsolete">[T]</translation>
-    </message>
-    <message>
-        <source>[Z]</source>
-        <translation type="obsolete">[Z]</translation>
-    </message>
-    <message>
         <location filename="../src/TransferView.cpp" line="645"/>
         <source>Downloaded %1</source>
         <translation>Staženo %1</translation>
-    </message>
-    <message>
-        <source> (%1%)</source>
-        <translation type="obsolete"> (%1%)</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="700"/>
@@ -4347,14 +4175,6 @@ Chcete jej vypnout?
         <translation>Čekám na slot</translation>
     </message>
     <message>
-        <source>TTH: </source>
-        <translation type="obsolete">TTH: </translation>
-    </message>
-    <message>
-        <source>%1/%2</source>
-        <translation type="obsolete">%1/%2</translation>
-    </message>
-    <message>
         <location filename="../src/TransferViewModel.cpp" line="634"/>
         <location filename="../src/TransferViewModel.cpp" line="640"/>
         <source>Finished</source>
@@ -4388,10 +4208,6 @@ Chcete jej vypnout?
 <context>
     <name>UIADLS</name>
     <message>
-        <source>Form</source>
-        <translation type="obsolete">ADL Hledání</translation>
-    </message>
-    <message>
         <location filename="../ui/UIADLSearch.ui" line="56"/>
         <source>Add new</source>
         <translation>Vložit nový</translation>
@@ -4419,10 +4235,6 @@ Chcete jej vypnout?
 </context>
 <context>
     <name>UIADLSEditor</name>
-    <message>
-        <source>Dialog</source>
-        <translation type="obsolete">Dialog</translation>
-    </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="38"/>
         <source>Favorite hub name.</source>
@@ -4498,18 +4310,6 @@ Chcete jej vypnout?
         <translation>O EiskaltDC++</translation>
     </message>
     <message>
-        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;EiskaltDC++&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="obsolete">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;EiskaltDC++&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
         <location filename="../ui/UIAbout.ui" line="41"/>
         <source>About program</source>
         <translation>O programu</translation>
@@ -4532,18 +4332,6 @@ p, li { white-space: pre-wrap; }
 </context>
 <context>
     <name>UIActionCustomizer</name>
-    <message>
-        <source>Dialog</source>
-        <translation type="obsolete">Dialog</translation>
-    </message>
-    <message>
-        <source>&gt;&gt;</source>
-        <translation type="obsolete">&gt;&gt;</translation>
-    </message>
-    <message>
-        <source>&lt;&lt;</source>
-        <translation type="obsolete">&lt;&lt;</translation>
-    </message>
     <message>
         <location filename="../ui/UIActionCustomizer.ui" line="88"/>
         <source>Up</source>
@@ -4603,14 +4391,6 @@ p, li { white-space: pre-wrap; }
         <translation>Černá listina</translation>
     </message>
     <message>
-        <source>+</source>
-        <translation type="obsolete">+</translation>
-    </message>
-    <message>
-        <source>-</source>
-        <translation type="obsolete">-</translation>
-    </message>
-    <message>
         <location filename="../ui/UIAntiSpam.ui" line="157"/>
         <location filename="../ui/UIAntiSpam.ui" line="223"/>
         <location filename="../ui/UIAntiSpam.ui" line="289"/>
@@ -4641,18 +4421,10 @@ p, li { white-space: pre-wrap; }
         <translation>Přesunout do Bílé listiny</translation>
     </message>
     <message>
-        <source>&gt;&gt;&gt;</source>
-        <translation type="obsolete">&gt;&gt;&gt;</translation>
-    </message>
-    <message>
         <location filename="../ui/UIAntiSpam.ui" line="327"/>
         <location filename="../ui/UIAntiSpam.ui" line="340"/>
         <source>Move user to &quot;Gray&quot; list</source>
         <translation>Přesunout do Šedé listiny</translation>
-    </message>
-    <message>
-        <source>&lt;&lt;&lt;</source>
-        <translation type="obsolete">&lt;&lt;&lt;</translation>
     </message>
     <message>
         <location filename="../ui/UIAntiSpam.ui" line="353"/>
@@ -4682,10 +4454,6 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>UIDownloadQueue</name>
     <message>
-        <source>Form</source>
-        <translation type="obsolete">Fronta stahování</translation>
-    </message>
-    <message>
         <location filename="../ui/UIDownloadQueue.ui" line="41"/>
         <source>Expand all</source>
         <translation>Rozbalit vše</translation>
@@ -4698,10 +4466,6 @@ p, li { white-space: pre-wrap; }
 </context>
 <context>
     <name>UIFavoriteHubEditor</name>
-    <message>
-        <source>Dialog</source>
-        <translation type="obsolete">Vlastnosti hubu</translation>
-    </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="20"/>
         <source>Hub</source>
@@ -4743,10 +4507,6 @@ p, li { white-space: pre-wrap; }
         <translation>Popis</translation>
     </message>
     <message>
-        <source>This description will show in the user list.</source>
-        <translation type="obsolete">Tento popis se zobrazí v seznamu oblíbených hubů.</translation>
-    </message>
-    <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="85"/>
         <source>This description will be shown in the list of favorite hubs.</source>
         <translation type="unfinished"></translation>
@@ -4785,10 +4545,6 @@ p, li { white-space: pre-wrap; }
         <location filename="../ui/UIFavoriteHubEditor.ui" line="142"/>
         <source>External IP</source>
         <translation>Externí IP</translation>
-    </message>
-    <message>
-        <source>000.000.000.000; </source>
-        <translation type="obsolete">000.000.000.000; </translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="162"/>
@@ -4839,10 +4595,6 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>UIFavoriteHubs</name>
     <message>
-        <source>Form</source>
-        <translation type="obsolete">Oblíbené huby</translation>
-    </message>
-    <message>
         <location filename="../ui/UIFavoriteHubs.ui" line="56"/>
         <source>Add new</source>
         <translation>Vložit nový</translation>
@@ -4866,10 +4618,6 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>UIFavoriteUsers</name>
     <message>
-        <source>Form</source>
-        <translation type="obsolete">Oblíbení uživatelé</translation>
-    </message>
-    <message>
         <location filename="../ui/UIFavoriteUsers.ui" line="41"/>
         <source>Auto grant slot to all users</source>
         <translation>Automaticky přiřadit extra slot všem uživatelům</translation>
@@ -4881,10 +4629,6 @@ p, li { white-space: pre-wrap; }
         <location filename="../ui/UIFileHasher.ui" line="29"/>
         <source>TTH Calculator</source>
         <translation>TTH Kalkulátor</translation>
-    </message>
-    <message>
-        <source>...</source>
-        <translation type="obsolete">...</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="82"/>
@@ -4904,10 +4648,6 @@ p, li { white-space: pre-wrap; }
 </context>
 <context>
     <name>UIFinishedTransfers</name>
-    <message>
-        <source>Form</source>
-        <translation type="obsolete">Dokončené přenosy</translation>
-    </message>
     <message>
         <location filename="../ui/UIFinishedTransfers.ui" line="22"/>
         <source>Show</source>
@@ -4965,10 +4705,6 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>UIHubFrame</name>
     <message>
-        <source>Form</source>
-        <translation type="obsolete">Form</translation>
-    </message>
-    <message>
         <location filename="../ui/HubFrame.ui" line="97"/>
         <source>Find: </source>
         <translation>Najít: </translation>
@@ -4977,10 +4713,6 @@ p, li { white-space: pre-wrap; }
         <location filename="../ui/HubFrame.ui" line="111"/>
         <source>Previous (Shift+F3)</source>
         <translation>Předchozí (Shift+F3)</translation>
-    </message>
-    <message>
-        <source>&lt;</source>
-        <translation type="obsolete">&lt;</translation>
     </message>
     <message>
         <location filename="../ui/HubFrame.ui" line="117"/>
@@ -4993,10 +4725,6 @@ p, li { white-space: pre-wrap; }
         <translation>Další (F3)</translation>
     </message>
     <message>
-        <source>&gt;</source>
-        <translation type="obsolete">&gt;</translation>
-    </message>
-    <message>
         <location filename="../ui/HubFrame.ui" line="130"/>
         <source>F3</source>
         <translation>F3</translation>
@@ -5005,10 +4733,6 @@ p, li { white-space: pre-wrap; }
         <location filename="../ui/HubFrame.ui" line="137"/>
         <source>Highlight all</source>
         <translation>Zvýraznit vše</translation>
-    </message>
-    <message>
-        <source>A</source>
-        <translation type="obsolete">Z</translation>
     </message>
     <message>
         <location filename="../ui/HubFrame.ui" line="153"/>
@@ -5023,10 +4747,6 @@ p, li { white-space: pre-wrap; }
 </context>
 <context>
     <name>UIHubManager</name>
-    <message>
-        <source>Form</source>
-        <translation type="obsolete">Form</translation>
-    </message>
     <message>
         <location filename="../ui/UIHubManager.ui" line="33"/>
         <source>Hub</source>
@@ -5114,14 +4834,6 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>UIMagnet</name>
     <message>
-        <source>Form</source>
-        <translation type="obsolete">Magnet</translation>
-    </message>
-    <message>
-        <source>TTH</source>
-        <translation type="obsolete">TTH</translation>
-    </message>
-    <message>
         <location filename="../ui/UIMagnet.ui" line="74"/>
         <source>Filename</source>
         <translation>Soubor</translation>
@@ -5172,10 +4884,6 @@ hledáni alternativ, soubor se stáhne bez otevření dialogu pro hledání.</tr
 <context>
     <name>UIPrivateMessage</name>
     <message>
-        <source>Form</source>
-        <translation type="obsolete">Soukromá zpráva</translation>
-    </message>
-    <message>
         <location filename="../ui/PrivateMessage.ui" line="81"/>
         <source>Find:</source>
         <translation>Najít:</translation>
@@ -5186,10 +4894,6 @@ hledáni alternativ, soubor se stáhne bez otevření dialogu pro hledání.</tr
         <translation>Předchozí (Shift+F3)</translation>
     </message>
     <message>
-        <source>&lt;</source>
-        <translation type="obsolete">&lt;</translation>
-    </message>
-    <message>
         <location filename="../ui/PrivateMessage.ui" line="94"/>
         <source>Shift+F3</source>
         <translation type="unfinished">Shift+F3</translation>
@@ -5198,10 +4902,6 @@ hledáni alternativ, soubor se stáhne bez otevření dialogu pro hledání.</tr
         <location filename="../ui/PrivateMessage.ui" line="101"/>
         <source>Next (F3)</source>
         <translation>Další (F3)</translation>
-    </message>
-    <message>
-        <source>&gt;</source>
-        <translation type="obsolete">&gt;</translation>
     </message>
     <message>
         <location filename="../ui/PrivateMessage.ui" line="107"/>
@@ -5219,10 +4919,6 @@ hledáni alternativ, soubor se stáhne bez otevření dialogu pro hledání.</tr
         <translation>Zvýraznit vše</translation>
     </message>
     <message>
-        <source>A</source>
-        <translation type="obsolete">Z</translation>
-    </message>
-    <message>
         <location filename="../ui/PrivateMessage.ui" line="229"/>
         <source>Go to hub</source>
         <translation>Přejít na hub</translation>
@@ -5234,18 +4930,7 @@ hledáni alternativ, soubor se stáhne bez otevření dialogu pro hledání.</tr
     </message>
 </context>
 <context>
-    <name>UIPublicHubs</name>
-    <message>
-        <source>Form</source>
-        <translation type="obsolete">Veřejné huby</translation>
-    </message>
-</context>
-<context>
     <name>UIPublicHubsList</name>
-    <message>
-        <source>Dialog</source>
-        <translation type="obsolete">Nastavení</translation>
-    </message>
     <message>
         <location filename="../ui/UIPublicHubsList.ui" line="23"/>
         <source>Up</source>
@@ -5273,13 +4958,6 @@ hledáni alternativ, soubor se stáhne bez otevření dialogu pro hledání.</tr
     </message>
 </context>
 <context>
-    <name>UIQueuedUsers</name>
-    <message>
-        <source>Form</source>
-        <translation type="obsolete">Form</translation>
-    </message>
-</context>
-<context>
     <name>UIQuickConnect</name>
     <message>
         <location filename="../ui/UIQuickConnect.ui" line="32"/>
@@ -5294,10 +4972,6 @@ hledáni alternativ, soubor se stáhne bez otevření dialogu pro hledání.</tr
 </context>
 <context>
     <name>UIScriptManager</name>
-    <message>
-        <source>Dialog</source>
-        <translation type="obsolete">Skripty</translation>
-    </message>
     <message>
         <location filename="../ui/UIScriptManager.ui" line="21"/>
         <source>Do nothing</source>
@@ -5355,10 +5029,6 @@ hledáni alternativ, soubor se stáhne bez otevření dialogu pro hledání.</tr
 </context>
 <context>
     <name>UISettingsConnection</name>
-    <message>
-        <source>Form</source>
-        <translation type="obsolete">Připojení</translation>
-    </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="27"/>
         <source>Connection</source>
@@ -5523,10 +5193,6 @@ DC++ SOCKS5 podpora nezahrnuje GSSAPI.</translation>
         <translation>SOCKS5</translation>
     </message>
     <message>
-        <source>000.000.000.000; </source>
-        <translation type="obsolete">000.000.000.000; </translation>
-    </message>
-    <message>
         <location filename="../ui/UISettingsConnection.ui" line="386"/>
         <source>IP</source>
         <translation>IP</translation>
@@ -5545,10 +5211,6 @@ DC++ SOCKS5 podpora nezahrnuje GSSAPI.</translation>
         <location filename="../ui/UISettingsConnection.ui" line="407"/>
         <source>Port</source>
         <translation>Port</translation>
-    </message>
-    <message>
-        <source>00000; </source>
-        <translation type="obsolete">00000; </translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="427"/>
@@ -5731,10 +5393,6 @@ p, li { white-space: pre-wrap; }
 </context>
 <context>
     <name>UISettingsDownloads</name>
-    <message>
-        <source>Form</source>
-        <translation type="obsolete">Form</translation>
-    </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="30"/>
         <source>Downloads</source>
@@ -6203,10 +5861,6 @@ z fronty stahování, musíte je odebrat ručně.</translation>
 <context>
     <name>UISettingsGUI</name>
     <message>
-        <source>Form</source>
-        <translation type="obsolete">Form</translation>
-    </message>
-    <message>
         <location filename="../ui/UISettingsGUI.ui" line="24"/>
         <source>Basic</source>
         <translation>Základní</translation>
@@ -6420,30 +6074,14 @@ oddělené od ostatních slov mezerou.</translation>
         <translation>Soukromá zpráva</translation>
     </message>
     <message>
-        <source>show kibibyte (KiB) or kilobyte (KB), etc.</source>
-        <translation type="obsolete">zobrazit kibibyty (KiB) nebo kilobyty (KB, apod.</translation>
-    </message>
-    <message>
         <location filename="../ui/UISettingsGUI.ui" line="487"/>
         <source>Application unit base</source>
         <translation>Základní jednotka pro aplikaci</translation>
     </message>
     <message>
-        <source>1024</source>
-        <translation type="obsolete">1024</translation>
-    </message>
-    <message>
-        <source>1000</source>
-        <translation type="obsolete">1000</translation>
-    </message>
-    <message>
         <location filename="../ui/UISettingsGUI.ui" line="531"/>
         <source>Timestamp</source>
         <translation>Časová značka</translation>
-    </message>
-    <message>
-        <source>hh:mm:ss</source>
-        <translation type="obsolete">hh:mm:ss</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="550"/>
@@ -6500,14 +6138,6 @@ oddělené od ostatních slov mezerou.</translation>
         <location filename="../ui/UISettingsGUI.ui" line="673"/>
         <source>Separator in chat</source>
         <translation>Oddělovač v chatu</translation>
-    </message>
-    <message>
-        <source>:</source>
-        <translation type="obsolete">:</translation>
-    </message>
-    <message>
-        <source>,</source>
-        <translation type="obsolete">,</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="702"/>
@@ -6597,10 +6227,6 @@ jsou obvykle dostupné operátorům</translation>
 <context>
     <name>UISettingsHistory</name>
     <message>
-        <source>Form</source>
-        <translation type="obsolete">Form</translation>
-    </message>
-    <message>
         <location filename="../ui/UISettingsHistory.ui" line="53"/>
         <source>Clear search history on program exit</source>
         <translation>Vyčistit historii hledání při ukončení programu</translation>
@@ -6634,10 +6260,6 @@ jsou obvykle dostupné operátorům</translation>
 </context>
 <context>
     <name>UISettingsLog</name>
-    <message>
-        <source>Form</source>
-        <translation type="obsolete">Form</translation>
-    </message>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="430"/>
         <source>Log directory</source>
@@ -6743,10 +6365,6 @@ p, li { white-space: pre-wrap; }
 </context>
 <context>
     <name>UISettingsNotification</name>
-    <message>
-        <source>Form</source>
-        <translation type="obsolete">Form</translation>
-    </message>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="24"/>
         <source>Text</source>
@@ -6866,10 +6484,6 @@ Například: /usr/bin/mplayer</translation>
 <context>
     <name>UISettingsPersonal</name>
     <message>
-        <source>Form</source>
-        <translation type="obsolete">Form</translation>
-    </message>
-    <message>
         <location filename="../ui/UISettingsPersonal.ui" line="47"/>
         <source>This description will show in the user list.
 It can be overridden on a per-hub basis in the Favorite Hub Properties.</source>
@@ -6949,10 +6563,6 @@ jak rychlý zdroj jste pro ostatní uživatele.</translation>
 </context>
 <context>
     <name>UISettingsSharing</name>
-    <message>
-        <source>Form</source>
-        <translation type="obsolete">Form</translation>
-    </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="27"/>
         <source>Basic</source>
@@ -7071,33 +6681,9 @@ klient se může na chvíli zaseknout.</translation>
         <translation>Buffer size (MiB)</translation>
     </message>
     <message>
-        <source>1</source>
-        <translation type="obsolete">1</translation>
-    </message>
-    <message>
-        <source>2</source>
-        <translation type="obsolete">2</translation>
-    </message>
-    <message>
-        <source>4</source>
-        <translation type="obsolete">4</translation>
-    </message>
-    <message>
         <location filename="../ui/UISettingsSharing.ui" line="297"/>
         <source>8</source>
         <translation>8</translation>
-    </message>
-    <message>
-        <source>16</source>
-        <translation type="obsolete">16</translation>
-    </message>
-    <message>
-        <source>32</source>
-        <translation type="obsolete">32</translation>
-    </message>
-    <message>
-        <source>64</source>
-        <translation type="obsolete">64</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="350"/>
@@ -7198,18 +6784,7 @@ pokud se uživatel vrátí do 10 minut, EiskaltDC++ mu tyto sloty navrátí.</tr
     </message>
 </context>
 <context>
-    <name>UISettingsShortcuts</name>
-    <message>
-        <source>Form</source>
-        <translation type="obsolete">Form</translation>
-    </message>
-</context>
-<context>
     <name>UISettingsUC</name>
-    <message>
-        <source>Form</source>
-        <translation type="obsolete">Form</translation>
-    </message>
     <message>
         <location filename="../ui/UISettingsUC.ui" line="51"/>
         <source>Add</source>
@@ -7234,25 +6809,6 @@ pokud se uživatel vrátí do 10 minut, EiskaltDC++ mu tyto sloty navrátí.</tr
         <location filename="../ui/UISettingsUC.ui" line="92"/>
         <source>Down</source>
         <translation>Dolů</translation>
-    </message>
-</context>
-<context>
-    <name>UIShareBrowser</name>
-    <message>
-        <source>Form</source>
-        <translation type="obsolete">Form</translation>
-    </message>
-    <message>
-        <source>←</source>
-        <translation type="obsolete">←</translation>
-    </message>
-    <message>
-        <source>→</source>
-        <translation type="obsolete">→</translation>
-    </message>
-    <message>
-        <source>↑</source>
-        <translation type="obsolete">↑</translation>
     </message>
 </context>
 <context>
@@ -7292,10 +6848,6 @@ pokud se uživatel vrátí do 10 minut, EiskaltDC++ mu tyto sloty navrátí.</tr
 <context>
     <name>UISpy</name>
     <message>
-        <source>Form</source>
-        <translation type="obsolete">Form</translation>
-    </message>
-    <message>
         <location filename="../ui/UISpy.ui" line="35"/>
         <source>Ignore TTH search</source>
         <translation>Ignorovat hledání podle TTH</translation>
@@ -7314,13 +6866,6 @@ pokud se uživatel vrátí do 10 minut, EiskaltDC++ mu tyto sloty navrátí.</tr
         <location filename="../ui/UISpy.ui" line="69"/>
         <source>Clear</source>
         <translation>Vyčistit</translation>
-    </message>
-</context>
-<context>
-    <name>UITransferView</name>
-    <message>
-        <source>Form</source>
-        <translation type="obsolete">Form</translation>
     </message>
 </context>
 <context>
@@ -7493,50 +7038,6 @@ pokud se uživatel vrátí do 10 minut, EiskaltDC++ mu tyto sloty navrátí.</tr
         <location filename="../src/WulforUtil.cpp" line="711"/>
         <source>System default</source>
         <translation>Sytémové nastavení</translation>
-    </message>
-    <message>
-        <source>%1 B</source>
-        <translation type="obsolete">%1 B</translation>
-    </message>
-    <message>
-        <source>%1 KiB</source>
-        <translation type="obsolete">%1 KiB</translation>
-    </message>
-    <message>
-        <source>%1 MiB</source>
-        <translation type="obsolete">%1 MiB</translation>
-    </message>
-    <message>
-        <source>%1 GiB</source>
-        <translation type="obsolete">%1 GiB</translation>
-    </message>
-    <message>
-        <source>%1 TiB</source>
-        <translation type="obsolete">%1 TiB</translation>
-    </message>
-    <message>
-        <source>%1 PiB</source>
-        <translation type="obsolete">%1 PiB</translation>
-    </message>
-    <message>
-        <source>%1 KB</source>
-        <translation type="obsolete">%1 KB</translation>
-    </message>
-    <message>
-        <source>%1 MB</source>
-        <translation type="obsolete">%1 MB</translation>
-    </message>
-    <message>
-        <source>%1 GB</source>
-        <translation type="obsolete">%1 GB</translation>
-    </message>
-    <message>
-        <source>%1 TB</source>
-        <translation type="obsolete">%1 TB</translation>
-    </message>
-    <message>
-        <source>%1 PB</source>
-        <translation type="obsolete">%1 PB</translation>
     </message>
     <message>
         <location filename="../src/WulforUtil.cpp" line="1020"/>

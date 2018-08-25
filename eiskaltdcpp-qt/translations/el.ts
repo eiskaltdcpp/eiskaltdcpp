@@ -201,10 +201,6 @@ Keys:
 <context>
     <name>DialogScriptConsole</name>
     <message>
-        <source>Dialog</source>
-        <translation type="obsolete">Διάλογος</translation>
-    </message>
-    <message>
         <location filename="../ui/UIDialogScriptConsole.ui" line="30"/>
         <source>Output</source>
         <translation>Αποτέλεσμα</translation>
@@ -456,10 +452,6 @@ Keys:
         <translation>Προστέθηκε</translation>
     </message>
     <message>
-        <source>TTH</source>
-        <translation type="obsolete">TTH</translation>
-    </message>
-    <message>
         <location filename="../src/DownloadQueueModel.cpp" line="139"/>
         <source>Paused</source>
         <translation>Σε παύση</translation>
@@ -556,10 +548,6 @@ Keys:
         <location filename="../src/FavoriteHubModel.cpp" line="21"/>
         <source>Remote encoding</source>
         <translation>Απομακρυσμένη κωδικοποίηση</translation>
-    </message>
-    <message>
-        <source>******</source>
-        <translation type="obsolete">******</translation>
     </message>
 </context>
 <context>
@@ -712,10 +700,6 @@ Keys:
         <location filename="../src/FileBrowserModel.cpp" line="311"/>
         <source>Exact size</source>
         <translation>Ακριβές μέγεθος</translation>
-    </message>
-    <message>
-        <source>TTH</source>
-        <translation type="obsolete">TTH</translation>
     </message>
     <message>
         <location filename="../src/FileBrowserModel.cpp" line="312"/>
@@ -1703,86 +1687,6 @@ Favorite user</source>
         <translation>Θέλετε να αλλάξετε και άλλες ρυθμίσεις;</translation>
     </message>
     <message>
-        <source>Ctrl+I</source>
-        <translation type="obsolete">Ctrl+I</translation>
-    </message>
-    <message>
-        <source>Ctrl+L</source>
-        <translation type="obsolete">Ctrl+L</translation>
-    </message>
-    <message>
-        <source>Ctrl+E</source>
-        <translation type="obsolete">Ctrl+E</translation>
-    </message>
-    <message>
-        <source>Ctrl+Alt+H</source>
-        <translation type="obsolete">Ctrl+Alt+H</translation>
-    </message>
-    <message>
-        <source>Ctrl+Q</source>
-        <translation type="obsolete">Ctrl+Q</translation>
-    </message>
-    <message>
-        <source>Ctrl+R</source>
-        <translation type="obsolete">Ctrl+R</translation>
-    </message>
-    <message>
-        <source>Ctrl+N</source>
-        <translation type="obsolete">Ctrl+N</translation>
-    </message>
-    <message>
-        <source>Ctrl+H</source>
-        <translation type="obsolete">Ctrl+H</translation>
-    </message>
-    <message>
-        <source>Ctrl+P</source>
-        <translation type="obsolete">Ctrl+P</translation>
-    </message>
-    <message>
-        <source>Ctrl+U</source>
-        <translation type="obsolete">Ctrl+U</translation>
-    </message>
-    <message>
-        <source>Ctrl+O</source>
-        <translation type="obsolete">Ctrl+O</translation>
-    </message>
-    <message>
-        <source>Ctrl+T</source>
-        <translation type="obsolete">Ctrl+T</translation>
-    </message>
-    <message>
-        <source>Ctrl+D</source>
-        <translation type="obsolete">Ctrl+D</translation>
-    </message>
-    <message>
-        <source>Ctrl+Shift+U</source>
-        <translation type="obsolete">Ctrl+Shift+U</translation>
-    </message>
-    <message>
-        <source>Ctrl+[</source>
-        <translation type="obsolete">Ctrl+[</translation>
-    </message>
-    <message>
-        <source>Ctrl+]</source>
-        <translation type="obsolete">Ctrl+]</translation>
-    </message>
-    <message>
-        <source>Ctrl+Alt+J</source>
-        <translation type="obsolete">Ctrl+Alt+J</translation>
-    </message>
-    <message>
-        <source>Ctrl+S</source>
-        <translation type="obsolete">Ctrl+S</translation>
-    </message>
-    <message>
-        <source>Ctrl+K</source>
-        <translation type="obsolete">Ctrl+K</translation>
-    </message>
-    <message>
-        <source>Ctrl+F</source>
-        <translation type="obsolete">Ctrl+F</translation>
-    </message>
-    <message>
         <location filename="../src/MainWindow.cpp" line="1079"/>
         <source>Next widget</source>
         <translation>Επόμενο συστατικό</translation>
@@ -1811,22 +1715,6 @@ Favorite user</source>
         <location filename="../src/MainWindow.cpp" line="1084"/>
         <source>Toggle main menu</source>
         <translation>(Απ)Ενεργοποίηση κυρίου μενού</translation>
-    </message>
-    <message>
-        <source>Ctrl+PgDown</source>
-        <translation type="obsolete">Ctrl+PgDown</translation>
-    </message>
-    <message>
-        <source>Ctrl+PgUp</source>
-        <translation type="obsolete">Ctrl+PgUp</translation>
-    </message>
-    <message>
-        <source>Ctrl+Down</source>
-        <translation type="obsolete">Ctrl+Κάτω</translation>
-    </message>
-    <message>
-        <source>Ctrl+Up</source>
-        <translation type="obsolete">Ctrl+Πάνω</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1226"/>
@@ -2359,14 +2247,6 @@ Favorite user</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>http://github.com/eiskaltdcpp/eiskaltdcpp/raw/master/ChangeLog.txt</source>
-        <translation type="obsolete">http://github.com/eiskaltdcpp/eiskaltdcpp/raw/master/ChangeLog.txt</translation>
-    </message>
-    <message>
-        <source>Please use &lt;a href=&quot;http://code.google.com/p/eiskaltdc/issues/list&quot;&gt;http://code.google.com/p/eiskaltdc/issues/list&lt;/a&gt; to report bugs.&lt;br/&gt;</source>
-        <translation type="obsolete">Παρακαλώ χρησιμοποιήστε &lt;a href=&quot;http://code.google.com/p/eiskaltdc/issues/list&quot;&gt;http://code.google.com/p/eiskaltdc/issues/list&lt;/a&gt; για αναφορά σφαλμάτων.&lt;br/&gt;</translation>
-    </message>
-    <message>
         <location filename="../src/MainWindow.cpp" line="2694"/>
         <source>&lt;b&gt;Developers&lt;/b&gt;&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
@@ -2890,10 +2770,6 @@ Downloaded: %3 Uploaded: %4</source>
         <source>Filename</source>
         <translation>Όνομα αρχείου</translation>
     </message>
-    <message>
-        <source>TTH</source>
-        <translation type="obsolete">TTH</translation>
-    </message>
 </context>
 <context>
     <name>SearchBlackListDialog</name>
@@ -2916,10 +2792,6 @@ Downloaded: %3 Uploaded: %4</source>
         <translation>Όνομα αρχείου</translation>
     </message>
     <message>
-        <source>TTH</source>
-        <translation type="obsolete">TTH</translation>
-    </message>
-    <message>
         <location filename="../src/SearchBlacklistDialog.cpp" line="179"/>
         <source>Key</source>
         <translation>Κλειδί</translation>
@@ -2937,10 +2809,6 @@ Downloaded: %3 Uploaded: %4</source>
 </context>
 <context>
     <name>SearchFrame</name>
-    <message>
-        <source>Form</source>
-        <translation type="obsolete">Φόρμα</translation>
-    </message>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="53"/>
         <location filename="../src/SearchFrame.cpp" line="362"/>
@@ -3201,10 +3069,6 @@ Downloaded: %3 Uploaded: %4</source>
         <location filename="../src/SearchModel.cpp" line="56"/>
         <source>Exact size</source>
         <translation>Ακριβές μέγεθος</translation>
-    </message>
-    <message>
-        <source>TTH</source>
-        <translation type="obsolete">TTH</translation>
     </message>
     <message>
         <location filename="../src/SearchModel.cpp" line="56"/>
@@ -4169,10 +4033,6 @@ Do you want to stop it?
         <translation>Λίστα Αρχείων</translation>
     </message>
     <message>
-        <source>TTH: </source>
-        <translation type="obsolete">TTH: </translation>
-    </message>
-    <message>
         <location filename="../src/TransferView.cpp" line="604"/>
         <source>Requesting</source>
         <translation>Αίτηση σε εξέλιξη</translation>
@@ -4186,10 +4046,6 @@ Do you want to stop it?
         <location filename="../src/TransferView.cpp" line="645"/>
         <source>Downloaded %1</source>
         <translation>Λήφθηκε %1</translation>
-    </message>
-    <message>
-        <source> (%1%)</source>
-        <translation type="obsolete"> (%1%)</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="700"/>
@@ -4312,10 +4168,6 @@ Do you want to stop it?
         <translation>Αναμονή για υποδοχή</translation>
     </message>
     <message>
-        <source>TTH: </source>
-        <translation type="obsolete">TTH: </translation>
-    </message>
-    <message>
         <location filename="../src/TransferViewModel.cpp" line="634"/>
         <location filename="../src/TransferViewModel.cpp" line="640"/>
         <source>Finished</source>
@@ -4349,10 +4201,6 @@ Do you want to stop it?
 <context>
     <name>UIADLS</name>
     <message>
-        <source>Form</source>
-        <translation type="obsolete">Φόρμα</translation>
-    </message>
-    <message>
         <location filename="../ui/UIADLSearch.ui" line="56"/>
         <source>Add new</source>
         <translation>Προσθήκη νέου</translation>
@@ -4380,10 +4228,6 @@ Do you want to stop it?
 </context>
 <context>
     <name>UIADLSEditor</name>
-    <message>
-        <source>Dialog</source>
-        <translation type="obsolete">Διάλογος</translation>
-    </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="38"/>
         <source>Favorite hub name.</source>
@@ -4482,18 +4326,6 @@ Do you want to stop it?
 <context>
     <name>UIActionCustomizer</name>
     <message>
-        <source>Dialog</source>
-        <translation type="obsolete">Διάλογος</translation>
-    </message>
-    <message>
-        <source>&gt;&gt;</source>
-        <translation type="obsolete">&gt;&gt;</translation>
-    </message>
-    <message>
-        <source>&lt;&lt;</source>
-        <translation type="obsolete">&lt;&lt;</translation>
-    </message>
-    <message>
         <location filename="../ui/UIActionCustomizer.ui" line="88"/>
         <source>Up</source>
         <translation>Πάνω</translation>
@@ -4552,14 +4384,6 @@ Do you want to stop it?
         <translation>Μαύρη λίστα</translation>
     </message>
     <message>
-        <source>+</source>
-        <translation type="obsolete">+</translation>
-    </message>
-    <message>
-        <source>-</source>
-        <translation type="obsolete">-</translation>
-    </message>
-    <message>
         <location filename="../ui/UIAntiSpam.ui" line="157"/>
         <location filename="../ui/UIAntiSpam.ui" line="223"/>
         <location filename="../ui/UIAntiSpam.ui" line="289"/>
@@ -4590,18 +4414,10 @@ Do you want to stop it?
         <translation>Μεταφορά χρήστη στη &quot;Άσπρη&quot; λίστα</translation>
     </message>
     <message>
-        <source>&gt;&gt;&gt;</source>
-        <translation type="obsolete">&gt;&gt;&gt;</translation>
-    </message>
-    <message>
         <location filename="../ui/UIAntiSpam.ui" line="327"/>
         <location filename="../ui/UIAntiSpam.ui" line="340"/>
         <source>Move user to &quot;Gray&quot; list</source>
         <translation>Μεταφορά χρήστη στη &quot;Γκρίζα&quot; λίστα</translation>
-    </message>
-    <message>
-        <source>&lt;&lt;&lt;</source>
-        <translation type="obsolete">&lt;&lt;&lt;</translation>
     </message>
     <message>
         <location filename="../ui/UIAntiSpam.ui" line="353"/>
@@ -4631,10 +4447,6 @@ Do you want to stop it?
 <context>
     <name>UIDownloadQueue</name>
     <message>
-        <source>Form</source>
-        <translation type="obsolete">Μορφή</translation>
-    </message>
-    <message>
         <location filename="../ui/UIDownloadQueue.ui" line="41"/>
         <source>Expand all</source>
         <translation>Ανάπτυξη όλων</translation>
@@ -4647,10 +4459,6 @@ Do you want to stop it?
 </context>
 <context>
     <name>UIFavoriteHubEditor</name>
-    <message>
-        <source>Dialog</source>
-        <translation type="obsolete">Διάλογος</translation>
-    </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="20"/>
         <source>Hub</source>
@@ -4692,10 +4500,6 @@ Do you want to stop it?
         <translation>Περιγραφή</translation>
     </message>
     <message>
-        <source>This description will show in the user list.</source>
-        <translation type="obsolete">Αυτή η περιγραφή θα φαίνεται στη λίστα χρηστών.</translation>
-    </message>
-    <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="85"/>
         <source>This description will be shown in the list of favorite hubs.</source>
         <translation type="unfinished"></translation>
@@ -4734,10 +4538,6 @@ Do you want to stop it?
         <location filename="../ui/UIFavoriteHubEditor.ui" line="142"/>
         <source>External IP</source>
         <translation>Εξωτερικό IP</translation>
-    </message>
-    <message>
-        <source>000.000.000.000; </source>
-        <translation type="obsolete">000.000.000.000; </translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="162"/>
@@ -4788,10 +4588,6 @@ Do you want to stop it?
 <context>
     <name>UIFavoriteHubs</name>
     <message>
-        <source>Form</source>
-        <translation type="obsolete">Μορφή</translation>
-    </message>
-    <message>
         <location filename="../ui/UIFavoriteHubs.ui" line="56"/>
         <source>Add new</source>
         <translation>Προσθήκη νέου</translation>
@@ -4815,10 +4611,6 @@ Do you want to stop it?
 <context>
     <name>UIFavoriteUsers</name>
     <message>
-        <source>Form</source>
-        <translation type="obsolete">Μορφή</translation>
-    </message>
-    <message>
         <location filename="../ui/UIFavoriteUsers.ui" line="41"/>
         <source>Auto grant slot to all users</source>
         <translation>Αυτόματη χορήγηση υποδοχής σε όλους τους χρήστες</translation>
@@ -4830,10 +4622,6 @@ Do you want to stop it?
         <location filename="../ui/UIFileHasher.ui" line="29"/>
         <source>TTH Calculator</source>
         <translation>Υπολογιστής TTH</translation>
-    </message>
-    <message>
-        <source>...</source>
-        <translation type="obsolete">...</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="82"/>
@@ -4853,10 +4641,6 @@ Do you want to stop it?
 </context>
 <context>
     <name>UIFinishedTransfers</name>
-    <message>
-        <source>Form</source>
-        <translation type="obsolete">Μορφή</translation>
-    </message>
     <message>
         <location filename="../ui/UIFinishedTransfers.ui" line="22"/>
         <source>Show</source>
@@ -4914,10 +4698,6 @@ Do you want to stop it?
 <context>
     <name>UIHubFrame</name>
     <message>
-        <source>Form</source>
-        <translation type="obsolete">Μορφή</translation>
-    </message>
-    <message>
         <location filename="../ui/HubFrame.ui" line="97"/>
         <source>Find: </source>
         <translation>Εύρεση:</translation>
@@ -4928,10 +4708,6 @@ Do you want to stop it?
         <translation>Προηγούμενο (Shift+F3)</translation>
     </message>
     <message>
-        <source>&lt;</source>
-        <translation type="obsolete">&lt;</translation>
-    </message>
-    <message>
         <location filename="../ui/HubFrame.ui" line="117"/>
         <source>Shift+F3</source>
         <translation>Shift+F3</translation>
@@ -4940,10 +4716,6 @@ Do you want to stop it?
         <location filename="../ui/HubFrame.ui" line="124"/>
         <source>Next (F3)</source>
         <translation>Next (F3)</translation>
-    </message>
-    <message>
-        <source>&gt;</source>
-        <translation type="obsolete">&gt;</translation>
     </message>
     <message>
         <location filename="../ui/HubFrame.ui" line="130"/>
@@ -4968,10 +4740,6 @@ Do you want to stop it?
 </context>
 <context>
     <name>UIHubManager</name>
-    <message>
-        <source>Form</source>
-        <translation type="obsolete">Μορφή</translation>
-    </message>
     <message>
         <location filename="../ui/UIHubManager.ui" line="33"/>
         <source>Hub</source>
@@ -5059,14 +4827,6 @@ Do you want to stop it?
 <context>
     <name>UIMagnet</name>
     <message>
-        <source>Form</source>
-        <translation type="obsolete">Μορφή</translation>
-    </message>
-    <message>
-        <source>TTH</source>
-        <translation type="obsolete">TTH</translation>
-    </message>
-    <message>
         <location filename="../ui/UIMagnet.ui" line="74"/>
         <source>Filename</source>
         <translation>Όνομα Αρχείου</translation>
@@ -5117,10 +4877,6 @@ in options, file will be downloaded without opening search dialog.</source>
 <context>
     <name>UIPrivateMessage</name>
     <message>
-        <source>Form</source>
-        <translation type="obsolete">Μορφή</translation>
-    </message>
-    <message>
         <location filename="../ui/PrivateMessage.ui" line="81"/>
         <source>Find:</source>
         <translation>Αναζήτηση:</translation>
@@ -5131,10 +4887,6 @@ in options, file will be downloaded without opening search dialog.</source>
         <translation>Προηγούμενο (Shift+F3)</translation>
     </message>
     <message>
-        <source>&lt;</source>
-        <translation type="obsolete">&lt;</translation>
-    </message>
-    <message>
         <location filename="../ui/PrivateMessage.ui" line="94"/>
         <source>Shift+F3</source>
         <translation type="unfinished">Shift+F3</translation>
@@ -5143,10 +4895,6 @@ in options, file will be downloaded without opening search dialog.</source>
         <location filename="../ui/PrivateMessage.ui" line="101"/>
         <source>Next (F3)</source>
         <translation>Επόμενο (F3)</translation>
-    </message>
-    <message>
-        <source>&gt;</source>
-        <translation type="obsolete">&gt;</translation>
     </message>
     <message>
         <location filename="../ui/PrivateMessage.ui" line="107"/>
@@ -5175,18 +4923,7 @@ in options, file will be downloaded without opening search dialog.</source>
     </message>
 </context>
 <context>
-    <name>UIPublicHubs</name>
-    <message>
-        <source>Form</source>
-        <translation type="obsolete">Μορφή</translation>
-    </message>
-</context>
-<context>
     <name>UIPublicHubsList</name>
-    <message>
-        <source>Dialog</source>
-        <translation type="obsolete">Διάλογος</translation>
-    </message>
     <message>
         <location filename="../ui/UIPublicHubsList.ui" line="23"/>
         <source>Up</source>
@@ -5214,13 +4951,6 @@ in options, file will be downloaded without opening search dialog.</source>
     </message>
 </context>
 <context>
-    <name>UIQueuedUsers</name>
-    <message>
-        <source>Form</source>
-        <translation type="obsolete">Μορφή</translation>
-    </message>
-</context>
-<context>
     <name>UIQuickConnect</name>
     <message>
         <location filename="../ui/UIQuickConnect.ui" line="32"/>
@@ -5235,10 +4965,6 @@ in options, file will be downloaded without opening search dialog.</source>
 </context>
 <context>
     <name>UIScriptManager</name>
-    <message>
-        <source>Dialog</source>
-        <translation type="obsolete">Διάλογος</translation>
-    </message>
     <message>
         <location filename="../ui/UIScriptManager.ui" line="21"/>
         <source>Do nothing</source>
@@ -5296,10 +5022,6 @@ in options, file will be downloaded without opening search dialog.</source>
 </context>
 <context>
     <name>UISettingsConnection</name>
-    <message>
-        <source>Form</source>
-        <translation type="obsolete">Μορφή</translation>
-    </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="27"/>
         <source>Connection</source>
@@ -5461,10 +5183,6 @@ DC++&apos;s SOCKS5 support does not include GSSAPI.</source>
         <translation>SOCKS5</translation>
     </message>
     <message>
-        <source>000.000.000.000; </source>
-        <translation type="obsolete">000.000.000.000; </translation>
-    </message>
-    <message>
         <location filename="../ui/UISettingsConnection.ui" line="386"/>
         <source>IP</source>
         <translation>IP</translation>
@@ -5483,10 +5201,6 @@ DC++&apos;s SOCKS5 support does not include GSSAPI.</source>
         <location filename="../ui/UISettingsConnection.ui" line="407"/>
         <source>Port</source>
         <translation>Θύρα</translation>
-    </message>
-    <message>
-        <source>00000; </source>
-        <translation type="obsolete">00000; </translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="427"/>
@@ -5658,10 +5372,6 @@ p, li { white-space: pre-wrap; }
 </context>
 <context>
     <name>UISettingsDownloads</name>
-    <message>
-        <source>Form</source>
-        <translation type="obsolete">Μορφή</translation>
-    </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="30"/>
         <source>Downloads</source>
