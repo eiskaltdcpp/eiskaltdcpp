@@ -1,22 +1,406 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR EiskaltDC++ team
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Boris Pek <tehnick-8@yandex.ru>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: https://github.com/eiskaltdcpp/eiskaltdcpp/issues\n"
-"POT-Creation-Date: 2015-11-30 00:28+0300\n"
+"POT-Creation-Date: 2018-08-25 20:32+0300\n"
 "PO-Revision-Date: 2013-11-19 16:45+0000\n"
 "Last-Translator: Boris Pek <tehnick-8@yandex.ru>, 2017\n"
-"Language-Team: Belarusian (https://www.transifex.com/tehnick/teams/11818/be/)\n"
+"Language-Team: Belarusian (https://www.transifex.com/tehnick/teams/11818/"
+"be/)\n"
+"Language: be\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: be\n"
-"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
+"%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: ../ADLSearch.cpp:40
+msgid "<Enter string>"
+msgstr "<Упішыце радок>"
+
+#: ../ADLSearch.cpp:487
+msgid "Discard"
+msgstr "Адкінуць"
+
+#: ../AdcHub.cpp:156
+msgid "%1% (%2%) has same CID {%3%} as %4% (%5%), ignoring"
+msgstr "Прапускаем: %1% (%2%) мае такі самы CID {%3%}, як і %4% (%5%)"
+
+#: ../AdcHub.cpp:193 ../QueueManager.cpp:2209 ../Transfer.cpp:91
+msgid "%1%/s"
+msgstr "%1%/с"
+
+#: ../AdcHub.cpp:228
+msgid "Failed to negotiate base protocol"
+msgstr "Не ўдалося дамовіцца пра галоўны пратакол"
+
+#: ../AdcHub.cpp:234
+msgid ""
+"Hub probably uses an old version of ADC, please encourage the owner to "
+"upgrade"
+msgstr ""
+"Магчыма, асяродак выкарыстоўвае старую вэрсію ADC. Паспрыяйце, каб "
+"уладальнік абнавіў яе"
+
+#: ../AdcHub.cpp:305
+msgid "%1% was kicked by %2%: %3%"
+msgstr "%2% даў высьпятка карыстальніку %1%: %3%"
+
+#: ../AdcHub.cpp:308
+msgid "%1% was kicked: %2%"
+msgstr "Карыстальніку %1% далі высьпятка: %2%"
+
+#: ../AdcHub.cpp:694
+msgid "Not listening for connections - please restart %1%"
+msgstr "Ня чую злучэньняў — запусьціце %1% нанова"
+
+#: ../BZUtils.cpp:33 ../BZUtils.cpp:54 ../BZUtils.cpp:62 ../ZUtils.cpp:37
+#: ../ZUtils.cpp:58 ../ZUtils.cpp:80 ../ZUtils.cpp:90
+msgid "Error during compression"
+msgstr "Не ўдалося сьціснуць"
+
+#: ../BZUtils.cpp:74 ../BZUtils.cpp:96 ../BZUtils.cpp:99
+#: ../CryptoManager.cpp:405 ../CryptoManager.cpp:424 ../CryptoManager.cpp:438
+#: ../ZUtils.cpp:104 ../ZUtils.cpp:127 ../ZUtils.cpp:137
+msgid "Error during decompression"
+msgstr "Не ўдалося распакаваць"
+
+#: ../BufferedSocket.cpp:153 ../BufferedSocket.cpp:169
+#: ../ConnectionManager.cpp:186 ../Socket.cpp:221
+msgid "Connection timeout"
+msgstr "Выйшаў час злучэньня"
+
+#: ../BufferedSocket.cpp:184 ../SSLSocket.cpp:161
+msgid "Connection closed"
+msgstr "Злучэньне зачынілі"
+
+#: ../BufferedSocket.cpp:275
+msgid "Maximum command length exceeded"
+msgstr "Загад задаўгі"
+
+#: ../BufferedSocket.cpp:461
+msgid "Disconnected"
+msgstr "Адлучаны"
+
+#: ../ChatMessage.cpp:33
+msgid "Sent "
+msgstr "Даслалі "
+
+#: ../ClientManager.cpp:178 ../QueueManager.cpp:2180 ../QueueManager.cpp:2186
+#: ../QueueManager.cpp:2192 ../SearchManager.cpp:281 ../SearchManager.cpp:368
+#: ../SearchManager.cpp:370 ../Transfer.cpp:81 ../Transfer.cpp:85
+msgid "Offline"
+msgstr "Ня ў сетцы"
+
+#: ../ConnectionManager.cpp:179
+msgid "All download slots taken"
+msgstr "Усе шчыліны сьцягваньня занятыя"
+
+#: ../ConnectionManager.cpp:253
+msgid "Connectivity restored"
+msgstr "Злучэньне аднавілі"
+
+#: ../ConnectionManager.cpp:261
+msgid "Connectivity error: %1%"
+msgstr "Памылка злучэньня: %1%"
+
+#: ../ConnectivityManager.cpp:80
+msgid "Determining the best connectivity settings..."
+msgstr "Вызначаюцца найлепшыя налады злучэньня…"
+
+#: ../ConnectivityManager.cpp:85
+msgid ""
+"Unable to open %1% port(s); connectivity settings must be configured manually"
+msgstr "Не ўдаецца адчыніць порт(ы) %1%; настаўце злучэньне самастойна"
+
+#: ../ConnectivityManager.cpp:95
+msgid ""
+"Public IP address detected, selecting active mode with direct connection"
+msgstr "Выявілі публічны адрас IP; абіраем дзейны спосаб простага злучэньня"
+
+#: ../ConnectivityManager.cpp:102
+msgid ""
+"Local network with possible NAT detected, trying to map the ports using "
+"UPnP..."
+msgstr ""
+"Выявілі мясцовую сетку і, магчыма, NAT; спрабуем адлюстраваць порты з "
+"дапамогаю UPnP…"
+
+#: ../ConnectivityManager.cpp:130
+msgid ""
+"Automatic setup of active mode has failed. You may want to set up your "
+"connection manually for better connectivity"
+msgstr ""
+"Не ўдалося самарушна наладзіць злучэньне дзейным спосабам. Мажліва, вы "
+"захочаце наладзіць злучэньне самастойна для лепшае сувязі"
+
+#: ../ConnectivityManager.cpp:142
+msgid "Transfer (TCP)"
+msgstr "Перадаваньне (TCP)"
+
+#: ../ConnectivityManager.cpp:148
+msgid "Search (UDP)"
+msgstr "Пошук (UDP)"
+
+#: ../ConnectivityManager.cpp:154
+msgid "DHT (UDP)"
+msgstr "DHT (UDP)"
+
+#: ../ConnectivityManager.cpp:169
+msgid "Connectivity: "
+msgstr "Злучэньне: "
+
+#: ../CryptoManager.cpp:167
+msgid "No private key file chosen"
+msgstr "Не абралі файл асабістага ключа"
+
+#: ../CryptoManager.cpp:170
+msgid "No certificate file chosen"
+msgstr "Не абралі пасьведчаньня"
+
+#: ../CryptoManager.cpp:182
+msgid "Error generating certificate"
+msgstr "Не ўдалося стварыць пасьведчаньне"
+
+#: ../CryptoManager.cpp:245
+msgid "TLS disabled, no certificate file set"
+msgstr "TLS не задзейнічаны, файл пасьведчаньня ня вызначаны"
+
+#: ../CryptoManager.cpp:253
+msgid "Generated new TLS certificate"
+msgstr "Стварылі новае пасьведчаньне TLS"
+
+#: ../CryptoManager.cpp:255
+msgid "TLS disabled, failed to generate certificate: %1%"
+msgstr "Не ўдалося стварыць пасьведчаньне — TLS не задзейнічалі: %1%"
+
+#: ../CryptoManager.cpp:260 ../CryptoManager.cpp:264 ../CryptoManager.cpp:269
+#: ../CryptoManager.cpp:273
+msgid "Failed to load certificate file"
+msgstr "Не ўдалося прачытаць файл пасьведчаньня"
+
+#: ../CryptoManager.cpp:278 ../CryptoManager.cpp:282 ../CryptoManager.cpp:287
+#: ../CryptoManager.cpp:291
+msgid "Failed to load private key"
+msgstr "Не ўдалося прачытаць асабісты ключ"
+
+#: ../DCPlusPlus.cpp:121
+msgid "Hash database"
+msgstr "База зьвестак скаротаў"
+
+#: ../DCPlusPlus.cpp:124
+msgid "Shared Files"
+msgstr "Абагуленыя файлы"
+
+#: ../DCPlusPlus.cpp:133
+msgid "Download Queue"
+msgstr "Чарга сьцягванага"
+
+#: ../DCPlusPlus.cpp:136
+msgid "Users"
+msgstr "Карыстальнікі"
+
+#: ../DirectoryListing.cpp:209
+msgid "Directory missing name attribute"
+msgstr "Каталёґ ня мае назвы"
+
+#: ../DownloadManager.cpp:135
+msgid "IPFilter: Blocked outgoing connection to "
+msgstr "Сіта IP: забаранілі выходнае злучэньне з "
+
+#: ../DownloadManager.cpp:237
+msgid "Invalid size"
+msgstr "Хібны памер"
+
+#: ../DownloadManager.cpp:242
+msgid "Response does not match request"
+msgstr "Адказ не адпавядае запыту"
+
+#: ../DownloadManager.cpp:249
+msgid "Could not open target file: %1%"
+msgstr "Не ўдаецца адчыніць прызначаны файл: %1%"
+
+#: ../DownloadManager.cpp:328
+msgid "Full tree does not match TTH root"
+msgstr "Скарот (TTH) сьцягнутага не адпавядае скароту крыніцы"
+
+#: ../DownloadManager.cpp:393
+msgid "No slots available"
+msgstr "Няма даступных шчылінаў"
+
+#: ../DownloadManager.cpp:504
+msgid "%1%: File not available"
+msgstr "%1%: файл недаступны"
+
+#: ../FavoriteManager.cpp:429
+msgid "Kick user(s)"
+msgstr "Даць высьпятка"
+
+#: ../FavoriteManager.cpp:433
+msgid "Redirect user(s)"
+msgstr "Накіраваць карыстальніка(аў)"
+
+#: ../FavoriteManager.cpp:489
+msgid "Auto-connect group (converted)"
+msgstr "Самарушна злучацца суполцы (пераробленае)"
+
+#: ../HashManager.cpp:218 ../HashManager.cpp:418
+msgid "Hashing failed: %1%"
+msgstr "Не ўдалося стварыць скароты: %1%"
+
+#: ../HashManager.cpp:225
+msgid "Finished hashing: %1% (%2% at %3%/s)"
+msgstr "Скароты стварылі: %1% (%2% на %3%/с)"
+
+#: ../HashManager.cpp:228
+msgid "Finished hashing: %1% (%2%)"
+msgstr "Скароты стварылі: %1% (%2%)"
+
+#: ../HashManager.cpp:231
+msgid "Finished hashing: %1%"
+msgstr "Скончылі ствараць скароты: %1%"
+
+#: ../HashManager.cpp:260 ../HashManager.cpp:474
+msgid "Error saving hash data: %1%"
+msgstr "Не ўдалося захаваць зьвесткі скаротаў: %1%"
+
+#: ../HashManager.cpp:273
+msgid "Unable to read hash data file"
+msgstr "Не ўдалося прачытаць файл зьвестак скаротаў"
+
+#: ../HashManager.cpp:606
+msgid "Error creating hash data file: %1%"
+msgstr "Не ўдалося стварыць файл зьвестак скаротаў: %1%"
+
+#: ../HashManager.cpp:958
+msgid "Hash database rebuilt"
+msgstr "Адбудавалі базу зьвестак"
+
+#: ../HashManager.cpp:1052
+msgid ""
+"%1% not shared; calculated CRC32 does not match the one found in SFV file."
+msgstr ""
+"%1% не абагулілі: падлічаная сума CRC32 не адпавядае знойдзенай у файле SFV."
+
+#: ../HashManager.cpp:1057
+msgid "Error hashing %1%: %2%"
+msgstr "Не ўдалося стварыць скарот да %1%: %2%"
+
+#: ../HttpConnection.cpp:166
+msgid "Endless redirection loop (%1%)"
+msgstr "Бясконцая пятля перанакіроўваньня (%1%)"
+
+#: ../NmdcHub.cpp:295
+msgid "%1% (Nick unknown)"
+msgstr "%1% (невядомая мянушка)"
+
+#: ../NmdcHub.cpp:672
+msgid "Hub topic:"
+msgstr "Тэма асяродку:"
+
+#: ../QueueManager.cpp:252
+msgid "No needed part"
+msgstr "Няма неабходнае часткі"
+
+#: ../QueueManager.cpp:642
+msgid "Searching TTH alternates for: %1%"
+msgstr "Шукаюцца па скаротах (TTH) дадатковыя крыніцы для: %1%"
+
+#: ../QueueManager.cpp:693 ../QueueManager.cpp:754
+msgid "A file with the same hash already exists in your share"
+msgstr "Файл з такім самым скаротам ужо існуе ў абагуленым"
+
+#: ../QueueManager.cpp:719 ../QueueManager.cpp:796
+msgid "This file is already queued"
+msgstr "Гэта файл ужо стаіць у чарзе"
+
+#: ../QueueManager.cpp:732 ../QueueManager.cpp:808
+msgid "A file with a different size already exists in the queue"
+msgstr "Файл зь іншым памерам ужо стаіць у чарзе"
+
+#: ../QueueManager.cpp:736
+msgid "A file with different tth root already exists in the queue"
+msgstr "Файл зь іншым скаротам (TTH) ужо стаіць у чарзе"
+
+#: ../QueueManager.cpp:748
+msgid "You're trying to download from yourself!"
+msgstr "Вы спрабуеце сьцягнуць у самога сябе"
+
+#: ../QueueManager.cpp:811
+msgid "A file with a different TTH root already exists in the queue"
+msgstr "Файл зь іншым скаротам (TTH) ужо стаіць у чарзе"
+
+#: ../QueueManager.cpp:815
+msgid "This file has already finished downloading"
+msgstr "Гэта файл ужо сьцягнулі"
+
+#: ../QueueManager.cpp:852 ../QueueManager.cpp:861
+msgid "Target filename too long"
+msgstr "Прызначылі задаўгую назву файла"
+
+#: ../QueueManager.cpp:857 ../QueueManager.cpp:865
+msgid ""
+"Invalid target file (missing directory, check default download directory "
+"setting)"
+msgstr ""
+"Хібнае прызначэньне (адсутнічае каталёґ; спраўдзіце перадвызначаныя налады "
+"каталёґа сьцягваць)"
+
+#: ../QueueManager.cpp:873
+msgid "File already exists at the target location"
+msgstr "Файл ужо існуе ў прызначаным месцы"
+
+#: ../QueueManager.cpp:886 ../QueueManager.cpp:890
+msgid "Duplicate source: %1%"
+msgstr "Падвоеная крыніца: %1%"
+
+#: ../QueueManager.cpp:1157
+msgid "Target removed"
+msgstr "Мэта зьнікла"
+
+#: ../QueueManager.cpp:1165
+msgid "Target file is missing or wrong size"
+msgstr "Файл мэты адсутнічае ці мае неадпаведны памер"
+
+#: ../QueueManager.cpp:1214
+msgid "Unable to move %1% to %2% (%3%); renamed to %4%"
+msgstr "Не ўдаецца перасунуць %1% у %2% (%3%); далі новую назву: %4%"
+
+#: ../QueueManager.cpp:1217
+msgid "Unable to move %1% to %2% (%3%) nor to rename to %4% (%5%)"
+msgstr ""
+"Не ўдаецца ані перасунуць %1% у %2% (%3%), ані даць новую назву: %4% (%5%)"
+
+#: ../QueueManager.cpp:1412
+msgid "Unable to open filelist: %1%"
+msgstr "Не ўдаецца адчыніць сьпіс файлаў: %1%"
+
+#: ../QueueManager.cpp:1435
+msgid "%1%: Matched %2% file"
+msgstr "%1%: супаў файл %2%"
+
+#: ../QueueManager.cpp:1805
+msgid "Target path for this item is not available: %1%; pause this queue item."
+msgstr "Да прызначанага шляху няма доступу: %1%; пункт чаргі прыпынілі."
+
+#: ../QueueManager.cpp:2044 ../QueueManager.cpp:2053
+msgid "CRC32 inconsistency (SFV-Check)"
+msgstr "Неадпаведнасьць CRC32 (спраўджаньне SFV)"
+
+#: ../QueueManager.cpp:2234
+msgid "%1% : Matched %2% files"
+msgstr "%1% — супала файлаў: %2%"
+
+#: ../SSLSocket.cpp:167
+msgid "SSL Error: %1% (%2%, %3%)"
+msgstr "Памылка SSL: %1% (%2%, %3%)"
 
 #: ../SearchManager.cpp:36
 msgid "Any"
@@ -66,306 +450,126 @@ msgstr "Зноўку можна шукаць"
 msgid "Search disabled: %1%"
 msgstr "Пошук не працуе: %1%"
 
-#: ../SearchManager.cpp:281 ../SearchManager.cpp:368 ../SearchManager.cpp:370
-#: ../Transfer.cpp:81 ../Transfer.cpp:85 ../QueueManager.cpp:2171
-#: ../QueueManager.cpp:2177 ../QueueManager.cpp:2183 ../ClientManager.cpp:178
-msgid "Offline"
-msgstr "Ня ў сетцы"
+#: ../SettingsManager.cpp:182
+msgid "downloaded from"
+msgstr "сьцягнулі з"
 
-#: ../HashManager.cpp:218 ../HashManager.cpp:418
-msgid "Hashing failed: %1%"
-msgstr "Не ўдалося стварыць скароты: %1%"
+#: ../SettingsManager.cpp:523
+msgid "Invalid search type name"
+msgstr "Хібная назва віду пошуку"
 
-#: ../HashManager.cpp:225
-msgid "Finished hashing: %1% (%2% at %3%/s)"
-msgstr "Скароты стварылі: %1% (%2% на %3%/с)"
+#: ../SettingsManager.cpp:527 ../SettingsManager.cpp:549
+msgid "This search type already exists"
+msgstr "Гэты від пошуку ўжо існуе"
 
-#: ../HashManager.cpp:228
-msgid "Finished hashing: %1% (%2%)"
-msgstr "Скароты стварылі: %1% (%2%)"
+#: ../SettingsManager.cpp:581
+msgid "No such search type"
+msgstr "Такі від пошуку не існуе"
 
-#: ../HashManager.cpp:231
-msgid "Finished hashing: %1%"
-msgstr "Скончылі ствараць скароты: %1%"
+#: ../SettingsManager.cpp:609 ../SettingsManager.cpp:614
+msgid "Error: setting not found!"
+msgstr "Памылка: не знайшлі налады!"
 
-#: ../HashManager.cpp:260 ../HashManager.cpp:474
-msgid "Error saving hash data: %1%"
-msgstr "Не ўдалося захаваць зьвесткі скаротаў: %1%"
+#: ../SettingsManager.cpp:609
+msgid "Core setting "
+msgstr "Наладкі ядра"
 
-#: ../HashManager.cpp:273
-msgid "Unable to read hash data file"
-msgstr "Не ўдалося прачытаць файл зьвестак скаротаў"
+#: ../SettingsManager.cpp:614
+msgid "Change core setting "
+msgstr "Зьмяніць наладу асновы "
 
-#: ../HashManager.cpp:606
-msgid "Error creating hash data file: %1%"
-msgstr "Не ўдалося стварыць файл зьвестак скаротаў: %1%"
+#: ../SettingsManager.cpp:614
+msgid " to "
+msgstr " да "
 
-#: ../HashManager.cpp:958
-msgid "Hash database rebuilt"
-msgstr "Адбудавалі базу зьвестак"
+#: ../ShareManager.cpp:446
+msgid "No directory specified"
+msgstr "Ня вызначылі каталёґ"
 
-#: ../HashManager.cpp:1052
+#: ../ShareManager.cpp:450
+msgid "Directory is hidden"
+msgstr "Схаваны каталёґ"
+
+#: ../ShareManager.cpp:454
+msgid "The temporary download directory cannot be shared"
+msgstr "Нельга абагуляць часовы каталёґ"
+
+#: ../ShareManager.cpp:642
+msgid "Invalid file name found while hashing folder %1%"
+msgstr "Выявілі хібную назву файла, калі стваралі скароты ў каталёґу %1%"
+
+#: ../ShareManager.cpp:661
+msgid "Skip share file: %1% (Size: %2%)"
+msgstr "Не абагуляецца файл: %1% (памер: %2%)"
+
+#: ../ShareManager.cpp:682
+msgid "Skip share temp file: %1% (Size: %2%)"
+msgstr "Не абагуляецца часовы файл: %1% (памер: %2%)"
+
+#: ../ShareManager.cpp:772
 msgid ""
-"%1% not shared; calculated CRC32 does not match the one found in SFV file."
+"Duplicate file will not be shared: %1% (Size: %2% B) Dupe matched against: "
+"%3%"
+msgstr "Файл %1% (памер: %2% Б) — блізьнюк файла %3%"
+
+#: ../ShareManager.cpp:793
+msgid ""
+"File list refresh in progress, please wait for it to finish before trying to "
+"refresh again"
 msgstr ""
-"%1% не абагулілі: падлічаная сума CRC32 не адпавядае знойдзенай у файле SFV."
+"Сьпіс файлаў абнаўляецца. Пачакайце, пакуль ён абновіцца, каб паспрабаваць "
+"абнавіць ізноў."
 
-#: ../HashManager.cpp:1057
-msgid "Error hashing %1%: %2%"
-msgstr "Не ўдалося стварыць скарот да %1%: %2%"
+#: ../ShareManager.cpp:814
+msgid "File list refresh failed: %1%"
+msgstr "Не ўдалося абнавіць сьпіс файлаў: %1%"
 
-#: ../Transfer.cpp:91 ../QueueManager.cpp:2200 ../AdcHub.cpp:193
-msgid "%1%/s"
-msgstr "%1%/с"
+#: ../ShareManager.cpp:837
+msgid "File list refresh initiated"
+msgstr "Распачалі абнаўляць сьпіс файлаў"
 
-#: ../ConnectivityManager.cpp:80
-msgid "Determining the best connectivity settings..."
-msgstr "Вызначаюцца найлепшыя налады злучэньня…"
+#: ../ShareManager.cpp:862
+msgid "File list refresh finished"
+msgstr "Сьпіс файлаў абнавілі"
 
-#: ../ConnectivityManager.cpp:85
-msgid ""
-"Unable to open %1% port(s); connectivity settings must be configured "
-"manually"
-msgstr "Не ўдаецца адчыніць порт(ы) %1%; настаўце злучэньне самастойна"
+#: ../ShareManager.cpp:944
+msgid "File list %1% generated"
+msgstr "Стварылі сьпіс файлаў %1%"
 
-#: ../ConnectivityManager.cpp:95
-msgid ""
-"Public IP address detected, selecting active mode with direct connection"
-msgstr "Выявілі публічны адрас IP; абіраем дзейны спосаб простага злучэньня"
+#: ../Socket.cpp:86
+#, c-format
+msgid "Unknown error: 0x%1$x"
+msgstr "Невядомая памылка: 0x%1$x"
 
-#: ../ConnectivityManager.cpp:102
-msgid ""
-"Local network with possible NAT detected, trying to map the ports using "
-"UPnP..."
+#: ../Socket.cpp:229 ../Socket.cpp:237 ../Socket.cpp:270 ../Socket.cpp:274
+#: ../Socket.cpp:298 ../Socket.cpp:313
+msgid "The socks server failed establish a connection"
+msgstr "Паслужніку Socks не ўдалося наладзіць злучэньне"
+
+#: ../Socket.cpp:302
+msgid "The socks server requires authentication"
+msgstr "Паслужнік SOCKS патрабуе апазнацца"
+
+#: ../Socket.cpp:316
+msgid "The socks server doesn't support login / password authentication"
+msgstr "Паслужнік SOCKS не падтрымвае апазнаваньня «ўліковае ймя — пароль»"
+
+#: ../Socket.cpp:330 ../Socket.cpp:334
+msgid "Socks server authentication failed (bad login / password?)"
 msgstr ""
-"Выявілі мясцовую сетку і, магчыма, NAT; спрабуем адлюстраваць порты з "
-"дапамогаю UPnP…"
+"Не ўдалося апазнацца на паслужніку SOCKS (кепскі пароль ці ўліковае ймя?)"
 
-#: ../ConnectivityManager.cpp:130
+#: ../Socket.cpp:471
 msgid ""
-"Automatic setup of active mode has failed. You may want to set up your "
-"connection manually for better connectivity"
+"Failed to set up the socks server for UDP relay (check socks address and "
+"port)"
 msgstr ""
-"Не ўдалося самарушна наладзіць злучэньне дзейным спосабам. Мажліва, вы "
-"захочаце наладзіць злучэньне самастойна для лепшае сувязі"
+"Не ўдалося наладзіць паслужнік SOCKS перасылаць UDP (спраўдзіце адрас і порт "
+"SOCKS)"
 
-#: ../ConnectivityManager.cpp:142
-msgid "Transfer (TCP)"
-msgstr "Перадаваньне (TCP)"
-
-#: ../ConnectivityManager.cpp:148
-msgid "Search (UDP)"
-msgstr "Пошук (UDP)"
-
-#: ../ConnectivityManager.cpp:154
-msgid "DHT (UDP)"
-msgstr "DHT (UDP)"
-
-#: ../ConnectivityManager.cpp:169
-msgid "Connectivity: "
-msgstr "Злучэньне: "
-
-#: ../BufferedSocket.cpp:153 ../BufferedSocket.cpp:169
-#: ../ConnectionManager.cpp:186 ../Socket.cpp:221
-msgid "Connection timeout"
-msgstr "Выйшаў час злучэньня"
-
-#: ../BufferedSocket.cpp:184 ../SSLSocket.cpp:154
-msgid "Connection closed"
-msgstr "Злучэньне зачынілі"
-
-#: ../BufferedSocket.cpp:275
-msgid "Maximum command length exceeded"
-msgstr "Загад задаўгі"
-
-#: ../BufferedSocket.cpp:461
-msgid "Disconnected"
-msgstr "Адлучаны"
-
-#: ../UploadManager.cpp:133
-msgid "Connection already exists."
-msgstr "Злучэньне ўжо існуе."
-
-#: ../UploadManager.cpp:268
-msgid "Unable to send file %1%: %2%"
-msgstr "Не ўдаецца даслаць файл %1%: %2%"
-
-#: ../UploadManager.cpp:555
-msgid "IPFilter: Blocked incoming connection to "
-msgstr "Сіта IP: забаранілі ўваходнае злучэньне з "
-
-#: ../UploadManager.cpp:625
-msgid "Disconnected user leaving the hub: %1%"
-msgstr "Карыстальнік адлучыўся і выходзіць з асяродку: %1%"
-
-#: ../DirectoryListing.cpp:209
-msgid "Directory missing name attribute"
-msgstr "Каталёґ ня мае назвы"
-
-#: ../QueueManager.cpp:243
-msgid "No needed part"
-msgstr "Няма неабходнае часткі"
-
-#: ../QueueManager.cpp:633
-msgid "Searching TTH alternates for: %1%"
-msgstr "Шукаюцца па скаротах (TTH) дадатковыя крыніцы для: %1%"
-
-#: ../QueueManager.cpp:684 ../QueueManager.cpp:745
-msgid "A file with the same hash already exists in your share"
-msgstr "Файл з такім самым скаротам ужо існуе ў абагуленым"
-
-#: ../QueueManager.cpp:710 ../QueueManager.cpp:787
-msgid "This file is already queued"
-msgstr "Гэта файл ужо стаіць у чарзе"
-
-#: ../QueueManager.cpp:723 ../QueueManager.cpp:799
-msgid "A file with a different size already exists in the queue"
-msgstr "Файл зь іншым памерам ужо стаіць у чарзе"
-
-#: ../QueueManager.cpp:727
-msgid "A file with different tth root already exists in the queue"
-msgstr "Файл зь іншым скаротам (TTH) ужо стаіць у чарзе"
-
-#: ../QueueManager.cpp:739
-msgid "You're trying to download from yourself!"
-msgstr "Вы спрабуеце сьцягнуць у самога сябе"
-
-#: ../QueueManager.cpp:802
-msgid "A file with a different TTH root already exists in the queue"
-msgstr "Файл зь іншым скаротам (TTH) ужо стаіць у чарзе"
-
-#: ../QueueManager.cpp:806
-msgid "This file has already finished downloading"
-msgstr "Гэта файл ужо сьцягнулі"
-
-#: ../QueueManager.cpp:843 ../QueueManager.cpp:852
-msgid "Target filename too long"
-msgstr "Прызначылі задаўгую назву файла"
-
-#: ../QueueManager.cpp:848 ../QueueManager.cpp:856
-msgid ""
-"Invalid target file (missing directory, check default download directory "
-"setting)"
-msgstr ""
-"Хібнае прызначэньне (адсутнічае каталёґ; спраўдзіце перадвызначаныя налады "
-"каталёґа сьцягваць)"
-
-#: ../QueueManager.cpp:864
-msgid "File already exists at the target location"
-msgstr "Файл ужо існуе ў прызначаным месцы"
-
-#: ../QueueManager.cpp:877 ../QueueManager.cpp:881
-msgid "Duplicate source: %1%"
-msgstr "Падвоеная крыніца: %1%"
-
-#: ../QueueManager.cpp:1148
-msgid "Target removed"
-msgstr "Мэта зьнікла"
-
-#: ../QueueManager.cpp:1156
-msgid "Target file is missing or wrong size"
-msgstr "Файл мэты адсутнічае ці мае неадпаведны памер"
-
-#: ../QueueManager.cpp:1205
-msgid "Unable to move %1% to %2% (%3%); renamed to %4%"
-msgstr "Не ўдаецца перасунуць %1% у %2% (%3%); далі новую назву: %4%"
-
-#: ../QueueManager.cpp:1208
-msgid "Unable to move %1% to %2% (%3%) nor to rename to %4% (%5%)"
-msgstr ""
-"Не ўдаецца ані перасунуць %1% у %2% (%3%), ані даць новую назву: %4% (%5%)"
-
-#: ../QueueManager.cpp:1403
-msgid "Unable to open filelist: %1%"
-msgstr "Не ўдаецца адчыніць сьпіс файлаў: %1%"
-
-#: ../QueueManager.cpp:1426
-msgid "%1%: Matched %2% file"
-msgstr "%1%: супаў файл %2%"
-
-#: ../QueueManager.cpp:1796
-msgid ""
-"Target path for this item is not available: %1%; pause this queue item."
-msgstr "Да прызначанага шляху няма доступу: %1%; пункт чаргі прыпынілі."
-
-#: ../QueueManager.cpp:2035 ../QueueManager.cpp:2044
-msgid "CRC32 inconsistency (SFV-Check)"
-msgstr "Неадпаведнасьць CRC32 (спраўджаньне SFV)"
-
-#: ../QueueManager.cpp:2225
-msgid "%1% : Matched %2% files"
-msgstr "%1% — супала файлаў: %2%"
-
-#: ../AdcHub.cpp:156
-msgid "%1% (%2%) has same CID {%3%} as %4% (%5%), ignoring"
-msgstr "Прапускаем: %1% (%2%) мае такі самы CID {%3%}, як і %4% (%5%)"
-
-#: ../AdcHub.cpp:228
-msgid "Failed to negotiate base protocol"
-msgstr "Не ўдалося дамовіцца пра галоўны пратакол"
-
-#: ../AdcHub.cpp:234
-msgid ""
-"Hub probably uses an old version of ADC, please encourage the owner to "
-"upgrade"
-msgstr ""
-"Магчыма, асяродак выкарыстоўвае старую вэрсію ADC. Паспрыяйце, каб "
-"уладальнік абнавіў яе"
-
-#: ../AdcHub.cpp:305
-msgid "%1% was kicked by %2%: %3%"
-msgstr "%2% даў высьпятка карыстальніку %1%: %3%"
-
-#: ../AdcHub.cpp:308
-msgid "%1% was kicked: %2%"
-msgstr "Карыстальніку %1% далі высьпятка: %2%"
-
-#: ../AdcHub.cpp:694
-msgid "Not listening for connections - please restart %1%"
-msgstr "Ня чую злучэньняў — запусьціце %1% нанова"
-
-#: ../FavoriteManager.cpp:429
-msgid "Kick user(s)"
-msgstr "Даць высьпятка"
-
-#: ../FavoriteManager.cpp:433
-msgid "Redirect user(s)"
-msgstr "Накіраваць карыстальніка(аў)"
-
-#: ../FavoriteManager.cpp:489
-msgid "Auto-connect group (converted)"
-msgstr "Самарушна злучацца суполцы (пераробленае)"
-
-#: ../NmdcHub.cpp:295
-msgid "%1% (Nick unknown)"
-msgstr "%1% (невядомая мянушка)"
-
-#: ../NmdcHub.cpp:672
-msgid "Hub topic:"
-msgstr "Тэма асяродку:"
-
-#: ../ConnectionManager.cpp:179
-msgid "All download slots taken"
-msgstr "Усе шчыліны сьцягваньня занятыя"
-
-#: ../ConnectionManager.cpp:253
-msgid "Connectivity restored"
-msgstr "Злучэньне аднавілі"
-
-#: ../ConnectionManager.cpp:261
-msgid "Connectivity error: %1%"
-msgstr "Памылка злучэньня: %1%"
-
-#: ../BZUtils.cpp:33 ../BZUtils.cpp:54 ../BZUtils.cpp:62 ../ZUtils.cpp:37
-#: ../ZUtils.cpp:58 ../ZUtils.cpp:80 ../ZUtils.cpp:90
-msgid "Error during compression"
-msgstr "Не ўдалося сьціснуць"
-
-#: ../BZUtils.cpp:74 ../BZUtils.cpp:96 ../BZUtils.cpp:99
-#: ../CryptoManager.cpp:400 ../CryptoManager.cpp:419 ../CryptoManager.cpp:433
-#: ../ZUtils.cpp:104 ../ZUtils.cpp:127 ../ZUtils.cpp:137
-msgid "Error during decompression"
-msgstr "Не ўдалося распакаваць"
+#: ../Thread.cpp:34 ../Thread.cpp:42
+msgid "Unable to create thread"
+msgstr "Не ўдаецца стварыць ніць"
 
 #: ../UPnPManager.cpp:45
 msgid "No UPnP implementation available"
@@ -400,6 +604,14 @@ msgstr " Порт пошуку (%1% UDP)"
 msgid " DHT Port (%1% UDP)"
 msgstr " Порт DHT (%1% UDP)"
 
+#: ../UPnPManager.cpp:111
+#, fuzzy
+msgid ""
+"Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%, DHT: %4%), "
+"mapped using the %5% interface"
+msgstr ""
+"Адлюстравалі порты (TCP: %1%, UDP: %2%, TLS: %3%) з дапамогаю інтэрфэйсу %4%"
+
 #: ../UPnPManager.cpp:113 ../UPnPManager.cpp:115
 msgid ""
 "Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%), mapped "
@@ -427,45 +639,21 @@ msgstr "Не ўдалося зьнішчыць люстры портаў на і
 msgid "UPnP: %1%"
 msgstr "UPnP: %1%"
 
-#: ../ADLSearch.cpp:40
-msgid "<Enter string>"
-msgstr "<Упішыце радок>"
+#: ../UploadManager.cpp:133
+msgid "Connection already exists."
+msgstr "Злучэньне ўжо існуе."
 
-#: ../ADLSearch.cpp:487
-msgid "Discard"
-msgstr "Адкінуць"
+#: ../UploadManager.cpp:268
+msgid "Unable to send file %1%: %2%"
+msgstr "Не ўдаецца даслаць файл %1%: %2%"
 
-#: ../SSLSocket.cpp:160
-msgid "SSL Error: %1% (%2%, %3%)"
-msgstr "Памылка SSL: %1% (%2%, %3%)"
+#: ../UploadManager.cpp:555
+msgid "IPFilter: Blocked incoming connection to "
+msgstr "Сіта IP: забаранілі ўваходнае злучэньне з "
 
-#: ../DownloadManager.cpp:135
-msgid "IPFilter: Blocked outgoing connection to "
-msgstr "Сіта IP: забаранілі выходнае злучэньне з "
-
-#: ../DownloadManager.cpp:237
-msgid "Invalid size"
-msgstr "Хібны памер"
-
-#: ../DownloadManager.cpp:242
-msgid "Response does not match request"
-msgstr "Адказ не адпавядае запыту"
-
-#: ../DownloadManager.cpp:249
-msgid "Could not open target file: %1%"
-msgstr "Не ўдаецца адчыніць прызначаны файл: %1%"
-
-#: ../DownloadManager.cpp:328
-msgid "Full tree does not match TTH root"
-msgstr "Скарот (TTH) сьцягнутага не адпавядае скароту крыніцы"
-
-#: ../DownloadManager.cpp:393
-msgid "No slots available"
-msgstr "Няма даступных шчылінаў"
-
-#: ../DownloadManager.cpp:504
-msgid "%1%: File not available"
-msgstr "%1%: файл недаступны"
+#: ../UploadManager.cpp:625
+msgid "Disconnected user leaving the hub: %1%"
+msgstr "Карыстальнік адлучыўся і выходзіць з асяродку: %1%"
 
 #: ../UserConnection.cpp:53 ../UserConnection.cpp:68 ../UserConnection.cpp:145
 msgid "Invalid data"
@@ -475,239 +663,85 @@ msgstr "Хібныя зьвесткі"
 msgid "Non-UTF-8 data in an ADC connection"
 msgstr "Зьвесткі злучэньня ADC не ў кадоўцы UTF-8"
 
-#: ../Thread.cpp:34 ../Thread.cpp:42
-msgid "Unable to create thread"
-msgstr "Не ўдаецца стварыць ніць"
-
-#: ../DCPlusPlus.cpp:121
-msgid "Hash database"
-msgstr "База зьвестак скаротаў"
-
-#: ../DCPlusPlus.cpp:124
-msgid "Shared Files"
-msgstr "Абагуленыя файлы"
-
-#: ../DCPlusPlus.cpp:133
-msgid "Download Queue"
-msgstr "Чарга сьцягванага"
-
-#: ../DCPlusPlus.cpp:136
-msgid "Users"
-msgstr "Карыстальнікі"
-
-#: ../Util.cpp:654
+#: ../Util.cpp:681
 #, c-format
 msgid "%d B"
 msgstr "%d Б"
 
-#: ../Util.cpp:656
+#: ../Util.cpp:683
 #, c-format
 msgid "%.02f KiB"
 msgstr "%.02f КіБ"
 
-#: ../Util.cpp:658
+#: ../Util.cpp:683
+#, fuzzy, c-format
+msgid "%.02f KB"
+msgstr "%.02f КіБ"
+
+#: ../Util.cpp:685
 #, c-format
 msgid "%.02f MiB"
 msgstr "%.02f МіБ"
 
-#: ../Util.cpp:660
+#: ../Util.cpp:685
+#, fuzzy, c-format
+msgid "%.02f MB"
+msgstr "%.02f МіБ"
+
+#: ../Util.cpp:687
 #, c-format
 msgid "%.02f GiB"
 msgstr "%.02f ҐіБ"
 
-#: ../Util.cpp:662
+#: ../Util.cpp:687
+#, fuzzy, c-format
+msgid "%.02f GB"
+msgstr "%.02f ҐіБ"
+
+#: ../Util.cpp:689
 #, c-format
 msgid "%.02f TiB"
 msgstr "%.02f ТіБ"
 
-#: ../Util.cpp:664
+#: ../Util.cpp:689
+#, fuzzy, c-format
+msgid "%.02f TB"
+msgstr "%.02f ТіБ"
+
+#: ../Util.cpp:691
 #, c-format
 msgid "%.02f PiB"
 msgstr "%.02f ПіБ"
 
-#: ../Util.cpp:698
+#: ../Util.cpp:691
+#, fuzzy, c-format
+msgid "%.02f PB"
+msgstr "%.02f ПіБ"
+
+#: ../Util.cpp:725
 #, c-format
 msgid "%s B"
 msgstr "%s Б"
 
-#: ../Util.cpp:702
+#: ../Util.cpp:729
 #, c-format
 msgid "%'lld B"
 msgstr "%'lld Б"
-
-#: ../HttpConnection.cpp:166
-msgid "Endless redirection loop (%1%)"
-msgstr "Бясконцая пятля перанакіроўваньня (%1%)"
-
-#: ../ShareManager.cpp:446
-msgid "No directory specified"
-msgstr "Ня вызначылі каталёґ"
-
-#: ../ShareManager.cpp:450
-msgid "Directory is hidden"
-msgstr "Схаваны каталёґ"
-
-#: ../ShareManager.cpp:454
-msgid "The temporary download directory cannot be shared"
-msgstr "Нельга абагуляць часовы каталёґ"
-
-#: ../ShareManager.cpp:642
-msgid "Invalid file name found while hashing folder %1%"
-msgstr "Выявілі хібную назву файла, калі стваралі скароты ў каталёґу %1%"
-
-#: ../ShareManager.cpp:661
-msgid "Skip share file: %1% (Size: %2%)"
-msgstr "Не абагуляецца файл: %1% (памер: %2%)"
-
-#: ../ShareManager.cpp:682
-msgid "Skip share temp file: %1% (Size: %2%)"
-msgstr "Не абагуляецца часовы файл: %1% (памер: %2%)"
-
-#: ../ShareManager.cpp:772
-msgid ""
-"Duplicate file will not be shared: %1% (Size: %2% B) Dupe matched against: "
-"%3%"
-msgstr "Файл %1% (памер: %2% Б) — блізьнюк файла %3%"
-
-#: ../ShareManager.cpp:793
-msgid ""
-"File list refresh in progress, please wait for it to finish before trying to"
-" refresh again"
-msgstr ""
-"Сьпіс файлаў абнаўляецца. Пачакайце, пакуль ён абновіцца, каб паспрабаваць "
-"абнавіць ізноў."
-
-#: ../ShareManager.cpp:814
-msgid "File list refresh failed: %1%"
-msgstr "Не ўдалося абнавіць сьпіс файлаў: %1%"
-
-#: ../ShareManager.cpp:837
-msgid "File list refresh initiated"
-msgstr "Распачалі абнаўляць сьпіс файлаў"
-
-#: ../ShareManager.cpp:862
-msgid "File list refresh finished"
-msgstr "Сьпіс файлаў абнавілі"
-
-#: ../ShareManager.cpp:944
-msgid "File list %1% generated"
-msgstr "Стварылі сьпіс файлаў %1%"
-
-#: ../SettingsManager.cpp:182
-msgid "downloaded from"
-msgstr "сьцягнулі з"
-
-#: ../SettingsManager.cpp:521
-msgid "Invalid search type name"
-msgstr "Хібная назва віду пошуку"
-
-#: ../SettingsManager.cpp:525 ../SettingsManager.cpp:547
-msgid "This search type already exists"
-msgstr "Гэты від пошуку ўжо існуе"
-
-#: ../SettingsManager.cpp:579
-msgid "No such search type"
-msgstr "Такі від пошуку не існуе"
-
-#: ../SettingsManager.cpp:607 ../SettingsManager.cpp:612
-msgid "Error: setting not found!"
-msgstr "Памылка: не знайшлі налады!"
-
-#: ../SettingsManager.cpp:607
-msgid "Core setting "
-msgstr "Наладкі ядра"
-
-#: ../SettingsManager.cpp:612
-msgid "Change core setting "
-msgstr "Зьмяніць наладу асновы "
-
-#: ../SettingsManager.cpp:612
-msgid " to "
-msgstr " да "
-
-#: ../Socket.cpp:86
-#, c-format
-msgid "Unknown error: 0x%1$x"
-msgstr "Невядомая памылка: 0x%1$x"
-
-#: ../Socket.cpp:229 ../Socket.cpp:237 ../Socket.cpp:270 ../Socket.cpp:274
-#: ../Socket.cpp:298 ../Socket.cpp:313
-msgid "The socks server failed establish a connection"
-msgstr "Паслужніку Socks не ўдалося наладзіць злучэньне"
-
-#: ../Socket.cpp:302
-msgid "The socks server requires authentication"
-msgstr "Паслужнік SOCKS патрабуе апазнацца"
-
-#: ../Socket.cpp:316
-msgid "The socks server doesn't support login / password authentication"
-msgstr "Паслужнік SOCKS не падтрымвае апазнаваньня «ўліковае ймя — пароль»"
-
-#: ../Socket.cpp:330 ../Socket.cpp:334
-msgid "Socks server authentication failed (bad login / password?)"
-msgstr ""
-"Не ўдалося апазнацца на паслужніку SOCKS (кепскі пароль ці ўліковае ймя?)"
-
-#: ../Socket.cpp:471
-msgid ""
-"Failed to set up the socks server for UDP relay (check socks address and "
-"port)"
-msgstr ""
-"Не ўдалося наладзіць паслужнік SOCKS перасылаць UDP (спраўдзіце адрас і порт"
-" SOCKS)"
-
-#: ../CryptoManager.cpp:162
-msgid "No private key file chosen"
-msgstr "Не абралі файл асабістага ключа"
-
-#: ../CryptoManager.cpp:165
-msgid "No certificate file chosen"
-msgstr "Не абралі пасьведчаньня"
-
-#: ../CryptoManager.cpp:177
-msgid "Error generating certificate"
-msgstr "Не ўдалося стварыць пасьведчаньне"
-
-#: ../CryptoManager.cpp:240
-msgid "TLS disabled, no certificate file set"
-msgstr "TLS не задзейнічаны, файл пасьведчаньня ня вызначаны"
-
-#: ../CryptoManager.cpp:248
-msgid "Generated new TLS certificate"
-msgstr "Стварылі новае пасьведчаньне TLS"
-
-#: ../CryptoManager.cpp:250
-msgid "TLS disabled, failed to generate certificate: %1%"
-msgstr "Не ўдалося стварыць пасьведчаньне — TLS не задзейнічалі: %1%"
-
-#: ../CryptoManager.cpp:255 ../CryptoManager.cpp:259 ../CryptoManager.cpp:264
-#: ../CryptoManager.cpp:268
-msgid "Failed to load certificate file"
-msgstr "Не ўдалося прачытаць файл пасьведчаньня"
-
-#: ../CryptoManager.cpp:273 ../CryptoManager.cpp:277 ../CryptoManager.cpp:282
-#: ../CryptoManager.cpp:286
-msgid "Failed to load private key"
-msgstr "Не ўдалося прачытаць асабісты ключ"
-
-#: ../ChatMessage.cpp:33
-msgid "Sent "
-msgstr "Даслалі "
-
-#: ../Streams.h:141
-msgid "More bytes written than requested"
-msgstr "Запісалі байтаў болей за тое, колькі было трэба"
 
 #: ../MerkleCheckOutputStream.h:52 ../MerkleCheckOutputStream.h:112
 msgid "TTH inconsistency"
 msgstr "Разыходжаньне TTH"
 
+#: ../Streams.h:141
+msgid "More bytes written than requested"
+msgstr "Запісалі байтаў болей за тое, колькі было трэба"
+
 #~ msgid ""
-#~ "This hub is trying to use your client to spam %1%, please urge hub owner to "
-#~ "fix this"
+#~ "This hub is trying to use your client to spam %1%, please urge hub owner "
+#~ "to fix this"
 #~ msgstr ""
-#~ "This hub is trying to use your client to spam %1%, please urge hub owner to "
-#~ "fix this"
+#~ "This hub is trying to use your client to spam %1%, please urge hub owner "
+#~ "to fix this"
 
 #~ msgid "Error: segv parser :D"
 #~ msgstr "Error: segv parser :D"

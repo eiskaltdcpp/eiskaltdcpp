@@ -1,22 +1,407 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR EiskaltDC++ team
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Boris Pek <tehnick-8@yandex.ru>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: https://github.com/eiskaltdcpp/eiskaltdcpp/issues\n"
-"POT-Creation-Date: 2015-11-30 00:28+0300\n"
+"POT-Creation-Date: 2018-08-25 20:32+0300\n"
 "PO-Revision-Date: 2013-11-19 16:45+0000\n"
 "Last-Translator: Boris Pek <tehnick-8@yandex.ru>, 2017\n"
 "Language-Team: Turkish (https://www.transifex.com/tehnick/teams/11818/tr/)\n"
+"Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: tr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: ../ADLSearch.cpp:40
+msgid "<Enter string>"
+msgstr "<Metin gir>"
+
+#: ../ADLSearch.cpp:487
+msgid "Discard"
+msgstr "At"
+
+#: ../AdcHub.cpp:156
+msgid "%1% (%2%) has same CID {%3%} as %4% (%5%), ignoring"
+msgstr ""
+"%1% (%2%) unsurunun {%3%} CID değeri %4% (%5%) unsuruyla aynı, görmezden "
+"geliniyor"
+
+#: ../AdcHub.cpp:193 ../QueueManager.cpp:2209 ../Transfer.cpp:91
+msgid "%1%/s"
+msgstr "%1%/s"
+
+#: ../AdcHub.cpp:228
+msgid "Failed to negotiate base protocol"
+msgstr "Temel protokol görüşmesi başarısız oldu"
+
+#: ../AdcHub.cpp:234
+msgid ""
+"Hub probably uses an old version of ADC, please encourage the owner to "
+"upgrade"
+msgstr ""
+"Hub muhtemelen eski bir ADC sürümü kullanıyor, lütfen sahibini güncellemeye "
+"teşvik edin"
+
+#: ../AdcHub.cpp:305
+msgid "%1% was kicked by %2%: %3%"
+msgstr "%1%, %2% tarafından kovuldu: %3%"
+
+#: ../AdcHub.cpp:308
+msgid "%1% was kicked: %2%"
+msgstr "%1% kovuldu: %2%"
+
+#: ../AdcHub.cpp:694
+msgid "Not listening for connections - please restart %1%"
+msgstr "Bağlantılar dinlenilmiyor - lütfen %1% unsurunu tekrar başlatın"
+
+#: ../BZUtils.cpp:33 ../BZUtils.cpp:54 ../BZUtils.cpp:62 ../ZUtils.cpp:37
+#: ../ZUtils.cpp:58 ../ZUtils.cpp:80 ../ZUtils.cpp:90
+msgid "Error during compression"
+msgstr "Sıkıştırmada hata"
+
+#: ../BZUtils.cpp:74 ../BZUtils.cpp:96 ../BZUtils.cpp:99
+#: ../CryptoManager.cpp:405 ../CryptoManager.cpp:424 ../CryptoManager.cpp:438
+#: ../ZUtils.cpp:104 ../ZUtils.cpp:127 ../ZUtils.cpp:137
+msgid "Error during decompression"
+msgstr "Sıkıştırma açılmasında hata"
+
+#: ../BufferedSocket.cpp:153 ../BufferedSocket.cpp:169
+#: ../ConnectionManager.cpp:186 ../Socket.cpp:221
+msgid "Connection timeout"
+msgstr "Bağlantı zaman aşımı"
+
+#: ../BufferedSocket.cpp:184 ../SSLSocket.cpp:161
+msgid "Connection closed"
+msgstr "Bağlantı kesildi"
+
+#: ../BufferedSocket.cpp:275
+msgid "Maximum command length exceeded"
+msgstr "Azami komut boyutu aşıldı"
+
+#: ../BufferedSocket.cpp:461
+msgid "Disconnected"
+msgstr "Çevrimdışı"
+
+#: ../ChatMessage.cpp:33
+msgid "Sent "
+msgstr "Gönderildi"
+
+#: ../ClientManager.cpp:178 ../QueueManager.cpp:2180 ../QueueManager.cpp:2186
+#: ../QueueManager.cpp:2192 ../SearchManager.cpp:281 ../SearchManager.cpp:368
+#: ../SearchManager.cpp:370 ../Transfer.cpp:81 ../Transfer.cpp:85
+msgid "Offline"
+msgstr "Çevrimdışı"
+
+#: ../ConnectionManager.cpp:179
+msgid "All download slots taken"
+msgstr "Tüm indirme olukları meşgul"
+
+#: ../ConnectionManager.cpp:253
+msgid "Connectivity restored"
+msgstr "Bağlantı onarıldı"
+
+#: ../ConnectionManager.cpp:261
+msgid "Connectivity error: %1%"
+msgstr "Bağlantı hatası: %1%"
+
+#: ../ConnectivityManager.cpp:80
+msgid "Determining the best connectivity settings..."
+msgstr "En iyi bağlanabilirlik ayarları belirleniyor..."
+
+#: ../ConnectivityManager.cpp:85
+msgid ""
+"Unable to open %1% port(s); connectivity settings must be configured manually"
+msgstr "%1% port açılamadı, bağlantı ayarları elle ayarlanmalıdır"
+
+#: ../ConnectivityManager.cpp:95
+msgid ""
+"Public IP address detected, selecting active mode with direct connection"
+msgstr ""
+"Kamu IP adresi tespit edildi, doğrudan bağlantı ile etkin kip seçiliyor"
+
+#: ../ConnectivityManager.cpp:102
+msgid ""
+"Local network with possible NAT detected, trying to map the ports using "
+"UPnP..."
+msgstr ""
+"Muhtemel NAT ve yerel ağ tespit edildi, portlar UPnP ile haritalanmaya "
+"çalışılıyor..."
+
+#: ../ConnectivityManager.cpp:130
+msgid ""
+"Automatic setup of active mode has failed. You may want to set up your "
+"connection manually for better connectivity"
+msgstr ""
+"Etkin kipin otomatik kurulması başarısız oldu. Daha iyi bağlantı için "
+"bağlantınızı elle ayarlamak isteyebilirsiniz"
+
+#: ../ConnectivityManager.cpp:142
+msgid "Transfer (TCP)"
+msgstr "Aktarım (TCP)"
+
+#: ../ConnectivityManager.cpp:148
+msgid "Search (UDP)"
+msgstr "Ara (UDP)"
+
+#: ../ConnectivityManager.cpp:154
+msgid "DHT (UDP)"
+msgstr "DHT (UDP)"
+
+#: ../ConnectivityManager.cpp:169
+msgid "Connectivity: "
+msgstr "Bağlantı:"
+
+#: ../CryptoManager.cpp:167
+msgid "No private key file chosen"
+msgstr "Hiçbir özel anahtar seçilmedi"
+
+#: ../CryptoManager.cpp:170
+msgid "No certificate file chosen"
+msgstr "Hiçbir sertifika dosyası seçilmedi"
+
+#: ../CryptoManager.cpp:182
+msgid "Error generating certificate"
+msgstr "Sertifikanın oluşturulmasında hata"
+
+#: ../CryptoManager.cpp:245
+msgid "TLS disabled, no certificate file set"
+msgstr "TLS devre dışı, hiçbir sertifika dosyası ayarlanmadı"
+
+#: ../CryptoManager.cpp:253
+msgid "Generated new TLS certificate"
+msgstr "Yeni TLS sertifikası oluştur"
+
+#: ../CryptoManager.cpp:255
+msgid "TLS disabled, failed to generate certificate: %1%"
+msgstr "TLS devre dışı, sertifika oluşturulması başarısız oldu: %1%"
+
+#: ../CryptoManager.cpp:260 ../CryptoManager.cpp:264 ../CryptoManager.cpp:269
+#: ../CryptoManager.cpp:273
+msgid "Failed to load certificate file"
+msgstr "Sertifika dosyasının yüklenmesi başarısız oldu"
+
+#: ../CryptoManager.cpp:278 ../CryptoManager.cpp:282 ../CryptoManager.cpp:287
+#: ../CryptoManager.cpp:291
+msgid "Failed to load private key"
+msgstr "Özel anahtarın yüklenmesi başarısız oldu"
+
+#: ../DCPlusPlus.cpp:121
+msgid "Hash database"
+msgstr "Karma değer veritabanı"
+
+#: ../DCPlusPlus.cpp:124
+msgid "Shared Files"
+msgstr "Paylaşılan Dosyalar"
+
+#: ../DCPlusPlus.cpp:133
+msgid "Download Queue"
+msgstr "İndirme Kuyruğu"
+
+#: ../DCPlusPlus.cpp:136
+msgid "Users"
+msgstr "Kullanıcılar"
+
+#: ../DirectoryListing.cpp:209
+msgid "Directory missing name attribute"
+msgstr "Klasörde eksik isim özniteliği"
+
+#: ../DownloadManager.cpp:135
+msgid "IPFilter: Blocked outgoing connection to "
+msgstr "IPFiltresi: şuraya giden bağlantı engellendi:"
+
+#: ../DownloadManager.cpp:237
+msgid "Invalid size"
+msgstr "Geçersiz boyut"
+
+#: ../DownloadManager.cpp:242
+msgid "Response does not match request"
+msgstr "Cevap taleple eşleşmiyor"
+
+#: ../DownloadManager.cpp:249
+msgid "Could not open target file: %1%"
+msgstr "Hedef dosya açılamadı: %1%"
+
+#: ../DownloadManager.cpp:328
+msgid "Full tree does not match TTH root"
+msgstr "Tüm ağaç TTH köküyle eşleşmiyor"
+
+#: ../DownloadManager.cpp:393
+msgid "No slots available"
+msgstr "Hiçbir mevcut oluk yok"
+
+#: ../DownloadManager.cpp:504
+msgid "%1%: File not available"
+msgstr "%1%: dosya mevcut değil"
+
+#: ../FavoriteManager.cpp:429
+msgid "Kick user(s)"
+msgstr "Kullanıcıyı kov"
+
+#: ../FavoriteManager.cpp:433
+msgid "Redirect user(s)"
+msgstr "Kullanıcıyı yeniden yönlendir"
+
+#: ../FavoriteManager.cpp:489
+msgid "Auto-connect group (converted)"
+msgstr "Otomatik bağlantı grubu (dönüştürülmüş)"
+
+#: ../HashManager.cpp:218 ../HashManager.cpp:418
+msgid "Hashing failed: %1%"
+msgstr "Karma değeri elde edilmesi başarısız oldu: %1%"
+
+#: ../HashManager.cpp:225
+msgid "Finished hashing: %1% (%2% at %3%/s)"
+msgstr "Karma değeri elde edilmesi tamamlandı: %1% (%2% şu hızda: %3%/s)"
+
+#: ../HashManager.cpp:228
+msgid "Finished hashing: %1% (%2%)"
+msgstr "Karma değeri hesaplanması tamamlandı: %1% (%2%)"
+
+#: ../HashManager.cpp:231
+msgid "Finished hashing: %1%"
+msgstr "Karma değeri hesaplanması tamamlandı: %1%"
+
+#: ../HashManager.cpp:260 ../HashManager.cpp:474
+msgid "Error saving hash data: %1%"
+msgstr "Karma değer verileri kaydında hata: %1%"
+
+#: ../HashManager.cpp:273
+msgid "Unable to read hash data file"
+msgstr "Karma değer veri dosyası okunamadı"
+
+#: ../HashManager.cpp:606
+msgid "Error creating hash data file: %1%"
+msgstr "Karma değer veri dosyası oluşturulmasında hata: %1%"
+
+#: ../HashManager.cpp:958
+msgid "Hash database rebuilt"
+msgstr "Karma değer veritabanı yeniden derlendi"
+
+#: ../HashManager.cpp:1052
+msgid ""
+"%1% not shared; calculated CRC32 does not match the one found in SFV file."
+msgstr "%1% paylaşılmıyor, hesaplanan CRC32 SFV dosyasındakiyle eşleşmiyor."
+
+#: ../HashManager.cpp:1057
+msgid "Error hashing %1%: %2%"
+msgstr "%1% karma değeri hesaplanmasında hata: %2%"
+
+#: ../HttpConnection.cpp:166
+msgid "Endless redirection loop (%1%)"
+msgstr "Sonsuz yeniden yönlendirme döngüsü (%1%)"
+
+#: ../NmdcHub.cpp:295
+msgid "%1% (Nick unknown)"
+msgstr "%1% (bilinmeyen rumuz)"
+
+#: ../NmdcHub.cpp:672
+msgid "Hub topic:"
+msgstr "Hub konusu:"
+
+#: ../QueueManager.cpp:252
+msgid "No needed part"
+msgstr "Hiçbir ihtiyaç duyulan kısım yok"
+
+#: ../QueueManager.cpp:642
+msgid "Searching TTH alternates for: %1%"
+msgstr "Şunun için TTH alternatifleri aranıyor: %1%"
+
+#: ../QueueManager.cpp:693 ../QueueManager.cpp:754
+msgid "A file with the same hash already exists in your share"
+msgstr "Aynı karma değerli bir dosya zaten paylaşımınızda mevcut"
+
+#: ../QueueManager.cpp:719 ../QueueManager.cpp:796
+msgid "This file is already queued"
+msgstr "Bu dosya zaten kuyrukta"
+
+#: ../QueueManager.cpp:732 ../QueueManager.cpp:808
+msgid "A file with a different size already exists in the queue"
+msgstr "Farklı boyutlu bir dosya zaten kuyrukta mevcut"
+
+#: ../QueueManager.cpp:736
+msgid "A file with different tth root already exists in the queue"
+msgstr "Farklı tth köklü bir dosya zaten kuyrukta mevcut"
+
+#: ../QueueManager.cpp:748
+msgid "You're trying to download from yourself!"
+msgstr "Kendinizden indirmeye çalışıyorsunuz!"
+
+#: ../QueueManager.cpp:811
+msgid "A file with a different TTH root already exists in the queue"
+msgstr "Farklı TTH köklü bir dosya zaten kuyrukta mevcut"
+
+#: ../QueueManager.cpp:815
+msgid "This file has already finished downloading"
+msgstr "Bu dosyanın indirilmesi zaten tamamlandı"
+
+#: ../QueueManager.cpp:852 ../QueueManager.cpp:861
+msgid "Target filename too long"
+msgstr "Hedef dosya ismi çok uzun"
+
+#: ../QueueManager.cpp:857 ../QueueManager.cpp:865
+msgid ""
+"Invalid target file (missing directory, check default download directory "
+"setting)"
+msgstr ""
+"Geçersiz hedef dosya (eksik klasör, varsayılan indirme klasörü ayarını "
+"kontrol edin)"
+
+#: ../QueueManager.cpp:873
+msgid "File already exists at the target location"
+msgstr "Dosya hedef konumda zaten mevcut"
+
+#: ../QueueManager.cpp:886 ../QueueManager.cpp:890
+msgid "Duplicate source: %1%"
+msgstr "Çift kaynak: %1%"
+
+#: ../QueueManager.cpp:1157
+msgid "Target removed"
+msgstr "Hedef kaldırıldı"
+
+#: ../QueueManager.cpp:1165
+msgid "Target file is missing or wrong size"
+msgstr "Hedef dosya eksik ya da boyutu yanlış"
+
+#: ../QueueManager.cpp:1214
+msgid "Unable to move %1% to %2% (%3%); renamed to %4%"
+msgstr "%1%, %2% (%3%) konumuna taşınamadı; %4% olarak yeniden adlandırıldı"
+
+#: ../QueueManager.cpp:1217
+msgid "Unable to move %1% to %2% (%3%) nor to rename to %4% (%5%)"
+msgstr ""
+"%1%, %2% (%3%) konumuna taşınamadı ve %4% (%5%) olarak yeniden "
+"adlandırılamadı"
+
+#: ../QueueManager.cpp:1412
+msgid "Unable to open filelist: %1%"
+msgstr "Dosya listesi açılamadı: %1%"
+
+#: ../QueueManager.cpp:1435
+msgid "%1%: Matched %2% file"
+msgstr "%1%: %2% dosya ile eşleşti"
+
+#: ../QueueManager.cpp:1805
+msgid "Target path for this item is not available: %1%; pause this queue item."
+msgstr ""
+"Bu unsur için hedef yol mevcut değildir: %1%; bu kuyruk unsurunu duraklat."
+
+#: ../QueueManager.cpp:2044 ../QueueManager.cpp:2053
+msgid "CRC32 inconsistency (SFV-Check)"
+msgstr "CRC32 tutarsızlığı (SFV-Check)"
+
+#: ../QueueManager.cpp:2234
+msgid "%1% : Matched %2% files"
+msgstr "%1% : %2% dosya ile eşleşti"
+
+#: ../SSLSocket.cpp:167
+msgid "SSL Error: %1% (%2%, %3%)"
+msgstr "SSL Hatası: %1% (%2%, %3%)"
 
 #: ../SearchManager.cpp:36
 msgid "Any"
@@ -66,483 +451,37 @@ msgstr "Arama tekrar etkinleştirildi"
 msgid "Search disabled: %1%"
 msgstr "Arama devre dışı bırakıldı: %1%"
 
-#: ../SearchManager.cpp:281 ../SearchManager.cpp:368 ../SearchManager.cpp:370
-#: ../Transfer.cpp:81 ../Transfer.cpp:85 ../QueueManager.cpp:2171
-#: ../QueueManager.cpp:2177 ../QueueManager.cpp:2183 ../ClientManager.cpp:178
-msgid "Offline"
-msgstr "Çevrimdışı"
-
-#: ../HashManager.cpp:218 ../HashManager.cpp:418
-msgid "Hashing failed: %1%"
-msgstr "Karma değeri elde edilmesi başarısız oldu: %1%"
-
-#: ../HashManager.cpp:225
-msgid "Finished hashing: %1% (%2% at %3%/s)"
-msgstr "Karma değeri elde edilmesi tamamlandı: %1% (%2% şu hızda: %3%/s)"
-
-#: ../HashManager.cpp:228
-msgid "Finished hashing: %1% (%2%)"
-msgstr "Karma değeri hesaplanması tamamlandı: %1% (%2%)"
-
-#: ../HashManager.cpp:231
-msgid "Finished hashing: %1%"
-msgstr "Karma değeri hesaplanması tamamlandı: %1%"
-
-#: ../HashManager.cpp:260 ../HashManager.cpp:474
-msgid "Error saving hash data: %1%"
-msgstr "Karma değer verileri kaydında hata: %1%"
-
-#: ../HashManager.cpp:273
-msgid "Unable to read hash data file"
-msgstr "Karma değer veri dosyası okunamadı"
-
-#: ../HashManager.cpp:606
-msgid "Error creating hash data file: %1%"
-msgstr "Karma değer veri dosyası oluşturulmasında hata: %1%"
-
-#: ../HashManager.cpp:958
-msgid "Hash database rebuilt"
-msgstr "Karma değer veritabanı yeniden derlendi"
-
-#: ../HashManager.cpp:1052
-msgid ""
-"%1% not shared; calculated CRC32 does not match the one found in SFV file."
-msgstr "%1% paylaşılmıyor, hesaplanan CRC32 SFV dosyasındakiyle eşleşmiyor."
-
-#: ../HashManager.cpp:1057
-msgid "Error hashing %1%: %2%"
-msgstr "%1% karma değeri hesaplanmasında hata: %2%"
-
-#: ../Transfer.cpp:91 ../QueueManager.cpp:2200 ../AdcHub.cpp:193
-msgid "%1%/s"
-msgstr "%1%/s"
-
-#: ../ConnectivityManager.cpp:80
-msgid "Determining the best connectivity settings..."
-msgstr "En iyi bağlanabilirlik ayarları belirleniyor..."
-
-#: ../ConnectivityManager.cpp:85
-msgid ""
-"Unable to open %1% port(s); connectivity settings must be configured "
-"manually"
-msgstr "%1% port açılamadı, bağlantı ayarları elle ayarlanmalıdır"
-
-#: ../ConnectivityManager.cpp:95
-msgid ""
-"Public IP address detected, selecting active mode with direct connection"
-msgstr ""
-"Kamu IP adresi tespit edildi, doğrudan bağlantı ile etkin kip seçiliyor"
-
-#: ../ConnectivityManager.cpp:102
-msgid ""
-"Local network with possible NAT detected, trying to map the ports using "
-"UPnP..."
-msgstr ""
-"Muhtemel NAT ve yerel ağ tespit edildi, portlar UPnP ile haritalanmaya "
-"çalışılıyor..."
-
-#: ../ConnectivityManager.cpp:130
-msgid ""
-"Automatic setup of active mode has failed. You may want to set up your "
-"connection manually for better connectivity"
-msgstr ""
-"Etkin kipin otomatik kurulması başarısız oldu. Daha iyi bağlantı için "
-"bağlantınızı elle ayarlamak isteyebilirsiniz"
-
-#: ../ConnectivityManager.cpp:142
-msgid "Transfer (TCP)"
-msgstr "Aktarım (TCP)"
-
-#: ../ConnectivityManager.cpp:148
-msgid "Search (UDP)"
-msgstr "Ara (UDP)"
-
-#: ../ConnectivityManager.cpp:154
-msgid "DHT (UDP)"
-msgstr "DHT (UDP)"
-
-#: ../ConnectivityManager.cpp:169
-msgid "Connectivity: "
-msgstr "Bağlantı:"
-
-#: ../BufferedSocket.cpp:153 ../BufferedSocket.cpp:169
-#: ../ConnectionManager.cpp:186 ../Socket.cpp:221
-msgid "Connection timeout"
-msgstr "Bağlantı zaman aşımı"
-
-#: ../BufferedSocket.cpp:184 ../SSLSocket.cpp:154
-msgid "Connection closed"
-msgstr "Bağlantı kesildi"
-
-#: ../BufferedSocket.cpp:275
-msgid "Maximum command length exceeded"
-msgstr "Azami komut boyutu aşıldı"
-
-#: ../BufferedSocket.cpp:461
-msgid "Disconnected"
-msgstr "Çevrimdışı"
-
-#: ../UploadManager.cpp:133
-msgid "Connection already exists."
-msgstr "Bağlantı zaten mevcut."
-
-#: ../UploadManager.cpp:268
-msgid "Unable to send file %1%: %2%"
-msgstr "%1% dosyası gönderilemedi: %2%"
-
-#: ../UploadManager.cpp:555
-msgid "IPFilter: Blocked incoming connection to "
-msgstr "IPFiltresi: şuraya gelen bağlantı engellendi:"
-
-#: ../UploadManager.cpp:625
-msgid "Disconnected user leaving the hub: %1%"
-msgstr "Bağlantı kesildi, kullanıcı hub'dan çıkıyor: %1%"
-
-#: ../DirectoryListing.cpp:209
-msgid "Directory missing name attribute"
-msgstr "Klasörde eksik isim özniteliği"
-
-#: ../QueueManager.cpp:243
-msgid "No needed part"
-msgstr "Hiçbir ihtiyaç duyulan kısım yok"
-
-#: ../QueueManager.cpp:633
-msgid "Searching TTH alternates for: %1%"
-msgstr "Şunun için TTH alternatifleri aranıyor: %1%"
-
-#: ../QueueManager.cpp:684 ../QueueManager.cpp:745
-msgid "A file with the same hash already exists in your share"
-msgstr "Aynı karma değerli bir dosya zaten paylaşımınızda mevcut"
-
-#: ../QueueManager.cpp:710 ../QueueManager.cpp:787
-msgid "This file is already queued"
-msgstr "Bu dosya zaten kuyrukta"
-
-#: ../QueueManager.cpp:723 ../QueueManager.cpp:799
-msgid "A file with a different size already exists in the queue"
-msgstr "Farklı boyutlu bir dosya zaten kuyrukta mevcut"
-
-#: ../QueueManager.cpp:727
-msgid "A file with different tth root already exists in the queue"
-msgstr "Farklı tth köklü bir dosya zaten kuyrukta mevcut"
-
-#: ../QueueManager.cpp:739
-msgid "You're trying to download from yourself!"
-msgstr "Kendinizden indirmeye çalışıyorsunuz!"
-
-#: ../QueueManager.cpp:802
-msgid "A file with a different TTH root already exists in the queue"
-msgstr "Farklı TTH köklü bir dosya zaten kuyrukta mevcut"
-
-#: ../QueueManager.cpp:806
-msgid "This file has already finished downloading"
-msgstr "Bu dosyanın indirilmesi zaten tamamlandı"
-
-#: ../QueueManager.cpp:843 ../QueueManager.cpp:852
-msgid "Target filename too long"
-msgstr "Hedef dosya ismi çok uzun"
-
-#: ../QueueManager.cpp:848 ../QueueManager.cpp:856
-msgid ""
-"Invalid target file (missing directory, check default download directory "
-"setting)"
-msgstr ""
-"Geçersiz hedef dosya (eksik klasör, varsayılan indirme klasörü ayarını "
-"kontrol edin)"
-
-#: ../QueueManager.cpp:864
-msgid "File already exists at the target location"
-msgstr "Dosya hedef konumda zaten mevcut"
-
-#: ../QueueManager.cpp:877 ../QueueManager.cpp:881
-msgid "Duplicate source: %1%"
-msgstr "Çift kaynak: %1%"
-
-#: ../QueueManager.cpp:1148
-msgid "Target removed"
-msgstr "Hedef kaldırıldı"
-
-#: ../QueueManager.cpp:1156
-msgid "Target file is missing or wrong size"
-msgstr "Hedef dosya eksik ya da boyutu yanlış"
-
-#: ../QueueManager.cpp:1205
-msgid "Unable to move %1% to %2% (%3%); renamed to %4%"
-msgstr "%1%, %2% (%3%) konumuna taşınamadı; %4% olarak yeniden adlandırıldı"
-
-#: ../QueueManager.cpp:1208
-msgid "Unable to move %1% to %2% (%3%) nor to rename to %4% (%5%)"
-msgstr ""
-"%1%, %2% (%3%) konumuna taşınamadı ve %4% (%5%) olarak yeniden "
-"adlandırılamadı"
-
-#: ../QueueManager.cpp:1403
-msgid "Unable to open filelist: %1%"
-msgstr "Dosya listesi açılamadı: %1%"
-
-#: ../QueueManager.cpp:1426
-msgid "%1%: Matched %2% file"
-msgstr "%1%: %2% dosya ile eşleşti"
-
-#: ../QueueManager.cpp:1796
-msgid ""
-"Target path for this item is not available: %1%; pause this queue item."
-msgstr ""
-"Bu unsur için hedef yol mevcut değildir: %1%; bu kuyruk unsurunu duraklat."
-
-#: ../QueueManager.cpp:2035 ../QueueManager.cpp:2044
-msgid "CRC32 inconsistency (SFV-Check)"
-msgstr "CRC32 tutarsızlığı (SFV-Check)"
-
-#: ../QueueManager.cpp:2225
-msgid "%1% : Matched %2% files"
-msgstr "%1% : %2% dosya ile eşleşti"
-
-#: ../AdcHub.cpp:156
-msgid "%1% (%2%) has same CID {%3%} as %4% (%5%), ignoring"
-msgstr ""
-"%1% (%2%) unsurunun {%3%} CID değeri %4% (%5%) unsuruyla aynı, görmezden "
-"geliniyor"
-
-#: ../AdcHub.cpp:228
-msgid "Failed to negotiate base protocol"
-msgstr "Temel protokol görüşmesi başarısız oldu"
-
-#: ../AdcHub.cpp:234
-msgid ""
-"Hub probably uses an old version of ADC, please encourage the owner to "
-"upgrade"
-msgstr ""
-"Hub muhtemelen eski bir ADC sürümü kullanıyor, lütfen sahibini güncellemeye "
-"teşvik edin"
-
-#: ../AdcHub.cpp:305
-msgid "%1% was kicked by %2%: %3%"
-msgstr "%1%, %2% tarafından kovuldu: %3%"
-
-#: ../AdcHub.cpp:308
-msgid "%1% was kicked: %2%"
-msgstr "%1% kovuldu: %2%"
-
-#: ../AdcHub.cpp:694
-msgid "Not listening for connections - please restart %1%"
-msgstr "Bağlantılar dinlenilmiyor - lütfen %1% unsurunu tekrar başlatın"
-
-#: ../FavoriteManager.cpp:429
-msgid "Kick user(s)"
-msgstr "Kullanıcıyı kov"
-
-#: ../FavoriteManager.cpp:433
-msgid "Redirect user(s)"
-msgstr "Kullanıcıyı yeniden yönlendir"
-
-#: ../FavoriteManager.cpp:489
-msgid "Auto-connect group (converted)"
-msgstr "Otomatik bağlantı grubu (dönüştürülmüş)"
-
-#: ../NmdcHub.cpp:295
-msgid "%1% (Nick unknown)"
-msgstr "%1% (bilinmeyen rumuz)"
-
-#: ../NmdcHub.cpp:672
-msgid "Hub topic:"
-msgstr "Hub konusu:"
-
-#: ../ConnectionManager.cpp:179
-msgid "All download slots taken"
-msgstr "Tüm indirme olukları meşgul"
-
-#: ../ConnectionManager.cpp:253
-msgid "Connectivity restored"
-msgstr "Bağlantı onarıldı"
-
-#: ../ConnectionManager.cpp:261
-msgid "Connectivity error: %1%"
-msgstr "Bağlantı hatası: %1%"
-
-#: ../BZUtils.cpp:33 ../BZUtils.cpp:54 ../BZUtils.cpp:62 ../ZUtils.cpp:37
-#: ../ZUtils.cpp:58 ../ZUtils.cpp:80 ../ZUtils.cpp:90
-msgid "Error during compression"
-msgstr "Sıkıştırmada hata"
-
-#: ../BZUtils.cpp:74 ../BZUtils.cpp:96 ../BZUtils.cpp:99
-#: ../CryptoManager.cpp:400 ../CryptoManager.cpp:419 ../CryptoManager.cpp:433
-#: ../ZUtils.cpp:104 ../ZUtils.cpp:127 ../ZUtils.cpp:137
-msgid "Error during decompression"
-msgstr "Sıkıştırma açılmasında hata"
-
-#: ../UPnPManager.cpp:45
-msgid "No UPnP implementation available"
-msgstr "Hiçbir UPnP desteği bulunamadı"
-
-#: ../UPnPManager.cpp:50
-msgid "Another UPnP port mapping attempt is in progress..."
-msgstr "Başka bir UPnP haritalama teşebbüsü sürmektedir..."
-
-#: ../UPnPManager.cpp:82
-msgid "Failed to initialize the %1% interface"
-msgstr "%1% arayüzü başlatılamadı."
-
-#: ../UPnPManager.cpp:86
-msgid " Transfer Port (%1% TCP)"
-msgstr " Aktarım Portu (%1% TCP)"
-
-#: ../UPnPManager.cpp:87 ../UPnPManager.cpp:92 ../UPnPManager.cpp:97
-#: ../UPnPManager.cpp:102
-msgid "The %1% interface has failed to map the %2% %3% port"
-msgstr "%1% arayüzü %2% %3% portunu haritalamayı başaramadı"
-
-#: ../UPnPManager.cpp:91
-msgid " Encrypted Transfer Port (%1% TCP)"
-msgstr "Şifrelenmiş Aktarım Portu (%1% TCP)"
-
-#: ../UPnPManager.cpp:96
-msgid " Search Port (%1% UDP)"
-msgstr "Arama Portu (%1% UDP)"
-
-#: ../UPnPManager.cpp:101
-msgid " DHT Port (%1% UDP)"
-msgstr "DHT Portu (%1% UDP)"
-
-#: ../UPnPManager.cpp:113 ../UPnPManager.cpp:115
-msgid ""
-"Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%), mapped "
-"using the %4% interface"
-msgstr ""
-"Başarıyla port haritalama yapıldı (TCP: %1%, UDP: %2%, TLS: %3%), %4% "
-"arayüzü kullanılarak haritalandı"
-
-#: ../UPnPManager.cpp:127
-msgid "Failed to get external IP"
-msgstr "Harici IP alımı başarısız oldu"
-
-#: ../UPnPManager.cpp:137
-msgid "Failed to create port mappings"
-msgstr "Port haritalaması başarısız oldu"
-
-#: ../UPnPManager.cpp:146
-msgid "Successfully removed port mappings with the %1% interface"
-msgstr "%1% arayüzündeki port haritalaması başarıyla kaldırıldı"
-
-#: ../UPnPManager.cpp:147
-msgid "Failed to remove port mappings with the %1% interface"
-msgstr "%1% arayüzündeki port haritalamasının kaldırılması başarısız oldu"
-
-#: ../UPnPManager.cpp:152
-msgid "UPnP: %1%"
-msgstr "UPnP: %1%"
-
-#: ../ADLSearch.cpp:40
-msgid "<Enter string>"
-msgstr "<Metin gir>"
-
-#: ../ADLSearch.cpp:487
-msgid "Discard"
-msgstr "At"
-
-#: ../SSLSocket.cpp:160
-msgid "SSL Error: %1% (%2%, %3%)"
-msgstr "SSL Hatası: %1% (%2%, %3%)"
-
-#: ../DownloadManager.cpp:135
-msgid "IPFilter: Blocked outgoing connection to "
-msgstr "IPFiltresi: şuraya giden bağlantı engellendi:"
-
-#: ../DownloadManager.cpp:237
-msgid "Invalid size"
-msgstr "Geçersiz boyut"
-
-#: ../DownloadManager.cpp:242
-msgid "Response does not match request"
-msgstr "Cevap taleple eşleşmiyor"
-
-#: ../DownloadManager.cpp:249
-msgid "Could not open target file: %1%"
-msgstr "Hedef dosya açılamadı: %1%"
-
-#: ../DownloadManager.cpp:328
-msgid "Full tree does not match TTH root"
-msgstr "Tüm ağaç TTH köküyle eşleşmiyor"
-
-#: ../DownloadManager.cpp:393
-msgid "No slots available"
-msgstr "Hiçbir mevcut oluk yok"
-
-#: ../DownloadManager.cpp:504
-msgid "%1%: File not available"
-msgstr "%1%: dosya mevcut değil"
-
-#: ../UserConnection.cpp:53 ../UserConnection.cpp:68 ../UserConnection.cpp:145
-msgid "Invalid data"
-msgstr "Geçersiz veri"
-
-#: ../UserConnection.cpp:59
-msgid "Non-UTF-8 data in an ADC connection"
-msgstr "ADC bağlantısında UTF-8 olmayan veri"
-
-#: ../Thread.cpp:34 ../Thread.cpp:42
-msgid "Unable to create thread"
-msgstr "İş parçacığı oluşturulamıyor"
-
-#: ../DCPlusPlus.cpp:121
-msgid "Hash database"
-msgstr "Karma değer veritabanı"
-
-#: ../DCPlusPlus.cpp:124
-msgid "Shared Files"
-msgstr "Paylaşılan Dosyalar"
-
-#: ../DCPlusPlus.cpp:133
-msgid "Download Queue"
-msgstr "İndirme Kuyruğu"
-
-#: ../DCPlusPlus.cpp:136
-msgid "Users"
-msgstr "Kullanıcılar"
-
-#: ../Util.cpp:654
-#, c-format
-msgid "%d B"
-msgstr "%d B"
-
-#: ../Util.cpp:656
-#, c-format
-msgid "%.02f KiB"
-msgstr "%.02f KiB"
-
-#: ../Util.cpp:658
-#, c-format
-msgid "%.02f MiB"
-msgstr "%.02f MiB"
-
-#: ../Util.cpp:660
-#, c-format
-msgid "%.02f GiB"
-msgstr "%.02f GiB"
-
-#: ../Util.cpp:662
-#, c-format
-msgid "%.02f TiB"
-msgstr "%.02f TiB"
-
-#: ../Util.cpp:664
-#, c-format
-msgid "%.02f PiB"
-msgstr "%.02f PiB"
-
-#: ../Util.cpp:698
-#, c-format
-msgid "%s B"
-msgstr "%s B"
-
-#: ../Util.cpp:702
-#, c-format
-msgid "%'lld B"
-msgstr "%'lld B"
-
-#: ../HttpConnection.cpp:166
-msgid "Endless redirection loop (%1%)"
-msgstr "Sonsuz yeniden yönlendirme döngüsü (%1%)"
+#: ../SettingsManager.cpp:182
+msgid "downloaded from"
+msgstr "şundan indirildi"
+
+#: ../SettingsManager.cpp:523
+msgid "Invalid search type name"
+msgstr "Geçersiz arama türü ismi"
+
+#: ../SettingsManager.cpp:527 ../SettingsManager.cpp:549
+msgid "This search type already exists"
+msgstr "Bu arama türü zaten mevcuttur"
+
+#: ../SettingsManager.cpp:581
+msgid "No such search type"
+msgstr "Böyle bir arama türü yoktur"
+
+#: ../SettingsManager.cpp:609 ../SettingsManager.cpp:614
+msgid "Error: setting not found!"
+msgstr "Hata: ayar bulunamadı!"
+
+#: ../SettingsManager.cpp:609
+msgid "Core setting "
+msgstr "Çekirdek ayarı"
+
+#: ../SettingsManager.cpp:614
+msgid "Change core setting "
+msgstr "Çekirdek ayarını değiştir"
+
+#: ../SettingsManager.cpp:614
+msgid " to "
+msgstr " şuna"
 
 #: ../ShareManager.cpp:446
 msgid "No directory specified"
@@ -578,8 +517,8 @@ msgstr ""
 
 #: ../ShareManager.cpp:793
 msgid ""
-"File list refresh in progress, please wait for it to finish before trying to"
-" refresh again"
+"File list refresh in progress, please wait for it to finish before trying to "
+"refresh again"
 msgstr ""
 "Dosya listesinin tazelenmesi sürmektedir, tekrar tazelemeden lütfen bu "
 "işlemin bitmesini bekleyin"
@@ -599,38 +538,6 @@ msgstr "Dosya listesinin tazelenmesi tamamlandı"
 #: ../ShareManager.cpp:944
 msgid "File list %1% generated"
 msgstr "%1% dosya listesi oluşturuldu"
-
-#: ../SettingsManager.cpp:182
-msgid "downloaded from"
-msgstr "şundan indirildi"
-
-#: ../SettingsManager.cpp:521
-msgid "Invalid search type name"
-msgstr "Geçersiz arama türü ismi"
-
-#: ../SettingsManager.cpp:525 ../SettingsManager.cpp:547
-msgid "This search type already exists"
-msgstr "Bu arama türü zaten mevcuttur"
-
-#: ../SettingsManager.cpp:579
-msgid "No such search type"
-msgstr "Böyle bir arama türü yoktur"
-
-#: ../SettingsManager.cpp:607 ../SettingsManager.cpp:612
-msgid "Error: setting not found!"
-msgstr "Hata: ayar bulunamadı!"
-
-#: ../SettingsManager.cpp:607
-msgid "Core setting "
-msgstr "Çekirdek ayarı"
-
-#: ../SettingsManager.cpp:612
-msgid "Change core setting "
-msgstr "Çekirdek ayarını değiştir"
-
-#: ../SettingsManager.cpp:612
-msgid " to "
-msgstr " şuna"
 
 #: ../Socket.cpp:86
 #, c-format
@@ -665,58 +572,183 @@ msgstr ""
 "UDP geçişi için SOCKS sunucu kurulumu başarısız oldu (SOCKS adresini ve "
 "portunu kontrol edin)"
 
-#: ../CryptoManager.cpp:162
-msgid "No private key file chosen"
-msgstr "Hiçbir özel anahtar seçilmedi"
+#: ../Thread.cpp:34 ../Thread.cpp:42
+msgid "Unable to create thread"
+msgstr "İş parçacığı oluşturulamıyor"
 
-#: ../CryptoManager.cpp:165
-msgid "No certificate file chosen"
-msgstr "Hiçbir sertifika dosyası seçilmedi"
+#: ../UPnPManager.cpp:45
+msgid "No UPnP implementation available"
+msgstr "Hiçbir UPnP desteği bulunamadı"
 
-#: ../CryptoManager.cpp:177
-msgid "Error generating certificate"
-msgstr "Sertifikanın oluşturulmasında hata"
+#: ../UPnPManager.cpp:50
+msgid "Another UPnP port mapping attempt is in progress..."
+msgstr "Başka bir UPnP haritalama teşebbüsü sürmektedir..."
 
-#: ../CryptoManager.cpp:240
-msgid "TLS disabled, no certificate file set"
-msgstr "TLS devre dışı, hiçbir sertifika dosyası ayarlanmadı"
+#: ../UPnPManager.cpp:82
+msgid "Failed to initialize the %1% interface"
+msgstr "%1% arayüzü başlatılamadı."
 
-#: ../CryptoManager.cpp:248
-msgid "Generated new TLS certificate"
-msgstr "Yeni TLS sertifikası oluştur"
+#: ../UPnPManager.cpp:86
+msgid " Transfer Port (%1% TCP)"
+msgstr " Aktarım Portu (%1% TCP)"
 
-#: ../CryptoManager.cpp:250
-msgid "TLS disabled, failed to generate certificate: %1%"
-msgstr "TLS devre dışı, sertifika oluşturulması başarısız oldu: %1%"
+#: ../UPnPManager.cpp:87 ../UPnPManager.cpp:92 ../UPnPManager.cpp:97
+#: ../UPnPManager.cpp:102
+msgid "The %1% interface has failed to map the %2% %3% port"
+msgstr "%1% arayüzü %2% %3% portunu haritalamayı başaramadı"
 
-#: ../CryptoManager.cpp:255 ../CryptoManager.cpp:259 ../CryptoManager.cpp:264
-#: ../CryptoManager.cpp:268
-msgid "Failed to load certificate file"
-msgstr "Sertifika dosyasının yüklenmesi başarısız oldu"
+#: ../UPnPManager.cpp:91
+msgid " Encrypted Transfer Port (%1% TCP)"
+msgstr "Şifrelenmiş Aktarım Portu (%1% TCP)"
 
-#: ../CryptoManager.cpp:273 ../CryptoManager.cpp:277 ../CryptoManager.cpp:282
-#: ../CryptoManager.cpp:286
-msgid "Failed to load private key"
-msgstr "Özel anahtarın yüklenmesi başarısız oldu"
+#: ../UPnPManager.cpp:96
+msgid " Search Port (%1% UDP)"
+msgstr "Arama Portu (%1% UDP)"
 
-#: ../ChatMessage.cpp:33
-msgid "Sent "
-msgstr "Gönderildi"
+#: ../UPnPManager.cpp:101
+msgid " DHT Port (%1% UDP)"
+msgstr "DHT Portu (%1% UDP)"
 
-#: ../Streams.h:141
-msgid "More bytes written than requested"
-msgstr "Talep edilenden çok bayt yazıldı"
+#: ../UPnPManager.cpp:111
+#, fuzzy
+msgid ""
+"Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%, DHT: %4%), "
+"mapped using the %5% interface"
+msgstr ""
+"Başarıyla port haritalama yapıldı (TCP: %1%, UDP: %2%, TLS: %3%), %4% "
+"arayüzü kullanılarak haritalandı"
+
+#: ../UPnPManager.cpp:113 ../UPnPManager.cpp:115
+msgid ""
+"Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%), mapped "
+"using the %4% interface"
+msgstr ""
+"Başarıyla port haritalama yapıldı (TCP: %1%, UDP: %2%, TLS: %3%), %4% "
+"arayüzü kullanılarak haritalandı"
+
+#: ../UPnPManager.cpp:127
+msgid "Failed to get external IP"
+msgstr "Harici IP alımı başarısız oldu"
+
+#: ../UPnPManager.cpp:137
+msgid "Failed to create port mappings"
+msgstr "Port haritalaması başarısız oldu"
+
+#: ../UPnPManager.cpp:146
+msgid "Successfully removed port mappings with the %1% interface"
+msgstr "%1% arayüzündeki port haritalaması başarıyla kaldırıldı"
+
+#: ../UPnPManager.cpp:147
+msgid "Failed to remove port mappings with the %1% interface"
+msgstr "%1% arayüzündeki port haritalamasının kaldırılması başarısız oldu"
+
+#: ../UPnPManager.cpp:152
+msgid "UPnP: %1%"
+msgstr "UPnP: %1%"
+
+#: ../UploadManager.cpp:133
+msgid "Connection already exists."
+msgstr "Bağlantı zaten mevcut."
+
+#: ../UploadManager.cpp:268
+msgid "Unable to send file %1%: %2%"
+msgstr "%1% dosyası gönderilemedi: %2%"
+
+#: ../UploadManager.cpp:555
+msgid "IPFilter: Blocked incoming connection to "
+msgstr "IPFiltresi: şuraya gelen bağlantı engellendi:"
+
+#: ../UploadManager.cpp:625
+msgid "Disconnected user leaving the hub: %1%"
+msgstr "Bağlantı kesildi, kullanıcı hub'dan çıkıyor: %1%"
+
+#: ../UserConnection.cpp:53 ../UserConnection.cpp:68 ../UserConnection.cpp:145
+msgid "Invalid data"
+msgstr "Geçersiz veri"
+
+#: ../UserConnection.cpp:59
+msgid "Non-UTF-8 data in an ADC connection"
+msgstr "ADC bağlantısında UTF-8 olmayan veri"
+
+#: ../Util.cpp:681
+#, c-format
+msgid "%d B"
+msgstr "%d B"
+
+#: ../Util.cpp:683
+#, c-format
+msgid "%.02f KiB"
+msgstr "%.02f KiB"
+
+#: ../Util.cpp:683
+#, fuzzy, c-format
+msgid "%.02f KB"
+msgstr "%.02f KiB"
+
+#: ../Util.cpp:685
+#, c-format
+msgid "%.02f MiB"
+msgstr "%.02f MiB"
+
+#: ../Util.cpp:685
+#, fuzzy, c-format
+msgid "%.02f MB"
+msgstr "%.02f MiB"
+
+#: ../Util.cpp:687
+#, c-format
+msgid "%.02f GiB"
+msgstr "%.02f GiB"
+
+#: ../Util.cpp:687
+#, fuzzy, c-format
+msgid "%.02f GB"
+msgstr "%.02f GiB"
+
+#: ../Util.cpp:689
+#, c-format
+msgid "%.02f TiB"
+msgstr "%.02f TiB"
+
+#: ../Util.cpp:689
+#, fuzzy, c-format
+msgid "%.02f TB"
+msgstr "%.02f TiB"
+
+#: ../Util.cpp:691
+#, c-format
+msgid "%.02f PiB"
+msgstr "%.02f PiB"
+
+#: ../Util.cpp:691
+#, fuzzy, c-format
+msgid "%.02f PB"
+msgstr "%.02f PiB"
+
+#: ../Util.cpp:725
+#, c-format
+msgid "%s B"
+msgstr "%s B"
+
+#: ../Util.cpp:729
+#, c-format
+msgid "%'lld B"
+msgstr "%'lld B"
 
 #: ../MerkleCheckOutputStream.h:52 ../MerkleCheckOutputStream.h:112
 msgid "TTH inconsistency"
 msgstr "TTH tutarsızlığı"
 
+#: ../Streams.h:141
+msgid "More bytes written than requested"
+msgstr "Talep edilenden çok bayt yazıldı"
+
 #~ msgid ""
-#~ "This hub is trying to use your client to spam %1%, please urge hub owner to "
-#~ "fix this"
+#~ "This hub is trying to use your client to spam %1%, please urge hub owner "
+#~ "to fix this"
 #~ msgstr ""
-#~ "This hub is trying to use your client to spam %1%, please urge hub owner to "
-#~ "fix this"
+#~ "This hub is trying to use your client to spam %1%, please urge hub owner "
+#~ "to fix this"
 
 #~ msgid "Error: segv parser :D"
 #~ msgstr "Error: segv parser :D"
