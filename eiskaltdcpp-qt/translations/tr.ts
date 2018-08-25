@@ -2358,32 +2358,32 @@ Favori kullanıcı</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="2669"/>
         <source>EiskaltDC++ is a graphical client for Direct Connect and ADC protocols.</source>
-        <translation type="unfinished"></translation>
+        <translation>EiskaltDC++, Direct Connect ve ADC protokolleri için grafik arayüzlü bir istemcidir.</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2672"/>
         <source>DC++ core version: %1 (modified)</source>
-        <translation type="unfinished"></translation>
+        <translation>DC++ çekirdek sürümü: %1 (değiştirilmiştir)</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2675"/>
         <source>Home page: </source>
-        <translation type="unfinished"></translation>
+        <translation>Ana sayfa: </translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2680"/>
         <source>Total up: &lt;b&gt;%1&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Toplam gönderilen: &lt;b&gt;%1&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2682"/>
         <source>Total down: &lt;b&gt;%1&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Toplam indirilen: &lt;b&gt;%1&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2684"/>
         <source>Ratio: &lt;b&gt;%1&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Oran: &lt;b&gt;%1&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2694"/>
@@ -2573,18 +2573,18 @@ Favori kullanıcı</translation>
         <location filename="../src/MainWindow.cpp" line="2698"/>
         <location filename="../src/MainWindow.cpp" line="2726"/>
         <source>lead developer</source>
-        <translation type="unfinished"></translation>
+        <translation>lider geliştirici</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2701"/>
         <location filename="../src/MainWindow.cpp" line="2723"/>
         <source>release manager</source>
-        <translation type="unfinished"></translation>
+        <translation>yayın yöneticisi</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2706"/>
         <source>Arch Linux maintainer</source>
-        <translation type="unfinished"></translation>
+        <translation>Arch Linux bakımcıs</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2709"/>
@@ -2592,42 +2592,42 @@ Favori kullanıcı</translation>
         <location filename="../src/MainWindow.cpp" line="2737"/>
         <location filename="../src/MainWindow.cpp" line="2742"/>
         <source>developer</source>
-        <translation type="unfinished"></translation>
+        <translation>geliştirici</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2714"/>
         <source>Debian/Ubuntu maintainer</source>
-        <translation type="unfinished"></translation>
+        <translation>Debian/Ubuntu bakımcısı</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2720"/>
         <source>translations coordinator</source>
-        <translation type="unfinished"></translation>
+        <translation>tercüme koordinatörü</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2729"/>
         <source>macOS maintainer</source>
-        <translation type="unfinished"></translation>
+        <translation>macOS bakımcısı</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2734"/>
         <source>MS Windows maintainer</source>
-        <translation type="unfinished"></translation>
+        <translation>MS Windows bakımcısı</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2749"/>
         <source>creator of the logo of the project</source>
-        <translation type="unfinished"></translation>
+        <translation>proje logosunun yaratıcısı</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2754"/>
         <source>tiny updates of the logo</source>
-        <translation type="unfinished"></translation>
+        <translation>logoya küçük güncellemeler</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2762"/>
         <source>Participate in the translation. It is easy:</source>
-        <translation type="unfinished"></translation>
+        <translation>Tercümelere katılın. Bu çok kolaydır:</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2876"/>

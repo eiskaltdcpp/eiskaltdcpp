@@ -2525,17 +2525,17 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="3069"/>
         <source>Additional</source>
-        <translation type="unfinished">Doplnkový</translation>
+        <translation>Doplnkový</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="3070"/>
         <source>Suppress sound notifications</source>
-        <translation type="unfinished">Zakázať upozornenia zvukom</translation>
+        <translation>Zakázať upozornenia zvukom</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="3071"/>
         <source>Suppress text notifications</source>
-        <translation type="unfinished">Zakázať upozornenia textom</translation>
+        <translation>Zakázať upozornenia textom</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="3065"/>
@@ -2545,7 +2545,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="2691"/>
         <source>Please use &lt;a href=&quot;https://github.com/eiskaltdcpp/eiskaltdcpp/issues&quot;&gt;https://github.com/eiskaltdcpp/eiskaltdcpp/issues&lt;/a&gt; to report bugs.&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Ak zistíte nieakú chybu prosím nahláste je tu &lt;a href=&quot;https://github.com/eiskaltdcpp/eiskaltdcpp/issues&quot;&gt;https://github.com/eiskaltdcpp/eiskaltdcpp/issues&lt;/a&gt;.&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2698"/>

@@ -1789,12 +1789,12 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="829"/>
         <source>Ctrl+[</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+[</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="835"/>
         <source>Ctrl+]</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+]</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="881"/>
@@ -1809,7 +1809,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="932"/>
         <source>Ctrl+K</source>
-        <translation type="unfinished"></translation>
+        <translation>Ctrl+K</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="945"/>
@@ -2379,32 +2379,32 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="2669"/>
         <source>EiskaltDC++ is a graphical client for Direct Connect and ADC protocols.</source>
-        <translation type="unfinished"></translation>
+        <translation>EiskaltDC++ е графичен клиент за Direct Connect и ADC протоколи.</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2672"/>
         <source>DC++ core version: %1 (modified)</source>
-        <translation type="unfinished"></translation>
+        <translation>Версия на DC++ ядро: %1 (модифицирана)</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2675"/>
         <source>Home page: </source>
-        <translation type="unfinished"></translation>
+        <translation>Домашна страница: </translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2680"/>
         <source>Total up: &lt;b&gt;%1&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Общо качено: &lt;b&gt;%1&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2682"/>
         <source>Total down: &lt;b&gt;%1&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Общо свалено: &lt;b&gt;%1&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2684"/>
         <source>Ratio: &lt;b&gt;%1&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Рейтинг: &lt;b&gt;%1&lt;/b&gt;</translation>
     </message>
     <message>
         <source>http://github.com/eiskaltdcpp/eiskaltdcpp/raw/master/ChangeLog.txt</source>
@@ -2536,27 +2536,27 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="3069"/>
         <source>Additional</source>
-        <translation type="unfinished">Допълнителни</translation>
+        <translation>Допълнителни</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="3070"/>
         <source>Suppress sound notifications</source>
-        <translation type="unfinished">Спиране на звуковото уведомяване</translation>
+        <translation>Спиране на звуковото уведомяване</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="3071"/>
         <source>Suppress text notifications</source>
-        <translation type="unfinished">Спиране на текстовото уведомяване</translation>
+        <translation>Спиране на текстовото уведомяване</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="3065"/>
         <source>Setup speed limits</source>
-        <translation type="unfinished">Задаване ограничение на скоростта</translation>
+        <translation>Задаване ограничение на скоростта</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2691"/>
         <source>Please use &lt;a href=&quot;https://github.com/eiskaltdcpp/eiskaltdcpp/issues&quot;&gt;https://github.com/eiskaltdcpp/eiskaltdcpp/issues&lt;/a&gt; to report bugs.&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Използвайте &lt;a href=&quot;https://github.com/eiskaltdcpp/eiskaltdcpp/issues&quot;&gt;https://github.com/eiskaltdcpp/eiskaltdcpp/issues&lt;/a&gt; за докладване на проблеми.&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2698"/>

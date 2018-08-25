@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="sr@latin">
+<TS version="2.0" language="sr">
 <context>
     <name>ADLS</name>
     <message>
@@ -2363,7 +2363,7 @@ Omiljeni korisnik</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="2669"/>
         <source>EiskaltDC++ is a graphical client for Direct Connect and ADC protocols.</source>
-        <translation type="unfinished"></translation>
+        <translation>EiskaltDC++ je grafički klijent za direktno povezivanje i ADC protokole.</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2672"/>
@@ -2373,7 +2373,7 @@ Omiljeni korisnik</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="2675"/>
         <source>Home page: </source>
-        <translation type="unfinished"></translation>
+        <translation>Matična strana: </translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2680"/>
@@ -2578,18 +2578,18 @@ Omiljeni korisnik</translation>
         <location filename="../src/MainWindow.cpp" line="2698"/>
         <location filename="../src/MainWindow.cpp" line="2726"/>
         <source>lead developer</source>
-        <translation type="unfinished"></translation>
+        <translation>glavni programer</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2701"/>
         <location filename="../src/MainWindow.cpp" line="2723"/>
         <source>release manager</source>
-        <translation type="unfinished"></translation>
+        <translation>menadžer izdanja</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2706"/>
         <source>Arch Linux maintainer</source>
-        <translation type="unfinished"></translation>
+        <translation>Arch Linux održavatelj</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2709"/>
@@ -2597,12 +2597,12 @@ Omiljeni korisnik</translation>
         <location filename="../src/MainWindow.cpp" line="2737"/>
         <location filename="../src/MainWindow.cpp" line="2742"/>
         <source>developer</source>
-        <translation type="unfinished"></translation>
+        <translation>programer</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2714"/>
         <source>Debian/Ubuntu maintainer</source>
-        <translation type="unfinished"></translation>
+        <translation>Debian/Ubuntu održavatelj</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2720"/>
@@ -2612,27 +2612,27 @@ Omiljeni korisnik</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="2729"/>
         <source>macOS maintainer</source>
-        <translation type="unfinished"></translation>
+        <translation>macOS održavatelj</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2734"/>
         <source>MS Windows maintainer</source>
-        <translation type="unfinished"></translation>
+        <translation>MS Windows održavatelj</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2749"/>
         <source>creator of the logo of the project</source>
-        <translation type="unfinished"></translation>
+        <translation>kreator logotipa projekta</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2754"/>
         <source>tiny updates of the logo</source>
-        <translation type="unfinished"></translation>
+        <translation>ažuriranje logoa</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2762"/>
         <source>Participate in the translation. It is easy:</source>
-        <translation type="unfinished"></translation>
+        <translation>Učestvujte u prevodu. Lako je:</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2876"/>

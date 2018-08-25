@@ -2379,32 +2379,32 @@ Bevorzugte Benutzer</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="2669"/>
         <source>EiskaltDC++ is a graphical client for Direct Connect and ADC protocols.</source>
-        <translation type="unfinished"></translation>
+        <translation>EiskaltDC++ ist ein grafischer Client für das Direct Connect und das ADC Protokoll.</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2672"/>
         <source>DC++ core version: %1 (modified)</source>
-        <translation type="unfinished"></translation>
+        <translation>DC++ Core Version: %1 (geändert)</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2675"/>
         <source>Home page: </source>
-        <translation type="unfinished"></translation>
+        <translation>Webseite: </translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2680"/>
         <source>Total up: &lt;b&gt;%1&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Gesamt Up: &lt;b&gt;%1&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2682"/>
         <source>Total down: &lt;b&gt;%1&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Gesamt Down: &lt;b&gt;%1&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2684"/>
         <source>Ratio: &lt;b&gt;%1&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Rate: &lt;b&gt;%1&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2694"/>
@@ -2594,18 +2594,18 @@ Bevorzugte Benutzer</translation>
         <location filename="../src/MainWindow.cpp" line="2698"/>
         <location filename="../src/MainWindow.cpp" line="2726"/>
         <source>lead developer</source>
-        <translation type="unfinished"></translation>
+        <translation>Hauptentwickler</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2701"/>
         <location filename="../src/MainWindow.cpp" line="2723"/>
         <source>release manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Releasemanager</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2706"/>
         <source>Arch Linux maintainer</source>
-        <translation type="unfinished"></translation>
+        <translation>Arch Linux Betreuer</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2709"/>
@@ -2613,42 +2613,42 @@ Bevorzugte Benutzer</translation>
         <location filename="../src/MainWindow.cpp" line="2737"/>
         <location filename="../src/MainWindow.cpp" line="2742"/>
         <source>developer</source>
-        <translation type="unfinished"></translation>
+        <translation>Entwickler</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2714"/>
         <source>Debian/Ubuntu maintainer</source>
-        <translation type="unfinished"></translation>
+        <translation>Debian/Ubuntu Betreuer</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2720"/>
         <source>translations coordinator</source>
-        <translation type="unfinished"></translation>
+        <translation>Übersetzungskoordinator</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2729"/>
         <source>macOS maintainer</source>
-        <translation type="unfinished"></translation>
+        <translation>macOS Betreuer</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2734"/>
         <source>MS Windows maintainer</source>
-        <translation type="unfinished"></translation>
+        <translation>MS Windows Betreuer</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2749"/>
         <source>creator of the logo of the project</source>
-        <translation type="unfinished"></translation>
+        <translation>Ersteller des Projektlogos</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2754"/>
         <source>tiny updates of the logo</source>
-        <translation type="unfinished"></translation>
+        <translation>kleine Updates des Logos</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2762"/>
         <source>Participate in the translation. It is easy:</source>
-        <translation type="unfinished"></translation>
+        <translation>Nehme an der Übersetzung teil. Es ist leicht:</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2876"/>

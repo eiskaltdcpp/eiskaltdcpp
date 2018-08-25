@@ -3,7 +3,7 @@
 # Author:  Boris Pek <tehnick-8@yandex.ru>
 # License: Public Domain
 # Created: 2011-11-26
-# Updated: 2017-07-26
+# Updated: 2018-08-25
 # Version: N/A
 
 set -e
@@ -71,7 +71,10 @@ case "${1}" in
     export QT_SELECT=qt4
     lupdate eiskaltdcpp-qt/translations.pro
 
-    cd builddir && make pot-update
+    cd builddir
+    make pot-update
+
+    cd "${CUR_DIR}"
     cp -fa dcpp/po/libeiskaltdcpp.pot dcpp/po/en.po
     cp -fa eiskaltdcpp-gtk/po/eiskaltdcpp-gtk.pot eiskaltdcpp-gtk/po/en.po
 
@@ -86,7 +89,10 @@ case "${1}" in
     export QT_SELECT=qt4
     lupdate -verbose -no-obsolete eiskaltdcpp-qt/translations.pro
 
-    cd builddir && make pot-update
+    cd builddir
+    make pot-update
+
+    cd "${CUR_DIR}"
     cp -fa dcpp/po/libeiskaltdcpp.pot dcpp/po/en.po
     cp -fa eiskaltdcpp-gtk/po/eiskaltdcpp-gtk.pot eiskaltdcpp-gtk/po/en.po
 

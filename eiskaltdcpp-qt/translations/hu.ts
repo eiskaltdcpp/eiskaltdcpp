@@ -1025,7 +1025,7 @@ Kapcsolók:
     <message>
         <location filename="../src/HubFrame.cpp" line="202"/>
         <source>Comment</source>
-        <translation type="unfinished">Leírás</translation>
+        <translation>Leírás</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="203"/>
@@ -1045,7 +1045,7 @@ Kapcsolók:
     <message>
         <location filename="../src/HubFrame.cpp" line="206"/>
         <source>E-mail</source>
-        <translation type="unfinished">E-mail</translation>
+        <translation>E-mail</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="208"/>
@@ -2379,32 +2379,32 @@ Kedvenc felhasználó</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="2669"/>
         <source>EiskaltDC++ is a graphical client for Direct Connect and ADC protocols.</source>
-        <translation type="unfinished"></translation>
+        <translation>Az EiskaltDC++ egy grafikus kliens a Direct Connect és az ADC protokollokhoz.</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2672"/>
         <source>DC++ core version: %1 (modified)</source>
-        <translation type="unfinished"></translation>
+        <translation>DC++ verzió: %1 (módosított)</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2675"/>
         <source>Home page: </source>
-        <translation type="unfinished"></translation>
+        <translation>Weboldal: </translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2680"/>
         <source>Total up: &lt;b&gt;%1&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Öszes feltöltés: &lt;b&gt;%1&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2682"/>
         <source>Total down: &lt;b&gt;%1&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Összes letöltés: &lt;b&gt;%1&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2684"/>
         <source>Ratio: &lt;b&gt;%1&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Arány: &lt;b&gt;%1&lt;/b&gt;</translation>
     </message>
     <message>
         <source>http://github.com/eiskaltdcpp/eiskaltdcpp/raw/master/ChangeLog.txt</source>
@@ -2584,13 +2584,13 @@ Kedvenc felhasználó</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="2691"/>
         <source>Please use &lt;a href=&quot;https://github.com/eiskaltdcpp/eiskaltdcpp/issues&quot;&gt;https://github.com/eiskaltdcpp/eiskaltdcpp/issues&lt;/a&gt; to report bugs.&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Kérlek használd a &lt;a href=&quot;https://github.com/eiskaltdcpp/eiskaltdcpp/issues&quot;&gt;https://github.com/eiskaltdcpp/eiskaltdcpp/issues&lt;/a&gt; címet a hibák jelentéséhez.&lt;br/&gt;&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2698"/>
         <location filename="../src/MainWindow.cpp" line="2726"/>
         <source>lead developer</source>
-        <translation type="unfinished"></translation>
+        <translation>főfejlesztő</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2701"/>
@@ -2601,7 +2601,7 @@ Kedvenc felhasználó</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="2706"/>
         <source>Arch Linux maintainer</source>
-        <translation type="unfinished"></translation>
+        <translation>Arch Linux karbantartó</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2709"/>
@@ -2609,12 +2609,12 @@ Kedvenc felhasználó</translation>
         <location filename="../src/MainWindow.cpp" line="2737"/>
         <location filename="../src/MainWindow.cpp" line="2742"/>
         <source>developer</source>
-        <translation type="unfinished"></translation>
+        <translation>fejlesztő</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2714"/>
         <source>Debian/Ubuntu maintainer</source>
-        <translation type="unfinished"></translation>
+        <translation>Debian/Ubuntu karbantartó</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2720"/>
@@ -2624,17 +2624,17 @@ Kedvenc felhasználó</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="2729"/>
         <source>macOS maintainer</source>
-        <translation type="unfinished"></translation>
+        <translation>macOS karbantartó</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2734"/>
         <source>MS Windows maintainer</source>
-        <translation type="unfinished"></translation>
+        <translation>MS Windows karbantartó</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2749"/>
         <source>creator of the logo of the project</source>
-        <translation type="unfinished"></translation>
+        <translation>a projekt logójának készítője</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2754"/>
@@ -2644,7 +2644,7 @@ Kedvenc felhasználó</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="2762"/>
         <source>Participate in the translation. It is easy:</source>
-        <translation type="unfinished"></translation>
+        <translation>Vegyen részt a fordításban, könnyű:</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2876"/>

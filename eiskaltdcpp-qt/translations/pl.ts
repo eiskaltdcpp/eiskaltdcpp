@@ -2359,7 +2359,7 @@ Ulubiony użytkownik</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="2669"/>
         <source>EiskaltDC++ is a graphical client for Direct Connect and ADC protocols.</source>
-        <translation type="unfinished"></translation>
+        <translation>EiskaltDC++ to graficzny klient protokołu Direct Connect i ADC.</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2672"/>
@@ -2374,12 +2374,12 @@ Ulubiony użytkownik</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="2680"/>
         <source>Total up: &lt;b&gt;%1&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Wysłano: &lt;b&gt;%1&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2682"/>
         <source>Total down: &lt;b&gt;%1&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Pobrano: &lt;b&gt;%1&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2684"/>
@@ -2516,17 +2516,17 @@ Ulubiony użytkownik</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="3069"/>
         <source>Additional</source>
-        <translation type="unfinished">Dodatkowy</translation>
+        <translation>Dodatkowy</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="3070"/>
         <source>Suppress sound notifications</source>
-        <translation type="unfinished">Wyłącz powiadomienia dźwiękowe</translation>
+        <translation>Wyłącz powiadomienia dźwiękowe</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="3071"/>
         <source>Suppress text notifications</source>
-        <translation type="unfinished">Wyłącz powiadomienia tekstowe</translation>
+        <translation>Wyłącz powiadomienia tekstowe</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="3065"/>
@@ -2536,7 +2536,7 @@ Ulubiony użytkownik</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="2691"/>
         <source>Please use &lt;a href=&quot;https://github.com/eiskaltdcpp/eiskaltdcpp/issues&quot;&gt;https://github.com/eiskaltdcpp/eiskaltdcpp/issues&lt;/a&gt; to report bugs.&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Użyj &lt;a href=&quot;https://github.com/eiskaltdcpp/eiskaltdcpp/issues&quot;&gt;https://github.com/eiskaltdcpp/eiskaltdcpp/issues&lt;/a&gt; do zgłaszania błędów.&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2698"/>

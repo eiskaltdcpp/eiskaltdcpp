@@ -2383,17 +2383,17 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="2669"/>
         <source>EiskaltDC++ is a graphical client for Direct Connect and ADC protocols.</source>
-        <translation type="unfinished"></translation>
+        <translation>EiskaltDC ++ ўяўляе сабой графічны кліент для Direct Connect і пратаколаў ADC.</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2672"/>
         <source>DC++ core version: %1 (modified)</source>
-        <translation type="unfinished"></translation>
+        <translation>Версія ядра DC++: %1 (мадыфікаваны)</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2675"/>
         <source>Home page: </source>
-        <translation type="unfinished"></translation>
+        <translation>Галоўная старонка: </translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2680"/>
@@ -2555,7 +2555,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="2836"/>
         <source>Turkish translation&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Турэцкі пераклад&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="3069"/>
@@ -2586,7 +2586,7 @@ Favorite user</source>
         <location filename="../src/MainWindow.cpp" line="2698"/>
         <location filename="../src/MainWindow.cpp" line="2726"/>
         <source>lead developer</source>
-        <translation type="unfinished"></translation>
+        <translation>галоўны распрацоўца</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2701"/>
@@ -2597,7 +2597,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="2706"/>
         <source>Arch Linux maintainer</source>
-        <translation type="unfinished"></translation>
+        <translation>суправаджальнік для «Arch Linux»</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2709"/>
@@ -2605,42 +2605,42 @@ Favorite user</source>
         <location filename="../src/MainWindow.cpp" line="2737"/>
         <location filename="../src/MainWindow.cpp" line="2742"/>
         <source>developer</source>
-        <translation type="unfinished"></translation>
+        <translation>распрацоўца</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2714"/>
         <source>Debian/Ubuntu maintainer</source>
-        <translation type="unfinished"></translation>
+        <translation>суправаджальнік для «Debian», «Ubuntu»</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2720"/>
         <source>translations coordinator</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2729"/>
         <source>macOS maintainer</source>
-        <translation type="unfinished"></translation>
+        <translation>суправаджальнік для «macOS»</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2734"/>
         <source>MS Windows maintainer</source>
-        <translation type="unfinished"></translation>
+        <translation>суправаджальнік для «MS Windows»</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2749"/>
         <source>creator of the logo of the project</source>
-        <translation type="unfinished"></translation>
+        <translation>стваральнік шыльды праекту</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2754"/>
         <source>tiny updates of the logo</source>
-        <translation type="unfinished"></translation>
+        <translation>невялікія абнаўлення шыльды</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2762"/>
         <source>Participate in the translation. It is easy:</source>
-        <translation type="unfinished"></translation>
+        <translation>Далучайцеся да перакладу. Гэта проста:</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2876"/>
@@ -3561,7 +3561,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="95"/>
         <source>Turkish</source>
-        <translation type="unfinished"></translation>
+        <translation>Турэцкі</translation>
     </message>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="248"/>

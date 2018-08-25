@@ -167,7 +167,7 @@ EiskaltDC++ - кросплатформенна програма для робо�
     <message>
         <location filename="../src/CmdDebug.cpp" line="39"/>
         <source>CmdDebug</source>
-        <translation type="unfinished"></translation>
+        <translation>CmdDebug</translation>
     </message>
 </context>
 <context>
@@ -2107,7 +2107,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="1385"/>
         <source>CmdDebug</source>
-        <translation type="unfinished"></translation>
+        <translation>CmdDebug</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1387"/>
@@ -2361,17 +2361,17 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="2669"/>
         <source>EiskaltDC++ is a graphical client for Direct Connect and ADC protocols.</source>
-        <translation type="unfinished"></translation>
+        <translation>EiskaltDC ++ є графічним клієнтом для протоколів Direct Connect та ADC.</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2672"/>
         <source>DC++ core version: %1 (modified)</source>
-        <translation type="unfinished"></translation>
+        <translation>Версія ядра DC++: %1 (модифіковано)</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2675"/>
         <source>Home page: </source>
-        <translation type="unfinished"></translation>
+        <translation>Головна сторінка: </translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2680"/>
@@ -2529,7 +2529,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="2836"/>
         <source>Turkish translation&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Турецький переклад&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="3069"/>
@@ -2560,7 +2560,7 @@ Favorite user</source>
         <location filename="../src/MainWindow.cpp" line="2698"/>
         <location filename="../src/MainWindow.cpp" line="2726"/>
         <source>lead developer</source>
-        <translation type="unfinished"></translation>
+        <translation>головний розробник</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2701"/>
@@ -2571,7 +2571,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="2706"/>
         <source>Arch Linux maintainer</source>
-        <translation type="unfinished"></translation>
+        <translation>супроводжуючий пакету в Arch Linux</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2709"/>
@@ -2579,42 +2579,42 @@ Favorite user</source>
         <location filename="../src/MainWindow.cpp" line="2737"/>
         <location filename="../src/MainWindow.cpp" line="2742"/>
         <source>developer</source>
-        <translation type="unfinished"></translation>
+        <translation>розробник</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2714"/>
         <source>Debian/Ubuntu maintainer</source>
-        <translation type="unfinished"></translation>
+        <translation>супроводжуючий пакету в Debian/Ubuntu</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2720"/>
         <source>translations coordinator</source>
-        <translation type="unfinished"></translation>
+        <translation>координатор перекладів</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2729"/>
         <source>macOS maintainer</source>
-        <translation type="unfinished"></translation>
+        <translation>супроводжуючий пакета в macOS</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2734"/>
         <source>MS Windows maintainer</source>
-        <translation type="unfinished"></translation>
+        <translation>супроводжуючий пакета в MS Windows</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2749"/>
         <source>creator of the logo of the project</source>
-        <translation type="unfinished"></translation>
+        <translation>творець логотипу проекту</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2754"/>
         <source>tiny updates of the logo</source>
-        <translation type="unfinished"></translation>
+        <translation>оновлення логотипу</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2762"/>
         <source>Participate in the translation. It is easy:</source>
-        <translation type="unfinished"></translation>
+        <translation>Беріть участь в перекладі. Це просто:</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2876"/>
@@ -3535,7 +3535,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="95"/>
         <source>Turkish</source>
-        <translation type="unfinished"></translation>
+        <translation>Турецька</translation>
     </message>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="248"/>
@@ -3978,7 +3978,7 @@ Downloaded: %3 Uploaded: %4</source>
         <location filename="../src/SideBar.cpp" line="69"/>
         <location filename="../src/SideBar.cpp" line="419"/>
         <source>CmdDebug</source>
-        <translation type="unfinished"></translation>
+        <translation>CmdDebug</translation>
     </message>
     <message>
         <location filename="../src/SideBar.cpp" line="71"/>
@@ -4210,7 +4210,7 @@ Do you want to stop it?
     <message>
         <location filename="../src/TransferView.cpp" line="96"/>
         <source>Show only transferred files</source>
-        <translation type="unfinished"></translation>
+        <translation>Показувати лише передані файли</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="349"/>
@@ -5869,7 +5869,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="957"/>
         <source>Allow untrusted certificate for clients</source>
-        <translation type="unfinished"></translation>
+        <translation>Дозволити недовірені сертифікати для клієнтів</translation>
     </message>
 </context>
 <context>
@@ -7650,7 +7650,7 @@ if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</sourc
     <message>
         <location filename="../src/UserListModel.cpp" line="174"/>
         <source>Exact share size</source>
-        <translation type="unfinished"></translation>
+        <translation>Точний розмір шари</translation>
     </message>
     <message>
         <location filename="../src/UserListModel.cpp" line="175"/>

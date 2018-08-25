@@ -1,12 +1,13 @@
 HEADERS = ../*.h src/*.h scriptengine/*.h
 SOURCES = src/*.cpp scriptengine/*.cpp
 FORMS   = ui/*.ui
-TRANSLATIONS = translations/en.ts \
+TRANSLATIONS = \
     translations/be.ts \
     translations/bg.ts \
     translations/cs.ts \
     translations/de.ts \
     translations/el.ts \
+    translations/en.ts \
     translations/es.ts \
     translations/eu.ts \
     translations/fr.ts \
@@ -18,5 +19,8 @@ TRANSLATIONS = translations/en.ts \
     translations/sk.ts \
     translations/sr.ts \
     translations/sr@latin.ts \
+    translations/sv_SE.ts \
     translations/tr.ts \
-    translations/uk.ts
+    translations/uk.ts \
+    translations/vi.ts \
+    translations/zh_CN.ts
