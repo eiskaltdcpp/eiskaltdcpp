@@ -2378,32 +2378,32 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="2669"/>
         <source>EiskaltDC++ is a graphical client for Direct Connect and ADC protocols.</source>
-        <translation type="unfinished"></translation>
+        <translation>EiskaltDC++ – графический клиент для протоколов Direct Connect и ADC.</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2672"/>
         <source>DC++ core version: %1 (modified)</source>
-        <translation type="unfinished"></translation>
+        <translation>Версия ядра DC++: %1 (изменённое)</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2675"/>
         <source>Home page: </source>
-        <translation type="unfinished"></translation>
+        <translation>Домашняя страница: </translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2680"/>
         <source>Total up: &lt;b&gt;%1&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Отдано (всего): &lt;b&gt;%1&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2682"/>
         <source>Total down: &lt;b&gt;%1&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Загружено (всего): &lt;b&gt;%1&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2684"/>
         <source>Ratio: &lt;b&gt;%1&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Коэффициент: &lt;b&gt;%1&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2694"/>
@@ -2411,49 +2411,9 @@ Favorite user</source>
         <translation>&lt;b&gt;Разработчики&lt;/b&gt;&lt;br/&gt;</translation>
     </message>
     <message>
-        <source>&amp;nbsp;&amp;nbsp;&amp;nbsp; (main developer since version 0.4.10)&lt;br/&gt;</source>
-        <translation type="obsolete">&amp;nbsp;&amp;nbsp;&amp;nbsp; (главный разработчик с версии 0.4.10)&lt;br/&gt;</translation>
-    </message>
-    <message>
-        <source>&amp;nbsp;&amp;nbsp;&amp;nbsp; (Arch Linux maintainer and developer since version 0.4.10)&lt;br/&gt;</source>
-        <translation type="obsolete">&amp;nbsp;&amp;nbsp;&amp;nbsp; (сопровождающий пакета в Arch Linux и разработчик с версии 0.4.10)&lt;br/&gt;</translation>
-    </message>
-    <message>
-        <source>&amp;nbsp;&amp;nbsp;&amp;nbsp; (Debian/Ubuntu maintainer and developer since version 1.89.0)&lt;br/&gt;</source>
-        <translation type="obsolete">&amp;nbsp;&amp;nbsp;&amp;nbsp; (сопровождающий пакета в Debian/Ubuntu и разработчик с версии 1.89.0)&lt;br/&gt;</translation>
-    </message>
-    <message>
-        <source>&amp;nbsp;&amp;nbsp;&amp;nbsp; (translations coordinator since version 2.0.1)&lt;br/&gt;</source>
-        <translation type="obsolete">&amp;nbsp;&amp;nbsp;&amp;nbsp; (координатор переводов с версии 2.0.1)&lt;br/&gt;</translation>
-    </message>
-    <message>
-        <source>&amp;nbsp;&amp;nbsp;&amp;nbsp; (release manager since version 2.0.3)&lt;br/&gt;</source>
-        <translation type="obsolete">&amp;nbsp;&amp;nbsp;&amp;nbsp; (менеджер релизов с версии 2.0.3)&lt;br/&gt;</translation>
-    </message>
-    <message>
-        <source>&amp;nbsp;&amp;nbsp;&amp;nbsp; (MS Windows maintainer and developer since version 2.2.4)&lt;br/&gt;</source>
-        <translation type="obsolete">&amp;nbsp;&amp;nbsp;&amp;nbsp; (сопровождающий пакета в MS Windows и разработчик с версии 2.2.4)&lt;br/&gt;</translation>
-    </message>
-    <message>
-        <source>&amp;nbsp;&amp;nbsp;&amp;nbsp; (developer since version 2.0.3)&lt;br/&gt;</source>
-        <translation type="obsolete">&amp;nbsp;&amp;nbsp;&amp;nbsp; (разработчик с версии 2.0.3)&lt;br/&gt;</translation>
-    </message>
-    <message>
         <location filename="../src/MainWindow.cpp" line="2745"/>
         <source>&lt;b&gt;Graphic files&lt;/b&gt;&lt;br/&gt;</source>
         <translation>&lt;b&gt;Графические файлы&lt;/b&gt;&lt;br/&gt;</translation>
-    </message>
-    <message>
-        <source>&amp;nbsp;&amp;nbsp;&amp;nbsp; (creator of the logo of the project)&lt;br/&gt;</source>
-        <translation type="obsolete">&amp;nbsp;&amp;nbsp;&amp;nbsp; (создатель логотипа проекта)&lt;br/&gt;</translation>
-    </message>
-    <message>
-        <source>&amp;nbsp;&amp;nbsp;&amp;nbsp; (tiny updates of the logo)&lt;br/&gt;</source>
-        <translation type="obsolete">&amp;nbsp;&amp;nbsp;&amp;nbsp; (небольшие обновления логотипа)&lt;br/&gt;</translation>
-    </message>
-    <message>
-        <source>Participate in the translation. It is easy: &lt;a href=&quot;https://www.transifex.com/projects/p/eiskaltdcpp/&quot;&gt;https://www.transifex.com/projects/p/eiskaltdcpp/&lt;/a&gt;&lt;br/&gt;</source>
-        <translation type="obsolete">Участвуйте в переводе. Это просто: &lt;a href=&quot;https://www.transifex.com/projects/p/eiskaltdcpp/&quot;&gt;https://www.transifex.com/projects/p/eiskaltdcpp/&lt;/a&gt;&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2766"/>
@@ -2581,10 +2541,6 @@ Favorite user</source>
         <translation>Установить ограничения скорости</translation>
     </message>
     <message>
-        <source>EiskaltDC++ is a graphical client for Direct Connect and ADC protocols.&lt;br/&gt;&lt;br/&gt;DC++ core version: %1 (modified)&lt;br/&gt;&lt;br/&gt;Home page: &lt;a href=&quot;https://github.com/eiskaltdcpp/eiskaltdcpp/&quot;&gt;https://github.com/eiskaltdcpp/eiskaltdcpp/&lt;/a&gt;&lt;br/&gt;&lt;br/&gt;Total up: &lt;b&gt;%2&lt;/b&gt;&lt;br/&gt;Total down: &lt;b&gt;%3&lt;/b&gt;&lt;br/&gt;Ratio: &lt;b&gt;%4&lt;/b&gt;</source>
-        <translation type="obsolete">EiskaltDC++ - графический клиент для протоколов Direct Connect и ADC.&lt;br/&gt;&lt;br/&gt;Версия ядра DC++: %1 (изменённое)&lt;br/&gt;&lt;br/&gt;Домашняя страница: &lt;a href=&quot;https://github.com/eiskaltdcpp/eiskaltdcpp/&quot;&gt;https://github.com/eiskaltdcpp/eiskaltdcpp/&lt;/a&gt;&lt;br/&gt;&lt;br/&gt;Отдано (всего): &lt;b&gt;%2&lt;/b&gt;&lt;br/&gt;Загружено (всего): &lt;b&gt;%3&lt;/b&gt;&lt;br/&gt;Коэффициент: &lt;b&gt;%4&lt;/b&gt;</translation>
-    </message>
-    <message>
         <location filename="../src/MainWindow.cpp" line="2691"/>
         <source>Please use &lt;a href=&quot;https://github.com/eiskaltdcpp/eiskaltdcpp/issues&quot;&gt;https://github.com/eiskaltdcpp/eiskaltdcpp/issues&lt;/a&gt; to report bugs.&lt;br/&gt;</source>
         <translation>Используйте &lt;a href=&quot;https://github.com/eiskaltdcpp/eiskaltdcpp/issues&quot;&gt;https://github.com/eiskaltdcpp/eiskaltdcpp/issues&lt;/a&gt; для сообщений об ошибках.&lt;br/&gt;</translation>
@@ -2593,18 +2549,18 @@ Favorite user</source>
         <location filename="../src/MainWindow.cpp" line="2698"/>
         <location filename="../src/MainWindow.cpp" line="2726"/>
         <source>lead developer</source>
-        <translation type="unfinished"></translation>
+        <translation>главный разработчик</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2701"/>
         <location filename="../src/MainWindow.cpp" line="2723"/>
         <source>release manager</source>
-        <translation type="unfinished"></translation>
+        <translation>менеджер релизов</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2706"/>
         <source>Arch Linux maintainer</source>
-        <translation type="unfinished"></translation>
+        <translation>сопровождающий пакетов для Arch Linux</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2709"/>
@@ -2612,42 +2568,42 @@ Favorite user</source>
         <location filename="../src/MainWindow.cpp" line="2737"/>
         <location filename="../src/MainWindow.cpp" line="2742"/>
         <source>developer</source>
-        <translation type="unfinished"></translation>
+        <translation>разработчик</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2714"/>
         <source>Debian/Ubuntu maintainer</source>
-        <translation type="unfinished"></translation>
+        <translation>сопровождающий пакетов для Debian и Ubuntu</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2720"/>
         <source>translations coordinator</source>
-        <translation type="unfinished"></translation>
+        <translation>координатор переводов</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2729"/>
         <source>macOS maintainer</source>
-        <translation type="unfinished"></translation>
+        <translation>сопровождающий сборок для macOS</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2734"/>
         <source>MS Windows maintainer</source>
-        <translation type="unfinished"></translation>
+        <translation>сопровождающий сборок для MS Windows</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2749"/>
         <source>creator of the logo of the project</source>
-        <translation type="unfinished"></translation>
+        <translation>создатель логотипа проекта</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2754"/>
         <source>tiny updates of the logo</source>
-        <translation type="unfinished"></translation>
+        <translation>небольшие обновления логотипа</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2762"/>
         <source>Participate in the translation. It is easy:</source>
-        <translation type="unfinished"></translation>
+        <translation>Участвуйте в переводе. Это просто:</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2876"/>
