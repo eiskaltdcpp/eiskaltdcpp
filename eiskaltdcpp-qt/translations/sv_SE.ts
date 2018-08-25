@@ -2403,18 +2403,18 @@ Favoritanvändare</translation>
         <location filename="../src/MainWindow.cpp" line="2698"/>
         <location filename="../src/MainWindow.cpp" line="2726"/>
         <source>lead developer</source>
-        <translation>huvudutvecklare</translation>
+        <translation>utvecklingsansvarig</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2701"/>
         <location filename="../src/MainWindow.cpp" line="2723"/>
         <source>release manager</source>
-        <translation>leveranshanterare sedan</translation>
+        <translation>leveransversionschef</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2706"/>
         <source>Arch Linux maintainer</source>
-        <translation>Arch Linux underhållare</translation>
+        <translation>Arch Linux ansvarig</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2709"/>
@@ -2427,7 +2427,7 @@ Favoritanvändare</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="2714"/>
         <source>Debian/Ubuntu maintainer</source>
-        <translation>Debian/Ubuntu underhållare</translation>
+        <translation>Debian/Ubuntu ansvarig</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2720"/>
@@ -2437,27 +2437,27 @@ Favoritanvändare</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="2729"/>
         <source>macOS maintainer</source>
-        <translation>macOS underhållare</translation>
+        <translation>macOS ansvarig</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2734"/>
         <source>MS Windows maintainer</source>
-        <translation>MS Windows underhållare</translation>
+        <translation>MS Windows ansvarig</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2749"/>
         <source>creator of the logo of the project</source>
-        <translation>skaparen av logotypen för projektet</translation>
+        <translation>skapare av logotypen för projektet</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2754"/>
         <source>tiny updates of the logo</source>
-        <translation type="unfinished"></translation>
+        <translation>små ändringar av logotypen</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2762"/>
         <source>Participate in the translation. It is easy:</source>
-        <translation>Medverka i översättningen. Det är lätt:</translation>
+        <translation>Medverka i översättningen. Det är enkelt:</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2876"/>
@@ -2726,7 +2726,7 @@ Nedladdat: %3 Uppladdat: %4</translation>
     <message>
         <location filename="../src/main.cpp" line="227"/>
         <source>Shutting down libeiskaltdcpp...</source>
-        <translation>Stänger ned libeiskaltdcpp...</translation>
+        <translation>Stänger ner libeiskaltdcpp...</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="262"/>
