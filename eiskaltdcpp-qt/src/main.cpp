@@ -159,10 +159,10 @@ int main(int argc, char *argv[])
 
     WulforSettings::newInstance();
     WulforSettings::getInstance()->load();
-    WulforSettings::getInstance()->loadTranslation();
     WulforSettings::getInstance()->loadTheme();
 
     WulforUtil::newInstance();
+    WulforSettings::getInstance()->loadTranslation();
 #if defined(Q_OS_MAC)
     // Disable system tray functionality in Mac OS X:
     WBSET(WB_TRAY_ENABLED, false);

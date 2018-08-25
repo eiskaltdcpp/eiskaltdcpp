@@ -201,7 +201,8 @@ private:
     WulforSettings();
     virtual ~WulforSettings();
 
-    void loadOldConfig();//load old version of config
+    void loadOldConfig(); //load old version of config
+    void loadQtTranslation(const QString &lc_prefix);
 
     QSettings settings;
 
@@ -212,8 +213,9 @@ private:
     WIntMap intmap;
     WStrMap strmap;
 
-    QTranslator tor;
+    QTranslator appTranslator;
     QTranslator qtTranslator;
+    QTranslator qtBaseTranslator;
 };
 
 static const auto WSGET = [](const QString &key, const QString &default_value = "") -> QString { return WulforSettings::getInstance()->getStr(key, default_value); };

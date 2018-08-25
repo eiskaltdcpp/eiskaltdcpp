@@ -38,16 +38,15 @@ using namespace dcpp;
 
 WulforSettings::WulforSettings():
         settings(_q(Util::getPath(Util::PATH_USER_CONFIG)) + "EiskaltDC++_Qt.conf", QSettings::IniFormat),
-        tor(0)
+        appTranslator(0),
+        qtTranslator(0),
+        qtBaseTranslator(0)
 {
     configFileOld = _q(Util::getPath(Util::PATH_USER_CONFIG)) + "EiskaltDC++.xml";
 
     QStringList idns = QUrl::idnWhitelist();
     idns.push_back("рф");
     QUrl::setIdnWhitelist(idns);
-
-    qtTranslator.load("qt_" + QLocale::system().name(), QLibraryInfo::location(QLibraryInfo::TranslationsPath));
-    qApp->installTranslator(&qtTranslator);
 
     connect(this, SIGNAL(fontChanged(QString,QString)), this, SLOT(slotFontChanged(QString,QString)));
     connect(this, SIGNAL(fontChanged(QString,QString)), this, SIGNAL(strValueChanged(QString,QString)));
@@ -417,31 +416,70 @@ void WulforSettings::parseCmd(const QString &cmd, QString& res) {
 }
 
 void WulforSettings::loadTranslation(){
-    QString file = getStr(WS_TRANSLATION_FILE);
+    QString appTrFile = getStr(WS_TRANSLATION_FILE);
 
-    if (file.isEmpty() || !QFile::exists(file)){
+    if (appTrFile.isEmpty() || !QFile::exists(appTrFile)){
         QString lc_prefix = QLocale::system().name();
+        loadQtTranslation(lc_prefix);
 
-        file = WulforUtil::getInstance()->getTranslationsPath();
+        appTrFile = WulforUtil::getInstance()->getTranslationsPath();
 
         lc_prefix = lc_prefix.left(lc_prefix.indexOf("_"));
-        file += lc_prefix + ".qm";
+        appTrFile += lc_prefix + ".qm";
 
-        if (!QFile::exists(file))
+        if (!QFile::exists(appTrFile))
             return;
     }
-    else if (!file.isEmpty() && (file.size() >= 5) && QFile::exists(file)){
-        QString lc_prefix = file.mid(file.size()-5, 2);
+    else if (!appTrFile.isEmpty() && (appTrFile.size() >= 5) && QFile::exists(appTrFile)){
+        QString lc_prefix = appTrFile.mid(appTrFile.size()-5, 2);
+        loadQtTranslation(lc_prefix);
         dcpp::Util::setLang(lc_prefix.toStdString());
 #ifdef _DEBUG_MODEL_
         qDebug() << QString("LANGUAGE=%1").arg(lc_prefix);
 #endif
     }
 
-    if (tor.load(file))
-        qApp->installTranslator(&tor);
+
+    if (appTranslator.load(appTrFile))
+        qApp->installTranslator(&appTranslator);
     else
         WSSET(WS_TRANSLATION_FILE, "");
+}
+
+void WulforSettings::loadQtTranslation(const QString &lc_prefix){
+    if (!WulforUtil::getInstance())
+        return;
+
+    const QString &lc_prefix_short = lc_prefix.left(lc_prefix.indexOf("_"));
+#if defined (Q_OS_WIN) || defined (Q_OS_MAC)
+    const QString translationsPath = WulforUtil::getInstance()->getTranslationsPath();
+#else // Other OS
+    const QString translationsPath = QLibraryInfo::location(QLibraryInfo::TranslationsPath);
+#endif
+
+    if (qtTranslator.load("qt_" + lc_prefix, translationsPath)){
+        qApp->installTranslator(&qtTranslator);
+    }
+    else if (lc_prefix_short != lc_prefix) {
+        if (qtTranslator.load("qt_" + lc_prefix_short, translationsPath)){
+            qApp->installTranslator(&qtTranslator);
+        }
+        else {
+            qApp->removeTranslator(&qtTranslator);
+        }
+    }
+
+    if (qtBaseTranslator.load("qtbase_" + lc_prefix, translationsPath)){
+        qApp->installTranslator(&qtBaseTranslator);
+    }
+    else if (lc_prefix_short != lc_prefix) {
+        if (qtBaseTranslator.load("qtbase_" + lc_prefix_short, translationsPath)){
+            qApp->installTranslator(&qtBaseTranslator);
+        }
+        else {
+            qApp->removeTranslator(&qtTranslator);
+        }
+    }
 }
 
 void WulforSettings::loadTheme(){
