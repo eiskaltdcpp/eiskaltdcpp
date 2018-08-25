@@ -224,7 +224,7 @@ int main(int argc, char *argv[])
 
     ret = app.exec();
 
-    std::cout << QObject::tr("Shutting down libdcpp...").toStdString() << std::endl;
+    std::cout << QObject::tr("Shutting down libeiskaltdcpp...").toStdString() << std::endl;
 
     WulforSettings::getInstance()->save();
 

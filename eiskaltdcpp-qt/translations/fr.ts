@@ -2706,8 +2706,8 @@ Téléchargé: %3 Envoyé: %4</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="227"/>
-        <source>Shutting down libdcpp...</source>
-        <translation>Fermeture de libdcpp...</translation>
+        <source>Shutting down libeiskaltdcpp...</source>
+        <translation>Fermeture de libeiskaltdcpp...</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="262"/>

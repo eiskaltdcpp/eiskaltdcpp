@@ -3255,8 +3255,8 @@ msgid "Show/Hide user list"
 msgstr "Pokaži listu omiljenog"
 
 #: ../src/wulfor.cc:192
-msgid "Shutting down libdcpp..."
-msgstr "Zatvaranje  libdcpp..."
+msgid "Shutting down libeiskaltdcpp..."
+msgstr "Zatvaranje  libeiskaltdcpp..."
 
 #: ../src/wulfor.cc:118
 #, c-format

@@ -189,7 +189,7 @@ int main(int argc, char *argv[])
     WulforManager::stop();
     WulforSettingsManager::deleteInstance();
 
-    std::cout << _("Shutting down libdcpp...") << std::endl;
+    std::cout << _("Shutting down libeiskaltdcpp...") << std::endl;
     dcpp::shutdown();
     std::cout << _("Quit...") << std::endl;
     return 0;

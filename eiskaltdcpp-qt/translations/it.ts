@@ -2720,8 +2720,8 @@ Scaricato: %3 Caricato: %4</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="227"/>
-        <source>Shutting down libdcpp...</source>
-        <translation>Chiusra libdcpp...</translation>
+        <source>Shutting down libeiskaltdcpp...</source>
+        <translation>Chiusra libeiskaltdcpp...</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="262"/>

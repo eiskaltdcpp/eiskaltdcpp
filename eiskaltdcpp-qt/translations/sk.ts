@@ -2714,8 +2714,8 @@ Stiahnuté: %3 Uploadované: %4</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="227"/>
-        <source>Shutting down libdcpp...</source>
-        <translation>Vypínanie libdcpp...</translation>
+        <source>Shutting down libeiskaltdcpp...</source>
+        <translation>Vypínanie libeiskaltdcpp...</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="262"/>

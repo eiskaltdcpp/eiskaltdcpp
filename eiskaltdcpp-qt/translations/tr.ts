@@ -2700,8 +2700,8 @@ Downloaded: %3 Uploaded: %4</source>
     </message>
     <message>
         <location filename="../src/main.cpp" line="227"/>
-        <source>Shutting down libdcpp...</source>
-        <translation>libdcpp kapatılıyor...</translation>
+        <source>Shutting down libeiskaltdcpp...</source>
+        <translation>libeiskaltdcpp kapatılıyor...</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="262"/>

@@ -3256,7 +3256,7 @@ msgid "Show/Hide user list"
 msgstr "Felhasználói lista mutatása/elrejtése"
 
 #: ../src/wulfor.cc:192
-msgid "Shutting down libdcpp..."
+msgid "Shutting down libeiskaltdcpp..."
 msgstr "Libdcpp leállítása..."
 
 #: ../src/wulfor.cc:118

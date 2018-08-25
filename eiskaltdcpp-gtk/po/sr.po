@@ -3238,8 +3238,8 @@ msgid "Show/Hide user list"
 msgstr "Прикажи/Сакриј листу корисника"
 
 #: ../src/wulfor.cc:192
-msgid "Shutting down libdcpp..."
-msgstr "Затварање libdcpp..."
+msgid "Shutting down libeiskaltdcpp..."
+msgstr "Затварање libeiskaltdcpp..."
 
 #: ../src/wulfor.cc:118
 #, c-format

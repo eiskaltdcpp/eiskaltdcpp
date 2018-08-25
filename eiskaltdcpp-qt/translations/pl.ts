@@ -2701,8 +2701,8 @@ Pobrano: %3 Wysłano: %4</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="227"/>
-        <source>Shutting down libdcpp...</source>
-        <translation>Wyłączanie libdcpp...</translation>
+        <source>Shutting down libeiskaltdcpp...</source>
+        <translation>Wyłączanie libeiskaltdcpp...</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="262"/>

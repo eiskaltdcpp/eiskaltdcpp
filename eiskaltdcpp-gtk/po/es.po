@@ -3260,8 +3260,8 @@ msgid "Show/Hide user list"
 msgstr "Mostrar lista de favoritos"
 
 #: ../src/wulfor.cc:192
-msgid "Shutting down libdcpp..."
-msgstr "Apagando libdcpp..."
+msgid "Shutting down libeiskaltdcpp..."
+msgstr "Apagando libeiskaltdcpp..."
 
 #: ../src/wulfor.cc:118
 #, c-format

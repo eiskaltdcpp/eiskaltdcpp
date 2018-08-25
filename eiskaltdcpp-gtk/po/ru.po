@@ -3251,8 +3251,8 @@ msgid "Show/Hide user list"
 msgstr "Показать/Спрятать список юзеров"
 
 #: ../src/wulfor.cc:192
-msgid "Shutting down libdcpp..."
-msgstr "Завершение libdcpp..."
+msgid "Shutting down libeiskaltdcpp..."
+msgstr "Завершение libeiskaltdcpp..."
 
 #: ../src/wulfor.cc:118
 #, c-format

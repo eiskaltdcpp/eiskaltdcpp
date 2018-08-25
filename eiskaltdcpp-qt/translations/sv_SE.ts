@@ -2725,8 +2725,8 @@ Nedladdat: %3 Uppladdat: %4</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="227"/>
-        <source>Shutting down libdcpp...</source>
-        <translation>Stänger ned libdcpp...</translation>
+        <source>Shutting down libeiskaltdcpp...</source>
+        <translation>Stänger ned libeiskaltdcpp...</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="262"/>

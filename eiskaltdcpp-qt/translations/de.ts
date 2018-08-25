@@ -2721,8 +2721,8 @@ Heruntergeladen: %3 Hochgeladen: %4</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="227"/>
-        <source>Shutting down libdcpp...</source>
-        <translation>Fahre libdcpp herunter...</translation>
+        <source>Shutting down libeiskaltdcpp...</source>
+        <translation>Fahre libeiskaltdcpp herunter...</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="262"/>

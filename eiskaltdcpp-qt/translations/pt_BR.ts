@@ -2707,7 +2707,7 @@ Downloaded: %3 Uploaded: %4</source>
     </message>
     <message>
         <location filename="../src/main.cpp" line="227"/>
-        <source>Shutting down libdcpp...</source>
+        <source>Shutting down libeiskaltdcpp...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

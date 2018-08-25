@@ -3243,8 +3243,8 @@ msgid "Show/Hide user list"
 msgstr "Visa/Göm användarlistan"
 
 #: ../src/wulfor.cc:192
-msgid "Shutting down libdcpp..."
-msgstr "Stänger ner libdcpp..."
+msgid "Shutting down libeiskaltdcpp..."
+msgstr "Stänger ner libeiskaltdcpp..."
 
 #: ../src/wulfor.cc:118
 #, c-format

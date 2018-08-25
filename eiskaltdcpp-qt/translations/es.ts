@@ -2724,8 +2724,8 @@ Descargas: %3 Subidas: %4</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="227"/>
-        <source>Shutting down libdcpp...</source>
-        <translation>Apagando libdcpp...</translation>
+        <source>Shutting down libeiskaltdcpp...</source>
+        <translation>Apagando libeiskaltdcpp...</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="262"/>
