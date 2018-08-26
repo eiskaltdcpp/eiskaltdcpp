@@ -88,7 +88,7 @@ Files: update-translations.sh
        data/examples/deadbeef.ru_RU.UTF-8.sh
        eiskaltdcpp-qt/qtscripts/amarok_nowplay/amarok.sh
        eiskaltdcpp-qt/qtscripts/clementine_nowplay/clementine.sh
-       macosx/*
+       macos/*
        tests/travis/*.sh
 Copyright: not-applicable
 Comment: Authors:
