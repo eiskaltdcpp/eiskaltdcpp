@@ -416,69 +416,63 @@ void WulforSettings::parseCmd(const QString &cmd, QString& res) {
 }
 
 void WulforSettings::loadTranslation(){
-    QString appTrFile = getStr(WS_TRANSLATION_FILE);
+    const QString appTranslationFile = getStr(WS_TRANSLATION_FILE);
+    const QString translationsPath = WulforUtil::getInstance()->getTranslationsPath();
 
-    if (appTrFile.isEmpty() || !QFile::exists(appTrFile)){
-        QString lc_prefix = QLocale::system().name();
-        loadQtTranslation(lc_prefix);
+    if (appTranslationFile.isEmpty() || !QFile::exists(appTranslationFile)){
+        const QString lcName = QLocale::system().name();
 
-        appTrFile = WulforUtil::getInstance()->getTranslationsPath();
+        loadQtTranslation(lcName);
+        installTranslator(appTranslator, lcName, "en", translationsPath);
 
-        lc_prefix = lc_prefix.left(lc_prefix.indexOf("_"));
-        appTrFile += lc_prefix + ".qm";
-
-        if (!QFile::exists(appTrFile))
-            return;
-    }
-    else if (!appTrFile.isEmpty() && (appTrFile.size() >= 5) && QFile::exists(appTrFile)){
-        QString lc_prefix = appTrFile.mid(appTrFile.size()-5, 2);
-        loadQtTranslation(lc_prefix);
-        dcpp::Util::setLang(lc_prefix.toStdString());
+        dcpp::Util::setLang(lcName.toStdString());
 #ifdef _DEBUG_MODEL_
-        qDebug() << QString("LANGUAGE=%1").arg(lc_prefix);
+        qDebug() << QString("LANGUAGE=%1").arg(lcName);
 #endif
     }
+    else if (!appTranslationFile.isEmpty() && QFile::exists(appTranslationFile)){
+        const QString lcName = (appTranslationFile.split("/").last()).split(".").first();
 
+        loadQtTranslation(lcName);
+        installTranslator(appTranslator, lcName, "en", translationsPath);
 
-    if (appTranslator.load(appTrFile))
-        qApp->installTranslator(&appTranslator);
-    else
+        dcpp::Util::setLang(lcName.toStdString());
+#ifdef _DEBUG_MODEL_
+        qDebug() << QString("LANGUAGE=%1").arg(lcName);
+#endif
+    }
+    else {
         WSSET(WS_TRANSLATION_FILE, "");
+    }
 }
 
-void WulforSettings::loadQtTranslation(const QString &lc_prefix){
+void WulforSettings::loadQtTranslation(const QString &lcName){
     if (!WulforUtil::getInstance())
         return;
 
-    const QString &lc_prefix_short = lc_prefix.left(lc_prefix.indexOf("_"));
 #if defined (Q_OS_WIN) || defined (Q_OS_MAC)
     const QString translationsPath = WulforUtil::getInstance()->getTranslationsPath();
 #else // Other OS
     const QString translationsPath = QLibraryInfo::location(QLibraryInfo::TranslationsPath);
 #endif
 
-    if (qtTranslator.load("qt_" + lc_prefix, translationsPath)){
-        qApp->installTranslator(&qtTranslator);
-    }
-    else if (lc_prefix_short != lc_prefix) {
-        if (qtTranslator.load("qt_" + lc_prefix_short, translationsPath)){
-            qApp->installTranslator(&qtTranslator);
-        }
-        else {
-            qApp->removeTranslator(&qtTranslator);
-        }
-    }
+    installTranslator(qtTranslator, "qt_" + lcName, "qt_en", translationsPath);
+    installTranslator(qtBaseTranslator, "qtbase_" + lcName, "qtbase_en", translationsPath);
+}
 
-    if (qtBaseTranslator.load("qtbase_" + lc_prefix, translationsPath)){
-        qApp->installTranslator(&qtBaseTranslator);
+void WulforSettings::installTranslator(QTranslator &translator,
+                                       const QString &defualtName,
+                                       const QString &fallbackName,
+                                       const QString &path)
+{
+    if (translator.load(defualtName, path)){
+        qApp->installTranslator(&translator);
     }
-    else if (lc_prefix_short != lc_prefix) {
-        if (qtBaseTranslator.load("qtbase_" + lc_prefix_short, translationsPath)){
-            qApp->installTranslator(&qtBaseTranslator);
-        }
-        else {
-            qApp->removeTranslator(&qtTranslator);
-        }
+    else if (translator.load(fallbackName, path)){
+        qApp->installTranslator(&translator);
+    }
+    else {
+        qApp->removeTranslator(&translator);
     }
 }
 

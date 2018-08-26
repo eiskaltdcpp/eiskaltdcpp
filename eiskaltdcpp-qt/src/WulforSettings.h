@@ -173,7 +173,7 @@ public:
     void loadTranslation();
     void loadTheme();
 
-    void    parseCmd(const QString &, QString &);
+    void parseCmd(const QString &, QString &);
 
     bool hasKey(const QString&) const;
 
@@ -183,10 +183,10 @@ public Q_SLOTS:
     bool     getBool(const QString&, const bool &default_value = false);
     QVariant getVar(const QString&, const QVariant &default_value = QVariant());
 
-    void    setStr (const QString&, const QString&);
-    void    setInt (const QString&, int) ;
-    void    setBool(const QString&, bool);
-    void    setVar (const QString&, const QVariant &);
+    void setStr (const QString&, const QString&);
+    void setInt (const QString&, int) ;
+    void setBool(const QString&, bool);
+    void setVar (const QString&, const QVariant &);
 
 Q_SIGNALS:
     void fontChanged(const QString &key, const QString &value);
@@ -202,7 +202,11 @@ private:
     virtual ~WulforSettings();
 
     void loadOldConfig(); //load old version of config
-    void loadQtTranslation(const QString &lc_prefix);
+    void loadQtTranslation(const QString &lcName);
+    void installTranslator(QTranslator &translator,
+                           const QString &defualtName,
+                           const QString &fallbackName,
+                           const QString &path);
 
     QSettings settings;
 
