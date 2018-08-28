@@ -25,7 +25,7 @@ BUILD_OPTIONS="-DCMAKE_BUILD_TYPE=Release \
                -DUSE_QT_SQLITE=ON \
                -DUSE_MINIUPNP=ON \
                -DUSE_ASPELL=ON \
-               -DNO_UI_DAEMON=ON \
+               -DNO_UI_DAEMON=OFF \
                -DJSONRPC_DAEMON=ON \
                -DPERL_REGEX=ON \
                -DLUA_SCRIPT=ON \
