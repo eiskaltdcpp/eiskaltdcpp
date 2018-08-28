@@ -144,9 +144,9 @@ Keys for cmake
     http://code.google.com/p/eiskaltdc/downloads/detail?name=boost.tar.gz
     (This archive have less size than official boost archive)
     If boost.tar.gz already available in source tree nothing happens.
--DLUA_SCRIPT=ON/OFF (default: OFF)
-    lua scripts
--DPERL_REGEX=ON/OFF (default: OFF)
+-DLUA_SCRIPT=ON/OFF (default: ON)
+    lua scripts suppo
+-DPERL_REGEX=ON/OFF (default: ON)
     use pcre lib for regex in perl style (now it uses only in ADL Search)
 -DUSE_IDNA=ON/OFF (default: ON)
     Use libidn for rfc3490 (resolving Internationalized Domain Names)
@@ -163,7 +163,7 @@ Keys for cmake
     build EiskaltDC++ with Qt interface using Qt 4.x libraries
 -DUSE_QT5=ON/OFF (default: ON)
     build EiskaltDC++ with Qt interface using Qt 5.x libraries
--DUSE_ASPELL=ON/OFF (default: OFF)
+-DUSE_ASPELL=ON/OFF (default: ON)
     use or not use aspell
 -DFREE_SPACE_BAR_C=ON/OFF (default: ON)
     free space bar in status panel
@@ -173,7 +173,7 @@ Keys for cmake
     Enable/disable QtScript basic support
 -DUSE_QT_QML=ON/OFF (default: OFF)
     Enable/disable Qt Declarative UI support. Work only with Qt >= 4.7.0
--DUSE_QT_SQLITE=ON/OFF (default: OFF)
+-DUSE_QT_SQLITE=ON/OFF (default: ON)
     Build with SQLite support. (This is experimental option)
  -----------------
 :eiskaltdcpp-gtk:
@@ -196,7 +196,7 @@ Keys for cmake
     Build daemon (without any UI)
 -DXMLRPC_DAEMON=ON/OFF (default: OFF)
     Make this daemon as xmlrpc server.
--DJSONRPC_DAEMON=ON/OFF (default: OFF)
+-DJSONRPC_DAEMON=ON/OFF (default: ON)
     Make this daemon as json server.
 -DLOCAL_JSONCPP=ON/OFF (default: ON)
     Use embedded copy of jsoncpp library or system library. Have in mind, if
@@ -216,13 +216,13 @@ Keys for cmake
     If ON install emoticons/
 -DWITH_EXAMPLES=ON/OFF (default: ON)
     If ON install examples/
--DWITH_LUASCRIPTS=ON/OFF (default: OFF)
+-DWITH_LUASCRIPTS=ON/OFF (default: ON)
     If ON install luascripts/
--DUSE_MINIUPNP=ON/OFF (default: OFF)
+-DUSE_MINIUPNP=ON/OFF (default: ON)
     use or not use miniupnpc lib
 -DLOCAL_MINIUPNP=ON/OFF (default: OFF)
     If ON use local miniupnpc lib
--DWITH_SOUNDS=ON/OFF (default: OFF)
+-DWITH_SOUNDS=ON/OFF (default: ON)
     If ON install sounds/
 -Dlinguas:STRING="needed translations, separator is whitespace" (default: *)
     examples:
@@ -276,12 +276,10 @@ cmake -DCMAKE_BUILD_TYPE=Release \
       -DLUA_SCRIPT=ON \
       -DWITH_LUASCRIPTS=ON \
       -DWITH_SOUNDS=ON \
-      -DPERL_REGEX=ON \
       -DNO_UI_DAEMON=ON \
       -DJSONRPC_DAEMON=ON \
       -DUSE_CLI_JSONRPC=ON \
       -DUSE_MINIUPNP=ON \
-      -DLOCAL_MINIUPNP=ON
       ..
 make
 sudo make install

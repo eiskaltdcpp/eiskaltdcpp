@@ -3,7 +3,7 @@
 # Authors: Boris Pek
 # License: Public Domain
 # Created: 2018-08-21
-# Created: 2018-08-23
+# Created: 2018-08-29
 # Version: N/A
 #
 # Description: script for personal use
@@ -20,18 +20,19 @@ MAIN_DIR="$(realpath -s ${CUR_DIR}/..)"
 TOOLCHAIN_FILE="${CUR_DIR}/homebrew-toolchain.cmake"
 
 BUILD_OPTIONS="-DCMAKE_BUILD_TYPE=Release \
+               -DUSE_QT=OFF \
+               -DUSE_QT5=ON \
+               -DUSE_QT_SQLITE=ON \
                -DUSE_MINIUPNP=ON \
-               -DLOCAL_MINIUPNP=OFF \
-               -DFREE_SPACE_BAR_C=ON \
-               -DWITH_SOUNDS=ON \
-               -DWITH_LUASCRIPTS=ON \
                -DUSE_ASPELL=ON \
+               -DNO_UI_DAEMON=ON \
+               -DJSONRPC_DAEMON=ON \
                -DPERL_REGEX=ON \
                -DLUA_SCRIPT=ON \
-               -DWITH_DHT=ON \
-               -DLOCAL_BOOST=OFF \
-               -DUSE_QT=OFF \
-               -DUSE_QT5=ON"
+               -DWITH_SOUNDS=ON \
+               -DWITH_LUASCRIPTS=ON \
+               -DLOCAL_MINIUPNP=OFF \
+               -DLOCAL_BOOST=OFF"
 
 mkdir -p "${MAIN_DIR}/builddir"
 cd "${MAIN_DIR}/builddir"
