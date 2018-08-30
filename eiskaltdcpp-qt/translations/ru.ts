@@ -1311,7 +1311,8 @@ Favorite user</source>
         <location filename="../src/HubFrame.cpp" line="1855"/>
         <source>/kword list - full list of keywords which will be highlighted in the chat
 </source>
-        <translation>/kword list - полный список ключевых слов, которые будут подсвечены в чате</translation>
+        <translation>/kword list - полный список ключевых слов, которые будут подсвечены в чате
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1856"/>
@@ -1366,13 +1367,15 @@ Favorite user</source>
         <location filename="../src/HubFrame.cpp" line="1863"/>
         <source>/rebuild - rebuild hash
 </source>
-        <translation>/rebuild - обновить хэш</translation>
+        <translation>/rebuild - обновить хэш
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1864"/>
         <source>/refresh - update own file list
 </source>
-        <translation>/refresh - обновить свой список файлов</translation>
+        <translation>/refresh - обновить свой список файлов
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1865"/>
@@ -1392,13 +1395,15 @@ Favorite user</source>
         <location filename="../src/HubFrame.cpp" line="1867"/>
         <source>/ws param value - set gui option param in value (without value return current value of option)
 </source>
-        <translation>/ws param value - установить опцию GUI в значение value (без параметра value возвращает текущее значение опции)</translation>
+        <translation>/ws param value - установить опцию GUI в значение value (без параметра value возвращает текущее значение опции)
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1868"/>
         <source>/dcpps param value - set core option param in value (without value return current value of option)
 </source>
-        <translation>/dcpps param value - установить опцию ядра в значение value (без параметра value возвращает текущее значение опции)</translation>
+        <translation>/dcpps param value - установить опцию ядра в значение value (без параметра value возвращает текущее значение опции)
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1870"/>
@@ -2270,122 +2275,122 @@ Favorite user</source>
         <translation>Русский перевод&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2770"/>
+        <location filename="../src/MainWindow.cpp" line="2772"/>
         <source>Belarusian translation&lt;br/&gt;</source>
         <translation>Белорусский перевод&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2774"/>
+        <location filename="../src/MainWindow.cpp" line="2776"/>
         <source>Hungarian translation&lt;br/&gt;</source>
         <translation>Венгерский перевод&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2778"/>
+        <location filename="../src/MainWindow.cpp" line="2780"/>
         <source>French translation&lt;br/&gt;</source>
         <translation>Французский перевод&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2781"/>
+        <location filename="../src/MainWindow.cpp" line="2783"/>
         <source>Polish translation&lt;br/&gt;</source>
         <translation>Польский перевод&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2784"/>
+        <location filename="../src/MainWindow.cpp" line="2786"/>
         <source>Ukrainian translation&lt;br/&gt;</source>
         <translation>Украинский перевод&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2788"/>
+        <location filename="../src/MainWindow.cpp" line="2790"/>
         <source>Serbian (Cyrillic) translation&lt;br/&gt;</source>
         <translation>Сербский (Кириллица) перевод&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2792"/>
+        <location filename="../src/MainWindow.cpp" line="2794"/>
         <source>Serbian (Latin) translation&lt;br/&gt;</source>
         <translation>Сербский (Латиница) перевод&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2796"/>
+        <location filename="../src/MainWindow.cpp" line="2798"/>
         <source>Spanish translation&lt;br/&gt;</source>
         <translation>Испанский перевод&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2800"/>
+        <location filename="../src/MainWindow.cpp" line="2802"/>
         <source>Basque translation&lt;br/&gt;</source>
         <translation>Баскский перевод&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2803"/>
+        <location filename="../src/MainWindow.cpp" line="2805"/>
         <source>Bulgarian translation&lt;br/&gt;</source>
         <translation>Болгарский перевод&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2806"/>
+        <location filename="../src/MainWindow.cpp" line="2808"/>
         <source>Slovak translation&lt;br/&gt;</source>
         <translation>Словацкий перевод&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2809"/>
+        <location filename="../src/MainWindow.cpp" line="2811"/>
         <source>Czech translation&lt;br/&gt;</source>
         <translation>Чешский перевод&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2812"/>
+        <location filename="../src/MainWindow.cpp" line="2814"/>
         <source>German translation&lt;br/&gt;</source>
         <translation>Немецкий перевод&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2817"/>
+        <location filename="../src/MainWindow.cpp" line="2819"/>
         <source>Greek translation&lt;br/&gt;</source>
         <translation>Греческий перевод&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2820"/>
+        <location filename="../src/MainWindow.cpp" line="2822"/>
         <source>Italian translation&lt;br/&gt;</source>
         <translation>Итальянский перевод&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2824"/>
+        <location filename="../src/MainWindow.cpp" line="2826"/>
         <source>Portuguese (Brazil) translation&lt;br/&gt;</source>
         <translation>Португальский (Бразилия) перевод&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2827"/>
+        <location filename="../src/MainWindow.cpp" line="2829"/>
         <source>Vietnamese translation&lt;br/&gt;</source>
         <translation>Вьетнамский перевод&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2830"/>
+        <location filename="../src/MainWindow.cpp" line="2832"/>
         <source>Chinese (China) translation&lt;br/&gt;</source>
         <translation>Китайский (Китай) перевод&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2833"/>
+        <location filename="../src/MainWindow.cpp" line="2835"/>
         <source>Swedish (Sweden) translation&lt;br/&gt;</source>
         <translation>Шведский (Швеция) перевод&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2836"/>
+        <location filename="../src/MainWindow.cpp" line="2838"/>
         <source>Turkish translation&lt;br/&gt;</source>
         <translation>Турецкий перевод&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="3069"/>
+        <location filename="../src/MainWindow.cpp" line="3071"/>
         <source>Additional</source>
         <translation>Дополнительный</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="3070"/>
+        <location filename="../src/MainWindow.cpp" line="3072"/>
         <source>Suppress sound notifications</source>
         <translation>Подавлять звуковые уведомления</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="3071"/>
+        <location filename="../src/MainWindow.cpp" line="3073"/>
         <source>Suppress text notifications</source>
         <translation>Подавлять текстовые сообщения</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="3065"/>
+        <location filename="../src/MainWindow.cpp" line="3067"/>
         <source>Setup speed limits</source>
         <translation>Установить ограничения скорости</translation>
     </message>
@@ -2455,22 +2460,22 @@ Favorite user</source>
         <translation>Участвуйте в переводе. Это просто:</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2876"/>
+        <location filename="../src/MainWindow.cpp" line="2878"/>
         <source>Show close buttons</source>
         <translation>Показывать кнопки закрытия</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2911"/>
+        <location filename="../src/MainWindow.cpp" line="2913"/>
         <source>[No name]</source>
         <translation>[Без имени]</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2999"/>
+        <location filename="../src/MainWindow.cpp" line="3001"/>
         <source>Download Queue</source>
         <translation>Очередь загрузок</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2999"/>
+        <location filename="../src/MainWindow.cpp" line="3001"/>
         <source>All downloads complete</source>
         <translation>Все загрузки завершены</translation>
     </message>
@@ -4889,7 +4894,7 @@ in options, file will be downloaded without opening search dialog.</source>
     <message>
         <location filename="../ui/PrivateMessage.ui" line="81"/>
         <source>Find:</source>
-        <translation>Поиск: </translation>
+        <translation>Поиск:</translation>
     </message>
     <message>
         <location filename="../ui/PrivateMessage.ui" line="88"/>
@@ -5270,7 +5275,7 @@ SOCKS5-прокси это не то же самое, что HTTP-прокси.
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="646"/>
         <source>Alternate speed limit at time from </source>
-        <translation>Другое ограничение скорости от</translation>
+        <translation>Другое ограничение скорости от </translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="672"/>
@@ -6627,7 +6632,7 @@ of how fast a source you are likely to be for other users.</source>
         <location filename="../ui/UISettingsSharing.ui" line="138"/>
         <source>Here you can specify templates for files you don&apos;t want to share. </source>
         <translation>Здесь вы можете указать шаблон для имени файлов, которые
-не хотите расшаривать.</translation>
+не хотите расшаривать. </translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="147"/>
