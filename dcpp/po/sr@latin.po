@@ -1,18 +1,18 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR EiskaltDC++ team
 # This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-# Translators:
-# Boris Pek <tehnick-8@yandex.ru>, 2017
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: EiskaltDC++\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://github.com/eiskaltdcpp/eiskaltdcpp/issues\n"
 "POT-Creation-Date: 2018-08-31 01:04+0300\n"
-"PO-Revision-Date: 2013-11-19 16:45+0000\n"
-"Last-Translator: Boris Pek <tehnick-8@yandex.ru>, 2017\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: miroslav <inactive+miroslav@transifex.com>, 2018\n"
 "Language-Team: Serbian (Latin) (https://www.transifex.com/tehnick/"
-"teams/11818/sr@latin/)\n"
+"teams/11818/sr%40latin/)\n"
 "Language: sr@latin\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -312,12 +312,11 @@ msgstr ""
 
 #: ../PerFolderLimit.cpp:88
 msgid "GiB"
-msgstr ""
+msgstr "GiB"
 
 #: ../PerFolderLimit.cpp:90
-#, fuzzy
 msgid "Denied to send file"
-msgstr "Ne mogu poslati datoteku %1%: %2%"
+msgstr ""
 
 #: ../PerFolderLimit.cpp:91 ../SettingsManager.cpp:614
 msgid " to "
@@ -621,13 +620,12 @@ msgid " DHT Port (%1% UDP)"
 msgstr "Port DHT  (%1% UDP)"
 
 #: ../UPnPManager.cpp:111
-#, fuzzy
 msgid ""
 "Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%, DHT: %4%), "
 "mapped using the %5% interface"
 msgstr ""
-"Uspešno kreiran port maping(TCP: %1%, UDP: %2%, TLS: %3%) mapiranje koristi  "
-"%4% interfejsa"
+"Uspešno kreiran port maping(TCP: %1%, UDP: %2%, TLS: %3%, DHT: %4%) "
+"mapiranje koristi  %5% interfejsa"
 
 #: ../UPnPManager.cpp:113 ../UPnPManager.cpp:115
 msgid ""
@@ -692,9 +690,9 @@ msgid "%.02f KiB"
 msgstr "%.02f KiB"
 
 #: ../Util.cpp:683
-#, fuzzy, c-format
+#, c-format
 msgid "%.02f KB"
-msgstr "%.02f KiB"
+msgstr "%.02f KB"
 
 #: ../Util.cpp:685
 #, c-format
@@ -702,9 +700,9 @@ msgid "%.02f MiB"
 msgstr "%.02f MiB"
 
 #: ../Util.cpp:685
-#, fuzzy, c-format
+#, c-format
 msgid "%.02f MB"
-msgstr "%.02f MiB"
+msgstr "%.02f MB"
 
 #: ../Util.cpp:687
 #, c-format
@@ -712,9 +710,9 @@ msgid "%.02f GiB"
 msgstr "%.02f GiB"
 
 #: ../Util.cpp:687
-#, fuzzy, c-format
+#, c-format
 msgid "%.02f GB"
-msgstr "%.02f GiB"
+msgstr "%.02f GB"
 
 #: ../Util.cpp:689
 #, c-format
@@ -722,9 +720,9 @@ msgid "%.02f TiB"
 msgstr "%.02f TiB"
 
 #: ../Util.cpp:689
-#, fuzzy, c-format
+#, c-format
 msgid "%.02f TB"
-msgstr "%.02f TiB"
+msgstr "%.02f TB"
 
 #: ../Util.cpp:691
 #, c-format
@@ -732,9 +730,9 @@ msgid "%.02f PiB"
 msgstr "%.02f PiB"
 
 #: ../Util.cpp:691
-#, fuzzy, c-format
+#, c-format
 msgid "%.02f PB"
-msgstr "%.02f PiB"
+msgstr "%.02f PB"
 
 #: ../Util.cpp:725
 #, c-format
@@ -753,13 +751,3 @@ msgstr "TTH neusaglašenost"
 #: ../Streams.h:141
 msgid "More bytes written than requested"
 msgstr "Više bajtova zapisano nego što je traženo"
-
-#~ msgid ""
-#~ "This hub is trying to use your client to spam %1%, please urge hub owner "
-#~ "to fix this"
-#~ msgstr ""
-#~ "This hub is trying to use your client to spam %1%, please urge hub owner "
-#~ "to fix this"
-
-#~ msgid "Error: segv parser :D"
-#~ msgstr "Error: segv parser :D"

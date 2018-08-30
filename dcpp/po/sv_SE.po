@@ -313,12 +313,11 @@ msgstr ""
 
 #: ../PerFolderLimit.cpp:88
 msgid "GiB"
-msgstr ""
+msgstr "GiB"
 
 #: ../PerFolderLimit.cpp:90
-#, fuzzy
 msgid "Denied to send file"
-msgstr "Kunde inte skicka filen %1%: %2%"
+msgstr ""
 
 #: ../PerFolderLimit.cpp:91 ../SettingsManager.cpp:614
 msgid " to "

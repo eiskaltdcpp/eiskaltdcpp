@@ -1,16 +1,15 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR EiskaltDC++ team
 # This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-# Translators:
-# Boris Pek <tehnick-8@yandex.ru>, 2017
-# Egoitz Rodriguez Obieta <egoitzro@gmail.com>, 2017
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: EiskaltDC++\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://github.com/eiskaltdcpp/eiskaltdcpp/issues\n"
 "POT-Creation-Date: 2018-08-31 01:04+0300\n"
-"PO-Revision-Date: 2013-11-19 16:45+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Egoitz Rodriguez Obieta <egoitzro@gmail.com>, 2017\n"
 "Language-Team: Basque (https://www.transifex.com/tehnick/teams/11818/eu/)\n"
 "Language: eu\n"
@@ -304,7 +303,7 @@ msgstr ""
 
 #: ../PerFolderLimit.cpp:88
 msgid "GiB"
-msgstr ""
+msgstr "GiB"
 
 #: ../PerFolderLimit.cpp:90
 msgid "Denied to send file"
@@ -668,9 +667,9 @@ msgid "%.02f KiB"
 msgstr "%.02f KiB"
 
 #: ../Util.cpp:683
-#, fuzzy, c-format
+#, c-format
 msgid "%.02f KB"
-msgstr "%.02f KiB"
+msgstr ""
 
 #: ../Util.cpp:685
 #, c-format
@@ -678,9 +677,9 @@ msgid "%.02f MiB"
 msgstr "%.02f MiB"
 
 #: ../Util.cpp:685
-#, fuzzy, c-format
+#, c-format
 msgid "%.02f MB"
-msgstr "%.02f MiB"
+msgstr ""
 
 #: ../Util.cpp:687
 #, c-format
@@ -688,9 +687,9 @@ msgid "%.02f GiB"
 msgstr "%.02f GiB"
 
 #: ../Util.cpp:687
-#, fuzzy, c-format
+#, c-format
 msgid "%.02f GB"
-msgstr "%.02f GiB"
+msgstr ""
 
 #: ../Util.cpp:689
 #, c-format
@@ -698,9 +697,9 @@ msgid "%.02f TiB"
 msgstr "%.02f TiB"
 
 #: ../Util.cpp:689
-#, fuzzy, c-format
+#, c-format
 msgid "%.02f TB"
-msgstr "%.02f TiB"
+msgstr ""
 
 #: ../Util.cpp:691
 #, c-format
@@ -708,9 +707,9 @@ msgid "%.02f PiB"
 msgstr "%.02f PiB"
 
 #: ../Util.cpp:691
-#, fuzzy, c-format
+#, c-format
 msgid "%.02f PB"
-msgstr "%.02f PiB"
+msgstr ""
 
 #: ../Util.cpp:725
 #, c-format
@@ -729,13 +728,3 @@ msgstr "TTH koherentzia eza"
 #: ../Streams.h:141
 msgid "More bytes written than requested"
 msgstr ""
-
-#~ msgid ""
-#~ "This hub is trying to use your client to spam %1%, please urge hub owner "
-#~ "to fix this"
-#~ msgstr ""
-#~ "This hub is trying to use your client to spam %1%, please urge hub owner "
-#~ "to fix this"
-
-#~ msgid "Error: segv parser :D"
-#~ msgstr "Error: segv parser :D"

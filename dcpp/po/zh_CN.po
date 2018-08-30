@@ -1,16 +1,15 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR EiskaltDC++ team
 # This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-# Translators:
-# Boris Pek <tehnick-8@yandex.ru>, 2017
-# Syaoming Lai <syaomingl@gmail.com>, 2017
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: EiskaltDC++\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://github.com/eiskaltdcpp/eiskaltdcpp/issues\n"
 "POT-Creation-Date: 2018-08-31 01:04+0300\n"
-"PO-Revision-Date: 2013-11-19 16:45+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Syaoming Lai <syaomingl@gmail.com>, 2017\n"
 "Language-Team: Chinese (China) (https://www.transifex.com/tehnick/"
 "teams/11818/zh_CN/)\n"
@@ -303,7 +302,7 @@ msgstr ""
 
 #: ../PerFolderLimit.cpp:88
 msgid "GiB"
-msgstr ""
+msgstr "GiB"
 
 #: ../PerFolderLimit.cpp:90
 msgid "Denied to send file"
