@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://github.com/eiskaltdcpp/eiskaltdcpp/issues\n"
-"POT-Creation-Date: 2018-08-26 02:40+0300\n"
+"POT-Creation-Date: 2018-08-31 01:04+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Sopor, 2018\n"
 "Language-Team: Swedish (Sweden) (https://www.transifex.com/tehnick/"
@@ -307,6 +307,23 @@ msgstr "%1% (Användarnamn okänt)"
 msgid "Hub topic:"
 msgstr "Hubbtopic:"
 
+#: ../PerFolderLimit.cpp:88
+msgid "Too small share to download from "
+msgstr ""
+
+#: ../PerFolderLimit.cpp:88
+msgid "GiB"
+msgstr ""
+
+#: ../PerFolderLimit.cpp:90
+#, fuzzy
+msgid "Denied to send file"
+msgstr "Kunde inte skicka filen %1%: %2%"
+
+#: ../PerFolderLimit.cpp:91 ../SettingsManager.cpp:614
+msgid " to "
+msgstr "till"
+
 #: ../QueueManager.cpp:252
 msgid "No needed part"
 msgstr "Ingen del behövs"
@@ -479,10 +496,6 @@ msgstr "Inställning"
 #: ../SettingsManager.cpp:614
 msgid "Change core setting "
 msgstr "Ändra huvudinställning"
-
-#: ../SettingsManager.cpp:614
-msgid " to "
-msgstr "till"
 
 #: ../ShareManager.cpp:446
 msgid "No directory specified"

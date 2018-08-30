@@ -2271,122 +2271,122 @@ Bevorzugte Benutzer</translation>
         <translation>Russische Übersetzung&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2770"/>
+        <location filename="../src/MainWindow.cpp" line="2772"/>
         <source>Belarusian translation&lt;br/&gt;</source>
         <translation>Weißrussische Übersetzung&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2774"/>
+        <location filename="../src/MainWindow.cpp" line="2776"/>
         <source>Hungarian translation&lt;br/&gt;</source>
         <translation>Ungarische Übersetzung&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2778"/>
+        <location filename="../src/MainWindow.cpp" line="2780"/>
         <source>French translation&lt;br/&gt;</source>
         <translation>Französische Übersetzung&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2781"/>
+        <location filename="../src/MainWindow.cpp" line="2783"/>
         <source>Polish translation&lt;br/&gt;</source>
         <translation>Polnische Übersetzung&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2784"/>
+        <location filename="../src/MainWindow.cpp" line="2786"/>
         <source>Ukrainian translation&lt;br/&gt;</source>
         <translation>Ukrainische Übersetzung&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2788"/>
+        <location filename="../src/MainWindow.cpp" line="2790"/>
         <source>Serbian (Cyrillic) translation&lt;br/&gt;</source>
         <translation>Serbische (kyrillisch) Übersetzung&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2792"/>
+        <location filename="../src/MainWindow.cpp" line="2794"/>
         <source>Serbian (Latin) translation&lt;br/&gt;</source>
         <translation>Serbische Übersetzung&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2796"/>
+        <location filename="../src/MainWindow.cpp" line="2798"/>
         <source>Spanish translation&lt;br/&gt;</source>
         <translation>Spanische Übersetzung&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2800"/>
+        <location filename="../src/MainWindow.cpp" line="2802"/>
         <source>Basque translation&lt;br/&gt;</source>
         <translation>Baskische Übersetzung&lt;/br&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2803"/>
+        <location filename="../src/MainWindow.cpp" line="2805"/>
         <source>Bulgarian translation&lt;br/&gt;</source>
         <translation>Bulgarische Übersetzung&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2806"/>
+        <location filename="../src/MainWindow.cpp" line="2808"/>
         <source>Slovak translation&lt;br/&gt;</source>
         <translation>Slovakische Übersetzung&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2809"/>
+        <location filename="../src/MainWindow.cpp" line="2811"/>
         <source>Czech translation&lt;br/&gt;</source>
         <translation>Tschechische Übersetzung&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2812"/>
+        <location filename="../src/MainWindow.cpp" line="2814"/>
         <source>German translation&lt;br/&gt;</source>
         <translation>Deutsche Übersetzung&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2817"/>
+        <location filename="../src/MainWindow.cpp" line="2819"/>
         <source>Greek translation&lt;br/&gt;</source>
         <translation>Griechische Übersetzung&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2820"/>
+        <location filename="../src/MainWindow.cpp" line="2822"/>
         <source>Italian translation&lt;br/&gt;</source>
         <translation>Italienische Übersetzung&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2824"/>
+        <location filename="../src/MainWindow.cpp" line="2826"/>
         <source>Portuguese (Brazil) translation&lt;br/&gt;</source>
         <translation>Portugisische (Brasilianische) Übersetzung&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2827"/>
+        <location filename="../src/MainWindow.cpp" line="2829"/>
         <source>Vietnamese translation&lt;br/&gt;</source>
         <translation>Vietnamisische Übersetzung</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2830"/>
+        <location filename="../src/MainWindow.cpp" line="2832"/>
         <source>Chinese (China) translation&lt;br/&gt;</source>
         <translation>Chinesische (China) Übersetzung</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2833"/>
+        <location filename="../src/MainWindow.cpp" line="2835"/>
         <source>Swedish (Sweden) translation&lt;br/&gt;</source>
         <translation>Schwedische (Schweden) Übersetzung&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2836"/>
+        <location filename="../src/MainWindow.cpp" line="2838"/>
         <source>Turkish translation&lt;br/&gt;</source>
         <translation>Türkische Übersetzung&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="3069"/>
+        <location filename="../src/MainWindow.cpp" line="3071"/>
         <source>Additional</source>
         <translation>Zusätzlich</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="3070"/>
+        <location filename="../src/MainWindow.cpp" line="3072"/>
         <source>Suppress sound notifications</source>
         <translation>Tonbenachrichtigungen unterdrücken</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="3071"/>
+        <location filename="../src/MainWindow.cpp" line="3073"/>
         <source>Suppress text notifications</source>
         <translation>Textbenachrichtigungen unterdrücken</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="3065"/>
+        <location filename="../src/MainWindow.cpp" line="3067"/>
         <source>Setup speed limits</source>
         <translation>Geschwindigkeitslimit einrichten</translation>
     </message>
@@ -2456,22 +2456,22 @@ Bevorzugte Benutzer</translation>
         <translation>Nehme an der Übersetzung teil. Es ist leicht:</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2876"/>
+        <location filename="../src/MainWindow.cpp" line="2878"/>
         <source>Show close buttons</source>
         <translation>Zeige schließen Schaltfläche</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2911"/>
+        <location filename="../src/MainWindow.cpp" line="2913"/>
         <source>[No name]</source>
         <translation>[Kein Name]</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2999"/>
+        <location filename="../src/MainWindow.cpp" line="3001"/>
         <source>Download Queue</source>
         <translation>Download Warteschlange</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2999"/>
+        <location filename="../src/MainWindow.cpp" line="3001"/>
         <source>All downloads complete</source>
         <translation>Alle Downloads abgeschlossen</translation>
     </message>

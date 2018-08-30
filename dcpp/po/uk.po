@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: https://github.com/eiskaltdcpp/eiskaltdcpp/issues\n"
-"POT-Creation-Date: 2018-08-25 20:32+0300\n"
+"POT-Creation-Date: 2018-08-31 01:04+0300\n"
 "PO-Revision-Date: 2013-11-19 16:45+0000\n"
 "Last-Translator: Boris Pek <tehnick-8@yandex.ru>, 2017\n"
 "Language-Team: Ukrainian (https://www.transifex.com/tehnick/teams/11818/"
@@ -308,6 +308,23 @@ msgstr "%1% (Нік невідомий)"
 msgid "Hub topic:"
 msgstr "Топік хабу:"
 
+#: ../PerFolderLimit.cpp:88
+msgid "Too small share to download from "
+msgstr ""
+
+#: ../PerFolderLimit.cpp:88
+msgid "GiB"
+msgstr ""
+
+#: ../PerFolderLimit.cpp:90
+#, fuzzy
+msgid "Denied to send file"
+msgstr "Неможливо відправити файл %1%: %2%"
+
+#: ../PerFolderLimit.cpp:91 ../SettingsManager.cpp:614
+msgid " to "
+msgstr "в"
+
 #: ../QueueManager.cpp:252
 msgid "No needed part"
 msgstr "Немає необхідної частини"
@@ -481,10 +498,6 @@ msgstr "Опція ядра"
 #: ../SettingsManager.cpp:614
 msgid "Change core setting "
 msgstr "Змінити опцію ядра"
-
-#: ../SettingsManager.cpp:614
-msgid " to "
-msgstr "в"
 
 #: ../ShareManager.cpp:446
 msgid "No directory specified"

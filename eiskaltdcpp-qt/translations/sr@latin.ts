@@ -2255,122 +2255,122 @@ Omiljeni korisnik</translation>
         <translation>Ruski prevod&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2770"/>
+        <location filename="../src/MainWindow.cpp" line="2772"/>
         <source>Belarusian translation&lt;br/&gt;</source>
         <translation>Beloruski prevod&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2774"/>
+        <location filename="../src/MainWindow.cpp" line="2776"/>
         <source>Hungarian translation&lt;br/&gt;</source>
         <translation>Mađarski prevod&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2778"/>
+        <location filename="../src/MainWindow.cpp" line="2780"/>
         <source>French translation&lt;br/&gt;</source>
         <translation>Francuski prevod&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2781"/>
+        <location filename="../src/MainWindow.cpp" line="2783"/>
         <source>Polish translation&lt;br/&gt;</source>
         <translation>Poljski prevod&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2784"/>
+        <location filename="../src/MainWindow.cpp" line="2786"/>
         <source>Ukrainian translation&lt;br/&gt;</source>
         <translation>Ukrajinski prevod&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2788"/>
+        <location filename="../src/MainWindow.cpp" line="2790"/>
         <source>Serbian (Cyrillic) translation&lt;br/&gt;</source>
         <translation>Srpski (Ćirilica) prevod&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2792"/>
+        <location filename="../src/MainWindow.cpp" line="2794"/>
         <source>Serbian (Latin) translation&lt;br/&gt;</source>
         <translation>Srpski (Latinica) prevod&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2796"/>
+        <location filename="../src/MainWindow.cpp" line="2798"/>
         <source>Spanish translation&lt;br/&gt;</source>
         <translation>Španski prevod&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2800"/>
+        <location filename="../src/MainWindow.cpp" line="2802"/>
         <source>Basque translation&lt;br/&gt;</source>
         <translation>Baskijski prevod&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2803"/>
+        <location filename="../src/MainWindow.cpp" line="2805"/>
         <source>Bulgarian translation&lt;br/&gt;</source>
         <translation>Bugarski prevod&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2806"/>
+        <location filename="../src/MainWindow.cpp" line="2808"/>
         <source>Slovak translation&lt;br/&gt;</source>
         <translation>Slovački prevod&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2809"/>
+        <location filename="../src/MainWindow.cpp" line="2811"/>
         <source>Czech translation&lt;br/&gt;</source>
         <translation>Češki prevod&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2812"/>
+        <location filename="../src/MainWindow.cpp" line="2814"/>
         <source>German translation&lt;br/&gt;</source>
         <translation>Nemački prevod&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2817"/>
+        <location filename="../src/MainWindow.cpp" line="2819"/>
         <source>Greek translation&lt;br/&gt;</source>
         <translation>Grčki prevod&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2820"/>
+        <location filename="../src/MainWindow.cpp" line="2822"/>
         <source>Italian translation&lt;br/&gt;</source>
         <translation>Italijanski prevod&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2824"/>
+        <location filename="../src/MainWindow.cpp" line="2826"/>
         <source>Portuguese (Brazil) translation&lt;br/&gt;</source>
         <translation>Portugalski (Brazil) prevod&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2827"/>
+        <location filename="../src/MainWindow.cpp" line="2829"/>
         <source>Vietnamese translation&lt;br/&gt;</source>
         <translation>Vijetnamski prevod&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2830"/>
+        <location filename="../src/MainWindow.cpp" line="2832"/>
         <source>Chinese (China) translation&lt;br/&gt;</source>
         <translation>Kineski (Kina) prevod&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2833"/>
+        <location filename="../src/MainWindow.cpp" line="2835"/>
         <source>Swedish (Sweden) translation&lt;br/&gt;</source>
         <translation>Švedski (Švedska) prevod&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2836"/>
+        <location filename="../src/MainWindow.cpp" line="2838"/>
         <source>Turkish translation&lt;br/&gt;</source>
         <translation>Turski prevod&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="3069"/>
+        <location filename="../src/MainWindow.cpp" line="3071"/>
         <source>Additional</source>
         <translation>Dodatni</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="3070"/>
+        <location filename="../src/MainWindow.cpp" line="3072"/>
         <source>Suppress sound notifications</source>
         <translation>Suspenzija zvučnih obaveštenja</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="3071"/>
+        <location filename="../src/MainWindow.cpp" line="3073"/>
         <source>Suppress text notifications</source>
         <translation>Suspenzija tekstualnih obaveštenja</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="3065"/>
+        <location filename="../src/MainWindow.cpp" line="3067"/>
         <source>Setup speed limits</source>
         <translation>Podešavanje ograničenja brzine</translation>
     </message>
@@ -2440,22 +2440,22 @@ Omiljeni korisnik</translation>
         <translation>Učestvujte u prevodu. Lako je:</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2876"/>
+        <location filename="../src/MainWindow.cpp" line="2878"/>
         <source>Show close buttons</source>
         <translation>Pokaži dugmad za zatvaranje</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2911"/>
+        <location filename="../src/MainWindow.cpp" line="2913"/>
         <source>[No name]</source>
         <translation>[Bez imena]</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2999"/>
+        <location filename="../src/MainWindow.cpp" line="3001"/>
         <source>Download Queue</source>
         <translation>Red za preuzimanje</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2999"/>
+        <location filename="../src/MainWindow.cpp" line="3001"/>
         <source>All downloads complete</source>
         <translation>Sva preuzimanja kompletna</translation>
     </message>

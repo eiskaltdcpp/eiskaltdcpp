@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://github.com/eiskaltdcpp/eiskaltdcpp/issues\n"
-"POT-Creation-Date: 2018-08-26 02:40+0300\n"
+"POT-Creation-Date: 2018-08-31 01:04+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -294,6 +294,22 @@ msgstr ""
 msgid "Hub topic:"
 msgstr ""
 
+#: ../PerFolderLimit.cpp:88
+msgid "Too small share to download from "
+msgstr ""
+
+#: ../PerFolderLimit.cpp:88
+msgid "GiB"
+msgstr ""
+
+#: ../PerFolderLimit.cpp:90
+msgid "Denied to send file"
+msgstr ""
+
+#: ../PerFolderLimit.cpp:91 ../SettingsManager.cpp:614
+msgid " to "
+msgstr ""
+
 #: ../QueueManager.cpp:252
 msgid "No needed part"
 msgstr ""
@@ -462,10 +478,6 @@ msgstr ""
 
 #: ../SettingsManager.cpp:614
 msgid "Change core setting "
-msgstr ""
-
-#: ../SettingsManager.cpp:614
-msgid " to "
 msgstr ""
 
 #: ../ShareManager.cpp:446

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: https://github.com/eiskaltdcpp/eiskaltdcpp/issues\n"
-"POT-Creation-Date: 2018-08-25 20:32+0300\n"
+"POT-Creation-Date: 2018-08-31 01:04+0300\n"
 "PO-Revision-Date: 2013-11-19 16:45+0000\n"
 "Last-Translator: Arahael <arahael@gmail.com>, 2017\n"
 "Language-Team: Polish (https://www.transifex.com/tehnick/teams/11818/pl/)\n"
@@ -302,6 +302,23 @@ msgstr "%1% (Nazwa użytkownika nieznana)"
 msgid "Hub topic:"
 msgstr ""
 
+#: ../PerFolderLimit.cpp:88
+msgid "Too small share to download from "
+msgstr ""
+
+#: ../PerFolderLimit.cpp:88
+msgid "GiB"
+msgstr ""
+
+#: ../PerFolderLimit.cpp:90
+#, fuzzy
+msgid "Denied to send file"
+msgstr "Niemożna wysłać pliku %1%: %2%"
+
+#: ../PerFolderLimit.cpp:91 ../SettingsManager.cpp:614
+msgid " to "
+msgstr ""
+
 #: ../QueueManager.cpp:252
 msgid "No needed part"
 msgstr ""
@@ -472,10 +489,6 @@ msgstr ""
 
 #: ../SettingsManager.cpp:614
 msgid "Change core setting "
-msgstr ""
-
-#: ../SettingsManager.cpp:614
-msgid " to "
 msgstr ""
 
 #: ../ShareManager.cpp:446
