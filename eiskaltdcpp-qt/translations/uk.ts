@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="uk">
+<TS version="2.1" language="uk">
 <context>
     <name>ADLS</name>
     <message>
@@ -1205,7 +1205,8 @@ Favorite user</source>
         <location filename="../src/HubFrame.cpp" line="1694"/>
         <source>List of keywords:
 </source>
-        <translation>Список ключових слів:</translation>
+        <translation>Список ключових слів:
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1741"/>
@@ -1240,49 +1241,57 @@ Favorite user</source>
         <location filename="../src/HubFrame.cpp" line="1844"/>
         <source>/aspell on/off - enable/disable spell checking
 </source>
-        <translation>/aspell on/off - увімкнути/вимкнути перевірку правопису</translation>
+        <translation>/aspell on/off - увімкнути/вимкнути перевірку правопису
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1846"/>
         <source>/alias &lt;ALIAS_NAME&gt;::&lt;COMMAND&gt; - make alias /ALIAS_NAME to /COMMAND
 </source>
-        <translation>/alias &lt;ALIAS_NAME&gt;::&lt;COMMAND&gt; - створити псевдо /ALIAS_NAME для команди /COMMAND</translation>
+        <translation>/alias &lt;ALIAS_NAME&gt;::&lt;COMMAND&gt; - створити псевдо /ALIAS_NAME для команди /COMMAND
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1847"/>
         <source>/alias purge &lt;ALIAS_NAME&gt; - remove alias
 </source>
-        <translation>/alias purge &lt;ALIAS_NAME&gt; - видалити псевдо</translation>
+        <translation>/alias purge &lt;ALIAS_NAME&gt; - видалити псевдо
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1848"/>
         <source>/alias list - list all aliases
 </source>
-        <translation>/alias list - список усіх псевдонімів команд</translation>
+        <translation>/alias list - список усіх псевдонімів команд
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1849"/>
         <source>/away &lt;message&gt; - set away-mode on/off
 </source>
-        <translation>/away &lt;message&gt; - увімкнути/вимкнути режим &quot;Відійшов&quot;</translation>
+        <translation>/away &lt;message&gt; - увімкнути/вимкнути режим &quot;Відійшов&quot;
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1850"/>
         <source>/back - set away-mode off
 </source>
-        <translation>/back - вимкнути режим &quot;Відійшов&quot;</translation>
+        <translation>/back - вимкнути режим &quot;Відійшов&quot;
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1851"/>
         <source>/browse &lt;nick&gt; - browse user files
 </source>
-        <translation>/browse &lt;nick&gt; - відкрити список файлів користувача</translation>
+        <translation>/browse &lt;nick&gt; - відкрити список файлів користувача
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1852"/>
         <source>/clear - clear chat window
 </source>
-        <translation>/clear - очистити чат</translation>
+        <translation>/clear - очистити чат
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1853"/>
@@ -1309,67 +1318,78 @@ Favorite user</source>
         <location filename="../src/HubFrame.cpp" line="1856"/>
         <source>/magnet - default action with magnet (0-ask, 1-search, 2-download)
 </source>
-        <translation>/magnet - дія при кліку на магнет (0-запитати, 1-знайти, 2-завантажити)</translation>
+        <translation>/magnet - дія при кліку на магнет (0-запитати, 1-знайти, 2-завантажити)
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1857"/>
         <source>/close - close this hub
 </source>
-        <translation>/close - закрити поточний хаб</translation>
+        <translation>/close - закрити поточний хаб
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1858"/>
         <source>/fav - add this hub to favorites
 </source>
-        <translation>/fav - додати поточний хаб до обраних</translation>
+        <translation>/fav - додати поточний хаб до обраних
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1859"/>
         <source>/grant &lt;nick&gt; - grant extra slot to user
 </source>
-        <translation>/grant &lt;nick&gt; - виділити додатковий слот користувачу</translation>
+        <translation>/grant &lt;nick&gt; - виділити додатковий слот користувачу
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1860"/>
         <source>/help, /?, /h - show this help
 </source>
-        <translation>/help, /?, /h - показати цю довідку</translation>
+        <translation>/help, /?, /h - показати цю довідку
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1861"/>
         <source>/info &lt;nick&gt; - show info about user
 </source>
-        <translation>/info &lt;nick&gt; - показати інформацію про користувача</translation>
+        <translation>/info &lt;nick&gt; - показати інформацію про користувача
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1862"/>
         <source>/ratio [show] - show ratio [send in chat]
 </source>
-        <translation>/ratio [show] - показати статистику [відправити в чат]</translation>
+        <translation>/ratio [show] - показати статистику [відправити в чат]
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1863"/>
         <source>/rebuild - rebuild hash
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/rebuild - перебудувати хеш
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1864"/>
         <source>/refresh - update own file list
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/refresh - оновити власний список файлів
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1865"/>
         <source>/me - say a third person
 </source>
-        <translation>/me - сказати від третьої особи</translation>
+        <translation>/me - сказати від третьої особи
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1866"/>
         <source>/pm &lt;nick&gt; - begin private chat with user
 </source>
-        <translation>/pm &lt;nick&gt; - почати приватний чат з користувачем</translation>
+        <translation>/pm &lt;nick&gt; - почати приватний чат з користувачем
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1867"/>
@@ -1389,13 +1409,15 @@ Favorite user</source>
         <location filename="../src/HubFrame.cpp" line="1870"/>
         <source>/luafile &lt;file&gt; - load Lua file
 </source>
-        <translation>/luafile &lt;file&gt; - завантажити Lua-файл</translation>
+        <translation>/luafile &lt;file&gt; - завантажити Lua-файл
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1871"/>
         <source>/lua &lt;chunk&gt; - execute Lua chunk
 </source>
-        <translation>/lua &lt;chunk&gt; - виконати Lua-скрипт</translation>
+        <translation>/lua &lt;chunk&gt; - виконати Lua-скрипт
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="2121"/>
@@ -2375,7 +2397,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="2691"/>
         <source>Please use &lt;a href=&quot;https://github.com/eiskaltdcpp/eiskaltdcpp/issues&quot;&gt;https://github.com/eiskaltdcpp/eiskaltdcpp/issues&lt;/a&gt; to report bugs.&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Використовуйте &lt;a href=&quot;https://github.com/eiskaltdcpp/eiskaltdcpp/issues&quot;&gt;https://github.com/eiskaltdcpp/eiskaltdcpp/issues&lt;/a&gt;, щоб повідомити про помилки.&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2698"/>
@@ -2387,7 +2409,7 @@ Favorite user</source>
         <location filename="../src/MainWindow.cpp" line="2701"/>
         <location filename="../src/MainWindow.cpp" line="2723"/>
         <source>release manager</source>
-        <translation type="unfinished"></translation>
+        <translation>менеджер випуску</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2706"/>
@@ -3574,7 +3596,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="224"/>
         <source>Listing: </source>
-        <translation>Перелік файлів:</translation>
+        <translation>Перелік файлів: </translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="326"/>
@@ -3605,7 +3627,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="642"/>
         <source>Selected %1 from %2 items; </source>
-        <translation>Виділено %1 з %2 елементів;</translation>
+        <translation>Виділено %1 з %2 елементів; </translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="647"/>
@@ -4072,7 +4094,7 @@ Do you want to stop it?
     <message>
         <location filename="../src/TransferView.cpp" line="820"/>
         <source>Uploaded %1 (%2%) </source>
-        <translation>Завантажено %1 (%2%)</translation>
+        <translation>Завантажено %1 (%2%) </translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="837"/>
@@ -4433,7 +4455,7 @@ Do you want to stop it?
     <message>
         <location filename="../ui/UICmdDebug.ui" line="100"/>
         <source>Lines:</source>
-        <translation type="unfinished"></translation>
+        <translation>Кількість рядків:</translation>
     </message>
 </context>
 <context>
@@ -4494,7 +4516,7 @@ Do you want to stop it?
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="85"/>
         <source>This description will be shown in the list of favorite hubs.</source>
-        <translation type="unfinished"></translation>
+        <translation>Цей опис буде показано у списку обраних хабів.</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="92"/>
@@ -4559,7 +4581,7 @@ Do you want to stop it?
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="243"/>
         <source>This description will be shown in the user list.</source>
-        <translation type="unfinished"></translation>
+        <translation>Цей опис буде показано у списку користувачів.</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="250"/>
@@ -4871,7 +4893,7 @@ in options, file will be downloaded without opening search dialog.</source>
     <message>
         <location filename="../ui/PrivateMessage.ui" line="81"/>
         <source>Find:</source>
-        <translation>Знайти: </translation>
+        <translation>Знайти:</translation>
     </message>
     <message>
         <location filename="../ui/PrivateMessage.ui" line="88"/>
@@ -5252,7 +5274,7 @@ SOCKS5-проксі це не те ж саме, що й HTTP-проксі.
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="646"/>
         <source>Alternate speed limit at time from </source>
-        <translation>Інше обмеження швидкості від</translation>
+        <translation>Інше обмеження швидкості від </translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="672"/>
@@ -6093,12 +6115,12 @@ from other words by spaces.</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="484"/>
         <source>Show kibibyte (KiB) or kilobyte (KB), etc.</source>
-        <translation type="unfinished"></translation>
+        <translation>Показати кібібіт (КіБ) або кілобайт (КБ), тощо.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="514"/>
         <source>Metric</source>
-        <translation type="unfinished"></translation>
+        <translation>Метрична</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="528"/>
@@ -6322,7 +6344,7 @@ them is usually available only to operators</source>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="294"/>
         <source>Debug Console</source>
-        <translation type="unfinished">CmdDebug</translation>
+        <translation>Консоль налагодження</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="346"/>
@@ -6549,7 +6571,7 @@ please choose the one closest to your own.
 Do not put in your download speed; this setting is a measure
 of how fast a source you are likely to be for other users.</source>
         <translation>Ций випадаючий список містить декілька типових значень швидкості
-(в МіБ/с), будь ласка, виберіть найбільш відповідаючу вашій.
+(в МіБ/с), виберіть найбільш відповідаючу вашій.
 Не вказуйте швидкість завантаження; це налаштування просто показує,
 наскільки швидко ви можете роздавати файли іншим користувачам.</translation>
     </message>
@@ -6610,7 +6632,7 @@ of how fast a source you are likely to be for other users.</source>
         <location filename="../ui/UISettingsSharing.ui" line="138"/>
         <source>Here you can specify templates for files you don&apos;t want to share. </source>
         <translation>Тут ви можете вказати шаблон для імені файлів, які
-не бажаєте розшарювати.</translation>
+не бажаєте розшарювати. </translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="147"/>
