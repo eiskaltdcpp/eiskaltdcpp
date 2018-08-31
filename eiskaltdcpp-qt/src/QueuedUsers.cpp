@@ -16,6 +16,10 @@
 #include <QAbstractItemModel>
 #include <QMenu>
 
+#ifdef _DEBUG_QT_UI
+#include <QDebug>
+#endif
+
 QueuedUsers::QueuedUsers(){
     setupUi(this);
 
@@ -215,8 +219,10 @@ namespace {
 template <Qt::SortOrder order>
 struct Compare {
     void static sort(int col, QList<QueuedUserItem*>& items) {
-#ifdef _DEBUG_MODEL_
-        qDebug() << "Sorting by " << col << " column and " << WulforUtil::getInstance()->sortOrderToInt(order) << " order.";
+#ifdef _DEBUG_QT_UI
+        qDebug() << "Sorting by " << col
+                 << " column and " << WulforUtil::getInstance()->sortOrderToInt(order)
+                 << " order.";
 #endif
         qStableSort(items.begin(), items.end(), getAttrComp(col));
     }

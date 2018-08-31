@@ -138,7 +138,7 @@ namespace Json
       {
         rep = netstring::encode(rep);
       }
-#ifdef DEBUG
+#ifdef _DEBUG
       curl_easy_setopt(m_curlHandle, CURLOPT_VERBOSE);
 #endif
 

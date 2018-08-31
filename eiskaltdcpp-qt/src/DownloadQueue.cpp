@@ -30,9 +30,7 @@
 #include "dcpp/ClientManager.h"
 #include "dcpp/User.h"
 
-#define _DEBUG_ 1
-
-#if _DEBUG_
+#if _DEBUG_QT_UI
 #include <QtDebug>
 #endif
 

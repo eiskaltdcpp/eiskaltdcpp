@@ -30,15 +30,13 @@
 #include <dcpp/stdinc.h>
 #include <dcpp/QueueManager.h>
 
-#define _DEBUG_ 1
-
-#if _DEBUG_
+#if _DEBUG_QT_UI
 #include <QtDebug>
 #endif
 
 #include <set>
 
-#if _DEBUG_
+#if _DEBUG_QT_UI
 static inline void printRoot(DownloadQueueItem *i, const QString &dlmtr){
     if (!i)
         return;

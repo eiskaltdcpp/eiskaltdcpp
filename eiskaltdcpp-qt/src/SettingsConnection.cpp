@@ -20,11 +20,6 @@
 #include <QRadioButton>
 #include <QList>
 #include <QMessageBox>
-//#define DEBUG_CONNECTION
-#ifdef DEBUG_CONNECTION
-#include <QtDebug>
-#endif
-using namespace dcpp;
 
 #ifndef IPTOS_TOS_MASK
 #define	IPTOS_TOS_MASK		0x1E
@@ -47,6 +42,8 @@ using namespace dcpp;
 #ifndef IPTOS_MINCOST
 #define	IPTOS_MINCOST		IPTOS_LOWCOST
 #endif
+
+using namespace dcpp;
 
 
 SettingsConnection::SettingsConnection( QWidget *parent):

@@ -12,9 +12,7 @@
 #include <QList>
 #include <QStringList>
 
-//#define _DEBUG_MODEL_
-
-#ifdef _DEBUG_MODEL_
+#ifdef _DEBUG_QT_UI
 #include <QtDebug>
 #endif
 

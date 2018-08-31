@@ -32,16 +32,11 @@
 #include "dcpp/CID.h"
 #include "dcpp/ShareManager.h"
 
-//#define _DEBUG_MODEL_
-
-
-#include <QtDebug>
-
-using namespace dcpp;
-
-#ifdef _DEBUG_MODEL_
+#ifdef _DEBUG_QT_UI
 #include <QtDebug>
 #endif
+
+using namespace dcpp;
 
 FinishedTransfersModel::FinishedTransfersModel(QObject *parent):
         QAbstractItemModel(parent), sortColumn(0), sortOrder(Qt::AscendingOrder)

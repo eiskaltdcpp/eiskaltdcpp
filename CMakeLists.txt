@@ -250,6 +250,11 @@ add_definitions (-D_DATADIR="${CLIENT_DATA_DIR}")
 add_definitions (-DLOCALE_DIR="${LOCALE_DIR}")
 add_definitions (-DBUILDING_DCPP)
 
+if (DEBUG)
+    add_definitions (-D_DEBUG)
+    message (STATUS "Enabled verbose debug output!")
+endif(DEBUG)
+
 if (CMAKE_CXX_COMPILER_ID STREQUAL GNU OR CMAKE_CXX_COMPILER_ID STREQUAL Clang)
     set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -pipe -Wformat -Werror=format-security -fpermissive")
     if (USE_GOLD)

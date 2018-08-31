@@ -14,9 +14,7 @@
 #include <QTextStream>
 #include <QMessageBox>
 
-//#define _DEBUG_IPFILTER_
-
-#ifdef _DEBUG_IPFILTER_
+#ifdef _DEBUG_IPFILTER
 #include <QtDebug>
 #endif
 
@@ -54,7 +52,7 @@ QString IPFilter::Uint32ToString(quint32 ip){
 }
 
 quint32 IPFilter::MaskToCIDR(quint32 mask){
-#ifdef _DEBUG_IPFILTER_
+#ifdef _DEBUG_IPFILTER
     printf("IPFilter::MaskToCIDR(%x)\n", mask);
 #endif
     if (mask == 0)
@@ -141,7 +139,7 @@ void IPFilter::addToRules(QString exp, eDIRECTION direction) {
     IPFilterElem *el = NULL;
 
     if (list_ip.contains(exp_ip)) {
-#ifdef _DEBUG_IPFILTER_
+#ifdef _DEBUG_IPFILTER
     qDebug() << "\tIP already in list";
 #endif
         auto it = list_ip.find(exp_ip);
@@ -150,7 +148,7 @@ void IPFilter::addToRules(QString exp, eDIRECTION direction) {
             el = it.value();
 
             if ((el->direction != direction) && (el->action == act)){
-#ifdef _DEBUG_IPFILTER_
+#ifdef _DEBUG_IPFILTER
                 qDebug() << "\tChange direction of IP";
 #endif
                 emit ruleChanged(exp, el->direction, eDIRECTION_BOTH, act);
@@ -173,7 +171,7 @@ void IPFilter::addToRules(QString exp, eDIRECTION direction) {
     el->direction = direction;
     el->action    = act;
 
-#ifdef _DEBUG_IPFILTER_
+#ifdef _DEBUG_IPFILTER
     qDebug() << "\tCreated new element:";
     printf("\t\tMASK: 0x%x\n"
            "\t\tIP  : %s\n"
@@ -261,7 +259,7 @@ void IPFilter::changeRuleDirection(QString exp, eDIRECTION direction, eTableActi
 }
 
 bool IPFilter::OK(const QString &exp, eDIRECTION direction){
-#ifdef _DEBUG_IPFILTER_
+#ifdef _DEBUG_IPFILTER
     qDebug() << "IPFilter::OK(" << exp.toUtf8().constData() << ", " << (int)direction << ")";
 #endif
     QString str_src(exp);
@@ -278,7 +276,7 @@ bool IPFilter::OK(const QString &exp, eDIRECTION direction){
     for (int i = 0; i < rules.size(); i++){
         el = rules.at(i);
 
-#ifdef _DEBUG_IPFILTER_
+#ifdef _DEBUG_IPFILTER
     printf("\tel->ip & el->mask == %x\n"
            "\tsrc    & el->mask == %x\n",
            (el->ip & el->mask),
@@ -288,22 +286,22 @@ bool IPFilter::OK(const QString &exp, eDIRECTION direction){
 
         if ((el->ip & el->mask) == (src & el->mask)){//Exact match
             bool exact_direction = ((el->direction == direction) || (el->direction == eDIRECTION_BOTH));
-#ifdef _DEBUG_IPFILTER_
+#ifdef _DEBUG_IPFILTER
             printf("\tFound match... ");
 #endif
             if      ((el->action == etaDROP) && exact_direction){
-#ifdef _DEBUG_IPFILTER_
+#ifdef _DEBUG_IPFILTER
                 printf("DROP.\n");
 #endif
                 return false;
             }
             else if ((el->action == etaACPT) && exact_direction){
-#ifdef _DEBUG_IPFILTER_
+#ifdef _DEBUG_IPFILTER
                 printf("ACCEPT.\n");
 #endif
                 return true;
             }
-#ifdef _DEBUG_IPFILTER_
+#ifdef _DEBUG_IPFILTER
             else
                 printf("IGNORE.\n");
 #endif
@@ -379,7 +377,7 @@ void IPFilter::loadList() {
         pattern.replace("\n", "");
         pattern.replace(" ", "");
 
-#ifdef _DEBUG_IPFILTER_
+#ifdef _DEBUG_IPFILTER
         qDebug() << pattern;
 #endif
 
@@ -396,14 +394,14 @@ void IPFilter::loadList() {
         } else
             continue;
 
-#ifdef _DEBUG_IPFILTER_
+#ifdef _DEBUG_IPFILTER
         qDebug() << pattern;
 #endif
 
         addToRules(pattern, direction);
     }
 
-#ifdef _DEBUG_IPFILTER_
+#ifdef _DEBUG_IPFILTER
     qDebug() << rules;
 #endif
 

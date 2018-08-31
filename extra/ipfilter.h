@@ -86,10 +86,6 @@ public:
     /** */
     void importFrom(std::string path);
 
-#ifdef _DEBUG_
-    void printHash();
-#endif
-
 private:
     /** */
     ipfilter();

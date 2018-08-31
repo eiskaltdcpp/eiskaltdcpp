@@ -37,8 +37,8 @@ private:
 #define DEBUG_BLOCK DebugHelper _dbg_helper_; \
                     std::cout << (_dbg_helper_ << Q_FUNC_INFO) << std::endl;
 
-#else // QT_NO_DEBUG
+#else // _DEBUG
 
 #define DEBUG_BLOCK
 
-#endif //QT_NO_DEBUG
+#endif // _DEBUG

@@ -72,8 +72,9 @@ list(APPEND LIBS
 
 target_link_libraries (${PROJECT_NAME} dcpp ${LIBS})
 
-if (CMAKE_BUILD_TYPE STREQUAL Debug)
-    add_definitions(-D_DEBUG)
+if (DEBUG_DAEMON)
+    add_definitions(-D_DEBUG_DAEMON)
+    message (STATUS "Enabled debug output from eiskaltdcpp-daemon!")
 endif()
 
 install (TARGETS ${PROJECT_NAME}

@@ -31,19 +31,17 @@
 #include <QSize>
 #include <QStyleOptionProgressBar>
 #include <QHash>
-//#include <QColorGroup>
 
 #include "dcpp/stdinc.h"
 #include "dcpp/ShareManager.h"
 #include "dcpp/Util.h"
 
-#define _DEBUG_ 1
+#include <set>
 
-#if _DEBUG_
+#if _DEBUG_QT_UI
 #include <QtDebug>
 #endif
 
-#include <set>
 
 TransferViewModel::TransferViewModel(QObject *parent)
     : QAbstractItemModel(parent), iconsScaled(false), showTranferedFilesOnly(false)

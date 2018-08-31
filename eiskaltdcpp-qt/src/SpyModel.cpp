@@ -149,7 +149,7 @@ struct Compare {
     void static insertSorted(int col, QList<SpyItem*>& items, SpyItem* item) {
         auto it = qLowerBound(items.begin(), items.end(), item, getAttrComp(col));
         items.insert(it, item);
-#ifdef _DEBUG_MODEL_
+#ifdef _DEBUG_QT_UI
         qDebug() << "Item inserted at " << items.indexOf(*it) << " position";
 #endif
     }

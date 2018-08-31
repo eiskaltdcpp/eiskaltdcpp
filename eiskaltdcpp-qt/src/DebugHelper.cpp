@@ -13,5 +13,5 @@
 
 QString DebugHelper::whitespace = "";
 
-#endif //QT_NO_DEBUG
+#endif // _DEBUG
 

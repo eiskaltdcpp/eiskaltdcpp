@@ -17,7 +17,7 @@
 #include "dcpp/stdinc.h"
 #include "dcpp/Singleton.h"
 
-#ifdef _DEBUG_
+#ifdef _DEBUG_QT_UI
 #include <QtDebug>
 #endif
 
@@ -96,10 +96,6 @@ public:
     void exportTo(QString path);
     /** */
     void importFrom(QString path);
-
-#ifdef _DEBUG_
-    void printHash();
-#endif
 
 private:
     /** */

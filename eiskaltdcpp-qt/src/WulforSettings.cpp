@@ -60,7 +60,7 @@ bool WulforSettings::hasKey(const QString &key) const{
 }
 
 void WulforSettings::load(){
-#ifdef _DEBUG_MODEL_
+#ifdef _DEBUG_QT_UI
     qDebug() << settings.fileName();
 #endif
     if (QFile::exists(configFileOld) && settings.value("app/firstrun", true).toBool()){
@@ -426,7 +426,7 @@ void WulforSettings::loadTranslation(){
         installTranslator(appTranslator, lcName, "en", translationsPath);
 
         dcpp::Util::setLang(lcName.toStdString());
-#ifdef _DEBUG_MODEL_
+#ifdef _DEBUG_QT_UI
         qDebug() << QString("LANGUAGE=%1").arg(lcName);
 #endif
     }
@@ -437,7 +437,7 @@ void WulforSettings::loadTranslation(){
         installTranslator(appTranslator, lcName, "en", translationsPath);
 
         dcpp::Util::setLang(lcName.toStdString());
-#ifdef _DEBUG_MODEL_
+#ifdef _DEBUG_QT_UI
         qDebug() << QString("LANGUAGE=%1").arg(lcName);
 #endif
     }

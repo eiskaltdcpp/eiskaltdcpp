@@ -232,7 +232,7 @@ int main(int argc, char* argv[])
 
     sTitle = "eiskaltdcpp-daemon (EiskaltDC++ core " + string(EISKALTDCPP_VERSION_STRING) + ")";
 
-#ifdef _DEBUG
+#ifdef _DEBUG_DAEMON
     sTitle += " [debug]";
 #endif
 

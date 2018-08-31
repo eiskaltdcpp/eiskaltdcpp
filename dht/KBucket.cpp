@@ -301,7 +301,8 @@ namespace dht
             types[n->getType()]++;
         }
 
-        dcdebug("DHT Nodes: %d (%d verified), Types: %d/%d/%d/%d/%d, pinged %d of %d, removed %d\n", nodes.size(), verified, types[0], types[1], types[2], types[3], types[4], pinged, pingCount, removed);
+        dcdebug("DHT Nodes: %d (%d verified), Types: %d/%d/%d/%d/%d, pinged %d of %d, removed %d\n",
+                nodes.size(), verified, types[0], types[1], types[2], types[3], types[4], pinged, pingCount, removed);
 #endif
 
         return dirty;
