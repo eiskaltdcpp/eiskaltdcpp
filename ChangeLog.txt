@@ -289,17 +289,17 @@
 * Small improvements for Lua scripts support in MS Windows.
 * Fixed build with Boost >= 1.48.
 * Transifex web service is used for translators now:
-  http://code.google.com/p/eiskaltdc/wiki/MakingTranslations
-  https://www.transifex.net/projects/p/eiskaltdcpp/
+  https://github.com/eiskaltdcpp/eiskaltdcpp/wiki/Translations
+  https://www.transifex.com/tehnick/eiskaltdcpp/
 *** eiskaltdcpp-qt ***
 * Refactoring of source code. Regressions are possible.
 * Now GCC >= 4.5.0 is required for build. (Features from C++11 are used)
 * Fixed build in Haiku. System algorithm to test run only one instance
   of the program is used now.
 * A lot of new methods are now available using QtScript. See:
-  http://code.google.com/p/eiskaltdc/wiki/Scripting
-  http://code.google.com/p/eiskaltdc/wiki/Scripting_QtScript_Example_Scripts
-  http://code.google.com/p/eiskaltdc/wiki/Scripting_Working_With_QtScript
+  https://github.com/eiskaltdcpp/eiskaltdcpp/wiki/Scripting
+  https://github.com/eiskaltdcpp/eiskaltdcpp/wiki/Scripting_QtScript_Example_Scripts
+  https://github.com/eiskaltdcpp/eiskaltdcpp/wiki/Scripting_Working_With_QtScript
   [Thanks to OmegaPhil for an updated documentation]
 * Hot reloading of scripts (QtScript) when they have been changed.
 * Dialog of scripting (QtScript) is appreciably improved.
@@ -336,7 +336,7 @@
 *** eiskaltdcpp-daemon ***
 * Added command line options: --verbose, --ip, --port, --rpclog, --uripath
 * Added JSON-RPC interface. More detail:
-  http://code.google.com/p/eiskaltdc/wiki/JSONRPC
+  https://github.com/eiskaltdcpp/eiskaltdcpp/wiki/JSONRPC
 *** eiskaltdcpp-cli ***
 * Added a simple console interface to control the daemon via JSON-RPC.
 
@@ -382,7 +382,7 @@
   starts searching.
 *** eiskaltdcpp-daemon ***
 * Added new XML-RPC methods: search.send, search.getresults, show.version,
-  show.ratio (more detail: http://code.google.com/p/eiskaltdc/wiki/XMLRPC)
+  show.ratio (more detail: https://github.com/eiskaltdcpp/eiskaltdcpp/wiki/XMLRPC)
 *** eiskaltdcpp-cli ***
 * Added a simple console interface to control the daemon via XML-RPC.
 

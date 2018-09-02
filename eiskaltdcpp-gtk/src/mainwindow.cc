@@ -369,7 +369,7 @@ MainWindow::MainWindow():
 
     // Help menu
     g_object_set_data_full(G_OBJECT(getWidget("homeMenuItem")), "link",
-        g_strdup("http://code.google.com/p/eiskaltdc/"), g_free);
+        g_strdup("https://github.com/eiskaltdcpp/eiskaltdcpp/"), g_free);
     g_signal_connect(getWidget("homeMenuItem"), "activate", G_CALLBACK(onLinkClicked_gui), NULL);
 
     g_object_set_data_full(G_OBJECT(getWidget("sourceMenuItem")), "link",
@@ -377,11 +377,11 @@ MainWindow::MainWindow():
     g_signal_connect(getWidget("sourceMenuItem"), "activate", G_CALLBACK(onLinkClicked_gui), NULL);
 
     g_object_set_data_full(G_OBJECT(getWidget("issueMenuItem")), "link",
-        g_strdup("http://code.google.com/p/eiskaltdc/issues/list"), g_free);
+        g_strdup("https://github.com/eiskaltdcpp/eiskaltdcpp/issues"), g_free);
     g_signal_connect(getWidget("issueMenuItem"), "activate", G_CALLBACK(onLinkClicked_gui), NULL);
 
     g_object_set_data_full(G_OBJECT(getWidget("wikiItem")), "link",
-        g_strdup("http://code.google.com/p/eiskaltdc/w/list"), g_free);
+        g_strdup("https://github.com/eiskaltdcpp/eiskaltdcpp/wiki"), g_free);
     g_signal_connect(getWidget("wikiItem"), "activate", G_CALLBACK(onLinkClicked_gui), NULL);
 
     g_object_set_data_full(G_OBJECT(getWidget("changeLogItem")), "link",
