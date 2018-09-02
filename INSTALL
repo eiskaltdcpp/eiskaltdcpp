@@ -124,12 +124,8 @@ make -j2
 sudo make install
 
 ---------
-# Note: you can get the lastest program sorces from git repository
-git clone git://github.com/eiskaltdcpp/eiskaltdcpp.git
-# or
-wget -4 -c https://nodeload.github.com/eiskaltdcpp/eiskaltdcpp/tar.gz/master
-# or
-svn export http://svn.github.com/eiskaltdcpp/eiskaltdcpp/ eiskaltdcpp
+# Note: you can get the most recent sources of program from git repository:
+git clone https://github.com/eiskaltdcpp/eiskaltdcpp.git
 
 
 *******************************************************************************
@@ -138,12 +134,6 @@ Keys for cmake
 ----------------
 :libeiskaltdcpp:
 ----------------
--DLOCAL_BOOST=ON/OFF (default: OFF)
-    use local boost headers
-    Script downloads archive with only necessary headers:
-    http://code.google.com/p/eiskaltdc/downloads/detail?name=boost.tar.gz
-    (This archive have less size than official boost archive)
-    If boost.tar.gz already available in source tree nothing happens.
 -DLUA_SCRIPT=ON/OFF (default: ON)
     lua scripts suppo
 -DPERL_REGEX=ON/OFF (default: ON)
@@ -156,6 +146,12 @@ Keys for cmake
     make static or shared library
     Option available only on Unix-like systems.
     On MS Windows and macOS platforms it is forcibly set to STATIC.
+-DLOCAL_BOOST=ON/OFF (default: OFF)
+    use local boost headers
+    Script downloads archive with only necessary headers:
+    https://sourceforge.net/projects/eiskaltdcpp/files/Other/boost.tar.gz
+    (This archive have less size than official boost archive)
+    If boost.tar.gz already available in source tree nothing happens.
 ----------------
 :eiskaltdcpp-qt:
 ----------------
@@ -243,21 +239,21 @@ Keys for cmake
 -DINSTALL_RUNTIME_PATH=ON/OFF (default: OFF)
     Set RPATH in library. About possible troubles see:
     https://fedoraproject.org/wiki/RPath_Packaging_Draft
-    http://wiki.debian.org/RpathIssue
+    https://wiki.debian.org/RpathIssue
 -DWITH_DEV_FILES=ON/OFF (default: OFF)
     If ON install development files (headers for libeiskaltdcpp)
     see also -DEISKALTDCPP_INCLUDE_DIR
 -DEISKALTDCPP_INCLUDE_DIR=<dir> (default: <prefix for install>/include/eiskaltdcpp)
     install development files (headers for libeiskaltdcpp) to <dir>
 -DDESKTOP_ENTRY_PATH=<prefix for install> (default: /usr/local/share/applications/)
-    .
+    path to directory with system *.desktop files
 -DPIXMAPS_ENTRY_PATH=<prefix for install> (default: /usr/local/share/pixmaps/)
-    .
--DENABLE_STACKTRACE=ON/OFF (default: OFF)
-    Show stacktrace when program receive SIGSEGV
+    path to directory with pixmaps of applications for system *.desktop files
 -DDO_NOT_USE_MUTEX=ON/OFF (default: OFF)
     Do not use mutex. While Haiku and WINE do not support mutexes, this option
     is necessary for them.
+-DHAIKU_PKG=ON/OFF (default: OFF)
+    Make Haiku package
 -DCMAKE_BUILD_TYPE={Release, RelWithDebInfo, Debug, MinRelSize}
     build type (please use RelWithDebInfo for debug mode, not Debug)
 And other standart cmake keys...
@@ -303,7 +299,7 @@ sudo make install
 
 
 *******************************************************************************
-Mac OS X specific notes
+macOS specific notes
 *******************************************************************************
 Examples of build scripts:
 macosx/build-universal-binary.sh (outdated)
@@ -321,4 +317,10 @@ Instructions are available in the file: windows/READ_ME.txt
 Haiku specific notes
 *******************************************************************************
 To configure program use command like this:
-+cmake -DLOCAL_BOOST=ON -DCMAKE_INSTALL_PREFIX=/boot/apps/Eiskaltdcpp -DFORCE_XDG=OFF -DSHARE_DIR=/boot/apps/Eiskaltdcpp ..
+cmake .. \
+    -DCMAKE_INSTALL_PREFIX=/boot/apps/Eiskaltdcpp \
+    -DSHARE_DIR=/boot/apps/Eiskaltdcpp \
+    -DLOCAL_BOOST=ON \
+    -DFORCE_XDG=OFF \
+    -DHAIKU_PKG=ON
+
