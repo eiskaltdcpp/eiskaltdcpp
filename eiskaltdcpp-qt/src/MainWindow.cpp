@@ -2631,10 +2631,10 @@ void MainWindow::slotAboutOpenUrl(){
 
     QAction *act = qobject_cast<QAction *>(sender());
     if (act == d->aboutHomepage){
-        QDesktopServices::openUrl(QUrl("http://github.com/eiskaltdcpp/eiskaltdcpp/"));
+        QDesktopServices::openUrl(QUrl("https://github.com/eiskaltdcpp/eiskaltdcpp/"));
     }
     else if (act == d->aboutSource){
-        QDesktopServices::openUrl(QUrl("http://github.com/eiskaltdcpp/eiskaltdcpp/"));
+        QDesktopServices::openUrl(QUrl("https://github.com/eiskaltdcpp/eiskaltdcpp/"));
     }
     else if (act == d->aboutIssues){
         QDesktopServices::openUrl(QUrl("https://github.com/eiskaltdcpp/eiskaltdcpp/issues"));
@@ -2852,7 +2852,7 @@ void MainWindow::slotAboutClient() {
                 "See the GNU General Public License for more details.<br/>"
                 "<br/>"
                 "You should have received a copy of the GNU General Public License along with this program. "
-                "If not, see &lt;<a href=\"http://www.gnu.org/licenses/\">http://www.gnu.org/licenses/</a>&gt;.<br/>")
+                "If not, see &lt;<a href=\"https://www.gnu.org/licenses/\">https://www.gnu.org/licenses/</a>&gt;.<br/>")
         );
 
     a.exec();

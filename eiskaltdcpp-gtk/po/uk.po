@@ -4287,6 +4287,6 @@ msgstr "вгору/очікування/фрейм: "
 msgid "waiting..."
 msgstr "очікування..."
 
-#~ msgid "http://github.com/eiskaltdcpp/eiskaltdcpp/raw/master/ChangeLog.txt"
+#~ msgid "https://github.com/eiskaltdcpp/eiskaltdcpp/raw/master/ChangeLog.txt"
 #~ msgstr ""
-#~ "http://github.com/eiskaltdcpp/eiskaltdcpp/raw/master/ChangeLog_uk.txt"
+#~ "https://github.com/eiskaltdcpp/eiskaltdcpp/raw/master/ChangeLog_uk.txt"

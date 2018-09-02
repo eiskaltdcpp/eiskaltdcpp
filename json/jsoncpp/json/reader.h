@@ -23,7 +23,7 @@
 
 namespace Json {
 
-   /** \brief Unserialize a <a HREF="http://www.json.org">JSON</a> document into a Value.
+   /** \brief Unserialize a <a HREF="https://www.json.org">JSON</a> document into a Value.
     *
     */
    class JSON_API Reader
@@ -42,7 +42,7 @@ namespace Json {
        */
       Reader( const Features &features );
 
-      /** \brief Read a Value from a <a HREF="http://www.json.org">JSON</a> document.
+      /** \brief Read a Value from a <a HREF="https://www.json.org">JSON</a> document.
        * \param document UTF-8 encoded string containing the document to read.
        * \param root [out] Contains the root value of the document if it was
        *             successfully parsed.
@@ -56,7 +56,7 @@ namespace Json {
                   Value &root,
                   bool collectComments = true );
 
-      /** \brief Read a Value from a <a HREF="http://www.json.org">JSON</a> document.
+      /** \brief Read a Value from a <a HREF="https://www.json.org">JSON</a> document.
        * \param beginDoc Pointer on the beginning of the UTF-8 encoded string of the document to read.
        * \param endDoc Pointer on the end of the UTF-8 encoded string of the document to read. 
        \               Must be >= beginDoc.

@@ -55,7 +55,7 @@ void Thread::setThreadName(const char* const threadName) const {
     // Mac OS X allegedly truncates thread names to 63 chars
     // pthread_setname_np(threadName);
 #elif defined(_WIN32)
-    // TODO, see http://msdn.microsoft.com/en-us/library/xcb2z8hs.aspx
+    // TODO, see https://msdn.microsoft.com/en-us/library/xcb2z8hs.aspx
 #elif defined(__linux__)
     /* I'm using the old prctl way here because the only new feature of pthread_setname_np
      * is that it can be called from outside the thread (not necessary and less portable)

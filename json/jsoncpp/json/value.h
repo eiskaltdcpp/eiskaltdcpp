@@ -95,7 +95,7 @@ namespace Json {
       const char *str_;
    };
 
-   /** \brief Represents a <a HREF="http://www.json.org">JSON</a> value.
+   /** \brief Represents a <a HREF="https://www.json.org">JSON</a> value.
     *
     * This class is a discriminated union wrapper that can represents a:
     * - signed integer [range: Value::minInt - Value::maxInt]

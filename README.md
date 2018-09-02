@@ -2,7 +2,7 @@ EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC
 protocols. It is compatible with DC++, FlylinkDC++, LinuxDC++ and other DC
 clients. EiskaltDC++ also interoperates with all common DC hub software.
 
-Home page: http://sourceforge.net/projects/eiskaltdcpp/
+Home page: https://sourceforge.net/projects/eiskaltdcpp/
 
 Public chat room: https://gitter.im/eiskaltdcpp/eiskaltdcpp
 

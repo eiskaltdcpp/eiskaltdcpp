@@ -210,7 +210,7 @@ MainWindow::MainWindow():
         _("Contributors"),
         "  2001-2012 LinuxDC++ Team http://launchpad.net/linuxdcpp",
         "  2009-2011 troll http://code.google.com/p/freedcpp/", // <troll.freedcpp@gmail.com>
-        "  2010-2012 Mank http://sourceforge.net/projects/freedcppmv/", // <mank@jabbim.cz>
+        "  2010-2012 Mank https://sourceforge.net/projects/freedcppmv/", // <mank@jabbim.cz>
         NULL
     };
     gtk_about_dialog_set_authors(GTK_ABOUT_DIALOG(getWidget("aboutDialog")),
@@ -373,7 +373,7 @@ MainWindow::MainWindow():
     g_signal_connect(getWidget("homeMenuItem"), "activate", G_CALLBACK(onLinkClicked_gui), NULL);
 
     g_object_set_data_full(G_OBJECT(getWidget("sourceMenuItem")), "link",
-        g_strdup("http://github.com/eiskaltdcpp/eiskaltdcpp/"), g_free);
+        g_strdup("https://github.com/eiskaltdcpp/eiskaltdcpp/"), g_free);
     g_signal_connect(getWidget("sourceMenuItem"), "activate", G_CALLBACK(onLinkClicked_gui), NULL);
 
     g_object_set_data_full(G_OBJECT(getWidget("issueMenuItem")), "link",

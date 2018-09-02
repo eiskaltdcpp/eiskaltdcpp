@@ -100,7 +100,7 @@ end
 
 -- KML writing
 function kml_geoip.xml_escape(text)
-	-- http://www.w3.org/TR/xml/#syntax
+	-- https://www.w3.org/TR/xml/#syntax
 	local subst_table = {
 		['"'] = ' &quot; ', ["'"] = ' &apos; ', ["<"] = ' &lt; ',
 		[">"] = ' &gt; '  , ["&"] = ' &amp; ' }

@@ -5,7 +5,7 @@ Eugene Petrov <dhamp@ya.ru>
 
 Contributors:
 troll <troll.freedcpp@gmail.com> (http://code.google.com/p/freedcpp/)
-Mank <mank@jabbim.cz> (http://sourceforge.net/projects/freedcppmv/)
+Mank <mank@jabbim.cz> (https://sourceforge.net/projects/freedcppmv/)
 
 FreeDC++:
 ---------

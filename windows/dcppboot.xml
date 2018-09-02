@@ -17,7 +17,7 @@
 	%[PERSONAL] - My documents
 	
 	All % variables from strftime with the current time: 
-	http://msdn.microsoft.com/library/en-us/vclib/html/_crt_strftime.2c_.wcsftime.asp
+	https://msdn.microsoft.com/library/en-us/vclib/html/_crt_strftime.2c_.wcsftime.asp
 	-->
 	<ConfigPath></ConfigPath>
 </Boot>

@@ -5,7 +5,7 @@
 // This library is dual-licensed: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License version 2 as
 // published by the Free Software Foundation. For the terms of this
-// license, see <http://www.gnu.org/licenses/>.
+// license, see <https://www.gnu.org/licenses/>.
 //
 // You are free to use this library under the terms of the GNU General
 // Public License, but WITHOUT ANY WARRANTY; without even the implied
@@ -13,7 +13,7 @@
 // See the GNU General Public License for more details.
 //
 // Alternatively, you can license this library under a commercial
-// license, as set out in <http://cesanta.com/>.
+// license, as set out in <https://cesanta.com/>.
 
 #ifdef NOEMBED_NET_SKELETON
 #include "net_skeleton.h"
@@ -25,7 +25,7 @@
 // This software is dual-licensed: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License version 2 as
 // published by the Free Software Foundation. For the terms of this
-// license, see <http://www.gnu.org/licenses/>.
+// license, see <https://www.gnu.org/licenses/>.
 //
 // You are free to use this software under the terms of the GNU General
 // Public License, but WITHOUT ANY WARRANTY; without even the implied
@@ -33,7 +33,7 @@
 // See the GNU General Public License for more details.
 //
 // Alternatively, you can license this software under a commercial
-// license, as set out in <http://cesanta.com/>.
+// license, as set out in <https://cesanta.com/>.
 
 #ifndef NS_SKELETON_HEADER_INCLUDED
 #define NS_SKELETON_HEADER_INCLUDED
@@ -301,7 +301,7 @@ int ns_resolve(const char *domain_name, char *ip_addr_buf, size_t buf_len);
 // This software is dual-licensed: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License version 2 as
 // published by the Free Software Foundation. For the terms of this
-// license, see <http://www.gnu.org/licenses/>.
+// license, see <https://www.gnu.org/licenses/>.
 //
 // You are free to use this software under the terms of the GNU General
 // Public License, but WITHOUT ANY WARRANTY; without even the implied
@@ -309,7 +309,7 @@ int ns_resolve(const char *domain_name, char *ip_addr_buf, size_t buf_len);
 // See the GNU General Public License for more details.
 //
 // Alternatively, you can license this software under a commercial
-// license, as set out in <http://cesanta.com/>.
+// license, as set out in <https://cesanta.com/>.
 //
 // $Date: 2014-09-28 05:04:41 UTC $
 
@@ -3359,7 +3359,7 @@ static void open_file_endpoint(struct connection *conn, const char *path,
   }
 
   // Prepare Etag, Date, Last-Modified headers. Must be in UTC, according to
-  // http://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.3
+  // https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.3
   gmt_time_string(date, sizeof(date), &curtime);
   t = st->st_mtime; // store in local variable for NDK compile
   gmt_time_string(lm, sizeof(lm), &t);
@@ -4680,7 +4680,7 @@ static void send_continue_if_expected(struct connection *conn) {
   }
 }
 
-// Conform to http://www.w3.org/Protocols/rfc2616/rfc2616-sec5.html#sec5.1.2
+// Conform to https://www.w3.org/Protocols/rfc2616/rfc2616-sec5.html#sec5.1.2
 static int is_valid_uri(const char *uri) {
   unsigned short n;
   return uri[0] == '/' ||

@@ -10,7 +10,7 @@
 
 # chat: /me DeaDBeeF playing now:Black Heaven - Himmel ohne Sterne, длина песни 3:59, уже прослушал 2:54 ( 07 Himmel ohne Sterne.m4a (9.1 МиБ) ) [Powered by DeaDBeeF 0.5.1 | GNU/Linux]]
 # See also:
-# http://sourceforge.net/apps/mediawiki/deadbeef/index.php?title=Title_Formatting
+# https://sourceforge.net/apps/mediawiki/deadbeef/index.php?title=Title_Formatting
 
 db=$(deadbeef --nowplaying "%a - %t, длина песни %l, уже прослушал %e")
 directory=$(deadbeef --nowplaying "%D")

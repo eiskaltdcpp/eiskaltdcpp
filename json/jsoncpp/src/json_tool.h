@@ -20,7 +20,7 @@ codePointToUTF8(unsigned int cp)
 {
    std::string result;
    
-   // based on description from http://en.wikipedia.org/wiki/UTF-8
+   // based on description from https://en.wikipedia.org/wiki/UTF-8
 
    if (cp <= 0x7f) 
    {

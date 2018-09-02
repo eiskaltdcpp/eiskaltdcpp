@@ -490,7 +490,7 @@ upnpDiscover(int delay, const char * multicastif,
 #if !defined(_WIN32)
 			/* according to MSDN, if_nametoindex() is supported since
 			 * MS Windows Vista and MS Windows Server 2008.
-			 * http://msdn.microsoft.com/en-us/library/bb408409%28v=vs.85%29.aspx */
+			 * https://msdn.microsoft.com/en-us/library/bb408409%28v=vs.85%29.aspx */
 			unsigned int ifindex = if_nametoindex(multicastif); /* eth0, etc. */
 			if(setsockopt(sudp, IPPROTO_IPV6, IPV6_MULTICAST_IF, &ifindex, sizeof(&ifindex)) < 0)
 			{

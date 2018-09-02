@@ -23,7 +23,7 @@
   [Thanks to Pavel Pimenov]
 * Added options: LogFileSpy, LogFormatSpy (issue 1403)
 * [NMDC] Prevent crashes when receiving malicious search requests
-    http://sourceforge.net/p/dcplusplus/code/ci/1d751b2467b5af9b921e694bca29ee47f5311608/
+    https://sourceforge.net/p/dcplusplus/code/ci/1d751b2467b5af9b921e694bca29ee47f5311608/
   [Thanks to Pavel Pimenov]
 * Add parse tags TS and HIT in filelists
 * [NMDC] Add support CTM2HUB
@@ -348,7 +348,7 @@
   This option is disabled in the settings by default. It is possible to
   completely remove support for DHT during configuration (option -DWITH_DHT
   for cmake). DHT requires white external IPv4 for a work. See also:
-  http://en.wikipedia.org/wiki/Distributed_hash_table
+  https://en.wikipedia.org/wiki/Distributed_hash_table
 * Fixed build in Mac OS X.
 *** eiskaltdcpp-qt ***
 * Added some options in settings dialog: DHT, DHT_PORT

@@ -1,7 +1,7 @@
 *******************************************************************************
 Compilation in Linux ( cross-compile in MXE ) [ Recommended ]
 *******************************************************************************
-Install MXE: http://mxe.cc/#tutorial
+Install MXE: https://mxe.cc/#tutorial
 
 cd /path/to/mxe
 make aspell boost jsoncpp libidn lua miniupnpc qtmultimedia qttools MXE_TARGETS=x86_64-w64-mingw32.shared
@@ -102,7 +102,7 @@ If you need installer run:
 The list of dependencies
 *******************************************************************************
 i686-4.9.1-release-posix-dwarf-rt_v3-rev1.7z or later
-	http://sourceforge.net/projects/mingw-w64/files/Toolchains%20targetting%20Win32/Personal%20Builds/mingw-builds/4.9.1/threads-posix/dwarf/i686-4.9.1-release-posix-dwarf-rt_v3-rev1.7z/download
+	https://sourceforge.net/projects/mingw-w64/files/Toolchains%20targetting%20Win32/Personal%20Builds/mingw-builds/4.9.1/threads-posix/dwarf/i686-4.9.1-release-posix-dwarf-rt_v3-rev1.7z/download
 
 qt-opensource-windows-x86-mingw482-4.8.6-1.exe or later
 	http://download.qt-project.org/official_releases/qt/4.8/4.8.6/qt-opensource-windows-x86-mingw482-4.8.6-1.exe
@@ -111,43 +111,43 @@ Win32OpenSSL-1_0_1j.exe or later
 	http://slproweb.com/download/Win32OpenSSL-1_0_1j.exe
 
 cmake-3.0.2-win32-x86.exe or later
-	http://www.cmake.org/files/v3.0/cmake-3.0.2-win32-x86.exe
+	https://www.cmake.org/files/v3.0/cmake-3.0.2-win32-x86.exe
 
 nsis-2.46-setup.exe or later
-	http://sourceforge.net/projects/nsis/files/NSIS%202/2.46/nsis-2.46-setup.exe/download
+	https://sourceforge.net/projects/nsis/files/NSIS%202/2.46/nsis-2.46-setup.exe/download
 
 boost_1_49_0.tar.bz2 (for boost versions >= 1.50 required manual build some boost libraries)
-	http://sourceforge.net/projects/boost/files/boost/1.49.0/boost_1_49_0.tar.bz2/download
+	https://sourceforge.net/projects/boost/files/boost/1.49.0/boost_1_49_0.tar.bz2/download
 
 bzip2-1.0.6-4-mingw32-dev.tar.lzma or later
-	http://sourceforge.net/projects/mingw/files/MinGW/Extension/bzip2/bzip2-1.0.6-4/bzip2-1.0.6-4-mingw32-dev.tar.lzma/download
+	https://sourceforge.net/projects/mingw/files/MinGW/Extension/bzip2/bzip2-1.0.6-4/bzip2-1.0.6-4-mingw32-dev.tar.lzma/download
 
 libbz2-1.0.6-4-mingw32-dll-2.tar.lzma or later
-	http://sourceforge.net/projects/mingw/files/MinGW/Extension/bzip2/bzip2-1.0.6-4/libbz2-1.0.6-4-mingw32-dll-2.tar.lzma/download
+	https://sourceforge.net/projects/mingw/files/MinGW/Extension/bzip2/bzip2-1.0.6-4/libbz2-1.0.6-4-mingw32-dll-2.tar.lzma/download
 
 libz-1.2.7-1-mingw32-dev.tar.lzma or later
-	http://sourceforge.net/projects/mingw/files/MinGW/Extension/zlib/zlib-1.2.7-1/libz-1.2.7-1-mingw32-dev.tar.lzma/download
+	https://sourceforge.net/projects/mingw/files/MinGW/Extension/zlib/zlib-1.2.7-1/libz-1.2.7-1-mingw32-dev.tar.lzma/download
 
 libz-1.2.7-1-mingw32-dll-1.tar.lzma or later
-	http://sourceforge.net/projects/mingw/files/MinGW/Extension/zlib/zlib-1.2.7-1/libz-1.2.7-1-mingw32-dll-1.tar.lzma/download
+	https://sourceforge.net/projects/mingw/files/MinGW/Extension/zlib/zlib-1.2.7-1/libz-1.2.7-1-mingw32-dll-1.tar.lzma/download
 
 gettext-0.18.3.2-1-mingw32-dev.tar.xz or later
-	http://sourceforge.net/projects/mingw/files/MinGW/Base/gettext/gettext-0.18.3.2-1/gettext-0.18.3.2-1-mingw32-dev.tar.xz/download
+	https://sourceforge.net/projects/mingw/files/MinGW/Base/gettext/gettext-0.18.3.2-1/gettext-0.18.3.2-1-mingw32-dev.tar.xz/download
 
 libgettextpo-0.18.3.2-1-mingw32-dll-0.tar.xz or later
-	http://sourceforge.net/projects/mingw/files/MinGW/Base/gettext/gettext-0.18.3.2-1/libgettextpo-0.18.3.2-1-mingw32-dll-0.tar.xz/download
+	https://sourceforge.net/projects/mingw/files/MinGW/Base/gettext/gettext-0.18.3.2-1/libgettextpo-0.18.3.2-1-mingw32-dll-0.tar.xz/download
 
 libintl-0.18.3.2-1-mingw32-dll-8.tar.xz or later
-	http://sourceforge.net/projects/mingw/files/MinGW/Base/gettext/gettext-0.18.3.2-1/libintl-0.18.3.2-1-mingw32-dll-8.tar.xz/download
+	https://sourceforge.net/projects/mingw/files/MinGW/Base/gettext/gettext-0.18.3.2-1/libintl-0.18.3.2-1-mingw32-dll-8.tar.xz/download
 
 libiconv-1.14-3-mingw32-dev.tar.lzma or later
-	http://sourceforge.net/projects/mingw/files/MinGW/Base/libiconv/libiconv-1.14-3/libiconv-1.14-3-mingw32-dev.tar.lzma/download
+	https://sourceforge.net/projects/mingw/files/MinGW/Base/libiconv/libiconv-1.14-3/libiconv-1.14-3-mingw32-dev.tar.lzma/download
 
 libiconv-1.14-3-mingw32-dll.tar.lzma or later
-	http://sourceforge.net/projects/mingw/files/MinGW/Base/libiconv/libiconv-1.14-3/libiconv-1.14-3-mingw32-dll.tar.lzma/download
+	https://sourceforge.net/projects/mingw/files/MinGW/Base/libiconv/libiconv-1.14-3/libiconv-1.14-3-mingw32-dll.tar.lzma/download
 
 mingw32-lua-5.1.4-2.zip or later
-	http://sourceforge.net/projects/mingw-cross/files/[LIB] Lua/mingw32-lua-5.1.4-2/mingw32-lua-5.1.4-2.zip/download
+	https://sourceforge.net/projects/mingw-cross/files/[LIB] Lua/mingw32-lua-5.1.4-2/mingw32-lua-5.1.4-2.zip/download
 
 aspell-0.60.5-1-bin.tar.bz2 or later
 	http://www.winkde.org/pub/kde/ports/win32/repository/aspell/aspell-0.60.5-1-bin.tar.bz2
