@@ -236,157 +236,157 @@ Keys:
 <context>
     <name>DownloadQueue</name>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="60"/>
+        <location filename="../src/DownloadQueue.cpp" line="58"/>
         <source>Magnet</source>
         <translation>Magnet</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="62"/>
+        <location filename="../src/DownloadQueue.cpp" line="60"/>
         <source>Search for alternates</source>
         <translation>Hledání alternativ</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="63"/>
+        <location filename="../src/DownloadQueue.cpp" line="61"/>
         <source>Copy magnet</source>
         <translation>Kopírovat magnet</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="64"/>
+        <location filename="../src/DownloadQueue.cpp" line="62"/>
         <source>Copy web-magnet</source>
         <translation>Kopírovat web-magnet</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="65"/>
+        <location filename="../src/DownloadQueue.cpp" line="63"/>
         <source>Properties of magnet</source>
         <translation>Vlastnosti magnetu</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="66"/>
+        <location filename="../src/DownloadQueue.cpp" line="64"/>
         <source>Rename/Move</source>
         <translation>Přejmenovat/Přesunout</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="71"/>
+        <location filename="../src/DownloadQueue.cpp" line="69"/>
         <source>Set priority</source>
         <translation>Nastavit prioritu</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="73"/>
+        <location filename="../src/DownloadQueue.cpp" line="71"/>
         <source>Paused</source>
         <translation>Pozastaveno</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="76"/>
+        <location filename="../src/DownloadQueue.cpp" line="74"/>
         <source>Lowest</source>
         <translation>Nejnižší</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="79"/>
+        <location filename="../src/DownloadQueue.cpp" line="77"/>
         <source>Low</source>
         <translation>Nízká</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="82"/>
+        <location filename="../src/DownloadQueue.cpp" line="80"/>
         <source>Normal</source>
         <translation>Normální</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="85"/>
+        <location filename="../src/DownloadQueue.cpp" line="83"/>
         <source>High</source>
         <translation>Vysoká</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="88"/>
+        <location filename="../src/DownloadQueue.cpp" line="86"/>
         <source>Highest</source>
         <translation>Nejvyšší</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="94"/>
+        <location filename="../src/DownloadQueue.cpp" line="92"/>
         <source>Browse files</source>
         <translation>Procházet soubory</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="95"/>
+        <location filename="../src/DownloadQueue.cpp" line="93"/>
         <source>Send private message</source>
         <translation>Odeslat soukromou zprávu</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="100"/>
+        <location filename="../src/DownloadQueue.cpp" line="98"/>
         <source>Remove source</source>
         <translation>Odebrat zdroj</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="101"/>
+        <location filename="../src/DownloadQueue.cpp" line="99"/>
         <source>Remove user</source>
         <translation>Odebrat uživatele</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="103"/>
+        <location filename="../src/DownloadQueue.cpp" line="101"/>
         <source>Remove</source>
         <translation>Odebrat</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="360"/>
+        <location filename="../src/DownloadQueue.cpp" line="358"/>
         <source>No users...</source>
         <translation>Žádní uživatelé...</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="367"/>
+        <location filename="../src/DownloadQueue.cpp" line="365"/>
         <source>%1 of %2 user(s) online</source>
         <translation>%1 z %2 uživatelů online</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="369"/>
+        <location filename="../src/DownloadQueue.cpp" line="367"/>
         <source>Running...</source>
         <translation>Probíhá...</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="395"/>
+        <location filename="../src/DownloadQueue.cpp" line="393"/>
         <source>File not available</source>
         <translation>Soubor není dostupný</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="397"/>
+        <location filename="../src/DownloadQueue.cpp" line="395"/>
         <source>Passive user</source>
         <translation>Pasivní uživatel</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="399"/>
+        <location filename="../src/DownloadQueue.cpp" line="397"/>
         <source>Checksum mismatch</source>
         <translation>Neshoda kontrolních součtů</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="401"/>
+        <location filename="../src/DownloadQueue.cpp" line="399"/>
         <source>Full tree does not match TTH root</source>
         <translation>Stromová struktura neodpovídá TTH root</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="403"/>
+        <location filename="../src/DownloadQueue.cpp" line="401"/>
         <source>Source too slow</source>
         <translation>Příliš pomalý zdroj</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="405"/>
+        <location filename="../src/DownloadQueue.cpp" line="403"/>
         <source>Remote client does not fully support TTH - cannot download</source>
         <translation>Vzdálený klient plně nepodporuje TTH - nemůžu stahovat</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="412"/>
+        <location filename="../src/DownloadQueue.cpp" line="410"/>
         <source>No errors</source>
         <translation>Žádné chyby</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="653"/>
+        <location filename="../src/DownloadQueue.cpp" line="651"/>
         <source>Choose filename</source>
         <translation>Vyber název</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="653"/>
+        <location filename="../src/DownloadQueue.cpp" line="651"/>
         <source>All files (*.*)</source>
         <translation>Všechny soubory (*.*)</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="793"/>
+        <location filename="../src/DownloadQueue.cpp" line="791"/>
         <source>Total files: &lt;b&gt;%1&lt;/b&gt; Total size: &lt;b&gt;%2&lt;/b&gt;</source>
         <translation>Celkem souborů: &lt;b&gt;%1&lt;/b&gt; Celkem velikost: &lt;b&gt;%2&lt;/b&gt;</translation>
     </message>
@@ -399,103 +399,103 @@ Keys:
 <context>
     <name>DownloadQueueModel</name>
     <message>
-        <location filename="../src/DownloadQueueModel.cpp" line="81"/>
-        <location filename="../src/DownloadQueueModel.cpp" line="283"/>
+        <location filename="../src/DownloadQueueModel.cpp" line="79"/>
+        <location filename="../src/DownloadQueueModel.cpp" line="281"/>
         <source>Name</source>
         <translation>Název</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueueModel.cpp" line="81"/>
-        <location filename="../src/DownloadQueueModel.cpp" line="283"/>
+        <location filename="../src/DownloadQueueModel.cpp" line="79"/>
+        <location filename="../src/DownloadQueueModel.cpp" line="281"/>
         <source>Status</source>
         <translation>Stav</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueueModel.cpp" line="81"/>
-        <location filename="../src/DownloadQueueModel.cpp" line="283"/>
+        <location filename="../src/DownloadQueueModel.cpp" line="79"/>
+        <location filename="../src/DownloadQueueModel.cpp" line="281"/>
         <source>Size</source>
         <translation>Velikost</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueueModel.cpp" line="81"/>
-        <location filename="../src/DownloadQueueModel.cpp" line="283"/>
+        <location filename="../src/DownloadQueueModel.cpp" line="79"/>
+        <location filename="../src/DownloadQueueModel.cpp" line="281"/>
         <source>Downloaded</source>
         <translation>Staženo</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueueModel.cpp" line="82"/>
-        <location filename="../src/DownloadQueueModel.cpp" line="284"/>
+        <location filename="../src/DownloadQueueModel.cpp" line="80"/>
+        <location filename="../src/DownloadQueueModel.cpp" line="282"/>
         <source>Priority</source>
         <translation>Priorita</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueueModel.cpp" line="82"/>
-        <location filename="../src/DownloadQueueModel.cpp" line="284"/>
+        <location filename="../src/DownloadQueueModel.cpp" line="80"/>
+        <location filename="../src/DownloadQueueModel.cpp" line="282"/>
         <source>User</source>
         <translation>Uživatel</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueueModel.cpp" line="82"/>
-        <location filename="../src/DownloadQueueModel.cpp" line="284"/>
+        <location filename="../src/DownloadQueueModel.cpp" line="80"/>
+        <location filename="../src/DownloadQueueModel.cpp" line="282"/>
         <source>Path</source>
         <translation>Cesta</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueueModel.cpp" line="82"/>
-        <location filename="../src/DownloadQueueModel.cpp" line="284"/>
+        <location filename="../src/DownloadQueueModel.cpp" line="80"/>
+        <location filename="../src/DownloadQueueModel.cpp" line="282"/>
         <source>Exact size</source>
         <translation>Přesná velikost</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueueModel.cpp" line="83"/>
-        <location filename="../src/DownloadQueueModel.cpp" line="285"/>
+        <location filename="../src/DownloadQueueModel.cpp" line="81"/>
+        <location filename="../src/DownloadQueueModel.cpp" line="283"/>
         <source>Errors</source>
         <translation>Chyby</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueueModel.cpp" line="83"/>
-        <location filename="../src/DownloadQueueModel.cpp" line="285"/>
+        <location filename="../src/DownloadQueueModel.cpp" line="81"/>
+        <location filename="../src/DownloadQueueModel.cpp" line="283"/>
         <source>Added</source>
         <translation>Vloženo</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueueModel.cpp" line="139"/>
+        <location filename="../src/DownloadQueueModel.cpp" line="137"/>
         <source>Paused</source>
         <translation>Pozastaveno</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueueModel.cpp" line="142"/>
+        <location filename="../src/DownloadQueueModel.cpp" line="140"/>
         <source>Lowest</source>
         <translation>Nejnižší</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueueModel.cpp" line="145"/>
+        <location filename="../src/DownloadQueueModel.cpp" line="143"/>
         <source>Low</source>
         <translation>Nízká</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueueModel.cpp" line="148"/>
+        <location filename="../src/DownloadQueueModel.cpp" line="146"/>
         <source>High</source>
         <translation>Vysoká</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueueModel.cpp" line="151"/>
+        <location filename="../src/DownloadQueueModel.cpp" line="149"/>
         <source>Highest</source>
         <translation>Nejvyšší</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueueModel.cpp" line="154"/>
+        <location filename="../src/DownloadQueueModel.cpp" line="152"/>
         <source>Normal</source>
         <translation>Normální</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueueModel.cpp" line="175"/>
-        <location filename="../src/DownloadQueueModel.cpp" line="192"/>
+        <location filename="../src/DownloadQueueModel.cpp" line="173"/>
+        <location filename="../src/DownloadQueueModel.cpp" line="190"/>
         <source>No errors</source>
         <translation>Žádné chyby</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueueModel.cpp" line="194"/>
+        <location filename="../src/DownloadQueueModel.cpp" line="192"/>
         <source>&lt;b&gt;Added: &lt;/b&gt; %1
 &lt;b&gt;Path: &lt;/b&gt; %2
 &lt;b&gt;Errors: &lt;/b&gt; %3
@@ -781,69 +781,69 @@ Keys:
 <context>
     <name>FinishedTransfersModel</name>
     <message>
-        <location filename="../src/FinishedTransfersModel.cpp" line="50"/>
-        <location filename="../src/FinishedTransfersModel.cpp" line="56"/>
+        <location filename="../src/FinishedTransfersModel.cpp" line="45"/>
+        <location filename="../src/FinishedTransfersModel.cpp" line="51"/>
         <source>User</source>
         <translation>Uživatel</translation>
     </message>
     <message>
-        <location filename="../src/FinishedTransfersModel.cpp" line="50"/>
+        <location filename="../src/FinishedTransfersModel.cpp" line="45"/>
         <source>Files</source>
         <translation>Soubory</translation>
     </message>
     <message>
-        <location filename="../src/FinishedTransfersModel.cpp" line="50"/>
-        <location filename="../src/FinishedTransfersModel.cpp" line="56"/>
+        <location filename="../src/FinishedTransfersModel.cpp" line="45"/>
+        <location filename="../src/FinishedTransfersModel.cpp" line="51"/>
         <source>Time</source>
         <translation>Čas</translation>
     </message>
     <message>
-        <location filename="../src/FinishedTransfersModel.cpp" line="50"/>
-        <location filename="../src/FinishedTransfersModel.cpp" line="57"/>
+        <location filename="../src/FinishedTransfersModel.cpp" line="45"/>
+        <location filename="../src/FinishedTransfersModel.cpp" line="52"/>
         <source>Transferred</source>
         <translation>Přeneseno</translation>
     </message>
     <message>
-        <location filename="../src/FinishedTransfersModel.cpp" line="51"/>
-        <location filename="../src/FinishedTransfersModel.cpp" line="57"/>
+        <location filename="../src/FinishedTransfersModel.cpp" line="46"/>
+        <location filename="../src/FinishedTransfersModel.cpp" line="52"/>
         <source>Speed</source>
         <translation>Rychlost</translation>
     </message>
     <message>
-        <location filename="../src/FinishedTransfersModel.cpp" line="51"/>
-        <location filename="../src/FinishedTransfersModel.cpp" line="58"/>
+        <location filename="../src/FinishedTransfersModel.cpp" line="46"/>
+        <location filename="../src/FinishedTransfersModel.cpp" line="53"/>
         <source>Elapsed time</source>
         <translation>Uplynulý čas</translation>
     </message>
     <message>
-        <location filename="../src/FinishedTransfersModel.cpp" line="51"/>
-        <location filename="../src/FinishedTransfersModel.cpp" line="58"/>
+        <location filename="../src/FinishedTransfersModel.cpp" line="46"/>
+        <location filename="../src/FinishedTransfersModel.cpp" line="53"/>
         <source>Full</source>
         <translation>Plný</translation>
     </message>
     <message>
-        <location filename="../src/FinishedTransfersModel.cpp" line="56"/>
+        <location filename="../src/FinishedTransfersModel.cpp" line="51"/>
         <source>Filename</source>
         <translation>Soubor</translation>
     </message>
     <message>
-        <location filename="../src/FinishedTransfersModel.cpp" line="56"/>
+        <location filename="../src/FinishedTransfersModel.cpp" line="51"/>
         <source>Path</source>
         <translation>Cesta</translation>
     </message>
     <message>
-        <location filename="../src/FinishedTransfersModel.cpp" line="57"/>
+        <location filename="../src/FinishedTransfersModel.cpp" line="52"/>
         <source>Check sum</source>
         <translation>Kontrolní součet</translation>
     </message>
     <message>
-        <location filename="../src/FinishedTransfersModel.cpp" line="58"/>
+        <location filename="../src/FinishedTransfersModel.cpp" line="53"/>
         <source>Target</source>
         <translation>Cíl</translation>
     </message>
     <message>
-        <location filename="../src/FinishedTransfersModel.cpp" line="121"/>
-        <location filename="../src/FinishedTransfersModel.cpp" line="131"/>
+        <location filename="../src/FinishedTransfersModel.cpp" line="116"/>
+        <location filename="../src/FinishedTransfersModel.cpp" line="126"/>
         <source>%1/s</source>
         <translation>%1/s</translation>
     </message>
@@ -1544,22 +1544,22 @@ Oblíbený uživatel</translation>
 <context>
     <name>IPFilter</name>
     <message>
-        <location filename="../src/IPFilter.cpp" line="453"/>
+        <location filename="../src/IPFilter.cpp" line="451"/>
         <source>Nothing to export.</source>
         <translation>Není co exportovat.</translation>
     </message>
     <message>
-        <location filename="../src/IPFilter.cpp" line="465"/>
+        <location filename="../src/IPFilter.cpp" line="463"/>
         <source>Unable to export settings.</source>
         <translation>Nemohu exportovat nastavení.</translation>
     </message>
     <message>
-        <location filename="../src/IPFilter.cpp" line="481"/>
+        <location filename="../src/IPFilter.cpp" line="479"/>
         <source>Nothing to import.</source>
         <translation>Není co importovat.</translation>
     </message>
     <message>
-        <location filename="../src/IPFilter.cpp" line="505"/>
+        <location filename="../src/IPFilter.cpp" line="503"/>
         <source>Invalid signature.</source>
         <translation>Vadný podpis.</translation>
     </message>
@@ -1610,12 +1610,12 @@ Oblíbený uživatel</translation>
 <context>
     <name>IPFilterModel</name>
     <message>
-        <location filename="../src/IPFilterModel.cpp" line="25"/>
+        <location filename="../src/IPFilterModel.cpp" line="23"/>
         <source>IP/Mask</source>
         <translation>IP/Mask</translation>
     </message>
     <message>
-        <location filename="../src/IPFilterModel.cpp" line="25"/>
+        <location filename="../src/IPFilterModel.cpp" line="23"/>
         <source>Direction</source>
         <translation>Směr</translation>
     </message>
@@ -2730,7 +2730,7 @@ Staženo: %3 Odesláno: %4</translation>
 <context>
     <name>QueuedUsers</name>
     <message>
-        <location filename="../src/QueuedUsers.cpp" line="68"/>
+        <location filename="../src/QueuedUsers.cpp" line="72"/>
         <source>Grant slot</source>
         <translation>Přidělit slot</translation>
     </message>
@@ -2743,12 +2743,12 @@ Staženo: %3 Odesláno: %4</translation>
 <context>
     <name>QueuedUsersModel</name>
     <message>
-        <location filename="../src/QueuedUsers.cpp" line="116"/>
+        <location filename="../src/QueuedUsers.cpp" line="120"/>
         <source>User</source>
         <translation>Uživatel</translation>
     </message>
     <message>
-        <location filename="../src/QueuedUsers.cpp" line="116"/>
+        <location filename="../src/QueuedUsers.cpp" line="120"/>
         <source>File</source>
         <translation>Soubor</translation>
     </message>
@@ -3052,67 +3052,67 @@ Staženo: %3 Odesláno: %4</translation>
 <context>
     <name>SearchModel</name>
     <message>
-        <location filename="../src/SearchModel.cpp" line="55"/>
+        <location filename="../src/SearchModel.cpp" line="50"/>
         <source>Count</source>
         <translation>Počet</translation>
     </message>
     <message>
-        <location filename="../src/SearchModel.cpp" line="55"/>
+        <location filename="../src/SearchModel.cpp" line="50"/>
         <source>File</source>
         <translation>Soubor</translation>
     </message>
     <message>
-        <location filename="../src/SearchModel.cpp" line="55"/>
+        <location filename="../src/SearchModel.cpp" line="50"/>
         <source>Ext</source>
         <translation>Přípona</translation>
     </message>
     <message>
-        <location filename="../src/SearchModel.cpp" line="55"/>
+        <location filename="../src/SearchModel.cpp" line="50"/>
         <source>Size</source>
         <translation>Velikost</translation>
     </message>
     <message>
-        <location filename="../src/SearchModel.cpp" line="56"/>
+        <location filename="../src/SearchModel.cpp" line="51"/>
         <source>Exact size</source>
         <translation>Přesná velikost</translation>
     </message>
     <message>
-        <location filename="../src/SearchModel.cpp" line="56"/>
+        <location filename="../src/SearchModel.cpp" line="51"/>
         <source>Path</source>
         <translation>Cesta</translation>
     </message>
     <message>
-        <location filename="../src/SearchModel.cpp" line="56"/>
+        <location filename="../src/SearchModel.cpp" line="51"/>
         <source>Nick</source>
         <translation>Přezdívka</translation>
     </message>
     <message>
-        <location filename="../src/SearchModel.cpp" line="57"/>
+        <location filename="../src/SearchModel.cpp" line="52"/>
         <source>Free slots</source>
         <translation>Volné sloty</translation>
     </message>
     <message>
-        <location filename="../src/SearchModel.cpp" line="57"/>
+        <location filename="../src/SearchModel.cpp" line="52"/>
         <source>Total slots</source>
         <translation>Celkem sloty</translation>
     </message>
     <message>
-        <location filename="../src/SearchModel.cpp" line="58"/>
+        <location filename="../src/SearchModel.cpp" line="53"/>
         <source>IP</source>
         <translation>IP</translation>
     </message>
     <message>
-        <location filename="../src/SearchModel.cpp" line="58"/>
+        <location filename="../src/SearchModel.cpp" line="53"/>
         <source>Hub</source>
         <translation>Hub</translation>
     </message>
     <message>
-        <location filename="../src/SearchModel.cpp" line="58"/>
+        <location filename="../src/SearchModel.cpp" line="53"/>
         <source>Host</source>
         <translation>Host</translation>
     </message>
     <message>
-        <location filename="../src/SearchModel.cpp" line="137"/>
+        <location filename="../src/SearchModel.cpp" line="132"/>
         <source>File already exists: %1</source>
         <translation>Soubor už existuje: %1</translation>
     </message>
@@ -3191,18 +3191,18 @@ Staženo: %3 Odesláno: %4</translation>
 <context>
     <name>SettingsConnection</name>
     <message>
-        <location filename="../src/SettingsConnection.cpp" line="112"/>
+        <location filename="../src/SettingsConnection.cpp" line="109"/>
         <source>No valid SOCKS5 server IP found!</source>
         <translation>Nenalezena korektní IP pro SOCKS5 server!</translation>
     </message>
     <message>
-        <location filename="../src/SettingsConnection.cpp" line="157"/>
-        <location filename="../src/SettingsConnection.cpp" line="170"/>
+        <location filename="../src/SettingsConnection.cpp" line="154"/>
+        <location filename="../src/SettingsConnection.cpp" line="167"/>
         <source>Program need root privileges to open ports less than 1024</source>
         <translation>Program potřebuje práva root uživatele pro otevření portů nižších než 1024</translation>
     </message>
     <message>
-        <location filename="../src/SettingsConnection.cpp" line="368"/>
+        <location filename="../src/SettingsConnection.cpp" line="365"/>
         <source>Warning</source>
         <translation>Varování</translation>
     </message>
@@ -4103,80 +4103,80 @@ Chcete jej vypnout?
 <context>
     <name>TransferViewModel</name>
     <message>
-        <location filename="../src/TransferViewModel.cpp" line="52"/>
+        <location filename="../src/TransferViewModel.cpp" line="50"/>
         <source>Users</source>
         <translation>Uživatelů</translation>
     </message>
     <message>
-        <location filename="../src/TransferViewModel.cpp" line="52"/>
+        <location filename="../src/TransferViewModel.cpp" line="50"/>
         <source>Speed</source>
         <translation>Rychlost</translation>
     </message>
     <message>
-        <location filename="../src/TransferViewModel.cpp" line="52"/>
+        <location filename="../src/TransferViewModel.cpp" line="50"/>
         <source>Status</source>
         <translation>Stav</translation>
     </message>
     <message>
-        <location filename="../src/TransferViewModel.cpp" line="52"/>
+        <location filename="../src/TransferViewModel.cpp" line="50"/>
         <source>Flags</source>
         <translation>Flagy</translation>
     </message>
     <message>
-        <location filename="../src/TransferViewModel.cpp" line="52"/>
+        <location filename="../src/TransferViewModel.cpp" line="50"/>
         <source>Size</source>
         <translation>Velikost</translation>
     </message>
     <message>
-        <location filename="../src/TransferViewModel.cpp" line="53"/>
+        <location filename="../src/TransferViewModel.cpp" line="51"/>
         <source>Time left</source>
         <translation>Zbývající čas</translation>
     </message>
     <message>
-        <location filename="../src/TransferViewModel.cpp" line="53"/>
+        <location filename="../src/TransferViewModel.cpp" line="51"/>
         <source>File name</source>
         <translation>Soubor</translation>
     </message>
     <message>
-        <location filename="../src/TransferViewModel.cpp" line="53"/>
+        <location filename="../src/TransferViewModel.cpp" line="51"/>
         <source>Host</source>
         <translation>Host</translation>
     </message>
     <message>
-        <location filename="../src/TransferViewModel.cpp" line="53"/>
+        <location filename="../src/TransferViewModel.cpp" line="51"/>
         <source>IP</source>
         <translation>IP</translation>
     </message>
     <message>
-        <location filename="../src/TransferViewModel.cpp" line="54"/>
+        <location filename="../src/TransferViewModel.cpp" line="52"/>
         <source>Encryption</source>
         <translation>Šifrování</translation>
     </message>
     <message>
-        <location filename="../src/TransferViewModel.cpp" line="113"/>
+        <location filename="../src/TransferViewModel.cpp" line="111"/>
         <source>/s</source>
         <translation>/s</translation>
     </message>
     <message>
-        <location filename="../src/TransferViewModel.cpp" line="306"/>
-        <location filename="../src/TransferViewModel.cpp" line="364"/>
-        <location filename="../src/TransferViewModel.cpp" line="406"/>
+        <location filename="../src/TransferViewModel.cpp" line="304"/>
+        <location filename="../src/TransferViewModel.cpp" line="362"/>
+        <location filename="../src/TransferViewModel.cpp" line="404"/>
         <source>File list</source>
         <translation>Seznam souborů</translation>
     </message>
     <message>
-        <location filename="../src/TransferViewModel.cpp" line="578"/>
+        <location filename="../src/TransferViewModel.cpp" line="576"/>
         <source>Downloaded </source>
         <translation>Staženo</translation>
     </message>
     <message>
-        <location filename="../src/TransferViewModel.cpp" line="580"/>
+        <location filename="../src/TransferViewModel.cpp" line="578"/>
         <source>Waiting for slot </source>
         <translation>Čekám na slot</translation>
     </message>
     <message>
-        <location filename="../src/TransferViewModel.cpp" line="634"/>
-        <location filename="../src/TransferViewModel.cpp" line="640"/>
+        <location filename="../src/TransferViewModel.cpp" line="632"/>
+        <location filename="../src/TransferViewModel.cpp" line="638"/>
         <source>Finished</source>
         <translation>Hotovo</translation>
     </message>

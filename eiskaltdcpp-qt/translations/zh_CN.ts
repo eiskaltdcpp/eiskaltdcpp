@@ -229,157 +229,157 @@ Keys:
 <context>
     <name>DownloadQueue</name>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="60"/>
+        <location filename="../src/DownloadQueue.cpp" line="58"/>
         <source>Magnet</source>
         <translation>磁力链接</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="62"/>
+        <location filename="../src/DownloadQueue.cpp" line="60"/>
         <source>Search for alternates</source>
         <translation>搜索替代者</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="63"/>
+        <location filename="../src/DownloadQueue.cpp" line="61"/>
         <source>Copy magnet</source>
         <translation>复制磁力链接</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="64"/>
+        <location filename="../src/DownloadQueue.cpp" line="62"/>
         <source>Copy web-magnet</source>
         <translation>复制网页磁链</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="65"/>
+        <location filename="../src/DownloadQueue.cpp" line="63"/>
         <source>Properties of magnet</source>
         <translation>磁力链接属性</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="66"/>
+        <location filename="../src/DownloadQueue.cpp" line="64"/>
         <source>Rename/Move</source>
         <translation>重命名/移动</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="71"/>
+        <location filename="../src/DownloadQueue.cpp" line="69"/>
         <source>Set priority</source>
         <translation>设置优先度</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="73"/>
+        <location filename="../src/DownloadQueue.cpp" line="71"/>
         <source>Paused</source>
         <translation>暂停</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="76"/>
+        <location filename="../src/DownloadQueue.cpp" line="74"/>
         <source>Lowest</source>
         <translation>最低</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="79"/>
+        <location filename="../src/DownloadQueue.cpp" line="77"/>
         <source>Low</source>
         <translation>低</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="82"/>
+        <location filename="../src/DownloadQueue.cpp" line="80"/>
         <source>Normal</source>
         <translation>普通</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="85"/>
+        <location filename="../src/DownloadQueue.cpp" line="83"/>
         <source>High</source>
         <translation>高</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="88"/>
+        <location filename="../src/DownloadQueue.cpp" line="86"/>
         <source>Highest</source>
         <translation>最高</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="94"/>
+        <location filename="../src/DownloadQueue.cpp" line="92"/>
         <source>Browse files</source>
         <translation>浏览文件</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="95"/>
+        <location filename="../src/DownloadQueue.cpp" line="93"/>
         <source>Send private message</source>
         <translation>发送私密信息</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="100"/>
+        <location filename="../src/DownloadQueue.cpp" line="98"/>
         <source>Remove source</source>
         <translation>移除源</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="101"/>
+        <location filename="../src/DownloadQueue.cpp" line="99"/>
         <source>Remove user</source>
         <translation>移除用户</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="103"/>
+        <location filename="../src/DownloadQueue.cpp" line="101"/>
         <source>Remove</source>
         <translation>移除</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="360"/>
+        <location filename="../src/DownloadQueue.cpp" line="358"/>
         <source>No users...</source>
         <translation>没有用户……</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="367"/>
+        <location filename="../src/DownloadQueue.cpp" line="365"/>
         <source>%1 of %2 user(s) online</source>
         <translation>%2 中的 1% 位用户在线</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="369"/>
+        <location filename="../src/DownloadQueue.cpp" line="367"/>
         <source>Running...</source>
         <translation>正在运行……</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="395"/>
+        <location filename="../src/DownloadQueue.cpp" line="393"/>
         <source>File not available</source>
         <translation>文件不可用</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="397"/>
+        <location filename="../src/DownloadQueue.cpp" line="395"/>
         <source>Passive user</source>
         <translation>被动用户</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="399"/>
+        <location filename="../src/DownloadQueue.cpp" line="397"/>
         <source>Checksum mismatch</source>
         <translation>校验和不符</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="401"/>
+        <location filename="../src/DownloadQueue.cpp" line="399"/>
         <source>Full tree does not match TTH root</source>
         <translation>完整的树与 TTH 根不符</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="403"/>
+        <location filename="../src/DownloadQueue.cpp" line="401"/>
         <source>Source too slow</source>
         <translation>源速度太慢</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="405"/>
+        <location filename="../src/DownloadQueue.cpp" line="403"/>
         <source>Remote client does not fully support TTH - cannot download</source>
         <translation>远程客户端不完全兼容 TTH - 无法下载</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="412"/>
+        <location filename="../src/DownloadQueue.cpp" line="410"/>
         <source>No errors</source>
         <translation>没有错误</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="653"/>
+        <location filename="../src/DownloadQueue.cpp" line="651"/>
         <source>Choose filename</source>
         <translation>选择文件名</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="653"/>
+        <location filename="../src/DownloadQueue.cpp" line="651"/>
         <source>All files (*.*)</source>
         <translation>全部文件(*.*)</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueue.cpp" line="793"/>
+        <location filename="../src/DownloadQueue.cpp" line="791"/>
         <source>Total files: &lt;b&gt;%1&lt;/b&gt; Total size: &lt;b&gt;%2&lt;/b&gt;</source>
         <translation type="unfinished"></translation>
     </message>
@@ -392,103 +392,103 @@ Keys:
 <context>
     <name>DownloadQueueModel</name>
     <message>
-        <location filename="../src/DownloadQueueModel.cpp" line="81"/>
-        <location filename="../src/DownloadQueueModel.cpp" line="283"/>
+        <location filename="../src/DownloadQueueModel.cpp" line="79"/>
+        <location filename="../src/DownloadQueueModel.cpp" line="281"/>
         <source>Name</source>
         <translation>名称</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueueModel.cpp" line="81"/>
-        <location filename="../src/DownloadQueueModel.cpp" line="283"/>
+        <location filename="../src/DownloadQueueModel.cpp" line="79"/>
+        <location filename="../src/DownloadQueueModel.cpp" line="281"/>
         <source>Status</source>
         <translation>状态</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueueModel.cpp" line="81"/>
-        <location filename="../src/DownloadQueueModel.cpp" line="283"/>
+        <location filename="../src/DownloadQueueModel.cpp" line="79"/>
+        <location filename="../src/DownloadQueueModel.cpp" line="281"/>
         <source>Size</source>
         <translation>大小</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueueModel.cpp" line="81"/>
-        <location filename="../src/DownloadQueueModel.cpp" line="283"/>
+        <location filename="../src/DownloadQueueModel.cpp" line="79"/>
+        <location filename="../src/DownloadQueueModel.cpp" line="281"/>
         <source>Downloaded</source>
         <translation>已下载</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueueModel.cpp" line="82"/>
-        <location filename="../src/DownloadQueueModel.cpp" line="284"/>
+        <location filename="../src/DownloadQueueModel.cpp" line="80"/>
+        <location filename="../src/DownloadQueueModel.cpp" line="282"/>
         <source>Priority</source>
         <translation>优先度</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueueModel.cpp" line="82"/>
-        <location filename="../src/DownloadQueueModel.cpp" line="284"/>
+        <location filename="../src/DownloadQueueModel.cpp" line="80"/>
+        <location filename="../src/DownloadQueueModel.cpp" line="282"/>
         <source>User</source>
         <translation>用户</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueueModel.cpp" line="82"/>
-        <location filename="../src/DownloadQueueModel.cpp" line="284"/>
+        <location filename="../src/DownloadQueueModel.cpp" line="80"/>
+        <location filename="../src/DownloadQueueModel.cpp" line="282"/>
         <source>Path</source>
         <translation>路径</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueueModel.cpp" line="82"/>
-        <location filename="../src/DownloadQueueModel.cpp" line="284"/>
+        <location filename="../src/DownloadQueueModel.cpp" line="80"/>
+        <location filename="../src/DownloadQueueModel.cpp" line="282"/>
         <source>Exact size</source>
         <translation>实际大小</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueueModel.cpp" line="83"/>
-        <location filename="../src/DownloadQueueModel.cpp" line="285"/>
+        <location filename="../src/DownloadQueueModel.cpp" line="81"/>
+        <location filename="../src/DownloadQueueModel.cpp" line="283"/>
         <source>Errors</source>
         <translation>错误</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueueModel.cpp" line="83"/>
-        <location filename="../src/DownloadQueueModel.cpp" line="285"/>
+        <location filename="../src/DownloadQueueModel.cpp" line="81"/>
+        <location filename="../src/DownloadQueueModel.cpp" line="283"/>
         <source>Added</source>
         <translation>添加时间</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueueModel.cpp" line="139"/>
+        <location filename="../src/DownloadQueueModel.cpp" line="137"/>
         <source>Paused</source>
         <translation>暂停</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueueModel.cpp" line="142"/>
+        <location filename="../src/DownloadQueueModel.cpp" line="140"/>
         <source>Lowest</source>
         <translation>最低</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueueModel.cpp" line="145"/>
+        <location filename="../src/DownloadQueueModel.cpp" line="143"/>
         <source>Low</source>
         <translation>低</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueueModel.cpp" line="148"/>
+        <location filename="../src/DownloadQueueModel.cpp" line="146"/>
         <source>High</source>
         <translation>高</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueueModel.cpp" line="151"/>
+        <location filename="../src/DownloadQueueModel.cpp" line="149"/>
         <source>Highest</source>
         <translation>最高</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueueModel.cpp" line="154"/>
+        <location filename="../src/DownloadQueueModel.cpp" line="152"/>
         <source>Normal</source>
         <translation>普通</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueueModel.cpp" line="175"/>
-        <location filename="../src/DownloadQueueModel.cpp" line="192"/>
+        <location filename="../src/DownloadQueueModel.cpp" line="173"/>
+        <location filename="../src/DownloadQueueModel.cpp" line="190"/>
         <source>No errors</source>
         <translation>没有错误</translation>
     </message>
     <message>
-        <location filename="../src/DownloadQueueModel.cpp" line="194"/>
+        <location filename="../src/DownloadQueueModel.cpp" line="192"/>
         <source>&lt;b&gt;Added: &lt;/b&gt; %1
 &lt;b&gt;Path: &lt;/b&gt; %2
 &lt;b&gt;Errors: &lt;/b&gt; %3
@@ -774,69 +774,69 @@ Keys:
 <context>
     <name>FinishedTransfersModel</name>
     <message>
-        <location filename="../src/FinishedTransfersModel.cpp" line="50"/>
-        <location filename="../src/FinishedTransfersModel.cpp" line="56"/>
+        <location filename="../src/FinishedTransfersModel.cpp" line="45"/>
+        <location filename="../src/FinishedTransfersModel.cpp" line="51"/>
         <source>User</source>
         <translation>用户</translation>
     </message>
     <message>
-        <location filename="../src/FinishedTransfersModel.cpp" line="50"/>
+        <location filename="../src/FinishedTransfersModel.cpp" line="45"/>
         <source>Files</source>
         <translation>文件</translation>
     </message>
     <message>
-        <location filename="../src/FinishedTransfersModel.cpp" line="50"/>
-        <location filename="../src/FinishedTransfersModel.cpp" line="56"/>
+        <location filename="../src/FinishedTransfersModel.cpp" line="45"/>
+        <location filename="../src/FinishedTransfersModel.cpp" line="51"/>
         <source>Time</source>
         <translation>用时</translation>
     </message>
     <message>
-        <location filename="../src/FinishedTransfersModel.cpp" line="50"/>
-        <location filename="../src/FinishedTransfersModel.cpp" line="57"/>
+        <location filename="../src/FinishedTransfersModel.cpp" line="45"/>
+        <location filename="../src/FinishedTransfersModel.cpp" line="52"/>
         <source>Transferred</source>
         <translation>已传输</translation>
     </message>
     <message>
-        <location filename="../src/FinishedTransfersModel.cpp" line="51"/>
-        <location filename="../src/FinishedTransfersModel.cpp" line="57"/>
+        <location filename="../src/FinishedTransfersModel.cpp" line="46"/>
+        <location filename="../src/FinishedTransfersModel.cpp" line="52"/>
         <source>Speed</source>
         <translation>速度</translation>
     </message>
     <message>
-        <location filename="../src/FinishedTransfersModel.cpp" line="51"/>
-        <location filename="../src/FinishedTransfersModel.cpp" line="58"/>
+        <location filename="../src/FinishedTransfersModel.cpp" line="46"/>
+        <location filename="../src/FinishedTransfersModel.cpp" line="53"/>
         <source>Elapsed time</source>
         <translation>已用时</translation>
     </message>
     <message>
-        <location filename="../src/FinishedTransfersModel.cpp" line="51"/>
-        <location filename="../src/FinishedTransfersModel.cpp" line="58"/>
+        <location filename="../src/FinishedTransfersModel.cpp" line="46"/>
+        <location filename="../src/FinishedTransfersModel.cpp" line="53"/>
         <source>Full</source>
         <translation>总时间</translation>
     </message>
     <message>
-        <location filename="../src/FinishedTransfersModel.cpp" line="56"/>
+        <location filename="../src/FinishedTransfersModel.cpp" line="51"/>
         <source>Filename</source>
         <translation>文件名</translation>
     </message>
     <message>
-        <location filename="../src/FinishedTransfersModel.cpp" line="56"/>
+        <location filename="../src/FinishedTransfersModel.cpp" line="51"/>
         <source>Path</source>
         <translation>路径</translation>
     </message>
     <message>
-        <location filename="../src/FinishedTransfersModel.cpp" line="57"/>
+        <location filename="../src/FinishedTransfersModel.cpp" line="52"/>
         <source>Check sum</source>
         <translation>校验和</translation>
     </message>
     <message>
-        <location filename="../src/FinishedTransfersModel.cpp" line="58"/>
+        <location filename="../src/FinishedTransfersModel.cpp" line="53"/>
         <source>Target</source>
         <translation>目标</translation>
     </message>
     <message>
-        <location filename="../src/FinishedTransfersModel.cpp" line="121"/>
-        <location filename="../src/FinishedTransfersModel.cpp" line="131"/>
+        <location filename="../src/FinishedTransfersModel.cpp" line="116"/>
+        <location filename="../src/FinishedTransfersModel.cpp" line="126"/>
         <source>%1/s</source>
         <translation>%1/s</translation>
     </message>
@@ -1541,22 +1541,22 @@ Favorite user</source>
 <context>
     <name>IPFilter</name>
     <message>
-        <location filename="../src/IPFilter.cpp" line="453"/>
+        <location filename="../src/IPFilter.cpp" line="451"/>
         <source>Nothing to export.</source>
         <translation>没有可以导出的。</translation>
     </message>
     <message>
-        <location filename="../src/IPFilter.cpp" line="465"/>
+        <location filename="../src/IPFilter.cpp" line="463"/>
         <source>Unable to export settings.</source>
         <translation>无法导出设置。</translation>
     </message>
     <message>
-        <location filename="../src/IPFilter.cpp" line="481"/>
+        <location filename="../src/IPFilter.cpp" line="479"/>
         <source>Nothing to import.</source>
         <translation>没有可以导入的。</translation>
     </message>
     <message>
-        <location filename="../src/IPFilter.cpp" line="505"/>
+        <location filename="../src/IPFilter.cpp" line="503"/>
         <source>Invalid signature.</source>
         <translation>无效的签名。</translation>
     </message>
@@ -1607,12 +1607,12 @@ Favorite user</source>
 <context>
     <name>IPFilterModel</name>
     <message>
-        <location filename="../src/IPFilterModel.cpp" line="25"/>
+        <location filename="../src/IPFilterModel.cpp" line="23"/>
         <source>IP/Mask</source>
         <translation>IP/掩码</translation>
     </message>
     <message>
-        <location filename="../src/IPFilterModel.cpp" line="25"/>
+        <location filename="../src/IPFilterModel.cpp" line="23"/>
         <source>Direction</source>
         <translation>方向</translation>
     </message>
@@ -2727,7 +2727,7 @@ Downloaded: %3 Uploaded: %4</source>
 <context>
     <name>QueuedUsers</name>
     <message>
-        <location filename="../src/QueuedUsers.cpp" line="68"/>
+        <location filename="../src/QueuedUsers.cpp" line="72"/>
         <source>Grant slot</source>
         <translation>添加空位</translation>
     </message>
@@ -2740,12 +2740,12 @@ Downloaded: %3 Uploaded: %4</source>
 <context>
     <name>QueuedUsersModel</name>
     <message>
-        <location filename="../src/QueuedUsers.cpp" line="116"/>
+        <location filename="../src/QueuedUsers.cpp" line="120"/>
         <source>User</source>
         <translation>用户</translation>
     </message>
     <message>
-        <location filename="../src/QueuedUsers.cpp" line="116"/>
+        <location filename="../src/QueuedUsers.cpp" line="120"/>
         <source>File</source>
         <translation>文件</translation>
     </message>
@@ -3049,67 +3049,67 @@ Downloaded: %3 Uploaded: %4</source>
 <context>
     <name>SearchModel</name>
     <message>
-        <location filename="../src/SearchModel.cpp" line="55"/>
+        <location filename="../src/SearchModel.cpp" line="50"/>
         <source>Count</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SearchModel.cpp" line="55"/>
+        <location filename="../src/SearchModel.cpp" line="50"/>
         <source>File</source>
         <translation type="unfinished">文件</translation>
     </message>
     <message>
-        <location filename="../src/SearchModel.cpp" line="55"/>
+        <location filename="../src/SearchModel.cpp" line="50"/>
         <source>Ext</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SearchModel.cpp" line="55"/>
+        <location filename="../src/SearchModel.cpp" line="50"/>
         <source>Size</source>
         <translation type="unfinished">大小</translation>
     </message>
     <message>
-        <location filename="../src/SearchModel.cpp" line="56"/>
+        <location filename="../src/SearchModel.cpp" line="51"/>
         <source>Exact size</source>
         <translation type="unfinished">实际大小</translation>
     </message>
     <message>
-        <location filename="../src/SearchModel.cpp" line="56"/>
+        <location filename="../src/SearchModel.cpp" line="51"/>
         <source>Path</source>
         <translation type="unfinished">路径</translation>
     </message>
     <message>
-        <location filename="../src/SearchModel.cpp" line="56"/>
+        <location filename="../src/SearchModel.cpp" line="51"/>
         <source>Nick</source>
         <translation type="unfinished">昵称</translation>
     </message>
     <message>
-        <location filename="../src/SearchModel.cpp" line="57"/>
+        <location filename="../src/SearchModel.cpp" line="52"/>
         <source>Free slots</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SearchModel.cpp" line="57"/>
+        <location filename="../src/SearchModel.cpp" line="52"/>
         <source>Total slots</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SearchModel.cpp" line="58"/>
+        <location filename="../src/SearchModel.cpp" line="53"/>
         <source>IP</source>
         <translation type="unfinished">IP</translation>
     </message>
     <message>
-        <location filename="../src/SearchModel.cpp" line="58"/>
+        <location filename="../src/SearchModel.cpp" line="53"/>
         <source>Hub</source>
         <translation type="unfinished">中枢</translation>
     </message>
     <message>
-        <location filename="../src/SearchModel.cpp" line="58"/>
+        <location filename="../src/SearchModel.cpp" line="53"/>
         <source>Host</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SearchModel.cpp" line="137"/>
+        <location filename="../src/SearchModel.cpp" line="132"/>
         <source>File already exists: %1</source>
         <translation type="unfinished">文件已存在: %1</translation>
     </message>
@@ -3188,18 +3188,18 @@ Downloaded: %3 Uploaded: %4</source>
 <context>
     <name>SettingsConnection</name>
     <message>
-        <location filename="../src/SettingsConnection.cpp" line="112"/>
+        <location filename="../src/SettingsConnection.cpp" line="109"/>
         <source>No valid SOCKS5 server IP found!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SettingsConnection.cpp" line="157"/>
-        <location filename="../src/SettingsConnection.cpp" line="170"/>
+        <location filename="../src/SettingsConnection.cpp" line="154"/>
+        <location filename="../src/SettingsConnection.cpp" line="167"/>
         <source>Program need root privileges to open ports less than 1024</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SettingsConnection.cpp" line="368"/>
+        <location filename="../src/SettingsConnection.cpp" line="365"/>
         <source>Warning</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4097,80 +4097,80 @@ Do you want to stop it?
 <context>
     <name>TransferViewModel</name>
     <message>
-        <location filename="../src/TransferViewModel.cpp" line="52"/>
+        <location filename="../src/TransferViewModel.cpp" line="50"/>
         <source>Users</source>
         <translation type="unfinished">用户</translation>
     </message>
     <message>
-        <location filename="../src/TransferViewModel.cpp" line="52"/>
+        <location filename="../src/TransferViewModel.cpp" line="50"/>
         <source>Speed</source>
         <translation type="unfinished">速度</translation>
     </message>
     <message>
-        <location filename="../src/TransferViewModel.cpp" line="52"/>
+        <location filename="../src/TransferViewModel.cpp" line="50"/>
         <source>Status</source>
         <translation type="unfinished">状态</translation>
     </message>
     <message>
-        <location filename="../src/TransferViewModel.cpp" line="52"/>
+        <location filename="../src/TransferViewModel.cpp" line="50"/>
         <source>Flags</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/TransferViewModel.cpp" line="52"/>
+        <location filename="../src/TransferViewModel.cpp" line="50"/>
         <source>Size</source>
         <translation type="unfinished">大小</translation>
     </message>
     <message>
-        <location filename="../src/TransferViewModel.cpp" line="53"/>
+        <location filename="../src/TransferViewModel.cpp" line="51"/>
         <source>Time left</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/TransferViewModel.cpp" line="53"/>
+        <location filename="../src/TransferViewModel.cpp" line="51"/>
         <source>File name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/TransferViewModel.cpp" line="53"/>
+        <location filename="../src/TransferViewModel.cpp" line="51"/>
         <source>Host</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/TransferViewModel.cpp" line="53"/>
+        <location filename="../src/TransferViewModel.cpp" line="51"/>
         <source>IP</source>
         <translation type="unfinished">IP</translation>
     </message>
     <message>
-        <location filename="../src/TransferViewModel.cpp" line="54"/>
+        <location filename="../src/TransferViewModel.cpp" line="52"/>
         <source>Encryption</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/TransferViewModel.cpp" line="113"/>
+        <location filename="../src/TransferViewModel.cpp" line="111"/>
         <source>/s</source>
         <translation type="unfinished">/s</translation>
     </message>
     <message>
-        <location filename="../src/TransferViewModel.cpp" line="306"/>
-        <location filename="../src/TransferViewModel.cpp" line="364"/>
-        <location filename="../src/TransferViewModel.cpp" line="406"/>
+        <location filename="../src/TransferViewModel.cpp" line="304"/>
+        <location filename="../src/TransferViewModel.cpp" line="362"/>
+        <location filename="../src/TransferViewModel.cpp" line="404"/>
         <source>File list</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/TransferViewModel.cpp" line="578"/>
+        <location filename="../src/TransferViewModel.cpp" line="576"/>
         <source>Downloaded </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/TransferViewModel.cpp" line="580"/>
+        <location filename="../src/TransferViewModel.cpp" line="578"/>
         <source>Waiting for slot </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/TransferViewModel.cpp" line="634"/>
-        <location filename="../src/TransferViewModel.cpp" line="640"/>
+        <location filename="../src/TransferViewModel.cpp" line="632"/>
+        <location filename="../src/TransferViewModel.cpp" line="638"/>
         <source>Finished</source>
         <translation type="unfinished"></translation>
     </message>
