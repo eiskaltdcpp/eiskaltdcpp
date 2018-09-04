@@ -167,7 +167,7 @@ Keys:
     <message>
         <location filename="../src/CmdDebug.cpp" line="39"/>
         <source>Debug Console</source>
-        <translation>CmdDebug</translation>
+        <translation>Debug Console</translation>
     </message>
 </context>
 <context>
@@ -1959,7 +1959,7 @@ Utilisateur favoris</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="1385"/>
         <source>Debug Console</source>
-        <translation>CmdDebug</translation>
+        <translation>Debug Console</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1387"/>
@@ -2403,7 +2403,7 @@ Utilisateur favoris</translation>
         <location filename="../src/MainWindow.cpp" line="2737"/>
         <location filename="../src/MainWindow.cpp" line="2742"/>
         <source>developer</source>
-        <translation></translation>
+        <translation>développeur</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2714"/>
@@ -3782,7 +3782,7 @@ Téléchargé: %3 Envoyé: %4</translation>
         <location filename="../src/SideBar.cpp" line="69"/>
         <location filename="../src/SideBar.cpp" line="419"/>
         <source>Debug Console</source>
-        <translation>CmdDebug</translation>
+        <translation>Debug Console</translation>
     </message>
     <message>
         <location filename="../src/SideBar.cpp" line="71"/>
