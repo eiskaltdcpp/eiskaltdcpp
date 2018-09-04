@@ -219,6 +219,18 @@ QString WulforUtil::getTranslationsPath() const
     return QDir(translationsPath).absolutePath();
 }
 
+QString WulforUtil::getAspellDataPath() const
+{
+#if defined (Q_OS_WIN)
+    static const QString aspellDataPath = bin_path + "/" CLIENT_DATA_DIR "/aspell/";
+#elif defined (Q_OS_MAC)
+    static const QString aspellDataPath = bin_path + "/../../aspell/";
+#elif defined(LOCAL_ASPELL_DATA) // Other OS
+    static const QString aspellDataPath = CLIENT_DATA_DIR "/aspell/";
+#endif
+    return QDir(aspellDataPath).absolutePath();
+}
+
 QString WulforUtil::getClientResourcesPath() const
 {
     const QString icon_theme = WSGET(WS_APP_ICONTHEME);

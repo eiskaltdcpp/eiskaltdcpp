@@ -141,6 +141,7 @@ public:
     QString getAppIconsPath() const;
     QString getEmoticonsPath() const;
     QString getTranslationsPath() const;
+    QString getAspellDataPath() const;
 
     const QPixmap &getPixmapForFile(const QString&);
 

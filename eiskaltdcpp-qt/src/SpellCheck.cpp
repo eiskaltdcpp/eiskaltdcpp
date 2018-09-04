@@ -9,6 +9,7 @@
 
 #include "SpellCheck.h"
 #include "WulforSettings.h"
+#include "WulforUtil.h"
 #include "dcpp/stdinc.h"
 #include "dcpp/Util.h"
 
@@ -25,9 +26,12 @@ SpellCheck::SpellCheck(QObject *parent) :
     aspell_config_replace(config, "encoding", "utf-8");
     aspell_config_replace(config, "personal", (dcpp::Util::getPath(dcpp::Util::PATH_USER_CONFIG)+"dict").c_str());
 
-#if defined(Q_WS_WIN)
-    aspell_config_replace(config, "data-dir", "./aspell/data");
-    aspell_config_replace(config, "dict-dir", "./aspell/dict");
+#if defined(Q_OS_WIN) || defined(Q_OS_MAC) || defined(LOCAL_ASPELL_DATA)
+    const QString aspellDataPath = WulforUtil::getInstance()->getAspellDataPath();
+    aspell_config_replace(config, "data-dir",
+                          QByteArray(aspellDataPath.toUtf8() + "data").constData());
+    aspell_config_replace(config, "dict-dir",
+                          QByteArray(aspellDataPath.toUtf8() + "dict").constData());
 #endif
 
     AspellCanHaveError *ret = new_aspell_speller(config);

@@ -1,3 +1,4 @@
+data/aspell*
 CMakeLists.txt.user*
 .gitignore
 .DS_Store
