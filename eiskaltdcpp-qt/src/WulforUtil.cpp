@@ -227,6 +227,8 @@ QString WulforUtil::getAspellDataPath() const
     static const QString aspellDataPath = bin_path + "/../../aspell/";
 #elif defined(LOCAL_ASPELL_DATA) // Other OS
     static const QString aspellDataPath = CLIENT_DATA_DIR "/aspell/";
+#else
+    static const QString aspellDataPath = QString();
 #endif
     return QDir(aspellDataPath).absolutePath();
 }
