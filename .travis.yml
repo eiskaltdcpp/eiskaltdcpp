@@ -1,13 +1,13 @@
 language: cpp
 
-dist: trusty
+dist: xenial
 
 compiler:
   - gcc
   - clang
 
 env:
-# - OS=Windows
+#  - OS=Windows
   - USE_QT=qt4
   - USE_QT=qt5
   - USE_GTK=gtk2
@@ -15,10 +15,10 @@ env:
   - USE_DAEMON=ON
 
 # avoid twice build for OS=Windows
-matrix:
-  exclude:
-    - compiler: clang
-      env: OS=Windows
+# matrix:
+#   exclude:
+#     - compiler: clang
+#       env: OS=Windows
 
 install:
   - tests/travis/install-build-depends.sh
