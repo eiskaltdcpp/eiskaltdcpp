@@ -122,7 +122,7 @@ WulforUtil::WulforUtil()
     QtEnc2DCEnc["WINDOWS-1257"] = "CP1257 (Baltic)";
 
     bin_path = qApp->applicationDirPath() + "/";
-    app_icons_path = findAppIconsPath();
+    app_icons_path = findAppIconsPath() + "/";
 
     initFileTypes();
 }
@@ -134,7 +134,7 @@ WulforUtil::~WulforUtil(){
 }
 
 bool WulforUtil::loadUserIcons(){
-    return loadUserIconsFromFile(findUserIconsPath() + QString("usericons.png"));
+    return loadUserIconsFromFile(findUserIconsPath() + QString("/usericons.png"));
 }
 
 QString WulforUtil::findAppIconsPath() const
@@ -331,7 +331,7 @@ QPixmap WulforUtil::FROMTHEME_SIDE(const QString &name, bool resource, const int
 bool WulforUtil::loadIcons(){
     m_bError = false;
 
-    app_icons_path = findAppIconsPath();
+    app_icons_path = findAppIconsPath() + "/";
 
     const QString fname = getClientResourcesPath();
     bool resourceFound = false;
@@ -424,7 +424,7 @@ QPixmap WulforUtil::loadPixmap(const QString &file){
     QString f;
     QPixmap p;
 
-    f = app_icons_path + "/" + file;
+    f = app_icons_path + file;
     f = QDir::toNativeSeparators(f);
 
     if (p.load(f))
