@@ -3,7 +3,7 @@
 # Authors: Boris Pek
 # License: Public Domain
 # Created: 2018-08-21
-# Created: 2018-08-29
+# Created: 2018-09-05
 # Version: N/A
 #
 # Description: script for personal use
@@ -32,7 +32,8 @@ BUILD_OPTIONS="-DCMAKE_BUILD_TYPE=Release \
                -DWITH_SOUNDS=ON \
                -DWITH_LUASCRIPTS=ON \
                -DLOCAL_MINIUPNP=OFF \
-               -DLOCAL_BOOST=OFF"
+               -DLOCAL_BOOST=OFF \
+               -DLOCAL_ASPELL_DATA=ON"
 
 mkdir -p "${MAIN_DIR}/builddir"
 cd "${MAIN_DIR}/builddir"
