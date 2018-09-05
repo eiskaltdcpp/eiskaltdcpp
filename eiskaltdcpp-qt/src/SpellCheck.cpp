@@ -29,9 +29,9 @@ SpellCheck::SpellCheck(QObject *parent) :
 #if defined(Q_OS_WIN) || defined(Q_OS_MAC) || defined(LOCAL_ASPELL_DATA)
     const QString aspellDataPath = WulforUtil::getInstance()->getAspellDataPath();
     aspell_config_replace(config, "data-dir",
-                          QByteArray(aspellDataPath.toUtf8() + "data").constData());
+                          QByteArray(aspellDataPath.toUtf8() + "/data").constData());
     aspell_config_replace(config, "dict-dir",
-                          QByteArray(aspellDataPath.toUtf8() + "dict").constData());
+                          QByteArray(aspellDataPath.toUtf8() + "/dict").constData());
 #endif
 
     AspellCanHaveError *ret = new_aspell_speller(config);
