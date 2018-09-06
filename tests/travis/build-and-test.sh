@@ -10,7 +10,38 @@ set -x
 mkdir -p builddir
 cd builddir
 
-if [ "${OS}" != "Windows" ]; then
+if [ "${TARGET_OS}" = "Windows" ]; then
+    CMAKEOPTS=".. \
+               -DCMAKE_INSTALL_PREFIX=./EiskaltDC++ \
+               -DCMAKE_BUILD_TYPE=Release \
+               -DSHARE_DIR=resources \
+               -DDO_NOT_USE_MUTEX=ON \
+               -DUSE_ASPELL=ON \
+               -DFORCE_XDG=OFF \
+               -DDBUS_NOTIFY=OFF \
+               -DUSE_JS=OFF \
+               -DWITH_EXAMPLES=OFF \
+               -DUSE_MINIUPNP=ON \
+               -DWITH_SOUNDS=ON \
+               -DPERL_REGEX=ON \
+               -DUSE_QT_QML=OFF \
+               -DLUA_SCRIPT=ON \
+               -DWITH_LUASCRIPTS=ON \
+               -DUSE_QT_SQLITE=ON \
+               -DNO_UI_DAEMON=ON \
+               -DJSONRPC_DAEMON=ON \
+               -DLOCAL_JSONCPP=OFF \
+               -DUSE_CLI_JSONRPC=ON"
+
+    # Workaround for fixind of build with Boost from MXE packages
+    sudo sed -i 's/std::sprintf/sprintf/' /usr/lib/mxe/usr/x86_64-w64-mingw32.shared/include/boost/interprocess/detail/win32_api.hpp
+    # End of workaround
+    /usr/lib/mxe/usr/bin/x86_64-w64-mingw32.shared-cmake ${CMAKEOPTS}
+    make VERBOSE=1 -k -j $(nproc)
+    make install -j 1
+
+    du -shc ./EiskaltDC++/eiskaltdcpp-*
+else # Build for Ubuntu
     export CXXFLAGS="$(dpkg-buildflags --get CXXFLAGS) $(dpkg-buildflags --get CPPFLAGS)"
     export LDFLAGS="$(dpkg-buildflags --get LDFLAGS) -Wl,--as-needed"
     if [ "${USE_QT}" = "qt5" ]; then
@@ -95,33 +126,4 @@ if [ "${OS}" != "Windows" ]; then
     if [ -z "${USE_DAEMON}" ]; then
         du -shc /usr/share/eiskaltdcpp/*
     fi
-else # Windows
-    CMAKEOPTS=".. \
-               -DCMAKE_INSTALL_PREFIX=./EiskaltDC++ \
-               -DCMAKE_BUILD_TYPE=Release \
-               -DSHARE_DIR=resources \
-               -DDO_NOT_USE_MUTEX=ON \
-               -DUSE_ASPELL=ON \
-               -DFORCE_XDG=OFF \
-               -DDBUS_NOTIFY=OFF \
-               -DUSE_JS=OFF \
-               -DWITH_EXAMPLES=OFF \
-               -DUSE_MINIUPNP=ON \
-               -DWITH_SOUNDS=ON \
-               -DPERL_REGEX=ON \
-               -DUSE_QT_QML=OFF \
-               -DLUA_SCRIPT=ON \
-               -DWITH_LUASCRIPTS=ON \
-               -DUSE_QT_SQLITE=ON \
-               -DNO_UI_DAEMON=ON \
-               -DJSONRPC_DAEMON=ON \
-               -DLOCAL_JSONCPP=OFF \
-               -DUSE_CLI_JSONRPC=ON"
-
-    sudo sed -i 's/std::sprintf/sprintf/' /usr/lib/mxe/usr/x86_64-w64-mingw32.shared/include/boost/interprocess/detail/win32_api.hpp
-    /usr/lib/mxe/usr/bin/x86_64-w64-mingw32.shared-cmake ${CMAKEOPTS}
-    make VERBOSE=1 -k -j $(nproc)
-    make install -j 1
-
-    du -shc ./EiskaltDC++/eiskaltdcpp-*
 fi

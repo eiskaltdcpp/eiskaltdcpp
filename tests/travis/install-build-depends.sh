@@ -7,7 +7,21 @@
 set -e
 set -x
 
-if [ "${OS}" != "Windows" ]; then
+if [ "${TARGET_OS}" = "Windows" ]; then
+    # Add debian packages built from MXE packages
+    echo "deb http://pkg.mxe.cc/repos/apt/debian wheezy main" | sudo tee --append /etc/apt/sources.list.d/mxeapt.list
+    sudo apt-key adv --keyserver x-hkp://keys.gnupg.net --recv-keys D43A795B73B16ABE9643FE1AFD8FFF16DB45C6AB
+
+    sudo apt-get update  -qq
+    sudo apt-get install -qq mxe-x86-64-w64-mingw32.shared-aspell \
+                             mxe-x86-64-w64-mingw32.shared-boost \
+                             mxe-x86-64-w64-mingw32.shared-jsoncpp \
+                             mxe-x86-64-w64-mingw32.shared-libidn \
+                             mxe-x86-64-w64-mingw32.shared-lua \
+                             mxe-x86-64-w64-mingw32.shared-miniupnpc \
+                             mxe-x86-64-w64-mingw32.shared-qtmultimedia \
+                             mxe-x86-64-w64-mingw32.shared-qttools
+else # Build for Ubuntu
     sudo apt-get update  -qq
     sudo apt-get install -qq cmake \
                              libbz2-dev \
@@ -53,18 +67,4 @@ if [ "${OS}" != "Windows" ]; then
                                  libjson-rpc-perl \
                                  libterm-shellui-perl
     fi
-else # Windows
-    # Add debian packages built from MXE packages
-    echo "deb http://pkg.mxe.cc/repos/apt/debian wheezy main" | sudo tee --append /etc/apt/sources.list.d/mxeapt.list
-    sudo apt-key adv --keyserver x-hkp://keys.gnupg.net --recv-keys D43A795B73B16ABE9643FE1AFD8FFF16DB45C6AB
-
-    sudo apt-get update  -qq
-    sudo apt-get install -qq mxe-x86-64-w64-mingw32.shared-aspell \
-                             mxe-x86-64-w64-mingw32.shared-boost \
-                             mxe-x86-64-w64-mingw32.shared-jsoncpp \
-                             mxe-x86-64-w64-mingw32.shared-libidn \
-                             mxe-x86-64-w64-mingw32.shared-lua \
-                             mxe-x86-64-w64-mingw32.shared-miniupnpc \
-                             mxe-x86-64-w64-mingw32.shared-qtmultimedia \
-                             mxe-x86-64-w64-mingw32.shared-qttools
 fi
