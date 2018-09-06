@@ -9,6 +9,7 @@
 
 #include "WulforSettings.h"
 #include "WulforUtil.h"
+#include "SpellCheck.h"
 
 #include "dcpp/stdinc.h"
 #include "dcpp/File.h"
@@ -422,27 +423,38 @@ void WulforSettings::loadTranslation(){
     if (appTranslationFile.isEmpty() || !QFile::exists(appTranslationFile)){
         const QString lcName = QLocale::system().name();
 
+#ifdef _DEBUG_QT_UI
+        qDebug() << QString("LANGUAGE=%1").arg(lcName);
+#endif
         loadQtTranslation(lcName);
         installTranslator(appTranslator, lcName, "en", translationsPath);
 
         dcpp::Util::setLang(lcName.toStdString());
-#ifdef _DEBUG_QT_UI
-        qDebug() << QString("LANGUAGE=%1").arg(lcName);
-#endif
+
+        setStr(WS_APP_ASPELL_LANG, lcName);
+        if (SpellCheck *SC = SpellCheck::getInstance()) {
+            SC->setLanguage(lcName);
+        }
     }
     else if (!appTranslationFile.isEmpty() && QFile::exists(appTranslationFile)){
         const QString lcName = (appTranslationFile.split("/").last()).split(".").first();
 
+#ifdef _DEBUG_QT_UI
+        qDebug() << QString("LANGUAGE=%1").arg(lcName);
+#endif
+
         loadQtTranslation(lcName);
         installTranslator(appTranslator, lcName, "en", translationsPath);
 
         dcpp::Util::setLang(lcName.toStdString());
-#ifdef _DEBUG_QT_UI
-        qDebug() << QString("LANGUAGE=%1").arg(lcName);
-#endif
+
+        setStr(WS_APP_ASPELL_LANG, lcName);
+        if (SpellCheck *SC = SpellCheck::getInstance()) {
+            SC->setLanguage(lcName);
+        }
     }
     else {
-        WSSET(WS_TRANSLATION_FILE, "");
+        setStr(WS_TRANSLATION_FILE, "");
     }
 }
 

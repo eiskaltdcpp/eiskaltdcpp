@@ -28,11 +28,16 @@ friend class dcpp::Singleton<SpellCheck>;
 public:
     bool ok(const QString &word);
     void suggestions(const QString &word, QStringList &list);
+    void setLanguage(const QString &lang);
     void addToDict(const QString &word);
 
 private:
     SpellCheck(QObject *parent = 0);
     ~SpellCheck();
+
+    void deleteSpellChecker();
+    void loadAspellConfig(const AspellConfig * const config);
+    AspellConfig *defaultAspellConfig();
 
     AspellSpeller *spell_checker;
 };

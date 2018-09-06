@@ -19,12 +19,51 @@
 
 SpellCheck::SpellCheck(QObject *parent) :
     QObject(parent),
-    spell_checker(NULL)
+    spell_checker(nullptr)
+{
+    setLanguage(QString());
+}
+
+SpellCheck::~SpellCheck()
+{
+    deleteSpellChecker();
+}
+
+void SpellCheck::deleteSpellChecker()
+{
+    if (spell_checker) {
+        aspell_speller_save_all_word_lists(spell_checker);
+        delete_aspell_speller(spell_checker);
+        spell_checker = nullptr;
+    }
+}
+
+void SpellCheck::loadAspellConfig(const AspellConfig * const config)
+{
+    AspellCanHaveError *ret = new_aspell_speller(config);
+
+    qDebug() << Q_FUNC_INFO << "Aspell lang ="
+             << aspell_config_retrieve(config, "lang");
+
+    if (aspell_error(ret)) {
+        printf("Error: %s\n", aspell_error_message(ret));
+        delete_aspell_can_have_error(ret);
+    } else {
+        deleteSpellChecker();
+        spell_checker = to_aspell_speller(ret);
+    }
+}
+
+AspellConfig *SpellCheck::defaultAspellConfig()
 {
     AspellConfig *config = new_aspell_config();
 
     aspell_config_replace(config, "encoding", "utf-8");
     aspell_config_replace(config, "personal", (dcpp::Util::getPath(dcpp::Util::PATH_USER_CONFIG)+"dict").c_str());
+
+    if (WulforSettings::getInstance()) {
+        aspell_config_replace(config, "lang", WSGET(WS_APP_ASPELL_LANG, "en").toUtf8().constData());
+    }
 
 #if defined(Q_OS_WIN) || defined(Q_OS_MAC) || defined(LOCAL_ASPELL_DATA)
     const QString aspellDataPath = WulforUtil::getInstance()->getAspellDataPath();
@@ -34,30 +73,7 @@ SpellCheck::SpellCheck(QObject *parent) :
                           QByteArray(aspellDataPath.toUtf8() + "/dict").constData());
 #endif
 
-    AspellCanHaveError *ret = new_aspell_speller(config);
-
-    // config is no longer needed
-    delete_aspell_config(config);
-
-    if (aspell_error(ret)) {
-        printf("Error: %s\n", aspell_error_message(ret));
-        delete_aspell_can_have_error(ret);
-    } else {
-        spell_checker = to_aspell_speller(ret);
-    }
-}
-
-SpellCheck::~SpellCheck() {
-    if (spell_checker) {
-        aspell_speller_save_all_word_lists(spell_checker);
-
-        AspellConfig *config = aspell_speller_config(spell_checker);
-
-        if (config)
-            WSSET(WS_APP_ASPELL_LANG, aspell_config_retrieve(config, "lang"));
-    }
-
-    delete_aspell_speller(spell_checker);
+    return config;
 }
 
 bool SpellCheck::ok(const QString &word) {
@@ -88,6 +104,18 @@ void SpellCheck::suggestions(const QString &word, QStringList &list) {
     }
 
     delete_aspell_string_enumeration(elements);
+}
+
+void SpellCheck::setLanguage(const QString &lang)
+{
+    AspellConfig *config = defaultAspellConfig();
+
+    if (!lang.isEmpty()) {
+        aspell_config_replace(config, "lang", lang.toUtf8().constData());
+    }
+
+    loadAspellConfig(config);
+    delete_aspell_config(config);
 }
 
 void SpellCheck::addToDict(const QString &word) {
