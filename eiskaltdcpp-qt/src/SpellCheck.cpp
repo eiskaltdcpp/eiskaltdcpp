@@ -38,7 +38,7 @@ void SpellCheck::deleteSpellChecker()
     }
 }
 
-void SpellCheck::loadAspellConfig(const AspellConfig * const config)
+void SpellCheck::loadAspellConfig(AspellConfig * const config)
 {
     AspellCanHaveError *ret = new_aspell_speller(config);
 

@@ -36,7 +36,7 @@ private:
     ~SpellCheck();
 
     void deleteSpellChecker();
-    void loadAspellConfig(const AspellConfig * const config);
+    void loadAspellConfig(AspellConfig * const config);
     AspellConfig *defaultAspellConfig();
 
     AspellSpeller *spell_checker;
