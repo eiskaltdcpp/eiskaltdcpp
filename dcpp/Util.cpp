@@ -1216,6 +1216,26 @@ string Util::getIpCountry (string IP) {
     return Util::emptyString; //if doesn't returned anything already, something is wrong...
 }
 
+void Util::setLang(const string &lang)
+{
+    if(!lang.empty()) {
+        if (SettingsManager *SM = SettingsManager::getInstance()) {
+            SM->set(SettingsManager::LANGUAGE, lang);
+        }
+#ifdef _WIN32
+        putenv((char *)string("LANGUAGE=" + lang).c_str());
+        putenv((char *)string("LANG=" + lang).c_str());
+#else
+        setenv ("LANGUAGE", lang.c_str(), 1);
+        setenv ("LANG", lang.c_str(), 1);
+#endif
+    }
+    /* Make change known. */
+    {
+        ++_nl_msg_cat_cntr;
+    }
+}
+
 string Util::getTimeString() {
     char buf[64];
     time_t _tt;

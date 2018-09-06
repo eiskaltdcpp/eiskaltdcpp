@@ -459,18 +459,7 @@ public:
 
     static string getIpCountry (string IP);
 
-    static void setLang(const string& lang) {
-        if(!lang.empty())
-#ifdef _WIN32
-            putenv((char *)string("LANGUAGE=" + lang).c_str());
-#else
-            setenv ("LANGUAGE", lang.c_str(), 1);
-#endif
-        /* Make change known.  */
-        {
-        ++_nl_msg_cat_cntr;
-        }
-    }
+    static void setLang(const string& lang);
 
     static bool getAway();
     static void setAway(bool aAway);
