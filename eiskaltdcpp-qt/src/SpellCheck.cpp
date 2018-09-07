@@ -42,9 +42,6 @@ void SpellCheck::loadAspellConfig(AspellConfig * const config)
 {
     AspellCanHaveError *ret = new_aspell_speller(config);
 
-    qDebug() << Q_FUNC_INFO << "Aspell lang ="
-             << aspell_config_retrieve(config, "lang");
-
     if (aspell_error(ret)) {
         printf("Error: %s\n", aspell_error_message(ret));
         delete_aspell_can_have_error(ret);

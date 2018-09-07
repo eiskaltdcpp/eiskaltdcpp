@@ -1224,10 +1224,8 @@ void Util::setLang(const string &lang)
         }
 #ifdef _WIN32
         putenv((char *)string("LANGUAGE=" + lang).c_str());
-        putenv((char *)string("LANG=" + lang).c_str());
 #else
         setenv ("LANGUAGE", lang.c_str(), 1);
-        setenv ("LANG", lang.c_str(), 1);
 #endif
     }
     /* Make change known. */
