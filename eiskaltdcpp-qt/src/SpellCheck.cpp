@@ -26,10 +26,10 @@ SpellCheck::SpellCheck(QObject *parent) :
 
 SpellCheck::~SpellCheck()
 {
-    deleteSpellChecker();
+    deleteSpeller();
 }
 
-void SpellCheck::deleteSpellChecker()
+void SpellCheck::deleteSpeller()
 {
     if (spell_checker) {
         aspell_speller_save_all_word_lists(spell_checker);
@@ -46,7 +46,7 @@ void SpellCheck::loadAspellConfig(AspellConfig * const config)
         printf("Error: %s\n", aspell_error_message(ret));
         delete_aspell_can_have_error(ret);
     } else {
-        deleteSpellChecker();
+        deleteSpeller();
         spell_checker = to_aspell_speller(ret);
     }
 }

@@ -35,7 +35,7 @@ private:
     SpellCheck(QObject *parent = 0);
     ~SpellCheck();
 
-    void deleteSpellChecker();
+    void deleteSpeller();
     void loadAspellConfig(AspellConfig * const config);
     AspellConfig *defaultAspellConfig();
 
