@@ -9,8 +9,8 @@
 # Description: script for personal use
 #
 # Notes:
-# brew install wget git htop coreutils
-# brew install cmake gettext boost libidn openssl jsoncpp miniupnpc aspell pcre lua qt
+# brew install wget git htop
+# brew install coreutils cmake gettext boost libidn openssl jsoncpp miniupnpc aspell pcre lua qt
 
 set -e
 
@@ -39,7 +39,7 @@ mkdir -p "${MAIN_DIR}/builddir"
 cd "${MAIN_DIR}/builddir"
 
 cmake .. -DCMAKE_TOOLCHAIN_FILE="${TOOLCHAIN_FILE}" ${BUILD_OPTIONS} "$@"
-cmake --build . --target all --parallel 4
+cmake --build . --target all -- -j4
 
 cpack -G DragNDrop
 cp -a EiskaltDC++*.dmg "${MAIN_DIR}/../"
