@@ -210,7 +210,7 @@ QString WulforUtil::getEmoticonsPath() const
 QString WulforUtil::getTranslationsPath() const
 {
 #if defined (Q_OS_WIN)
-    static const QString translationsPath = bin_path + "/" CLIENT_TRANSLATIONS_DIR "/");
+    static const QString translationsPath = bin_path + "/" CLIENT_TRANSLATIONS_DIR "/";
 #elif defined (Q_OS_MAC)
     static const QString translationsPath = bin_path + "/../../qt/ts/";
 #else // Other OS

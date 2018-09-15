@@ -154,6 +154,7 @@ void Util::initialize(PathsMap pathOverrides) {
     }
 
 #if defined(_WIN32)
+    TCHAR buf[MAX_PATH+1] = { 0 };
     string exePath = winExecutablePath();
 
     // Global config path is DC++ executable path...
@@ -177,7 +178,6 @@ void Util::initialize(PathsMap pathOverrides) {
             if(::SHGetFolderPath(NULL, CSIDL_APPDATA, NULL, SHGFP_TYPE_CURRENT, buf) == S_OK) {
                 paths[PATH_USER_CONFIG] = Text::fromT(buf) + "\\EiskaltDC++\\";
             }
-
             paths[PATH_USER_LOCAL] = ::SHGetFolderPath(NULL, CSIDL_LOCAL_APPDATA, NULL, SHGFP_TYPE_CURRENT, buf) == S_OK ? Text::fromT(buf) + "\\EiskaltDC++\\" : paths[PATH_USER_CONFIG];
         }
     }
