@@ -3,7 +3,7 @@
 # Author:  Maxim Ignatenko
 # License: Public Domain
 # Created: 2013-06-18
-# Created: 2013-06-18
+# Updated: 2013-06-18
 # Version: N/A
 #
 # Description: script for building universal application bundle

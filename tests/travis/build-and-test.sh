@@ -105,59 +105,38 @@ then
     make VERBOSE=1 -k -j $(nproc)
     sudo make install -j 1
 
+    ls -alp /usr/bin/eiskaltdcpp-*
+    ls -alp /usr/lib*/libeiskaltdcpp.so*
+    ls -alp /usr/share/eiskaltdcpp/*
+
     du -shc /usr/bin/eiskaltdcpp-*
     du -shc /usr/lib*/libeiskaltdcpp.so*
-
-    if [ -z "${USE_DAEMON}" ]
-    then
-        du -shc /usr/share/eiskaltdcpp/*
-    fi
+    du -shc /usr/share/eiskaltdcpp/*
 fi
 
 if [ "${TARGET}" = "windows32" ] || [ "${TARGET}" = "windows64" ]
 then
-    CMAKE_OPTIONS=".. \
-        -DCMAKE_INSTALL_PREFIX=./EiskaltDC++ \
-        -DCMAKE_BUILD_TYPE=Release \
-        -DSHARE_DIR=resources \
-        -DDO_NOT_USE_MUTEX=ON \
-        -DUSE_ASPELL=ON \
-        -DFORCE_XDG=OFF \
-        -DDBUS_NOTIFY=OFF \
-        -DUSE_JS=OFF \
-        -DWITH_EXAMPLES=OFF \
-        -DUSE_MINIUPNP=ON \
-        -DWITH_SOUNDS=ON \
-        -DPERL_REGEX=ON \
-        -DUSE_QT_QML=OFF \
-        -DLUA_SCRIPT=ON \
-        -DWITH_LUASCRIPTS=ON \
-        -DUSE_QT_SQLITE=ON \
-        -DNO_UI_DAEMON=ON \
-        -DJSONRPC_DAEMON=ON \
-        -DLOCAL_JSONCPP=OFF \
-        -DUSE_CLI_JSONRPC=ON \
-        "
+    ls -alp /usr/lib/mxe/*
+    ls -alp /usr/lib/mxe/usr/bin/*
+    ls -alp /usr/lib/mxe/usr/*/bin/*
 
     # Workaround for fixind of build with Boost from MXE packages
+    # See: https://github.com/mxe/mxe/issues/1104
     sudo sed -i 's/std::sprintf/sprintf/' /usr/lib/mxe/usr/*-w64-mingw32.shared/include/boost/interprocess/detail/win32_api.hpp
     # End of workaround
 
     if [ "${TARGET}" = "windows64" ]
     then
-        CMAKE_TOOL="/usr/lib/mxe/usr/bin/x86_64-w64-mingw32.shared-cmake"
+        export MXE_TARGET="x86_64-w64-mingw32.shared"
     else
-        CMAKE_TOOL="/usr/lib/mxe/usr/bin/i686-w64-mingw32.shared-cmake"
+        export MXE_TARGET="i686-w64-mingw32.shared"
     fi
 
-    mkdir -p builddir
-    cd builddir
+    export MXE_DIR="/usr/lib/mxe"
+    ./windows/build-using-mxe.sh
 
-    ${CMAKE_TOOL} ${CMAKE_OPTIONS}
-    make VERBOSE=1 -k -j $(nproc)
-    make install -j 1
-
-    du -shc ./EiskaltDC++/eiskaltdcpp-*
+    ls -alp ../EiskaltDC++
+    du -shc ../EiskaltDC++
 fi
 
 if [ "${TARGET}" = "macos64" ]
@@ -169,6 +148,7 @@ then
     export HOMEBREW="/usr/local"
     ./macos/build-using-homebrew.sh
 
+    ls -alp ../EiskaltDC++*.dmg
     du -shc ../EiskaltDC++*.dmg
 fi
 

@@ -3,10 +3,12 @@
 # Authors: Boris Pek
 # License: Public Domain
 # Created: 2018-08-21
-# Created: 2018-09-05
+# Updated: 2018-09-16
 # Version: N/A
 #
-# Description: script for personal use
+# Description: script for building of app bundles for macOS
+# Currently it is used for testing builds on Travis CI and for producing
+# official builds of program which are hosted at SourceForge.
 #
 # Notes:
 # brew install wget git htop

@@ -66,32 +66,23 @@ then
     # Add debian packages built from MXE packages
     echo "deb http://pkg.mxe.cc/repos/apt/debian wheezy main" | sudo tee --append /etc/apt/sources.list.d/mxeapt.list
     sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys D43A795B73B16ABE9643FE1AFD8FFF16DB45C6AB
-fi
 
-if [ "${TARGET}" = "windows32" ]
-then
-    sudo apt-get update  -qq
-    sudo apt-get install -qq mxe-i686-w64-mingw32.shared-aspell \
-                             mxe-i686-w64-mingw32.shared-boost \
-                             mxe-i686-w64-mingw32.shared-jsoncpp \
-                             mxe-i686-w64-mingw32.shared-libidn \
-                             mxe-i686-w64-mingw32.shared-lua \
-                             mxe-i686-w64-mingw32.shared-miniupnpc \
-                             mxe-i686-w64-mingw32.shared-qtmultimedia \
-                             mxe-i686-w64-mingw32.shared-qttools
-fi
+    if [ "${TARGET}" = "windows64" ]
+    then
+        PKG_PREFIX="mxe-x86-64-w64-mingw32.shared"
+    else
+        PKG_PREFIX="mxe-i686-w64-mingw32.shared"
+    fi
 
-if [ "${TARGET}" = "windows64" ]
-then
     sudo apt-get update  -qq
-    sudo apt-get install -qq mxe-x86-64-w64-mingw32.shared-aspell \
-                             mxe-x86-64-w64-mingw32.shared-boost \
-                             mxe-x86-64-w64-mingw32.shared-jsoncpp \
-                             mxe-x86-64-w64-mingw32.shared-libidn \
-                             mxe-x86-64-w64-mingw32.shared-lua \
-                             mxe-x86-64-w64-mingw32.shared-miniupnpc \
-                             mxe-x86-64-w64-mingw32.shared-qtmultimedia \
-                             mxe-x86-64-w64-mingw32.shared-qttools
+    sudo apt-get install -qq ${PKG_PREFIX}-aspell \
+                             ${PKG_PREFIX}-boost \
+                             ${PKG_PREFIX}-jsoncpp \
+                             ${PKG_PREFIX}-libidn \
+                             ${PKG_PREFIX}-lua \
+                             ${PKG_PREFIX}-miniupnpc \
+                             ${PKG_PREFIX}-qtmultimedia \
+                             ${PKG_PREFIX}-qttools
 fi
 
 if [ "${TARGET}" = "macos64" ]
