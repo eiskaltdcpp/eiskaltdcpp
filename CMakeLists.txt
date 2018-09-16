@@ -79,7 +79,7 @@ option (LOCAL_BOOST "Use local boost headers" OFF)
 option (OPENSSL_MSVC "Use MSVC build openssl (only for Windows)" OFF)
 option (STATIC "Static build (only for Windows)" OFF)
 
-if (DO_NOT_USE_MUTEX OR HAIKU OR APPLE)
+if (WIN32 OR HAIKU OR APPLE)
     add_definitions ( -DDO_NOT_USE_MUTEX )
 endif ()
 
@@ -249,6 +249,10 @@ message (STATUS "${PROJECT_NAME} full version: ${VERSION}")
 message (STATUS "${PROJECT_NAME} base version: ${VERSION_BASE}")
 
 configure_file (${PROJECT_SOURCE_DIR}/Version.h.in ${PROJECT_BINARY_DIR}/VersionGlobal.h)
+
+if (DO_NOT_USE_MUTEX)
+    add_definitions ( -DDO_NOT_USE_MUTEX )
+endif ()
 
 if (UNIX)
     add_definitions (-D_GNU_SOURCE)

@@ -33,23 +33,28 @@ CMAKE_TOOL="${MXE_TARGET}-cmake"
 CMAKE_OPTIONS="-DCMAKE_INSTALL_PREFIX=../../EiskaltDC++ \
                -DCMAKE_BUILD_TYPE=Release \
                -DSHARE_DIR=resources \
-               -DDO_NOT_USE_MUTEX=ON \
+               -DUSE_QT=OFF \
+               -DUSE_QT5=ON \
+               -DUSE_QT_SQLITE=ON \
+               -DUSE_QT_QML=OFF \
+               -DUSE_MINIUPNP=ON \
                -DUSE_ASPELL=ON \
+               -DUSE_JS=OFF \
+               -DUSE_CLI_JSONRPC=ON \
                -DFORCE_XDG=OFF \
                -DDBUS_NOTIFY=OFF \
-               -DUSE_JS=OFF \
-               -DWITH_EXAMPLES=OFF \
-               -DUSE_MINIUPNP=ON \
-               -DWITH_SOUNDS=ON \
-               -DPERL_REGEX=ON \
-               -DUSE_QT_QML=OFF \
-               -DLUA_SCRIPT=ON \
-               -DWITH_LUASCRIPTS=ON \
-               -DUSE_QT_SQLITE=ON \
+               -DDO_NOT_USE_MUTEX=ON \
                -DNO_UI_DAEMON=ON \
                -DJSONRPC_DAEMON=ON \
-               -DLOCAL_JSONCPP=OFF \
-               -DUSE_CLI_JSONRPC=ON"
+               -DPERL_REGEX=ON \
+               -DLUA_SCRIPT=ON \
+               -DWITH_SOUNDS=ON \
+               -DWITH_LUASCRIPTS=ON \
+               -DWITH_EXAMPLES=OFF \
+               -DLOCAL_MINIUPNP=OFF \
+               -DLOCAL_BOOST=OFF \
+               -DLOCAL_ASPELL_DATA=ON \
+               -DLOCAL_JSONCPP=OFF"
 
 mkdir -p "${MAIN_DIR}/builddir"
 cd "${MAIN_DIR}/builddir"
