@@ -1,0 +1,143 @@
+<h1>EiskaltDC++ &ndash; filesharing application for DC and ADC protocols</h1>
+
+<p>Website: https://sourceforge.net/projects/eiskaltdcpp/ <br>
+Sources: https://github.com/eiskaltdcpp/eiskaltdcpp</p>
+
+<p>Public chat room: https://gitter.im/eiskaltdcpp/eiskaltdcpp <br>
+Wiki: https://github.com/eiskaltdcpp/eiskaltdcpp/wiki</p>
+
+<h2>License</h2>
+
+<p>This program is licensed under the GNU General Public License. See the <a href="https://github.com/eiskaltdcpp/eiskaltdcpp/blob/master/COPYING">COPYING</a> file for more information.</p>
+
+<h2>Description</h2>
+
+<p>EiskaltDC++ is a cross-platform program that uses the Direct Connect (DC) and Advanced Direct Connect (ADC) protocols. It is compatible with DC++, FlylinkDC++, LinuxDC++ and other DC clients. EiskaltDC++ also interoperates with all common DC hub software.</p>
+
+<p>Currently supported systems (in order of decreasing importance): GNU/Linux, macOS, MS Windows, FreeBSD, GNU/Hurd and Haiku.</p>
+
+<p>Currently supported features (not full list):</p>
+
+<ul>
+<li>1</li>
+<li>2</li>
+<li>3</li>
+</ul>
+
+<h2>Versions history</h2>
+
+<p>See <a href="https://github.com/eiskaltdcpp/eiskaltdcpp/blob/master/ChangeLog.txt">ChangeLog.txt</a> file.</p>
+
+<h2>Installation</h2>
+
+<p>See <a href="https://github.com/eiskaltdcpp/eiskaltdcpp/blob/master/INSTALL">INSTALL</a> file.</p>
+
+<h2>Development</h2>
+
+<p>During the development EiskaltDC++ in past years we have used different CVS (Subversion first and then Git) and different development models. Currently the process looks like this:</p>
+
+<ul>
+<li>All development of is done in git <code>work</code> branch or special (feature) branches detached from <code>work</code> branch.</li>
+<li>Change log file should be updated together with changes in source code. It may be done in a same git commit or in a separate git commit depending on situation. Just use common sense for this. (There were no rule of updating change log in the past which leads to significant delaying of stable releases.)</li>
+<li>Once the changes from <code>work</code> branch are ready for usage and build of program is tested for most important systems (Linux, macOS, Windows) they may be merged to <code>master</code> branch.</li>
+<li>Daily builds of program for testers, active users and just curious people should be done from git <code>master</code> branch.</li>
+<li>Version scheme for builds from git snapshots should look like: <code>&lt;major&gt;.&lt;minor&gt;.&lt;patch&gt;-&lt;commits&gt;-&lt;hash&gt;</code> (where <code>&lt;major&gt;</code>, <code>&lt;minor&gt;</code> and <code>&lt;patch&gt;</code> are not digits but numbers). <code>&lt;major&gt;.&lt;minor&gt;.&lt;patch&gt;</code> is last git tag (for stable release), <code>&lt;commits&gt;</code> &ndash; the number of commits since last git tag and <code>&lt;hash&gt;</code> &ndash; short hash of current git commit.</li>
+<li>Once there is noticeable amount of changes since last stable release or if there are very important bug fixes which should be quickly delivered to users new git tag (<code>v&lt;major&gt;.&lt;minor&gt;.&lt;patch&gt;</code>) is created and tarballs with sources are uploaded to SourceForge.</li>
+<li>There is no strict limitation of type of changes suitable for new releases: even "minor" or "patch" version may contain new features and significant changes in GUI.</li>
+<li>In case of noticeable changes in Core of program (library libeiskaltdcpp) the <code>&lt;major&gt;</code> part of program version should be changed.</li>
+<li>In case of significant changes (for example, total code refactoring) in any part of program the <code>&lt;major&gt;</code> part of program version should be changed.</li>
+<li>In case when where are very few changes since last stable release, but they are important and should be quickly delivered to users the <code>&lt;patch&gt;</code> part of program version should be changed.</li>
+</ul>
+
+<h2>Developers</h2>
+
+<h3>Main developers</h3>
+
+<ul>
+<li>Main developers of EiskaltDC++ are listed in <a href="https://github.com/eiskaltdcpp/eiskaltdcpp/blob/master/AUTHORS">AUTHORS</a> file.</li>
+<li>Program contains source code from other free and and open-source projects. All copyright information from them is pedantically documented in <a href="https://github.com/eiskaltdcpp/eiskaltdcpp/blob/master/full.copyrights.info.in.Debian.style">special file</a>.</li>
+<li>Part of program with GTK+ UI contains additional <a href="https://github.com/eiskaltdcpp/eiskaltdcpp/blob/master/eiskaltdcpp-gtk/Credits.txt">Credits.txt</a> file. (This is just a list of contributors from LinuxDC++ and FreeDC++ projects, not all of them are not copyright holders.)</li>
+</ul>
+
+<h3>Other contributors</h3>
+
+<p>There are a lot of people who were involved into EiskaltDC++ development. Some of them are listed in license headers in source files, some of them might be found only in the history of commits in our git repository. Also there are <a href="https://github.com/eiskaltdcpp/eiskaltdcpp/blob/master/AUTHORS">translators</a>, testers and just active users. We are thankful to all them!</p>
+
+<h2>How you can help</h2>
+
+<h3>Bug reports</h3>
+
+<p>If you found a bug please report about it in our <a href="https://github.com/eiskaltdcpp/eiskaltdcpp/issues">Bug Tracker</a>.</p>
+
+<h3>Beta testing</h3>
+
+<p>You may use daily builds of program or program compiled from sources by yourself (from git <code>master</code> branch) for testing and suggesting of new features, and for reporting about new bugs (if they happen).</p>
+
+<h3>Comments and wishes</h3>
+
+<p>We like constructive comments and wishes to functions of program. You may contact with us in public chat room for discussing of your ideas. Some of them will be drawn up as feature requests in our <a href="https://github.com/eiskaltdcpp/eiskaltdcpp/issues">Bug Tracker</a>.</p>
+
+<h3>Translations</h3>
+
+<p>The work of translators is quite routine and boring. People who do it usually lose interests and their translations become incomplete. If you see such situation for translation to your native language, please join to our <a href="https://www.transifex.com/tehnick/eiskaltdcpp/">translations team</a>. It is extremely welcome!</p>
+
+<p>Some useful notes about translation process you may find at <a href="https://github.com/eiskaltdcpp/eiskaltdcpp/wiki/Translations">special wiki page</a>.</p>
+
+<h3>Graphics</h3>
+
+<p>There are many ways to contribute to the EiskaltDC++ project, if you think you can do a better job with any of the EiskaltDC++ graphics, then go right ahead!</p>
+
+<h3>Programming</h3>
+
+<p>Patches are welcome! Contact to EiskaltDC++ developers if you are working on them.</p>
+
+<h3>Packaging</h3>
+
+<p>Currently we have active package maintainers for Debian and Ubuntu distros, for macOS and MS Windows. If you have suggestions about improving of packaging, just contact with them.</p>
+
+<p>If you want to prepare personal builds of EiskaltDC++ for MS Windows and macOS systems, it is very welcome! We may add links to them into our documentation. Becoming an official maintaner for these systems is more complicated, but also possible.</p>
+
+<p>For other GNU/Linux and *BSD systems the situation is quite clear: just update packages (pkgbuilds, ebuild, etc.) in official repositories of your favorite distributions or make a Personal Package Archive (PPA) with them. We will add links to them into our documentation.</p>
+
+<h3>Donations</h3>
+
+<p>We do not accept donations for EiskaltDC++ project as a whole, because there are no expenditures for infrastructure and such like. (Thanks to owners of GitHub, SourceForge, Transifex and Travis CI services for their support of FOSS projects!)</p>
+
+<p>But you may send donations to project contributors (developers, maintainers, translators, etc.) on personal basis. Just contact with them using the contact information from <a href="https://github.com/eiskaltdcpp/eiskaltdcpp/blob/master/AUTHORS">AUTHORS</a> file.</p>
+
+<h2>Extra links</h2>
+
+<ul>
+<li><a href="https://github.com/eiskaltdcpp/eiskaltdcpp/graphs/contributors">Project statistics on GitHub</a></li>
+<li><a href="https://www.openhub.net/p/eiskaltdcpp">Project statistics on OpenHub</a></li>
+<li><a href="https://github.com/eiskaltdcpp/freedcpp">Project FreeDC++ (was basis of eiskaltdcpp-gtk)</a> (sources)</li>
+<li><a href="https://github.com/eiskaltdcpp/eiskaltdcpp-web">Official Web UI for eiskaltdcpp-daemon</a> (sources)</li>
+<li><a href="https://github.com/eiskaltdcpp/icecult">Alternative Web UI for eiskaltdcpp-daemon </a> (sources)</li>
+<li><a href="https://launchpad.net/~tehnick/+archive/ubuntu/direct-connect">Official PPA for Ubuntu and distros based on it</a> (stable releases)</li>
+<li><a href="https://launchpad.net/~tehnick/+archive/ubuntu/direct-connect-devel">Official PPA for Ubuntu and distros based on it</a> (daily builds)</li>
+<li><a href="https://sourceforge.net/projects/eiskaltdcpp/files/Windows/">Official builds for Windows</a></li>
+<li><a href="https://sourceforge.net/projects/eiskaltdcpp/files/macOS/">Official builds for macOS</a></li>
+<li><a href="https://sourceforge.net/projects/eiskaltdcpp/files/Haiku/">Official builds for Haiku</a></li>
+<li><a href="https://tracker.debian.org/pkg/eiskaltdcpp">Official packages in Debian</a></li>
+<li><a href="https://launchpad.net/ubuntu/+source/eiskaltdcpp">Official packages in Ubuntu</a></li>
+<li><a href="https://packages.gentoo.org/packages/net-p2p/eiskaltdcpp">Official packages in Gentoo Linux</a></li>
+<li><a href="http://www.sisyphus.ru/ru/srpm/eiskaltdcpp">Official packages for ALT Linux</a></li>
+<li><a href="https://www.freshports.org/search.php?query=eiskaltdcpp">Official packages for FreeBSD</a></li>
+<li><a href="https://software.opensuse.org/package/eiskaltdcpp">Packages for openSUSE</a></li>
+<li><a href="https://aur.archlinux.org/packages.php?K=eiskaltdcpp">Packages for Arch Linux in AUR</a></li>
+<li><a href="https://pkgs.org/download/eiskaltdcpp">Packages for different Linux distros</a> (aggregator of links)</li>
+<li><a href="https://notesalexp.org/index-old.html">Unofficial PPA for Debian and Ubuntu</a> (maintained by Alex_P)</li>
+<li><a href="https://tehnick.github.io/eiskaltdcpp/en/screenshots.html">Old screenshots</a> (in English)</li>
+<li><a href="https://tehnick.github.io/eiskaltdcpp/screenshots.html">Old screenshots</a> (in Russian)</li>
+<li><a href="https://tehnick.github.io/eiskaltdcpp/">Old notes about EiskaltDC++</a> (in Russian)</li>
+<li><a href="https://tehnick.github.io/freedcpp/">Old notes about FreeDC++</a> (in Russian)</li>
+<li><a href="https://tehnick.github.io/eiskaltdcpp/faq.html">Old FAQ about EiskaltDC++</a> (in Russian)</li>
+<li><a href="https://tehnick.github.io/dc_clients/magnet-links.html">Setting up interception of magnet links from web browsers</a> (in Russian)</li>
+<li><a href="https://tehnick.github.io/dc_clients/">Review of DC clients for Linux</a> (in Russian)</li>
+<li><a href="https://en.wikipedia.org/wiki/DC%2B%2B">DC++ and programs based on it at Wikipedia</a> (in English)</li>
+<li><a href="https://ru.wikipedia.org/wiki/DC%2B%2B">DC++ and programs based on it at Wikipedia</a> (in Russian)</li>
+<li><a href="https://en.wikipedia.org/wiki/Valknut_(software)">Valknut and programs based on it at Wikipedia</a> (in English)</li>
+<li><a href="https://ru.wikipedia.org/wiki/EiskaltDC%2B%2B">EiskaltDC++ at Wikipedia</a> (in Russian)</li>
+</ul>
+
+<p>Have fun!</p>
