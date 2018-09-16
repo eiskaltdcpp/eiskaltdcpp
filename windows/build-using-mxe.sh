@@ -53,7 +53,7 @@ CMAKE_OPTIONS="-DCMAKE_INSTALL_PREFIX=../../EiskaltDC++ \
                -DWITH_EXAMPLES=OFF \
                -DLOCAL_MINIUPNP=OFF \
                -DLOCAL_BOOST=OFF \
-               -DLOCAL_ASPELL_DATA=ON \
+               -DLOCAL_ASPELL_DATA=OFF \
                -DLOCAL_JSONCPP=OFF"
 
 mkdir -p "${MAIN_DIR}/builddir"
