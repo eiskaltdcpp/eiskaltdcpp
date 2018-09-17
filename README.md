@@ -1,4 +1,4 @@
-# EiskaltDC++ &ndash; filesharing application for DC and ADC protocols
+# EiskaltDC++ &ndash; file sharing using DC and ADC protocols
 
 Website: https://sourceforge.net/projects/eiskaltdcpp/ <br>
 Sources: https://github.com/eiskaltdcpp/eiskaltdcpp
@@ -12,7 +12,7 @@ This program is licensed under the GNU General Public License. See the [COPYING]
 
 ## Description
 
-EiskaltDC++ is a cross-platform program that uses the Direct Connect (DC) and Advanced Direct Connect (ADC) protocols. It is compatible with DC++, FlylinkDC++, LinuxDC++ and other DC clients. EiskaltDC++ also interoperates with all common DC hub software.
+EiskaltDC++ is a cross-platform program that uses the [Direct Connect](https://en.wikipedia.org/wiki/Direct_Connect_\(protocol\)) (DC) and [Advanced Direct Connect](https://en.wikipedia.org/wiki/Advanced_Direct_Connect) (ADC) protocols. It is compatible with DC++, FlylinkDC++, LinuxDC++ and other DC clients. EiskaltDC++ also interoperates with all common DC hub software.
 
 Currently supported systems (in order of decreasing importance): GNU/Linux, macOS, MS Windows, FreeBSD, GNU/Hurd and Haiku.
 
@@ -51,7 +51,7 @@ During the development EiskaltDC++ in past years we have used different CVS (Sub
 
 * Main developers of EiskaltDC++ are listed in [AUTHORS](https://github.com/eiskaltdcpp/eiskaltdcpp/blob/master/AUTHORS) file.
 * Program contains source code from other free and and open-source projects. All copyright information from them is pedantically documented in [special file](https://github.com/eiskaltdcpp/eiskaltdcpp/blob/master/full.copyrights.info.in.Debian.style).
-* Part of program with GTK+ UI contains additional [Credits.txt](https://github.com/eiskaltdcpp/eiskaltdcpp/blob/master/eiskaltdcpp-gtk/Credits.txt) file. (This is just a list of contributors from LinuxDC++ and FreeDC++ projects, not all of them are not copyright holders.)
+* Part of program with GTK+ UI contains additional [Credits.txt](https://github.com/eiskaltdcpp/eiskaltdcpp/blob/master/eiskaltdcpp-gtk/Credits.txt) file. (This is just a list of contributors from LinuxDC++ and FreeDC++ projects, not all of them are copyright holders.)
 
 ### Other contributors
 
