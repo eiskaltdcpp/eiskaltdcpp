@@ -99,13 +99,8 @@ We do not accept donations for EiskaltDC++ project as a whole, because there are
 
 But you may send donations to project contributors (developers, maintainers, translators, etc.) on personal basis. Just contact with them using the contact information from [AUTHORS](https://github.com/eiskaltdcpp/eiskaltdcpp/blob/master/AUTHORS) file.
 
-## Extra links
+## Packages and installers
 
-* [Project statistics on GitHub](https://github.com/eiskaltdcpp/eiskaltdcpp/graphs/contributors)
-* [Project statistics on OpenHub](https://www.openhub.net/p/eiskaltdcpp)
-* [Project FreeDC++ (was basis of eiskaltdcpp-gtk)](https://github.com/eiskaltdcpp/freedcpp) (sources)
-* [Official Web UI for eiskaltdcpp-daemon](https://github.com/eiskaltdcpp/eiskaltdcpp-web) (sources)
-* [Alternative Web UI for eiskaltdcpp-daemon ](https://github.com/eiskaltdcpp/icecult) (sources)
 * [Official PPA for Ubuntu and distros based on it](https://launchpad.net/~tehnick/+archive/ubuntu/direct-connect) (stable releases)
 * [Official PPA for Ubuntu and distros based on it](https://launchpad.net/~tehnick/+archive/ubuntu/direct-connect-devel) (daily builds)
 * [Official builds for Windows](https://sourceforge.net/projects/eiskaltdcpp/files/Windows/)
@@ -113,13 +108,23 @@ But you may send donations to project contributors (developers, maintainers, tra
 * [Official builds for Haiku](https://sourceforge.net/projects/eiskaltdcpp/files/Haiku/)
 * [Official packages in Debian](https://tracker.debian.org/pkg/eiskaltdcpp)
 * [Official packages in Ubuntu](https://launchpad.net/ubuntu/+source/eiskaltdcpp)
+* [Official packages in Fedora](https://apps.fedoraproject.org/packages/s/eiskaltdcpp)
 * [Official packages in Gentoo Linux](https://packages.gentoo.org/packages/net-p2p/eiskaltdcpp)
-* [Official packages for ALT Linux](http://www.sisyphus.ru/ru/srpm/eiskaltdcpp)
-* [Official packages for FreeBSD](https://www.freshports.org/search.php?query=eiskaltdcpp)
-* [Packages for openSUSE](https://software.opensuse.org/package/eiskaltdcpp)
-* [Packages for Arch Linux in AUR](https://aur.archlinux.org/packages.php?K=eiskaltdcpp)
-* [Packages for different Linux distros](https://pkgs.org/download/eiskaltdcpp) (aggregator of links)
+* [Official packages in ALT Linux](http://www.sisyphus.ru/ru/srpm/eiskaltdcpp)
+* [Official packages in FreeBSD](https://www.freshports.org/search.php?query=eiskaltdcpp)
+* [Packages for openSUSE](https://software.opensuse.org/package/eiskaltdcpp) (official and unofficial)
+* [Packages for Arch Linux](https://aur.archlinux.org/packages.php?K=eiskaltdcpp) (in AUR)
+* [Packages for different Linux distros](https://pkgs.org/download/eiskaltdcpp) (small aggregator of links)
+* [Packages for different Linux distros](https://repology.org/metapackage/eiskaltdcpp/versions) (the best aggregator of links)
 * [Unofficial PPA for Debian and Ubuntu](https://notesalexp.org/index-old.html) (maintained by Alex_P)
+
+## Extra links
+
+* [Project statistics on GitHub](https://github.com/eiskaltdcpp/eiskaltdcpp/graphs/contributors)
+* [Project statistics on OpenHub](https://www.openhub.net/p/eiskaltdcpp)
+* [Project FreeDC++ (was basis of eiskaltdcpp-gtk)](https://github.com/eiskaltdcpp/freedcpp) (sources)
+* [Official Web UI for eiskaltdcpp-daemon](https://github.com/eiskaltdcpp/eiskaltdcpp-web) (sources)
+* [Alternative Web UI for eiskaltdcpp-daemon ](https://github.com/eiskaltdcpp/icecult) (sources)
 * [Old screenshots](https://tehnick.github.io/eiskaltdcpp/en/screenshots.html) (in English)
 * [Old screenshots](https://tehnick.github.io/eiskaltdcpp/screenshots.html) (in Russian)
 * [Old notes about EiskaltDC++](https://tehnick.github.io/eiskaltdcpp/) (in Russian)
