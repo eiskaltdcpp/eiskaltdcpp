@@ -5868,158 +5868,158 @@ Ezen kívül a funkció kikapcsolása nem törli a már meglévő befejezett ele
         <translation>Nyelvi fájl</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="64"/>
+        <location filename="../ui/UISettingsGUI.ui" line="55"/>
         <source>Theme</source>
         <translation>Téma</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="91"/>
+        <location filename="../ui/UISettingsGUI.ui" line="73"/>
         <source>Apply</source>
         <translation>Beállít</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="101"/>
+        <location filename="../ui/UISettingsGUI.ui" line="83"/>
         <source>Application font</source>
         <translation>Betűkészlet</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="122"/>
+        <location filename="../ui/UISettingsGUI.ui" line="95"/>
         <source>Change</source>
         <translation>Csere</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="132"/>
+        <location filename="../ui/UISettingsGUI.ui" line="105"/>
         <source>Show icon in system tray</source>
         <translation>Ikon mutatása a rendszer-tálcán</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="141"/>
+        <location filename="../ui/UISettingsGUI.ui" line="114"/>
         <source>Remember window position on exit</source>
         <translation>Ablak pozíció megjegyzése kilépéskor</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="151"/>
+        <location filename="../ui/UISettingsGUI.ui" line="124"/>
         <source>Always hide window to system tray at startup</source>
         <translation>A program induláskor automatikusan a tálcára kerüljön</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="158"/>
+        <location filename="../ui/UISettingsGUI.ui" line="131"/>
         <source>Always show window at startup</source>
         <translation>Induláskor az ablak automatikusan látható legyen</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="170"/>
-        <location filename="../ui/UISettingsGUI.ui" line="186"/>
+        <location filename="../ui/UISettingsGUI.ui" line="143"/>
+        <location filename="../ui/UISettingsGUI.ui" line="159"/>
         <source>(need restart)</source>
         <translation>(újraindítás szükséges)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="173"/>
+        <location filename="../ui/UISettingsGUI.ui" line="146"/>
         <source>User theme</source>
         <translation>Saját téma</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="193"/>
+        <location filename="../ui/UISettingsGUI.ui" line="166"/>
         <source>Icon theme</source>
         <translation>Ikonok</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="209"/>
+        <location filename="../ui/UISettingsGUI.ui" line="182"/>
         <source>Emoticon theme</source>
         <translation>Hangulatjelek</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="227"/>
+        <location filename="../ui/UISettingsGUI.ui" line="200"/>
         <source>Try to use system icons (need restart)</source>
         <translation>Próbálja használni a rendszerikonokat (újraindítás szükséges) </translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="234"/>
+        <location filename="../ui/UISettingsGUI.ui" line="207"/>
         <source>Don&apos;t show icons in menus (need restart)</source>
         <translation>Ikonok elrejtése a menükben (újraindítás szükséges)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="242"/>
+        <location filename="../ui/UISettingsGUI.ui" line="215"/>
         <source>Use default ToolBar (need restart)</source>
         <translation>Alapértelmezett ToolBar használata (újraindítás szükséges)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="247"/>
+        <location filename="../ui/UISettingsGUI.ui" line="220"/>
         <source>Use multi-line ToolBar (need restart)</source>
         <translation>Többsoros ToolBar használata (újraindítás szükséges)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="252"/>
+        <location filename="../ui/UISettingsGUI.ui" line="225"/>
         <source>Use SideBar instead of ToolBar (need restart)</source>
         <translation>SideBar használata ToolBar helyett (újraindítást igényel)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="274"/>
+        <location filename="../ui/UISettingsGUI.ui" line="247"/>
         <source>Chat</source>
         <translation>Chat</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="280"/>
+        <location filename="../ui/UISettingsGUI.ui" line="253"/>
         <source>Show joins</source>
         <translation>Belépések mutatása</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="290"/>
+        <location filename="../ui/UISettingsGUI.ui" line="263"/>
         <source>Show joins only for favorite users</source>
         <translation>Csak a kedvenc felhasználók belépéseinek a mutatása</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="297"/>
+        <location filename="../ui/UISettingsGUI.ui" line="270"/>
         <source>Show hidden users</source>
         <translation>Rejtett felhasználók mutatása</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="304"/>
+        <location filename="../ui/UISettingsGUI.ui" line="277"/>
         <source>Ignore private messages from Hub</source>
         <translation>A hubtól érkező privát üzenetek figyelmen kívül hagyása</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="311"/>
+        <location filename="../ui/UISettingsGUI.ui" line="284"/>
         <source>Ignore private messages from Bot</source>
         <translation>A botoktól érkező privát üzenetek figyelmen kívül hagyása</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="318"/>
+        <location filename="../ui/UISettingsGUI.ui" line="291"/>
         <source>Redirect messages from Bot to the main chat</source>
         <translation>A botoktól érkező üzenetek main chatre irányítása</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="325"/>
+        <location filename="../ui/UISettingsGUI.ui" line="298"/>
         <source>Redirect new personal messages to the main chat</source>
         <translation>Új privát üzenet átirányítása a main chatre</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="332"/>
+        <location filename="../ui/UISettingsGUI.ui" line="305"/>
         <source>Do not change focus on new incoming private messages</source>
         <translation>Ne változzon a fókusz új bejövö privát üzenetnél</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="342"/>
+        <location filename="../ui/UISettingsGUI.ui" line="315"/>
         <source>Use separator for unread messages in the chat</source>
         <translation>Elválasztó használata a chaten, a nem olvasott üzenetek kiemeléséhez</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="349"/>
+        <location filename="../ui/UISettingsGUI.ui" line="322"/>
         <source>Filter kick-messages from the chat</source>
         <translation>Kick üzenetek szűrése a chaten</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="356"/>
+        <location filename="../ui/UISettingsGUI.ui" line="329"/>
         <source>Use Ctrl+Enter to send messages</source>
         <translation>Ctrl+Enter használata az üzenet küldéséhez</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="366"/>
+        <location filename="../ui/UISettingsGUI.ui" line="339"/>
         <source>Enable emoticons</source>
         <translation>Hangulatjelek engedélyezése</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="373"/>
+        <location filename="../ui/UISettingsGUI.ui" line="346"/>
         <source>If checked, you&apos;ll see emoticons even in the middle of words.
 If unchecked, you&apos;ll see emoticons only if they are isolated
 from other words by spaces.</source>
@@ -6028,195 +6028,195 @@ Ha nincs bejelölve, a hangulatjelek csak akkor láthatóak,
 ha azok egy szóközzel el vannak választva a szavaktól.</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="378"/>
+        <location filename="../ui/UISettingsGUI.ui" line="351"/>
         <source>Force emoticon parsing</source>
         <translation>Hangulatjelek kényszerítése</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="385"/>
+        <location filename="../ui/UISettingsGUI.ui" line="358"/>
         <source>Use emoticons panel</source>
         <translation>Hangulatjel panel használata</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="392"/>
+        <location filename="../ui/UISettingsGUI.ui" line="365"/>
         <source>Autohide emoticons panel</source>
         <translation>Hangulatjel panel automatikus elrejtése</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="413"/>
+        <location filename="../ui/UISettingsGUI.ui" line="386"/>
         <source>Chat (extended)</source>
         <translation>Chat (kibővített)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="427"/>
+        <location filename="../ui/UISettingsGUI.ui" line="400"/>
         <source>Double click action</source>
         <translation>Művelet dupla kattintásra</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="441"/>
-        <location filename="../ui/UISettingsGUI.ui" line="460"/>
+        <location filename="../ui/UISettingsGUI.ui" line="414"/>
+        <location filename="../ui/UISettingsGUI.ui" line="433"/>
         <source>Insert nick into input widget</source>
         <translation>Nick beillesztése a beviteli mezőbe</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="446"/>
-        <location filename="../ui/UISettingsGUI.ui" line="465"/>
+        <location filename="../ui/UISettingsGUI.ui" line="419"/>
+        <location filename="../ui/UISettingsGUI.ui" line="438"/>
         <source>Get file list</source>
         <translation>Fájllista letöltése</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="451"/>
-        <location filename="../ui/UISettingsGUI.ui" line="470"/>
+        <location filename="../ui/UISettingsGUI.ui" line="424"/>
+        <location filename="../ui/UISettingsGUI.ui" line="443"/>
         <source>Private message</source>
         <translation>Privát üzenet</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="487"/>
+        <location filename="../ui/UISettingsGUI.ui" line="460"/>
         <source>Application unit base</source>
         <translation>Alapértemezett mértékegység</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="531"/>
+        <location filename="../ui/UISettingsGUI.ui" line="504"/>
         <source>Timestamp</source>
         <translation>Időbélyeg</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="550"/>
+        <location filename="../ui/UISettingsGUI.ui" line="523"/>
         <source>Middle click action</source>
         <translation>Művelet középső kattintásra (egérgörgő)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="484"/>
+        <location filename="../ui/UISettingsGUI.ui" line="457"/>
         <source>Show kibibyte (KiB) or kilobyte (KB), etc.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="514"/>
+        <location filename="../ui/UISettingsGUI.ui" line="487"/>
         <source>Metric</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="528"/>
+        <location filename="../ui/UISettingsGUI.ui" line="501"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;These expressions may be used for the time:&lt;/p&gt;&lt;table border=&quot;0&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px;&quot; cellspacing=&quot;2&quot; cellpadding=&quot;0&quot;&gt;&lt;thead&gt;&lt;tr&gt;&lt;td&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Expression&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Output&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;h&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;the hour without a leading zero (0 to 23 or 1 to 12 if AM/PM display)&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;hh&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;the hour with a leading zero (00 to 23 or 01 to 12 if AM/PM display)&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;H&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;the hour without a leading zero (0 to 23, even with AM/PM display)&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;HH&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;the hour with a leading zero (00 to 23, even with AM/PM display)&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;m&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;the minute without a leading zero (0 to 59)&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;mm&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;the minute with a leading zero (00 to 59)&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;s&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;the second without a leading zero (0 to 59)&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;ss&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;the second with a leading zero (00 to 59)&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;z&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;the milliseconds without leading zeroes (0 to 999)&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;zzz&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;the milliseconds with leading zeroes (000 to 999)&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;AP or A&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;use AM/PM display. &lt;span style=&quot; font-style:italic;&quot;&gt;A/AP&lt;/span&gt; will be replaced by either &amp;quot;AM&amp;quot; or &amp;quot;PM&amp;quot;.&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;ap or a&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;use am/pm display. &lt;span style=&quot; font-style:italic;&quot;&gt;a/ap&lt;/span&gt; will be replaced by either &amp;quot;am&amp;quot; or &amp;quot;pm&amp;quot;.&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;t&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;the timezone (for example &amp;quot;CEST&amp;quot;)&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="569"/>
+        <location filename="../ui/UISettingsGUI.ui" line="542"/>
         <source>Default action with magnet</source>
         <translation>Alapértelmezett művelet magnet linkekkel</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="583"/>
+        <location filename="../ui/UISettingsGUI.ui" line="556"/>
         <source>Ask</source>
         <translation>Rákérdez</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="588"/>
+        <location filename="../ui/UISettingsGUI.ui" line="561"/>
         <source>Search</source>
         <translation>Keresés</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="593"/>
-        <location filename="../ui/UISettingsGUI.ui" line="941"/>
+        <location filename="../ui/UISettingsGUI.ui" line="566"/>
+        <location filename="../ui/UISettingsGUI.ui" line="878"/>
         <source>Download</source>
         <translation>Letöltés</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="618"/>
+        <location filename="../ui/UISettingsGUI.ui" line="591"/>
         <source>Remember outgoing messages (0 = don&apos;t remember)</source>
         <translation>Kimenő üzenetek megjegyzése (0 = tiltás)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="647"/>
+        <location filename="../ui/UISettingsGUI.ui" line="620"/>
         <source>Maximum paragraphs</source>
         <translation>Maximum sorok a chaten</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="673"/>
+        <location filename="../ui/UISettingsGUI.ui" line="646"/>
         <source>Separator in chat</source>
         <translation>Elválasztó a chaten</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="702"/>
+        <location filename="../ui/UISettingsGUI.ui" line="675"/>
         <source>Highlight favorite users in user list</source>
         <translation>Kedvenc felhasználók kiemelése a felhasználói listában</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="709"/>
+        <location filename="../ui/UISettingsGUI.ui" line="682"/>
         <source>Depending on hub configuration: information about
 them is usually available only to operators</source>
         <translation>Az adott hub konfigurációjától függhet: erről használható információt
 a hub operátoraitól kaphatsz</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="713"/>
+        <location filename="../ui/UISettingsGUI.ui" line="686"/>
         <source>Show ip-addresses of users in chat</source>
         <translation>Felhasználók IP címének mutatása a chaten</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="720"/>
+        <location filename="../ui/UISettingsGUI.ui" line="693"/>
         <source>Show country of users in chat</source>
         <translation>Felhasználók országkódjainak mutatása a chaten</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="727"/>
+        <location filename="../ui/UISettingsGUI.ui" line="700"/>
         <source>Parse BBCode</source>
         <translation>BBCode feldolgozása</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="748"/>
+        <location filename="../ui/UISettingsGUI.ui" line="721"/>
         <source>Colors</source>
         <translation>Színek</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="754"/>
+        <location filename="../ui/UISettingsGUI.ui" line="727"/>
         <source>Text colors in chat</source>
         <translation>Szövegek színei a chaten</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="785"/>
+        <location filename="../ui/UISettingsGUI.ui" line="749"/>
         <source>Highlighting of search results in the chat</source>
         <translation>Keresési találatok kiemelése a chaten</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="803"/>
-        <location filename="../ui/UISettingsGUI.ui" line="870"/>
+        <location filename="../ui/UISettingsGUI.ui" line="758"/>
+        <location filename="../ui/UISettingsGUI.ui" line="816"/>
         <source>Color</source>
         <translation>Szín</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="823"/>
-        <location filename="../ui/UISettingsGUI.ui" line="887"/>
+        <location filename="../ui/UISettingsGUI.ui" line="778"/>
+        <location filename="../ui/UISettingsGUI.ui" line="833"/>
         <source>Transparency</source>
         <translation>Áttetszőség</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="852"/>
+        <location filename="../ui/UISettingsGUI.ui" line="807"/>
         <source>Highlighting of already shared files</source>
         <translation>A már megosztásban lévő fájlok kiemelése</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="916"/>
+        <location filename="../ui/UISettingsGUI.ui" line="862"/>
         <source>Transfer colors</source>
         <translation>Átvitelek színei</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="948"/>
+        <location filename="../ui/UISettingsGUI.ui" line="885"/>
         <source>Upload</source>
         <translation>Feltöltés</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="975"/>
+        <location filename="../ui/UISettingsGUI.ui" line="912"/>
         <source>Reset</source>
         <translation>Visszaállítás</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="987"/>
+        <location filename="../ui/UISettingsGUI.ui" line="924"/>
         <source>Change background color in the chat</source>
         <translation>A chat háttérszinének megváltoztatása</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="1030"/>
+        <location filename="../ui/UISettingsGUI.ui" line="967"/>
         <source>Fonts</source>
         <translation>Betűtípusok</translation>
     </message>
@@ -6583,57 +6583,57 @@ hogy te mint forrás kb. mekkora sebességre vagy képes, ha letöltenek tőled.
         <translation>Méret</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="107"/>
+        <location filename="../ui/UISettingsSharing.ui" line="98"/>
         <source>Total shared: %1</source>
         <translation>Összes megosztás: %1</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="125"/>
+        <location filename="../ui/UISettingsSharing.ui" line="116"/>
         <source>Exceptions</source>
         <translation>Kivételek</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="131"/>
+        <location filename="../ui/UISettingsSharing.ui" line="122"/>
         <source>Don&apos;t share files and folders containing:</source>
         <translation>A következő fájlok és könyvtárak megosztásának tiltása:</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="138"/>
+        <location filename="../ui/UISettingsSharing.ui" line="129"/>
         <source>Here you can specify templates for files you don&apos;t want to share. </source>
         <translation>Példákkal megadható, hogy milyen fájlok ne legyen megosztva (regexp használtata lehetséges). </translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="147"/>
+        <location filename="../ui/UISettingsSharing.ui" line="138"/>
         <source>Add new</source>
         <translation>Új hozzáadása</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="157"/>
+        <location filename="../ui/UISettingsSharing.ui" line="148"/>
         <source>Select and add the directory</source>
         <translation>Könyvtár kiválasztása és hozzáadása</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="167"/>
+        <location filename="../ui/UISettingsSharing.ui" line="158"/>
         <source>Edit</source>
         <translation>Szerkesztés</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="177"/>
+        <location filename="../ui/UISettingsSharing.ui" line="168"/>
         <source>Delete</source>
         <translation>Törlés</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="203"/>
+        <location filename="../ui/UISettingsSharing.ui" line="194"/>
         <source>Advanced</source>
         <translation>Haladó</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="215"/>
+        <location filename="../ui/UISettingsSharing.ui" line="206"/>
         <source>Follow symlinks</source>
         <translation>Szimbólikus linkek követése</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="228"/>
+        <location filename="../ui/UISettingsSharing.ui" line="219"/>
         <source>Share files with the Hidden attribute set and files inside directory with
 the Hidden attribute set.
 With this option off, files starting with a . (full stop) will not be shared.
@@ -6644,72 +6644,72 @@ Ha ki van kapcsolva, a ponttal (.) kezdődő fájlok sem lesznek megosztva.
 Az opció megváltoztatása a fájllista frissítését eredményezi, ezért ekkor előfordulhat, hogy a program átmeneti ideig nem reagál.</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="235"/>
+        <location filename="../ui/UISettingsSharing.ui" line="226"/>
         <source>Share hidden files</source>
         <translation>Rejtett fájlok megosztása</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="248"/>
+        <location filename="../ui/UISettingsSharing.ui" line="239"/>
         <source>Share temporary files</source>
         <translation>Ideiglenes fájlok megosztása</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="255"/>
+        <location filename="../ui/UISettingsSharing.ui" line="246"/>
         <source>Skip zero sized files</source>
         <translation>Nulla hosszúságú fájlok kihagyása</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="262"/>
+        <location filename="../ui/UISettingsSharing.ui" line="253"/>
         <source>Auto remove non-existing directories</source>
         <translation>Nem létező könyvtárak automatikus eltávolítása</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="271"/>
+        <location filename="../ui/UISettingsSharing.ui" line="262"/>
         <source>Use fast hash</source>
         <translation>Gyors indexelés használata</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="284"/>
+        <location filename="../ui/UISettingsSharing.ui" line="275"/>
         <source>Buffer size (MiB)</source>
         <translation>Buffer méret (MiB)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="297"/>
+        <location filename="../ui/UISettingsSharing.ui" line="288"/>
         <source>8</source>
         <translation>8</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="350"/>
+        <location filename="../ui/UISettingsSharing.ui" line="341"/>
         <source>FastHash options (restart needed)</source>
         <translation>Gyors Indexelés beállításai (újraindítás szükséges)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="358"/>
+        <location filename="../ui/UISettingsSharing.ui" line="349"/>
         <source>Private page mapping</source>
         <translation>Privát lapozás</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="365"/>
+        <location filename="../ui/UISettingsSharing.ui" line="356"/>
         <source>No reserve</source>
         <translation>Nincs lefoglalás</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="379"/>
+        <location filename="../ui/UISettingsSharing.ui" line="370"/>
         <source>Proactive read from disk</source>
         <translation>Proaktív lemezolvasás</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="391"/>
+        <location filename="../ui/UISettingsSharing.ui" line="382"/>
         <source>Use ADL search only in own file list</source>
         <translation>ADL keresés használata csak saját fájllistában</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="406"/>
+        <location filename="../ui/UISettingsSharing.ui" line="397"/>
         <source>Automatically open extra slot if speed is below (KiB/s, 0 = infinite)</source>
         <translation>Automatikus extra slot nyitása, ha a sebesség ez alá kerül (KiB/s, 0 = letiltva)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="422"/>
+        <location filename="../ui/UISettingsSharing.ui" line="413"/>
         <source>If the average upload speed drops below the given number,
 an additional upload slot will be granted.
 These slots are granted once every 30 seconds at maximum.
@@ -6720,29 +6720,29 @@ the granted slot will not be closed.</source>
 Ha a korábbi feltöltések sebessége újból növekedni kezd, a már kiadott extra slotok nem lesznek visszavéve.</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="442"/>
+        <location filename="../ui/UISettingsSharing.ui" line="433"/>
         <source>Hashing delay on startup (seconds, -1 = infinity)</source>
         <translation>Indexelés elhalasztása indításkor (másodpercben, -1 = letiltva)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="458"/>
-        <location filename="../ui/UISettingsSharing.ui" line="493"/>
+        <location filename="../ui/UISettingsSharing.ui" line="449"/>
+        <location filename="../ui/UISettingsSharing.ui" line="484"/>
         <source>Here you can set time interval of auto refreshing your share.</source>
         <translation>Ez a beállítás szabályozza, hogy mennyi időnként lesz a megosztásod automatikusan újra ellenőrizve
 az újabb vagy megváltozott tartalom indexelése céljából.</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="477"/>
+        <location filename="../ui/UISettingsSharing.ui" line="468"/>
         <source>Auto refresh time (minutes, 0 = off)</source>
         <translation>Automatikus újraellenőrzés ideje (percben, 0 = letiltva)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="509"/>
+        <location filename="../ui/UISettingsSharing.ui" line="500"/>
         <source>Max hash speed (MB/s) (0 = infinite)</source>
         <translation>Maximális indexelési sebesség (MB/s, 0 = letiltva)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="522"/>
+        <location filename="../ui/UISettingsSharing.ui" line="513"/>
         <source>You can limit maximum hash speed here
 if your system becomes slow while hashing files.</source>
         <translation>Ezzel a MiB/mp-ben megadott sebességgel fogja az EiskaltDC++ indexelni a fájlaidat.
@@ -6751,12 +6751,12 @@ ezzel a beállítással az indexelés lassabra vehető, így kevésbe terheli le
 A &quot;normális&quot; indexelési sebesség kb. 20 és 50 MiB között mozog másodpercenként.</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="536"/>
+        <location filename="../ui/UISettingsSharing.ui" line="527"/>
         <source>Upload slots</source>
         <translation>Feltöltési slotok</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="546"/>
+        <location filename="../ui/UISettingsSharing.ui" line="537"/>
         <source>Configure the number of slots that other users can occupy
 to download files from you. A remote user can use only
 one slot for each hub that they&apos;re on with you.
@@ -7016,12 +7016,12 @@ Mivel az eltellt idő alatt a megüresedett feltöltési slotot más is elfoglal
 <context>
     <name>WulforSettings</name>
     <message>
-        <location filename="../src/WulforSettings.cpp" line="406"/>
+        <location filename="../src/WulforSettings.cpp" line="407"/>
         <source>GUI setting %1: %2</source>
         <translation>Grafikusfelület beállítások %1: %2</translation>
     </message>
     <message>
-        <location filename="../src/WulforSettings.cpp" line="415"/>
+        <location filename="../src/WulforSettings.cpp" line="416"/>
         <source>Change GUI setting %1 to %2</source>
         <translation>Grafikusfelület beállítások módosítása erről: %1, erre: %2</translation>
     </message>
@@ -7029,17 +7029,17 @@ Mivel az eltellt idő alatt a megüresedett feltöltési slotot más is elfoglal
 <context>
     <name>WulforUtil</name>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="711"/>
+        <location filename="../src/WulforUtil.cpp" line="725"/>
         <source>System default</source>
         <translation>Rendszer alapértelmezés</translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="1020"/>
+        <location filename="../src/WulforUtil.cpp" line="1034"/>
         <source>Offline</source>
         <translation>Offline</translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="1123"/>
+        <location filename="../src/WulforUtil.cpp" line="1137"/>
         <source>User commands</source>
         <translation>Felhasználói parancsok</translation>
     </message>

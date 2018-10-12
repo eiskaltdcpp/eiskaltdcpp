@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="tr" version="2.0">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.0" language="tr">
 <context>
     <name>ADLS</name>
     <message>
@@ -5028,7 +5030,7 @@ etkinleştirildiyse, dosya arama diyaloğu açılmadan indirilecektir.</translat
         <source>Select this mode if your computer is connected directly to the internet.
 Do not select this mode if you have a router or any external firewall.
 If your computer is not behind a router all you have to do is to choose
-this option and usually you don't need to alter anything more in the
+this option and usually you don&apos;t need to alter anything more in the
 connection settings.
 However, if you have a software firewall installed, you may need further configuration in the firewall to allow Internet access for EiskaltDC++.</source>
         <translation>Eğer bilgisayarınız İnternet&apos;e doğrudan bağlıysa bu kipi seçin. Yönlendiriciniz
@@ -5086,7 +5088,7 @@ Bu kipin bazı önemli kısıtlamaları vardır:
         <source>Select this mode if you are behind a firewall/router that supports
 the UPnP standard for program auto-configuration.
 Most routers do support UPnP but you may need to enable it
-in the router's configuration page.
+in the router&apos;s configuration page.
 This way EiskaltDC++ will automatically open the ports it needs
 and obtain your external IP address as well.</source>
         <translation>Eğer programın otomatik yapılandırılmasını sağlayan UPnP standardını 
@@ -5283,13 +5285,13 @@ DC++&apos;nın SOCKS5 desteği GSSAPI içermez.</translation>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;https://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Set the Type-Of-Service (TOS) field that is sent with every &lt;a href=&quot;https://en.wikipedia.org/wiki/IP_packet&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0057ae;&quot;&gt;IP packet&lt;/span&gt;&lt;/a&gt; originating from this socket. It is used to prioritize packets on the network. TOS is a byte. There are some standard TOS flags defined: &lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; - &amp;quot;Low delay&amp;quot;&lt;/span&gt; to minimize delays for interactive traffic&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; - &amp;quot;Throughput&amp;quot;&lt;/span&gt; to optimize throughput&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; - &amp;quot;Reliability&amp;quot;&lt;/span&gt; to optimize for reliability&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; - &amp;quot;Minimal cost&amp;quot;&lt;/span&gt; should be used for &amp;quot;filler data&amp;quot; where slow transmission doesn't matter&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt; - &amp;quot;Minimal cost&amp;quot;&lt;/span&gt; should be used for &amp;quot;filler data&amp;quot; where slow transmission doesn&apos;t matter&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;At most one of these TOS values can be specified. Linux sends &lt;span style=&quot; font-weight:600;&quot;&gt;&amp;quot;Low delay&amp;quot;&lt;/span&gt; datagrams first by default, but the exact behaviour depends on the configured queueing discipline.&lt;span style=&quot; font-weight:600;&quot;&gt; Warning! This option needs superuser privileges!&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;https://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
@@ -5402,7 +5404,7 @@ p, li { white-space: pre-wrap; }
         <location filename="../ui/UISettingsDownloads.ui" line="124"/>
         <source>This is another method of limiting simultaneous downloads,
 designed to prevent new downloads if your existing downloads
-exceed a specific threshold. It's measured in kibibytes per second,
+exceed a specific threshold. It&apos;s measured in kibibytes per second,
 and a value of zero will disable this limit.</source>
         <translation>Bu, mevcut indirmeleriniz belli bir sınırı aştıysa yeni indirmeleri engellemeye
 yarayan ve eşzamanlı indirmeleri sınırlayan başka bir metottur. Saniyede 
@@ -5677,7 +5679,7 @@ onlar kuyruktan kaldırılmayacaktır.</translation>
         <source>Every few minutes, the client will search for files in your
 Download Queue to find more download locations (more users/sources).
 The autosearch will find exact matches by searching via hash.
-The drawback is that it may won't find much more sources
+The drawback is that it may won&apos;t find much more sources
 and will prevent manual searches on hubs where
 a predefined search interval rule is in effect.</source>
         <translation>Her birkaç dakikada bir, istemci İndirme Kuyruğunuzdaki dosyalar
@@ -5693,11 +5695,11 @@ aralığı kuralları olan hub&apos;larda elle aramaya mani olmasıdır.</transl
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="766"/>
-        <source>Enable to automatically download a user's list and match them
-as sources for files in your Download Queue when they've been
-discovered as a source for one of the files you're downloading.
+        <source>Enable to automatically download a user&apos;s list and match them
+as sources for files in your Download Queue when they&apos;ve been
+discovered as a source for one of the files you&apos;re downloading.
 If you download files in sets, that user is probably a source
-for many more files you're downloading. Enable if unsure.
+for many more files you&apos;re downloading. Enable if unsure.
 The drawbacks are that it might add slower sources, possibly
 increasing the time needed to complete a download,
 and that you&apos;ll download a lot of file lists.</source>
@@ -5763,12 +5765,12 @@ indirmenize engel olacaktır.</translation>
         <location filename="../ui/UISettingsDownloads.ui" line="845"/>
         <source>Enable this option if you want to keep downloaded filelists
 in the download queue after they have been finished.
-After downloaded the queue items will have 'Finished' status
+After downloaded the queue items will have &apos;Finished&apos; status
 and you can delete these finished entries anytime later.
 Note that if you physically move/delete your downloaded files from
-their target location, it won't result automatic deletion of
+their target location, it won&apos;t result automatic deletion of
 the corresponding finished entries from the queue.
-If you disable this function, it won't remove existing finished items
+If you disable this function, it won&apos;t remove existing finished items
 from the queue either, you must do that manually.</source>
         <translation>İndirilen dosya listelerini indirme tamamlandıktan sonra indirme 
 kuyruğunda tutmak için bu şıkkı etkinleştirin. İndirimden sonra 
@@ -5788,15 +5790,15 @@ unsurlar kuyruktan kaldırılmayacaktır, bunu elle yapmanız gerekir.</translat
         <location filename="../ui/UISettingsDownloads.ui" line="864"/>
         <source>Enable this option if you want to keep downloaded files and folders
 in the download queue after they have been finished.
-After downloaded the queue items will have 'Finished' status
+After downloaded the queue items will have &apos;Finished&apos; status
 and you can delete these finished entries anytime later.
 Using this function you can keep track of what files are already
 downloaded right there in the download queue without the need
 of checking the Finished Downloads window.
 Note that if you physically move/delete your downloaded files from
-their target location, it won't result automatic deletion of
+their target location, it won&apos;t result automatic deletion of
 the corresponding finished entries from the queue.
-If you disable this function, it won't remove existing finished items
+If you disable this function, it won&apos;t remove existing finished items
 from the queue either, you must do that manually.</source>
         <translation>Tamamlandıklarında indirilen dosya ve klasörleri indirme 
 kuyruğunda tutmak istiyorsanız bu şıkkı etkinleştirin.
@@ -5859,355 +5861,355 @@ unsurlar kuyruktan kaldırılmayacaktır, bunu elle yapmanız gerekir. </transla
         <translation>Dil dosyası</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="64"/>
+        <location filename="../ui/UISettingsGUI.ui" line="55"/>
         <source>Theme</source>
         <translation>Tema</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="91"/>
+        <location filename="../ui/UISettingsGUI.ui" line="73"/>
         <source>Apply</source>
         <translation>Uygula</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="101"/>
+        <location filename="../ui/UISettingsGUI.ui" line="83"/>
         <source>Application font</source>
         <translation>Uygulama yazıtipi</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="122"/>
+        <location filename="../ui/UISettingsGUI.ui" line="95"/>
         <source>Change</source>
         <translation>Değiştir</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="132"/>
+        <location filename="../ui/UISettingsGUI.ui" line="105"/>
         <source>Show icon in system tray</source>
         <translation>İkonu sistem çekmecesinde göster</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="141"/>
+        <location filename="../ui/UISettingsGUI.ui" line="114"/>
         <source>Remember window position on exit</source>
         <translation>Çıkışta pencere konumunu hatırla</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="151"/>
+        <location filename="../ui/UISettingsGUI.ui" line="124"/>
         <source>Always hide window to system tray at startup</source>
         <translation>Başlangıçta daima pencereyi sistem çekmecesine sakla</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="158"/>
+        <location filename="../ui/UISettingsGUI.ui" line="131"/>
         <source>Always show window at startup</source>
         <translation>Başlangıçta daima pencereyi göster</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="170"/>
-        <location filename="../ui/UISettingsGUI.ui" line="186"/>
+        <location filename="../ui/UISettingsGUI.ui" line="143"/>
+        <location filename="../ui/UISettingsGUI.ui" line="159"/>
         <source>(need restart)</source>
         <translation>(tekrar başlatma gerektirir)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="173"/>
+        <location filename="../ui/UISettingsGUI.ui" line="146"/>
         <source>User theme</source>
         <translation>Kullanıcı teması</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="193"/>
+        <location filename="../ui/UISettingsGUI.ui" line="166"/>
         <source>Icon theme</source>
         <translation>İkon teması</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="209"/>
+        <location filename="../ui/UISettingsGUI.ui" line="182"/>
         <source>Emoticon theme</source>
         <translation>Gülümseme ikonları teması</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="227"/>
+        <location filename="../ui/UISettingsGUI.ui" line="200"/>
         <source>Try to use system icons (need restart)</source>
         <translation>Sistem ikonlarını kullanmayı dene (tekrar başlatma gerektirir)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="234"/>
+        <location filename="../ui/UISettingsGUI.ui" line="207"/>
         <source>Don&apos;t show icons in menus (need restart)</source>
         <translation>Menülerde ikonları gösterme (tekrar başlatma gerektirir)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="242"/>
+        <location filename="../ui/UISettingsGUI.ui" line="215"/>
         <source>Use default ToolBar (need restart)</source>
         <translation>Varsayılan araç çubuğunu kullan (tekrar başlatma gerektirir)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="247"/>
+        <location filename="../ui/UISettingsGUI.ui" line="220"/>
         <source>Use multi-line ToolBar (need restart)</source>
         <translation>Çok satırlı araç çubuğunu kullan (tekrar başlatma gerektirir)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="252"/>
+        <location filename="../ui/UISettingsGUI.ui" line="225"/>
         <source>Use SideBar instead of ToolBar (need restart)</source>
         <translation>Araç çubuğu yerine kenar çubuğunu kullan (tekrar başlatma gerektirir)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="274"/>
+        <location filename="../ui/UISettingsGUI.ui" line="247"/>
         <source>Chat</source>
         <translation>Sohbet</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="280"/>
+        <location filename="../ui/UISettingsGUI.ui" line="253"/>
         <source>Show joins</source>
         <translation>Katılmaları göster</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="290"/>
+        <location filename="../ui/UISettingsGUI.ui" line="263"/>
         <source>Show joins only for favorite users</source>
         <translation>Katılmaları sadece favori kullanıcılar için göster</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="297"/>
+        <location filename="../ui/UISettingsGUI.ui" line="270"/>
         <source>Show hidden users</source>
         <translation>Gizli kullanıcıları göster</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="304"/>
+        <location filename="../ui/UISettingsGUI.ui" line="277"/>
         <source>Ignore private messages from Hub</source>
         <translation>Hub&apos;dan özel mesajları görmezden gel</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="311"/>
+        <location filename="../ui/UISettingsGUI.ui" line="284"/>
         <source>Ignore private messages from Bot</source>
         <translation>Robotlardan özel mesajları görmezden gel</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="318"/>
+        <location filename="../ui/UISettingsGUI.ui" line="291"/>
         <source>Redirect messages from Bot to the main chat</source>
         <translation>Robotlardan özel mesajları ana sohbete yönlendir</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="325"/>
+        <location filename="../ui/UISettingsGUI.ui" line="298"/>
         <source>Redirect new personal messages to the main chat</source>
         <translation>Yeni özel mesajları ana sohbete yönlendir</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="332"/>
+        <location filename="../ui/UISettingsGUI.ui" line="305"/>
         <source>Do not change focus on new incoming private messages</source>
         <translation>Gelen yeni özel mesajlar için odaklama değiştirme</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="342"/>
+        <location filename="../ui/UISettingsGUI.ui" line="315"/>
         <source>Use separator for unread messages in the chat</source>
         <translation>Sohbette okunmamış mesajlar için ayraç kullan</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="349"/>
+        <location filename="../ui/UISettingsGUI.ui" line="322"/>
         <source>Filter kick-messages from the chat</source>
         <translation>Kovma mesajlarını sohbetten filtrele</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="356"/>
+        <location filename="../ui/UISettingsGUI.ui" line="329"/>
         <source>Use Ctrl+Enter to send messages</source>
         <translation>Mesaj yollamak için Ctrl+Enter kullan</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="366"/>
+        <location filename="../ui/UISettingsGUI.ui" line="339"/>
         <source>Enable emoticons</source>
         <translation>Gülümseme ikonlarını etkinleştir</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="373"/>
-        <source>If checked, you'll see emoticons even in the middle of words.
-If unchecked, you'll see emoticons only if they are isolated
+        <location filename="../ui/UISettingsGUI.ui" line="346"/>
+        <source>If checked, you&apos;ll see emoticons even in the middle of words.
+If unchecked, you&apos;ll see emoticons only if they are isolated
 from other words by spaces.</source>
         <translation>Seçiliyse, gülümseme ikonlarını kelimelerin ortasında bile 
 görürsünüz. Eğer seçili değilse, gülümseme ikonlarını sadece
 diğer kelimelerden boşluklarla ayrılmışlar ise görürsünüz.</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="378"/>
+        <location filename="../ui/UISettingsGUI.ui" line="351"/>
         <source>Force emoticon parsing</source>
         <translation>Gülümseme ikonu ayrıştırmayı zorla</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="385"/>
+        <location filename="../ui/UISettingsGUI.ui" line="358"/>
         <source>Use emoticons panel</source>
         <translation>Gülümseme ikonları paneli kullan</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="392"/>
+        <location filename="../ui/UISettingsGUI.ui" line="365"/>
         <source>Autohide emoticons panel</source>
         <translation>Gülümseme ikonları panelini otomatik sakla</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="413"/>
+        <location filename="../ui/UISettingsGUI.ui" line="386"/>
         <source>Chat (extended)</source>
         <translation>Sohbet (genişletilmiş)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="427"/>
+        <location filename="../ui/UISettingsGUI.ui" line="400"/>
         <source>Double click action</source>
         <translation>Çift tıklama etkinliği</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="441"/>
-        <location filename="../ui/UISettingsGUI.ui" line="460"/>
+        <location filename="../ui/UISettingsGUI.ui" line="414"/>
+        <location filename="../ui/UISettingsGUI.ui" line="433"/>
         <source>Insert nick into input widget</source>
         <translation>Girdi widget&apos;ine rumuz ekle</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="446"/>
-        <location filename="../ui/UISettingsGUI.ui" line="465"/>
+        <location filename="../ui/UISettingsGUI.ui" line="419"/>
+        <location filename="../ui/UISettingsGUI.ui" line="438"/>
         <source>Get file list</source>
         <translation>Dosya listesi al</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="451"/>
-        <location filename="../ui/UISettingsGUI.ui" line="470"/>
+        <location filename="../ui/UISettingsGUI.ui" line="424"/>
+        <location filename="../ui/UISettingsGUI.ui" line="443"/>
         <source>Private message</source>
         <translation>Özel mesaj</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="487"/>
+        <location filename="../ui/UISettingsGUI.ui" line="460"/>
         <source>Application unit base</source>
         <translation>Uygulama birim temeli</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="531"/>
+        <location filename="../ui/UISettingsGUI.ui" line="504"/>
         <source>Timestamp</source>
         <translation>Zaman etiketi</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="550"/>
+        <location filename="../ui/UISettingsGUI.ui" line="523"/>
         <source>Middle click action</source>
         <translation>Orta tıklama etkinliği</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="484"/>
+        <location filename="../ui/UISettingsGUI.ui" line="457"/>
         <source>Show kibibyte (KiB) or kilobyte (KB), etc.</source>
         <translation>Kibibayt (KiB) ya da kilobayt (KB) vs. göster</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="514"/>
+        <location filename="../ui/UISettingsGUI.ui" line="487"/>
         <source>Metric</source>
         <translation>Metrik</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="528"/>
+        <location filename="../ui/UISettingsGUI.ui" line="501"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;These expressions may be used for the time:&lt;/p&gt;&lt;table border=&quot;0&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px;&quot; cellspacing=&quot;2&quot; cellpadding=&quot;0&quot;&gt;&lt;thead&gt;&lt;tr&gt;&lt;td&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Expression&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Output&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;h&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;the hour without a leading zero (0 to 23 or 1 to 12 if AM/PM display)&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;hh&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;the hour with a leading zero (00 to 23 or 01 to 12 if AM/PM display)&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;H&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;the hour without a leading zero (0 to 23, even with AM/PM display)&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;HH&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;the hour with a leading zero (00 to 23, even with AM/PM display)&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;m&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;the minute without a leading zero (0 to 59)&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;mm&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;the minute with a leading zero (00 to 59)&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;s&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;the second without a leading zero (0 to 59)&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;ss&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;the second with a leading zero (00 to 59)&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;z&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;the milliseconds without leading zeroes (0 to 999)&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;zzz&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;the milliseconds with leading zeroes (000 to 999)&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;AP or A&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;use AM/PM display. &lt;span style=&quot; font-style:italic;&quot;&gt;A/AP&lt;/span&gt; will be replaced by either &amp;quot;AM&amp;quot; or &amp;quot;PM&amp;quot;.&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;ap or a&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;use am/pm display. &lt;span style=&quot; font-style:italic;&quot;&gt;a/ap&lt;/span&gt; will be replaced by either &amp;quot;am&amp;quot; or &amp;quot;pm&amp;quot;.&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;t&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;the timezone (for example &amp;quot;CEST&amp;quot;)&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Bu ifadeler zaman için kullanılabilir:&lt;/p&gt;&lt;table border=&quot;0&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px;&quot; cellspacing=&quot;2&quot; cellpadding=&quot;0&quot;&gt;&lt;thead&gt;&lt;tr&gt;&lt;td&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;İfade&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Çıktı&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;h&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;başında sıfır olmayacak şekilde saat (0 ila 23 veya 1 ila 12 AM/PM ise)&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;hh&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;başında sıfır olacak şekilde saat (00 ila 23 veya 01 ila 12 AM/PM ise)&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;H&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;başında sıfır olmayacak şekilde saat (0 ila 23, AM/PM olsa bile)&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;HH&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;başında sıfır olacak şekilde saat (00 ila 23, AM/PM olsa bile)&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;m&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;başında sıfır olmayacak şekilde dakika (0 ila 59)&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;mm&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;başında sıfır olacak şekilde dakika (00 ila 59)&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;s&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;başında sıfır olmayacak şekilde saniye (0 ila 59)&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;ss&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;başında sıfır olacak şekilde saniye (00 ila 59)&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;z&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;başlarında sıfır olmayacak şekilde milisaniyeler (0 ila 999)&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;zzz&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;başlarında sıfır olacak şekilde milisaniyeler (000 ila 999)&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;AP veya A&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;AM/PM görünümünü kullan. &lt;span style=&quot; font-style:italic;&quot;&gt;A/AP&lt;/span&gt; ya &amp;quot;AM&amp;quot; ya da &amp;quot;PM&amp;quot; ile değiştirilecek.&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;ap veya a&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;am/pm görünümünü kullan. &lt;span style=&quot; font-style:italic;&quot;&gt;a/ap&lt;/span&gt; ya &amp;quot;am&amp;quot; ya da &amp;quot;pm&amp;quot; ile değiştirilecek.&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;t&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;saat dilimi (mesela &amp;quot;CEST&amp;quot;)&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="569"/>
+        <location filename="../ui/UISettingsGUI.ui" line="542"/>
         <source>Default action with magnet</source>
         <translation>Magnet ile varsayılan etkinlik</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="583"/>
+        <location filename="../ui/UISettingsGUI.ui" line="556"/>
         <source>Ask</source>
         <translation>Sor</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="588"/>
+        <location filename="../ui/UISettingsGUI.ui" line="561"/>
         <source>Search</source>
         <translation>Ara</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="593"/>
-        <location filename="../ui/UISettingsGUI.ui" line="941"/>
+        <location filename="../ui/UISettingsGUI.ui" line="566"/>
+        <location filename="../ui/UISettingsGUI.ui" line="878"/>
         <source>Download</source>
         <translation>İndir</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="618"/>
+        <location filename="../ui/UISettingsGUI.ui" line="591"/>
         <source>Remember outgoing messages (0 = don&apos;t remember)</source>
         <translation>Dışarıya giden mesajları hatırla (0 = hatırlama)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="647"/>
+        <location filename="../ui/UISettingsGUI.ui" line="620"/>
         <source>Maximum paragraphs</source>
         <translation>Azami paragraflar</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="673"/>
+        <location filename="../ui/UISettingsGUI.ui" line="646"/>
         <source>Separator in chat</source>
         <translation>Sohbette ayraç</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="702"/>
+        <location filename="../ui/UISettingsGUI.ui" line="675"/>
         <source>Highlight favorite users in user list</source>
         <translation>Kullanıcı listesinde favori kullanıcıları vurgula</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="709"/>
+        <location filename="../ui/UISettingsGUI.ui" line="682"/>
         <source>Depending on hub configuration: information about
 them is usually available only to operators</source>
         <translation>Hub yapılandırmasına göre: onlar hakkındaki bilgi genelde
 sadece operatörler için mevcuttur</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="713"/>
+        <location filename="../ui/UISettingsGUI.ui" line="686"/>
         <source>Show ip-addresses of users in chat</source>
         <translation>Sohbette kullanıcıların IP adreslerini göster</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="720"/>
+        <location filename="../ui/UISettingsGUI.ui" line="693"/>
         <source>Show country of users in chat</source>
         <translation>Sohbette kullanıcıların ülkesini göster</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="727"/>
+        <location filename="../ui/UISettingsGUI.ui" line="700"/>
         <source>Parse BBCode</source>
         <translation>BBCode&apos;u ayrıştır</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="748"/>
+        <location filename="../ui/UISettingsGUI.ui" line="721"/>
         <source>Colors</source>
         <translation>Renkler</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="754"/>
+        <location filename="../ui/UISettingsGUI.ui" line="727"/>
         <source>Text colors in chat</source>
         <translation>Sohbette metin renkleri</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="785"/>
+        <location filename="../ui/UISettingsGUI.ui" line="749"/>
         <source>Highlighting of search results in the chat</source>
         <translation>Sohbette arama sonuçlarını vurgula</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="803"/>
-        <location filename="../ui/UISettingsGUI.ui" line="870"/>
+        <location filename="../ui/UISettingsGUI.ui" line="758"/>
+        <location filename="../ui/UISettingsGUI.ui" line="816"/>
         <source>Color</source>
         <translation>Renk</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="823"/>
-        <location filename="../ui/UISettingsGUI.ui" line="887"/>
+        <location filename="../ui/UISettingsGUI.ui" line="778"/>
+        <location filename="../ui/UISettingsGUI.ui" line="833"/>
         <source>Transparency</source>
         <translation>Şeffaflık</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="852"/>
+        <location filename="../ui/UISettingsGUI.ui" line="807"/>
         <source>Highlighting of already shared files</source>
         <translation>Zaten paylaşılan dosyaların vurgulanması</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="916"/>
+        <location filename="../ui/UISettingsGUI.ui" line="862"/>
         <source>Transfer colors</source>
         <translation>Aktarım renkleri</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="948"/>
+        <location filename="../ui/UISettingsGUI.ui" line="885"/>
         <source>Upload</source>
         <translation>Gönder</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="975"/>
+        <location filename="../ui/UISettingsGUI.ui" line="912"/>
         <source>Reset</source>
         <translation>Sıfırla</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="987"/>
+        <location filename="../ui/UISettingsGUI.ui" line="924"/>
         <source>Change background color in the chat</source>
         <translation>Sohbette arka plan rengini değiştir</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="1030"/>
+        <location filename="../ui/UISettingsGUI.ui" line="967"/>
         <source>Fonts</source>
         <translation>Yazıtipleri</translation>
     </message>
@@ -6340,7 +6342,7 @@ sadece operatörler için mevcuttur</translation>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;https://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;http://dcplusplus.sourceforge.net/webhelp/settings_logs.html&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#296fbe;&quot;&gt;Help&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;https://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
@@ -6459,7 +6461,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="409"/>
-        <source>If your sound files' format is unsupported by Qt, you can define
+        <source>If your sound files&apos; format is unsupported by Qt, you can define
 custom media player here to play them.
 For example: /usr/bin/mplayer</source>
         <translation>Eğer ses dosyaları biçimi Qt tarafından desteklenmiyorsa,
@@ -6575,57 +6577,57 @@ olacağınızı gösterir. </translation>
         <translation>Boyut</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="107"/>
+        <location filename="../ui/UISettingsSharing.ui" line="98"/>
         <source>Total shared: %1</source>
         <translation>Toplam paylaşım: %1</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="125"/>
+        <location filename="../ui/UISettingsSharing.ui" line="116"/>
         <source>Exceptions</source>
         <translation>İstisnalar</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="131"/>
+        <location filename="../ui/UISettingsSharing.ui" line="122"/>
         <source>Don&apos;t share files and folders containing:</source>
         <translation>Şunu içeren dosya ve klasörleri paylaşma:</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="138"/>
+        <location filename="../ui/UISettingsSharing.ui" line="129"/>
         <source>Here you can specify templates for files you don&apos;t want to share. </source>
         <translation>Burada paylaşmak istemediğiniz dosyalar için şablonlar oluşturabilirsiniz.</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="147"/>
+        <location filename="../ui/UISettingsSharing.ui" line="138"/>
         <source>Add new</source>
         <translation>Yeni ekle</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="157"/>
+        <location filename="../ui/UISettingsSharing.ui" line="148"/>
         <source>Select and add the directory</source>
         <translation>Klasörü seç ve ekle</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="167"/>
+        <location filename="../ui/UISettingsSharing.ui" line="158"/>
         <source>Edit</source>
         <translation>Düzenle</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="177"/>
+        <location filename="../ui/UISettingsSharing.ui" line="168"/>
         <source>Delete</source>
         <translation>Sil</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="203"/>
+        <location filename="../ui/UISettingsSharing.ui" line="194"/>
         <source>Advanced</source>
         <translation>Gelişmiş</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="215"/>
+        <location filename="../ui/UISettingsSharing.ui" line="206"/>
         <source>Follow symlinks</source>
         <translation>Sembolik bağlantıları izle</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="228"/>
+        <location filename="../ui/UISettingsSharing.ui" line="219"/>
         <source>Share files with the Hidden attribute set and files inside directory with
 the Hidden attribute set.
 With this option off, files starting with a . (full stop) will not be shared.
@@ -6638,72 +6640,72 @@ Not: bu seçenek dosya listesinin tazelenmesini gerektirir ve istemcinin
 donmuş gibi görünmesine yol açabilir.</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="235"/>
+        <location filename="../ui/UISettingsSharing.ui" line="226"/>
         <source>Share hidden files</source>
         <translation>Gizli dosyaları paylaş</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="248"/>
+        <location filename="../ui/UISettingsSharing.ui" line="239"/>
         <source>Share temporary files</source>
         <translation>Geçici dosyaları paylaş</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="255"/>
+        <location filename="../ui/UISettingsSharing.ui" line="246"/>
         <source>Skip zero sized files</source>
         <translation>Sıfır boyutlu dosyaları atla</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="262"/>
+        <location filename="../ui/UISettingsSharing.ui" line="253"/>
         <source>Auto remove non-existing directories</source>
         <translation>Mevcut olmayan klasörleri otomatik kaldır</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="271"/>
+        <location filename="../ui/UISettingsSharing.ui" line="262"/>
         <source>Use fast hash</source>
         <translation>Hızlı karma hesabını kullan</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="284"/>
+        <location filename="../ui/UISettingsSharing.ui" line="275"/>
         <source>Buffer size (MiB)</source>
         <translation>Tampon boyutu (MiB)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="297"/>
+        <location filename="../ui/UISettingsSharing.ui" line="288"/>
         <source>8</source>
         <translation>8</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="350"/>
+        <location filename="../ui/UISettingsSharing.ui" line="341"/>
         <source>FastHash options (restart needed)</source>
         <translation>Hızlı karma hesap seçenekleri (tekrar başlatma gerektirir)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="358"/>
+        <location filename="../ui/UISettingsSharing.ui" line="349"/>
         <source>Private page mapping</source>
         <translation>Özel sayfa haritalaması</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="365"/>
+        <location filename="../ui/UISettingsSharing.ui" line="356"/>
         <source>No reserve</source>
         <translation>Rezerv yok</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="379"/>
+        <location filename="../ui/UISettingsSharing.ui" line="370"/>
         <source>Proactive read from disk</source>
         <translation>Diskten proaktif okuma</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="391"/>
+        <location filename="../ui/UISettingsSharing.ui" line="382"/>
         <source>Use ADL search only in own file list</source>
         <translation>ADL aramayı sadece kendi dosya listende kullan</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="406"/>
+        <location filename="../ui/UISettingsSharing.ui" line="397"/>
         <source>Automatically open extra slot if speed is below (KiB/s, 0 = infinite)</source>
         <translation>Hız şunun altındaysa otomatik olarak ekstra oluk aç (KiB/s, 0 = sonsuz)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="422"/>
+        <location filename="../ui/UISettingsSharing.ui" line="413"/>
         <source>If the average upload speed drops below the given number,
 an additional upload slot will be granted.
 These slots are granted once every 30 seconds at maximum.
@@ -6715,46 +6717,46 @@ Bu oluklar en çok 30 saniyede bir verilir.
 Orijinal gönderimin hızı artarsa verilen oluk kapatılmayacaktır.</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="442"/>
+        <location filename="../ui/UISettingsSharing.ui" line="433"/>
         <source>Hashing delay on startup (seconds, -1 = infinity)</source>
         <translation>Başlangıçta karma hesap gecikmesi (saniye, 1 = sonsuz)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="458"/>
-        <location filename="../ui/UISettingsSharing.ui" line="493"/>
+        <location filename="../ui/UISettingsSharing.ui" line="449"/>
+        <location filename="../ui/UISettingsSharing.ui" line="484"/>
         <source>Here you can set time interval of auto refreshing your share.</source>
         <translation>Burada paylaşımınızın otomatik tazelenme zaman aralığını ayarlayabilirsiniz.</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="477"/>
+        <location filename="../ui/UISettingsSharing.ui" line="468"/>
         <source>Auto refresh time (minutes, 0 = off)</source>
         <translation>Otomatik tazelenme zamanı (dakika, 0 = devre dışı)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="509"/>
+        <location filename="../ui/UISettingsSharing.ui" line="500"/>
         <source>Max hash speed (MB/s) (0 = infinite)</source>
         <translation>Azami karma hesap hızı (MB/s) (0 = sonsuz)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="522"/>
+        <location filename="../ui/UISettingsSharing.ui" line="513"/>
         <source>You can limit maximum hash speed here
 if your system becomes slow while hashing files.</source>
         <translation>Eğer sisteminiz dosyaların karma değerlerini hesaplarken
 yavaşlıyorsa burada azami hesap hızını kısıtlayabilirsiniz.</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="536"/>
+        <location filename="../ui/UISettingsSharing.ui" line="527"/>
         <source>Upload slots</source>
         <translation>Gönderme olukları</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsSharing.ui" line="546"/>
+        <location filename="../ui/UISettingsSharing.ui" line="537"/>
         <source>Configure the number of slots that other users can occupy
 to download files from you. A remote user can use only
-one slot for each hub that they're on with you.
+one slot for each hub that they&apos;re on with you.
 EiskaltDC++ supports uploading file lists and files below 64 KiB
 to other DC++ users without requiring a slot.
-There's a max of 3 connections in addition to normal slots,
+There&apos;s a max of 3 connections in addition to normal slots,
 these are called mini slots.
 Note: If a user leaves the hub, EiskaltDC++ will close his slots;
 if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</source>
@@ -7007,12 +7009,12 @@ kapatacaktır; 10 dakika içinde dönerse EiskaltDC++ ona bir oluk verecektir.</
 <context>
     <name>WulforSettings</name>
     <message>
-        <location filename="../src/WulforSettings.cpp" line="406"/>
+        <location filename="../src/WulforSettings.cpp" line="407"/>
         <source>GUI setting %1: %2</source>
         <translation>Grafik arayüz ayarı %1: %2</translation>
     </message>
     <message>
-        <location filename="../src/WulforSettings.cpp" line="415"/>
+        <location filename="../src/WulforSettings.cpp" line="416"/>
         <source>Change GUI setting %1 to %2</source>
         <translation>%1 grafik arayüz ayarını %2 olarak değiştir</translation>
     </message>
@@ -7020,17 +7022,17 @@ kapatacaktır; 10 dakika içinde dönerse EiskaltDC++ ona bir oluk verecektir.</
 <context>
     <name>WulforUtil</name>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="711"/>
+        <location filename="../src/WulforUtil.cpp" line="725"/>
         <source>System default</source>
         <translation>Sistem varsayılanı</translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="1020"/>
+        <location filename="../src/WulforUtil.cpp" line="1034"/>
         <source>Offline</source>
         <translation>Çevrimdışı</translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="1123"/>
+        <location filename="../src/WulforUtil.cpp" line="1137"/>
         <source>User commands</source>
         <translation>Kullanıcı komutları</translation>
     </message>

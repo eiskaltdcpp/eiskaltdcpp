@@ -2,20 +2,20 @@
 # Copyright (C) YEAR EiskaltDC++ team
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://github.com/eiskaltdcpp/eiskaltdcpp/issues\n"
-"POT-Creation-Date: 2018-08-31 01:04+0300\n"
+"POT-Creation-Date: 2018-10-13 01:23+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Alexandre Wallimann <adressalacon@gmail.com>, 2018\n"
 "Language-Team: French (https://www.transifex.com/tehnick/teams/11818/fr/)\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: ../ADLSearch.cpp:40
@@ -114,8 +114,7 @@ msgstr "Recherche des meilleurs paramètres de connexion..."
 
 #: ../ConnectivityManager.cpp:85
 msgid ""
-"Unable to open %1% port(s); connectivity settings must be configured "
-"manually"
+"Unable to open %1% port(s); connectivity settings must be configured manually"
 msgstr ""
 "Impossible d'ouvrir le(s) port(s) %1% ; les paramètres doivent être "
 "configurés manuellement"
@@ -407,8 +406,7 @@ msgid "%1%: Matched %2% file"
 msgstr "%1%: %2% fichier(s) correspond(ent)"
 
 #: ../QueueManager.cpp:1805
-msgid ""
-"Target path for this item is not available: %1%; pause this queue item."
+msgid "Target path for this item is not available: %1%; pause this queue item."
 msgstr "Le chemin de cet élément n'est pas disponible: %1%; pause."
 
 #: ../QueueManager.cpp:2044 ../QueueManager.cpp:2053
@@ -532,8 +530,8 @@ msgstr ""
 
 #: ../ShareManager.cpp:793
 msgid ""
-"File list refresh in progress, please wait for it to finish before trying to"
-" refresh again"
+"File list refresh in progress, please wait for it to finish before trying to "
+"refresh again"
 msgstr ""
 "Mise à jour de la liste de fichiers en cours, veuillez attendre qu'elle se "
 "termine avant de ré-essayer"
@@ -577,8 +575,8 @@ msgstr ""
 #: ../Socket.cpp:330 ../Socket.cpp:334
 msgid "Socks server authentication failed (bad login / password?)"
 msgstr ""
-"Échec lors de l'authentification au serveur socks (mauvais identifiant / mot"
-" de passe ?)"
+"Échec lors de l'authentification au serveur socks (mauvais identifiant / mot "
+"de passe ?)"
 
 #: ../Socket.cpp:471
 msgid ""
@@ -627,8 +625,8 @@ msgstr " Port DHT (%1% UDP)"
 
 #: ../UPnPManager.cpp:111
 msgid ""
-"Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%, DHT: %4%),"
-" mapped using the %5% interface"
+"Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%, DHT: %4%), "
+"mapped using the %5% interface"
 msgstr ""
 "Redirection de ports réussie (TCP: %1%, UDP: %2%, TLS: %3%, DHT: %4%), "
 "redirigés en utilisant l'interface %5%"
