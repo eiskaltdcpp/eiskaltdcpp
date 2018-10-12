@@ -2836,7 +2836,7 @@ void MainWindow::slotAboutClient() {
         QString("&nbsp;&nbsp;&nbsp; 2014-2018 <a href=\"mailto:sopor@hotmail.com\">Sopor</a><br/>")+
         QString("<br/>")+
         tr("Turkish translation<br/>")+
-        QString("&nbsp;&nbsp;&nbsp; 2015 <a href=\"https://www.transifex.com/user/profile/mauron/\">mauron</a><br/>")+
+        QString("&nbsp;&nbsp;&nbsp; 2015-2018 <a href=\"https://www.transifex.com/user/profile/mauron/\">mauron</a><br/>")+
         QString("<br/>")
         );
 
