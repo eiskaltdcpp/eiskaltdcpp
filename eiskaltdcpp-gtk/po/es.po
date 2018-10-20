@@ -1,30 +1,27 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR EiskaltDC++ team
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
-# Translators:
-# Translators:
-# franxisco1988 <franxisco1988@gmail.com>, 2012
-# franxisco1988 <franxisco1988@gmail.com>, 2013-2015
-# franxisco1988 <franxisco1988@gmail.com>, 2012
+# Klondike klondikeño <franxisco1988@gmail.com>, 2012
+# Klondike klondikeño <franxisco1988@gmail.com>, 2013-2015
+# Klondike klondikeño <franxisco1988@gmail.com>, 2012
 # Gustavo Alvarez Lopez <sl1pkn07@gmail.com>, 2012-2014
-# franxisco1988 <franxisco1988@gmail.com>, 2012-2013
+# Klondike klondikeño <franxisco1988@gmail.com>, 2012-2013
 # korsakof <korsakofc@gmail.com>, 2012
 # korsakof <korsakofc@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: https://github.com/eiskaltdcpp/eiskaltdcpp/issues\n"
-"POT-Creation-Date: 2017-06-14 23:33+0300\n"
-"PO-Revision-Date: 2015-11-28 22:27+0000\n"
-"Last-Translator: Gustavo Alvarez Lopez <sl1pkn07@gmail.com>\n"
-"Language-Team: Spanish (http://www.transifex.com/tehnick/eiskaltdcpp/"
-"language/es/)\n"
-"Language: es\n"
+"POT-Creation-Date: 2018-08-31 01:16+0300\n"
+"PO-Revision-Date: 2018-10-20 09:22+0000\n"
+"Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
+"Language-Team: Spanish (http://www.transifex.com/tehnick/eiskaltdcpp/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../src/hub.cc:1065 ../src/hub.cc:1144 ../src/privatemessage.cc:565
@@ -122,15 +119,7 @@ msgid ""
 "%% a literal '%' character.\n"
 "\n"
 "see man strftime for details."
-msgstr ""
-"%a abreviatura del nombre del día.\n"
-"%b abreviatura del nombre del mes.\n"
-"%H hora es un número decimal usado para relojes de 24-horas.\n"
-"%M minuto es un número decimal (rango de 00 a 59).\n"
-"%S segundo es un número decimal (rango de 00 a 59).\n"
-"%% es literalmente el caracter '%'.\n"
-"\n"
-"ver manual strftime para más detalles."
+msgstr "%a abreviatura del nombre del día.\n%b abreviatura del nombre del mes.\n%H hora es un número decimal usado para relojes de 24-horas.\n%M minuto es un número decimal (rango de 00 a 59).\n%S segundo es un número decimal (rango de 00 a 59).\n%% es literalmente el caracter '%'.\n\nver manual strftime para más detalles."
 
 #: ../src/hub.cc:2373
 msgid "': type /help for a list of available commands"
@@ -292,11 +281,9 @@ msgstr ": introduce /help para ver la lista de comandos disponibles"
 
 #: ../ui/settingsdialog.ui:7259
 msgid ""
-"<a href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html"
-"\">Help</a>"
-msgstr ""
-"<a href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html"
-"\">Ayuda</a>"
+"<a "
+"href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html\">Help</a>"
+msgstr "<a href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html\">Ayuda</a>"
 
 #: ../ui/settingsdialog.ui:3855
 msgid "<b>Add player</b>"
@@ -456,9 +443,7 @@ msgstr "<b>Nuevo nombre</b> "
 
 #: ../ui/publichubs.ui:151 ../ui/settingsdialog.ui:9258
 msgid "<b>Note:</b> Edit urls in the list by clicking them once when selected"
-msgstr ""
-"<b>Nota:</b> Edita la URL en la lista haciendo clic en ellos una vez cuando "
-"se selecciona"
+msgstr "<b>Nota:</b> Edita la URL en la lista haciendo clic en ellos una vez cuando se selecciona"
 
 #: ../ui/settingsdialog.ui:5545
 msgid "<b>Notify</b>"
@@ -638,17 +623,13 @@ msgstr "Añadir un Hub a favoritos"
 
 #: ../src/settingsdialog.cc:1658
 msgid "Add finished files to share instantly (if shared)"
-msgstr ""
-"Añadir archivos descargados automáticamente a compartidos (si se comparten)"
+msgstr "Añadir archivos descargados automáticamente a compartidos (si se comparten)"
 
 #: ../src/hub.cc:2079
 msgid ""
 "Add rule 192.168.1.0/23 where direction incoming and action is allow and "
 "192.168.6.0/24 where direction is incoming or outcoming and action is drop"
-msgstr ""
-"Añadir la regla 192.168.1.0/23 cuando la dirección entrante y la acción es "
-"permitir y 192.168.6.0/24 donde la dirección es de entrada o salida y la "
-"acción es denegar"
+msgstr "Añadir la regla 192.168.1.0/23 cuando la dirección entrante y la acción es permitir y 192.168.6.0/24 donde la dirección es de entrada o salida y la acción es denegar"
 
 #: ../ui/mainwindow.ui:288
 msgid "Add this file to your download queue"
@@ -815,9 +796,7 @@ msgstr "Poner Ausente al minimizar (y volver al restaurar)"
 
 #: ../src/settingsdialog.cc:987
 msgid "Auto-drop slow sources for all queue items (except filelists)"
-msgstr ""
-"Abandonar automáticamente las fuentes lentas de todos los objetos en cola "
-"(excepto listas de archivos)"
+msgstr "Abandonar automáticamente las fuentes lentas de todos los objetos en cola (excepto listas de archivos)"
 
 #: ../src/settingsdialog.cc:1652
 msgid "Automatically disconnect users who leave the hub"
@@ -833,9 +812,7 @@ msgstr "Emparejar automáticamente las búsquedas automáticas en la cola"
 
 #: ../ui/settingsdialog.ui:4167
 msgid "Automatically open extra slot if speed is below (0 = disable)"
-msgstr ""
-"Abrir automáticamente slot si la velocidad está por debajo de (0 = "
-"deshabilitado)"
+msgstr "Abrir automáticamente slot si la velocidad está por debajo de (0 = deshabilitado)"
 
 #: ../src/settingsdialog.cc:990
 msgid "Automatically search for alternative download locations"
@@ -1069,8 +1046,8 @@ msgid "Choose a File"
 msgstr "Elegir archivo"
 
 #: ../src/hub.cc:2655 ../src/mainwindow.cc:1335 ../src/mainwindow.cc:1403
-#: ../src/privatemessage.cc:1302 ../ui/search.ui:7 ../ui/settingsdialog.ui:8510
-#: ../ui/sharebrowser.ui:7
+#: ../src/privatemessage.cc:1302 ../ui/search.ui:7
+#: ../ui/settingsdialog.ui:8510 ../ui/sharebrowser.ui:7
 msgid "Choose a directory"
 msgstr "Elige un directorio"
 
@@ -1244,11 +1221,7 @@ msgid ""
 "\n"
 "EiskaltDC++ version: %s\n"
 "DC++ core version: %s"
-msgstr ""
-"Cliente DC++ basado en el código fuente de FreeDC++ y LinuxDC++\n"
-"\n"
-"Versión de EiskaltDC++: %s\n"
-"Versión del núcleo DC++: %s"
+msgstr "Cliente DC++ basado en el código fuente de FreeDC++ y LinuxDC++\n\nVersión de EiskaltDC++: %s\nVersión del núcleo DC++: %s"
 
 #: ../ui/cmddebug.ui:99
 msgid "DETECTION"
@@ -1290,8 +1263,8 @@ msgstr "Borrar objeto"
 #: ../src/favoriteusers.cc:115 ../src/favoriteusers.cc:375
 #: ../src/favoriteusers.cc:400 ../src/favoriteusers.cc:589 ../src/hub.cc:88
 #: ../src/hub.cc:407 ../src/hub.cc:427 ../src/publichubs.cc:48
-#: ../src/publichubs.cc:160 ../src/publichubs.cc:296 ../ui/favoriteusers.ui:212
-#: ../ui/settingsdialog.ui:1171
+#: ../src/publichubs.cc:160 ../src/publichubs.cc:296
+#: ../ui/favoriteusers.ui:212 ../ui/settingsdialog.ui:1171
 msgid "Description"
 msgstr "Descripción"
 
@@ -1362,8 +1335,7 @@ msgstr "No cerrar el lado del panel en búsqueda"
 
 #: ../src/settingsdialog.cc:989
 msgid "Don't remove the source when auto-dropping, only disconnect"
-msgstr ""
-"No eliminar la fuente cuando se  abandona automáticamente, solo desconectar"
+msgstr "No eliminar la fuente cuando se  abandona automáticamente, solo desconectar"
 
 #: ../src/settingsdialog.cc:1659
 msgid "Don't send the away message to bots"
@@ -1435,9 +1407,7 @@ msgstr "Descargando limite de imagen: "
 
 #: ../src/hub.cc:2060
 msgid "Download limit image: 0 - disable, n < 0 - unlimit, empty - info"
-msgstr ""
-"Descargar limite de imagen: 0 - deshabilitado, n < 0 - sin limite, vacío - "
-"información"
+msgstr "Descargar limite de imagen: 0 - deshabilitado, n < 0 - sin limite, vacío - información"
 
 #: ../src/transfers.cc:1099
 msgid "Download removed"
@@ -1596,10 +1566,11 @@ msgid "Every time a private message is received"
 msgstr "Cada vez que se recibe un mensaje privado"
 
 #: ../src/downloadqueue.cc:79 ../src/downloadqueue.cc:94
-#: ../src/downloadqueue.cc:286 ../src/downloadqueue.cc:393 ../src/search.cc:108
-#: ../src/search.cc:131 ../src/search.cc:659 ../src/search.cc:736
-#: ../src/search.cc:745 ../src/sharebrowser.cc:88 ../src/sharebrowser.cc:111
-#: ../src/sharebrowser.cc:332 ../src/sharebrowser.cc:363
+#: ../src/downloadqueue.cc:286 ../src/downloadqueue.cc:393
+#: ../src/search.cc:108 ../src/search.cc:131 ../src/search.cc:659
+#: ../src/search.cc:736 ../src/search.cc:745 ../src/sharebrowser.cc:88
+#: ../src/sharebrowser.cc:111 ../src/sharebrowser.cc:332
+#: ../src/sharebrowser.cc:363
 msgid "Exact Size"
 msgstr "Tamaño exacto"
 
@@ -1850,9 +1821,7 @@ msgstr "Cuadro (tamaño)"
 msgid ""
 "Frame size determines the width of the review, higher values affect "
 "performance"
-msgstr ""
-"E tamaño del cuadro determina la anchura de la vista, valores altos "
-"perjudican el rendimiento"
+msgstr "E tamaño del cuadro determina la anchura de la vista, valores altos perjudican el rendimiento"
 
 #: ../ui/searchspy.ui:313
 msgid "Frame:"
@@ -2187,9 +2156,7 @@ msgstr "No descargar los archivos que ya esten en cola"
 msgid ""
 "Keep duplicate files in your file list (duplicates never count towards your "
 "share size)"
-msgstr ""
-"Mantener archivos duplicados en la lista de archivos (los duplicados nunca "
-"se sumarán al tamaño de los compartidos)"
+msgstr "Mantener archivos duplicados en la lista de archivos (los duplicados nunca se sumarán al tamaño de los compartidos)"
 
 #: ../src/settingsdialog.cc:1651
 msgid "Keep filelists when exiting"
@@ -2559,8 +2526,7 @@ msgstr "Sin coincidencias"
 
 #: ../ui/settingsdialog.ui:2778
 msgid "No new downloads if speed exceeds (KiB/s, 0 = disable)"
-msgstr ""
-"No añadir nuevas descargas si la velocidad exceda (KiB/s, 0 = deshabilitado)"
+msgstr "No añadir nuevas descargas si la velocidad exceda (KiB/s, 0 = deshabilitado)"
 
 #: ../src/sharebrowser.cc:906
 msgid "No search text entered"
@@ -2600,15 +2566,12 @@ msgstr "Nota: muchos de estas opciones requieres reiniciar la aplicación"
 
 #: ../ui/settingsdialog.ui:4022
 msgid "Note: New files are added to the share only once they've been hashed!"
-msgstr ""
-"Nota: ¡Los nuevos archivos serán añadidos a compartir solo cuando hayan sido "
-"hasheados!"
+msgstr "Nota: ¡Los nuevos archivos serán añadidos a compartir solo cuando hayan sido hasheados!"
 
 #: ../ui/settingsdialog.ui:2845
-msgid "Note; because of changing download speeds, this is not 100% accurate..."
-msgstr ""
-"Nota: Téngalo en cuenta, porque de cambiar las velocidades de descarga, esto "
-"no es fiable al 100% ..."
+msgid ""
+"Note; because of changing download speeds, this is not 100% accurate..."
+msgstr "Nota: Téngalo en cuenta, porque de cambiar las velocidades de descarga, esto no es fiable al 100% ..."
 
 #: ../src/settingsdialog.cc:1341 ../ui/settingsdialog.ui:5883
 msgid "Notify"
@@ -3084,8 +3047,7 @@ msgstr "Seleccionar lista de archivos para explorar"
 
 #: ../src/settingsdialog.cc:1130
 msgid "Send PM when double clicked in the user list"
-msgstr ""
-"Mandar mensaje privado cuando se hace doble click en la lista de usuarios"
+msgstr "Mandar mensaje privado cuando se hace doble click en la lista de usuarios"
 
 #: ../ui/uploadqueue.ui:78
 msgid "Send Private Message"
@@ -3135,17 +3097,14 @@ msgstr "Traducción al Serbio (Latín)\n"
 
 #: ../src/hub.cc:2070
 msgid ""
-"Set Core option param in value (without value return current value of option)"
-msgstr ""
-"Cambiar la opción del núcleo parámetro a valor (sin valor devuelve el valor "
-"actual)"
+"Set Core option param in value (without value return current value of "
+"option)"
+msgstr "Cambiar la opción del núcleo parámetro a valor (sin valor devuelve el valor actual)"
 
 #: ../src/hub.cc:2069
 msgid ""
 "Set GUI option param in value (without value return current value of option)"
-msgstr ""
-"Cambiar la opción de la GUI parámetro a valor (sin valor devuelve el valor "
-"actual)"
+msgstr "Cambiar la opción de la GUI parámetro a valor (sin valor devuelve el valor actual)"
 
 #: ../ui/downloadqueue.ui:81 ../ui/downloadqueue.ui:215
 msgid "Set Priorit_y"
@@ -3160,10 +3119,9 @@ msgid "Set download limit image: "
 msgstr "Configurar descarga imagen limite: "
 
 #: ../src/settingsdialog.cc:986
-msgid "Set lowest priority for newly added files larger than low priority size"
-msgstr ""
-"Establecer prioridad más baja para los nuevos archivos agregados más grandes "
-"que el tamaño de baja prioridad"
+msgid ""
+"Set lowest priority for newly added files larger than low priority size"
+msgstr "Establecer prioridad más baja para los nuevos archivos agregados más grandes que el tamaño de baja prioridad"
 
 #: ../ui/settingsdialog.ui:4054
 msgid "Share hidden files"
@@ -3269,15 +3227,16 @@ msgid "Signal handlers installed.\n"
 msgstr "Manejadores de señales configurados.\n"
 
 #: ../src/downloadqueue.cc:74 ../src/downloadqueue.cc:93
-#: ../src/downloadqueue.cc:285 ../src/downloadqueue.cc:392 ../src/search.cc:103
-#: ../src/search.cc:130 ../src/search.cc:654 ../src/search.cc:737
-#: ../src/search.cc:746 ../src/search.cc:872 ../src/settingsdialog.cc:1034
-#: ../src/settingsdialog.cc:1040 ../src/settingsdialog.cc:3811
-#: ../src/settingsdialog.cc:3880 ../src/sharebrowser.cc:85
-#: ../src/sharebrowser.cc:110 ../src/sharebrowser.cc:331
-#: ../src/sharebrowser.cc:362 ../src/transfers.cc:67 ../src/transfers.cc:548
-#: ../src/transfers.cc:717 ../src/transfers.cc:729 ../ui/mainwindow.ui:118
-#: ../ui/search.ui:138 ../ui/search.ui:294
+#: ../src/downloadqueue.cc:285 ../src/downloadqueue.cc:392
+#: ../src/search.cc:103 ../src/search.cc:130 ../src/search.cc:654
+#: ../src/search.cc:737 ../src/search.cc:746 ../src/search.cc:872
+#: ../src/settingsdialog.cc:1034 ../src/settingsdialog.cc:1040
+#: ../src/settingsdialog.cc:3811 ../src/settingsdialog.cc:3880
+#: ../src/sharebrowser.cc:85 ../src/sharebrowser.cc:110
+#: ../src/sharebrowser.cc:331 ../src/sharebrowser.cc:362
+#: ../src/transfers.cc:67 ../src/transfers.cc:548 ../src/transfers.cc:717
+#: ../src/transfers.cc:729 ../ui/mainwindow.ui:118 ../ui/search.ui:138
+#: ../ui/search.ui:294
 msgid "Size"
 msgstr "Tamaño"
 
@@ -3468,10 +3427,7 @@ msgstr "Estilo del texto"
 msgid ""
 "The increase in waiting time increases the likelihood of adding to top, but "
 "reduces the dynamics (updating) frame"
-msgstr ""
-"El incremento en el tiempo de espera incrementa el la posibilidad de "
-"añadirlas al principio de la lista, pero reduce el dinamismo (actualización) "
-"del cuadro"
+msgstr "El incremento en el tiempo de espera incrementa el la posibilidad de añadirlas al principio de la lista, pero reduce el dinamismo (actualización) del cuadro"
 
 #: ../src/favoritehubs.cc:419
 msgid "The name and address fields are required"
@@ -3523,9 +3479,7 @@ msgstr "A (vació para el usuario seleccionado)"
 msgid ""
 "To start downloading file you need turn on auto search alternatives "
 "(Settings/Downloads/Queue)"
-msgstr ""
-"Para que empiece a descargar el archivo necesita encender la autobusqueda de "
-"alternativas (Opciones/Descargas/Cola)"
+msgstr "Para que empiece a descargar el archivo necesita encender la autobusqueda de alternativas (Opciones/Descargas/Cola)"
 
 #: ../ui/settingsdialog.ui:6193
 msgid "Toolbar"
@@ -3627,18 +3581,14 @@ msgstr "No se puede cargar lista de archivos: "
 
 #: ../src/mainwindow.cc:2056
 msgid "Unable to load file list: Invalid file list name"
-msgstr ""
-"No se puede cargar lista de archivos: Nombre de la lista de archivos invalida"
+msgstr "No se puede cargar lista de archivos: Nombre de la lista de archivos invalida"
 
 #: ../src/mainwindow.cc:2295
 msgid ""
-"Unable to open %1% port. Searching or file transfers will not work correctly "
-"until you change settings or turn off any application that might be using "
+"Unable to open %1% port. Searching or file transfers will not work correctly"
+" until you change settings or turn off any application that might be using "
 "that port."
-msgstr ""
-"No se puede habilitar e puerto %1%. La búsqueda y la transferencia de "
-"archivos funcionarán incorrectamente hasta que cambie las opciones o apague "
-"la aplicación que esté usando dicho puerto."
+msgstr "No se puede habilitar e puerto %1%. La búsqueda y la transferencia de archivos funcionarán incorrectamente hasta que cambie las opciones o apague la aplicación que esté usando dicho puerto."
 
 #: ../ui/settingsdialog.ui:2688
 msgid "Unfinished downloads directory"
@@ -3769,8 +3719,7 @@ msgstr "Usar emoticonos"
 
 #: ../src/settingsdialog.cc:1660
 msgid "Use fast hashing method (disable if you have problems with hashing)"
-msgstr ""
-"Usar método rápido de hasheo (deshabilitar si tiene problemas con el hasheo)"
+msgstr "Usar método rápido de hasheo (deshabilitar si tiene problemas con el hasheo)"
 
 #: ../src/settingsdialog.cc:1126
 msgid "Use magnet split"
@@ -3871,22 +3820,12 @@ msgid ""
 "Using:\n"
 "  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n"
 "  eiskaltdcpp-gtk <Key>\n"
-"EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC "
-"protocol.\n"
+"EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC protocol.\n"
 "\n"
 "Keys:\n"
 "  -h, --help\t Show this message\n"
 "  -V, --version\t Show version string\n"
-msgstr ""
-"Uso:\n"
-"  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n"
-"  eiskaltdcpp-gtk <Key>\n"
-"EiskaltDC++ es un programa de plataforma-cruzada (multisistema) que usa los "
-"protocolos Direct Connect y ADC \n"
-"\n"
-"Opciones:\n"
-"  -h, --help\t muestra este mensaje\n"
-"  -V, --version\t Muestra la version del programa\n"
+msgstr "Uso:\n  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n  eiskaltdcpp-gtk <Key>\nEiskaltDC++ es un programa de plataforma-cruzada (multisistema) que usa los protocolos Direct Connect y ADC \n\nOpciones:\n  -h, --help\t muestra este mensaje\n  -V, --version\t Muestra la version del programa\n"
 
 #: ../src/sharebrowser.cc:91 ../src/sharebrowser.cc:369
 msgid "Video"
@@ -3936,9 +3875,7 @@ msgstr "Espera (segundos)"
 #: ../src/hub.cc:559
 msgid ""
 "Waiting for input password (don't remove /password before your password)"
-msgstr ""
-"Esperando por contraseña de entrada (no eliminar /password antes de su "
-"contraseña)"
+msgstr "Esperando por contraseña de entrada (no eliminar /password antes de su contraseña)"
 
 #: ../src/transfers.cc:583
 msgid "Waiting for slot"
@@ -4167,9 +4104,9 @@ msgstr "Conectando al Hub"
 msgid "_Refresh file list"
 msgstr "Obtener lista de archivos"
 
-#: ../ui/adlsearch.ui:553 ../ui/downloadqueue.ui:170 ../ui/downloadqueue.ui:359
-#: ../ui/favoriteusers.ui:227 ../ui/search.ui:814 ../ui/searchspy.ui:108
-#: ../ui/searchspy.ui:416
+#: ../ui/adlsearch.ui:553 ../ui/downloadqueue.ui:170
+#: ../ui/downloadqueue.ui:359 ../ui/favoriteusers.ui:227 ../ui/search.ui:814
+#: ../ui/searchspy.ui:108 ../ui/searchspy.ui:416
 msgid "_Remove"
 msgstr "_Eliminar"
 
@@ -4303,6 +4240,3 @@ msgstr "Alto/Espera/Cuadro: "
 #: ../src/searchspy.cc:298 ../src/searchspy.cc:366
 msgid "waiting..."
 msgstr "espere..."
-
-#~ msgid "https://github.com/eiskaltdcpp/eiskaltdcpp/raw/master/ChangeLog.txt"
-#~ msgstr "https://github.com/eiskaltdcpp/eiskaltdcpp/raw/master/ChangeLog.txt"
