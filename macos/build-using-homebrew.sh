@@ -3,16 +3,18 @@
 # Authors: Boris Pek
 # License: Public Domain
 # Created: 2018-08-21
-# Updated: 2018-09-16
+# Updated: 2018-12-18
 # Version: N/A
 #
 # Description: script for building of app bundles for macOS
 # Currently it is used for testing builds on Travis CI and for producing
-# official builds of program which are hosted at SourceForge.
+# official builds of program which are hosted on SourceForge.
 #
 # Notes:
-# brew install wget git htop
-# brew install coreutils cmake gettext boost libidn openssl jsoncpp miniupnpc aspell pcre lua qt
+# brew install --build-bottle pkg-config htop cmake coreutils gettext
+# brew install --build-bottle aspell boost lua miniupnpc openssl pcre pcre2
+# brew install --build-bottle libidn libidn2 jsoncpp qt
+# brew install --build-bottle curl wget git
 
 set -e
 
