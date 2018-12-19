@@ -3,7 +3,7 @@
 # Authors: Boris Pek
 # License: Public Domain
 # Created: 2018-08-21
-# Updated: 2018-12-18
+# Updated: 2018-12-19
 # Version: N/A
 #
 # Description: script for building of app bundles for macOS
@@ -13,7 +13,7 @@
 # Notes:
 # brew install --build-bottle pkg-config htop cmake coreutils gettext
 # brew install --build-bottle aspell boost lua miniupnpc openssl pcre pcre2
-# brew install --build-bottle libidn libidn2 jsoncpp qt
+# brew install --build-bottle libunistring libidn libidn2 jsoncpp qt
 # brew install --build-bottle curl wget git
 
 set -e
