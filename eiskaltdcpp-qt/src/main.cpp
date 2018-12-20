@@ -177,7 +177,10 @@ int main(int argc, char *argv[])
         std::cout << QObject::tr("Application icons has been loaded").toStdString() << std::endl;
 
     app.setWindowIcon(WICON(WulforUtil::eiICON_APPL));
-    
+#if (QT_VERSION >= QT_VERSION_CHECK(5, 10, 1))
+    app.setAttribute(Qt::AA_DisableWindowContextHelpButton);
+#endif
+
     ArenaWidgetManager::newInstance();
 
     MainWindow::newInstance();
