@@ -28,7 +28,7 @@ namespace dcpp {
 
 using std::max;
 
-const double ZFilter::MIN_COMPRESSION_LEVEL = 0.9;
+const double ZFilter::MIN_COMPRESSION_LEVEL = 0.95;
 
 ZFilter::ZFilter() : totalIn(0), totalOut(0), compressing(true) {
     memset(&zs, 0, sizeof(zs));
@@ -50,19 +50,37 @@ bool ZFilter::operator()(const void* in, size_t& insize, void* out, size_t& outs
     zs.next_in = (Bytef*)in;
     zs.next_out = (Bytef*)out;
 
+#ifdef ZLIB_DEBUG
+    dcdebug("ZFilter: totalOut = %lld, totalIn = %lld, outsize = %d\n", totalOut, totalIn, outsize);
+#endif
+
     // Check if there's any use compressing; if not, save some cpu...
-    if(compressing && insize > 0 && outsize > 16 && (totalIn > (64*1024)) && ((static_cast<double>(totalOut) / totalIn) > 0.95)) {
+    if(compressing && insize > 0 && outsize > 16 && (totalIn > (64 * 1024)) &&
+        (static_cast<double>(totalOut) / totalIn) > MIN_COMPRESSION_LEVEL)
+    {
         zs.avail_in = 0;
         zs.avail_out = outsize;
-        if(deflateParams(&zs, 0, Z_DEFAULT_STRATEGY) != Z_OK) {
+
+        // Starting with zlib 1.2.9, the deflateParams API has changed.
+        auto err = ::deflateParams(&zs, 0, Z_DEFAULT_STRATEGY);
+#if ZLIB_VERNUM >= 0x1290
+        if(err == Z_STREAM_ERROR) {
+#else
+        if(err != Z_OK) {
+#endif
             throw Exception(_("Error during compression"));
         }
+
         zs.avail_in = insize;
         compressing = false;
-        dcdebug("Dynamically disabled compression");
+        dcdebug("ZFilter: Dynamically disabled compression\n");
 
         // Check if we ate all space already...
+#if ZLIB_VERNUM >= 0x1290
+        if(err == Z_BUF_ERROR) {
+#else
         if(zs.avail_out == 0) {
+#endif
             outsize = outsize - zs.avail_out;
             insize = insize - zs.avail_in;
             totalOut += outsize;
