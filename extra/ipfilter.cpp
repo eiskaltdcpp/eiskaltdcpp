@@ -140,7 +140,7 @@ bool ipfilter::ParseString(string exp, uint32_t &ip, uint32_t &mask, eTableActio
     return true;
 }
 
-void ipfilter::addToRules(string exp, eDIRECTION direction) {
+void ipfilter::addToRules(const std::string &exp, eDIRECTION direction) {
     uint32_t exp_ip, exp_mask;
     eTableAction act;
 

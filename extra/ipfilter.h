@@ -10,6 +10,7 @@
 #pragma once
 
 #include <string>
+
 #include "dcpp/stdinc.h"
 #include "dcpp/Singleton.h"
 
@@ -19,12 +20,12 @@ enum eDIRECTION {
     eDIRECTION_BOTH
 };
 
-enum eTableAction{
+enum eTableAction {
     etaDROP=0,
     etaACPT
 };
 
-typedef struct _IPFilterElem{
+typedef struct _IPFilterElem {
     uint32_t ip;
     uint32_t mask;
 
@@ -41,61 +42,38 @@ class ipfilter :
     friend class dcpp::Singleton<ipfilter>;
 
 public:
-    /** */
     static uint32_t StringToUint32(const std::string&);
-    /** */
     static std::string Uint32ToString(uint32_t);
-    /** */
     static uint32_t MaskToCIDR(uint32_t);
-    /** */
     static uint32_t MaskForBits(uint32_t);
-    /** */
     static bool ParseString(std::string, uint32_t&, uint32_t&, eTableAction&);
 
     void load();
     void shutdown();
-    /** */
     void loadList();
-    /** */
     void saveList();
 
-    /** */
     const QIPList &getRules();
-    /** */
     const QIPHash &getHash ();
 
-    /** */
-    void addToRules(std::string exp, eDIRECTION direction);
-    /** */
+    void addToRules(const std::string &exp, eDIRECTION direction);
     void remFromRules(std::string exp, eTableAction);
-    /** */
     void changeRuleDirection(std::string exp, eDIRECTION, eTableAction);
-    /** */
     void clearRules();
 
-    /** */
     void moveRuleUp(uint32_t, eTableAction);
-    /** */
     void moveRuleDown(uint32_t, eTableAction);
 
-    /** */
     bool OK(const std::string &exp, eDIRECTION direction);
 
-    /** */
     void exportTo(std::string path);
-    /** */
     void importFrom(std::string path);
 
 private:
-    /** */
     ipfilter();
-    /** */
     virtual ~ipfilter();
-
-    /** */
     void step(uint32_t, eTableAction, bool down = true);
-    /** */
+
     QIPHash list_ip;
-    /** */
     QIPList rules;
 };
