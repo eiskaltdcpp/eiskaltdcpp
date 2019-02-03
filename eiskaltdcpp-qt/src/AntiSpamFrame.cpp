@@ -187,8 +187,7 @@ void AntiSpamFrame::clearTreeWidget(QTreeWidget *tree) {
     QTreeWidgetItemIterator it(tree, QTreeWidgetItemIterator::NotHidden);
 
     while (*it) {
-        if (*it)
-            delete *it;
+        delete *it;
         ++it;
     }
 
