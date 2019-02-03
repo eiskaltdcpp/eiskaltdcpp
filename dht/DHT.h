@@ -36,7 +36,7 @@ namespace dht
         public Singleton<DHT>, public Speaker<ClientListener>, public ClientBase
     {
     public:
-        DHT(void);
+        explicit DHT(void);
         ~DHT(void) throw();
 
         enum InfType { NONE = 0, PING = 1, MAKE_ONLINE = 2 };
