@@ -2709,7 +2709,7 @@ void MainWindow::slotAboutClient() {
         tr("developer")+QString(", 2009-2015")+
         QString("<br/>")+
         QString("<br/>")+
-        QString("&nbsp; 2010-2018 <a href=\"mailto:tehnick-8@yandex.ru\">Boris Pek</a><br/>")+
+        QString("&nbsp; 2010-2019 <a href=\"mailto:tehnick-8@yandex.ru\">Boris Pek</a><br/>")+
         QString("&nbsp;&nbsp;&nbsp; * ")+
         tr("Debian/Ubuntu maintainer")+QString(", 2010-2018")+
         QString("<br/>")+
@@ -2764,7 +2764,7 @@ void MainWindow::slotAboutClient() {
         QString("<a href=\"https://www.transifex.com/tehnick/eiskaltdcpp/\">https://www.transifex.com/tehnick/eiskaltdcpp/</a><br/>")+
         QString("<br/>")+
         tr("Russian translation<br/>")+
-        QString("&nbsp;&nbsp;&nbsp; 2010-2018 <a href=\"mailto:tehnick-8@yandex.ru\">Boris Pek</a> aka Tehnick<br/>")+
+        QString("&nbsp;&nbsp;&nbsp; 2010-2019 <a href=\"mailto:tehnick-8@yandex.ru\">Boris Pek</a> aka Tehnick<br/>")+
         QString("&nbsp;&nbsp;&nbsp; 2009-2010 <a href=\"mailto:wiselord1983@gmail.com\">Uladzimir Bely</a><br/>")+
         QString("&nbsp;&nbsp;&nbsp; 2012 <a href=\"mailto:tret2003@gmail.com\">Vyacheslav Tretyakov</a><br/>")+
         QString("&nbsp;&nbsp;&nbsp; 2018 <a href=\"https://www.transifex.com/user/profile/adem4ik/\">Andrei Stepanov</a><br/>")+
