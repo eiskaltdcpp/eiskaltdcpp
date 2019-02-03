@@ -54,7 +54,10 @@ ServerThread::ClientMap ServerThread::clientsMap;
 Json::Rpc::HTTPServer * jsonserver;
 #endif
 
-ServerThread::ServerThread() : lastUp(0), lastDown(0), lastUpdate(GET_TICK()) {
+ServerThread::ServerThread()
+    : lastUp(0)
+    , lastDown(0)
+    , lastUpdate(GET_TICK()) {
 }
 
 ServerThread::~ServerThread() {

@@ -116,7 +116,6 @@ private:
     typedef unordered_map <string, CurHub> ClientMap;
     typedef ClientMap::const_iterator ClientIter;
     static ClientMap clientsMap;
-    bool json_run;
 
     typedef unordered_map <string, DirectoryListing*> FilelistMap;
     FilelistMap listsMap;
