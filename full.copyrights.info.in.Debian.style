@@ -11,7 +11,7 @@ Source: https://github.com/eiskaltdcpp/eiskaltdcpp
 Files: *
 Copyright: 2009-2012 Andrey Karlov <dein.negativ@gmail.com>
            2009-2014 Eugene Petrov <dhamp@ya.ru>
-           2009-2018 Boris Pek aka Tehnick <tehnick-8@yandex.ru>
+           2009-2019 Boris Pek aka Tehnick <tehnick-8@yandex.ru>
            2010-2017 Pavel Vatagin <pavelvat@gmail.com>
            2010-2014 Alexandr Tkachev <tka4ev@gmail.com>
 License: GPL-3+ with OpenSSL exception
@@ -58,7 +58,7 @@ Files: dcpp/*.h
        extra/freespace.*
        extra/stacktrace.h
 Copyright: 2001-2012 Jacek Sieka <arnetheduck@gmail.com>
-           2008-2010 Big Muscle (http://strongdc.sf.net)
+           2008-2010 Big Muscle (http://strongdc.sourceforge.net/)
            1996-2002 Florian Schintke
            2003-2006 RevConnect (http://www.revconnect.com)
            1997 Makoto Matsumoto and Takuji Nishimura <matumoto@math.keio.ac.jp>
@@ -216,7 +216,7 @@ Copyright: 2004-2013 Sergey Lyubka
 License: Expat
 
 Files: debian/*
-Copyright: 2010-2018 Boris Pek <tehnick-8@yandex.ru>
+Copyright: 2010-2019 Boris Pek <tehnick-8@yandex.ru>
 License: GPL-2+
 
 License: GPL-2

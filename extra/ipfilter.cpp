@@ -125,14 +125,14 @@ bool ipfilter::ParseString(string exp, uint32_t &ip, uint32_t &mask, eTableActio
             return false;}
     }
     #ifdef _DEBUG_IPFILTER
-        fprintf(stdout,"ip::%d %d %d %d mask::%d \n",ip1,ip2,ip3,ip4,mask1); fflush(stdout);
+        fprintf(stdout,"ip::%u %u %u %u mask::%u \n",ip1,ip2,ip3,ip4,mask1); fflush(stdout);
     #endif
     if (nip > 0)
         act = etaDROP;
     else
         act = etaACPT;
     #ifdef _DEBUG_IPFILTER
-        fprintf(stdout,"act::%d\n",nip); fflush(stdout);
+        fprintf(stdout,"act::%u\n",nip); fflush(stdout);
     #endif
     mask = MaskForBits(mask1 > 32? 32:mask1);
 
@@ -204,7 +204,7 @@ void ipfilter::remFromRules(string exp, eTableAction act) {
 #endif
     size_t pos = exp.find("/");
 #ifdef _DEBUG_IPFILTER
-    printf("pos / - %i\n", (uint32_t)pos);
+    printf("pos / - %u\n", (uint32_t)pos);
 #endif
     if (pos != string::npos)
         str_ip = exp.erase(pos);
@@ -221,7 +221,7 @@ void ipfilter::remFromRules(string exp, eTableAction act) {
 #ifdef _DEBUG_IPFILTER
     fprintf(stdout,"\tThis element will be deleted:\n");
     fprintf(stdout,"\t\tMASK: 0x%x\n"
-           "\t\tIP  : %i\n"
+           "\t\tIP  : %u\n"
            "\t\tD   : %i\n"
            "\t\tA   : %i\n",
            el->mask, el->ip,
@@ -249,7 +249,7 @@ void ipfilter::changeRuleDirection(string exp, eDIRECTION direction, eTableActio
     string str_ip;
     size_t pos = exp.find("/");
 #ifdef _DEBUG_IPFILTER
-    printf("pos / - %i\n", (uint32_t)pos);
+    printf("pos / - %u\n", (uint32_t)pos);
 #endif
     if (pos != string::npos)
         str_ip = exp.erase(pos);
@@ -330,7 +330,7 @@ void ipfilter::step(uint32_t ip, eTableAction act, bool down){
 #ifdef _DEBUG_IPFILTER
     fprintf(stdout,"\tThis element will be moved:\n");
     fprintf(stdout,"\t\tMASK: 0x%x\n"
-           "\t\tIP  : %i\n"
+           "\t\tIP  : %u\n"
            "\t\tD   : %i\n"
            "\t\tA   : %i\n",
            el->mask, el->ip,
