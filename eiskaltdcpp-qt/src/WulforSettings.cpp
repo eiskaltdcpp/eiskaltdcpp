@@ -37,20 +37,21 @@ using namespace dcpp;
 
 
 
-WulforSettings::WulforSettings():
-        settings(_q(Util::getPath(Util::PATH_USER_CONFIG)) + "EiskaltDC++_Qt.conf", QSettings::IniFormat),
-        appTranslator(0),
-        qtTranslator(0),
-        qtBaseTranslator(0)
+WulforSettings::WulforSettings()
+    : settings(_q(Util::getPath(Util::PATH_USER_CONFIG)) + "EiskaltDC++_Qt.conf", QSettings::IniFormat)
+    , configFileOld(_q(Util::getPath(Util::PATH_USER_CONFIG)) + "EiskaltDC++.xml")
+    , appTranslator(0)
+    , qtTranslator(0)
+    , qtBaseTranslator(0)
 {
-    configFileOld = _q(Util::getPath(Util::PATH_USER_CONFIG)) + "EiskaltDC++.xml";
-
     QStringList idns = QUrl::idnWhitelist();
     idns.push_back("рф");
     QUrl::setIdnWhitelist(idns);
 
-    connect(this, SIGNAL(fontChanged(QString,QString)), this, SLOT(slotFontChanged(QString,QString)));
-    connect(this, SIGNAL(fontChanged(QString,QString)), this, SIGNAL(strValueChanged(QString,QString)));
+    connect(this, SIGNAL(fontChanged(QString,QString)),
+            this, SLOT(slotFontChanged(QString,QString)));
+    connect(this, SIGNAL(fontChanged(QString,QString)),
+            this, SIGNAL(strValueChanged(QString,QString)));
 }
 
 WulforSettings::~WulforSettings(){

@@ -24,15 +24,15 @@ void UserListProxyModel::sort(int column, Qt::SortOrder order){
         sourceModel()->sort(column, order);
 }
 
-UserListModel::UserListModel(QObject * parent) : QAbstractItemModel(parent) {
-    sortColumn = COLUMN_SHARE;
-    sortOrder = Qt::DescendingOrder;
+UserListModel::UserListModel(QObject * parent)
+    : QAbstractItemModel(parent)
+    , rootItem(new UserListItem())
+    , sortColumn(COLUMN_SHARE)
+    , sortOrder(Qt::DescendingOrder)
+    , WU(WulforUtil::getInstance())
+{
     stripper.setPattern("\\[.*\\]");
     stripper.setMinimal(true);
-
-    rootItem = new UserListItem();
-
-    WU = WulforUtil::getInstance();
 }
 
 

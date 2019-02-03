@@ -677,26 +677,32 @@ void FileBrowserModel::repaint(){
     emit layoutChanged();
 }
 
-FileBrowserItem::FileBrowserItem(const QList<QVariant> &data, FileBrowserItem *parent) :
-    dir(NULL), file(NULL), isDuplicate(false), itemData(data), parentItem(parent)
+FileBrowserItem::FileBrowserItem(const QList<QVariant> &data, FileBrowserItem *parent)
+    : dir(nullptr)
+    , file(nullptr)
+    , isDuplicate(false)
+    , itemData(data)
+    , parentItem(parent)
 {
 }
 
-FileBrowserItem::FileBrowserItem(const FileBrowserItem &item){
-    itemData = item.itemData;
-    dir = item.dir;
-    file = item.file;
-    isDuplicate = item.isDuplicate;
-    childItems = item.childItems;
-    parentItem = item.parentItem;
+FileBrowserItem::FileBrowserItem(const FileBrowserItem &in)
+    : childItems(in.childItems)
+    , dir(in.dir)
+    , file(in.file)
+    , isDuplicate(in.isDuplicate)
+    , itemData(in.itemData)
+    , parentItem(in.parentItem)
+{
 }
-void FileBrowserItem::operator=(const FileBrowserItem &item){
-    itemData = item.itemData;
-    dir = item.dir;
-    file = item.file;
-    isDuplicate = item.isDuplicate;
-    childItems = item.childItems;
-    parentItem = item.parentItem;
+
+void FileBrowserItem::operator=(const FileBrowserItem &in){
+    itemData = in.itemData;
+    dir = in.dir;
+    file = in.file;
+    isDuplicate = in.isDuplicate;
+    childItems = in.childItems;
+    parentItem = in.parentItem;
 }
 
 FileBrowserItem::~FileBrowserItem()

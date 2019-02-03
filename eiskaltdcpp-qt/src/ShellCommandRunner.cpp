@@ -15,21 +15,23 @@
 /** */
 ShellCommandRunner::ShellCommandRunner(const QString &a, QObject * parent)
     : QThread(parent)
-    , m_exitCode(-1) {
-    args = a;
-    stop = false;
-    useArgList = false;
+    , stop(false)
+    , useArgList(false)
+    , args(a)
+    , m_exitCode(-1)
+{
 }
 
 ShellCommandRunner::ShellCommandRunner(const QString &cmd_,
                                        const QStringList &argList_,
                                        QObject * parent)
     : QThread(parent)
-    , m_exitCode(-1) {
-    this->argList = argList_;
-    this->cmd = cmd_;
-    useArgList = true;
-    stop = false;
+    , stop(false)
+    , useArgList(true)
+    , m_exitCode(-1)
+    , argList(argList_)
+    , cmd(cmd_)
+{
 }
 
 /** */

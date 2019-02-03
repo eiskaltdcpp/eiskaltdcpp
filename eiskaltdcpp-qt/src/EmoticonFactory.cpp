@@ -27,7 +27,6 @@ static const QString EmoticonTextSectionName = "name";
 EmoticonFactory::EmoticonFactory() :
     QObject(NULL)
 {
-    currentTheme = "";
 }
 
 EmoticonFactory::~EmoticonFactory(){

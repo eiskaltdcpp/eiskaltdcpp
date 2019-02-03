@@ -654,22 +654,25 @@ DownloadQueueItem *DownloadQueueModel::findTarget(const DownloadQueueItem *item,
     return target;
 }
 
-DownloadQueueItem::DownloadQueueItem(const QList<QVariant> &data, DownloadQueueItem *parent) :
-    dir(false), itemData(data), parentItem(parent)
+DownloadQueueItem::DownloadQueueItem(const QList<QVariant> &data, DownloadQueueItem *parent)
+    : dir(false)
+    , itemData(data)
+    , parentItem(parent)
 {
 }
 
-DownloadQueueItem::DownloadQueueItem(const DownloadQueueItem &item){
-    itemData = item.itemData;
-    dir = item.dir;
-    parentItem = NULL;
-    childItems = QList<DownloadQueueItem*> ();
+DownloadQueueItem::DownloadQueueItem(const DownloadQueueItem &in)
+    : dir(in.dir)
+    , itemData(in.itemData)
+    , parentItem(nullptr)
+{
 }
-void DownloadQueueItem::operator=(const DownloadQueueItem &item){
-    parentItem = item.parentItem;
-    childItems = item.childItems;
-    itemData = item.itemData;
-    dir = item.dir;
+
+void DownloadQueueItem::operator=(const DownloadQueueItem &in){
+    parentItem = in.parentItem;
+    childItems = in.childItems;
+    itemData = in.itemData;
+    dir = in.dir;
 }
 
 DownloadQueueItem::~DownloadQueueItem()
