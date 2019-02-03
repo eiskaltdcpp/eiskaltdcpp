@@ -1023,7 +1023,7 @@ void SearchFrame::slotStartSearch(){
 
     SearchManager::SizeModes searchMode((SearchManager::SizeModes)comboBox_SIZETYPE->currentIndex());
 
-    if(!llsize || lineEdit_SIZE->text() == "")
+    if(!llsize || lineEdit_SIZE->text().isEmpty())
         searchMode = SearchManager::SIZE_DONTCARE;
 
     int ftype = comboBox_FILETYPES->currentIndex();

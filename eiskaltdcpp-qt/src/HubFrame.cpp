@@ -2570,11 +2570,11 @@ void HubFrame::clearUsers(){
     d->model->repaint();
 }
 
-void HubFrame::pmUserOffline(QString cid){
+void HubFrame::pmUserOffline(const QString &cid){
     pmUserEvent(cid, tr("User offline."));
 }
 
-void HubFrame::pmUserEvent(QString cid, QString e){
+void HubFrame::pmUserEvent(const QString &cid, const QString &e){
     Q_D(HubFrame);
 
     if (!d->pm.contains(cid))

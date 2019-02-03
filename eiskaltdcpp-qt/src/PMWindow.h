@@ -30,7 +30,7 @@ class PMWindow: public  QWidget,
 public:
     friend class HubFrame;
 
-    PMWindow(QString cid, QString hubUrl);
+    explicit PMWindow(const QString &cid_, const QString &hubUrl_);
     virtual ~PMWindow();
 
     QString  getArenaTitle();
@@ -38,18 +38,17 @@ public:
     QWidget *getWidget();
     QMenu   *getMenu();
     const QPixmap &getPixmap();
-    ArenaWidget::Role role() const { return ArenaWidget::PrivateMessage; }
-    void requestFilter() { slotHideFindFrame(); }
-    void requestFocus() { plainTextEdit_INPUT->setFocus(); }
+    ArenaWidget::Role role() const;
+    void requestFilter();
+    void requestFocus();
     void setCompleter(QCompleter *, UserListModel *);
 
     void addStatus(QString);
-    void sendMessage(QString,bool = false, bool = false);
-    QWidget *inputWidget() const { return plainTextEdit_INPUT; }
+    void sendMessage(QString, const bool = false, const bool = false);
+    QWidget *inputWidget() const;
 
-    void setHasHighlightMessages(bool h) { hasHighlightMessages = (h && !isVisible()); }
-
-    bool hasNewMessages() { return (hasMessages || hasHighlightMessages); }
+    void setHasHighlightMessages(bool h);
+    bool hasNewMessages();
 
 public Q_SLOTS:
     void slotActivate();
@@ -82,7 +81,7 @@ protected:
     virtual void showEvent(QShowEvent *);
 
 private:
-    void addStatusMessage(QString);
+    void addStatusMessage(const QString &);
     void addOutput(QString);
 
     void updateStyles();

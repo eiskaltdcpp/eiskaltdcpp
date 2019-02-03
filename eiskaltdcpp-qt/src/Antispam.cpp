@@ -180,7 +180,7 @@ void AntiSpam::checkUser(const QString &cid, const QString &msg, const QString &
     }
 }
 
-void AntiSpam::move(QString obj, AntiSpamObjectState state) {
+void AntiSpam::move(const QString &obj, AntiSpamObjectState state) {
     if (isInAny(obj)) {
         AntiSpamObjectState from;
 
@@ -216,6 +216,12 @@ inline void AntiSpam::remFromList(QList<QString> &from, const QList<QString> &wh
         if (index != -1)
             from.removeAt(index);
     }
+}
+
+void AntiSpam::log(const QString &log_msg) {
+    log_stream << QString("[%1] ").arg(QDateTime::currentDateTime().toString("yyyy-MM-dd hh-mm-ss"))
+               << log_msg
+               << "\n";
 }
 
 void AntiSpam::addToBlack(const QList<QString> &list) {
@@ -295,7 +301,7 @@ void AntiSpam::saveWhite() {
     saveFile(QString::fromStdString(Util::getPath(Util::PATH_USER_CONFIG)) + "whitelist", white_list);
 }
 
-void AntiSpam::readFile(QString path, QList<QString> &list) {
+void AntiSpam::readFile(const QString &path, QList<QString> &list) {
     if (!QFile::exists(path))
         return;
 
@@ -311,7 +317,7 @@ void AntiSpam::readFile(QString path, QList<QString> &list) {
 
         line.replace("\n", "");
 
-        if (line == "")
+        if (line.isEmpty())
             continue;
 
         list << line;
@@ -320,7 +326,7 @@ void AntiSpam::readFile(QString path, QList<QString> &list) {
     file.close();
 }
 
-void AntiSpam::saveFile(QString path, QList<QString> &list) {
+void AntiSpam::saveFile(const QString &path, QList<QString> &list) {
     QFile file(path);
 
     if (!file.open(QIODevice::WriteOnly))
@@ -400,10 +406,10 @@ void AntiSpam::saveSettings() {
 
     out << "|ANTISPAM_PHRASE|" << phrase << "\n";
 
-    QString words = "";
-
-    for (int i = 0; i < keys.size(); i++)
-        words += keys.at(i).toUpper() + "|";
+    QString words;
+    for (const QString &key : keys) {
+        words += key.toUpper() + "|";
+    }
 
     out << "|ANTISPAM_KEY|" << words << "\n";
     out << "|ATTEMPTS|" << QString().setNum(try_count, 10) << "\n";
@@ -411,11 +417,11 @@ void AntiSpam::saveSettings() {
     file.close();
 }
 
-void AntiSpam::setPhrase(QString &phrase) {
-    if (phrase == "") {
-        this->phrase = (phrase = "5+5=?");
-    } else
-        this->phrase = phrase;
+void AntiSpam::setPhrase(const QString &phrase_) {
+    if (phrase.isEmpty())
+        phrase = "5+5=?";
+    else
+        phrase = phrase_;
 }
 
 void AntiSpam::setKeys(const QList<QString> &keys) {

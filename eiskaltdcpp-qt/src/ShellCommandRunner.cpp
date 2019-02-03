@@ -13,15 +13,21 @@
 #include <cstdio>
 
 /** */
-ShellCommandRunner::ShellCommandRunner(QString a, QObject * parent) : QThread(parent), _exitCode(-1) {
+ShellCommandRunner::ShellCommandRunner(const QString &a, QObject * parent)
+    : QThread(parent)
+    , m_exitCode(-1) {
     args = a;
     stop = false;
     useArgList = false;
 }
 
-ShellCommandRunner::ShellCommandRunner(QString cmd, QStringList argList, QObject * parent) : QThread(parent), _exitCode(-1) {
-    this->argList = argList;
-    this->cmd = cmd;
+ShellCommandRunner::ShellCommandRunner(const QString &cmd_,
+                                       const QStringList &argList_,
+                                       QObject * parent)
+    : QThread(parent)
+    , m_exitCode(-1) {
+    this->argList = argList_;
+    this->cmd = cmd_;
     useArgList = true;
     stop = false;
 }
@@ -37,7 +43,7 @@ ShellCommandRunner::~ShellCommandRunner() {
 
 /** */
 void ShellCommandRunner::run() {
-    _exitCode = 1;
+    m_exitCode = 1;
     QString output;
     bool succeeded = false;
     QProcess process;
@@ -70,8 +76,8 @@ void ShellCommandRunner::run() {
 
     if ((process.state() == QProcess::NotRunning)) {
         if (process.exitStatus() == QProcess::NormalExit) {
-            _exitCode = process.exitCode();
-            if (_exitCode == 0) {
+            m_exitCode = process.exitCode();
+            if (m_exitCode == 0) {
                 output = QString(process.readAllStandardOutput()).trimmed();
                 
                 if (output.isEmpty())
@@ -85,7 +91,7 @@ void ShellCommandRunner::run() {
             output = QString(process.readAllStandardError()).trimmed();
         }
     } else {
-        _exitCode = 1;
+        m_exitCode = 1;
         output = QString(process.readAllStandardError()).trimmed();
         
         process.terminate();

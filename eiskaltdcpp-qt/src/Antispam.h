@@ -35,7 +35,7 @@ class AntiSpam :
 
     friend class dcpp::Singleton<AntiSpam>;
 public:
-    void move(QString, AntiSpamObjectState);
+    void move(const QString &, AntiSpamObjectState);
 
     QList<QString> getBlack();
     QList<QString> getGray();
@@ -47,7 +47,7 @@ public:
     void saveLists();
 
     QString getPhrase() const;
-    void setPhrase(QString &phrase);
+    void setPhrase(const QString &phrase_);
     QList<QString> getKeys();
     void setKeys(const QList<QString> &keys);
 
@@ -84,7 +84,7 @@ private:
 
     inline void addToList(QList<QString>&, const QList<QString>&);
     inline void remFromList(QList<QString>&, const QList<QString>&);
-    inline void log(const QString &log_msg){ log_stream << QString("[%1] ").arg(QDateTime::currentDateTime().toString("yyyy-MM-dd hh-mm-ss")) << log_msg << "\n"; }
+    inline void log(const QString &log_msg);
 
     void loadBlack();
     void loadWhite();
@@ -93,8 +93,8 @@ private:
     void saveWhite();
     void saveGray();
 
-    void readFile(QString, QList<QString>&);
-    void saveFile(QString, QList<QString>&);
+    void readFile(const QString&, QList<QString>&);
+    void saveFile(const QString&, QList<QString>&);
 
     QList<QString> white_list, black_list, gray_list;
 

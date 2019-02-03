@@ -118,7 +118,7 @@ void HashThread::run(){
     calculate_tth();
 }
 
-void HashThread::setFile(QString f){
+void HashThread::setFile(const QString &f) {
     file_name = f;
 }
 

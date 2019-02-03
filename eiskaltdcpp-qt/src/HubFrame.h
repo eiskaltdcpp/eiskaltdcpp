@@ -269,8 +269,8 @@ private:
 
     QString getUserInfo(UserListItem *item);
 
-    void pmUserOffline(QString);
-    void pmUserEvent(QString, QString);
+    void pmUserOffline(const QString &);
+    void pmUserEvent(const QString &, const QString &);
 
     void findText(QTextDocument::FindFlags );
 

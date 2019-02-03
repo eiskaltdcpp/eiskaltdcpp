@@ -15,7 +15,7 @@
 HashManagerScript::HashManagerScript(QObject *parent) :
     QObject(parent)
 {
-    HM(dcpp::HashManager::getInstance());
+    HM = dcpp::HashManager::getInstance();
     HM->addListener(this);
 }
 
@@ -32,7 +32,7 @@ HashManagerScript::~HashManagerScript()
 
 HashManagerScript &HashManagerScript::operator=(const HashManagerScript &)
 {
-    HM(dcpp::HashManager::getInstance());
+    HM = dcpp::HashManager::getInstance();
     HM->addListener(this);
 
     return *this;

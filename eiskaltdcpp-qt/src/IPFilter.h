@@ -55,15 +55,15 @@ public:
     /** */
     static quint32 StringToUint32(const QString&);
     /** */
-    static QString Uint32ToString(quint32);
+    static QString Uint32ToString(const quint32);
     /** */
-    static quint32 MaskToCIDR(quint32);
+    static quint32 MaskToCIDR(const quint32);
     /** */
     static quint32 MaskForBits(quint32);
     /** */
-    static bool ParseString(QString, quint32&, quint32&, eTableAction&);
+    static bool ParseString(const QString&, quint32&, quint32&, eTableAction&);
     /** */
-    static bool isIP(QString &exp);
+    static bool isIP(const QString &exp);
 
     /** */
     void loadList();
@@ -76,13 +76,13 @@ public:
     const QIPHash &getHash ();
 
     /** */
-    void addToRules(QString exp, eDIRECTION direction);
+    void addToRules(const QString &exp, const eDIRECTION direction);
     /** */
-    void remFromRules(QString exp, eTableAction);
+    void remFromRules(const QString &exp, const eTableAction);
     /** */
-    void changeRuleDirection(QString exp, eDIRECTION, eTableAction);
+    void changeRuleDirection(const QString &exp, const eDIRECTION, const eTableAction);
     /** */
-    void clearRules(bool emit_signal = true);
+    void clearRules(const bool emit_signal = true);
 
     /** */
     void moveRuleUp(quint32, eTableAction);

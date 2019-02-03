@@ -26,7 +26,7 @@ class HashThread: public QThread{
 
         void run();
 
-        void setFile(QString);
+        void setFile(const QString &);
         QString getHash();
 
     protected:

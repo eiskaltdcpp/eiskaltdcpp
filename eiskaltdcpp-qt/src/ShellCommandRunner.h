@@ -26,8 +26,8 @@ class ShellCommandRunner : public QThread {
 
 public:
     /** constructor */
-    ShellCommandRunner(QString args, QObject * parent = 0);
-    ShellCommandRunner(QString cmd, QStringList args, QObject * parent = 0);
+    ShellCommandRunner(const QString &args, QObject * parent = 0);
+    ShellCommandRunner(const QString &cmd_, const QStringList &argList_, QObject * parent = 0);
     /** destructor */
     virtual ~ShellCommandRunner();
 
@@ -37,7 +37,7 @@ public Q_SLOTS:
     /** Cancel the shell command e.g. if the chat is closed */
     void cancel();
     /** Return exit code*/
-    int exitCode() const { return _exitCode; }
+    int exitCode() const { return m_exitCode; }
 
 Q_SIGNALS:
     /** emitted when the command has finished */
@@ -52,5 +52,5 @@ private:
     QString args;
     QStringList argList;
     QString cmd;
-    int _exitCode;
+    int m_exitCode;
 };

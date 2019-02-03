@@ -49,12 +49,12 @@ static inline void clearLayout(QLayout *l){
     l->invalidate();
 }
 
-PMWindow::PMWindow(QString cid, QString hubUrl):
+PMWindow::PMWindow(const QString &cid_, const QString &hubUrl_):
         hasMessages(false),
         hasHighlightMessages(false),
-        cid(cid),
-        hubUrl(hubUrl),
-        arena_menu(NULL)
+        cid(cid_),
+        hubUrl(hubUrl_),
+        arena_menu(nullptr)
 {
     setupUi(this);
 
@@ -333,6 +333,18 @@ const QPixmap &PMWindow::getPixmap(){
         return WICON(WulforUtil::eiUSERS);
 }
 
+ArenaWidget::Role PMWindow::role() const {
+    return ArenaWidget::PrivateMessage;
+}
+
+void PMWindow::requestFilter() {
+    slotHideFindFrame();
+}
+
+void PMWindow::requestFocus() {
+    plainTextEdit_INPUT->setFocus();
+}
+
 void PMWindow::clearChat(){
     textEdit_CHAT->setHtml("");
     addStatus(tr("Chat cleared."));
@@ -361,7 +373,7 @@ void PMWindow::updateStyles(){
     }
 }
 
-void PMWindow::addStatusMessage(QString msg){
+void PMWindow::addStatusMessage(const QString &msg){
     QString status = " * ";
 
     QString nick = "";
@@ -403,13 +415,13 @@ void PMWindow::addOutput(QString msg){
     msg = "<pre>" + msg + "</pre>";
     textEdit_CHAT->append(msg);
 
-    if (!isVisible()){
+    if (!isVisible()) {
         hasMessages = true;
         MainWindow::getInstance()->redrawToolPanel();
     }
 }
 
-void PMWindow::sendMessage(QString msg, bool thirdPerson, bool stripNewLines){
+void PMWindow::sendMessage(QString msg, const bool thirdPerson, const bool stripNewLines){
     UserPtr user = ClientManager::getInstance()->findUser(CID(cid.toStdString()));
 
     if (user && user->isOnline()){
@@ -437,6 +449,18 @@ void PMWindow::sendMessage(QString msg, bool thirdPerson, bool stripNewLines){
         out_messages.removeFirst();
 
     out_messages_index = out_messages.size()-1;
+}
+
+QWidget *PMWindow::inputWidget() const {
+    return plainTextEdit_INPUT;
+}
+
+void PMWindow::setHasHighlightMessages(bool h) {
+    hasHighlightMessages = (h && !isVisible());
+}
+
+bool PMWindow::hasNewMessages() {
+    return (hasMessages || hasHighlightMessages);
 }
 
 void PMWindow::nextMsg(){

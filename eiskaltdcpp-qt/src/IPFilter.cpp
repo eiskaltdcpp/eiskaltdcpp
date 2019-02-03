@@ -44,14 +44,14 @@ quint32 IPFilter::StringToUint32(const QString& ip){
     return ret;
 }
 
-QString IPFilter::Uint32ToString(quint32 ip){
+QString IPFilter::Uint32ToString(const quint32 ip){
     return QString("%1.%2.%3.%4").arg((ip & 0xFF000000) >> 24)
                                  .arg((ip & 0x00FF0000) >> 16)
                                  .arg((ip & 0x0000FF00) >> 8)
                                  .arg((ip & 0x000000FF));
 }
 
-quint32 IPFilter::MaskToCIDR(quint32 mask){
+quint32 IPFilter::MaskToCIDR(const quint32 mask){
 #ifdef _DEBUG_IPFILTER
     printf("IPFilter::MaskToCIDR(%x)\n", mask);
 #endif
@@ -71,7 +71,7 @@ quint32 IPFilter::MaskToCIDR(quint32 mask){
     return j;
 }
 
-quint32 IPFilter::MaskForBits(quint32 bits){
+quint32 IPFilter::MaskForBits(quint32 bits) {
     bits = 32 - (bits > 32?32:bits);
 
     quint32 mask = 0xFFFFFFFF;
@@ -83,12 +83,12 @@ quint32 IPFilter::MaskForBits(quint32 bits){
     return mask;
 }
 
-bool IPFilter::ParseString(QString exp, quint32 &ip, quint32 &mask, eTableAction &act){
+bool IPFilter::ParseString(const QString &exp, quint32 &ip, quint32 &mask, eTableAction &act){
     if (exp.isEmpty())
         return false;
 
-    if (exp.indexOf("/0") >= 0){
-        if (exp.indexOf("!") == 0)
+    if (exp.contains("/0")){
+        if (exp.startsWith("!"))
             act = etaDROP;
         else
             act = etaACPT;
@@ -98,10 +98,10 @@ bool IPFilter::ParseString(QString exp, quint32 &ip, quint32 &mask, eTableAction
         return true;
     }
 
-    QString str_ip = "", str_mask = "";
+    QString str_ip, str_mask;
 
-    if (exp.indexOf("/") > 0){
-        int c_pos = exp.indexOf("/");
+    if (exp.indexOf("/") > 0) {
+        const int c_pos = exp.indexOf("/");
 
         str_ip = exp.left(c_pos);
         str_mask = exp.mid(c_pos+1,exp.length()-c_pos-1);
@@ -109,7 +109,7 @@ bool IPFilter::ParseString(QString exp, quint32 &ip, quint32 &mask, eTableAction
     else
         str_ip = exp;
 
-    if (str_ip.indexOf("!") == 0){
+    if (str_ip.startsWith("!")){
         act = etaDROP;
         str_ip.replace("!", "");
     }
@@ -129,7 +129,7 @@ bool IPFilter::ParseString(QString exp, quint32 &ip, quint32 &mask, eTableAction
     return true;
 }
 
-void IPFilter::addToRules(QString exp, eDIRECTION direction) {
+void IPFilter::addToRules(const QString &exp, const eDIRECTION direction) {
     quint32 exp_ip, exp_mask;
     eTableAction act;
 
@@ -188,7 +188,7 @@ void IPFilter::addToRules(QString exp, eDIRECTION direction) {
     emit ruleAdded(exp, direction);
 }
 
-void IPFilter::remFromRules(QString exp, eTableAction act) {
+void IPFilter::remFromRules(const QString &exp, const eTableAction act) {
 
     QString str_ip;
     quint32 exp_ip;
@@ -230,7 +230,7 @@ void IPFilter::remFromRules(QString exp, eTableAction act) {
     }
 }
 
-void IPFilter::changeRuleDirection(QString exp, eDIRECTION direction, eTableAction act) {
+void IPFilter::changeRuleDirection(const QString &exp, const eDIRECTION direction, const eTableAction act) {
     if (exp.indexOf("/") > 0)
         exp = exp.left(exp.indexOf("/"));
 
@@ -351,7 +351,7 @@ void IPFilter::moveRuleDown(quint32 ip, eTableAction act){
     step(ip, act, true);
 }
 
-bool IPFilter::isIP(QString &exp) {
+bool IPFilter::isIP(const QString &exp) {
     return (QRegExp("^(\\d{1,3}.){3,3}\\d{1,3}$").exactMatch(exp));
 }
 
@@ -513,7 +513,7 @@ const QIPHash &IPFilter::getHash() {
     return list_ip;
 }
 
-void IPFilter::clearRules(bool emit_signal) {
+void IPFilter::clearRules(const bool emit_signal) {
     auto it = list_ip.constBegin();
 
     while (!list_ip.empty() && it != list_ip.constEnd()){
