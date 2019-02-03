@@ -344,17 +344,18 @@ void ipfilter::step(uint32_t ip, eTableAction act, bool down){
 
     int index = -1;
 
-    for (unsigned itt = 0; itt < rules.size(); itt++) {
+    for (int itt = 0; itt < rules.size(); ++itt) {
         if (rules.at(itt) == el) {
-            index=itt;break;
+            index = itt;
+            break;
         }
     }
 
     if (index < 0)
         return;
 
-    int control = (down?(rules.size()-1):0);
-    int inc = (down?1:-1);
+    const int control = (down?(rules.size()-1):0);
+    const int inc = (down?1:-1);
 
 #ifdef _DEBUG_IPFILTER
     fprintf(stdout,"\tat place this element:\n");
@@ -367,10 +368,10 @@ void ipfilter::step(uint32_t ip, eTableAction act, bool down){
           );fflush(stdout);
 #endif
 
-    if ((index == control) || (index < 0))
+    if (index == control)
         return;
 
-    int new_index = index+inc;
+    const int new_index = index + inc;
     IPFilterElem *old_el = rules.at(new_index);
 
     rules[index]= old_el;
