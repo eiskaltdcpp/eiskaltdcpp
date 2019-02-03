@@ -793,19 +793,19 @@ void HubFrame::LinkParser::parseForMagnetAlias(QString &output){
     }
 }
 
-HubFrame::HubFrame(QWidget *parent, QString hub="", QString encoding=""):
-        QWidget(parent),
-        d_ptr(new HubFramePrivate())
+HubFrame::HubFrame(QWidget *parent, QString hub="", QString encoding="")
+    : QWidget(parent)
+    , d_ptr(new HubFramePrivate())
 {
     Q_D(HubFrame);
 
     d->total_shared = 0;
-    d->arenaMenu = NULL;
-    d->codec = NULL;
+    d->arenaMenu = nullptr;
+    d->codec = nullptr;
     d->chatDisabled = false;
     d->hasMessages = false;
     d->hasHighlightMessages = false;
-    d->client = NULL;
+    d->client = nullptr;
 
     setupUi(this);
 
@@ -1322,7 +1322,7 @@ void HubFrame::save(){
 }
 
 void HubFrame::load(){
-    int w_chat = WIGET(WI_CHAT_WIDTH), w_ulist = WIGET(WI_CHAT_USERLIST_WIDTH);
+    const int w_chat = WIGET(WI_CHAT_WIDTH), w_ulist = WIGET(WI_CHAT_USERLIST_WIDTH);
 
     QString ustate = WSGET(WS_CHAT_USERLIST_STATE);
 

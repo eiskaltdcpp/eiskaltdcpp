@@ -349,41 +349,41 @@ void AntiSpam::loadSettings() {
     while (!in.atEnd()) {
         QString line = in.readLine();
 
-        if (line.indexOf("|ANTISPAM_PHRASE|") != -1) {
-            line = line.right(line.length() - 17);
+        if (line.contains("|ANTISPAM_PHRASE|")) {
+            line.replace("|ANTISPAM_PHRASE|", "");
             line.replace("\n", "");
 
-            if (line == "")
+            if (line.isEmpty())
                 phrase = "5+5=?";
             else
                 phrase = line;
-    } else if (line.indexOf("|ANTISPAM_KEY|") != -1) {
-            line = line.right(line.length() - 14);
-            line.replace("\n", "");
-
-            if (line == "")
-        keys.append("10");
-        else {
-            QList<QString> words = line.split("|", QString::SkipEmptyParts);
-
-            if (!keys.empty())
-                keys.clear();
-
-            keys.append(words);
         }
-        } else if (line.indexOf("|ATTEMPTS|") != -1){
-            line = line.right(line.length() - 10);
+        else if (line.contains("|ANTISPAM_KEY|")) {
+            line.replace("|ANTISPAM_KEY|", "");
             line.replace("\n", "");
 
-            bool ok = false;
+            if (line.isEmpty()) {
+                keys.append("10");
+            }
+            else {
+                QList<QString> words = line.split("|", QString::SkipEmptyParts);
+                keys.clear();
+                keys.append(words);
+            }
+        }
+        else if (line.contains("|ATTEMPTS|")){
+            line.replace("|ATTEMPTS|", "");
+            line.replace("\n", "");
 
-            if (line == "")
+            if (line.isEmpty()) {
                 try_count = 0;
-            else
+            }
+            else {
+                bool ok = false;
                 try_count = line.toInt(&ok, 10);
-
-            if (!ok)
-                try_count = 0;
+                if (!ok)
+                    try_count = 0;
+            }
         }
     }
 

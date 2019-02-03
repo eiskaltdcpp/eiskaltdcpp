@@ -211,9 +211,9 @@ protected:
     virtual void showEvent(QShowEvent *);
     virtual void hideEvent(QHideEvent *);
 
-    virtual void sendChat(QString, bool, bool);
-    virtual void save();
-    virtual void load();
+    void sendChat(QString, bool, bool);
+    void save();
+    void load();
 
 private Q_SLOTS:
     void slotUsersUpdated();
@@ -298,7 +298,7 @@ private:
     virtual void on(ClientListener::NickTaken, Client*) noexcept;
     virtual void on(ClientListener::SearchFlood, Client*, const string&) noexcept;
 
-    Q_DECLARE_PRIVATE(HubFrame);
+    Q_DECLARE_PRIVATE(HubFrame)
 
     HubFramePrivate *d_ptr;
 };
