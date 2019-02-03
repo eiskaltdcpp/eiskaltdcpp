@@ -34,13 +34,14 @@ namespace dht
         public FastAlloc<Search>
     {
 
-        Search() : partial(false), stopping(false)
-        {
-        }
-
+        Search() = default;
         ~Search();
 
-        enum SearchType { TYPE_FILE = 1, TYPE_NODE = 3, TYPE_STOREFILE = 4 };   // standard types should match ADC protocol
+        enum class SearchType : uint8_t { // standard types should match ADC protocol
+            TYPE_FILE = 1,
+            TYPE_NODE = 3,
+            TYPE_STOREFILE = 4
+        };
 
         Node::Map possibleNodes;    // nodes where send search request soon to
         Node::Map triedNodes;       // nodes where search request has already been sent to
@@ -48,11 +49,11 @@ namespace dht
 
         string token;               // search identificator
         string term;                // search term (TTH/CID)
-        uint64_t lifeTime;          // time when this search has been started
-        int64_t filesize;           // file size
-        SearchType type;            // search type
-        bool partial;               // is this partial file search?
-        bool stopping;              // search is being stopped
+        uint64_t lifeTime = 0;      // time when this search has been started
+        int64_t filesize = 0;       // file size
+        SearchType type = SearchType::TYPE_FILE; // search type
+        bool partial = false;       // is this partial file search?
+        bool stopping = false;      // search is being stopped
 
         /** Processes this search request */
         void process();

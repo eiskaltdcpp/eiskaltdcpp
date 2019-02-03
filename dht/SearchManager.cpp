@@ -34,9 +34,14 @@ namespace dht
     {
         switch(type)
         {
-            case TYPE_NODE: IndexManager::getInstance()->setPublish(true); break;
-            case TYPE_STOREFILE: IndexManager::getInstance()->decPublishing(); break;
-            default: break;
+        case SearchType::TYPE_NODE:
+            IndexManager::getInstance()->setPublish(true);
+            break;
+        case SearchType::TYPE_STOREFILE:
+            IndexManager::getInstance()->decPublishing();
+            break;
+        default:
+            break;
         }
     }
 
@@ -71,7 +76,7 @@ namespace dht
             // send SCH command
             AdcCommand cmd(AdcCommand::CMD_SCH, AdcCommand::TYPE_UDP);
             cmd.addParam("TR", term);
-            cmd.addParam("TY", Util::toString(type));
+            cmd.addParam("TY", Util::toString(static_cast<unsigned int>(type)));
             cmd.addParam("TO", token);
 
             //node->setTimeout();
@@ -79,7 +84,8 @@ namespace dht
         }
     }
 
-    SearchManager::SearchManager(void) : lastSearchFile(0)
+    SearchManager::SearchManager(void)
+        : lastSearchFile(0)
     {
     }
 
@@ -96,7 +102,7 @@ namespace dht
             return;
 
         Search* s = new Search();
-        s->type = Search::TYPE_NODE;
+        s->type = Search::SearchType::TYPE_NODE;
         s->term = cid.toBase32();
         s->token = Util::toString(Util::rand());
 
@@ -136,7 +142,7 @@ namespace dht
         //}
 
         Search* s = new Search();
-        s->type = Search::TYPE_FILE;
+        s->type = Search::SearchType::TYPE_FILE;
         s->term = tth;
         s->token = token;
 
@@ -157,7 +163,7 @@ namespace dht
         }
 
         Search* s = new Search();
-        s->type = Search::TYPE_STOREFILE;
+        s->type = Search::SearchType::TYPE_STOREFILE;
         s->term = tth;
         s->filesize = size;
         s->partial = partial;
@@ -175,13 +181,13 @@ namespace dht
         s.lifeTime = GET_TICK();
         switch(s.type)
         {
-            case Search::TYPE_FILE:
+            case Search::SearchType::TYPE_FILE:
                 s.lifeTime += SEARCHFILE_LIFETIME;
                 break;
-            case Search::TYPE_NODE:
+            case Search::SearchType::TYPE_NODE:
                 s.lifeTime += SEARCHNODE_LIFETIME;
                 break;
-            case Search::TYPE_STOREFILE:
+            case Search::SearchType::TYPE_STOREFILE:
                 s.lifeTime += SEARCHSTOREFILE_LIFETIME;
                 break;
         }
@@ -228,9 +234,9 @@ namespace dht
 
         bool empty = true;
         unsigned int searchType = Util::toInt(type);
-        switch(searchType)
+        switch(static_cast<Search::SearchType>(searchType))
         {
-            case Search::TYPE_FILE:
+            case Search::SearchType::TYPE_FILE:
             {
                 // check file hash in our database
                 // if it's there, then select sources else do the same as node search
@@ -257,12 +263,19 @@ namespace dht
             {
                 // maximum nodes in response is based on search type
                 unsigned int count;
-                switch(searchType)
+                switch(static_cast<Search::SearchType>(searchType))
                 {
-                case Search::TYPE_FILE: count = 2; break;
-                case Search::TYPE_NODE: count = 10; break;
-                case Search::TYPE_STOREFILE: count = 4; break;
-                default: return; // unknown type
+                case Search::SearchType::TYPE_FILE:
+                    count = 2;
+                    break;
+                case Search::SearchType::TYPE_NODE:
+                    count = 10;
+                    break;
+                case Search::SearchType::TYPE_STOREFILE:
+                    count = 4;
+                    break;
+                default:
+                    return; // unknown type
                 }
 
                 // get nodes closest to requested ID
@@ -332,7 +345,7 @@ namespace dht
             xml.fromXML(nodes);
             xml.stepIn();
 
-            if(s->type == Search::TYPE_FILE) // this is response to TYPE_FILE, check sources first
+            if(s->type == Search::SearchType::TYPE_FILE) // this is response to TYPE_FILE, check sources first
             {
                 // extract file sources
                 while(xml.findChild("Source"))
@@ -476,7 +489,7 @@ namespace dht
                 // search timed out, stop it
                 searches.erase(it++);
 
-                if(s->type == Search::TYPE_STOREFILE)
+                if(s->type == Search::SearchType::TYPE_STOREFILE)
                 {
                     publishFile(s->respondedNodes, s->term, s->filesize, s->partial);
                 }
