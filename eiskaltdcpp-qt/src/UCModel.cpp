@@ -276,7 +276,7 @@ void UCModel::initDlgFromItem(UCDialog &dlg, const UCItem &item){
     QString comm        = item.comm;
     QString hub         = item.hub;
     QString to          = item.to;
-    int new_type;
+    int new_type        = 0;
 
     if (type == UserCommand::TYPE_SEPARATOR){
         dlg.radioButton_SEP->toggle();
@@ -319,15 +319,18 @@ void UCModel::initDlgFromItem(UCDialog &dlg, const UCItem &item){
     dlg.updateLines();
 }
 
-UCItem::UCItem(UCItem *parent) :
-    ctx(0), type(0), id(0), parentItem(parent)
+UCItem::UCItem(UCItem *parent)
+    : ctx(0)
+    , type(0)
+    , id(0)
+    , parentItem(parent)
 {
 }
 
 UCItem::~UCItem()
 {
-    if (!childItems.isEmpty())
-        qDeleteAll(childItems);
+    qDeleteAll(childItems);
+    childItems.clear();
 }
 
 void UCItem::appendChild(UCItem *item) {

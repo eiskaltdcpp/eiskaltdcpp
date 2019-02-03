@@ -355,6 +355,7 @@ QueuedUserItem::QueuedUserItem(const QList<QVariant> &data, QueuedUserItem *pare
 QueuedUserItem::~QueuedUserItem()
 {
     qDeleteAll(childItems);
+    childItems.clear();
 }
 
 void QueuedUserItem::appendChild(QueuedUserItem *item) {

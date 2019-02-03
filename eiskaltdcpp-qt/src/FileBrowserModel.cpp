@@ -701,8 +701,8 @@ void FileBrowserItem::operator=(const FileBrowserItem &item){
 
 FileBrowserItem::~FileBrowserItem()
 {
-    if (!childItems.isEmpty())
-        qDeleteAll(childItems);
+    qDeleteAll(childItems);
+    childItems.clear();
 }
 
 void FileBrowserItem::appendChild(FileBrowserItem *item) {

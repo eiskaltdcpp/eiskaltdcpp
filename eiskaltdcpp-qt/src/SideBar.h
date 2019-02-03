@@ -39,8 +39,8 @@ class SideBarItem
 {
 
 public:
-    SideBarItem(ArenaWidget *wgt = NULL, SideBarItem *parent = NULL): parentItem(parent), awgt(wgt) {}
-    virtual ~SideBarItem() { qDeleteAll(childItems); }
+    SideBarItem(ArenaWidget *wgt = NULL, SideBarItem *parent = NULL);
+    virtual ~SideBarItem();
 
     void appendChild(SideBarItem *i){
         if (!childItems.contains(i))

@@ -263,8 +263,8 @@ PublicHubItem::PublicHubItem(const QList<QVariant> &data, PublicHubItem *parent)
 
 PublicHubItem::~PublicHubItem()
 {
-    if (!childItems.isEmpty())
-        qDeleteAll(childItems);
+    qDeleteAll(childItems);
+    childItems.clear();
 }
 
 void PublicHubItem::appendChild(PublicHubItem *item) {

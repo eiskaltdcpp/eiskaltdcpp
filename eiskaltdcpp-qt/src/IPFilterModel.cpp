@@ -211,8 +211,8 @@ IPFilterModelItem::IPFilterModelItem(const QList<QVariant> &data, IPFilterModelI
 
 IPFilterModelItem::~IPFilterModelItem()
 {
-    if (!childItems.isEmpty())
-        qDeleteAll(childItems);
+    qDeleteAll(childItems);
+    childItems.clear();
 }
 
 void IPFilterModelItem::appendChild(IPFilterModelItem *item) {

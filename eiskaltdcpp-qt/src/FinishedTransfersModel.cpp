@@ -544,6 +544,7 @@ FinishedTransfersItem::FinishedTransfersItem(const QList<QVariant> &data, Finish
 FinishedTransfersItem::~FinishedTransfersItem()
 {
     qDeleteAll(childItems);
+    childItems.clear();
 }
 
 void FinishedTransfersItem::appendChild(FinishedTransfersItem *item) {

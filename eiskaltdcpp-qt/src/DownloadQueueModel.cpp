@@ -674,8 +674,8 @@ void DownloadQueueItem::operator=(const DownloadQueueItem &item){
 
 DownloadQueueItem::~DownloadQueueItem()
 {
-    if (!childItems.isEmpty())
-        qDeleteAll(childItems);
+    qDeleteAll(childItems);
+    childItems.clear();
 }
 
 void DownloadQueueItem::appendChild(DownloadQueueItem *item) {

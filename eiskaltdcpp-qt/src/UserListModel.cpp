@@ -320,7 +320,6 @@ void UserListModel::clear() {
     users.clear();
 
     qDeleteAll(rootItem->childItems);
-
     rootItem->childItems.clear();
 
     emit layoutChanged();
@@ -572,6 +571,7 @@ UserListItem::UserListItem(UserListItem *parent, dcpp::UserPtr _ptr, const Ident
 UserListItem::~UserListItem()
 {
     qDeleteAll(childItems);
+    childItems.clear();
 }
 
 void UserListItem::appendChild(UserListItem *item) {

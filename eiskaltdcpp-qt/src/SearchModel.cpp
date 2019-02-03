@@ -514,6 +514,7 @@ SearchItem::SearchItem(const QList<QVariant> &data, SearchItem *parent) :
 SearchItem::~SearchItem()
 {
     qDeleteAll(childItems);
+    childItems.clear();
 }
 
 void SearchItem::appendChild(SearchItem *item) {

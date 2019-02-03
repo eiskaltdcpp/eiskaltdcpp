@@ -209,6 +209,7 @@ CustomFontItem::CustomFontItem(const QList<QVariant> &data, CustomFontItem *pare
 CustomFontItem::~CustomFontItem()
 {
     qDeleteAll(childItems);
+    childItems.clear();
 }
 
 void CustomFontItem::appendChild(CustomFontItem *item) {

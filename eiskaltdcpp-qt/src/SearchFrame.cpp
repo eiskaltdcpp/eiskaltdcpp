@@ -225,6 +225,7 @@ SearchFrame::Menu::Menu(){
 
 SearchFrame::Menu::~Menu(){
     qDeleteAll(action_list);
+    action_list.clear();
 
     magnet_menu->deleteLater();
     menu->deleteLater();

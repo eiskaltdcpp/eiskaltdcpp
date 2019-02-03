@@ -369,8 +369,8 @@ ADLSItem::ADLSItem(const QList<QVariant> &data, ADLSItem *parent) :
 
 ADLSItem::~ADLSItem()
 {
-    if (!childItems.isEmpty())
-        qDeleteAll(childItems);
+    qDeleteAll(childItems);
+    childItems.clear();
 }
 
 void ADLSItem::appendChild(ADLSItem *item) {

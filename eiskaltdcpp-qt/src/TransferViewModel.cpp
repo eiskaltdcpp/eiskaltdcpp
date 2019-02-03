@@ -698,10 +698,10 @@ TransferViewItem::TransferViewItem(const QList<QVariant> &data, TransferViewItem
 
 TransferViewItem::~TransferViewItem()
 {
-    if (!childItems.isEmpty())
-        qDeleteAll(childItems);
+    qDeleteAll(childItems);
+    childItems.clear();
 
-    parentItem = NULL;
+    parentItem = nullptr;
 }
 
 void TransferViewItem::appendChild(TransferViewItem *item) {

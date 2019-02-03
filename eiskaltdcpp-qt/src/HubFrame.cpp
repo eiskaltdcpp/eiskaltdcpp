@@ -290,6 +290,8 @@ HubFrame::Menu::~Menu(){
 
     qDeleteAll(chat_actions);
     qDeleteAll(actions);
+    chat_actions.clear();
+    actions.clear();
 }
 
 HubFrame::Menu::Action HubFrame::Menu::execUserMenu(Client *client, const QString &cid = QString()){

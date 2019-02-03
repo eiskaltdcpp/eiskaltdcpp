@@ -138,31 +138,31 @@ QVariant ShortcutsModel::data(const QModelIndex & index, int role) const {
         return QVariant();
 
     switch (role){
-        case Qt::DisplayRole:
-        {
-            switch (index.column()) {
-                case 0: return item->title;
-                case 1: return item->shortcut;
-            }
+    case Qt::DisplayRole:
+    {
+        switch (index.column()) {
+        case 0: return item->title;
+        case 1: return item->shortcut;
+        }
 
-            break;
-        }
-        case Qt::DecorationRole:
-        {
-            break;
-        }
-        case Qt::ToolTipRole:
-        {
-            break;
-        }
-        case Qt::TextAlignmentRole:
-        {
-            break;
-        }
-        case Qt::FontRole:
-        {
-            break;
-        }
+        break;
+    }
+    case Qt::DecorationRole:
+    {
+        break;
+    }
+    case Qt::ToolTipRole:
+    {
+        break;
+    }
+    case Qt::TextAlignmentRole:
+    {
+        break;
+    }
+    case Qt::FontRole:
+    {
+        break;
+    }
     }
 
     return QVariant();
@@ -172,8 +172,8 @@ QVariant ShortcutsModel::data(const QModelIndex & index, int role) const {
 QVariant ShortcutsModel::headerData(int section, Qt::Orientation orientation, int role) const {
     if ((orientation == Qt::Horizontal) && (role == Qt::DisplayRole)) {
         switch (section) {
-            case 0: return tr("Action");
-            case 1: return tr("Hotkey");
+        case 0: return tr("Action");
+        case 1: return tr("Hotkey");
         }
     }
 
@@ -202,6 +202,7 @@ ShortcutItem::ShortcutItem(ShortcutItem *parent) : parentItem(parent)
 ShortcutItem::~ShortcutItem()
 {
     qDeleteAll(childItems);
+    childItems.clear();
 }
 
 void ShortcutItem::appendChild(ShortcutItem *item) {

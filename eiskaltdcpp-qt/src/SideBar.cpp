@@ -31,20 +31,32 @@
 
 #define CREATE_ROOT_EL(a, b, c, d, e) \
     do { \
-        SideBarItem *root = new SideBarItem(NULL, (a)); \
-        root->pixmap = WU->getPixmap(WulforUtil::b); \
-        root->title  = (c); \
-        (d).insert(ArenaWidget::e, root); \
-        (a)->appendChild(root); \
+    SideBarItem *root = new SideBarItem(NULL, (a)); \
+    root->pixmap = WU->getPixmap(WulforUtil::b); \
+    root->title  = (c); \
+    (d).insert(ArenaWidget::e, root); \
+    (a)->appendChild(root); \
     } while (0)
 
 #define RETRANSLATE_ROOT_EL(text, map, type_el) \
     do { \
-        if ((map).contains(ArenaWidget::type_el) && map[ArenaWidget::type_el]) \
-            map[ArenaWidget::type_el]->title = text; \
+    if ((map).contains(ArenaWidget::type_el) && map[ArenaWidget::type_el]) \
+    map[ArenaWidget::type_el]->title = text; \
     } while (0)
 
 static const QString &SIDEBAR_SHOW_CLOSEBUTTONS = "mainwindow/sidebar-with-close-buttons";
+
+SideBarItem::SideBarItem(ArenaWidget *wgt, SideBarItem *parent)
+    : parentItem(parent)
+    , awgt(wgt)
+{
+}
+
+SideBarItem::~SideBarItem()
+{
+    qDeleteAll(childItems);
+    childItems.clear();
+}
 
 SideBarModel::SideBarModel(QObject *parent) :
     QAbstractItemModel(parent)
@@ -98,47 +110,47 @@ QVariant SideBarModel::data(const QModelIndex &index, int role) const
         return QVariant();
 
     switch(role) {
-        case Qt::DecorationRole:
-        {
-            if (!item->getWidget())
-                return item->pixmap.scaled(18, 18);
-            else if (item->getWidget())
-                return item->getWidget()->getPixmap().scaled(18, 18);
-        }
-        case Qt::DisplayRole:
-        {
-            if (!item->getWidget())
-                return item->title;
-            else if (item->getWidget())
-                return item->getWidget()->getArenaShortTitle();
-        }
-        case Qt::TextAlignmentRole:
-        {
-            return static_cast<uint>(Qt::AlignLeft | Qt::AlignVCenter);
-        }
-        case Qt::ForegroundRole:
-        case Qt::BackgroundColorRole:
-        case Qt::ToolTipRole:
-        {
-            if (!item->getWidget())
-                return item->title;
-            else if (item->getWidget())
-                return WulforUtil::getInstance()->compactToolTipText(item->getWidget()->getArenaTitle(), 60, "\n");
-        }
-            break;
+    case Qt::DecorationRole:
+    {
+        if (!item->getWidget())
+            return item->pixmap.scaled(18, 18);
+        else if (item->getWidget())
+            return item->getWidget()->getPixmap().scaled(18, 18);
+    }
+    case Qt::DisplayRole:
+    {
+        if (!item->getWidget())
+            return item->title;
+        else if (item->getWidget())
+            return item->getWidget()->getArenaShortTitle();
+    }
+    case Qt::TextAlignmentRole:
+    {
+        return static_cast<uint>(Qt::AlignLeft | Qt::AlignVCenter);
+    }
+    case Qt::ForegroundRole:
+    case Qt::BackgroundColorRole:
+    case Qt::ToolTipRole:
+    {
+        if (!item->getWidget())
+            return item->title;
+        else if (item->getWidget())
+            return WulforUtil::getInstance()->compactToolTipText(item->getWidget()->getArenaTitle(), 60, "\n");
+    }
+        break;
     }
 
     return QVariant();
 }
 
 QVariant SideBarModel::headerData(int section, Qt::Orientation orientation,
-                               int role) const
+                                  int role) const
 {
     return (QList<QVariant>() << tr("Widgets"));
 }
 
 QModelIndex SideBarModel::index(int row, int column, const QModelIndex &parent)
-            const
+const
 {
     if (!hasIndex(row, column, parent))
         return QModelIndex();
@@ -202,16 +214,16 @@ void SideBarModel::insertWidget(ArenaWidget *awgt){
     case ArenaWidget::Search:
     case ArenaWidget::ShareBrowser:
     case ArenaWidget::CustomWidget:
-        {
-            SideBarItem *i = new SideBarItem(awgt, roots[awgt->role()]);
-            roots[awgt->role()]->appendChild(i);
+    {
+        SideBarItem *i = new SideBarItem(awgt, roots[awgt->role()]);
+        roots[awgt->role()]->appendChild(i);
 
-            items.insert(awgt, i);
+        items.insert(awgt, i);
 
-            ind = index(i->row(), 0, index(roots[awgt->role()]->row(), 0, QModelIndex()));
+        ind = index(i->row(), 0, index(roots[awgt->role()]->row(), 0, QModelIndex()));
 
-            break;
-        }
+        break;
+    }
     default:
         roots[awgt->role()]->setWdget(awgt);
         
@@ -238,38 +250,38 @@ void SideBarModel::removeWidget(ArenaWidget *awgt){
     case ArenaWidget::Search:
     case ArenaWidget::ShareBrowser:
     case ArenaWidget::CustomWidget:
+    {
+        SideBarItem *root  = roots[awgt->role()];
+        SideBarItem *child = items[awgt];
+
+        items.remove(awgt);
+
+        QModelIndex par_root = index(root->row(), 0, QModelIndex());
+
+        beginRemoveRows(par_root, child->row(), child->row());
         {
-            SideBarItem *root  = roots[awgt->role()];
-            SideBarItem *child = items[awgt];
+            root->childItems.removeAt(root->childItems.indexOf(child));
 
-            items.remove(awgt);
-
-            QModelIndex par_root = index(root->row(), 0, QModelIndex());
-
-            beginRemoveRows(par_root, child->row(), child->row());
-            {
-                root->childItems.removeAt(root->childItems.indexOf(child));
-
-                delete child;
-            }
-            endRemoveRows();
-
-            if (!historyAtTop(awgt))
-                historyPurge(awgt);
-
-            historyPop();
-
-            break;
+            delete child;
         }
+        endRemoveRows();
+
+        if (!historyAtTop(awgt))
+            historyPurge(awgt);
+
+        historyPop();
+
+        break;
+    }
     default:
-        {
-           SideBarItem *root  = roots[awgt->role()];
-           
-           if (root->getWidget() && root->getWidget()->toolButton())
-               root->getWidget()->toolButton()->setChecked(false);
-           
-           historyPop();
-        }
+    {
+        SideBarItem *root  = roots[awgt->role()];
+
+        if (root->getWidget() && root->getWidget()->toolButton())
+            root->getWidget()->toolButton()->setChecked(false);
+
+        historyPop();
+    }
     }
 }
 
@@ -384,20 +396,20 @@ void SideBarModel::historyPurge(ArenaWidget *awgt){
 }
 
 void SideBarModel::slotIndexClicked(const QModelIndex &i){
-   if (!(i.isValid() && i.internalPointer()))
-       return;
+    if (!(i.isValid() && i.internalPointer()))
+        return;
 
-   SideBarItem *item = reinterpret_cast<SideBarItem*>(i.internalPointer());
-   ArenaWidget *awgt = item->getWidget();
+    SideBarItem *item = reinterpret_cast<SideBarItem*>(i.internalPointer());
+    ArenaWidget *awgt = item->getWidget();
 
-   if (items.contains(awgt))
-       emit mapWidget(awgt);
-   else {
-       ArenaWidget::Role role = roots.key(item);
-       ArenaWidget *awgt = MainWindow::getInstance()->widgetForRole(role);
+    if (items.contains(awgt))
+        emit mapWidget(awgt);
+    else {
+        ArenaWidget::Role role = roots.key(item);
+        ArenaWidget *awgt = MainWindow::getInstance()->widgetForRole(role);
 
-       emit mapWidget(awgt);
-   }
+        emit mapWidget(awgt);
+    }
 }
 
 void SideBarModel::slotSettingsChanged(const QString &key, const QString &value){
@@ -421,7 +433,7 @@ void SideBarModel::slotSettingsChanged(const QString &key, const QString &value)
 }
 
 SideBarDelegate::SideBarDelegate(QObject *parent):
-        QStyledItemDelegate(parent)
+    QStyledItemDelegate(parent)
 {
 }
 
@@ -441,14 +453,14 @@ void SideBarDelegate::paint(QPainter *painter, const QStyleOptionViewItem &optio
 
     if (awgt){
         switch (awgt->role()){
-            case ArenaWidget::Hub:
-            case ArenaWidget::PrivateMessage:
-            case ArenaWidget::Search:
-            case ArenaWidget::ShareBrowser:
-            case ArenaWidget::CustomWidget:
-                showCloseBtn = true;
-            default:
-                break;
+        case ArenaWidget::Hub:
+        case ArenaWidget::PrivateMessage:
+        case ArenaWidget::Search:
+        case ArenaWidget::ShareBrowser:
+        case ArenaWidget::CustomWidget:
+            showCloseBtn = true;
+        default:
+            break;
         }
     }
 
@@ -501,7 +513,7 @@ SideBarView::SideBarView ( QWidget* parent ) : QTreeView(parent), _model(NULL) {
     connect(this, SIGNAL(customContextMenuRequested(QPoint)),   this,   SLOT(slotSidebarContextMenu()));
     connect(this, SIGNAL(clicked(QModelIndex)),                 this,   SLOT(slotSidebarHook(QModelIndex)));
     connect(this, SIGNAL(clicked(QModelIndex)),                 _model, SLOT(slotIndexClicked(QModelIndex)));
-   
+
     
     connect(GlobalTimer::getInstance(), SIGNAL(second()), _model, SLOT(redraw()));
     
@@ -617,56 +629,56 @@ void SideBarView::slotSideBarDblClicked(const QModelIndex &index){
 
     switch (_model->rootItemRole(item)){
     case ArenaWidget::Search:
-        {
-            ArenaWidgetFactory().create<SearchFrame>();
+    {
+        ArenaWidgetFactory().create<SearchFrame>();
 
-            break;
-        }
+        break;
+    }
     case ArenaWidget::Hub:
-        {
-            QuickConnect qc;
+    {
+        QuickConnect qc;
 
-            qc.exec();
+        qc.exec();
 
-            break;
-        }
-    //FIXME: Next code duplicates methods from MainWindow
+        break;
+    }
+        //FIXME: Next code duplicates methods from MainWindow
     case ArenaWidget::ShareBrowser:
-        {
-           QString file = QFileDialog::getOpenFileName ( this, tr ( "Choose file to open" ),
-                       QString::fromStdString ( Util::getPath ( Util::PATH_FILE_LISTS ) ),
-                       tr ( "Modern XML Filelists" ) + " (*.xml.bz2);;" +
-                       tr ( "Modern XML Filelists uncompressed" ) + " (*.xml);;" +
-                       tr ( "All files" ) + " (*)" );
+    {
+        QString file = QFileDialog::getOpenFileName ( this, tr ( "Choose file to open" ),
+                                                      QString::fromStdString ( Util::getPath ( Util::PATH_FILE_LISTS ) ),
+                                                      tr ( "Modern XML Filelists" ) + " (*.xml.bz2);;" +
+                                                      tr ( "Modern XML Filelists uncompressed" ) + " (*.xml);;" +
+                                                      tr ( "All files" ) + " (*)" );
 
-            if ( file.isEmpty() )
-                return;
+        if ( file.isEmpty() )
+            return;
 
-            file = QDir::toNativeSeparators ( file );
-            UserPtr user = dcpp::DirectoryListing::getUserFromFilename ( _tq ( file ) );
+        file = QDir::toNativeSeparators ( file );
+        UserPtr user = dcpp::DirectoryListing::getUserFromFilename ( _tq ( file ) );
 
-            if ( user )
-                ArenaWidgetFactory().create<ShareBrowser, UserPtr, QString, QString> ( user, file, "" );
-            
-            break;
-        }
+        if ( user )
+            ArenaWidgetFactory().create<ShareBrowser, UserPtr, QString, QString> ( user, file, "" );
+
+        break;
+    }
     case ArenaWidget::PrivateMessage:
-        {
-             QString f = QFileDialog::getOpenFileName(this, tr("Open log file"),_q(SETTING(LOG_DIRECTORY)), tr("Log files (*.log);;All files (*.*)"));
+    {
+        QString f = QFileDialog::getOpenFileName(this, tr("Open log file"),_q(SETTING(LOG_DIRECTORY)), tr("Log files (*.log);;All files (*.*)"));
 
-            if ( !f.isEmpty() ) {
-                f = QDir::toNativeSeparators ( f );
+        if ( !f.isEmpty() ) {
+            f = QDir::toNativeSeparators ( f );
 
-                if ( f.startsWith ( "/" ) )
-                    f = "file://" + f;
-                else
-                    f = "file:///" + f;
+            if ( f.startsWith ( "/" ) )
+                f = "file://" + f;
+            else
+                f = "file:///" + f;
 
-                QDesktopServices::openUrl ( QUrl(f) );
-            }
-            
-            break;
+            QDesktopServices::openUrl ( QUrl(f) );
         }
+
+        break;
+    }
     default:
         break;
     }
@@ -678,3 +690,4 @@ void SideBarView::slotWidgetActivated ( QModelIndex i ) {
     selectionModel()->clearSelection();
     selectionModel()->select(i, QItemSelectionModel::SelectCurrent|QItemSelectionModel::Rows);
 }
+

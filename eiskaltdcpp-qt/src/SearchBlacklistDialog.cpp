@@ -300,6 +300,7 @@ SearchBlackListItem::SearchBlackListItem(SearchBlackListItem *parent) : argument
 SearchBlackListItem::~SearchBlackListItem()
 {
     qDeleteAll(childItems);
+    childItems.clear();
 }
 
 void SearchBlackListItem::appendChild(SearchBlackListItem *item) {

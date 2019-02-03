@@ -295,8 +295,8 @@ FavoriteUserItem::FavoriteUserItem(const QList<QVariant> &data, FavoriteUserItem
 
 FavoriteUserItem::~FavoriteUserItem()
 {
-    if (!childItems.isEmpty())
-        qDeleteAll(childItems);
+    qDeleteAll(childItems);
+    childItems.clear();
 }
 
 void FavoriteUserItem::appendChild(FavoriteUserItem *item) {

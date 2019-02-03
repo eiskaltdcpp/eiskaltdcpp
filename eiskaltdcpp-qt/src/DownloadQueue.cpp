@@ -136,8 +136,9 @@ void DownloadQueue::Menu::clearMenu(QMenu *m){
 
     QList<QAction*> actions = m->actions();
 
-   for (const auto &a : actions)
+   for (const auto &a : actions) {
        m->removeAction(a);
+   }
 
    qDeleteAll(actions);
 }
