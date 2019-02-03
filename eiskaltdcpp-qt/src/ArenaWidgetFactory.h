@@ -15,13 +15,8 @@
 class ArenaWidgetFactory {
 public:
 
-    ArenaWidgetFactory(){
-
-    }
-
-    virtual ~ArenaWidgetFactory(){
-
-    }
+    ArenaWidgetFactory() = default;
+    virtual ~ArenaWidgetFactory() {}
 
     template <class T, typename ... Params>
     T *create(const Params& ... args) {

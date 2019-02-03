@@ -15,13 +15,27 @@
 HashManagerScript::HashManagerScript(QObject *parent) :
     QObject(parent)
 {
-    HM = dcpp::HashManager::getInstance();
-
+    HM(dcpp::HashManager::getInstance());
     HM->addListener(this);
 }
 
-HashManagerScript::~HashManagerScript(){
+HashManagerScript::HashManagerScript(const HashManagerScript &)
+{
+    HM = dcpp::HashManager::getInstance();
+    HM->addListener(this);
+}
+
+HashManagerScript::~HashManagerScript()
+{
     HM->removeListener(this);
+}
+
+HashManagerScript &HashManagerScript::operator=(const HashManagerScript &)
+{
+    HM(dcpp::HashManager::getInstance());
+    HM->addListener(this);
+
+    return *this;
 }
 
 void HashManagerScript::stopHashing(const QString &baseDir) {
@@ -70,3 +84,4 @@ bool HashManagerScript::isHashingPaused() const {
 void HashManagerScript::on(TTHDone, const dcpp::string &file, const dcpp::TTHValue &val) throw() {
     emit done(_q(file), _q(val.toBase32()));
 }
+

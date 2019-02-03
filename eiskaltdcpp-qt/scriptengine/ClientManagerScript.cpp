@@ -26,12 +26,27 @@ ClientManagerScript::ClientManagerScript(QObject *parent) :
     QObject(parent)
 {
     CM = dcpp::ClientManager::getInstance();
-
     CM->addListener(this);
 }
 
-ClientManagerScript::~ClientManagerScript(){
+ClientManagerScript::ClientManagerScript(const ClientManagerScript &)
+{
+    CM = dcpp::ClientManager::getInstance();
+    CM->addListener(this);
+}
+
+
+ClientManagerScript::~ClientManagerScript()
+{
     CM->removeListener(this);
+}
+
+ClientManagerScript &ClientManagerScript::operator=(const ClientManagerScript &)
+{
+    CM = dcpp::ClientManager::getInstance();
+    CM->addListener(this);
+
+    return *this;
 }
 
 
@@ -125,3 +140,4 @@ void ClientManagerScript::on(ClientUpdated, dcpp::Client *cl) throw(){
 void ClientManagerScript::on(ClientDisconnected, dcpp::Client *cl) throw(){
     emit disconnected(_q(cl->getHubUrl()));
 }
+

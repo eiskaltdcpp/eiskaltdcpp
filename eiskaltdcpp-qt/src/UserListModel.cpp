@@ -560,10 +560,17 @@ void UserListModel::repaintItem(const UserListItem *item){
     repaintData(createIndex(r, COLUMN_NICK, const_cast<UserListItem*>(item)), createIndex(r, COLUMN_EMAIL, const_cast<UserListItem*>(item)));
 }
 
-UserListItem::UserListItem() : ptr(NULL), parentItem(NULL) { }
+UserListItem::UserListItem()
+    : _isOp(false)
+    , _isFav(false)
+    , parentItem(nullptr)
+    , ptr(nullptr)
+{
+}
 
-UserListItem::UserListItem(UserListItem *parent, dcpp::UserPtr _ptr, const Identity& _id, const QString& _cid, bool _fav) :
-    parentItem(parent), ptr(_ptr)
+UserListItem::UserListItem(UserListItem *parent, dcpp::UserPtr _ptr, const Identity& _id, const QString& _cid, bool _fav)
+    : parentItem(parent)
+    , ptr(_ptr)
 {
     updateIdentity(_id, _cid, _fav);
 }
