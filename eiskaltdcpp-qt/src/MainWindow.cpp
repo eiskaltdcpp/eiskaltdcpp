@@ -2711,22 +2711,22 @@ void MainWindow::slotAboutClient() {
         QString("<br/>")+
         QString("&nbsp; 2010-2019 <a href=\"mailto:tehnick-8@yandex.ru\">Boris Pek</a><br/>")+
         QString("&nbsp;&nbsp;&nbsp; * ")+
-        tr("Debian/Ubuntu maintainer")+QString(", 2010-2018")+
+        tr("Debian/Ubuntu maintainer")+QString(", 2010-2019")+
         QString("<br/>")+
         QString("&nbsp;&nbsp;&nbsp; * ")+
-        tr("developer")+QString(", 2010-2018")+
+        tr("developer")+QString(", 2010-2019")+
         QString("<br/>")+
         QString("&nbsp;&nbsp;&nbsp; * ")+
-        tr("translations coordinator")+QString(", 2010-2018")+
+        tr("translations coordinator")+QString(", 2010-2019")+
         QString("<br/>")+
         QString("&nbsp;&nbsp;&nbsp; * ")+
-        tr("release manager")+QString(", 2010-2018")+
+        tr("release manager")+QString(", 2010-2019")+
         QString("<br/>")+
         QString("&nbsp;&nbsp;&nbsp; * ")+
-        tr("lead developer")+QString(", 2012-2018")+
+        tr("lead developer")+QString(", 2012-2019")+
         QString("<br/>")+
         QString("&nbsp;&nbsp;&nbsp; * ")+
-        tr("macOS maintainer")+QString(", 2018")+
+        tr("macOS maintainer")+QString(", 2018-2019")+
         QString("<br/>")+
         QString("<br/>")+
         QString("&nbsp; 2010-2015 <a href=\"mailto:pavelvat@gmail.com\">Pavel Vatagin</a><br/>")+
