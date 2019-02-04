@@ -80,7 +80,7 @@ public:
     /** */
     void remFromRules(const QString &exp, const eTableAction);
     /** */
-    void changeRuleDirection(const QString &exp, const eDIRECTION, const eTableAction);
+    void changeRuleDirection(QString exp, const eDIRECTION, const eTableAction);
     /** */
     void clearRules(const bool emit_signal = true);
 

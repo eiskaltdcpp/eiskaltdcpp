@@ -230,7 +230,7 @@ void IPFilter::remFromRules(const QString &exp, const eTableAction act) {
     }
 }
 
-void IPFilter::changeRuleDirection(const QString &exp, const eDIRECTION direction, const eTableAction act) {
+void IPFilter::changeRuleDirection(QString exp, const eDIRECTION direction, const eTableAction act) {
     if (exp.indexOf("/") > 0)
         exp = exp.left(exp.indexOf("/"));
 
