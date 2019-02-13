@@ -8,7 +8,7 @@ else (APPLE)
 endif (APPLE)
 
 set (PROJECT_NAME "EiskaltDC++")
-set (VERSION "2.3.0")
+set (VERSION "2.3.0-devel")
 set (SOVERSION "2.4" )
 
 include (CheckIncludeFile)
@@ -243,12 +243,15 @@ message (STATUS "Data directory: ${CLIENT_DATA_DIR}")
 if (REPLACE_VERSION)
     set (VERSION "${REPLACE_VERSION}")
 elseif (GIT_FOUND)
-    execute_process (COMMAND ${GIT_EXECUTABLE} describe --tags
-                     WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}
-                     OUTPUT_VARIABLE VERSION
-                     OUTPUT_STRIP_TRAILING_WHITESPACE)
-    string (REGEX REPLACE "^v" "" VERSION "${VERSION}")
+    if (EXISTS "${PROJECT_SOURCE_DIR}/.git/config")
+        execute_process (COMMAND ${GIT_EXECUTABLE} describe --tags
+                         WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}
+                         OUTPUT_VARIABLE VERSION
+                         OUTPUT_STRIP_TRAILING_WHITESPACE)
+        string (REGEX REPLACE "^v" "" VERSION "${VERSION}")
+    endif()
 endif (REPLACE_VERSION)
+
 string (REGEX REPLACE "^([0-9]+\\.[0-9]+\\.[0-9]+).*" "\\1" VERSION_BASE "${VERSION}")
 message (STATUS "${PROJECT_NAME} full version: ${VERSION}")
 message (STATUS "${PROJECT_NAME} base version: ${VERSION_BASE}")
