@@ -9,7 +9,10 @@
 
 #include "WulforSettings.h"
 #include "WulforUtil.h"
+
+#ifdef USE_ASPELL
 #include "SpellCheck.h"
+#endif
 
 #include "dcpp/stdinc.h"
 #include "dcpp/File.h"
@@ -433,9 +436,11 @@ void WulforSettings::loadTranslation(){
         dcpp::Util::setLang(lcName.toStdString());
 
         setStr(WS_APP_ASPELL_LANG, lcName);
+#ifdef USE_ASPELL
         if (SpellCheck *SC = SpellCheck::getInstance()) {
             SC->setLanguage(lcName);
         }
+#endif
     }
     else if (!appTranslationFile.isEmpty() && QFile::exists(appTranslationFile)){
         const QString lcName = (appTranslationFile.split("/").last()).split(".").first();
@@ -450,9 +455,11 @@ void WulforSettings::loadTranslation(){
         dcpp::Util::setLang(lcName.toStdString());
 
         setStr(WS_APP_ASPELL_LANG, lcName);
+#ifdef USE_ASPELL
         if (SpellCheck *SC = SpellCheck::getInstance()) {
             SC->setLanguage(lcName);
         }
+#endif
     }
     else {
         setStr(WS_TRANSLATION_FILE, "");
