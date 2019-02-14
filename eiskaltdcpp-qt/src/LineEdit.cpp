@@ -91,7 +91,7 @@ QSize LineEdit::sizeHint() const{
 
     int h = parentHeight;
     int w = QLineEdit::sizeHint().width();
-    QStyleOptionFrameV2 opt;
+    QStyleOptionFrame opt;
 
     initStyleOption(&opt);
     return (style()->sizeFromContents(QStyle::CT_LineEdit, &opt, QSize(w, h).expandedTo(QApplication::globalStrut()), this));

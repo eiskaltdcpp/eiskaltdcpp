@@ -746,7 +746,7 @@ void DownloadQueueDelegate::paint(QPainter *painter, const QStyleOptionViewItem 
         return;
     }
 
-    QStyleOptionProgressBarV2 progressBarOption;
+    QStyleOptionProgressBar progressBarOption;
     progressBarOption.state = QStyle::State_Enabled;
     progressBarOption.direction = QApplication::layoutDirection();
     progressBarOption.rect = option.rect;
