@@ -28,9 +28,9 @@ ShellCommandRunner::ShellCommandRunner(const QString &cmd_,
     : QThread(parent)
     , stop(false)
     , useArgList(true)
-    , m_exitCode(-1)
     , argList(argList_)
     , cmd(cmd_)
+    , m_exitCode(-1)
 {
 }
 
