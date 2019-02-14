@@ -51,8 +51,8 @@ Emoticons* Emoticons::get()
 }
 
 Emoticons::Emoticons()
+    : currPackName(WGETS("emoticons-pack"))
 {
-    currPackName = WGETS("emoticons-pack");
     create();
 }
 

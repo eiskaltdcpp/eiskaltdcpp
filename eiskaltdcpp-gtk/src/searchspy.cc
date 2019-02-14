@@ -31,16 +31,15 @@
 using namespace std;
 using namespace dcpp;
 
-SearchSpy::SearchSpy():
-    BookEntry(Entry::SEARCH_SPY, _("Search Spy"), "searchspy.ui")
+SearchSpy::SearchSpy()
+    : BookEntry(Entry::SEARCH_SPY, _("Search Spy"), "searchspy.ui")
+    , FrameSize((SearchType)WGETI("search-spy-frame"))
+    , Waiting((guint)WGETI("search-spy-waiting"))
+    , Top((guint)WGETI("search-spy-top"))
 {
 #if !GTK_CHECK_VERSION(3,0,0)
     gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("statusbar")),FALSE);
 #endif
-
-    FrameSize = (SearchType)WGETI("search-spy-frame");
-    Waiting = (guint)WGETI("search-spy-waiting");
-    Top = (guint)WGETI("search-spy-top");
 
     // Configure the dialog
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("ignoreTTHSearchCheckButton")), WGETB("spyframe-ignore-tth-searches"));

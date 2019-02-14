@@ -68,12 +68,10 @@ WulforManager *WulforManager::get()
 }
 
 WulforManager::WulforManager()
+    : guiCondValue(0)
+    , clientCondValue(0)
+    , abort(FALSE)
 {
-    abort = FALSE;
-
-    // Initialize sempahore variables
-    guiCondValue = 0;
-    clientCondValue = 0;
 #if !GLIB_CHECK_VERSION(2,32,0)
     guiCond = g_cond_new();
     clientCond = g_cond_new();
