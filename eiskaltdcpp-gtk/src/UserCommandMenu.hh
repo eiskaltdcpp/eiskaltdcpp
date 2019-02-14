@@ -59,9 +59,9 @@ class UserCommandMenu : public Entry
             std::string cid;
             std::string name;
             std::string path;
-            int64_t size;
             std::string tth;
             std::string type;
+            int64_t size = 0;
         };
         std::vector<UCParam> ucParams;
 };
