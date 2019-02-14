@@ -69,7 +69,6 @@ class TreeView
             if(!m)
                 m = gtk_tree_view_get_model(view);
             T value;
-            assert(gtk_tree_model_get_column_type(m, col(column)) != G_TYPE_STRING);
             gtk_tree_model_get(m, i, col(column), &value, -1);
             return value;
         }
