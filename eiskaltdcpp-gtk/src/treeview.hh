@@ -99,19 +99,21 @@ class TreeView
                     visible(true) {};
                 Column(const std::string &title, int id, GType gtype) :
                     title(title), id(id), gtype(gtype), pos(id) {};
-                std::string title;
-                int id;
-                GType gtype;
-                TreeView::columnType type;
-                int width;
-                int pos;
-                std::string linkedCol;
-                std::string linkedTextColor;
-                bool visible;
+
                 bool operator<(const Column &right) const
                 {
                     return pos < right.pos;
                 }
+
+                std::string title;
+                int id = 0;
+                GType gtype;
+                TreeView::columnType type = STRING;
+                int width = 50;
+                int pos = 0;
+                std::string linkedCol;
+                std::string linkedTextColor;
+                bool visible = true;
         };
 
         void addColumn_gui(Column& column);

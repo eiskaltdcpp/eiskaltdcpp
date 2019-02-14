@@ -63,8 +63,8 @@ class Notify
         static void start();
         static void stop();
 
-        Notify() {init();}
-        ~Notify() {finalize();}
+        Notify() { init(); }
+        ~Notify() { finalize(); }
 
         void showNotify(const std::string &head, const std::string &body, TypeNotify notify);
         void showNotify(const std::string &title, const std::string &head, const std::string &body,
@@ -72,17 +72,17 @@ class Notify
 
     private:
         static Notify *notify;
-        enum {x16, x22, x24, x32, x36, x48, x64, DEFAULT};
+        enum { x16, x22, x24, x32, x36, x48, x64, DEFAULT };
 
         void init();
         void finalize();
         void setCurrIconSize(const int size);
 
-        int icon_width;
-        int icon_height;
-        int currIconSize;
-        NotifyNotification *notification;
-        bool action;
+        int icon_width = 16;
+        int icon_height = 16;
+        int currIconSize = x16;
+        NotifyNotification *notification = nullptr;
+        bool action = false;
 
         //GUI callback functions
         static void onAction(NotifyNotification *notify, const char *action, gpointer data);

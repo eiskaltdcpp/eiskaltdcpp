@@ -38,7 +38,9 @@ EmoticonsDialog::EmoticonsDialog(GtkWidget *chat, GtkWidget *button, GtkWidget *
     Chat(chat),
     Button(button),
     Menu(menu),
-    dialog(NULL)
+    dialog(NULL),
+    icon_width(16),
+    icon_height(16)
 {
     g_object_ref_sink(Menu);
 }

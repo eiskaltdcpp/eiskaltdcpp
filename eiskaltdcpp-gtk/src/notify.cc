@@ -80,7 +80,7 @@ void Notify::init()
     , NULL);
 #endif
 #endif // USE_LIBNOTIFY
-    action = FALSE;
+    action = false;
 }
 
 void Notify::finalize()
@@ -149,7 +149,7 @@ void Notify::showNotify(const string &head, const string &body, TypeNotify notif
 #ifdef USE_LIBNOTIFY
                 notify_notification_clear_actions(notification);
 #endif // USE_LIBNOTIFY
-                action = FALSE;
+                action = false;
             }
 
             if (wsm->getInt("notify-download-finished-use"))
@@ -269,7 +269,7 @@ void Notify::showNotify(const string &title, const string &head, const string &b
 #ifdef USE_LIBNOTIFY
         notify_notification_clear_actions(notification);
 #endif // USE_LIBNOTIFY
-        action = FALSE;
+        action = false;
     }
 
 #ifdef USE_LIBNOTIFY

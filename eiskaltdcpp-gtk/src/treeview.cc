@@ -27,11 +27,13 @@
 using namespace std;
 
 TreeView::TreeView()
+    : view(nullptr)
+    , padding(false)
+    , count(0)
+    , visibleColumns(0)
+    , menu(nullptr)
+    , gtypes(nullptr)
 {
-    view = NULL;
-    count = 0;
-    padding = false;
-    gtypes = NULL;
 }
 
 TreeView::~TreeView()
