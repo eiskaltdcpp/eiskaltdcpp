@@ -772,6 +772,7 @@ Value::asUInt() const
 {
    switch ( type_ )
    {
+   case stringValue:
 #if defined(USE_BOOST_LEXICAL_CAST)
       return UInt(boost::lexical_cast<unsigned long>(value_.string_));
 #else
