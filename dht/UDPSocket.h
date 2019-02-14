@@ -65,7 +65,7 @@ namespace dht
         void disconnect() throw();
 
         /** Starts listening to UDP socket */
-        void listen() throw(SocketException);
+        void listen();
 
         /** Returns port used to listening to UDP socket */
         uint16_t getPort() const { return port; }
@@ -104,8 +104,8 @@ namespace dht
         /** Thread for receiving UDP packets */
         int run();
 
-        void checkIncoming() throw(SocketException);
-        void checkOutgoing(uint64_t& timer) throw(SocketException);
+        void checkIncoming();
+        void checkOutgoing(uint64_t& timer);
 
         void compressPacket(const string& data, uint8_t* destBuf, unsigned long& destSize);
         void encryptPacket(const CID& targetCID, const CID& udpKey, uint8_t* destBuf, unsigned long& destSize);

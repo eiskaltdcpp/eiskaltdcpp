@@ -160,7 +160,7 @@ bool UserConnectionScriptInstance::onUserConnectionMessageOut(UserConnection* aC
 }
 #endif
 
-void UserConnection::connect(const string& aServer, uint16_t aPort, uint16_t localPort, BufferedSocket::NatRoles natRole) throw(SocketException, ThreadException) {
+void UserConnection::connect(const string& aServer, uint16_t aPort, uint16_t localPort, BufferedSocket::NatRoles natRole) {
     dcassert(!socket);
 
     setPort(aPort);
@@ -169,7 +169,7 @@ void UserConnection::connect(const string& aServer, uint16_t aPort, uint16_t loc
     socket->connect(aServer, aPort, localPort, natRole, isSet(FLAG_SECURE), BOOLSETTING(ALLOW_UNTRUSTED_CLIENTS), true);
 }
 
-void UserConnection::accept(const Socket& aServer) throw(SocketException, ThreadException) {
+void UserConnection::accept(const Socket& aServer) {
     dcassert(!socket);
     socket = BufferedSocket::getSocket(0);
     socket->addListener(this);

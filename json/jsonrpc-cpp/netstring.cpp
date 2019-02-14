@@ -46,7 +46,7 @@ namespace netstring
     return ret;
   }
 
-  std::string decode(const std::string& str) throw(netstring::NetstringException) 
+  std::string decode(const std::string& str)
   {
     unsigned long len = 0;
     size_t index = 0; /* position of ":" */
