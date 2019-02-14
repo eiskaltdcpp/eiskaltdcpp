@@ -26,8 +26,6 @@
 #include <dcpp/CID.h>
 #include <dcpp/User.h>
 
-#define C_EMPTY(x) ((x) == NULL || (x)[0] == '\0')
-
 class WulforUtil
 {
     public:

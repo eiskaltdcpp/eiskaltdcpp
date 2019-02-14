@@ -427,7 +427,7 @@ void PrivateMessage::applyTags_gui(const string &line)
     string tagName;
     bool start = FALSE;
 
-    for(;;)
+    while(true)
     {
         do {
             gunichar ch = gtk_text_iter_get_char(&start_iter);
@@ -435,7 +435,8 @@ void PrivateMessage::applyTags_gui(const string &line)
             if (!g_unichar_isspace(ch))
                 break;
 
-        } while (gtk_text_iter_forward_char(&start_iter));
+        }
+        while (gtk_text_iter_forward_char(&start_iter));
 
         if(!start)
         {
@@ -460,7 +461,10 @@ void PrivateMessage::applyTags_gui(const string &line)
         GCallback callback = NULL;
         gchar *temp = gtk_text_iter_get_text(&tag_start_iter, &tag_end_iter);
 
-        if (!C_EMPTY(temp))
+        if (!temp)
+            continue;
+
+        if (temp[0] != '\0')
         {
             tagName = temp;
 

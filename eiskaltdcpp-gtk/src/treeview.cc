@@ -393,11 +393,14 @@ int TreeView::col(const string &title)
 
 gboolean TreeView::popupMenu_gui(GtkWidget *widget, GdkEventButton *event, gpointer data)
 {
+    if (!event)
+        return false;
+
     TreeView *tv = (TreeView*)data;
 
     if (event->button == 3)
     {
-        gtk_menu_popup(tv->menu, NULL, NULL, NULL, NULL, (event != NULL) ? event->button : 0, gdk_event_get_time((GdkEvent*)event));
+        gtk_menu_popup(tv->menu, NULL, NULL, NULL, NULL, event->button, gdk_event_get_time((GdkEvent*)event));
         gtk_widget_show_all(GTK_WIDGET(tv->menu));
         return true;
     }
