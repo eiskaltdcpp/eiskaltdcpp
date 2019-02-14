@@ -24,14 +24,6 @@
 
 #define JSON_ASSERT_UNREACHABLE assert( false )
 
-#if (defined(__GNUC__) && !defined(__clang__)) && (__GNUC__ == 4 && __GNUC_MINOR__ < 7)
-#include <boost/lexical_cast.hpp>
-#define USE_BOOST_LEXICAL_CAST 1
-#elif defined(__clang__) && (__clang_major__ == 3 && __clang_minor__ < 2)
-#include <boost/lexical_cast.hpp>
-#define USE_BOOST_LEXICAL_CAST 1
-#endif
-
 namespace Json {
 
 const Value Value::null;
@@ -742,11 +734,7 @@ Value::asInt() const
    switch ( type_ )
    {
    case stringValue:
-#if defined(USE_BOOST_LEXICAL_CAST)
-      return Int(boost::lexical_cast<int>(value_.string_));
-#else
       return Int(std::stoi(value_.string_));
-#endif
    case intValue:
       JSON_ASSERT_MESSAGE(isInt(), "LargestInt out of Int range");
       return Int(value_.int_);
@@ -773,11 +761,7 @@ Value::asUInt() const
    switch ( type_ )
    {
    case stringValue:
-#if defined(USE_BOOST_LEXICAL_CAST)
-      return UInt(boost::lexical_cast<unsigned long>(value_.string_));
-#else
       return UInt(std::stoul(value_.string_));
-#endif
    case intValue:
       JSON_ASSERT_MESSAGE(isUInt(), "LargestInt out of UInt range");
       return UInt(value_.int_);
@@ -806,11 +790,7 @@ Value::asInt64() const
    switch ( type_ )
    {
    case stringValue:
-#if defined(USE_BOOST_LEXICAL_CAST)
-      return Int64(boost::lexical_cast<long long>(value_.string_));
-#else
       return Int64(std::stoll(value_.string_));
-#endif
    case intValue:
       return Int64(value_.int_);
    case uintValue:
@@ -835,12 +815,8 @@ Value::asUInt64() const
 {
    switch ( type_ )
    {
-    case stringValue:
-#if defined(USE_BOOST_LEXICAL_CAST)
-      return UInt64(boost::lexical_cast<unsigned long long>(value_.string_));
-#else
+   case stringValue:
       return UInt64(std::stoull(value_.string_));
-#endif
    case intValue:
       JSON_ASSERT_MESSAGE(isUInt64(), "LargestInt out of UInt64 range");
       return UInt64(value_.int_);
@@ -889,11 +865,7 @@ Value::asDouble() const
    switch ( type_ )
    {
     case stringValue:
-#if defined(USE_BOOST_LEXICAL_CAST)
-      return boost::lexical_cast<double>(value_.string_);
-#else
       return std::stod(value_.string_);
-#endif
    case intValue:
       return static_cast<double>( value_.int_ );
    case uintValue:
@@ -920,11 +892,7 @@ Value::asFloat() const
    switch ( type_ )
    {
    case stringValue:
-#if defined(USE_BOOST_LEXICAL_CAST)
-      return boost::lexical_cast<float>(value_.string_);
-#else
       return std::stof(value_.string_);
-#endif
    case intValue:
       return static_cast<float>( value_.int_ );
    case uintValue:
