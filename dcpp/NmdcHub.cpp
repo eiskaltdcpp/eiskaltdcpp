@@ -254,7 +254,6 @@ void NmdcHub::onLine(const string& aLine) noexcept {
             //fire(ClientListener::SearchFlood(), this, str(F_("NLO Try generate DDOS on %1%, do nothing") % seeker));
             return;
         }
-        bool passive = (seeker.compare(0, 4, "Hub:") == 0);
         //printf("$Search->%s\n", seeker.c_str()); fflush(stdout);
         // Filter own searches
         if(isActive()) {
