@@ -32,7 +32,7 @@ struct DownloadToDirHistory {
     }
 
     static void put(QStringList &list) {
-        uint maxItemsNumber = WIGET ( "download-directory-history-items-number", 5 );
+        const int maxItemsNumber = WIGET ( "download-directory-history-items-number", 5 );
 
         while ( list.count() > maxItemsNumber )
             list.removeLast();

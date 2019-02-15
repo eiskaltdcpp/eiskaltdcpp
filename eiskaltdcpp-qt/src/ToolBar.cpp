@@ -281,13 +281,11 @@ void ToolBar::slotShorcuts(){
         tabbar->setCurrentIndex(index);
 }
 
-ArenaWidget *ToolBar::findWidgetForIndex(int index){
+ArenaWidget *ToolBar::findWidgetForIndex(const int index){
     if (index < 0)
         return NULL;
 
-    auto it = map.begin();
-
-    for (; it != map.end(); ++it){
+    for (auto it = map.begin(); it != map.end(); ++it){
         if (it.value() == index)
             return const_cast<ArenaWidget*>(it.key());
     }
@@ -333,13 +331,11 @@ void ToolBar::prevTab(){
         tabbar->setCurrentIndex(tabbar->count()-1);
 }
 
-void ToolBar::rebuildIndexes(int removed){
+void ToolBar::rebuildIndexes(const int removed){
     if (removed < 0)
         return;
 
-    auto it = map.begin();
-
-    for (; it != map.end(); ++it){
+    for (auto it = map.begin(); it != map.end(); ++it){
         if (it.value() > removed)
             map[it.key()] = it.value()-1;
     }

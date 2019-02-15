@@ -54,7 +54,7 @@ public:
 
     QList<PublicHubItem*> childItems;
 
-    void updateColumn(unsigned, QVariant);
+    void updateColumn(const int, const QVariant &);
 
     dcpp::HubEntry *entry;
 

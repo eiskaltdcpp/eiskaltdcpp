@@ -35,7 +35,7 @@ public:
 
     QList<FavoriteUserItem*> childItems;
 
-    void updateColumn(unsigned, QVariant);
+    void updateColumn(const int, const QVariant &);
     QString cid;
 
 private:

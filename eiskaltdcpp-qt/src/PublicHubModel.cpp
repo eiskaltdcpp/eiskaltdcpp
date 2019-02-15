@@ -298,7 +298,7 @@ int PublicHubItem::row() const {
     return 0;
 }
 
-void PublicHubItem::updateColumn(unsigned column, QVariant var){
+void PublicHubItem::updateColumn(const int column, const QVariant &var){
     if (column > (itemData.size()-1))
         return;
 

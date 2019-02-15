@@ -25,7 +25,7 @@ class ToolBar : public QToolBar
 {
     Q_OBJECT
 
-    typedef QMap<ArenaWidget*, unsigned> WidgetMap;
+    typedef QMap<ArenaWidget*, int> WidgetMap;
 
 public:
     ToolBar(QWidget* = NULL);
@@ -61,8 +61,8 @@ private Q_SLOTS:
 
 
 private:
-    ArenaWidget *findWidgetForIndex(int);
-    void rebuildIndexes(int);
+    ArenaWidget *findWidgetForIndex(const int);
+    void rebuildIndexes(const int);
 
     QTabBar *tabbar;
     QList<QShortcut*> shortcuts;

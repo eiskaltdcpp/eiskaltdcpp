@@ -330,7 +330,7 @@ int FavoriteUserItem::row() const {
     return 0;
 }
 
-void FavoriteUserItem::updateColumn(unsigned column, QVariant var){
+void FavoriteUserItem::updateColumn(const int column, const QVariant &var){
     if (column > (itemData.size()-1))
         return;
 

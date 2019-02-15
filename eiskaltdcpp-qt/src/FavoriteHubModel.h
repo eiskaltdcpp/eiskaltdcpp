@@ -39,7 +39,7 @@ public:
 
     QList<FavoriteHubItem*> childItems;
 
-    void updateColumn(unsigned, QVariant);
+    void updateColumn(const int, const QVariant &);
 
 private:
     QList<QVariant> itemData;

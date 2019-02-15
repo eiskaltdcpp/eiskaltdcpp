@@ -993,9 +993,9 @@ void SearchFrame::slotStartSearch(){
 
         lineEdit_SEARCHSTR->setMenu(m);
 
-        uint maxItemsNumber = WIGET("search-history-items-number", 10);
+        const int maxItemsNumber = WIGET("search-history-items-number", 10);
         while (d->searchHistory.count() > maxItemsNumber)
-                d->searchHistory.removeLast();
+            d->searchHistory.removeLast();
 
         QString hist = d->searchHistory.join("\n");
         WSSET(WS_SEARCH_HISTORY, hist.toUtf8().toBase64());

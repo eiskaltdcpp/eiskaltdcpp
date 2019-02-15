@@ -37,7 +37,7 @@ public:
 
     QList<ADLSItem*> childItems;
 
-    void updateColumn(unsigned, QVariant);
+    void updateColumn(int, const QVariant &);
 
 private:
     QList<QVariant> itemData;

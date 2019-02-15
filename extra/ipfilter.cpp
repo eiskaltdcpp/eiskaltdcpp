@@ -344,7 +344,7 @@ void ipfilter::step(uint32_t ip, eTableAction act, bool down){
 
     int index = -1;
 
-    for (int itt = 0; itt < rules.size(); ++itt) {
+    for (size_t itt = 0; itt < rules.size(); ++itt) {
         if (rules.at(itt) == el) {
             index = itt;
             break;
@@ -452,7 +452,7 @@ void ipfilter::saveList(){
     File f(file, File::WRITE, File::CREATE | File::TRUNCATE);
     f.write(signature+"\n");
 
-    for (int i = 0; i < rules.size(); ++i) {
+    for (size_t i = 0; i < rules.size(); ++i) {
         string prefix;
         IPFilterElem *el = rules.at(i);
 

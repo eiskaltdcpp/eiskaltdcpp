@@ -60,7 +60,7 @@ void SettingsHistory::ok(){
     { // search-history-items-number
     QString     raw  = QByteArray::fromBase64(WSGET(WS_SEARCH_HISTORY).toUtf8());
     QStringList searchHistory = raw.replace("\r","").split('\n', QString::SkipEmptyParts);
-    uint maxItemsNumber = WIGET("search-history-items-number", 10);
+    int maxItemsNumber = WIGET("search-history-items-number", 10);
     
     if (spinBox_SearchHistory->value() != maxItemsNumber){
         maxItemsNumber = spinBox_SearchHistory->value();

@@ -404,7 +404,7 @@ int ADLSItem::row() const {
     return 0;
 }
 
-void ADLSItem::updateColumn(unsigned column, QVariant var){
+void ADLSItem::updateColumn(const int column, const QVariant &var){
     if (column > (itemData.size()-1))
         return;
 

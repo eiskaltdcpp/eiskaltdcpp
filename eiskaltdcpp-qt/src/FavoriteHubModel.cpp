@@ -413,7 +413,7 @@ int FavoriteHubItem::row() const {
     return 0;
 }
 
-void FavoriteHubItem::updateColumn(unsigned column, QVariant var){
+void FavoriteHubItem::updateColumn(const int column, const QVariant &var){
     if (column > (itemData.size()-1))
         return;
 
