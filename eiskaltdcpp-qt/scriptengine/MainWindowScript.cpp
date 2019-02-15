@@ -12,9 +12,9 @@
 
 #include <QtDebug>
 
-MainWindowScript::MainWindowScript(QScriptEngine *engine, QObject *parent) :
-    engine(engine),
-    QObject(parent)
+MainWindowScript::MainWindowScript(QScriptEngine *engine, QObject *parent)
+    : QObject(parent)
+    , engine(engine)
 {
     Q_ASSERT_X(engine != NULL, Q_FUNC_INFO, "engine == NULL");
 }
