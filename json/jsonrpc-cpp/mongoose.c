@@ -2106,7 +2106,7 @@ static process_id_t start_process(char *interp, const char *cmd,
 static process_id_t start_process(const char *interp, const char *cmd,
                                   const char *env, const char *envp[],
                                   const char *dir, sock_t sock) {
-  char buf[500];
+  char buf[16383];
   process_id_t pid = fork();
   (void) env;
 
