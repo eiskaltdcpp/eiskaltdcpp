@@ -135,41 +135,47 @@ Keys for cmake
 :libeiskaltdcpp:
 ----------------
 -DLUA_SCRIPT=ON/OFF (default: ON)
-    lua scripts suppo
+    Support of Lua scripts
 -DPERL_REGEX=ON/OFF (default: ON)
-    use pcre lib for regex in perl style (now it uses only in ADL Search)
+    Use pcre library for regexps in perl style (now it is used only in ADL Search)
 -DUSE_IDNA=ON/OFF (default: ON)
     Use libidn for rfc3490 (resolving Internationalized Domain Names)
 -DWITH_DHT=ON/OFF (default: ON)
     DHT support (http://www.adcportal.com/wiki/StrongDC++_DHT)
 -DLINK=STATIC/SHARED (default: SHARED)
-    make static or shared library
+    Build static or shared library.
     Option available only on Unix-like systems.
     On MS Windows and macOS platforms it is forcibly set to STATIC.
 -DLOCAL_BOOST=ON/OFF (default: OFF)
-    use local boost headers
-    Script downloads archive with only necessary headers:
+    Use local boost headers.
+    This script downloads archive with only necessary boost headers from:
     https://sourceforge.net/projects/eiskaltdcpp/files/Other/boost.tar.gz
-    (This archive have less size than official boost archive)
-    If boost.tar.gz already available in source tree nothing happens.
+    (This archive have much less size than official boost archive.)
+    If boost.tar.gz already available in source tree repeated download will
+    not happen.
 ----------------
 :eiskaltdcpp-qt:
 ----------------
 -DUSE_QT=ON/OFF (default: OFF)
-    build EiskaltDC++ with Qt interface using Qt 4.x libraries
+    Build EiskaltDC++ with Qt interface using Qt 4.x libraries
 -DUSE_QT5=ON/OFF (default: ON)
-    build EiskaltDC++ with Qt interface using Qt 5.x libraries
+    Build EiskaltDC++ with Qt interface using Qt 5.x libraries
 -DUSE_ASPELL=ON/OFF (default: ON)
-    use or not use aspell
+    Use or not use aspell
+-DUSE_PROGRESS_BAR=ON/OFF (default: ON)
+    Use progress bars or widgets with plain text for indication of progress.
+    This option is especially important for macOS where progress bars do not
+    allow to show text on them so a lot of information is hidden from user.
 -DLOCAL_ASPELL_DATA=ON/OFF (default: OFF)
-    use local aspell data files
+    Use local aspell data files
     Script downloads archive with aspell data files:
     https://sourceforge.net/projects/eiskaltdcpp/files/Other/aspell.tar.gz
-    If aspell.tar.gz already available in source tree nothing happens.
+    If aspell.tar.gz already available in source tree repeated download will
+    not happen.
 -DFREE_SPACE_BAR_C=ON/OFF (default: ON)
-    free space bar in status panel
+    Show free space indicator in status panel
 -DDBUS_NOTIFY=ON/OFF (default: ON)
-    use or not use QtDBus module
+    Use or not use QtDBus module
 -DUSE_JS=ON/OFF (default: OFF)
     Enable/disable QtScript basic support
 -DUSE_QT_QML=ON/OFF (default: OFF)
@@ -180,16 +186,18 @@ Keys for cmake
 :eiskaltdcpp-gtk:
 -----------------
 -DUSE_GTK=ON/OFF (default: OFF)
-    build EiskaltDC++ with Gtk interface using GTK+ 2.x library
+    Build EiskaltDC++ with Gtk interface using GTK+ 2.x library
     (This UI is based on FreeDC++ and LinuxDC++.)
 -DUSE_GTK3=ON/OFF (default: OFF)
-    build EiskaltDC++ with GTK+ interface using GTK+ 3.x library
+    Build EiskaltDC++ with GTK+ interface using GTK+ 3.x library
 -DUSE_LIBGNOME2=ON/OFF (default: OFF)
     Enable/disable sound notifications support over libgnome2 in EiskaltDC++ Gtk
 -DUSE_LIBCANBERRA=ON/OFF (default: OFF)
     Enable/disable sound notifications support over libcanberra in EiskaltDC++ Gtk
 -DUSE_LIBNOTIFY=ON/OFF (default: ON)
     Enable/disable popup notifications support in EiskaltDC++ Gtk
+-DFREE_SPACE_BAR_C=ON/OFF (default: ON)
+    Show free space indicator in status panel
 --------------------
 :eiskaltdcpp-daemon:
 --------------------
@@ -207,9 +215,9 @@ Keys for cmake
 :eiskaltdcpp-cli:
 ----------------
 -DUSE_CLI_XMLRPC=ON/OFF (default: OFF)
-    use command line interface to control daemon via XMLRPC
+    Use command line interface to control daemon via XMLRPC
 -DUSE_CLI_JSONRPC=ON/OFF (default: OFF)
-    use command line interface to control daemon via JSONRPC
+    Use command line interface to control daemon via JSONRPC
 --------
 :common:
 --------
@@ -226,19 +234,22 @@ Keys for cmake
 -DWITH_SOUNDS=ON/OFF (default: ON)
     If ON install sounds/
 -Dlinguas:STRING="needed translations, separator is whitespace" (default: *)
-    examples:
+    Examples:
     -Dlinguas="en ru" - install ru and en translations
     -Dlingaus="*"     - install all translations
     -Dlinguas=""      - don't install any translation
 -DFORCE_XDG=ON/OFF (default: ON)
-    use or not use $XDG_CONFIG_HOME and $XDG_CONFIG_DOWNLOADS variables
-    see http://standards.freedesktop.org/basedir-spec/latest/ar01s03.html
--DCMAKE_INSTALL_PREFIX=<prefix for install> (default: /usr/local)
-    .
+    Use or not use $XDG_CONFIG_HOME and $XDG_CONFIG_DOWNLOADS variables.
+    See http://standards.freedesktop.org/basedir-spec/latest/ar01s03.html
+-DCMAKE_INSTALL_PREFIX=<common prefix> (default: /usr/local)
+    common prefix.
+    In case of using of `make install DESTDIR=<path>` all will bre installed to:
+    <path>/<common prefix>
 -DLIBDIR=<lib prefix> (default: lib)
-    install lib to <prefix for install>/<lib prefix>
-    examples:
-    -DLIBDIR=lib64 - install lib to <prefix for install>/lib64
+    Installation path for libraries (subdirectory).
+    Libraries will be installed to: <common prefix>/<lib prefix>
+    Examples:
+    -DLIBDIR=lib64 - install lib to <common prefix>/lib64
 -DLIB_INSTALL_DIR=<lib prefix> (default: lib)
     see -DLIBDIR
 -DINSTALL_RUNTIME_PATH=ON/OFF (default: OFF)
@@ -248,11 +259,11 @@ Keys for cmake
 -DWITH_DEV_FILES=ON/OFF (default: OFF)
     If ON install development files (headers for libeiskaltdcpp)
     see also -DEISKALTDCPP_INCLUDE_DIR
--DEISKALTDCPP_INCLUDE_DIR=<dir> (default: <prefix for install>/include/eiskaltdcpp)
+-DEISKALTDCPP_INCLUDE_DIR=<dir> (default: <common prefix>/include/eiskaltdcpp)
     install development files (headers for libeiskaltdcpp) to <dir>
--DDESKTOP_ENTRY_PATH=<prefix for install> (default: /usr/local/share/applications/)
+-DDESKTOP_ENTRY_PATH=<common prefix> (default: /usr/local/share/applications/)
     path to directory with system *.desktop files
--DPIXMAPS_ENTRY_PATH=<prefix for install> (default: /usr/local/share/pixmaps/)
+-DPIXMAPS_ENTRY_PATH=<common prefix> (default: /usr/local/share/pixmaps/)
     path to directory with pixmaps of applications for system *.desktop files
 -DDO_NOT_USE_MUTEX=ON/OFF (default: OFF)
     Do not use mutex. Until Haiku and WINE do not support mutexes, this option
