@@ -1,6 +1,10 @@
 The most important changes:
 
-*** dcpp ***
+*** common ***
+* Change structure of sources tree.
+* Remove embedded libraries where it is possible.
+
+*** libeiskaltdcpp ***
 * Rewrite code from Boost to C++14.
 * Add IPv6 support.
 * Improve Lua support.
