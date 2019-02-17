@@ -141,7 +141,7 @@ private:
             bool test = class_addMethod((objc_class*)delClass,
                                         sel_registerName("applicationShouldHandleReopen:hasVisibleWindows:"),
                                         (IMP)dockClickHandler,"B@:");
-            if (!test){
+            if (!test) {
                 // failed to register handler...
             }
         }
