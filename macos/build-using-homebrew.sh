@@ -3,7 +3,7 @@
 # Authors: Boris Pek
 # License: Public Domain
 # Created: 2018-08-21
-# Updated: 2018-12-19
+# Updated: 2019-02-17
 # Version: N/A
 #
 # Description: script for building of app bundles for macOS
@@ -29,6 +29,7 @@ BUILD_OPTIONS="-DCMAKE_BUILD_TYPE=Release \
                -DUSE_QT_SQLITE=ON \
                -DUSE_MINIUPNP=ON \
                -DUSE_ASPELL=ON \
+               -DUSE_PROGRESS_BARS=OFF \
                -DNO_UI_DAEMON=OFF \
                -DJSONRPC_DAEMON=OFF \
                -DPERL_REGEX=ON \
