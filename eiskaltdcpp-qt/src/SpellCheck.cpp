@@ -95,8 +95,8 @@ void SpellCheck::suggestions(const QString &word, QStringList &list) {
 
     AspellStringEnumeration *elements = aspell_word_list_elements(suggestions);
 
-    const char * sugg;
-    while (sugg = aspell_string_enumeration_next(elements)) {
+    const char *sugg = aspell_string_enumeration_next(elements);
+    for (; sugg; sugg = aspell_string_enumeration_next(elements)) {
         list.append(QString::fromUtf8(sugg, strlen(sugg)));
     }
 
