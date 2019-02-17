@@ -104,115 +104,120 @@ public:
         int yPos = 0;
 
         // Widgets
-        QDockWidget *arena;
-        QDockWidget *transfer_dock;
-        QDockWidget *sideDock;
+        QDockWidget *arena = nullptr;
+        QDockWidget *transfer_dock = nullptr;
+        QDockWidget *sideDock = nullptr;
 
-        ToolBar *fBar; //for actions
-        ToolBar *sBar; //for fast search
+        ToolBar *fBar = nullptr; //for actions
+        ToolBar *sBar = nullptr; //for fast search
 
         QStringList core_msg_history;
 
-        LineEdit   *searchLineEdit;
-        QLabel *statusLabel;
-        QLabel *statusSPLabel;
-        QLabel *statusDLabel;
-        QLabel *statusTRLabel;
-        QLabel *msgLabel;
-        QProgressBar *progressSpace;
-        QProgressBar *progressHashing;
-        HashProgress *_progress_dialog; // Hashing progress dialog
+        LineEdit *searchLineEdit = nullptr;
+        QLabel *statusLabel = nullptr;
+        QLabel *statusSPLabel = nullptr;
+        QLabel *statusDLabel = nullptr;
+        QLabel *statusTRLabel = nullptr;
+        QLabel *msgLabel = nullptr;
 
-        QMenu   *menuFile;
-        QAction *fileOpenMagnet;
-        QAction *fileFileListBrowser;
-        QAction *fileFileHasher;
-        QAction *fileFileListBrowserLocal;
-        QAction *fileFileListMatchAll;
-        QAction *fileRefreshShareHashProgress;
-        QAction *fileOpenLogFile;
-        QAction *fileOpenDownloadDirectory;
-        QAction *fileHideWindow;
-        QAction *fileQuit;
-
-        QMenu   *menuHubs;
-        QAction *hubsHubReconnect;
-        QAction *hubsQuickConnect;
-        QAction *hubsFavoriteHubs;
-        QAction *hubsPublicHubs;
-        QAction *hubsFavoriteUsers;
-
-        QMenu   *menuTools;
-        QAction *toolsSearch;
-        QAction *toolsADLS;
-        QAction *toolsCmdDebug;
-        QAction *toolsTransfers;
-        QAction *toolsDownloadQueue;
-        QAction *toolsQueuedUsers;
-        QAction *toolsFinishedDownloads;
-        QAction *toolsFinishedUploads;
-        QAction *toolsSpy;
-        QAction *toolsAntiSpam;
-        QAction *toolsIPFilter;
-        QAction *menuAwayAction;
-        QAction *toolsHubManager;
-        // submenu
-        QMenu   *menuAway;
-        QActionGroup *awayGroup;
-        QAction *toolsAwayOn;
-        QAction *toolsAwayOff;
-        QAction *toolsAutoAway;
-        // end
-        QAction *toolsHideProgressSpace;
-        QAction *toolsHideLastStatus;
-        QAction *toolsHideUsersStatisctics;
-        QAction *toolsCopyWindowTitle;
-        QAction *toolsOptions;
-#ifdef USE_JS
-        QAction *toolsJS;
-        QAction *toolsJSConsole;
-        ScriptConsole *scriptConsole;
+#if defined(USE_PROGRESS_BARS)
+        QProgressBar *progressFreeSpace = nullptr;
+#else
+        QLabel *progressFreeSpace = nullptr;
 #endif
-        QAction *toolsSwitchSpeedLimit;
+        QProgressBar *progressHashing = nullptr;
+        HashProgress *_progress_dialog = nullptr; // Hashing progress dialog
 
-        QMenu   *menuPanels;
+        QMenu   *menuFile = nullptr;
+        QAction *fileOpenMagnet = nullptr;
+        QAction *fileFileListBrowser = nullptr;
+        QAction *fileFileHasher = nullptr;
+        QAction *fileFileListBrowserLocal = nullptr;
+        QAction *fileFileListMatchAll = nullptr;
+        QAction *fileRefreshShareHashProgress = nullptr;
+        QAction *fileOpenLogFile = nullptr;
+        QAction *fileOpenDownloadDirectory = nullptr;
+        QAction *fileHideWindow = nullptr;
+        QAction *fileQuit = nullptr;
+
+        QMenu   *menuHubs = nullptr;
+        QAction *hubsHubReconnect = nullptr;
+        QAction *hubsQuickConnect = nullptr;
+        QAction *hubsFavoriteHubs = nullptr;
+        QAction *hubsPublicHubs = nullptr;
+        QAction *hubsFavoriteUsers = nullptr;
+
+        QMenu   *menuTools = nullptr;
+        QAction *toolsSearch = nullptr;
+        QAction *toolsADLS = nullptr;
+        QAction *toolsCmdDebug = nullptr;
+        QAction *toolsTransfers = nullptr;
+        QAction *toolsDownloadQueue = nullptr;
+        QAction *toolsQueuedUsers = nullptr;
+        QAction *toolsFinishedDownloads = nullptr;
+        QAction *toolsFinishedUploads = nullptr;
+        QAction *toolsSpy = nullptr;
+        QAction *toolsAntiSpam = nullptr;
+        QAction *toolsIPFilter = nullptr;
+        QAction *menuAwayAction = nullptr;
+        QAction *toolsHubManager = nullptr;
         // submenu
-        QMenu   *sh_menu;
+        QMenu   *menuAway = nullptr;
+        QActionGroup *awayGroup = nullptr;
+        QAction *toolsAwayOn = nullptr;
+        QAction *toolsAwayOff = nullptr;
+        QAction *toolsAutoAway = nullptr;
         // end
-        QAction *panelsWidgets;
-        QAction *panelsTools;
-        QAction *panelsSearch;
+        QAction *toolsHideProgressSpace = nullptr;
+        QAction *toolsHideLastStatus = nullptr;
+        QAction *toolsHideUsersStatisctics = nullptr;
+        QAction *toolsCopyWindowTitle = nullptr;
+        QAction *toolsOptions = nullptr;
+#ifdef USE_JS
+        QAction *toolsJS = nullptr;
+        QAction *toolsJSConsole = nullptr;
+        ScriptConsole *scriptConsole = nullptr;
+#endif
+        QAction *toolsSwitchSpeedLimit = nullptr;
+
+        QMenu   *menuPanels = nullptr;
+        // submenu
+        QMenu   *sh_menu = nullptr;
+        // end
+        QAction *panelsWidgets = nullptr;
+        QAction *panelsTools = nullptr;
+        QAction *panelsSearch = nullptr;
 
         // Standalone shortcuts
-        QAction *prevTabShortCut;
-        QAction *nextTabShortCut;
-        QAction *prevMsgShortCut;
-        QAction *nextMsgShortCut;
-        QAction *closeWidgetShortCut;
-        QAction *toggleMainMenuShortCut;
+        QAction *prevTabShortCut = nullptr;
+        QAction *nextTabShortCut = nullptr;
+        QAction *prevMsgShortCut = nullptr;
+        QAction *nextMsgShortCut = nullptr;
+        QAction *closeWidgetShortCut = nullptr;
+        QAction *toggleMainMenuShortCut = nullptr;
 
-        QAction *chatDisable;
-        QAction *findInWidget;
-        QAction *chatClear;
+        QAction *chatDisable = nullptr;
+        QAction *findInWidget = nullptr;
+        QAction *chatClear = nullptr;
 
-        QMenu *menuWidgets;
+        QMenu *menuWidgets = nullptr;
         QHash<QAction*, ArenaWidget*> menuWidgetsHash;
 
-        QMenu   *menuAbout;
-        QAction *aboutHomepage;
-        QAction *aboutSource;
-        QAction *aboutIssues;
-        QAction *aboutWiki;
-        QAction *aboutChangelog;
-        QAction *aboutClient;
-        QAction *aboutQt;
+        QMenu   *menuAbout = nullptr;
+        QAction *aboutHomepage = nullptr;
+        QAction *aboutSource = nullptr;
+        QAction *aboutIssues = nullptr;
+        QAction *aboutWiki = nullptr;
+        QAction *aboutChangelog = nullptr;
+        QAction *aboutClient = nullptr;
+        QAction *aboutQt = nullptr;
 
         ActionList toolBarActions;
         ActionList fileMenuActions;
         ActionList hubsMenuActions;
         ActionList toolsMenuActions;
 
-        QMenu *favHubMenu;
+        QMenu *favHubMenu = nullptr;
 };
 
 static const QString &TOOLBUTTON_STYLE = "mainwindow/toolbar-toolbutton-style";
@@ -514,7 +519,7 @@ bool MainWindow::eventFilter(QObject *obj, QEvent *e){
 
         return true;
     }
-    else if (obj == d->progressSpace && e->type() == QEvent::MouseButtonDblClick ){
+    else if (obj == d->progressFreeSpace && e->type() == QEvent::MouseButtonDblClick ){
         slotFileOpenDownloadDirectory();
 
         return true;
@@ -1246,18 +1251,26 @@ void MainWindow::initStatusBar(){
     d->msgLabel->setContentsMargins(0, 0, 0, 0);
 
 #if (defined FREE_SPACE_BAR_C)
-    d->progressSpace = new QProgressBar(this);
-    d->progressSpace->setMaximum(100);
-    d->progressSpace->setMinimum(0);
-    d->progressSpace->setAlignment( Qt::AlignHCenter );
-    d->progressSpace->setMinimumWidth(100);
-    d->progressSpace->setMaximumWidth(250);
-    d->progressSpace->setFixedHeight(18);
-    d->progressSpace->setToolTip(tr("Space free"));
-    d->progressSpace->installEventFilter(this);
+#if defined(USE_PROGRESS_BARS)
+    d->progressFreeSpace = new QProgressBar(this);
+    d->progressFreeSpace->setMaximum(100);
+    d->progressFreeSpace->setMinimum(0);
+    d->progressFreeSpace->setAlignment(Qt::AlignHCenter);
+#else
+    d->progressFreeSpace = new QLabel(this);
+    d->progressFreeSpace->setTextFormat(Qt::PlainText);
+    d->progressFreeSpace->setText(tr("Space free"));
+    d->progressFreeSpace->setAlignment(Qt::AlignRight);
+#endif
+
+    d->progressFreeSpace->setMinimumWidth(100);
+    d->progressFreeSpace->setMaximumWidth(250);
+    d->progressFreeSpace->setFixedHeight(18);
+    d->progressFreeSpace->setToolTip(tr("Space free"));
+    d->progressFreeSpace->installEventFilter(this);
 
     if (!WBGET(WB_SHOW_FREE_SPACE))
-        d->progressSpace->hide();
+        d->progressFreeSpace->hide();
 #else //FREE_SPACE_BAR_C
     WBSET(WB_SHOW_FREE_SPACE, false);
 #endif //FREE_SPACE_BAR_C
@@ -1277,7 +1290,7 @@ void MainWindow::initStatusBar(){
     statusBar()->addPermanentWidget(d->statusSPLabel);
     statusBar()->addPermanentWidget(d->statusLabel);
 #if (defined FREE_SPACE_BAR_C)
-    statusBar()->addPermanentWidget(d->progressSpace);
+    statusBar()->addPermanentWidget(d->progressFreeSpace);
 #endif //FREE_SPACE_BAR_C
 }
 
@@ -1693,19 +1706,28 @@ void MainWindow::updateStatus(const QMap<QString, QString> &map){
                 total = 0;
             }
         }
-        float percent = 100.0f*(total-available)/total;
-        QString format = tr("Free %1")
-                         .arg(WulforUtil::formatBytes(available));
+        const QString text = tr("Free %1")
+                .arg(WulforUtil::formatBytes(available));
 
-        QString tooltip = tr("Free %1 of %2")
-                          .arg(WulforUtil::formatBytes(available))
-                          .arg(WulforUtil::formatBytes(total));
+        const QString tooltip = tr("Free %1 of %2")
+                .arg(WulforUtil::formatBytes(available))
+                .arg(WulforUtil::formatBytes(total));
 
-        d->progressSpace->setFormat(format);
-        d->progressSpace->setToolTip(tooltip);
-        d->progressSpace->setValue(static_cast<unsigned>(percent));
+#if defined(USE_PROGRESS_BARS)
+        const float percent = 100.0f*(total-available)/total;
+        d->progressFreeSpace->setFormat(text);
+        d->progressFreeSpace->setValue(static_cast<unsigned>(percent));
+#else
+        d->progressFreeSpace->setText(text);
+#endif
+        d->progressFreeSpace->setToolTip(tooltip);
 
-        d->progressSpace->setFixedWidth(metrics.width(format) > d->progressSpace->width()? metrics.width(d->progressSpace->text()) + 40 : d->progressSpace->width());
+        if (metrics.width(text) > d->progressFreeSpace->width()) {
+            d->progressFreeSpace->setFixedWidth(metrics.width(d->progressFreeSpace->text()) + 40);
+        }
+        else {
+            d->progressFreeSpace->setFixedWidth(d->progressFreeSpace->width());
+        }
 #endif //FREE_SPACE_BAR_C
     }
 
@@ -2516,12 +2538,12 @@ void MainWindow::slotHideProgressSpace() {
     Q_D(MainWindow);
 
     if (WBGET(WB_SHOW_FREE_SPACE)) {
-        d->progressSpace->hide();
+        d->progressFreeSpace->hide();
         d->toolsHideProgressSpace->setText(tr("Show free space bar"));
 
         WBSET(WB_SHOW_FREE_SPACE, false);
     } else {
-        d->progressSpace->show();
+        d->progressFreeSpace->show();
         d->toolsHideProgressSpace->setText(tr("Hide free space bar"));
 
         WBSET(WB_SHOW_FREE_SPACE, true);
