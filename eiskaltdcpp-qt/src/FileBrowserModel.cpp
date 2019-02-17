@@ -372,7 +372,7 @@ bool FileBrowserModel::canFetchMore(const QModelIndex &parent) const{
 
     FileBrowserItem *item = parent.isValid()? static_cast<FileBrowserItem*>(parent.internalPointer()) : rootItem;
 
-    return (item->dir && (item->dir->directories.size() != item->childCount()));
+    return (item->dir && (item->dir->directories.size() != static_cast<size_t>(item->childCount())));
 }
 
 void FileBrowserModel::fetchBranch(const QModelIndex &parent, dcpp::DirectoryListing::Directory *dir){
