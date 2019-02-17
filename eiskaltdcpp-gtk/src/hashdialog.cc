@@ -111,7 +111,7 @@ void Hash::updateStats_gui(string file, int64_t bytes, size_t files, uint64_t ti
 
 void Hash::onPauseHashing_gui(GtkWidget *widget, gpointer data)
 {
-    Hash *h = (Hash *)data;
+//    Hash *h = (Hash *)data;
     bool paused = HashManager::getInstance()->isHashingPaused();
     if (paused) {
 //        gtk_window_set_title(GTK_WINDOW(h->getContainer()), _("Indexing files..."));
