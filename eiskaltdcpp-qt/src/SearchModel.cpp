@@ -331,7 +331,7 @@ bool SearchModel::addResultPtr(const QMap<QString, QVariant> &map){
                   map["CID"].toString(),
                   map["ISDIR"].toBool());
     }
-    catch (SearchListException){
+    catch (SearchListException &) {
         return false;
     }
 }
