@@ -79,7 +79,7 @@ HashProgress::~HashProgress(){
 }
 
 float HashProgress::getProgress() {
-    return static_cast<float>( progress->value() )/progress->maximum();
+    return static_cast<float>(progress->value())/progress->maximum();
 }
 
 void HashProgress::timerTick(){
@@ -116,16 +116,20 @@ void HashProgress::timerTick(){
 
     QString eta;
 
-    if(startFiles == 0 || startBytes == 0)
+    if(startFiles == 0 || startBytes == 0) {
         progress->setValue(0);
-    else
-        progress->setValue( (10000*(startBytes - bytes))/startBytes);
+    }
+    else {
+        progress->setValue((10000*(startBytes - bytes))/startBytes);
+    }
 
     if( diff == 0. || files == 0 || bytes == 0 || paused) {
         status->setText(QString(tr("-.-- files/h, %1 files left")).arg((uint32_t)files));
         speed->setText(tr("-.-- B/s, %1 left").arg(WulforUtil::formatBytes(bytes)));
         eta = tr("-:--:--");
-    } else {
+        progress->setToolTip(QString());
+    }
+    else {
         double filestat = (((double)(startFiles - files)) * 60 * 60 * 1000) / diff;
         double speedStat = (((double)(startBytes - bytes)) * 1000) / diff;
 
@@ -142,8 +146,14 @@ void HashProgress::timerTick(){
 
             eta = _q(Text::toT(Util::formatSeconds((int64_t)(ss))));
         }
+
+#if !defined(USE_PROGRESS_BARS)
+    progress->setToolTip(tr("%1% %2 left")
+                         .arg(QString::number((100*(startBytes - bytes))/startBytes))
+                         .arg(eta));
+#endif
     }
-    progress->setFormat( tr("%p% %1 left").arg(eta) );
+    progress->setFormat(tr("%p% %1 left").arg(eta));
 
     if(!files) {
         //progress->setValue(10000); // generates anoying blinking 0 -> 100%
