@@ -341,3 +341,6 @@ cmake .. \
     -DFORCE_XDG=OFF \
     -DHAIKU_PKG=ON
 
+Full build rules for Haiku you may see in recipe from official package:
+https://github.com/haikuports/haikuports/tree/master/net-p2p/eiskaltdcpp
+
