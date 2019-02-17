@@ -2532,7 +2532,6 @@ void MainWindow::onCloseAllSearch_gui(GtkWidget *widget, gpointer data)
 void MainWindow::onReconectAllHub_gui(GtkWidget *widget, gpointer data)
 {
     MainWindow *mw = (MainWindow *)data;
-    typedef Func1<MainWindow,BookEntry*> F1;
     for (StringIterC it = mw->EntryList.begin(); it != mw->EntryList.end(); ++it) {
         BookEntry *entry = mw->findBookEntry(Entry::HUB, *it);
         if (entry) {
