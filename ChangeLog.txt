@@ -2,7 +2,10 @@
 *** common changes ***
 * Added support of OpenSSL >= 1.1.
 *** eiskaltdcpp-qt ***
-* Fixed Quit action in builds with Qt 5.x.
+* Fixed Quit action in builds with Qt 5.x. With Qt 4.x all worked fine.
+* Added configuration option: USE_PROGRESS_BARS. This option is especially
+  important for macOS where progress bars do not allow to show text on them so
+  a lot of information is hidden from user.
 *** eiskaltdcpp-gtk ***
 * GTK+ UI is not supported anymore. Use it at own risk. As far as we know
   builds with GTK+ 3.x are almost unusable, but builds with GTK+ 2.x work
