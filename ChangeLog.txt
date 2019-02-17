@@ -11,7 +11,11 @@
   builds with GTK+ 3.x are almost unusable, but builds with GTK+ 2.x work
   more or less fine.
 
+--- 2.3.0 2018-xx-xx ---
+* This release was skipped due to problems with versions scheme.
+
 --- 2.2.10 2015-04-20 ---
+* This is not a real release but just git tag.
 *** common changes ***
 * GCC < 4.6 and Clang < 3.1 are not supported anymore.
 * Added option (ShareSkipZeroByte) for skipping zero sized files from share.
