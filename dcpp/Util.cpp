@@ -47,6 +47,11 @@
 #include <ifaddrs.h>
 #include <net/if.h>
 #endif
+
+#ifdef __HAIKU__
+#undef HAVE_IFADDRS_H
+#endif // __HAIKU__
+
 #include <locale.h>
 
 #include "CID.h"

@@ -924,6 +924,10 @@ bool WulforUtil::getUserCommandParams(const UserCommand& uc, StringMap& params) 
 QStringList WulforUtil::getLocalIfaces(){
     QStringList ifaces;
 
+#ifdef __HAIKU__
+#undef HAVE_IFADDRS_H
+#endif // __HAIKU__
+
 #ifdef HAVE_IFADDRS_H
     struct ifaddrs *ifap;
 
