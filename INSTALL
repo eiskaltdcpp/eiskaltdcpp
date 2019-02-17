@@ -162,7 +162,7 @@ Keys for cmake
     Build EiskaltDC++ with Qt interface using Qt 5.x libraries
 -DUSE_ASPELL=ON/OFF (default: ON)
     Use or not use aspell
--DUSE_PROGRESS_BAR=ON/OFF (default: ON)
+-DUSE_PROGRESS_BARS=ON/OFF (default: ON)
     Use progress bars or widgets with plain text for indication of progress.
     This option is especially important for macOS where progress bars do not
     allow to show text on them so a lot of information is hidden from user.

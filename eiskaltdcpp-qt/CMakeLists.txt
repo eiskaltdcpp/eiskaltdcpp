@@ -305,6 +305,10 @@ if (APPLE)
     list (APPEND LIBS ${COCOA_LIBRARY})
 endif (APPLE)
 
+if (USE_PROGRESS_BARS)
+    add_definitions (-DUSE_PROGRESS_BARS)
+endif (USE_PROGRESS_BARS)
+
 if (FREE_SPACE_BAR_C)
     add_definitions (-DFREE_SPACE_BAR_C)
 endif (FREE_SPACE_BAR_C)

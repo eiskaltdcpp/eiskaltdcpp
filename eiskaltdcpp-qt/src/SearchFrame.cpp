@@ -391,6 +391,14 @@ SearchFrame::SearchFrame(QWidget *parent): QWidget(parent), d_ptr(new SearchFram
     clientMgr->unlock();
 #endif // DO_NOT_USE_MUTEX
 
+#if defined(USE_PROGRESS_BARS)
+    progressBar->show();
+    progressIndicator->hide();
+#else
+    progressBar->hide();
+    progressIndicator->show();
+#endif
+
     d->str_model->setStringList(d->hubs);
 
 
@@ -1555,13 +1563,24 @@ void SearchFrame::slotTimer(){
             fraction = 100.0;
             d->waitingResults = false;
         }
-        QString msg = tr("Searching for %1 ...").arg(d->target);
+#if defined(USE_PROGRESS_BARS)
+        const QString msg = tr("Searching for %1 ...").arg(d->target);
         progressBar->setFormat(msg);
         progressBar->setValue(static_cast<unsigned>(fraction));
-    } else {
-        QString msg = "";
-        progressBar->setFormat(msg);
+#else
+        const QString msg = tr("Search progress of \"%1\" is %2\%")
+                .arg(d->target)
+                .arg(QString::number(fraction));
+        progressIndicator->setText(msg);
+#endif
+    }
+    else {
+#if defined(USE_PROGRESS_BARS)
+        progressBar->setFormat(QString());
         progressBar->setValue(0);
+#else
+        progressIndicator->clear();
+#endif
         lineEdit_SEARCHSTR->setEnabled(true);
     }
 
