@@ -758,11 +758,21 @@ TransferViewDelegate::~TransferViewDelegate(){
 void TransferViewDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const{
     TransferViewItem *item = reinterpret_cast<TransferViewItem*>(index.internalPointer());
 
-    if (index.column() != COLUMN_TRANSFER_STATS || !item){
+    if (index.column() != COLUMN_TRANSFER_STATS || !item) {
         QStyledItemDelegate::paint(painter, option, index);
 
         return;
     }
+
+#if defined(USE_PROGRESS_BARS)
+    QPalette pal = option.palette;
+    if (item->download && download_bar_color.isValid())
+        pal.setColor(QPalette::Highlight, download_bar_color);
+    else if (!item->download && upload_bar_color.isValid())
+        pal.setColor(QPalette::Highlight, upload_bar_color);
+
+    const double percent = item->percent;
+    const QString status = item->data(COLUMN_TRANSFER_STATS).toString();
 
     QStyleOptionProgressBar progressBarOption;
     progressBarOption.state = QStyle::State_Enabled;
@@ -773,19 +783,7 @@ void TransferViewDelegate::paint(QPainter *painter, const QStyleOptionViewItem &
     progressBarOption.maximum = 100;
     progressBarOption.textAlignment = Qt::AlignCenter;
     progressBarOption.textVisible = true;
-
-    QPalette pal = option.palette;
-
-    if (item->download && download_bar_color.isValid())
-        pal.setColor(QPalette::Highlight, download_bar_color);
-    else if (!item->download && upload_bar_color.isValid())
-        pal.setColor(QPalette::Highlight, upload_bar_color);
-
     progressBarOption.palette = pal;
-
-    double percent = item->percent;
-    QString status = item->data(COLUMN_TRANSFER_STATS).toString();
-
     progressBarOption.text = status;
     progressBarOption.progress = static_cast<int>(percent);
 
@@ -793,6 +791,15 @@ void TransferViewDelegate::paint(QPainter *painter, const QStyleOptionViewItem &
         painter->fillRect(option.rect, option.palette.highlight());
 
     QApplication::style()->drawControl(QStyle::CE_ProgressBar, &progressBarOption, painter);
+#else
+    const QString status = item->data(COLUMN_TRANSFER_STATS).toString();
+
+    QStyleOptionViewItem plainTextOption = option;
+    plainTextOption.text = status;
+    plainTextOption.displayAlignment = Qt::AlignCenter;
+
+    QApplication::style()->drawControl(QStyle::CE_ItemViewItem, &plainTextOption, painter);
+#endif
 }
 
 void TransferViewDelegate::wsVarValueChanged(const QString &key, const QVariant &val){

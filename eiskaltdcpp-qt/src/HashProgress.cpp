@@ -119,7 +119,7 @@ void HashProgress::timerTick(){
     }
 
     const double diff = tick - startTime;
-    bool paused = HashManager::getInstance()->isHashingPaused();
+    const bool paused = HashManager::getInstance()->isHashingPaused();
 
     QString eta;
 
