@@ -23,7 +23,6 @@
 #include "Thread.h"
 #include "UPnP.h"
 #include "Atomic.h"
-#include <boost/ptr_container/ptr_vector.hpp>
 
 namespace dcpp {
 
@@ -48,7 +47,7 @@ public:
 private:
     friend class Singleton<UPnPManager>;
 
-    typedef boost::ptr_vector<UPnP> Impls;
+    typedef std::vector<std::unique_ptr<UPnP>> Impls;
     Impls impls;
 
     bool opened;

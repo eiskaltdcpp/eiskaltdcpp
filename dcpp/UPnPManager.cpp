@@ -34,7 +34,7 @@
 namespace dcpp {
 
 void UPnPManager::addImplementation(UPnP* impl) {
-    impls.push_back(impl);
+    impls.push_back(std::unique_ptr<UPnP>(impl));
 }
 
 bool UPnPManager::open() {
@@ -57,8 +57,9 @@ bool UPnPManager::open() {
 }
 
 void UPnPManager::close() {
-    for(Impls::iterator i = impls.begin(); i != impls.end(); ++i)
+    for(auto &i : impls) {
         close(*i);
+    }
     opened = false;
 }
 
@@ -73,7 +74,7 @@ int UPnPManager::run() {
         const unsigned short dht_port = dht::DHT::getInstance()->getPort();
 #endif
 
-    for(Impls::iterator i = impls.begin(); i != impls.end(); ++i) {
+    for(auto &i : impls) {
         UPnP& impl = *i;
 
         close(impl);
