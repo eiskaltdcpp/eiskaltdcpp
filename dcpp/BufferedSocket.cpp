@@ -194,7 +194,7 @@ void BufferedSocket::threadRead() {
                     const int BUF_SIZE = 1024;
                     // Special to autodetect nmdc connections...
                     string::size_type pos = 0;
-                    boost::scoped_array<char> buffer(new char[BUF_SIZE]);
+                    std::unique_ptr<char[]> buffer(new char[BUF_SIZE]);
                     l = line;
                     // decompress all input data and store in l.
                     while (left) {

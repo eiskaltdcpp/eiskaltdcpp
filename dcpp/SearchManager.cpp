@@ -118,7 +118,7 @@ void SearchManager::disconnect() noexcept {
 #define BUFSIZE 8192
 int SearchManager::run() {
     setThreadName("SearchManager");
-    boost::scoped_array<uint8_t> buf(new uint8_t[BUFSIZE]);
+    std::unique_ptr<uint8_t[]> buf(new uint8_t[BUFSIZE]);
     int len;
     sockaddr_in remoteAddr = { 0 };
 

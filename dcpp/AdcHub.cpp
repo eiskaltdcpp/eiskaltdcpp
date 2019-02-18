@@ -946,7 +946,7 @@ void AdcHub::password(const string& pwd) {
         return;
     if(!salt.empty()) {
         size_t saltBytes = salt.size() * 5 / 8;
-        boost::scoped_array<uint8_t> buf(new uint8_t[saltBytes]);
+        std::unique_ptr<uint8_t[]> buf(new uint8_t[saltBytes]);
         Encoder::fromBase32(salt.c_str(), &buf[0], saltBytes);
         TigerHash th;
         if(oldPassword) {
