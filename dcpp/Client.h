@@ -164,9 +164,9 @@ protected:
     virtual ~Client();
     struct Counts {
         private:
-            typedef Atomic<boost::int32_t> atomic_counter_t;
+            typedef Atomic<std::int32_t> atomic_counter_t;
         public:
-            typedef boost::int32_t value_type;
+            typedef std::int32_t value_type;
             Counts(value_type n = 0, value_type r = 0, value_type o = 0) : normal(n), registered(r), op(o) { }
             atomic_counter_t normal;
             atomic_counter_t registered;

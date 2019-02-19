@@ -21,7 +21,6 @@
 #include "CriticalSection.h"
 #include <boost/version.hpp>
 #include <boost/interprocess/detail/atomic.hpp>
-#include <boost/cstdint.hpp>
 
 namespace dcpp {
 
@@ -43,8 +42,8 @@ class Atomic;
 
 // uint32_t
 template <>
-class Atomic<boost::uint32_t, memory_ordering_weak> {
-        typedef boost::uint32_t value_type;
+class Atomic<std::uint32_t, memory_ordering_weak> {
+        typedef std::uint32_t value_type;
 public:
         Atomic(value_type val) { assign(val); }
         Atomic(const Atomic& other) { assign(static_cast<value_type>(other)); }
@@ -92,8 +91,8 @@ private:
 // int32_t
 // just forward all operations to underlying Atomic<uint32_t, ...> variable
 template <>
-class Atomic<boost::int32_t, memory_ordering_weak> {
-        typedef boost::int32_t value_type;
+class Atomic<std::int32_t, memory_ordering_weak> {
+        typedef std::int32_t value_type;
 public:
         Atomic(value_type val) : m_value(val) {}
         Atomic(const Atomic& other) : m_value(other) {}
@@ -105,7 +104,7 @@ public:
         void inc() { m_value.inc(); }
         void dec() { m_value.dec(); }
 private:
-        Atomic<boost::uint32_t,memory_ordering_weak> m_value;
+        Atomic<std::uint32_t,memory_ordering_weak> m_value;
 };
 
 // memory_ordering_strong
