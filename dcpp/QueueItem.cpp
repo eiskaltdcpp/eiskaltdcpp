@@ -171,13 +171,13 @@ Segment QueueItem::getNextSegment(int64_t blockSize, int64_t wantedSize, int64_t
     int64_t curSize = targetSize;
 
     while(start < getSize()) {
-        int64_t end = std::min(getSize(), start + curSize);
+        const int64_t end = std::min(getSize(), start + curSize);
         Segment block(start, end - start);
         bool overlaps = false;
         for(auto i = done.begin(); !overlaps && i != done.end(); ++i) {
             if(curSize <= blockSize) {
-                int64_t dstart = i->getStart();
-                int64_t dend = i->getEnd();
+                const int64_t dstart = i->getStart();
+                const int64_t dend = i->getEnd();
                 // We accept partial overlaps, only consider the block done if it is fully consumed by the done block
                 if(dstart <= start && dend >= end) {
                     overlaps = true;
@@ -260,13 +260,15 @@ Segment QueueItem::getNextSegment(int64_t blockSize, int64_t wantedSize, int64_t
                     continue;
 
             // overlap current chunk at last block boundary
-            int64_t pos = d->getPos() - (d->getPos() % blockSize);
-            int64_t size = d->getSize() - pos;
+            const int64_t pos = d->getPos() - (d->getPos() % blockSize);
+            const int64_t size = d->getSize() - pos;
 
             // new user should finish this chunk more than 2x faster
-            int64_t newChunkLeft = size / lastSpeed;
+            const int64_t newChunkLeft = size / lastSpeed;
             if(2 * newChunkLeft < d->getSecondsLeft()) {
-                dcdebug("Overlapping... old user: %I64d s, new user: %I64d s\n", static_cast<int>(d->getSecondsLeft()), static_cast<int>(newChunkLeft));
+                dcdebug("Overlapping... old user: %ld s, new user: %ld s\n",
+                        static_cast<int64_t>(d->getSecondsLeft()),
+                        static_cast<int64_t>(newChunkLeft));
                 return Segment(d->getStartPos() + pos, size/*, true*/);//TODO bool
             }
         }
