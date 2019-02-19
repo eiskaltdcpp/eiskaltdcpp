@@ -271,7 +271,7 @@ wchar_t toLower(wchar_t c) noexcept {
 #ifdef _WIN32
         return static_cast<wchar_t>(reinterpret_cast<ptrdiff_t>(CharLowerW((LPWSTR)c)));
 #else
-        return (wchar_t)towlower(c);
+        return (wchar_t)std::towlower(c);
 #endif
 }
 

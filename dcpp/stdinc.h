@@ -90,8 +90,7 @@ typedef unsigned __int64 uint64_t;
 #include <numeric>
 #include <limits>
 #include <libintl.h>
-
-#include <boost/format.hpp>
+#include <cwctype>
 
 #include <unordered_set>
 #include <unordered_map>

@@ -26,7 +26,6 @@
 #include "NonCopyable.h"
 #include "Flags.h"
 #include "forward.h"
-#include <boost/utility.hpp>
 #include <map>
 #include <vector>
 
