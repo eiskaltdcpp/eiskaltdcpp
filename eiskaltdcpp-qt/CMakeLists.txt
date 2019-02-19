@@ -3,7 +3,7 @@ project (${PROJECT_NAME_GLOBAL}-qt)
 if (USE_QT)
     cmake_minimum_required (VERSION 2.6)
 elseif (USE_QT5)
-    cmake_minimum_required (VERSION 2.8.8)
+    cmake_minimum_required (VERSION 2.8.11)
 endif ()
 
 include_directories(${PROJECT_BINARY_DIR})
