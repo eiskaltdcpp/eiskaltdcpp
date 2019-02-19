@@ -2144,6 +2144,8 @@ TTHValue* QueueManager::FileQueue::findPFSPubTTH()
 
 void QueueManager::logFinishedDownload(QueueItem* qi, Download* d, bool crcError)
 {
+    (void)d;
+
     StringMap params;
     params["target"] = qi->getTarget();
     params["fileSI"] = Util::toString(qi->getSize());

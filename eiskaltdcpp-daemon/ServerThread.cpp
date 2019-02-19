@@ -373,6 +373,8 @@ void ServerThread::on(UserRemoved, Client* cur, const OnlineUser& user) noexcept
 }
 
 void ServerThread::on(Redirect, Client* cur, const string& line) noexcept {
+    (void)cur;
+
     if (isVerbose)
         cout << "Redirected to " << line << endl;
 }
@@ -435,6 +437,8 @@ void ServerThread::on(ClientListener::Message, Client *cl, const ChatMessage& me
 }
 
 void ServerThread::on(StatusMessage, Client *cl, const string& line, int statusFlags) noexcept {
+    (void)statusFlags;
+
     string msg = line;
 
     if (BOOLSETTING(LOG_STATUS_MESSAGES)) {
@@ -454,6 +458,7 @@ void ServerThread::on(NickTaken, Client*) noexcept {
 }
 
 void ServerThread::on(SearchFlood, Client*, const string& line) noexcept {
+    (void)line;
 }
 
 void ServerThread::on(SearchManagerListener::SR, const SearchResultPtr& result) noexcept {

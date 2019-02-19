@@ -728,6 +728,7 @@ void ClientManager::on(UserUpdated, Client*, const OnlineUser& user) noexcept {
 }
 
 void ClientManager::on(UsersUpdated, Client* c, const OnlineUserList& l) noexcept {
+    (void)c;
     for(auto i = l.cbegin(), iend = l.cend(); i != iend; ++i) {
         updateNick(*(*i));
         fire(ClientManagerListener::UserUpdated(), *(*i));

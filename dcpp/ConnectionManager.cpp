@@ -425,7 +425,7 @@ void ConnectionManager::on(AdcCommand::SUP, UserConnection* aSource, const AdcCo
 }
 
 void ConnectionManager::on(AdcCommand::STA, UserConnection*, const AdcCommand& cmd) noexcept {
-
+    (void)cmd;
 }
 
 void ConnectionManager::on(UserConnectionListener::Connected, UserConnection* aSource) noexcept {
@@ -523,6 +523,8 @@ void ConnectionManager::on(UserConnectionListener::MyNick, UserConnection* aSour
 }
 
 void ConnectionManager::on(UserConnectionListener::CLock, UserConnection* aSource, const string& aLock, const string& aPk) noexcept {
+    (void)aPk;
+
     if(aSource->getState() != UserConnection::STATE_LOCK) {
         dcdebug("CM::onLock %p received lock twice, ignoring\n", (void*)aSource);
         return;

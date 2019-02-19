@@ -370,6 +370,8 @@ const vector<uint8_t>& CryptoManager::getKeyprint() const noexcept {
 }
 
 void CryptoManager::loadKeyprint(const string& file) noexcept {
+        (void)file;
+
         FILE* f = fopen(SETTING(TLS_CERTIFICATE_FILE).c_str(), "r");
         if(!f) {
                 return;

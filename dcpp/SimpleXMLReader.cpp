@@ -571,6 +571,7 @@ void SimpleXMLReader::parse(InputStream& stream, size_t maxSize) {
 }
 
 bool SimpleXMLReader::parse(const char* data, size_t len, bool more) {
+    (void)more;
     buf.append(data, len);
     return process();
 }

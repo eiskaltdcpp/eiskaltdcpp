@@ -68,6 +68,8 @@ void Thread::setThreadName(const char* const threadName) const {
     // TODO, see http://www.unix.com/man-page/All/3/PTHREAD_SET_NAME_NP/
 #endif
     
+#else // _DEBUG
+    (void)threadName;
 #endif // _DEBUG
 } // setThreadName()
 

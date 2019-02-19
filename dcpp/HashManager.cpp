@@ -129,6 +129,10 @@ bool HashManager::StreamStore::loadTree(const string& p_filePath, TigerTree &tre
         else
             return false;
     }
+#else
+    (void)p_filePath;
+    (void)tree;
+    (void)p_aFileSize;
 #endif //USE_XATTR
     return false;
 }
@@ -153,7 +157,10 @@ bool HashManager::StreamStore::saveTree(const string& p_filePath, const TigerTre
 
         return (attr_set(p_filePath.c_str(), g_streamName.c_str(), (char*)(void*)buf.get(), sz, 0) == 0);
     }
-#endif //USE_XATTR
+#else // USE_XATTR
+    (void)p_filePath;
+    (void)p_Tree;
+#endif // USE_XATTR
     return false;
 }
 
@@ -162,9 +169,10 @@ void HashManager::StreamStore::deleteStream(const string& p_filePath)
 #ifdef USE_XATTR
     printf("Resetting Xattr for %s\n", p_filePath.c_str());
     attr_remove(p_filePath.c_str(), g_streamName.c_str(), 0);
+#else
+    (void)p_filePath;
 #endif //USE_XATTR
 }
-
 
 bool HashManager::checkTTH(const string& aFileName, int64_t aSize, uint32_t aTimeStamp) {
     Lock l(cs);
@@ -795,15 +803,17 @@ bool HashManager::Hasher::fastHash(const string& fname, uint8_t* buf, TigerTree&
 
 static sigjmp_buf sb_env;
 
-static void sigbus_handler(int signum
 #ifndef __HAIKU__
-, siginfo_t* info, void* context
+static void sigbus_handler(int signum, siginfo_t* info, void* context)
+#else // __HAIKU__
+static void sigbus_handler(int signum)
 #endif
-) {
+{
     // Jump back to the fastHash which will return error. Apparently truncating
     // a file in Solaris sets si_code to BUS_OBJERR
 #ifndef __HAIKU__
-       if (signum == SIGBUS && (info->si_code == BUS_ADRERR || info->si_code == BUS_OBJERR))
+    (void)context;
+    if (signum == SIGBUS && (info->si_code == BUS_ADRERR || info->si_code == BUS_OBJERR))
         siglongjmp(sb_env, 1);
 #endif
 }
@@ -1105,6 +1115,7 @@ bool HashManager::isHashingPaused() const {
 }
 
 void HashManager::on(TimerManagerListener::Second, uint64_t tick) noexcept {
+    (void)tick;
     //fprintf(stdout,"%lld\n", tick); fflush(stdout);
     static bool firstcycle = true;
     if (firstcycle){

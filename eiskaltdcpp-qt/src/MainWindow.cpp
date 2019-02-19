@@ -2370,9 +2370,9 @@ void MainWindow::slotJSFileChanged(const QString &script){
 
 
 void MainWindow::slotToolsJSConsole(){
+#ifdef USE_JS
     Q_D(MainWindow);
 
-#ifdef USE_JS
     if (!d->scriptConsole)
         d->scriptConsole = new ScriptConsole(this);
 

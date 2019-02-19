@@ -648,6 +648,7 @@ void AdcHub::handle(AdcCommand::RNT, AdcCommand& c) noexcept {
     ConnectionManager::getInstance()->adcConnect(*u, static_cast<uint16_t>(Util::toInt(port)), sock->getLocalPort(), BufferedSocket::NAT_SERVER, token, secure);
 }
 void AdcHub::handle(AdcCommand::ZON, AdcCommand& c) noexcept {
+    (void)c;
     try {
         sock->setMode(BufferedSocket::MODE_ZPIPE);
     } catch (const Exception& e) {
@@ -655,6 +656,7 @@ void AdcHub::handle(AdcCommand::ZON, AdcCommand& c) noexcept {
     }
 }
 void AdcHub::handle(AdcCommand::ZOF, AdcCommand& c) noexcept {
+    (void)c;
     try {
         sock->setMode(BufferedSocket::MODE_LINE);
     } catch (const Exception& e) {
