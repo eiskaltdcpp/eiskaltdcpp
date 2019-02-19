@@ -311,6 +311,8 @@ QDomNode EmoticonFactory::findSectionByName(const QDomNode &node, const QString 
     return QDomNode();
 }
 void EmoticonFactory::getSubSectionsByName(const QDomNode &node, EmoticonFactory::DomNodeList &list, const QString &name){
+    Q_UNUSED(name)
+
     QDomNode domNode = node.firstChild();
 
     while (!domNode.isNull()){

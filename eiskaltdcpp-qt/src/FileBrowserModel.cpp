@@ -418,7 +418,6 @@ void FileBrowserModel::fetchMore(const QModelIndex &parent){
         fetchBranch(parent, listing->getRoot());
     else{
         FileBrowserItem *item = static_cast<FileBrowserItem*>(parent.internalPointer());
-        DirectoryListing::Directory::Iter it;
         QModelIndex i = createIndexForItem(item);
 
         for (const auto &dir : item->dir->directories) //loading child directories

@@ -70,7 +70,7 @@ void receiver(const char *link, gpointer data)
     WulforManager::get()->onReceived_gui(link);
 }
 
-void callBack(void* x, const std::string& a)
+void callBack(void *, const std::string &a)
 {
     std::cout << _("Loading: ") << a << std::endl;
 }

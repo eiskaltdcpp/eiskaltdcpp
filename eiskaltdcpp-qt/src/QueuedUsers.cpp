@@ -129,6 +129,7 @@ QueuedUsersModel::~QueuedUsersModel()
 
 int QueuedUsersModel::columnCount(const QModelIndex &parent) const
 {
+    Q_UNUSED(parent)
     return 2;
 }
 

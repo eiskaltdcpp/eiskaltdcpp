@@ -123,6 +123,7 @@ QModelIndex PublicHubModel::index(int row, int column, const QModelIndex &parent
 
 QModelIndex PublicHubModel::parent(const QModelIndex &index) const
 {
+    Q_UNUSED(index)
     return QModelIndex();
 }
 

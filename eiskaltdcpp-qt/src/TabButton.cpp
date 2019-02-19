@@ -156,6 +156,7 @@ void TabButton::mouseReleaseEvent(QMouseEvent *e){
 }
 
 void TabButton::paintEvent(QPaintEvent *e){
+    Q_UNUSED(e)
     QStyleOptionButton option;
     QPainter p(this);
     initStyleOption(&option);

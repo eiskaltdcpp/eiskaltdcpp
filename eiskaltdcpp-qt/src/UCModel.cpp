@@ -29,6 +29,7 @@ UCModel::~UCModel()
 
 int UCModel::columnCount(const QModelIndex &parent) const
 {
+    Q_UNUSED(parent)
     return 3;
 }
 
@@ -113,6 +114,7 @@ QModelIndex UCModel::index(int row, int column, const QModelIndex &parent)
 
 QModelIndex UCModel::parent(const QModelIndex &index) const
 {
+    Q_UNUSED(index)
     return QModelIndex();
 }
 

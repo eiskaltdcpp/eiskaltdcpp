@@ -60,6 +60,8 @@
    on a system that requires a non-NULL value.  */
 int get_fs_usage (char const *file, char const *disk, struct fs_usage *fsp) {
 
+  (void)disk;
+
   struct statvfs fsd;
 
   if (statvfs (file, &fsd) < 0)

@@ -71,7 +71,7 @@ using namespace std;
 #include <QtDBus>
 #endif
 
-void callBack(void* x, const std::string& a)
+void callBack(void *, const std::string &a)
 {
     std::cout << QObject::tr("Loading: ").toStdString() << a << std::endl;
 }

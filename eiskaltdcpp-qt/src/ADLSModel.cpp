@@ -142,14 +142,20 @@ int ADLSModel::rowCount(const QModelIndex &parent) const
 }
 
 bool ADLSModel::insertRow(int row, const QModelIndex &parent){
+    Q_UNUSED(row)
+    Q_UNUSED(parent)
     return true;
 }
 
 bool ADLSModel::removeRow(int row, const QModelIndex &parent){
+    Q_UNUSED(row)
+    Q_UNUSED(parent)
     return true;
 }
 
 bool ADLSModel::insertRows(int position, int rows, const QModelIndex &index){
+    Q_UNUSED(rows)
+
     ADLSItem *from = NULL;
 
     beginRemoveRows(QModelIndex(), position, position);
@@ -168,6 +174,9 @@ bool ADLSModel::insertRows(int position, int rows, const QModelIndex &index){
 }
 
 bool ADLSModel::removeRows(int position, int rows, const QModelIndex &index){
+    Q_UNUSED(position)
+    Q_UNUSED(rows)
+    Q_UNUSED(index)
     return true;
 }
 

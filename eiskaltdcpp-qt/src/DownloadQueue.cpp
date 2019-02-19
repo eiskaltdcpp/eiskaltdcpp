@@ -793,6 +793,7 @@ void DownloadQueue::slotUpdateStats(quint64 files, quint64 size){
 }
 
 void DownloadQueue::slotSettingsChanged(const QString &key, const QString &value){
+    Q_UNUSED(value)
     if (key == WS_TRANSLATION_FILE)
         retranslateUi(this);
 }

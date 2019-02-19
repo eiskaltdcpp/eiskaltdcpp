@@ -127,6 +127,8 @@ int IPFilterModel::rowCount(const QModelIndex &parent) const
 }
 
 void IPFilterModel::sort(int column, Qt::SortOrder order) {
+    Q_UNUSED(column)
+    Q_UNUSED(order)
     return;
 }
 

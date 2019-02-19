@@ -32,7 +32,7 @@ bool bDaemon = false;
 #endif
 bool bsyslog = false;
 
-void callBack(void* x, const string& a)
+void callBack(void*, const string &a)
 {
     logging(bDaemon, bsyslog, true, "Loading: " + a);
 }

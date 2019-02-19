@@ -2146,6 +2146,7 @@ void HubFrame::userUpdated(const UserPtr &user, const dcpp::Identity &id){
 }
 
 void HubFrame::userRemoved(const UserPtr &user, const dcpp::Identity &id){
+    Q_UNUSED(id)
     Q_D(HubFrame);
 
     UserListItem *item = d->model->itemForPtr(user);
@@ -3727,6 +3728,7 @@ void HubFrame::on(FavoriteManagerListener::UserRemoved, const FavoriteUser& aUse
 }
 
 void HubFrame::on(ClientListener::Connecting, Client *c) noexcept{
+    Q_UNUSED(c)
     Q_D(HubFrame);
 
     QString status = tr("Connecting to %1").arg(QString::fromStdString(d->client->getHubUrl()));
@@ -3752,6 +3754,7 @@ void HubFrame::on(ClientListener::UserUpdated, Client*, const OnlineUser &user) 
 }
 
 void HubFrame::on(ClientListener::UsersUpdated x, Client*, const OnlineUserList &list) noexcept{
+    Q_UNUSED(x)
     for (const auto &it : list){
         const OnlineUser &user = *it;
         if (user.getIdentity().isHidden() && !WBGET(WB_SHOW_HIDDEN_USERS))

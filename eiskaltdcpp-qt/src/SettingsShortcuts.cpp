@@ -181,6 +181,8 @@ QVariant ShortcutsModel::headerData(int section, Qt::Orientation orientation, in
 }
 
 void ShortcutsModel::sort(int column, Qt::SortOrder order) {
+    Q_UNUSED(column)
+    Q_UNUSED(order)
     emit layoutChanged();
 }
 

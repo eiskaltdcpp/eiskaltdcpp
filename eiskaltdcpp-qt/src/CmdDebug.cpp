@@ -48,6 +48,7 @@ QMenu *CmdDebug::getMenu() {
 }
 
 void CmdDebug::on(DebugManagerListener::DebugDetection, const string &com) noexcept {
+    Q_UNUSED(com)
     // NOTE: we no use this in core
 }
 

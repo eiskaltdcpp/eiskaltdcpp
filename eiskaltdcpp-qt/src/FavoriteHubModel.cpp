@@ -151,14 +151,20 @@ int FavoriteHubModel::rowCount(const QModelIndex &parent) const
 }
 
 bool FavoriteHubModel::insertRow(int row, const QModelIndex &parent){
+    Q_UNUSED(row)
+    Q_UNUSED(parent)
     return true;
 }
 
 bool FavoriteHubModel::removeRow(int row, const QModelIndex &parent){
+    Q_UNUSED(row)
+    Q_UNUSED(parent)
     return true;
 }
 
 bool FavoriteHubModel::insertRows(int position, int rows, const QModelIndex &index){
+    Q_UNUSED(rows)
+
     FavoriteHubItem *from = NULL;
 
     beginRemoveRows(QModelIndex(), position, position);
@@ -177,6 +183,9 @@ bool FavoriteHubModel::insertRows(int position, int rows, const QModelIndex &ind
 }
 
 bool FavoriteHubModel::removeRows(int position, int rows, const QModelIndex &index){
+    Q_UNUSED(position)
+    Q_UNUSED(rows)
+    Q_UNUSED(index)
     return true;
 }
 

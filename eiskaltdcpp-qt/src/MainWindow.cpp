@@ -2363,6 +2363,8 @@ void MainWindow::slotJSFileChanged(const QString &script){
         break;
     }
     }
+#else
+    Q_UNUSED(script)
 #endif
 }
 
@@ -3005,6 +3007,7 @@ void MainWindow::prevMsg(){
 }
 
 void MainWindow::on(dcpp::LogManagerListener::Message, time_t t, const std::string& m) noexcept{
+    Q_UNUSED(t)
     emit coreLogMessage(_q(m.c_str()));
 }
 

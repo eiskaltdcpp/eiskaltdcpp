@@ -54,6 +54,7 @@ bool UserListModel::hasChildren(const QModelIndex &parent) const{
 }
 
 bool UserListModel::canFetchMore(const QModelIndex &parent) const{
+    Q_UNUSED(parent)
     return false;
 }
 
@@ -485,6 +486,8 @@ QString UserListModel::CIDforNick(const QString &nick, const QString &){
 }
 
 QStringList UserListModel::matchNicksContaining(const QString & part, bool stripTags) const {
+    Q_UNUSED(stripTags)
+
     QStringList matches;
 
     if (part.isEmpty()) {
@@ -503,6 +506,8 @@ QStringList UserListModel::matchNicksContaining(const QString & part, bool strip
 }
 
 QStringList UserListModel::matchNicksStartingWith(const QString & part, bool stripTags) const {
+    Q_UNUSED(stripTags)
+
     QStringList matches;
 
     if (part.isEmpty()) {
@@ -521,6 +526,8 @@ QStringList UserListModel::matchNicksStartingWith(const QString & part, bool str
 }
 
 QStringList UserListModel::matchNicksAny(const QString &part, bool stripTags) const{
+    Q_UNUSED(stripTags)
+
     QStringList matches;
 
     if (part.isEmpty()) {

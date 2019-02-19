@@ -188,6 +188,7 @@ QModelIndex FinishedTransfersModel::index(int row, int column, const QModelIndex
 
 QModelIndex FinishedTransfersModel::parent(const QModelIndex &index) const
 {
+    Q_UNUSED(index)
     return QModelIndex();
 }
 

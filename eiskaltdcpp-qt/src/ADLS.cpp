@@ -209,8 +209,9 @@ void ADLS::slotClicked(const QModelIndex &index){
 }
 
 void ADLS::initEditor(ADLSEditor &editor){
-
+    Q_UNUSED(editor)
 }
+
 void ADLS::slotAdd_newButtonClicked(){
     ADLSEditor editor;
     ADLSearchManager::SearchCollection &collection = ADLSearchManager::getInstance()->collection;
@@ -394,6 +395,7 @@ QString ADLS::SizeTypeToString(ADLSearch::SizeType t){
 }
 
 void ADLS::slotSettingsChanged(const QString &key, const QString &value){
+    Q_UNUSED(value)
     if (key == WS_TRANSLATION_FILE)
         retranslateUi(this);
 }

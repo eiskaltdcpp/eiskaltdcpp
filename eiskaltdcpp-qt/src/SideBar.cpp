@@ -82,7 +82,8 @@ SideBarModel::SideBarModel(QObject *parent) :
     //CREATE_ROOT_EL(rootItem, eiSERVER,      tr("Hub Manager"),      roots,  HubManager);
     CREATE_ROOT_EL(rootItem, eiGUI,         tr("Other Widgets"),    roots,  CustomWidget);
 
-    connect(WulforSettings::getInstance(), SIGNAL(strValueChanged(QString,QString)), this, SLOT(slotSettingsChanged(QString,QString)));
+    connect(WulforSettings::getInstance(), SIGNAL(strValueChanged(QString,QString)),
+            this, SLOT(slotSettingsChanged(QString,QString)));
 }
 
 SideBarModel::~SideBarModel()
@@ -146,6 +147,9 @@ QVariant SideBarModel::data(const QModelIndex &index, int role) const
 QVariant SideBarModel::headerData(int section, Qt::Orientation orientation,
                                   int role) const
 {
+    Q_UNUSED(section)
+    Q_UNUSED(orientation)
+    Q_UNUSED(role)
     return (QList<QVariant>() << tr("Widgets"));
 }
 
@@ -199,6 +203,8 @@ int SideBarModel::rowCount(const QModelIndex &parent) const
 
 
 void SideBarModel::sort(int column, Qt::SortOrder order) {
+    Q_UNUSED(column)
+    Q_UNUSED(order)
     return;
 }
 
@@ -413,6 +419,7 @@ void SideBarModel::slotIndexClicked(const QModelIndex &i){
 }
 
 void SideBarModel::slotSettingsChanged(const QString &key, const QString &value){
+    Q_UNUSED(value)
     if (key == WS_TRANSLATION_FILE){
         RETRANSLATE_ROOT_EL(tr("Hubs"),             roots,  Hub);
         RETRANSLATE_ROOT_EL(tr("Private Messages"), roots,  PrivateMessage);

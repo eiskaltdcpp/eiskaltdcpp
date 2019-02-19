@@ -842,6 +842,8 @@ void TransferView::on(dcpp::UploadManagerListener::Complete, dcpp::Upload* ul) n
 }
 
 void TransferView::on(dcpp::UploadManagerListener::Failed, dcpp::Upload* ul, const std::string& reason) noexcept{
+    Q_UNUSED(reason)
+
     VarMap params;
 
     getParams(params, ul);

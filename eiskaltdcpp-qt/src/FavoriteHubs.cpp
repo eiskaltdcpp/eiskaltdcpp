@@ -468,6 +468,7 @@ void FavoriteHubs::slotClicked(const QModelIndex &index){
 }
 
 void FavoriteHubs::slotSettingsChanged(const QString &key, const QString &value){
+    Q_UNUSED(value)
     if (key == WS_TRANSLATION_FILE)
         retranslateUi(this);
 }

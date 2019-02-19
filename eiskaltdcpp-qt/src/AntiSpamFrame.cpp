@@ -459,6 +459,7 @@ void AntiSpamFrame::slotGToW() {
 }
 
 void AntiSpamFrame::slotSettingsChanged(const QString &key, const QString &value){
+    Q_UNUSED(value)
     if (key == WS_TRANSLATION_FILE)
         retranslateUi(this);
 }

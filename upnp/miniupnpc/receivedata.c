@@ -39,6 +39,7 @@ receivedata(int socket,
             char * data, int length,
             int timeout, unsigned int * scope_id)
 {
+    (void)scope_id;
 #if MINIUPNPC_GET_SRC_ADDR
 	struct sockaddr_storage src_addr;
 	socklen_t src_addr_len = sizeof(src_addr);

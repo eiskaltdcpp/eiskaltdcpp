@@ -654,7 +654,7 @@ static bool onlyFirstColumn(const QModelIndex &index){
 }
 
 void ShareBrowser::slotLeftPaneSelChanged(const QItemSelection &sel, const QItemSelection &des){
-
+    Q_UNUSED(sel)
 
     QItemSelectionModel *selection_model = treeView_LPANE->selectionModel();
     QModelIndexList selected  = selection_model->selectedRows(0);

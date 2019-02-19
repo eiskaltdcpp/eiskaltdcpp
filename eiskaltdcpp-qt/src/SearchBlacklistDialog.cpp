@@ -339,6 +339,7 @@ SearchBlackListDelegate::~SearchBlackListDelegate(){
 }
 
 QWidget *SearchBlackListDelegate::createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const{
+    Q_UNUSED(option)
     if (index.column() == 1){
         QComboBox *edit = new QComboBox(parent);
 
@@ -357,6 +358,7 @@ QWidget *SearchBlackListDelegate::createEditor(QWidget *parent, const QStyleOpti
 }
 
 void SearchBlackListDelegate::updateEditorGeometry(QWidget *editor, const QStyleOptionViewItem &option, const QModelIndex &index) const{
+    Q_UNUSED(index)
     editor->setGeometry(option.rect);
 }
 

@@ -42,6 +42,7 @@ void DynDNS::Request() {
 }
 
 void DynDNS::on(TimerManagerListener::Minute, uint64_t aTick) noexcept {
+    (void)aTick;
     if (request)
         Request();
 }
@@ -81,6 +82,8 @@ void DynDNS::on(HttpConnectionListener::Complete, HttpConnection*, string const&
 }
 
 void DynDNS::on(HttpConnectionListener::Failed, HttpConnection* conn, const string& aLine) noexcept {
+    (void)conn;
+    (void)aLine;
     Request();
 }
 

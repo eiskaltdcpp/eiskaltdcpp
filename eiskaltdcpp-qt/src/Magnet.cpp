@@ -122,6 +122,8 @@ int Magnet::exec() {
 }
 
 void Magnet::search(const QString &file, const qulonglong &size, const QString &tth){
+    Q_UNUSED(size)
+
     if (!tth.isEmpty())
         Magnet::searchTTH(tth);
     else if (!file.isEmpty())
