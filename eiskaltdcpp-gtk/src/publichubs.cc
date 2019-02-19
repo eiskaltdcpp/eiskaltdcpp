@@ -188,6 +188,9 @@ void PublicHubs::setStatus_gui(string statusBar, string text)
 
 gboolean PublicHubs::onFocusIn_gui(GtkWidget *widget, GdkEventFocus *event, gpointer data)
 {
+    (void)widget;
+    (void)event;
+
     PublicHubs *ph = (PublicHubs *)data;
 
     gtk_widget_grab_focus(ph->getWidget("filterEntry"));
@@ -197,6 +200,7 @@ gboolean PublicHubs::onFocusIn_gui(GtkWidget *widget, GdkEventFocus *event, gpoi
 
 gboolean PublicHubs::onButtonPress_gui(GtkWidget *widget, GdkEventButton *event, gpointer data)
 {
+    (void)widget;
     PublicHubs *ph = (PublicHubs *)data;
 
     if (event->type == GDK_BUTTON_PRESS || event->type == GDK_2BUTTON_PRESS)
@@ -210,6 +214,7 @@ gboolean PublicHubs::onButtonPress_gui(GtkWidget *widget, GdkEventButton *event,
 
 gboolean PublicHubs::onButtonRelease_gui(GtkWidget *widget, GdkEventButton *event, gpointer data)
 {
+    (void)widget;
     PublicHubs *ph = (PublicHubs *)data;
 
     if (ph->oldButton == event->button && gtk_tree_selection_get_selected(ph->hubSelection, NULL, NULL))
@@ -230,6 +235,7 @@ gboolean PublicHubs::onButtonRelease_gui(GtkWidget *widget, GdkEventButton *even
 
 gboolean PublicHubs::onKeyRelease_gui(GtkWidget *widget, GdkEventKey *event, gpointer data)
 {
+    (void)widget;
     PublicHubs *ph = (PublicHubs *)data;
 
     if (gtk_tree_selection_get_selected(ph->hubSelection, NULL, NULL))
@@ -250,6 +256,9 @@ gboolean PublicHubs::onKeyRelease_gui(GtkWidget *widget, GdkEventKey *event, gpo
 
 gboolean PublicHubs::onFilterHubs_gui(GtkWidget *widget, GdkEventKey *event, gpointer data)
 {
+    (void)widget;
+    (void)event;
+
     PublicHubs *ph = (PublicHubs *)data;
     StringSearch pattern(gtk_entry_get_text(GTK_ENTRY(ph->getWidget("filterEntry"))));
 
@@ -264,6 +273,7 @@ gboolean PublicHubs::onFilterHubs_gui(GtkWidget *widget, GdkEventKey *event, gpo
 
 void PublicHubs::onConnect_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     PublicHubs *ph = (PublicHubs *)data;
     GtkTreeIter iter;
 
@@ -276,6 +286,7 @@ void PublicHubs::onConnect_gui(GtkWidget *widget, gpointer data)
 
 void PublicHubs::onRefresh_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     PublicHubs *ph = (PublicHubs *)data;
     int pos = gtk_combo_box_get_active(GTK_COMBO_BOX(ph->getWidget("hubListBox")));
 
@@ -286,6 +297,7 @@ void PublicHubs::onRefresh_gui(GtkWidget *widget, gpointer data)
 
 void PublicHubs::onAddFav_gui(GtkMenuItem *item, gpointer data)
 {
+    (void)item;
     PublicHubs *ph = (PublicHubs *)data;
     GtkTreeIter iter;
 
@@ -311,6 +323,7 @@ void PublicHubs::onAddFav_gui(GtkMenuItem *item, gpointer data)
 
 void PublicHubs::onConfigure_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     PublicHubs *ph = (PublicHubs *)data;
 
     // Have to get active here since temp could be NULL after dialog is closed
@@ -355,6 +368,7 @@ void PublicHubs::onConfigure_gui(GtkWidget *widget, gpointer data)
 
 void PublicHubs::onAdd_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     PublicHubs *ph = (PublicHubs *)data;
     GtkTreeIter iter;
     GtkTreePath *path;
@@ -370,6 +384,7 @@ void PublicHubs::onAdd_gui(GtkWidget *widget, gpointer data)
 
 void PublicHubs::onMoveUp_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     PublicHubs *ph = (PublicHubs *)data;
     GtkTreeIter prev, current;
     GtkTreeModel *m = GTK_TREE_MODEL(ph->listsStore);
@@ -385,6 +400,7 @@ void PublicHubs::onMoveUp_gui(GtkWidget *widget, gpointer data)
 
 void PublicHubs::onMoveDown_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     PublicHubs *ph = (PublicHubs *)data;
     GtkTreeIter current, next;
 
@@ -398,6 +414,7 @@ void PublicHubs::onMoveDown_gui(GtkWidget *widget, gpointer data)
 
 void PublicHubs::onRemove_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     PublicHubs *ph = (PublicHubs *)data;
     GtkTreeIter current;
 
@@ -407,6 +424,7 @@ void PublicHubs::onRemove_gui(GtkWidget *widget, gpointer data)
 
 void PublicHubs::onCellEdited_gui(GtkCellRendererText *cell, char *path, char *text, gpointer data)
 {
+    (void)cell;
     PublicHubs *ph = (PublicHubs *)data;
     GtkTreeIter it;
 

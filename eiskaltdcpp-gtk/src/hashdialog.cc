@@ -111,6 +111,9 @@ void Hash::updateStats_gui(string file, int64_t bytes, size_t files, uint64_t ti
 
 void Hash::onPauseHashing_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
+    (void)data;
+
 //    Hash *h = (Hash *)data;
     bool paused = HashManager::getInstance()->isHashingPaused();
     if (paused) {
@@ -124,6 +127,8 @@ void Hash::onPauseHashing_gui(GtkWidget *widget, gpointer data)
 
 void Hash::on(TimerManagerListener::Second, uint64_t tics) noexcept
 {
+    (void)tics;
+
     string file;
     int64_t bytes = 0;
     size_t files = 0;

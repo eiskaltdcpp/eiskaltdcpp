@@ -744,6 +744,7 @@ void ShareBrowser::find_gui()
 
 gboolean ShareBrowser::onButtonPressed_gui(GtkWidget *widget, GdkEventButton *event, gpointer data)
 {
+    (void)widget;
     ShareBrowser *sb = (ShareBrowser *)data;
     sb->oldType = event->type;
 
@@ -766,6 +767,7 @@ gboolean ShareBrowser::onButtonPressed_gui(GtkWidget *widget, GdkEventButton *ev
 
 gboolean ShareBrowser::onFileButtonReleased_gui(GtkWidget *widget, GdkEventButton *event, gpointer data)
 {
+    (void)widget;
     ShareBrowser *sb = (ShareBrowser *)data;
     gint count = gtk_tree_selection_count_selected_rows(sb->fileSelection);
 
@@ -779,6 +781,7 @@ gboolean ShareBrowser::onFileButtonReleased_gui(GtkWidget *widget, GdkEventButto
 
 gboolean ShareBrowser::onFileKeyReleased_gui(GtkWidget *widget, GdkEventKey *event, gpointer data)
 {
+    (void)widget;
     ShareBrowser *sb = (ShareBrowser *)data;
     gint count = gtk_tree_selection_count_selected_rows(sb->fileSelection);
 
@@ -792,6 +795,7 @@ gboolean ShareBrowser::onFileKeyReleased_gui(GtkWidget *widget, GdkEventKey *eve
 
 gboolean ShareBrowser::onDirButtonReleased_gui(GtkWidget *widget, GdkEventButton *event, gpointer data)
 {
+    (void)widget;
     ShareBrowser *sb = (ShareBrowser *)data;
     GtkTreeIter iter;
     gpointer ptr;
@@ -827,6 +831,7 @@ gboolean ShareBrowser::onDirButtonReleased_gui(GtkWidget *widget, GdkEventButton
 
 gboolean ShareBrowser::onDirKeyReleased_gui(GtkWidget *widget, GdkEventKey *event, gpointer data)
 {
+    (void)widget;
     ShareBrowser *sb = (ShareBrowser *)data;
     GtkTreeIter iter;
     gpointer ptr;
@@ -863,6 +868,7 @@ gboolean ShareBrowser::onDirKeyReleased_gui(GtkWidget *widget, GdkEventKey *even
 
 void ShareBrowser::onMatchButtonClicked_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     typedef Func0<ShareBrowser> F0;
     F0 *f0 = new F0((ShareBrowser*)data, &ShareBrowser::matchQueue_client);
     WulforManager::get()->dispatchClientFunc(f0);
@@ -870,6 +876,7 @@ void ShareBrowser::onMatchButtonClicked_gui(GtkWidget *widget, gpointer data)
 
 void ShareBrowser::onFindButtonClicked_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     ShareBrowser *sb = (ShareBrowser *)data;
 
     gtk_widget_grab_focus(GTK_WIDGET(sb->getWidget("findEntry")));
@@ -899,6 +906,8 @@ void ShareBrowser::onFindButtonClicked_gui(GtkWidget *widget, gpointer data)
 
 void ShareBrowser::onNextButtonClicked_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
+
     ShareBrowser *sb = (ShareBrowser *)data;
     if (!sb->search.empty())
         sb->find_gui();
@@ -908,15 +917,18 @@ void ShareBrowser::onNextButtonClicked_gui(GtkWidget *widget, gpointer data)
 
 void ShareBrowser::onDownloadClicked_gui(GtkMenuItem *item, gpointer data)
 {
+    (void)item;
+
     ShareBrowser *sb = (ShareBrowser *)data;
     sb->downloadSelectedFiles_gui(Text::fromUtf8(SETTING(DOWNLOAD_DIRECTORY)));
 }
 
 void ShareBrowser::onDownloadToClicked_gui(GtkMenuItem *item, gpointer data)
 {
-    ShareBrowser *sb = (ShareBrowser *)data;
+    (void)item;
 
-    gint response = gtk_dialog_run(GTK_DIALOG(sb->getWidget("dirChooserDialog")));
+    ShareBrowser *sb = (ShareBrowser *)data;
+    const gint response = gtk_dialog_run(GTK_DIALOG(sb->getWidget("dirChooserDialog")));
 
     // Fix crash, if the dialog gets programmatically destroyed.
     if (response == GTK_RESPONSE_NONE)
@@ -948,14 +960,17 @@ void ShareBrowser::onDownloadFavoriteClicked_gui(GtkMenuItem *item, gpointer dat
 
 void ShareBrowser::onDownloadDirClicked_gui(GtkMenuItem *item, gpointer data)
 {
+    (void)item;
+
     ShareBrowser *sb = (ShareBrowser *)data;
     sb->downloadSelectedDirs_gui(Text::fromUtf8(SETTING(DOWNLOAD_DIRECTORY)));
 }
 
 void ShareBrowser::onDownloadDirToClicked_gui(GtkMenuItem *item, gpointer data)
 {
-    ShareBrowser *sb = (ShareBrowser *)data;
+    (void)item;
 
+    ShareBrowser *sb = (ShareBrowser *)data;
     gint response = gtk_dialog_run(GTK_DIALOG(sb->getWidget("dirChooserDialog")));
 
     // Fix crash, if the dialog gets programmatically destroyed.
@@ -988,6 +1003,8 @@ void ShareBrowser::onDownloadFavoriteDirClicked_gui(GtkMenuItem *item, gpointer 
 
 void ShareBrowser::onSearchAlternatesClicked_gui(GtkMenuItem *item, gpointer data)
 {
+    (void)item;
+
     ShareBrowser *sb = (ShareBrowser *)data;
     GtkTreeIter iter;
     GtkTreePath *path;
@@ -1017,6 +1034,8 @@ void ShareBrowser::onSearchAlternatesClicked_gui(GtkMenuItem *item, gpointer dat
 
 void ShareBrowser::onCopyMagnetClicked_gui(GtkMenuItem* item, gpointer data)
 {
+    (void)item;
+
     ShareBrowser *sb = (ShareBrowser *)data;
     GtkTreeIter iter;
     GtkTreePath *path;
@@ -1051,12 +1070,14 @@ void ShareBrowser::onCopyMagnetClicked_gui(GtkMenuItem* item, gpointer data)
 
 void ShareBrowser::onCopyPictureClicked_gui(GtkMenuItem* item, gpointer data)
 {
-   ShareBrowser *sb = (ShareBrowser *)data;
-   GtkTreeIter iter;
-   GtkTreePath *path;
-   int64_t size;
-   string magnets, magnet, filename, tth;
-   GList *list = gtk_tree_selection_get_selected_rows(sb->fileSelection, NULL);
+    (void)item;
+
+    ShareBrowser *sb = (ShareBrowser *)data;
+    GtkTreeIter iter;
+    GtkTreePath *path;
+    int64_t size;
+    string magnets, magnet, filename, tth;
+    GList *list = gtk_tree_selection_get_selected_rows(sb->fileSelection, NULL);
 
    for (GList *i = list; i; i = i->next)
    {
@@ -1123,6 +1144,8 @@ void ShareBrowser::matchQueue_client()
 }
 void ShareBrowser::onDirGet(GtkMenuItem* item, gpointer data)
 {
+    (void)item;
+
     ShareBrowser *sb=(ShareBrowser*)data;
     GList *list = gtk_tree_selection_get_selected_rows(sb->fileSelection, NULL);
     GtkTreePath *path;

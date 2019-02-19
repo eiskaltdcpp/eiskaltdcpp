@@ -123,6 +123,7 @@ void SearchADL::show()
 
 void SearchADL::onRemoveClicked_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     SearchADL *s = (SearchADL *)data;
 
     GtkTreeIter iter;
@@ -143,6 +144,7 @@ void SearchADL::onRemoveClicked_gui(GtkWidget *widget, gpointer data)
 
 void SearchADL::onAddClicked_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     SearchADL *s = (SearchADL *)data;
 
     ADLSearch search;
@@ -176,6 +178,7 @@ void SearchADL::onAddClicked_gui(GtkWidget *widget, gpointer data)
 
 void SearchADL::onPropertiesClicked_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     SearchADL *s = (SearchADL *)data;
     
     GtkTreeIter iter;
@@ -313,6 +316,7 @@ bool SearchADL::showPropertiesDialog_gui(ADLSearch &search, bool edit, SearchADL
 
 void SearchADL::onMoveUpClicked_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     SearchADL *s = (SearchADL *)data;
 
     GtkTreeIter prev, current;
@@ -345,6 +349,7 @@ void SearchADL::onMoveUpClicked_gui(GtkWidget *widget, gpointer data)
 
 void SearchADL::onMoveDownClicked_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     SearchADL *s = (SearchADL *)data;
 
     GtkTreeIter current, next;
@@ -375,6 +380,7 @@ void SearchADL::onMoveDownClicked_gui(GtkWidget *widget, gpointer data)
 
 void SearchADL::onActiveToggled_gui(GtkCellRendererToggle *cell, gchar *path, gpointer data)
 {
+    (void)cell;
     SearchADL *s = (SearchADL *)data;
     GtkTreeIter iter;
 
@@ -400,6 +406,7 @@ void SearchADL::onActiveToggled_gui(GtkCellRendererToggle *cell, gchar *path, gp
 
 gboolean SearchADL::onButtonPressed_gui(GtkWidget *widget, GdkEventButton *event, gpointer data)
 {
+    (void)widget;
     SearchADL *s = (SearchADL *)data;
     s->previous = event->type;
 
@@ -421,6 +428,7 @@ gboolean SearchADL::onButtonPressed_gui(GtkWidget *widget, GdkEventButton *event
 
 gboolean SearchADL::onButtonReleased_gui(GtkWidget *widget, GdkEventButton *event, gpointer data)
 {
+    (void)widget;
     SearchADL *s = (SearchADL *)data;
 
     if (gtk_tree_selection_get_selected(s->searchADLSelection, NULL, NULL))
@@ -442,6 +450,7 @@ gboolean SearchADL::onButtonReleased_gui(GtkWidget *widget, GdkEventButton *even
 
 gboolean SearchADL::onKeyReleased_gui(GtkWidget *widget, GdkEventKey *event, gpointer data)
 {
+    (void)widget;
     SearchADL *s = (SearchADL *)data;
 
     if (gtk_tree_selection_get_selected(s->searchADLSelection, NULL, NULL))

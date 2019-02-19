@@ -941,6 +941,9 @@ void Search::download_gui(const string &target)
 
 gboolean Search::onFocusIn_gui(GtkWidget *widget, GdkEventFocus *event, gpointer data)
 {
+    (void)widget;
+    (void)event;
+
     Search *s = (Search *)data;
     if (!s) return FALSE;
 
@@ -951,6 +954,7 @@ gboolean Search::onFocusIn_gui(GtkWidget *widget, GdkEventFocus *event, gpointer
 
 gboolean Search::onButtonPressed_gui(GtkWidget *widget, GdkEventButton *event, gpointer data)
 {
+    (void)widget;
     Search *s = (Search *)data;
     if (!s) return FALSE;
     s->oldEventType = event->type;
@@ -972,6 +976,7 @@ gboolean Search::onButtonPressed_gui(GtkWidget *widget, GdkEventButton *event, g
 
 gboolean Search::onButtonReleased_gui(GtkWidget *widget, GdkEventButton *event, gpointer data)
 {
+    (void)widget;
     Search *s = (Search *)data;
     if (!s) return FALSE;
     gint count = gtk_tree_selection_count_selected_rows(s->selection);
@@ -1014,6 +1019,7 @@ gboolean Search::onKeyReleased_gui(GtkWidget *widget, GdkEventKey *event, gpoint
 
 gboolean Search::onSearchEntryKeyPressed_gui(GtkWidget *widget, GdkEventKey *event, gpointer data)
 {
+    (void)widget;
     Search *s = (Search *)data;
     if (!s) return FALSE;
 
@@ -1032,6 +1038,7 @@ gboolean Search::onSearchEntryKeyPressed_gui(GtkWidget *widget, GdkEventKey *eve
 
 void Search::onComboBoxChanged_gui(GtkWidget* widget, gpointer data)
 {
+    (void)widget;
     Search *s = (Search *)data;
     if (!s) return;
 
@@ -1063,6 +1070,7 @@ void Search::onGroupByComboBoxChanged_gui(GtkWidget *comboBox, gpointer data)
 
 void Search::onSearchButtonClicked_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     Search *s = (Search *)data;
     if (!s) return;
     s->search_gui();
@@ -1111,6 +1119,7 @@ void Search::onSlotsButtonToggled_gui(GtkToggleButton *button, gpointer data)
 
 void Search::onSharedButtonToggled_gui(GtkToggleButton *button, gpointer data)
 {
+    (void)button;
     Search *s = (Search *)data;
     if (!s) return;
 
@@ -1121,6 +1130,7 @@ void Search::onSharedButtonToggled_gui(GtkToggleButton *button, gpointer data)
 
 void Search::onToggledClicked_gui(GtkCellRendererToggle *cell, gchar *path, gpointer data)
 {
+    (void)cell;
     Search *s = (Search *)data;
     if (!s) return;
     GtkTreeIter iter;
@@ -1138,6 +1148,7 @@ void Search::onToggledClicked_gui(GtkCellRendererToggle *cell, gchar *path, gpoi
 
 void Search::onDownloadClicked_gui(GtkMenuItem *item, gpointer data)
 {
+    (void)item;
     Search *s = (Search *)data;
     if (!s) return;
 
@@ -1156,6 +1167,7 @@ void Search::onDownloadFavoriteClicked_gui(GtkMenuItem *item, gpointer data)
 
 void Search::onDownloadToClicked_gui(GtkMenuItem *item, gpointer data)
 {
+    (void)item;
     Search *s = (Search *)data;
     if (!s) return;
 
@@ -1226,6 +1238,7 @@ void Search::onDownloadToMatchClicked_gui(GtkMenuItem *item, gpointer data)
 
 void Search::onDownloadDirClicked_gui(GtkMenuItem *item, gpointer data)
 {
+    (void)item;
     Search *s = (Search *)data;
     if (!s) return;
 
@@ -1306,6 +1319,7 @@ void Search::onDownloadFavoriteDirClicked_gui(GtkMenuItem *item, gpointer data)
 
 void Search::onDownloadDirToClicked_gui(GtkMenuItem *item, gpointer data)
 {
+    (void)item;
     Search *s = (Search *)data;
     if (!s) return;
 
@@ -1365,6 +1379,7 @@ void Search::onDownloadDirToClicked_gui(GtkMenuItem *item, gpointer data)
 
 void Search::onSearchByTTHClicked_gui(GtkMenuItem *item, gpointer data)
 {
+    (void)item;
     Search *s = (Search *)data;
     if (!s) return;
 
@@ -1394,6 +1409,7 @@ void Search::onSearchByTTHClicked_gui(GtkMenuItem *item, gpointer data)
 
 void Search::onGetFileListClicked_gui(GtkMenuItem *item, gpointer data)
 {
+    (void)item;
     Search *s = (Search *)data;
     if (!s) return;
 
@@ -1429,6 +1445,7 @@ void Search::onGetFileListClicked_gui(GtkMenuItem *item, gpointer data)
 
 void Search::onPartialFileListOpen_gui(GtkMenuItem *item, gpointer data)
 {
+    (void)item;
     Search *s = (Search *)data;
     if (!s) return;
 
@@ -1464,6 +1481,7 @@ void Search::onPartialFileListOpen_gui(GtkMenuItem *item, gpointer data)
 
 void Search::onMatchQueueClicked_gui(GtkMenuItem *item, gpointer data)
 {
+    (void)item;
     Search *s = (Search *)data;
     if (!s) return;
 
@@ -1498,6 +1516,7 @@ void Search::onMatchQueueClicked_gui(GtkMenuItem *item, gpointer data)
 
 void Search::onPrivateMessageClicked_gui(GtkMenuItem *item, gpointer data)
 {
+    (void)item;
     Search *s = (Search *)data;
     if (!s) return;
 
@@ -1531,6 +1550,7 @@ void Search::onPrivateMessageClicked_gui(GtkMenuItem *item, gpointer data)
 
 void Search::onAddFavoriteUserClicked_gui(GtkMenuItem *item, gpointer data)
 {
+    (void)item;
     Search *s = (Search *)data;
     if (!s) return;
 
@@ -1566,6 +1586,7 @@ void Search::onAddFavoriteUserClicked_gui(GtkMenuItem *item, gpointer data)
 
 void Search::onGrantExtraSlotClicked_gui(GtkMenuItem *item, gpointer data)
 {
+    (void)item;
     Search *s = (Search *)data;
     if (!s) return;
 
@@ -1600,6 +1621,7 @@ void Search::onGrantExtraSlotClicked_gui(GtkMenuItem *item, gpointer data)
 
 void Search::onRemoveUserFromQueueClicked_gui(GtkMenuItem *item, gpointer data)
 {
+    (void)item;
     Search *s = (Search *)data;
     if (!s) return;
 
@@ -1637,6 +1659,7 @@ void Search::onRemoveUserFromQueueClicked_gui(GtkMenuItem *item, gpointer data)
 // result comes in later it won't be readded, before the results map is cleared with a new search.
 void Search::onRemoveClicked_gui(GtkMenuItem *item, gpointer data)
 {
+    (void)item;
     Search *s = (Search *)data;
     if (!s) return;
 
@@ -1679,6 +1702,7 @@ void Search::onRemoveClicked_gui(GtkMenuItem *item, gpointer data)
 
 void Search::onCopyMagnetClicked_gui(GtkMenuItem* item, gpointer data)
 {
+    (void)item;
     Search *s = (Search *)data;
     if (!s) return;
 
@@ -2092,6 +2116,7 @@ gboolean Search::searchFilterFunc_gui(GtkTreeModel *model, GtkTreeIter *iter, gp
 
 void Search::onSidePanelToggled_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     Search *s = (Search *)data;
     if (!s) return;
     GtkWidget *sidepanel = (GtkWidget *)s->getWidget("sidePanel");
@@ -2104,6 +2129,7 @@ void Search::onSidePanelToggled_gui(GtkWidget *widget, gpointer data)
 
 void Search::onClearButtonClicked_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     Search *s = (Search *)data;
     if (!s) return;
     gtk_tree_store_clear(s->resultStore);

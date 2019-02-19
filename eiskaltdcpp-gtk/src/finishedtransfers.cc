@@ -285,6 +285,7 @@ void FinishedTransfers::updateStatus_gui()
 
 gboolean FinishedTransfers::onButtonPressed_gui(GtkWidget *widget, GdkEventButton *event, gpointer data)
 {
+    (void)widget;
     FinishedTransfers *ft = (FinishedTransfers *)data;
     GtkTreeSelection *selection;
     TreeView *view;
@@ -320,6 +321,7 @@ gboolean FinishedTransfers::onButtonPressed_gui(GtkWidget *widget, GdkEventButto
 
 gboolean FinishedTransfers::onButtonReleased_gui(GtkWidget *widget, GdkEventButton *event, gpointer data)
 {
+    (void)widget;
     FinishedTransfers *ft = (FinishedTransfers *)data;
     GtkTreeSelection *selection;
     TreeView *view;
@@ -375,6 +377,7 @@ gboolean FinishedTransfers::onButtonReleased_gui(GtkWidget *widget, GdkEventButt
 
 gboolean FinishedTransfers::onKeyReleased_gui(GtkWidget *widget, GdkEventKey *event, gpointer data)
 {
+    (void)widget;
     FinishedTransfers *ft = (FinishedTransfers *)data;
     GtkTreeSelection *selection;
     TreeView *view;
@@ -441,6 +444,7 @@ gboolean FinishedTransfers::onKeyReleased_gui(GtkWidget *widget, GdkEventKey *ev
 
 void FinishedTransfers::onShowOnlyFullFilesToggled_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     FinishedTransfers *ft = (FinishedTransfers *)data;
     StringMap params;
     gtk_list_store_clear(ft->fileStore);
@@ -466,8 +470,9 @@ void FinishedTransfers::onShowOnlyFullFilesToggled_gui(GtkWidget *widget, gpoint
 
 void FinishedTransfers::onOpen_gui(GtkMenuItem *item, gpointer data)
 {
+    (void)item;
     FinishedTransfers *ft = (FinishedTransfers *)data;
-    int count = gtk_tree_selection_count_selected_rows(ft->fileSelection);
+    const int count = gtk_tree_selection_count_selected_rows(ft->fileSelection);
 
     if (count <= 0)
         return;
@@ -492,13 +497,18 @@ void FinishedTransfers::onOpen_gui(GtkMenuItem *item, gpointer data)
 
 void FinishedTransfers::onPageSwitched_gui(GtkNotebook *notebook, GtkNotebook *page, guint num, gpointer data)
 {
+    (void)notebook;
+    (void)page;
+    (void)num;
+
     ((FinishedTransfers*)data)->updateStatus_gui(); // Switch the total count between users and files
 }
 
 void FinishedTransfers::onOpenFolder_gui(GtkMenuItem *item, gpointer data)
 {
+    (void)item;
     FinishedTransfers *ft = (FinishedTransfers *)data;
-    int count = gtk_tree_selection_count_selected_rows(ft->fileSelection);
+    const int count = gtk_tree_selection_count_selected_rows(ft->fileSelection);
 
     if (count <= 0)
         return;
@@ -523,6 +533,7 @@ void FinishedTransfers::onOpenFolder_gui(GtkMenuItem *item, gpointer data)
 
 void FinishedTransfers::onRemoveItems_gui(GtkMenuItem *item, gpointer data)
 {
+    (void)item;
     FinishedTransfers *ft = (FinishedTransfers *)data;
     GtkTreeSelection *selection;
     TreeView *view;
@@ -617,6 +628,7 @@ void FinishedTransfers::removeFile_gui(string target)
 
 void FinishedTransfers::onRemoveAll_gui(GtkMenuItem *item, gpointer data)
 {
+    (void)item;
     FinishedTransfers *ft = (FinishedTransfers *)data;
 
     gtk_list_store_clear(ft->userStore);

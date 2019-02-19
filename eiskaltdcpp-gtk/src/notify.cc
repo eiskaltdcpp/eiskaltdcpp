@@ -279,7 +279,8 @@ void Notify::showNotify(const string &title, const string &head, const string &b
 
 void Notify::onAction(NotifyNotification *notify, const char *action, gpointer data)
 {
-    string target = (gchar*)data;
+    (void)action;
+    const string target = (gchar*)data;
 
     if (!target.empty())
         WulforUtil::openURI(target);

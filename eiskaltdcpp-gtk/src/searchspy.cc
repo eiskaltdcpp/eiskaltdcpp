@@ -403,6 +403,7 @@ void SearchSpy::setStatus_gui(const string text)
 
 void SearchSpy::onOKButtonClicked_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     SearchSpy *s =  (SearchSpy *) data;
 
     s->FrameSize = (SearchType)gtk_spin_button_get_value(GTK_SPIN_BUTTON(s->getWidget("frameSpinButton")));
@@ -439,6 +440,7 @@ void SearchSpy::resetCount()
 
 void SearchSpy::onShowTopClicked_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     SearchSpy *s = (SearchSpy *)data;
 
     GtkWidget *dialog = s->getWidget("TopSearchDialog");
@@ -452,12 +454,14 @@ void SearchSpy::onShowTopClicked_gui(GtkWidget *widget, gpointer data)
 
 void SearchSpy::onClearTopClicked_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     SearchSpy *s = (SearchSpy *)data;
     gtk_list_store_clear(s->topStore);
 }
 
 void SearchSpy::onSearchTopClicked_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     SearchSpy *s = (SearchSpy *)data;
 
     GtkTreeIter iter;
@@ -482,6 +486,7 @@ void SearchSpy::onSearchTopClicked_gui(GtkWidget *widget, gpointer data)
 
 void SearchSpy::onRemoveTopClicked_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     SearchSpy *s = (SearchSpy *)data;
 
     GtkTreeIter iter;
@@ -495,6 +500,7 @@ void SearchSpy::onRemoveTopClicked_gui(GtkWidget *widget, gpointer data)
 
 void SearchSpy::onClearFrameClicked_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     SearchSpy *s = (SearchSpy *)data;
 
     gtk_list_store_clear(s->searchStore);
@@ -504,6 +510,7 @@ void SearchSpy::onClearFrameClicked_gui(GtkWidget *widget, gpointer data)
 
 void SearchSpy::onUpdateFrameClicked_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     SearchSpy *s = (SearchSpy *)data;
 
     s->updateFrameStatus_gui();
@@ -511,12 +518,14 @@ void SearchSpy::onUpdateFrameClicked_gui(GtkWidget *widget, gpointer data)
 
 void SearchSpy::onIgnoreTTHSearchToggled_gui(GtkWidget *widget, gpointer data)
 {
+    (void)data;
     gboolean toggle = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(widget));
     WSET("spyframe-ignore-tth-searches",toggle);
 }
 
 void SearchSpy::onRemoveItemClicked_gui(GtkMenuItem *item, gpointer data)
 {
+    (void)item;
     SearchSpy *s = (SearchSpy *)data;
 
     if (gtk_tree_selection_count_selected_rows(s->searchSelection) > 0)
@@ -550,6 +559,7 @@ void SearchSpy::onRemoveItemClicked_gui(GtkMenuItem *item, gpointer data)
 
 void SearchSpy::onSearchItemClicked_gui(GtkMenuItem *item, gpointer data)
 {
+    (void)item;
     SearchSpy *s = (SearchSpy *)data;
 
     if (gtk_tree_selection_count_selected_rows(s->searchSelection) == 1)
@@ -584,6 +594,7 @@ void SearchSpy::onSearchItemClicked_gui(GtkMenuItem *item, gpointer data)
 
 gboolean SearchSpy::onButtonPressed_gui(GtkWidget *widget, GdkEventButton *event, gpointer data)
 {
+    (void)widget;
     SearchSpy *s = (SearchSpy *)data;
     s->previous = event->type;
 
@@ -605,6 +616,7 @@ gboolean SearchSpy::onButtonPressed_gui(GtkWidget *widget, GdkEventButton *event
 
 gboolean SearchSpy::onButtonReleased_gui(GtkWidget *widget, GdkEventButton *event, gpointer data)
 {
+    (void)widget;
     SearchSpy *s = (SearchSpy *)data;
 
     if (gtk_tree_selection_count_selected_rows(s->searchSelection) > 0)
@@ -626,6 +638,7 @@ gboolean SearchSpy::onButtonReleased_gui(GtkWidget *widget, GdkEventButton *even
 
 gboolean SearchSpy::onKeyReleased_gui(GtkWidget *widget, GdkEventKey *event, gpointer data)
 {
+    (void)widget;
     SearchSpy *s = (SearchSpy *)data;
 
     if (gtk_tree_selection_count_selected_rows(s->searchSelection) > 0)
@@ -669,6 +682,7 @@ void SearchSpy::on(ClientManagerListener::IncomingSearch, const string& s) noexc
 
 void SearchSpy::on(TimerManagerListener::Minute, uint64_t tick) noexcept
 {
+    (void)tick;
     typedef Func0<SearchSpy> F0;
     F0 *func = new F0(this, &SearchSpy::updateFrameStatus_gui);
     WulforManager::get()->dispatchGuiFunc(func);

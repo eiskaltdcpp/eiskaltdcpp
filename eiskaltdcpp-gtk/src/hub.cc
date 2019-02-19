@@ -1417,6 +1417,9 @@ void Hub::addStatusMessage_gui(string message, Msg::TypeMsg typemsg, Sound::Type
 
 gboolean Hub::onFocusIn_gui(GtkWidget *widget, GdkEventFocus *event, gpointer data)
 {
+    (void)widget;
+    (void)event;
+
     Hub *hub = (Hub *)data;
 
     gtk_widget_grab_focus(hub->getWidget("chatEntry"));
@@ -1429,6 +1432,7 @@ gboolean Hub::onFocusIn_gui(GtkWidget *widget, GdkEventFocus *event, gpointer da
 
 gboolean Hub::onNickListButtonPress_gui(GtkWidget *widget, GdkEventButton *event, gpointer data)
 {
+    (void)widget;
     Hub *hub = (Hub *)data;
 
     if (event->type == GDK_BUTTON_PRESS || event->type == GDK_2BUTTON_PRESS)
@@ -1452,6 +1456,7 @@ gboolean Hub::onNickListButtonPress_gui(GtkWidget *widget, GdkEventButton *event
 
 gboolean Hub::onNickListButtonRelease_gui(GtkWidget *widget, GdkEventButton *event, gpointer data)
 {
+    (void)widget;
     Hub *hub = (Hub *)data;
 
     if (gtk_tree_selection_count_selected_rows(hub->nickSelection) > 0)
@@ -1481,6 +1486,7 @@ gboolean Hub::onNickListButtonRelease_gui(GtkWidget *widget, GdkEventButton *eve
 
 gboolean Hub::onNickListKeyRelease_gui(GtkWidget *widget, GdkEventKey *event, gpointer data)
 {
+    (void)widget;
     Hub *hub = (Hub *)data;
 
     if (gtk_tree_selection_count_selected_rows(hub->nickSelection) > 0)
@@ -1502,6 +1508,8 @@ gboolean Hub::onNickListKeyRelease_gui(GtkWidget *widget, GdkEventKey *event, gp
  */
 gboolean Hub::onNickListSearch_gui(GtkTreeModel *model, gint column, const gchar *key, GtkTreeIter *iter, gpointer data)
 {
+    (void)data;
+
     gboolean result = TRUE;
     gchar *nick;
     gtk_tree_model_get(model, iter, column, &nick, -1);
@@ -1621,6 +1629,10 @@ gboolean Hub::onEntryKeyPress_gui(GtkWidget *entry, GdkEventKey *event, gpointer
 
 gboolean Hub::onNickTagEvent_gui(GtkTextTag *tag, GObject *textView, GdkEvent *event, GtkTextIter *iter, gpointer data)
 {
+    (void)tag;
+    (void)textView;
+    (void)iter;
+
     Hub *hub = (Hub *)data;
 #if GTK_CHECK_VERSION(3, 0, 0)
     gchar *tmp;
@@ -1665,6 +1677,10 @@ gboolean Hub::onNickTagEvent_gui(GtkTextTag *tag, GObject *textView, GdkEvent *e
 
 gboolean Hub::onLinkTagEvent_gui(GtkTextTag *tag, GObject *textView, GdkEvent *event, GtkTextIter *iter, gpointer data)
 {
+    (void)tag;
+    (void)textView;
+    (void)iter;
+
     Hub *hub = (Hub *)data;
 
     if (event->type == GDK_BUTTON_PRESS)
@@ -1687,6 +1703,10 @@ gboolean Hub::onLinkTagEvent_gui(GtkTextTag *tag, GObject *textView, GdkEvent *e
 
 gboolean Hub::onHubTagEvent_gui(GtkTextTag *tag, GObject *textView, GdkEvent *event, GtkTextIter *iter, gpointer data)
 {
+    (void)tag;
+    (void)textView;
+    (void)iter;
+
     Hub *hub = (Hub *)data;
 
     if (event->type == GDK_BUTTON_PRESS)
@@ -1709,6 +1729,10 @@ gboolean Hub::onHubTagEvent_gui(GtkTextTag *tag, GObject *textView, GdkEvent *ev
 
 gboolean Hub::onMagnetTagEvent_gui(GtkTextTag *tag, GObject *textView, GdkEvent *event, GtkTextIter *iter, gpointer data)
 {
+    (void)tag;
+    (void)textView;
+    (void)iter;
+
     Hub *hub = (Hub *)data;
 
     if (event->type == GDK_BUTTON_PRESS)
@@ -1732,6 +1756,7 @@ gboolean Hub::onMagnetTagEvent_gui(GtkTextTag *tag, GObject *textView, GdkEvent 
 
 gboolean Hub::onChatPointerMoved_gui(GtkWidget *widget, GdkEventMotion *event, gpointer data)
 {
+    (void)event;
     Hub *hub = (Hub *)data;
 
     hub->updateCursor_gui(widget);
@@ -1741,6 +1766,7 @@ gboolean Hub::onChatPointerMoved_gui(GtkWidget *widget, GdkEventMotion *event, g
 
 gboolean Hub::onChatVisibilityChanged_gui(GtkWidget *widget, GdkEventVisibility *event, gpointer data)
 {
+    (void)event;
     Hub *hub = (Hub *)data;
 
     hub->updateCursor_gui(widget);
@@ -1750,6 +1776,7 @@ gboolean Hub::onChatVisibilityChanged_gui(GtkWidget *widget, GdkEventVisibility 
 
 gboolean Hub::onEmotButtonRelease_gui(GtkWidget *widget, GdkEventButton *event, gpointer data)
 {
+    (void)widget;
     Hub *hub = (Hub *)data;
 
     switch (event->button)
@@ -2386,6 +2413,7 @@ void Hub::onSendMessage_gui(GtkEntry *entry, gpointer data)
 
 void Hub::onNickToChat_gui(GtkMenuItem *item, gpointer data)
 {
+    (void)item;
     Hub *hub = (Hub *)data;
 
     if (gtk_tree_selection_count_selected_rows(hub->nickSelection) > 0)
@@ -2417,6 +2445,7 @@ void Hub::onNickToChat_gui(GtkMenuItem *item, gpointer data)
 
 void Hub::onCopyNickItemClicked_gui(GtkMenuItem *item, gpointer data)
 {
+    (void)item;
     Hub *hub = (Hub *)data;
 
     if (gtk_tree_selection_count_selected_rows(hub->nickSelection) > 0)
@@ -2447,6 +2476,7 @@ void Hub::onCopyNickItemClicked_gui(GtkMenuItem *item, gpointer data)
 
 void Hub::onBrowseItemClicked_gui(GtkMenuItem *item, gpointer data)
 {
+    (void)item;
     Hub *hub = (Hub *)data;
 
     if (gtk_tree_selection_count_selected_rows(hub->nickSelection) > 0)
@@ -2475,6 +2505,7 @@ void Hub::onBrowseItemClicked_gui(GtkMenuItem *item, gpointer data)
 
 void Hub::onMatchItemClicked_gui(GtkMenuItem *item, gpointer data)
 {
+    (void)item;
     Hub *hub = (Hub *)data;
 
     if (gtk_tree_selection_count_selected_rows(hub->nickSelection) > 0)
@@ -2503,6 +2534,7 @@ void Hub::onMatchItemClicked_gui(GtkMenuItem *item, gpointer data)
 
 void Hub::onMsgItemClicked_gui(GtkMenuItem *item, gpointer data)
 {
+    (void)item;
     Hub *hub = (Hub *)data;
 
     if (gtk_tree_selection_count_selected_rows(hub->nickSelection) > 0)
@@ -2529,6 +2561,7 @@ void Hub::onMsgItemClicked_gui(GtkMenuItem *item, gpointer data)
 
 void Hub::onGrantItemClicked_gui(GtkMenuItem *item, gpointer data)
 {
+    (void)item;
     Hub *hub = (Hub *)data;
 
     if (gtk_tree_selection_count_selected_rows(hub->nickSelection) > 0)
@@ -2557,6 +2590,7 @@ void Hub::onGrantItemClicked_gui(GtkMenuItem *item, gpointer data)
 
 void Hub::onRemoveUserItemClicked_gui(GtkMenuItem *item, gpointer data)
 {
+    (void)item;
     Hub *hub = (Hub *)data;
 
     if (gtk_tree_selection_count_selected_rows(hub->nickSelection) > 0)
@@ -2585,6 +2619,7 @@ void Hub::onRemoveUserItemClicked_gui(GtkMenuItem *item, gpointer data)
 
 void Hub::onCopyURIClicked_gui(GtkMenuItem *item, gpointer data)
 {
+    (void)item;
     Hub *hub = (Hub *)data;
 
     gtk_clipboard_set_text(gtk_clipboard_get(GDK_SELECTION_CLIPBOARD), hub->selectedTagStr.c_str(), hub->selectedTagStr.length());
@@ -2592,6 +2627,7 @@ void Hub::onCopyURIClicked_gui(GtkMenuItem *item, gpointer data)
 
 void Hub::onOpenLinkClicked_gui(GtkMenuItem *item, gpointer data)
 {
+    (void)item;
     Hub *hub = (Hub *)data;
 
     WulforUtil::openURI(hub->selectedTagStr);
@@ -2599,6 +2635,7 @@ void Hub::onOpenLinkClicked_gui(GtkMenuItem *item, gpointer data)
 
 void Hub::onOpenHubClicked_gui(GtkMenuItem *item, gpointer data)
 {
+    (void)item;
     Hub *hub = (Hub *)data;
 
     WulforManager::get()->getMainWindow()->showHub_gui(hub->selectedTagStr);
@@ -2606,6 +2643,7 @@ void Hub::onOpenHubClicked_gui(GtkMenuItem *item, gpointer data)
 
 void Hub::onSearchMagnetClicked_gui(GtkMenuItem *item, gpointer data)
 {
+    (void)item;
     Hub *hub = (Hub *)data;
 
     WulforManager::get()->getMainWindow()->addSearch_gui(hub->selectedTagStr);
@@ -2613,12 +2651,14 @@ void Hub::onSearchMagnetClicked_gui(GtkMenuItem *item, gpointer data)
 
 void Hub::onDownloadClicked_gui(GtkMenuItem *item, gpointer data)
 {
+    (void)item;
     Hub *hub = (Hub *)data;
     WulforManager::get()->getMainWindow()->fileToDownload_gui(hub->selectedTagStr, SETTING(DOWNLOAD_DIRECTORY));
 }
 
 gboolean Hub::onChatCommandButtonRelease_gui(GtkWidget *widget, GdkEventButton *event, gpointer data)
 {
+    (void)widget;
     Hub *hub = (Hub *)data;
 
     if (event->button == 1)
@@ -2646,6 +2686,7 @@ void Hub::onCommandClicked_gui(GtkWidget *widget, gpointer data)
 
 void Hub::onUseEmoticons_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     Hub *hub = (Hub *)data;
 
     hub->useEmoticons = !hub->useEmoticons;
@@ -2653,6 +2694,7 @@ void Hub::onUseEmoticons_gui(GtkWidget *widget, gpointer data)
 
 void Hub::onDownloadToClicked_gui(GtkMenuItem *item, gpointer data)
 {
+    (void)item;
     Hub *hub = (Hub *)data;
 
     GtkWidget *dialog = WulforManager::get()->getMainWindow()->getChooserDialog_gui();
@@ -2682,6 +2724,7 @@ void Hub::onDownloadToClicked_gui(GtkMenuItem *item, gpointer data)
 
 void Hub::onMagnetPropertiesClicked_gui(GtkMenuItem *item, gpointer data)
 {
+    (void)item;
     Hub *hub = (Hub *)data;
 
     WulforManager::get()->getMainWindow()->propertiesMagnetDialog_gui(hub->selectedTagStr);
@@ -2689,6 +2732,7 @@ void Hub::onMagnetPropertiesClicked_gui(GtkMenuItem *item, gpointer data)
 
 void Hub::onUserListToggled_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     Hub *hub = (Hub *)data;
 
     if (gtk_widget_get_visible(hub->getWidget("scrollnickView")))
@@ -2699,6 +2743,7 @@ void Hub::onUserListToggled_gui(GtkWidget *widget, gpointer data)
 
 void Hub::onAddFavoriteUserClicked_gui(GtkMenuItem *item, gpointer data)
 {
+    (void)item;
     Hub *hub = (Hub *)data;
 
     if (gtk_tree_selection_count_selected_rows(hub->nickSelection) > 0)
@@ -2738,6 +2783,7 @@ void Hub::onAddFavoriteUserClicked_gui(GtkMenuItem *item, gpointer data)
 
 void Hub::onRemoveFavoriteUserClicked_gui(GtkMenuItem *item, gpointer data)
 {
+    (void)item;
     Hub *hub = (Hub *)data;
 
     if (gtk_tree_selection_count_selected_rows(hub->nickSelection) > 0)
@@ -3140,8 +3186,11 @@ string Hub::realFile_client(string tth)
    return "";
 }
 
-void Hub::on(QueueManagerListener::Finished, QueueItem *item, const string& dir, int64_t avSpeed) noexcept
+void Hub::on(QueueManagerListener::Finished, QueueItem *item, const string &dir, int64_t avSpeed) noexcept
 {
+   (void)dir;
+   (void)avSpeed;
+
    typedef Func2<Hub, string, string> F2;
    string tth = item->getTTH().toBase32();
 
@@ -3308,6 +3357,7 @@ void Hub::onRemoveImageClicked_gui(GtkMenuItem *item, gpointer data)
 
 void Hub::onOpenImageClicked_gui(GtkMenuItem *item, gpointer data)
 {
+    (void)item;
     Hub *hub = (Hub*) data;
 
     int64_t size;
@@ -3336,12 +3386,14 @@ void Hub::openImage_gui(string target)
 #if !GTK_CHECK_VERSION(3, 0, 0)
 gboolean Hub::expose(GtkWidget *widget, GdkEventExpose *event, gpointer data)
 {
+    (void)data;
     GTK_WIDGET_CLASS(GTK_WIDGET_GET_CLASS(widget))->expose_event(widget, event);
     return true;
 }
 #endif
 void Hub::onItalicButtonClicked_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     Hub *hub = (Hub*) data;
 
     hub->insertBBcodeEntry_gui("i");
@@ -3349,6 +3401,7 @@ void Hub::onItalicButtonClicked_gui(GtkWidget *widget, gpointer data)
 
 void Hub::onBoldButtonClicked_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     Hub *hub = (Hub*) data;
 
     hub->insertBBcodeEntry_gui("b");
@@ -3356,6 +3409,7 @@ void Hub::onBoldButtonClicked_gui(GtkWidget *widget, gpointer data)
 
 void Hub::onUnderlineButtonClicked_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     Hub *hub = (Hub*) data;
 
     hub->insertBBcodeEntry_gui("u");
@@ -3695,7 +3749,9 @@ void Hub::disableChat(bool enable)
 
 void Hub::onDisableChatToggled_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     Hub *hub = (Hub*) data;
+
     if (hub->enableChat)
         hub->disableChat(TRUE);
     else
@@ -3704,6 +3760,7 @@ void Hub::onDisableChatToggled_gui(GtkWidget *widget, gpointer data)
 
 void Hub::onPartialFileListOpen_gui(GtkMenuItem *item, gpointer data)
 {
+    (void)item;
     Hub *hub = (Hub *)data;
 
     if (gtk_tree_selection_count_selected_rows(hub->nickSelection) > 0)

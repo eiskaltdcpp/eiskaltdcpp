@@ -98,6 +98,7 @@ bool PreviewMenu::buildMenu_gui(const string &target)
 
 void PreviewMenu::onPreviewAppClicked_gui(GtkMenuItem *menuItem, gpointer data)
 {
+    (void)data;
     string command = (gchar *) g_object_get_data(G_OBJECT(menuItem), "command");
     string application = (gchar *) g_object_get_data(G_OBJECT(menuItem), "application");
     string target = (gchar *) g_object_get_data(G_OBJECT(menuItem), "target");

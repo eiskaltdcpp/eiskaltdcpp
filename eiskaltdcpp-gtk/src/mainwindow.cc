@@ -1364,6 +1364,7 @@ void MainWindow::setChooseMagnetDialog_gui()
 
 void MainWindow::onBrowseMagnetButton_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     MainWindow *mw = (MainWindow *)data;
 
     GtkWidget *dialog = mw->getWidget("flistDialog");
@@ -1378,18 +1379,21 @@ void MainWindow::onBrowseMagnetButton_gui(GtkWidget *widget, gpointer data)
 
 void MainWindow::onDowloadQueueToggled_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     MainWindow *mw = (MainWindow *)data;
     gtk_widget_set_sensitive(mw->getWidget("browseButton"), TRUE);
 }
 
 void MainWindow::onSearchMagnetToggled_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     MainWindow *mw = (MainWindow *)data;
     gtk_widget_set_sensitive(mw->getWidget("browseButton"), FALSE);
 }
 
 void MainWindow::onSetMagnetChoiceDialog_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     MainWindow *mw = (MainWindow *)data;
 
     // magnet choice frame
@@ -1535,6 +1539,7 @@ void MainWindow::showMessageDialog_gui(const string primaryText, const string se
 
 gboolean MainWindow::onWindowState_gui(GtkWidget *widget, GdkEventWindowState *event, gpointer data)
 {
+    (void)widget;
     MainWindow *mw = (MainWindow *)data;
 
     if (!mw->minimized && event->new_window_state & (GDK_WINDOW_STATE_ICONIFIED | GDK_WINDOW_STATE_WITHDRAWN))
@@ -1556,6 +1561,9 @@ gboolean MainWindow::onWindowState_gui(GtkWidget *widget, GdkEventWindowState *e
 
 gboolean MainWindow::onFocusIn_gui(GtkWidget *widget, GdkEventFocus *event, gpointer data)
 {
+    (void)widget;
+    (void)event;
+
     MainWindow *mw = (MainWindow *)data;
     GtkWidget *child = mw->currentPage_gui();
 
@@ -1571,6 +1579,9 @@ gboolean MainWindow::onFocusIn_gui(GtkWidget *widget, GdkEventFocus *event, gpoi
 
 gboolean MainWindow::onCloseWindow_gui(GtkWidget *widget, GdkEvent *event, gpointer data)
 {
+    (void)widget;
+    (void)event;
+
     MainWindow *mw = (MainWindow *)data;
 
     if (mw->onQuit)
@@ -1604,6 +1615,9 @@ gboolean MainWindow::onCloseWindow_gui(GtkWidget *widget, GdkEvent *event, gpoin
 
 gboolean MainWindow::onDeleteEventMagnetDialog_gui(GtkWidget *dialog, GdkEvent *event, gpointer data)
 {
+    (void)event;
+    (void)data;
+
     gtk_widget_hide(dialog);
 
     return TRUE;
@@ -1611,6 +1625,7 @@ gboolean MainWindow::onDeleteEventMagnetDialog_gui(GtkWidget *dialog, GdkEvent *
 
 void MainWindow::onTopToolbarToggled_gui(GtkWidget *widget, gpointer data)
 {
+   (void)widget;
    MainWindow *mw = (MainWindow *)data;
 
    GtkWidget *parent = mw->getWidget("hbox4");
@@ -1631,6 +1646,7 @@ void MainWindow::onTopToolbarToggled_gui(GtkWidget *widget, gpointer data)
 
 void MainWindow::onLeftToolbarToggled_gui(GtkWidget *widget, gpointer data)
 {
+   (void)widget;
    MainWindow *mw = (MainWindow *)data;
 
    GtkWidget *parent = mw->getWidget("vbox1");
@@ -1651,6 +1667,7 @@ void MainWindow::onLeftToolbarToggled_gui(GtkWidget *widget, gpointer data)
 
 void MainWindow::onHideToolbarToggled_gui(GtkWidget *widget, gpointer data)
 {
+   (void)widget;
    MainWindow *mw = (MainWindow *)data;
 
    gboolean active = gtk_check_menu_item_get_active(GTK_CHECK_MENU_ITEM(mw->getWidget("hideToolbarItem")));
@@ -1669,30 +1686,32 @@ void MainWindow::onHideToolbarToggled_gui(GtkWidget *widget, gpointer data)
 
 void MainWindow::onSizeToolbarToggled_gui(GtkWidget *widget, gpointer data)
 {
-   MainWindow *mw = (MainWindow *)data;
+    (void)widget;
+    MainWindow *mw = (MainWindow *)data;
 
-   gboolean active = gtk_check_menu_item_get_active(GTK_CHECK_MENU_ITEM(mw->getWidget("sizeToolbarItem")));
-   GtkWidget *toolbar = mw->getWidget("toolbar1");
-   GtkIconSize size;
-   if (active)
-   {
-       WSET("toolbar-small", TRUE);
-       size = GTK_ICON_SIZE_SMALL_TOOLBAR;
-   }
-   else
-   {
-       WSET("toolbar-small", FALSE);
-       size = GTK_ICON_SIZE_LARGE_TOOLBAR;
-   }
-   g_object_set(G_OBJECT(toolbar), "icon-size", size, NULL);
+    gboolean active = gtk_check_menu_item_get_active(GTK_CHECK_MENU_ITEM(mw->getWidget("sizeToolbarItem")));
+    GtkWidget *toolbar = mw->getWidget("toolbar1");
+    GtkIconSize size;
+    if (active)
+    {
+        WSET("toolbar-small", TRUE);
+        size = GTK_ICON_SIZE_SMALL_TOOLBAR;
+    }
+    else
+    {
+        WSET("toolbar-small", FALSE);
+        size = GTK_ICON_SIZE_LARGE_TOOLBAR;
+    }
+    g_object_set(G_OBJECT(toolbar), "icon-size", size, NULL);
 }
 
 gboolean MainWindow::onAddButtonClicked_gui(GtkWidget *widget, gpointer data)
 {
-   MainWindow *mw = (MainWindow *)data;
+    (void)widget;
+    MainWindow *mw = (MainWindow *)data;
 
-   gtk_menu_popup(GTK_MENU(mw->getWidget("toolbarMenu")), NULL, NULL, NULL, NULL, 0, gtk_get_current_event_time());
-   return FALSE;
+    gtk_menu_popup(GTK_MENU(mw->getWidget("toolbarMenu")), NULL, NULL, NULL, NULL, 0, gtk_get_current_event_time());
+    return FALSE;
 }
 
 void MainWindow::onToolToggled_gui(GtkWidget *widget, gpointer data)
@@ -1774,10 +1793,10 @@ void MainWindow::onSwitchOnPage_gui(int pageNum){
 }
 gboolean MainWindow::onButtonReleasePage_gui(GtkWidget *widget, GdkEventButton *event, gpointer data)
 {
-    gint width, height;
+    (void)widget;
 
-    width  = gdk_window_get_width (event->window);
-    height = gdk_window_get_height(event->window);
+    const gint width  = gdk_window_get_width (event->window);
+    const gint height = gdk_window_get_height(event->window);
 
     // If middle mouse button was released when hovering over tab label
     if (event->button == 2 && event->x >= 0 && event->y >= 0
@@ -1810,11 +1829,13 @@ gboolean MainWindow::animationStatusIcon_gui(gpointer data)
 
 void MainWindow::onRaisePage_gui(GtkMenuItem *item, gpointer data)
 {
+    (void)item;
     WulforManager::get()->getMainWindow()->raisePage_gui((GtkWidget *)data);
 }
 
 void MainWindow::onPageSwitched_gui(GtkNotebook *notebook, GtkNotebook *page, guint num, gpointer data)
 {
+    (void)page;
     MainWindow* mw = (MainWindow*)data;
     GtkWidget *child = gtk_notebook_get_nth_page(notebook, num);
     BookEntry *entry = (BookEntry *)g_object_get_data(G_OBJECT(child), "entry");
@@ -1858,6 +1879,7 @@ void MainWindow::onPaneRealized_gui(GtkWidget *pane, gpointer data)
 
 void MainWindow::onConnectClicked_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     MainWindow *mw = (MainWindow *)data;
 
     gtk_editable_select_region(GTK_EDITABLE(mw->getWidget("connectEntry")), 0, -1);
@@ -1880,24 +1902,28 @@ void MainWindow::onConnectClicked_gui(GtkWidget *widget, gpointer data)
 
 void MainWindow::onFavoriteHubsClicked_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     MainWindow *mw = (MainWindow *)data;
     mw->showFavoriteHubs_gui();
 }
 
 void MainWindow::onFavoriteUsersClicked_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     MainWindow *mw = (MainWindow *)data;
     mw->showFavoriteUsers_gui();
 }
 
 void MainWindow::onPublicHubsClicked_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     MainWindow *mw = (MainWindow *)data;
     mw->showPublicHubs_gui();
 }
 
 void MainWindow::onPreferencesClicked_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     MainWindow *mw = (MainWindow *)data;
     typedef Func1<MainWindow, bool> F1;
     if (mw->useStatusIconBlink != WGETB("status-icon-blink-use"))
@@ -1958,6 +1984,7 @@ void MainWindow::onPreferencesClicked_gui(GtkWidget *widget, gpointer data)
 
 void MainWindow::onTransferToggled_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     MainWindow *mw = (MainWindow *)data;
     GtkWidget *transfer = mw->transfers->getContainer();
 
@@ -1971,47 +1998,56 @@ void MainWindow::onTransferToggled_gui(GtkWidget *widget, gpointer data)
 
 void MainWindow::onHashClicked_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
+    (void)data;
     WulforManager::get()->openHashDialog_gui();
 }
 
 void MainWindow::onSearchClicked_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     MainWindow *mw = (MainWindow *)data;
     mw->addSearch_gui();
 }
 
 void MainWindow::onSearchSpyClicked_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     MainWindow *mw = (MainWindow *)data;
     mw->showSearchSpy_gui();
 }
 
 void MainWindow::onSearchADLClicked_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     MainWindow *mw = (MainWindow *)data;
     mw->showSearchADL_gui();
 }
 
 void MainWindow::onDownloadQueueClicked_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     MainWindow *mw = (MainWindow *)data;
     mw->showDownloadQueue_gui();
 }
 
 void MainWindow::onFinishedDownloadsClicked_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     MainWindow *mw = (MainWindow *)data;
     mw->showFinishedDownloads_gui();
 }
 
 void MainWindow::onFinishedUploadsClicked_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     MainWindow *mw = (MainWindow *)data;
     mw->showFinishedUploads_gui();
 }
 
 void MainWindow::onQuitClicked_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     MainWindow *mw = (MainWindow *)data;
 
     // fix emit signal (status-icon menu quit)
@@ -2025,6 +2061,7 @@ void MainWindow::onQuitClicked_gui(GtkWidget *widget, gpointer data)
 
 void MainWindow::onOpenFileListClicked_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     MainWindow *mw = (MainWindow *)data;
 
     GtkWidget *chooser = mw->getWidget("flistDialog");
@@ -2060,6 +2097,7 @@ void MainWindow::onOpenFileListClicked_gui(GtkWidget *widget, gpointer data)
 
 void MainWindow::onOpenOwnListClicked_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     MainWindow *mw = (MainWindow *)data;
     typedef Func1<MainWindow, bool> F1;
     F1 *func = new F1(mw, &MainWindow::openOwnList_client, FALSE);
@@ -2070,6 +2108,7 @@ void MainWindow::onOpenOwnListClicked_gui(GtkWidget *widget, gpointer data)
 
 void MainWindow::onMatchAllList_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     typedef Func0<MainWindow> F0;
     F0 *func = new F0((MainWindow *)data, &MainWindow::matchAllList_client);
     WulforManager::get()->dispatchClientFunc(func);
@@ -2077,6 +2116,7 @@ void MainWindow::onMatchAllList_gui(GtkWidget *widget, gpointer data)
 
 void MainWindow::onRefreshFileListClicked_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     typedef Func0<MainWindow> F0;
     F0 *func = new F0((MainWindow *)data, &MainWindow::refreshFileList_client);
     WulforManager::get()->dispatchClientFunc(func);
@@ -2084,6 +2124,7 @@ void MainWindow::onRefreshFileListClicked_gui(GtkWidget *widget, gpointer data)
 
 void MainWindow::onReconnectClicked_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     MainWindow *mw = (MainWindow *)data;
     GtkWidget *entryWidget = mw->currentPage_gui();
 
@@ -2101,6 +2142,7 @@ void MainWindow::onReconnectClicked_gui(GtkWidget *widget, gpointer data)
 
 void MainWindow::onCloseClicked_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     MainWindow *mw = (MainWindow *)data;
     GtkWidget *entryWidget = mw->currentPage_gui();
 
@@ -2115,18 +2157,21 @@ void MainWindow::onCloseClicked_gui(GtkWidget *widget, gpointer data)
 
 void MainWindow::onPreviousTabClicked_gui(GtkWidget* widget, gpointer data)
 {
+    (void)widget;
     MainWindow *mw = (MainWindow *)data;
     mw->previousTab_gui();
 }
 
 void MainWindow::onNextTabClicked_gui(GtkWidget* widget, gpointer data)
 {
+    (void)widget;
     MainWindow *mw = (MainWindow *)data;
     mw->nextTab_gui();
 }
 
 void MainWindow::onAboutClicked_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     MainWindow *mw = (MainWindow *)data;
     gint response = gtk_dialog_run(GTK_DIALOG(mw->getWidget("aboutDialog")));
 
@@ -2139,6 +2184,7 @@ void MainWindow::onAboutClicked_gui(GtkWidget *widget, gpointer data)
 
 void MainWindow::onFreeSpaceBar(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     MainWindow *mw = (MainWindow *)data;
     GtkWidget *freespacebar = mw->getWidget("progressbarFreeSpaceBar");
     //GtkCheckMenuItem *item = GTK_CHECK_MENU_ITEM(mw->getWidget("freeSpaceBarItem"));
@@ -2161,12 +2207,14 @@ void MainWindow::onFreeSpaceBar(GtkWidget *widget, gpointer data)
 
 void MainWindow::onCloseBookEntry_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     BookEntry *entry = (BookEntry *)data;
     WulforManager::get()->getMainWindow()->removeBookEntry_gui(entry);
 }
 
 void MainWindow::onStatusIconActivated_gui(GtkStatusIcon *statusIcon, gpointer data)
 {
+    (void)statusIcon;
     MainWindow *mw = (MainWindow *)data;
     GtkCheckMenuItem *item = GTK_CHECK_MENU_ITEM(mw->getWidget("statusIconShowInterfaceItem"));
     GdkWindowState state;
@@ -2193,6 +2241,7 @@ void MainWindow::onStatusIconPopupMenu_gui(GtkStatusIcon *statusIcon, guint butt
 
 void MainWindow::onShowInterfaceToggled_gui(GtkCheckMenuItem *item, gpointer data)
 {
+    (void)item;
     MainWindow *mw = (MainWindow *)data;
     GtkWindow *win = mw->window;
     static int x, y;
@@ -2222,6 +2271,7 @@ void MainWindow::onShowInterfaceToggled_gui(GtkCheckMenuItem *item, gpointer dat
 
 void MainWindow::onStatusIconBlinkUseToggled_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     MainWindow *mw = (MainWindow *)data;
     mw->removeTimerSource_gui();
 
@@ -2234,14 +2284,16 @@ void MainWindow::onStatusIconBlinkUseToggled_gui(GtkWidget *widget, gpointer dat
 
 void MainWindow::onLinkClicked_gui(GtkWidget *widget, gpointer data)
 {
+    (void)data;
     string link = (gchar*) g_object_get_data(G_OBJECT(widget), "link");
     WulforUtil::openURI(link);
 }
 
 void MainWindow::onDebugCMD(GtkWidget *widget, gpointer data)
 {
-   MainWindow *mw = (MainWindow *)data;
-   mw->showCmdDebug_gui();
+    (void)widget;
+    MainWindow *mw = (MainWindow *)data;
+    mw->showCmdDebug_gui();
 }
 
 void MainWindow::autoConnect_client()
@@ -2333,6 +2385,7 @@ void MainWindow::on(LogManagerListener::Message, time_t t, const string &message
 
 void MainWindow::on(QueueManagerListener::Finished, QueueItem *item, const string& dir, int64_t avSpeed) noexcept
 {
+    (void)avSpeed;
     typedef Func3<MainWindow, string, string, Notify::TypeNotify> F3;
 
     if (item->isSet(QueueItem::FLAG_CLIENT_VIEW | QueueItem::FLAG_USER_LIST))
@@ -2422,6 +2475,7 @@ void MainWindow::on(TimerManagerListener::Second, uint64_t ticks) noexcept
 }
 void MainWindow::onTTHFileDialog_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     MainWindow *mw =(MainWindow *)data;
     GtkWidget *dialog = mw->getWidget("TTHFileDialog");
     gint response = gtk_dialog_run(GTK_DIALOG(dialog));
@@ -2433,6 +2487,7 @@ void MainWindow::onTTHFileDialog_gui(GtkWidget *widget, gpointer data)
 
 void MainWindow::onTTHFileButton_gui(GtkWidget *widget , gpointer data)
 {
+    (void)widget;
     MainWindow *mw =(MainWindow *)data;
     GtkWidget *chooser=mw->getChooserDialog_gui();
     gtk_window_set_title(GTK_WINDOW(chooser), _("Select file to Get TTH"));
@@ -2492,6 +2547,7 @@ void MainWindow::onTTHFileButton_gui(GtkWidget *widget , gpointer data)
 ///close all
 void MainWindow::onCloseAllHub_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     MainWindow *mw = (MainWindow *)data;
     typedef Func1<MainWindow,BookEntry*> F1;
     for (StringIterC it = mw->EntryList.begin(); it != mw->EntryList.end(); ++it) {
@@ -2505,6 +2561,7 @@ void MainWindow::onCloseAllHub_gui(GtkWidget *widget, gpointer data)
 ///PM
 void MainWindow::onCloseAllPM_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     MainWindow *mw = (MainWindow *)data;
     typedef Func1<MainWindow,BookEntry*> F1;
     for (StringIterC it = mw->EntryList.begin(); it != mw->EntryList.end(); ++it) {
@@ -2518,6 +2575,7 @@ void MainWindow::onCloseAllPM_gui(GtkWidget *widget, gpointer data)
 ///Search
 void MainWindow::onCloseAllSearch_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     MainWindow *mw = (MainWindow *)data;
     typedef Func1<MainWindow,BookEntry*> F1;
     for (StringIterC it = mw->EntryList.begin(); it != mw->EntryList.end(); ++it) {
@@ -2531,6 +2589,7 @@ void MainWindow::onCloseAllSearch_gui(GtkWidget *widget, gpointer data)
 ///Reconnect
 void MainWindow::onReconectAllHub_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     MainWindow *mw = (MainWindow *)data;
     for (StringIterC it = mw->EntryList.begin(); it != mw->EntryList.end(); ++it) {
         BookEntry *entry = mw->findBookEntry(Entry::HUB, *it);
@@ -2542,6 +2601,7 @@ void MainWindow::onReconectAllHub_gui(GtkWidget *widget, gpointer data)
 ///PM
 void MainWindow::onCloseAlloffPM_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     MainWindow *mw = (MainWindow *)data;
     typedef Func1<MainWindow,BookEntry*> F1;
     for (StringIterC it = mw->EntryList.begin(); it != mw->EntryList.end(); ++it) {
@@ -2555,6 +2615,7 @@ void MainWindow::onCloseAlloffPM_gui(GtkWidget *widget, gpointer data)
 
 void MainWindow::onUploadQueueClicked_gui(GtkWidget *widget , gpointer data)
 {
+    (void)widget;
     MainWindow *mw = (MainWindow *)data;
     mw->showUploadQueue_gui();
 }

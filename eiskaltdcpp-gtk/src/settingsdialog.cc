@@ -1796,6 +1796,7 @@ void Settings::initSearchTypes_gui()
 
 void Settings::onSTKeyReleased_gui(GtkWidget *widget, GdkEventKey *event, gpointer data)
 {
+        (void)widget;
         Settings *s = (Settings *)data;
 
         if (event->keyval == GDK_Up || event->keyval == GDK_Down)
@@ -1817,6 +1818,7 @@ void Settings::onSTKeyReleased_gui(GtkWidget *widget, GdkEventKey *event, gpoint
 
 void Settings::onSTButtonReleased_gui(GtkWidget *widget, GdkEventButton *event, gpointer data)
 {
+        (void)widget;
         Settings *s = (Settings *)data;
 
         if (event->button == 3 || event->button == 1)
@@ -1850,6 +1852,7 @@ void Settings::addOption_gui(GtkListStore *store, const string &type, const Stri
 
 void Settings::onAddSTButton_gui(GtkWidget *widget, gpointer data)
 {
+        (void)widget;
         Settings *s = (Settings *)data;
 
         GtkWidget *dialog = s->getWidget("nameDialog");
@@ -2016,6 +2019,7 @@ void Settings::addExtension_gui(const string ext)
 
 void Settings::onAddExtensionButton_gui(GtkWidget *widget, gpointer data)
 {
+        (void)widget;
         Settings *s = (Settings *)data;
 
         string error;
@@ -2041,6 +2045,7 @@ void Settings::onAddExtensionButton_gui(GtkWidget *widget, gpointer data)
 
 void Settings::onModifySTButton_gui(GtkWidget *widget, gpointer data)
 {
+        (void)widget;
         Settings *s = (Settings *)data;
 
         GtkTreeIter iter;
@@ -2092,6 +2097,7 @@ void Settings::onModifySTButton_gui(GtkWidget *widget, gpointer data)
 
 void Settings::onRenameSTButton_gui(GtkWidget *widget, gpointer data)
 {
+        (void)widget;
         Settings *s = (Settings *)data;
 
         GtkTreeIter iter;
@@ -2140,6 +2146,7 @@ void Settings::onRenameSTButton_gui(GtkWidget *widget, gpointer data)
 
 void Settings::onRemoveSTButton_gui(GtkWidget *widget, gpointer data)
 {
+        (void)widget;
         Settings *s = (Settings *)data;
 
         GtkTreeIter iter;
@@ -2167,6 +2174,7 @@ void Settings::onRemoveSTButton_gui(GtkWidget *widget, gpointer data)
 
 void Settings::onDefaultSTButton_gui(GtkWidget *widget, gpointer data)
 {
+        (void)widget;
         Settings *s = (Settings *)data;
 
         gtk_list_store_clear(s->searchTypeStore);
@@ -2193,6 +2201,7 @@ void Settings::onDefaultSTButton_gui(GtkWidget *widget, gpointer data)
 
 void Settings::onEditExtensionButton_gui(GtkWidget *widget, gpointer data)
 {
+        (void)widget;
         Settings *s = (Settings *)data;
 
         GtkTreeIter iter;
@@ -2231,6 +2240,7 @@ void Settings::onEditExtensionButton_gui(GtkWidget *widget, gpointer data)
 
 void Settings::onRemoveExtensionButton_gui(GtkWidget *widget, gpointer data)
 {
+        (void)widget;
         Settings *s = (Settings *)data;
 
         GtkTreeIter iter;
@@ -2244,6 +2254,7 @@ void Settings::onRemoveExtensionButton_gui(GtkWidget *widget, gpointer data)
 
 void Settings::onUpExtensionButton_gui(GtkWidget *widget, gpointer data)
 {
+        (void)widget;
         Settings *s = (Settings *)data;
         GtkTreeIter prev, current;
         GtkTreeModel *m = GTK_TREE_MODEL(s->extensionStore);
@@ -2260,6 +2271,7 @@ void Settings::onUpExtensionButton_gui(GtkWidget *widget, gpointer data)
 
 void Settings::onDownExtensionButton_gui(GtkWidget *widget, gpointer data)
 {
+        (void)widget;
         Settings *s = (Settings *)data;
         GtkTreeIter current, next;
         GtkTreeSelection *sel = gtk_tree_view_get_selection(s->extensionView.get());
@@ -2273,6 +2285,7 @@ void Settings::onDownExtensionButton_gui(GtkWidget *widget, gpointer data)
 }
 void Settings::onNoUseTempDir_gui(GtkToggleButton *button, gpointer data)
 {
+    (void)button;
     Settings *s = (Settings *)data;
     bool b = gtk_toggle_button_get_active((GtkToggleButton*)s->getWidget("noUseTempDirButton"));
     gtk_widget_set_sensitive(s->getWidget("unfinishedDownloadsEntry"), !b);
@@ -2281,6 +2294,7 @@ void Settings::onNoUseTempDir_gui(GtkToggleButton *button, gpointer data)
 }
 void Settings::onNotifyTestButton_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     Settings *s = (Settings *)data;
 
     GtkTreeIter iter;
@@ -2298,6 +2312,7 @@ void Settings::onNotifyTestButton_gui(GtkWidget *widget, gpointer data)
 
 void Settings::onNotifyIconFileBrowseClicked_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     Settings *s = (Settings *)data;
 
     gtk_file_chooser_set_action(GTK_FILE_CHOOSER(s->getWidget("fileChooserDialog")), GTK_FILE_CHOOSER_ACTION_OPEN);
@@ -2335,6 +2350,7 @@ void Settings::onNotifyIconFileBrowseClicked_gui(GtkWidget *widget, gpointer dat
 
 void Settings::onNotifyKeyReleased_gui(GtkWidget *widget, GdkEventKey *event, gpointer data)
 {
+    (void)widget;
     Settings *s = (Settings *)data;
 
     if (event->keyval == GDK_Up || event->keyval == GDK_Down)
@@ -2351,6 +2367,7 @@ void Settings::onNotifyKeyReleased_gui(GtkWidget *widget, GdkEventKey *event, gp
 
 void Settings::onNotifyButtonReleased_gui(GtkWidget *widget, GdkEventButton *event, gpointer data)
 {
+    (void)widget;
     Settings *s = (Settings *)data;
 
     if (event->button == 3 || event->button == 1)
@@ -2367,6 +2384,7 @@ void Settings::onNotifyButtonReleased_gui(GtkWidget *widget, GdkEventButton *eve
 
 void Settings::onNotifyOKClicked_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     Settings *s = (Settings *)data;
 
     string title = gtk_entry_get_text(GTK_ENTRY(s->getWidget("notifyTitleEntry")));
@@ -2393,6 +2411,7 @@ void Settings::onNotifyOKClicked_gui(GtkWidget *widget, gpointer data)
 
 void Settings::onNotifyIconNoneButton_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     Settings *s = (Settings *)data;
 
     GtkTreeIter iter;
@@ -2407,6 +2426,7 @@ void Settings::onNotifyIconNoneButton_gui(GtkWidget *widget, gpointer data)
 
 void Settings::onNotifyDefaultButton_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     Settings *s = (Settings *)data;
 
     GtkTreeIter iter;
@@ -2444,6 +2464,7 @@ void Settings::onNotifyDefaultButton_gui(GtkWidget *widget, gpointer data)
 
 void Settings::onImportThemeButton_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     Settings *s = (Settings *)data;
 
     gtk_file_chooser_set_action(GTK_FILE_CHOOSER(s->getWidget("fileChooserDialog")), GTK_FILE_CHOOSER_ACTION_OPEN);
@@ -2477,6 +2498,7 @@ void Settings::onImportThemeButton_gui(GtkWidget *widget, gpointer data)
 
 void Settings::onExportThemeButton_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     Settings *s = (Settings *)data;
 
     gtk_file_chooser_set_action(GTK_FILE_CHOOSER(s->getWidget("fileChooserDialog")), GTK_FILE_CHOOSER_ACTION_SAVE);
@@ -2507,6 +2529,7 @@ void Settings::onExportThemeButton_gui(GtkWidget *widget, gpointer data)
 
 void Settings::onDefaultIconsThemeButton_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     Settings *s = (Settings *)data;
 
     gtk_label_set_text(GTK_LABEL(s->getWidget("currentThemeLabel")), _("default icons"));
@@ -2515,6 +2538,7 @@ void Settings::onDefaultIconsThemeButton_gui(GtkWidget *widget, gpointer data)
 
 void Settings::onSystemIconsThemeButton_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     Settings *s = (Settings *)data;
 
     string theme = gtk_label_get_text(GTK_LABEL(s->getWidget("currentThemeLabel")));
@@ -2539,6 +2563,7 @@ void Settings::onSystemIconsThemeButton_gui(GtkWidget *widget, gpointer data)
 
 void Settings::onDefaultThemeButton_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     Settings *s = (Settings *)data;
 
     gtk_label_set_text(GTK_LABEL(s->getWidget("currentThemeLabel")), _("default theme"));
@@ -2548,6 +2573,7 @@ void Settings::onDefaultThemeButton_gui(GtkWidget *widget, gpointer data)
 
 void Settings::onDefaultColorsSPButton_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     Settings *s = (Settings *)data;
 
 #if GTK_CHECK_VERSION(3,4,0)
@@ -2587,6 +2613,7 @@ GdkColor color;
 
 void Settings::onDefaultFrameSPButton_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     Settings *s = (Settings *)data;
 
     WulforSettingsManager *wsm = WulforSettingsManager::getInstance();
@@ -2597,6 +2624,7 @@ void Settings::onDefaultFrameSPButton_gui(GtkWidget *widget, gpointer data)
 
 void Settings::onEnableDynDNSCheckToggled_gui(GtkWidget *widget, gpointer data)
 {
+        (void)widget;
         Settings *s = (Settings *)data;
 
         if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(s->getWidget("enableDynDNSCheckButton"))))
@@ -2613,6 +2641,7 @@ void Settings::onEnableDynDNSCheckToggled_gui(GtkWidget *widget, gpointer data)
 
 void Settings::onDHTCheckToggled_gui(GtkWidget *widget, gpointer data)
 {
+        (void)widget;
         Settings *s = (Settings *)data;
 
         if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(s->getWidget("useDHTCheckButton"))))
@@ -2630,6 +2659,7 @@ void Settings::onDHTCheckToggled_gui(GtkWidget *widget, gpointer data)
 
 void Settings::onLimitToggled_gui(GtkWidget *widget, gpointer data)
 {
+        (void)widget;
         Settings *s = (Settings *)data;
 
         if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(s->getWidget("useLimitCheckButton"))))
@@ -2648,6 +2678,7 @@ void Settings::onLimitToggled_gui(GtkWidget *widget, gpointer data)
 
 void Settings::onLimitSecondToggled_gui(GtkWidget *widget, gpointer data)
 {
+        (void)widget;
         Settings *s = (Settings *)data;
 
         if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(s->getWidget("useLimitSecondCheckButton"))))
@@ -2889,6 +2920,7 @@ void Settings::set(const string &key, const string &value)
 
 void Settings::onSoundFileBrowseClicked_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     Settings *s = (Settings *)data;
 
     gtk_file_chooser_set_action(GTK_FILE_CHOOSER(s->getWidget("fileChooserDialog")), GTK_FILE_CHOOSER_ACTION_OPEN);
@@ -2916,6 +2948,7 @@ void Settings::onSoundFileBrowseClicked_gui(GtkWidget *widget, gpointer data)
 
 void Settings::onSoundPlayButton_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     Settings *s = (Settings *)data;
 
     GtkTreeIter iter;
@@ -2933,36 +2966,42 @@ void Settings::onSoundPlayButton_gui(GtkWidget *widget, gpointer data)
 
 void Settings::onTextColorForeClicked_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     Settings *s = (Settings *)data;
     s->selectTextColor_gui(0);
 }
 
 void Settings::onTextColorBackClicked_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     Settings *s = (Settings *)data;
     s->selectTextColor_gui(1);
 }
 
 void Settings::onTextColorBWClicked_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     Settings *s = (Settings *)data;
     s->selectTextColor_gui(2);
 }
 
 void Settings::onTextStyleClicked_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     Settings *s = (Settings *)data;
     s->selectTextStyle_gui(0);
 }
 
 void Settings::onTextStyleDefaultClicked_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     Settings *s = (Settings *)data;
     s->selectTextStyle_gui(1);
 }
 
 void Settings::onPreviewAdd_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     Settings *s = (Settings*)data;
 
     string name = gtk_entry_get_text(GTK_ENTRY(s->getWidget("previewNameEntry")));
@@ -2997,6 +3036,7 @@ void Settings::onPreviewAdd_gui(GtkWidget *widget, gpointer data)
 
 void Settings::onPreviewRemove_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     Settings *s = (Settings *)data;
 
     GtkTreeIter iter;
@@ -3013,6 +3053,7 @@ void Settings::onPreviewRemove_gui(GtkWidget *widget, gpointer data)
 
 void Settings::onPreviewKeyReleased_gui(GtkWidget *widget, GdkEventKey *event, gpointer data)
 {
+    (void)widget;
     Settings *s = (Settings *)data;
 
     if (event->keyval == GDK_Up || event->keyval == GDK_Down)
@@ -3031,6 +3072,7 @@ void Settings::onPreviewKeyReleased_gui(GtkWidget *widget, GdkEventKey *event, g
 
 void Settings::onPreviewButtonReleased_gui(GtkWidget *widget, GdkEventButton *event, gpointer data)
 {
+    (void)widget;
     Settings *s = (Settings *)data;
 
     if (event->button == 3 || event->button == 1)
@@ -3049,6 +3091,7 @@ void Settings::onPreviewButtonReleased_gui(GtkWidget *widget, GdkEventButton *ev
 
 void Settings::onPreviewApply_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     Settings *s = (Settings *)data;
 
     string name = gtk_entry_get_text(GTK_ENTRY(s->getWidget("previewNameEntry")));
@@ -3081,6 +3124,7 @@ void Settings::onPreviewApply_gui(GtkWidget *widget, gpointer data)
 
 void Settings::onAddShare_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     Settings *s = (Settings *)data;
 
     gtk_file_chooser_set_action(GTK_FILE_CHOOSER(s->getWidget("dirChooserDialog")), GTK_FILE_CHOOSER_ACTION_SELECT_FOLDER);
@@ -3119,13 +3163,14 @@ void Settings::onAddShare_gui(GtkWidget *widget, gpointer data)
 
 void Settings::onPictureShare_gui(GtkWidget *widget, gpointer data)
 {
-   Settings *s = (Settings *)data;
+    (void)widget;
+    Settings *s = (Settings *)data;
 
-   string name = "MAGNET-IMAGE";
-   string path = Util::getPath(Util::PATH_USER_LOCAL) + "Images/";
-   typedef Func2<Settings, string, string> F2;
-   F2 *func = new F2(s, &Settings::addShare_client, path, name);
-   WulforManager::get()->dispatchClientFunc(func);
+    string name = "MAGNET-IMAGE";
+    string path = Util::getPath(Util::PATH_USER_LOCAL) + "Images/";
+    typedef Func2<Settings, string, string> F2;
+    F2 *func = new F2(s, &Settings::addShare_client, path, name);
+    WulforManager::get()->dispatchClientFunc(func);
 }
 
 void Settings::selectTextColor_gui(const int select)
@@ -3493,6 +3538,7 @@ void Settings::showErrorDialog(const string error)
 
 void Settings::onOptionsViewToggled_gui(GtkCellRendererToggle *cell, gchar *path, gpointer data)
 {
+    (void)cell;
     GtkTreeIter iter;
     GtkListStore *store = (GtkListStore *)data;
     GtkTreeModel *model = GTK_TREE_MODEL(store);
@@ -3507,6 +3553,7 @@ void Settings::onOptionsViewToggled_gui(GtkCellRendererToggle *cell, gchar *path
 
 void Settings::onInDirect_gui(GtkToggleButton *button, gpointer data)
 {
+    (void)button;
     Settings *s = (Settings *)data;
     gtk_widget_set_sensitive(s->getWidget("ipEntry"), TRUE);
     gtk_widget_set_sensitive(s->getWidget("ipLabel"), TRUE);
@@ -3521,6 +3568,7 @@ void Settings::onInDirect_gui(GtkToggleButton *button, gpointer data)
 
 void Settings::onInFW_UPnP_gui(GtkToggleButton *button, gpointer data)
 {
+    (void)button;
     Settings *s = (Settings *)data;
     gtk_widget_set_sensitive(s->getWidget("ipEntry"), TRUE);
     gtk_widget_set_sensitive(s->getWidget("ipLabel"), TRUE);
@@ -3536,6 +3584,7 @@ void Settings::onInFW_UPnP_gui(GtkToggleButton *button, gpointer data)
 
 void Settings::onInFW_NAT_gui(GtkToggleButton *button, gpointer data)
 {
+    (void)button;
     Settings *s = (Settings *)data;
     gtk_widget_set_sensitive(s->getWidget("ipEntry"), TRUE);
     gtk_widget_set_sensitive(s->getWidget("ipLabel"), TRUE);
@@ -3550,6 +3599,7 @@ void Settings::onInFW_NAT_gui(GtkToggleButton *button, gpointer data)
 
 void Settings::onInPassive_gui(GtkToggleButton *button, gpointer data)
 {
+    (void)button;
     Settings *s = (Settings *)data;
     gtk_widget_set_sensitive(s->getWidget("ipEntry"), FALSE);
     gtk_widget_set_sensitive(s->getWidget("ipLabel"), FALSE);
@@ -3564,6 +3614,7 @@ void Settings::onInPassive_gui(GtkToggleButton *button, gpointer data)
 
 void Settings::onOutDirect_gui(GtkToggleButton *button, gpointer data)
 {
+    (void)button;
     Settings *s = (Settings *)data;
     gtk_widget_set_sensitive(s->getWidget("socksIPEntry"), FALSE);
     gtk_widget_set_sensitive(s->getWidget("socksIPLabel"), FALSE);
@@ -3578,6 +3629,7 @@ void Settings::onOutDirect_gui(GtkToggleButton *button, gpointer data)
 
 void Settings::onSocks5_gui(GtkToggleButton *button, gpointer data)
 {
+    (void)button;
     Settings *s = (Settings *)data;
     gtk_widget_set_sensitive(s->getWidget("socksIPEntry"), TRUE);
     gtk_widget_set_sensitive(s->getWidget("socksIPLabel"), TRUE);
@@ -3592,6 +3644,7 @@ void Settings::onSocks5_gui(GtkToggleButton *button, gpointer data)
 
 void Settings::onBrowseFinished_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     Settings *s = (Settings *)data;
 
     //gtk_file_chooser_set_action(GTK_FILE_CHOOSER(s->getWidget("dirChooserDialog")), GTK_FILE_CHOOSER_ACTION_CREATE_FOLDER);
@@ -3611,6 +3664,7 @@ void Settings::onBrowseFinished_gui(GtkWidget *widget, gpointer data)
 
 void Settings::onBrowseUnfinished_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     Settings *s = (Settings *)data;
 
     //gtk_file_chooser_set_action(GTK_FILE_CHOOSER(s->getWidget("dirChooserDialog")), GTK_FILE_CHOOSER_ACTION_CREATE_FOLDER);
@@ -3630,6 +3684,7 @@ void Settings::onBrowseUnfinished_gui(GtkWidget *widget, gpointer data)
 
 void Settings::onPublicHubs_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     Settings *s = (Settings *)data;
     GtkTreeIter iter;
 
@@ -3662,6 +3717,7 @@ void Settings::onPublicHubs_gui(GtkWidget *widget, gpointer data)
 
 void Settings::onPublicAdd_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     Settings *s = (Settings *)data;
     GtkTreeIter iter;
     GtkTreePath *path;
@@ -3677,6 +3733,7 @@ void Settings::onPublicAdd_gui(GtkWidget *widget, gpointer data)
 
 void Settings::onPublicMoveUp_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     Settings *s = (Settings *)data;
     GtkTreeIter prev, current;
     GtkTreeModel *m = GTK_TREE_MODEL(s->publicListStore);
@@ -3693,6 +3750,7 @@ void Settings::onPublicMoveUp_gui(GtkWidget *widget, gpointer data)
 
 void Settings::onPublicMoveDown_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     Settings *s = (Settings *)data;
     GtkTreeIter current, next;
     GtkTreeSelection *sel = gtk_tree_view_get_selection(s->publicListView.get());
@@ -3707,6 +3765,7 @@ void Settings::onPublicMoveDown_gui(GtkWidget *widget, gpointer data)
 
 void Settings::onPublicEdit_gui(GtkCellRendererText *cell, char *path, char *text, gpointer data)
 {
+    (void)cell;
     Settings *s = (Settings *)data;
     GtkTreeIter iter;
 
@@ -3716,6 +3775,7 @@ void Settings::onPublicEdit_gui(GtkCellRendererText *cell, char *path, char *tex
 
 void Settings::onPublicRemove_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     Settings *s = (Settings *)data;
     GtkTreeIter iter;
     GtkTreeSelection *selection = gtk_tree_view_get_selection(s->publicListView.get());
@@ -3726,6 +3786,7 @@ void Settings::onPublicRemove_gui(GtkWidget *widget, gpointer data)
 
 void Settings::onAddFavorite_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     Settings *s = (Settings *)data;
 
     gint response = gtk_dialog_run(GTK_DIALOG(s->getWidget("dirChooserDialog")));
@@ -3772,6 +3833,7 @@ void Settings::onAddFavorite_gui(GtkWidget *widget, gpointer data)
 
 void Settings::onRemoveFavorite_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     Settings *s = (Settings *)data;
     GtkTreeIter iter;
     GtkTreeSelection *selection = gtk_tree_view_get_selection(s->downloadToView.get());
@@ -3789,6 +3851,9 @@ void Settings::onRemoveFavorite_gui(GtkWidget *widget, gpointer data)
 
 gboolean Settings::onFavoriteButtonReleased_gui(GtkWidget *widget, GdkEventButton *event, gpointer data)
 {
+    (void)widget;
+    (void)event;
+
     Settings *s = (Settings *)data;
     GtkTreeIter iter;
     GtkTreeSelection *selection = gtk_tree_view_get_selection(s->downloadToView.get());
@@ -3815,6 +3880,7 @@ void Settings::addShare_gui(string path, string name, int64_t size)
 
 void Settings::onRemoveShare_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     Settings *s = (Settings *)data;
     GtkTreeIter iter;
     GtkTreeSelection *selection = gtk_tree_view_get_selection(s->shareView.get());
@@ -3831,6 +3897,9 @@ void Settings::onRemoveShare_gui(GtkWidget *widget, gpointer data)
 
 gboolean Settings::onShareButtonReleased_gui(GtkWidget *widget, GdkEventButton *event, gpointer data)
 {
+    (void)widget;
+    (void)event;
+
     Settings *s = (Settings *)data;
     GtkTreeSelection *selection = gtk_tree_view_get_selection(s->shareView.get());
 
@@ -3844,6 +3913,7 @@ gboolean Settings::onShareButtonReleased_gui(GtkWidget *widget, GdkEventButton *
 
 gboolean Settings::onShareHiddenPressed_gui(GtkToggleButton *togglebutton, gpointer data)
 {
+    (void)togglebutton;
     Settings *s = (Settings *)data;
 
         bool show = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(s->getWidget("shareHiddenCheckButton")));
@@ -3888,6 +3958,7 @@ void Settings::updateShares_gui()
 
 void Settings::onLogBrowseClicked_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     Settings *s = (Settings *)data;
 
     gint response = gtk_dialog_run(GTK_DIALOG(s->getWidget("dirChooserDialog")));
@@ -3956,6 +4027,7 @@ void Settings::onLogFinishedDownloadClicked_gui(GtkToggleButton *button, gpointe
 
 void Settings::onUserCommandAdd_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     Settings *s = (Settings *)data;
 
     // Reset dialog to default
@@ -3991,6 +4063,7 @@ void Settings::onUserCommandAdd_gui(GtkWidget *widget, gpointer data)
 
 void Settings::onUserCommandEdit_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     Settings *s = (Settings *)data;
     GtkTreeIter iter;
     GtkTreeSelection *selection = gtk_tree_view_get_selection(s->userCommandView.get());
@@ -4078,6 +4151,7 @@ void Settings::onUserCommandEdit_gui(GtkWidget *widget, gpointer data)
 
 void Settings::onUserCommandMoveUp_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     Settings *s = (Settings *)data;
     GtkTreeIter prev, current;
     GtkTreeModel *m = GTK_TREE_MODEL(s->userCommandStore);
@@ -4102,6 +4176,7 @@ void Settings::onUserCommandMoveUp_gui(GtkWidget *widget, gpointer data)
 
 void Settings::onUserCommandMoveDown_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     Settings *s = (Settings *)data;
     GtkTreeIter current, next;
     GtkTreeSelection *selection = gtk_tree_view_get_selection(s->userCommandView.get());
@@ -4124,6 +4199,7 @@ void Settings::onUserCommandMoveDown_gui(GtkWidget *widget, gpointer data)
 
 void Settings::onUserCommandRemove_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     Settings *s = (Settings *)data;
     GtkTreeIter iter;
     GtkTreeSelection *selection = gtk_tree_view_get_selection(s->userCommandView.get());
@@ -4206,6 +4282,9 @@ void Settings::onUserCommandTypePM_gui(GtkWidget *widget, gpointer data)
 
 gboolean Settings::onUserCommandKeyPress_gui(GtkWidget *widget, GdkEventKey *event, gpointer data)
 {
+    (void)widget;
+    (void)event;
+
     Settings *s = (Settings *)data;
 
     s->updateUserCommandTextSent_gui();
@@ -4215,6 +4294,7 @@ gboolean Settings::onUserCommandKeyPress_gui(GtkWidget *widget, GdkEventKey *eve
 
 void Settings::onCertificatesPrivateBrowseClicked_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     Settings *s = (Settings *)data;
 
     gtk_file_chooser_set_action(GTK_FILE_CHOOSER(s->getWidget("fileChooserDialog")), GTK_FILE_CHOOSER_ACTION_OPEN);
@@ -4234,6 +4314,7 @@ void Settings::onCertificatesPrivateBrowseClicked_gui(GtkWidget *widget, gpointe
 
 void Settings::onCertificatesFileBrowseClicked_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     Settings *s = (Settings *)data;
 
     gtk_file_chooser_set_action(GTK_FILE_CHOOSER(s->getWidget("fileChooserDialog")), GTK_FILE_CHOOSER_ACTION_OPEN);
@@ -4253,6 +4334,7 @@ void Settings::onCertificatesFileBrowseClicked_gui(GtkWidget *widget, gpointer d
 
 void Settings::onCertificatesPathBrowseClicked_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     Settings *s = (Settings *)data;
 
     gtk_file_chooser_set_action(GTK_FILE_CHOOSER(s->getWidget("dirChooserDialog")), GTK_FILE_CHOOSER_ACTION_SELECT_FOLDER);
@@ -4272,6 +4354,7 @@ void Settings::onCertificatesPathBrowseClicked_gui(GtkWidget *widget, gpointer d
 
 void Settings::onGenerateCertificatesClicked_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     Settings *s = (Settings *)data;
     Func0<Settings> *func = new Func0<Settings>(s, &Settings::generateCertificates_client);
     WulforManager::get()->dispatchClientFunc(func);
@@ -4340,6 +4423,7 @@ void Settings::generateCertificates_client()
 
 void Settings::onExceptionAdd_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     Settings *s = (Settings *)data;
     GtkTreeIter iter;
     GtkTreePath *path;
@@ -4355,6 +4439,7 @@ void Settings::onExceptionAdd_gui(GtkWidget *widget, gpointer data)
 
 void Settings::onExceptionEdit_gui(GtkCellRendererText *cell, char *path, char *text, gpointer data)
 {
+    (void)cell;
     Settings *s = (Settings *)data;
     GtkTreeIter iter;
 
@@ -4364,6 +4449,7 @@ void Settings::onExceptionEdit_gui(GtkCellRendererText *cell, char *path, char *
 
 void Settings::onExceptionRemove_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     Settings *s = (Settings *)data;
     GtkTreeIter iter;
     GtkTreeSelection *selection = gtk_tree_view_get_selection(s->exceptionView.get());
@@ -4374,6 +4460,7 @@ void Settings::onExceptionRemove_gui(GtkWidget *widget, gpointer data)
 
 void Settings::onExceptionDefault_gui(GtkWidget *widget, gpointer data)
 {
+    (void)widget;
     Settings *s = (Settings *)data;
     GtkTreeIter iter;
 

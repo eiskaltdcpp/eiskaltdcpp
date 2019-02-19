@@ -66,6 +66,7 @@ BaconMessageConnection *connection = NULL;
 
 void receiver(const char *link, gpointer data)
 {
+    (void)data;
     g_return_if_fail(link != NULL);
     WulforManager::get()->onReceived_gui(link);
 }

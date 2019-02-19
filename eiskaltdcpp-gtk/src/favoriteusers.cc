@@ -125,6 +125,7 @@ void FavoriteUsers::show()
 
 gboolean FavoriteUsers::onKeyReleased_gui(GtkWidget *widget, GdkEventKey *event, gpointer data)
 {
+    (void)widget;
     FavoriteUsers *fu = (FavoriteUsers *)data;
 
     if (gtk_tree_selection_count_selected_rows(fu->favoriteUserSelection) > 0)
@@ -144,6 +145,7 @@ gboolean FavoriteUsers::onKeyReleased_gui(GtkWidget *widget, GdkEventKey *event,
 
 gboolean FavoriteUsers::onButtonPressed_gui(GtkWidget *widget, GdkEventButton *event, gpointer data)
 {
+    (void)widget;
     FavoriteUsers *fu = (FavoriteUsers *)data;
     fu->previous = event->type;
 
@@ -165,6 +167,7 @@ gboolean FavoriteUsers::onButtonPressed_gui(GtkWidget *widget, GdkEventButton *e
 
 gboolean FavoriteUsers::onButtonReleased_gui(GtkWidget *widget, GdkEventButton *event, gpointer data)
 {
+    (void)widget;
     FavoriteUsers *fu = (FavoriteUsers *)data;
 
     if (gtk_tree_selection_count_selected_rows(fu->favoriteUserSelection) > 0)
@@ -196,6 +199,7 @@ gboolean FavoriteUsers::onButtonReleased_gui(GtkWidget *widget, GdkEventButton *
 
 void FavoriteUsers::onBrowseItemClicked_gui(GtkMenuItem *item, gpointer data)
 {
+    (void)item;
     FavoriteUsers *fu = (FavoriteUsers *)data;
 
     if (gtk_tree_selection_count_selected_rows(fu->favoriteUserSelection) > 0)
@@ -225,6 +229,7 @@ void FavoriteUsers::onBrowseItemClicked_gui(GtkMenuItem *item, gpointer data)
 
 void FavoriteUsers::onMatchQueueItemClicked_gui(GtkMenuItem *item, gpointer data)
 {
+    (void)item;
     FavoriteUsers *fu = (FavoriteUsers *)data;
 
     if (gtk_tree_selection_count_selected_rows(fu->favoriteUserSelection) > 0)
@@ -254,6 +259,7 @@ void FavoriteUsers::onMatchQueueItemClicked_gui(GtkMenuItem *item, gpointer data
 
 void FavoriteUsers::onSendPMItemClicked_gui(GtkMenuItem *item, gpointer data)
 {
+    (void)item;
     FavoriteUsers *fu = (FavoriteUsers *)data;
 
     if (gtk_tree_selection_count_selected_rows(fu->favoriteUserSelection) > 0)
@@ -280,6 +286,7 @@ void FavoriteUsers::onSendPMItemClicked_gui(GtkMenuItem *item, gpointer data)
 
 void FavoriteUsers::onGrantSlotItemClicked_gui(GtkMenuItem *item, gpointer data)
 {
+    (void)item;
     FavoriteUsers *fu = (FavoriteUsers *)data;
 
     if (gtk_tree_selection_count_selected_rows(fu->favoriteUserSelection) > 0)
@@ -308,6 +315,7 @@ void FavoriteUsers::onGrantSlotItemClicked_gui(GtkMenuItem *item, gpointer data)
 
 void FavoriteUsers::onConnectItemClicked_gui(GtkMenuItem *item, gpointer data)
 {
+    (void)item;
     FavoriteUsers *fu = (FavoriteUsers *)data;
 
     if (gtk_tree_selection_count_selected_rows(fu->favoriteUserSelection) > 0)
@@ -332,6 +340,7 @@ void FavoriteUsers::onConnectItemClicked_gui(GtkMenuItem *item, gpointer data)
 
 void FavoriteUsers::onRemoveFromQueueItemClicked_gui(GtkMenuItem *item, gpointer data)
 {
+    (void)item;
     FavoriteUsers *fu = (FavoriteUsers *)data;
 
     if (gtk_tree_selection_count_selected_rows(fu->favoriteUserSelection) > 0)
@@ -358,6 +367,7 @@ void FavoriteUsers::onRemoveFromQueueItemClicked_gui(GtkMenuItem *item, gpointer
 
 void FavoriteUsers::onDescriptionItemClicked_gui(GtkMenuItem *item, gpointer data)
 {
+    (void)item;
     FavoriteUsers *fu = (FavoriteUsers *)data;
 
     if (gtk_tree_selection_count_selected_rows(fu->favoriteUserSelection) == 1)
@@ -409,6 +419,7 @@ void FavoriteUsers::onDescriptionItemClicked_gui(GtkMenuItem *item, gpointer dat
 
 void FavoriteUsers::onRemoveItemClicked_gui(GtkMenuItem *item, gpointer data)
 {
+    (void)item;
     FavoriteUsers *fu = (FavoriteUsers *)data;
 
     if (gtk_tree_selection_count_selected_rows(fu->favoriteUserSelection) > 0)
@@ -464,6 +475,7 @@ void FavoriteUsers::onRemoveItemClicked_gui(GtkMenuItem *item, gpointer data)
 
 void FavoriteUsers::onAutoGrantSlotToggled_gui(GtkCellRendererToggle *cell, gchar *path, gpointer data)
 {
+    (void)cell;
     FavoriteUsers *fu = (FavoriteUsers *)data;
     GtkTreeIter iter;
 

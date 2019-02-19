@@ -144,6 +144,7 @@ void UploadQueue::removeUser(string cid)
 
 void UploadQueue::onGrantSlotItemClicked_gui(GtkMenuItem *item, gpointer data)
 {
+    (void)item;
     UploadQueue *qp = (UploadQueue *)data;
 
     if (gtk_tree_selection_count_selected_rows(qp->selection) > 0)
@@ -171,6 +172,7 @@ void UploadQueue::onGrantSlotItemClicked_gui(GtkMenuItem *item, gpointer data)
 
 void UploadQueue::onRemoveItem_gui(GtkMenuItem *item, gpointer data)
 {
+    (void)item;
     UploadQueue *qp = (UploadQueue *)data;
 
     if (gtk_tree_selection_count_selected_rows(qp->selection) > 0)
@@ -198,6 +200,7 @@ void UploadQueue::onRemoveItem_gui(GtkMenuItem *item, gpointer data)
 
 void UploadQueue::onSendPMItemClicked_gui(GtkMenuItem *item, gpointer data)
 {
+    (void)item;
     UploadQueue *qp = (UploadQueue *)data;
 
     if (gtk_tree_selection_count_selected_rows(qp->selection) > 0)
@@ -223,6 +226,7 @@ void UploadQueue::onSendPMItemClicked_gui(GtkMenuItem *item, gpointer data)
 
 void UploadQueue::onBrowseItemClicked_gui(GtkMenuItem *item, gpointer data)
 {
+    (void)item;
     UploadQueue *qp = (UploadQueue *)data;
 
     if (gtk_tree_selection_count_selected_rows(qp->selection) > 0)
@@ -250,6 +254,7 @@ void UploadQueue::onBrowseItemClicked_gui(GtkMenuItem *item, gpointer data)
 
 void UploadQueue::onFavoriteUserAddItemClicked_gui(GtkMenuItem *item, gpointer data)
 {
+    (void)item;
     UploadQueue *qp = (UploadQueue *)data;
 
     if (gtk_tree_selection_count_selected_rows(qp->selection) > 0)
@@ -277,6 +282,7 @@ void UploadQueue::onFavoriteUserAddItemClicked_gui(GtkMenuItem *item, gpointer d
 
 gboolean UploadQueue::onKeyReleased_gui(GtkWidget *widget, GdkEventKey *event, gpointer data)
 {
+    (void)widget;
     UploadQueue *qp = (UploadQueue *)data;
 
     if (gtk_tree_selection_count_selected_rows(qp->selection) > 0)
@@ -292,6 +298,7 @@ gboolean UploadQueue::onKeyReleased_gui(GtkWidget *widget, GdkEventKey *event, g
 
 gboolean UploadQueue::onButtonPressed_gui(GtkWidget *widget, GdkEventButton *event, gpointer data)
 {
+    (void)widget;
     UploadQueue *qp = (UploadQueue *)data;
     qp->previous = event->type;
 
@@ -313,6 +320,7 @@ gboolean UploadQueue::onButtonPressed_gui(GtkWidget *widget, GdkEventButton *eve
 
 gboolean UploadQueue::onButtonReleased_gui(GtkWidget *widget, GdkEventButton *event, gpointer data)
 {
+    (void)widget;
     UploadQueue *qp = (UploadQueue *)data;
 
     if (gtk_tree_selection_count_selected_rows(qp->selection) > 0)

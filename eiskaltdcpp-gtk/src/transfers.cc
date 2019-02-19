@@ -167,6 +167,8 @@ void Transfers::popupTransferMenu_gui()
 
 void Transfers::onGetFileListClicked_gui(GtkMenuItem *item, gpointer data)
 {
+    (void)item;
+
     Transfers *tr = (Transfers *)data;
     GtkTreeIter iter;
     GtkTreePath *path;
@@ -199,6 +201,8 @@ void Transfers::onGetFileListClicked_gui(GtkMenuItem *item, gpointer data)
 
 void Transfers::onMatchQueueClicked_gui(GtkMenuItem *item, gpointer data)
 {
+    (void)item;
+
     Transfers *tr = (Transfers *)data;
     GtkTreeIter iter;
     GtkTreePath *path;
@@ -231,6 +235,8 @@ void Transfers::onMatchQueueClicked_gui(GtkMenuItem *item, gpointer data)
 
 void Transfers::onPrivateMessageClicked_gui(GtkMenuItem *item, gpointer data)
 {
+    (void)item;
+
     Transfers *tr = (Transfers *)data;
     string cid;
     GtkTreeIter iter;
@@ -259,6 +265,8 @@ void Transfers::onPrivateMessageClicked_gui(GtkMenuItem *item, gpointer data)
 
 void Transfers::onAddFavoriteUserClicked_gui(GtkMenuItem *item, gpointer data)
 {
+    (void)item;
+
     Transfers *tr = (Transfers *)data;
     string cid;
     GtkTreeIter iter;
@@ -292,6 +300,8 @@ void Transfers::onAddFavoriteUserClicked_gui(GtkMenuItem *item, gpointer data)
 
 void Transfers::onGrantExtraSlotClicked_gui(GtkMenuItem *item, gpointer data)
 {
+    (void)item;
+
     Transfers *tr = (Transfers *)data;
     GtkTreeIter iter;
     GtkTreePath *path;
@@ -324,6 +334,8 @@ void Transfers::onGrantExtraSlotClicked_gui(GtkMenuItem *item, gpointer data)
 
 void Transfers::onRemoveUserFromQueueClicked_gui(GtkMenuItem *item, gpointer data)
 {
+    (void)item;
+
     Transfers *tr = (Transfers *)data;
     string cid;
     GtkTreeIter iter;
@@ -357,6 +369,8 @@ void Transfers::onRemoveUserFromQueueClicked_gui(GtkMenuItem *item, gpointer dat
 
 void Transfers::onForceAttemptClicked_gui(GtkMenuItem *menuItem, gpointer data)
 {
+    (void)menuItem;
+
     Transfers *tr = (Transfers *)data;
     string cid;
     GtkTreeIter iter;
@@ -383,6 +397,8 @@ void Transfers::onForceAttemptClicked_gui(GtkMenuItem *menuItem, gpointer data)
 
 void Transfers::onCloseConnectionClicked_gui(GtkMenuItem *menuItem, gpointer data)
 {
+    (void)menuItem;
+
     Transfers *tr = (Transfers *)data;
     string cid;
     GtkTreeIter iter;
@@ -420,6 +436,8 @@ void Transfers::onCloseConnectionClicked_gui(GtkMenuItem *menuItem, gpointer dat
 
 gboolean Transfers::onTransferButtonPressed_gui(GtkWidget *widget, GdkEventButton *event, gpointer data)
 {
+    (void)widget;
+
     Transfers *tr = (Transfers *)data;
 
     if (event->button == 3)
@@ -440,6 +458,8 @@ gboolean Transfers::onTransferButtonPressed_gui(GtkWidget *widget, GdkEventButto
 
 gboolean Transfers::onTransferButtonReleased_gui(GtkWidget *widget, GdkEventButton *event, gpointer data)
 {
+    (void)widget;
+
     Transfers *tr = (Transfers *)data;
     int count = gtk_tree_selection_count_selected_rows(tr->transferSelection);
 
@@ -1072,8 +1092,11 @@ void Transfers::on(ConnectionManagerListener::StatusChanged, ConnectionQueueItem
     WulforManager::get()->dispatchGuiFunc(f3);
 }
 
-void Transfers::on(QueueManagerListener::Finished, QueueItem* qi, const string& dir, int64_t size) noexcept
+void Transfers::on(QueueManagerListener::Finished, QueueItem *qi, const string &dir, int64_t size) noexcept
 {
+    (void)dir;
+    (void)size;
+
     string target = qi->getTarget();
     Sound::TypeSound sound = Sound::DOWNLOAD_FINISHED;
 

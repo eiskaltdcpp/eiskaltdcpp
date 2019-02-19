@@ -187,6 +187,7 @@ void EmoticonsDialog::setCurrIconSize(const string &size)
 
 void EmoticonsDialog::onCheckPacksMenu(GtkMenuItem *checkItem, gpointer data)
 {
+    (void)data;
     string currPackName = (gchar*) g_object_get_data(G_OBJECT(checkItem), "current-pack-name");
 
     if (currPackName != Emoticons::get()->getCurrPackName_gui())
@@ -394,8 +395,9 @@ void EmoticonsDialog::onChat(GtkWidget *widget /*button*/, gpointer data /*this*
     ed->dialog = NULL;
 }
 
-gboolean EmoticonsDialog::event(GtkWidget *widget /*dialog*/, GdkEvent *event, gpointer data /*this*/)
+gboolean EmoticonsDialog::event(GtkWidget *widget, GdkEvent *event, gpointer data)
 {
+    (void)widget;
     EmoticonsDialog *ed = (EmoticonsDialog *) data;
 
     if (event->type == GDK_BUTTON_PRESS || event->type == GDK_BUTTON_RELEASE)

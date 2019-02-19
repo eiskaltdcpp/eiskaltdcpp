@@ -204,6 +204,8 @@ GType* TreeView::getGTypes()
 
 void TreeView::speedDataFunc(GtkTreeViewColumn *col, GtkCellRenderer *renderer, GtkTreeModel *model, GtkTreeIter *iter, gpointer column)
 {
+    (void)col;
+
     string speedString;
     int64_t speed;
     gtk_tree_model_get(model, iter, static_cast<Column*>(column)->pos, &speed, -1);
@@ -218,6 +220,8 @@ void TreeView::speedDataFunc(GtkTreeViewColumn *col, GtkCellRenderer *renderer, 
 
 void TreeView::sizeDataFunc(GtkTreeViewColumn *col, GtkCellRenderer *renderer, GtkTreeModel *model, GtkTreeIter *iter, gpointer column)
 {
+    (void)col;
+
     string sizeString;
     int64_t size;
     gtk_tree_model_get(model, iter, static_cast<Column*>(column)->pos, &size, -1);
@@ -232,6 +236,8 @@ void TreeView::sizeDataFunc(GtkTreeViewColumn *col, GtkCellRenderer *renderer, G
 
 void TreeView::timeLeftDataFunc(GtkTreeViewColumn *col, GtkCellRenderer *renderer, GtkTreeModel *model, GtkTreeIter *iter, gpointer column)
 {
+    (void)col;
+
     string timeLeftString;
     int64_t seconds;
     gtk_tree_model_get(model, iter, static_cast<Column*>(column)->pos, &seconds, -1);
@@ -393,6 +399,8 @@ int TreeView::col(const string &title)
 
 gboolean TreeView::popupMenu_gui(GtkWidget *widget, GdkEventButton *event, gpointer data)
 {
+    (void)widget;
+
     if (!event)
         return false;
 
