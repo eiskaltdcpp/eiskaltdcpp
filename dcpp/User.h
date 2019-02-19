@@ -23,6 +23,7 @@
 #include "CID.h"
 #include "FastAlloc.h"
 #include "CriticalSection.h"
+#include "NonCopyable.h"
 #include "Flags.h"
 #include "forward.h"
 #include <boost/utility.hpp>
@@ -34,7 +35,7 @@ namespace dcpp {
 class ClientBase;
 
 /** A user connected to one or more hubs. */
-class User : public FastAlloc<User>, public intrusive_ptr_base<User>, public Flags, private boost::noncopyable
+class User : public FastAlloc<User>, public intrusive_ptr_base<User>, public Flags, private NonCopyable
 {
 public:
     enum Bits {

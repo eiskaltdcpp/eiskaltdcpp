@@ -24,6 +24,7 @@
 #include "BufferedSocketListener.h"
 #include "BufferedSocket.h"
 #include "CriticalSection.h"
+#include "NonCopyable.h"
 #include "File.h"
 #include "User.h"
 #include "AdcCommand.h"
@@ -44,7 +45,7 @@ protected:
 
 class UserConnection : public Speaker<UserConnectionListener>,
     private BufferedSocketListener, public Flags, private CommandHandler<UserConnection>,
-    private boost::noncopyable
+    private NonCopyable
 #ifdef LUA_SCRIPT
 , public UserConnectionScriptInstance
 #endif

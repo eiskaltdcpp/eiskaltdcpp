@@ -25,6 +25,7 @@
 #include "QueueManagerListener.h"
 #include "Exception.h"
 #include "CriticalSection.h"
+#include "NonCopyable.h"
 #include "StringSearch.h"
 #include "Singleton.h"
 #include "BloomFilter.h"
@@ -111,11 +112,11 @@ public:
         return tthIndex.find(tth) != tthIndex.end();
     }
     void publish();
-    GETSET(uint32_t, hits, Hits);
-    GETSET(string, bzXmlFile, BZXmlFile);
+    GETSET(uint32_t, hits, Hits)
+    GETSET(string, bzXmlFile, BZXmlFile)
 private:
     struct AdcSearch;
-    class Directory : public FastAlloc<Directory>, public intrusive_ptr_base<Directory>, boost::noncopyable {
+    class Directory : public FastAlloc<Directory>, public intrusive_ptr_base<Directory>, private NonCopyable {
     public:
         typedef boost::intrusive_ptr<Directory> Ptr;
         typedef unordered_map<string, Ptr, CaseStringHash, CaseStringEq> Map;

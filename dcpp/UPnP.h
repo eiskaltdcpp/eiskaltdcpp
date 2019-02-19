@@ -18,9 +18,11 @@
 
 #pragma once
 
+#include "NonCopyable.h"
+
 namespace dcpp {
 
-class UPnP : boost::noncopyable
+class UPnP : public NonCopyable
 {
 public:
     UPnP() { }

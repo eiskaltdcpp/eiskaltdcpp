@@ -16,8 +16,8 @@
 #include "dcpp/Util.h"
 
 SearchBlacklist::SearchBlacklist(){
-    list[NAME] = QList<QString>();
-    list[TTH]  = QList<QString>();
+    list[NAME] = {};
+    list[TTH]  = {};
 
     loadLists();
 }

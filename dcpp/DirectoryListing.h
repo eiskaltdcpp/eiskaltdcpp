@@ -19,6 +19,7 @@
 #pragma once
 
 #include "noexcept.h"
+#include "NonCopyable.h"
 #include "User.h"
 #include "FastAlloc.h"
 #include "MerkleTree.h"
@@ -29,7 +30,7 @@ namespace dcpp {
 
 class ListLoader;
 
-class DirectoryListing : boost::noncopyable
+class DirectoryListing : private NonCopyable
 {
 public:
     class Directory;
@@ -61,17 +62,17 @@ public:
 
         ~File() { }
 
-        GETSET(string, name, Name);
-        GETSET(int64_t, size, Size);
-        GETSET(Directory*, parent, Parent);
-        GETSET(TTHValue, tthRoot, TTH);
-        GETSET(bool, adls, Adls);
-        GETSET(uint64_t, ts, TS);
-        GETSET(uint64_t, hit, Hit);
+        GETSET(string, name, Name)
+        GETSET(int64_t, size, Size)
+        GETSET(Directory*, parent, Parent)
+        GETSET(TTHValue, tthRoot, TTH)
+        GETSET(bool, adls, Adls)
+        GETSET(uint64_t, ts, TS)
+        GETSET(uint64_t, hit, Hit)
         MediaInfo mediaInfo;
     };
 
-    class Directory : public FastAlloc<Directory>, boost::noncopyable {
+    class Directory : public FastAlloc<Directory>, private NonCopyable {
     public:
         typedef Directory* Ptr;
         struct DirSort {

@@ -17,6 +17,7 @@
 #pragma once
 
 #include "typedefs.h"
+#include "NonCopyable.h"
 
 namespace dcpp {
 
@@ -24,7 +25,7 @@ class InputStream;
 
 class SimpleXMLReader {
 public:
-    struct CallBack : private boost::noncopyable {
+    struct CallBack : private NonCopyable {
         virtual ~CallBack() { }
         virtual void startTag(const std::string& name, StringPairList& attribs, bool simple) = 0;
         virtual void endTag(const std::string& name, const std::string& data) = 0;

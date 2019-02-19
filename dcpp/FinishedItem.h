@@ -18,14 +18,14 @@
 
 #pragma once
 
-#include <boost/noncopyable.hpp>
+#include "NonCopyable.h"
 #include "forward.h"
 #include "Pointer.h"
 #include "Util.h"
 
 namespace dcpp {
 
-class FinishedItemBase : boost::noncopyable {
+class FinishedItemBase : private NonCopyable {
 public:
     explicit FinishedItemBase(
         int64_t transferred_,

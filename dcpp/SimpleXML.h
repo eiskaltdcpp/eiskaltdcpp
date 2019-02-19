@@ -19,6 +19,7 @@
 #pragma once
 
 #include "Exception.h"
+#include "NonCopyable.h"
 #include "Streams.h"
 #include "SimpleXMLReader.h"
 
@@ -30,7 +31,7 @@ STANDARD_EXCEPTION(SimpleXMLException);
  * A simple XML class that loads an XML-ish structure into an internal tree
  * and allows easy access to each element through a "current location".
  */
-class SimpleXML : private boost::noncopyable
+class SimpleXML : private NonCopyable
 {
 public:
     SimpleXML() : root("BOGUSROOT", Util::emptyString, NULL), current(&root), found(false) {

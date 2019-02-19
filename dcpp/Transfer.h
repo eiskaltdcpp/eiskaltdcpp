@@ -23,11 +23,12 @@
 #include "TimerManager.h"
 #include "Util.h"
 #include "CriticalSection.h"
+#include "NonCopyable.h"
 #include "Segment.h"
 
 namespace dcpp {
 
-class Transfer : private boost::noncopyable {
+class Transfer : private NonCopyable {
 public:
     enum Type {
         TYPE_FILE,

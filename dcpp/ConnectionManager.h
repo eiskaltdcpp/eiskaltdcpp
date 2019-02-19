@@ -22,6 +22,7 @@
 #include "UserConnection.h"
 #include "User.h"
 #include "CriticalSection.h"
+#include "NonCopyable.h"
 #include "Singleton.h"
 #include "Util.h"
 #include "ConnectionManagerListener.h"
@@ -30,7 +31,7 @@ namespace dcpp {
 
 class SocketException;
 
-class ConnectionQueueItem : boost::noncopyable {
+class ConnectionQueueItem : private NonCopyable {
 public:
     typedef ConnectionQueueItem* Ptr;
     typedef vector<Ptr> List;
@@ -46,11 +47,11 @@ public:
     ConnectionQueueItem(const HintedUser& aUser, bool aDownload) : token(Util::toString(Util::rand())),
                 lastAttempt(0), errors(0), state(WAITING), download(aDownload), user(aUser) { }
 
-    GETSET(string, token, Token);
-    GETSET(uint64_t, lastAttempt, LastAttempt);
-    GETSET(int, errors, Errors); // Number of connection errors, or -1 after a protocol error
-    GETSET(State, state, State);
-    GETSET(bool, download, Download);
+    GETSET(string, token, Token)
+    GETSET(uint64_t, lastAttempt, LastAttempt)
+    GETSET(int, errors, Errors) // Number of connection errors, or -1 after a protocol error
+    GETSET(State, state, State)
+    GETSET(bool, download, Download)
 
     const HintedUser& getUser() const { return user; }
 
