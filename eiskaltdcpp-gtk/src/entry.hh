@@ -61,11 +61,11 @@ class Entry
         Entry(const EntryType type = NONE, const std::string &ui = "", const std::string &id = "");
         virtual ~Entry();
 
-        const EntryType getType();
+        EntryType getType();
         const std::string& getID();
         virtual GtkWidget *getContainer() = 0;
         void remove();
-        virtual void show() {};
+        virtual void show() {}
 
     protected:
         std::string generateID();
