@@ -156,7 +156,7 @@ void CustomFontModel::addNewFont(const QString &wkey, const QString &desc){
     if (wkey.isEmpty() || desc.isEmpty())
         return;
 
-	QString font_desc = WSGET(wkey.toUtf8().constData());
+    QString font_desc = WSGET(wkey.toUtf8().constData());
     QFont f;
 
     if (font_desc.isEmpty())

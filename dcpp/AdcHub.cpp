@@ -252,28 +252,28 @@ void AdcHub::handle(AdcCommand::MSG, AdcCommand& c) noexcept {
     if(c.getParameters().empty())
         return;
 
-        ChatMessage message = { c.getParam(0), findUser(c.getFrom()), nullptr, nullptr, false, 0 };
+    ChatMessage message = { c.getParam(0), findUser(c.getFrom()), nullptr, nullptr, false, 0 };
 
-        if(!message.from)
+    if(!message.from)
+        return;
+
+    string temp;
+    if(c.getParam("PM", 1, temp)) { // add PM<group-cid> as well
+        message.to = findUser(c.getTo());
+        if(!message.to)
             return;
 
-        string temp;
-        if(c.getParam("PM", 1, temp)) { // add PM<group-cid> as well
-            message.to = findUser(c.getTo());
-            if(!message.to)
-                return;
+        message.replyTo = findUser(AdcCommand::toSID(temp));
+        if(!message.replyTo)
+            return;
+    }
 
-            message.replyTo = findUser(AdcCommand::toSID(temp));
-            if(!message.replyTo)
-                return;
-        }
+    message.thirdPerson = c.hasFlag("ME", 1);
 
-        message.thirdPerson = c.hasFlag("ME", 1);
+    if(c.getParam("TS", 1, temp))
+        message.timestamp = Util::toInt64(temp);
 
-        if(c.getParam("TS", 1, temp))
-            message.timestamp = Util::toInt64(temp);
-
-        fire(ClientListener::Message(), this, message);
+    fire(ClientListener::Message(), this, message);
 }
 
 void AdcHub::handle(AdcCommand::GPA, AdcCommand& c) noexcept {
