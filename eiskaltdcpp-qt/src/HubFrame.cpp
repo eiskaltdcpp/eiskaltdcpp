@@ -865,17 +865,20 @@ bool HubFrame::eventFilter(QObject *obj, QEvent *e){
     if (e->type() == QEvent::KeyRelease){
         QKeyEvent *k_e = reinterpret_cast<QKeyEvent*>(e);
 
+        const bool keyEnter = (k_e->key() == Qt::Key_Enter || k_e->key() == Qt::Key_Return);
+        const bool shiftModifier = (k_e->modifiers() != Qt::ShiftModifier);
+
         if ((static_cast<QTextEdit*>(obj) == plainTextEdit_INPUT) &&
-            (k_e->key() == Qt::Key_Enter || k_e->key() == Qt::Key_Return) &&
-            (k_e->modifiers() != Qt::ShiftModifier))
+            (keyEnter && shiftModifier))
         {
             return true;
         }
-        else if (static_cast<QLineEdit*>(obj) == lineEdit_FIND){
-            bool ret = QWidget::eventFilter(obj, e);
+        else if (static_cast<QLineEdit*>(obj) == lineEdit_FIND) {
+            const bool ret = QWidget::eventFilter(obj, e);
 
-            if (k_e->key() == Qt::Key_Enter || k_e->key() == Qt::Key_Return)
+            if (keyEnter) {
                 slotFindForward();
+            }
 
             return ret;
         }
@@ -884,16 +887,23 @@ bool HubFrame::eventFilter(QObject *obj, QEvent *e){
     else if (e->type() == QEvent::KeyPress){
         QKeyEvent *k_e = reinterpret_cast<QKeyEvent*>(e);
 
-        if ((static_cast<QTextEdit*>(obj) == plainTextEdit_INPUT) &&
-            (!WBGET(WB_USE_CTRL_ENTER) || k_e->modifiers() == Qt::ControlModifier) &&
-            ((k_e->key() == Qt::Key_Enter || k_e->key() == Qt::Key_Return) && k_e->modifiers() != Qt::ShiftModifier) ||
-             (k_e->key() == Qt::Key_Enter && k_e->modifiers() == Qt::KeypadModifier))
+        const bool controlModifier = (k_e->modifiers() == Qt::ControlModifier);
+
+        if (static_cast<QTextEdit*>(obj) == plainTextEdit_INPUT)
         {
-            sendChat(plainTextEdit_INPUT->toPlainText(), false, false);
+            const bool useCtrlEnter = WBGET(WB_USE_CTRL_ENTER);
+            const bool keyEnter = (k_e->key() == Qt::Key_Enter || k_e->key() == Qt::Key_Return);
+            const bool shiftModifier = (k_e->modifiers() != Qt::ShiftModifier);
 
-            plainTextEdit_INPUT->setPlainText("");
+            if ((useCtrlEnter && keyEnter && controlModifier) ||
+                (!useCtrlEnter && keyEnter && !controlModifier && !shiftModifier))
+            {
+                sendChat(plainTextEdit_INPUT->toPlainText(), false, false);
 
-            return true;
+                plainTextEdit_INPUT->setPlainText("");
+
+                return true;
+            }
         }
 
         if (qobject_cast<LineEdit*>(obj) == lineEdit_FIND && k_e->key() == Qt::Key_Escape){
@@ -904,7 +914,7 @@ bool HubFrame::eventFilter(QObject *obj, QEvent *e){
             return true;
         }
 
-        if (k_e->modifiers() == Qt::ControlModifier){
+        if (controlModifier) {
             if (k_e->key() == Qt::Key_Equal || k_e->key() == Qt::Key_Plus){
                 textEdit_CHAT->zoomIn();
 
