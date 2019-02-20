@@ -96,7 +96,7 @@ void SettingsDownloads::init(){
         lineEdit_UNF_DL_DIR->setText(_q(SETTING(TEMP_DOWNLOAD_DIRECTORY)));
         lineEdit_PROXY->setText(_q(SETTING(HTTP_PROXY)));
 
-        checkBox_NO_USE_TEMP_DIR->setChecked(!(((bool)SettingsManager::getInstance()->get(SettingsManager::NO_USE_TEMP_DIR))? Qt::Checked : Qt::Unchecked));
+        checkBox_NO_USE_TEMP_DIR->setChecked(!SETTING(NO_USE_TEMP_DIR));
         spinBox_AUTO_SEARCH_TIME->setValue(SETTING(AUTO_SEARCH_TIME));
         spinBox_SEGMENT_SIZE->setValue(SETTING(SEGMENT_SIZE));
         spinBox_MAXDL->setValue(SETTING(DOWNLOAD_SLOTS));
