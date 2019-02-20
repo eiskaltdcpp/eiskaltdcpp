@@ -29,9 +29,9 @@
 #include <fstream>
 #endif
 
-char pidfile[256] = {0};
-char config_dir[1024] = {0};
-char local_dir[1024] = {0};
+char pidfile[256+1] = {0};
+char config_dir[1024+1] = {0};
+char local_dir[1024+1] = {0};
 
 #ifndef _WIN32
 static void SigHandler(int sig) {
