@@ -92,7 +92,7 @@ Lunar<LuaManager>::RegType LuaManager::methods[] = {
         {"GetScriptsPath", &LuaManager::GetScriptsPath},
         {"GetConfigScriptsPath", &LuaManager::GetConfigScriptsPath},
         {"DropUserConnection", &LuaManager::DropUserConnection},
-        {0}
+        {0, nullptr}
 };
 
 int LuaManager::DeleteClient(lua_State* L){

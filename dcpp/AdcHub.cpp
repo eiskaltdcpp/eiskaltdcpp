@@ -252,7 +252,7 @@ void AdcHub::handle(AdcCommand::MSG, AdcCommand& c) noexcept {
     if(c.getParameters().empty())
         return;
 
-        ChatMessage message = { c.getParam(0), findUser(c.getFrom()) };
+        ChatMessage message = { c.getParam(0), findUser(c.getFrom()), nullptr, nullptr, false, 0 };
 
         if(!message.from)
             return;
@@ -498,7 +498,7 @@ void AdcHub::handle(AdcCommand::STA, AdcCommand& c) noexcept {
                 return;
             }
     }
-    ChatMessage message = { c.getParam(1), u };
+    ChatMessage message = { c.getParam(1), u, nullptr, nullptr, false, 0 };
     fire(ClientListener::Message(), this, message);
 }
 

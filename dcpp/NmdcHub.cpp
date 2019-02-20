@@ -211,7 +211,7 @@ void NmdcHub::onLine(const string& aLine) noexcept {
             return;
         }
 
-        ChatMessage chatMessage = { unescape(message), findUser(nick) };
+        ChatMessage chatMessage = { unescape(message), findUser(nick), nullptr, nullptr, false, 0 };
 
         if(!chatMessage.from) {
             OnlineUser& o = getUser(nick);
@@ -780,7 +780,7 @@ void NmdcHub::onLine(const string& aLine) noexcept {
         if(fromNick.empty() || param.size() < j + 2)
             return;
 
-        ChatMessage message = { unescape(param.substr(j + 2)), findUser(fromNick), &getUser(getMyNick()), findUser(rtNick) };
+        ChatMessage message = { unescape(param.substr(j + 2)), findUser(fromNick), &getUser(getMyNick()), findUser(rtNick), false, 0 };
 
         if(!message.replyTo || !message.from) {
             if(!message.replyTo) {
@@ -988,7 +988,7 @@ void NmdcHub::privateMessage(const OnlineUser& aUser, const string& aMessage, bo
     Lock l(cs);
     OnlineUser* ou = findUser(getMyNick());
     if(ou) {
-        ChatMessage message = { aMessage, ou, &aUser, ou };
+        ChatMessage message = { aMessage, ou, &aUser, ou, false, 0 };
         fire(ClientListener::Message(), this, message);
     }
 }

@@ -630,7 +630,7 @@ string Socket::resolve(const string& aDns) {
 #else
     // POSIX doesn't guarantee the gethostbyname to be thread safe. And it may (will) return a pointer to static data.
     string address = Util::emptyString;
-    addrinfo hints = { 0 };
+    addrinfo hints = { 0, 0, 0, 0, 0, 0, 0, 0 };
     addrinfo *result;
     // While we do not have IPv6 support, hints.ai_family = AF_UNSPEC causes connection problem
     // See: https://code.google.com/p/eiskaltdc/issues/detail?id=1417
