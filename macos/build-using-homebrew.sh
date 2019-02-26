@@ -43,7 +43,7 @@ BUILD_OPTIONS="-DCMAKE_BUILD_TYPE=Release \
 mkdir -p "${MAIN_DIR}/builddir"
 cd "${MAIN_DIR}/builddir"
 
-cmake .. -DCMAKE_TOOLCHAIN_FILE="${TOOLCHAIN_FILE}" ${BUILD_OPTIONS} "$@"
+cmake .. -DCMAKE_TOOLCHAIN_FILE="${TOOLCHAIN_FILE}" ${BUILD_OPTIONS} ${@}
 cmake --build . --target all -- -j4
 
 cpack -G DragNDrop
