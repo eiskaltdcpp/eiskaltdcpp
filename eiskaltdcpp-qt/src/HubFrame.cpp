@@ -866,7 +866,7 @@ bool HubFrame::eventFilter(QObject *obj, QEvent *e){
         QKeyEvent *k_e = reinterpret_cast<QKeyEvent*>(e);
 
         const bool keyEnter = (k_e->key() == Qt::Key_Enter || k_e->key() == Qt::Key_Return);
-        const bool shiftModifier = (k_e->modifiers() != Qt::ShiftModifier);
+        const bool shiftModifier = (k_e->modifiers() == Qt::ShiftModifier);
 
         if ((static_cast<QTextEdit*>(obj) == plainTextEdit_INPUT) &&
             (keyEnter && shiftModifier))

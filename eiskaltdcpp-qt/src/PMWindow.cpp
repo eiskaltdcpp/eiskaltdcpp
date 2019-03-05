@@ -176,7 +176,7 @@ bool PMWindow::eventFilter(QObject *obj, QEvent *e){
         {
             const bool useCtrlEnter = WBGET(WB_USE_CTRL_ENTER);
             const bool keyEnter = (k_e->key() == Qt::Key_Enter || k_e->key() == Qt::Key_Return);
-            const bool shiftModifier = (k_e->modifiers() != Qt::ShiftModifier);
+            const bool shiftModifier = (k_e->modifiers() == Qt::ShiftModifier);
 
             if ((useCtrlEnter && keyEnter && controlModifier) ||
                 (!useCtrlEnter && keyEnter && !controlModifier && !shiftModifier))
