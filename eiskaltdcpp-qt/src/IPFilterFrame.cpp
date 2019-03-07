@@ -77,21 +77,21 @@ void IPFilterFrame::slotCheckBoxClick() {
     pushButton_UP->setEnabled(b);
 
     if (b) {
-        if (!IPFilter::getInstance()){
-            IPFilter::newInstance();
+        if (!ipfilter::getInstance()){
+            ipfilter::newInstance();
 
-            IPFilter::getInstance()->loadList();
+            ipfilter::getInstance()->loadList();
         }
 
         loadItems();
 
-        connect(IPFilter::getInstance(), SIGNAL(ruleAdded(QString,eDIRECTION)), this, SLOT(slotRuleAdded(QString,eDIRECTION)));
+        //connect(ipfilter::getInstance(), SIGNAL(ruleAdded(QString,eDIRECTION)), this, SLOT(slotRuleAdded(QString,eDIRECTION)));
 
     } else {
-        if (IPFilter::getInstance()) {
-            IPFilter::getInstance()->saveList();
+        if (ipfilter::getInstance()) {
+            ipfilter::getInstance()->saveList();
 
-            IPFilter::deleteInstance();
+            ipfilter::deleteInstance();
 
             model->clearModel();
         }
@@ -120,12 +120,12 @@ void IPFilterFrame::slotRuleAdded(QString exp, eDIRECTION direction) {
 }
 
 void IPFilterFrame::loadItems() {
-    if (!IPFilter::getInstance() || !model)
+    if (!ipfilter::getInstance() || !model)
         return;
 
     model->clearModel();
 
-    QIPList list = IPFilter::getInstance()->getRules();
+    IPList list = ipfilter::getInstance()->getRules();
 
     for (int i = 0; i < list.size(); i++){
 
@@ -146,12 +146,12 @@ void IPFilterFrame::loadItems() {
                 break;
         }
 
-        model->addResult(prefix+QString(IPFilter::Uint32ToString(el->ip)) + "/" + QString().setNum(IPFilter::MaskToCIDR(el->mask)), type);
+        model->addResult(prefix+QString::fromStdString(ipfilter::Uint32ToString(el->ip)) + "/" + QString().setNum(ipfilter::MaskToCIDR(el->mask)), type);
     }
 }
 
 void IPFilterFrame::slotTreeViewContextMenu(QPoint){
-    if (!IPFilter::getInstance() || !model)
+    if (!ipfilter::getInstance() || !model)
         return;
 
     WulforUtil *WU = WulforUtil::getInstance();
@@ -212,13 +212,13 @@ void IPFilterFrame::slotTreeViewContextMenu(QPoint){
             d = eDIRECTION_IN;
 
         if (d != direction){
-            IPFilter::getInstance()->changeRuleDirection(str_ip, d, act);
+            ipfilter::getInstance()->changeRuleDirection(str_ip.toStdString(), d, act);
 
             elem->updateColumn(COLUMN_RULE_DIRECTION, txt);
         }
     }
     else if (result == del){
-        IPFilter::getInstance()->remFromRules(str_ip, act);
+        ipfilter::getInstance()->remFromRules(str_ip.toStdString(), act);
         model->removeItem(elem);
     }
     else if (result == ch){
@@ -231,16 +231,16 @@ void IPFilterFrame::slotTreeViewContextMenu(QPoint){
                                               QLineEdit::Normal, elem->data(COLUMN_RULE_NAME).toString(), &ok);
 
         if (ok &&
-            IPFilter::ParseString(input, ip, mask, act) &&
-            IPFilter::ParseString(elem->data(COLUMN_RULE_NAME).toString(), old_ip, old_mask, old_act))
+            ipfilter::ParseString(input.toStdString(), ip, mask, act) &&
+            ipfilter::ParseString(elem->data(COLUMN_RULE_NAME).toString().toStdString(), old_ip, old_mask, old_act))
         {
             if ((ip != old_ip) || (mask != old_mask) || (act != old_act)){
-                const QIPHash &hash = IPFilter::getInstance()->getHash();
+                const IPHash &hash = ipfilter::getInstance()->getHash();
                 auto it = hash.find(old_ip);
                 IPFilterElem *el = NULL;
 
-                while (it != hash.end() && it.key() == old_ip){
-                    IPFilterElem *t = it.value();
+                while (it != hash.end() && it->first == old_ip){
+                    IPFilterElem *t = it->second;
 
                     if (t->action == old_act && t->mask == old_mask){
                         el = t;
@@ -257,8 +257,8 @@ void IPFilterFrame::slotTreeViewContextMenu(QPoint){
                     el->mask   = mask;
 
                     QString prefix = (act == etaDROP?"!":"");
-                    QString str_ip     = IPFilter::Uint32ToString(ip);
-                    QString str_mask   = QString().setNum(IPFilter::MaskToCIDR(mask));
+                    QString str_ip     = QString::fromStdString(ipfilter::Uint32ToString(ip));
+                    QString str_mask   = QString().setNum(ipfilter::MaskToCIDR(mask));
 
                     elem->updateColumn(COLUMN_RULE_NAME, prefix+str_ip+"/"+str_mask);
                 }
@@ -272,15 +272,15 @@ void IPFilterFrame::slotTreeViewContextMenu(QPoint){
 }
 
 void IPFilterFrame::closeEvent(QCloseEvent *e) {
-    if (IPFilter::getInstance()) {
-        IPFilter::getInstance()->saveList();
+    if (ipfilter::getInstance()) {
+        ipfilter::getInstance()->saveList();
     }
 
     e->accept();
 }
 
 void IPFilterFrame::slotAddRule() {
-    if (!IPFilter::getInstance())
+    if (!ipfilter::getInstance())
         return;
 
     QString rule = lineEdit_RULE->text();
@@ -305,7 +305,10 @@ void IPFilterFrame::slotAddRule() {
 
             ip.replace(" ", "");
 
-            IPFilter::getInstance()->addToRules(ip.trimmed(), direction);
+            if(ipfilter::getInstance()->addToRules(ip.trimmed().toStdString(), direction)){
+                slotRuleAdded(ip, direction);
+            }
+
         }
     }
 
@@ -314,7 +317,7 @@ void IPFilterFrame::slotAddRule() {
 }
 
 void IPFilterFrame::slotImport() {
-    if (!IPFilter::getInstance() || !model)
+    if (!ipfilter::getInstance() || !model)
         return;
 
     QString fname = QFileDialog::getOpenFileName(this, tr("Import list"), QDir::homePath());
@@ -325,7 +328,7 @@ void IPFilterFrame::slotImport() {
         model->clearModel();
 
         std::string error;
-        IPFilter::getInstance()->importFrom(fname, error);
+        ipfilter::getInstance()->importFrom(fname.toStdString(), error);
 
         loadItems();
     }
@@ -334,7 +337,7 @@ void IPFilterFrame::slotImport() {
 void IPFilterFrame::slotUpDownClick(){
     QModelIndexList mindexes = treeView_RULES->selectionModel()->selectedIndexes();
 
-    if (mindexes.isEmpty() || !IPFilter::getInstance()){
+    if (mindexes.isEmpty() || !ipfilter::getInstance()){
         return;
     }
 
@@ -345,16 +348,16 @@ void IPFilterFrame::slotUpDownClick(){
     quint32 ip, mask;
     eTableAction act;
 
-    if (!IPFilter::ParseString(exp, ip, mask, act))
+    if (!ipfilter::ParseString(exp.toStdString(), ip, mask, act))
         return;
 
     if (sender() == pushButton_UP){
         model->moveUp(index);
-        IPFilter::getInstance()->moveRuleUp(ip, act);
+        ipfilter::getInstance()->moveRuleUp(ip, act);
     }
     else{
         model->moveDown(index);
-        IPFilter::getInstance()->moveRuleDown(ip, act);
+        ipfilter::getInstance()->moveRuleDown(ip, act);
     }
 
     model->repaint();
@@ -368,7 +371,7 @@ void IPFilterFrame::slotUpDownClick(){
 }
 
 void IPFilterFrame::slotExport() {
-    if (!IPFilter::getInstance())
+    if (!ipfilter::getInstance())
         return;
 
     QString fname = QFileDialog::getSaveFileName(this, tr("Export list"), QDir::homePath(),
@@ -377,7 +380,7 @@ void IPFilterFrame::slotExport() {
     if (fname != ""){
         fname = QDir::toNativeSeparators(fname);
         std::string err;
-        IPFilter::getInstance()->exportTo(fname, err);
+        ipfilter::getInstance()->exportTo(fname.toStdString(), err);
     }
 }
 

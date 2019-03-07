@@ -15,8 +15,8 @@
 #include <QRadioButton>
 #include <QList>
 
-#include "IPFilter.h"
-#include "IPFilterModel.h"
+#include "extra/ipfilter.h"
+#include <IPFilterModel.h>
 
 #include "ui_UIIPFilter.h"
 

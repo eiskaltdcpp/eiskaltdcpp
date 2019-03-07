@@ -16,7 +16,6 @@
 #include "Notification.h"
 #include "SearchFrame.h"
 #include "DownloadQueue.h"
-#include "IPFilter.h"
 #include "ArenaWidgetFactory.h"
 
 #include "dcpp/Util.h"
@@ -30,6 +29,8 @@
 #include "dcpp/QueueManager.h"
 #include "dcpp/FavoriteManager.h"
 #include "dcpp/HashManager.h"
+
+#include "extra/ipfilter.h"
 
 #include <QItemSelectionModel>
 #include <QModelIndex>
@@ -592,8 +593,8 @@ void TransferView::on(dcpp::DownloadManagerListener::Requesting, dcpp::Download*
 
     getParams(params, dl);
 
-    if (IPFilter::getInstance()){
-        if (!IPFilter::getInstance()->OK(vstr(params["IP"]), eDIRECTION_IN)){
+    if (ipfilter::getInstance()){
+        if (!ipfilter::getInstance()->OK(vstr(params["IP"]).toStdString(), eDIRECTION_IN)){
             closeConection(vstr(params["CID"]), true);
             return;
         }
@@ -783,8 +784,8 @@ void TransferView::on(dcpp::UploadManagerListener::Starting, dcpp::Upload* ul) n
 
     getParams(params, ul);
 
-    if (IPFilter::getInstance()){
-        if (!IPFilter::getInstance()->OK(vstr(params["IP"]), eDIRECTION_OUT)){
+    if (ipfilter::getInstance()){
+        if (!ipfilter::getInstance()->OK(vstr(params["IP"]).toStdString(), eDIRECTION_OUT)){
             closeConection(vstr(params["CID"]), false);
             return;
         }

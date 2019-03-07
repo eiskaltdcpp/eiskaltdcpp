@@ -140,12 +140,12 @@ bool ipfilter::ParseString(string exp, uint32_t &ip, uint32_t &mask, eTableActio
     return true;
 }
 
-void ipfilter::addToRules(const std::string &exp, eDIRECTION direction) {
+bool ipfilter::addToRules(const std::string &exp, eDIRECTION direction) {
     uint32_t exp_ip, exp_mask;
     eTableAction act;
 
     if (!ParseString(exp, exp_ip, exp_mask, act))
-        return;
+        return false;
 
     IPFilterElem *el = NULL;
 
@@ -164,10 +164,10 @@ void ipfilter::addToRules(const std::string &exp, eDIRECTION direction) {
 #endif
                 el->direction = eDIRECTION_BOTH;
 
-                return;
+                return false;
             }
             else if (el->direction == direction && el->action == act)
-                return;
+                return false;
 
             ++it;
         }
@@ -193,6 +193,8 @@ void ipfilter::addToRules(const std::string &exp, eDIRECTION direction) {
 
     list_ip.insert(pair<uint32_t, IPFilterElem*>(el->ip,el));
     rules.push_back(el);
+
+    return true;
 }
 
 void ipfilter::remFromRules(string exp, eTableAction act) {
