@@ -875,7 +875,7 @@ EiskaltDC++ - кроссплатформенная программа для р�
         <location filename="../src/HashProgress.cpp" line="139"/>
         <location filename="../src/HashProgress.cpp" line="165"/>
         <source>%1% %2 left</source>
-        <translation type="unfinished"></translation>
+        <translation>Осталось %1% %2</translation>
     </message>
     <message>
         <location filename="../src/HashProgress.cpp" line="148"/>
@@ -3055,7 +3055,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SearchFrame.cpp" line="1571"/>
         <source>Search progress of &quot;%1&quot; is %2%</source>
-        <translation type="unfinished"></translation>
+        <translation>Прогресс поиска &quot;%1&quot;: %2%</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="1594"/>
