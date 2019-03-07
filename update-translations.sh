@@ -3,7 +3,7 @@
 # Author:  Boris Pek <tehnick-8@yandex.ru>
 # License: Public Domain
 # Created: 2011-11-26
-# Updated: 2018-08-25
+# Updated: 2019-03-07
 # Version: N/A
 
 set -e
@@ -75,8 +75,8 @@ case "${1}" in
     make pot-update
 
     cd "${CUR_DIR}"
-    cp -fa dcpp/po/libeiskaltdcpp.pot dcpp/po/en.po
-    cp -fa eiskaltdcpp-gtk/po/eiskaltdcpp-gtk.pot eiskaltdcpp-gtk/po/en.po
+    mv -f dcpp/po/libeiskaltdcpp.pot dcpp/po/en.po
+    mv -f eiskaltdcpp-gtk/po/eiskaltdcpp-gtk.pot eiskaltdcpp-gtk/po/en.po
 
     cd "${CUR_DIR}"
     git status
@@ -93,8 +93,8 @@ case "${1}" in
     make pot-update
 
     cd "${CUR_DIR}"
-    cp -fa dcpp/po/libeiskaltdcpp.pot dcpp/po/en.po
-    cp -fa eiskaltdcpp-gtk/po/eiskaltdcpp-gtk.pot eiskaltdcpp-gtk/po/en.po
+    mv -f dcpp/po/libeiskaltdcpp.pot dcpp/po/en.po
+    mv -f eiskaltdcpp-gtk/po/eiskaltdcpp-gtk.pot eiskaltdcpp-gtk/po/en.po
 
     cd "${CUR_DIR}"
     git status
