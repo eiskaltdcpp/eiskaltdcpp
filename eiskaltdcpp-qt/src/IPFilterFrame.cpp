@@ -324,7 +324,8 @@ void IPFilterFrame::slotImport() {
 
         model->clearModel();
 
-        IPFilter::getInstance()->importFrom(fname);
+        std::string error;
+        IPFilter::getInstance()->importFrom(fname, error);
 
         loadItems();
     }
@@ -375,7 +376,8 @@ void IPFilterFrame::slotExport() {
 
     if (fname != ""){
         fname = QDir::toNativeSeparators(fname);
-        IPFilter::getInstance()->exportTo(fname);
+        std::string err;
+        IPFilter::getInstance()->exportTo(fname, err);
     }
 }
 

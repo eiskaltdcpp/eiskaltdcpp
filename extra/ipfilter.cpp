@@ -153,7 +153,7 @@ void ipfilter::addToRules(const std::string &exp, eDIRECTION direction) {
 #ifdef _DEBUG_IPFILTER
     fprintf(stdout,"\tIP already in list\n");
 #endif
-        QIPHash::const_iterator it = list_ip.find(exp_ip);
+        IPHash::const_iterator it = list_ip.find(exp_ip);
 
         while (it != list_ip.end() && it->first == exp_ip) {
             el = it->second;
@@ -214,7 +214,7 @@ void ipfilter::remFromRules(string exp, eTableAction act) {
     printf("remove: str_ip - %s\n", str_ip.c_str());
 #endif
     exp_ip = ipfilter::StringToUint32(str_ip);
-    QIPHash::iterator it = list_ip.find(exp_ip);
+    IPHash::iterator it = list_ip.find(exp_ip);
 
     if (it != list_ip.end() && it->first == exp_ip){
         IPFilterElem *el = it->second;
@@ -257,7 +257,7 @@ void ipfilter::changeRuleDirection(string exp, eDIRECTION direction, eTableActio
         str_ip = exp;
 
     uint32_t exp_ip = ipfilter::StringToUint32(str_ip);
-    QIPHash::const_iterator it = list_ip.find(exp_ip);
+    IPHash::const_iterator it = list_ip.find(exp_ip);
 
     if (it != list_ip.end() && it->first == exp_ip) {
         IPFilterElem *el = it->second;
@@ -323,7 +323,7 @@ bool ipfilter::OK(const string &exp, eDIRECTION direction){
 void ipfilter::step(uint32_t ip, eTableAction act, bool down){
     IPFilterElem *el = NULL;
 
-    QIPHash::const_iterator it = list_ip.find(ip);
+    IPHash::const_iterator it = list_ip.find(ip);
 
     if (it != list_ip.end() && it->first == ip && it->second->action == act) {
         el = it->second;
@@ -468,25 +468,28 @@ void ipfilter::saveList(){
     f.close();
 }
 
-void ipfilter::exportTo(string path) {
+void ipfilter::exportTo(string path, string& error) {
     string file = Util::getPath(Util::PATH_USER_CONFIG) + "ipfilter";
     saveList();
     if (!Util::fileExists(path)) {
-        fprintf(stdout,"Nothing to export.");fflush(stdout);
+        error = "Nothing to export.";
+        fprintf(stdout, "Nothing to export.");fflush(stdout);
         return;
     }
     File::deleteFile(path);
     try{
         File::copyFile(file,path);
     } catch (...) {
-    fprintf(stdout,"Unable to export settings.");fflush(stdout);
+        error = "Unable to export settings.";
+        fprintf(stdout, "Unable to export settings.");fflush(stdout);
     return;
     }
     return;
 }
 
-void ipfilter::importFrom(string path) {
+void ipfilter::importFrom(string path, string& error) {
     if (!Util::fileExists(path)) {
+        error = "Nothing to export.";
         fprintf(stdout,"Nothing to export.");fflush(stdout);
         return;
     }
@@ -505,15 +508,16 @@ void ipfilter::importFrom(string path) {
         clearRules();
         loadList();
     } else {
-        fprintf(stdout,"Invalid signature.");fflush(stdout);
+        error = "Invalid signature.";
+        fprintf(stdout, "Invalid signature.");fflush(stdout);
     }
 }
 
-const QIPList &ipfilter::getRules() {
+const IPList &ipfilter::getRules() {
     return rules;
 }
 
-const QIPHash &ipfilter::getHash() {
+const IPHash &ipfilter::getHash() {
     return list_ip;
 }
 

@@ -1429,7 +1429,7 @@ void ServerThread::ipfilterList(string& out, const string& separator)
     if (!ipfilter::getInstance())
         return;
     string sep = separator.empty()? ";" : separator;
-    QIPList list = ipfilter::getInstance()->getRules();
+    IPList list = ipfilter::getInstance()->getRules();
     for (unsigned int i = 0; i < list.size(); ++i) {
 
         IPFilterElem *el = list.at(i);

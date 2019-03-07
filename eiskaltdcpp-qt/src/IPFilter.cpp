@@ -26,10 +26,12 @@ using namespace dcpp;
 const QString signature = "$EISKALTDC IPFILTERLIST$";
 
 IPFilter::IPFilter() {
+    if (!ipfilter::getInstance()){
+        ipfilter::newInstance();
+    }
 }
 
 IPFilter::~IPFilter() {
-    clearRules(false);
 }
 
 quint32 IPFilter::StringToUint32(const QString& ip){
@@ -55,292 +57,45 @@ quint32 IPFilter::MaskToCIDR(const quint32 mask){
 #ifdef _DEBUG_IPFILTER
     printf("IPFilter::MaskToCIDR(%x)\n", mask);
 #endif
-    if (mask == 0)
-        return 0;
-    else if (mask == 0xFFFFFFFF)
-        return 32;
 
-    quint32 shift_mask = 0x00000001;
-
-    int j = 0;
-
-    for (; ((mask & shift_mask) == 0) && (j <= 32); j++, shift_mask <<= 1);
-
-    j = 32 - j;
-
-    return j;
+    return ipfilter::getInstance()->MaskToCIDR(mask);
 }
 
 quint32 IPFilter::MaskForBits(quint32 bits) {
-    bits = 32 - (bits > 32?32:bits);
 
-    quint32 mask = 0xFFFFFFFF;
-    quint32 bit  = 0xFFFFFFFE;
-
-    for (quint32 i = 0; i < bits; i++, bit <<= 1)
-        mask &= bit;
-
-    return mask;
+    return ipfilter::getInstance()->MaskForBits(bits);
 }
 
 bool IPFilter::ParseString(const QString &exp, quint32 &ip, quint32 &mask, eTableAction &act){
-    if (exp.isEmpty())
-        return false;
 
-    if (exp.contains("/0")){
-        if (exp.startsWith("!"))
-            act = etaDROP;
-        else
-            act = etaACPT;
-
-        ip = mask = 0x00000000;
-
-        return true;
-    }
-
-    QString str_ip, str_mask;
-
-    if (exp.indexOf("/") > 0) {
-        const int c_pos = exp.indexOf("/");
-
-        str_ip = exp.left(c_pos);
-        str_mask = exp.mid(c_pos+1,exp.length()-c_pos-1);
-    }
-    else
-        str_ip = exp;
-
-    if (str_ip.startsWith("!")){
-        act = etaDROP;
-        str_ip.replace("!", "");
-    }
-    else
-        act = etaACPT;
-
-    if (!isIP(str_ip))
-        return false;
-
-    if (str_mask != "")
-        mask = MaskForBits(str_mask.toULong() > 32?32:str_mask.toULong());
-    else
-        mask = MaskForBits(32);
-
-    ip = StringToUint32(str_ip);
-
-    return true;
+    return ipfilter::getInstance()->ParseString(exp.toStdString(), ip, mask, act);
 }
 
 void IPFilter::addToRules(const QString &exp, const eDIRECTION direction) {
-    quint32 exp_ip, exp_mask;
-    eTableAction act;
 
-    if (!ParseString(exp, exp_ip, exp_mask, act))
-        return;
-
-    IPFilterElem *el = NULL;
-
-    if (list_ip.contains(exp_ip)) {
-#ifdef _DEBUG_IPFILTER
-    qDebug() << "\tIP already in list";
-#endif
-        auto it = list_ip.find(exp_ip);
-
-        while (it != list_ip.end() && it.key() == exp_ip){
-            el = it.value();
-
-            if ((el->direction != direction) && (el->action == act)){
-#ifdef _DEBUG_IPFILTER
-                qDebug() << "\tChange direction of IP";
-#endif
-                emit ruleChanged(exp, el->direction, eDIRECTION_BOTH, act);
-
-                el->direction = eDIRECTION_BOTH;
-
-                return;
-            }
-            else if (el->direction == direction && el->action == act)
-                return;
-
-            ++it;
-        }
-    }
-
-    el = new IPFilterElem;
-
-    el->mask      = exp_mask;
-    el->ip        = exp_ip;
-    el->direction = direction;
-    el->action    = act;
-
-#ifdef _DEBUG_IPFILTER
-    qDebug() << "\tCreated new element:";
-    printf("\t\tMASK: 0x%x\n"
-           "\t\tIP  : %s\n"
-           "\t\tD   : %i\n"
-           "\t\tA   : %i\n",
-           el->mask, IPFilter::Uint32ToString(el->ip).toUtf8().constData(),
-           (int)el->direction, (int)el->action
-          );
-#endif
-
-    list_ip.insert(el->ip, el);
-    rules.push_back(el);
+    ipfilter::getInstance()->addToRules(exp.toStdString(), direction);
 
     emit ruleAdded(exp, direction);
 }
 
 void IPFilter::remFromRules(const QString &exp, const eTableAction act) {
 
-    QString str_ip;
-    quint32 exp_ip;
-
-    if (exp.indexOf("/") > 0)
-        str_ip = exp.left(exp.indexOf("/"));
-
-    if (!isIP(str_ip))
-        return;
-
-    exp_ip = IPFilter::StringToUint32(str_ip);
-
-    if (!list_ip.contains(exp_ip))
-        return;
-
-    auto it = list_ip.find(exp_ip);
-    IPFilterElem *el;
-
-    while (it != list_ip.end() && it.key() == exp_ip){
-        el = it.value();
-
-        if (!el)//i know that it's impossible..
-            return;
-
-        if (el->action == act){
-            list_ip.remove(exp_ip, el);
-
-            if (rules.contains(el))
-                rules.removeAt(rules.indexOf(el));
-
-            emit ruleRemoved(exp, el->direction, el->action);
-
-            delete el;
-
-            return;
-        }
-
-        ++ it;
-    }
+    return ipfilter::getInstance()->remFromRules(exp.toStdString(), act);
 }
 
 void IPFilter::changeRuleDirection(QString exp, const eDIRECTION direction, const eTableAction act) {
-    if (exp.indexOf("/") > 0)
-        exp = exp.left(exp.indexOf("/"));
 
-    if (!isIP(exp))
-        return;
-
-    quint32 exp_ip = IPFilter::StringToUint32(exp);
-    auto it = list_ip.find(exp_ip);
-
-    while (it != list_ip.end() && it.key() == exp_ip){
-        IPFilterElem *el = it.value();
-
-        if (!el)
-            return;
-
-        if (el->action == act){
-            emit ruleChanged(exp, el->direction, direction, act);
-
-            el->direction = direction;
-
-            return;
-        }
-
-        ++it;
-    }
+    ipfilter::getInstance()->changeRuleDirection(exp.toStdString(), direction, act);
 }
 
 bool IPFilter::OK(const QString &exp, eDIRECTION direction){
-#ifdef _DEBUG_IPFILTER
-    qDebug() << "IPFilter::OK(" << exp.toUtf8().constData() << ", " << (int)direction << ")";
-#endif
-    QString str_src(exp);
 
-    if (str_src.indexOf(":") > 0)
-        str_src = str_src.left(exp.indexOf(":")); //XXX.XXX.XXX.XXX:PORT -> XXX.XXX.XXX.XXX
-
-    if (!isIP(str_src))
-        return false;
-
-    quint32 src = IPFilter::StringToUint32(str_src);
-    IPFilterElem *el;
-
-    for (int i = 0; i < rules.size(); i++){
-        el = rules.at(i);
-
-#ifdef _DEBUG_IPFILTER
-    printf("\tel->ip & el->mask == %x\n"
-           "\tsrc    & el->mask == %x\n",
-           (el->ip & el->mask),
-           (src    & el->mask)
-          );
-#endif
-
-        if ((el->ip & el->mask) == (src & el->mask)){//Exact match
-            bool exact_direction = ((el->direction == direction) || (el->direction == eDIRECTION_BOTH));
-#ifdef _DEBUG_IPFILTER
-            printf("\tFound match... ");
-#endif
-            if      ((el->action == etaDROP) && exact_direction){
-#ifdef _DEBUG_IPFILTER
-                printf("DROP.\n");
-#endif
-                return false;
-            }
-            else if ((el->action == etaACPT) && exact_direction){
-#ifdef _DEBUG_IPFILTER
-                printf("ACCEPT.\n");
-#endif
-                return true;
-            }
-#ifdef _DEBUG_IPFILTER
-            else
-                printf("IGNORE.\n");
-#endif
-        }
-    }
-
-    return true;
+    return ipfilter::getInstance()->OK(exp.toStdString(), direction);
 }
 
 void IPFilter::step(quint32 ip, eTableAction act, bool down){
-    IPFilterElem *el = NULL;
 
-    auto it = list_ip.find(ip);
-
-    while (it != list_ip.end() && it.key() == ip){
-        if (it.value()->action == act){
-            el = it.value();
-
-            break;
-        }
-
-        ++it;
-    }
-
-    if (!el)
-        return;
-
-    int index = rules.indexOf(el);
-    int control = (down?(rules.size()-1):0);
-    int inc = (down?1:-1);
-
-    if ((index == control) || (index < 0))
-        return;
-
-    int new_index = index+inc;
-    IPFilterElem *old_el = rules.at(new_index);
-
-    rules[index]    = old_el;
-    rules[new_index]= el;
+    ipfilter::getInstance()->step(ip, act, down);
 }
 
 void IPFilter::moveRuleUp(quint32 ip, eTableAction act){
@@ -356,88 +111,16 @@ bool IPFilter::isIP(const QString &exp) {
 }
 
 void IPFilter::loadList() {
-    QFile file(QString::fromStdString(Util::getPath(Util::PATH_USER_CONFIG)) + "ipfilter");
 
-    if (!file.exists())
-        return;
-
-    if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
-        return;
-
-    if (!list_ip.empty())
-        clearRules();
-
-    QTextStream in(&file);
-
-    while (!in.atEnd()) {
-        QString pattern = in.readLine();
-        QString str_ip, str_mask = "";
-        eDIRECTION direction = eDIRECTION_IN;
-
-        pattern.replace("\n", "");
-        pattern.replace(" ", "");
-
-#ifdef _DEBUG_IPFILTER
-        qDebug() << pattern;
-#endif
-
-        if (pattern.indexOf("|D_IN|:") == 0){
-            pattern = pattern.right(pattern.length() - 7);//delete "|D_IN|:"
-        }
-        else if (pattern.toUpper().indexOf("|D_OUT|:") == 0) {//delete "|D_OUT|:"
-            pattern = pattern.right(pattern.length() - 8);
-            direction = eDIRECTION_OUT;
-        }
-        else if (pattern.toUpper().indexOf("|D_BOTH|:") == 0) {//delete "|D_BOTH|:"
-            pattern = pattern.right(pattern.length() - 9);
-            direction = eDIRECTION_BOTH;
-        } else
-            continue;
-
-#ifdef _DEBUG_IPFILTER
-        qDebug() << pattern;
-#endif
-
-        addToRules(pattern, direction);
-    }
-
-#ifdef _DEBUG_IPFILTER
-    qDebug() << rules;
-#endif
-
-    file.close();
+    ipfilter::getInstance()->loadList();
 }
 
 void IPFilter::saveList(){
-    QFile file(QString::fromStdString(Util::getPath(Util::PATH_USER_CONFIG)) + "ipfilter");
-    if (!file.isOpen() && !file.open(QIODevice::WriteOnly|QIODevice::Text))
-        return;
 
-    QTextStream out(&file);
-
-    out << signature << "\n";
-
-    out.flush();
-
-    for (int i = 0; i < rules.size(); i++) {
-        QString prefix;
-        IPFilterElem *el = rules.at(i);
-
-        eDIRECTION direction = el->direction;
-        eTableAction act = el->action;
-
-        prefix = (direction == eDIRECTION_IN?"|D_IN|:":(direction == eDIRECTION_OUT?"|D_OUT|:":"|D_BOTH|:"));
-        prefix += QString(act == etaACPT?"":"!");
-
-        out << prefix + IPFilter::Uint32ToString(el->ip) + "/" + QString().setNum(IPFilter::MaskToCIDR(el->mask)) + "\n";
-
-        out.flush();
-    }
-
-    file.close();
+    ipfilter::getInstance()->saveList();
 }
 
-void IPFilter::exportTo(QString path) {
+void IPFilter::exportTo(QString path, std::string &error) {
     QFile file(QString::fromStdString(Util::getPath(Util::PATH_USER_CONFIG)) + "ipfilter");
     QMessageBox msgBox;
 
@@ -445,29 +128,16 @@ void IPFilter::exportTo(QString path) {
     msgBox.setDefaultButton(QMessageBox::Ok);
     msgBox.setIcon(QMessageBox::Warning);
 
-    saveList();
+    error = "";
+    ipfilter::getInstance()->exportTo(path.toStdString(), error);
 
-    if (!file.exists()) {
-        msgBox.setText(tr("Nothing to export."));
+    if (error.length() > 0){
+        msgBox.setText(tr(error.c_str()));
         msgBox.exec();
-
-        return;
-    }
-
-    QFile exp_file(path);
-
-    if (exp_file.exists())
-        exp_file.remove();
-
-    if (!file.copy(path)) {
-        msgBox.setText(tr("Unable to export settings."));
-        msgBox.exec();
-
-        return;
     }
 }
 
-void IPFilter::importFrom(QString path) {
+void IPFilter::importFrom(QString path, std::string &error) {
     QFile file(path);
     QMessageBox msgBox;
 
@@ -475,56 +145,38 @@ void IPFilter::importFrom(QString path) {
     msgBox.setDefaultButton(QMessageBox::Ok);
     msgBox.setIcon(QMessageBox::Warning);
 
-    if (!file.exists() || !file.open(QIODevice::ReadOnly | QIODevice::Text)) {
-        msgBox.setText(tr("Nothing to import."));
-        msgBox.exec();
-        file.close();
+    error = "";
+    ipfilter::getInstance()->importFrom(path.toStdString(), error);
 
-        return;
-    }
-
-    QTextStream in(&file);
-    QString sign = in.readLine();
-
-    sign.replace("\n", "");
-
-    file.close();
-
-    if (sign == signature) {
-        QFile old_file(QString::fromStdString(Util::getPath(Util::PATH_USER_CONFIG)) + "ipfilter");
-        old_file.remove();
-
-        file.copy(QString::fromStdString(Util::getPath(Util::PATH_USER_CONFIG)) + "ipfilter");
-
-        clearRules();
-
-        loadList();
-    } else {
-        msgBox.setText(tr("Invalid signature."));
+    if (error.length() > 0){
+        msgBox.setText(tr(error.c_str()));
         msgBox.exec();
     }
 }
 
-const QIPList &IPFilter::getRules() {
-    return rules;
+const QIPList IPFilter::getRules() {
+    IPList list  = ipfilter::getInstance()->getRules();
+    QIPList res;
+    for(auto & item : list){
+        res.append(item);
+    }
+    return res;
+
 }
 
-const QIPHash &IPFilter::getHash() {
-    return list_ip;
+const QIPHash IPFilter::getHash() {
+
+    IPHash hash = ipfilter::getInstance()->getHash();
+    QIPHash res;
+
+    for(auto & item : hash){
+        res.insert(item.first, item.second);
+    }
+    return res;
 }
 
 void IPFilter::clearRules(const bool emit_signal) {
-    auto it = list_ip.constBegin();
-
-    while (!list_ip.empty() && it != list_ip.constEnd()){
-        if (it.value())
-            delete it.value();
-
-        ++it;
-    }
-
-    list_ip.clear();
-    rules.clear();
+    ipfilter::getInstance()->clearRules();
 
     if (emit_signal)
         emit ruleRemoved("*", eDIRECTION_BOTH, etaACPT);
