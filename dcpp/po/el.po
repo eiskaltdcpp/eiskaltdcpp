@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://github.com/eiskaltdcpp/eiskaltdcpp/issues\n"
-"POT-Creation-Date: 2018-08-31 01:04+0300\n"
+"POT-Creation-Date: 2019-03-07 20:21+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Konstantinos Georgokitsos <kgeorgokitsos@yahoo.de>, 2018\n"
 "Language-Team: Greek (https://www.transifex.com/tehnick/teams/11818/el/)\n"
@@ -26,19 +26,19 @@ msgstr "<Εισάγετε συμβολοσειρά>"
 msgid "Discard"
 msgstr "Απόρριψη"
 
-#: ../AdcHub.cpp:156
+#: ../AdcHub.cpp:154
 msgid "%1% (%2%) has same CID {%3%} as %4% (%5%), ignoring"
 msgstr "%1% (%2%) έχει ίδιο CID {%3%} όπως %4% (%5%), παράβλεψη"
 
-#: ../AdcHub.cpp:193 ../QueueManager.cpp:2209 ../Transfer.cpp:91
+#: ../AdcHub.cpp:191 ../QueueManager.cpp:2211 ../Transfer.cpp:91
 msgid "%1%/s"
 msgstr "%1%/s"
 
-#: ../AdcHub.cpp:228
+#: ../AdcHub.cpp:226
 msgid "Failed to negotiate base protocol"
 msgstr "Αποτυχία διαπραγματεύσεων βασικού πρωτοκόλλου "
 
-#: ../AdcHub.cpp:234
+#: ../AdcHub.cpp:232
 msgid ""
 "Hub probably uses an old version of ADC, please encourage the owner to "
 "upgrade"
@@ -46,11 +46,11 @@ msgstr ""
 "Πιθανών ο κόμβος να χρησιμοποιεί παλιά έκδοση ADC, παρακαλώ να ενθαρρύνετε "
 "τον ιδιοκτήτη να αναβαθμίσει"
 
-#: ../AdcHub.cpp:305
+#: ../AdcHub.cpp:303
 msgid "%1% was kicked by %2%: %3%"
 msgstr "%1% αποβλήθηκε από %2%: %3%"
 
-#: ../AdcHub.cpp:308
+#: ../AdcHub.cpp:306
 msgid "%1% was kicked: %2%"
 msgstr "%1% αποβλήθηκε: %2%"
 
@@ -59,13 +59,13 @@ msgid "Not listening for connections - please restart %1%"
 msgstr "Δεν παρακολουθούνται συνδέσεις - παρακαλώ επανακινήστε %1%"
 
 #: ../BZUtils.cpp:33 ../BZUtils.cpp:54 ../BZUtils.cpp:62 ../ZUtils.cpp:37
-#: ../ZUtils.cpp:58 ../ZUtils.cpp:80 ../ZUtils.cpp:90
+#: ../ZUtils.cpp:71 ../ZUtils.cpp:98 ../ZUtils.cpp:108
 msgid "Error during compression"
 msgstr "Σφάλμα κατά την διάρκεια συμπίεσης"
 
 #: ../BZUtils.cpp:74 ../BZUtils.cpp:96 ../BZUtils.cpp:99
 #: ../CryptoManager.cpp:405 ../CryptoManager.cpp:424 ../CryptoManager.cpp:438
-#: ../ZUtils.cpp:104 ../ZUtils.cpp:127 ../ZUtils.cpp:137
+#: ../ZUtils.cpp:122 ../ZUtils.cpp:145 ../ZUtils.cpp:155
 msgid "Error during decompression"
 msgstr "Σφάλμα κατά την διάρκεια αποσυμπίεσης"
 
@@ -90,8 +90,8 @@ msgstr "Αποσυνδέθηκε"
 msgid "Sent "
 msgstr "Σταλμένα "
 
-#: ../ClientManager.cpp:178 ../QueueManager.cpp:2180 ../QueueManager.cpp:2186
-#: ../QueueManager.cpp:2192 ../SearchManager.cpp:281 ../SearchManager.cpp:368
+#: ../ClientManager.cpp:178 ../QueueManager.cpp:2182 ../QueueManager.cpp:2188
+#: ../QueueManager.cpp:2194 ../SearchManager.cpp:281 ../SearchManager.cpp:368
 #: ../SearchManager.cpp:370 ../Transfer.cpp:81 ../Transfer.cpp:85
 msgid "Offline"
 msgstr "Χωρίς σύνδεση"
@@ -158,37 +158,37 @@ msgstr "DHT (UDP)"
 msgid "Connectivity: "
 msgstr "Επαναφορά σύνδεσης"
 
-#: ../CryptoManager.cpp:167
+#: ../CryptoManager.cpp:165
 msgid "No private key file chosen"
 msgstr "Δεν έχει επιλεχθεί αρχείο ιδιωτικού κλειδιού "
 
-#: ../CryptoManager.cpp:170
+#: ../CryptoManager.cpp:168
 msgid "No certificate file chosen"
 msgstr "Δεν έχει επιλεχθεί αρχείο πιστοποιητικού"
 
-#: ../CryptoManager.cpp:182
+#: ../CryptoManager.cpp:180
 msgid "Error generating certificate"
 msgstr "Σφάλμα παραγωγής πιστοποιητικού"
 
-#: ../CryptoManager.cpp:245
+#: ../CryptoManager.cpp:243
 msgid "TLS disabled, no certificate file set"
 msgstr "Απενεργοποιήθηκε TLS, δεν ορίστηκε αρχείο πιστοποιητικού"
 
-#: ../CryptoManager.cpp:253
+#: ../CryptoManager.cpp:251
 msgid "Generated new TLS certificate"
 msgstr "Δημιουργήθηκε νέο πιστοποιητικό TLS "
 
-#: ../CryptoManager.cpp:255
+#: ../CryptoManager.cpp:253
 msgid "TLS disabled, failed to generate certificate: %1%"
 msgstr "Απενεργοποιήθηκε TLS, δεν ορίστηκε αρχείο πιστοποιητικού"
 
-#: ../CryptoManager.cpp:260 ../CryptoManager.cpp:264 ../CryptoManager.cpp:269
-#: ../CryptoManager.cpp:273
+#: ../CryptoManager.cpp:258 ../CryptoManager.cpp:262 ../CryptoManager.cpp:267
+#: ../CryptoManager.cpp:271
 msgid "Failed to load certificate file"
 msgstr "Αποτυχία φόρτωσης αρχείου πιστοποιητικού"
 
-#: ../CryptoManager.cpp:278 ../CryptoManager.cpp:282 ../CryptoManager.cpp:287
-#: ../CryptoManager.cpp:291
+#: ../CryptoManager.cpp:276 ../CryptoManager.cpp:280 ../CryptoManager.cpp:285
+#: ../CryptoManager.cpp:289
 msgid "Failed to load private key"
 msgstr "Αποτυχία φόρτωσης αρχείου ιδιωτικού κλειδιού"
 
@@ -252,46 +252,46 @@ msgstr "Προώθησε χρήστη(-ες)"
 msgid "Auto-connect group (converted)"
 msgstr "Αυτόματη σύνδεση ομάδας (μετατράπηκε)"
 
-#: ../HashManager.cpp:218 ../HashManager.cpp:418
+#: ../HashManager.cpp:229 ../HashManager.cpp:429
 msgid "Hashing failed: %1%"
 msgstr "Αναζήτηση επανενεργοποιήθηκε"
 
-#: ../HashManager.cpp:225
+#: ../HashManager.cpp:236
 msgid "Finished hashing: %1% (%2% at %3%/s)"
 msgstr "Αποτύπωση ολοκληρώθηκε: %1% (%2% σε %3%/s)"
 
-#: ../HashManager.cpp:228
+#: ../HashManager.cpp:239
 msgid "Finished hashing: %1% (%2%)"
 msgstr "Αποτύπωση ολοκληρώθηκε: %1% (%2%)"
 
-#: ../HashManager.cpp:231
+#: ../HashManager.cpp:242
 msgid "Finished hashing: %1%"
 msgstr "Αποτύπωση ολοκληρώθηκε: %1%"
 
-#: ../HashManager.cpp:260 ../HashManager.cpp:474
+#: ../HashManager.cpp:271 ../HashManager.cpp:485
 msgid "Error saving hash data: %1%"
 msgstr "Δεν ήταν δυνατή η ανάγνωση του αρχείου δεδομένων αποτύπωσης "
 
-#: ../HashManager.cpp:273
+#: ../HashManager.cpp:284
 msgid "Unable to read hash data file"
 msgstr "Δεν ήταν δυνατή η ανάγνωση του αρχείου δεδομένων αποτύπωσης"
 
-#: ../HashManager.cpp:606
+#: ../HashManager.cpp:617
 msgid "Error creating hash data file: %1%"
 msgstr "Δεν ήταν δυνατή η ανάγνωση του αρχείου δεδομένων αποτύπωσης"
 
-#: ../HashManager.cpp:958
+#: ../HashManager.cpp:971
 msgid "Hash database rebuilt"
 msgstr "Ανακατασκευάστηκε η βάση δεδομένων αποτύπωσης"
 
-#: ../HashManager.cpp:1052
+#: ../HashManager.cpp:1065
 msgid ""
 "%1% not shared; calculated CRC32 does not match the one found in SFV file."
 msgstr ""
 "%1% δεν μοιράστηκε; το υπολογισμένο CRC32 δεν ταιριάζε με αυτό που βρίσκεται "
 "στο αρχείο SFV."
 
-#: ../HashManager.cpp:1057
+#: ../HashManager.cpp:1070
 msgid "Error hashing %1%: %2%"
 msgstr "Σφάλμα αποτύπωσης %1%: %2%"
 
@@ -299,11 +299,11 @@ msgstr "Σφάλμα αποτύπωσης %1%: %2%"
 msgid "Endless redirection loop (%1%)"
 msgstr "Ατελείωτος βρόγχος προώθησης (%1%)"
 
-#: ../NmdcHub.cpp:295
+#: ../NmdcHub.cpp:294
 msgid "%1% (Nick unknown)"
 msgstr "%1% (Άγνωστο ψευδώνυμο)"
 
-#: ../NmdcHub.cpp:672
+#: ../NmdcHub.cpp:671
 msgid "Hub topic:"
 msgstr "Θέμα κόμβου:"
 
@@ -413,7 +413,7 @@ msgstr ""
 msgid "CRC32 inconsistency (SFV-Check)"
 msgstr "Ασυνέπεια CRC32 (Έλεγχος SFV)"
 
-#: ../QueueManager.cpp:2234
+#: ../QueueManager.cpp:2236
 msgid "%1% : Matched %2% files"
 msgstr ""
 
@@ -599,38 +599,38 @@ msgstr "Το αρχείο δεν είναι διαθέσιμο"
 msgid "Another UPnP port mapping attempt is in progress..."
 msgstr "Μια άλλη προσπάθεια αντιστοίχηση θυρών είναι σε εξέλιξη "
 
-#: ../UPnPManager.cpp:82
+#: ../UPnPManager.cpp:83
 msgid "Failed to initialize the %1% interface"
 msgstr "Εκκίνηση ανανέωσης λίστας αρχείων"
 
-#: ../UPnPManager.cpp:86
+#: ../UPnPManager.cpp:87
 msgid " Transfer Port (%1% TCP)"
 msgstr " Θύρα Μεταφοράς (%1% TCP)"
 
-#: ../UPnPManager.cpp:87 ../UPnPManager.cpp:92 ../UPnPManager.cpp:97
-#: ../UPnPManager.cpp:102
+#: ../UPnPManager.cpp:88 ../UPnPManager.cpp:93 ../UPnPManager.cpp:98
+#: ../UPnPManager.cpp:103
 msgid "The %1% interface has failed to map the %2% %3% port"
 msgstr "Η διεπαφή  %1% απέτυχε να αντιστοιχήσει τη θύρα %2% %3%"
 
-#: ../UPnPManager.cpp:91
+#: ../UPnPManager.cpp:92
 msgid " Encrypted Transfer Port (%1% TCP)"
 msgstr "Κρυπτογραφημένη Θύρα Μεταφοράς (%1% TCP)"
 
-#: ../UPnPManager.cpp:96
+#: ../UPnPManager.cpp:97
 msgid " Search Port (%1% UDP)"
 msgstr " Θύρα Αναζήτησης (%1% UDP)"
 
-#: ../UPnPManager.cpp:101
+#: ../UPnPManager.cpp:102
 msgid " DHT Port (%1% UDP)"
 msgstr " Θύρα DHT (%1% UDP)"
 
-#: ../UPnPManager.cpp:111
+#: ../UPnPManager.cpp:112
 msgid ""
 "Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%, DHT: %4%), "
 "mapped using the %5% interface"
 msgstr ""
 
-#: ../UPnPManager.cpp:113 ../UPnPManager.cpp:115
+#: ../UPnPManager.cpp:114 ../UPnPManager.cpp:116
 msgid ""
 "Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%), mapped "
 "using the %4% interface"
@@ -638,23 +638,23 @@ msgstr ""
 "Επιτυχή δημιουργία αντιστοίχησης θυρών (TCP: %1%, UDP: %2%, TLS: %3%), "
 "αντιστοίχηση χρησιμοποιώντας την διεπαφή %4%"
 
-#: ../UPnPManager.cpp:127
+#: ../UPnPManager.cpp:128
 msgid "Failed to get external IP"
 msgstr "Αποτυχία ανάκτησης εξωτερικού IP"
 
-#: ../UPnPManager.cpp:137
+#: ../UPnPManager.cpp:138
 msgid "Failed to create port mappings"
 msgstr "Αδυναμία δημιουργίας νήματος"
 
-#: ../UPnPManager.cpp:146
+#: ../UPnPManager.cpp:147
 msgid "Successfully removed port mappings with the %1% interface"
 msgstr "Έναρξη ανανέωσης λίστας αρχείων"
 
-#: ../UPnPManager.cpp:147
+#: ../UPnPManager.cpp:148
 msgid "Failed to remove port mappings with the %1% interface"
 msgstr "Έναρξη ανανέωσης λίστας αρχείων"
 
-#: ../UPnPManager.cpp:152
+#: ../UPnPManager.cpp:153
 msgid "UPnP: %1%"
 msgstr "UPnP: %1%"
 
@@ -682,67 +682,67 @@ msgstr "Μη έγκυρο μέγεθος"
 msgid "Non-UTF-8 data in an ADC connection"
 msgstr "Δεδομένα μη-UTF-8 σε σύνδεση ADC"
 
-#: ../Util.cpp:681
+#: ../Util.cpp:686
 #, c-format
 msgid "%d B"
 msgstr "%d B"
 
-#: ../Util.cpp:683
+#: ../Util.cpp:688
 #, c-format
 msgid "%.02f KiB"
 msgstr "%.02f KiB"
 
-#: ../Util.cpp:683
+#: ../Util.cpp:688
 #, c-format
 msgid "%.02f KB"
 msgstr ""
 
-#: ../Util.cpp:685
+#: ../Util.cpp:690
 #, c-format
 msgid "%.02f MiB"
 msgstr "%.02f MiB"
 
-#: ../Util.cpp:685
+#: ../Util.cpp:690
 #, c-format
 msgid "%.02f MB"
 msgstr ""
 
-#: ../Util.cpp:687
+#: ../Util.cpp:692
 #, c-format
 msgid "%.02f GiB"
 msgstr "%.02f GiB"
 
-#: ../Util.cpp:687
+#: ../Util.cpp:692
 #, c-format
 msgid "%.02f GB"
 msgstr ""
 
-#: ../Util.cpp:689
+#: ../Util.cpp:694
 #, c-format
 msgid "%.02f TiB"
 msgstr "%.02f TiB"
 
-#: ../Util.cpp:689
+#: ../Util.cpp:694
 #, c-format
 msgid "%.02f TB"
 msgstr ""
 
-#: ../Util.cpp:691
+#: ../Util.cpp:696
 #, c-format
 msgid "%.02f PiB"
 msgstr "%.02f PiB"
 
-#: ../Util.cpp:691
+#: ../Util.cpp:696
 #, c-format
 msgid "%.02f PB"
 msgstr ""
 
-#: ../Util.cpp:725
+#: ../Util.cpp:730
 #, c-format
 msgid "%s B"
 msgstr "%s B"
 
-#: ../Util.cpp:729
+#: ../Util.cpp:734
 #, c-format
 msgid "%'lld B"
 msgstr "%'lld B"
