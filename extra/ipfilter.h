@@ -33,8 +33,8 @@ typedef struct _IPFilterElem {
     eTableAction action;
 } IPFilterElem;
 
-typedef std::unordered_map<uint32_t, IPFilterElem*> QIPHash;
-typedef std::vector<IPFilterElem*> QIPList;
+typedef std::unordered_map<uint32_t, IPFilterElem*> IPHash;
+typedef std::vector<IPFilterElem*> IPList;
 
 class ipfilter :
         public dcpp::Singleton<ipfilter>
@@ -53,8 +53,8 @@ public:
     void loadList();
     void saveList();
 
-    const QIPList &getRules();
-    const QIPHash &getHash ();
+    const IPList &getRules();
+    const IPHash &getHash ();
 
     void addToRules(const std::string &exp, eDIRECTION direction);
     void remFromRules(std::string exp, eTableAction);
@@ -66,14 +66,16 @@ public:
 
     bool OK(const std::string &exp, eDIRECTION direction);
 
-    void exportTo(std::string path);
-    void importFrom(std::string path);
+    void exportTo(std::string path, std::string& error);
+    void importFrom(std::string path, std::string& error);
+
+    void step(uint32_t, eTableAction, bool down = true);
 
 private:
     ipfilter();
     virtual ~ipfilter();
-    void step(uint32_t, eTableAction, bool down = true);
 
-    QIPHash list_ip;
-    QIPList rules;
+
+    IPHash list_ip;
+    IPList rules;
 };

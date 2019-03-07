@@ -14,31 +14,11 @@
 #include <QHash>
 #include <QFile>
 
-#include "dcpp/stdinc.h"
-#include "dcpp/Singleton.h"
+#include "extra/ipfilter.h"
 
 #ifdef _DEBUG_QT_UI
 #include <QtDebug>
 #endif
-
-enum eDIRECTION {
-    eDIRECTION_IN = 0,
-    eDIRECTION_OUT,
-    eDIRECTION_BOTH
-};
-
-enum eTableAction{
-    etaDROP=0,
-    etaACPT
-};
-
-typedef struct _IPFilterElem{
-    quint32 ip;
-    quint32 mask;
-
-    eDIRECTION direction;
-    eTableAction action;
-} IPFilterElem;
 
 typedef QMultiHash<quint32, IPFilterElem*> QIPHash;
 typedef QList<IPFilterElem*> QIPList;
@@ -71,9 +51,9 @@ public:
     void saveList();
 
     /** */
-    const QIPList &getRules();
+    const QIPList getRules();
     /** */
-    const QIPHash &getHash ();
+    const QIPHash getHash ();
 
     /** */
     void addToRules(const QString &exp, const eDIRECTION direction);
@@ -93,9 +73,9 @@ public:
     bool OK(const QString &exp, eDIRECTION direction);
 
     /** */
-    void exportTo(QString path);
+    void exportTo(QString path, std::string &error);
     /** */
-    void importFrom(QString path);
+    void importFrom(QString path, std::string &error);
 
 private:
     /** */
@@ -105,10 +85,6 @@ private:
 
     /** */
     void step(quint32, eTableAction, bool down = true);
-    /** */
-    QIPHash list_ip;
-    /** */
-    QIPList rules;
 
 signals:
     void ruleAdded(QString, eDIRECTION);
