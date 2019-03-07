@@ -56,7 +56,7 @@ public:
     const IPList &getRules();
     const IPHash &getHash ();
 
-    void addToRules(const std::string &exp, eDIRECTION direction);
+    bool addToRules(const std::string &exp, eDIRECTION direction);
     void remFromRules(std::string exp, eTableAction);
     void changeRuleDirection(std::string exp, eDIRECTION, eTableAction);
     void clearRules();

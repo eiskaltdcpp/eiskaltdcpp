@@ -36,7 +36,7 @@ using namespace std;
 #include "HubManager.h"
 #include "Notification.h"
 #include "VersionGlobal.h"
-#include "IPFilter.h"
+#include "extra/ipfilter.h"
 #include "EmoticonFactory.h"
 #include "FinishedTransfers.h"
 #include "QueuedUsers.h"
@@ -257,9 +257,9 @@ int main(int argc, char *argv[])
 
     dcpp::shutdown();
 
-    if (IPFilter::getInstance()){
-        IPFilter::getInstance()->saveList();
-        IPFilter::deleteInstance();
+    if (ipfilter::getInstance()){
+        ipfilter::getInstance()->saveList();
+        ipfilter::deleteInstance();
     }
 
     std::cout << QObject::tr("Quit...").toStdString() << std::endl;
