@@ -2197,7 +2197,7 @@ void Hub::onSendMessage_gui(GtkEntry *entry, gpointer data)
                     {
                         if (!ipfilter::getInstance())
                             return;
-                        QIPList list = ipfilter::getInstance()->getRules();
+                        IPList list = ipfilter::getInstance()->getRules();
                         string tmp = "ipfilter rules list:\n";
                         for (unsigned int i = 0; i < list.size(); ++i) {
 
