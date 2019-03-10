@@ -162,8 +162,12 @@ SettingsManager::SettingsManager()
     setDefault(LIST_DUPES, true);
     setDefault(BUFFER_SIZE, 64);
     setDefault(HUBLIST_SERVERS,
-               "http://dchublist.com/hublist.xml.bz2;"
-               "http://dchublist.ru/hublist.xml.bz2"
+               "https://www.te-home.net/?do=hublist&get=hublist.xml.bz2;"
+               "https://tankafett.biz/?do=hublist&get=hublist.xml.bz2;"
+               "https://dchublist.ru/hublist.xml.bz2;"
+               "https://dchublist.org/hublist.xml.bz2;"
+               "https://dchublist.biz/hublist.xml.bz2;"
+               "https://hublist.eu/hublist.xml.bz2"
                );
     setDefault(DOWNLOAD_SLOTS, 3);
     setDefault(SKIPLIST_SHARE, "*.~*|*.*~");
