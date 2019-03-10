@@ -17,6 +17,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
+#include <array>
 #include "stdinc.h"
 
 #include "Util.h"
@@ -525,7 +526,15 @@ string Util::getShortTimeString(time_t t) {
 }
 
 void Util::sanitizeUrl(string& url) {
-    boost::algorithm::trim_if(url, boost::is_space() || boost::is_any_of("<>\""));
+    // Trim spaces and special characters
+    static const std::array<char, 7> special_chars = { ' ', '<', '>', '"', '\t', '\r', '\n' };
+    for(const auto &ch : special_chars) {
+        while(url[0] == ch)
+            url.erase(0, 1);
+        while(url[url.length() - 1] == ch) {
+            url.erase(url.length()-1);
+        }
+    }
 }
 
 /**

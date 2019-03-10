@@ -35,8 +35,6 @@
 #include <sys/socket.h>
 #endif
 
-#include <boost/algorithm/string/trim.hpp>
-
 #include <unistd.h>
 #include <cstdlib>
 #include <vector>
