@@ -181,7 +181,7 @@ int LuaManager::SendUDPPacket(lua_State* L) {
     /* arguments: ip:port, data */
     if (lua_gettop(L) == 2 && lua_isstring(L, -2) && lua_isstring(L, -1)) {
         StringList sl = StringTokenizer<string>(lua_tostring(L, -2), ':').getTokens();
-        ScriptManager::getInstance()->s.writeTo(sl[0], static_cast<short>(Util::toInt(sl[1])), lua_tostring(L, -1), string(lua_tostring(L, -1)).size());
+        ScriptManager::getInstance()->s.writeTo(sl[0], sl[1], lua_tostring(L, -1), string(lua_tostring(L, -1)).size());
     }
 
     return 0;

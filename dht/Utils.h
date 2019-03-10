@@ -39,7 +39,7 @@ namespace dht
         }
 
         /** Detect whether it is correct to use IP:port in DHT network */
-        static bool isGoodIPPort(const string& ip, uint16_t port);
+        static bool isGoodIPPort(const string& ip, const string& port);
 
         /** General flooding protection */
         static bool checkFlood(const string& ip, const AdcCommand& cmd);

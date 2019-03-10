@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2001-2012 Jacek Sieka, arnetheduck on gmail point com
+ * Copyright (C) 2019 Boris Pek <tehnick-8@yandex.ru>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -65,8 +66,8 @@ public:
     }
 
     void accept(const Socket& srv, bool secure, bool allowUntrusted);
-    void connect(const string& aAddress, uint16_t aPort, bool secure, bool allowUntrusted, bool proxy);
-    void connect(const string& aAddress, uint16_t aPort, uint16_t localPort, NatRoles natRole, bool secure, bool allowUntrusted, bool proxy);
+    void connect(const string& aAddress, const string& aPort, bool secure, bool allowUntrusted, bool proxy, const string& expKP = Util::emptyString);
+    void connect(const string& aAddress, const string& aPort, const string& localPort, NatRoles natRole, bool secure, bool allowUntrusted, bool proxy, const string& expKP = Util::emptyString);
 
     /** Sets data mode for aBytes bytes. Must be called within onLine. */
     void setDataMode(int64_t aBytes = -1) { mode = MODE_DATA; dataBytes = aBytes; }
@@ -97,7 +98,7 @@ public:
     void disconnect(bool graceless = false) noexcept { Lock l(cs); if(graceless) disconnecting = true; addTask(DISCONNECT, 0); }
 
     string getLocalIp() const { return sock->getLocalIp(); }
-    uint16_t getLocalPort() const { return sock->getLocalPort(); }
+    string getLocalPort() const { return Util::toString(sock->getLocalPort()); }
 
     GETSET(char, separator, Separator)
 private:
@@ -121,10 +122,11 @@ private:
         virtual ~TaskData() { }
     };
     struct ConnectInfo : public TaskData {
-        ConnectInfo(string addr_, uint16_t port_, uint16_t localPort_, NatRoles natRole_, bool proxy_) : addr(addr_), port(port_), localPort(localPort_), natRole(natRole_), proxy(proxy_) { }
+        ConnectInfo(const string& addr_, const string& port_, const string& localPort_, NatRoles natRole_, bool proxy_)
+            : addr(addr_), port(port_), localPort(localPort_), natRole(natRole_), proxy(proxy_) { }
         string addr;
-        uint16_t port;
-        uint16_t localPort;
+        string port;
+        string localPort;
         NatRoles natRole;
         bool proxy;
     };
@@ -157,7 +159,7 @@ private:
 
     virtual int run();
 
-    void threadConnect(const string& aAddr, uint16_t aPort, uint16_t localPort, NatRoles natRole, bool proxy);
+    void threadConnect(const string& aAddr, const string& aPort, const string& localPort, NatRoles natRole, bool proxy);
     void threadAccept();
     void threadRead();
     void threadSendFile(InputStream* is);

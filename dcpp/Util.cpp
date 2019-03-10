@@ -1,6 +1,6 @@
 /*
  * Copyright (C) 2001-2012 Jacek Sieka, arnetheduck on gmail point com
- * Copyright (C) 2018 Boris Pek <tehnick-8@yandex.ru>
+ * Copyright (C) 2018-2019 Boris Pek <tehnick-8@yandex.ru>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -524,72 +524,75 @@ string Util::getShortTimeString(time_t t) {
     return Text::toUtf8(buf);
 }
 
+void Util::sanitizeUrl(string& url) {
+    boost::algorithm::trim_if(url, boost::is_space() || boost::is_any_of("<>\""));
+}
+
 /**
  * Decodes a URL the best it can...
  * Default ports:
  * http:// -> port 80
  * dchub:// -> port 411
  */
-void Util::decodeUrl(const string& url, string& protocol, string& host, uint16_t& port, string& path, string& query, string& fragment) {
-    size_t fragmentEnd = url.size();
-    size_t fragmentStart = url.rfind('#');
+void Util::decodeUrl(const string& url, string& protocol, string& host, string& port, string& path, string& query, string& fragment) {
+    auto fragmentEnd = url.size();
+    auto fragmentStart = url.rfind('#');
 
     size_t queryEnd;
     if(fragmentStart == string::npos) {
-            queryEnd = fragmentStart = fragmentEnd;
+        queryEnd = fragmentStart = fragmentEnd;
     } else {
-            dcdebug("f");
-            queryEnd = fragmentStart;
-            fragmentStart++;
+        dcdebug("f");
+        queryEnd = fragmentStart;
+        fragmentStart++;
     }
 
-    //size_t queryStart = url.rfind('?', queryEnd);
-    //size_t fileEnd;
-    //if(queryStart == string::npos) {
-            //fileEnd = queryStart = queryEnd;
-    //} else {
-            //dcdebug("q");
-            //fileEnd = queryStart;
-            //queryStart++;
-    //}
-    size_t queryStart = queryEnd;
-    size_t fileEnd = queryStart;
+    auto queryStart = url.rfind('?', queryEnd);
+    size_t fileEnd;
 
-    size_t protoStart = 0;
-    size_t protoEnd = url.find("://", protoStart);
+    if(queryStart == string::npos) {
+        fileEnd = queryStart = queryEnd;
+    } else {
+        dcdebug("q");
+        fileEnd = queryStart;
+        queryStart++;
+    }
 
-    size_t authorityStart = protoEnd == string::npos ? protoStart : protoEnd + 3;
-    size_t authorityEnd = url.find_first_of("/#?", authorityStart);
+    auto protoStart = 0;
+    auto protoEnd = url.find("://", protoStart);
+
+    auto authorityStart = protoEnd == string::npos ? protoStart : protoEnd + 3;
+    auto authorityEnd = url.find_first_of("/#?", authorityStart);
 
     size_t fileStart;
     if(authorityEnd == string::npos) {
-            authorityEnd = fileStart = fileEnd;
+        authorityEnd = fileStart = fileEnd;
     } else {
-            dcdebug("a");
-            fileStart = authorityEnd;
+        dcdebug("a");
+        fileStart = authorityEnd;
     }
 
-    protocol = url.substr(protoStart, protoEnd - protoStart);
+    protocol = (protoEnd == string::npos ? Util::emptyString : url.substr(protoStart, protoEnd - protoStart));
 
     if(authorityEnd > authorityStart) {
         dcdebug("x");
         size_t portStart = string::npos;
         if(url[authorityStart] == '[') {
             // IPv6?
-            size_t hostEnd = url.find(']');
+            auto hostEnd = url.find(']');
             if(hostEnd == string::npos) {
-                    return;
+                return;
             }
 
-            host = url.substr(authorityStart, hostEnd - authorityStart);
+            host = url.substr(authorityStart + 1, hostEnd - authorityStart - 1);
             if(hostEnd + 1 < url.size() && url[hostEnd + 1] == ':') {
-                portStart = hostEnd + 1;
+                portStart = hostEnd + 2;
             }
         } else {
             size_t hostEnd;
             portStart = url.find(':', authorityStart);
             if(portStart != string::npos && portStart > authorityEnd) {
-                    portStart = string::npos;
+                portStart = string::npos;
             }
 
             if(portStart == string::npos) {
@@ -605,17 +608,15 @@ void Util::decodeUrl(const string& url, string& protocol, string& host, uint16_t
 
         if(portStart == string::npos) {
             if(protocol == "http") {
-                port = 80;
+                port = "80";
             } else if(protocol == "https") {
-                port = 443;
-            } else if(protocol == "dchub") {
-                port = 411;
-            } else {
-                port = 411;
+                port = "443";
+            } else if(protocol == "dchub"  || protocol.empty()) {
+                port = "411";
             }
         } else {
             dcdebug("p");
-            port = static_cast<uint16_t>(Util::toInt(url.substr(portStart, authorityEnd - portStart)));
+            port = url.substr(portStart, authorityEnd - portStart);
         }
     }
 
@@ -637,13 +638,13 @@ void Util::decodeUrl(const string& url, string& protocol, string& host, uint16_t
     //printf("protocol:%s\n host:%s\n port:%d\n path:%s\n query:%s\n fragment:%s\n", protocol.c_str(), host.c_str(), port, path.c_str(), query.c_str(), fragment.c_str());
 }
 
-void Util::parseIpPort(const string& aIpPort, string& ip, uint16_t& port) {
+void Util::parseIpPort(const string& aIpPort, string& ip, string& port) {
     string::size_type i = aIpPort.rfind(':');
     if (i == string::npos) {
         ip = aIpPort;
     } else {
         ip = aIpPort.substr(0, i);
-        port = Util::toInt(aIpPort.substr(i + 1));
+        port = aIpPort.substr(i + 1);
     }
 }
 

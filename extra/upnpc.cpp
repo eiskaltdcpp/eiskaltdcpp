@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2001-2011 Jacek Sieka, arnetheduck on gmail point com
+ * Copyright (C) 2019 Boris Pek <tehnick-8@yandex.ru>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -62,11 +63,9 @@ bool UPnPc::init()
     return ret;
 }
 
-bool UPnPc::add(const unsigned short port, const UPnP::Protocol protocol, const string& description)
+bool UPnPc::add(const string& port, const UPnP::Protocol protocol, const string& description)
 {
-    const string port_ = Util::toString(port);
-
-    return UPNP_AddPortMapping(urls.controlURL, data.first.servicetype, port_.c_str(), port_.c_str(),
+    return UPNP_AddPortMapping(urls.controlURL, data.first.servicetype, port.c_str(), port.c_str(),
         Util::getLocalIp(AF_INET).c_str(), description.c_str(), protocols[protocol], NULL
 #if (MINIUPNPC_API_VERSION >= 8 || defined(MINIUPNPC16))
                                                                                     , 0) == UPNPCOMMAND_SUCCESS;
@@ -75,9 +74,9 @@ bool UPnPc::add(const unsigned short port, const UPnP::Protocol protocol, const 
 #endif
 }
 
-bool UPnPc::remove(const unsigned short port, const UPnP::Protocol protocol)
+bool UPnPc::remove(const string& port, const UPnP::Protocol protocol)
 {
-    return UPNP_DeletePortMapping(urls.controlURL, data.first.servicetype, Util::toString(port).c_str(),
+    return UPNP_DeletePortMapping(urls.controlURL, data.first.servicetype, port.c_str(),
         protocols[protocol], NULL) == UPNPCOMMAND_SUCCESS;
 }
 

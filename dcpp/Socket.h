@@ -85,7 +85,7 @@ public:
     /**
      * Same as connect(), but through the SOCKS5 server
      */
-    void socksConnect(const string& aIp, uint16_t aPort, uint32_t timeout = 0);
+    void socksConnect(const string& aIp, const std::string &aPort, uint32_t timeout = 0);
 
     /**
      * Sends data, will block until all data has been sent or an exception occurs
@@ -96,8 +96,8 @@ public:
     void writeAll(const void* aBuffer, int aLen, uint32_t timeout = 0);
     virtual int write(const void* aBuffer, int aLen);
     int write(const string& aData) { return write(aData.data(), (int)aData.length()); }
-    virtual void writeTo(const string& aIp, uint16_t aPort, const void* aBuffer, int aLen, bool proxy = true);
-    void writeTo(const string& aIp, uint16_t aPort, const string& aData) { writeTo(aIp, aPort, aData.data(), (int)aData.length()); }
+    virtual void writeTo(const string& aIp, const std::string &aPort, const void* aBuffer, int aLen, bool proxy = true);
+    void writeTo(const string& aIp, const string& aPort, const string& aData) { writeTo(aIp, aPort, aData.data(), (int)aData.length()); }
     virtual void shutdown() noexcept;
     virtual void close() noexcept;
     void disconnect() noexcept;
@@ -160,7 +160,7 @@ public:
     virtual void create(int aType = TYPE_TCP);
 
     /** Binds a socket to a certain local port and possibly IP. */
-    virtual uint16_t bind(uint16_t aPort = 0, const string& aIp = "0.0.0.0");
+    virtual uint16_t bind(const std::string &aPort = Util::emptyString, const string& aIp = "0.0.0.0");
     virtual void listen();
     virtual void accept(const Socket& listeningSocket);
 
@@ -190,7 +190,7 @@ protected:
     static Stats stats;
 
     static string udpServer;
-    static uint16_t udpPort;
+    static string udpPort;
 
 private:
     Socket(const Socket&);

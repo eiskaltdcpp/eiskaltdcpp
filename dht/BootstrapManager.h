@@ -38,7 +38,7 @@ namespace dht
 
         void process();
 
-        void addBootstrapNode(const string& ip, uint16_t udpPort, const CID& targetCID, const UDPKey& udpKey);
+        void addBootstrapNode(const string& ip, const std::string &udpPort, const CID& targetCID, const UDPKey& udpKey);
 
     private:
 
@@ -47,7 +47,7 @@ namespace dht
         struct BootstrapNode
         {
             string      ip;
-            uint16_t    udpPort;
+            string      udpPort;
             CID         cid;
             UDPKey      udpKey;
         };

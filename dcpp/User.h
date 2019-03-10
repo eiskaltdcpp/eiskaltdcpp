@@ -147,6 +147,7 @@ public:
 #endif
 
 #define GS(n, x) string get##n() const { return get(x); } void set##n(const string& v) { set(x, v); }
+
     GS(Nick, "NI")
     GS(Description, "DE")
     GS(Ip, "I4")

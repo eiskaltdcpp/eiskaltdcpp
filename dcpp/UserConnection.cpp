@@ -100,7 +100,7 @@ void UserConnection::on(BufferedSocketListener::Line, const string& aLine) throw
             param.rfind(/*path/file*/" no more exists") != string::npos) {
             fire(UserConnectionListener::FileNotAvailable(), this);
         } else if (::strncmp(param.c_str(), "CTM2HUB", 7) == 0 ) {
-            ConnectionManager::getInstance()->addCTM2HUB(socket->getIp(), Util::toString(getPort()));
+            ConnectionManager::getInstance()->addCTM2HUB(socket->getIp(), getPort());
             fire(UserConnectionListener::ProtocolError(), this, param);
         } else {
             fire(UserConnectionListener::ProtocolError(), this, param);
@@ -160,7 +160,7 @@ bool UserConnectionScriptInstance::onUserConnectionMessageOut(UserConnection* aC
 }
 #endif
 
-void UserConnection::connect(const string& aServer, uint16_t aPort, uint16_t localPort, BufferedSocket::NatRoles natRole) {
+void UserConnection::connect(const string& aServer, const string& aPort, const string& localPort, BufferedSocket::NatRoles natRole) {
     dcassert(!socket);
 
     setPort(aPort);

@@ -35,7 +35,7 @@ Client::Client(const string& hubURL, char separator_, bool secure_) :
     myIdentity(ClientManager::getInstance()->getMe(), 0),
     reconnDelay(120), lastActivity(GET_TICK()), registered(false), autoReconnect(false),
     encoding(Text::hubDefaultCharset), state(STATE_DISCONNECTED), sock(0),
-    hubUrl(hubURL), port(0), separator(separator_),
+    hubUrl(hubURL), separator(separator_),
     secure(secure_), countType(COUNT_UNCOUNTED)
 {
     string file, proto, query, fragment;

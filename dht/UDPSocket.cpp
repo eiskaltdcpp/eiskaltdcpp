@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2009-2010 Big Muscle, http://strongdc.sf.net
+ * Copyright (C) 2019 Boris Pek <tehnick-8@yandex.ru>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -38,7 +39,7 @@ namespace dht
     #define BUFSIZE                 16384
     #define MAGICVALUE_UDP          0x5b
 
-    UDPSocket::UDPSocket(void) : stop(false), port(0), delay(100)
+    UDPSocket::UDPSocket(void) : stop(false), delay(100)
 #ifdef _DEBUG
         , sentBytes(0), receivedBytes(0), sentPackets(0), receivedPackets(0)
 #endif
@@ -65,7 +66,7 @@ namespace dht
         {
             stop = true;
             socket->disconnect();
-            port = 0;
+            port.clear();
 
             join();
 
@@ -88,7 +89,7 @@ namespace dht
             socket->create(Socket::TYPE_UDP);
             socket->setSocketOpt(SO_REUSEADDR, 1);
             socket->setSocketOpt(SO_RCVBUF, SETTING(SOCKET_IN_BUFFER));
-            port = socket->bind(static_cast<uint16_t>(SETTING(DHT_PORT)), SETTING(BIND_IFACE)? socket->getIfaceI4(SETTING(BIND_IFACE_NAME)).c_str() : SETTING(BIND_ADDRESS));
+            port = socket->bind(Util::toString(SETTING(DHT_PORT)), SETTING(BIND_IFACE)? socket->getIfaceI4(SETTING(BIND_IFACE_NAME)).c_str() : SETTING(BIND_ADDRESS));
 
             start();
         }
@@ -141,7 +142,7 @@ namespace dht
                     string ip = inet_ntoa(remoteAddr.sin_addr);
                     uint16_t port = ntohs(remoteAddr.sin_port);
                     COMMAND_DEBUG(s.substr(0, s.length() - 1), DebugManager::DHT_IN,  ip + ":" + Util::toString(port));
-                    DHT::getInstance()->dispatch(s.substr(0, s.length() - 1), ip, port, isUdpKeyValid);
+                    DHT::getInstance()->dispatch(s.substr(0, s.length() - 1), ip, Util::toString(port), isUdpKeyValid);
                 }
 
                 Thread::sleep(25);
@@ -276,7 +277,7 @@ namespace dht
     /*
      * Sends command to ip and port
      */
-    void UDPSocket::send(AdcCommand& cmd, const string& ip, uint16_t port, const CID& targetCID, const CID& udpKey)
+    void UDPSocket::send(AdcCommand& cmd, const string& ip, const string& port, const CID& targetCID, const CID& udpKey)
     {
         // store packet for antiflooding purposes
         Utils::trackOutgoingPacket(ip, cmd);
@@ -284,7 +285,7 @@ namespace dht
         // pack data
         cmd.addParam("UK", Utils::getUdpKey(ip).toBase32()); // add our key for the IP address
         string command = cmd.toString(ClientManager::getInstance()->getMe()->getCID());
-        COMMAND_DEBUG(command, DebugManager::DHT_OUT, ip + ":" + Util::toString(port));
+        COMMAND_DEBUG(command, DebugManager::DHT_OUT, ip + ":" + port);
 
         Packet* p = new Packet(ip, port, command, targetCID, udpKey);
 

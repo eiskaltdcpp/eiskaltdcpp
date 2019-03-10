@@ -141,7 +141,7 @@ public:
     void setDataMode(int64_t aBytes = -1) { dcassert(socket); socket->setDataMode(aBytes); }
     void setLineMode(size_t rollback) { dcassert(socket); socket->setLineMode(rollback); }
 
-    void connect(const string& aServer, uint16_t aPort, uint16_t localPort, const BufferedSocket::NatRoles natRole);
+    void connect(const string& aServer, const std::string &aPort, const std::string &localPort, const BufferedSocket::NatRoles natRole);
     void accept(const Socket& aServer);
 
     void updated() { if(socket) socket->updated(); }
@@ -186,7 +186,7 @@ public:
     GETSET(string, hubUrl, HubUrl);
     GETSET(string, token, Token);
     GETSET(string, encoding, Encoding);
-    GETSET(uint16_t, port, Port);
+    GETSET(string, port, Port);
     GETSET(States, state, State);
     GETSET(uint64_t, lastActivity, LastActivity);
     GETSET(double, speed, Speed);

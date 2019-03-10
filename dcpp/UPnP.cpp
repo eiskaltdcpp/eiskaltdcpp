@@ -27,7 +27,7 @@ const char* UPnP::protocols[PROTOCOL_LAST] = {
     "UDP"
 };
 
-bool UPnP::open(const unsigned short port, const Protocol protocol, const string& description) {
+bool UPnP::open(const string& port, const Protocol protocol, const string& description) {
     if(!add(port, protocol, description))
         return false;
 

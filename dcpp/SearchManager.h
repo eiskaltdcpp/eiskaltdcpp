@@ -74,7 +74,7 @@ public:
 
     void respond(const AdcCommand& cmd, const CID& cid,  bool isUdpActive, const string& hubIpPort);
 
-    uint16_t getPort() const
+    const string &getPort() const
     {
         return port;
     }
@@ -119,7 +119,7 @@ private:
 
     CriticalSection cs;
     std::unique_ptr<Socket> socket;
-    uint16_t port;
+    string port;
     bool stop;
     friend class Singleton<SearchManager>;
 

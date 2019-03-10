@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2001-2012 Jacek Sieka, arnetheduck on gmail point com
+ * Copyright (C) 2019 Boris Pek <tehnick-8@yandex.ru>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -49,7 +50,6 @@ const char* SearchManager::getTypeStr(int type) {
 }
 
 SearchManager::SearchManager() :
-    port(0),
     stop(false)
 {
     queue.start();
@@ -92,7 +92,7 @@ void SearchManager::listen() {
         socket->create(Socket::TYPE_UDP);
         socket->setBlocking(true);
         socket->setSocketOpt(SO_REUSEADDR, 1);
-        port = socket->bind(static_cast<uint16_t>(SETTING(UDP_PORT)), SETTING(BIND_IFACE)? socket->getIfaceI4(SETTING(BIND_IFACE_NAME)).c_str() : SETTING(BIND_ADDRESS));
+        port = socket->bind(Util::toString(SETTING(UDP_PORT)), SETTING(BIND_IFACE)? socket->getIfaceI4(SETTING(BIND_IFACE_NAME)).c_str() : SETTING(BIND_ADDRESS));
         start();
     } catch(...) {
         socket.reset();
@@ -105,7 +105,7 @@ void SearchManager::disconnect() noexcept {
         stop = true;
         queue.shutdown();
         socket->disconnect();
-        port = 0;
+        port.clear();
 
         join();
 
@@ -382,7 +382,7 @@ void SearchManager::onRES(const AdcCommand& cmd, const UserPtr& from, const stri
 
 void SearchManager::onPSR(const AdcCommand& cmd, UserPtr from, const string& remoteIp) {
 
-    uint16_t udpPort = 0;
+    string udpPort;
     uint32_t partialCount = 0;
     string tth;
     string hubIpPort;
@@ -392,7 +392,7 @@ void SearchManager::onPSR(const AdcCommand& cmd, UserPtr from, const string& rem
     for(StringIterC i = cmd.getParameters().begin(); i != cmd.getParameters().end(); ++i) {
         const string& str = *i;
         if(str.compare(0, 2, "U4") == 0) {
-            udpPort = static_cast<uint16_t>(Util::toInt(str.substr(2)));
+            udpPort = str.substr(2);
         } else if(str.compare(0, 2, "NI") == 0) {
             nick = str.substr(2);
         } else if(str.compare(0, 2, "HI") == 0) {
@@ -441,7 +441,7 @@ void SearchManager::onPSR(const AdcCommand& cmd, UserPtr from, const string& rem
 
     QueueManager::getInstance()->handlePartialResult(from, url, TTHValue(tth), ps, outPartialInfo);
 
-    if((udpPort > 0) && !outPartialInfo.empty()) {
+    if((Util::toInt(udpPort) > 0) && !outPartialInfo.empty()) {
         try {
             AdcCommand cmd = SearchManager::getInstance()->toPSR(false, ps.getMyNick(), hubIpPort, tth, outPartialInfo);
             ClientManager::getInstance()->send(cmd, from->getCID());
@@ -512,7 +512,7 @@ AdcCommand SearchManager::toPSR(bool wantResponse, const string& myNick, const s
         cmd.addParam("NI", Text::utf8ToAcp(myNick));
 
     cmd.addParam("HI", hubIpPort);
-    cmd.addParam("U4", Util::toString(wantResponse && ClientManager::getInstance()->isActive(hubIpPort) ? SearchManager::getInstance()->getPort() : 0));
+    cmd.addParam("U4", (wantResponse && ClientManager::getInstance()->isActive(hubIpPort)) ? SearchManager::getInstance()->getPort() : Util::emptyString);
     cmd.addParam("TR", tth);
     cmd.addParam("PC", Util::toString(partialInfo.size() / 2));
     cmd.addParam("PI", getPartsString(partialInfo));

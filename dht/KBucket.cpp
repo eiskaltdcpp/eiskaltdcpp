@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2009-2010 Big Muscle, http://strongdc.sf.net
+ * Copyright (C) 2019 Boris Pek <tehnick-8@yandex.ru>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -100,7 +101,7 @@ namespace dht
     /*
      * Creates new (or update existing) node which is NOT added to our routing table
      */
-    Node::Ptr KBucket::createNode(const UserPtr& u, const string& ip, uint16_t port, bool update, bool isUdpKeyValid)
+    Node::Ptr KBucket::createNode(const UserPtr& u, const string& ip, const string& port, bool update, bool isUdpKeyValid)
     {
         if(u->isSet(User::DHT)) // is this user already known in DHT?
         {
@@ -133,9 +134,9 @@ namespace dht
                 // fine, node found, update it and return it
                 if(update)
                 {
-                    string oldIp    = node->getIdentity().getIp();
-                    string oldPort  = node->getIdentity().getUdpPort();
-                    if(ip != oldIp || static_cast<uint16_t>(Util::toInt(oldPort)) != port)
+                    const string oldIp    = node->getIdentity().getIp();
+                    const string oldPort  = node->getIdentity().getUdpPort();
+                    if(ip != oldIp || oldPort != port)
                     {
                         node->setIpVerified(false);
 
@@ -143,7 +144,7 @@ namespace dht
 
                         // erase old IP and remember new one
                         ipMap.erase(oldIp + ":" + oldPort);
-                        ipMap.insert(ip + ":" + Util::toString(port));
+                        ipMap.insert(ip + ":" + port);
                     }
 
                     if(!node->isIpVerified())
@@ -151,7 +152,7 @@ namespace dht
 
                     node->setAlive();
                     node->getIdentity().setIp(ip);
-                    node->getIdentity().setUdpPort(Util::toString(port));
+                    node->getIdentity().setUdpPort(port);
 
                     DHT::getInstance()->setDirty();
                 }
@@ -164,7 +165,7 @@ namespace dht
 
         Node::Ptr node(new Node(u));
         node->getIdentity().setIp(ip);
-        node->getIdentity().setUdpPort(Util::toString(port));
+        node->getIdentity().setUdpPort(port);
         node->setIpVerified(isUdpKeyValid);
         return node;
     }
@@ -283,7 +284,7 @@ namespace dht
             {
                 // ping the oldest (expired) node
                 node->setTimeout(currentTime);
-                DHT::getInstance()->info(node->getIdentity().getIp(), static_cast<uint16_t>(Util::toInt(node->getIdentity().getUdpPort())), DHT::PING, node->getUser()->getCID(), node->getUdpKey());
+                DHT::getInstance()->info(node->getIdentity().getIp(), node->getIdentity().getUdpPort(), DHT::PING, node->getUser()->getCID(), node->getUdpKey());
                 pinged++;
             }
 
@@ -321,7 +322,7 @@ namespace dht
             {
                 CID cid         = CID(xml.getChildAttrib("CID"));
                 string i4       = xml.getChildAttrib("I4");
-                uint16_t u4     = static_cast<uint16_t>(xml.getIntChildAttrib("U4"));
+                string u4       = Util::toString(xml.getIntChildAttrib("U4"));
 
                 if(Utils::isGoodIPPort(i4, u4))
                 {

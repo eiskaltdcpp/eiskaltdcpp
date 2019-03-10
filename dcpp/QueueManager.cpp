@@ -584,7 +584,7 @@ struct PartsInfoReqParam{
     string          myNick;
     string          hubIpPort;
     string          ip;
-    uint16_t        udpPort;
+    string          udpPort;
 };
 
 void QueueManager::on(TimerManagerListener::Minute, uint64_t aTick) noexcept {
@@ -2090,7 +2090,7 @@ void QueueManager::FileQueue::findPFSSources(PFSSourceList& sl)
 
         for(QueueItem::SourceConstIter j = sources.begin(); j != sources.end(); ++j) {
             if( (*j).isSet(QueueItem::Source::FLAG_PARTIAL) && (*j).getPartialSource()->getNextQueryTime() <= now &&
-                (*j).getPartialSource()->getPendingQueryCount() < 10 && (*j).getPartialSource()->getUdpPort() > 0)
+                (*j).getPartialSource()->getPendingQueryCount() < 10 && Util::toInt((*j).getPartialSource()->getUdpPort()) > 0)
             {
                 buffer.insert(make_pair((*j).getPartialSource()->getNextQueryTime(), make_pair(j, q)));
             }
@@ -2099,7 +2099,7 @@ void QueueManager::FileQueue::findPFSSources(PFSSourceList& sl)
         for(QueueItem::SourceConstIter j = badSources.begin(); j != badSources.end(); ++j) {
             if( (*j).isSet(QueueItem::Source::FLAG_TTH_INCONSISTENCY) == false && (*j).isSet(QueueItem::Source::FLAG_PARTIAL) &&
                 (*j).getPartialSource()->getNextQueryTime() <= now && (*j).getPartialSource()->getPendingQueryCount() < 10 &&
-                (*j).getPartialSource()->getUdpPort() > 0)
+                Util::toInt((*j).getPartialSource()->getUdpPort()) > 0)
             {
                 buffer.insert(make_pair((*j).getPartialSource()->getNextQueryTime(), make_pair(j, q)));
             }

@@ -77,7 +77,7 @@ public:
      */
     class PartialSource : public FastAlloc<PartialSource>, public intrusive_ptr_base<PartialSource> {
     public:
-        PartialSource(const string& aMyNick, const string& aHubIpPort, const string& aIp, uint16_t udp) :
+        PartialSource(const string& aMyNick, const string& aHubIpPort, const string& aIp, const string& udp) :
           myNick(aMyNick), hubIpPort(aHubIpPort), ip(aIp), udpPort(udp), nextQueryTime(0), pendingQueryCount(0) { }
 
         ~PartialSource() { }
@@ -88,7 +88,7 @@ public:
         GETSET(string, myNick, MyNick);                 // for NMDC support only
         GETSET(string, hubIpPort, HubIpPort);
         GETSET(string, ip, Ip);
-        GETSET(uint16_t, udpPort, UdpPort);
+        GETSET(string, udpPort, UdpPort);
         GETSET(uint64_t, nextQueryTime, NextQueryTime);
         GETSET(uint8_t, pendingQueryCount, PendingQueryCount);
     };

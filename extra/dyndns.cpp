@@ -35,7 +35,6 @@ DynDNS::~DynDNS() {
 
 void DynDNS::Request() {
     if (BOOLSETTING(DYNDNS_ENABLE)) {
-        httpConnection.setCoralizeState(HttpConnection::CST_NOCORALIZE);
         string tmps = !SETTING(DYNDNS_SERVER).compare(0,7,"http://") ? SETTING(DYNDNS_SERVER) : "http://" + SETTING(DYNDNS_SERVER);
         httpConnection.downloadFile(tmps);
     }

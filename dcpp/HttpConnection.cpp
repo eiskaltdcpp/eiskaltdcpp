@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2001-2012 Jacek Sieka, arnetheduck on gmail point com
+ * Copyright (C) 2019 Boris Pek <tehnick-8@yandex.ru>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -16,10 +17,11 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
+#include "limits.h"
 #include "stdinc.h"
-
 #include "HttpConnection.h"
 
+#include "BufferedSocket.h"
 #include "format.h"
 #include "SettingsManager.h"
 #include "version.h"
@@ -28,6 +30,23 @@ namespace dcpp {
 
 static const std::string CORAL_SUFFIX = ".nyud.net";
 
+HttpConnection::HttpConnection(const string& aUserAgent) :
+    userAgent(aUserAgent),
+    port("80"),
+    size(-1),
+    done(0),
+    connState(CONN_UNKNOWN),
+    coralizeState(CST_DEFAULT),
+    socket(0)
+{
+}
+
+HttpConnection::~HttpConnection() {
+    if(socket) {
+        abortRequest(true);
+    }
+}
+
 /**
  * Downloads a file and returns it as a string
  * @todo Report exceptions
@@ -35,57 +54,102 @@ static const std::string CORAL_SUFFIX = ".nyud.net";
  * @param aUrl Full URL of file
  * @return A string with the content, or empty if download failed
  */
-void HttpConnection::downloadFile(const string& aUrl) {
-    dcassert(Util::findSubString(aUrl, "http://") == 0);
+void HttpConnection::downloadFile(const string& aFile) {
+    currentUrl = aFile;
+    coralizeState = CST_NOCORALIZE;
+    prepareRequest(TYPE_GET);
+}
+
+/**
+ * Initiates a basic urlencoded form submission
+ * @param aFile Fully qualified file URL
+ * @param aData StringMap with the args and values
+ */
+void HttpConnection::postData(const string& aUrl, const StringMap& aData) {
     currentUrl = aUrl;
-    // Trim spaces
-    while(currentUrl[0] == ' ')
-        currentUrl.erase(0, 1);
-    while(currentUrl[currentUrl.length() - 1] == ' ') {
-        currentUrl.erase(currentUrl.length()-1);
-    }
-    // reset all settings (as in constructor), moved here from onLine(302) because ok was not reset properly
-    moved302 = false;
-    ok = false;
+    coralizeState = CST_NOCORALIZE;
+    requestBody.clear();
+
+    for(StringMap::const_iterator i = aData.begin(); i != aData.end(); ++i)
+        requestBody += "&" + Util::encodeURI(i->first) + "=" + Util::encodeURI(i->second);
+
+    if (!requestBody.empty()) requestBody = requestBody.substr(1);
+    prepareRequest(TYPE_POST);
+}
+
+void HttpConnection::prepareRequest(RequestType type) {
+    dcassert(Util::findSubString(currentUrl, "http://") == 0 || Util::findSubString(currentUrl, "https://") == 0);
+    Util::sanitizeUrl(currentUrl);
+
+    // Reset the connection states
+    if(connState == CONN_OK || connState == CONN_FAILED)
+        userAgent.clear();
+
     size = -1;
+    done = 0;
+    connState = CONN_UNKNOWN;
+    connType = type;
+
+    // method selection
+    method = (connType == TYPE_POST) ? "POST" : "GET";
+
     // set download type
     if(Util::stricmp(currentUrl.substr(currentUrl.size() - 4), ".bz2") == 0) {
+        mimeType = "application/x-bzip2";
         fire(HttpConnectionListener::TypeBZ2(), this);
     } else {
+        mimeType.clear();
         fire(HttpConnectionListener::TypeNormal(), this);
     }
 
-        string proto, query, fragment;
+    string proto, query, fragment;
     if(SETTING(HTTP_PROXY).empty()) {
-                Util::decodeUrl(currentUrl, proto, server, port, file, query, fragment);
+        Util::decodeUrl(currentUrl, proto, server, port, file, query, fragment);
         if(file.empty())
             file = "/";
     } else {
-                Util::decodeUrl(SETTING(HTTP_PROXY), proto, server, port, file, query, fragment);
+        Util::decodeUrl(SETTING(HTTP_PROXY), proto, server, port, file, query, fragment);
         file = currentUrl;
     }
 
-    if(BOOLSETTING(CORAL) && coralizeState != CST_NOCORALIZE) {
+    if(!query.empty())
+        file += '?' + query;
+
+    if(SETTING(CORAL) && coralizeState != CST_NOCORALIZE) {
         if(server.length() > CORAL_SUFFIX.length() && server.compare(server.length() - CORAL_SUFFIX.length(), CORAL_SUFFIX.length(), CORAL_SUFFIX) !=0) {
             server += CORAL_SUFFIX;
         } else {
             coralizeState = CST_NOCORALIZE;
         }
-
     }
 
-    if(port == 0)
-        port = 80;
+    if(port.empty())
+        port = "80";
 
-    if(!socket) {
+    if(userAgent.empty())
+        userAgent = dcpp::fullVersionString;
+
+    if(!socket)
         socket = BufferedSocket::getSocket(0x0a);
-    }
+
+
     socket->addListener(this);
     try {
-        socket->connect(server, port, false, false, false);
+        socket->connect(server, port, (proto == "https"), true, false);
     } catch(const Exception& e) {
         fire(HttpConnectionListener::Failed(), this, e.getError() + " (" + currentUrl + ")");
+        connState = CONN_FAILED;
     }
+}
+
+void HttpConnection::abortRequest(bool disconnect) {
+    dcassert(socket);
+
+    socket->removeListener(this);
+    if(disconnect) socket->disconnect();
+
+    BufferedSocket::putSocket(socket);
+    socket = NULL;
 }
 
 void HttpConnection::on(BufferedSocketListener::Connected) noexcept {
@@ -95,8 +159,7 @@ void HttpConnection::on(BufferedSocketListener::Connected) noexcept {
     string sRemoteServer = server;
     if(!SETTING(HTTP_PROXY).empty())
     {
-        string tfile, proto, query, fragment;
-        uint16_t tport;
+        string tfile, tport, proto, query, fragment;
         Util::decodeUrl(file, proto, sRemoteServer, tport, tfile, query, fragment);
     }
 
@@ -112,79 +175,107 @@ void HttpConnection::on(BufferedSocketListener::Connected) noexcept {
     socket->write("Host: " + sRemoteServer + "\r\n");
     socket->write("Connection: close\r\n"); // we'll only be doing one request
     socket->write("Cache-Control: no-cache\r\n\r\n");
+    if (connType == TYPE_POST) socket->write(requestBody);
     if (coralizeState == CST_DEFAULT) coralizeState = CST_CONNECTED;
 }
 
 void HttpConnection::on(BufferedSocketListener::Line, const string& aLine) noexcept {
-    if(!ok) {
-        dcdebug("%s\n",aLine.c_str());
-        if(aLine.find("200") == string::npos) {
-            if(aLine.find("301") != string::npos || aLine.find("302") != string::npos){
-                moved302 = true;
+    if(connState == CONN_CHUNKED && aLine.size() > 1) {
+        string::size_type i;
+        string chunkSizeStr;
+        if((i = aLine.find(";")) == string::npos) {
+            chunkSizeStr = aLine.substr(0, aLine.length() - 1);
+        } else chunkSizeStr = aLine.substr(0, i);
+
+        unsigned long chunkSize = strtoul(chunkSizeStr.c_str(), NULL, 16);
+        if(chunkSize == 0 || chunkSize == ULONG_MAX) {
+            abortRequest(true);
+
+            if(chunkSize == 0) {
+                fire(HttpConnectionListener::Complete(), this, currentUrl, SETTING(CORAL) && coralizeState != CST_NOCORALIZE);
+                connState = CONN_OK;
             } else {
-                socket->disconnect();
-                socket->removeListener(this);
-                BufferedSocket::putSocket(socket);
-                socket = NULL;
-                if(SETTING(CORAL) && coralizeState != CST_NOCORALIZE) {
-                    fire(HttpConnectionListener::Retried(), this, coralizeState == CST_CONNECTED);
-                    coralizeState = CST_NOCORALIZE;
-                    dcdebug("HTTP error with Coral, retrying : %s\n",currentUrl.c_str());
-                    downloadFile(currentUrl);
-                    return;
-                }
-                fire(HttpConnectionListener::Failed(), this, aLine + " (" + currentUrl + ")");
-                coralizeState = CST_DEFAULT;
+                fire(HttpConnectionListener::Failed(), this, "Transfer-encoding error (" + currentUrl + ")");
+                connState = CONN_FAILED;
+            }
+
+            coralizeState = CST_DEFAULT;
+        } else socket->setDataMode(chunkSize);
+    } else if(connState == CONN_UNKNOWN) {
+        if(aLine.find("200") != string::npos) {
+            connState = CONN_OK;
+        } else if(aLine.find("301") != string::npos || aLine.find("302") != string::npos) {
+            connState = CONN_MOVED;
+        } else {
+            abortRequest(true);
+
+            if(SETTING(CORAL) && coralizeState != CST_NOCORALIZE) {
+                fire(HttpConnectionListener::Retried(), this, coralizeState == CST_CONNECTED);
+                coralizeState = CST_NOCORALIZE;
+                dcdebug("HTTP error with Coral, retrying : %s\n",currentUrl.c_str());
+                downloadFile(currentUrl);
                 return;
             }
-        }
-        ok = true;
-    } else if(moved302 && Util::findSubString(aLine, "Location") != string::npos){
-        dcassert(socket);
-        socket->removeListener(this);
-        socket->disconnect();
-        BufferedSocket::putSocket(socket);
-        socket = NULL;
 
-        string location302 = aLine.substr(10, aLine.length() - 11);
+            fire(HttpConnectionListener::Failed(), this, str(F_("%1% (%2%)") % aLine % currentUrl));
+            connState = CONN_FAILED;
+            coralizeState = CST_DEFAULT;
+        }
+    } else if(connState == CONN_MOVED && Util::findSubString(aLine, "Location") != string::npos) {
+        abortRequest(true);
+
+        string location = aLine.substr(10, aLine.length() - 10);
+        Util::sanitizeUrl(location);
+
         // make sure we can also handle redirects with relative paths
-        if(Util::strnicmp(location302.c_str(), "http://", 7) != 0) {
-            if(location302[0] == '/') {
+        if(location.find("://") == string::npos) {
+            if(location[0] == '/') {
                 string proto, query, fragment;
                 Util::decodeUrl(currentUrl, proto, server, port, file, query, fragment);
-                string tmp = "http://" + server;
-                if(port != 80)
-                    tmp += ':' + Util::toString(port);
-                location302 = tmp + location302;
+                string tmp = proto + "://" + server;
+                if(port != "80" || port != "443")
+                    tmp += ':' + port;
+                location = tmp + location;
             } else {
                 string::size_type i = currentUrl.rfind('/');
                 dcassert(i != string::npos);
-                location302 = currentUrl.substr(0, i + 1) + location302;
+                location = currentUrl.substr(0, i + 1) + location;
             }
         }
-        if(location302 == currentUrl) {
+
+        if(location == currentUrl) {
+            connState = CONN_FAILED;
             fire(HttpConnectionListener::Failed(), this, str(F_("Endless redirection loop (%1%)") % currentUrl));
             return;
         }
-        fire(HttpConnectionListener::Redirected(), this, location302);
 
-        coralizeState = CST_DEFAULT;
-        downloadFile(location302);
+        fire(HttpConnectionListener::Redirected(), this, location);
 
-    } else if(aLine == "\x0d") {
-        socket->setDataMode(size);
+        if (coralizeState != CST_NOCORALIZE)
+            coralizeState = CST_DEFAULT;
+
+        downloadFile(location);
+    } else if(aLine[0] == 0x0d) {
+        if(size != -1) {
+            socket->setDataMode(size);
+        } else connState = CONN_CHUNKED;
     } else if(Util::findSubString(aLine, "Content-Length") != string::npos) {
         size = Util::toInt(aLine.substr(16, aLine.length() - 17));
     } else if(Util::findSubString(aLine, "Content-Encoding") != string::npos) {
         if(aLine.substr(18, aLine.length() - 19) == "x-bzip2")
             fire(HttpConnectionListener::TypeBZ2(), this);
+    } else if(mimeType.empty()) {
+        if(Util::findSubString(aLine, "Content-Encoding") != string::npos) {
+            if(aLine.substr(18, aLine.length() - 19) == "x-bzip2")
+                mimeType = "application/x-bzip2";
+        } else if(Util::findSubString(aLine, "Content-Type") != string::npos) {
+            mimeType = aLine.substr(14, aLine.length() - 15);
+        }
     }
 }
 
 void HttpConnection::on(BufferedSocketListener::Failed, const string& aLine) noexcept {
-    socket->removeListener(this);
-    BufferedSocket::putSocket(socket);
-    socket = NULL;
+    abortRequest(false);
     if(SETTING(CORAL) && coralizeState != CST_NOCORALIZE) {
         fire(HttpConnectionListener::Retried(), this, coralizeState == CST_CONNECTED);
         coralizeState = CST_NOCORALIZE;
@@ -192,20 +283,32 @@ void HttpConnection::on(BufferedSocketListener::Failed, const string& aLine) noe
         downloadFile(currentUrl);
         return;
     }
+
+    connState = CONN_FAILED;
     coralizeState = CST_DEFAULT;
-    fire(HttpConnectionListener::Failed(), this, aLine + " (" + currentUrl + ")");
+    fire(HttpConnectionListener::Failed(), this, str(F_("%1% (%2%)") % aLine % currentUrl));
 }
 
 void HttpConnection::on(BufferedSocketListener::ModeChange) noexcept {
-    socket->removeListener(this);
-    socket->disconnect();
-    BufferedSocket::putSocket(socket);
-    socket = NULL;
-    fire(HttpConnectionListener::Complete(), this, currentUrl, BOOLSETTING(CORAL) && coralizeState != CST_NOCORALIZE);
-    coralizeState = CST_DEFAULT;
+    if(connState != CONN_CHUNKED) {
+        abortRequest(true);
+
+        fire(HttpConnectionListener::Complete(), this, currentUrl, SETTING(CORAL) && coralizeState != CST_NOCORALIZE);
+        coralizeState = CST_DEFAULT;
+    }
 }
 void HttpConnection::on(BufferedSocketListener::Data, uint8_t* aBuf, size_t aLen) noexcept {
+    if(size != -1 && static_cast<size_t>(size - done)  < aLen) {
+        abortRequest(true);
+
+        connState = CONN_FAILED;
+        coralizeState = CST_DEFAULT;
+        fire(HttpConnectionListener::Failed(), this, "Too much data in response body (" + currentUrl + ")");
+        return;
+    }
+
     fire(HttpConnectionListener::Data(), this, aBuf, aLen);
+    done += aLen;
 }
 
 } // namespace dcpp

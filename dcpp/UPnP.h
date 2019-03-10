@@ -36,7 +36,7 @@ public:
         PROTOCOL_LAST
     };
 
-    bool open(const unsigned short port, const Protocol protocol, const string& description);
+    bool open(const string& port, const Protocol protocol, const string& description);
     bool close();
     bool hasRules() const;
 
@@ -47,10 +47,10 @@ protected:
     static const char* protocols[PROTOCOL_LAST];
 
 private:
-    virtual bool add(const unsigned short port, const Protocol protocol, const string& description) = 0;
-    virtual bool remove(const unsigned short port, const Protocol protocol) = 0;
+    virtual bool add(const string& port, const Protocol protocol, const string& description) = 0;
+    virtual bool remove(const string& port, const Protocol protocol) = 0;
 
-    typedef std::pair<unsigned short, Protocol> rule;
+    typedef std::pair<const string, Protocol> rule;
     std::vector<rule> rules;
 };
 

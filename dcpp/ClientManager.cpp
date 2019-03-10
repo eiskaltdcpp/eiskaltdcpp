@@ -212,7 +212,7 @@ string ClientManager::findHub(const string& ipPort) const {
     Lock l(cs);
 
     string ip;
-    uint16_t port = 411;
+    string port = "411";
     Util::parseIpPort(ipPort, ip, port);
 
     string url;
@@ -446,7 +446,7 @@ void ClientManager::send(AdcCommand& cmd, const CID& cid) {
             u.getClient().send(cmd);
         } else {
             try {
-                udp.writeTo(u.getIdentity().getIp(), static_cast<uint16_t>(Util::toInt(u.getIdentity().getUdpPort())), cmd.toString(getMe()->getCID()));
+                udp.writeTo(u.getIdentity().getIp(), u.getIdentity().getUdpPort(), cmd.toString(getMe()->getCID()));
             } catch(const SocketException&) {
                 dcdebug("Socket exception sending ADC UDP command\n");
             }
@@ -498,12 +498,11 @@ void ClientManager::on(NmdcSearch, Client* aClient, const string& aSeeker, int a
         } else {
             try {
                 string ip;
-                uint16_t port = 0;
+                string port;
                 Util::parseIpPort(aSeeker, ip, port);
-                if(port == 0)
-                    port = 412;
-                for(auto i = l.begin(); i != l.end(); ++i) {
-                    const SearchResultPtr& sr = *i;
+                if(port.empty())
+                    port = "412";
+                for(const SearchResultPtr& sr : l) {
                     udp.writeTo(ip, port, sr->toSR(*aClient));
                 }
             } catch(const SocketException& /* e */) {
@@ -521,9 +520,9 @@ void ClientManager::on(NmdcSearch, Client* aClient, const string& aSeeker, int a
         }
 
         string ip;
-        uint16_t port = 0;
+        string port;
         Util::parseIpPort(aSeeker, ip, port);
-        if (port == 0) {
+        if (port.empty()) {
             return;
         }
 

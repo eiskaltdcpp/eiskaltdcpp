@@ -96,11 +96,11 @@ public:
 
     bool isOp() const { return getMyIdentity().isOp(); }
 
-    uint16_t getPort() const { return port; }
+    const string& getPort() const { return port; }
     const string& getAddress() const { return address; }
 
     const string& getIp() const { return ip; }
-    string getIpPort() const { return getIp() + ':' + Util::toString(port); }
+    string getIpPort() const { return getIp() + ':' + port; }
     string getLocalIp() const;
 
     void updated(const OnlineUser& aUser) { fire(ClientListener::UserUpdated(), this, aUser); }
@@ -218,7 +218,7 @@ private:
     string ip;
     string localIp;
     string keyprint;
-    uint16_t port;
+    string port;
     string externalIP;
     char separator;
     bool secure;

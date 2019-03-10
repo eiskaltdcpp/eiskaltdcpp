@@ -358,7 +358,7 @@ void AdcHub::handle(AdcCommand::CTM, AdcCommand& c) noexcept {
         return;
     }
 
-    ConnectionManager::getInstance()->adcConnect(*u, static_cast<uint16_t>(Util::toInt(port)), token, secure);
+    ConnectionManager::getInstance()->adcConnect(*u, port, token, secure);
 }
 
 void AdcHub::handle(AdcCommand::RCM, AdcCommand& c) noexcept {
@@ -395,7 +395,7 @@ void AdcHub::handle(AdcCommand::RCM, AdcCommand& c) noexcept {
    // If they respond with their own, symmetric, RNT command, both
    // clients call ConnectionManager::adcConnect.
    send(AdcCommand(AdcCommand::CMD_NAT, u->getIdentity().getSID(), AdcCommand::TYPE_DIRECT).
-           addParam(protocol).addParam(Util::toString(sock->getLocalPort())).addParam(token));
+           addParam(protocol).addParam(sock->getLocalPort()).addParam(token));
    return;
 }
 
@@ -429,7 +429,7 @@ void AdcHub::handle(AdcCommand::CMD, AdcCommand& c) noexcept {
 void AdcHub::sendUDP(const AdcCommand& cmd) noexcept {
     string command;
     string ip;
-    uint16_t port;
+    string port;
     {
         Lock l(cs);
         auto i = users.find(cmd.getTo());
@@ -442,7 +442,7 @@ void AdcHub::sendUDP(const AdcCommand& cmd) noexcept {
             return;
         }
         ip = ou.getIdentity().getIp();
-        port = static_cast<uint16_t>(Util::toInt(ou.getIdentity().getUdpPort()));
+        port = ou.getIdentity().getUdpPort();
         command = cmd.toString(ou.getUser()->getCID());
     }
     try {
@@ -611,12 +611,12 @@ void AdcHub::handle(AdcCommand::NAT, AdcCommand& c) noexcept {
     }
 
     // Trigger connection attempt sequence locally ...
-    dcdebug("triggering connecting attempt in NAT: remote port = %s, local IP = %s, local port = %d\n", port.c_str(), sock->getLocalIp().c_str(), sock->getLocalPort());
-    ConnectionManager::getInstance()->adcConnect(*u, static_cast<uint16_t>(Util::toInt(port)), sock->getLocalPort(), BufferedSocket::NAT_CLIENT, token, secure);
+    dcdebug("triggering connecting attempt in NAT: remote port = %s, local IP = %s, local port = %s\n", port.c_str(), sock->getLocalIp().c_str(), sock->getLocalPort().c_str());
+    ConnectionManager::getInstance()->adcConnect(*u, port, sock->getLocalPort(), BufferedSocket::NAT_CLIENT, token, secure);
 
     // ... and signal other client to do likewise.
     send(AdcCommand(AdcCommand::CMD_RNT, u->getIdentity().getSID(), AdcCommand::TYPE_DIRECT).addParam(protocol).
-           addParam(Util::toString(sock->getLocalPort())).addParam(token));
+           addParam(sock->getLocalPort()).addParam(token));
 }
 
 void AdcHub::handle(AdcCommand::RNT, AdcCommand& c) noexcept {
@@ -644,8 +644,8 @@ void AdcHub::handle(AdcCommand::RNT, AdcCommand& c) noexcept {
     }
 
     // Trigger connection attempt sequence locally
-    dcdebug("triggering connecting attempt in RNT: remote port = %s, local IP = %s, local port = %d\n", port.c_str(), sock->getLocalIp().c_str(), sock->getLocalPort());
-    ConnectionManager::getInstance()->adcConnect(*u, static_cast<uint16_t>(Util::toInt(port)), sock->getLocalPort(), BufferedSocket::NAT_SERVER, token, secure);
+    dcdebug("triggering connecting attempt in RNT: remote port = %s, local IP = %s, local port = %s\n", port.c_str(), sock->getLocalIp().c_str(), sock->getLocalPort().c_str());
+    ConnectionManager::getInstance()->adcConnect(*u, port, sock->getLocalPort(), BufferedSocket::NAT_SERVER, token, secure);
 }
 void AdcHub::handle(AdcCommand::ZON, AdcCommand& c) noexcept {
     (void)c;
@@ -688,13 +688,13 @@ void AdcHub::connect(const OnlineUser& user, string const& token, bool secure) {
     }
 
     if(isActive()) {
-        uint16_t port = secure ? ConnectionManager::getInstance()->getSecurePort() : ConnectionManager::getInstance()->getPort();
-        if(port == 0) {
+        const string port = secure ? ConnectionManager::getInstance()->getSecurePort() : ConnectionManager::getInstance()->getPort();
+        if(port.empty()) {
             // Oops?
             LogManager::getInstance()->message(str(F_("Not listening for connections - please restart %1%") % EISKALTDCPP_APPNAME));
             return;
         }
-        send(AdcCommand(AdcCommand::CMD_CTM, user.getIdentity().getSID(), AdcCommand::TYPE_DIRECT).addParam(*proto).addParam(Util::toString(port)).addParam(token));
+        send(AdcCommand(AdcCommand::CMD_CTM, user.getIdentity().getSID(), AdcCommand::TYPE_DIRECT).addParam(*proto).addParam(port).addParam(token));
     } else {
         send(AdcCommand(AdcCommand::CMD_RCM, user.getIdentity().getSID(), AdcCommand::TYPE_DIRECT).addParam(*proto).addParam(token));
     }
@@ -1031,9 +1031,9 @@ void AdcHub::info(bool /*alwaysSend*/) {
    }
 
    if(isActive()) {
-           addParam(lastInfoMap, c, "U4", Util::toString(SearchManager::getInstance()->getPort()));
+           addParam(lastInfoMap, c, "U4", SearchManager::getInstance()->getPort());
            su += "," + TCP4_FEATURE;
-            su += "," + UDP4_FEATURE;
+           su += "," + UDP4_FEATURE;
    } else {
         if (BOOLSETTING(ALLOW_NATT))
             su += "," + NAT0_FEATURE;

@@ -35,6 +35,8 @@
 #include <sys/socket.h>
 #endif
 
+#include <boost/algorithm/string/trim.hpp>
+
 #include <unistd.h>
 #include <cstdlib>
 #include <vector>
@@ -110,7 +112,7 @@ class Util
 {
 public:
     static tstring emptyStringT;
-    static string emptyString;
+    static string  emptyString;
     static wstring emptyStringW;
 
     enum Paths {
@@ -220,7 +222,8 @@ public:
         replace(string_t(search), string_t(replacement), str);
     }
 
-    static void decodeUrl(const string& aUrl, string& protocol, string& host, uint16_t& port, string& path, string& query, string& fragment);
+    static void sanitizeUrl(string& url);
+    static void decodeUrl(const string& aUrl, string& protocol, string& host, string& port, string& path, string& query, string& fragment);
     static std::map<string, string> decodeQuery(const string& query);
     static string validateFileName(string aFile, const string& badCharsExtra = "");
     static bool checkExtension(const string& tmp);
@@ -476,7 +479,7 @@ public:
     static uint32_t rand(uint32_t low, uint32_t high) { return rand(high-low) + low; }
     static double randd() { return ((double)rand()) / ((double)0xffffffff); }
 
-    static void parseIpPort(const string &aIpPort, string &ip, uint16_t &port);
+    static void parseIpPort(const string &aIpPort, string &ip, std::string &port);
 private:
     /** In local mode, all config and temp files are kept in the same dir as the executable */
     static bool localMode;

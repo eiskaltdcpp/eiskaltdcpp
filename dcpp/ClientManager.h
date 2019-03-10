@@ -109,7 +109,7 @@ public:
         return l_share;
     }
 
-    void setIPUser(const UserPtr& user, const string& IP, uint16_t udpPort = 0) {
+    void setIPUser(const UserPtr& user, const string& IP, const string& udpPort = Util::emptyString) {
         if(IP.empty())
             return;
 
@@ -117,8 +117,8 @@ public:
         OnlineMap::const_iterator i = onlineUsers.find(user->getCID());
         if ( i != onlineUsers.end() ) {
             i->second->getIdentity().setIp(IP);
-            if(udpPort > 0)
-                i->second->getIdentity().setUdpPort(Util::toString(udpPort));
+            if(Util::toInt(udpPort) > 0)
+                i->second->getIdentity().setUdpPort(udpPort);
         }
     }
 

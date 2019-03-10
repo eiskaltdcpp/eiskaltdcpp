@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2009-2010 Big Muscle, http://strongdc.sf.net
+ * Copyright (C) 2019 Boris Pek <tehnick-8@yandex.ru>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -54,10 +55,9 @@ namespace dht
             // store only active nodes to database
             if(ClientManager::getInstance()->isActive(Util::emptyString))
             {
-                url += "&u4=" + Util::toString(DHT::getInstance()->getPort());
+                url += "&u4=" + DHT::getInstance()->getPort();
             }
 
-            httpConnection.setCoralizeState(HttpConnection::CST_NOCORALIZE);
             httpConnection.downloadFile(url);
         }
     }
@@ -105,7 +105,7 @@ namespace dht
                     string i4   = remoteXml.getChildAttrib("I4");
                     string u4   = remoteXml.getChildAttrib("U4");
 
-                    addBootstrapNode(i4, static_cast<uint16_t>(Util::toInt(u4)), cid, UDPKey());
+                    addBootstrapNode(i4, u4, cid, UDPKey());
                 }
 
                 remoteXml.stepOut();
@@ -122,7 +122,7 @@ namespace dht
         LogManager::getInstance()->message("DHT bootstrap error: " + aLine);
     }
 
-    void BootstrapManager::addBootstrapNode(const string& ip, uint16_t udpPort, const CID& targetCID, const UDPKey& udpKey)
+    void BootstrapManager::addBootstrapNode(const string& ip, const string& udpPort, const CID& targetCID, const UDPKey& udpKey)
     {
         BootstrapNode node = { ip, udpPort, targetCID, udpKey };
         bootstrapNodes.push_back(node);

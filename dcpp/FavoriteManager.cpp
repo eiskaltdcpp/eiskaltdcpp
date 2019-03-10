@@ -424,13 +424,13 @@ void FavoriteManager::load() {
 
     // Add NMDC standard op commands
     static const char kickstr[] =
-        "$To: %[userNI] From: %[myNI] $<%[myNI]> You are being kicked because: %[line:Reason]|<%[myNI]> is kicking %[userNI] because: %[line:Reason]|$Kick %[userNI]|";
+            "$To: %[userNI] From: %[myNI] $<%[myNI]> You are being kicked because: %[line:Reason]|<%[myNI]> is kicking %[userNI] because: %[line:Reason]|$Kick %[userNI]|";
     addUserCommand(UserCommand::TYPE_RAW_ONCE, UserCommand::CONTEXT_USER | UserCommand::CONTEXT_SEARCH, UserCommand::FLAG_NOSAVE,
-        _("Kick user(s)"), kickstr, "", "op");
+                   _("Kick user(s)"), kickstr, "", "op");
     static const char redirstr[] =
-        "$OpForceMove $Who:%[userNI]$Where:%[line:Target Server]$Msg:%[line:Message]|";
+            "$OpForceMove $Who:%[userNI]$Where:%[line:Target Server]$Msg:%[line:Message]|";
     addUserCommand(UserCommand::TYPE_RAW_ONCE, UserCommand::CONTEXT_USER | UserCommand::CONTEXT_SEARCH, UserCommand::FLAG_NOSAVE,
-        _("Redirect user(s)"), redirstr, "", "op");
+                   _("Redirect user(s)"), redirstr, "", "op");
 
     try {
         SimpleXML xml;
@@ -455,15 +455,15 @@ void FavoriteManager::load(SimpleXML& aXml) {
     if(aXml.findChild("Hubs")) {
         aXml.stepIn();
 
-    while(aXml.findChild("Group")) {
-        string name = aXml.getChildAttrib("Name");
-        if(name.empty())
-            continue;
-        FavHubGroupProperties props = { aXml.getBoolChildAttrib("Private"), aXml.getBoolChildAttrib("Connect") };
-        favHubGroups[name] = props;
-    }
+        while(aXml.findChild("Group")) {
+            string name = aXml.getChildAttrib("Name");
+            if(name.empty())
+                continue;
+            FavHubGroupProperties props = { aXml.getBoolChildAttrib("Private"), aXml.getBoolChildAttrib("Connect") };
+            favHubGroups[name] = props;
+        }
 
-    aXml.resetCurrentChild();
+        aXml.resetCurrentChild();
         while(aXml.findChild("Hub")) {
             FavoriteHubEntry* e = new FavoriteHubEntry();
             e->setName(aXml.getChildAttrib("Name"));
@@ -485,28 +485,28 @@ void FavoriteManager::load(SimpleXML& aXml) {
             favoriteHubs.push_back(e);
 
             if(aXml.getBoolChildAttrib("Connect")) {
-            // this entry dates from before the window manager & fav hub groups; convert it.
-            const string name = _("Auto-connect group (converted)");
-            if(favHubGroups.find(name) == favHubGroups.end()) {
-                FavHubGroupProperties props = { false, true };
-                favHubGroups[name] = props;
-            }
-            e->setGroup(name);
-            needSave = true;
+                // this entry dates from before the window manager & fav hub groups; convert it.
+                const string name = _("Auto-connect group (converted)");
+                if(favHubGroups.find(name) == favHubGroups.end()) {
+                    FavHubGroupProperties props = { false, true };
+                    favHubGroups[name] = props;
+                }
+                e->setGroup(name);
+                needSave = true;
             }
         }
         aXml.stepOut();
     }
     // parse groups that have the "Connect" param and send their hubs to WindowManager
     //for(auto i = favHubGroups.begin(), iend = favHubGroups.end(); i != iend; ++i) {
-        //if(i->second.connect) {
-            //FavoriteHubEntryList hubs = getFavoriteHubs(i->first);
-            //for(auto hub = hubs.begin(), hub_end = hubs.end(); hub != hub_end; ++hub) {
-                //StringMap map;
-                //map[WindowInfo::address] = (*hub)->getServer();
-                //WindowManager::getInstance()->add(WindowManager::hub(), map);
-            //}
-        //}
+    //if(i->second.connect) {
+    //FavoriteHubEntryList hubs = getFavoriteHubs(i->first);
+    //for(auto hub = hubs.begin(), hub_end = hubs.end(); hub != hub_end; ++hub) {
+    //StringMap map;
+    //map[WindowInfo::address] = (*hub)->getServer();
+    //WindowManager::getInstance()->add(WindowManager::hub(), map);
+    //}
+    //}
     //}
 
     aXml.resetCurrentChild();
@@ -541,7 +541,7 @@ void FavoriteManager::load(SimpleXML& aXml) {
         aXml.stepIn();
         while(aXml.findChild("UserCommand")) {
             addUserCommand(aXml.getIntChildAttrib("Type"), aXml.getIntChildAttrib("Context"), 0, aXml.getChildAttrib("Name"),
-            aXml.getChildAttrib("Command"), aXml.getChildAttrib("To"), aXml.getChildAttrib("Hub"));
+                           aXml.getChildAttrib("Command"), aXml.getChildAttrib("To"), aXml.getChildAttrib("Hub"));
         }
         aXml.stepOut();
     }
@@ -664,16 +664,20 @@ void FavoriteManager::setHubList(int aHubList) {
 
 void FavoriteManager::refresh(bool forceDownload /* = false */) {
     StringList sl = getHubLists();
-    if(sl.empty())
+    if(sl.empty()) {
+        fire(FavoriteManagerListener::DownloadFailed(), Util::emptyString);
         return;
+    }
+
     publicListServer = sl[(lastServer) % sl.size()];
-    if(Util::strnicmp(publicListServer.c_str(), "http://", 7) != 0) {
+    if(Util::findSubString(publicListServer, "http://") != 0 && Util::findSubString(publicListServer, "https://") != 0) {
         lastServer++;
+        fire(FavoriteManagerListener::DownloadFailed(), str(F_("Invalid URL: %1%") % Util::addBrackets(publicListServer)));
         return;
     }
 
     if(!forceDownload) {
-        string path = Util::getHubListsPath() + Util::validateFileName(publicListServer, "/");
+        string path = Util::getHubListsPath() + Util::validateFileName(publicListServer);
         if(File::getSize(path) > 0) {
             useHttp = false;
             string fileDate;
@@ -685,10 +689,10 @@ void FavoriteManager::refresh(bool forceDownload /* = false */) {
             try {
                 File cached(path, File::READ, File::OPEN);
                 downloadBuf = cached.read();
-                char buf[20];
+                char dateBuf[20];
                 time_t fd = cached.getLastModified();
-                if (strftime(buf, 20, "%x", localtime(&fd))) {
-                    fileDate = string(buf);
+                if (strftime(dateBuf, 20, "%x", localtime(&fd))) {
+                    fileDate = string(dateBuf);
                 }
             } catch(const FileException&) {
                 downloadBuf = Util::emptyString;
@@ -741,8 +745,8 @@ UserCommand::List FavoriteManager::getUserCommands(int ctx, const StringList& hu
             bool commandAdc = uc.getHub().compare(0, 6, "adc://") == 0 || uc.getHub().compare(0, 7, "adcs://") == 0;
             if(hubAdc && commandAdc) {
                 if((uc.getHub() == "adc://" || uc.getHub() == "adcs://") ||
-                   ((uc.getHub() == "adc://op" || uc.getHub() == "adcs://op") && isOp[j]) ||
-                   (uc.getHub() == hub) )
+                        ((uc.getHub() == "adc://op" || uc.getHub() == "adcs://op") && isOp[j]) ||
+                        (uc.getHub() == hub) )
                 {
                     //printf("Found ADC command for ADC hub.\n");
                     lst.push_back(*i);
@@ -750,8 +754,8 @@ UserCommand::List FavoriteManager::getUserCommands(int ctx, const StringList& hu
                 }
             } else if((!hubAdc && !commandAdc) || uc.isChat()) {
                 if((uc.getHub().length() == 0) ||
-                   (uc.getHub() == "op" && isOp[j]) ||
-                   (uc.getHub() == hub) )
+                        (uc.getHub() == "op" && isOp[j]) ||
+                        (uc.getHub() == hub) )
                 {
                     //printf("Found non-ADC command for non-ADC hub.\n");
                     lst.push_back(*i);
@@ -800,10 +804,12 @@ void FavoriteManager::on(Redirected, HttpConnection*, const string& aLine) noexc
     if(useHttp)
         fire(FavoriteManagerListener::DownloadStarting(), aLine);
 }
+
 void FavoriteManager::on(TypeNormal, HttpConnection*) noexcept {
     if(useHttp)
         listType = TYPE_NORMAL;
 }
+
 void FavoriteManager::on(TypeBZ2, HttpConnection*) noexcept {
     if(useHttp)
         listType = TYPE_BZIP2;

@@ -49,14 +49,14 @@ ConnectionManager::ConnectionManager() : floodCounter(0), server(0), secureServe
 void ConnectionManager::listen() {
     disconnect();
 
-    server = new Server(false, static_cast<uint16_t>(SETTING(TCP_PORT)), SETTING(BIND_ADDRESS));
+    server = new Server(false, Util::toString(SETTING(TCP_PORT)), SETTING(BIND_ADDRESS));
 
     if(!CryptoManager::getInstance()->TLSOk()) {
         dcdebug("Skipping secure port: %d\n", SETTING(TLS_PORT));
         return;
     }
 
-    secureServer = new Server(true, static_cast<uint16_t>(SETTING(TLS_PORT)), SETTING(BIND_ADDRESS));
+    secureServer = new Server(true, Util::toString(SETTING(TLS_PORT)), SETTING(BIND_ADDRESS));
 }
 
 /**
@@ -210,10 +210,18 @@ void ConnectionManager::on(TimerManagerListener::Minute, uint64_t aTick) noexcep
     }
 }
 
+const string& ConnectionManager::getPort() const {
+    return server ? server->getPort() : Util::emptyString;
+}
+
+const string& ConnectionManager::getSecurePort() const {
+    return secureServer ? secureServer->getPort() : Util::emptyString;
+}
+
 static const uint32_t FLOOD_TRIGGER = 20000;
 static const uint32_t FLOOD_ADD = 2000;
 
-ConnectionManager::Server::Server(bool secure_, uint16_t aPort, const string& ip_ /* = "0.0.0.0" */) : port(0), secure(secure_), die(false) {
+ConnectionManager::Server::Server(bool secure_, const string& aPort, const string& ip_ /* = "0.0.0.0" */) : secure(secure_), die(false) {
     sock.create();
     sock.setSocketOpt(SO_REUSEADDR, 1);
     ip = SETTING(BIND_IFACE)? sock.getIfaceI4(SETTING(BIND_IFACE_NAME)).c_str() : ip_;
@@ -228,7 +236,7 @@ static const uint32_t POLL_TIMEOUT = 250;
 int ConnectionManager::Server::run() noexcept {
     {
         char threadName[17];
-        snprintf(threadName, sizeof threadName, "Server_%u", port);
+        snprintf(threadName, sizeof threadName, "Server_%s", port.c_str());
         setThreadName(threadName);
     }
     while(!die) {
@@ -314,16 +322,16 @@ void ConnectionManager::addCTM2HUB(const string &server, const string &port)
     ddosctm2hub.insert(key);
 }
 
-void ConnectionManager::nmdcConnect(const string& aServer, uint16_t aPort, const string& aNick, const string& hubUrl, const string& encoding, bool secure) {
-    nmdcConnect(aServer, aPort, 0, BufferedSocket::NAT_NONE, aNick, hubUrl, encoding, secure);
+void ConnectionManager::nmdcConnect(const string& aServer, const string& aPort, const string& aNick, const string& hubUrl, const string& encoding, bool secure) {
+    nmdcConnect(aServer, aPort, Util::emptyString, BufferedSocket::NAT_NONE, aNick, hubUrl, encoding, secure);
 }
 
-void ConnectionManager::nmdcConnect(const string& aServer, uint16_t aPort, uint16_t localPort, BufferedSocket::NatRoles natRole, const string& aNick, const string& hubUrl, const string& encoding, bool secure) {
+void ConnectionManager::nmdcConnect(const string& aServer, const string& aPort, const string& localPort, BufferedSocket::NatRoles natRole, const string& aNick, const string& hubUrl, const string& encoding, bool secure) {
     if(shuttingDown)
         return;
     {
         Lock l(cs);
-        if (!ddosctm2hub.empty() && ddosctm2hub.find(aServer + ":" + Util::toString(aPort)) != ddosctm2hub.end()) {
+        if (!ddosctm2hub.empty() && ddosctm2hub.find(aServer + ":" + aPort) != ddosctm2hub.end()) {
             return;
         }
     }
@@ -341,11 +349,11 @@ void ConnectionManager::nmdcConnect(const string& aServer, uint16_t aPort, uint1
     }
 }
 
-void ConnectionManager::adcConnect(const OnlineUser& aUser, uint16_t aPort, const string& aToken, bool secure) {
-        adcConnect(aUser, aPort, 0, BufferedSocket::NAT_NONE, aToken, secure);
+void ConnectionManager::adcConnect(const OnlineUser& aUser, const std::string &aPort, const string& aToken, bool secure) {
+        adcConnect(aUser, aPort, Util::emptyString, BufferedSocket::NAT_NONE, aToken, secure);
 }
 
-void ConnectionManager::adcConnect(const OnlineUser& aUser, uint16_t aPort, uint16_t localPort, BufferedSocket::NatRoles natRole, const string& aToken, bool secure) {
+void ConnectionManager::adcConnect(const OnlineUser& aUser, const std::string &aPort, const std::string &localPort, BufferedSocket::NatRoles natRole, const string& aToken, bool secure) {
     if(shuttingDown)
         return;
 

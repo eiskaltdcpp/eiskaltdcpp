@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2001-2012 Jacek Sieka, arnetheduck on gmail point com
+ * Copyright (C) 2019 Boris Pek <tehnick-8@yandex.ru>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -99,10 +100,10 @@ public:
         expectedConnections.add(aNick, aMyNick, aHubUrl);
     }
 
-    void nmdcConnect(const string& aServer, uint16_t aPort, const string& aMyNick, const string& hubUrl, const string& encoding, bool secure);
-    void nmdcConnect(const string& aServer, uint16_t aPort, uint16_t localPort, BufferedSocket::NatRoles natRole, const string& aNick, const string& hubUrl, const string& encoding, bool secure);
-    void adcConnect(const OnlineUser& aUser, uint16_t aPort, const string& aToken, bool secure);
-    void adcConnect(const OnlineUser& aUser, uint16_t aPort, uint16_t localPort, BufferedSocket::NatRoles natRole, const string& aToken, bool secure);
+    void nmdcConnect(const string& aServer, const string& aPort, const string& aMyNick, const string& hubUrl, const string& encoding, bool secure);
+    void nmdcConnect(const string& aServer, const string& aPort, const string& localPort, BufferedSocket::NatRoles natRole, const string& aNick, const string& hubUrl, const string& encoding, bool secure);
+    void adcConnect(const OnlineUser& aUser, const string& aPort, const string& aToken, bool secure);
+    void adcConnect(const OnlineUser& aUser, const string& aPort, const string& localPort, BufferedSocket::NatRoles natRole, const string& aToken, bool secure);
 
     void getDownloadConnection(const HintedUser& aUser);
     void force(const UserPtr& aUser);
@@ -116,8 +117,8 @@ public:
     void listen();
     void disconnect() noexcept;
 
-    uint16_t getPort() { return server ? static_cast<uint16_t>(server->getPort()) : 0; }
-    uint16_t getSecurePort() { return secureServer ? static_cast<uint16_t>(secureServer->getPort()) : 0; }
+    const string& getPort() const;
+    const string& getSecurePort() const;
 
     void addCTM2HUB(const string &server, const string &port);
 
@@ -127,14 +128,16 @@ private:
 
     class Server : public Thread {
     public:
-        Server(bool secure_, uint16_t port, const string& ip = "0.0.0.0");
-        uint16_t getPort() { return port; }
+        Server(bool secure_, const std::string& port, const string& ip = "0.0.0.0");
         virtual ~Server() { die = true; join(); }
+
+        const string& getPort() const { return port; }
+
     private:
         virtual int run() noexcept;
 
         Socket sock;
-        uint16_t port;
+        string port;
         string ip;
         bool secure;
         bool die;

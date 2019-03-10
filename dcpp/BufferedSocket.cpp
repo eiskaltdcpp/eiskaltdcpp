@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2001-2012 Jacek Sieka, arnetheduck on gmail point com
+ * Copyright (C) 2019 Boris Pek <tehnick-8@yandex.ru>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -95,11 +96,11 @@ void BufferedSocket::accept(const Socket& srv, bool secure, bool allowUntrusted)
     addTask(ACCEPTED, 0);
 }
 
-void BufferedSocket::connect(const string& aAddress, uint16_t aPort, bool secure, bool allowUntrusted, bool proxy) {
-    connect(aAddress, aPort, 0, NAT_NONE, secure, allowUntrusted, proxy);
+void BufferedSocket::connect(const string& aAddress, const string& aPort, bool secure, bool allowUntrusted, bool proxy, const string& expKP) {
+    connect(aAddress, aPort, Util::emptyString, NAT_NONE, secure, allowUntrusted, proxy, expKP);
 }
 
-void BufferedSocket::connect(const string& aAddress, uint16_t aPort, uint16_t localPort, NatRoles natRole, bool secure, bool allowUntrusted, bool proxy) {
+void BufferedSocket::connect(const string& aAddress, const string& aPort, const string& localPort, NatRoles natRole, bool secure, bool allowUntrusted, bool proxy, const string& expKP) {
     dcdebug("BufferedSocket::connect() %p\n", (void*)this);
     std::unique_ptr<Socket> s(secure ? (natRole == NAT_SERVER ? CryptoManager::getInstance()->getServerSocket(allowUntrusted) : CryptoManager::getInstance()->getClientSocket(allowUntrusted)) : new Socket);
 
@@ -113,10 +114,10 @@ void BufferedSocket::connect(const string& aAddress, uint16_t aPort, uint16_t lo
 
 #define LONG_TIMEOUT 30000
 #define SHORT_TIMEOUT 1000
-void BufferedSocket::threadConnect(const string& aAddr, uint16_t aPort, uint16_t localPort, NatRoles natRole, bool proxy) {
+void BufferedSocket::threadConnect(const string& aAddr, const string &aPort, const string &localPort, NatRoles natRole, bool proxy) {
     dcassert(state == STARTING);
 
-    dcdebug("threadConnect %s:%d/%d\n", aAddr.c_str(), (int)localPort, (int)aPort);
+    dcdebug("threadConnect %s:%s/%s\n", aAddr.c_str(), localPort.c_str(), aPort.c_str());
     fire(BufferedSocketListener::Connecting());
 
     const uint64_t endTime = GET_TICK() + LONG_TIMEOUT;
