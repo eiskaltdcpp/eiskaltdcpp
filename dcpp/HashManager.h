@@ -235,11 +235,11 @@ private:
     public:
         struct TTHStreamHeader
         {
-            uint32_t magic;
-            uint32_t checksum;
-            uint64_t fileSize;
-            uint64_t timeStamp;
-            uint64_t blockSize;
+            uint32_t magic      = 0;
+            uint32_t checksum   = 0;
+            uint64_t fileSize   = 0;
+            uint64_t timeStamp  = 0;
+            uint64_t blockSize  = 0;
             TTHValue root;
         };
 
