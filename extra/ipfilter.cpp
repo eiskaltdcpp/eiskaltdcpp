@@ -421,9 +421,8 @@ void ipfilter::loadList() {
         clearRules();
 
     StringTokenizer<string> st(f, "\n");
-    for (StringIter i = st.getTokens().begin(); i != st.getTokens().end(); ++i) {
+    for (string str_ip : st.getTokens()) {
         eDIRECTION direction = eDIRECTION_IN;
-        string str_ip = *i;
 #ifdef _DEBUG_IPFILTER
         fprintf(stdout,"pointer on part string: %s\n",str_ip.c_str());fflush(stdout);
 #endif

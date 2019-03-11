@@ -71,9 +71,9 @@ void DynDNS::on(HttpConnectionListener::Complete, HttpConnection*, string const&
         SettingsManager::getInstance()->set(SettingsManager::INTERNETIP, internetIP);
         Client::List clients = ClientManager::getInstance()->getClients();
 
-        for(Client::Iter i = clients.begin(); i != clients.end(); ++i) {
-            if((*i)->isConnected()) {
-                (*i)->reloadSettings(false);
+        for(auto c : clients) {
+            if(c->isConnected()) {
+                c->reloadSettings(false);
             }
         }
     }
