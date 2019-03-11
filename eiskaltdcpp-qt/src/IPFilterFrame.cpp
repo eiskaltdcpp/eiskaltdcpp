@@ -106,11 +106,9 @@ void IPFilterFrame::slotRuleAdded(QString exp, eDIRECTION direction) {
     switch (direction) {
         case eDIRECTION_BOTH:
             type = "BOTH";
-
             break;
         case eDIRECTION_IN:
             type = "IN";
-
             break;
         default:
             break;
@@ -125,28 +123,24 @@ void IPFilterFrame::loadItems() {
 
     model->clearModel();
 
-    IPList list = ipfilter::getInstance()->getRules();
+    const IPList list = ipfilter::getInstance()->getRules();
 
-    for (int i = 0; i < list.size(); i++){
-
-        IPFilterElem *el = list.at(i);
-        QString prefix = (el->action == etaDROP?"!":"");
+    for (const IPFilterElem *el : list) {
+        const QString prefix = (el->action == etaDROP ? "!" : "");
         QString type = "OUT";
 
         switch (el->direction) {
             case eDIRECTION_BOTH:
                 type = "BOTH";
-
                 break;
             case eDIRECTION_IN:
                 type = "IN";
-
                 break;
             default:
                 break;
         }
 
-        model->addResult(prefix+QString::fromStdString(ipfilter::Uint32ToString(el->ip)) + "/" + QString().setNum(ipfilter::MaskToCIDR(el->mask)), type);
+        model->addResult(prefix + QString::fromStdString(ipfilter::Uint32ToString(el->ip)) + "/" + QString::number(ipfilter::MaskToCIDR(el->mask)), type);
     }
 }
 
