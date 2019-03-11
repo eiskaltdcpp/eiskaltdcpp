@@ -175,12 +175,7 @@ void ConnectivityManager::log(const string& message) {
 }
 
 void ConnectivityManager::updateLast() {
-    lastTcp = (unsigned short)SETTING(TCP_PORT);
-    lastUdp = (unsigned short)SETTING(UDP_PORT);
-    lastTls = (unsigned short)SETTING(TLS_PORT);
-    lastConn = SETTING(INCOMING_CONNECTIONS);
     lastBind = SETTING(BIND_ADDRESS);
-    //lastMapper = SETTING(MAPPER);
 }
 
 } // namespace dcpp

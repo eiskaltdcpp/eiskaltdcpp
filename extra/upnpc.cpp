@@ -84,6 +84,6 @@ string UPnPc::getExternalIP()
 {
     char buf[16] = { 0 };
     if (UPNP_GetExternalIPAddress(urls.controlURL, data.first.servicetype, buf) == UPNPCOMMAND_SUCCESS)
-        return buf;
+        return string(buf);
     return Util::emptyString;
 }

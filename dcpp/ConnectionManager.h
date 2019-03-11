@@ -128,7 +128,7 @@ private:
 
     class Server : public Thread {
     public:
-        Server(bool secure_, const std::string& port, const string& ip = "0.0.0.0");
+        Server(const bool secure_, const std::string& port, const string& ip = "0.0.0.0");
         virtual ~Server() { die = true; join(); }
 
         const string& getPort() const { return port; }

@@ -61,10 +61,6 @@ private:
     bool autoDetected;
     bool running;
 
-    unsigned short lastTcp;
-    unsigned short lastUdp;
-    unsigned short lastTls;
-    int lastConn;
     string lastBind;
 };
 
