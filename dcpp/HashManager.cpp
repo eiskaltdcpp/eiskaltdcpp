@@ -95,12 +95,11 @@ bool HashManager::StreamStore::loadTree(const string& p_filePath, TigerTree &tre
     const size_t hdrSz      = sizeof(TTHStreamHeader);
     const size_t totalSz    = ATTR_MAX_VALUELEN;
     const size_t blockSize  = totalSz;
-    TTHStreamHeader h;
 
     std::unique_ptr<uint8_t[]> buf(new uint8_t[blockSize]);
 
-    if (getxattr(p_filePath.c_str(), g_streamName.c_str(), (char*)(void*)buf.get(), blockSize) == 0){
-        memcpy(&h, buf.get(), hdrSz);
+    if (getxattr(p_filePath.c_str(), g_streamName.c_str(), (char*)(void*)buf.get(), blockSize) == 0) {
+        const TTHStreamHeader& h = reinterpret_cast<const TTHStreamHeader&>(*buf.get());
 
         printf("%s: timestamps header=0x%llx, current=0x%llx, difference(should be zero)=%llx\n",
                p_filePath.c_str(),
@@ -108,7 +107,7 @@ bool HashManager::StreamStore::loadTree(const string& p_filePath, TigerTree &tre
                (long long unsigned int)getTimeStamp(p_filePath),
                (long long unsigned int)(h.timeStamp - getTimeStamp(p_filePath)));
 
-        if (!(h.timeStamp == getTimeStamp(p_filePath) && validateCheckSum(h))){ // File was modified and we should reset attr.
+        if (!(h.timeStamp == getTimeStamp(p_filePath) && validateCheckSum(h))) { // File was modified and we should reset attr.
             deleteStream(p_filePath);
 
             return false;
