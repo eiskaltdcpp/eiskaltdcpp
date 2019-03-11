@@ -66,7 +66,7 @@ class PublicHubs:
         // Client callbacks
         virtual void on(dcpp::FavoriteManagerListener::DownloadStarting, const std::string &file) noexcept;
         virtual void on(dcpp::FavoriteManagerListener::DownloadFailed, const std::string &file) noexcept;
-        virtual void on(dcpp::FavoriteManagerListener::DownloadFinished, const std::string &file, bool fromCoral) noexcept;
+        virtual void on(dcpp::FavoriteManagerListener::DownloadFinished, const std::string &file) noexcept;
         virtual void on(dcpp::FavoriteManagerListener::LoadedFromCache, const std::string& l, const std::string& d) noexcept;
         virtual void on(dcpp::FavoriteManagerListener::Corrupted, const std::string& l) noexcept;
 

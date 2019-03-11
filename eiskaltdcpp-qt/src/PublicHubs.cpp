@@ -286,8 +286,8 @@ void PublicHubs::on(DownloadFailed, const std::string& l) noexcept{
     emit coreDownloadFailed(tr("Download failed: %1").arg(_q(l)));
 }
 
-void PublicHubs::on(DownloadFinished, const std::string& l, bool fromCoral) noexcept{
-    emit coreDownloadFinished(tr("Hub list downloaded... (%1 %2) ").arg(_q(l)).arg(fromCoral? tr("from Coral") : ""));
+void PublicHubs::on(DownloadFinished, const std::string& l) noexcept{
+    emit coreDownloadFinished(tr("Hub list downloaded... (%1)").arg(_q(l)));
 }
 
 void PublicHubs::on(LoadedFromCache, const std::string& l, const std::string& d) noexcept{

@@ -43,8 +43,8 @@ public:
     void fire(T&&... type) noexcept {
         Lock l(listenerCS);
         tmp = listeners;
-        for(auto i = tmp.begin(); i != tmp.end(); ++i) {
-            (*i)->on(std::forward<T>(type)...);
+        for(auto i: tmp) {
+            i->on(std::forward<T>(type)...);
         }
     }
 

@@ -41,7 +41,7 @@ public:
 
     virtual void on(DownloadStarting, const string&) noexcept { }
     virtual void on(DownloadFailed, const string&) noexcept { }
-    virtual void on(DownloadFinished, const string&, bool) noexcept { }
+    virtual void on(DownloadFinished, const string&) noexcept { }
     virtual void on(FavoriteAdded, const FavoriteHubEntryPtr) noexcept { }
     virtual void on(FavoriteRemoved, const FavoriteHubEntryPtr) noexcept { }
     virtual void on(UserAdded, const FavoriteUser&) noexcept { }

@@ -47,7 +47,6 @@ public:
 private:
     enum RequestType { TYPE_GET, TYPE_POST };
     enum ConnectionStates { CONN_UNKNOWN, CONN_OK, CONN_FAILED, CONN_MOVED, CONN_CHUNKED };
-    enum CoralizeStates { CST_DEFAULT, CST_CONNECTED, CST_NOCORALIZE };
 
     string currentUrl;
     string userAgent;
@@ -63,7 +62,6 @@ private:
     int64_t done;
 
     ConnectionStates connState;
-    CoralizeStates coralizeState;
     RequestType connType;
 
     BufferedSocket* socket;

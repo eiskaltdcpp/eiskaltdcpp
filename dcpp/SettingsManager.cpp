@@ -84,7 +84,7 @@ const string SettingsManager::settingTags[] =
     "DontDlAlreadyQueued", "MaxCommandLength", "AllowUntrustedHubs",
     "AllowUntrustedClients", "TLSPort", "FastHash",
     "SegmentedDL", "FollowLinks", "SendBloom",
-    "Coral", "SearchFilterShared", "FinishedDLOnlyFull",
+    "SearchFilterShared", "FinishedDLOnlyFull",
     "SearchMerge", "HashBufferSize", "HashBufferPopulate",
     "HashBufferNoReserve", "HashBufferPrivate",
     "UseDHT", "DHTPort",
@@ -269,7 +269,6 @@ SettingsManager::SettingsManager()
     setDefault(SEGMENTED_DL, true);
     setDefault(FOLLOW_LINKS, false);
     setDefault(SEND_BLOOM, true);
-    setDefault(CORAL, true);
     setDefault(FINISHED_DL_ONLY_FULL, true);
     setDefault(SEARCH_MERGE, true);
     setDefault(HASH_BUFFER_SIZE_MB, 8);

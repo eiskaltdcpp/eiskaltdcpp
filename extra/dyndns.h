@@ -37,7 +37,7 @@ class DynDNS : public Singleton<DynDNS>, private HttpConnectionListener
     void Request();
     // HttpConnectionListener
     void on(HttpConnectionListener::Data, HttpConnection* conn, const uint8_t* buf, size_t len) noexcept;
-    void on(HttpConnectionListener::Complete, HttpConnection* conn, string const& aLine, bool /*fromCoral*/) noexcept;
+    void on(HttpConnectionListener::Complete, HttpConnection* conn, string const& aLine) noexcept;
     void on(HttpConnectionListener::Failed, HttpConnection* conn, const string& aLine) noexcept;
 
     // TimerManagerListener

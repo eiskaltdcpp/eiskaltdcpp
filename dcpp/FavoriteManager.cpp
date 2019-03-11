@@ -782,7 +782,7 @@ void FavoriteManager::on(Failed, HttpConnection*, const string& aLine) noexcept 
         fire(FavoriteManagerListener::DownloadFailed(), aLine);
     }
 }
-void FavoriteManager::on(Complete, HttpConnection*, const string& aLine, bool fromCoral) noexcept {
+void FavoriteManager::on(Complete, HttpConnection*, const string& aLine) noexcept {
     bool parseSuccess = false;
 
     c->removeListener(this);
@@ -791,7 +791,7 @@ void FavoriteManager::on(Complete, HttpConnection*, const string& aLine, bool fr
     }
     running = false;
     if(parseSuccess) {
-        fire(FavoriteManagerListener::DownloadFinished(), aLine, fromCoral);
+        fire(FavoriteManagerListener::DownloadFinished(), aLine);
     }
 }
 

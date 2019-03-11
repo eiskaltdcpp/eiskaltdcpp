@@ -68,7 +68,7 @@ namespace dht
     }
 
     #define BUFSIZE 16384
-    void BootstrapManager::on(HttpConnectionListener::Complete, HttpConnection*, string const&, bool /*fromCoral*/) throw()
+    void BootstrapManager::on(HttpConnectionListener::Complete, HttpConnection*, string const&) throw()
     {
         if(!nodesXML.empty())
         {

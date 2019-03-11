@@ -50,7 +50,7 @@ void DynDNS::on(HttpConnectionListener::Data, HttpConnection*, const uint8_t* bu
     html += string((const char*)buf, len);
 }
 
-void DynDNS::on(HttpConnectionListener::Complete, HttpConnection*, string const&, bool /*fromCoral*/) noexcept {
+void DynDNS::on(HttpConnectionListener::Complete, HttpConnection*, string const&) noexcept {
     request = false;
     string internetIP;
     if (!html.empty()) {

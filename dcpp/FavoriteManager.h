@@ -150,7 +150,7 @@ private:
     // HttpConnectionListener
     virtual void on(Data, HttpConnection*, const uint8_t*, size_t) noexcept;
     virtual void on(Failed, HttpConnection*, const string&) noexcept;
-    virtual void on(Complete, HttpConnection*, const string&, bool) noexcept;
+    virtual void on(Complete, HttpConnection*, const string&) noexcept;
     virtual void on(Redirected, HttpConnection*, const string&) noexcept;
     virtual void on(TypeNormal, HttpConnection*) noexcept;
     virtual void on(TypeBZ2, HttpConnection*) noexcept;
