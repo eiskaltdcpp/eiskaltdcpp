@@ -38,7 +38,7 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <unistd.h>
-#include "attr/attributes.h"
+#include <sys/xattr.h>
 #endif
 
 namespace dcpp {
@@ -94,12 +94,12 @@ bool HashManager::StreamStore::loadTree(const string& p_filePath, TigerTree &tre
     const int64_t fileSize  = (p_aFileSize == -1) ? File::getSize(p_filePath) : p_aFileSize;
     const size_t hdrSz      = sizeof(TTHStreamHeader);
     const size_t totalSz    = ATTR_MAX_VALUELEN;
-    int blockSize           = totalSz;
+    const size_t blockSize  = totalSz;
     TTHStreamHeader h;
 
-    std::unique_ptr<uint8_t[]> buf(new uint8_t[totalSz]);
+    std::unique_ptr<uint8_t[]> buf(new uint8_t[blockSize]);
 
-    if (attr_get(p_filePath.c_str(), g_streamName.c_str(), (char*)(void*)buf.get(), &blockSize, 0) == 0){
+    if (getxattr(p_filePath.c_str(), g_streamName.c_str(), (char*)(void*)buf.get(), blockSize) == 0){
         memcpy(&h, buf.get(), hdrSz);
 
         printf("%s: timestamps header=0x%llx, current=0x%llx, difference(should be zero)=%llx\n",
@@ -155,7 +155,7 @@ bool HashManager::StreamStore::saveTree(const string& p_filePath, const TigerTre
         memcpy(buf.get(), &h, sizeof(TTHStreamHeader));
         memcpy(buf.get() + sizeof(TTHStreamHeader), p_Tree.getLeaves()[0].data, p_Tree.getLeaves().size() * TTHValue::BYTES);
 
-        return (attr_set(p_filePath.c_str(), g_streamName.c_str(), (char*)(void*)buf.get(), sz, 0) == 0);
+        return (setxattr(p_filePath.c_str(), g_streamName.c_str(), (char*)(void*)buf.get(), sz, 0) == 0);
     }
 #else // USE_XATTR
     (void)p_filePath;
@@ -168,7 +168,7 @@ void HashManager::StreamStore::deleteStream(const string& p_filePath)
 {
 #ifdef USE_XATTR
     printf("Resetting Xattr for %s\n", p_filePath.c_str());
-    attr_remove(p_filePath.c_str(), g_streamName.c_str(), 0);
+    removexattr(p_filePath.c_str(), g_streamName.c_str());
 #else
     (void)p_filePath;
 #endif //USE_XATTR
