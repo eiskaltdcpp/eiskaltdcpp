@@ -154,13 +154,13 @@ public:
 #endif
 
     string getLocalIp() noexcept;
-    uint16_t getLocalPort() noexcept;
+    string getLocalPort() noexcept;
 
     // Low level interface
     virtual void create(int aType = TYPE_TCP);
 
     /** Binds a socket to a certain local port and possibly IP. */
-    virtual uint16_t bind(const std::string &aPort = Util::emptyString, const string& aIp = "0.0.0.0");
+    virtual const string bind(const string &aPort = Util::emptyString, const string& aIp = "0.0.0.0");
     virtual void listen();
     virtual void accept(const Socket& listeningSocket);
 

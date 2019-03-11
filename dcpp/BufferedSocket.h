@@ -98,7 +98,7 @@ public:
     void disconnect(bool graceless = false) noexcept { Lock l(cs); if(graceless) disconnecting = true; addTask(DISCONNECT, 0); }
 
     string getLocalIp() const { return sock->getLocalIp(); }
-    string getLocalPort() const { return Util::toString(sock->getLocalPort()); }
+    string getLocalPort() const { return sock->getLocalPort(); }
 
     GETSET(char, separator, Separator)
 private:

@@ -166,7 +166,7 @@ string Socket::getIfaceI4 (const string &iface){
 #endif
 }
 
-uint16_t Socket::bind(const string& aPort, const string& aIp /* = 0.0.0.0 */) {
+const string Socket::bind(const string& aPort, const string& aIp /* = 0.0.0.0 */) {
     sockaddr_in sock_addr;
 
     sock_addr.sin_family = AF_INET;
@@ -180,7 +180,7 @@ uint16_t Socket::bind(const string& aPort, const string& aIp /* = 0.0.0.0 */) {
     }
     socklen_t size = sizeof(sock_addr);
     getsockname(sock, (sockaddr*)&sock_addr, (socklen_t*)&size);
-    return ntohs(sock_addr.sin_port);
+    return Util::toString(ntohs(sock_addr.sin_port));
 }
 
 void Socket::listen() {
@@ -662,16 +662,16 @@ string Socket::getLocalIp() noexcept {
     return Util::emptyString;
 }
 
-uint16_t Socket::getLocalPort() noexcept {
+string Socket::getLocalPort() noexcept {
     if(sock == INVALID_SOCKET)
-        return 0;
+        return Util::emptyString;
 
     sockaddr_in sock_addr;
     socklen_t len = sizeof(sock_addr);
     if(getsockname(sock, (sockaddr*)&sock_addr, &len) == 0) {
-        return ntohs(sock_addr.sin_port);
+        return Util::toString(ntohs(sock_addr.sin_port));
     }
-    return 0;
+    return Util::emptyString;
 }
 
 void Socket::socksUpdated() {
