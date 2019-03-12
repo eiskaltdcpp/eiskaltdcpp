@@ -35,6 +35,7 @@ namespace dht
     BootstrapManager::BootstrapManager(void)
     {
         dhtservers.push_back("http://strongdc.sourceforge.net/bootstrap/");
+        dhtservers.push_back("http://dht.fly-server.ru/dcDHT.php");
         httpConnection.addListener(this);
     }
 
