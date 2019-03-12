@@ -48,7 +48,7 @@ matrix:
       os: linux
 
 install:
-  - ./tests/travis/install-build-depends.sh
+  - ./tests/travis-ci/install-build-depends.sh
 
 script:
-  - ./tests/travis/build-and-test.sh
+  - ./tests/travis-ci/build-and-test.sh
