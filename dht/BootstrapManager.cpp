@@ -48,7 +48,7 @@ namespace dht
     {
         if(bootstrapNodes.empty())
         {
-            LogManager::getInstance()->message("DHT bootstrapping started");
+            LogManager::getInstance()->message(_("DHT bootstrapping started"));
             string dhturl = dhtservers[Util::rand(dhtservers.size())];
             // TODO: make URL settable
             string url = dhturl  + "?cid=" + ClientManager::getInstance()->getMe()->getCID().toBase32() + "&encryption=1";
@@ -111,18 +111,18 @@ namespace dht
 
                 remoteXml.stepOut();
 
-                LogManager::getInstance()->message("DHT bootstrapping is finished successfully.");
+                LogManager::getInstance()->message(_("DHT bootstrapping is finished successfully."));
             }
             catch(Exception& e)
             {
-                LogManager::getInstance()->message("DHT bootstrap error: " + e.getError());
+                LogManager::getInstance()->message(_("DHT bootstrap error: ") + e.getError());
             }
         }
     }
 
     void BootstrapManager::on(HttpConnectionListener::Failed, HttpConnection*, const string& aLine) throw()
     {
-        LogManager::getInstance()->message("DHT bootstrap error: " + aLine);
+        LogManager::getInstance()->message(_("DHT bootstrap error: ") + aLine);
     }
 
     void BootstrapManager::addBootstrapNode(const string& ip, const string& udpPort, const CID& targetCID, const UDPKey& udpKey)
