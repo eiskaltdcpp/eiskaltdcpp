@@ -277,7 +277,7 @@ SettingsManager::SettingsManager()
     setDefault(HASH_BUFFER_PRIVATE, true);
     setDefault(RECONNECT_DELAY, 15);
     setDefault(DHT_PORT, 6250);
-    setDefault(USE_DHT, false);
+    setDefault(USE_DHT, true);
     setDefault(SEARCH_PASSIVE, false);
     setDefault(AUTO_DETECT_CONNECTION, false);
     setDefault(MAX_UPLOAD_SPEED_MAIN, 0);

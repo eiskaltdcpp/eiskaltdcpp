@@ -5,6 +5,9 @@
 * Huge amount of improvements for macOS.
 * Updated list of hub list servers (with most popular public hubs).
 * Removed Coral CDN support, since it's stopped running.
+* Enable DHT by default. (Affects only new users.) In case you need you may
+  change this option at any time in Preferences dialog:
+  Connection --> Advanced --> Enable DHT.
 * Added dht.fly-server.ru server to list of servers for bootstrapping of
   initial list of available DHT nodes.
 * Serious code refactoring. Improved program stability and performance.
