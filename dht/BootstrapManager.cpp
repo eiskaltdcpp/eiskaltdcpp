@@ -110,6 +110,8 @@ namespace dht
                 }
 
                 remoteXml.stepOut();
+
+                LogManager::getInstance()->message("DHT bootstrapping is finished successfully.");
             }
             catch(Exception& e)
             {
