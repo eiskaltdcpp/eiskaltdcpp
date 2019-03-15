@@ -2752,6 +2752,9 @@ void MainWindow::slotAboutClient() {
         QString("&nbsp;&nbsp;&nbsp; * ")+
         tr("macOS maintainer")+QString(", 2018-2019")+
         QString("<br/>")+
+        QString("&nbsp;&nbsp;&nbsp; * ")+
+        tr("MS Windows maintainer")+QString(", 2019")+
+        QString("<br/>")+
         QString("<br/>")+
         QString("&nbsp; 2010-2015 <a href=\"mailto:pavelvat@gmail.com\">Pavel Vatagin</a><br/>")+
         QString("&nbsp;&nbsp;&nbsp; * ")+
@@ -2802,7 +2805,7 @@ void MainWindow::slotAboutClient() {
         QString("&nbsp;&nbsp;&nbsp; 2011-2014 <a href=\"mailto:marcus@elitemail.hu\">Márk Lutring</a><br/>")+
         QString("<br/>")+
         tr("French translation<br/>")+
-        QString("&nbsp;&nbsp;&nbsp; 2010-2018 <a href=\"mailto:alexandre.wallimann@gmail.com\">Alexandre Wallimann</a> aka Jellyffs<br/>")+
+        QString("&nbsp;&nbsp;&nbsp; 2010-2019 <a href=\"mailto:alexandre.wallimann@gmail.com\">Alexandre Wallimann</a> aka Jellyffs<br/>")+
         QString("<br/>")+
         tr("Polish translation<br/>")+
         QString("&nbsp;&nbsp;&nbsp; 2010-2012 <a href=\"mailto:arahael@gmail.com\">Arahael</a><br/>")+
