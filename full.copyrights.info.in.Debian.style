@@ -3,9 +3,6 @@ Debianized-By: Boris Pek <tehnick-8@yandex.ru>
 Debianized-Date: Sat, 06 Feb 2010 03:43:21 +0300
 Upstream-Name: EiskaltDC++
 Upstream-Contact: Boris Pek <tehnick-8@yandex.ru>
-                  Eugene Petrov <dhamp@ya.ru>
-                  Pavel Vatagin <pavelvat@gmail.com>
-                  Andrey Karlov <dein.negativ@gmail.com>
 Source: https://github.com/eiskaltdcpp/eiskaltdcpp
 
 Files: *
@@ -89,10 +86,10 @@ Files: update-translations.sh
        eiskaltdcpp-qt/qtscripts/amarok_nowplay/amarok.sh
        eiskaltdcpp-qt/qtscripts/clementine_nowplay/clementine.sh
        macos/*
-       tests/travis/*.sh
+       tests/travis-ci/*.sh
 Copyright: not-applicable
 Comment: Authors:
-         2011-2018 Boris Pek <tehnick-8@yandex.ru>
+         2011-2019 Boris Pek <tehnick-8@yandex.ru>
          2010 Uladzimir Bely (WiseLord) <wiselord1983@gmail.com>
          2010 Vovochka404 <vovochka13@gmail.com>
          2011 Mark Lutring
@@ -180,7 +177,7 @@ Files: eiskaltdcpp-gtk/src/*
 Copyright: 2004-2010 Jens Oknelid <paskharen@gmail.com>
            2009-2010 freedcpp <freedcpp@narod.ru>
            2009-2010 Leliksan Floyd <leliksan@Quadrafon2>
-           2010-2018 Boris Pek <tehnick-8@yandex.ru>
+           2010-2019 Boris Pek <tehnick-8@yandex.ru>
            2010-2014 Eugene Petrov <dhamp@ya.ru>
            2003 Bastien Nocera <hadess@hadess.net>
            2010 Mank <mank@besthub.eu>
