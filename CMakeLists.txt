@@ -78,7 +78,11 @@ option (DO_NOT_USE_MUTEX "Do not use mutex (necessary for Haiku and WINE)" OFF)
 option (LOCAL_JSONCPP "Use local JsonCpp" ON)
 option (LOCAL_BOOST "Use local boost headers" OFF)
 option (OPENSSL_MSVC "Use MSVC build openssl (only for Windows)" OFF)
-option (STATIC "Static build (only for Windows)" OFF)
+
+if (WIN32)
+    option (STATIC "Static build (only for Windows)" OFF)
+    option (INSTALL_DEPENDENCIES "Install all necessary libraries and plugins (only for Windows)" OFF)
+endif ()
 
 if (WIN32 OR HAIKU OR APPLE)
     add_definitions ( -DDO_NOT_USE_MUTEX )
@@ -387,6 +391,10 @@ endif ()
 
 if (USE_CLI_XMLRPC OR USE_CLI_JSONRPC)
     add_subdirectory (eiskaltdcpp-cli)
+endif ()
+
+if (WIN32 AND INSTALL_DEPENDENCIES)
+    include(${PROJECT_SOURCE_DIR}/windows/install-deps.cmake)
 endif ()
 
 if (GETTEXT_FOUND)

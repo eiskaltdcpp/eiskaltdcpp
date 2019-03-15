@@ -27,4 +27,7 @@ Extra keys for cmake
 -DDEBUG_MONGOOSE=ON/OFF (default: OFF)
     Enable debug output of mongoose library
 .
-
+-DSTATIC=ON/OFF (default: OFF)
+    Static build (only for Windows)
+-DINSTALL_DEPENDENCIES=ON/OFF (default: OFF)
+    Install all necessary libraries and plugins (only for Windows)
