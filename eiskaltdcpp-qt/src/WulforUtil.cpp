@@ -151,7 +151,8 @@ QString WulforUtil::findAppIconsPath() const
         QDir::homePath() + "/.eiskaltdc++/icons/appl/" + icon_theme,
         bin_path + "/appl/" + icon_theme,
         CLIENT_ICONS_DIR "/appl/" + icon_theme,
-        bin_path + CLIENT_ICONS_DIR "/appl/" + icon_theme
+        bin_path + CLIENT_ICONS_DIR "/appl/" + icon_theme,
+        bin_path + "/../" CLIENT_ICONS_DIR "/appl/" + icon_theme
     };
 
     for (QString settings_path : settings_path_list) {
@@ -178,7 +179,8 @@ QString WulforUtil::findUserIconsPath() const
         bin_path + "icons/user/" + user_theme,
         bin_path + "/user/" + user_theme,
         CLIENT_ICONS_DIR "/user/" + user_theme,
-        bin_path + CLIENT_ICONS_DIR "/user/" + user_theme
+        bin_path + CLIENT_ICONS_DIR "/user/" + user_theme,
+        bin_path + "/../" CLIENT_ICONS_DIR "/user/" + user_theme
     };
 
     for (QString settings_path : settings_path_list) {
@@ -203,6 +205,8 @@ QString WulforUtil::getEmoticonsPath() const
     static const QString emoticonsPath = bin_path + "/../../emoticons/";
 #else // Other OS
     static const QString emoticonsPath = CLIENT_DATA_DIR "/emoticons/";
+    if (!QDir(QDir::toNativeSeparators(emoticonsPath)).exists())
+        return QString(bin_path + "/../" + emoticonsPath);
 #endif
     return emoticonsPath;
 }
@@ -215,6 +219,8 @@ QString WulforUtil::getTranslationsPath() const
     static const QString translationsPath = bin_path + "/../../qt/ts/";
 #else // Other OS
     static const QString translationsPath = CLIENT_TRANSLATIONS_DIR "/";
+    if (!QDir(QDir::toNativeSeparators(translationsPath)).exists())
+        return QString(bin_path + "/../" + translationsPath);
 #endif
     return QDir(translationsPath).absolutePath();
 }
@@ -227,6 +233,8 @@ QString WulforUtil::getAspellDataPath() const
     static const QString aspellDataPath = bin_path + "/../../aspell/";
 #elif defined(LOCAL_ASPELL_DATA) // Other OS
     static const QString aspellDataPath = CLIENT_DATA_DIR "/aspell/";
+    if (!QDir(QDir::toNativeSeparators(aspellDataPath)).exists())
+        return QString(bin_path + "/../" + aspellDataPath);
 #else
     static const QString aspellDataPath = QString();
 #endif
@@ -243,6 +251,8 @@ QString WulforUtil::getClientResourcesPath() const
     const QString client_res_path = bin_path + QString("/../../" CLIENT_RES_DIR "/") + icon_theme + ".rcc";
 #else // Other systems
     const QString client_res_path = QString(CLIENT_RES_DIR) + PATH_SEPARATOR_STR + icon_theme + ".rcc";
+    if (!QDir(QDir::toNativeSeparators(client_res_path)).exists())
+        return QString(bin_path + "/../" + client_res_path);
 #endif // defined(Q_OS_WIN)
 
     return client_res_path;
