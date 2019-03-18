@@ -28,8 +28,8 @@
 using namespace dcpp;
 
 FavoriteHubs::FavoriteHubs(QWidget *parent):
-        QWidget(parent),
-        model(NULL)
+    QWidget(parent),
+    model(NULL)
 {
     setupUi(this);
 
@@ -80,45 +80,48 @@ void FavoriteHubs::init(){
 
     treeView->setModel(model);
 
-    fakeNMDCTags = QStringList();
-    fakeADCTags = QStringList();
+    fakeNMDCTags.clear();
+    fakeADCTags.clear();
 
-    fakeNMDCTags << QString("%1").arg(fullVersionString)
-            << "++ V:0.791"
-            << "++ V:0.851"
-            << "++ V:0.868"
-            << "StrgDC++ V:2.21"
-            << "StrgDC++ V:2.42"
-            << "AirDC++ V:3.53"
-            << "AirDC++w V:2.5.0"
-            << "ApexDC++ V:0.4.0"
-            << "ApexDC++ V:1.6.5"
-            << "FlylinkDC++ V:r504-21653"
-            << "FlylinkDC++ V:r504-x64-21131"
-            << "FlylinkDC++ V:r505-beta-21669"
-            << "FlylinkDC++ V:r505-beta-x64-2177"
-            << "HomeDC++ V:2.22"
-            << "FakeDC++ V:1.3";
+    fakeNMDCTags = QStringList({
+        QString("%1").arg(fullVersionString),
+        "++ V:0.791",
+        "++ V:0.851",
+        "++ V:0.868",
+        "StrgDC++ V:2.21",
+        "StrgDC++ V:2.42",
+        "AirDC++ V:3.53",
+        "AirDC++w V:2.5.0",
+        "ApexDC++ V:0.4.0",
+        "ApexDC++ V:1.6.5",
+        "FlylinkDC++ V:r504-21653",
+        "FlylinkDC++ V:r504-x64-21131",
+        "FlylinkDC++ V:r505-beta-21669",
+        "FlylinkDC++ V:r505-beta-x64-2177",
+        "HomeDC++ V:2.22",
+        "FakeDC++ V:1.3"
+    });
 
-    fakeADCTags << QString("%1").arg(fullADCVersionString)
-            << "++ 0.791"
-            << "0.851"
-            << "0.868"
-            << "StrgDC++ 2.21"
-            << "StrgDC++ 2.42"
-            << "AirDC++ 3.53"
-            << "AirDC++w 2.5.0"
-            << "0.4.0"
-            << "1.6.5"
-            << "r504-21653"
-            << "r504-x64-21131"
-            << "r505-beta-21669"
-            << "r505-beta-x64-2177"
-            << "HomeDC++ 2.22"
-            << "FakeDC++ 1.3";
+    fakeADCTags = QStringList({
+        QString("%1").arg(fullADCVersionString),
+        "++ 0.791",
+        "0.851",
+        "0.868",
+        "StrgDC++ 2.21",
+        "StrgDC++ 2.42",
+        "AirDC++ 3.53",
+        "AirDC++w 2.5.0",
+        "0.4.0",
+        "1.6.5",
+        "r504-21653",
+        "r504-x64-21131",
+        "r505-beta-21669",
+        "r505-beta-x64-2177",
+        "HomeDC++ 2.22",
+        "FakeDC++ 1.3"
+    });
 
     const FavoriteHubEntryList& fl = FavoriteManager::getInstance()->getFavoriteHubs();
-
     for (const FavoriteHubEntry* entry : fl) {
         QList<QVariant> data;
 
@@ -168,7 +171,7 @@ void FavoriteHubs::init(){
     connect(connectButton, SIGNAL(clicked()), this, SLOT(slotConnectButtonClicked()));
 
     connect(WulforSettings::getInstance(), SIGNAL(strValueChanged(QString,QString)), this, SLOT(slotSettingsChanged(QString,QString)));
-    
+
     ArenaWidget::setState( ArenaWidget::Flags(ArenaWidget::state() | ArenaWidget::Singleton | ArenaWidget::Hidden) );
 }
 
@@ -228,7 +231,7 @@ void FavoriteHubs::initHubEditor(FavoriteHubEditor &editor, StrMap &map){
 
     editor.comboBox_CID->clear();
     if (map["ADDR"].toString().startsWith("adc://",Qt::CaseInsensitive) ||
-        map["ADDR"].toString().startsWith("adcs://",Qt::CaseInsensitive))
+            map["ADDR"].toString().startsWith("adcs://",Qt::CaseInsensitive))
         tags = fakeADCTags;
     else
         tags = fakeNMDCTags;
@@ -252,7 +255,7 @@ void FavoriteHubs::slotUpdateComboBox_CID(){
     QString ADDR = editor->lineEdit_ADDRESS->text();
 
     if (ADDR.startsWith("adc://",Qt::CaseInsensitive) ||
-        ADDR.startsWith("adcs://",Qt::CaseInsensitive))
+            ADDR.startsWith("adcs://",Qt::CaseInsensitive))
         tags = fakeADCTags;
     else
         tags = fakeNMDCTags;
@@ -415,11 +418,11 @@ void FavoriteHubs::slotContexMenu(const QPoint &){
         sep2->setSeparator(true);
 
         menu->addActions(QList<QAction*>() << change
-                                           << remove
-                                           << sep1
-                                           << conn
-                                           << sep2
-                                           << add_new);
+                         << remove
+                         << sep1
+                         << conn
+                         << sep2
+                         << add_new);
 
         QAction *res = menu->exec(QCursor::pos());
 
@@ -492,7 +495,7 @@ void FavoriteHubs::on(FavoriteAdded, const FavoriteHubEntryPtr entry) noexcept{
          << _q(entry->getUserDescription())
          << WU->dcEnc2QtEnc(_q(entry->getEncoding()));
 
-   model->addResult(data);
+    model->addResult(data);
 }
 
 void FavoriteHubs::on(FavoriteRemoved, const FavoriteHubEntryPtr entry) noexcept{
