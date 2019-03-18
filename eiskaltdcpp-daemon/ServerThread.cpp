@@ -1475,11 +1475,11 @@ void ServerThread::ipfilterPurgeRules(const string& rules) {
     if (!ipfilter::getInstance())
         return;
     StringTokenizer<string> purge( rules, ";" );
-    for(StringIter i = purge.getTokens().begin(); i != purge.getTokens().end(); ++i) {
-        if (!i->find("!"))
-            ipfilter::getInstance()->remFromRules((*i), etaDROP);
+    for(const auto &token : purge.getTokens()) {
+        if (!token.find("!"))
+            ipfilter::getInstance()->remFromRules(token, etaDROP);
         else
-            ipfilter::getInstance()->remFromRules((*i), etaACPT);
+            ipfilter::getInstance()->remFromRules(token, etaACPT);
     }
 }
 
@@ -1487,9 +1487,9 @@ void ServerThread::ipfilterAddRules(const string& rules) {
     if (!ipfilter::getInstance())
         return;
     StringTokenizer<string> add( rules, ";" );
-    for(StringIter i = add.getTokens().begin(); i != add.getTokens().end(); ++i)
+    for(const auto &token : add.getTokens())
     {
-        StringTokenizer<string> addsub( (*i), "|" );
+        StringTokenizer<string> addsub(token, "|");
         if (addsub.getTokens().size() == 0)
             return;
         if (addsub.getTokens().at(1) == "in")
