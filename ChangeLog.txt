@@ -10,7 +10,9 @@
   Connection --> Advanced --> Enable DHT.
 * Added dht.fly-server.ru server to list of servers for bootstrapping of
   initial list of available DHT nodes.
-* Serious code refactoring. Improved program stability and performance.
+* Serious code refactoring:
+  — improved program stability and performance
+  — decreased usage of boost: all possible is rewritten in C++14
 *** eiskaltdcpp-qt ***
 * Fixed Quit action in builds with Qt 5.x. With Qt 4.x all worked fine.
 * Added configuration option: USE_PROGRESS_BARS. This option is especially
