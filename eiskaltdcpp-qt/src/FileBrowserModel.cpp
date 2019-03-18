@@ -60,8 +60,9 @@ FileBrowserModel::~FileBrowserModel()
         if (f.open(QIODevice::WriteOnly | QIODevice::Text | QIODevice::Truncate)){
             QTextStream stream(&f);
 
-            for (auto it = restrict_map.begin(); it != restrict_map.end(); ++it)
+            for (auto it = restrict_map.begin(); it != restrict_map.end(); ++it) {
                 stream << it.value() << " " << it.key() << '\n';
+            }
 
             stream.flush();
 

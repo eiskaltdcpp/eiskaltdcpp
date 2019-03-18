@@ -70,10 +70,8 @@ ShortcutsModel::ShortcutsModel(QObject * parent) : QAbstractItemModel(parent) {
     QMap<QString, QKeySequence> shs;
     shs = ShortcutManager::getInstance()->getShortcuts();
 
-    auto it = shs.begin();
     const QAction *act = NULL;
-
-    for (; it != shs.end(); ++it){
+    for (auto it = shs.begin(); it != shs.end(); ++it) {
         act = MW->findChild<QAction* >(it.key());
 
         if (!act)
@@ -97,12 +95,11 @@ ShortcutsModel::~ShortcutsModel() {
 }
 
 void ShortcutsModel::save(){
-    auto it = items.begin();
     MainWindow *MW = MainWindow::getInstance();
     QAction *act = NULL;
 
-    for (; it != items.end(); ++it){
-        act = MW->findChild<QAction* >(it.value());
+    for (auto it = items.begin(); it != items.end(); ++it) {
+        act = MW->findChild<QAction*>(it.value());
 
         if (!act)
             continue;

@@ -149,10 +149,9 @@ void ScriptEngine::stopScripts(){
     DEBUG_BLOCK
 
     QMap<QString, ScriptObject*> s = scripts;
-    auto it = s.begin();
-
-    for (; it != s.end(); ++it)
-        stopScript(it.key());
+    for (const QString &key : scripts.keys()) {
+        stopScript(key);
+    }
 
     scripts.clear();
 }
@@ -296,9 +295,10 @@ void ScriptEngine::slotWSKeyChanged(const QString &key, const QString &value){
         }
 
         QMap<QString, ScriptObject*> copy = scripts;
-        for (it = copy.begin(); it != copy.end(); ++it){
-            if (!enabled.contains(it.key()))
-                stopScript(it.key());
+        for (const QString &key : copy.keys()){
+            if (!enabled.contains(key)) {
+                stopScript(key);
+            }
         }
     }
 }
@@ -573,11 +573,9 @@ QScriptValue printErr(QScriptContext *ctx, QScriptEngine *engine){
 QScriptValue ScriptVarMapToScriptValue(QScriptEngine* eng, const VarMap& map)
 {
     QScriptValue a = eng->newObject();
-    auto it = map.begin();
 
-    for(; it != map.end(); ++it) {
+    for(auto it = map.begin(); it != map.end(); ++it) {
         QString prop = it.key();
-
         a.setProperty(prop, qScriptValueFromValue(eng, it.value()));
     }
 

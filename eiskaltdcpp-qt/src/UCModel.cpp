@@ -139,9 +139,8 @@ void UCModel::sort(int column, Qt::SortOrder order) {
 }
 
 void UCModel::loadUC(){
-    UserCommand::List lst = FavoriteManager::getInstance()->getUserCommands();
-    for (auto i = lst.begin(); i != lst.end(); ++i) {
-        const UserCommand& uc = *i;
+    UserCommand::List list = FavoriteManager::getInstance()->getUserCommands();
+    for (const UserCommand& uc : list) {
         if(!uc.isSet(UserCommand::FLAG_NOSAVE))
             addUC(uc);
     }

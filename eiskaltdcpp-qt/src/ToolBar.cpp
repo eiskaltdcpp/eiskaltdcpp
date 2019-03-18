@@ -208,9 +208,7 @@ void ToolBar::slotTabMoved(int from, int to){
     ArenaWidget *from_wgt = NULL;
     ArenaWidget *to_wgt   = NULL;
 
-    auto it = map.begin();
-
-    for (; it != map.end(); ++it){
+    for (auto it = map.begin(); it != map.end(); ++it){
         if (it.value() == from){
             from_wgt = it.key();
         }
@@ -285,18 +283,16 @@ ArenaWidget *ToolBar::findWidgetForIndex(const int index){
     if (index < 0)
         return NULL;
 
-    for (auto it = map.begin(); it != map.end(); ++it){
-        if (it.value() == index)
-            return const_cast<ArenaWidget*>(it.key());
+    for (const auto &k : map.keys()) {
+        if (map[k] == index)
+            return const_cast<ArenaWidget*>(k);
     }
 
     return NULL;
 }
 
 void ToolBar::redraw(){
-    auto it = map.begin();
-
-    for (; it != map.end(); ++it){
+    for (auto it = map.begin(); it != map.end(); ++it){
         tabbar->setTabText(it.value(), it.key()->getArenaShortTitle().left(32));
         tabbar->setTabToolTip(it.value(), WulforUtil::getInstance()->compactToolTipText(it.key()->getArenaTitle(), 60, "\n"));
         tabbar->setTabIcon(it.value(), it.key()->getPixmap());

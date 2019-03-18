@@ -133,14 +133,11 @@ void ShareBrowserSearch::findMatches(FileBrowserItem *item){
             }
             findMatches(i);
             if (type_search == 0 || type_search == 2) {
-                DirectoryListing::File::List *files = &i->dir->files;
-                DirectoryListing::File::Iter it_file;
-
-                for (it_file = files->begin(); it_file != files->end(); ++it_file){
-                    fname = _q((*it_file)->getName());
+                for (const auto &it_file : i->dir->files){
+                    fname = _q(it_file->getName());
 
                     if (fname.indexOf(lineEdit_SEARCHSTR->text(), 0, Qt::CaseInsensitive) >= 0 || fname.indexOf(regexp) >= 0 || regexp.exactMatch(fname))
-                        emit gotItem(_q((*it_file)->getName()), i);
+                        emit gotItem(_q(it_file->getName()), i);
                 }
             }
         }

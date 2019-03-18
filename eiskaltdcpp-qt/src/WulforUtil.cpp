@@ -725,9 +725,7 @@ QString WulforUtil::qtEnc2DcEnc(QString name){
 }
 
 QString WulforUtil::dcEnc2QtEnc(QString name){
-    auto it = QtEnc2DCEnc.begin();
-
-    for (; it != QtEnc2DCEnc.end(); ++it){
+    for (auto it = QtEnc2DCEnc.begin(); it != QtEnc2DCEnc.end(); ++it){
         if (it.value() == name || !it.value().indexOf(name))
             return it.key();
     }
@@ -736,14 +734,7 @@ QString WulforUtil::dcEnc2QtEnc(QString name){
 }
 
 QStringList WulforUtil::encodings(){
-    QStringList encs;
-
-    auto it = QtEnc2DCEnc.begin();
-
-    for (; it != QtEnc2DCEnc.end(); ++it)
-        encs << it.key();
-
-    return encs;
+    return QtEnc2DCEnc.keys();
 }
 
 QTextCodec *WulforUtil::codecForEncoding(QString name){

@@ -58,8 +58,8 @@ QVariant FavoriteUsersModel::data(const QModelIndex &index, int role) const
             if (!index.column()){
                 FavoriteManager::FavoriteMap ul = FavoriteManager::getInstance()->getFavoriteUsers();
 
-                for (auto i = ul.begin(); i != ul.end(); ++i) {
-                    const dcpp::FavoriteUser &u = i->second;
+                for (const auto &i : ul) {
+                    const dcpp::FavoriteUser &u = i.second;
 
                     if (_q(u.getUser()->getCID().toBase32()) == item->cid){
                         if (u.isSet(FavoriteUser::FLAG_GRANTSLOT))

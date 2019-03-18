@@ -63,10 +63,8 @@ TabFrame::TabFrame(QWidget *parent) :
 TabFrame::~TabFrame(){
     DEBUG_BLOCK
 
-    auto it = tbtn_map.begin();
-
-    for  (; it != tbtn_map.end(); ++it){
-        TabButton *btn = const_cast<TabButton*>(it.key());
+    for (const auto &key : tbtn_map.keys()){
+        TabButton *btn = const_cast<TabButton*>(key);
 
         btn->deleteLater();
     }
@@ -190,9 +188,7 @@ void TabFrame::updated ( ArenaWidget* awgt ) {
 void TabFrame::redraw() {
     DEBUG_BLOCK
     
-    auto it = tbtn_map.begin();
-
-    for  (; it != tbtn_map.end(); ++it){
+    for (auto it = tbtn_map.begin(); it != tbtn_map.end(); ++it){
         TabButton *btn = const_cast<TabButton*>(it.key());
         ArenaWidget *awgt = const_cast<ArenaWidget*>(it.value());
 

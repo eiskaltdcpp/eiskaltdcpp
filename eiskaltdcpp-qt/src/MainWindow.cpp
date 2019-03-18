@@ -1915,14 +1915,13 @@ void MainWindow::slotFileMatchAllList(){
 void MainWindow::redrawToolPanel(){
     Q_D(MainWindow);
 
-    auto it = d->menuWidgetsHash.begin();
-    auto end = d->menuWidgetsHash.end();
-
     ArenaWidget *awgt = NULL;
     PMWindow *pm = NULL;
     bool has_unread = false;
 
-    for (; it != end; ++it){ //also redraw all widget menu items and change window title if needed
+    // Also redraw all widget menu items and change window title if needed:
+    auto end = d->menuWidgetsHash.end();
+    for (auto it = d->menuWidgetsHash.begin(); it != end; ++it){
         awgt = it.value();
         it.key()->setText(awgt->getArenaShortTitle());
         it.key()->setIcon(awgt->getPixmap());

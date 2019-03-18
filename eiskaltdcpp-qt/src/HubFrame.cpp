@@ -581,13 +581,9 @@ QString HubFrame::LinkParser::parseForLinks(QString input, bool use_emot){
         if (input.isEmpty())
             break;
 
-        auto it = emoticons.begin();
-        auto end_it = emoticons.end();
         bool smile_found = false;
-
-        for (; it != end_it; ++it){//Let's try to parse smiles
-            const QString &emo_text = it.key();
-            EmoticonObject *obj = it.value();
+        for (const QString &emo_text : emoticons.keys()){ //Let's try to parse smiles
+            EmoticonObject *obj = emoticons[emo_text];
 
             if (input.startsWith(emo_text) && obj){
                 if (force_emot || input == emo_text){

@@ -186,7 +186,7 @@ private:
         const FinishedManager::MapByFile &list = FinishedManager::getInstance()->getMapByFile(isUpload);
         const FinishedManager::MapByUser &user = FinishedManager::getInstance()->getMapByUser(isUpload);
 
-        for (auto it = list.begin(); it != list.end(); ++it){
+        for (auto it = list.begin(); it != list.end(); ++it) {
             params.clear();
 
             getParams(it->second, it->first, params);
@@ -194,12 +194,12 @@ private:
             model->addFile(params);
         }
 
-        for (auto uit = user.begin(); uit != user.end(); ++uit){
+        for (auto uit = user.begin(); uit != user.end(); ++uit) {
             params.clear();
 
             getParams(uit->second, uit->first, params);
 
-            model->addUser(params);;
+            model->addUser(params);
         }
 
 #ifdef DO_NOT_USE_MUTEX
@@ -277,8 +277,9 @@ private:
         params["TIME"]  = _q(Util::formatTime("%Y-%m-%d %H:%M:%S", item->getTime()));
         params["PATH"]  = _q(Util::getFilePath(file));
 
-        for (auto it = item->getUsers().begin(); it != item->getUsers().end(); ++it)
-                nicks += WulforUtil::getInstance()->getNicks(it->user->getCID()) + " ";
+        for (const auto &user : item->getUsers()) {
+            nicks += WulforUtil::getInstance()->getNicks(user.user->getCID()) + " ";
+        }
 
         params["USERS"] = nicks;
         params["TR"]    = (qlonglong)item->getTransferred();
@@ -317,8 +318,9 @@ private:
         params["TIME"]  = _q(Util::formatTime("%Y-%m-%d %H:%M:%S", item->getTime()));
         params["NICK"]  = WulforUtil::getInstance()->getNicks(user->getCID());
 
-        for (auto it = item->getFiles().begin(); it != item->getFiles().end(); ++it)
-                files += _q(*it) + " ";
+        for (const auto &file: item->getFiles()) {
+                files += _q(file) + " ";
+        }
 
         params["FILES"] = files;
         params["TR"]    = (qlonglong)item->getTransferred();

@@ -121,8 +121,8 @@ void PublicHubs::updateList(){
     model->clearModel();
     QList<QVariant> data;
 
-    for (auto i = entries.begin(); i != entries.end(); ++i) {
-        HubEntry *entry = const_cast<HubEntry*>(&(*i));
+    for (auto &i : entries) {
+        HubEntry *entry = const_cast<HubEntry*>(&i);
         data.clear();
 
         data << _q(entry->getName())         << _q(entry->getDescription())  << entry->getUsers()

@@ -157,11 +157,10 @@ DownloadQueue::Menu::Action DownloadQueue::Menu::exec(const DownloadQueue::Sourc
     rem_usr->setDisabled(multiselect);
 
     QMap<QString, QString>  users = sources[target];
-    auto it = users.constBegin();
 
-    for (; it != users.constEnd(); ++it){
-        QAction *act = new QAction(it.key(), menu);
-        act->setStatusTip(it.value());
+    for (const auto &key : users.keys()){
+        QAction *act = new QAction(key, menu);
+        act->setStatusTip(users[key]);
 
         browse->addAction(act);
         send_pm->addAction(act);
@@ -336,10 +335,8 @@ void DownloadQueue::getParams(DownloadQueue::VarMap &params, const QueueItem *it
 
     QStringList user_list;
 
-    QueueItem::SourceConstIter it = item->getSources().begin();
-
-    for (; it != item->getSources().end(); ++it){
-        HintedUser usr = it->getUser();
+    for (const auto &src : item->getSources()){
+        HintedUser usr = src.getUser();
         const dcpp::CID &cid = usr.user->getCID();
 
         if (usr.user->isOnline())
@@ -375,32 +372,30 @@ void DownloadQueue::getParams(DownloadQueue::VarMap &params, const QueueItem *it
 
     params["ERRORS"] = QString("");
 
-    it = item->getBadSources().begin();
-
-    for (; it != item->getBadSources().end(); ++it){
+    for (const auto &src : item->getBadSources()){
         QString errors = params["ERRORS"].toString();
-        UserPtr usr = it->getUser();
+        UserPtr usr = src.getUser();
 
         nick = WulforUtil::getInstance()->getNicks(usr->getCID());
         source[nick] = _q(usr->getCID().toBase32());
 
-        if (!it->isSet(QueueItem::Source::FLAG_REMOVED)){
+        if (!src.isSet(QueueItem::Source::FLAG_REMOVED)){
             if (!errors.isEmpty())
                 errors += ", ";
 
             errors += nick + " (";
 
-            if (it->isSet(QueueItem::Source::FLAG_FILE_NOT_AVAILABLE))
+            if (src.isSet(QueueItem::Source::FLAG_FILE_NOT_AVAILABLE))
                 errors += tr("File not available");
-            else if (it->isSet(QueueItem::Source::FLAG_PASSIVE))
+            else if (src.isSet(QueueItem::Source::FLAG_PASSIVE))
                 errors += tr("Passive user");
-            else if (it->isSet(QueueItem::Source::FLAG_CRC_FAILED))
+            else if (src.isSet(QueueItem::Source::FLAG_CRC_FAILED))
                 errors += tr("Checksum mismatch");
-            else if (it->isSet(QueueItem::Source::FLAG_BAD_TREE))
+            else if (src.isSet(QueueItem::Source::FLAG_BAD_TREE))
                 errors += tr("Full tree does not match TTH root");
-            else if (it->isSet(QueueItem::Source::FLAG_SLOW_SOURCE))
+            else if (src.isSet(QueueItem::Source::FLAG_SLOW_SOURCE))
                 errors += tr("Source too slow");
-            else if (it->isSet(QueueItem::Source::FLAG_NO_TTHF))
+            else if (src.isSet(QueueItem::Source::FLAG_NO_TTHF))
                 errors += tr("Remote client does not fully support TTH - cannot download");
 
             params["ERRORS"] = errors + ")";
@@ -420,15 +415,12 @@ void DownloadQueue::getParams(DownloadQueue::VarMap &params, const QueueItem *it
 QStringList DownloadQueue::getSources(){
     Q_D(DownloadQueue);
 
-    auto s_it = d->sources.begin();
     QStringList ret;
 
-    for (; s_it != d->sources.end(); ++s_it){
-        QString target = s_it.key();
+    for (const QString &target : d->sources.keys()){
         QString users;
-        auto it = s_it.value().begin();
 
-        for (; it != s_it.value().end(); ++it){
+        for (auto it = d->sources[target].begin(); it != d->sources[target].end(); ++it){
             users += it.key() + "(" + it.value() + ") ";
         }
 
@@ -468,8 +460,8 @@ void DownloadQueue::loadList(){
 
     const QueueItem::StringMap &ll = QueueManager::getInstance()->lockQueue();
 
-    for (auto it = ll.begin(); it != ll.end(); ++it){
-        getParams(params, it->second);
+    for (const auto &k : ll) {
+        getParams(params, k.second);
 
         addFile(params);
     }

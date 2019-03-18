@@ -382,11 +382,10 @@ void TransferViewModel::updateTransfer(const VarMap &params){
     if (!findTransfer(vstr(params["CID"]), vbol(params["DOWN"]), &item))
         return;
 
-    auto i = column_map.constBegin();
-
-    for (; i != column_map.constEnd(); ++i){
-        if (params.contains(i.key()))
+    for (auto i = column_map.constBegin(); i != column_map.constEnd(); ++i) {
+        if (params.contains(i.key())) {
             item->updateColumn(i.value(), params[i.key()]);
+        }
     }
 
     qlonglong dpos = vdbl(params["DPOS"]);

@@ -69,10 +69,9 @@ void ShortcutManager::save(){
         return;
 
     QTextStream stream(&f);
-    auto it = shortcuts.begin();
-
-    for (; it != shortcuts.end(); ++it)
+    for (auto it = shortcuts.begin(); it != shortcuts.end(); ++it) {
         stream << it.key() << " " << it.value().toString() << "\n";
+    }
 
     f.close();
 }

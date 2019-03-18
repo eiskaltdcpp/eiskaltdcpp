@@ -77,8 +77,7 @@ void ADLS::init(){
 
     ADLSearchManager::SearchCollection& collection = ADLSearchManager::getInstance()->collection;
 
-    for (auto i = collection.begin(); i != collection.end(); ++i) {
-        ADLSearch &search = *i;
+    for (const ADLSearch &search : collection) {
         addItem(search);
     }
 
@@ -265,15 +264,17 @@ void ADLS::slotRemoveButtonClicked(){
 
     if (!item)
         return;
+
     StrMap mapcheck;
     mapcheck["SSTRING"] = item->data(COLUMN_SSTRING).toString();
     mapcheck["DIRECTORY"] = item->data(COLUMN_DIRECTORY).toString();
     VectorSize i = findEntry(mapcheck);
     ADLSearchManager::SearchCollection &collection = ADLSearchManager::getInstance()->collection;
-        if (i < collection.size()) {
-            collection.erase(collection.begin() + i);
-            model->removeItem(item);
-        }
+
+    if (i < collection.size()) {
+        collection.erase(collection.begin() + i);
+        model->removeItem(item);
+    }
 }
 
 void ADLS::slotUpButtonClicked(){
@@ -362,7 +363,7 @@ void ADLS::getParams(/*const*/ ADLSearch &entry, StrMap &map){
     map["TYPESIZE"]    = entry.typeFileSize;
 
 }
-void ADLS::addItem(ADLSearch &search){
+void ADLS::addItem(const ADLSearch &search){
         QList<QVariant> data;
 
         data << search.isActive
@@ -401,12 +402,14 @@ void ADLS::slotSettingsChanged(const QString &key, const QString &value){
 }
 
 /*ADLS::VectorSize*/int ADLS::findEntry(StrMap &map){
-    ADLSearchManager::SearchCollection& collection = ADLSearchManager::getInstance()->collection;int j=0;
-    for (auto i = collection.begin(); i != collection.end(); ++i,++j) {
-        ADLSearch &search = *i;
+    ADLSearchManager::SearchCollection& collection = ADLSearchManager::getInstance()->collection;
+    int j = 0;
+    for (const ADLSearch &search : collection) {
         if (_q(search.searchString) == map["SSTRING"] &&
-            _q(search.destDir) == map["DIRECTORY"])
+            _q(search.destDir) == map["DIRECTORY"]) {
             return j;
+        }
+        ++j;
     }
 
     return -1;

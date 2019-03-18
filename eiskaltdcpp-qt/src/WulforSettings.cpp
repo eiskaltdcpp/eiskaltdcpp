@@ -72,15 +72,13 @@ void WulforSettings::load(){
         loadOldConfig();
 
         //And load old config into QSettings
-        auto it = strmap.begin();
-
-        for (; it != strmap.end(); ++it)
+        for (auto it = strmap.begin(); it != strmap.end(); ++it) {
             settings.setValue(it.key(), it.value());
+        }
 
-        auto iit = intmap.begin();
-
-        for (; iit != intmap.end(); ++iit)
+        for (auto iit = intmap.begin(); iit != intmap.end(); ++iit) {
             settings.setValue(iit.key(), iit.value());
+        }
 
         // QFile(configFileOld).remove();
 
@@ -375,24 +373,19 @@ void WulforSettings::loadOldConfig(){
         xml.stepIn();
 
         if (xml.findChild("Settings")){
-
             xml.stepIn();
 
-            auto it = strmap.begin();
-
-            for (; it != strmap.end(); ++it){
-                if (xml.findChild(it.key().toStdString()))
-                        strmap.insert(it.key(), QString::fromStdString(xml.getChildData()));
-
+            for (const QString &key : strmap.keys()) {
+                if (xml.findChild(key.toStdString())) {
+                        strmap.insert(key, QString::fromStdString(xml.getChildData()));
+                }
                 xml.resetCurrentChild();
             }
 
-            auto iit = intmap.begin();
-
-            for (; iit != intmap.end(); ++iit){
-                if (xml.findChild(iit.key().toStdString()))
-                    intmap.insert(iit.key(), Util::toInt(xml.getChildData()));
-
+            for (const QString &key : intmap.keys()) {
+                if (xml.findChild(key.toStdString())) {
+                    intmap.insert(key, Util::toInt(xml.getChildData()));
+                }
                 xml.resetCurrentChild();
             }
         }

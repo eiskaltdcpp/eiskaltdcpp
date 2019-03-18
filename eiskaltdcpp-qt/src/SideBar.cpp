@@ -362,9 +362,7 @@ bool SideBarModel::isRootItem(const SideBarItem *item) const{
 }
 
 ArenaWidget::Role SideBarModel::rootItemRole(const SideBarItem *item) const{
-    auto it = roots.begin();
-
-    for (; it != roots.end(); ++it){
+    for (auto it = roots.begin(); it != roots.end(); ++it){
         if (it.value() == item)
             return it.key();
     }
