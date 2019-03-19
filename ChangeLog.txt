@@ -10,6 +10,8 @@
   Connection --> Advanced --> Enable DHT.
 * Added dht.fly-server.ru server to list of servers for bootstrapping of
   initial list of available DHT nodes.
+* Delete embedded copy of miniupnpc library: it was extremely outdated and in
+  any case system library is used now in builds for all supported systems.
 * Serious code refactoring:
   — improved program stability and performance
   — decreased usage of boost: all possible is rewritten in C++14
