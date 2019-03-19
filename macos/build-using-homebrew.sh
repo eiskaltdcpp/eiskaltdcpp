@@ -36,7 +36,6 @@ BUILD_OPTIONS="-DCMAKE_BUILD_TYPE=Release \
                -DLUA_SCRIPT=ON \
                -DWITH_SOUNDS=ON \
                -DWITH_LUASCRIPTS=ON \
-               -DLOCAL_MINIUPNP=OFF \
                -DLOCAL_BOOST=OFF \
                -DLOCAL_ASPELL_DATA=OFF"
 

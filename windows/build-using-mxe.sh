@@ -51,7 +51,6 @@ CMAKE_OPTIONS="-DCMAKE_INSTALL_PREFIX=../../EiskaltDC++ \
                -DWITH_SOUNDS=ON \
                -DWITH_LUASCRIPTS=ON \
                -DWITH_EXAMPLES=OFF \
-               -DLOCAL_MINIUPNP=OFF \
                -DLOCAL_BOOST=OFF \
                -DLOCAL_ASPELL_DATA=OFF \
                -DLOCAL_JSONCPP=OFF"

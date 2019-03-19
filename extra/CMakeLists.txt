@@ -16,7 +16,8 @@ if (NOT USE_MINIUPNP)
 endif (NOT USE_MINIUPNP)
 
 add_library (extra STATIC ${extra_SRCS})
-if (USE_MINIUPNP AND NOT LOCAL_MINIUPNP)
+
+if (USE_MINIUPNP)
 set (CMAKE_REQUIRED_INCLUDES ${MINIUPNP_INCLUDE_DIR})
 set (CMAKE_REQUIRED_LIBRARIES ${MINIUPNP_LIBRARY})
 check_cxx_source_compiles("
@@ -31,12 +32,11 @@ check_cxx_source_compiles("
     if (MINIUPNPC16)
         add_definitions (-DMINIUPNPC16)
     endif (MINIUPNPC16)
-    if (WIN32)
-        set (WIN32_LIBS "ws2_32" "iphlpapi")
-    endif (WIN32)
-elseif (USE_MINIUPNP AND LOCAL_MINIUPNP)
-    add_definitions (-DMINIUPNPC16)
-endif (USE_MINIUPNP AND NOT LOCAL_MINIUPNP)
+endif (USE_MINIUPNP)
+
+if (USE_MINIUPNP AND WIN32)
+    set (WIN32_LIBS "ws2_32" "iphlpapi")
+endif (USE_MINIUPNP AND WIN32)
 
 if (DEBUG_IPFILTER)
     add_definitions (-D_DEBUG_IPFILTER)
