@@ -17,23 +17,6 @@ endif (NOT USE_MINIUPNP)
 
 add_library (extra STATIC ${extra_SRCS})
 
-if (USE_MINIUPNP)
-set (CMAKE_REQUIRED_INCLUDES ${MINIUPNP_INCLUDE_DIR})
-set (CMAKE_REQUIRED_LIBRARIES ${MINIUPNP_LIBRARY})
-check_cxx_source_compiles("
-    #include <miniupnpc/miniupnpc.h>
-    #include <miniupnpc/upnpcommands.h>
-    #include <miniupnpc/upnperrors.h>
-    int main()
-    {
-        UPNPDev *devices = upnpDiscover(5000, 0, 0, 0, 0, 0);
-        return 0;
-    }" MINIUPNPC16)
-    if (MINIUPNPC16)
-        add_definitions (-DMINIUPNPC16)
-    endif (MINIUPNPC16)
-endif (USE_MINIUPNP)
-
 if (USE_MINIUPNP AND WIN32)
     set (WIN32_LIBS "ws2_32" "iphlpapi")
 endif (USE_MINIUPNP AND WIN32)

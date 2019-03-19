@@ -42,15 +42,13 @@ using namespace dcpp;
 
 bool UPnPc::init()
 {
-    UPNPDev *devices = upnpDiscover(5000, SettingsManager::getInstance()->isDefault(SettingsManager::BIND_ADDRESS) ? 0 : SETTING(BIND_ADDRESS).c_str(), NULL, 0
-#if (MINIUPNPC_API_VERSION >= 8 || defined(MINIUPNPC16))
-                                        , 0
+    const string bind_address = SETTING(BIND_ADDRESS);
+    const char *multicast_interface = SettingsManager::getInstance()->isDefault(SettingsManager::BIND_ADDRESS) ? NULL : bind_address.c_str();
+
 #if (MINIUPNPC_API_VERSION >= 14)
-                                        , 2
-#endif
-                                        , NULL);
+    UPNPDev *devices = upnpDiscover(5000, multicast_interface, NULL, 0, 0, 2, NULL);
 #else
-                                        );
+    UPNPDev *devices = upnpDiscover(5000, multicast_interface, NULL, 0, 0, NULL);
 #endif
 
     if (!devices)
@@ -66,12 +64,7 @@ bool UPnPc::init()
 bool UPnPc::add(const string& port, const UPnP::Protocol protocol, const string& description)
 {
     return UPNP_AddPortMapping(urls.controlURL, data.first.servicetype, port.c_str(), port.c_str(),
-        Util::getLocalIp(AF_INET).c_str(), description.c_str(), protocols[protocol], NULL
-#if (MINIUPNPC_API_VERSION >= 8 || defined(MINIUPNPC16))
-                                                                                    , 0) == UPNPCOMMAND_SUCCESS;
-#else
-                                                                                    ) == UPNPCOMMAND_SUCCESS;
-#endif
+        Util::getLocalIp(AF_INET).c_str(), description.c_str(), protocols[protocol], NULL, 0) == UPNPCOMMAND_SUCCESS;
 }
 
 bool UPnPc::remove(const string& port, const UPnP::Protocol protocol)
