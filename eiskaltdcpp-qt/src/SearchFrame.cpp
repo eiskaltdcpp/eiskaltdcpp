@@ -234,7 +234,7 @@ SearchFrame::Menu::~Menu(){
     black_list_menu->deleteLater();
 }
 
-SearchFrame::Menu::Action SearchFrame::Menu::exec(QStringList list = QStringList()){
+SearchFrame::Menu::Action SearchFrame::Menu::exec(const QStringList &list = QStringList()){
     for (const auto &a : action_list)
         a->setParent(NULL);
 

@@ -84,7 +84,7 @@ class SearchFrame : public QWidget,
             None
         };
 
-        Action exec(QStringList);
+        Action exec(const QStringList &);
         QMenu *buildUserCmdMenu(QList<QString> hubs);
         QString getDownloadToPath() { return downToPath; }
         int getCommandId() { return uc_cmd_id; }
