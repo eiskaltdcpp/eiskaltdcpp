@@ -42,9 +42,9 @@ struct NmdcHubScriptInstance : public ScriptInstance {
 class ClientManager;
 
 class NmdcHub : public Client, private Flags
-#ifdef LUA_SCRIPT
-,public NmdcHubScriptInstance
-#endif
+        #ifdef LUA_SCRIPT
+        ,public NmdcHubScriptInstance
+        #endif
 {
 public:
     using Client::send;
@@ -71,7 +71,7 @@ public:
     static string validateMessage(string tmp, bool reverse);
 
 private:
-friend class ClientManager;
+    friend class ClientManager;
     enum SupportFlags {
         SUPPORTS_USERCOMMAND = 0x01,
         SUPPORTS_NOGETINFO = 0x02,

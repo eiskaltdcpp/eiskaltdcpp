@@ -66,8 +66,8 @@ int TimerManager::run() {
         fire(TimerManagerListener::Second(), z);
         if(nextMin++ >= 60) {
             fire(TimerManagerListener::Minute(), z);
-             nextMin = 0;
-         }
+            nextMin = 0;
+        }
         x = getTick();
     }
 #else
@@ -79,7 +79,7 @@ int TimerManager::run() {
         now = microsec_clock::universal_time();
         nextSecond += seconds(1);
         if(nextSecond < now) {
-                nextSecond = now;
+            nextSecond = now;
         }
 
         fire(TimerManagerListener::Second(), t);

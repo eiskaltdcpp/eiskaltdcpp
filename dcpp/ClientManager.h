@@ -31,8 +31,8 @@ namespace dcpp {
 class UserCommand;
 
 class ClientManager : public Speaker<ClientManagerListener>,
-    private ClientListener, public Singleton<ClientManager>,
-    private TimerManagerListener
+        private ClientListener, public Singleton<ClientManager>,
+        private TimerManagerListener
 {
 public:
     Client* getClient(const string& aHubURL);
@@ -221,7 +221,7 @@ private:
     virtual void on(HubUpdated, Client* c) noexcept;
     virtual void on(HubUserCommand, Client*, int, int, const string&, const string&) noexcept;
     virtual void on(NmdcSearch, Client* aClient, const string& aSeeker, int aSearchType, int64_t aSize,
-        int aFileType, const string& aString) noexcept;
+                    int aFileType, const string& aString) noexcept;
     virtual void on(AdcSearch, Client* c, const AdcCommand& adc, const CID& from) noexcept;
     // TimerManagerListener
     virtual void on(TimerManagerListener::Minute, uint64_t aTick) noexcept;

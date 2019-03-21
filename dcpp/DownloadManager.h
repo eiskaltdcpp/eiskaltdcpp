@@ -34,8 +34,8 @@ namespace dcpp {
  * in the user interface.
  */
 class DownloadManager : public Speaker<DownloadManagerListener>,
-    private UserConnectionListener, private TimerManagerListener,
-    public Singleton<DownloadManager>
+        private UserConnectionListener, private TimerManagerListener,
+        public Singleton<DownloadManager>
 {
 public:
 

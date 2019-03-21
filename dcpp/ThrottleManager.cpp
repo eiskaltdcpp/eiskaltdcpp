@@ -120,8 +120,8 @@ SettingsManager::IntSetting ThrottleManager::getCurSetting(SettingsManager::IntS
         int currentHour = localtime(&currentTime)->tm_hour;
         if((SETTING(BANDWIDTH_LIMIT_START) < SETTING(BANDWIDTH_LIMIT_END) &&
             currentHour >= SETTING(BANDWIDTH_LIMIT_START) && currentHour < SETTING(BANDWIDTH_LIMIT_END)) ||
-            (SETTING(BANDWIDTH_LIMIT_START) > SETTING(BANDWIDTH_LIMIT_END) &&
-            (currentHour >= SETTING(BANDWIDTH_LIMIT_START) || currentHour < SETTING(BANDWIDTH_LIMIT_END))))
+                (SETTING(BANDWIDTH_LIMIT_START) > SETTING(BANDWIDTH_LIMIT_END) &&
+                 (currentHour >= SETTING(BANDWIDTH_LIMIT_START) || currentHour < SETTING(BANDWIDTH_LIMIT_END))))
         {
             upLimit   = SettingsManager::MAX_UPLOAD_SPEED_ALTERNATE;
             downLimit = SettingsManager::MAX_DOWNLOAD_SPEED_ALTERNATE;
@@ -130,14 +130,14 @@ SettingsManager::IntSetting ThrottleManager::getCurSetting(SettingsManager::IntS
     }
 
     switch (setting) {
-        case SettingsManager::MAX_UPLOAD_SPEED_MAIN:
-            return upLimit;
-        case SettingsManager::MAX_DOWNLOAD_SPEED_MAIN:
-            return downLimit;
-        case SettingsManager::SLOTS:
-            return slots;
-        default:
-            return setting;
+    case SettingsManager::MAX_UPLOAD_SPEED_MAIN:
+        return upLimit;
+    case SettingsManager::MAX_DOWNLOAD_SPEED_MAIN:
+        return downLimit;
+    case SettingsManager::SLOTS:
+        return slots;
+    default:
+        return setting;
     }
 }
 
@@ -150,8 +150,8 @@ int ThrottleManager::getDownLimit() {
 }
 
 void ThrottleManager::setSetting(SettingsManager::IntSetting setting, int value) {
-        SettingsManager::getInstance()->set(setting, value);
-        ClientManager::getInstance()->infoUpdated();
+    SettingsManager::getInstance()->set(setting, value);
+    ClientManager::getInstance()->infoUpdated();
 }
 
 bool ThrottleManager::getCurThrottling() {
@@ -249,39 +249,39 @@ void ThrottleManager::on(TimerManagerListener::Second, uint64_t /* aTick */) noe
             // here and the first activeWaiter-toggle below.
             waitCS[activeWaiter = 0].lock();
 
-#ifndef _WIN32 //*nix
+        #ifndef _WIN32 //*nix
 
-            // lock shutdown
-            shutdownCS.lock();
-#endif
+                    // lock shutdown
+                    shutdownCS.lock();
+        #endif
         }
-    }
+        }
 
-    int downLimit = getDownLimit();
-    int upLimit   = getUpLimit();
+                    int downLimit = getDownLimit();
+                    int upLimit   = getUpLimit();
 
-    // readd tokens
-    {
-        Lock l(downCS);
-        downTokens = downLimit * 1024;
-    }
+                    // readd tokens
+            {
+                Lock l(downCS);
+                downTokens = downLimit * 1024;
+            }
 
-    {
-        Lock l(upCS);
-        upTokens = upLimit * 1024;
-    }
+            {
+                Lock l(upCS);
+                upTokens = upLimit * 1024;
+            }
 
-    // let existing events drain out (fairness).
-    // www.cse.wustl.edu/~schmidt/win32-cv-1.html documents various
-    // fairer strategies, but when only broadcasting, irrelevant
-    {
-        Lock l(stateCS);
+            // let existing events drain out (fairness).
+            // www.cse.wustl.edu/~schmidt/win32-cv-1.html documents various
+            // fairer strategies, but when only broadcasting, irrelevant
+            {
+                Lock l(stateCS);
 
-        dcassert(activeWaiter == 0 || activeWaiter == 1);
-        waitCS[1-activeWaiter].lock();
-        activeWaiter = 1-activeWaiter;
-        waitCS[1-activeWaiter].unlock();
-    }
-}
+                dcassert(activeWaiter == 0 || activeWaiter == 1);
+                waitCS[1-activeWaiter].lock();
+                activeWaiter = 1-activeWaiter;
+                waitCS[1-activeWaiter].unlock();
+            }
+        }
 
-}   // namespace dcpp
+    }   // namespace dcpp

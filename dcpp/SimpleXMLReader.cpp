@@ -25,11 +25,11 @@
 namespace dcpp {
 
 static bool isSpace(int c) {
-        return c == 0x20 || c == 0x09 || c == 0x0d || c == 0x0a;
+    return c == 0x20 || c == 0x09 || c == 0x0d || c == 0x0a;
 }
 
 static bool inRange(int c, int a, int b) {
-        return c >= a && c <= b;
+    return c >= a && c <= b;
 }
 
 static bool isNameStartChar(int c) {
@@ -39,18 +39,18 @@ static bool isNameStartChar(int c) {
             || inRange(c, 'a', 'z')
             // Comment out some valid XML chars that we don't allow
             || c == '+' //NOTE: freedcpp
-/*              || inRange(c, 0xC0, 0xD6)
-            || inRange(c, 0xD8, 0xF6)
-            || inRange(c, 0xF8, 0x2FF)
-            || inRange(c, 0x370, 0x37D)
-            || inRange(c, 0x37F, 0x1FFF)
-            || inRange(c, 0x200C, 0x200D)
-            || inRange(c, 0x2070, 0x218F)
-            || inRange(c, 0x2C00, 0x2FEF)
-            || inRange(c, 0x3001, 0xD7FF)
-            || inRange(c, 0xF900, 0xFDCF)
-            || inRange(c, 0xFDF0, 0xFFFD)
-            || inRange(c, 0x10000, 0xEFFFF) */
+            /*              || inRange(c, 0xC0, 0xD6)
+                    || inRange(c, 0xD8, 0xF6)
+                    || inRange(c, 0xF8, 0x2FF)
+                    || inRange(c, 0x370, 0x37D)
+                    || inRange(c, 0x37F, 0x1FFF)
+                    || inRange(c, 0x200C, 0x200D)
+                    || inRange(c, 0x2070, 0x218F)
+                    || inRange(c, 0x2C00, 0x2FEF)
+                    || inRange(c, 0x3001, 0xD7FF)
+                    || inRange(c, 0xF900, 0xFDCF)
+                    || inRange(c, 0xFDF0, 0xFFFD)
+                    || inRange(c, 0x10000, 0xEFFFF) */
             ;
 }
 
@@ -60,9 +60,9 @@ static bool isNameChar(int c) {
             || c == '.'
             || inRange(c, '0', '9')
             // Again, real XML is more permissive
-/*              || c == 0xB7
-            || inRange(c, 0x0300, 0x036F)
-            || inRange(c, 0x203F, 0x2040) */
+            /*              || c == 0xB7
+                    || inRange(c, 0x0300, 0x036F)
+                    || inRange(c, 0x203F, 0x2040) */
             ;
 }
 
@@ -136,22 +136,22 @@ bool SimpleXMLReader::literal(const char* lit, size_t len, bool withSpace, Parse
 
 bool SimpleXMLReader::element() {
     if(!needChars(2)) {
-            return true;
+        return true;
     }
 
     int c = charAt(1);
-        if(charAt(0) == '<' && isNameStartChar(c)) {
-            if(elements.size() >= MAX_NESTING) {
-                error("Max nesting exceeded");
-            }
+    if(charAt(0) == '<' && isNameStartChar(c)) {
+        if(elements.size() >= MAX_NESTING) {
+            error("Max nesting exceeded");
+        }
 
-            state = STATE_ELEMENT_NAME;
-            elements.push_back(std::string());
-            append(elements.back(), MAX_NAME_SIZE, c);
+        state = STATE_ELEMENT_NAME;
+        elements.push_back(std::string());
+        append(elements.back(), MAX_NAME_SIZE, c);
 
-            advancePos(2);
+        advancePos(2);
 
-            return true;
+        return true;
     }
 
     return false;
@@ -327,7 +327,7 @@ bool SimpleXMLReader::declVersionNum() {
     if((sep == '"' || sep == '\'') && charAt(1) == '1' && charAt(2) == '.') {
         // At least one more number
         if(!inRange(charAt(3), '0', '9')) {
-                return false;
+            return false;
         }
 
         // Now an unknown number of [0-9]
@@ -361,7 +361,7 @@ bool SimpleXMLReader::declEncodingValue() {
             return true;
         } else if(c == '&') {
             if(!entref(encoding)) {
-                    return false;
+                return false;
             }
         } else {
             append(encoding, MAX_VALUE_SIZE, c);
@@ -421,7 +421,7 @@ bool SimpleXMLReader::entref(string& d) {
             advancePos(6);
             return true;
 
-        // Ignore &#00000 decimal and &#x0000 hex values to avoid error, they wouldn't be parsed anyway
+            // Ignore &#00000 decimal and &#x0000 hex values to avoid error, they wouldn't be parsed anyway
         } else if(charAt(1) == '#' && isdigit(charAt(2)) && charAt(3) == ';') {
             advancePos(4);
             return true;
@@ -589,119 +589,119 @@ bool SimpleXMLReader::process() {
     while(true) {
         switch(state) {
         case STATE_START:
-                literal(LITN("\xef\xbb\xbf"), false, STATE_START)       // Byte order mark
-                || literal(LITN("<?xml"), true, STATE_DECL_VERSION)
-                || literal(LITN("<!--"), false, STATE_COMMENT)
-                || element()
-                || spaceOrError("Expecting XML declaration, element or comment");
-                break;
+            literal(LITN("\xef\xbb\xbf"), false, STATE_START)       // Byte order mark
+                    || literal(LITN("<?xml"), true, STATE_DECL_VERSION)
+                    || literal(LITN("<!--"), false, STATE_COMMENT)
+                    || element()
+                    || spaceOrError("Expecting XML declaration, element or comment");
+            break;
         case STATE_DECL_VERSION:
-                skipSpace()
-                || literal(LITN("version"), false, STATE_DECL_VERSION_EQ)
-                || spaceOrError("Expecting version");
-                break;
+            skipSpace()
+                    || literal(LITN("version"), false, STATE_DECL_VERSION_EQ)
+                    || spaceOrError("Expecting version");
+            break;
         case STATE_DECL_VERSION_EQ:
-                character('=', STATE_DECL_VERSION_NUM)
-                || spaceOrError("Expecting =");
-                break;
+            character('=', STATE_DECL_VERSION_NUM)
+                    || spaceOrError("Expecting =");
+            break;
         case STATE_DECL_VERSION_NUM:
-                declVersionNum()
-                || spaceOrError("Expecting version number");
-                break;
+            declVersionNum()
+                    || spaceOrError("Expecting version number");
+            break;
         case STATE_DECL_ENCODING:
-                literal(LITN("encoding"), false, STATE_DECL_ENCODING_EQ)
-                || literal(LITN("standalone"), false, STATE_DECL_STANDALONE_EQ)
-                || literal(LITN("?>"), false, STATE_CONTENT)
-                || spaceOrError("Expecting encoding | standalone | ?>");
-                break;
+            literal(LITN("encoding"), false, STATE_DECL_ENCODING_EQ)
+                    || literal(LITN("standalone"), false, STATE_DECL_STANDALONE_EQ)
+                    || literal(LITN("?>"), false, STATE_CONTENT)
+                    || spaceOrError("Expecting encoding | standalone | ?>");
+            break;
         case STATE_DECL_ENCODING_EQ:
-                character('=', STATE_DECL_ENCODING_NAME)
-                || spaceOrError("Expecting =");
-                break;
+            character('=', STATE_DECL_ENCODING_NAME)
+                    || spaceOrError("Expecting =");
+            break;
         case STATE_DECL_ENCODING_NAME:
-                character('\'', STATE_DECL_ENCODING_NAME_APOS)
-                || character('"', STATE_DECL_ENCODING_NAME_QUOT)
-                || spaceOrError("Expecting encoding name start");
-                break;
+            character('\'', STATE_DECL_ENCODING_NAME_APOS)
+                    || character('"', STATE_DECL_ENCODING_NAME_QUOT)
+                    || spaceOrError("Expecting encoding name start");
+            break;
         case STATE_DECL_ENCODING_NAME_APOS:
         case STATE_DECL_ENCODING_NAME_QUOT:
-                declEncodingValue()
-                || spaceOrError("Expecting encoding value");
+            declEncodingValue()
+                    || spaceOrError("Expecting encoding value");
         case STATE_DECL_STANDALONE:
-                literal(LITN("standalone"), false, STATE_DECL_STANDALONE_EQ)
-                || literal(LITN("?>"), false, STATE_CONTENT)
-                || spaceOrError("Expecting standalone | ?>");
-                break;
+            literal(LITN("standalone"), false, STATE_DECL_STANDALONE_EQ)
+                    || literal(LITN("?>"), false, STATE_CONTENT)
+                    || spaceOrError("Expecting standalone | ?>");
+            break;
         case STATE_DECL_STANDALONE_EQ:
-                character('=', STATE_DECL_STANDALONE_YES)
-                || spaceOrError("Expecting =");
-                break;
+            character('=', STATE_DECL_STANDALONE_YES)
+                    || spaceOrError("Expecting =");
+            break;
         case STATE_DECL_STANDALONE_YES:
-                literal(LITN("\"yes\""), false, STATE_DECL_END)
-                || literal(LITN("'yes'"), false, STATE_DECL_END)
-                || spaceOrError("Expecting standalone=yes");
-                break;
+            literal(LITN("\"yes\""), false, STATE_DECL_END)
+                    || literal(LITN("'yes'"), false, STATE_DECL_END)
+                    || spaceOrError("Expecting standalone=yes");
+            break;
         case STATE_DECL_END:
-                literal(LITN("?>"), false, STATE_CONTENT)
-                || spaceOrError("Expecting ?>");
-                break;
+            literal(LITN("?>"), false, STATE_CONTENT)
+                    || spaceOrError("Expecting ?>");
+            break;
         case STATE_ELEMENT_NAME:
-                elementName()
-                || error("Error while parsing element start");
-                break;
+            elementName()
+                    || error("Error while parsing element start");
+            break;
         case STATE_ELEMENT_END_SIMPLE:
-                elementEndSimple()
-                || error("Expecting >");
-                break;
+            elementEndSimple()
+                    || error("Expecting >");
+            break;
         case STATE_ELEMENT_END:
-                elementEnd()
-                || spaceOrError("Expecting element end");
-                break;
+            elementEnd()
+                    || spaceOrError("Expecting element end");
+            break;
         case STATE_ELEMENT_END_END:
-                elementEndEnd()
-                || spaceOrError("Expecting >");
-                break;
+            elementEndEnd()
+                    || spaceOrError("Expecting >");
+            break;
         case STATE_ELEMENT_ATTR:
-                elementAttr()
-                || elementEndComplex()
-                || character('/', STATE_ELEMENT_END_SIMPLE)
-                || spaceOrError("Expecting attribute | /> | >");
-                break;
+            elementAttr()
+                    || elementEndComplex()
+                    || character('/', STATE_ELEMENT_END_SIMPLE)
+                    || spaceOrError("Expecting attribute | /> | >");
+            break;
         case STATE_ELEMENT_ATTR_NAME:
-                elementAttrName()
-                || error("Expecting attribute name");
-                break;
+            elementAttrName()
+                    || error("Expecting attribute name");
+            break;
         case STATE_ELEMENT_ATTR_EQ:
-                character('=', STATE_ELEMENT_ATTR_VALUE)
-                || spaceOrError("Expecting attribute =");
-                break;
+            character('=', STATE_ELEMENT_ATTR_VALUE)
+                    || spaceOrError("Expecting attribute =");
+            break;
         case STATE_ELEMENT_ATTR_VALUE:
-                character('\'', STATE_ELEMENT_ATTR_VALUE_APOS)
-                || character('"', STATE_ELEMENT_ATTR_VALUE_QUOT)
-                || spaceOrError("Expecting attribute value start");
-                break;
+            character('\'', STATE_ELEMENT_ATTR_VALUE_APOS)
+                    || character('"', STATE_ELEMENT_ATTR_VALUE_QUOT)
+                    || spaceOrError("Expecting attribute value start");
+            break;
         case STATE_ELEMENT_ATTR_VALUE_APOS:
         case STATE_ELEMENT_ATTR_VALUE_QUOT:
-                elementAttrValue()
-                || error("Expecting attribute value");
-                break;
+            elementAttrValue()
+                    || error("Expecting attribute value");
+            break;
         case STATE_COMMENT:
-                comment()
-                || error("Error while parsing comment");
-                break;
+            comment()
+                    || error("Error while parsing comment");
+            break;
         case STATE_CONTENT:
-                skipSpace(true)
-                || literal(LITN("<!--"), false, STATE_COMMENT)
-                || element()
-                || literal(LITN("</"), false, STATE_ELEMENT_END)
-                || content()
-                || error("Expecting content, element or comment");
-                break;
+            skipSpace(true)
+                    || literal(LITN("<!--"), false, STATE_COMMENT)
+                    || element()
+                    || literal(LITN("</"), false, STATE_ELEMENT_END)
+                    || content()
+                    || error("Expecting content, element or comment");
+            break;
         case STATE_END:
-                buf.clear();
-                return false;
+            buf.clear();
+            return false;
         default:
-                error("Unexpected state"); break;
+            error("Unexpected state"); break;
         }
 
         if(oldState == state && oldPos == bufPos) {

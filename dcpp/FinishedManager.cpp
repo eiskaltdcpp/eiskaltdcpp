@@ -146,25 +146,25 @@ void FinishedManager::onComplete(Transfer* t, bool upload, bool crc32Checked) {
             MapByFile::iterator it = map.find(file);
             if(it == map.end()) {
                 FinishedFileItemPtr p = new FinishedFileItem(
-                    t->getPos(),
-                    milliSeconds,
-                    time,
-                    upload ? File::getSize(file) : size,
-                    t->getActual(),
-                    crc32Checked,
-                    user
-                    );
+                            t->getPos(),
+                            milliSeconds,
+                            time,
+                            upload ? File::getSize(file) : size,
+                            t->getActual(),
+                            crc32Checked,
+                            user
+                            );
                 map[file] = p;
                 fire(FinishedManagerListener::AddedFile(), upload, file, p);
             } else {
                 it->second->update(
-                    crc32Checked ? 0 : t->getPos(), // in case of a successful crc check at the end we want to update the status only
-                    milliSeconds,
-                    time,
-                    t->getActual(),
-                    crc32Checked,
-                    user
-                    );
+                            crc32Checked ? 0 : t->getPos(), // in case of a successful crc check at the end we want to update the status only
+                            milliSeconds,
+                            time,
+                            t->getActual(),
+                            crc32Checked,
+                            user
+                            );
                 // we still dispatch a FinishedFileItem pointer in case previous ones were ignored
                 fire(FinishedManagerListener::UpdatedFile(), upload, file, it->second);
             }
@@ -175,20 +175,20 @@ void FinishedManager::onComplete(Transfer* t, bool upload, bool crc32Checked) {
             MapByUser::iterator it = map.find(user);
             if(it == map.end()) {
                 FinishedUserItemPtr p = new FinishedUserItem(
-                    t->getPos(),
-                    milliSeconds,
-                    time,
-                    file
-                    );
+                            t->getPos(),
+                            milliSeconds,
+                            time,
+                            file
+                            );
                 map[user] = p;
                 fire(FinishedManagerListener::AddedUser(), upload, user, p);
             } else {
                 it->second->update(
-                    t->getPos(),
-                    milliSeconds,
-                    time,
-                    file
-                    );
+                            t->getPos(),
+                            milliSeconds,
+                            time,
+                            file
+                            );
                 fire(FinishedManagerListener::UpdatedUser(), upload, user);
             }
         }

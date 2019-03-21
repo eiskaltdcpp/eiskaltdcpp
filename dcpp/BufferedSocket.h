@@ -101,16 +101,16 @@ public:
     string getLocalPort() const { return sock->getLocalPort(); }
 
     GETSET(char, separator, Separator)
-private:
-    enum Tasks {
-        CONNECT,
-        DISCONNECT,
-        SEND_DATA,
-        SEND_FILE,
-        SHUTDOWN,
-        ACCEPTED,
-        UPDATED
-    };
+    private:
+        enum Tasks {
+                 CONNECT,
+                 DISCONNECT,
+                 SEND_DATA,
+                 SEND_FILE,
+                 SHUTDOWN,
+                 ACCEPTED,
+                 UPDATED
+};
 
     enum State {
         STARTING, // Waiting for CONNECT/ACCEPTED/SHUTDOWN

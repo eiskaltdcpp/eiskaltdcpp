@@ -29,153 +29,153 @@ namespace dcpp {
 
 CPerfolderLimit::CPerfolderLimit(string const *config_name): m_limits()
 {
-  RenewList(config_name);
+    RenewList(config_name);
 }
 
 CPerfolderLimit::~CPerfolderLimit()
 {
-  while (!m_limits.empty())
-  {
-    delete m_limits.back();
-    m_limits.pop_back();
-  }
+    while (!m_limits.empty())
+    {
+        delete m_limits.back();
+        m_limits.pop_back();
+    }
 }
 
 bool CPerfolderLimit::IsUserAllowed(string const& request, const UserPtr user, string *message)
 {
-  bool found=false;
-  FavoriteManager *FM = FavoriteManager::getInstance();
-  Identity id=ClientManager::getInstance()->getOnlineUserIdentity(user);
-  int64_t user_share=id.getBytesShared();
-
-  if ( NULL != message )
-  {
-    *message="";
-    //*message=string("Limits check: user '")+id.getNick()+"' "+id.getIp()+" req: "+request+" : ";
-  }
-
-  if ( m_limits.empty() || id.isOp() || FM->isFavoriteUser(user) || FM->hasSlot(user))
-  {
-    return true;
-  }
-
-  TFolderSetting *pos = *m_limits.begin();
-  unsigned int max_path_len = 0;
-  for (TFolderSetting::Iter i=m_limits.begin(); i!=m_limits.end(); ++i)
-  {
-    TFolderSetting *s = *i;
-    if ( pos->m_minshare<=s->m_minshare && 0==request.find(s->m_folder) )
-    {
-        if (s->m_folder.length() > max_path_len){
-            max_path_len = s->m_folder.length();
-            pos=s;
-            found=true;
-        }
-    }
-  }
-  if (found)
-  {
-    if ( user_share>= (static_cast<int64_t>(pos->m_minshare))*1024*1024*1024 )
-    {
-      return true;
-    }
+    bool found=false;
+    FavoriteManager *FM = FavoriteManager::getInstance();
+    Identity id=ClientManager::getInstance()->getOnlineUserIdentity(user);
+    int64_t user_share=id.getBytesShared();
 
     if ( NULL != message )
     {
-      char buf_need[100], buf_user[100];
-      sprintf(buf_need, "%i", pos->m_minshare);
-      sprintf(buf_user, "%i", (int)(user_share/(1024*1024*1024)));
-      *message=_("Too small share to download from ") + pos->m_folder + ": " + buf_user + "/" + buf_need + " " + _("GiB");
-
-        LogManager::getInstance()->message(_("Denied to send file") + string(" '") + request + string("' ") +
-                                           _(" to ") + id.getNick() + string(" (") + id.getIp() + string("): ") +
-                                           *message);
-
-        return false;
+        *message="";
+        //*message=string("Limits check: user '")+id.getNick()+"' "+id.getIp()+" req: "+request+" : ";
     }
-  }
 
-  return true;
+    if ( m_limits.empty() || id.isOp() || FM->isFavoriteUser(user) || FM->hasSlot(user))
+    {
+        return true;
+    }
+
+    TFolderSetting *pos = *m_limits.begin();
+    unsigned int max_path_len = 0;
+    for (TFolderSetting::Iter i=m_limits.begin(); i!=m_limits.end(); ++i)
+    {
+        TFolderSetting *s = *i;
+        if ( pos->m_minshare<=s->m_minshare && 0==request.find(s->m_folder) )
+        {
+            if (s->m_folder.length() > max_path_len){
+                max_path_len = s->m_folder.length();
+                pos=s;
+                found=true;
+            }
+        }
+    }
+    if (found)
+    {
+        if ( user_share>= (static_cast<int64_t>(pos->m_minshare))*1024*1024*1024 )
+        {
+            return true;
+        }
+
+        if ( NULL != message )
+        {
+            char buf_need[100], buf_user[100];
+            sprintf(buf_need, "%i", pos->m_minshare);
+            sprintf(buf_user, "%i", (int)(user_share/(1024*1024*1024)));
+            *message=_("Too small share to download from ") + pos->m_folder + ": " + buf_user + "/" + buf_need + " " + _("GiB");
+
+            LogManager::getInstance()->message(_("Denied to send file") + string(" '") + request + string("' ") +
+                                               _(" to ") + id.getNick() + string(" (") + id.getIp() + string("): ") +
+                                               *message);
+
+            return false;
+        }
+    }
+
+    return true;
 }
 
 void CPerfolderLimit::RenewList(string const *config_name)
 {
-  string config_n;
-  if ( NULL==config_name )
-  {
-    config_n=Util::getPath(Util::PATH_USER_CONFIG) + "PerFolderLimit.conf";
-    config_name=&config_n;
-  }
-
-  while (!m_limits.empty())
-  {
-    delete m_limits.back();
-    m_limits.pop_back();
-  }
-
-  string config;
-  try
-  {
-    config = File(*config_name, File::READ, File::OPEN).read();
-  }
-  catch (...)
-  {
-    return;
-  }
-
-  config.push_back(0);
-  config.push_back(0);
-
-  for ( int i=0; 0!=config[i]; i++ )
-  {
-    string n;
-    string f;
-
-    while ( ' '==config[i] || 0x09==config[i] || 0x0D==config[i] || 0x0A==config[i] )
+    string config_n;
+    if ( NULL==config_name )
     {
-      i++;
+        config_n=Util::getPath(Util::PATH_USER_CONFIG) + "PerFolderLimit.conf";
+        config_name=&config_n;
     }
 
-    if ( '#' == config[i] )
+    while (!m_limits.empty())
     {
-      while ( 0!=config[i] && 0x0D!=config[i] && 0x0A!=config[i])
-      {
-        i++;
-      }
-      continue;
+        delete m_limits.back();
+        m_limits.pop_back();
     }
 
-    while ( config[i]>='0' && config[i]<='9' )
+    string config;
+    try
     {
-      n.push_back(config[i]);
-      i++;
+        config = File(*config_name, File::READ, File::OPEN).read();
     }
-    if ( ' '!=config[i] && 0x09!=config[i] )
+    catch (...)
     {
-      while ( 0!=config[i] && 0x0D!=config[i] && 0x0A!=config[i])
-      {
-        i++;
-      }
-      continue;
+        return;
     }
 
-    while ( ' '==config[i] || 0x09==config[i] )
-    {
-      i++;
-    }
+    config.push_back(0);
+    config.push_back(0);
 
-    while ( 0!=config[i] && 0x0D!=config[i] && 0x0A!=config[i] )
+    for ( int i=0; 0!=config[i]; i++ )
     {
-      f.push_back(config[i]);
-      i++;
+        string n;
+        string f;
+
+        while ( ' '==config[i] || 0x09==config[i] || 0x0D==config[i] || 0x0A==config[i] )
+        {
+            i++;
+        }
+
+        if ( '#' == config[i] )
+        {
+            while ( 0!=config[i] && 0x0D!=config[i] && 0x0A!=config[i])
+            {
+                i++;
+            }
+            continue;
+        }
+
+        while ( config[i]>='0' && config[i]<='9' )
+        {
+            n.push_back(config[i]);
+            i++;
+        }
+        if ( ' '!=config[i] && 0x09!=config[i] )
+        {
+            while ( 0!=config[i] && 0x0D!=config[i] && 0x0A!=config[i])
+            {
+                i++;
+            }
+            continue;
+        }
+
+        while ( ' '==config[i] || 0x09==config[i] )
+        {
+            i++;
+        }
+
+        while ( 0!=config[i] && 0x0D!=config[i] && 0x0A!=config[i] )
+        {
+            f.push_back(config[i]);
+            i++;
+        }
+        if (f.length()>0)
+        {
+            TFolderSetting::Ptr t=new TFolderSetting;
+            t->m_folder=f;
+            t->m_minshare=atoi(n.c_str());
+            m_limits.push_back(t);
+        }
     }
-    if (f.length()>0)
-    {
-      TFolderSetting::Ptr t=new TFolderSetting;
-      t->m_folder=f;
-      t->m_minshare=atoi(n.c_str());
-      m_limits.push_back(t);
-    }
-  }
 }
 } // namespace dcpp

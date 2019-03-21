@@ -69,7 +69,7 @@ private:
 
 class GZ {
 public:
-        static void decompress(const string& source, const string& target);
+    static void decompress(const string& source, const string& target);
 };
 
 class CRC32Filter {

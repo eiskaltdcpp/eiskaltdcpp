@@ -37,28 +37,28 @@
 
 namespace dcpp {
 ADLSearch::ADLSearch() :
-searchString(_("<Enter string>")),
-isActive(true),
-isAutoQueue(false),
-sourceType(OnlyFile),
-minFileSize(-1),
-maxFileSize(-1),
-typeFileSize(SizeBytes),
-destDir("ADLSearch"),
-ddIndex(0),
-bUseRegexp(false)
+    searchString(_("<Enter string>")),
+    isActive(true),
+    isAutoQueue(false),
+    sourceType(OnlyFile),
+    minFileSize(-1),
+    maxFileSize(-1),
+    typeFileSize(SizeBytes),
+    destDir("ADLSearch"),
+    ddIndex(0),
+    bUseRegexp(false)
 {}
 
 void ADLSearch::Prepare(StringMap& params) {
     // Prepare quick search of substrings
     stringSearchList.clear();
-    #ifdef USE_PCRE
+#ifdef USE_PCRE
     if(searchString.find("$Re:") == 0){
         regexpstring.clear();
         regexpstring=searchString.substr(4);
         bUseRegexp = true;
     } else {
-    #endif
+#endif
         // Replace parameters such as %[nick]
         string stringParams = Util::formatParams(searchString, params, false);
 
@@ -70,9 +70,9 @@ void ADLSearch::Prepare(StringMap& params) {
                 stringSearchList.push_back(StringSearch(*i));
             }
         }
-    #ifdef USE_PCRE
+#ifdef USE_PCRE
     }
-    #endif
+#endif
 }
 
 ADLSearch::SourceType ADLSearch::StringToSourceType(const string& s) {
@@ -168,7 +168,7 @@ bool ADLSearch::MatchesDirectory(const string& d) {
 }
 
 bool ADLSearch::SearchAll(const string& s) {
-    #ifdef USE_PCRE
+#ifdef USE_PCRE
     if(bUseRegexp){
         pcrecpp::RE_Options options;
         options.set_utf8(true);
@@ -179,17 +179,17 @@ bool ADLSearch::SearchAll(const string& s) {
         else
             return false;
     } else {
-    #endif
-    // Match all substrings
+#endif
+        // Match all substrings
         for(StringSearch::List::iterator i = stringSearchList.begin(); i != stringSearchList.end(); ++i) {
             if(!i->match(s)) {
                 return false;
             }
         }
         return !stringSearchList.empty();
-    #ifdef USE_PCRE
+#ifdef USE_PCRE
     }
-    #endif
+#endif
 }
 
 ///  Load old searches from disk
@@ -354,7 +354,7 @@ void ADLSearchManager::MatchesFile(DestDirList& destDirVector, DirectoryListing:
             if(is->isAutoQueue){
                 try {
                     QueueManager::getInstance()->add(SETTING(DOWNLOAD_DIRECTORY) + currentFile->getName(),
-                        currentFile->getSize(), currentFile->getTTH(), getUser());
+                                                     currentFile->getSize(), currentFile->getTTH(), getUser());
                 } catch(const Exception&) { }
             }
 
@@ -371,7 +371,7 @@ void ADLSearchManager::MatchesDirectory(DestDirList& destDirVector, DirectoryLis
     for(auto id = destDirVector.begin(); id != destDirVector.end(); ++id) {
         if(id->subdir != NULL) {
             DirectoryListing::Directory* newDir =
-                new DirectoryListing::AdlDirectory(fullPath, id->subdir, currentDir->getName());
+                    new DirectoryListing::AdlDirectory(fullPath, id->subdir, currentDir->getName());
             id->subdir->directories.push_back(newDir);
             id->subdir = newDir;
         }
@@ -389,7 +389,7 @@ void ADLSearchManager::MatchesDirectory(DestDirList& destDirVector, DirectoryLis
         }
         if(is->MatchesDirectory(currentDir->getName())) {
             destDirVector[is->ddIndex].subdir =
-                new DirectoryListing::AdlDirectory(fullPath, destDirVector[is->ddIndex].dir, currentDir->getName());
+                    new DirectoryListing::AdlDirectory(fullPath, destDirVector[is->ddIndex].dir, currentDir->getName());
             destDirVector[is->ddIndex].dir->directories.push_back(destDirVector[is->ddIndex].subdir);
             if(breakOnFirst) {
                 // Found a match, search no more

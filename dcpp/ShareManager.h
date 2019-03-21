@@ -36,7 +36,7 @@
 
 #ifdef WITH_DHT
 namespace dht {
-    class IndexManager;
+class IndexManager;
 }
 #endif
 
@@ -52,7 +52,7 @@ class MemoryInputStream;
 
 struct ShareLoader;
 class ShareManager : public Singleton<ShareManager>, private SettingsManagerListener, private Thread, private TimerManagerListener,
-    private HashManagerListener, private QueueManagerListener
+        private HashManagerListener, private QueueManagerListener
 {
 public:
     /**
@@ -114,8 +114,8 @@ public:
     void publish();
     GETSET(uint32_t, hits, Hits)
     GETSET(string, bzXmlFile, BZXmlFile)
-private:
-    struct AdcSearch;
+    private:
+        struct AdcSearch;
     class Directory : public FastAlloc<Directory>, public intrusive_ptr_base<Directory>, private NonCopyable {
     public:
         typedef boost::intrusive_ptr<Directory> Ptr;
@@ -126,10 +126,10 @@ private:
             struct StringComp {
                 StringComp(const string& s) : a(s) { }
                 bool operator()(const File& b) const {
-                if (BOOLSETTING(CASESENSITIVE_FILELIST))
-                    return strcmp(a.c_str(), b.getName().c_str()) == 0;
-                else
-                    return Util::stricmp(a, b.getName()) == 0;
+                    if (BOOLSETTING(CASESENSITIVE_FILELIST))
+                        return strcmp(a.c_str(), b.getName().c_str()) == 0;
+                    else
+                        return Util::stricmp(a, b.getName()) == 0;
                 }
 
                 const string& a;
@@ -148,9 +148,9 @@ private:
 
             File() : size(0), parent(0) { }
             File(const string& aName, int64_t aSize, const Directory::Ptr& aParent, const TTHValue& aRoot) :
-            name(aName), tth(aRoot), size(aSize), parent(aParent.get()) { }
+                name(aName), tth(aRoot), size(aSize), parent(aParent.get()) { }
             File(const File& rhs) :
-            name(rhs.getName()), tth(rhs.getTTH()), size(rhs.getSize()), parent(rhs.getParent()) { }
+                name(rhs.getName()), tth(rhs.getTTH()), size(rhs.getSize()), parent(rhs.getParent()) { }
 
             ~File() { }
 

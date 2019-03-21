@@ -28,16 +28,16 @@ namespace dcpp {
 class FinishedItemBase : private NonCopyable {
 public:
     explicit FinishedItemBase(
-        int64_t transferred_,
-        int64_t milliSeconds_,
-        time_t time_
-        );
+            int64_t transferred_,
+            int64_t milliSeconds_,
+            time_t time_
+            );
 
     void update(
-        int64_t transferred_,
-        int64_t milliSeconds_,
-        time_t time_
-        );
+            int64_t transferred_,
+            int64_t milliSeconds_,
+            time_t time_
+            );
 
     int64_t getAverageSpeed() const;
 
@@ -49,23 +49,23 @@ public:
 class FinishedFileItem : public FinishedItemBase, public intrusive_ptr_base<FinishedFileItem> {
 public:
     explicit FinishedFileItem(
-        int64_t transferred_,
-        int64_t milliSeconds_,
-        time_t time_,
-        int64_t fileSize_,
-        int64_t actual_,
-        bool crc32Checked_,
-        const HintedUser& user
-        );
+            int64_t transferred_,
+            int64_t milliSeconds_,
+            time_t time_,
+            int64_t fileSize_,
+            int64_t actual_,
+            bool crc32Checked_,
+            const HintedUser& user
+            );
 
     void update(
-        int64_t transferred_,
-        int64_t milliSeconds_,
-        time_t time_,
-        int64_t actual_,
-        bool crc32Checked_,
-        const HintedUser& user
-        );
+            int64_t transferred_,
+            int64_t milliSeconds_,
+            time_t time_,
+            int64_t actual_,
+            bool crc32Checked_,
+            const HintedUser& user
+            );
 
     double getTransferredPercentage() const;
     bool isFull() const;
@@ -79,18 +79,18 @@ public:
 class FinishedUserItem : public FinishedItemBase, public intrusive_ptr_base<FinishedUserItem> {
 public:
     explicit FinishedUserItem(
-        int64_t transferred_,
-        int64_t milliSeconds_,
-        time_t time_,
-        const string& file
-        );
+            int64_t transferred_,
+            int64_t milliSeconds_,
+            time_t time_,
+            const string& file
+            );
 
     void update(
-        int64_t transferred_,
-        int64_t milliSeconds_,
-        time_t time_,
-        const string& file
-        );
+            int64_t transferred_,
+            int64_t milliSeconds_,
+            time_t time_,
+            const string& file
+            );
 
     GETSET(StringList, files, Files)
 };

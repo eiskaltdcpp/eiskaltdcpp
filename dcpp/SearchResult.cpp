@@ -28,9 +28,9 @@
 namespace dcpp {
 
 SearchResult::SearchResult(const UserPtr& aUser, Types aType, int aSlots, int aFreeSlots,
-    int64_t aSize, const string& aFile, const string& aHubName,
-    const string& aHubURL, const string& ip, TTHValue aTTH, const string& aToken) :
-file(aFile), hubName(aHubName), hubURL(aHubURL), user(aUser),
+                           int64_t aSize, const string& aFile, const string& aHubName,
+                           const string& aHubURL, const string& ip, TTHValue aTTH, const string& aToken) :
+    file(aFile), hubName(aHubName), hubURL(aHubURL), user(aUser),
     size(aSize), type(aType), aslots(aSlots), freeSlots(aFreeSlots), IP(ip),
     tth(aTTH), token(aToken) { }
 

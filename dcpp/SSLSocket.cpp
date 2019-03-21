@@ -113,7 +113,7 @@ bool SSLSocket::waitWant(int ret, uint32_t millis) {
         return wait(millis, Socket::WAIT_READ) == WAIT_READ;
     case SSL_ERROR_WANT_WRITE:
         return wait(millis, Socket::WAIT_WRITE) == WAIT_WRITE;
-    // Check if this is a fatal error...
+        // Check if this is a fatal error...
     default: checkSSL(ret);
     }
     dcdebug("SSL: Unexpected fallthrough");
@@ -153,19 +153,19 @@ int SSLSocket::checkSSL(int ret) {
     if(ret <= 0) {
         int err = SSL_get_error(ssl, ret);
         switch(err) {
-            case SSL_ERROR_NONE:        // Fallthrough - YaSSL doesn't for example return an openssl compatible error on recv fail
-            case SSL_ERROR_WANT_READ:   // Fallthrough
-            case SSL_ERROR_WANT_WRITE:
-                return -1;
-            case SSL_ERROR_ZERO_RETURN:
-                throw SocketException(_("Connection closed"));
-            default:
-                {
-                    ssl.reset();
-                    // @todo replace 80 with MAX_ERROR_SZ or whatever's appropriate for yaSSL in some nice way...
-                    char errbuf[80];
-                    throw SSLSocketException(str(F_("SSL Error: %1% (%2%, %3%)") % ERR_error_string(err, errbuf) % ret % err));
-                }
+        case SSL_ERROR_NONE:        // Fallthrough - YaSSL doesn't for example return an openssl compatible error on recv fail
+        case SSL_ERROR_WANT_READ:   // Fallthrough
+        case SSL_ERROR_WANT_WRITE:
+            return -1;
+        case SSL_ERROR_ZERO_RETURN:
+            throw SocketException(_("Connection closed"));
+        default:
+        {
+            ssl.reset();
+            // @todo replace 80 with MAX_ERROR_SZ or whatever's appropriate for yaSSL in some nice way...
+            char errbuf[80];
+            throw SSLSocketException(str(F_("SSL Error: %1% (%2%, %3%)") % ERR_error_string(err, errbuf) % ret % err));
+        }
         }
     }
     return ret;

@@ -45,7 +45,7 @@ class HashLoader;
 class FileException;
 
 class HashManager : public Singleton<HashManager>, public Speaker<HashManagerListener>,
-    private TimerManagerListener
+        private TimerManagerListener
 {
 public:
 

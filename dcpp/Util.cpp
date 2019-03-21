@@ -418,13 +418,13 @@ string Util::validateFileName(string tmp, const string& badCharsExtra) {
         i++;
     }
 
-        i = 0;
-        if(!badCharsExtra.empty()) {
-            while( (i = tmp.find_first_of(badCharsExtra.c_str(), i)) != string::npos) {
+    i = 0;
+    if(!badCharsExtra.empty()) {
+        while( (i = tmp.find_first_of(badCharsExtra.c_str(), i)) != string::npos) {
             tmp[i] = '_';
             i++;
         }
-        }
+    }
 
     // Then, eliminate all ':' that are not the second letter ("c:\...")
     i = 0;
@@ -854,25 +854,25 @@ static wchar_t utf8ToLC(ccp& str) {
         if(str[0] & 0x40) {
             if(str[0] & 0x20) {
                 if(str[1] == 0 || str[2] == 0 ||
-                    !((((unsigned char)str[1]) & ~0x3f) == 0x80) ||
-                    !((((unsigned char)str[2]) & ~0x3f) == 0x80))
+                        !((((unsigned char)str[1]) & ~0x3f) == 0x80) ||
+                        !((((unsigned char)str[2]) & ~0x3f) == 0x80))
                 {
                     str++;
                     return 0;
                 }
                 c = ((wchar_t)(unsigned char)str[0] & 0xf) << 12 |
-                    ((wchar_t)(unsigned char)str[1] & 0x3f) << 6 |
-                    ((wchar_t)(unsigned char)str[2] & 0x3f);
+                                                              ((wchar_t)(unsigned char)str[1] & 0x3f) << 6 |
+                                                                                                         ((wchar_t)(unsigned char)str[2] & 0x3f);
                 str += 3;
             } else {
                 if(str[1] == 0 ||
-                    !((((unsigned char)str[1]) & ~0x3f) == 0x80))
+                        !((((unsigned char)str[1]) & ~0x3f) == 0x80))
                 {
                     str++;
                     return 0;
                 }
                 c = ((wchar_t)(unsigned char)str[0] & 0x1f) << 6 |
-                    ((wchar_t)(unsigned char)str[1] & 0x3f);
+                                                               ((wchar_t)(unsigned char)str[1] & 0x3f);
                 str += 2;
             }
         } else {
@@ -1030,8 +1030,8 @@ string Util::encodeURI(const string& aString, bool reverse) {
         }
     } else {
         const string disallowed = ";/?:@&=+$," // reserved
-                                  "<>#%\" "    // delimiters
-                                  "{}|\\^[]`"; // unwise
+                "<>#%\" "    // delimiters
+                "{}|\\^[]`"; // unwise
         string::size_type idx, loc;
         for(idx = 0; idx < tmp.length(); ++idx) {
             if(tmp[idx] == ' ') {
@@ -1101,7 +1101,7 @@ string Util::formatParams(const string& msg, const StringMap& params, bool filte
 
 string Util::formatTime(const string &msg, const time_t t) {
     if (!msg.empty()) {
-    tm* loc = localtime(&t);
+        tm* loc = localtime(&t);
 
         if(!loc) {
             return Util::emptyString;
@@ -1217,9 +1217,9 @@ string Util::getIpCountry (string IP) {
         string::size_type c = IP.find('.', b+2);
 
         uint32_t ipnum = (Util::toUInt32(IP.c_str()) << 24) |
-            (Util::toUInt32(IP.c_str() + a + 1) << 16) |
-            (Util::toUInt32(IP.c_str() + b + 1) << 8) |
-            (Util::toUInt32(IP.c_str() + c + 1) );
+                (Util::toUInt32(IP.c_str() + a + 1) << 16) |
+                (Util::toUInt32(IP.c_str() + b + 1) << 8) |
+                (Util::toUInt32(IP.c_str() + c + 1) );
 
         CountryIter i = countries.lower_bound(ipnum);
 
@@ -1295,16 +1295,16 @@ string Util::translateError(int aError) {
 #if defined(_WIN32)
     LPTSTR lpMsgBuf;
     DWORD chars = FormatMessage(
-        FORMAT_MESSAGE_ALLOCATE_BUFFER |
-        FORMAT_MESSAGE_FROM_SYSTEM |
-        FORMAT_MESSAGE_IGNORE_INSERTS,
-        NULL,
-        aError,
-        MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
-        (LPTSTR) &lpMsgBuf,
-        0,
-        NULL
-        );
+                FORMAT_MESSAGE_ALLOCATE_BUFFER |
+                FORMAT_MESSAGE_FROM_SYSTEM |
+                FORMAT_MESSAGE_IGNORE_INSERTS,
+                NULL,
+                aError,
+                MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
+                (LPTSTR) &lpMsgBuf,
+                0,
+                NULL
+                );
     if(chars == 0) {
         return string();
     }
@@ -1334,11 +1334,11 @@ void Util::setAway(bool aAway) {
 
     if(changed)
         ClientManager::getInstance()->infoUpdated();
- }
+}
 
- void Util::switchAway() {
+void Util::switchAway() {
     setAway(!away);
- }
+}
 
 string Util::formatAdditionalInfo(const string& aIp, bool sIp, bool sCC) {
     string ret = Util::emptyString;
@@ -1360,7 +1360,7 @@ string Util::formatAdditionalInfo(const string& aIp, bool sIp, bool sCC) {
         //printf("%s\n",ret.c_str());
         if(showCc) {
             ret += "[" + cc + "] ";
-        //printf("%s\n",ret.c_str());
+            //printf("%s\n",ret.c_str());
         }
         //printf("%s\n",ret.c_str());
     }

@@ -29,22 +29,22 @@ class Identity;
 
 struct TFolderSetting
 {
-  typedef TFolderSetting* Ptr;
-  typedef std::list<Ptr> List;
-  typedef List::iterator Iter;
+    typedef TFolderSetting* Ptr;
+    typedef std::list<Ptr> List;
+    typedef List::iterator Iter;
 
-  string m_folder;
-  int m_minshare;
+    string m_folder;
+    int m_minshare;
 };
 
 class CPerfolderLimit
 {
-  TFolderSetting::List m_limits;
+    TFolderSetting::List m_limits;
 public:
-  CPerfolderLimit(string const *config_name=NULL);
-  ~CPerfolderLimit();
-  bool IsUserAllowed(string const& request, const UserPtr user, string *message=NULL);
-  void RenewList(string const *config_name=NULL);
+    CPerfolderLimit(string const *config_name=NULL);
+    ~CPerfolderLimit();
+    bool IsUserAllowed(string const& request, const UserPtr user, string *message=NULL);
+    void RenewList(string const *config_name=NULL);
 };
 
 }

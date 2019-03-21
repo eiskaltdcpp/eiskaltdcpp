@@ -30,7 +30,7 @@ namespace dcpp
  * Inspired by Token Bucket algorithm: https://en.wikipedia.org/wiki/Token_bucket
  */
 class ThrottleManager :
-    public Singleton<ThrottleManager>, private TimerManagerListener
+        public Singleton<ThrottleManager>, private TimerManagerListener
 {
 public:
 

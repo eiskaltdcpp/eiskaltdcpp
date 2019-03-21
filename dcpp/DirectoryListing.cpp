@@ -39,8 +39,8 @@
 namespace dcpp {
 
 DirectoryListing::DirectoryListing(const HintedUser& aUser) :
-user(aUser),
-root(new Directory(NULL, Util::emptyString, false, false))
+    user(aUser),
+    root(new Directory(NULL, Util::emptyString, false, false))
 {
 }
 
@@ -98,11 +98,11 @@ void DirectoryListing::loadFile(const string& name) {
 class ListLoader : public dcpp::SimpleXMLReader::CallBack {
 public:
     ListLoader(DirectoryListing::Directory* root, bool aUpdating) : cur(root),
-                                                                    base("/"),
-                                                                    inListing(false),
-                                                                    updating(aUpdating),
-                                                                    m_is_mediainfo_list(false),
-                                                                    m_is_first_check_mediainfo_list(false)
+        base("/"),
+        inListing(false),
+        updating(aUpdating),
+        m_is_mediainfo_list(false),
+        m_is_first_check_mediainfo_list(false)
     {
     }
 
@@ -164,7 +164,7 @@ void ListLoader::startTag(const string& name, StringPairList& attribs, bool simp
             const string& h = getAttrib(attribs, sTTH, 2);
             if(h.empty())
                 return;
-             TTHValue tth(h); /// @todo verify validity?
+            TTHValue tth(h); /// @todo verify validity?
 
             if(updating) {
                 // just update the current file if it is already there.

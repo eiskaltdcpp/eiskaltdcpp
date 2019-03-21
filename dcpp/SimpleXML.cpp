@@ -189,7 +189,7 @@ void SimpleXML::fromXML(const string& aXML) {
     }
 
     TagReader t(&root);
-        SimpleXMLReader(&t).parse(aXML.c_str(), aXML.size(), false);
+    SimpleXMLReader(&t).parse(aXML.c_str(), aXML.size(), false);
 
     if(root.children.size() != 1) {
         throw SimpleXMLException("Invalid XML file, missing or multiple root tags");

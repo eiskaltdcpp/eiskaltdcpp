@@ -23,16 +23,16 @@
 #include "Singleton.h"
 
 #ifdef TIMER_OLD_BOOST
-    #include "Semaphore.h"
+#include "Semaphore.h"
 #else
-    #include <boost/thread/mutex.hpp>
+#include <boost/thread/mutex.hpp>
 #endif
 
 #ifndef _WIN32
-    #include <ctime>
-    #ifdef TIMER_OLD_BOOST
-        #include <climits>
-    #endif
+#include <ctime>
+#ifdef TIMER_OLD_BOOST
+#include <climits>
+#endif
 #endif
 
 namespace dcpp {

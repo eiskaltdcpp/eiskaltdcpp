@@ -150,12 +150,12 @@ void ConnectionManager::on(TimerManagerListener::Second, uint64_t aTick) noexcep
                 }
 
                 if(cqi->getErrors() == -1 && cqi->getLastAttempt() != 0) {
-                        // protocol error, don't reconnect except after a forced attempt
-                        continue;
+                    // protocol error, don't reconnect except after a forced attempt
+                    continue;
                 }
 
                 if(cqi->getLastAttempt() == 0 || (!attemptDone &&
-                    cqi->getLastAttempt() + 60 * 1000 * max(1, cqi->getErrors()) < aTick))
+                                                  cqi->getLastAttempt() + 60 * 1000 * max(1, cqi->getErrors()) < aTick))
                 {
                     cqi->setLastAttempt(aTick);
 
@@ -350,7 +350,7 @@ void ConnectionManager::nmdcConnect(const string& aServer, const string& aPort, 
 }
 
 void ConnectionManager::adcConnect(const OnlineUser& aUser, const std::string &aPort, const string& aToken, bool secure) {
-        adcConnect(aUser, aPort, Util::emptyString, BufferedSocket::NAT_NONE, aToken, secure);
+    adcConnect(aUser, aPort, Util::emptyString, BufferedSocket::NAT_NONE, aToken, secure);
 }
 
 void ConnectionManager::adcConnect(const OnlineUser& aUser, const std::string &aPort, const std::string &localPort, BufferedSocket::NatRoles natRole, const string& aToken, bool secure) {
@@ -440,7 +440,7 @@ void ConnectionManager::on(UserConnectionListener::Connected, UserConnection* aS
     // incorrect check because aSource->getUser().get() == nullptr
     if(aSource->isSecure() && !aSource->isTrusted() && !BOOLSETTING(ALLOW_UNTRUSTED_CLIENTS)) {
         putConnection(aSource);
-//        QueueManager::getInstance()->removeSource(aSource->getUser(), QueueItem::Source::FLAG_UNTRUSTED);
+        //        QueueManager::getInstance()->removeSource(aSource->getUser(), QueueItem::Source::FLAG_UNTRUSTED);
         return;
     }
 

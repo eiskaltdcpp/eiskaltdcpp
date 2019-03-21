@@ -78,7 +78,7 @@ public:
     class PartialSource : public FastAlloc<PartialSource>, public intrusive_ptr_base<PartialSource> {
     public:
         PartialSource(const string& aMyNick, const string& aHubIpPort, const string& aIp, const string& udp) :
-          myNick(aMyNick), hubIpPort(aHubIpPort), ip(aIp), udpPort(udp), nextQueryTime(0), pendingQueryCount(0) { }
+            myNick(aMyNick), hubIpPort(aHubIpPort), ip(aIp), udpPort(udp), nextQueryTime(0), pendingQueryCount(0) { }
 
         ~PartialSource() { }
 
@@ -113,8 +113,8 @@ public:
             FLAG_UNTRUSTED = 0x400,
             FLAG_UNENCRYPTED = 0x450,
             FLAG_MASK = FLAG_FILE_NOT_AVAILABLE
-                | FLAG_PASSIVE | FLAG_REMOVED | FLAG_CRC_FAILED | FLAG_CRC_WARN
-                | FLAG_BAD_TREE | FLAG_NO_TREE | FLAG_SLOW_SOURCE | FLAG_TTH_INCONSISTENCY | FLAG_UNTRUSTED | FLAG_UNENCRYPTED
+            | FLAG_PASSIVE | FLAG_REMOVED | FLAG_CRC_FAILED | FLAG_CRC_WARN
+            | FLAG_BAD_TREE | FLAG_NO_TREE | FLAG_SLOW_SOURCE | FLAG_TTH_INCONSISTENCY | FLAG_UNTRUSTED | FLAG_UNENCRYPTED
         };
 
         Source(const HintedUser& aUser) : user(aUser), partialSource(NULL) { }
@@ -136,7 +136,7 @@ public:
     typedef SegmentSet::const_iterator SegmentConstIter;
 
     QueueItem(const string& aTarget, int64_t aSize, Priority aPriority, int aFlag,
-        time_t aAdded, const TTHValue& tth) :
+              time_t aAdded, const TTHValue& tth) :
         Flags(aFlag), target(aTarget), size(aSize),
         priority(aPriority), added(aAdded), tthRoot(tth), nextPublishingTime(0)
     { }

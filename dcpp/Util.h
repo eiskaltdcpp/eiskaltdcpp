@@ -69,8 +69,8 @@ template<typename T> struct TypeTraits {
 };
 
 #define GETSET(type, name, name2) \
-private: type name; \
-public: TypeTraits<type>::ParameterType get##name2() const { return name; } \
+    private: type name; \
+    public: TypeTraits<type>::ParameterType get##name2() const { return name; } \
     void set##name2(TypeTraits<type>::ParameterType a##name2) { name = a##name2; }
 
 #define LIT(x) x, (sizeof(x)-1)
@@ -271,11 +271,11 @@ public:
 #ifdef _WIN32
         return _atoi64(aString.c_str());
 #else
-    #ifndef __HAIKU__
+#ifndef __HAIKU__
         return strtoq(aString.c_str(), (char **)NULL, 10);
-    #else
+#else
         return strtoll(aString.c_str(), (char **)NULL, 10);
-    #endif
+#endif
 #endif
     }
 

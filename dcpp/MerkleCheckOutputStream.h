@@ -107,7 +107,7 @@ private:
     void checkTrees() {
         while(cur.getLeaves().size() > verified) {
             if(cur.getLeaves().size() > real.getLeaves().size() ||
-                !(cur.getLeaves()[verified] == real.getLeaves()[verified]))
+                    !(cur.getLeaves()[verified] == real.getLeaves()[verified]))
             {
                 throw FileException(_("TTH inconsistency"));
             }

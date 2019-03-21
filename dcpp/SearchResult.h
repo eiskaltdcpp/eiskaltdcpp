@@ -38,8 +38,8 @@ public:
     SearchResult(Types aType, int64_t aSize, const string& name, const TTHValue& aTTH);
 
     SearchResult(const UserPtr& aUser, Types aType, int aSlots, int aFreeSlots,
-    int64_t aSize, const string& aFile, const string& aHubName,
-    const string& aHubURL, const string& ip, TTHValue aTTH, const string& aToken);
+                 int64_t aSize, const string& aFile, const string& aHubName,
+                 const string& aHubURL, const string& ip, TTHValue aTTH, const string& aToken);
 
     string getBaseName() const;
     string toSR(const Client& client) const;

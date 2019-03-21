@@ -152,8 +152,8 @@ void AdcHub::handle(AdcCommand::INF, AdcCommand& c) noexcept {
                     nick = "[nick unknown]";
                 }
                 fire(ClientListener::StatusMessage(), this, str(F_("%1% (%2%) has same CID {%3%} as %4% (%5%), ignoring")
-                    % u->getIdentity().getNick() % u->getIdentity().getSIDString() % cid % nick % AdcCommand::fromSID(c.getFrom())),
-                                        ClientListener::FLAG_IS_SPAM);
+                                                                % u->getIdentity().getNick() % u->getIdentity().getSIDString() % cid % nick % AdcCommand::fromSID(c.getFrom())),
+                     ClientListener::FLAG_IS_SPAM);
                 return;
             }
         } else {
@@ -289,32 +289,32 @@ void AdcHub::handle(AdcCommand::QUI, AdcCommand& c) noexcept {
     uint32_t s = AdcCommand::toSID(c.getParam(0));
 
     OnlineUser* victim = findUser(s);
-        if(victim) {
+    if(victim) {
 
-    string tmp;
-    if(c.getParam("MS", 1, tmp)) {
-        OnlineUser* source = 0;
-        string tmp2;
-        if(c.getParam("ID", 1, tmp2)) {
-            source = findUser(AdcCommand::toSID(tmp2));
+        string tmp;
+        if(c.getParam("MS", 1, tmp)) {
+            OnlineUser* source = 0;
+            string tmp2;
+            if(c.getParam("ID", 1, tmp2)) {
+                source = findUser(AdcCommand::toSID(tmp2));
+            }
+
+            if(source) {
+                tmp = str(F_("%1% was kicked by %2%: %3%") % victim->getIdentity().getNick() %
+                          source->getIdentity().getNick() % tmp);
+            } else {
+                tmp = str(F_("%1% was kicked: %2%") % victim->getIdentity().getNick() % tmp);
+            }
+            fire(ClientListener::StatusMessage(), this, tmp, ClientListener::FLAG_IS_SPAM);
         }
 
-        if(source) {
-            tmp = str(F_("%1% was kicked by %2%: %3%") % victim->getIdentity().getNick() %
-            source->getIdentity().getNick() % tmp);
-        } else {
-            tmp = str(F_("%1% was kicked: %2%") % victim->getIdentity().getNick() % tmp);
-        }
-        fire(ClientListener::StatusMessage(), this, tmp, ClientListener::FLAG_IS_SPAM);
+        putUser(s, c.getParam("DI", 1, tmp));
     }
 
-    putUser(s, c.getParam("DI", 1, tmp));
-        }
-
     if(s == sid) {
-                // this QUI is directed to us
+        // this QUI is directed to us
 
-                string tmp;
+        string tmp;
         if(c.getParam("TL", 1, tmp)) {
             if(tmp == "-1") {
                 setAutoReconnect(false);
@@ -323,9 +323,9 @@ void AdcHub::handle(AdcCommand::QUI, AdcCommand& c) noexcept {
                 setReconnDelay(Util::toUInt32(tmp));
             }
         }
-                if(!victim && c.getParam("MS", 1, tmp)) {
-                    fire(ClientListener::StatusMessage(), this, tmp, ClientListener::FLAG_NORMAL);
-                }
+        if(!victim && c.getParam("MS", 1, tmp)) {
+            fire(ClientListener::StatusMessage(), this, tmp, ClientListener::FLAG_NORMAL);
+        }
         if(c.getParam("RD", 1, tmp)) {
             fire(ClientListener::Redirect(), this, tmp);
         }
@@ -383,20 +383,20 @@ void AdcHub::handle(AdcCommand::RCM, AdcCommand& c) noexcept {
         return;
     }
 
-   if(isActive()) {
-       connect(*u, token, secure);
-       return;
-   }
+    if(isActive()) {
+        connect(*u, token, secure);
+        return;
+    }
 
     if (!u->getIdentity().supports(NAT0_FEATURE) && !BOOLSETTING(ALLOW_NATT))
-       return;
+        return;
 
-   // Attempt to traverse NATs and/or firewalls with TCP.
-   // If they respond with their own, symmetric, RNT command, both
-   // clients call ConnectionManager::adcConnect.
-   send(AdcCommand(AdcCommand::CMD_NAT, u->getIdentity().getSID(), AdcCommand::TYPE_DIRECT).
-           addParam(protocol).addParam(sock->getLocalPort()).addParam(token));
-   return;
+    // Attempt to traverse NATs and/or firewalls with TCP.
+    // If they respond with their own, symmetric, RNT command, both
+    // clients call ConnectionManager::adcConnect.
+    send(AdcCommand(AdcCommand::CMD_NAT, u->getIdentity().getSID(), AdcCommand::TYPE_DIRECT).
+         addParam(protocol).addParam(sock->getLocalPort()).addParam(token));
+    return;
 }
 
 void AdcHub::handle(AdcCommand::CMD, AdcCommand& c) noexcept {
@@ -469,34 +469,34 @@ void AdcHub::handle(AdcCommand::STA, AdcCommand& c) noexcept {
     switch(Util::toInt(c.getParam(0).substr(1))) {
 
     case AdcCommand::ERROR_BAD_PASSWORD:
-            {
-                setPassword(Util::emptyString);
-                break;
-            }
+    {
+        setPassword(Util::emptyString);
+        break;
+    }
 
     case AdcCommand::ERROR_COMMAND_ACCESS:
-            {
-                string tmp;
-                if(c.getParam("FC", 1, tmp) && tmp.size() == 4)
-                    forbiddenCommands.insert(AdcCommand::toFourCC(tmp.c_str()));
-                break;
-            }
+    {
+        string tmp;
+        if(c.getParam("FC", 1, tmp) && tmp.size() == 4)
+            forbiddenCommands.insert(AdcCommand::toFourCC(tmp.c_str()));
+        break;
+    }
 
     case AdcCommand::ERROR_PROTOCOL_UNSUPPORTED:
-            {
-                string tmp;
-                if(c.getParam("PR", 1, tmp)) {
-                    if(tmp == CLIENT_PROTOCOL) {
-                        u->getUser()->setFlag(User::NO_ADC_1_0_PROTOCOL);
-                    } else if(tmp == SECURE_CLIENT_PROTOCOL_TEST) {
-                        u->getUser()->setFlag(User::NO_ADCS_0_10_PROTOCOL);
-                        u->getUser()->unsetFlag(User::TLS);
-                    }
-                // Try again...
-                ConnectionManager::getInstance()->force(u->getUser());
-                }
-                return;
+    {
+        string tmp;
+        if(c.getParam("PR", 1, tmp)) {
+            if(tmp == CLIENT_PROTOCOL) {
+                u->getUser()->setFlag(User::NO_ADC_1_0_PROTOCOL);
+            } else if(tmp == SECURE_CLIENT_PROTOCOL_TEST) {
+                u->getUser()->setFlag(User::NO_ADCS_0_10_PROTOCOL);
+                u->getUser()->unsetFlag(User::TLS);
             }
+            // Try again...
+            ConnectionManager::getInstance()->force(u->getUser());
+        }
+        return;
+    }
     }
     ChatMessage message = { c.getParam(1), u, nullptr, nullptr, false, 0 };
     fire(ClientListener::Message(), this, message);
@@ -535,14 +535,14 @@ void AdcHub::handle(AdcCommand::GET, AdcCommand& c) noexcept {
         if(c.getParameters().size() > 0) {
             if(c.getParam(0) == "blom") {
                 send(AdcCommand(AdcCommand::SEV_FATAL, AdcCommand::ERROR_PROTOCOL_GENERIC,
-                        "Too few parameters for blom", AdcCommand::TYPE_HUB));
+                                "Too few parameters for blom", AdcCommand::TYPE_HUB));
             } else {
                 send(AdcCommand(AdcCommand::SEV_FATAL, AdcCommand::ERROR_TRANSFER_GENERIC,
-                        "Unknown transfer type", AdcCommand::TYPE_HUB));
+                                "Unknown transfer type", AdcCommand::TYPE_HUB));
             }
         } else {
             send(AdcCommand(AdcCommand::SEV_FATAL, AdcCommand::ERROR_PROTOCOL_GENERIC,
-                    "Too few parameters for GET", AdcCommand::TYPE_HUB));
+                            "Too few parameters for GET", AdcCommand::TYPE_HUB));
         }
         return;
     }
@@ -616,7 +616,7 @@ void AdcHub::handle(AdcCommand::NAT, AdcCommand& c) noexcept {
 
     // ... and signal other client to do likewise.
     send(AdcCommand(AdcCommand::CMD_RNT, u->getIdentity().getSID(), AdcCommand::TYPE_DIRECT).addParam(protocol).
-           addParam(sock->getLocalPort()).addParam(token));
+         addParam(sock->getLocalPort()).addParam(token));
 }
 
 void AdcHub::handle(AdcCommand::RNT, AdcCommand& c) noexcept {
@@ -863,7 +863,7 @@ void AdcHub::search(int aSizeMode, int64_t aSize, int aFileType, const string& a
                 // gather the exts not present in any of the lists
                 StringList temp(def.size() + exts.size());
                 temp = StringList(temp.begin(), set_symmetric_difference(def.begin(), def.end(),
-                    exts.begin(), exts.end(), temp.begin()));
+                                                                         exts.begin(), exts.end(), temp.begin()));
 
                 // figure out whether the remaining exts have to be added or removed from the set
                 StringList rx_;
@@ -986,7 +986,7 @@ void AdcHub::info(bool /*alwaysSend*/) {
 
     AdcCommand c(AdcCommand::CMD_INF, AdcCommand::TYPE_BROADCAST);
     if (state == STATE_NORMAL) {
-    updateCounts(false);
+        updateCounts(false);
     }
     addParam(lastInfoMap, c, "ID", ClientManager::getInstance()->getMyCID().toBase32());
     addParam(lastInfoMap, c, "PD", ClientManager::getInstance()->getMyPID().toBase32());
@@ -1006,7 +1006,7 @@ void AdcHub::info(bool /*alwaysSend*/) {
     if (limit > 0 && BOOLSETTING(THROTTLE_ENABLE)) {
         addParam(lastInfoMap, c, "DS", Util::toString(limit * 1024));
     } else {
-         addParam(lastInfoMap, c, "DS", Util::emptyString);
+        addParam(lastInfoMap, c, "DS", Util::emptyString);
     }
     limit = ThrottleManager::getInstance()->getUpLimit();
     if (limit > 0 && BOOLSETTING(THROTTLE_ENABLE)) {
@@ -1024,23 +1024,23 @@ void AdcHub::info(bool /*alwaysSend*/) {
 
     if (!getFavIp().empty()) {
         addParam(lastInfoMap, c, "I4", getFavIp());
-   } else if(BOOLSETTING(NO_IP_OVERRIDE) && !SETTING(EXTERNAL_IP).empty()) {
-           addParam(lastInfoMap, c, "I4", Socket::resolve(SETTING(EXTERNAL_IP)));
-   } else {
-           addParam(lastInfoMap, c, "I4", "0.0.0.0");
-   }
+    } else if(BOOLSETTING(NO_IP_OVERRIDE) && !SETTING(EXTERNAL_IP).empty()) {
+        addParam(lastInfoMap, c, "I4", Socket::resolve(SETTING(EXTERNAL_IP)));
+    } else {
+        addParam(lastInfoMap, c, "I4", "0.0.0.0");
+    }
 
-   if(isActive()) {
-           addParam(lastInfoMap, c, "U4", SearchManager::getInstance()->getPort());
-           su += "," + TCP4_FEATURE;
-           su += "," + UDP4_FEATURE;
-   } else {
+    if(isActive()) {
+        addParam(lastInfoMap, c, "U4", SearchManager::getInstance()->getPort());
+        su += "," + TCP4_FEATURE;
+        su += "," + UDP4_FEATURE;
+    } else {
         if (BOOLSETTING(ALLOW_NATT))
             su += "," + NAT0_FEATURE;
         else
             addParam(lastInfoMap, c, "I4", "");
         addParam(lastInfoMap, c, "U4", "");
-   }
+    }
 
     addParam(lastInfoMap, c, "SU", su);
 

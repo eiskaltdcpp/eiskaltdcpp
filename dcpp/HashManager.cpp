@@ -233,10 +233,10 @@ void HashManager::hashDone(const string& aFileName, uint32_t aTimeStamp, const T
 
     if (speed > 0) {
         LogManager::getInstance()->message(str(F_("Finished hashing: %1% (%2% at %3%/s)") % Util::addBrackets(aFileName) %
-            Util::formatBytes(size) % Util::formatBytes(speed)));
+                                               Util::formatBytes(size) % Util::formatBytes(speed)));
     } else if(size >= 0) {
         LogManager::getInstance()->message(str(F_("Finished hashing: %1% (%2%)") % Util::addBrackets(aFileName) %
-            Util::formatBytes(size)));
+                                               Util::formatBytes(size)));
     } else {
         LogManager::getInstance()->message(str(F_("Finished hashing: %1%") % Util::addBrackets(aFileName)));
     }
@@ -563,7 +563,7 @@ void HashLoader::startTag(const string& name, StringPairList& attribs, bool simp
                 string fpath = Util::getFilePath(file);
 
                 store.fileIndex[fpath].push_back(HashManager::HashStore::FileInfo(fname, TTHValue(root), timeStamp,
-                    false));
+                                                                                  false));
             }
         } else if (name == sTrees) {
             inTrees = !simple;
@@ -630,7 +630,7 @@ void HashManager::Hasher::hashFile(const string& fileName, int64_t size) {
 bool HashManager::Hasher::pause() {
     Lock l(cs);
     paused = 1;
-//    printf("pause::paused: %d\n", paused);fflush(stdout);
+    //    printf("pause::paused: %d\n", paused);fflush(stdout);
     return true;
 }
 
@@ -638,7 +638,7 @@ void HashManager::Hasher::resume() {
     Lock l(cs);
     while(paused > 0) {
         paused = 0;
-//        printf("resume::paused: %d\n", paused);fflush(stdout);
+        //        printf("resume::paused: %d\n", paused);fflush(stdout);
         s.signal();
     }
 }
@@ -681,7 +681,7 @@ void HashManager::Hasher::instantPause() {
         }
     }
     if(wait) {
-//        printf("wait2: %d\n", wait); fflush(stdout);
+        //        printf("wait2: %d\n", wait); fflush(stdout);
         s.wait();
     }
 }
@@ -699,7 +699,7 @@ bool HashManager::Hasher::fastHash(const string& fname, uint8_t* buf, TigerTree&
             return false;
         } else {
             h = ::CreateFileW(Text::utf8ToWide(fname).c_str(), GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING,
-                FILE_FLAG_NO_BUFFERING | FILE_FLAG_OVERLAPPED, NULL);
+                              FILE_FLAG_NO_BUFFERING | FILE_FLAG_OVERLAPPED, NULL);
             if (h == INVALID_HANDLE_VALUE)
                 return false;
         }
@@ -777,7 +777,7 @@ bool HashManager::Hasher::fastHash(const string& fname, uint8_t* buf, TigerTree&
                     goto cleanup;
                 }
                 break;
-                default:
+            default:
                 dcdebug("Error 0x%x: %s\n", GetLastError(), Util::translateError(GetLastError()).c_str());
                 goto cleanup;
             }
@@ -792,7 +792,7 @@ bool HashManager::Hasher::fastHash(const string& fname, uint8_t* buf, TigerTree&
         swap(rn, hn);
     }
 
-    cleanup:
+cleanup:
     ::CloseHandle(over.hEvent);
     ::CloseHandle(h);
     return ok;
@@ -879,8 +879,8 @@ bool HashManager::Hasher::fastHash(const string& filename, uint8_t* , TigerTree&
         size_read = std::min(size - pos, BUF_SIZE);
         buf = mmap(0, size_read, PROT_READ, mmap_flags, fd, pos);
         if(buf == MAP_FAILED) {
-        dcdebug("Error calling mmap for file %s: %s\n", filename.c_str(), Util::translateError(errno).c_str());
-        break;
+            dcdebug("Error calling mmap for file %s: %s\n", filename.c_str(), Util::translateError(errno).c_str());
+            break;
         }
 
         if (sigsetjmp(sb_env, 1)) {
@@ -1013,7 +1013,7 @@ int HashManager::Hasher::run() {
                 SFVReader sfv(fname);
                 CRC32Filter* xcrc32 = 0;
                 if(sfv.hasCRC())
-                xcrc32 = &crc32;
+                    xcrc32 = &crc32;
 
                 TigerTree fastTTH(bs);
                 tth = &fastTTH;
@@ -1049,7 +1049,7 @@ int HashManager::Hasher::run() {
                             currentSize = max(static_cast<uint64_t>(currentSize - n), static_cast<uint64_t>(0));
                         }
 
-                    instantPause();
+                        instantPause();
                     } while (n> 0 && !stop);
                 }
 
@@ -1065,29 +1065,29 @@ int HashManager::Hasher::run() {
                 } else {
                     HashManager::getInstance()->hashDone(fname, timestamp, *tth, speed, size);
                 }
-                } catch(const FileException& e) {
-                    LogManager::getInstance()->message(str(F_("Error hashing %1%: %2%") % Util::addBrackets(fname) % e.getError()));
-                }
-            }
-            {
-                Lock l(cs);
-                currentFile.clear();
-                currentSize = 0;
-            }
-            running = false;
-            if(buf != NULL && (last || stop)) {
-                if(virtualBuf) {
-#ifdef _WIN32
-                    VirtualFree(buf, 0, MEM_RELEASE);
-#endif
-                } else {
-                    delete [] buf;
-                }
-                buf = NULL;
+            } catch(const FileException& e) {
+                LogManager::getInstance()->message(str(F_("Error hashing %1%: %2%") % Util::addBrackets(fname) % e.getError()));
             }
         }
-        return 0;
+        {
+            Lock l(cs);
+            currentFile.clear();
+            currentSize = 0;
+        }
+        running = false;
+        if(buf != NULL && (last || stop)) {
+            if(virtualBuf) {
+#ifdef _WIN32
+                VirtualFree(buf, 0, MEM_RELEASE);
+#endif
+            } else {
+                delete [] buf;
+            }
+            buf = NULL;
+        }
     }
+    return 0;
+}
 
 HashManager::HashPauser::HashPauser() {
     resume = !HashManager::getInstance()->isHashingPaused();

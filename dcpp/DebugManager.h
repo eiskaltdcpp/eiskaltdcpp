@@ -25,7 +25,7 @@ namespace dcpp {
 
 class DebugManagerListener {
 public:
-template<int I> struct X { enum { TYPE = I };  };
+    template<int I> struct X { enum { TYPE = I };  };
 
     typedef X<0> DebugCommand;
     typedef X<1> DebugDetection;
@@ -52,7 +52,7 @@ public:
     enum {
         HUB_IN, HUB_OUT, CLIENT_IN, CLIENT_OUT
 #ifdef WITH_DHT
-, DHT_IN, DHT_OUT
+        , DHT_IN, DHT_OUT
 #endif
     };
 

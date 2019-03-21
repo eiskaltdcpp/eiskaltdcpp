@@ -23,12 +23,12 @@ namespace dcpp {
 class HubEntry {
 public:
     HubEntry(const string& aName, const string& aServer, const string& aDescription, const string& aUsers) noexcept :
-    name(aName), server(aServer), description(aDescription), country(Util::emptyString),
-    rating(Util::emptyString), reliability(0.0), shared(0), minShare(0), users(Util::toInt(aUsers)), minSlots(0), maxHubs(0), maxUsers(0) { }
+        name(aName), server(aServer), description(aDescription), country(Util::emptyString),
+        rating(Util::emptyString), reliability(0.0), shared(0), minShare(0), users(Util::toInt(aUsers)), minSlots(0), maxHubs(0), maxUsers(0) { }
 
     HubEntry(const string& aName, const string& aServer, const string& aDescription, const string& aUsers, const string& aCountry,
-        const string& aShared, const string& aMinShare, const string& aMinSlots, const string& aMaxHubs, const string& aMaxUsers,
-        const string& aReliability, const string& aRating) : name(aName), server(aServer), description(aDescription), country(aCountry),
+             const string& aShared, const string& aMinShare, const string& aMinSlots, const string& aMaxHubs, const string& aMaxUsers,
+             const string& aReliability, const string& aRating) : name(aName), server(aServer), description(aDescription), country(aCountry),
         rating(aRating), reliability((float)(Util::toFloat(aReliability) / 100.0)), shared(Util::toInt64(aShared)), minShare(Util::toInt64(aMinShare)),
         users(Util::toInt(aUsers)), minSlots(Util::toInt(aMinSlots)), maxHubs(Util::toInt(aMaxHubs)), maxUsers(Util::toInt(aMaxUsers))
     {
@@ -60,20 +60,20 @@ const string DEF_FAKE_ID = "";
 class FavoriteHubEntry {
 public:
     FavoriteHubEntry() noexcept : connect(false), encoding(Text::systemCharset),
-    mode(0), overrideId(0), clientId(DEF_FAKE_ID), searchInterval(SETTING(MINIMUM_SEARCH_INTERVAL)) { }
+        mode(0), overrideId(0), clientId(DEF_FAKE_ID), searchInterval(SETTING(MINIMUM_SEARCH_INTERVAL)) { }
     FavoriteHubEntry(const HubEntry& rhs) noexcept : name(rhs.getName()),
-    server(rhs.getServer()),
-    description(rhs.getDescription()), connect(false),
-    encoding(Text::systemCharset), mode(0), overrideId(0),
-    clientId(DEF_FAKE_ID), searchInterval(SETTING(MINIMUM_SEARCH_INTERVAL)) { }
+        server(rhs.getServer()),
+        description(rhs.getDescription()), connect(false),
+        encoding(Text::systemCharset), mode(0), overrideId(0),
+        clientId(DEF_FAKE_ID), searchInterval(SETTING(MINIMUM_SEARCH_INTERVAL)) { }
     FavoriteHubEntry(const FavoriteHubEntry& rhs) noexcept :
-    userdescription(rhs.userdescription), name(rhs.getName()),
-    server(rhs.getServer()), description(rhs.getDescription()),
-    password(rhs.getPassword()), connect(rhs.getConnect()),
-    encoding(rhs.getEncoding()), mode(rhs.mode),
-    overrideId(rhs.overrideId), clientId(rhs.clientId),
-    externalIP(""), useInternetIp(false), disableChat(false),
-    searchInterval(rhs.searchInterval), nick(rhs.nick)
+        userdescription(rhs.userdescription), name(rhs.getName()),
+        server(rhs.getServer()), description(rhs.getDescription()),
+        password(rhs.getPassword()), connect(rhs.getConnect()),
+        encoding(rhs.getEncoding()), mode(rhs.mode),
+        overrideId(rhs.overrideId), clientId(rhs.clientId),
+        externalIP(""), useInternetIp(false), disableChat(false),
+        searchInterval(rhs.searchInterval), nick(rhs.nick)
     { }
     ~FavoriteHubEntry() noexcept { }
 

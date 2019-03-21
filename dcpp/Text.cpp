@@ -27,7 +27,7 @@
 #include <langinfo.h>
 
 #ifndef ICONV_CONST
- #define ICONV_CONST
+#define ICONV_CONST
 #endif
 
 #endif
@@ -101,8 +101,8 @@ int utf8ToWc(const char* str, wchar_t& c) {
                         return -3;
 
                     c = (((wchar_t)c0 & 0x0f) << 12) |
-                        (((wchar_t)c1 & 0x3f) << 6) |
-                        ((wchar_t)c2 & 0x3f);
+                            (((wchar_t)c1 & 0x3f) << 6) |
+                            ((wchar_t)c2 & 0x3f);
 
                     return 3;
                 }
@@ -116,7 +116,7 @@ int utf8ToWc(const char* str, wchar_t& c) {
                     return -2;
 
                 c = (((wchar_t)c0 & 0x1f) << 6) |
-                    ((wchar_t)c1 & 0x3f);
+                        ((wchar_t)c1 & 0x3f);
                 return 2;
             }
         } else {                    // 10xxxxxx
@@ -269,9 +269,9 @@ const wstring& utf8ToWide(const string& str, wstring& tgt) noexcept {
 
 wchar_t toLower(wchar_t c) noexcept {
 #ifdef _WIN32
-        return static_cast<wchar_t>(reinterpret_cast<ptrdiff_t>(CharLowerW((LPWSTR)c)));
+    return static_cast<wchar_t>(reinterpret_cast<ptrdiff_t>(CharLowerW((LPWSTR)c)));
 #else
-        return (wchar_t)std::towlower(c);
+    return (wchar_t)std::towlower(c);
 #endif
 }
 

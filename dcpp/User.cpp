@@ -38,8 +38,8 @@ bool Identity::isTcpActive(const Client* c) const {
         return c->isActive(); // userlist should display our real mode
     } else {
         return (!user->isSet(User::NMDC)) ?
-                !getIp().empty() && supports(AdcHub::TCP4_FEATURE) :
-                !user->isSet(User::PASSIVE);
+                    !getIp().empty() && supports(AdcHub::TCP4_FEATURE) :
+                    !user->isSet(User::PASSIVE);
     }
 }
 
@@ -57,10 +57,10 @@ void Identity::getParams(StringMap& sm, const string& prefix, bool compatibility
         }
     }
     if(
-#ifdef WITH_DHT
-       !dht &&
-#endif
-               user) {
+        #ifdef WITH_DHT
+            !dht &&
+        #endif
+            user) {
         sm[prefix + "SID"] = getSIDString();
         sm[prefix + "CID"] = user->getCID().toBase32();
         sm[prefix + "TAG"] = getTag();
@@ -95,7 +95,7 @@ string Identity::getTag() const {
     if(get("VE").empty() || get("HN").empty() || get("HR").empty() ||get("HO").empty() || get("SL").empty())
         return Util::emptyString;
     return "<" + get("VE") + ",M:" + string(isTcpActive() ? "A" : "P") + ",H:" + get("HN") + "/" +
-        get("HR") + "/" + get("HO") + ",S:" + get("SL") + ">";
+            get("HR") + "/" + get("HO") + ",S:" + get("SL") + ">";
 }
 
 string Identity::get(const char* name) const {

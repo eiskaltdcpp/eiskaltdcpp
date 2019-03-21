@@ -36,9 +36,9 @@
 namespace dcpp {
 
 NmdcHub::NmdcHub(const string& aHubURL, bool secure) :
-Client(aHubURL, '|', secure),
-supportFlags(0),
-lastUpdate(0)
+    Client(aHubURL, '|', secure),
+    supportFlags(0),
+    lastUpdate(0)
 {
 }
 
@@ -263,7 +263,7 @@ void NmdcHub::onLine(const string& aLine) noexcept {
         } else {
             // Hub:seeker
             if(seeker.size() > 4 &&
-               Util::stricmp(seeker.c_str() + 4, getMyNick().c_str()) == 0) {
+                    Util::stricmp(seeker.c_str() + 4, getMyNick().c_str()) == 0) {
                 return;
             }
         }
@@ -479,7 +479,7 @@ void NmdcHub::onLine(const string& aLine) noexcept {
 
                 // Trigger connection attempt sequence locally ...
                 ConnectionManager::getInstance()->nmdcConnect(server, port, sock->getLocalPort(),
-                BufferedSocket::NAT_CLIENT, getMyNick(), getHubUrl(), getEncoding(), secure);
+                                                              BufferedSocket::NAT_CLIENT, getMyNick(), getHubUrl(), getEncoding(), secure);
 
                 // ... and signal other client to do likewise.
                 send("$ConnectToMe " + senderNick + " " + getLocalIp() + ":" + sock->getLocalPort() + (secure ? "RS" : "R") + "|");
@@ -489,7 +489,7 @@ void NmdcHub::onLine(const string& aLine) noexcept {
 
                 // Trigger connection attempt sequence locally
                 ConnectionManager::getInstance()->nmdcConnect(server, port, sock->getLocalPort(),
-                BufferedSocket::NAT_SERVER, getMyNick(), getHubUrl(), getEncoding(), secure);
+                                                              BufferedSocket::NAT_SERVER, getMyNick(), getHubUrl(), getEncoding(), secure);
                 return;
             }
         }
@@ -623,12 +623,12 @@ void NmdcHub::onLine(const string& aLine) noexcept {
                 feat.push_back("TTHSearch");
                 feat.push_back("ZPipe0");
 
-            if(CryptoManager::getInstance()->TLSOk())
-                feat.push_back("TLS");
+                if(CryptoManager::getInstance()->TLSOk())
+                    feat.push_back("TLS");
 
 #ifdef WITH_DHT
-            if(BOOLSETTING(USE_DHT))
-                feat.push_back("DHT0");
+                if(BOOLSETTING(USE_DHT))
+                    feat.push_back("DHT0");
 #endif
 
                 supports(feat);
@@ -879,27 +879,27 @@ void NmdcHub::myInfo(bool alwaysSend) {
         StatusMode |= Identity::AWAY;
     }
     if(BOOLSETTING(ALLOW_NATT) && !isActive()) {
-            StatusMode |= Identity::NAT;
+        StatusMode |= Identity::NAT;
     }
     if (CryptoManager::getInstance()->TLSOk()) {
-            StatusMode |= Identity::TLS;
+        StatusMode |= Identity::TLS;
     }
 
     bool gslotf = BOOLSETTING(SHOW_FREE_SLOTS_DESC);
     string gslot = "["+Util::toString(UploadManager::getInstance()->getFreeSlots())+"]";
     string uMin = (SETTING(MIN_UPLOAD_SPEED) == 0) ? Util::emptyString : ",O:" + Util::toString(SETTING(MIN_UPLOAD_SPEED));
     string myInfoA =
-        "$MyINFO $ALL " + fromUtf8(getMyNick()) + " " +
-        fromUtf8(escape((gslotf ? gslot :"")+getCurrentDescription())) + " <"+ getClientId().c_str() + ",M:" + modeChar + ",H:" + getCounts();
+            "$MyINFO $ALL " + fromUtf8(getMyNick()) + " " +
+            fromUtf8(escape((gslotf ? gslot :"")+getCurrentDescription())) + " <"+ getClientId().c_str() + ",M:" + modeChar + ",H:" + getCounts();
     string myInfoB = ",S:" + Util::toString(SETTING(SLOTS));
     string myInfoC = uMin +
-        ">$ $" + uploadSpeed + StatusMode + "$" + fromUtf8(escape(SETTING(EMAIL))) + '$';
+            ">$ $" + uploadSpeed + StatusMode + "$" + fromUtf8(escape(SETTING(EMAIL))) + '$';
     string myInfoD = ShareManager::getInstance()->getShareSizeString() + "$|";
     // we always send A and C; however, B (slots) and D (share size) can frequently change so we delay them if needed
     if(alwaysSend ||
-        ((lastMyInfoA != myInfoA || lastMyInfoC != myInfoC) && lastUpdate + 2*60*1000 < GET_TICK())
-        ||
-        ((lastMyInfoB != myInfoB || lastMyInfoD != myInfoD) && lastUpdate + 15*60*1000 < GET_TICK())) {
+            ((lastMyInfoA != myInfoA || lastMyInfoC != myInfoC) && lastUpdate + 2*60*1000 < GET_TICK())
+            ||
+            ((lastMyInfoB != myInfoB || lastMyInfoD != myInfoD) && lastUpdate + 15*60*1000 < GET_TICK())) {
         dcdebug("MyInfo %s...\n", getMyNick().c_str());
         send(myInfoA + myInfoB + myInfoC + myInfoD);
         lastMyInfoA = myInfoA;

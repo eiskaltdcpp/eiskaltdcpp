@@ -30,10 +30,10 @@
 #include <crtdbg.h>
 
 #define dcassert(exp) \
-do { if (!(exp)) { \
+    do { if (!(exp)) { \
     dcdebug("Assertion hit in %s(%d): " #exp "\n", __FILE__, __LINE__); \
     if(1 == _CrtDbgReport(_CRT_ASSERT, __FILE__, __LINE__, NULL, #exp)) \
-_CrtDbgBreak(); } } while(false)
+    _CrtDbgBreak(); } } while(false)
 #else
 #define dcassert(exp) assert(exp)
 #endif

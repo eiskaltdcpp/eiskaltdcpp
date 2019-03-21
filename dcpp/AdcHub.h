@@ -36,9 +36,9 @@ struct AdcScriptInstance : public ScriptInstance {
 };
 #endif
 class AdcHub : public Client, public CommandHandler<AdcHub>
-#ifdef LUA_SCRIPT
-, public AdcScriptInstance
-#endif
+        #ifdef LUA_SCRIPT
+        , public AdcScriptInstance
+        #endif
 {
 public:
     using Client::send;

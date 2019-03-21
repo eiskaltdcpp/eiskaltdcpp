@@ -22,27 +22,27 @@ int Wildcard::wildcardfit(const char *wildcard, const char *test, bool useSet)
     {
         switch (*wildcard)
         {
-            case '?':
-                test++;
+        case '?':
+            test++;
+            break;
+        case '*':
+            fit = asterisk(&wildcard, &test);
+            // the asterisk was skipped by asterisk() but the loop will
+            // increment by itself. So we have to decrement
+            wildcard--;
+            break;
+        case '[':
+            if (useSet)
+            {
+                wildcard++; // leave out the opening square bracket
+                fit = set(&wildcard, &test);
+                // we don't need to decrement the wildcard as in case
+                // of asterisk because the closing ] is still there
                 break;
-            case '*':
-                fit = asterisk(&wildcard, &test);
-                // the asterisk was skipped by asterisk() but the loop will
-                // increment by itself. So we have to decrement
-                wildcard--;
-                break;
-            case '[':
-                if (useSet)
-                {
-                    wildcard++; // leave out the opening square bracket
-                    fit = set(&wildcard, &test);
-                    // we don't need to decrement the wildcard as in case
-                    // of asterisk because the closing ] is still there
-                    break;
-                } //if we're not using the set option, fall through
-            default:
-                fit = (int)(*wildcard == *test);
-                test++;
+            } //if we're not using the set option, fall through
+        default:
+            fit = (int)(*wildcard == *test);
+            test++;
         }
     }
     while ((*wildcard == '*') && (1 == fit))
@@ -60,27 +60,27 @@ int Wildcard::wildcardfit(const wchar_t *wildcard, const wchar_t *test, bool use
     {
         switch (*wildcard)
         {
-            case L'?':
-                test++;
+        case L'?':
+            test++;
+            break;
+        case L'*':
+            fit = asterisk(&wildcard, &test);
+            // the asterisk was skipped by asterisk() but the loop will
+            // increment by itself. So we have to decrement
+            wildcard--;
+            break;
+        case L'[':
+            if (useSet)
+            {
+                wildcard++; // leave out the opening square bracket
+                fit = set(&wildcard, &test);
+                // we don't need to decrement the wildcard as in case
+                // of asterisk because the closing ] is still there
                 break;
-            case L'*':
-                fit = asterisk(&wildcard, &test);
-                // the asterisk was skipped by asterisk() but the loop will
-                // increment by itself. So we have to decrement
-                wildcard--;
-                break;
-            case L'[':
-                if (useSet)
-                {
-                    wildcard++; // leave out the opening square bracket
-                    fit = set(&wildcard, &test);
-                    // we don't need to decrement the wildcard as in case
-                    // of asterisk because the closing ] is still there
-                    break;
-                }//if we're not using the set option, fall through
-            default:
-                fit = (int)(*wildcard == *test);
-                test++;
+            }//if we're not using the set option, fall through
+        default:
+            fit = (int)(*wildcard == *test);
+            test++;
         }
     }
     while ((*wildcard == L'*') && (1 == fit))
@@ -185,8 +185,8 @@ int Wildcard::asterisk(const char **wildcard, const char **test) {
     /* erase the leading asterisk */
     (*wildcard)++;
     while (('\000' != (**test))
-            && (('?' == **wildcard)
-                || ('*' == **wildcard))) {
+           && (('?' == **wildcard)
+               || ('*' == **wildcard))) {
         if ('?' == **wildcard)
             (*test)++;
         (*wildcard)++;
@@ -209,13 +209,13 @@ int Wildcard::asterisk(const char **wildcard, const char **test) {
                 /* skip as much characters as possible in the teststring */
                 /* stop if a character match occurs */
                 while (((**wildcard) != (**test))
-                        && ('['  != (**wildcard))
-                        && ('\0' != (**test)))
+                       && ('['  != (**wildcard))
+                       && ('\0' != (**test)))
                     (*test)++;
             }
             while ((('\0' != **test)) ?
-                    (0 == wildcardfit(*wildcard, (*test)))
-                    : (0 != (fit = 0)));
+                   (0 == wildcardfit(*wildcard, (*test)))
+                   : (0 != (fit = 0)));
         }
         if (('\0' == **test) && ('\0' == **wildcard))
             fit = 1;
@@ -230,8 +230,8 @@ int Wildcard::asterisk(const wchar_t **wildcard, const wchar_t **test) {
     // erase the leading asterisk
     (*wildcard)++;
     while ((L'\000' != (**test))
-            && ((L'?' == **wildcard)
-                || (L'*' == **wildcard))) {
+           && ((L'?' == **wildcard)
+               || (L'*' == **wildcard))) {
         if (L'?' == **wildcard)
             (*test)++;
         (*wildcard)++;
@@ -254,13 +254,13 @@ int Wildcard::asterisk(const wchar_t **wildcard, const wchar_t **test) {
                 // skip as much characters as possible in the teststring
                 // stop if a character match occurs
                 while (((**wildcard) != (**test))
-                        && (L'['  != (**wildcard))
-                        && (L'\0' != (**test)))
+                       && (L'['  != (**wildcard))
+                       && (L'\0' != (**test)))
                     (*test)++;
             }
             while (((L'\0' != **test)) ?
-                    (0 == wildcardfit(*wildcard, (*test)))
-                    : (0 != (fit = 0)));
+                   (0 == wildcardfit(*wildcard, (*test)))
+                   : (0 != (fit = 0)));
         }
         if ((L'\0' == **test) && (L'\0' == **wildcard))
             fit = 1;

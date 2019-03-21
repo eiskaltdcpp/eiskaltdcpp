@@ -25,21 +25,21 @@
 namespace dcpp {
 
 FinishedItemBase::FinishedItemBase(
-    int64_t transferred_,
-    int64_t milliSeconds_,
-    time_t time_
-    ) :
-transferred(transferred_),
-milliSeconds(milliSeconds_),
-time(time_)
+        int64_t transferred_,
+        int64_t milliSeconds_,
+        time_t time_
+        ) :
+    transferred(transferred_),
+    milliSeconds(milliSeconds_),
+    time(time_)
 {
 }
 
 void FinishedItemBase::update(
-    int64_t transferred_,
-    int64_t milliSeconds_,
-    time_t time_
-    )
+        int64_t transferred_,
+        int64_t milliSeconds_,
+        time_t time_
+        )
 {
     transferred += transferred_;
     milliSeconds += milliSeconds_;
@@ -51,30 +51,30 @@ int64_t FinishedItemBase::getAverageSpeed() const {
 }
 
 FinishedFileItem::FinishedFileItem(
-    int64_t transferred_,
-    int64_t milliSeconds_,
-    time_t time_,
-    int64_t fileSize_,
-    int64_t actual_,
-    bool crc32Checked_,
-    const HintedUser& user
-    ) :
-FinishedItemBase(transferred_, milliSeconds_, time_),
-fileSize(fileSize_),
-actual(actual_),
-crc32Checked(crc32Checked_)
+        int64_t transferred_,
+        int64_t milliSeconds_,
+        time_t time_,
+        int64_t fileSize_,
+        int64_t actual_,
+        bool crc32Checked_,
+        const HintedUser& user
+        ) :
+    FinishedItemBase(transferred_, milliSeconds_, time_),
+    fileSize(fileSize_),
+    actual(actual_),
+    crc32Checked(crc32Checked_)
 {
     users.push_back(user);
 }
 
 void FinishedFileItem::update(
-    int64_t transferred_,
-    int64_t milliSeconds_,
-    time_t time_,
-    int64_t actual_,
-    bool crc32Checked_,
-    const HintedUser& user
-    )
+        int64_t transferred_,
+        int64_t milliSeconds_,
+        time_t time_,
+        int64_t actual_,
+        bool crc32Checked_,
+        const HintedUser& user
+        )
 {
     FinishedItemBase::update(transferred_, milliSeconds_, time_);
 
@@ -99,22 +99,22 @@ bool FinishedFileItem::isFull() const {
 }
 
 FinishedUserItem::FinishedUserItem(
-    int64_t transferred_,
-    int64_t milliSeconds_,
-    time_t time_,
-    const string& file
-    ) :
-FinishedItemBase(transferred_, milliSeconds_, time_)
+        int64_t transferred_,
+        int64_t milliSeconds_,
+        time_t time_,
+        const string& file
+        ) :
+    FinishedItemBase(transferred_, milliSeconds_, time_)
 {
     files.push_back(file);
 }
 
 void FinishedUserItem::update(
-    int64_t transferred_,
-    int64_t milliSeconds_,
-    time_t time_,
-    const string& file
-    )
+        int64_t transferred_,
+        int64_t milliSeconds_,
+        time_t time_,
+        const string& file
+        )
 {
     FinishedItemBase::update(transferred_, milliSeconds_, time_);
     if(find(files.begin(), files.end(), file) == files.end())

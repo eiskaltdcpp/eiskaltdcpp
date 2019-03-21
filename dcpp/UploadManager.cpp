@@ -71,9 +71,9 @@ bool UploadManager::hasUpload ( UserConnection& aSource ) {
         const int64_t l_share = ClientManager::getInstance()->getBytesShared(aSource.getUser());
 
         if (u && u->getUserConnection().getSocket() &&
-            l_srcip == u->getUserConnection().getSocket()->getIp() &&
-            u->getUser() && l_share == ClientManager::getInstance()->getBytesShared(u->getUser())
-           )
+                l_srcip == u->getUserConnection().getSocket()->getIp() &&
+                u->getUser() && l_share == ClientManager::getInstance()->getBytesShared(u->getUser())
+                )
         {
             return true;
         }
@@ -122,13 +122,13 @@ bool UploadManager::prepareFile(UserConnection& aSource, const string& aType, co
                     string msg;
                     if ( aFile != Transfer::USER_LIST_NAME_BZ && aFile != Transfer::USER_LIST_NAME &&
                          !limits.IsUserAllowed(SM->toVirtual(SM->getTTH(aFile)), aSource.getUser(), &msg)
-                       )
+                         )
                     {
                         throw ShareException(msg);
                     }
                     else if ( aFile != Transfer::USER_LIST_NAME_BZ && aFile != Transfer::USER_LIST_NAME &&
                               hasUpload(aSource)
-                            )
+                              )
                     {
                         msg = _("Connection already exists.");
 
@@ -206,16 +206,16 @@ bool UploadManager::prepareFile(UserConnection& aSource, const string& aType, co
                     size = (aBytes == -1) ? fileSize - start : aBytes;
 
                     if((start + size) > fileSize) {
-                            aSource.fileNotAvail();
-                            delete f;
-                            return false;
+                        aSource.fileNotAvail();
+                        delete f;
+                        return false;
                     }
 
                     f->setPos(start);
                     is = f;
 
                     if((start + size) < fileSize) {
-                            is = new LimitedInputStream<true>(is, size);
+                        is = new LimitedInputStream<true>(is, size);
                     }
 
                     type = Transfer::TYPE_FILE;
@@ -295,7 +295,7 @@ ok:
                     tFile = ShareManager::getInstance()->toVirtual(TTHValue(aFile.substr(4)));
 
                 addFailedUpload(aSource, tFile +
-                    " (" +  Util::formatBytes(aStartPos) + " - " + Util::formatBytes(aStartPos + aBytes) + ")");
+                                " (" +  Util::formatBytes(aStartPos) + " - " + Util::formatBytes(aStartPos + aBytes) + ")");
                 aSource.disconnect();
                 return false;
             }
@@ -623,7 +623,7 @@ void UploadManager::on(TimerManagerListener::Minute, uint64_t /* aTick */) noexc
 
     for(auto i = disconnects.begin(); i != disconnects.end(); ++i) {
         LogManager::getInstance()->message(str(F_("Disconnected user leaving the hub: %1%") %
-        Util::toString(ClientManager::getInstance()->getNicks((*i)->getCID(), Util::emptyString))));
+                                               Util::toString(ClientManager::getInstance()->getNicks((*i)->getCID(), Util::emptyString))));
         ConnectionManager::getInstance()->disconnect(*i, false);
     }
 
@@ -679,7 +679,7 @@ void UploadManager::on(TimerManagerListener::Second, uint64_t) noexcept {
     if(!uploads.empty())
         fire(UploadManagerListener::Tick(), UploadList(uploads));
 
-        //notifyQueuedUsers();
+    //notifyQueuedUsers();
 }
 
 void UploadManager::on(ClientManagerListener::UserDisconnected, const UserPtr& aUser) noexcept {

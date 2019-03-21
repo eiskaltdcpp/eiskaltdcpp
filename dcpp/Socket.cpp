@@ -45,7 +45,7 @@
 #ifndef _WIN32
 #include <sys/ioctl.h>
 #ifndef __HAIKU__
-  #include <ifaddrs.h>
+#include <ifaddrs.h>
 #endif
 #include <netdb.h>
 #include <net/if.h>
@@ -213,15 +213,15 @@ void Socket::connect(const string& aAddr, uint16_t aPort) {
 }
 
 namespace {
-    inline uint64_t timeLeft(uint64_t start, uint64_t timeout) {
-        if(timeout == 0) {
-            return 0;
-        }
-        uint64_t now = GET_TICK();
-        if(start + timeout < now)
-            throw SocketException(_("Connection timeout"));
-        return start + timeout - now;
+inline uint64_t timeLeft(uint64_t start, uint64_t timeout) {
+    if(timeout == 0) {
+        return 0;
     }
+    uint64_t now = GET_TICK();
+    if(start + timeout < now)
+        throw SocketException(_("Connection timeout"));
+    return start + timeout - now;
+}
 }
 
 void Socket::socksConnect(const string& aAddr, const string& aPort, uint32_t timeout) {
@@ -348,9 +348,9 @@ void Socket::setSocketOpt(int option, int val) {
     int len = sizeof(val);
 
     try {
-		check(::setsockopt(sock, SOL_SOCKET, option, (char*)&val, len));
-	}
-	catch ( ... ) {}
+        check(::setsockopt(sock, SOL_SOCKET, option, (char*)&val, len));
+    }
+    catch ( ... ) {}
 }
 
 int Socket::read(void* aBuffer, int aBufLen) {

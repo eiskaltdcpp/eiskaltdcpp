@@ -71,7 +71,7 @@ public:
     struct Hash {
         size_t operator()(const UserPtr& x) const {
             if (x.get() == nullptr) {
-//                printf("User failed ptr == nullptr\n");fflush(stdout);
+                //                printf("User failed ptr == nullptr\n");fflush(stdout);
                 return 0;
             }
             return ((size_t)(&(*x)))/sizeof(User); }
@@ -141,7 +141,7 @@ public:
     Identity(const Identity& rhs) { *this = rhs; } // Use operator= since we have to lock before reading...
     Identity& operator=(const Identity& rhs) { FastLock l(cs); user = rhs.user; info = rhs.info; return *this; }
     ~Identity() { }
-// GS is already defined on some systems (e.g. OpenSolaris)
+    // GS is already defined on some systems (e.g. OpenSolaris)
 #ifdef GS
 #undef GS
 #endif
@@ -218,8 +218,8 @@ public:
     const ClientBase& getClientBase() const { return client; }
     bool isInList;
     GETSET(Identity, identity, Identity)
-private:
-    friend class NmdcHub;
+    private:
+        friend class NmdcHub;
     OnlineUser(const OnlineUser&);
     OnlineUser& operator=(const OnlineUser&);
     ClientBase& client;

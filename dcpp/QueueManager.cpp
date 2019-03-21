@@ -68,8 +68,8 @@
 namespace dcpp {
 
 QueueItem* QueueManager::FileQueue::add(const string& aTarget, int64_t aSize,
-                          int aFlags, QueueItem::Priority p, const string& aTempTarget,
-                          time_t aAdded, const TTHValue& root)
+                                        int aFlags, QueueItem::Priority p, const string& aTempTarget,
+                                        time_t aAdded, const TTHValue& root)
 {
     if(p == QueueItem::DEFAULT) {
         p = QueueItem::NORMAL;
@@ -123,7 +123,7 @@ void QueueManager::FileQueue::find(QueueItem::List& sl, int64_t aSize, const str
         if(i->second->getSize() == aSize) {
             const string& t = i->second->getTarget();
             if(suffix.empty() || (suffix.length() < t.length() &&
-                Util::stricmp(suffix.c_str(), t.c_str() + (t.length() - suffix.length())) == 0) )
+                                  Util::stricmp(suffix.c_str(), t.c_str() + (t.length() - suffix.length())) == 0) )
                 sl.push_back(i->second);
         }
     }
@@ -229,7 +229,7 @@ void QueueManager::UserQueue::add(QueueItem* qi, const UserPtr& aUser) {
 
 QueueItem* QueueManager::UserQueue::getNext(const UserPtr& aUser, QueueItem::Priority minPrio, int64_t wantedSize,int64_t lastSpeed,bool allowRemove) {
     int p = QueueItem::LAST - 1;
-        string lastError = Util::emptyString;
+    string lastError = Util::emptyString;
 
     do {
         QueueItem::UserListIter i = userQueue[p].find(aUser);
@@ -533,11 +533,11 @@ int QueueManager::Rechecker::run() {
 }
 
 QueueManager::QueueManager() :
-lastSave(0),
-queueFile(Util::getPath(Util::PATH_USER_CONFIG) + "Queue.xml"),
-rechecker(this),
-dirty(true),
-nextSearch(0)
+    lastSave(0),
+    queueFile(Util::getPath(Util::PATH_USER_CONFIG) + "Queue.xml"),
+    rechecker(this),
+    dirty(true),
+    nextSearch(0)
 {
     TimerManager::getInstance()->addListener(this);
     SearchManager::getInstance()->addListener(this);
@@ -559,12 +559,12 @@ QueueManager::~QueueManager() {
         StringList filelists = File::findFiles(path, "*.xml.bz2");
         std::sort(filelists.begin(), filelists.end());
         std::for_each(filelists.begin(), std::set_difference(filelists.begin(), filelists.end(),
-                protectedFileLists.begin(), protectedFileLists.end(), filelists.begin()), &File::deleteFile);
+                                                             protectedFileLists.begin(), protectedFileLists.end(), filelists.begin()), &File::deleteFile);
 
         filelists = File::findFiles(path, "*.DcLst");
         std::sort(filelists.begin(), filelists.end());
         std::for_each(filelists.begin(), std::set_difference(filelists.begin(), filelists.end(),
-                    protectedFileLists.begin(), protectedFileLists.end(), filelists.begin()), &File::deleteFile);
+                                                             protectedFileLists.begin(), protectedFileLists.end(), filelists.begin()), &File::deleteFile);
     }
 }
 
@@ -659,12 +659,12 @@ void QueueManager::on(TimerManagerListener::Minute, uint64_t aTick) noexcept {
         delete param;
     }
 
-     // DHT PFS announce
+    // DHT PFS announce
     if(tthPub)
     {
-    #ifdef WITH_DHT
+#ifdef WITH_DHT
         dht::IndexManager::getInstance()->publishPartialFile(*tthPub);
-    #endif
+#endif
         delete tthPub;
     }
 
@@ -724,7 +724,7 @@ void QueueManager::add(const string& aTarget, int64_t aSize, const TTHValue& roo
     if(q == NULL)
     {
         q = fileQueue.add(target, aSize, 0, QueueItem::DEFAULT/*QueueItem::Priority*/, Util::emptyString/*aTempTarget*/,
-                GET_TIME()/*time_t aAdded*/, root/*TTHValue& root*/);
+                          GET_TIME()/*time_t aAdded*/, root/*TTHValue& root*/);
         fire(QueueManagerListener::Added(), q);
     } else {
         if(q->getSize() != aSize)
@@ -739,7 +739,7 @@ void QueueManager::add(const string& aTarget, int64_t aSize, const TTHValue& roo
 }//NOTE: freedcpp
 
 void QueueManager::add(const string& aTarget, int64_t aSize, const TTHValue& root, const HintedUser& aUser,
-    int aFlags /* = 0 */, bool addBad /* = true */)
+                       int aFlags /* = 0 */, bool addBad /* = true */)
 {
     bool wantConnection = true;
 
@@ -853,7 +853,7 @@ string QueueManager::checkTarget(const string& aTarget, bool checkExistence) {
     }
     // Check that target starts with a drive or is an UNC path
     if( (aTarget[1] != ':' || aTarget[2] != '\\') &&
-        (aTarget[0] != '\\' && aTarget[1] != '\\') ) {
+            (aTarget[0] != '\\' && aTarget[1] != '\\') ) {
         throw QueueException(_("Invalid target file (missing directory, check default download directory setting)"));
     }
 #else
@@ -1212,10 +1212,10 @@ void QueueManager::moveFile_(const string& source, const string& target) {
         try {
             File::renameFile(source, newTarget);
             LogManager::getInstance()->message(str(F_("Unable to move %1% to %2% (%3%); renamed to %4%") %
-                        Util::addBrackets(source) % Util::addBrackets(target) % e1.getError() % Util::addBrackets(newTarget)));
+                                                   Util::addBrackets(source) % Util::addBrackets(target) % e1.getError() % Util::addBrackets(newTarget)));
         } catch(const FileException& e2) {
             LogManager::getInstance()->message(str(F_("Unable to move %1% to %2% (%3%) nor to rename to %4% (%5%)") %
-            Util::addBrackets(source) % Util::addBrackets(target) % e1.getError() % Util::addBrackets(newTarget) % e2.getError()));
+                                                   Util::addBrackets(source) % Util::addBrackets(target) % e1.getError() % Util::addBrackets(newTarget) % e2.getError()));
         }
     }
 }
@@ -1282,11 +1282,11 @@ void QueueManager::putDownload(Download* aDownload, bool finished) noexcept {
                 }
                 fire(QueueManagerListener::Removed(), q);
 
-                    userQueue.remove(q);
-                    fileQueue.remove(q);
+                userQueue.remove(q);
+                fileQueue.remove(q);
                 //} else {
-                    //userQueue.removeDownload(q, aDownload->getUser());
-                    //fire(QueueManagerListener::StatusUpdated(), q);
+                //userQueue.removeDownload(q, aDownload->getUser());
+                //fire(QueueManagerListener::StatusUpdated(), q);
                 //}
             }
         } else {
@@ -1312,12 +1312,12 @@ void QueueManager::putDownload(Download* aDownload, bool finished) noexcept {
                     } else {
                         // Now, let's see if this was a directory download filelist...
                         if( (q->isSet(QueueItem::FLAG_DIRECTORY_DOWNLOAD) && directories.find(aDownload->getUser()) != directories.end()) ||
-                            (q->isSet(QueueItem::FLAG_MATCH_QUEUE)) )
+                                (q->isSet(QueueItem::FLAG_MATCH_QUEUE)) )
                         {
                             fl_fname = q->getListName();
                             fl_user = aDownload->getHintedUser();
                             fl_flag = (q->isSet(QueueItem::FLAG_DIRECTORY_DOWNLOAD) ? QueueItem::FLAG_DIRECTORY_DOWNLOAD : 0)
-                                | (q->isSet(QueueItem::FLAG_MATCH_QUEUE) ? QueueItem::FLAG_MATCH_QUEUE : 0);
+                                    | (q->isSet(QueueItem::FLAG_MATCH_QUEUE) ? QueueItem::FLAG_MATCH_QUEUE : 0);
                         }
 
                         string dir;
@@ -1330,7 +1330,7 @@ void QueueManager::putDownload(Download* aDownload, bool finished) noexcept {
                         }
 
                         if (q->isFinished() && BOOLSETTING(SFV_CHECK)) {
-                                crcError = checkSfv(q, aDownload);
+                            crcError = checkSfv(q, aDownload);
                         }
 
                         if(aDownload->getType() != Transfer::TYPE_FILE || q->isFinished()) {
@@ -1433,7 +1433,7 @@ void QueueManager::processList(const string& name, const HintedUser& user, int f
     if(flags & QueueItem::FLAG_MATCH_QUEUE) {
         size_t files = matchListing(dirList);
         LogManager::getInstance()->message(str(FN_("%1%: Matched %2% file", "%1%: Matched %2% files", files) %
-            Util::toString(ClientManager::getInstance()->getNicks(user)) % files));
+                                               Util::toString(ClientManager::getInstance()->getNicks(user)) % files));
     }
 }
 
@@ -1585,7 +1585,7 @@ void QueueManager::setPriority(const string& aTarget, QueueItem::Priority p) noe
         if( (q != NULL) && (q->getPriority() != p) && !q->isFinished() ) {
             if(q->getPriority() == QueueItem::PAUSED || p == QueueItem::HIGHEST) {
                 // Problem, we have to request connections to all these users...
-                                q->getOnlineUsers(getConn);
+                q->getOnlineUsers(getConn);
             }
             userQueue.setPriority(q, p);
             setDirty();
@@ -1600,7 +1600,7 @@ void QueueManager::setPriority(const string& aTarget, QueueItem::Priority p) noe
 
 void QueueManager::saveQueue(bool force) noexcept {
     if(!dirty && !force)
-    return;
+        return;
 
     std::vector<CID> cids;
 
@@ -1617,8 +1617,8 @@ void QueueManager::saveQueue(bool force) noexcept {
         for(QueueItem::StringIter i = fileQueue.getQueue().begin(); i != fileQueue.getQueue().end(); ++i) {
             QueueItem* qi = i->second;
             if(!qi->isSet(QueueItem::FLAG_USER_LIST)
-                || (qi->isSet(QueueItem::FLAG_USER_LIST)
-                    && SETTING(KEEP_LISTS))) {
+                    || (qi->isSet(QueueItem::FLAG_USER_LIST)
+                        && SETTING(KEEP_LISTS))) {
                 f.write(LIT("\t<Download Target=\""));
                 f.write(SimpleXML::escape(qi->getTarget(), tmp, true));
                 f.write(LIT("\" Size=\""));
@@ -1646,10 +1646,10 @@ void QueueManager::saveQueue(bool force) noexcept {
 
                 for(QueueItem::SourceConstIter j = qi->sources.begin(); j != qi->sources.end(); ++j) {
                     if(j->isSet(QueueItem::Source::FLAG_PARTIAL)
-#ifdef WITH_DHT
-                                                                || j->getUser().hint == "DHT"
-#endif
-                                                                                              ) continue;
+        #ifdef WITH_DHT
+                            || j->getUser().hint == "DHT"
+        #endif
+                            ) continue;
 
                     const CID& cid = j->getUser().user->getCID();
                     const string& hint = j->getUser().hint;
@@ -1684,14 +1684,14 @@ void QueueManager::saveQueue(bool force) noexcept {
 
     //NOTE: freedcpp, save user cids and nicks to Users.xml see dcplusplus revision 1771
     ClientManager* cm = ClientManager::getInstance();
-//#ifdef _WIN32
-//        std::for_each(cids.begin(), cids.end(), std::bind(&ClientManager::saveUser, cm, std::placeholders::_1));
-//#else
+    //#ifdef _WIN32
+    //        std::for_each(cids.begin(), cids.end(), std::bind(&ClientManager::saveUser, cm, std::placeholders::_1));
+    //#else
     for (vector<CID>::const_iterator it = cids.begin(); it != cids.end(); ++it)
     {
         cm->saveUser(*it);
     }
-//#endif
+    //#endif
 }
 
 class QueueLoader : public SimpleXMLReader::CallBack {
@@ -1974,7 +1974,7 @@ bool QueueManager::handlePartialResult(const UserPtr& aUser, const string& hubHi
                 si->setFlag(QueueItem::Source::FLAG_PARTIAL);
 
                 QueueItem::PartialSource* ps = new QueueItem::PartialSource(partialSource.getMyNick(),
-                        partialSource.getHubIpPort(), partialSource.getIp(), partialSource.getUdpPort());
+                                                                            partialSource.getHubIpPort(), partialSource.getIp(), partialSource.getUdpPort());
                 si->setPartialSource(ps);
 
                 userQueue.add(qi, aUser);
@@ -2090,7 +2090,7 @@ void QueueManager::FileQueue::findPFSSources(PFSSourceList& sl)
 
         for(QueueItem::SourceConstIter j = sources.begin(); j != sources.end(); ++j) {
             if( (*j).isSet(QueueItem::Source::FLAG_PARTIAL) && (*j).getPartialSource()->getNextQueryTime() <= now &&
-                (*j).getPartialSource()->getPendingQueryCount() < 10 && Util::toInt((*j).getPartialSource()->getUdpPort()) > 0)
+                    (*j).getPartialSource()->getPendingQueryCount() < 10 && Util::toInt((*j).getPartialSource()->getUdpPort()) > 0)
             {
                 buffer.insert(make_pair((*j).getPartialSource()->getNextQueryTime(), make_pair(j, q)));
             }
@@ -2098,8 +2098,8 @@ void QueueManager::FileQueue::findPFSSources(PFSSourceList& sl)
 
         for(QueueItem::SourceConstIter j = badSources.begin(); j != badSources.end(); ++j) {
             if( (*j).isSet(QueueItem::Source::FLAG_TTH_INCONSISTENCY) == false && (*j).isSet(QueueItem::Source::FLAG_PARTIAL) &&
-                (*j).getPartialSource()->getNextQueryTime() <= now && (*j).getPartialSource()->getPendingQueryCount() < 10 &&
-                Util::toInt((*j).getPartialSource()->getUdpPort()) > 0)
+                    (*j).getPartialSource()->getNextQueryTime() <= now && (*j).getPartialSource()->getPendingQueryCount() < 10 &&
+                    Util::toInt((*j).getPartialSource()->getUdpPort()) > 0)
             {
                 buffer.insert(make_pair((*j).getPartialSource()->getNextQueryTime(), make_pair(j, q)));
             }
@@ -2138,7 +2138,7 @@ TTHValue* QueueManager::FileQueue::findPFSPubTTH()
         cand->setNextPublishingTime(now + PFS_REPUBLISH_TIME);          // one hour
         return new TTHValue(cand->getTTH());
     }
-     return NULL;
+    return NULL;
 }
 #endif
 
@@ -2221,26 +2221,26 @@ void QueueManager::logFinishedDownload(QueueItem* qi, Download* d, bool crcError
 
 class ListMatcher : public dcpp::Thread
 {
-    public:
-        ListMatcher(const StringList& files_) : files(files_) { }
-        int run() {
-            for (auto i = files.cbegin(); i != files.cend(); ++i) {
-                UserPtr u = DirectoryListing::getUserFromFilename(*i);
-                if (!u)
-                    continue;
+public:
+    ListMatcher(const StringList& files_) : files(files_) { }
+    int run() {
+        for (auto i = files.cbegin(); i != files.cend(); ++i) {
+            UserPtr u = DirectoryListing::getUserFromFilename(*i);
+            if (!u)
+                continue;
 
-                HintedUser user(u, Util::emptyString);
-                DirectoryListing dl(user);
-                try {
-                    dl.loadFile(*i);
-                    LogManager::getInstance()->message(str(F_("%1% : Matched %2% files") % Util::toString(ClientManager::getInstance()->getNicks(user)) % QueueManager::getInstance()->matchListing(dl)));
-                } catch (const Exception&) { }
-            }
-            delete this;// Cleanup the thread object
-            return 0;
+            HintedUser user(u, Util::emptyString);
+            DirectoryListing dl(user);
+            try {
+                dl.loadFile(*i);
+                LogManager::getInstance()->message(str(F_("%1% : Matched %2% files") % Util::toString(ClientManager::getInstance()->getNicks(user)) % QueueManager::getInstance()->matchListing(dl)));
+            } catch (const Exception&) { }
         }
-    private:
-        StringList files;
+        delete this;// Cleanup the thread object
+        return 0;
+    }
+private:
+    StringList files;
 };
 
 void QueueManager::matchAllListings() {

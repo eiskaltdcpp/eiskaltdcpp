@@ -19,12 +19,12 @@
 #pragma once
 
 #ifndef _WIN32
-    #if defined(__APPLE__) && defined(__MACH__)
-        #include "CriticalSection.h"
-    #else
-        #include <errno.h>
-        #include <semaphore.h>
-    #endif
+#if defined(__APPLE__) && defined(__MACH__)
+#include "CriticalSection.h"
+#else
+#include <errno.h>
+#include <semaphore.h>
+#endif
 #include <sys/time.h>
 #endif
 

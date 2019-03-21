@@ -56,7 +56,7 @@ bool ZFilter::operator()(const void* in, size_t& insize, void* out, size_t& outs
 
     // Check if there's any use compressing; if not, save some cpu...
     if(compressing && insize > 0 && outsize > 16 && (totalIn > (64 * 1024)) &&
-        (static_cast<double>(totalOut) / totalIn) > MIN_COMPRESSION_LEVEL)
+            (static_cast<double>(totalOut) / totalIn) > MIN_COMPRESSION_LEVEL)
     {
         zs.avail_in = 0;
         zs.avail_out = outsize;

@@ -33,7 +33,7 @@ struct SearchCore
     std::unordered_set<void*>  owners;
 
     bool operator==(const SearchCore& rhs) const {
-         return this->sizeType == rhs.sizeType &&
+        return this->sizeType == rhs.sizeType &&
                 this->size == rhs.size &&
                 this->fileType == rhs.fileType &&
                 this->query == rhs.query &&

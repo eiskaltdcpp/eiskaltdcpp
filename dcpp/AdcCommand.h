@@ -186,27 +186,27 @@ public:
 
 #define C(n) case AdcCommand::CMD_##n: ((T*)this)->handle(AdcCommand::n(), c); break;
             switch(c.getCommand()) {
-                C(SUP);
-                C(STA);
-                C(INF);
-                C(MSG);
-                C(SCH);
-                C(RES);
-                C(CTM);
-                C(RCM);
-                C(GPA);
-                C(PAS);
-                C(QUI);
-                C(GET);
-                C(GFI);
-                C(SND);
-                C(SID);
-                C(CMD);
-                C(PSR);
-                C(NAT);
-                C(RNT);
-                C(ZON);
-                C(ZOF);
+            C(SUP);
+            C(STA);
+            C(INF);
+            C(MSG);
+            C(SCH);
+            C(RES);
+            C(CTM);
+            C(RCM);
+            C(GPA);
+            C(PAS);
+            C(QUI);
+            C(GET);
+            C(GFI);
+            C(SND);
+            C(SID);
+            C(CMD);
+            C(PSR);
+            C(NAT);
+            C(RNT);
+            C(ZON);
+            C(ZOF);
             default:
                 dcdebug("Unknown ADC command: %.50s\n", aLine.c_str());
                 break;

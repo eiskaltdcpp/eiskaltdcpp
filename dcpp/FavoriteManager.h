@@ -38,10 +38,10 @@ class SimpleXML;
  * Public hub list, favorites (hub&user). Assumed to be called only by UI thread.
  */
 class FavoriteManager : public Speaker<FavoriteManagerListener>, private HttpConnectionListener, public Singleton<FavoriteManager>,
-    private SettingsManagerListener, private ClientManagerListener
+        private SettingsManagerListener, private ClientManagerListener
 {
 public:
-// Public Hubs
+    // Public Hubs
     enum HubTypes {
         TYPE_NORMAL,
         TYPE_BZIP2
@@ -58,7 +58,7 @@ public:
     bool isDownloading() { return (useHttp && running); }
     const string& getCurrentHubList() const { return publicListServer; }
 
-// Favorite Users
+    // Favorite Users
     typedef unordered_map<CID, FavoriteUser> FavoriteMap;
     FavoriteMap getFavoriteUsers() { Lock l(cs); return users; }
 
@@ -73,7 +73,7 @@ public:
     time_t getLastSeen(const UserPtr& aUser) const;
     std::string getUserURL(const UserPtr& aUser) const;
 
-// Favorite Hubs
+    // Favorite Hubs
     const FavoriteHubEntryList& getFavoriteHubs() const { return favoriteHubs; }
     FavoriteHubEntryList& getFavoriteHubs() { return favoriteHubs; }
 
@@ -82,20 +82,20 @@ public:
     bool isFavoriteHub(const std::string& aUrl);
     FavoriteHubEntryPtr getFavoriteHubEntry(const string& aServer) const;
 
-// Favorite hub groups
+    // Favorite hub groups
     const FavHubGroups& getFavHubGroups() const { return favHubGroups; }
     void setFavHubGroups(const FavHubGroups& favHubGroups_) { favHubGroups = favHubGroups_; }
 
     FavoriteHubEntryList getFavoriteHubs(const string& group) const;
     bool isPrivate(const string& url) const;
 
-// Favorite Directories
+    // Favorite Directories
     bool addFavoriteDir(const string& aDirectory, const string& aName);
     bool removeFavoriteDir(const string& aName);
     bool renameFavoriteDir(const string& aName, const string& anotherName);
     StringPairList getFavoriteDirs() { return favoriteDirs; }
 
-// User Commands
+    // User Commands
     UserCommand addUserCommand(int type, int ctx, int flags, const string& name, const string& command, const string& to, const string& hub);
     bool getUserCommand(int cid, UserCommand& uc);
     int findUserCommand(const string& aName, const string& aUrl);

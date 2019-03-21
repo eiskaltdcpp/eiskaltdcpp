@@ -49,50 +49,50 @@ static void callalert (lua_State *L, int status) {
 
 
 static int aux_do (lua_State *L, int status) {
-  if (status == 0) {  /* parse OK? */
-    status = lua_pcall(L, 0, LUA_MULTRET, 0);  /* call main */
-  }
-  callalert(L, status);
-  return status;
+    if (status == 0) {  /* parse OK? */
+        status = lua_pcall(L, 0, LUA_MULTRET, 0);  /* call main */
+    }
+    callalert(L, status);
+    return status;
 }
 
 LUALIB_API int lua_dofile (lua_State *L, const char *filename) {
-  return aux_do(L, luaL_loadfile(L, filename));
+    return aux_do(L, luaL_loadfile(L, filename));
 }
 
 LUALIB_API int lua_dobuffer (lua_State *L, const char *buff, size_t size, const char *name) {
-  return aux_do(L, luaL_loadbuffer(L, buff, size, name));
+    return aux_do(L, luaL_loadbuffer(L, buff, size, name));
 }
 
 LUALIB_API int lua_dostring (lua_State *L, const char *str) {
-  return lua_dobuffer(L, str, strlen(str), str);
+    return lua_dobuffer(L, str, strlen(str), str);
 }
 
 const char LuaManager::className[] = "DC";
 Lunar<LuaManager>::RegType LuaManager::methods[] = {
-        {"SendHubMessage", &LuaManager::SendHubMessage },
-        {"SendClientMessage", &LuaManager::SendClientMessage },
-        {"SendUDP", &LuaManager::SendUDPPacket},
-        {"PrintDebug", &LuaManager::GenerateDebugMessage},
-        {"GetClientIp", &LuaManager::GetClientIp},
-        {"GetHubIpPort", &LuaManager::GetHubIpPort},
-        {"GetHubUrl", &LuaManager::GetHubUrl},
-        {"InjectHubMessage", &LuaManager::InjectHubMessageNMDC},
-        {"InjectHubMessageADC", &LuaManager::InjectHubMessageADC},
-        //{"FindWindowHandle", &LuaManager::FindWindow},
-        //{"SendWindowMessage", &LuaManager::PostMessage},
-        {"CreateClient", &LuaManager::CreateClient},
-        {"DeleteClient", &LuaManager::DeleteClient},
-        {"RunTimer", &LuaManager::RunTimer},
-        {"GetSetting", &LuaManager::GetSetting},
-        {"ToUtf8", &LuaManager::ToUtf8},
-        {"FromUtf8", &LuaManager::FromUtf8},
-        {"GetAppPath", &LuaManager::GetAppPath},
-        {"GetConfigPath", &LuaManager::GetConfigPath},
-        {"GetScriptsPath", &LuaManager::GetScriptsPath},
-        {"GetConfigScriptsPath", &LuaManager::GetConfigScriptsPath},
-        {"DropUserConnection", &LuaManager::DropUserConnection},
-        {0, nullptr}
+    {"SendHubMessage", &LuaManager::SendHubMessage },
+    {"SendClientMessage", &LuaManager::SendClientMessage },
+    {"SendUDP", &LuaManager::SendUDPPacket},
+    {"PrintDebug", &LuaManager::GenerateDebugMessage},
+    {"GetClientIp", &LuaManager::GetClientIp},
+    {"GetHubIpPort", &LuaManager::GetHubIpPort},
+    {"GetHubUrl", &LuaManager::GetHubUrl},
+    {"InjectHubMessage", &LuaManager::InjectHubMessageNMDC},
+    {"InjectHubMessageADC", &LuaManager::InjectHubMessageADC},
+    //{"FindWindowHandle", &LuaManager::FindWindow},
+    //{"SendWindowMessage", &LuaManager::PostMessage},
+    {"CreateClient", &LuaManager::CreateClient},
+    {"DeleteClient", &LuaManager::DeleteClient},
+    {"RunTimer", &LuaManager::RunTimer},
+    {"GetSetting", &LuaManager::GetSetting},
+    {"ToUtf8", &LuaManager::ToUtf8},
+    {"FromUtf8", &LuaManager::FromUtf8},
+    {"GetAppPath", &LuaManager::GetAppPath},
+    {"GetConfigPath", &LuaManager::GetConfigPath},
+    {"GetScriptsPath", &LuaManager::GetScriptsPath},
+    {"GetConfigScriptsPath", &LuaManager::GetConfigScriptsPath},
+    {"DropUserConnection", &LuaManager::DropUserConnection},
+    {0, nullptr}
 };
 
 int LuaManager::DeleteClient(lua_State* L){
@@ -135,22 +135,22 @@ int LuaManager::InjectHubMessageADC(lua_State* L) {
 }
 
 //int LuaManager::PostMessage(lua_State* L) {
-    //if (lua_gettop(L) == 4 && lua_islightuserdata(L, -4) && lua_isnumber(L, -3) &&
-            //lua_islightuserdata(L, -2) && lua_islightuserdata(L, -1)) {
-        //::SendMessage(reinterpret_cast<HWND>(lua_touserdata(L, -4)), static_cast<UINT>(lua_tonumber(L, -3)),
-            //reinterpret_cast<WPARAM>(lua_touserdata(L, -2)), reinterpret_cast<LPARAM>(lua_touserdata(L, -1)));
-    //}
+//if (lua_gettop(L) == 4 && lua_islightuserdata(L, -4) && lua_isnumber(L, -3) &&
+//lua_islightuserdata(L, -2) && lua_islightuserdata(L, -1)) {
+//::SendMessage(reinterpret_cast<HWND>(lua_touserdata(L, -4)), static_cast<UINT>(lua_tonumber(L, -3)),
+//reinterpret_cast<WPARAM>(lua_touserdata(L, -2)), reinterpret_cast<LPARAM>(lua_touserdata(L, -1)));
+//}
 
-    //return 0;
+//return 0;
 //}
 
 //int LuaManager::FindWindow(lua_State* L) {
-    //if (lua_gettop(L) == 2 && lua_isstring(L, -2) && lua_isstring(L, -1)) {
-        //lua_pushlightuserdata(L, ::FindWindow(Text::toT(string(lua_tostring(L, -2))).c_str(), Text::toT(string(lua_tostring(L, -1))).c_str()));
-        //return 1;
-    //}
+//if (lua_gettop(L) == 2 && lua_isstring(L, -2) && lua_isstring(L, -1)) {
+//lua_pushlightuserdata(L, ::FindWindow(Text::toT(string(lua_tostring(L, -2))).c_str(), Text::toT(string(lua_tostring(L, -1))).c_str()));
+//return 1;
+//}
 
-    //return 0;
+//return 0;
 //}
 
 int LuaManager::SendClientMessage(lua_State* L) {
@@ -309,7 +309,7 @@ int LuaManager::GetHubUrl(lua_State* L) {
 int LuaManager::RunTimer(lua_State* L) {
     /* arguments: bool:on/off */
     if(lua_gettop(L) == 1 && lua_isnumber(L, -1)) {
-                bool on = lua_tonumber(L, 1) != 0;      //shut VC++ up
+        bool on = lua_tonumber(L, 1) != 0;      //shut VC++ up
         ScriptManager* sm = ScriptManager::getInstance();
         if(on != sm->getTimerEnabled()) {
             if(on)
@@ -355,10 +355,10 @@ void ScriptManager::load() {
             "end )"
             "   return \"{\\\\urtf1\\n\"..\n"
             "           \"{\\\\colortbl ;"
-                    "\\\\red" + Util::toString(color & 0xFF) +
-                    "\\\\green" + Util::toString((color >> 8) & 0xFF) +
-                    "\\\\blue" + Util::toString((color >> 16) & 0xFF) +
-                    ";}\\n\"..\n"
+            "\\\\red" + Util::toString(color & 0xFF) +
+            "\\\\green" + Util::toString((color >> 8) & 0xFF) +
+            "\\\\blue" + Util::toString((color >> 16) & 0xFF) +
+            ";}\\n\"..\n"
             "           \"\\\\cf1 \"..text..\"}\\n\"\n"
             "end\n";
 

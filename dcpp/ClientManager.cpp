@@ -348,8 +348,8 @@ void ClientManager::putOffline(OnlineUser* ou, bool disconnect) noexcept {
 }
 
 OnlineUser* ClientManager::findOnlineUserHint(const CID& cid, const string& hintUrl, OnlinePairC& p) const {
-        p = onlineUsers.equal_range(cid);
-        if(p.first == p.second) // no user found with the given CID.
+    p = onlineUsers.equal_range(cid);
+    if(p.first == p.second) // no user found with the given CID.
         return 0;
 
     if(!hintUrl.empty()) {
@@ -361,7 +361,7 @@ OnlineUser* ClientManager::findOnlineUserHint(const CID& cid, const string& hint
         }
     }
 
-        return 0;
+    return 0;
 }
 
 OnlineUser* ClientManager::findOnlineUser(const HintedUser& user, bool priv) {
@@ -416,10 +416,10 @@ void ClientManager::userCommand(const HintedUser& user, const UserCommand& uc, S
      * change this call to findOnlineUserHint. */
     OnlineUser* ou = findOnlineUser(user.user->getCID(), user.hint.empty() ? uc.getHub() : user.hint, false);
     if(!ou
-#ifdef WITH_DHT
-       || ou->getClientBase().type == ClientBase::DHT
-#endif
-                                                             )
+        #ifdef WITH_DHT
+            || ou->getClientBase().type == ClientBase::DHT
+        #endif
+            )
         return;
 
     ou->getIdentity().getParams(params, "user", compatibility);
@@ -436,10 +436,10 @@ void ClientManager::send(AdcCommand& cmd, const CID& cid) {
         OnlineUser& u = *i->second;
         if(cmd.getType() == AdcCommand::TYPE_UDP && !u.getIdentity().isUdpActive()) {
             if(u.getUser()->isNMDC()
-#ifdef WITH_DHT
-                || u.getClientBase().getType() == Client::DHT
-#endif
-                                                              )
+        #ifdef WITH_DHT
+                    || u.getClientBase().getType() == Client::DHT
+        #endif
+                    )
                 return;
             cmd.setType(AdcCommand::TYPE_DIRECT);
             cmd.setTo(u.getIdentity().getSID());
@@ -464,7 +464,7 @@ void ClientManager::infoUpdated() {
 }
 
 void ClientManager::on(NmdcSearch, Client* aClient, const string& aSeeker, int aSearchType, int64_t aSize,
-                                    int aFileType, const string& aString) noexcept
+                       int aFileType, const string& aString) noexcept
 {
     Speaker<ClientManagerListener>::fire(ClientManagerListener::IncomingSearch(), aString);
 
@@ -478,7 +478,7 @@ void ClientManager::on(NmdcSearch, Client* aClient, const string& aSeeker, int a
 
     SearchResultList l;
     ShareManager::getInstance()->search(l, aString, aSearchType, aSize, aFileType, aClient, isPassive ? 5 : 10);
-//      dcdebug("Found %d items (%s)\n", l.size(), aString.c_str());
+    //      dcdebug("Found %d items (%s)\n", l.size(), aString.c_str());
     if(!l.empty()) {
         if(isPassive) {
             string name = aSeeker.substr(4);
@@ -552,24 +552,24 @@ void ClientManager::on(AdcSearch, Client* c, const AdcCommand& adc, const CID& f
 
     Speaker<ClientManagerListener>::fire(ClientManagerListener::IncomingSearch(), [&adc]() -> string
     {
-        auto toCode = [](char a, char b) -> uint16_t {
-            return (uint16_t)a | ((uint16_t)b)<<8;
-        };
+                                             auto toCode = [](char a, char b) -> uint16_t {
+                                                 return (uint16_t)a | ((uint16_t)b)<<8;
+                                             };
 
-        string result;
-        const StringList &params = adc.getParameters();
+                                             string result;
+                                             const StringList &params = adc.getParameters();
 
-        for(const string &param: params) {
-            if(param.length() <= 2)
-                continue;
-            uint16_t cmd = toCode(param[0], param[1]);
-            if (toCode('T', 'R') == cmd)
-                result = "TTH:" + param.substr(2);
-            else if (toCode('A', 'N') == cmd)
-                result += param.substr(2) + ' ';
-        }
-        return result;
-    }());
+                                             for(const string &param: params) {
+                                                 if(param.length() <= 2)
+                                                 continue;
+                                                 uint16_t cmd = toCode(param[0], param[1]);
+                                                 if (toCode('T', 'R') == cmd)
+                                                 result = "TTH:" + param.substr(2);
+                                                 else if (toCode('A', 'N') == cmd)
+                                                 result += param.substr(2) + ' ';
+                                             }
+                                             return result;
+                                         }());
 }
 
 
@@ -652,9 +652,9 @@ void ClientManager::updateNick(const OnlineUser& user) noexcept {
         Lock l(cs);
         auto i = nicks.find(user.getUser()->getCID());
         if(i == nicks.end()) {
-                nicks[user.getUser()->getCID()] = std::make_pair(user.getIdentity().getNick(), false);
+            nicks[user.getUser()->getCID()] = std::make_pair(user.getIdentity().getNick(), false);
         } else {
-                i->second.first = user.getIdentity().getNick();
+            i->second.first = user.getIdentity().getNick();
         }
     }
 }
@@ -764,14 +764,14 @@ int ClientManager::getMode(const string& aHubUrl) const {
     const FavoriteHubEntry* hub = FavoriteManager::getInstance()->getFavoriteHubEntry(aHubUrl);
     if(hub) {
         switch(hub->getMode()) {
-            case 1 :
-                mode = SettingsManager::INCOMING_DIRECT;
-                break;
-            case 2 :
-                mode = SettingsManager::INCOMING_FIREWALL_PASSIVE;
-                break;
-            default:
-                mode = SETTING(INCOMING_CONNECTIONS);
+        case 1 :
+            mode = SettingsManager::INCOMING_DIRECT;
+            break;
+        case 2 :
+            mode = SettingsManager::INCOMING_FIREWALL_PASSIVE;
+            break;
+        default:
+            mode = SETTING(INCOMING_CONNECTIONS);
         }
     } else {
         mode = SETTING(INCOMING_CONNECTIONS);

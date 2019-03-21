@@ -34,7 +34,7 @@
 
 namespace dcpp {
 #ifdef LUA_SCRIPT
-    struct ClientScriptInstance : public ScriptInstance {
+struct ClientScriptInstance : public ScriptInstance {
     bool onHubFrameEnter(Client* aClient, const string& aLine);
     string formatChatMessage(const string& aLine);
 };
@@ -57,9 +57,9 @@ public:
 };
 /** Yes, this should probably be called a Hub */
 class Client : public ClientBase, public Speaker<ClientListener>, public BufferedSocketListener, protected TimerManagerListener
-#ifdef LUA_SCRIPT
-, public ClientScriptInstance
-#endif
+        #ifdef LUA_SCRIPT
+        , public ClientScriptInstance
+        #endif
 {
 public:
     typedef Client* Ptr;
@@ -108,9 +108,9 @@ public:
     static string getCounts() {
         char buf[128];
         return string(buf, snprintf(buf, sizeof(buf), "%ld/%ld/%ld",
-            static_cast<long>(counts.normal),
-            static_cast<long>(counts.registered),
-            static_cast<long>(counts.op)));
+                                    static_cast<long>(counts.normal),
+                                    static_cast<long>(counts.registered),
+                                    static_cast<long>(counts.op)));
     }
 
     StringMap& escapeParams(StringMap& sm) {
@@ -163,14 +163,14 @@ protected:
     Client(const string& hubURL, char separator, bool secure_);
     virtual ~Client();
     struct Counts {
-        private:
-            typedef Atomic<std::int32_t> atomic_counter_t;
-        public:
-            typedef std::int32_t value_type;
-            Counts(value_type n = 0, value_type r = 0, value_type o = 0) : normal(n), registered(r), op(o) { }
-            atomic_counter_t normal;
-            atomic_counter_t registered;
-            atomic_counter_t op;
+    private:
+        typedef Atomic<std::int32_t> atomic_counter_t;
+    public:
+        typedef std::int32_t value_type;
+        Counts(value_type n = 0, value_type r = 0, value_type o = 0) : normal(n), registered(r), op(o) { }
+        atomic_counter_t normal;
+        atomic_counter_t registered;
+        atomic_counter_t op;
     };
 
     enum States {

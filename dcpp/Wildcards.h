@@ -24,30 +24,30 @@
 
 class Wildcard
 {
-    public:
-        // This function implements the UN*X wildcards and returns:
-        // 0 - if *wildcard does not match *test
-        // 1 - if *wildcard matches *test
-        static int wildcardfit(const char *wildcard, const char *test, bool useSet = true);
-        static int wildcardfit(const wchar_t *wildcard, const wchar_t *test, bool useSet = true);
+public:
+    // This function implements the UN*X wildcards and returns:
+    // 0 - if *wildcard does not match *test
+    // 1 - if *wildcard matches *test
+    static int wildcardfit(const char *wildcard, const char *test, bool useSet = true);
+    static int wildcardfit(const wchar_t *wildcard, const wchar_t *test, bool useSet = true);
 
-        // Checks whether a text matches a pattern
-        static bool patternMatch(const std::string& text, const std::string& pattern, bool useSet = true);
-        static bool patternMatch(const std::wstring& text, const std::wstring& pattern, bool useSet = true);
+    // Checks whether a text matches a pattern
+    static bool patternMatch(const std::string& text, const std::string& pattern, bool useSet = true);
+    static bool patternMatch(const std::wstring& text, const std::wstring& pattern, bool useSet = true);
 
-        // Checks whether a text matches any pattern in a patternlist
-        static bool patternMatch(const std::string& text, const std::string& patternlist, char delimiter, bool useSet = true);
-        static bool patternMatch(const std::wstring& text, const std::wstring& patternlist, wchar_t delimiter, bool useSet = true);
+    // Checks whether a text matches any pattern in a patternlist
+    static bool patternMatch(const std::string& text, const std::string& patternlist, char delimiter, bool useSet = true);
+    static bool patternMatch(const std::wstring& text, const std::wstring& patternlist, wchar_t delimiter, bool useSet = true);
 
-    private:
-        // Scans a set of characters and returns 0 if the set mismatches at this
-        // position in the teststring and 1 if it is matching
-        // wildcard is set to the closing ] and test is unmodified if mismatched
-        // and otherwise the char pointer is pointing to the next character
-        static int set(const char **wildcard, const char **test);
-        static int set(const wchar_t **wildcard, const wchar_t **test);
+private:
+    // Scans a set of characters and returns 0 if the set mismatches at this
+    // position in the teststring and 1 if it is matching
+    // wildcard is set to the closing ] and test is unmodified if mismatched
+    // and otherwise the char pointer is pointing to the next character
+    static int set(const char **wildcard, const char **test);
+    static int set(const wchar_t **wildcard, const wchar_t **test);
 
-        // Scans an asterisk
-        static int asterisk(const char **wildcard, const char **test);
-        static int asterisk(const wchar_t **wildcard, const wchar_t **test);
+    // Scans an asterisk
+    static int asterisk(const char **wildcard, const char **test);
+    static int asterisk(const wchar_t **wildcard, const wchar_t **test);
 };

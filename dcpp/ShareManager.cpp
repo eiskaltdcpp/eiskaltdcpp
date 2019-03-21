@@ -120,8 +120,8 @@ string ShareManager::findRealRoot(const string& virtualRoot, const string& virtu
             dcdebug("Matching %s\n", name.c_str());
             if (File::getSize(name) != -1)//NOTE: see core 0.750
                 return name;
-            }
         }
+    }
 
     throw ShareException(UserConnection::FILE_NOT_AVAILABLE);
 }
@@ -300,7 +300,7 @@ ShareManager::Directory::File::Set::const_iterator ShareManager::findFile(const 
 
     auto v = splitVirtual(virtualFile);
     auto it = find_if(v.first->files.begin(), v.first->files.end(),
-            Directory::File::StringComp(v.second));
+                      Directory::File::StringComp(v.second));
     if(it == v.first->files.end())
         throw ShareException(UserConnection::FILE_NOT_AVAILABLE);
     return it;
@@ -516,7 +516,7 @@ void ShareManager::Directory::merge(const Directory::Ptr& source) {
                 dcdebug("File named the same as directory");
             } else {
                 directories.insert(std::make_pair(subSource->getName(), subSource));
-                                subSource->parent = this;
+                subSource->parent = this;
             }
         } else {
             auto subTarget = ti->second;
@@ -659,7 +659,7 @@ ShareManager::Directory::Ptr ShareManager::buildTree(const string& aName, const 
             if (Wildcard::patternMatch(fileName , l_skip_list, '|'))
             {
                 LogManager::getInstance()->message(str(F_("Skip share file: %1% (Size: %2%)")
-                % Util::addBrackets(fileName) % Util::formatBytes(size)));
+                                                       % Util::addBrackets(fileName) % Util::formatBytes(size)));
                 continue;
             }
         }
@@ -674,13 +674,13 @@ ShareManager::Directory::Ptr ShareManager::buildTree(const string& aName, const 
             // Not a directory, assume it's a file...make sure we're not sharing the settings file...
             const string l_ext = Util::getFileExt(name);
             if ((name != "Thumbs.db") &&
-                (name != "desktop.ini") &&
-                (name != "folder.htt")
-                ) {
+                    (name != "desktop.ini") &&
+                    (name != "folder.htt")
+                    ) {
                 if (!BOOLSETTING(SHARE_TEMP_FILES) &&
-                    (::strcmp(l_ext.c_str(), ".dctmp") == 0)) {
+                        (::strcmp(l_ext.c_str(), ".dctmp") == 0)) {
                     LogManager::getInstance()->message(str(F_("Skip share temp file: %1% (Size: %2%)")
-                    % Util::addBrackets(fileName) % Util::formatBytes(size)));
+                                                           % Util::addBrackets(fileName) % Util::formatBytes(size)));
                     continue;
                 }
                 if (BOOLSETTING(SHARE_SKIP_ZERO_BYTE) && size == 0)
@@ -703,36 +703,36 @@ ShareManager::Directory::Ptr ShareManager::buildTree(const string& aName, const 
 //NOTE: freedcpp [+
 #ifdef _WIN32
 bool ShareManager::checkHidden(const string& aName) const {
-        FileFindIter ff = FileFindIter(aName.substr(0, aName.size() - 1));
+    FileFindIter ff = FileFindIter(aName.substr(0, aName.size() - 1));
 
-        if (ff != FileFindIter()) {
-                return (BOOLSETTING(SHARE_HIDDEN) || !ff->isHidden());
-        }
+    if (ff != FileFindIter()) {
+        return (BOOLSETTING(SHARE_HIDDEN) || !ff->isHidden());
+    }
 
-        return true;
+    return true;
 }
 
 #else // !_WIN32
 
 bool ShareManager::checkHidden(const string& aName) const
 {
-        // check open a directory
-        if (!(FileFindIter(aName) != FileFindIter()))
-                return true;
+    // check open a directory
+    if (!(FileFindIter(aName) != FileFindIter()))
+        return true;
 
-        // check hidden directory
-        bool hidden = false;
-        string path = aName.substr(0, aName.size() - 1);
-        string::size_type i = path.rfind(PATH_SEPARATOR);
+    // check hidden directory
+    bool hidden = false;
+    string path = aName.substr(0, aName.size() - 1);
+    string::size_type i = path.rfind(PATH_SEPARATOR);
 
-        if (i != string::npos)
-        {
-            string dir = path.substr(i + 1);
-            if (dir[0] == '.')
-                hidden = true;
-        }
+    if (i != string::npos)
+    {
+        string dir = path.substr(i + 1);
+        if (dir[0] == '.')
+            hidden = true;
+    }
 
-        return (BOOLSETTING(SHARE_HIDDEN) || !hidden);
+    return (BOOLSETTING(SHARE_HIDDEN) || !hidden);
 }
 #endif // !_WIN32
 //NOTE: freedcpp +]
@@ -770,8 +770,8 @@ void ShareManager::updateIndices(Directory& dir, const Directory::File::Set::ite
         if(!SETTING(LIST_DUPES)) {
             try {
                 LogManager::getInstance()->message(str(F_("Duplicate file will not be shared: %1% (Size: %2% B) Dupe matched against: %3%")
-                % Util::addBrackets(dir.getRealPath(f.getName())) % Util::toString(f.getSize()) % Util::addBrackets(j->second->getParent()->getRealPath(j->second->getName()))));
-            dir.files.erase(i);
+                                                       % Util::addBrackets(dir.getRealPath(f.getName())) % Util::toString(f.getSize()) % Util::addBrackets(j->second->getParent()->getRealPath(j->second->getName()))));
+                dir.files.erase(i);
             } catch (const ShareException&) { }
             return;
         }
@@ -1088,16 +1088,16 @@ static bool checkType(const string& aString, int aType) {
 
     switch(aType) {
     case SearchManager::TYPE_AUDIO:
-        {
-            for(size_t i = 0; i < (sizeof(typeAudio) / sizeof(typeAudio[0])); i++) {
-                if(IS_TYPE(typeAudio[i])) {
-                    return true;
-                }
-            }
-            if( IS_TYPE2(type2Audio[0]) || IS_TYPE2(type2Audio[1]) || IS_TYPE2(type2Audio[2]) ) {
+    {
+        for(size_t i = 0; i < (sizeof(typeAudio) / sizeof(typeAudio[0])); i++) {
+            if(IS_TYPE(typeAudio[i])) {
                 return true;
             }
         }
+        if( IS_TYPE2(type2Audio[0]) || IS_TYPE2(type2Audio[1]) || IS_TYPE2(type2Audio[2]) ) {
+            return true;
+        }
+    }
         break;
     case SearchManager::TYPE_CD_IMAGE:
         for(size_t i = 0; i < (sizeof(typeCDImage) / sizeof(typeCDImage[0])); i++) {
@@ -1114,7 +1114,7 @@ static bool checkType(const string& aString, int aType) {
         break;
     case SearchManager::TYPE_DOCUMENT:
         if( IS_TYPE(typeDocument[0]) || IS_TYPE(typeDocument[1]) ||
-            IS_TYPE(typeDocument[2]) || IS_TYPE(typeDocument[3]) ) {
+                IS_TYPE(typeDocument[2]) || IS_TYPE(typeDocument[3]) ) {
             return true;
         }
         break;
@@ -1124,28 +1124,28 @@ static bool checkType(const string& aString, int aType) {
         }
         break;
     case SearchManager::TYPE_PICTURE:
-        {
-            for(size_t i = 0; i < (sizeof(typePicture) / sizeof(typePicture[0])); i++) {
-                if(IS_TYPE(typePicture[i])) {
-                    return true;
-                }
-            }
-            if( IS_TYPE2(type2Picture[0]) || IS_TYPE2(type2Picture[1]) || IS_TYPE2(type2Picture[2]) ) {
+    {
+        for(size_t i = 0; i < (sizeof(typePicture) / sizeof(typePicture[0])); i++) {
+            if(IS_TYPE(typePicture[i])) {
                 return true;
             }
         }
+        if( IS_TYPE2(type2Picture[0]) || IS_TYPE2(type2Picture[1]) || IS_TYPE2(type2Picture[2]) ) {
+            return true;
+        }
+    }
         break;
     case SearchManager::TYPE_VIDEO:
-        {
-            for(size_t i = 0; i < (sizeof(typeVideo) / sizeof(typeVideo[0])); i++) {
-                if(IS_TYPE(typeVideo[i])) {
-                    return true;
-                }
-            }
-            if( IS_TYPE2(type2Video[0]) || IS_TYPE2(type2Video[1]) || IS_TYPE2(type2Video[2]) ) {
+    {
+        for(size_t i = 0; i < (sizeof(typeVideo) / sizeof(typeVideo[0])); i++) {
+            if(IS_TYPE(typeVideo[i])) {
                 return true;
             }
         }
+        if( IS_TYPE2(type2Video[0]) || IS_TYPE2(type2Video[1]) || IS_TYPE2(type2Video[2]) ) {
+            return true;
+        }
+    }
         break;
     default:
         dcassert(0);
@@ -1208,7 +1208,7 @@ void ShareManager::Directory::search(SearchResultList& aResults, StringSearch::L
 
     bool sizeOk = (aSearchType != SearchManager::SIZE_ATLEAST) || (aSize == 0);
     if( (cur->empty()) &&
-        (((aFileType == SearchManager::TYPE_ANY) && sizeOk) || (aFileType == SearchManager::TYPE_DIRECTORY)) ) {
+            (((aFileType == SearchManager::TYPE_ANY) && sizeOk) || (aFileType == SearchManager::TYPE_DIRECTORY)) ) {
         // We satisfied all the search words! Add the directory...(NMDC searches don't support directory size)
         SearchResultPtr sr(new SearchResult(SearchResult::TYPE_DIRECTORY, 0, getFullName(), TTHValue()));
         aResults.push_back(sr);
@@ -1255,7 +1255,7 @@ void ShareManager::search(SearchResultList& results, const string& aString, int 
             auto i = tthIndex.find(tth);
             if(i != tthIndex.end()) {
                 SearchResultPtr sr(new SearchResult(SearchResult::TYPE_FILE, i->second->getSize(),
-                    i->second->getParent()->getFullName() + i->second->getName(), i->second->getTTH()));
+                                                    i->second->getParent()->getFullName() + i->second->getName(), i->second->getTTH()));
 
                 results.push_back(sr);
                 ShareManager::getInstance()->addHits(1);
@@ -1283,7 +1283,7 @@ void ShareManager::search(SearchResultList& results, const string& aString, int 
 }
 
 namespace {
-    inline uint16_t toCode(char a, char b) { return (uint16_t)a | ((uint16_t)b)<<8; }
+inline uint16_t toCode(char a, char b) { return (uint16_t)a | ((uint16_t)b)<<8; }
 }
 
 ShareManager::AdcSearch::AdcSearch(const StringList& params) : include(&includeX), gt(0),
@@ -1395,7 +1395,7 @@ void ShareManager::Directory::search(SearchResultList& aResults, AdcSearch& aStr
             if(aStrings.hasExt(i->getName())) {
 
                 SearchResultPtr sr(new SearchResult(SearchResult::TYPE_FILE,
-                    i->getSize(), getFullName() + i->getName(), i->getTTH()));
+                                                    i->getSize(), getFullName() + i->getName(), i->getTTH()));
                 aResults.push_back(sr);
                 ShareManager::getInstance()->addHits(1);
                 if(aResults.size() >= maxResults) {
@@ -1420,8 +1420,8 @@ void ShareManager::search(SearchResultList& results, const StringList& params, S
         auto i = tthIndex.find(srch.root);
         if(i != tthIndex.end()) {
             SearchResultPtr sr(new SearchResult(SearchResult::TYPE_FILE,
-                i->second->getSize(), i->second->getParent()->getFullName() + i->second->getName(),
-                i->second->getTTH()));
+                                                i->second->getSize(), i->second->getParent()->getFullName() + i->second->getName(),
+                                                i->second->getTTH()));
             results.push_back(sr);
             addHits(1);
         }

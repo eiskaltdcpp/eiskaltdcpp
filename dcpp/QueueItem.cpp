@@ -27,21 +27,21 @@
 namespace dcpp {
 
 namespace {
-    const string TEMP_EXTENSION = ".dctmp";
+const string TEMP_EXTENSION = ".dctmp";
 
-    string getTempName(const string& aFileName, const TTHValue& aRoot) {
-        string tmp(aFileName);
-        tmp += "." + aRoot.toBase32();
-        tmp += TEMP_EXTENSION;
-        return tmp;
-    }
+string getTempName(const string& aFileName, const TTHValue& aRoot) {
+    string tmp(aFileName);
+    tmp += "." + aRoot.toBase32();
+    tmp += TEMP_EXTENSION;
+    return tmp;
+}
 }
 
 int QueueItem::countOnlineUsers() const {
     int n = 0;
     for(auto i = sources.begin(), iend = sources.end(); i != iend; ++i) {
         if(i->getUser().user->isOnline())
-        n++;
+            n++;
     }
     return n;
 }
@@ -162,7 +162,7 @@ Segment QueueItem::getNextSegment(int64_t blockSize, int64_t wantedSize, int64_t
 
     if(targetSize > blockSize) {
         // Round off to nearest block size
-                targetSize = Util::roundDown(targetSize, blockSize);
+        targetSize = Util::roundDown(targetSize, blockSize);
     } else {
         targetSize = blockSize;
     }
@@ -209,8 +209,8 @@ Segment QueueItem::getNextSegment(int64_t blockSize, int64_t wantedSize, int64_t
                             Segment& prev = neededParts.back();
                             if(b == prev.getEnd() && e > prev.getEnd())
                             {
-                                 prev.setSize(prev.getSize() + (e - b));
-                                 merged = true;
+                                prev.setSize(prev.getSize() + (e - b));
+                                merged = true;
                             }
                         }
 
@@ -249,15 +249,15 @@ Segment QueueItem::getNextSegment(int64_t blockSize, int64_t wantedSize, int64_t
 
             // current chunk mustn't be already overlapped
             if(d->getOverlapped())
-                    continue;
+                continue;
 
             // current chunk must be running at least for 2 seconds
             if(d->getStart() == 0 || GET_TIME() - d->getStart() < 2000)
-                    continue;
+                continue;
 
             // current chunk mustn't be finished in next 10 seconds
             if(d->getSecondsLeft() < 10)
-                    continue;
+                continue;
 
             // overlap current chunk at last block boundary
             const int64_t pos = d->getPos() - (d->getPos() % blockSize);
@@ -317,7 +317,7 @@ bool QueueItem::isNeededPart(const PartsInfo& partsInfo, int64_t blockSize)
             ++i;
 
         if(i == done.end() || !((*i).getStart() <= (*j) * blockSize && (*i).getEnd() >= (*(j+1)) * blockSize))
-                return true;
+            return true;
     }
 
     return false;

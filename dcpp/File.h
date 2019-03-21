@@ -113,46 +113,46 @@ private:
 
 class FileFindIter {
 public:
-        /** End iterator constructor */
-        FileFindIter();
-        /** Begin iterator constructor, path in utf-8 */
-        FileFindIter(const string& path);
+    /** End iterator constructor */
+    FileFindIter();
+    /** Begin iterator constructor, path in utf-8 */
+    FileFindIter(const string& path);
 
-        ~FileFindIter();
+    ~FileFindIter();
 
-        FileFindIter& operator++();
-        bool operator!=(const FileFindIter& rhs) const;
+    FileFindIter& operator++();
+    bool operator!=(const FileFindIter& rhs) const;
 
-        struct DirData
-#ifdef _WIN32
+    struct DirData
+        #ifdef _WIN32
             : public WIN32_FIND_DATAW
-#endif
-        {
-            DirData();
+        #endif
+    {
+        DirData();
 
-            string getFileName();
-            bool isDirectory();
-            bool isHidden();
-            bool isLink();
-            int64_t getSize();
-            uint32_t getLastWriteTime();
+        string getFileName();
+        bool isDirectory();
+        bool isHidden();
+        bool isLink();
+        int64_t getSize();
+        uint32_t getLastWriteTime();
 #ifndef _WIN32
-            dirent* ent;
-            string base;
+        dirent* ent;
+        string base;
 #endif
-        };
+    };
 
-        DirData& operator*() { return data; }
-        DirData* operator->() { return &data; }
+    DirData& operator*() { return data; }
+    DirData* operator->() { return &data; }
 
 private:
 #ifdef _WIN32
-        HANDLE handle;
+    HANDLE handle;
 #else
-        DIR* dir;
+    DIR* dir;
 #endif
 
-        DirData data;
+    DirData data;
 };
 
 } // namespace dcpp

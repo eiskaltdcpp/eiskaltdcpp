@@ -46,7 +46,7 @@ public:
     };
 
     ConnectionQueueItem(const HintedUser& aUser, bool aDownload) : token(Util::toString(Util::rand())),
-                lastAttempt(0), errors(0), state(WAITING), download(aDownload), user(aUser) { }
+        lastAttempt(0), errors(0), state(WAITING), download(aDownload), user(aUser) { }
 
     GETSET(string, token, Token)
     GETSET(uint64_t, lastAttempt, LastAttempt)
@@ -92,8 +92,8 @@ private:
 inline bool operator==(ConnectionQueueItem::Ptr ptr, const UserPtr& aUser) { return ptr->getUser() == aUser; }
 
 class ConnectionManager : public Speaker<ConnectionManagerListener>,
-    public UserConnectionListener, TimerManagerListener,
-    public Singleton<ConnectionManager>
+        public UserConnectionListener, TimerManagerListener,
+        public Singleton<ConnectionManager>
 {
 public:
     void nmdcExpect(const string& aNick, const string& aMyNick, const string& aHubUrl) {

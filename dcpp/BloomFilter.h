@@ -58,8 +58,8 @@ public:
         for (unsigned int i = 0; i < table.size(); ++i) if (table[i] == true) ++tot;
 
         std::cout << "table status: " << tot << " of " << table.size()
-            << " filled, for an occupancy percentage of " << (100.*tot)/table.size()
-            << "%" << std::endl;
+                  << " filled, for an occupancy percentage of " << (100.*tot)/table.size()
+                  << "%" << std::endl;
     }
 #endif
 private:

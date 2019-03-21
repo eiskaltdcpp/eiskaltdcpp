@@ -38,10 +38,10 @@ public:
     typedef vector<FinishedItem> FinishedItemList;
 
     FinishedItem(string const& aTarget, const UserPtr& aUser, string const& aHub,
-            int64_t aSize, int64_t aSpeed, time_t aTime,
-            const string& aTTH = Util::emptyString) :
-            target(aTarget),  hub(aHub), tth(aTTH), size(aSize), avgSpeed(aSpeed),
-            time(aTime), user(aUser)
+                 int64_t aSize, int64_t aSpeed, time_t aTime,
+                 const string& aTTH = Util::emptyString) :
+        target(aTarget),  hub(aHub), tth(aTTH), size(aSize), avgSpeed(aSpeed),
+        time(aTime), user(aUser)
     {
     }
 
@@ -62,7 +62,7 @@ private:
 };
 /**/
 class FinishedManager : public Singleton<FinishedManager>,
-    public Speaker<FinishedManagerListener>, private DownloadManagerListener, private UploadManagerListener, private QueueManagerListener
+        public Speaker<FinishedManagerListener>, private DownloadManagerListener, private UploadManagerListener, private QueueManagerListener
 {
 public:
     typedef unordered_map<string, FinishedFileItemPtr> MapByFile;

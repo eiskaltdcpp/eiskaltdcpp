@@ -49,7 +49,7 @@ public:
 
     DirectoryItem() : priority(QueueItem::DEFAULT) { }
     DirectoryItem(const UserPtr& aUser, const string& aName, const string& aTarget,
-        QueueItem::Priority p) : name(aName), target(aTarget), priority(p), user(aUser) { }
+                  QueueItem::Priority p) : name(aName), target(aTarget), priority(p), user(aUser) { }
     ~DirectoryItem() { }
 
     UserPtr& getUser() { return user; }
@@ -66,7 +66,7 @@ class ConnectionQueueItem;
 class QueueLoader;
 
 class QueueManager : public Singleton<QueueManager>, public Speaker<QueueManagerListener>, private TimerManagerListener,
-    private SearchManagerListener, private ClientManagerListener
+        private SearchManagerListener, private ClientManagerListener
 {
 public:
     //NOTE: freedcpp
@@ -74,14 +74,14 @@ public:
 
     /** Add a file to the queue. */
     void add(const string& aTarget, int64_t aSize, const TTHValue& root, const HintedUser& aUser,
-    int aFlags = 0, bool addBad = true);
+             int aFlags = 0, bool addBad = true);
     /** Add a user's filelist to the queue. */
     void addList(const HintedUser& HintedUser, int aFlags, const string& aInitialDir = Util::emptyString);
     /** Readd a source that was removed */
     void readd(const string& target, const HintedUser& aUser);
     /** Add a directory to the queue (downloads filelist and matches the directory). */
     void addDirectory(const string& aDir, const HintedUser& aUser, const string& aTarget,
-            QueueItem::Priority p = QueueItem::DEFAULT) noexcept;
+                      QueueItem::Priority p = QueueItem::DEFAULT) noexcept;
 
     int matchListing(const DirectoryListing& dl) noexcept;
     void matchAllListings();
@@ -197,7 +197,7 @@ private:
         }
         void add(QueueItem* qi);
         QueueItem* add(const string& aTarget, int64_t aSize, int aFlags, QueueItem::Priority p,
-            const string& aTempTarget, time_t aAdded, const TTHValue& root);
+                       const string& aTempTarget, time_t aAdded, const TTHValue& root);
 
         QueueItem* find(const string& target);
         void find(QueueItem::List& sl, int64_t aSize, const string& ext);

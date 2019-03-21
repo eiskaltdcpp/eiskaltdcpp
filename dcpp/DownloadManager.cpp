@@ -88,13 +88,13 @@ void DownloadManager::on(TimerManagerListener::Second, uint64_t aTick) noexcept 
                 bool timeElapsedOk = timeElapsed >= (uint32_t)SETTING(AUTODROP_ELAPSED) * 1000;
                 bool timeInactiveOk = timeInactive <= (uint32_t)SETTING(AUTODROP_INACTIVITY) * 1000;
                 bool speedTooLow = timeElapsedOk && timeInactiveOk && bytesDownloaded > 0 ?
-                    bytesDownloaded / timeElapsed * 1000 < (uint32_t)SETTING(AUTODROP_SPEED) : false;
+                            bytesDownloaded / timeElapsed * 1000 < (uint32_t)SETTING(AUTODROP_SPEED) : false;
                 bool isUserList = d->getType() == Transfer::TYPE_FULL_LIST;
                 bool onlineSourcesOk = isUserList ?
-                    true : QueueManager::getInstance()->countOnlineSources(d->getPath()) >= SETTING(AUTODROP_MINSOURCES);
+                            true : QueueManager::getInstance()->countOnlineSources(d->getPath()) >= SETTING(AUTODROP_MINSOURCES);
                 bool filesizeOk = !isUserList && d->getSize() >= ((int64_t)SETTING(AUTODROP_FILESIZE)) * 1024;
                 bool dropIt = (isUserList && BOOLSETTING(AUTODROP_FILELISTS)) ||
-                    (filesizeOk && BOOLSETTING(AUTODROP_ALL));
+                        (filesizeOk && BOOLSETTING(AUTODROP_ALL));
                 if(speedTooLow && onlineSourcesOk && dropIt) {
                     if(BOOLSETTING(AUTODROP_DISCONNECT) && isUserList) {
                         d->getUserConnection().disconnect();
@@ -339,8 +339,8 @@ void DownloadManager::endData(UserConnection* aSource) {
         // First, finish writing the file (flushing the buffers and closing the file...)
         try {
             d->getFile()->flush();
-                } catch(const Exception& e) {
-                        d->resetPos();
+        } catch(const Exception& e) {
+            d->resetPos();
             failDownload(aSource, e.getError());
             return;
         }

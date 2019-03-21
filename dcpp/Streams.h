@@ -87,7 +87,7 @@ public:
         memcpy(buf, src.data(), src.size());
     }
 
-        virtual ~MemoryInputStream() {
+    virtual ~MemoryInputStream() {
         delete[] buf;
     }
 

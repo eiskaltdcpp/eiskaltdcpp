@@ -27,8 +27,8 @@
 namespace dcpp {
 
 class UPnPManager :
-    public Singleton<UPnPManager>,
-    private Thread
+        public Singleton<UPnPManager>,
+        private Thread
 {
 public:
     /**
