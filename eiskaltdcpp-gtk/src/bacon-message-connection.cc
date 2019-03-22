@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2003 Bastien Nocera <hadess@hadess.net>
+ * Copyright (C) 2003-2017 Bastien Nocera <hadess@hadess.net>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -27,6 +27,7 @@
 #include <sys/socket.h>
 #include <sys/un.h>
 #include <errno.h>
+
 #include "bacon-message-connection.hh"
 
 #ifndef UNIX_PATH_MAX
@@ -82,7 +83,7 @@ is_owned_by_user_and_socket (const char *path)
 
     if ((s.st_mode & S_IFSOCK) != S_IFSOCK)
         return FALSE;
-    
+
     return TRUE;
 }
 
@@ -126,9 +127,9 @@ accept_new_connection (BaconMessageConnection *server_conn)
 }
 
 static gboolean
-server_cb (GIOChannel *source, GIOCondition condition, gpointer data)
+server_cb (GIOChannel *source, GIOCondition, gpointer data)
 {
-    BaconMessageConnection *conn = (BaconMessageConnection *)data;
+    BaconMessageConnection *conn = reinterpret_cast<BaconMessageConnection *>(data);
     char *message, *subs, buf;
     int cd, rc, offset;
     gboolean finished;
@@ -138,12 +139,12 @@ server_cb (GIOChannel *source, GIOCondition condition, gpointer data)
         accept_new_connection (conn);
         return TRUE;
     }
-    message = g_malloc (1);
+    message = (char *)(g_malloc (1));
     cd = conn->fd;
     rc = read (cd, &buf, 1);
     while (rc > 0 && buf != '\n')
     {
-        message = g_realloc (message, rc + offset + 1);
+        message = (char *)(g_realloc (message, rc + offset + 1));
         message[offset] = buf;
         offset = offset + rc;
         rc = read (cd, &buf, 1);
@@ -166,7 +167,7 @@ server_cb (GIOChannel *source, GIOCondition condition, gpointer data)
 
     while (finished == FALSE && *subs != '\0')
     {
-        if (conn->func)
+        if (conn->func != NULL)
             (*conn->func) (subs, conn->data);
 
         subs += strlen (subs) + 1;
@@ -188,11 +189,11 @@ find_file_with_pattern (const char *dir, const char *pattern)
     GPatternSpec *pat;
 
     filedir = g_dir_open (dir, 0, NULL);
-    if (!filedir)
+    if (filedir == NULL)
         return NULL;
 
     pat = g_pattern_spec_new (pattern);
-    if (!pat)
+    if (pat == NULL)
     {
         g_dir_close (filedir);
         return NULL;
@@ -210,7 +211,7 @@ find_file_with_pattern (const char *dir, const char *pattern)
             g_free (tmp);
         }
 
-        if (found_filename)
+        if (found_filename != NULL)
             break;
     }
 
@@ -229,7 +230,7 @@ socket_filename (const char *prefix)
     pattern = g_strdup_printf ("%s.%s.*", prefix, g_get_user_name ());
     tmpdir = g_get_tmp_dir ();
     filename = find_file_with_pattern (tmpdir, pattern);
-    if (!filename)
+    if (filename == NULL)
     {
         newfile = g_strdup_printf ("%s.%s.%u", prefix,
                                    g_get_user_name (), g_random_int ());
@@ -253,9 +254,13 @@ try_server (BaconMessageConnection *conn)
     strncpy (uaddr.sun_path, conn->path,
              MIN (strlen(conn->path)+1, UNIX_PATH_MAX));
     conn->fd = socket (PF_UNIX, SOCK_STREAM, 0);
+
+    if(conn->fd == -1)
+        return FALSE;
+
     if (bind (conn->fd, (struct sockaddr *) &uaddr, sizeof (uaddr)) == -1)
     {
-        conn->fd = -1;
+        // conn->fd = -1;
         return FALSE;
     }
     listen (conn->fd, 5);
@@ -274,10 +279,13 @@ try_client (BaconMessageConnection *conn)
     strncpy (uaddr.sun_path, conn->path,
              MIN(strlen(conn->path)+1, UNIX_PATH_MAX));
     conn->fd = socket (PF_UNIX, SOCK_STREAM, 0);
+    if(conn->fd == -1)
+        return FALSE;
+
     if (connect (conn->fd, (struct sockaddr *) &uaddr,
                  sizeof (uaddr)) == -1)
     {
-        conn->fd = -1;
+        //conn->fd = -1;
         return FALSE;
     }
 
@@ -331,11 +339,12 @@ bacon_message_connection_free (BaconMessageConnection *conn)
 
     g_return_if_fail (conn != NULL);
     /* Only servers can accept other connections */
-    g_return_if_fail (conn->is_server != FALSE || !conn->accepted_connections);
+    g_return_if_fail (conn->is_server != FALSE ||
+            conn->accepted_connections == NULL);
 
     child_conn = conn->accepted_connections;
-    while (child_conn) {
-        bacon_message_connection_free (child_conn->data);
+    while (child_conn != NULL) {
+        bacon_message_connection_free (reinterpret_cast<BaconMessageConnection *>(child_conn->data));
         child_conn = g_slist_next (child_conn);
     }
     g_slist_free (conn->accepted_connections);
