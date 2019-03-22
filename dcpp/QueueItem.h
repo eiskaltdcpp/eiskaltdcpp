@@ -170,7 +170,7 @@ public:
     bool isSource(const UserPtr& aUser) const { return getSource(aUser) != sources.end(); }
     bool isBadSource(const UserPtr& aUser) const { return getBadSource(aUser) != badSources.end(); }
     bool isBadSourceExcept(const UserPtr& aUser, Flags::MaskType exceptions) const {
-        SourceConstIter i = getBadSource(aUser);
+        auto i = getBadSource(aUser);
         if(i != badSources.end())
             return i->isAnySet(exceptions^Source::FLAG_MASK);
         return false;
@@ -202,7 +202,7 @@ public:
     /**
      * Is specified parts needed by this download?
      */
-    bool isNeededPart(const PartsInfo& partsInfo, int64_t blockSize);
+    bool isNeededPart(const PartsInfo& partsInfo, int64_t blockSize) const;
     /**
      * Get shared parts info, max 255 parts range pairs
      */
@@ -223,14 +223,7 @@ public:
         return downloads.empty();
     }
 
-    string getListName() const {
-        dcassert(isSet(QueueItem::FLAG_USER_LIST));
-        if(isSet(QueueItem::FLAG_XML_BZLIST)) {
-            return getTarget() + ".xml.bz2";
-        } else {
-            return getTarget() + ".xml";
-        }
-    }
+    string getListName() const;
 
     const string& getTempTarget();
     void setTempTarget(const string& aTempTarget) { tempTarget = aTempTarget; }

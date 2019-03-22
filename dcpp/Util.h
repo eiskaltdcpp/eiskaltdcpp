@@ -82,7 +82,6 @@ public:
     CompareFirst(const T1& compareTo) : a(compareTo) { }
     bool operator()(const pair<T1, T2>& p) { return op()(p.first, a); }
 private:
-    CompareFirst& operator=(const CompareFirst&);
     const T1& a;
 };
 
@@ -93,7 +92,6 @@ public:
     CompareSecond(const T2& compareTo) : a(compareTo) { }
     bool operator()(const pair<T1, T2>& p) { return op()(p.second, a); }
 private:
-    CompareSecond& operator=(const CompareSecond&);
     const T2& a;
 };
 
@@ -222,10 +220,10 @@ public:
 
     static void sanitizeUrl(string& url);
     static void decodeUrl(const string& aUrl, string& protocol, string& host, string& port, string& path, string& query, string& fragment);
-    static std::map<string, string> decodeQuery(const string& query);
+    static map<string, string> decodeQuery(const string& query);
     static string validateFileName(string aFile, const string& badCharsExtra = "");
     static bool checkExtension(const string& tmp);
-    static string cleanPathChars(string aNick);
+    static string cleanPathChars(const std::string &str);
     static string addBrackets(const string& s);
 
     static string formatBytes(const string& aString) { return formatBytes(toInt64(aString)); }
@@ -327,12 +325,12 @@ public:
 
     static string toString(short val) {
         char buf[8];
-        snprintf(buf, sizeof(buf), "%d", (int)val);
+        snprintf(buf, sizeof(buf), "%d", static_cast<int>(val));
         return buf;
     }
     static string toString(unsigned short val) {
         char buf[8];
-        snprintf(buf, sizeof(buf), "%u", (unsigned int)val);
+        snprintf(buf, sizeof(buf), "%u", static_cast<unsigned int>(val));
         return buf;
     }
     static string toString(int val) {
@@ -372,9 +370,9 @@ public:
     }
 
     template<typename string_t>
-    static string_t toString(const string_t& sep, const std::vector<string_t>& lst) {
+    static string_t toString(const string_t& sep, const vector<string_t>& lst) {
         string_t ret;
-        for(typename std::vector<string_t>::const_iterator i = lst.begin(), iend = lst.end(); i != iend; ++i) {
+        for(auto i = lst.begin(), iend = lst.end(); i != iend; ++i) {
             ret += *i;
             if(i + 1 != iend)
                 ret += sep;
@@ -382,7 +380,7 @@ public:
         return ret;
     }
     template<typename string_t>
-    static inline string_t toString(const typename string_t::value_type* sep, const std::vector<string_t>& lst) {
+    static inline string_t toString(const typename string_t::value_type* sep, const vector<string_t>& lst) {
         return toString(string_t(sep), lst);
     }
     static string toString(const string& sep, const StringList& lst);

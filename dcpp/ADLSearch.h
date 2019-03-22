@@ -30,24 +30,25 @@
 #include "DirectoryListing.h"
 
 namespace dcpp {
+
 class AdlSearchManager;
 
 ///  Class that represent an ADL search
 class ADLSearch
 {
 public:
-
-    // Constructor
     ADLSearch();
-    // Prepare search
-    void Prepare(StringMap& params);
-    // The search string
+
+    /// The search string
     string searchString;
-    // Active search
+
+    /// Active search
     bool isActive;
-    // Auto Queue Results
+
+    /// Auto Queue Results
     bool isAutoQueue;
-    // Search source type
+
+    /// Search source type
     enum SourceType {
         TypeFirst = 0,
         OnlyFile = TypeFirst,
@@ -76,22 +77,28 @@ public:
     string SizeTypeToString(SizeType t);
     int64_t GetSizeBase();
 
-    // Name of the destination directory (empty = 'ADLSearch') and its index
+    /// Name of the destination directory (empty = 'ADLSearch') and its index
     string destDir;
     unsigned long ddIndex;
-    // Search for file match
-    bool MatchesFile(const string& f, const string& fp, int64_t size);
-    // Search for directory match
-    bool MatchesDirectory(const string& d);
 
 private:
     friend class ADLSearchManager;
+
+    /// Prepare search
+    void prepare(StringMap& params);
+
+    /// Search for file match
+    bool matchesFile(const string& f, const string& fp, int64_t size);
+    /// Search for directory match
+    bool matchesDirectory(const string& d);
+
+    bool searchAll(const string& s);
+
     //decide if regexp should be used
     bool bUseRegexp;
     string regexpstring;
     // Substring searches
     StringSearch::List stringSearchList;
-    bool SearchAll(const string& s);
 };
 
 ///  Class that holds all active searches
@@ -104,44 +111,42 @@ public:
         DirectoryListing::Directory* dir;
         DirectoryListing::Directory* subdir;
         bool fileAdded;
-        DestDir() : name(""), dir(NULL), subdir(NULL) {}
     };
     typedef vector<DestDir> DestDirList;
 
-    // Constructor/destructor
-    ADLSearchManager() : user(UserPtr(), Util::emptyString) { Load(); }
-    virtual ~ADLSearchManager() { Save(); }
+    ADLSearchManager();
+    virtual ~ADLSearchManager();
 
     // Search collection
     typedef vector<ADLSearch> SearchCollection;
     SearchCollection collection;
 
     // Load/save search collection to XML file
-    void Load();
-    void Save();
+    void load();
+    void save();
 
     // Settings
     GETSET(bool, breakOnFirst, BreakOnFirst)
     GETSET(HintedUser, user, User)
 
-    // @remarks Used to add ADLSearch directories to an existing DirectoryListing
-    void matchListing(DirectoryListing& /*aDirList*/) noexcept;
+    /// @remarks Used to add ADLSearch directories to an existing DirectoryListing
+    void matchListing(DirectoryListing& aDirList);
 
 private:
     // @internal
     void matchRecurse(DestDirList& /*aDestList*/, DirectoryListing::Directory* /*aDir*/, string& /*aPath*/);
     // Search for file match
-    void MatchesFile(DestDirList& destDirVector, DirectoryListing::File *currentFile, string& fullPath);
+    void matchesFile(DestDirList& destDirVector, DirectoryListing::File *currentFile, string& fullPath);
     // Search for directory match
-    void MatchesDirectory(DestDirList& destDirVector, DirectoryListing::Directory* currentDir, string& fullPath);
+    void matchesDirectory(DestDirList& destDirVector, DirectoryListing::Directory* currentDir, string& fullPath);
     // Step up directory
-    void StepUpDirectory(DestDirList& destDirVector);
+    void stepUpDirectory(DestDirList& destDirVector);
     // Prepare destination directory indexing
-    void PrepareDestinationDirectories(DestDirList& destDirVector, DirectoryListing::Directory* root, StringMap& params);
+    void prepareDestinationDirectories(DestDirList& destDirs, DirectoryListing::Directory* root, StringMap& params);
     // Finalize destination directories
-    void FinalizeDestinationDirectories(DestDirList& destDirVector, DirectoryListing::Directory* root);
+    void finalizeDestinationDirectories(DestDirList& destDirs, DirectoryListing::Directory* root);
 
-    string getConfigFile();
+    static string getConfigFile();
 };
 
 } // namespace dcpp

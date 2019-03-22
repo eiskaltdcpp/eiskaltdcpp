@@ -100,13 +100,13 @@ string Identity::getTag() const {
 
 string Identity::get(const char* name) const {
     FastLock l(cs);
-    InfMap::const_iterator i = info.find(*(short*)name);
+    auto i = info.find(*(short*)name);
     return i == info.end() ? Util::emptyString : i->second;
 }
 
 bool Identity::isSet(const char* name) const {
     FastLock l(cs);
-    InfMap::const_iterator i = info.find(*(short*)name);
+    auto i = info.find(*(short*)name);
     return i != info.end();
 }
 
@@ -122,8 +122,8 @@ void Identity::set(const char* name, const string& val) {
 bool Identity::supports(const string& name) const {
     string su = get("SU");
     StringTokenizer<string> st(su, ',');
-    for(auto i = st.getTokens().begin(); i != st.getTokens().end(); ++i) {
-        if(*i == name)
+    for(auto& i: st.getTokens()) {
+        if(i == name)
             return true;
     }
     return false;
@@ -133,8 +133,8 @@ std::map<string, string> Identity::getInfo() const {
     std::map<string, string> ret;
 
     FastLock l(cs);
-    for(InfIterC i = info.begin(); i != info.end(); ++i) {
-        ret[string((char*)(&i->first), 2)] = i->second;
+    for(auto& i: info) {
+        ret[string((char*)(&i.first), 2)] = i.second;
     }
 
     return ret;

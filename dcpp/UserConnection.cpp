@@ -163,7 +163,7 @@ bool UserConnectionScriptInstance::onUserConnectionMessageOut(UserConnection* aC
 void UserConnection::connect(const string& aServer, const string& aPort, const string& localPort, BufferedSocket::NatRoles natRole) {
     dcassert(!socket);
 
-    setPort(aPort);
+    port = aPort;
     socket = BufferedSocket::getSocket(0);
     socket->addListener(this);
     socket->connect(aServer, aPort, localPort, natRole, isSet(FLAG_SECURE), BOOLSETTING(ALLOW_UNTRUSTED_CLIENTS), true);
@@ -187,13 +187,16 @@ void UserConnection::inf(bool withToken) {
 
 void UserConnection::sup(const StringList& features) {
     AdcCommand c(AdcCommand::CMD_SUP);
-    for(StringIterC i = features.begin(); i != features.end(); ++i)
-        c.addParam(*i);
+    for(auto& i: features)
+        c.addParam(i);
     send(c);
 }
 
 void UserConnection::supports(const StringList& feat) {
-    const string x = Util::toString(" ",feat);
+    string x;
+    for(auto& i: feat) {
+        x+= i + ' ';
+    }
     send("$Supports " + x + '|');
 }
 

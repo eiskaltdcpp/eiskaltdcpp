@@ -338,8 +338,7 @@ ok:
 int64_t UploadManager::getRunningAverage() {
     Lock l(cs);
     int64_t avg = 0;
-    for(auto i = uploads.begin(); i != uploads.end(); ++i) {
-        Upload* u = *i;
+    for(auto u: uploads) {
         avg += u->getAverageSpeed();
     }
     return avg;
@@ -411,35 +410,29 @@ void UploadManager::on(AdcCommand::GET, UserConnection* aSource, const AdcComman
     int64_t aStartPos = Util::toInt64(c.getParam(2));
     int64_t aBytes = Util::toInt64(c.getParam(3));
 
-    try {
-        if(prepareFile(*aSource, type, fname, aStartPos, aBytes, c.hasFlag("RE", 4))) {
-            Upload* u = aSource->getUpload();
-            dcassert(u != NULL);
+    if(prepareFile(*aSource, type, fname, aStartPos, aBytes, c.hasFlag("RE", 4))) {
+        Upload* u = aSource->getUpload();
+        dcassert(u != NULL);
 
-            AdcCommand cmd(AdcCommand::CMD_SND);
-            cmd.addParam(type).addParam(fname)
-                    .addParam(Util::toString(u->getStartPos()))
-                    .addParam(Util::toString(u->getSize()));
+        AdcCommand cmd(AdcCommand::CMD_SND);
+        cmd.addParam(type).addParam(fname)
+                .addParam(Util::toString(u->getStartPos()))
+                .addParam(Util::toString(u->getSize()));
 
-            if(c.hasFlag("ZL", 4)) {
-                u->setStream(new FilteredInputStream<ZFilter, true>(u->getStream()));
-                u->setFlag(Upload::FLAG_ZUPLOAD);
-                cmd.addParam("ZL1");
-            }
-
-            aSource->send(cmd);
-
-            u->setStart(GET_TICK());
-            u->tick();
-            aSource->setState(UserConnection::STATE_RUNNING);
-            aSource->transmitFile(u->getStream());
-            fire(UploadManagerListener::Starting(), u);
+        if(c.hasFlag("ZL", 4)) {
+            u->setStream(new FilteredInputStream<ZFilter, true>(u->getStream()));
+            u->setFlag(Upload::FLAG_ZUPLOAD);
+            cmd.addParam("ZL1");
         }
+
+        aSource->send(cmd);
+
+        u->setStart(GET_TICK());
+        u->tick();
+        aSource->setState(UserConnection::STATE_RUNNING);
+        aSource->transmitFile(u->getStream());
+        fire(UploadManagerListener::Starting(), u);
     }
-    catch (const ShareException &e){
-        dcdebug("UploadManager thrown: %s\n", e.what());
-    }
-    catch ( ... ) {}
 }
 
 void UploadManager::on(UserConnectionListener::BytesSent, UserConnection* aSource, size_t aBytes, size_t aActual) noexcept {
@@ -543,8 +536,8 @@ const UploadManager::FileSet& UploadManager::getWaitingUserFiles(const UserPtr& 
 void UploadManager::addConnection(UserConnectionPtr conn) {
     Lock l(cs);
     if (!BOOLSETTING(ALLOW_UPLOAD_MULTI_HUB)) {
-        for(auto i = uploads.begin(); i != uploads.end(); ++i) {
-            if ((*i)->getUserConnection().getRemoteIp() == conn->getRemoteIp()) {
+        for(auto u: uploads) {
+            if (u->getUserConnection().getRemoteIp() == conn->getRemoteIp()) {
                 conn->disconnect();
                 return;
             }
@@ -600,8 +593,7 @@ void UploadManager::on(TimerManagerListener::Minute, uint64_t /* aTick */) noexc
         waitingUsers.erase(i, waitingUsers.end());
 
         if( BOOLSETTING(AUTO_KICK) ) {
-            for(auto i = uploads.begin(); i != uploads.end(); ++i) {
-                Upload* u = *i;
+            for(auto u: uploads) {
                 if(u->getUser()->isOnline()) {
                     u->unsetFlag(Upload::FLAG_PENDING_KICK);
                     continue;
@@ -669,10 +661,10 @@ void UploadManager::on(TimerManagerListener::Second, uint64_t) noexcept {
     Lock l(cs);
     UploadList ticks;
 
-    for(auto i = uploads.begin(); i != uploads.end(); ++i) {
-        if((*i)->getPos() > 0) {
-            ticks.push_back(*i);
-            (*i)->tick();
+    for(auto u: uploads) {
+        if(u->getPos() > 0) {
+            ticks.push_back(u);
+            u->tick();
         }
     }
 

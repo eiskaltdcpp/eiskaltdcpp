@@ -36,7 +36,7 @@ ADLS::ADLS(QWidget *parent):
 ADLS::~ADLS(){
     save();
 
-    ADLSearchManager::getInstance()->Save();
+    ADLSearchManager::getInstance()->save();
 
     delete model;
 }
@@ -204,7 +204,7 @@ void ADLS::slotClicked(const QModelIndex &index){
             collection[i] = entry;
         model->repaint();
 
-        ADLSearchManager::getInstance()->Save();
+        ADLSearchManager::getInstance()->save();
 }
 
 void ADLS::initEditor(ADLSEditor &editor){
@@ -224,7 +224,7 @@ void ADLS::slotAdd_newButtonClicked(){
         getParams(editor, map);
         updateEntry(search, map);
         collection.push_back(search);
-        ADLSearchManager::getInstance()->Save();
+        ADLSearchManager::getInstance()->save();
         addItem(search);
     }
 }

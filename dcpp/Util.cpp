@@ -122,7 +122,8 @@ static string getDownloadsPath(const string& def) {
 
     if(!shell32) {
         shell32 = ::LoadLibrary(_T("Shell32.dll"));
-        if(shell32) {
+        if(shell32)
+        {
             getKnownFolderPath = (_SHGetKnownFolderPath)::GetProcAddress(shell32, "SHGetKnownFolderPath");
 
             if(getKnownFolderPath) {
@@ -490,7 +491,7 @@ string Util::validateFileName(string tmp, const string& badCharsExtra) {
 }
 
 bool Util::checkExtension(const string& tmp) {
-    for(unsigned int i = 0; i < tmp.length(); i++) {
+    for(size_t i = 0, n = tmp.size(); i < n; ++i) {
         if (tmp[i] < 0 || tmp[i] == 32 || tmp[i] == ':') {
             return false;
         }
@@ -501,13 +502,14 @@ bool Util::checkExtension(const string& tmp) {
     return true;
 }
 
-string Util::cleanPathChars(string aNick) {
+string Util::cleanPathChars(const string& str) {
+    string ret(str);
     string::size_type i = 0;
 
-    while( (i = aNick.find_first_of("/.\\", i)) != string::npos) {
-        aNick[i] = '_';
+    while((i = ret.find_first_of("/.\\", i)) != string::npos) {
+        ret[i] = '_';
     }
-    return aNick;
+    return ret;
 }
 
 string Util::addBrackets(const string& s) {

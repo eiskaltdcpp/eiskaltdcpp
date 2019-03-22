@@ -85,7 +85,7 @@ SearchADL::SearchADL():
 
 SearchADL::~SearchADL()
 {
-    ADLSearchManager::getInstance()->Save();
+    ADLSearchManager::getInstance()->save();
     gtk_widget_destroy(getWidget("ADLSearchDialog"));
     g_object_unref(getWidget("menu"));
 }

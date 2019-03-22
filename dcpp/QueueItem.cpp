@@ -17,8 +17,8 @@
  */
 
 #include "stdinc.h"
-
 #include "QueueItem.h"
+
 #include "HashManager.h"
 #include "Download.h"
 #include "File.h"
@@ -39,17 +39,17 @@ string getTempName(const string& aFileName, const TTHValue& aRoot) {
 
 int QueueItem::countOnlineUsers() const {
     int n = 0;
-    for(auto i = sources.begin(), iend = sources.end(); i != iend; ++i) {
-        if(i->getUser().user->isOnline())
+    for(auto& i: sources) {
+        if(i.getUser().user->isOnline())
             n++;
     }
     return n;
 }
 
 void QueueItem::getOnlineUsers(HintedUserList& l) const {
-    for(auto i = sources.begin(), iend = sources.end(); i != iend; ++i)
-        if(i->getUser().user->isOnline())
-            l.push_back(i->getUser());
+    for(auto& i: sources)
+        if(i.getUser().user->isOnline())
+            l.push_back(i.getUser());
 }
 
 void QueueItem::addSource(const HintedUser& aUser) {
@@ -59,7 +59,7 @@ void QueueItem::addSource(const HintedUser& aUser) {
         sources.push_back(*i);
         badSources.erase(i);
     } else {
-        sources.push_back(Source(aUser));
+        sources.emplace_back(aUser);
     }
 }
 
@@ -280,8 +280,8 @@ Segment QueueItem::getNextSegment(int64_t blockSize, int64_t wantedSize, int64_t
 
 int64_t QueueItem::getDownloadedBytes() const {
     int64_t total = 0;
-    for(auto i = done.begin(); i != done.end(); ++i) {
-        total += i->getSize();
+    for(auto& i: done) {
+        total += i.getSize();
     }
     return total;
 }
@@ -306,9 +306,18 @@ void QueueItem::addSegment(const Segment& segment) {
         }
     }
 }
+
+string QueueItem::getListName() const {
+    dcassert(isSet(QueueItem::FLAG_USER_LIST));
+    if(isSet(QueueItem::FLAG_XML_BZLIST)) {
+        return getTarget() + ".xml.bz2";
+    } else {
+        return getTarget() + ".xml";
+    }
+}
+
 //Partial
-bool QueueItem::isNeededPart(const PartsInfo& partsInfo, int64_t blockSize)
-{
+bool QueueItem::isNeededPart(const PartsInfo& partsInfo, int64_t blockSize) const {
     dcassert(partsInfo.size() % 2 == 0);
 
     SegmentConstIter i  = done.begin();
@@ -321,7 +330,6 @@ bool QueueItem::isNeededPart(const PartsInfo& partsInfo, int64_t blockSize)
     }
 
     return false;
-
 }
 
 void QueueItem::getPartialInfo(PartsInfo& partialInfo, int64_t blockSize) const {

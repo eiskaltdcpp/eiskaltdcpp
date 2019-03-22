@@ -17,12 +17,11 @@
  */
 
 #include "stdinc.h"
-
 #include "ZUtils.h"
 
-#include "format.h"
 #include "Exception.h"
 #include "File.h"
+#include "format.h"
 
 namespace dcpp {
 
@@ -39,7 +38,9 @@ ZFilter::ZFilter() : totalIn(0), totalOut(0), compressing(true) {
 }
 
 ZFilter::~ZFilter() {
+#ifdef ZLIB_DEBUG
     dcdebug("ZFilter end, %ld/%ld = %.04f\n", zs.total_out, zs.total_in, (float)zs.total_out / max((float)zs.total_in, (float)1));
+#endif
     deflateEnd(&zs);
 }
 
@@ -123,7 +124,9 @@ UnZFilter::UnZFilter() {
 }
 
 UnZFilter::~UnZFilter() {
+#ifdef ZLIB_DEBUG
     dcdebug("UnZFilter end, %ld/%ld = %.04f\n", zs.total_out, zs.total_in, (float)zs.total_out / max((float)zs.total_in, (float)1));
+#endif
     inflateEnd(&zs);
 }
 
@@ -150,13 +153,18 @@ bool UnZFilter::operator()(const void* in, size_t& insize, void* out, size_t& ou
 }
 
 void GZ::decompress(const string& source, const string& target) {
+#ifdef _WIN32
+    auto gz = gzopen_w(Text::toT(source).c_str(), "rb");
+#else
     auto gz = gzopen(source.c_str(), "rb");
+#endif
     if(!gz) {
         throw Exception(_("Error during decompression"));
     }
     File f(target, File::WRITE, File::CREATE | File::TRUNCATE);
 
     const size_t BUF_SIZE = 64 * 1024;
+    const int BUF_SIZE_INT = static_cast<int>(BUF_SIZE);
     ByteVector buf(BUF_SIZE);
 
     while(true) {
@@ -164,7 +172,7 @@ void GZ::decompress(const string& source, const string& target) {
         if(read > 0) {
             f.write(&buf[0], read);
         }
-        if(size_t(read) < BUF_SIZE) {
+        if(read < BUF_SIZE_INT) {
             break;
         }
     }
