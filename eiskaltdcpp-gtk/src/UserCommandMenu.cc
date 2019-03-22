@@ -54,7 +54,7 @@ void UserCommandMenu::addUser(const string &cid)
 }
 
 void UserCommandMenu::addFile(const std::string &cid, const std::string &name, const std::string &path,
-    const int64_t &size, const string &tth)
+                              const int64_t &size, const string &tth)
 {
     UCParam u;
     u.cid = cid;
@@ -180,7 +180,7 @@ void UserCommandMenu::onUserCommandClick_gui(GtkMenuItem *item, gpointer data)
                 params["tth"] = params["fileTR"];
             }
             F4 *func = new F4(ucm, &UserCommandMenu::sendUserCommand_client,
-                i->cid, commandName, hub, params);
+                              i->cid, commandName, hub, params);
             WulforManager::get()->dispatchClientFunc(func);
         }
     }

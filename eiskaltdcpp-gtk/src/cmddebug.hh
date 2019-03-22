@@ -29,56 +29,56 @@
 
 
 class cmddebug:
-    public BookEntry,
-    private dcpp::DebugManagerListener, public dcpp::Thread
+        public BookEntry,
+        private dcpp::DebugManagerListener, public dcpp::Thread
 {
-    public:
-        cmddebug();
-        virtual ~cmddebug();
-        virtual void show();
+public:
+    cmddebug();
+    virtual ~cmddebug();
+    virtual void show();
 
-    private:
-        void add_gui(std::string file);
-        void init();
-        void addCmd(const std::string& cmd,const std::string& ip);
+private:
+    void add_gui(std::string file);
+    void init();
+    void addCmd(const std::string& cmd,const std::string& ip);
 
-        dcpp::CriticalSection cs;
-        dcpp::Semaphore s;
-        std::deque<std::string> cmdList;
-        virtual int run() {
-            setThreadPriority(dcpp::Thread::LOW);
-            std::string x;
+    dcpp::CriticalSection cs;
+    dcpp::Semaphore s;
+    std::deque<std::string> cmdList;
+    virtual int run() {
+        setThreadPriority(dcpp::Thread::LOW);
+        std::string x;
 
-            while(true) {
-                s.wait();
+        while(true) {
+            s.wait();
 
-                {
-                    dcpp::Lock l(cs);
+            {
+                dcpp::Lock l(cs);
 
-                    if(cmdList.empty()) continue;
+                if(cmdList.empty()) continue;
 
-                    x = cmdList.front();
-                    cmdList.pop_front();
+                x = cmdList.front();
+                cmdList.pop_front();
 
-                }
-                typedef Func1<cmddebug,std::string> F1;
-                F1 *func = new F1(this, &cmddebug::add_gui, x);
-                WulforManager::get()->dispatchGuiFunc(func);
             }
-
-        return 0;
+            typedef Func1<cmddebug,std::string> F1;
+            F1 *func = new F1(this, &cmddebug::add_gui, x);
+            WulforManager::get()->dispatchGuiFunc(func);
         }
 
-        void on(dcpp::DebugManagerListener::DebugDetection, const std::string& com) noexcept;
-        void on(dcpp::DebugManagerListener::DebugCommand, const std::string& mess, int typedir, const std::string& ip) noexcept;
+        return 0;
+    }
 
-        static void onScroll_gui(GtkAdjustment *adjustment, gpointer data);
-        static void onResize_gui(GtkAdjustment *adjustment, gpointer data);
+    void on(dcpp::DebugManagerListener::DebugDetection, const std::string& com) noexcept;
+    void on(dcpp::DebugManagerListener::DebugCommand, const std::string& mess, int typedir, const std::string& ip) noexcept;
 
-        GtkTextBuffer *buffer;
-        static const int maxLines = 1000;
-        GtkTextIter iter;
-        bool scrollToBottom;
-        GtkTextMark *cmdMark;
+    static void onScroll_gui(GtkAdjustment *adjustment, gpointer data);
+    static void onResize_gui(GtkAdjustment *adjustment, gpointer data);
+
+    GtkTextBuffer *buffer;
+    static const int maxLines = 1000;
+    GtkTextIter iter;
+    bool scrollToBottom;
+    GtkTextMark *cmdMark;
 
 };

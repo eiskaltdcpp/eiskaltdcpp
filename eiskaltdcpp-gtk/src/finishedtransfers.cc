@@ -116,9 +116,9 @@ FinishedTransfers::FinishedTransfers(const EntryType type, const string &title, 
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("showOnlyFullFilesCheckButton")), BOOLSETTING(FINISHED_DL_ONLY_FULL));
 
     if (type == Entry::FINISHED_DOWNLOADS)
-       g_signal_connect(getWidget("showOnlyFullFilesCheckButton"), "toggled", G_CALLBACK(onShowOnlyFullFilesToggled_gui), (gpointer)this);
+        g_signal_connect(getWidget("showOnlyFullFilesCheckButton"), "toggled", G_CALLBACK(onShowOnlyFullFilesToggled_gui), (gpointer)this);
     else
-       gtk_widget_hide(getWidget("showOnlyFullFilesCheckButton"));
+        gtk_widget_hide(getWidget("showOnlyFullFilesCheckButton"));
 }
 
 FinishedTransfers::~FinishedTransfers()
@@ -189,15 +189,15 @@ void FinishedTransfers::addUser_gui(StringMap params, bool update)
     }
 
     gtk_list_store_set(userStore, &iter,
-        userView.col(_("Time")), params["Time"].c_str(),
-        userView.col(_("Nick")), params["Nick"].c_str(),
-        userView.col(_("Hub")), params["Hub"].c_str(),
-        userView.col(_("Files")), params["Files"].c_str(),
-        userView.col(_("Transferred")), transferred,
-        userView.col(_("Speed")), speed,
-        userView.col("CID"), params["CID"].c_str(),
-        userView.col("Elapsed Time"), time,
-        -1);
+                       userView.col(_("Time")), params["Time"].c_str(),
+            userView.col(_("Nick")), params["Nick"].c_str(),
+            userView.col(_("Hub")), params["Hub"].c_str(),
+            userView.col(_("Files")), params["Files"].c_str(),
+            userView.col(_("Transferred")), transferred,
+            userView.col(_("Speed")), speed,
+            userView.col("CID"), params["CID"].c_str(),
+            userView.col("Elapsed Time"), time,
+            -1);
 
     totalBytes += addSize;
     totalTime += addTime;
@@ -207,7 +207,7 @@ void FinishedTransfers::addUser_gui(StringMap params, bool update)
         updateStatus_gui();
 
         if ((!isUpload && WGETB("bold-finished-downloads")) ||
-             (isUpload && WGETB("bold-finished-uploads")))
+                (isUpload && WGETB("bold-finished-uploads")))
         {
             setBold_gui();
         }
@@ -216,11 +216,11 @@ void FinishedTransfers::addUser_gui(StringMap params, bool update)
 
 void FinishedTransfers::addFile_gui(StringMap params, bool update)
 {
-   if (!isUpload && params["full"] == "0" &&
-       gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("showOnlyFullFilesCheckButton"))))
-   {
-       return;
-   }
+    if (!isUpload && params["full"] == "0" &&
+            gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("showOnlyFullFilesCheckButton"))))
+    {
+        return;
+    }
 
     GtkTreeIter iter;
     int64_t transferred = Util::toInt64(params["Transferred"]);
@@ -233,23 +233,23 @@ void FinishedTransfers::addFile_gui(StringMap params, bool update)
         totalFiles++;
     }
     gtk_list_store_set(fileStore, &iter,
-        fileView.col(_("Time")), params["Time"].c_str(),
-        fileView.col(_("Filename")), params["Filename"].c_str(),
-        fileView.col(_("Path")), params["Path"].c_str(),
-        fileView.col(_("Nicks")), params["Nicks"].c_str(),
-        fileView.col(_("Transferred")), transferred,
-        fileView.col(_("Speed")), speed,
-        fileView.col(_("CRC Checked")), params["CRC Checked"].c_str(),
-        fileView.col("Target"), params["Target"].c_str(),
-        fileView.col("Elapsed Time"), time,
-        -1);
+                       fileView.col(_("Time")), params["Time"].c_str(),
+            fileView.col(_("Filename")), params["Filename"].c_str(),
+            fileView.col(_("Path")), params["Path"].c_str(),
+            fileView.col(_("Nicks")), params["Nicks"].c_str(),
+            fileView.col(_("Transferred")), transferred,
+            fileView.col(_("Speed")), speed,
+            fileView.col(_("CRC Checked")), params["CRC Checked"].c_str(),
+            fileView.col("Target"), params["Target"].c_str(),
+            fileView.col("Elapsed Time"), time,
+            -1);
 
     if (update)
     {
         updateStatus_gui();
 
         if ((!isUpload && WGETB("bold-finished-downloads")) ||
-             (isUpload && WGETB("bold-finished-uploads")))
+                (isUpload && WGETB("bold-finished-uploads")))
         {
             setBold_gui();
         }
@@ -684,7 +684,7 @@ void FinishedTransfers::getFinishedParams_client(const FinishedFileItemPtr& item
     params["Path"] = Util::getFilePath(file);
     for (auto it = item->getUsers().begin(); it != item->getUsers().end(); ++it)
     {
-            nicks += WulforUtil::getNicks(it->user->getCID(), it->hint) + ", ";
+        nicks += WulforUtil::getNicks(it->user->getCID(), it->hint) + ", ";
     }
     params["Nicks"] = nicks.substr(0, nicks.length() - 2);
     // item->getFileSize() seems to return crap. I guess there's no way to get

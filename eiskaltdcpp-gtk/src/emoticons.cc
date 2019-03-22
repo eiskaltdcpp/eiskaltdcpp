@@ -163,9 +163,9 @@ bool Emoticons::load(const string &file)
                     if (emotName.empty() || g_utf8_strlen(emotName.c_str(), -1) > Emot::SIZE_NAME || filter.count(emotName))
                         continue;
 
-//                  FIXME limit emotions
-//                  if (pack.size() > Emot::SIZE_LIST)
-//                      continue;
+                    //                  FIXME limit emotions
+                    //                  if (pack.size() > Emot::SIZE_LIST)
+                    //                      continue;
 
                     list = g_list_append(list, g_strdup(emotName.c_str()));
                     filter.insert(emotName);
@@ -177,9 +177,9 @@ bool Emoticons::load(const string &file)
                     pack.push_back(emot);
                     countfile++;
                 }
-                    xml.stepOut();
-            }
                 xml.stepOut();
+            }
+            xml.stepOut();
         }
     }
     catch (const Exception &e)

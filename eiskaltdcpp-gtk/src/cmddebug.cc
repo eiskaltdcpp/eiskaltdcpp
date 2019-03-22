@@ -29,7 +29,7 @@ using namespace std;
 using namespace dcpp;
 
 cmddebug::cmddebug():
-BookEntry(Entry::CMD,_("CMD"),"cmddebug.ui")
+    BookEntry(Entry::CMD,_("CMD"),"cmddebug.ui")
 {
     buffer = gtk_text_view_get_buffer (GTK_TEXT_VIEW (getWidget("cmdtextview")));
     gtk_text_buffer_get_end_iter(buffer, &iter);
@@ -64,10 +64,10 @@ void cmddebug::add_gui(string file)
     // Limit size of chat text
     if (gtk_text_buffer_get_line_count(buffer) > maxLines + 1)
     {
-            GtkTextIter next;
-            gtk_text_buffer_get_start_iter(buffer, &iter);
-            gtk_text_buffer_get_iter_at_line(buffer, &next, 1);
-            gtk_text_buffer_delete(buffer, &iter, &next);
+        GtkTextIter next;
+        gtk_text_buffer_get_start_iter(buffer, &iter);
+        gtk_text_buffer_get_iter_at_line(buffer, &next, 1);
+        gtk_text_buffer_delete(buffer, &iter, &next);
     }
     gtk_text_view_place_cursor_onscreen(GTK_TEXT_VIEW(getWidget("cmdtextview")));
 
@@ -87,33 +87,33 @@ void cmddebug::show()
 
 void cmddebug::on(dcpp::DebugManagerListener::DebugCommand, const std::string& mess, int typedir, const std::string& ip) noexcept
 {
-        switch(typedir) {
-            case dcpp::DebugManager::HUB_IN :
-                if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("hub_in_button"))) == TRUE)
-                {
-                    addCmd("Hub:\t[Incoming][" + ip + "]\t\t"+mess, ip);
-                }
-                break;
-            case dcpp::DebugManager::HUB_OUT :
-                if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("hub_out_button"))) == TRUE)
-                {
-                    addCmd("Hub:\t[Outgoing][" + ip + "]\t\t"+mess, ip);
-                }
-                break;
-            case dcpp::DebugManager::CLIENT_IN:
-                if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("client_in_button"))) == TRUE)
-                {
-                    addCmd("Client:\t[Incoming][" + ip + "]\t\t"+mess, ip);
-                }
-                break;
-            case dcpp::DebugManager::CLIENT_OUT:
-                if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("client_out_button"))) == TRUE)
-                {
-                    addCmd("Client:\t[Outgoing][" + ip + "]\t\t"+mess, ip);
-                }
-                break;
-            default: break;
+    switch(typedir) {
+    case dcpp::DebugManager::HUB_IN :
+        if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("hub_in_button"))) == TRUE)
+        {
+            addCmd("Hub:\t[Incoming][" + ip + "]\t\t"+mess, ip);
         }
+        break;
+    case dcpp::DebugManager::HUB_OUT :
+        if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("hub_out_button"))) == TRUE)
+        {
+            addCmd("Hub:\t[Outgoing][" + ip + "]\t\t"+mess, ip);
+        }
+        break;
+    case dcpp::DebugManager::CLIENT_IN:
+        if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("client_in_button"))) == TRUE)
+        {
+            addCmd("Client:\t[Incoming][" + ip + "]\t\t"+mess, ip);
+        }
+        break;
+    case dcpp::DebugManager::CLIENT_OUT:
+        if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("client_out_button"))) == TRUE)
+        {
+            addCmd("Client:\t[Outgoing][" + ip + "]\t\t"+mess, ip);
+        }
+        break;
+    default: break;
+    }
 }
 void cmddebug::onScroll_gui(GtkAdjustment *adjustment, gpointer data)
 {

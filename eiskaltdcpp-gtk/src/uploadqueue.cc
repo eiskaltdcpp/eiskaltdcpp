@@ -33,7 +33,7 @@ using namespace std;
 using namespace dcpp;
 
 UploadQueue::UploadQueue():
-BookEntry(Entry::UPLOADQUEUE, _("Upload Queue"), "uploadqueue.ui")
+    BookEntry(Entry::UPLOADQUEUE, _("Upload Queue"), "uploadqueue.ui")
 {
 #if !GTK_CHECK_VERSION(3,0,0)
     gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("statusbar1")),FALSE);
@@ -106,11 +106,11 @@ void UploadQueue::addFile(StringMap &params,GtkTreeIter *iter)
 
     gtk_list_store_append(store,iter);
     gtk_list_store_set(store, iter,
-                users.col("User"), params["Nick"].c_str(),
-                users.col("File"),params["file"].c_str(),
-                users.col("Hub") , params["hub"].c_str(),
-                users.col("CID"), params["CID"].c_str(),
-                -1);
+                       users.col("User"), params["Nick"].c_str(),
+            users.col("File"),params["file"].c_str(),
+            users.col("Hub") , params["hub"].c_str(),
+            users.col("CID"), params["CID"].c_str(),
+            -1);
     mapUsers.insert(MapUsers::value_type(params["CID"], *iter));
 }
 
@@ -161,7 +161,7 @@ void UploadQueue::onGrantSlotItemClicked_gui(GtkMenuItem *item, gpointer data)
             if (gtk_tree_model_get_iter(GTK_TREE_MODEL(qp->store), &iter, path))
             {
                 F2 *func = new F2(qp, &UploadQueue::grantSlot_client,
-                    qp->users.getString(&iter, "CID"));
+                                  qp->users.getString(&iter, "CID"));
                 WulforManager::get()->dispatchClientFunc(func);
             }
             gtk_tree_path_free(path);
@@ -189,7 +189,7 @@ void UploadQueue::onRemoveItem_gui(GtkMenuItem *item, gpointer data)
             if (gtk_tree_model_get_iter(GTK_TREE_MODEL(qp->store), &iter, path))
             {
                 F2 *func = new F2(qp, &UploadQueue::removeUploadFromQueue,
-                    qp->users.getString(&iter, "CID"));
+                                  qp->users.getString(&iter, "CID"));
                 WulforManager::get()->dispatchClientFunc(func);
             }
             gtk_tree_path_free(path);
@@ -216,7 +216,7 @@ void UploadQueue::onSendPMItemClicked_gui(GtkMenuItem *item, gpointer data)
             if (gtk_tree_model_get_iter(GTK_TREE_MODEL(qp->store), &iter, path))
             {
                 WulforManager::get()->getMainWindow()->addPrivateMessage_gui(Msg::UNKNOWN,
-                    qp->users.getString(&iter, "CID"));
+                                                                             qp->users.getString(&iter, "CID"));
             }
             gtk_tree_path_free(path);
         }
@@ -243,7 +243,7 @@ void UploadQueue::onBrowseItemClicked_gui(GtkMenuItem *item, gpointer data)
             if (gtk_tree_model_get_iter(GTK_TREE_MODEL(qp->store), &iter, path))
             {
                 F1 *func = new F1(qp, &UploadQueue::getFileList_client,
-                qp->users.getString(&iter, "CID"));
+                                  qp->users.getString(&iter, "CID"));
                 WulforManager::get()->dispatchClientFunc(func);
             }
             gtk_tree_path_free(path);
@@ -271,7 +271,7 @@ void UploadQueue::onFavoriteUserAddItemClicked_gui(GtkMenuItem *item, gpointer d
             if (gtk_tree_model_get_iter(GTK_TREE_MODEL(qp->store), &iter, path))
             {
                 F2 *func = new F2(qp, &UploadQueue::addFavoriteUser_client,
-                    qp->users.getString(&iter, "CID"));
+                                  qp->users.getString(&iter, "CID"));
                 WulforManager::get()->dispatchClientFunc(func);
             }
             gtk_tree_path_free(path);
@@ -348,7 +348,7 @@ void UploadQueue::removeUploadFromQueue(const string cid)
     UserPtr uu = ClientManager::getInstance()->findUser(CID(cid));
     if (uu)
     {
-          UploadManager::getInstance()->clearUserFiles(uu);
+        UploadManager::getInstance()->clearUserFiles(uu);
     }
 }
 

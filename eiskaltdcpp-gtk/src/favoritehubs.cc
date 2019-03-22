@@ -128,21 +128,21 @@ void FavoriteHubs::editEntry_gui(StringMap &params, GtkTreeIter *iter)
     string password = params["Password"].empty() ? "" : string(8, '*');
 
     gtk_list_store_set(favoriteStore, iter,
-        favoriteView.col(_("Auto Connect")), Util::toInt(params["Auto Connect"]),
-        favoriteView.col(_("Name")), params["Name"].c_str(),
-        favoriteView.col(_("Description")), params["Description"].c_str(),
-        favoriteView.col(_("Nick")), params["Nick"].c_str(),
-        favoriteView.col(_("Password")), password.c_str(),
-        favoriteView.col("Hidden Password"), params["Password"].c_str(),
-        favoriteView.col("Mode"), params["Mode"].c_str(),
-        favoriteView.col("Search Interval"), params["Search Interval"].c_str(),
-        favoriteView.col("Disable Chat"), Util::toInt(params["Disable Chat"]),
-        favoriteView.col("External IP"), params["External IP"].c_str(),
-        favoriteView.col("Internet IP"), Util::toInt(params["Internet IP"]),
-        favoriteView.col(_("Address")), params["Address"].c_str(),
-        favoriteView.col(_("User Description")), params["User Description"].c_str(),
-        favoriteView.col(_("Encoding")), params["Encoding"].c_str(),
-        -1);
+                       favoriteView.col(_("Auto Connect")), Util::toInt(params["Auto Connect"]),
+            favoriteView.col(_("Name")), params["Name"].c_str(),
+            favoriteView.col(_("Description")), params["Description"].c_str(),
+            favoriteView.col(_("Nick")), params["Nick"].c_str(),
+            favoriteView.col(_("Password")), password.c_str(),
+            favoriteView.col("Hidden Password"), params["Password"].c_str(),
+            favoriteView.col("Mode"), params["Mode"].c_str(),
+            favoriteView.col("Search Interval"), params["Search Interval"].c_str(),
+            favoriteView.col("Disable Chat"), Util::toInt(params["Disable Chat"]),
+            favoriteView.col("External IP"), params["External IP"].c_str(),
+            favoriteView.col("Internet IP"), Util::toInt(params["Internet IP"]),
+            favoriteView.col(_("Address")), params["Address"].c_str(),
+            favoriteView.col(_("User Description")), params["User Description"].c_str(),
+            favoriteView.col(_("Encoding")), params["Encoding"].c_str(),
+            -1);
 }
 
 void FavoriteHubs::removeEntry_gui(string address)
@@ -165,7 +165,7 @@ void FavoriteHubs::removeEntry_gui(string address)
 bool FavoriteHubs::showErrorDialog_gui(const string &description, FavoriteHubs *fh)
 {
     GtkWidget* dialog = gtk_message_dialog_new(GTK_WINDOW(fh->getWidget("favoriteHubsDialog")),
-        GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_WARNING, GTK_BUTTONS_OK, "%s", description.c_str());
+                                               GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_WARNING, GTK_BUTTONS_OK, "%s", description.c_str());
 
     gint response = gtk_dialog_run(GTK_DIALOG(dialog));
 
@@ -228,8 +228,8 @@ gboolean FavoriteHubs::onButtonReleased_gui(GtkWidget *widget, GdkEventButton *e
         else if (fh->previous == GDK_2BUTTON_PRESS && event->button == 1)
         {
             WulforManager::get()->getMainWindow()->showHub_gui(
-                fh->favoriteView.getString(&iter, _("Address")),
-                fh->favoriteView.getString(&iter, _("Encoding")));
+                        fh->favoriteView.getString(&iter, _("Address")),
+                        fh->favoriteView.getString(&iter, _("Encoding")));
         }
     }
 
@@ -250,8 +250,8 @@ gboolean FavoriteHubs::onKeyReleased_gui(GtkWidget *widget, GdkEventKey *event, 
         if (event->keyval == GDK_Return || event->keyval == GDK_KP_Enter)
         {
             WulforManager::get()->getMainWindow()->showHub_gui(
-                fh->favoriteView.getString(&iter, _("Address")),
-                fh->favoriteView.getString(&iter, _("Encoding")));
+                        fh->favoriteView.getString(&iter, _("Address")),
+                        fh->favoriteView.getString(&iter, _("Encoding")));
         }
         else if (event->keyval == GDK_Delete || event->keyval == GDK_BackSpace)
         {
@@ -286,7 +286,7 @@ void FavoriteHubs::onAddEntry_gui(GtkWidget *widget, gpointer data)
     params["Disable Chat"] = "0";
     params["External IP"] = emptyString;
     params["Internet IP"] = "0";
- 
+
     bool updatedEntry = fh->showFavoriteHubDialog_gui(params, fh);
 
     if (updatedEntry)
@@ -455,8 +455,8 @@ void FavoriteHubs::onRemoveEntry_gui(GtkWidget *widget, gpointer data)
             string name = fh->favoriteView.getString(&iter, _("Name")).c_str();
             GtkWindow* parent = GTK_WINDOW(WulforManager::get()->getMainWindow()->getContainer());
             GtkWidget* dialog = gtk_message_dialog_new(parent,
-                GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_QUESTION, GTK_BUTTONS_NONE,
-                _("Are you sure you want to delete favorite hub \"%s\"?"), name.c_str());
+                                                       GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_QUESTION, GTK_BUTTONS_NONE,
+                                                       _("Are you sure you want to delete favorite hub \"%s\"?"), name.c_str());
             gtk_dialog_add_buttons(GTK_DIALOG(dialog), GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL, GTK_STOCK_REMOVE, GTK_RESPONSE_YES, NULL);
             gtk_dialog_set_alternative_button_order(GTK_DIALOG(dialog), GTK_RESPONSE_YES, GTK_RESPONSE_CANCEL, -1);
             gint response = gtk_dialog_run(GTK_DIALOG(dialog));
@@ -486,8 +486,8 @@ void FavoriteHubs::onConnect_gui(GtkButton *widget, gpointer data)
 
     if (gtk_tree_selection_get_selected(fh->favoriteSelection, NULL, &iter))
         WulforManager::get()->getMainWindow()->showHub_gui(
-            fh->favoriteView.getString(&iter, _("Address")),
-            fh->favoriteView.getString(&iter, _("Encoding")));
+                    fh->favoriteView.getString(&iter, _("Address")),
+                    fh->favoriteView.getString(&iter, _("Encoding")));
 }
 
 void FavoriteHubs::onToggledClicked_gui(GtkCellRendererToggle *cell, gchar *path, gpointer data)

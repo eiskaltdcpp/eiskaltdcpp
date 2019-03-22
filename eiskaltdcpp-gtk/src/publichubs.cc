@@ -152,22 +152,22 @@ void PublicHubs::updateList_gui()
     for (i = hubs.begin(); i != hubs.end(); ++i)
     {
         if (filter.getPattern().empty() || filter.match(i->getName()) ||
-            filter.match(i->getDescription()) || filter.match(i->getServer()))
+                filter.match(i->getDescription()) || filter.match(i->getServer()))
         {
             gtk_list_store_append(hubStore, &iter);
             gtk_list_store_set(hubStore, &iter,
-                hubView.col(_("Name")), i->getName().c_str(),
-                hubView.col(_("Description")), i->getDescription().c_str(),
-                hubView.col(_("Users")), i->getUsers(),
-                hubView.col(_("Address")), i->getServer().c_str(),
-                hubView.col(_("Country")), i->getCountry().c_str(),
-                hubView.col(_("Shared")), (int64_t)i->getShared(),
-                hubView.col(_("Min Share")), (int64_t)i->getMinShare(),
-                hubView.col(_("Min Slots")), i->getMinSlots(),
-                hubView.col(_("Max Hubs")), i->getMaxHubs(),
-                hubView.col(_("Max Users")), i->getMaxUsers(),
-                hubView.col(_("Rating")), i->getRating().c_str(),
-                -1);
+                               hubView.col(_("Name")), i->getName().c_str(),
+                               hubView.col(_("Description")), i->getDescription().c_str(),
+                               hubView.col(_("Users")), i->getUsers(),
+                               hubView.col(_("Address")), i->getServer().c_str(),
+                               hubView.col(_("Country")), i->getCountry().c_str(),
+                               hubView.col(_("Shared")), (int64_t)i->getShared(),
+                               hubView.col(_("Min Share")), (int64_t)i->getMinShare(),
+                               hubView.col(_("Min Slots")), i->getMinSlots(),
+                               hubView.col(_("Max Hubs")), i->getMaxHubs(),
+                               hubView.col(_("Max Users")), i->getMaxUsers(),
+                               hubView.col(_("Rating")), i->getRating().c_str(),
+                               -1);
 
             numUsers += i->getUsers();
             numHubs++;
@@ -487,21 +487,21 @@ void PublicHubs::on(FavoriteManagerListener::DownloadFinished, const string &fil
 
 void PublicHubs::on(FavoriteManagerListener::LoadedFromCache, const string &file, const std::string& d) noexcept
 {
-	string msg = _("Loaded from cache: ") + file + "(" + d +")";
-	typedef Func2<PublicHubs, string, string> Func;
-	Func *func = new Func(this, &PublicHubs::setStatus_gui, "statusMain", msg);
-	WulforManager::get()->dispatchGuiFunc(func);
+    string msg = _("Loaded from cache: ") + file + "(" + d +")";
+    typedef Func2<PublicHubs, string, string> Func;
+    Func *func = new Func(this, &PublicHubs::setStatus_gui, "statusMain", msg);
+    WulforManager::get()->dispatchGuiFunc(func);
 
-	hubs = FavoriteManager::getInstance()->getPublicHubs();
+    hubs = FavoriteManager::getInstance()->getPublicHubs();
 
-	Func0<PublicHubs> *f0 = new Func0<PublicHubs>(this, &PublicHubs::updateList_gui);
-	WulforManager::get()->dispatchGuiFunc(f0);
+    Func0<PublicHubs> *f0 = new Func0<PublicHubs>(this, &PublicHubs::updateList_gui);
+    WulforManager::get()->dispatchGuiFunc(f0);
 }
 
 void PublicHubs::on(FavoriteManagerListener::Corrupted, const string &file) noexcept
 {
-	string msg = _("Downloaded hub list is corrupted or unsupported ") + file;
-	typedef Func2<PublicHubs, string, string> Func;
-	Func *func = new Func(this, &PublicHubs::setStatus_gui, "statusMain", msg);
-	WulforManager::get()->dispatchGuiFunc(func);
+    string msg = _("Downloaded hub list is corrupted or unsupported ") + file;
+    typedef Func2<PublicHubs, string, string> Func;
+    Func *func = new Func(this, &PublicHubs::setStatus_gui, "statusMain", msg);
+    WulforManager::get()->dispatchGuiFunc(func);
 }

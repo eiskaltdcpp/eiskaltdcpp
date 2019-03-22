@@ -32,53 +32,53 @@
 
 class Entry
 {
-    public:
-        typedef enum
-        {
-            NONE = 0,
-            DOWNLOAD_QUEUE,
-            FAVORITE_HUBS,
-            FAVORITE_USERS,
-            FINISHED_DOWNLOADS,
-            FINISHED_UPLOADS,
-            HASH_DIALOG,
-            HUB,
-            MAIN_WINDOW,
-            PRIVATE_MESSAGE,
-            PUBLIC_HUBS,
-            SEARCH,
-            SETTINGS_DIALOG,
-            SHARE_BROWSER,
-            TRANSFERS,
-            USER_COMMAND_MENU,
-            SEARCH_SPY,
-            SEARCH_ADL,
-            CMD,
-            UPLOADQUEUE
-        } EntryType;
+public:
+    typedef enum
+    {
+        NONE = 0,
+        DOWNLOAD_QUEUE,
+        FAVORITE_HUBS,
+        FAVORITE_USERS,
+        FINISHED_DOWNLOADS,
+        FINISHED_UPLOADS,
+        HASH_DIALOG,
+        HUB,
+        MAIN_WINDOW,
+        PRIVATE_MESSAGE,
+        PUBLIC_HUBS,
+        SEARCH,
+        SETTINGS_DIALOG,
+        SHARE_BROWSER,
+        TRANSFERS,
+        USER_COMMAND_MENU,
+        SEARCH_SPY,
+        SEARCH_ADL,
+        CMD,
+        UPLOADQUEUE
+    } EntryType;
 
-        Entry() : xml(NULL), type(NONE), id("") {}
-        Entry(const EntryType type = NONE, const std::string &ui = "", const std::string &id = "");
-        virtual ~Entry();
+    Entry() : xml(NULL), type(NONE), id("") {}
+    Entry(const EntryType type = NONE, const std::string &ui = "", const std::string &id = "");
+    virtual ~Entry();
 
-        EntryType getType();
-        const std::string& getID();
-        virtual GtkWidget *getContainer() = 0;
-        void remove();
-        virtual void show() {}
+    EntryType getType();
+    const std::string& getID();
+    virtual GtkWidget *getContainer() = 0;
+    void remove();
+    virtual void show() {}
 
-    protected:
-        std::string generateID();
-        GtkWidget *getWidget(const std::string &name);
-        void addChild(Entry *entry);
-        Entry *getChild(const EntryType childType, const std::string &childId);
-        void removeChild(const EntryType childType, const std::string &childId);
-        void removeChild(Entry *entry);
-        void removeChildren();
+protected:
+    std::string generateID();
+    GtkWidget *getWidget(const std::string &name);
+    void addChild(Entry *entry);
+    Entry *getChild(const EntryType childType, const std::string &childId);
+    void removeChild(const EntryType childType, const std::string &childId);
+    void removeChild(Entry *entry);
+    void removeChildren();
 
-    private:
-        GtkBuilder *xml;
-        EntryType type;
-        std::string id;
-        std::map<std::string, Entry *> children;
+private:
+    GtkBuilder *xml;
+    EntryType type;
+    std::string id;
+    std::map<std::string, Entry *> children;
 };

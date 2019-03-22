@@ -153,18 +153,18 @@ void SearchSpy::preferences_gui()
         if (count > Top)
         {
             gtk_list_store_set(searchStore, &iter,
-                searchView.col(_("Count")), Util::toString(Top).c_str(),
-                searchView.col("count"), Top,
-                -1);
+                               searchView.col(_("Count")), Util::toString(Top).c_str(),
+                               searchView.col("count"), Top,
+                               -1);
         }
 
         switch (order[0])
         {
-            case 'a': color = aSearchColor; break;
-            case 'c': color = cSearchColor; break;
-            case 'r': color = rSearchColor; break;
-            case 't': color = tSearchColor; break;
-            case 'q': color = qSearchColor; break;
+        case 'a': color = aSearchColor; break;
+        case 'c': color = cSearchColor; break;
+        case 'r': color = rSearchColor; break;
+        case 't': color = tSearchColor; break;
+        case 'q': color = qSearchColor; break;
         }
         gtk_list_store_set(searchStore, &iter, searchView.col("color"), color.c_str(), -1);
     }
@@ -230,9 +230,9 @@ void SearchSpy::addTop_gui(const string &search, const string &type)
 
     gtk_list_store_append(topStore, &iter);
     gtk_list_store_set(topStore, &iter,
-        topView.col(_("Search String")), search.c_str(),
-        topView.col("type"), type.c_str(),
-        -1);
+                       topView.col(_("Search String")), search.c_str(),
+                       topView.col("type"), type.c_str(),
+                       -1);
 
     if (WGETB("bold-search-spy"))
         setUrgent_gui();
@@ -267,12 +267,12 @@ void SearchSpy::updateFrameSearch_gui(const string search, const string type)
         }
         count++;
         gtk_list_store_set(searchStore, &iter,
-            searchView.col(_("Count")), Util::toString(count).c_str(),
-            searchView.col(_("Time")), time.c_str(),
-            searchView.col("count"), count,
-            searchView.col("tick"), tick,
-            searchView.col("order"), order.c_str(),
-            -1);
+                           searchView.col(_("Count")), Util::toString(count).c_str(),
+                           searchView.col(_("Time")), time.c_str(),
+                           searchView.col("count"), count,
+                           searchView.col("tick"), tick,
+                           searchView.col("order"), order.c_str(),
+                           -1);
         updateFrameStatus_gui(NULL, tick);
     }
     else
@@ -291,30 +291,30 @@ void SearchSpy::updateFrameSearch_gui(const string search, const string type)
                 tick = GET_TICK();
 
                 gtk_list_store_set(searchStore, &iter,
-                    searchView.col(_("Search String")), search.c_str(),
-                    searchView.col(_("Count")), "1",
-                    searchView.col(_("Time")), time.c_str(),
-                    searchView.col(_("Status")), _("waiting..."),
-                    searchView.col("type"), type.c_str(),
-                    searchView.col("count"), 1,
-                    searchView.col("tick"), tick,
-                    searchView.col("icon"), GTK_STOCK_FIND,
-                    searchView.col("order"), "r",
-                    searchView.col("color"), rSearchColor.c_str(),
-                    -1);
+                                   searchView.col(_("Search String")), search.c_str(),
+                                   searchView.col(_("Count")), "1",
+                                   searchView.col(_("Time")), time.c_str(),
+                                   searchView.col(_("Status")), _("waiting..."),
+                                   searchView.col("type"), type.c_str(),
+                                   searchView.col("count"), 1,
+                                   searchView.col("tick"), tick,
+                                   searchView.col("icon"), GTK_STOCK_FIND,
+                                   searchView.col("order"), "r",
+                                   searchView.col("color"), rSearchColor.c_str(),
+                                   -1);
             }
             return;
         }
 
         gtk_list_store_insert_with_values(searchStore, &iter, searchIters.size(),
-            searchView.col(_("Search String")), search.c_str(),
-            searchView.col(_("Count")), "1",
-            searchView.col(_("Time")), time.c_str(),
-            searchView.col("type"), type.c_str(),
-            searchView.col("count"), 1,
-            searchView.col("tick"), tick,
-            searchView.col("order"), "a",
-            -1);
+                                          searchView.col(_("Search String")), search.c_str(),
+                                          searchView.col(_("Count")), "1",
+                                          searchView.col(_("Time")), time.c_str(),
+                                          searchView.col("type"), type.c_str(),
+                                          searchView.col("count"), 1,
+                                          searchView.col("tick"), tick,
+                                          searchView.col("order"), "a",
+                                          -1);
 
         searchIters.insert(SearchIters::value_type(search, iter));
         updateFrameStatus_gui(NULL, tick);
@@ -368,18 +368,18 @@ bool SearchSpy::updateFrameStatus_gui(GtkTreeIter *iter, uint64_t tick)
 
             switch (order[0])
             {
-                case 'a': color = aSearchColor; break;
-                case 'c': color = cSearchColor; break;
-                case 'r': color = rSearchColor; break;
-                case 't': color = tSearchColor; break;
-                default:  color = qSearchColor; // fix don't know color
+            case 'a': color = aSearchColor; break;
+            case 'c': color = cSearchColor; break;
+            case 'r': color = rSearchColor; break;
+            case 't': color = tSearchColor; break;
+            default:  color = qSearchColor; // fix don't know color
             }
         }
         gtk_list_store_set(searchStore, &itree,
-            searchView.col(_("Status")), status.c_str(),
-            searchView.col("icon"), icon.c_str(),
-            searchView.col("color"), color.c_str(),
-            -1);
+                           searchView.col(_("Status")), status.c_str(),
+                           searchView.col("icon"), icon.c_str(),
+                           searchView.col("color"), color.c_str(),
+                           -1);
     }
 
     return n;
@@ -413,7 +413,7 @@ void SearchSpy::onOKButtonClicked_gui(GtkWidget *widget, gpointer data)
     s->resetCount();
 
     s->setStatus_gui(_("top/waiting/frame: ") + Util::toString(s->Top) + "/" + Util::toString(s->Waiting) + "/" +
-        Util::toString(s->FrameSize));
+                     Util::toString(s->FrameSize));
 
     WSET("search-spy-frame", int(s->FrameSize));
     WSET("search-spy-waiting", int(s->Waiting));
@@ -431,9 +431,9 @@ void SearchSpy::resetCount()
         if (count > Top)
         {
             gtk_list_store_set(searchStore, &iter,
-                searchView.col(_("Count")), Util::toString(Top).c_str(),
-                searchView.col("count"), Top,
-                -1);
+                               searchView.col(_("Count")), Util::toString(Top).c_str(),
+                               searchView.col("count"), Top,
+                               -1);
         }
     }
 }

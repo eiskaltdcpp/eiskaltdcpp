@@ -48,8 +48,8 @@ WulforSettingsManager::WulforSettingsManager():
     defaultInt.insert(IntMap::value_type("toolbar-style", 5));
     defaultInt.insert(IntMap::value_type("sound-pm-open", 0));
     defaultInt.insert(IntMap::value_type("sound-pm", 1));
-//  TODO: download begins, uncomment when implemented
-//  defaultInt.insert(IntMap::value_type("sound-download-begins-use", 0));
+    //  TODO: download begins, uncomment when implemented
+    //  defaultInt.insert(IntMap::value_type("sound-download-begins-use", 0));
     defaultInt.insert(IntMap::value_type("sound-download-finished-use", 0));
     defaultInt.insert(IntMap::value_type("sound-download-finished-ul-use", 0));
     defaultInt.insert(IntMap::value_type("sound-upload-finished-use", 0));
@@ -195,8 +195,8 @@ WulforSettingsManager::WulforSettingsManager():
     defaultString.insert(StringMap::value_type("sharebrowser-width", ""));
     defaultString.insert(StringMap::value_type("sharebrowser-visibility", ""));
     defaultString.insert(StringMap::value_type("default-charset", WulforUtil::ENCODING_LOCALE));
-//  TODO: download begins, uncomment when implemented
-//  defaultString.insert(StringMap::value_type("sound-download-begins", ""));
+    //  TODO: download begins, uncomment when implemented
+    //  defaultString.insert(StringMap::value_type("sound-download-begins", ""));
     defaultString.insert(StringMap::value_type("sound-download-finished", ""));
     defaultString.insert(StringMap::value_type("sound-download-finished-ul", ""));
     defaultString.insert(StringMap::value_type("sound-upload-finished", ""));
@@ -522,8 +522,8 @@ const std::string WulforSettingsManager::parseCmd(const std::string &cmd)
         } else
             return _("Error: setting not found!");
         return !tmp.empty() ?
-        _("Gui setting ") + string(sl.getTokens().at(0)) + ": " + tmp :
-        _("Change gui setting ") + string(sl.getTokens().at(0)) + _(" to ") + string(sl.getTokens().at(1));
+                    _("Gui setting ") + string(sl.getTokens().at(0)) + ": " + tmp :
+                    _("Change gui setting ") + string(sl.getTokens().at(0)) + _(" to ") + string(sl.getTokens().at(1));
     }
     return _("Error: segv parser :D");
 }

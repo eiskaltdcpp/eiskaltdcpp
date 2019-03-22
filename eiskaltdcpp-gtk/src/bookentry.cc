@@ -42,9 +42,9 @@ BookEntry::BookEntry(const EntryType type, const string &text, const string &ui,
     gtk_event_box_set_above_child(GTK_EVENT_BOX(eventBox), TRUE);
     gtk_event_box_set_visible_window(GTK_EVENT_BOX(eventBox), FALSE);
 
-        // icon
-        icon = gtk_image_new();
-        gtk_box_pack_start(GTK_BOX(labelBox), icon, FALSE, FALSE, 0);
+    // icon
+    icon = gtk_image_new();
+    gtk_box_pack_start(GTK_BOX(labelBox), icon, FALSE, FALSE, 0);
 
     // Make the eventbox fill to all left-over space.
     gtk_box_pack_start(GTK_BOX(labelBox), GTK_WIDGET(eventBox), TRUE, TRUE, 0);
@@ -95,19 +95,19 @@ void BookEntry::setIcon_gui(const EntryType type)
     string stock;
     switch (type)
     {
-        case Entry::FAVORITE_HUBS : stock = WGETS("icon-favorite-hubs"); break;
-        case Entry::FAVORITE_USERS : stock = WGETS("icon-favorite-users"); break;
-        case Entry::PUBLIC_HUBS : stock = WGETS("icon-public-hubs"); break;
-        case Entry::DOWNLOAD_QUEUE : stock = WGETS("icon-queue"); break;
-        case Entry::SEARCH : stock = WGETS("icon-search"); break;
-        case Entry::SEARCH_ADL : stock = WGETS("icon-search-adl"); break;
-        case Entry::SEARCH_SPY : stock = WGETS("icon-search-spy"); break;
-        case Entry::FINISHED_DOWNLOADS : stock = WGETS("icon-finished-downloads"); break;
-        case Entry::FINISHED_UPLOADS : stock = WGETS("icon-finished-uploads"); break;
-        case Entry::PRIVATE_MESSAGE : stock = WGETS("icon-pm-online"); break;
-        case Entry::HUB : stock = WGETS("icon-hub-offline"); break;
-        case Entry::SHARE_BROWSER : stock = WGETS("icon-directory"); break;
-        default: ; // Default to empty string to indicate no icon should be shown below
+    case Entry::FAVORITE_HUBS : stock = WGETS("icon-favorite-hubs"); break;
+    case Entry::FAVORITE_USERS : stock = WGETS("icon-favorite-users"); break;
+    case Entry::PUBLIC_HUBS : stock = WGETS("icon-public-hubs"); break;
+    case Entry::DOWNLOAD_QUEUE : stock = WGETS("icon-queue"); break;
+    case Entry::SEARCH : stock = WGETS("icon-search"); break;
+    case Entry::SEARCH_ADL : stock = WGETS("icon-search-adl"); break;
+    case Entry::SEARCH_SPY : stock = WGETS("icon-search-spy"); break;
+    case Entry::FINISHED_DOWNLOADS : stock = WGETS("icon-finished-downloads"); break;
+    case Entry::FINISHED_UPLOADS : stock = WGETS("icon-finished-uploads"); break;
+    case Entry::PRIVATE_MESSAGE : stock = WGETS("icon-pm-online"); break;
+    case Entry::HUB : stock = WGETS("icon-hub-offline"); break;
+    case Entry::SHARE_BROWSER : stock = WGETS("icon-directory"); break;
+    default: ; // Default to empty string to indicate no icon should be shown below
     }
     // If user doesn't have the icon in their theme, default to showing no icon instead
     // of showing some generic missing icon. This may occur if the user's system

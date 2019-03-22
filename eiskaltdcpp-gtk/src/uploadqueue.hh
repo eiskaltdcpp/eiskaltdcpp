@@ -30,43 +30,43 @@ class UploadQueue:
         public BookEntry,
         private dcpp::UploadManagerListener
 {
-    public:
-        UploadQueue();
-        virtual ~UploadQueue();
-        virtual void show();
+public:
+    UploadQueue();
+    virtual ~UploadQueue();
+    virtual void show();
 
-    private:
-        typedef std::map<std::string,GtkTreeIter> MapUsers;
+private:
+    typedef std::map<std::string,GtkTreeIter> MapUsers;
 
-        void getParams(const std::string file, dcpp::UserPtr user, dcpp::StringMap &params);
-        void addFile(dcpp::StringMap &params, GtkTreeIter *iter);
-        void AddFile_gui(dcpp::StringMap params);
-        void removeUser(std::string cid);
+    void getParams(const std::string file, dcpp::UserPtr user, dcpp::StringMap &params);
+    void addFile(dcpp::StringMap &params, GtkTreeIter *iter);
+    void AddFile_gui(dcpp::StringMap params);
+    void removeUser(std::string cid);
 
-        static void onGrantSlotItemClicked_gui(GtkMenuItem *item, gpointer data);
-        static void onRemoveItem_gui(GtkMenuItem *item, gpointer data);
-        static void onSendPMItemClicked_gui(GtkMenuItem *item, gpointer data);
-        static void onBrowseItemClicked_gui(GtkMenuItem *item, gpointer data);
-        static void onFavoriteUserAddItemClicked_gui(GtkMenuItem *item, gpointer data);
-        static gboolean onKeyReleased_gui(GtkWidget *widget, GdkEventKey *event, gpointer data);
-        static gboolean onButtonPressed_gui(GtkWidget *widget, GdkEventButton *event, gpointer data);
-        static gboolean onButtonReleased_gui(GtkWidget *widget, GdkEventButton *event, gpointer data);
+    static void onGrantSlotItemClicked_gui(GtkMenuItem *item, gpointer data);
+    static void onRemoveItem_gui(GtkMenuItem *item, gpointer data);
+    static void onSendPMItemClicked_gui(GtkMenuItem *item, gpointer data);
+    static void onBrowseItemClicked_gui(GtkMenuItem *item, gpointer data);
+    static void onFavoriteUserAddItemClicked_gui(GtkMenuItem *item, gpointer data);
+    static gboolean onKeyReleased_gui(GtkWidget *widget, GdkEventKey *event, gpointer data);
+    static gboolean onButtonPressed_gui(GtkWidget *widget, GdkEventButton *event, gpointer data);
+    static gboolean onButtonReleased_gui(GtkWidget *widget, GdkEventButton *event, gpointer data);
 
-        //client funcs
-        void grantSlot_client(const std::string cid);
-        void getFileList_client(const std::string cid);
-        void removeUploadFromQueue(const std::string cid);
-        void addFavoriteUser_client(const std::string cid);
-        void init();
+    //client funcs
+    void grantSlot_client(const std::string cid);
+    void getFileList_client(const std::string cid);
+    void removeUploadFromQueue(const std::string cid);
+    void addFavoriteUser_client(const std::string cid);
+    void init();
 
-        virtual void on(dcpp::UploadManagerListener::WaitingAddFile, const dcpp::HintedUser& hUser, std::string file) noexcept;
-        virtual void on(dcpp::UploadManagerListener::WaitingRemoveUser, const dcpp::HintedUser& user) noexcept;
+    virtual void on(dcpp::UploadManagerListener::WaitingAddFile, const dcpp::HintedUser& hUser, std::string file) noexcept;
+    virtual void on(dcpp::UploadManagerListener::WaitingRemoveUser, const dcpp::HintedUser& user) noexcept;
 
-        TreeView users;
-        GtkListStore *store;
-        MapUsers mapUsers;
-        GtkTreeSelection *selection;
-        GdkEventType previous;
+    TreeView users;
+    GtkListStore *store;
+    MapUsers mapUsers;
+    GtkTreeSelection *selection;
+    GdkEventType previous;
 
 
 };

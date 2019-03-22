@@ -186,98 +186,98 @@ void Settings::saveSettings_client()
     }
 
     { // Connection
-    { // Connection
-        // Incoming connection
-        if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("activeRadioButton"))))
-            sm->set(SettingsManager::INCOMING_CONNECTIONS, SettingsManager::INCOMING_DIRECT);
+        { // Connection
+            // Incoming connection
+            if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("activeRadioButton"))))
+                sm->set(SettingsManager::INCOMING_CONNECTIONS, SettingsManager::INCOMING_DIRECT);
 #ifdef USE_MINIUPNP
-        else if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("upnpRadioButton"))))
-            sm->set(SettingsManager::INCOMING_CONNECTIONS, SettingsManager::INCOMING_FIREWALL_UPNP);
+            else if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("upnpRadioButton"))))
+                sm->set(SettingsManager::INCOMING_CONNECTIONS, SettingsManager::INCOMING_FIREWALL_UPNP);
 #endif
-        else if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("portForwardRadioButton"))))
-            sm->set(SettingsManager::INCOMING_CONNECTIONS, SettingsManager::INCOMING_FIREWALL_NAT);
-        else if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("passiveRadioButton"))))
-            sm->set(SettingsManager::INCOMING_CONNECTIONS, SettingsManager::INCOMING_FIREWALL_PASSIVE);
+            else if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("portForwardRadioButton"))))
+                sm->set(SettingsManager::INCOMING_CONNECTIONS, SettingsManager::INCOMING_FIREWALL_NAT);
+            else if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("passiveRadioButton"))))
+                sm->set(SettingsManager::INCOMING_CONNECTIONS, SettingsManager::INCOMING_FIREWALL_PASSIVE);
 
-        sm->set(SettingsManager::EXTERNAL_IP, gtk_entry_get_text(GTK_ENTRY(getWidget("ipEntry"))));
-        sm->set(SettingsManager::NO_IP_OVERRIDE, gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("forceIPCheckButton"))));
+            sm->set(SettingsManager::EXTERNAL_IP, gtk_entry_get_text(GTK_ENTRY(getWidget("ipEntry"))));
+            sm->set(SettingsManager::NO_IP_OVERRIDE, gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("forceIPCheckButton"))));
 
-        int port = Util::toInt(gtk_entry_get_text(GTK_ENTRY(getWidget("tcpEntry"))));
-        if (port > 0 && port <= 65535)
-            sm->set(SettingsManager::TCP_PORT, port);
-        port = Util::toInt(gtk_entry_get_text(GTK_ENTRY(getWidget("udpEntry"))));
-        if (port > 0 && port <= 65535)
-            sm->set(SettingsManager::UDP_PORT, port);
-        port = Util::toInt(gtk_entry_get_text(GTK_ENTRY(getWidget("tlsEntry"))));
-        if (port > 0 && port <= 65535) {
-            if (port != SETTING(TCP_PORT))
-                sm->set(SettingsManager::TLS_PORT, port);
-            else
-                sm->set(SettingsManager::TLS_PORT, port+1);
+            int port = Util::toInt(gtk_entry_get_text(GTK_ENTRY(getWidget("tcpEntry"))));
+            if (port > 0 && port <= 65535)
+                sm->set(SettingsManager::TCP_PORT, port);
+            port = Util::toInt(gtk_entry_get_text(GTK_ENTRY(getWidget("udpEntry"))));
+            if (port > 0 && port <= 65535)
+                sm->set(SettingsManager::UDP_PORT, port);
+            port = Util::toInt(gtk_entry_get_text(GTK_ENTRY(getWidget("tlsEntry"))));
+            if (port > 0 && port <= 65535) {
+                if (port != SETTING(TCP_PORT))
+                    sm->set(SettingsManager::TLS_PORT, port);
+                else
+                    sm->set(SettingsManager::TLS_PORT, port+1);
+            }
+
+            // Outgoing connection
+            int type = SETTING(OUTGOING_CONNECTIONS);
+            if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("outDirectRadioButton"))))
+                sm->set(SettingsManager::OUTGOING_CONNECTIONS, SettingsManager::OUTGOING_DIRECT);
+            else if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("socksRadioButton"))))
+                sm->set(SettingsManager::OUTGOING_CONNECTIONS, SettingsManager::OUTGOING_SOCKS5);
+
+            if (SETTING(OUTGOING_CONNECTIONS) != type)
+                Socket::socksUpdated();
+
+            sm->set(SettingsManager::SOCKS_SERVER, gtk_entry_get_text(GTK_ENTRY(getWidget("socksIPEntry"))));
+            sm->set(SettingsManager::SOCKS_USER, gtk_entry_get_text(GTK_ENTRY(getWidget("socksUserEntry"))));
+            sm->set(SettingsManager::SOCKS_PASSWORD, gtk_entry_get_text(GTK_ENTRY(getWidget("socksPassEntry"))));
+            sm->set(SettingsManager::SOCKS_RESOLVE, gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("socksCheckButton"))));
+
+            port = Util::toInt(gtk_entry_get_text(GTK_ENTRY(getWidget("socksPortEntry"))));
+            if (port > 0 && port <= 65535)
+                sm->set(SettingsManager::SOCKS_PORT, port);
         }
+        { // Limits
+            sm->set(SettingsManager::THROTTLE_ENABLE,gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("useLimitCheckButton"))));
+            // Transfer Rate Limiting
+            sm->set(SettingsManager::MAX_UPLOAD_SPEED_MAIN,
+                    (int)gtk_spin_button_get_value(GTK_SPIN_BUTTON(getWidget("transferMaxUpload"))));
+            sm->set(SettingsManager::MAX_DOWNLOAD_SPEED_MAIN,
+                    (int)gtk_spin_button_get_value(GTK_SPIN_BUTTON(getWidget("transferMaxDownload"))));
 
-        // Outgoing connection
-        int type = SETTING(OUTGOING_CONNECTIONS);
-        if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("outDirectRadioButton"))))
-            sm->set(SettingsManager::OUTGOING_CONNECTIONS, SettingsManager::OUTGOING_DIRECT);
-        else if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("socksRadioButton"))))
-            sm->set(SettingsManager::OUTGOING_CONNECTIONS, SettingsManager::OUTGOING_SOCKS5);
+            // Secondary Transfer Rate Limiting
+            bool secondary = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("useLimitSecondCheckButton")));
+            sm->set(SettingsManager::TIME_DEPENDENT_THROTTLE, secondary);
 
-        if (SETTING(OUTGOING_CONNECTIONS) != type)
-            Socket::socksUpdated();
-
-        sm->set(SettingsManager::SOCKS_SERVER, gtk_entry_get_text(GTK_ENTRY(getWidget("socksIPEntry"))));
-        sm->set(SettingsManager::SOCKS_USER, gtk_entry_get_text(GTK_ENTRY(getWidget("socksUserEntry"))));
-        sm->set(SettingsManager::SOCKS_PASSWORD, gtk_entry_get_text(GTK_ENTRY(getWidget("socksPassEntry"))));
-        sm->set(SettingsManager::SOCKS_RESOLVE, gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("socksCheckButton"))));
-
-        port = Util::toInt(gtk_entry_get_text(GTK_ENTRY(getWidget("socksPortEntry"))));
-        if (port > 0 && port <= 65535)
-            sm->set(SettingsManager::SOCKS_PORT, port);
-    }
-    { // Limits
-        sm->set(SettingsManager::THROTTLE_ENABLE,gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("useLimitCheckButton"))));
-        // Transfer Rate Limiting
-        sm->set(SettingsManager::MAX_UPLOAD_SPEED_MAIN,
-                (int)gtk_spin_button_get_value(GTK_SPIN_BUTTON(getWidget("transferMaxUpload"))));
-        sm->set(SettingsManager::MAX_DOWNLOAD_SPEED_MAIN,
-                (int)gtk_spin_button_get_value(GTK_SPIN_BUTTON(getWidget("transferMaxDownload"))));
-
-        // Secondary Transfer Rate Limiting
-        bool secondary = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("useLimitSecondCheckButton")));
-        sm->set(SettingsManager::TIME_DEPENDENT_THROTTLE, secondary);
-
-        if (secondary)
-        {
-        // Secondary Transfer Rate Settings
-        sm->set(SettingsManager::MAX_UPLOAD_SPEED_ALTERNATE,
-                (int)gtk_spin_button_get_value(GTK_SPIN_BUTTON(getWidget("secondaryMaxUpload"))));
-        sm->set(SettingsManager::MAX_DOWNLOAD_SPEED_ALTERNATE,
-                (int)gtk_spin_button_get_value(GTK_SPIN_BUTTON(getWidget("secondaryMaxDownload"))));
-        sm->set(SettingsManager::SLOTS_ALTERNATE_LIMITING,
-                (int)gtk_spin_button_get_value(GTK_SPIN_BUTTON(getWidget("secondaryUploadSlots"))));
-        sm->set(SettingsManager::BANDWIDTH_LIMIT_START,
-                gtk_combo_box_get_active(GTK_COMBO_BOX(getWidget("limitsFromCombobox"))));
-        sm->set(SettingsManager::BANDWIDTH_LIMIT_END,
-                gtk_combo_box_get_active(GTK_COMBO_BOX(getWidget("limitsToCombobox"))));
+            if (secondary)
+            {
+                // Secondary Transfer Rate Settings
+                sm->set(SettingsManager::MAX_UPLOAD_SPEED_ALTERNATE,
+                        (int)gtk_spin_button_get_value(GTK_SPIN_BUTTON(getWidget("secondaryMaxUpload"))));
+                sm->set(SettingsManager::MAX_DOWNLOAD_SPEED_ALTERNATE,
+                        (int)gtk_spin_button_get_value(GTK_SPIN_BUTTON(getWidget("secondaryMaxDownload"))));
+                sm->set(SettingsManager::SLOTS_ALTERNATE_LIMITING,
+                        (int)gtk_spin_button_get_value(GTK_SPIN_BUTTON(getWidget("secondaryUploadSlots"))));
+                sm->set(SettingsManager::BANDWIDTH_LIMIT_START,
+                        gtk_combo_box_get_active(GTK_COMBO_BOX(getWidget("limitsFromCombobox"))));
+                sm->set(SettingsManager::BANDWIDTH_LIMIT_END,
+                        gtk_combo_box_get_active(GTK_COMBO_BOX(getWidget("limitsToCombobox"))));
+            }
         }
-    }
-    { // Advanced
-        sm->set(SettingsManager::DYNDNS_ENABLE,
-                gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("enableDynDNSCheckButton"))));
-        sm->set(SettingsManager::DYNDNS_SERVER,
-                gtk_entry_get_text(GTK_ENTRY(getWidget("dyndnsEntry"))));
+        { // Advanced
+            sm->set(SettingsManager::DYNDNS_ENABLE,
+                    gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("enableDynDNSCheckButton"))));
+            sm->set(SettingsManager::DYNDNS_SERVER,
+                    gtk_entry_get_text(GTK_ENTRY(getWidget("dyndnsEntry"))));
 
-        sm->set(SettingsManager::USE_DHT,
-                gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("useDHTCheckButton"))));
-        int port = Util::toInt(gtk_entry_get_text(GTK_ENTRY(getWidget("dhtEntry"))));
-        if (port > 0 && port <= 65535) {
-            if (port != SETTING(UDP_PORT))
-                sm->set(SettingsManager::DHT_PORT, port);
-            else
-                sm->set(SettingsManager::DHT_PORT, port+1);
+            sm->set(SettingsManager::USE_DHT,
+                    gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("useDHTCheckButton"))));
+            int port = Util::toInt(gtk_entry_get_text(GTK_ENTRY(getWidget("dhtEntry"))));
+            if (port > 0 && port <= 65535) {
+                if (port != SETTING(UDP_PORT))
+                    sm->set(SettingsManager::DHT_PORT, port);
+                else
+                    sm->set(SettingsManager::DHT_PORT, port+1);
+            }
         }
-    }
     }
 
     { // Downloads
@@ -440,11 +440,11 @@ void Settings::saveSettings_client()
         { // Search Spy
 
 #if GTK_CHECK_VERSION(3,4,0)
-GdkRGBA color;
+            GdkRGBA color;
 #define g_c_b_g gtk_color_chooser_get_rgba
 #define G_C_B GTK_COLOR_CHOOSER
 #else
-GdkColor color;
+            GdkColor color;
 #define g_c_b_g gtk_color_button_get_color
 #define G_C_B GTK_COLOR_BUTTON
 #endif
@@ -544,11 +544,11 @@ void Settings::addOption_gui(GtkListStore *store, const string &name, SettingsMa
     GtkTreeIter iter;
     gtk_list_store_append(store, &iter);
     gtk_list_store_set(store, &iter,
-        0, SettingsManager::getInstance()->get(setting),
-        1, name.c_str(),
-        2, setting,
-        3, "",
-        -1);
+                       0, SettingsManager::getInstance()->get(setting),
+                       1, name.c_str(),
+                       2, setting,
+                       3, "",
+                       -1);
 }
 
 /* Adds a custom UI specific option */
@@ -558,11 +558,11 @@ void Settings::addOption_gui(GtkListStore *store, const string &name, const stri
     GtkTreeIter iter;
     gtk_list_store_append(store, &iter);
     gtk_list_store_set(store, &iter,
-        0, WGETI(setting),
-        1, name.c_str(),
-        2, -2,
-        3, setting.c_str(),
-        -1);
+                       0, WGETI(setting),
+                       1, name.c_str(),
+                       2, -2,
+                       3, setting.c_str(),
+                       -1);
 }
 
 /* Adds a sounds options */
@@ -572,18 +572,18 @@ void Settings::addOption_gui(GtkListStore *store, WulforSettingsManager *wsm, co
     GtkTreeIter iter;
     gtk_list_store_append(store, &iter);
     gtk_list_store_set(store, &iter,
-        0, wsm->getInt(key1),               //use
-        1, name.c_str(),                    //sounds
-        2, wsm->getString(key2).c_str(),    //file
-        3, key1.c_str(),                    //key use
-        4, key2.c_str(),                    //key file
-        -1);
+                       0, wsm->getInt(key1),               //use
+                       1, name.c_str(),                    //sounds
+                       2, wsm->getString(key2).c_str(),    //file
+                       3, key1.c_str(),                    //key use
+                       4, key2.c_str(),                    //key file
+                       -1);
 }
 
 /* Adds a notify options */
 
 void Settings::addOption_gui(GtkListStore *store, WulforSettingsManager *wsm,
-    const string &name, const string &key1, const string &key2, const string &key3, const int key4)
+                             const string &name, const string &key1, const string &key2, const string &key3, const int key4)
 {
     GdkPixbuf *icon = NULL;
     string pathIcon = wsm->getString(key3);
@@ -600,16 +600,16 @@ void Settings::addOption_gui(GtkListStore *store, WulforSettingsManager *wsm,
     GtkTreeIter iter;
     gtk_list_store_append(store, &iter);
     gtk_list_store_set(store, &iter,
-        0, wsm->getInt(key1),               //use
-        1, name.c_str(),                    //notify
-        2, wsm->getString(key2).c_str(),    //title
-        3, pathIcon.c_str(),                //icon path
-        4, key1.c_str(),                    //key use
-        5, key2.c_str(),                    //key title
-        6, key3.c_str(),                    //key icon
-        7, icon,                            //icon
-        8, key4,                            //urgency
-        -1);
+                       0, wsm->getInt(key1),               //use
+                       1, name.c_str(),                    //notify
+                       2, wsm->getString(key2).c_str(),    //title
+                       3, pathIcon.c_str(),                //icon path
+                       4, key1.c_str(),                    //key use
+                       5, key2.c_str(),                    //key title
+                       6, key3.c_str(),                    //key icon
+                       7, icon,                            //icon
+                       8, key4,                            //urgency
+                       -1);
 
     if (icon)
         g_object_unref(icon);
@@ -618,20 +618,20 @@ void Settings::addOption_gui(GtkListStore *store, WulforSettingsManager *wsm,
 /* Adds a theme options */
 
 void Settings::addOption_gui(GtkListStore *store, WulforSettingsManager *wsm, GtkIconTheme *iconTheme,
-    const string &name, const string &key1)
+                             const string &name, const string &key1)
 {
     string iconName = wsm->getString(key1);
     GdkPixbuf *icon = gtk_icon_theme_load_icon(iconTheme, iconName.c_str(),
-        ICON_SIZE, GTK_ICON_LOOKUP_FORCE_SVG, NULL);
+                                               ICON_SIZE, GTK_ICON_LOOKUP_FORCE_SVG, NULL);
 
     GtkTreeIter iter;
     gtk_list_store_append(store, &iter);
     gtk_list_store_set(store, &iter,
-        0, name.c_str(),
-        1, icon,
-        2, iconName.c_str(),
-        3, key1.c_str(),
-        -1);
+                       0, name.c_str(),
+                       1, icon,
+                       2, iconName.c_str(),
+                       3, key1.c_str(),
+                       -1);
 
     if (icon)
         g_object_unref(icon);
@@ -641,20 +641,20 @@ void Settings::addOption_gui(GtkListStore *store, WulforSettingsManager *wsm, Gt
 
 /* Adds a toolbar buttons options*/
 void Settings::addOption_gui(GtkListStore *store, WulforSettingsManager *wsm, GtkIconTheme *iconTheme,
-    const string &name, const string &key1, const string &key2)
+                             const string &name, const string &key1, const string &key2)
 {
     string iconName = wsm->getString(key2);
     GdkPixbuf *icon = gtk_icon_theme_load_icon(iconTheme, iconName.c_str(),
-        ICON_SIZE_NORMAL, GTK_ICON_LOOKUP_FORCE_SVG, NULL);
+                                               ICON_SIZE_NORMAL, GTK_ICON_LOOKUP_FORCE_SVG, NULL);
 
     GtkTreeIter iter;
     gtk_list_store_append(store, &iter);
     gtk_list_store_set(store, &iter,
-        0, wsm->getInt(key1),
-        1, name.c_str(),
-        2, icon,
-        3, key1.c_str(),
-        -1);
+                       0, wsm->getInt(key1),
+                       1, name.c_str(),
+                       2, icon,
+                       3, key1.c_str(),
+                       -1);
 
     if (icon)
         g_object_unref(icon);
@@ -663,21 +663,21 @@ void Settings::addOption_gui(GtkListStore *store, WulforSettingsManager *wsm, Gt
 /* Adds a colors and fonts options */
 
 void Settings::addOption_gui(GtkListStore *store, WulforSettingsManager *wsm, const string &name,
-    const string &key1, const string &key2, const string &key3, const string &key4)
+                             const string &key1, const string &key2, const string &key3, const string &key4)
 {
     GtkTreeIter iter;
     gtk_list_store_append(store, &iter);
     gtk_list_store_set(store, &iter,
-        0, name.c_str(),
-        1, wsm->getString(key1).c_str(),
-        2, wsm->getString(key2).c_str(),
-        3, wsm->getInt(key3),
-        4, wsm->getInt(key4),
-        5, key1.c_str(),
-        6, key2.c_str(),
-        7, key3.c_str(),
-        8, key4.c_str(),
-        -1);
+                       0, name.c_str(),
+                       1, wsm->getString(key1).c_str(),
+                       2, wsm->getString(key2).c_str(),
+                       3, wsm->getInt(key3),
+                       4, wsm->getInt(key4),
+                       5, key1.c_str(),
+                       6, key2.c_str(),
+                       7, key3.c_str(),
+                       8, key4.c_str(),
+                       -1);
 }
 
 /* Creates a generic checkbox-based options GtkTreeView */
@@ -759,25 +759,25 @@ void Settings::initPersonal_gui()
 void Settings::initConnection_gui()
 {
     { // Connection
-    // Incoming
-    g_signal_connect(getWidget("activeRadioButton"), "toggled", G_CALLBACK(onInDirect_gui), (gpointer)this);
-    g_signal_connect(getWidget("upnpRadioButton"), "toggled", G_CALLBACK(onInFW_UPnP_gui), (gpointer)this);
-    g_signal_connect(getWidget("portForwardRadioButton"), "toggled", G_CALLBACK(onInFW_NAT_gui), (gpointer)this);
-    g_signal_connect(getWidget("passiveRadioButton"), "toggled", G_CALLBACK(onInPassive_gui), (gpointer)this);
-    gtk_entry_set_text(GTK_ENTRY(getWidget("ipEntry")), SETTING(EXTERNAL_IP).c_str());
+        // Incoming
+        g_signal_connect(getWidget("activeRadioButton"), "toggled", G_CALLBACK(onInDirect_gui), (gpointer)this);
+        g_signal_connect(getWidget("upnpRadioButton"), "toggled", G_CALLBACK(onInFW_UPnP_gui), (gpointer)this);
+        g_signal_connect(getWidget("portForwardRadioButton"), "toggled", G_CALLBACK(onInFW_NAT_gui), (gpointer)this);
+        g_signal_connect(getWidget("passiveRadioButton"), "toggled", G_CALLBACK(onInPassive_gui), (gpointer)this);
+        gtk_entry_set_text(GTK_ENTRY(getWidget("ipEntry")), SETTING(EXTERNAL_IP).c_str());
 
-    // Fill IP address combo box
-    vector<string> addresses = WulforUtil::getLocalIPs();
-    for (auto it = addresses.begin(); it != addresses.end(); ++it)
-        gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(getWidget("ipComboboxEntry")), it->c_str());
+        // Fill IP address combo box
+        vector<string> addresses = WulforUtil::getLocalIPs();
+        for (auto it = addresses.begin(); it != addresses.end(); ++it)
+            gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(getWidget("ipComboboxEntry")), it->c_str());
 
-    gtk_entry_set_text(GTK_ENTRY(getWidget("tcpEntry")), Util::toString(SETTING(TCP_PORT)).c_str());
-    gtk_entry_set_text(GTK_ENTRY(getWidget("udpEntry")), Util::toString(SETTING(UDP_PORT)).c_str());
-    gtk_entry_set_text(GTK_ENTRY(getWidget("tlsEntry")), Util::toString(SETTING(TLS_PORT)).c_str());
-    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("forceIPCheckButton")), SETTING(NO_IP_OVERRIDE));
+        gtk_entry_set_text(GTK_ENTRY(getWidget("tcpEntry")), Util::toString(SETTING(TCP_PORT)).c_str());
+        gtk_entry_set_text(GTK_ENTRY(getWidget("udpEntry")), Util::toString(SETTING(UDP_PORT)).c_str());
+        gtk_entry_set_text(GTK_ENTRY(getWidget("tlsEntry")), Util::toString(SETTING(TLS_PORT)).c_str());
+        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("forceIPCheckButton")), SETTING(NO_IP_OVERRIDE));
 
-    switch (SETTING(INCOMING_CONNECTIONS))
-    {
+        switch (SETTING(INCOMING_CONNECTIONS))
+        {
         case SettingsManager::INCOMING_DIRECT:
             gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("activeRadioButton")), TRUE);
             break;
@@ -792,22 +792,22 @@ void Settings::initConnection_gui()
         case SettingsManager::INCOMING_FIREWALL_PASSIVE:
             gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("passiveRadioButton")), TRUE);
             break;
-    }
+        }
 #ifndef USE_MINIUPNP
-    gtk_widget_set_sensitive(getWidget("upnpRadioButton"), FALSE);
+        gtk_widget_set_sensitive(getWidget("upnpRadioButton"), FALSE);
 #endif
 
-    // Outgoing
-    g_signal_connect(getWidget("outDirectRadioButton"), "toggled", G_CALLBACK(onOutDirect_gui), (gpointer)this);
-    g_signal_connect(getWidget("socksRadioButton"), "toggled", G_CALLBACK(onSocks5_gui), (gpointer)this);
-    gtk_entry_set_text(GTK_ENTRY(getWidget("socksIPEntry")), SETTING(SOCKS_SERVER).c_str());
-    gtk_entry_set_text(GTK_ENTRY(getWidget("socksUserEntry")), SETTING(SOCKS_USER).c_str());
-    gtk_entry_set_text(GTK_ENTRY(getWidget("socksPortEntry")), Util::toString(SETTING(SOCKS_PORT)).c_str());
-    gtk_entry_set_text(GTK_ENTRY(getWidget("socksPassEntry")), SETTING(SOCKS_PASSWORD).c_str());
-    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("socksCheckButton")), SETTING(SOCKS_RESOLVE));
+        // Outgoing
+        g_signal_connect(getWidget("outDirectRadioButton"), "toggled", G_CALLBACK(onOutDirect_gui), (gpointer)this);
+        g_signal_connect(getWidget("socksRadioButton"), "toggled", G_CALLBACK(onSocks5_gui), (gpointer)this);
+        gtk_entry_set_text(GTK_ENTRY(getWidget("socksIPEntry")), SETTING(SOCKS_SERVER).c_str());
+        gtk_entry_set_text(GTK_ENTRY(getWidget("socksUserEntry")), SETTING(SOCKS_USER).c_str());
+        gtk_entry_set_text(GTK_ENTRY(getWidget("socksPortEntry")), Util::toString(SETTING(SOCKS_PORT)).c_str());
+        gtk_entry_set_text(GTK_ENTRY(getWidget("socksPassEntry")), SETTING(SOCKS_PASSWORD).c_str());
+        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("socksCheckButton")), SETTING(SOCKS_RESOLVE));
 
-    switch (SETTING(OUTGOING_CONNECTIONS))
-    {
+        switch (SETTING(OUTGOING_CONNECTIONS))
+        {
         case SettingsManager::OUTGOING_DIRECT:
             gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("outDirectRadioButton")), TRUE);
             onOutDirect_gui(NULL, (gpointer)this);
@@ -815,7 +815,7 @@ void Settings::initConnection_gui()
         case SettingsManager::OUTGOING_SOCKS5:
             gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("socksRadioButton")), TRUE);
             break;
-    }
+        }
     }
     { // Limits
         gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("useLimitCheckButton")), BOOLSETTING( THROTTLE_ENABLE));
@@ -915,9 +915,9 @@ void Settings::initDownloads_gui()
         {
             gtk_list_store_append(downloadToStore, &iter);
             gtk_list_store_set(downloadToStore, &iter,
-                downloadToView.col(_("Favorite Name")), j->second.c_str(),
-                downloadToView.col(_("Directory")), j->first.c_str(),
-                -1);
+                               downloadToView.col(_("Favorite Name")), j->second.c_str(),
+                               downloadToView.col(_("Directory")), j->first.c_str(),
+                               -1);
         }
     }
 
@@ -958,10 +958,10 @@ void Settings::initDownloads_gui()
         {
             gtk_list_store_append(previewAppToStore, &iter);
             gtk_list_store_set(previewAppToStore, &iter,
-                previewAppView.col(_("Name")), ((*item)->name).c_str(),
-                previewAppView.col(_("Application")), ((*item)->app).c_str(),
-                previewAppView.col(_("Extensions")), ((*item)->ext).c_str(),
-                -1);
+                               previewAppView.col(_("Name")), ((*item)->name).c_str(),
+                               previewAppView.col(_("Application")), ((*item)->app).c_str(),
+                               previewAppView.col(_("Extensions")), ((*item)->ext).c_str(),
+                               -1);
         }
     }
 
@@ -1173,8 +1173,8 @@ void Settings::initAppearance_gui()
         g_signal_connect(renderer, "toggled", G_CALLBACK(onOptionsViewToggled_gui), (gpointer)soundStore);
         g_list_free(list);
 
-//      TODO: download begins, uncomment when implemented
-//      addOption_gui(soundStore, wsm, _("Download begins"), "sound-download-begins-use", "sound-download-begins");
+        //      TODO: download begins, uncomment when implemented
+        //      addOption_gui(soundStore, wsm, _("Download begins"), "sound-download-begins-use", "sound-download-begins");
         addOption_gui(soundStore, wsm, _("Download finished"), "sound-download-finished-use", "sound-download-finished");
         addOption_gui(soundStore, wsm, _("Download finished file list"), "sound-download-finished-ul-use", "sound-download-finished-ul");
         addOption_gui(soundStore, wsm, _("Upload finished"), "sound-upload-finished-use", "sound-upload-finished");
@@ -1223,34 +1223,34 @@ void Settings::initAppearance_gui()
 
         // Available styles
         addOption_gui(textStyleStore, wsm, _("General text"),
-            "text-general-fore-color", "text-general-back-color", "text-general-bold", "text-general-italic");
+                      "text-general-fore-color", "text-general-back-color", "text-general-bold", "text-general-italic");
 
         addOption_gui(textStyleStore, wsm, _("My nick"),
-            "text-mynick-fore-color", "text-mynick-back-color", "text-mynick-bold", "text-mynick-italic");
+                      "text-mynick-fore-color", "text-mynick-back-color", "text-mynick-bold", "text-mynick-italic");
 
         addOption_gui(textStyleStore, wsm, _("My own message"),
-            "text-myown-fore-color", "text-myown-back-color", "text-myown-bold", "text-myown-italic");
+                      "text-myown-fore-color", "text-myown-back-color", "text-myown-bold", "text-myown-italic");
 
         addOption_gui(textStyleStore, wsm, _("Private message"),
-            "text-private-fore-color", "text-private-back-color", "text-private-bold", "text-private-italic");
+                      "text-private-fore-color", "text-private-back-color", "text-private-bold", "text-private-italic");
 
         addOption_gui(textStyleStore, wsm, _("System message"),
-            "text-system-fore-color", "text-system-back-color", "text-system-bold", "text-system-italic");
+                      "text-system-fore-color", "text-system-back-color", "text-system-bold", "text-system-italic");
 
         addOption_gui(textStyleStore, wsm, _("Status message"),
-            "text-status-fore-color", "text-status-back-color", "text-status-bold", "text-status-italic");
+                      "text-status-fore-color", "text-status-back-color", "text-status-bold", "text-status-italic");
 
         addOption_gui(textStyleStore, wsm, _("Timestamp"),
-            "text-timestamp-fore-color", "text-timestamp-back-color", "text-timestamp-bold", "text-timestamp-italic");
+                      "text-timestamp-fore-color", "text-timestamp-back-color", "text-timestamp-bold", "text-timestamp-italic");
 
         addOption_gui(textStyleStore, wsm, _("URL"),
-            "text-url-fore-color", "text-url-back-color", "text-url-bold", "text-url-italic");
+                      "text-url-fore-color", "text-url-back-color", "text-url-bold", "text-url-italic");
 
         addOption_gui(textStyleStore, wsm, _("Favorite User"),
-            "text-fav-fore-color", "text-fav-back-color", "text-fav-bold", "text-fav-italic");
+                      "text-fav-fore-color", "text-fav-back-color", "text-fav-bold", "text-fav-italic");
 
         addOption_gui(textStyleStore, wsm, _("Operator"),
-            "text-op-fore-color", "text-op-back-color", "text-op-bold", "text-op-italic");
+                      "text-op-fore-color", "text-op-back-color", "text-op-bold", "text-op-italic");
 
         // Preview style
         GtkTreeIter treeIter;
@@ -1269,18 +1269,18 @@ void Settings::initAppearance_gui()
 
         GtkTextTag *tag = NULL;
         GtkTextTag *tagTimeStamp =
-        WGETB("use-native-back-color-for-text") ?
-        gtk_text_buffer_create_tag(textStyleBuffer, _("Timestamp"),
-            "foreground", fore.c_str(),
-            "weight", bold ? TEXT_WEIGHT_BOLD : TEXT_WEIGHT_NORMAL,
-            "style", italic ? TEXT_STYLE_ITALIC : TEXT_STYLE_NORMAL,
-            NULL) :
-        gtk_text_buffer_create_tag(textStyleBuffer, _("Timestamp"),
-            "background", back.c_str(),
-            "foreground", fore.c_str(),
-            "weight", bold ? TEXT_WEIGHT_BOLD : TEXT_WEIGHT_NORMAL,
-            "style", italic ? TEXT_STYLE_ITALIC : TEXT_STYLE_NORMAL,
-            NULL);
+                WGETB("use-native-back-color-for-text") ?
+                    gtk_text_buffer_create_tag(textStyleBuffer, _("Timestamp"),
+                                               "foreground", fore.c_str(),
+                                               "weight", bold ? TEXT_WEIGHT_BOLD : TEXT_WEIGHT_NORMAL,
+                                               "style", italic ? TEXT_STYLE_ITALIC : TEXT_STYLE_NORMAL,
+                                               NULL) :
+                    gtk_text_buffer_create_tag(textStyleBuffer, _("Timestamp"),
+                                               "background", back.c_str(),
+                                               "foreground", fore.c_str(),
+                                               "weight", bold ? TEXT_WEIGHT_BOLD : TEXT_WEIGHT_NORMAL,
+                                               "style", italic ? TEXT_STYLE_ITALIC : TEXT_STYLE_NORMAL,
+                                               NULL);
 
         gint row_count = 0;
 
@@ -1305,18 +1305,18 @@ void Settings::initAppearance_gui()
 
             if (row_count != 6)
                 tag =
-                WGETB("use-native-back-color-for-text") ?
-                gtk_text_buffer_create_tag(textStyleBuffer, style.c_str(),
-                    "foreground", fore.c_str(),
-                    "weight", bold ? TEXT_WEIGHT_BOLD : TEXT_WEIGHT_NORMAL,
-                    "style", italic ? TEXT_STYLE_ITALIC : TEXT_STYLE_NORMAL,
-                    NULL) :
-                gtk_text_buffer_create_tag(textStyleBuffer, style.c_str(),
-                    "background", back.c_str(),
-                    "foreground", fore.c_str(),
-                    "weight", bold ? TEXT_WEIGHT_BOLD : TEXT_WEIGHT_NORMAL,
-                    "style", italic ? TEXT_STYLE_ITALIC : TEXT_STYLE_NORMAL,
-                    NULL);
+                        WGETB("use-native-back-color-for-text") ?
+                            gtk_text_buffer_create_tag(textStyleBuffer, style.c_str(),
+                                                       "foreground", fore.c_str(),
+                                                       "weight", bold ? TEXT_WEIGHT_BOLD : TEXT_WEIGHT_NORMAL,
+                                                       "style", italic ? TEXT_STYLE_ITALIC : TEXT_STYLE_NORMAL,
+                                                       NULL) :
+                            gtk_text_buffer_create_tag(textStyleBuffer, style.c_str(),
+                                                       "background", back.c_str(),
+                                                       "foreground", fore.c_str(),
+                                                       "weight", bold ? TEXT_WEIGHT_BOLD : TEXT_WEIGHT_NORMAL,
+                                                       "style", italic ? TEXT_STYLE_ITALIC : TEXT_STYLE_NORMAL,
+                                                       NULL);
             else
                 tag = tagTimeStamp;
 
@@ -1358,32 +1358,32 @@ void Settings::initAppearance_gui()
         g_list_free(list);
 
         addOption_gui(notifyStore, wsm, _("Download finished"),
-            "notify-download-finished-use", "notify-download-finished-title",
-            "notify-download-finished-icon", NOTIFY_URGENCY_NORMAL);
+                      "notify-download-finished-use", "notify-download-finished-title",
+                      "notify-download-finished-icon", NOTIFY_URGENCY_NORMAL);
 
         addOption_gui(notifyStore, wsm, _("Download finished file list"),
-            "notify-download-finished-ul-use", "notify-download-finished-ul-title",
-            "notify-download-finished-ul-icon", NOTIFY_URGENCY_LOW);
+                      "notify-download-finished-ul-use", "notify-download-finished-ul-title",
+                      "notify-download-finished-ul-icon", NOTIFY_URGENCY_LOW);
 
         addOption_gui(notifyStore, wsm, _("Private message"),
-            "notify-private-message-use", "notify-private-message-title",
-            "notify-private-message-icon", NOTIFY_URGENCY_NORMAL);
+                      "notify-private-message-use", "notify-private-message-title",
+                      "notify-private-message-icon", NOTIFY_URGENCY_NORMAL);
 
         addOption_gui(notifyStore, wsm, _("Hub connected"),
-            "notify-hub-connect-use", "notify-hub-connect-title",
-            "notify-hub-connect-icon", NOTIFY_URGENCY_NORMAL);
+                      "notify-hub-connect-use", "notify-hub-connect-title",
+                      "notify-hub-connect-icon", NOTIFY_URGENCY_NORMAL);
 
         addOption_gui(notifyStore, wsm, _("Hub disconnected"),
-            "notify-hub-disconnect-use", "notify-hub-disconnect-title",
-            "notify-hub-disconnect-icon", NOTIFY_URGENCY_CRITICAL);
+                      "notify-hub-disconnect-use", "notify-hub-disconnect-title",
+                      "notify-hub-disconnect-icon", NOTIFY_URGENCY_CRITICAL);
 
         addOption_gui(notifyStore, wsm, _("Favorite user joined"),
-            "notify-fuser-join", "notify-fuser-join-title",
-            "notify-fuser-join-icon", NOTIFY_URGENCY_NORMAL);
+                      "notify-fuser-join", "notify-fuser-join-title",
+                      "notify-fuser-join-icon", NOTIFY_URGENCY_NORMAL);
 
         addOption_gui(notifyStore, wsm, _("Favorite user quit"),
-            "notify-fuser-quit", "notify-fuser-quit-title",
-            "notify-fuser-quit-icon", NOTIFY_URGENCY_NORMAL);
+                      "notify-fuser-quit", "notify-fuser-quit-title",
+                      "notify-fuser-quit-icon", NOTIFY_URGENCY_NORMAL);
 
         g_signal_connect(getWidget("notifyTestButton"), "clicked", G_CALLBACK(onNotifyTestButton_gui), (gpointer)this);
         g_signal_connect(getWidget("notifyIconFileBrowseButton"), "clicked", G_CALLBACK(onNotifyIconFileBrowseClicked_gui), (gpointer)this);
@@ -1470,52 +1470,52 @@ void Settings::initAppearance_gui()
 
         GtkIconTheme *iconTheme = gtk_icon_theme_get_default();
         addOption_gui(toolbarStore, wsm, iconTheme, _("+/-"), "toolbar-button-add",
-            ""); //GTK_STOCK_ADD
+                      ""); //GTK_STOCK_ADD
         addOption_gui(toolbarStore, wsm, iconTheme, _("Separators"), "toolbar-button-separators",
-            "");
+                      "");
         addOption_gui(toolbarStore, wsm, iconTheme, _("Reconnect"), "toolbar-button-reconnect",
-            "icon-reconnect");
+                      "icon-reconnect");
         addOption_gui(toolbarStore, wsm, iconTheme, _("Connect"), "toolbar-button-connect",
-            "icon-connect");
+                      "icon-connect");
         addOption_gui(toolbarStore, wsm, iconTheme, _("Favorite Hubs"), "toolbar-button-fav-hubs",
-            "icon-favorite-hubs");
+                      "icon-favorite-hubs");
         addOption_gui(toolbarStore, wsm, iconTheme, _("Favorite Users"), "toolbar-button-fav-users",
-            "icon-favorite-users");
+                      "icon-favorite-users");
         addOption_gui(toolbarStore, wsm, iconTheme, _("Public Hubs"), "toolbar-button-public-hubs",
-            "icon-public-hubs");
+                      "icon-public-hubs");
         addOption_gui(toolbarStore, wsm, iconTheme, _("Preferences"), "toolbar-button-settings",
-            "icon-preferences");
+                      "icon-preferences");
         addOption_gui(toolbarStore, wsm, iconTheme, _("Own file list"), "toolbar-button-own-filelist",
-            "icon-own-filelist");
+                      "icon-own-filelist");
         addOption_gui(toolbarStore, wsm, iconTheme, _("Refresh"), "toolbar-button-refresh",
-            "icon-refresh");
+                      "icon-refresh");
         addOption_gui(toolbarStore, wsm, iconTheme, _("Hash"), "toolbar-button-hash",
-            "icon-hash");
+                      "icon-hash");
         addOption_gui(toolbarStore, wsm, iconTheme, _("Search"), "toolbar-button-search",
-            "icon-search");
+                      "icon-search");
         addOption_gui(toolbarStore, wsm, iconTheme, _("searchADL"), "toolbar-button-search-adl",
-            "icon-search-adl");
+                      "icon-search-adl");
         addOption_gui(toolbarStore, wsm, iconTheme, _("Search Spy"), "toolbar-button-search-spy",
-            "icon-search-spy");
+                      "icon-search-spy");
         addOption_gui(toolbarStore, wsm, iconTheme, _("Queue"), "toolbar-button-queue",
-            "icon-queue");
+                      "icon-queue");
         addOption_gui(toolbarStore, wsm, iconTheme, _("Finished Downloads"), "toolbar-button-finished-downloads",
-            "icon-finished-downloads");
+                      "icon-finished-downloads");
         addOption_gui(toolbarStore, wsm, iconTheme, _("Finished Uploads"), "toolbar-button-finished-uploads",
-            "icon-finished-uploads");
+                      "icon-finished-uploads");
         addOption_gui(toolbarStore, wsm, iconTheme, _("Quit"), "toolbar-button-quit",
-            "icon-quit");
+                      "icon-quit");
     }
 
     { // Search Spy
 
 #if GTK_CHECK_VERSION(3,4,0)
-GdkRGBA color;
+        GdkRGBA color;
 #define g_c_b_s gtk_color_chooser_get_rgba
 #define G_C_B GTK_COLOR_CHOOSER
 #define g_c_p(a,b) gdk_rgba_parse(b,a)
 #else
-GdkColor color;
+        GdkColor color;
 #define g_c_b_s gtk_color_button_get_color
 #define G_C_B GTK_COLOR_BUTTON
 #define g_c_p(a,b) gdk_color_parse(a,b)
@@ -1738,550 +1738,550 @@ void Settings::initAdvanced_gui()
 
 void Settings::initSearchTypes_gui()
 {
-        // search type list
-        searchTypeView.setView(GTK_TREE_VIEW(getWidget("searchTypeTreeView")));
-        searchTypeView.insertColumn(_("Search type"), G_TYPE_STRING, TreeView::STRING, -1);
-        searchTypeView.insertColumn(_("Predefined"), G_TYPE_STRING, TreeView::STRING, -1);
-        searchTypeView.insertColumn(_("Extensions"), G_TYPE_STRING, TreeView::STRING, -1);
-        searchTypeView.insertHiddenColumn("Key", G_TYPE_INT);
-        searchTypeView.finalize();
+    // search type list
+    searchTypeView.setView(GTK_TREE_VIEW(getWidget("searchTypeTreeView")));
+    searchTypeView.insertColumn(_("Search type"), G_TYPE_STRING, TreeView::STRING, -1);
+    searchTypeView.insertColumn(_("Predefined"), G_TYPE_STRING, TreeView::STRING, -1);
+    searchTypeView.insertColumn(_("Extensions"), G_TYPE_STRING, TreeView::STRING, -1);
+    searchTypeView.insertHiddenColumn("Key", G_TYPE_INT);
+    searchTypeView.finalize();
 
-        searchTypeStore = gtk_list_store_newv(searchTypeView.getColCount(), searchTypeView.getGTypes());
-        gtk_tree_view_set_model(searchTypeView.get(), GTK_TREE_MODEL(searchTypeStore));
-        g_object_unref(searchTypeStore);
+    searchTypeStore = gtk_list_store_newv(searchTypeView.getColCount(), searchTypeView.getGTypes());
+    gtk_tree_view_set_model(searchTypeView.get(), GTK_TREE_MODEL(searchTypeStore));
+    g_object_unref(searchTypeStore);
 
-        // extension list
-        extensionView.setView(GTK_TREE_VIEW(getWidget("extensionTreeView")));
-        extensionView.insertColumn(_("Name"), G_TYPE_STRING, TreeView::STRING, -1);
-        extensionView.finalize();
+    // extension list
+    extensionView.setView(GTK_TREE_VIEW(getWidget("extensionTreeView")));
+    extensionView.insertColumn(_("Name"), G_TYPE_STRING, TreeView::STRING, -1);
+    extensionView.finalize();
 
-        extensionStore = gtk_list_store_newv(extensionView.getColCount(), extensionView.getGTypes());
-        gtk_tree_view_set_model(extensionView.get(), GTK_TREE_MODEL(extensionStore));
-        g_object_unref(extensionStore);
+    extensionStore = gtk_list_store_newv(extensionView.getColCount(), extensionView.getGTypes());
+    gtk_tree_view_set_model(extensionView.get(), GTK_TREE_MODEL(extensionStore));
+    g_object_unref(extensionStore);
 
-        // search types
-        const SettingsManager::SearchTypes &searchTypes = SettingsManager::getInstance()->getSearchTypes();
-        for (SettingsManager::SearchTypesIterC i = searchTypes.begin(), iend = searchTypes.end(); i != iend; ++i)
+    // search types
+    const SettingsManager::SearchTypes &searchTypes = SettingsManager::getInstance()->getSearchTypes();
+    for (SettingsManager::SearchTypesIterC i = searchTypes.begin(), iend = searchTypes.end(); i != iend; ++i)
+    {
+        string type = i->first;
+        bool predefined = false;
+        int key = SearchManager::TYPE_ANY;
+
+        if (type.size() == 1 && type[0] >= '1' && type[0] <= '7')
         {
-                string type = i->first;
-                bool predefined = false;
-                int key = SearchManager::TYPE_ANY;
-
-                if (type.size() == 1 && type[0] >= '1' && type[0] <= '7')
-                {
-                        key = type[0] - '0';
-                        if (type[0] == '7')
-                            key = 9;
-                        type = SearchManager::getTypeStr(key);
-                        predefined = true;
-                }
-                addOption_gui(searchTypeStore, type, i->second, predefined, key);
+            key = type[0] - '0';
+            if (type[0] == '7')
+                key = 9;
+            type = SearchManager::getTypeStr(key);
+            predefined = true;
         }
+        addOption_gui(searchTypeStore, type, i->second, predefined, key);
+    }
 
-        g_signal_connect(getWidget("addSTButton"), "clicked", G_CALLBACK(onAddSTButton_gui), (gpointer)this);
-        g_signal_connect(getWidget("modifySTButton"), "clicked", G_CALLBACK(onModifySTButton_gui), (gpointer)this);
-        g_signal_connect(getWidget("renameSTButton"), "clicked", G_CALLBACK(onRenameSTButton_gui), (gpointer)this);
-        g_signal_connect(getWidget("removeSTButton"), "clicked", G_CALLBACK(onRemoveSTButton_gui), (gpointer)this);
-        g_signal_connect(getWidget("defaultSTButton"), "clicked", G_CALLBACK(onDefaultSTButton_gui), (gpointer)this);
+    g_signal_connect(getWidget("addSTButton"), "clicked", G_CALLBACK(onAddSTButton_gui), (gpointer)this);
+    g_signal_connect(getWidget("modifySTButton"), "clicked", G_CALLBACK(onModifySTButton_gui), (gpointer)this);
+    g_signal_connect(getWidget("renameSTButton"), "clicked", G_CALLBACK(onRenameSTButton_gui), (gpointer)this);
+    g_signal_connect(getWidget("removeSTButton"), "clicked", G_CALLBACK(onRemoveSTButton_gui), (gpointer)this);
+    g_signal_connect(getWidget("defaultSTButton"), "clicked", G_CALLBACK(onDefaultSTButton_gui), (gpointer)this);
 
-        g_signal_connect(getWidget("addExtensionButton"), "clicked", G_CALLBACK(onAddExtensionButton_gui), (gpointer)this);
-        g_signal_connect(getWidget("editExtensionButton"), "clicked", G_CALLBACK(onEditExtensionButton_gui), (gpointer)this);
-        g_signal_connect(getWidget("removeExtensionButton"), "clicked", G_CALLBACK(onRemoveExtensionButton_gui), (gpointer)this);
-        g_signal_connect(getWidget("upExtensionButton"), "clicked", G_CALLBACK(onUpExtensionButton_gui), (gpointer)this);
-        g_signal_connect(getWidget("downExtensionButton"), "clicked", G_CALLBACK(onDownExtensionButton_gui), (gpointer)this);
+    g_signal_connect(getWidget("addExtensionButton"), "clicked", G_CALLBACK(onAddExtensionButton_gui), (gpointer)this);
+    g_signal_connect(getWidget("editExtensionButton"), "clicked", G_CALLBACK(onEditExtensionButton_gui), (gpointer)this);
+    g_signal_connect(getWidget("removeExtensionButton"), "clicked", G_CALLBACK(onRemoveExtensionButton_gui), (gpointer)this);
+    g_signal_connect(getWidget("upExtensionButton"), "clicked", G_CALLBACK(onUpExtensionButton_gui), (gpointer)this);
+    g_signal_connect(getWidget("downExtensionButton"), "clicked", G_CALLBACK(onDownExtensionButton_gui), (gpointer)this);
 
-        g_signal_connect(searchTypeView.get(), "key-release-event", G_CALLBACK(onSTKeyReleased_gui), (gpointer)this);
-        g_signal_connect(searchTypeView.get(), "button-release-event", G_CALLBACK(onSTButtonReleased_gui), (gpointer)this);
+    g_signal_connect(searchTypeView.get(), "key-release-event", G_CALLBACK(onSTKeyReleased_gui), (gpointer)this);
+    g_signal_connect(searchTypeView.get(), "button-release-event", G_CALLBACK(onSTButtonReleased_gui), (gpointer)this);
 }
 
 void Settings::onSTKeyReleased_gui(GtkWidget *widget, GdkEventKey *event, gpointer data)
 {
-        (void)widget;
-        Settings *s = (Settings *)data;
+    (void)widget;
+    Settings *s = (Settings *)data;
 
-        if (event->keyval == GDK_Up || event->keyval == GDK_Down)
+    if (event->keyval == GDK_Up || event->keyval == GDK_Down)
+    {
+        GtkTreeIter iter;
+        GtkTreeSelection *selection = gtk_tree_view_get_selection(s->searchTypeView.get());
+
+        if (gtk_tree_selection_get_selected(selection, NULL, &iter))
         {
-                GtkTreeIter iter;
-                GtkTreeSelection *selection = gtk_tree_view_get_selection(s->searchTypeView.get());
-
-                if (gtk_tree_selection_get_selected(selection, NULL, &iter))
-                {
-                        int key = s->searchTypeView.getValue<int>(&iter, "Key");
-                        gboolean sensitive = FALSE;
-                        if (key == SearchManager::TYPE_ANY)
-                                sensitive = TRUE;
-                        gtk_widget_set_sensitive(s->getWidget("renameSTButton"), sensitive);
-                        gtk_widget_set_sensitive(s->getWidget("removeSTButton"), sensitive);
-                }
+            int key = s->searchTypeView.getValue<int>(&iter, "Key");
+            gboolean sensitive = FALSE;
+            if (key == SearchManager::TYPE_ANY)
+                sensitive = TRUE;
+            gtk_widget_set_sensitive(s->getWidget("renameSTButton"), sensitive);
+            gtk_widget_set_sensitive(s->getWidget("removeSTButton"), sensitive);
         }
+    }
 }
 
 void Settings::onSTButtonReleased_gui(GtkWidget *widget, GdkEventButton *event, gpointer data)
 {
-        (void)widget;
-        Settings *s = (Settings *)data;
+    (void)widget;
+    Settings *s = (Settings *)data;
 
-        if (event->button == 3 || event->button == 1)
+    if (event->button == 3 || event->button == 1)
+    {
+        GtkTreeIter iter;
+        GtkTreeSelection *selection = gtk_tree_view_get_selection(s->searchTypeView.get());
+
+        if (gtk_tree_selection_get_selected(selection, NULL, &iter))
         {
-                GtkTreeIter iter;
-                GtkTreeSelection *selection = gtk_tree_view_get_selection(s->searchTypeView.get());
-
-                if (gtk_tree_selection_get_selected(selection, NULL, &iter))
-                {
-                        int key = s->searchTypeView.getValue<int>(&iter, "Key");
-                        gboolean sensitive = FALSE;
-                        if (key == SearchManager::TYPE_ANY)
-                                sensitive = TRUE;
-                        gtk_widget_set_sensitive(s->getWidget("renameSTButton"), sensitive);
-                        gtk_widget_set_sensitive(s->getWidget("removeSTButton"), sensitive);
-                }
+            int key = s->searchTypeView.getValue<int>(&iter, "Key");
+            gboolean sensitive = FALSE;
+            if (key == SearchManager::TYPE_ANY)
+                sensitive = TRUE;
+            gtk_widget_set_sensitive(s->getWidget("renameSTButton"), sensitive);
+            gtk_widget_set_sensitive(s->getWidget("removeSTButton"), sensitive);
         }
+    }
 }
 
 void Settings::addOption_gui(GtkListStore *store, const string &type, const StringList &exts, bool predefined, const int key)
 {
-        GtkTreeIter iter;
-        gtk_list_store_append(store, &iter);
-        gtk_list_store_set(store, &iter,
-                0, type.c_str(),                      //searchtype
-                1, predefined ? _("Predefined") : "", //predefined
-                2, Util::toString(";", exts).c_str(), //extensions
-                3, key,                               //key predefined
-                -1);
+    GtkTreeIter iter;
+    gtk_list_store_append(store, &iter);
+    gtk_list_store_set(store, &iter,
+                       0, type.c_str(),                      //searchtype
+                       1, predefined ? _("Predefined") : "", //predefined
+                       2, Util::toString(";", exts).c_str(), //extensions
+                       3, key,                               //key predefined
+                       -1);
 }
 
 void Settings::onAddSTButton_gui(GtkWidget *widget, gpointer data)
 {
-        (void)widget;
-        Settings *s = (Settings *)data;
+    (void)widget;
+    Settings *s = (Settings *)data;
 
-        GtkWidget *dialog = s->getWidget("nameDialog");
-        GtkWidget *entry = s->getWidget("nameDialogEntry");
-        gtk_window_set_title(GTK_WINDOW(dialog), _("New search type"));
-        gtk_label_set_markup(GTK_LABEL(s->getWidget("labelNameDialog")), _("<b>Name of the new search type</b>"));
-        gtk_entry_set_text(GTK_ENTRY(entry), "");
-        gint response = gtk_dialog_run(GTK_DIALOG(dialog));
+    GtkWidget *dialog = s->getWidget("nameDialog");
+    GtkWidget *entry = s->getWidget("nameDialogEntry");
+    gtk_window_set_title(GTK_WINDOW(dialog), _("New search type"));
+    gtk_label_set_markup(GTK_LABEL(s->getWidget("labelNameDialog")), _("<b>Name of the new search type</b>"));
+    gtk_entry_set_text(GTK_ENTRY(entry), "");
+    gint response = gtk_dialog_run(GTK_DIALOG(dialog));
 
-        if (response == GTK_RESPONSE_OK)
-        {
-                string name = gtk_entry_get_text(GTK_ENTRY(entry));
-                gtk_widget_hide(dialog);
-                try
-                {
-                        SettingsManager::getInstance()->validateSearchTypeName(name);
-                }
-                catch (const SearchTypeException& e)
-                {
-                        s->showErrorDialog(e.getError());
-                        return;
-                }
-                gtk_list_store_clear(s->extensionStore);
-                gtk_entry_set_text(GTK_ENTRY(s->getWidget("extensionEntry")), "");
-                s->showExtensionDialog_gui(TRUE);
-        }
-        else
-                gtk_widget_hide(dialog);
-}
-
-void Settings::showExtensionDialog_gui(bool add)
-        {
-        GtkWidget *dialog = getWidget("ExtensionsDialog");
-        gtk_window_set_title(GTK_WINDOW(dialog), _("Extensions"));
-        gint response = gtk_dialog_run(GTK_DIALOG(dialog));
-
-        if (response == GTK_RESPONSE_OK)
-        {
-                if (add)
-                        addSearchType_gui();
-                else
-                        modSearchType_gui();
-        }
+    if (response == GTK_RESPONSE_OK)
+    {
+        string name = gtk_entry_get_text(GTK_ENTRY(entry));
         gtk_widget_hide(dialog);
-        }
-
-void Settings::addSearchType_gui()
-{
-        string name = gtk_entry_get_text(GTK_ENTRY(getWidget("nameDialogEntry")));
-
-        GtkTreeIter iter;
-        GtkTreeModel *m = GTK_TREE_MODEL(extensionStore);
-        gboolean valid = gtk_tree_model_get_iter_first(m, &iter);
-
-        StringList extensions;
-
-        while (valid)
-        {
-                string ext = extensionView.getString(&iter, _("Name"));
-                extensions.push_back(ext);
-
-                valid = gtk_tree_model_iter_next(m, &iter);
-        }
-
-        if (extensions.empty())
-        {
-                showErrorDialog(_("Error"));
-                return;
-        }
-
         try
         {
-                SettingsManager::getInstance()->addSearchType(name, extensions);
+            SettingsManager::getInstance()->validateSearchTypeName(name);
         }
         catch (const SearchTypeException& e)
         {
-                showErrorDialog(e.getError());
-                return;
+            s->showErrorDialog(e.getError());
+            return;
         }
+        gtk_list_store_clear(s->extensionStore);
+        gtk_entry_set_text(GTK_ENTRY(s->getWidget("extensionEntry")), "");
+        s->showExtensionDialog_gui(TRUE);
+    }
+    else
+        gtk_widget_hide(dialog);
+}
 
-        gtk_list_store_append(searchTypeStore, &iter);
-        gtk_list_store_set(searchTypeStore, &iter,
-                searchTypeView.col(_("Search type")), name.c_str(),
-                searchTypeView.col(_("Predefined")), "",
-                searchTypeView.col(_("Extensions")), Util::toString(";", extensions).c_str(),
-                -1);
+void Settings::showExtensionDialog_gui(bool add)
+{
+    GtkWidget *dialog = getWidget("ExtensionsDialog");
+    gtk_window_set_title(GTK_WINDOW(dialog), _("Extensions"));
+    gint response = gtk_dialog_run(GTK_DIALOG(dialog));
+
+    if (response == GTK_RESPONSE_OK)
+    {
+        if (add)
+            addSearchType_gui();
+        else
+            modSearchType_gui();
+    }
+    gtk_widget_hide(dialog);
+}
+
+void Settings::addSearchType_gui()
+{
+    string name = gtk_entry_get_text(GTK_ENTRY(getWidget("nameDialogEntry")));
+
+    GtkTreeIter iter;
+    GtkTreeModel *m = GTK_TREE_MODEL(extensionStore);
+    gboolean valid = gtk_tree_model_get_iter_first(m, &iter);
+
+    StringList extensions;
+
+    while (valid)
+    {
+        string ext = extensionView.getString(&iter, _("Name"));
+        extensions.push_back(ext);
+
+        valid = gtk_tree_model_iter_next(m, &iter);
+    }
+
+    if (extensions.empty())
+    {
+        showErrorDialog(_("Error"));
+        return;
+    }
+
+    try
+    {
+        SettingsManager::getInstance()->addSearchType(name, extensions);
+    }
+    catch (const SearchTypeException& e)
+    {
+        showErrorDialog(e.getError());
+        return;
+    }
+
+    gtk_list_store_append(searchTypeStore, &iter);
+    gtk_list_store_set(searchTypeStore, &iter,
+                       searchTypeView.col(_("Search type")), name.c_str(),
+                       searchTypeView.col(_("Predefined")), "",
+                       searchTypeView.col(_("Extensions")), Util::toString(";", extensions).c_str(),
+                       -1);
 }
 
 void Settings::modSearchType_gui()
 {
-        GtkTreeIter t_iter, e_iter;
-        GtkTreeSelection *selection = gtk_tree_view_get_selection(searchTypeView.get());
-        if (!gtk_tree_selection_get_selected(selection, NULL, &t_iter))
-                return;
+    GtkTreeIter t_iter, e_iter;
+    GtkTreeSelection *selection = gtk_tree_view_get_selection(searchTypeView.get());
+    if (!gtk_tree_selection_get_selected(selection, NULL, &t_iter))
+        return;
 
-        GtkTreeModel *m = GTK_TREE_MODEL(extensionStore);
-        gboolean valid = gtk_tree_model_get_iter_first(m, &e_iter);
+    GtkTreeModel *m = GTK_TREE_MODEL(extensionStore);
+    gboolean valid = gtk_tree_model_get_iter_first(m, &e_iter);
 
-        StringList extensions;
+    StringList extensions;
 
-        while (valid)
+    while (valid)
+    {
+        string ext = extensionView.getString(&e_iter, _("Name"));
+        extensions.push_back(ext);
+
+        valid = gtk_tree_model_iter_next(m, &e_iter);
+    }
+
+    if (extensions.empty())
+    {
+        showErrorDialog(_("Error"));
+        return;
+    }
+
+    int key = searchTypeView.getValue<int>(&t_iter, "Key");
+    string name = searchTypeView.getString(&t_iter, _("Search type"));
+
+    try
+    {
+        if (key == SearchManager::TYPE_ANY)
         {
-                string ext = extensionView.getString(&e_iter, _("Name"));
-                extensions.push_back(ext);
-
-                valid = gtk_tree_model_iter_next(m, &e_iter);
+            // Custom searchtype
+            SettingsManager::getInstance()->modSearchType(name, extensions);
         }
-
-        if (extensions.empty())
+        else if (key > SearchManager::TYPE_ANY && key < SearchManager::TYPE_DIRECTORY)
         {
-                showErrorDialog(_("Error"));
-                return;
+            // Predefined searchtype
+            SettingsManager::getInstance()->modSearchType(string(1, '0' + key), extensions);
         }
+        else
+            return;
+    }
+    catch (const SearchTypeException& e)
+    {
+        showErrorDialog(e.getError());
+        return;
+    }
 
-        int key = searchTypeView.getValue<int>(&t_iter, "Key");
-        string name = searchTypeView.getString(&t_iter, _("Search type"));
-
-        try
-        {
-                if (key == SearchManager::TYPE_ANY)
-                {
-                        // Custom searchtype
-                        SettingsManager::getInstance()->modSearchType(name, extensions);
-                }
-                else if (key > SearchManager::TYPE_ANY && key < SearchManager::TYPE_DIRECTORY)
-                {
-                        // Predefined searchtype
-                        SettingsManager::getInstance()->modSearchType(string(1, '0' + key), extensions);
-                }
-                else
-                        return;
-        }
-        catch (const SearchTypeException& e)
-        {
-                showErrorDialog(e.getError());
-                return;
-        }
-
-        gtk_list_store_set(searchTypeStore, &t_iter,
-                searchTypeView.col(_("Extensions")), Util::toString(";", extensions).c_str(),
-                -1);
+    gtk_list_store_set(searchTypeStore, &t_iter,
+                       searchTypeView.col(_("Extensions")), Util::toString(";", extensions).c_str(),
+                       -1);
 }
 
 void Settings::addExtension_gui(const string ext)
 {
-        GtkTreeIter iter;
-        GtkTreeModel *m = GTK_TREE_MODEL(extensionStore);
-        gboolean valid = gtk_tree_model_get_iter_first(m, &iter);
+    GtkTreeIter iter;
+    GtkTreeModel *m = GTK_TREE_MODEL(extensionStore);
+    gboolean valid = gtk_tree_model_get_iter_first(m, &iter);
 
-        while (valid)
-        {
-                string name = extensionView.getString(&iter, _("Name"));
-                if (name == ext)
-                        return;
+    while (valid)
+    {
+        string name = extensionView.getString(&iter, _("Name"));
+        if (name == ext)
+            return;
 
-                valid = gtk_tree_model_iter_next(m, &iter);
-        }
+        valid = gtk_tree_model_iter_next(m, &iter);
+    }
 
-        gtk_list_store_append(extensionStore, &iter);
-        gtk_list_store_set(extensionStore, &iter,
-                0, ext.c_str(),
-                -1);
+    gtk_list_store_append(extensionStore, &iter);
+    gtk_list_store_set(extensionStore, &iter,
+                       0, ext.c_str(),
+                       -1);
 }
 
 void Settings::onAddExtensionButton_gui(GtkWidget *widget, gpointer data)
 {
-        (void)widget;
-        Settings *s = (Settings *)data;
+    (void)widget;
+    Settings *s = (Settings *)data;
 
-        string error;
-        string text = gtk_entry_get_text(GTK_ENTRY(s->getWidget("extensionEntry")));
-        StringTokenizer<string> exts(text, ';');
-        for (StringIterC i = exts.getTokens().begin(), j = exts.getTokens().end(); i != j; ++i)
+    string error;
+    string text = gtk_entry_get_text(GTK_ENTRY(s->getWidget("extensionEntry")));
+    StringTokenizer<string> exts(text, ';');
+    for (StringIterC i = exts.getTokens().begin(), j = exts.getTokens().end(); i != j; ++i)
+    {
+        if (!i->empty())
         {
-                if (!i->empty())
-                {
-                        string ext = *i;
-                        if (Util::checkExtension(ext))
-                        {
-                                s->addExtension_gui(ext);
-                        }
-                        else
-                                error += ext + " ";
-                }
+            string ext = *i;
+            if (Util::checkExtension(ext))
+            {
+                s->addExtension_gui(ext);
+            }
+            else
+                error += ext + " ";
         }
+    }
 
-        if (!error.empty())
-                s->showErrorDialog(string(_("Invalid extension: ")) + error);
+    if (!error.empty())
+        s->showErrorDialog(string(_("Invalid extension: ")) + error);
 }
 
 void Settings::onModifySTButton_gui(GtkWidget *widget, gpointer data)
 {
-        (void)widget;
-        Settings *s = (Settings *)data;
+    (void)widget;
+    Settings *s = (Settings *)data;
 
-        GtkTreeIter iter;
-        GtkTreeSelection *selection = gtk_tree_view_get_selection(s->searchTypeView.get());
-        int key = SearchManager::TYPE_ANY;
-        string name;
+    GtkTreeIter iter;
+    GtkTreeSelection *selection = gtk_tree_view_get_selection(s->searchTypeView.get());
+    int key = SearchManager::TYPE_ANY;
+    string name;
 
-        if (gtk_tree_selection_get_selected(selection, NULL, &iter))
+    if (gtk_tree_selection_get_selected(selection, NULL, &iter))
+    {
+        key = s->searchTypeView.getValue<int>(&iter, "Key");
+        name = s->searchTypeView.getString(&iter, _("Search type"));
+    }
+    else
+        return;
+
+    StringList list;
+    try
+    {
+        if (key == SearchManager::TYPE_ANY)
         {
-                key = s->searchTypeView.getValue<int>(&iter, "Key");
-                name = s->searchTypeView.getString(&iter, _("Search type"));
-}
+            // Custom searchtype
+            list = SettingsManager::getInstance()->getExtensions(name);
+        }
+        else if (key > SearchManager::TYPE_ANY && key < SearchManager::TYPE_DIRECTORY)
+        {
+            // Predefined searchtype
+            list = SettingsManager::getInstance()->getExtensions(string(1, '0' + key));
+        }
         else
-                return;
+            return;
+    }
+    catch (const SearchTypeException& e)
+    {
+        s->showErrorDialog(e.getError());
+        return;
+    }
 
-        StringList list;
-        try
-        {
-                if (key == SearchManager::TYPE_ANY)
-                {
-                        // Custom searchtype
-                        list = SettingsManager::getInstance()->getExtensions(name);
-                }
-                else if (key > SearchManager::TYPE_ANY && key < SearchManager::TYPE_DIRECTORY)
-                {
-                        // Predefined searchtype
-                        list = SettingsManager::getInstance()->getExtensions(string(1, '0' + key));
-                }
-                else
-                        return;
-        }
-        catch (const SearchTypeException& e)
-        {
-                s->showErrorDialog(e.getError());
-                return;
-        }
+    gtk_list_store_clear(s->extensionStore);
+    gtk_entry_set_text(GTK_ENTRY(s->getWidget("extensionEntry")), "");
 
-        gtk_list_store_clear(s->extensionStore);
-        gtk_entry_set_text(GTK_ENTRY(s->getWidget("extensionEntry")), "");
-
-        for (StringIterC i = list.begin(), j = list.end(); i != j; ++i)
-        {
-                string ext = *i;
-                gtk_list_store_append(s->extensionStore, &iter);
-                gtk_list_store_set(s->extensionStore, &iter, 0, ext.c_str(), -1);
-        }
-        s->showExtensionDialog_gui(FALSE);
+    for (StringIterC i = list.begin(), j = list.end(); i != j; ++i)
+    {
+        string ext = *i;
+        gtk_list_store_append(s->extensionStore, &iter);
+        gtk_list_store_set(s->extensionStore, &iter, 0, ext.c_str(), -1);
+    }
+    s->showExtensionDialog_gui(FALSE);
 }
 
 void Settings::onRenameSTButton_gui(GtkWidget *widget, gpointer data)
 {
-        (void)widget;
-        Settings *s = (Settings *)data;
+    (void)widget;
+    Settings *s = (Settings *)data;
 
-        GtkTreeIter iter;
-        GtkTreeSelection *selection = gtk_tree_view_get_selection(s->searchTypeView.get());
-        string old_name, new_name;
+    GtkTreeIter iter;
+    GtkTreeSelection *selection = gtk_tree_view_get_selection(s->searchTypeView.get());
+    string old_name, new_name;
 
-        if (gtk_tree_selection_get_selected(selection, NULL, &iter))
+    if (gtk_tree_selection_get_selected(selection, NULL, &iter))
+    {
+        old_name = s->searchTypeView.getString(&iter, _("Search type"));
+    }
+    else
+        return;
+
+    GtkWidget *dialog = s->getWidget("nameDialog");
+    GtkWidget *entry = s->getWidget("nameDialogEntry");
+    gtk_window_set_title(GTK_WINDOW(dialog), _("Rename a search type"));
+    gtk_label_set_markup(GTK_LABEL(s->getWidget("labelNameDialog")), _("<b>New name</b>"));
+    gtk_entry_set_text(GTK_ENTRY(entry), old_name.c_str());
+
+    gint response = gtk_dialog_run(GTK_DIALOG(dialog));
+
+    if (response == GTK_RESPONSE_OK)
+    {
+        new_name = gtk_entry_get_text(GTK_ENTRY(entry));
+        gtk_widget_hide(dialog);
+        try
         {
-                old_name = s->searchTypeView.getString(&iter, _("Search type"));
+            SettingsManager::getInstance()->renameSearchType(old_name, new_name);
         }
-        else
-                return;
-
-        GtkWidget *dialog = s->getWidget("nameDialog");
-        GtkWidget *entry = s->getWidget("nameDialogEntry");
-        gtk_window_set_title(GTK_WINDOW(dialog), _("Rename a search type"));
-        gtk_label_set_markup(GTK_LABEL(s->getWidget("labelNameDialog")), _("<b>New name</b>"));
-        gtk_entry_set_text(GTK_ENTRY(entry), old_name.c_str());
-
-        gint response = gtk_dialog_run(GTK_DIALOG(dialog));
-
-        if (response == GTK_RESPONSE_OK)
+        catch (const SearchTypeException& e)
         {
-                new_name = gtk_entry_get_text(GTK_ENTRY(entry));
-                gtk_widget_hide(dialog);
-                try
-                {
-                        SettingsManager::getInstance()->renameSearchType(old_name, new_name);
-                }
-                catch (const SearchTypeException& e)
-                {
-                        s->showErrorDialog(e.getError());
-                        return;
-                }
+            s->showErrorDialog(e.getError());
+            return;
         }
-        else
-        {
-                gtk_widget_hide(dialog);
-                return;
-        }
+    }
+    else
+    {
+        gtk_widget_hide(dialog);
+        return;
+    }
 
-        gtk_list_store_set(s->searchTypeStore, &iter,
-                0, new_name.c_str(),
-                -1);
+    gtk_list_store_set(s->searchTypeStore, &iter,
+                       0, new_name.c_str(),
+                       -1);
 }
 
 void Settings::onRemoveSTButton_gui(GtkWidget *widget, gpointer data)
 {
-        (void)widget;
-        Settings *s = (Settings *)data;
+    (void)widget;
+    Settings *s = (Settings *)data;
 
-        GtkTreeIter iter;
-        GtkTreeSelection *selection = gtk_tree_view_get_selection(s->searchTypeView.get());
-        string name;
+    GtkTreeIter iter;
+    GtkTreeSelection *selection = gtk_tree_view_get_selection(s->searchTypeView.get());
+    string name;
 
-        if (gtk_tree_selection_get_selected(selection, NULL, &iter))
-        {
-                name = s->searchTypeView.getString(&iter, _("Search type"));
-        }
-        else
-                return;
+    if (gtk_tree_selection_get_selected(selection, NULL, &iter))
+    {
+        name = s->searchTypeView.getString(&iter, _("Search type"));
+    }
+    else
+        return;
 
-        try
-        {
-                SettingsManager::getInstance()->delSearchType(name);
-        }
-        catch (const SearchTypeException& e)
-        {
-                s->showErrorDialog(e.getError());
-                return;
-        }
-        gtk_list_store_remove(s->searchTypeStore, &iter);
+    try
+    {
+        SettingsManager::getInstance()->delSearchType(name);
+    }
+    catch (const SearchTypeException& e)
+    {
+        s->showErrorDialog(e.getError());
+        return;
+    }
+    gtk_list_store_remove(s->searchTypeStore, &iter);
 }
 
 void Settings::onDefaultSTButton_gui(GtkWidget *widget, gpointer data)
 {
-        (void)widget;
-        Settings *s = (Settings *)data;
+    (void)widget;
+    Settings *s = (Settings *)data;
 
-        gtk_list_store_clear(s->searchTypeStore);
-        SettingsManager::getInstance()->setSearchTypeDefaults();
+    gtk_list_store_clear(s->searchTypeStore);
+    SettingsManager::getInstance()->setSearchTypeDefaults();
 
-        // search types
-        const SettingsManager::SearchTypes &searchTypes = SettingsManager::getInstance()->getSearchTypes();
-        for (SettingsManager::SearchTypesIterC i = searchTypes.begin(), j = searchTypes.end(); i != j; ++i)
+    // search types
+    const SettingsManager::SearchTypes &searchTypes = SettingsManager::getInstance()->getSearchTypes();
+    for (SettingsManager::SearchTypesIterC i = searchTypes.begin(), j = searchTypes.end(); i != j; ++i)
+    {
+        string type = i->first;
+        bool predefined = false;
+        int key = SearchManager::TYPE_ANY;
+        if (type.size() == 1 && type[0] >= '1' && type[0] <= '7')
         {
-                string type = i->first;
-                bool predefined = false;
-                int key = SearchManager::TYPE_ANY;
-                if (type.size() == 1 && type[0] >= '1' && type[0] <= '7')
-                {
-                        key = type[0] - '0';
-                        if (type[0] == '7')
-                            key = 9;
-                        type = SearchManager::getTypeStr(key);
-                        predefined = true;
-                }
-                s->addOption_gui(s->searchTypeStore, type, i->second, predefined, key);
+            key = type[0] - '0';
+            if (type[0] == '7')
+                key = 9;
+            type = SearchManager::getTypeStr(key);
+            predefined = true;
         }
+        s->addOption_gui(s->searchTypeStore, type, i->second, predefined, key);
+    }
 }
 
 void Settings::onEditExtensionButton_gui(GtkWidget *widget, gpointer data)
 {
-        (void)widget;
-        Settings *s = (Settings *)data;
+    (void)widget;
+    Settings *s = (Settings *)data;
 
-        GtkTreeIter iter;
-        GtkTreeSelection *selection = gtk_tree_view_get_selection(s->extensionView.get());
-        string old_ext, new_ext;
+    GtkTreeIter iter;
+    GtkTreeSelection *selection = gtk_tree_view_get_selection(s->extensionView.get());
+    string old_ext, new_ext;
 
-        if (gtk_tree_selection_get_selected(selection, NULL, &iter))
+    if (gtk_tree_selection_get_selected(selection, NULL, &iter))
+    {
+        old_ext = s->extensionView.getString(&iter, _("Name"));
+    }
+    else
+        return;
+
+    GtkWidget *dialog = s->getWidget("nameDialog");
+    GtkWidget *entry = s->getWidget("nameDialogEntry");
+    gtk_window_set_title(GTK_WINDOW(dialog), _("Extension edition"));
+    gtk_label_set_markup(GTK_LABEL(s->getWidget("labelNameDialog")), _("<b>Extension</b>"));
+
+    gtk_entry_set_text(GTK_ENTRY(entry), old_ext.c_str());
+    gint response = gtk_dialog_run(GTK_DIALOG(dialog));
+
+    if (response == GTK_RESPONSE_OK)
+    {
+        new_ext = gtk_entry_get_text(GTK_ENTRY(entry));
+        if (new_ext.find(";") == string::npos && Util::checkExtension(new_ext))
         {
-                old_ext = s->extensionView.getString(&iter, _("Name"));
+            gtk_list_store_set(s->extensionStore, &iter,
+                               0, new_ext.c_str(),
+                               -1);
         }
         else
-                return;
-
-        GtkWidget *dialog = s->getWidget("nameDialog");
-        GtkWidget *entry = s->getWidget("nameDialogEntry");
-        gtk_window_set_title(GTK_WINDOW(dialog), _("Extension edition"));
-        gtk_label_set_markup(GTK_LABEL(s->getWidget("labelNameDialog")), _("<b>Extension</b>"));
-
-        gtk_entry_set_text(GTK_ENTRY(entry), old_ext.c_str());
-        gint response = gtk_dialog_run(GTK_DIALOG(dialog));
-
-        if (response == GTK_RESPONSE_OK)
-        {
-                new_ext = gtk_entry_get_text(GTK_ENTRY(entry));
-                if (new_ext.find(";") == string::npos && Util::checkExtension(new_ext))
-                {
-                        gtk_list_store_set(s->extensionStore, &iter,
-                                0, new_ext.c_str(),
-                                -1);
-                }
-                else
-                        s->showErrorDialog(string(_("Invalid extension: ")) + new_ext);
-        }
-        gtk_widget_hide(dialog);
+            s->showErrorDialog(string(_("Invalid extension: ")) + new_ext);
+    }
+    gtk_widget_hide(dialog);
 }
 
 void Settings::onRemoveExtensionButton_gui(GtkWidget *widget, gpointer data)
 {
-        (void)widget;
-        Settings *s = (Settings *)data;
+    (void)widget;
+    Settings *s = (Settings *)data;
 
-        GtkTreeIter iter;
-        GtkTreeSelection *selection = gtk_tree_view_get_selection(s->extensionView.get());
+    GtkTreeIter iter;
+    GtkTreeSelection *selection = gtk_tree_view_get_selection(s->extensionView.get());
 
-        if (gtk_tree_selection_get_selected(selection, NULL, &iter))
-        {
-                gtk_list_store_remove(s->extensionStore, &iter);
-        }
+    if (gtk_tree_selection_get_selected(selection, NULL, &iter))
+    {
+        gtk_list_store_remove(s->extensionStore, &iter);
+    }
 }
 
 void Settings::onUpExtensionButton_gui(GtkWidget *widget, gpointer data)
 {
-        (void)widget;
-        Settings *s = (Settings *)data;
-        GtkTreeIter prev, current;
-        GtkTreeModel *m = GTK_TREE_MODEL(s->extensionStore);
-        GtkTreeSelection *sel = gtk_tree_view_get_selection(s->extensionView.get());
+    (void)widget;
+    Settings *s = (Settings *)data;
+    GtkTreeIter prev, current;
+    GtkTreeModel *m = GTK_TREE_MODEL(s->extensionStore);
+    GtkTreeSelection *sel = gtk_tree_view_get_selection(s->extensionView.get());
 
-        if (gtk_tree_selection_get_selected(sel, NULL, &current))
-        {
-                GtkTreePath *path = gtk_tree_model_get_path(m, &current);
-                if (gtk_tree_path_prev(path) && gtk_tree_model_get_iter(m, &prev, path))
-                        gtk_list_store_swap(s->extensionStore, &current, &prev);
-                gtk_tree_path_free(path);
-        }
+    if (gtk_tree_selection_get_selected(sel, NULL, &current))
+    {
+        GtkTreePath *path = gtk_tree_model_get_path(m, &current);
+        if (gtk_tree_path_prev(path) && gtk_tree_model_get_iter(m, &prev, path))
+            gtk_list_store_swap(s->extensionStore, &current, &prev);
+        gtk_tree_path_free(path);
+    }
 }
 
 void Settings::onDownExtensionButton_gui(GtkWidget *widget, gpointer data)
 {
-        (void)widget;
-        Settings *s = (Settings *)data;
-        GtkTreeIter current, next;
-        GtkTreeSelection *sel = gtk_tree_view_get_selection(s->extensionView.get());
+    (void)widget;
+    Settings *s = (Settings *)data;
+    GtkTreeIter current, next;
+    GtkTreeSelection *sel = gtk_tree_view_get_selection(s->extensionView.get());
 
-        if (gtk_tree_selection_get_selected(sel, NULL, &current))
-        {
-                next = current;
-                if (gtk_tree_model_iter_next(GTK_TREE_MODEL(s->extensionStore), &next))
-                        gtk_list_store_swap(s->extensionStore, &current, &next);
-        }
+    if (gtk_tree_selection_get_selected(sel, NULL, &current))
+    {
+        next = current;
+        if (gtk_tree_model_iter_next(GTK_TREE_MODEL(s->extensionStore), &next))
+            gtk_list_store_swap(s->extensionStore, &current, &next);
+    }
 }
 void Settings::onNoUseTempDir_gui(GtkToggleButton *button, gpointer data)
 {
@@ -2306,7 +2306,7 @@ void Settings::onNotifyTestButton_gui(GtkWidget *widget, gpointer data)
         string icon = s->notifyView.getString(&iter, _("Icon"));
         NotifyUrgency urgency = (NotifyUrgency)s->notifyView.getValue<int>(&iter, "Urgency");
         Notify::get()->showNotify(title, "<span weight=\"bold\" size=\"larger\">" + string(_("*** T E S T ***")) + "</span>",
-            "", icon, gtk_combo_box_get_active(GTK_COMBO_BOX(s->getWidget("notifyIconSizeComboBox"))), urgency);
+                                  "", icon, gtk_combo_box_get_active(GTK_COMBO_BOX(s->getWidget("notifyIconSizeComboBox"))), urgency);
     }
 }
 
@@ -2456,7 +2456,7 @@ void Settings::onNotifyDefaultButton_gui(GtkWidget *widget, gpointer data)
             gtk_list_store_set(s->notifyStore, &iter, s->notifyView.col("icon"), icon, -1);
 
         gtk_list_store_set(s->notifyStore, &iter,
-            s->notifyView.col(_("Icon")), path.c_str(), s->notifyView.col(_("Title")), _(title.c_str()), -1);
+                           s->notifyView.col(_("Icon")), path.c_str(), s->notifyView.col(_("Title")), _(title.c_str()), -1);
     }
     else
         s->showErrorDialog(_("...must not be empty"));
@@ -2577,12 +2577,12 @@ void Settings::onDefaultColorsSPButton_gui(GtkWidget *widget, gpointer data)
     Settings *s = (Settings *)data;
 
 #if GTK_CHECK_VERSION(3,4,0)
-GdkRGBA color;
+    GdkRGBA color;
 #define g_c_b_s gtk_color_chooser_get_rgba
 #define G_C_B GTK_COLOR_CHOOSER
 #define g_c_p(a,b) gdk_rgba_parse(b,a)
 #else
-GdkColor color;
+    GdkColor color;
 #define g_c_b_s gtk_color_button_get_color
 #define G_C_B GTK_COLOR_BUTTON
 #define g_c_p(a,b) gdk_color_parse(a,b)
@@ -2624,75 +2624,75 @@ void Settings::onDefaultFrameSPButton_gui(GtkWidget *widget, gpointer data)
 
 void Settings::onEnableDynDNSCheckToggled_gui(GtkWidget *widget, gpointer data)
 {
-        (void)widget;
-        Settings *s = (Settings *)data;
+    (void)widget;
+    Settings *s = (Settings *)data;
 
-        if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(s->getWidget("enableDynDNSCheckButton"))))
-        {
-                gtk_widget_set_sensitive(s->getWidget("dyndnsEntry"), TRUE);
-                gtk_widget_set_sensitive(s->getWidget("dyndnsLabel"), TRUE);
-        }
-        else
-        {
-                gtk_widget_set_sensitive(s->getWidget("dyndnsEntry"), FALSE);
-                gtk_widget_set_sensitive(s->getWidget("dyndnsLabel"), FALSE);
-        }
+    if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(s->getWidget("enableDynDNSCheckButton"))))
+    {
+        gtk_widget_set_sensitive(s->getWidget("dyndnsEntry"), TRUE);
+        gtk_widget_set_sensitive(s->getWidget("dyndnsLabel"), TRUE);
+    }
+    else
+    {
+        gtk_widget_set_sensitive(s->getWidget("dyndnsEntry"), FALSE);
+        gtk_widget_set_sensitive(s->getWidget("dyndnsLabel"), FALSE);
+    }
 }
 
 void Settings::onDHTCheckToggled_gui(GtkWidget *widget, gpointer data)
 {
-        (void)widget;
-        Settings *s = (Settings *)data;
+    (void)widget;
+    Settings *s = (Settings *)data;
 
-        if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(s->getWidget("useDHTCheckButton"))))
-        {
-                gtk_widget_set_sensitive(s->getWidget("dhtEntry"), TRUE);
-                gtk_widget_set_sensitive(s->getWidget("dhtLabel"), TRUE);
-        }
-        else
-        {
-                gtk_widget_set_sensitive(s->getWidget("dhtEntry"), FALSE);
-                gtk_widget_set_sensitive(s->getWidget("dhtLabel"), FALSE);
-        }
+    if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(s->getWidget("useDHTCheckButton"))))
+    {
+        gtk_widget_set_sensitive(s->getWidget("dhtEntry"), TRUE);
+        gtk_widget_set_sensitive(s->getWidget("dhtLabel"), TRUE);
+    }
+    else
+    {
+        gtk_widget_set_sensitive(s->getWidget("dhtEntry"), FALSE);
+        gtk_widget_set_sensitive(s->getWidget("dhtLabel"), FALSE);
+    }
 }
 
 
 void Settings::onLimitToggled_gui(GtkWidget *widget, gpointer data)
 {
-        (void)widget;
-        Settings *s = (Settings *)data;
+    (void)widget;
+    Settings *s = (Settings *)data;
 
-        if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(s->getWidget("useLimitCheckButton"))))
-        {
-                gtk_widget_set_sensitive(s->getWidget("transferSettingsFrame"), TRUE);
-                gtk_widget_set_sensitive(s->getWidget("secondaryTransferSwitcherFrame"), TRUE);
-                onLimitSecondToggled_gui(NULL, (gpointer)s);
-        }
-        else
-        {
-                gtk_widget_set_sensitive(s->getWidget("transferSettingsFrame"), FALSE);
-                gtk_widget_set_sensitive(s->getWidget("secondaryTransferSwitcherFrame"), FALSE);
-                gtk_widget_set_sensitive(s->getWidget("secondaryTransferSettingsFrame"), FALSE);
-        }
+    if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(s->getWidget("useLimitCheckButton"))))
+    {
+        gtk_widget_set_sensitive(s->getWidget("transferSettingsFrame"), TRUE);
+        gtk_widget_set_sensitive(s->getWidget("secondaryTransferSwitcherFrame"), TRUE);
+        onLimitSecondToggled_gui(NULL, (gpointer)s);
+    }
+    else
+    {
+        gtk_widget_set_sensitive(s->getWidget("transferSettingsFrame"), FALSE);
+        gtk_widget_set_sensitive(s->getWidget("secondaryTransferSwitcherFrame"), FALSE);
+        gtk_widget_set_sensitive(s->getWidget("secondaryTransferSettingsFrame"), FALSE);
+    }
 }
 
 void Settings::onLimitSecondToggled_gui(GtkWidget *widget, gpointer data)
 {
-        (void)widget;
-        Settings *s = (Settings *)data;
+    (void)widget;
+    Settings *s = (Settings *)data;
 
-        if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(s->getWidget("useLimitSecondCheckButton"))))
-        {
-                gtk_widget_set_sensitive(s->getWidget("secondaryTransferSettingsFrame"), TRUE);
-                gtk_widget_set_sensitive(s->getWidget("limitsFromCombobox"), TRUE);
-                gtk_widget_set_sensitive(s->getWidget("limitsToCombobox"), TRUE);
-        }
-        else
-        {
-                gtk_widget_set_sensitive(s->getWidget("secondaryTransferSettingsFrame"), FALSE);
-                gtk_widget_set_sensitive(s->getWidget("limitsFromCombobox"), FALSE);
-                gtk_widget_set_sensitive(s->getWidget("limitsToCombobox"), FALSE);
-        }
+    if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(s->getWidget("useLimitSecondCheckButton"))))
+    {
+        gtk_widget_set_sensitive(s->getWidget("secondaryTransferSettingsFrame"), TRUE);
+        gtk_widget_set_sensitive(s->getWidget("limitsFromCombobox"), TRUE);
+        gtk_widget_set_sensitive(s->getWidget("limitsToCombobox"), TRUE);
+    }
+    else
+    {
+        gtk_widget_set_sensitive(s->getWidget("secondaryTransferSettingsFrame"), FALSE);
+        gtk_widget_set_sensitive(s->getWidget("limitsFromCombobox"), FALSE);
+        gtk_widget_set_sensitive(s->getWidget("limitsToCombobox"), FALSE);
+    }
 }
 
 
@@ -2708,12 +2708,12 @@ void Settings::applyIconsTheme(bool useDefault)
         string keyIcon = themeIconsView.getString(&iter, "keyIcon");
         string iconName = getStringTheme(keyIcon, useDefault);
         GdkPixbuf *icon = gtk_icon_theme_load_icon(iconTheme, iconName.c_str(),
-            ICON_SIZE, GTK_ICON_LOOKUP_FORCE_SVG, NULL);
+                                                   ICON_SIZE, GTK_ICON_LOOKUP_FORCE_SVG, NULL);
 
         gtk_list_store_set(themeIconsStore, &iter,
-            themeIconsView.col("icon"), icon,
-            themeIconsView.col("iconName"), iconName.c_str(),
-            -1);
+                           themeIconsView.col("icon"), icon,
+                           themeIconsView.col("iconName"), iconName.c_str(),
+                           -1);
 
         if (icon)
             g_object_unref(icon);
@@ -2741,21 +2741,21 @@ void Settings::applyTextTheme(bool useDefault)
         italic = getIntTheme(textStyleView.getString(&iter, "keyItalic"), useDefault);
 
         gtk_list_store_set(textStyleStore, &iter,
-            textStyleView.col("ForeColor"), fore.c_str(),
-            textStyleView.col("BackColor"), back.c_str(),
-            textStyleView.col("Bolt"), bolt,
-            textStyleView.col("Italic"), italic,
-            -1);
+                           textStyleView.col("ForeColor"), fore.c_str(),
+                           textStyleView.col("BackColor"), back.c_str(),
+                           textStyleView.col("Bolt"), bolt,
+                           textStyleView.col("Italic"), italic,
+                           -1);
 
         GtkTextTag *tag = gtk_text_tag_table_lookup(tag_table, style.c_str());
 
         if (tag)
             g_object_set(tag,
-                "foreground", fore.c_str(),
-                "background", back.c_str(),
-                "weight", bolt ? TEXT_WEIGHT_BOLD : TEXT_WEIGHT_NORMAL,
-                "style", italic ? TEXT_STYLE_ITALIC : TEXT_STYLE_NORMAL,
-                NULL);
+                         "foreground", fore.c_str(),
+                         "background", back.c_str(),
+                         "weight", bolt ? TEXT_WEIGHT_BOLD : TEXT_WEIGHT_NORMAL,
+                         "style", italic ? TEXT_STYLE_ITALIC : TEXT_STYLE_NORMAL,
+                         NULL);
 
         valid = gtk_tree_model_iter_next(m, &iter);
     }
@@ -3027,10 +3027,10 @@ void Settings::onPreviewAdd_gui(GtkWidget *widget, gpointer data)
         GtkTreeIter it;
         gtk_list_store_append(s->previewAppToStore, &it);
         gtk_list_store_set(s->previewAppToStore, &it,
-            s->previewAppView.col(_("Name")), name.c_str(),
-            s->previewAppView.col(_("Application")), app.c_str(),
-            s->previewAppView.col(_("Extensions")), ext.c_str(),
-            -1);
+                           s->previewAppView.col(_("Name")), name.c_str(),
+                           s->previewAppView.col(_("Application")), app.c_str(),
+                           s->previewAppView.col(_("Extensions")), ext.c_str(),
+                           -1);
     }
 }
 
@@ -3114,10 +3114,10 @@ void Settings::onPreviewApply_gui(GtkWidget *widget, gpointer data)
         if (WulforSettingsManager::getInstance()->applyPreviewApp(oldName, name, app, ext))
         {
             gtk_list_store_set(s->previewAppToStore, &iter,
-                s->previewAppView.col(_("Name")), name.c_str(),
-                s->previewAppView.col(_("Application")), app.c_str(),
-                s->previewAppView.col(_("Extensions")), ext.c_str(),
-                -1);
+                               s->previewAppView.col(_("Name")), name.c_str(),
+                               s->previewAppView.col(_("Application")), app.c_str(),
+                               s->previewAppView.col(_("Extensions")), ext.c_str(),
+                               -1);
         }
     }
 }
@@ -3142,17 +3142,17 @@ void Settings::onAddShare_gui(GtkWidget *widget, gpointer data)
             if (path[path.length() - 1] != PATH_SEPARATOR)
                 path += PATH_SEPARATOR;
 
-                        GtkWidget *dialog = s->getWidget("nameDialog");
-                        gtk_window_set_title(GTK_WINDOW(dialog), _("Virtual name"));
-                        gtk_entry_set_text(GTK_ENTRY(s->getWidget("nameDialogEntry")), Util::getLastDir(path).c_str());
-                        gtk_editable_select_region(GTK_EDITABLE(s->getWidget("nameDialogEntry")), 0, -1);
-                        gtk_label_set_markup(GTK_LABEL(s->getWidget("labelNameDialog")), _("<b>Name under which the others see the directory</b>"));
-                        response = gtk_dialog_run(GTK_DIALOG(dialog));
-                        gtk_widget_hide(dialog);
+            GtkWidget *dialog = s->getWidget("nameDialog");
+            gtk_window_set_title(GTK_WINDOW(dialog), _("Virtual name"));
+            gtk_entry_set_text(GTK_ENTRY(s->getWidget("nameDialogEntry")), Util::getLastDir(path).c_str());
+            gtk_editable_select_region(GTK_EDITABLE(s->getWidget("nameDialogEntry")), 0, -1);
+            gtk_label_set_markup(GTK_LABEL(s->getWidget("labelNameDialog")), _("<b>Name under which the others see the directory</b>"));
+            response = gtk_dialog_run(GTK_DIALOG(dialog));
+            gtk_widget_hide(dialog);
 
             if (response == GTK_RESPONSE_OK)
             {
-                                string name = gtk_entry_get_text(GTK_ENTRY(s->getWidget("nameDialogEntry")));
+                string name = gtk_entry_get_text(GTK_ENTRY(s->getWidget("nameDialogEntry")));
                 typedef Func2<Settings, string, string> F2;
                 F2 *func = new F2(s, &Settings::addShare_client, path, name);
                 WulforManager::get()->dispatchClientFunc(func);
@@ -3190,8 +3190,8 @@ void Settings::selectTextColor_gui(const int select)
         while (valid)
         {
             gtk_list_store_set(textStyleStore, &iter,
-                textStyleView.col("ForeColor"), "#000000",
-                textStyleView.col("BackColor"), "#FFFFFF", -1);
+                               textStyleView.col("ForeColor"), "#000000",
+                               textStyleView.col("BackColor"), "#FFFFFF", -1);
 
             style = textStyleView.getString(&iter, "Style");
             tag = gtk_text_tag_table_lookup(tag_table, style.c_str());
@@ -3304,27 +3304,27 @@ void Settings::selectTextStyle_gui(const int select)
             italic = wsm->getInt(textStyleView.getString(&iter, "keyItalic"), true);
 
             gtk_list_store_set(textStyleStore, &iter,
-                textStyleView.col("ForeColor"), fore.c_str(),
-                textStyleView.col("BackColor"), back.c_str(),
-                textStyleView.col("Bolt"), bolt,
-                textStyleView.col("Italic"), italic,
-                -1);
+                               textStyleView.col("ForeColor"), fore.c_str(),
+                               textStyleView.col("BackColor"), back.c_str(),
+                               textStyleView.col("Bolt"), bolt,
+                               textStyleView.col("Italic"), italic,
+                               -1);
 
             tag = gtk_text_tag_table_lookup(tag_table, style.c_str());
 
             if (tag)
                 WGETB("use-native-back-color-for-text") ?
-                g_object_set(tag,
-                    "foreground", fore.c_str(),
-                    "weight", bolt ? TEXT_WEIGHT_BOLD : TEXT_WEIGHT_NORMAL,
-                    "style", italic ? TEXT_STYLE_ITALIC : TEXT_STYLE_NORMAL,
-                    NULL) :
-                 g_object_set(tag,
-                    "foreground", fore.c_str(),
-                    "background", back.c_str(),
-                    "weight", bolt ? TEXT_WEIGHT_BOLD : TEXT_WEIGHT_NORMAL,
-                    "style", italic ? TEXT_STYLE_ITALIC : TEXT_STYLE_NORMAL,
-                    NULL);
+                            g_object_set(tag,
+                                         "foreground", fore.c_str(),
+                                         "weight", bolt ? TEXT_WEIGHT_BOLD : TEXT_WEIGHT_NORMAL,
+                                         "style", italic ? TEXT_STYLE_ITALIC : TEXT_STYLE_NORMAL,
+                                         NULL) :
+                            g_object_set(tag,
+                                         "foreground", fore.c_str(),
+                                         "background", back.c_str(),
+                                         "weight", bolt ? TEXT_WEIGHT_BOLD : TEXT_WEIGHT_NORMAL,
+                                         "style", italic ? TEXT_STYLE_ITALIC : TEXT_STYLE_NORMAL,
+                                         NULL);
 
             valid = gtk_tree_model_iter_next(m, &iter);
         }
@@ -3372,9 +3372,9 @@ void Settings::selectTextStyle_gui(const int select)
 
             if (tag)
                 g_object_set(tag,
-                    "weight", bolt ? TEXT_WEIGHT_BOLD : TEXT_WEIGHT_NORMAL,
-                    "style", italic ? TEXT_STYLE_ITALIC : TEXT_STYLE_NORMAL,
-                    NULL);
+                             "weight", bolt ? TEXT_WEIGHT_BOLD : TEXT_WEIGHT_NORMAL,
+                             "style", italic ? TEXT_STYLE_ITALIC : TEXT_STYLE_NORMAL,
+                             NULL);
             gtk_widget_queue_draw(getWidget("textViewPreviewStyles"));
         }
     }
@@ -3394,10 +3394,10 @@ void Settings::loadUserCommands_gui()
         {
             gtk_list_store_append(userCommandStore, &iter);
             gtk_list_store_set(userCommandStore, &iter,
-                userCommandView.col(_("Name")), uc.getName().c_str(),
-                userCommandView.col(_("Hub")), uc.getHub().c_str(),
-                userCommandView.col(_("Command")), uc.getCommand().c_str(),
-                -1);
+                               userCommandView.col(_("Name")), uc.getName().c_str(),
+                               userCommandView.col(_("Hub")), uc.getHub().c_str(),
+                               userCommandView.col(_("Command")), uc.getCommand().c_str(),
+                               -1);
         }
     }
 }
@@ -3468,10 +3468,10 @@ void Settings::saveUserCommand(UserCommand *uc)
     }
 
     gtk_list_store_set(userCommandStore, &iter,
-        userCommandView.col(_("Name")), name.c_str(),
-        userCommandView.col(_("Hub")), hub.c_str(),
-        userCommandView.col(_("Command")), command.c_str(),
-        -1);
+                       userCommandView.col(_("Name")), name.c_str(),
+                       userCommandView.col(_("Hub")), hub.c_str(),
+                       userCommandView.col(_("Command")), command.c_str(),
+                       -1);
 }
 
 
@@ -3530,7 +3530,7 @@ bool Settings::validateUserCommandInput(const string &oldName)
 void Settings::showErrorDialog(const string error)
 {
     GtkWidget *errorDialog = gtk_message_dialog_new(GTK_WINDOW(getWidget("dialog")),
-        GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_ERROR, GTK_BUTTONS_OK, "%s", error.c_str());
+                                                    GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_ERROR, GTK_BUTTONS_OK, "%s", error.c_str());
     gtk_window_set_modal(GTK_WINDOW(errorDialog), TRUE);
     g_signal_connect(errorDialog, "response", G_CALLBACK(gtk_widget_destroy), errorDialog);
     gtk_widget_show(errorDialog);
@@ -3818,9 +3818,9 @@ void Settings::onAddFavorite_gui(GtkWidget *widget, gpointer data)
                     GtkTreeIter iter;
                     gtk_list_store_append(s->downloadToStore, &iter);
                     gtk_list_store_set(s->downloadToStore, &iter,
-                        s->downloadToView.col(_("Favorite Name")), name.c_str(),
-                        s->downloadToView.col(_("Directory")), path.c_str(),
-                        -1);
+                                       s->downloadToView.col(_("Favorite Name")), name.c_str(),
+                                       s->downloadToView.col(_("Directory")), path.c_str(),
+                                       -1);
                 }
                 else
                 {
@@ -3871,11 +3871,11 @@ void Settings::addShare_gui(string path, string name, int64_t size)
     GtkTreeIter iter;
     gtk_list_store_append(shareStore, &iter);
     gtk_list_store_set(shareStore, &iter,
-        shareView.col(_("Virtual Name")), name.c_str(),
-        shareView.col(_("Directory")), path.c_str(),
-        shareView.col(_("Size")), Util::formatBytes(size).c_str(),
-        shareView.col("Real Size"), size,
-        -1);
+                       shareView.col(_("Virtual Name")), name.c_str(),
+                       shareView.col(_("Directory")), path.c_str(),
+                       shareView.col(_("Size")), Util::formatBytes(size).c_str(),
+                       shareView.col("Real Size"), size,
+                       -1);
 }
 
 void Settings::onRemoveShare_gui(GtkWidget *widget, gpointer data)
@@ -3916,44 +3916,44 @@ gboolean Settings::onShareHiddenPressed_gui(GtkToggleButton *togglebutton, gpoin
     (void)togglebutton;
     Settings *s = (Settings *)data;
 
-        bool show = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(s->getWidget("shareHiddenCheckButton")));
+    bool show = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(s->getWidget("shareHiddenCheckButton")));
 
     Func1<Settings, bool> *func = new Func1<Settings, bool>(s, &Settings::shareHidden_client, show);
     WulforManager::get()->dispatchClientFunc(func);
 
-        return FALSE;
+    return FALSE;
 }
 
 void Settings::updateShares_gui()
 {
-        GtkTreeIter iter;
-        int64_t size = 0;
-        string vname;
+    GtkTreeIter iter;
+    int64_t size = 0;
+    string vname;
 
-        gtk_list_store_clear(shareStore);
+    gtk_list_store_clear(shareStore);
     StringPairList directories = ShareManager::getInstance()->getDirectories();
     for (auto it = directories.begin(); it != directories.end(); ++it)
     {
         size = ShareManager::getInstance()->getShareSize(it->second);
 
-                if (size == -1 && !BOOLSETTING(SHARE_HIDDEN))
-                {
-                        vname = _("[HIDDEN SHARE] ") + it->first;
-                        size = 0;
-                } else
-                        vname = it->first;
+        if (size == -1 && !BOOLSETTING(SHARE_HIDDEN))
+        {
+            vname = _("[HIDDEN SHARE] ") + it->first;
+            size = 0;
+        } else
+            vname = it->first;
 
-                gtk_list_store_append(shareStore, &iter);
-                gtk_list_store_set(shareStore, &iter,
-                        shareView.col(_("Virtual Name")), vname.c_str(),
-                        shareView.col(_("Directory")), it->second.c_str(),
-                        shareView.col(_("Size")), Util::formatBytes(size).c_str(),
-                        shareView.col("Real Size"), size,
-            -1);
+        gtk_list_store_append(shareStore, &iter);
+        gtk_list_store_set(shareStore, &iter,
+                           shareView.col(_("Virtual Name")), vname.c_str(),
+                           shareView.col(_("Directory")), it->second.c_str(),
+                           shareView.col(_("Size")), Util::formatBytes(size).c_str(),
+                           shareView.col("Real Size"), size,
+                           -1);
     }
 
     string text = _("Total size: ") + Util::formatBytes(ShareManager::getInstance()->getShareSize());
-        gtk_label_set_text(GTK_LABEL(getWidget("sharedSizeLabel")), text.c_str());
+    gtk_label_set_text(GTK_LABEL(getWidget("sharedSizeLabel")), text.c_str());
 }
 
 void Settings::onLogBrowseClicked_gui(GtkWidget *widget, gpointer data)
@@ -4102,7 +4102,7 @@ void Settings::onUserCommandEdit_gui(GtkWidget *widget, gpointer data)
             // Chat Command
             if((!strncmp(command.c_str(), "<%[mynick]> ", 12) ||
                 !strncmp(command.c_str(), "<%[myNI]> ", 10)) &&
-                command.find('|') == command.length() - 1)
+                    command.find('|') == command.length() - 1)
             {
                 string::size_type i = command.find('>') + 2;
                 command = NmdcHub::validateMessage(command.substr(i, command.length() - i - 1), TRUE);
@@ -4110,9 +4110,9 @@ void Settings::onUserCommandEdit_gui(GtkWidget *widget, gpointer data)
             }
             // PM command
             else if (!strncmp(command.c_str(), "$To: ", 5) && (
-                command.find(" From: %[myNI] $<%[myNI]> ") != string::npos ||
-                command.find(" From: %[mynick] $<%[mynick]> ") != string::npos) &&
-                command.find('|') == command.length() - 1)
+                         command.find(" From: %[myNI] $<%[myNI]> ") != string::npos ||
+                         command.find(" From: %[mynick] $<%[mynick]> ") != string::npos) &&
+                     command.find('|') == command.length() - 1)
             {
                 string::size_type i = command.find(' ', 5);
                 nick = command.substr(5, i - 5);

@@ -516,14 +516,14 @@ void Transfers::addConnection_gui(StringMap params, bool download)
 
     gtk_tree_store_append(transferStore, &iter, NULL);
     gtk_tree_store_set(transferStore, &iter,
-        transferView.col(_("User")), params["User"].c_str(),
-        transferView.col(_("Hub Name")), params["Hub Name"].c_str(),
-        transferView.col(_("Status")), params["Status"].c_str(),
-        transferView.col("CID"), params["CID"].c_str(),
-        transferView.col("Icon"), download ? "icon-download" : "icon-upload",
-        transferView.col("Download"), download,
-        transferView.col("Hub URL"), params["Hub URL"].c_str(),
-        -1);
+                       transferView.col(_("User")), params["User"].c_str(),
+            transferView.col(_("Hub Name")), params["Hub Name"].c_str(),
+            transferView.col(_("Status")), params["Status"].c_str(),
+            transferView.col("CID"), params["CID"].c_str(),
+            transferView.col("Icon"), download ? "icon-download" : "icon-upload",
+            transferView.col("Download"), download,
+            transferView.col("Hub URL"), params["Hub URL"].c_str(),
+            -1);
 }
 
 void Transfers::removeConnection_gui(const string cid, bool download)
@@ -575,7 +575,7 @@ void Transfers::updateParent_gui(GtkTreeIter* iter)
         while (valid)
         {
             if (transferView.getValue<int>(&child, "Failed") == 0 &&
-                transferView.getString(&child, "Sort Order").substr(0,1) == "d")
+                    transferView.getString(&child, "Sort Order").substr(0,1) == "d")
             {
                 active++;
                 speed += transferView.getValue<int64_t>(&child, _("Speed"));
@@ -612,16 +612,16 @@ void Transfers::updateParent_gui(GtkTreeIter* iter)
     std::copy(hubs.begin(), hubs.end(), std::ostream_iterator<string>(tmpHubs, ", "));
 
     gtk_tree_store_set(transferStore, iter,
-        transferView.col(_("User")), susers.str().c_str(),
-        transferView.col(_("Hub Name")), tmpHubs.str().substr(0, tmpHubs.str().length()-2).c_str(),
-        transferView.col(_("Speed")), speed,
-        transferView.col(_("Transferred")), Util::formatBytes(position).c_str(),
-        transferView.col(_("Time Left")), timeLeft,
-        transferView.col(_("Progress")), sprogress.c_str(),
-        transferView.col(_("Status")), status.c_str(),
-        transferView.col("Progress Hidden"), static_cast<int>(progress),
-        transferView.col("Sort Order"), active ? (string("d").append(users)).c_str() : (string("w").append(users)).c_str(),
-        -1);
+                       transferView.col(_("User")), susers.str().c_str(),
+                       transferView.col(_("Hub Name")), tmpHubs.str().substr(0, tmpHubs.str().length()-2).c_str(),
+                       transferView.col(_("Speed")), speed,
+                       transferView.col(_("Transferred")), Util::formatBytes(position).c_str(),
+                       transferView.col(_("Time Left")), timeLeft,
+                       transferView.col(_("Progress")), sprogress.c_str(),
+                       transferView.col(_("Status")), status.c_str(),
+                       transferView.col("Progress Hidden"), static_cast<int>(progress),
+                       transferView.col("Sort Order"), active ? (string("d").append(users)).c_str() : (string("w").append(users)).c_str(),
+                       -1);
 }
 
 void Transfers::updateTransfer_gui(StringMap params, bool download, Sound::TypeSound sound)
@@ -669,8 +669,8 @@ void Transfers::updateFilePosition_gui(const string cid, int64_t filePosition)
     if (gtk_tree_model_iter_parent(GTK_TREE_MODEL(transferStore), &parent, &iter))
     {
         gtk_tree_store_set(transferStore, &parent,
-            transferView.col("Download Position"), filePosition,
-            -1);
+                           transferView.col("Download Position"), filePosition,
+                           -1);
         updateParent_gui(&parent);
     }
 }
@@ -717,8 +717,8 @@ void Transfers::initTransfer_gui(StringMap params)
                 if (transferView.getValue<int>(&newParent, "Failed"))
                 {
                     gtk_tree_store_set(transferStore, &newParent,
-                        transferView.col("Failed"), FALSE,
-                        -1);
+                                       transferView.col("Failed"), FALSE,
+                                       -1);
                 }
 
                 oldParentValid = FALSE; // Don't update the parentRow twice, since old and new are the same (and definately don't remove twice)
@@ -732,13 +732,13 @@ void Transfers::initTransfer_gui(StringMap params)
             gtk_tree_store_append(transferStore, &newParent, NULL);
             newParentValid = TRUE;
             gtk_tree_store_set(transferStore, &newParent,
-                transferView.col(_("Filename")), filename.c_str(),
-                transferView.col(_("Path")), params["Path"].c_str(),
-                transferView.col(_("Size")), Util::toInt64(params["File Size"]),
-                transferView.col("Icon"), "icon-download",
-                transferView.col("Download"), TRUE,
-                transferView.col("Target"), params["Target"].c_str(),
-                -1);
+                               transferView.col(_("Filename")), filename.c_str(),
+                               transferView.col(_("Path")), params["Path"].c_str(),
+                    transferView.col(_("Size")), Util::toInt64(params["File Size"]),
+                    transferView.col("Icon"), "icon-download",
+                    transferView.col("Download"), TRUE,
+                    transferView.col("Target"), params["Target"].c_str(),
+                    -1);
 
             newIter = WulforUtil::copyRow_gui(transferStore, &iter, &newParent);
             gtk_tree_store_remove(transferStore, &iter);
@@ -746,7 +746,7 @@ void Transfers::initTransfer_gui(StringMap params)
         }
 
         gtk_tree_store_set(transferStore, &newParent,
-                transferView.col(_("Size")), Util::toInt64(params["File Size"]),
+                           transferView.col(_("Size")), Util::toInt64(params["File Size"]),
                 transferView.col("Download Position"), Util::toInt64(params["File Position"]),
                 -1);
     }
@@ -781,10 +781,10 @@ void Transfers::finishParent_gui(const string target, const string status, Sound
         if (transferView.getValue<gboolean>(&iter, "Failed") == 0)
         {
             gtk_tree_store_set(transferStore, &iter,
-                transferView.col(_("Status")), status.c_str(),
-                transferView.col("Failed"), (gboolean)1,
-                transferView.col(_("Speed")), (uint64_t)-1,
-                -1);
+                               transferView.col(_("Status")), status.c_str(),
+                               transferView.col("Failed"), (gboolean)1,
+                               transferView.col(_("Speed")), (uint64_t)-1,
+                               -1);
         }
     }
 

@@ -171,7 +171,7 @@ PrivateMessage::PrivateMessage(const string &cid, const string &hubUrl):
 
 PrivateMessage::~PrivateMessage()
 {
-        ClientManager::getInstance()->removeListener(this);
+    ClientManager::getInstance()->removeListener(this);
 
     if (handCursor)
     {
@@ -193,7 +193,7 @@ PrivateMessage::~PrivateMessage()
 
 void PrivateMessage::show()
 {
-        ClientManager::getInstance()->addListener(this);
+    ClientManager::getInstance()->addListener(this);
 }
 
 void PrivateMessage::addMessage_gui(string message, Msg::TypeMsg typemsg)
@@ -259,17 +259,17 @@ void PrivateMessage::preferences_gui()
         getSettingTag_gui(wsm, (TypeTag)i, fore, back, bold, italic);
 
         WGETB("use-native-back-color-for-text") ?
-        g_object_set(TagsMap[i],
-            "foreground", fore.c_str(),
-            "weight", bold ? TEXT_WEIGHT_BOLD : TEXT_WEIGHT_NORMAL,
-            "style", italic ? TEXT_STYLE_ITALIC : TEXT_STYLE_NORMAL,
-            NULL) :
-            g_object_set(TagsMap[i],
-            "foreground", fore.c_str(),
-            "background", back.c_str(),
-            "weight", bold ? TEXT_WEIGHT_BOLD : TEXT_WEIGHT_NORMAL,
-            "style", italic ? TEXT_STYLE_ITALIC : TEXT_STYLE_NORMAL,
-            NULL);
+                    g_object_set(TagsMap[i],
+                                 "foreground", fore.c_str(),
+                                 "weight", bold ? TEXT_WEIGHT_BOLD : TEXT_WEIGHT_NORMAL,
+                                 "style", italic ? TEXT_STYLE_ITALIC : TEXT_STYLE_NORMAL,
+                                 NULL) :
+                    g_object_set(TagsMap[i],
+                                 "foreground", fore.c_str(),
+                                 "background", back.c_str(),
+                                 "weight", bold ? TEXT_WEIGHT_BOLD : TEXT_WEIGHT_NORMAL,
+                                 "style", italic ? TEXT_STYLE_ITALIC : TEXT_STYLE_NORMAL,
+                                 NULL);
     }
 
     gtk_widget_queue_draw(getWidget("text"));
@@ -314,42 +314,42 @@ void PrivateMessage::addLine_gui(Msg::TypeMsg typemsg, const string &message)
 
     switch (typemsg)
     {
-        case Msg::MYOWN:
+    case Msg::MYOWN:
 
-            tagMsg = TAG_MYOWN;
-            tagNick = TAG_MYNICK;
+        tagMsg = TAG_MYOWN;
+        tagNick = TAG_MYNICK;
         break;
 
-        case Msg::SYSTEM:
+    case Msg::SYSTEM:
 
-            tagMsg = TAG_SYSTEM;
-            tagNick = TAG_NICK;
+        tagMsg = TAG_SYSTEM;
+        tagNick = TAG_NICK;
         break;
 
-        case Msg::STATUS:
+    case Msg::STATUS:
 
-            tagMsg = TAG_STATUS;
-            tagNick = TAG_NICK;
+        tagMsg = TAG_STATUS;
+        tagNick = TAG_NICK;
         break;
 
-        case Msg::OPERATOR:
+    case Msg::OPERATOR:
 
-            tagMsg = TAG_PRIVATE;
-            tagNick = TAG_OPERATOR;
+        tagMsg = TAG_PRIVATE;
+        tagNick = TAG_OPERATOR;
         break;
 
-        case Msg::FAVORITE:
+    case Msg::FAVORITE:
 
-            tagMsg = TAG_PRIVATE;
-            tagNick = TAG_FAVORITE;
+        tagMsg = TAG_PRIVATE;
+        tagNick = TAG_FAVORITE;
         break;
 
-        case Msg::PRIVATE:
+    case Msg::PRIVATE:
 
-        default:
+    default:
 
-            tagMsg = TAG_PRIVATE;
-            tagNick = TAG_NICK;
+        tagMsg = TAG_PRIVATE;
+        tagNick = TAG_NICK;
     }
 
     totalEmoticons = 0;
@@ -501,7 +501,7 @@ void PrivateMessage::applyTags_gui(const string &line)
                     gtk_text_buffer_delete(messageBuffer, &tag_start_iter, &tag_end_iter);
 
                     gtk_text_buffer_insert_with_tags(messageBuffer, &tag_start_iter,
-                        line.c_str(), line.size(), tag, TagsMap[TAG_URL], NULL);
+                                                     line.c_str(), line.size(), tag, TagsMap[TAG_URL], NULL);
                 }
             }
             else
@@ -574,10 +574,10 @@ void PrivateMessage::applyEmoticons_gui()
     gint searchEmoticons = 0;
 
     GtkTextIter tmp_end_iter,
-        match_start,
-        match_end,
-        p_start,
-        p_end;
+            match_start,
+            match_end,
+            p_start,
+            p_end;
 
     Emot::Iter p_it;
     gint set_start, new_start;
@@ -602,11 +602,11 @@ void PrivateMessage::applyEmoticons_gui()
             for (GList *p = names; p ; p = p->next)
             {
                 if (gtk_text_iter_forward_search(&start_iter,
-                    (gchar *)p->data,
-                    GTK_TEXT_SEARCH_VISIBLE_ONLY,
-                    &match_start,
-                    &match_end,
-                    &end_iter))
+                                                 (gchar *)p->data,
+                                                 GTK_TEXT_SEARCH_VISIBLE_ONLY,
+                                                 &match_start,
+                                                 &match_end,
+                                                 &end_iter))
                 {
                     if (!search)
                     {
@@ -616,7 +616,7 @@ void PrivateMessage::applyEmoticons_gui()
                         /* set new limit search */
                         gtk_text_buffer_get_iter_at_mark(messageBuffer, &tmp_end_iter, end_mark);
                         for (int i = 1; !gtk_text_iter_equal(&end_iter, &tmp_end_iter) && i <= Emot::SIZE_NAME;
-                            gtk_text_iter_forward_chars(&end_iter, 1), i++);
+                             gtk_text_iter_forward_chars(&end_iter, 1), i++);
 
                     }
 
@@ -675,90 +675,90 @@ void PrivateMessage::getSettingTag_gui(WulforSettingsManager *wsm, TypeTag type,
 {
     switch (type)
     {
-        case TAG_MYOWN:
+    case TAG_MYOWN:
 
-            fore = wsm->getString("text-myown-fore-color");
-            back = wsm->getString("text-myown-back-color");
-            bold = wsm->getInt("text-myown-bold");
-            italic = wsm->getInt("text-myown-italic");
+        fore = wsm->getString("text-myown-fore-color");
+        back = wsm->getString("text-myown-back-color");
+        bold = wsm->getInt("text-myown-bold");
+        italic = wsm->getInt("text-myown-italic");
         break;
 
-        case TAG_SYSTEM:
+    case TAG_SYSTEM:
 
-            fore = wsm->getString("text-system-fore-color");
-            back = wsm->getString("text-system-back-color");
-            bold = wsm->getInt("text-system-bold");
-            italic = wsm->getInt("text-system-italic");
+        fore = wsm->getString("text-system-fore-color");
+        back = wsm->getString("text-system-back-color");
+        bold = wsm->getInt("text-system-bold");
+        italic = wsm->getInt("text-system-italic");
         break;
 
-        case TAG_STATUS:
+    case TAG_STATUS:
 
-            fore = wsm->getString("text-status-fore-color");
-            back = wsm->getString("text-status-back-color");
-            bold = wsm->getInt("text-status-bold");
-            italic = wsm->getInt("text-status-italic");
+        fore = wsm->getString("text-status-fore-color");
+        back = wsm->getString("text-status-back-color");
+        bold = wsm->getInt("text-status-bold");
+        italic = wsm->getInt("text-status-italic");
         break;
 
-        case TAG_TIMESTAMP:
+    case TAG_TIMESTAMP:
 
-            fore = wsm->getString("text-timestamp-fore-color");
-            back = wsm->getString("text-timestamp-back-color");
-            bold = wsm->getInt("text-timestamp-bold");
-            italic = wsm->getInt("text-timestamp-italic");
+        fore = wsm->getString("text-timestamp-fore-color");
+        back = wsm->getString("text-timestamp-back-color");
+        bold = wsm->getInt("text-timestamp-bold");
+        italic = wsm->getInt("text-timestamp-italic");
         break;
 
-        case TAG_MYNICK:
+    case TAG_MYNICK:
 
-            fore = wsm->getString("text-mynick-fore-color");
-            back = wsm->getString("text-mynick-back-color");
-            bold = wsm->getInt("text-mynick-bold");
-            italic = wsm->getInt("text-mynick-italic");
+        fore = wsm->getString("text-mynick-fore-color");
+        back = wsm->getString("text-mynick-back-color");
+        bold = wsm->getInt("text-mynick-bold");
+        italic = wsm->getInt("text-mynick-italic");
         break;
 
-        case TAG_OPERATOR:
+    case TAG_OPERATOR:
 
-            fore = wsm->getString("text-op-fore-color");
-            back = wsm->getString("text-op-back-color");
-            bold = wsm->getInt("text-op-bold");
-            italic = wsm->getInt("text-op-italic");
+        fore = wsm->getString("text-op-fore-color");
+        back = wsm->getString("text-op-back-color");
+        bold = wsm->getInt("text-op-bold");
+        italic = wsm->getInt("text-op-italic");
         break;
 
-        case TAG_FAVORITE:
+    case TAG_FAVORITE:
 
-            fore = wsm->getString("text-fav-fore-color");
-            back = wsm->getString("text-fav-back-color");
-            bold = wsm->getInt("text-fav-bold");
-            italic = wsm->getInt("text-fav-italic");
+        fore = wsm->getString("text-fav-fore-color");
+        back = wsm->getString("text-fav-back-color");
+        bold = wsm->getInt("text-fav-bold");
+        italic = wsm->getInt("text-fav-italic");
         break;
 
-        case TAG_URL:
+    case TAG_URL:
 
-            fore = wsm->getString("text-url-fore-color");
-            back = wsm->getString("text-url-back-color");
-            bold = wsm->getInt("text-url-bold");
-            italic = wsm->getInt("text-url-italic");
+        fore = wsm->getString("text-url-fore-color");
+        back = wsm->getString("text-url-back-color");
+        bold = wsm->getInt("text-url-bold");
+        italic = wsm->getInt("text-url-italic");
         break;
 
-        case TAG_NICK:
+    case TAG_NICK:
 
-            fore = wsm->getString("text-private-fore-color");
-            back = wsm->getString("text-private-back-color");
-            italic = wsm->getInt("text-private-italic");
+        fore = wsm->getString("text-private-fore-color");
+        back = wsm->getString("text-private-back-color");
+        italic = wsm->getInt("text-private-italic");
 
-            if (wsm->getBool("text-bold-autors"))
-                bold = 1;
-            else
-                bold = 0;
+        if (wsm->getBool("text-bold-autors"))
+            bold = 1;
+        else
+            bold = 0;
         break;
 
-        case TAG_PRIVATE:
+    case TAG_PRIVATE:
 
-        default:
+    default:
 
-            fore = wsm->getString("text-private-fore-color");
-            back = wsm->getString("text-private-back-color");
-            bold = wsm->getInt("text-private-bold");
-            italic = wsm->getInt("text-private-italic");
+        fore = wsm->getString("text-private-fore-color");
+        back = wsm->getString("text-private-back-color");
+        bold = wsm->getInt("text-private-bold");
+        italic = wsm->getInt("text-private-italic");
     }
 }
 
@@ -775,17 +775,17 @@ GtkTextTag* PrivateMessage::createTag_gui(const string &tagname, TypeTag type)
         getSettingTag_gui(wsm, type, fore, back, bold, italic);
 
         tag = WGETB("use-native-back-color-for-text") ?
-            gtk_text_buffer_create_tag(messageBuffer, tagname.c_str(),
-            "foreground", fore.c_str(),
-            "weight", bold ? TEXT_WEIGHT_BOLD : TEXT_WEIGHT_NORMAL,
-            "style", italic ? TEXT_STYLE_ITALIC : TEXT_STYLE_NORMAL,
-            NULL) :
-            gtk_text_buffer_create_tag(messageBuffer, tagname.c_str(),
-            "foreground", fore.c_str(),
-            "background", back.c_str(),
-            "weight", bold ? TEXT_WEIGHT_BOLD : TEXT_WEIGHT_NORMAL,
-            "style", italic ? TEXT_STYLE_ITALIC : TEXT_STYLE_NORMAL,
-            NULL);
+                    gtk_text_buffer_create_tag(messageBuffer, tagname.c_str(),
+                                               "foreground", fore.c_str(),
+                                               "weight", bold ? TEXT_WEIGHT_BOLD : TEXT_WEIGHT_NORMAL,
+                                               "style", italic ? TEXT_STYLE_ITALIC : TEXT_STYLE_NORMAL,
+                                               NULL) :
+                    gtk_text_buffer_create_tag(messageBuffer, tagname.c_str(),
+                                               "foreground", fore.c_str(),
+                                               "background", back.c_str(),
+                                               "weight", bold ? TEXT_WEIGHT_BOLD : TEXT_WEIGHT_NORMAL,
+                                               "style", italic ? TEXT_STYLE_ITALIC : TEXT_STYLE_NORMAL,
+                                               NULL);
     }
 
     return tag;
@@ -1005,18 +1005,18 @@ void PrivateMessage::onSendMessage_gui(GtkEntry *entry, gpointer data)
             string downloaded = Util::formatBytes(down);
 
             string line = str(dcpp_fmt(gettext("ratio: %1% (uploads: %2%, downloads: %3% )"))
-                                                % string(ratio_c)
-                                                % uploaded
-                                                % downloaded);
+                              % string(ratio_c)
+                              % uploaded
+                              % downloaded);
 
-             if (!param.compare("show")){
-                 typedef Func1<PrivateMessage, string> F1;
-                 F1 *func = new F1(pm, &PrivateMessage::sendMessage_client, line);
-                 WulforManager::get()->dispatchClientFunc(func);
-             }
-             else{
-                 pm->addStatusMessage_gui(line, Msg::SYSTEM);
-             }
+            if (!param.compare("show")){
+                typedef Func1<PrivateMessage, string> F1;
+                F1 *func = new F1(pm, &PrivateMessage::sendMessage_client, line);
+                WulforManager::get()->dispatchClientFunc(func);
+            }
+            else{
+                pm->addStatusMessage_gui(line, Msg::SYSTEM);
+            }
         }
         else if (command == "ws" && !param.empty())
         {
@@ -1031,18 +1031,18 @@ void PrivateMessage::onSendMessage_gui(GtkEntry *entry, gpointer data)
         else if (command == "help")
         {
             pm->addLine_gui(Msg::SYSTEM, string(_("*** Available commands:")) + "\n\n" +
-            "/away <message>\t - " + _("Away mode message on/off") + "\n" +
-            "/back\t\t\t\t - " + _("Away mode off") + "\n" +
-            "/clear\t\t\t\t - " + _("Clear PM") + "\n" +
-            "/close\t\t\t\t - " + _("Close PM") + "\n" +
-            "/fuser, /fu\t\t\t - " + _("Add user to favorites list") + "\n" +
-            "/removefu, /rmfu\t\t - " + _("Remove user favorite") + "\n" +
-            "/getlist\t\t\t\t - " + _("Get file list") + "\n" +
-            "/grant\t\t\t\t - " + _("Grant extra slot") + "\n" +
-            "/emoticons, /emot\t - " + _("Emoticons on/off") + "\n" +
-            "/version\t\t\t\t - " + _("Show version") + "\n" +
-            "/ratio [show]\t\t\t - " + _("Show ratio [send in chat]") + "\n" +
-            "/help\t\t\t\t - " + _("Show help") + "\n");
+                            "/away <message>\t - " + _("Away mode message on/off") + "\n" +
+                            "/back\t\t\t\t - " + _("Away mode off") + "\n" +
+                            "/clear\t\t\t\t - " + _("Clear PM") + "\n" +
+                            "/close\t\t\t\t - " + _("Close PM") + "\n" +
+                            "/fuser, /fu\t\t\t - " + _("Add user to favorites list") + "\n" +
+                            "/removefu, /rmfu\t\t - " + _("Remove user favorite") + "\n" +
+                            "/getlist\t\t\t\t - " + _("Get file list") + "\n" +
+                            "/grant\t\t\t\t - " + _("Grant extra slot") + "\n" +
+                            "/emoticons, /emot\t - " + _("Emoticons on/off") + "\n" +
+                            "/version\t\t\t\t - " + _("Show version") + "\n" +
+                            "/ratio [show]\t\t\t - " + _("Show ratio [send in chat]") + "\n" +
+                            "/help\t\t\t\t - " + _("Show help") + "\n");
         }
         else
         {
@@ -1108,14 +1108,14 @@ gboolean PrivateMessage::onLinkTagEvent_gui(GtkTextTag *tag, GObject *textView, 
 
         switch (event->button.button)
         {
-            case 1:
-                onOpenLinkClicked_gui(NULL, data);
-                break;
-            case 3:
-                // Pop-up link context menu
-                gtk_widget_show_all(pm->getWidget("linkMenu"));
-                gtk_menu_popup(GTK_MENU(pm->getWidget("linkMenu")), NULL, NULL, NULL, NULL, 0, gtk_get_current_event_time());
-                break;
+        case 1:
+            onOpenLinkClicked_gui(NULL, data);
+            break;
+        case 3:
+            // Pop-up link context menu
+            gtk_widget_show_all(pm->getWidget("linkMenu"));
+            gtk_menu_popup(GTK_MENU(pm->getWidget("linkMenu")), NULL, NULL, NULL, NULL, 0, gtk_get_current_event_time());
+            break;
         }
         return TRUE;
     }
@@ -1141,14 +1141,14 @@ gboolean PrivateMessage::onHubTagEvent_gui(GtkTextTag *tag, GObject *textView, G
 
         switch (event->button.button)
         {
-            case 1:
-                onOpenHubClicked_gui(NULL, data);
-                break;
-            case 3:
-                // Popup hub context menu
-                gtk_widget_show_all(pm->getWidget("hubMenu"));
-                gtk_menu_popup(GTK_MENU(pm->getWidget("hubMenu")), NULL, NULL, NULL, NULL, 0, gtk_get_current_event_time());
-                break;
+        case 1:
+            onOpenHubClicked_gui(NULL, data);
+            break;
+        case 3:
+            // Popup hub context menu
+            gtk_widget_show_all(pm->getWidget("hubMenu"));
+            gtk_menu_popup(GTK_MENU(pm->getWidget("hubMenu")), NULL, NULL, NULL, NULL, 0, gtk_get_current_event_time());
+            break;
         }
         return TRUE;
     }
@@ -1174,15 +1174,15 @@ gboolean PrivateMessage::onMagnetTagEvent_gui(GtkTextTag *tag, GObject *textView
 
         switch (event->button.button)
         {
-            case 1:
-                // Search for magnet
-                WulforManager::get()->getMainWindow()->actionMagnet_gui(pm->selectedTagStr);
-                break;
-            case 3:
-                // Popup magnet context menu
-                gtk_widget_show_all(pm->getWidget("magnetMenu"));
-                gtk_menu_popup(GTK_MENU(pm->getWidget("magnetMenu")), NULL, NULL, NULL, NULL, 0, gtk_get_current_event_time());
-                break;
+        case 1:
+            // Search for magnet
+            WulforManager::get()->getMainWindow()->actionMagnet_gui(pm->selectedTagStr);
+            break;
+        case 3:
+            // Popup magnet context menu
+            gtk_widget_show_all(pm->getWidget("magnetMenu"));
+            gtk_menu_popup(GTK_MENU(pm->getWidget("magnetMenu")), NULL, NULL, NULL, NULL, 0, gtk_get_current_event_time());
+            break;
         }
         return TRUE;
     }
@@ -1216,32 +1216,32 @@ gboolean PrivateMessage::onEmotButtonRelease_gui(GtkWidget *widget, GdkEventButt
 
     switch (event->button)
     {
-        case 1: //show emoticons dialog
+    case 1: //show emoticons dialog
 
-            pm->emotdialog->showEmotDialog_gui();
+        pm->emotdialog->showEmotDialog_gui();
         break;
 
-        case 3: //show emoticons menu
+    case 3: //show emoticons menu
 
-            pm->emotdialog->buildEmotMenu_gui();
+        pm->emotdialog->buildEmotMenu_gui();
 
-            GtkWidget *check_item = NULL;
-            GtkWidget *emot_menu = pm->getWidget("emotMenu");
+        GtkWidget *check_item = NULL;
+        GtkWidget *emot_menu = pm->getWidget("emotMenu");
 
-            check_item = gtk_separator_menu_item_new();
-            gtk_menu_shell_append(GTK_MENU_SHELL(emot_menu), check_item);
-            gtk_widget_show(check_item);
+        check_item = gtk_separator_menu_item_new();
+        gtk_menu_shell_append(GTK_MENU_SHELL(emot_menu), check_item);
+        gtk_widget_show(check_item);
 
-            check_item = gtk_check_menu_item_new_with_label(_("Use Emoticons"));
-            gtk_menu_shell_append(GTK_MENU_SHELL(emot_menu), check_item);
+        check_item = gtk_check_menu_item_new_with_label(_("Use Emoticons"));
+        gtk_menu_shell_append(GTK_MENU_SHELL(emot_menu), check_item);
 
-            if (pm->useEmoticons)
-                gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(check_item), TRUE);
+        if (pm->useEmoticons)
+            gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(check_item), TRUE);
 
-            g_signal_connect(check_item, "activate", G_CALLBACK(onUseEmoticons_gui), data);
+        g_signal_connect(check_item, "activate", G_CALLBACK(onUseEmoticons_gui), data);
 
-            gtk_widget_show_all(emot_menu);
-            gtk_menu_popup(GTK_MENU(emot_menu), NULL, NULL, NULL, NULL, 0, gtk_get_current_event_time());
+        gtk_widget_show_all(emot_menu);
+        gtk_menu_popup(GTK_MENU(emot_menu), NULL, NULL, NULL, NULL, 0, gtk_get_current_event_time());
 
         break;
     }
@@ -1394,7 +1394,7 @@ void PrivateMessage::onUseEmoticons_gui(GtkWidget *widget, gpointer data)
 
 void PrivateMessage::updateOnlineStatus_gui(bool online)
 {
-        setIcon_gui(online ? WGETS("icon-pm-online") : WGETS("icon-pm-offline"));
+    setIcon_gui(online ? WGETS("icon-pm-online") : WGETS("icon-pm-offline"));
 }
 
 void PrivateMessage::sendMessage_client(string message)
@@ -1420,8 +1420,8 @@ void PrivateMessage::addFavoriteUser_client()
     if (user && FavoriteManager::getInstance()->isFavoriteUser(user))
     {
         typedef Func2<PrivateMessage, string, Msg::TypeMsg> F2;
-                F2 *func = new F2(this, &PrivateMessage::addStatusMessage_gui, WulforUtil::getNicks(user, hubUrl) + _(" is favorite user"),
-                        Msg::STATUS);
+        F2 *func = new F2(this, &PrivateMessage::addStatusMessage_gui, WulforUtil::getNicks(user, hubUrl) + _(" is favorite user"),
+                          Msg::STATUS);
         WulforManager::get()->dispatchGuiFunc(func);
     }
     else
@@ -1441,8 +1441,8 @@ void PrivateMessage::removeFavoriteUser_client()
     else
     {
         typedef Func2<PrivateMessage, string, Msg::TypeMsg> F2;
-                F2 *func = new F2(this, &PrivateMessage::addStatusMessage_gui, WulforUtil::getNicks(user, hubUrl) + _(" is not favorite user"),
-                        Msg::STATUS);
+        F2 *func = new F2(this, &PrivateMessage::addStatusMessage_gui, WulforUtil::getNicks(user, hubUrl) + _(" is not favorite user"),
+                          Msg::STATUS);
         WulforManager::get()->dispatchGuiFunc(func);
     }
 }
@@ -1480,22 +1480,22 @@ void PrivateMessage::grantSlot_client()
 
 void PrivateMessage::on(ClientManagerListener::UserConnected, const UserPtr& aUser) noexcept
 {
-        if (aUser->getCID() == CID(cid))
-        {
-            typedef Func1<PrivateMessage, bool> F1;
-            F1 *func = new F1(this, &PrivateMessage::updateOnlineStatus_gui, aUser->isOnline());
-            WulforManager::get()->dispatchGuiFunc(func);
-            offline = false;
-        }
+    if (aUser->getCID() == CID(cid))
+    {
+        typedef Func1<PrivateMessage, bool> F1;
+        F1 *func = new F1(this, &PrivateMessage::updateOnlineStatus_gui, aUser->isOnline());
+        WulforManager::get()->dispatchGuiFunc(func);
+        offline = false;
+    }
 }
 
 void PrivateMessage::on(ClientManagerListener::UserDisconnected, const UserPtr& aUser) noexcept
 {
-        if (aUser->getCID() == CID(cid))
-        {
-            typedef Func1<PrivateMessage, bool> F1;
-            F1 *func = new F1(this, &PrivateMessage::updateOnlineStatus_gui, aUser->isOnline());
-            WulforManager::get()->dispatchGuiFunc(func);
-            offline = true;
-        }
+    if (aUser->getCID() == CID(cid))
+    {
+        typedef Func1<PrivateMessage, bool> F1;
+        F1 *func = new F1(this, &PrivateMessage::updateOnlineStatus_gui, aUser->isOnline());
+        WulforManager::get()->dispatchGuiFunc(func);
+        offline = true;
+    }
 }

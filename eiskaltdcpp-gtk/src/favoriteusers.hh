@@ -27,54 +27,54 @@
 #include "treeview.hh"
 
 class FavoriteUsers:
-	public BookEntry,
-	public dcpp::FavoriteManagerListener
+        public BookEntry,
+        public dcpp::FavoriteManagerListener
 {
-	public:
-		FavoriteUsers();
-		virtual ~FavoriteUsers();
-		virtual void show();
+public:
+    FavoriteUsers();
+    virtual ~FavoriteUsers();
+    virtual void show();
 
-	private:
-		typedef std::map<std::string, std::string> ParamMap;
-		typedef std::unordered_map<std::string, GtkTreeIter> UserIters;
+private:
+    typedef std::map<std::string, std::string> ParamMap;
+    typedef std::unordered_map<std::string, GtkTreeIter> UserIters;
 
-		// GUI functions
-		bool findUser_gui(const std::string &cid, GtkTreeIter *iter);
-		void updateFavoriteUser_gui(ParamMap params);
-		void removeFavoriteUser_gui(const std::string cid);
-		void setStatus_gui(const std::string text);
+    // GUI functions
+    bool findUser_gui(const std::string &cid, GtkTreeIter *iter);
+    void updateFavoriteUser_gui(ParamMap params);
+    void removeFavoriteUser_gui(const std::string cid);
+    void setStatus_gui(const std::string text);
 
-		// GUI callbacks
-		static void onBrowseItemClicked_gui(GtkMenuItem *item, gpointer data);
-		static void onMatchQueueItemClicked_gui(GtkMenuItem *item, gpointer data);
-		static void onSendPMItemClicked_gui(GtkMenuItem *item, gpointer data);
-		static void onGrantSlotItemClicked_gui(GtkMenuItem *item, gpointer data);
-		static void onConnectItemClicked_gui(GtkMenuItem *item, gpointer data);
-		static void onRemoveFromQueueItemClicked_gui(GtkMenuItem *item, gpointer data);
-		static void onDescriptionItemClicked_gui(GtkMenuItem *item, gpointer data);
-		static void onRemoveItemClicked_gui(GtkMenuItem *item, gpointer data);
-		static void onAutoGrantSlotToggled_gui(GtkCellRendererToggle *cell, gchar *path, gpointer data);
-		static gboolean onKeyReleased_gui(GtkWidget *widget, GdkEventKey *event, gpointer data);
-		static gboolean onButtonPressed_gui(GtkWidget *widget, GdkEventButton *event, gpointer data);
-		static gboolean onButtonReleased_gui(GtkWidget *widget, GdkEventButton *event, gpointer data);
+    // GUI callbacks
+    static void onBrowseItemClicked_gui(GtkMenuItem *item, gpointer data);
+    static void onMatchQueueItemClicked_gui(GtkMenuItem *item, gpointer data);
+    static void onSendPMItemClicked_gui(GtkMenuItem *item, gpointer data);
+    static void onGrantSlotItemClicked_gui(GtkMenuItem *item, gpointer data);
+    static void onConnectItemClicked_gui(GtkMenuItem *item, gpointer data);
+    static void onRemoveFromQueueItemClicked_gui(GtkMenuItem *item, gpointer data);
+    static void onDescriptionItemClicked_gui(GtkMenuItem *item, gpointer data);
+    static void onRemoveItemClicked_gui(GtkMenuItem *item, gpointer data);
+    static void onAutoGrantSlotToggled_gui(GtkCellRendererToggle *cell, gchar *path, gpointer data);
+    static gboolean onKeyReleased_gui(GtkWidget *widget, GdkEventKey *event, gpointer data);
+    static gboolean onButtonPressed_gui(GtkWidget *widget, GdkEventButton *event, gpointer data);
+    static gboolean onButtonReleased_gui(GtkWidget *widget, GdkEventButton *event, gpointer data);
 
-		// Client functions
-		void getFileList_client(const std::string cid, const std::string hubUrl, bool match);
-		void grantSlot_client(const std::string cid, const std::string hubUrl);
-		void removeUserFromQueue_client(const std::string cid);
-		void removeFavoriteUser_client(const std::string cid);
-		void setAutoGrantSlot_client(const std::string cid, bool grant);
-		void setUserDescription_client(const std::string cid, const std::string description);
+    // Client functions
+    void getFileList_client(const std::string cid, const std::string hubUrl, bool match);
+    void grantSlot_client(const std::string cid, const std::string hubUrl);
+    void removeUserFromQueue_client(const std::string cid);
+    void removeFavoriteUser_client(const std::string cid);
+    void setAutoGrantSlot_client(const std::string cid, bool grant);
+    void setUserDescription_client(const std::string cid, const std::string description);
 
-		// Favorite callbacks
-		virtual void on(dcpp::FavoriteManagerListener::UserAdded, const dcpp::FavoriteUser &user) noexcept;
-		virtual void on(dcpp::FavoriteManagerListener::UserRemoved, const dcpp::FavoriteUser &user) noexcept;
-		virtual void on(dcpp::FavoriteManagerListener::StatusChanged, const dcpp::FavoriteUser &user) noexcept;
+    // Favorite callbacks
+    virtual void on(dcpp::FavoriteManagerListener::UserAdded, const dcpp::FavoriteUser &user) noexcept;
+    virtual void on(dcpp::FavoriteManagerListener::UserRemoved, const dcpp::FavoriteUser &user) noexcept;
+    virtual void on(dcpp::FavoriteManagerListener::StatusChanged, const dcpp::FavoriteUser &user) noexcept;
 
-		UserIters userIters;
-		GdkEventType previous;
-		TreeView favoriteUserView;
-		GtkListStore *favoriteUserStore;
-		GtkTreeSelection *favoriteUserSelection;
+    UserIters userIters;
+    GdkEventType previous;
+    TreeView favoriteUserView;
+    GtkListStore *favoriteUserStore;
+    GtkTreeSelection *favoriteUserSelection;
 };

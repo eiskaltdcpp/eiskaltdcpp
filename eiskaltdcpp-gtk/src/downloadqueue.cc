@@ -249,7 +249,7 @@ void DownloadQueue::updateStatus_gui()
 void DownloadQueue::addFiles_gui(vector<StringMap> files, bool firstUpdate)
 {
     if (!files.empty() && currentDir == files[0]["Path"] &&
-        gtk_tree_selection_get_selected(dirSelection, NULL, NULL))
+            gtk_tree_selection_get_selected(dirSelection, NULL, NULL))
     {
         if (firstUpdate)
             gtk_list_store_clear(fileStore);
@@ -279,22 +279,22 @@ void DownloadQueue::addFile_gui(StringMap params, bool updateDirs)
 
         gtk_list_store_append(fileStore, &iter);
         gtk_list_store_set(fileStore, &iter,
-            fileView.col(_("Filename")), params["Filename"].c_str(),
-            fileView.col(_("Users")), params["Users"].c_str(),
-            fileView.col(_("Status")), params["Status"].c_str(),
-            fileView.col(_("Size")), params["Size"].c_str(),
-            fileView.col(_("Exact Size")), params["Exact Size"].c_str(),
-            fileView.col("Size Sort"), size,
-            fileView.col(_("Downloaded")), params["Downloaded"].c_str(),
-            fileView.col("Downloaded Sort"), Util::toInt64(params["Downloaded Sort"]),
-            fileView.col(_("Priority")), params["Priority"].c_str(),
-            fileView.col(_("Path")), params["Path"].c_str(),
-            fileView.col(_("Errors")), params["Errors"].c_str(),
-            fileView.col(_("Added")), params["Added"].c_str(),
-            fileView.col(_("TTH")), params["TTH"].c_str(),
-            fileView.col("Target"), params["Target"].c_str(),
-            fileView.col("Icon"), "icon-file",
-            -1);
+                           fileView.col(_("Filename")), params["Filename"].c_str(),
+                fileView.col(_("Users")), params["Users"].c_str(),
+                fileView.col(_("Status")), params["Status"].c_str(),
+                fileView.col(_("Size")), params["Size"].c_str(),
+                fileView.col(_("Exact Size")), params["Exact Size"].c_str(),
+                fileView.col("Size Sort"), size,
+                fileView.col(_("Downloaded")), params["Downloaded"].c_str(),
+                fileView.col("Downloaded Sort"), Util::toInt64(params["Downloaded Sort"]),
+                fileView.col(_("Priority")), params["Priority"].c_str(),
+                fileView.col(_("Path")), params["Path"].c_str(),
+                fileView.col(_("Errors")), params["Errors"].c_str(),
+                fileView.col(_("Added")), params["Added"].c_str(),
+                fileView.col(_("TTH")), params["TTH"].c_str(),
+                fileView.col("Target"), params["Target"].c_str(),
+                fileView.col("Icon"), "icon-file",
+                -1);
 
         if (WGETB("bold-queue"))
             setBold_gui();
@@ -310,11 +310,11 @@ void DownloadQueue::addFile_gui(StringMap params, bool updateDirs)
         {
             gtk_tree_store_append(dirStore, &iter, NULL);
             gtk_tree_store_set(dirStore, &iter,
-                dirView.col("Dir"), "/",
-                dirView.col("Path"), "/",
-                dirView.col("File Count"), 0,
-                dirView.col("Icon"), "icon-directory",
-                -1);
+                               dirView.col("Dir"), "/",
+                               dirView.col("Path"), "/",
+                               dirView.col("File Count"), 0,
+                               dirView.col("Icon"), "icon-directory",
+                               -1);
         }
 
         if (params["Path"].length() > 1)
@@ -354,11 +354,11 @@ void DownloadQueue::addDir_gui(const string &path, GtkTreeIter *parent)
 
     gtk_tree_store_append(dirStore, &iter, parent);
     gtk_tree_store_set(dirStore, &iter,
-        dirView.col("Dir"), dir.c_str(),
-        dirView.col("Path"), fullpath.c_str(),
-        dirView.col("File Count"), 0,
-        dirView.col("Icon"), "icon-directory",
-        -1);
+                       dirView.col("Dir"), dir.c_str(),
+                       dirView.col("Path"), fullpath.c_str(),
+                       dirView.col("File Count"), 0,
+                       dirView.col("Icon"), "icon-directory",
+                       -1);
 
     GtkTreePath *treePath = gtk_tree_model_get_path(GTK_TREE_MODEL(dirStore), parent);
     gtk_tree_view_expand_row(dirView.get(), treePath, FALSE);
@@ -386,22 +386,22 @@ void DownloadQueue::updateFile_gui(StringMap params)
             if (fileView.getString(&iter, "Target") == params["Target"])
             {
                 gtk_list_store_set(fileStore, &iter,
-                    fileView.col(_("Filename")), params["Filename"].c_str(),
-                    fileView.col(_("Users")), params["Users"].c_str(),
-                    fileView.col(_("Status")), params["Status"].c_str(),
-                    fileView.col(_("Size")), params["Size"].c_str(),
-                    fileView.col(_("Exact Size")), params["Exact Size"].c_str(),
-                    fileView.col("Size Sort"), Util::toInt64(params["Size Sort"]),
-                    fileView.col(_("Downloaded")), params["Downloaded"].c_str(),
-                    fileView.col("Downloaded Sort"), Util::toInt64(params["Downloaded Sort"]),
-                    fileView.col(_("Priority")), params["Priority"].c_str(),
-                    fileView.col(_("Path")), params["Path"].c_str(),
-                    fileView.col(_("Errors")), params["Errors"].c_str(),
-                    fileView.col(_("Added")), params["Added"].c_str(),
-                    fileView.col(_("TTH")), params["TTH"].c_str(),
-                    fileView.col("Target"), params["Target"].c_str(),
-                    fileView.col("Icon"), "icon-file",
-                    -1);
+                                   fileView.col(_("Filename")), params["Filename"].c_str(),
+                        fileView.col(_("Users")), params["Users"].c_str(),
+                        fileView.col(_("Status")), params["Status"].c_str(),
+                        fileView.col(_("Size")), params["Size"].c_str(),
+                        fileView.col(_("Exact Size")), params["Exact Size"].c_str(),
+                        fileView.col("Size Sort"), Util::toInt64(params["Size Sort"]),
+                        fileView.col(_("Downloaded")), params["Downloaded"].c_str(),
+                        fileView.col("Downloaded Sort"), Util::toInt64(params["Downloaded Sort"]),
+                        fileView.col(_("Priority")), params["Priority"].c_str(),
+                        fileView.col(_("Path")), params["Path"].c_str(),
+                        fileView.col(_("Errors")), params["Errors"].c_str(),
+                        fileView.col(_("Added")), params["Added"].c_str(),
+                        fileView.col(_("TTH")), params["TTH"].c_str(),
+                        fileView.col("Target"), params["Target"].c_str(),
+                        fileView.col("Icon"), "icon-file",
+                        -1);
                 return;
             }
             valid = gtk_tree_model_iter_next(m, &iter);
@@ -531,7 +531,7 @@ gboolean DownloadQueue::onDirButtonReleased_gui(GtkWidget *widget, GdkEventButto
         {
             dq->updateFileView_gui();
             gtk_menu_popup(GTK_MENU(dq->getWidget("dirMenu")), NULL, NULL,
-                NULL, NULL, 0, gtk_get_current_event_time());
+                           NULL, NULL, 0, gtk_get_current_event_time());
         }
     }
 
@@ -553,10 +553,10 @@ gboolean DownloadQueue::onDirKeyReleased_gui(GtkWidget *widget, GdkEventKey *eve
         else if (event->keyval == GDK_Menu || (event->keyval == GDK_F10 && event->state & GDK_SHIFT_MASK))
         {
             gtk_menu_popup(GTK_MENU(dq->getWidget("dirMenu")), NULL, NULL,
-                NULL, NULL, 0, gtk_get_current_event_time());
+                           NULL, NULL, 0, gtk_get_current_event_time());
         }
         else if (event->keyval == GDK_Up || event->keyval == GDK_KP_Up ||
-            event->keyval == GDK_Down || event->keyval == GDK_KP_Down)
+                 event->keyval == GDK_Down || event->keyval == GDK_KP_Down)
         {
             dq->updateFileView_gui();
         }
@@ -605,7 +605,7 @@ gboolean DownloadQueue::onFileButtonReleased_gui(GtkWidget *widget, GdkEventButt
         {
             dq->buildDynamicMenu_gui();
             gtk_menu_popup(GTK_MENU(dq->getWidget("fileMenu")), NULL, NULL,
-                NULL, NULL, 0, gtk_get_current_event_time());
+                           NULL, NULL, 0, gtk_get_current_event_time());
             return TRUE;
         }
     }
@@ -628,7 +628,7 @@ gboolean DownloadQueue::onFileKeyReleased_gui(GtkWidget *widget, GdkEventKey *ev
         {
             dq->buildDynamicMenu_gui();
             gtk_menu_popup(GTK_MENU(dq->getWidget("fileMenu")), NULL, NULL,
-                NULL, NULL, 0, gtk_get_current_event_time());
+                           NULL, NULL, 0, gtk_get_current_event_time());
         }
     }
 
@@ -1331,23 +1331,23 @@ void DownloadQueue::getQueueParams_client(QueueItem *item, StringMap &params)
     // Priority
     switch (item->getPriority())
     {
-        case QueueItem::PAUSED:
-            params["Priority"] = _("Paused");
-            break;
-        case QueueItem::LOWEST:
-            params["Priority"] = _("Lowest");
-            break;
-        case QueueItem::LOW:
-            params["Priority"] = _("Low");
-            break;
-        case QueueItem::HIGH:
-            params["Priority"] = _("High");
-            break;
-        case QueueItem::HIGHEST:
-            params["Priority"] = _("Highest");
-            break;
-        default:
-            params["Priority"] = _("Normal");
+    case QueueItem::PAUSED:
+        params["Priority"] = _("Paused");
+        break;
+    case QueueItem::LOWEST:
+        params["Priority"] = _("Lowest");
+        break;
+    case QueueItem::LOW:
+        params["Priority"] = _("Low");
+        break;
+    case QueueItem::HIGH:
+        params["Priority"] = _("High");
+        break;
+    case QueueItem::HIGHEST:
+        params["Priority"] = _("Highest");
+        break;
+    default:
+        params["Priority"] = _("Normal");
     }
 
     // Error

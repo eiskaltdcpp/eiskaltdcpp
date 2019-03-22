@@ -101,7 +101,7 @@ void TreeView::insertColumn(const string &title, const GType &gtype, const colum
 }
 
 void TreeView::insertColumn(const string &title, const GType &gtype, const columnType type, const int width,
-    const string &linkedCol, const string &linkedTextColor)
+                            const string &linkedCol, const string &linkedTextColor)
 {
     // All insertColumn's have to be called before any insertHiddenColumn's.
     dcassert(hiddenColumns.empty());
@@ -257,87 +257,87 @@ void TreeView::addColumn_gui(Column& column)
 
     switch (column.type)
     {
-        case INT:
-        case STRING:
-            col = gtk_tree_view_column_new_with_attributes(column.title.c_str(),
-                gtk_cell_renderer_text_new(), "text", column.pos, NULL);
-            break;
-        case SIZE:
-            renderer = gtk_cell_renderer_text_new();
-            col = gtk_tree_view_column_new_with_attributes(column.title.c_str(),
-                    renderer, "text", column.pos, NULL);
-            gtk_tree_view_column_set_cell_data_func(col, renderer, TreeView::sizeDataFunc, &column, NULL);
-            break;
-        case SPEED:
-            renderer = gtk_cell_renderer_text_new();
-            col = gtk_tree_view_column_new_with_attributes(column.title.c_str(),
-                    renderer, "text", column.pos, NULL);
-            gtk_tree_view_column_set_cell_data_func(col, renderer, TreeView::speedDataFunc, &column, NULL);
-            break;
-        case TIME_LEFT:
-            renderer = gtk_cell_renderer_text_new();
-            col = gtk_tree_view_column_new_with_attributes(column.title.c_str(),
-                    renderer, "text", column.pos, NULL);
-            gtk_tree_view_column_set_cell_data_func(col, renderer, TreeView::timeLeftDataFunc, &column, NULL);
-            break;
-        case STRINGR:
-            renderer = gtk_cell_renderer_text_new();
-            g_object_set(renderer, "xalign", 1.0, NULL);
-            col = gtk_tree_view_column_new_with_attributes(column.title.c_str(), renderer, "text", column.pos, NULL);
-            gtk_tree_view_column_set_alignment(col, 1.0);
-            break;
-        case BOOL:
-            renderer = gtk_cell_renderer_toggle_new();
-            col = gtk_tree_view_column_new_with_attributes(column.title.c_str(), renderer, "active", column.pos, NULL);
-            break;
-        case PIXBUF:
-            col = gtk_tree_view_column_new_with_attributes(column.title.c_str(),
-                gtk_cell_renderer_pixbuf_new(), "pixbuf", column.pos, NULL);
-            break;
-        case PIXBUF_STRING:
-            renderer = gtk_cell_renderer_pixbuf_new();
-            col = gtk_tree_view_column_new();
-            gtk_tree_view_column_set_title(col, column.title.c_str());
-            gtk_tree_view_column_pack_start(col, renderer, false);
-            gtk_tree_view_column_add_attribute(col, renderer, "pixbuf", TreeView::col(column.linkedCol));
-            renderer = gtk_cell_renderer_text_new();
-            gtk_tree_view_column_pack_start(col, renderer, true);
-            gtk_tree_view_column_add_attribute(col, renderer, "text", column.pos);
-            break;
-        case ICON_STRING:
-            renderer = gtk_cell_renderer_pixbuf_new();
-            col = gtk_tree_view_column_new();
-            gtk_tree_view_column_set_title(col, column.title.c_str());
-            gtk_tree_view_column_pack_start(col, renderer, false);
-            gtk_tree_view_column_add_attribute(col, renderer, "stock-id", TreeView::col(column.linkedCol));
-            renderer = gtk_cell_renderer_text_new();
-            gtk_tree_view_column_pack_start(col, renderer, true);
-            gtk_tree_view_column_add_attribute(col, renderer, "text", column.pos);
-            break;
-        case ICON_STRING_TEXT_COLOR:
-            // icon
-            renderer = gtk_cell_renderer_pixbuf_new();
-            col = gtk_tree_view_column_new();
-            gtk_tree_view_column_set_title(col, column.title.c_str());
-            gtk_tree_view_column_pack_start(col, renderer, false);
-            gtk_tree_view_column_add_attribute(col, renderer, "stock-id", TreeView::col(column.linkedCol));
-            // text
-            renderer = gtk_cell_renderer_text_new();
-            gtk_tree_view_column_pack_start(col, renderer, true);
-            gtk_tree_view_column_add_attribute(col, renderer, "text", column.pos);
-            //gtk_tree_view_column_add_attribute(col, renderer, "foreground", TreeView::col(column.linkedTextColor));
-            break;
-        case EDIT_STRING:
-            renderer = gtk_cell_renderer_text_new();
-            g_object_set(renderer, "editable", TRUE, NULL);
-            col = gtk_tree_view_column_new_with_attributes(column.title.c_str(), renderer, "text", column.pos, NULL);
-            break;
-        case PROGRESS:
-            renderer = gtk_cell_renderer_progress_new();
-            g_object_set(renderer, "xalign", 0.0, NULL); // Doesn't work yet. See: http://bugzilla.gnome.org/show_bug.cgi?id=334576
-            col = gtk_tree_view_column_new_with_attributes(column.title.c_str(),
-                renderer, "text", column.pos, "value", TreeView::col(column.linkedCol), NULL);
-            break;
+    case INT:
+    case STRING:
+        col = gtk_tree_view_column_new_with_attributes(column.title.c_str(),
+                                                       gtk_cell_renderer_text_new(), "text", column.pos, NULL);
+        break;
+    case SIZE:
+        renderer = gtk_cell_renderer_text_new();
+        col = gtk_tree_view_column_new_with_attributes(column.title.c_str(),
+                                                       renderer, "text", column.pos, NULL);
+        gtk_tree_view_column_set_cell_data_func(col, renderer, TreeView::sizeDataFunc, &column, NULL);
+        break;
+    case SPEED:
+        renderer = gtk_cell_renderer_text_new();
+        col = gtk_tree_view_column_new_with_attributes(column.title.c_str(),
+                                                       renderer, "text", column.pos, NULL);
+        gtk_tree_view_column_set_cell_data_func(col, renderer, TreeView::speedDataFunc, &column, NULL);
+        break;
+    case TIME_LEFT:
+        renderer = gtk_cell_renderer_text_new();
+        col = gtk_tree_view_column_new_with_attributes(column.title.c_str(),
+                                                       renderer, "text", column.pos, NULL);
+        gtk_tree_view_column_set_cell_data_func(col, renderer, TreeView::timeLeftDataFunc, &column, NULL);
+        break;
+    case STRINGR:
+        renderer = gtk_cell_renderer_text_new();
+        g_object_set(renderer, "xalign", 1.0, NULL);
+        col = gtk_tree_view_column_new_with_attributes(column.title.c_str(), renderer, "text", column.pos, NULL);
+        gtk_tree_view_column_set_alignment(col, 1.0);
+        break;
+    case BOOL:
+        renderer = gtk_cell_renderer_toggle_new();
+        col = gtk_tree_view_column_new_with_attributes(column.title.c_str(), renderer, "active", column.pos, NULL);
+        break;
+    case PIXBUF:
+        col = gtk_tree_view_column_new_with_attributes(column.title.c_str(),
+                                                       gtk_cell_renderer_pixbuf_new(), "pixbuf", column.pos, NULL);
+        break;
+    case PIXBUF_STRING:
+        renderer = gtk_cell_renderer_pixbuf_new();
+        col = gtk_tree_view_column_new();
+        gtk_tree_view_column_set_title(col, column.title.c_str());
+        gtk_tree_view_column_pack_start(col, renderer, false);
+        gtk_tree_view_column_add_attribute(col, renderer, "pixbuf", TreeView::col(column.linkedCol));
+        renderer = gtk_cell_renderer_text_new();
+        gtk_tree_view_column_pack_start(col, renderer, true);
+        gtk_tree_view_column_add_attribute(col, renderer, "text", column.pos);
+        break;
+    case ICON_STRING:
+        renderer = gtk_cell_renderer_pixbuf_new();
+        col = gtk_tree_view_column_new();
+        gtk_tree_view_column_set_title(col, column.title.c_str());
+        gtk_tree_view_column_pack_start(col, renderer, false);
+        gtk_tree_view_column_add_attribute(col, renderer, "stock-id", TreeView::col(column.linkedCol));
+        renderer = gtk_cell_renderer_text_new();
+        gtk_tree_view_column_pack_start(col, renderer, true);
+        gtk_tree_view_column_add_attribute(col, renderer, "text", column.pos);
+        break;
+    case ICON_STRING_TEXT_COLOR:
+        // icon
+        renderer = gtk_cell_renderer_pixbuf_new();
+        col = gtk_tree_view_column_new();
+        gtk_tree_view_column_set_title(col, column.title.c_str());
+        gtk_tree_view_column_pack_start(col, renderer, false);
+        gtk_tree_view_column_add_attribute(col, renderer, "stock-id", TreeView::col(column.linkedCol));
+        // text
+        renderer = gtk_cell_renderer_text_new();
+        gtk_tree_view_column_pack_start(col, renderer, true);
+        gtk_tree_view_column_add_attribute(col, renderer, "text", column.pos);
+        //gtk_tree_view_column_add_attribute(col, renderer, "foreground", TreeView::col(column.linkedTextColor));
+        break;
+    case EDIT_STRING:
+        renderer = gtk_cell_renderer_text_new();
+        g_object_set(renderer, "editable", TRUE, NULL);
+        col = gtk_tree_view_column_new_with_attributes(column.title.c_str(), renderer, "text", column.pos, NULL);
+        break;
+    case PROGRESS:
+        renderer = gtk_cell_renderer_progress_new();
+        g_object_set(renderer, "xalign", 0.0, NULL); // Doesn't work yet. See: http://bugzilla.gnome.org/show_bug.cgi?id=334576
+        col = gtk_tree_view_column_new_with_attributes(column.title.c_str(),
+                                                       renderer, "text", column.pos, "value", TreeView::col(column.linkedCol), NULL);
+        break;
     }
 
     if (!col)
@@ -465,8 +465,8 @@ void TreeView::restoreSettings()
     columnVisibility = WulforUtil::splitString(WGETS(name + "-visibility"), ",");
 
     if (columns.size() == columnOrder.size() &&
-        columnOrder.size() == columnWidth.size() &&
-        columnWidth.size() == columnVisibility.size())
+            columnOrder.size() == columnWidth.size() &&
+            columnWidth.size() == columnVisibility.size())
     {
         for (ColIter iter = columns.begin(); iter != columns.end(); ++iter)
         {

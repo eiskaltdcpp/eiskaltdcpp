@@ -34,10 +34,10 @@ Hash::Hash(GtkWindow* parent):
     HashManager::getInstance()->getStats(tmp, startBytes, startFiles);
     HashManager::getInstance()->setPriority(Thread::NORMAL);
     updateStats_gui("", 0, 0, 0);
-//    bool paused = HashManager::getInstance()->isHashingPaused();
-//    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("pauseHashingToggleButton")), paused);
-//    gtk_window_set_title(GTK_WINDOW(getContainer()),
-//    paused ? _("Paused...") : _("Indexing files..."));
+    //    bool paused = HashManager::getInstance()->isHashingPaused();
+    //    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("pauseHashingToggleButton")), paused);
+    //    gtk_window_set_title(GTK_WINDOW(getContainer()),
+    //    paused ? _("Paused...") : _("Indexing files..."));
     handler_id = g_signal_connect(getWidget("pauseHashingToggleButton"), "toggled", G_CALLBACK(onPauseHashing_gui), (gpointer)this);
     TimerManager::getInstance()->addListener(this);
 }
@@ -114,13 +114,13 @@ void Hash::onPauseHashing_gui(GtkWidget *widget, gpointer data)
     (void)widget;
     (void)data;
 
-//    Hash *h = (Hash *)data;
+    //    Hash *h = (Hash *)data;
     bool paused = HashManager::getInstance()->isHashingPaused();
     if (paused) {
-//        gtk_window_set_title(GTK_WINDOW(h->getContainer()), _("Indexing files..."));
+        //        gtk_window_set_title(GTK_WINDOW(h->getContainer()), _("Indexing files..."));
         HashManager::getInstance()->resumeHashing();
     } else {
-//        gtk_window_set_title(GTK_WINDOW(h->getContainer()), _("Paused..."));
+        //        gtk_window_set_title(GTK_WINDOW(h->getContainer()), _("Paused..."));
         HashManager::getInstance()->pauseHashing();
     }
 }
@@ -134,7 +134,7 @@ void Hash::on(TimerManagerListener::Second, uint64_t tics) noexcept
     size_t files = 0;
     bool paused = HashManager::getInstance()->isHashingPaused();
     gtk_window_set_title(GTK_WINDOW(getContainer()),
-    paused ? _("Paused...") : _("Indexing files..."));
+                         paused ? _("Paused...") : _("Indexing files..."));
 
     g_signal_handler_block(GTK_TOGGLE_BUTTON(getWidget("pauseHashingToggleButton")), handler_id);
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("pauseHashingToggleButton")), paused);

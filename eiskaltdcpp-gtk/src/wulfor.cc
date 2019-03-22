@@ -23,7 +23,7 @@
 #include <glib/gi18n.h>
 #include <dcpp/stdinc.h>
 #include <dcpp/DCPlusPlus.h>
-#include "bacon-message-connection.h"
+#include "bacon-message-connection.hh"
 #include "settingsmanager.hh"
 #include "wulformanager.hh"
 #include "WulforUtil.hh"
@@ -43,15 +43,15 @@
 void printHelp()
 {
     printf(_(
-            "Using:\n"
-            "  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n"
-            "  eiskaltdcpp-gtk <Key>\n"
-            "EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC protocol.\n"
-            "\n"
-            "Keys:\n"
-            "  -h, --help\t Show this message\n"
-            "  -V, --version\t Show version string\n"
-            )
+               "Using:\n"
+               "  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n"
+               "  eiskaltdcpp-gtk <Key>\n"
+               "EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC protocol.\n"
+               "\n"
+               "Keys:\n"
+               "  -h, --help\t Show this message\n"
+               "  -V, --version\t Show version string\n"
+               )
            );
 }
 
@@ -126,11 +126,11 @@ int main(int argc, char *argv[])
         if (!strcmp(argv[i],"--help") || !strcmp(argv[i],"-h")){
             printHelp();
             exit(0);
-    }
-            else if (!strcmp(argv[i],"--version") || !strcmp(argv[i],"-V")){
-                printVersion();
-                exit(0);
-            }
+        }
+        else if (!strcmp(argv[i],"--version") || !strcmp(argv[i],"-V")){
+            printVersion();
+            exit(0);
+        }
     }
 
     // Initialize i18n support

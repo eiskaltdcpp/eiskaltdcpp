@@ -472,11 +472,11 @@ bool WulforManager::isEntry_gui(Entry *entry)
     g_rw_lock_writer_lock(&entryMutex);
 #endif
 
-   auto it = find_if(entries.begin(), entries.end(),
-                     CompareSecond<string, Entry *>(entry));
+    auto it = find_if(entries.begin(), entries.end(),
+                      CompareSecond<string, Entry *>(entry));
 
-   if (it == entries.end())
-       entry = NULL;
+    if (it == entries.end())
+        entry = NULL;
 
 #if !GLIB_CHECK_VERSION(2,32,0)
     g_static_rw_lock_writer_unlock(&entryMutex);
@@ -484,7 +484,7 @@ bool WulforManager::isEntry_gui(Entry *entry)
     g_rw_lock_writer_unlock(&entryMutex);
 #endif
 
-   return (entry != NULL);
+    return (entry != NULL);
 }
 
 DialogEntry* WulforManager::getDialogEntry_gui(const string &id)

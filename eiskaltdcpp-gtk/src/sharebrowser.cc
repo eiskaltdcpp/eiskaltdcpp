@@ -281,9 +281,9 @@ void ShareBrowser::buildDirs_gui(DirectoryListing::Directory *dir, GtkTreeIter *
     gtk_tree_store_set(dirStore, &newIter, dirView.col(_("Dir")), dir->getName().c_str(), -1);
 
     gtk_tree_store_set(dirStore, &newIter,
-        dirView.col("DL Dir"), (gpointer)dir,
-        dirView.col("Icon"), "icon-directory",
-        -1);
+                       dirView.col("DL Dir"), (gpointer)dir,
+                       dirView.col("Icon"), "icon-directory",
+                       -1);
 
     for (file = dir->files.begin(); file != dir->files.end(); ++file)
     {
@@ -321,20 +321,20 @@ void ShareBrowser::updateFiles_gui(DirectoryListing::Directory *dir)
     {
         gtk_list_store_append(fileStore, &iter);
         gtk_list_store_set(fileStore, &iter,
-            fileView.col(_("Filename")), Util::getFileName((*it_dir)->getName()).c_str(),
-            fileView.col("File Order"), Util::getFileName("d"+(*it_dir)->getName()).c_str(),
-            -1);
+                           fileView.col(_("Filename")), Util::getFileName((*it_dir)->getName()).c_str(),
+                           fileView.col("File Order"), Util::getFileName("d"+(*it_dir)->getName()).c_str(),
+                           -1);
 
         size = (*it_dir)->getTotalSize(false);
         gtk_list_store_set(fileStore, &iter,
-            fileView.col("Icon"), "icon-directory",
-            fileView.col(_("Size")), Util::formatBytes(size).c_str(),
-            fileView.col(_("Exact Size")), Util::formatExactSize(size).c_str(),
-            fileView.col("Size Order"), size,
-            fileView.col(_("Type")), _("Directory"),
-            fileView.col("DL File"), (gpointer)(*it_dir),
-            fileView.col(_("TTH")), "",
-            -1);
+                           fileView.col("Icon"), "icon-directory",
+                           fileView.col(_("Size")), Util::formatBytes(size).c_str(),
+                           fileView.col(_("Exact Size")), Util::formatExactSize(size).c_str(),
+                           fileView.col("Size Order"), size,
+                           fileView.col(_("Type")), _("Directory"),
+                           fileView.col("DL File"), (gpointer)(*it_dir),
+                           fileView.col(_("TTH")), "",
+                           -1);
 
         currentSize += size;
         currentItems++;
@@ -351,27 +351,27 @@ void ShareBrowser::updateFiles_gui(DirectoryListing::Directory *dir)
             ext = ext.substr(1);
 
         gtk_list_store_set(fileStore, &iter,
-            fileView.col(_("Filename")), Util::getFileName((*it_file)->getName()).c_str(),
-            fileView.col(_("Type")), ext.c_str(),
-            fileView.col("File Order"), Util::getFileName("f"+(*it_file)->getName()).c_str(),
-            -1);
+                           fileView.col(_("Filename")), Util::getFileName((*it_file)->getName()).c_str(),
+                           fileView.col(_("Type")), ext.c_str(),
+                           fileView.col("File Order"), Util::getFileName("f"+(*it_file)->getName()).c_str(),
+                           -1);
 
         size = (*it_file)->getSize();
         gtk_list_store_set(fileStore, &iter,
-            fileView.col("Icon"), "icon-file",
-            fileView.col(_("Size")), Util::formatBytes(size).c_str(),
-            fileView.col(_("Exact Size")), Util::formatExactSize(size).c_str(),
-            fileView.col("Size Order"), size,
-            fileView.col("DL File"), (gpointer)(*it_file),
-            fileView.col(_("TTH")), (*it_file)->getTTH().toBase32().c_str(),
-            fileView.col(_("Bitrate")), ((*it_file)->mediaInfo.bitrate) ? (Util::toString((*it_file)->mediaInfo.bitrate)).c_str() : Util::emptyString.c_str(),
-            fileView.col(_("Resolution")), !(*it_file)->mediaInfo.video_info.empty() ? (*it_file)->mediaInfo.resolution.c_str() : Util::emptyString.c_str(),
-            fileView.col(_("Video")), (*it_file)->mediaInfo.video_info.c_str(),
-            fileView.col(_("Audio")), (*it_file)->mediaInfo.audio_info.c_str(),
-            fileView.col(_("Downloaded")), (Util::toString((*it_file)->getHit())).c_str(),
-            fileView.col(_("Shared")), (Util::formatTime("%Y-%m-%d %H:%M", (*it_file)->getTS())).c_str(),
-            fileView.col("Shared Order"), (*it_file)->getTS(),
-            -1);
+                           fileView.col("Icon"), "icon-file",
+                           fileView.col(_("Size")), Util::formatBytes(size).c_str(),
+                           fileView.col(_("Exact Size")), Util::formatExactSize(size).c_str(),
+                           fileView.col("Size Order"), size,
+                           fileView.col("DL File"), (gpointer)(*it_file),
+                           fileView.col(_("TTH")), (*it_file)->getTTH().toBase32().c_str(),
+                           fileView.col(_("Bitrate")), ((*it_file)->mediaInfo.bitrate) ? (Util::toString((*it_file)->mediaInfo.bitrate)).c_str() : Util::emptyString.c_str(),
+                           fileView.col(_("Resolution")), !(*it_file)->mediaInfo.video_info.empty() ? (*it_file)->mediaInfo.resolution.c_str() : Util::emptyString.c_str(),
+                           fileView.col(_("Video")), (*it_file)->mediaInfo.video_info.c_str(),
+                           fileView.col(_("Audio")), (*it_file)->mediaInfo.audio_info.c_str(),
+                           fileView.col(_("Downloaded")), (Util::toString((*it_file)->getHit())).c_str(),
+                           fileView.col(_("Shared")), (Util::formatTime("%Y-%m-%d %H:%M", (*it_file)->getTS())).c_str(),
+                           fileView.col("Shared Order"), (*it_file)->getTS(),
+                           -1);
 
         currentSize += size;
         currentItems++;
@@ -438,7 +438,7 @@ void ShareBrowser::fileViewSelected_gui()
             if (!full && !filesize) {
                 typedef Func1<ShareBrowser, DirectoryListing::Directory*> F1;
                 F1 *func = new F1(this,&ShareBrowser::downloadChangedDir,
-                (DirectoryListing::Directory *)dirView.getValue<gpointer>(&iter, "DL Dir"));
+                                  (DirectoryListing::Directory *)dirView.getValue<gpointer>(&iter, "DL Dir"));
                 WulforManager::get()->dispatchClientFunc(func);
                 path = gtk_tree_model_get_path(m, &iter);
                 gtk_tree_view_expand_to_path(dirView.get(), path);
@@ -568,10 +568,10 @@ void ShareBrowser::popupFileMenu_gui()
             }
 
             fileUserCommandMenu->addFile(cid,
-                fileView.getString(&iter, _("Filename")),
-                filepath,
-                fileView.getValue<int64_t>(&iter, "Size Order"),
-                fileView.getString(&iter, _("TTH")));
+                                         fileView.getString(&iter, _("Filename")),
+                                         filepath,
+                                         fileView.getValue<int64_t>(&iter, "Size Order"),
+                                         fileView.getString(&iter, _("TTH")));
         }
         gtk_tree_path_free(path);
     }
@@ -694,7 +694,7 @@ void ShareBrowser::find_gui()
 
         // Come back up one directory. If we can't, then we've returned to the root and are done.
         if (!gtk_tree_path_up(dirPath) || !gtk_tree_path_get_depth(dirPath) ||
-            !gtk_tree_model_get_iter(m, &iter, dirPath))
+                !gtk_tree_model_get_iter(m, &iter, dirPath))
         {
             setStatus_gui("mainStatus", _("No matches"));
             gtk_tree_path_free(dirPath);
@@ -851,7 +851,7 @@ gboolean ShareBrowser::onDirKeyReleased_gui(GtkWidget *widget, GdkEventKey *even
         gtk_tree_path_free(path);
     }
     else if (event->keyval == GDK_Up || event->keyval == GDK_KP_Up ||
-        event->keyval == GDK_Down || event->keyval == GDK_KP_Down)
+             event->keyval == GDK_Down || event->keyval == GDK_KP_Down)
     {
         ptr = sb->dirView.getValue<gpointer>(&iter, "DL Dir");
         sb->updateFiles_gui((DirectoryListing::Directory *)ptr);
@@ -1079,30 +1079,30 @@ void ShareBrowser::onCopyPictureClicked_gui(GtkMenuItem* item, gpointer data)
     string magnets, magnet, filename, tth;
     GList *list = gtk_tree_selection_get_selected_rows(sb->fileSelection, NULL);
 
-   for (GList *i = list; i; i = i->next)
-   {
-       path = (GtkTreePath *)i->data;
-       if (gtk_tree_model_get_iter(GTK_TREE_MODEL(sb->fileStore), &iter, path))
-       {
-           filename = sb->fileView.getString(&iter, _("Filename"));
-           size = sb->fileView.getValue<int64_t>(&iter, "Size Order");
-           tth = sb->fileView.getString(&iter, _("TTH"));
-           magnet = WulforUtil::makeMagnet(filename, size, tth);
+    for (GList *i = list; i; i = i->next)
+    {
+        path = (GtkTreePath *)i->data;
+        if (gtk_tree_model_get_iter(GTK_TREE_MODEL(sb->fileStore), &iter, path))
+        {
+            filename = sb->fileView.getString(&iter, _("Filename"));
+            size = sb->fileView.getValue<int64_t>(&iter, "Size Order");
+            tth = sb->fileView.getString(&iter, _("TTH"));
+            magnet = WulforUtil::makeMagnet(filename, size, tth);
 
-           if (!magnet.empty())
-           {
-               magnet = "[img]" + magnet + "[/img]";
-               if (!magnets.empty())
-                   magnets += '\n';
-               magnets += magnet;
-           }
-       }
-       gtk_tree_path_free(path);
-   }
-   g_list_free(list);
+            if (!magnet.empty())
+            {
+                magnet = "[img]" + magnet + "[/img]";
+                if (!magnets.empty())
+                    magnets += '\n';
+                magnets += magnet;
+            }
+        }
+        gtk_tree_path_free(path);
+    }
+    g_list_free(list);
 
-   if (!magnets.empty())
-       gtk_clipboard_set_text(gtk_clipboard_get(GDK_SELECTION_CLIPBOARD), magnets.c_str(), magnets.length());
+    if (!magnets.empty())
+        gtk_clipboard_set_text(gtk_clipboard_get(GDK_SELECTION_CLIPBOARD), magnets.c_str(), magnets.length());
 }
 
 void ShareBrowser::downloadFile_client(DirectoryListing::File *file, string target)
@@ -1186,9 +1186,9 @@ int ShareBrowser::ItemInfo::compareItems(ItemInfo* a, ItemInfo* b, int col) {
     if(a->type == DIRECTORY) {
         if(b->type == DIRECTORY) {
             switch(col) {
-                case COLUMN_EXACTSIZE: return compare(a->dir->getTotalSize(), b->dir->getTotalSize());
-                case COLUMN_SIZE: return compare(a->dir->getTotalSize(), b->dir->getTotalSize());
-                default: break; //strcmp(a->columns[col].c_str(), b->columns[col].c_str());
+            case COLUMN_EXACTSIZE: return compare(a->dir->getTotalSize(), b->dir->getTotalSize());
+            case COLUMN_SIZE: return compare(a->dir->getTotalSize(), b->dir->getTotalSize());
+            default: break; //strcmp(a->columns[col].c_str(), b->columns[col].c_str());
             }
         } else {
             return -1;
@@ -1197,9 +1197,9 @@ int ShareBrowser::ItemInfo::compareItems(ItemInfo* a, ItemInfo* b, int col) {
         return 1;
     } else {
         switch(col) {
-            case COLUMN_EXACTSIZE: return compare(a->file->getSize(), b->file->getSize());
-            case COLUMN_SIZE: return compare(a->file->getSize(), b->file->getSize());
-            default: break;// strcmp(a->columns[col].c_str(), b->columns[col].c_str());
+        case COLUMN_EXACTSIZE: return compare(a->file->getSize(), b->file->getSize());
+        case COLUMN_SIZE: return compare(a->file->getSize(), b->file->getSize());
+        default: break;// strcmp(a->columns[col].c_str(), b->columns[col].c_str());
         }
     }
 

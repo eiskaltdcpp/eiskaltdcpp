@@ -63,7 +63,7 @@ SearchADL::SearchADL():
     gtk_tree_view_column_set_clickable(gtk_tree_view_get_column(searchADLView.get(), searchADLView.col(_("Max Size"))), FALSE);
 
     GList *list = gtk_cell_layout_get_cells(GTK_CELL_LAYOUT(gtk_tree_view_get_column(searchADLView.get(),
-        searchADLView.col(_("Enabled")))));
+                                                                                     searchADLView.col(_("Enabled")))));
     GObject *renderer = (GObject *)g_list_nth_data(list, 0);
     g_signal_connect(renderer, "toggled", G_CALLBACK(onActiveToggled_gui), (gpointer)this);
     g_list_free(list);
@@ -100,24 +100,24 @@ void SearchADL::show()
         GtkTreeIter iter;
         ADLSearch &search = *i;
         minSize = search.minFileSize >= 0 ? Util::toString(search.minFileSize) + " " +
-            search.SizeTypeToString(search.typeFileSize) : "";
+                                            search.SizeTypeToString(search.typeFileSize) : "";
         maxSize = search.maxFileSize >= 0 ? Util::toString(search.maxFileSize) + " " +
-            search.SizeTypeToString(search.typeFileSize) : "";
+                                            search.SizeTypeToString(search.typeFileSize) : "";
 
         gtk_list_store_append(searchADLStore, &iter);
         gtk_list_store_set(searchADLStore, &iter,
-            searchADLView.col(_("Enabled")), search.isActive,
-            searchADLView.col(_("Search String")), search.searchString.c_str(),
-            searchADLView.col(_("Source Type")), search.SourceTypeToString(search.sourceType).c_str(),
-            searchADLView.col(_("Destination Directory")), search.destDir.c_str(),
-            searchADLView.col(_("Min Size")), minSize.c_str(),
-            searchADLView.col(_("Max Size")), maxSize.c_str(),
-            searchADLView.col("Download Matches"), search.isAutoQueue,
-            searchADLView.col("MinSize"), search.minFileSize,
-            searchADLView.col("MaxSize"), search.maxFileSize,
-            searchADLView.col("SourceType"), search.sourceType,
-            searchADLView.col("SizeType"), search.typeFileSize,
-            -1);
+                           searchADLView.col(_("Enabled")), search.isActive,
+                           searchADLView.col(_("Search String")), search.searchString.c_str(),
+                           searchADLView.col(_("Source Type")), search.SourceTypeToString(search.sourceType).c_str(),
+                           searchADLView.col(_("Destination Directory")), search.destDir.c_str(),
+                           searchADLView.col(_("Min Size")), minSize.c_str(),
+                           searchADLView.col(_("Max Size")), maxSize.c_str(),
+                           searchADLView.col("Download Matches"), search.isAutoQueue,
+                           searchADLView.col("MinSize"), search.minFileSize,
+                           searchADLView.col("MaxSize"), search.maxFileSize,
+                           searchADLView.col("SourceType"), search.sourceType,
+                           searchADLView.col("SizeType"), search.typeFileSize,
+                           -1);
     }
 }
 
@@ -204,23 +204,23 @@ void SearchADL::onPropertiesClicked_gui(GtkWidget *widget, gpointer data)
 void SearchADL::setSearch_gui(ADLSearch &search, GtkTreeIter *iter)
 {
     string minSize = search.minFileSize >= 0 ? Util::toString(search.minFileSize) + " " +
-        search.SizeTypeToString(search.typeFileSize) : "";
+                                               search.SizeTypeToString(search.typeFileSize) : "";
     string maxSize = search.maxFileSize >= 0 ? Util::toString(search.maxFileSize) + " " +
-        search.SizeTypeToString(search.typeFileSize) : "";
+                                               search.SizeTypeToString(search.typeFileSize) : "";
 
     gtk_list_store_set(searchADLStore, iter,
-        searchADLView.col(_("Enabled")), search.isActive,
-        searchADLView.col(_("Search String")), search.searchString.c_str(),
-        searchADLView.col(_("Source Type")), search.SourceTypeToString(search.sourceType).c_str(),
-        searchADLView.col(_("Destination Directory")), search.destDir.c_str(),
-        searchADLView.col(_("Min Size")), minSize.c_str(),
-        searchADLView.col(_("Max Size")), maxSize.c_str(),
-        searchADLView.col("Download Matches"), search.isAutoQueue,
-        searchADLView.col("MinSize"), search.minFileSize,
-        searchADLView.col("MaxSize"), search.maxFileSize,
-        searchADLView.col("SourceType"), search.sourceType,
-        searchADLView.col("SizeType"), search.typeFileSize,
-        -1);
+                       searchADLView.col(_("Enabled")), search.isActive,
+                       searchADLView.col(_("Search String")), search.searchString.c_str(),
+                       searchADLView.col(_("Source Type")), search.SourceTypeToString(search.sourceType).c_str(),
+                       searchADLView.col(_("Destination Directory")), search.destDir.c_str(),
+                       searchADLView.col(_("Min Size")), minSize.c_str(),
+                       searchADLView.col(_("Max Size")), maxSize.c_str(),
+                       searchADLView.col("Download Matches"), search.isAutoQueue,
+                       searchADLView.col("MinSize"), search.minFileSize,
+                       searchADLView.col("MaxSize"), search.maxFileSize,
+                       searchADLView.col("SourceType"), search.sourceType,
+                       searchADLView.col("SizeType"), search.typeFileSize,
+                       -1);
 }
 
 bool SearchADL::showPropertiesDialog_gui(ADLSearch &search, bool edit, SearchADL *s)

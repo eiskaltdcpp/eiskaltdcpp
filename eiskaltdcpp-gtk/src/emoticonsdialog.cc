@@ -214,9 +214,9 @@ void EmoticonsDialog::showEmotDialog_gui()
 void EmoticonsDialog::build()
 {
     guint left_attach = 0,
-        right_attach = 1,
-        top_attach = 0,
-        bottom_attach = 1;
+            right_attach = 1,
+            top_attach = 0,
+            bottom_attach = 1;
 
     const int sizetable = Emoticons::get()->getCountFile_gui();
     Emot::List &list = Emoticons::get()->getPack_gui();
@@ -320,7 +320,7 @@ void EmoticonsDialog::position()
 
     // ox, oy, w, h
     gint Wx, Wy, Dh, Dw,
-        Bx, By, Bw;
+            Bx, By, Bw;
 
 #if GTK_CHECK_VERSION(3, 0, 0)
     GtkAllocation allocation;///GTK3
@@ -371,7 +371,7 @@ void EmoticonsDialog::graber()
 #else
     /* grabs the pointer (usually a mouse) */
     gdk_pointer_grab(dialog->window, TRUE, (GdkEventMask) (GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK),
-        NULL, NULL, GDK_CURRENT_TIME);
+                     NULL, NULL, GDK_CURRENT_TIME);
 
     gtk_grab_add(dialog);
 #endif
@@ -404,10 +404,10 @@ gboolean EmoticonsDialog::event(GtkWidget *widget, GdkEvent *event, gpointer dat
     {
         switch (event->button.button)
         {
-            case 1: case 2: case 3:
+        case 1: case 2: case 3:
 
-                gtk_widget_destroy(ed->dialog);
-                ed->dialog = NULL;
+            gtk_widget_destroy(ed->dialog);
+            ed->dialog = NULL;
             break;
         }
     }

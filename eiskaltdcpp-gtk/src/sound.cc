@@ -20,10 +20,10 @@
  */
 
 #ifdef USE_LIBGNOME2
-    #include <libgnome/gnome-sound.h>
+#include <libgnome/gnome-sound.h>
 #endif
 #ifdef USE_LIBCANBERRA
-    #include <canberra-gtk.h>
+#include <canberra-gtk.h>
 #endif
 
 #include "settingsmanager.hh"
@@ -76,62 +76,62 @@ void Sound::playSound(TypeSound sound)
 
     switch (sound)
     {
-//      TODO: download begins, uncomment when implemented
-//      case DOWNLOAD_BEGINS:
-//
-//          if (wsm->getInt("sound-download-begins-use"))
-//              playSound(wsm->getString("sound-download-begins"));
-//      break;
+    //      TODO: download begins, uncomment when implemented
+    //      case DOWNLOAD_BEGINS:
+    //
+    //          if (wsm->getInt("sound-download-begins-use"))
+    //              playSound(wsm->getString("sound-download-begins"));
+    //      break;
 
-        case DOWNLOAD_FINISHED:
+    case DOWNLOAD_FINISHED:
 
-            if (wsm->getInt("sound-download-finished-use"))
-                playSound(wsm->getString("sound-download-finished"));
+        if (wsm->getInt("sound-download-finished-use"))
+            playSound(wsm->getString("sound-download-finished"));
         break;
 
-        case DOWNLOAD_FINISHED_USER_LIST:
+    case DOWNLOAD_FINISHED_USER_LIST:
 
-            if (wsm->getInt("sound-download-finished-ul-use"))
-                playSound(wsm->getString("sound-download-finished-ul"));
+        if (wsm->getInt("sound-download-finished-ul-use"))
+            playSound(wsm->getString("sound-download-finished-ul"));
         break;
 
-        case UPLOAD_FINISHED:
+    case UPLOAD_FINISHED:
 
-            if (wsm->getInt("sound-upload-finished-use"))
-                playSound(wsm->getString("sound-upload-finished"));
+        if (wsm->getInt("sound-upload-finished-use"))
+            playSound(wsm->getString("sound-upload-finished"));
         break;
 
-        case PRIVATE_MESSAGE:
+    case PRIVATE_MESSAGE:
 
-            if (wsm->getInt("sound-private-message-use"))
-                playSound(wsm->getString("sound-private-message"));
+        if (wsm->getInt("sound-private-message-use"))
+            playSound(wsm->getString("sound-private-message"));
         break;
 
-        case HUB_CONNECT:
+    case HUB_CONNECT:
 
-            if (wsm->getInt("sound-hub-connect-use"))
-                playSound(wsm->getString("sound-hub-connect"));
+        if (wsm->getInt("sound-hub-connect-use"))
+            playSound(wsm->getString("sound-hub-connect"));
         break;
 
-        case HUB_DISCONNECT:
+    case HUB_DISCONNECT:
 
-            if (wsm->getInt("sound-hub-disconnect-use"))
-                playSound(wsm->getString("sound-hub-disconnect"));
+        if (wsm->getInt("sound-hub-disconnect-use"))
+            playSound(wsm->getString("sound-hub-disconnect"));
         break;
 
-        case FAVORITE_USER_JOIN:
+    case FAVORITE_USER_JOIN:
 
-            if (wsm->getInt("sound-fuser-join-use"))
-                playSound(wsm->getString("sound-fuser-join"));
+        if (wsm->getInt("sound-fuser-join-use"))
+            playSound(wsm->getString("sound-fuser-join"));
         break;
 
-        case FAVORITE_USER_QUIT:
+    case FAVORITE_USER_QUIT:
 
-            if (wsm->getInt("sound-fuser-quit-use"))
-                playSound(wsm->getString("sound-fuser-quit"));
+        if (wsm->getInt("sound-fuser-quit-use"))
+            playSound(wsm->getString("sound-fuser-quit"));
         break;
 
-        default: break;
+    default: break;
     }
 }
 
