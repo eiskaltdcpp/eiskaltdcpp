@@ -59,7 +59,7 @@ private:
     void addFavoriteUser_client(const std::string cid);
     void init();
 
-    virtual void on(dcpp::UploadManagerListener::WaitingAddFile, const dcpp::HintedUser& hUser, std::string file) noexcept;
+    virtual void on(dcpp::UploadManagerListener::WaitingAddFile, const dcpp::HintedUser& hUser, const std::string& file) noexcept;
     virtual void on(dcpp::UploadManagerListener::WaitingRemoveUser, const dcpp::HintedUser& user) noexcept;
 
     TreeView users;

@@ -377,7 +377,7 @@ void UploadQueue::addFavoriteUser_client(const string cid)
     }
 }
 
-void UploadQueue::on(dcpp::UploadManagerListener::WaitingAddFile, const HintedUser& hUser, string file) noexcept
+void UploadQueue::on(dcpp::UploadManagerListener::WaitingAddFile, const HintedUser& hUser, const string &file) noexcept
 {
     StringMap params;
     getParams(file,hUser.user,params);
