@@ -469,7 +469,7 @@ GtkTreeIter WulforUtil::copyRow_gui(GtkListStore *store, GtkTreeIter *fromIter, 
 
 void WulforUtil::copyValue_gui(GtkListStore *store, GtkTreeIter *fromIter, GtkTreeIter *toIter, int position)
 {
-    GValue value = {0, };
+    GValue value = G_VALUE_INIT;
     gtk_tree_model_get_value(GTK_TREE_MODEL(store), fromIter, position, &value);
     gtk_list_store_set_value(store, toIter, position, &value);
     g_value_unset(&value);
@@ -492,7 +492,7 @@ GtkTreeIter WulforUtil::copyRow_gui(GtkTreeStore *store, GtkTreeIter *fromIter, 
 
 void WulforUtil::copyValue_gui(GtkTreeStore *store, GtkTreeIter *fromIter, GtkTreeIter *toIter, int position)
 {
-    GValue value = {0, };
+    GValue value = G_VALUE_INIT;
     gtk_tree_model_get_value(GTK_TREE_MODEL(store), fromIter, position, &value);
     gtk_tree_store_set_value(store, toIter, position, &value);
     g_value_unset(&value);
