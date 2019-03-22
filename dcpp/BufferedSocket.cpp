@@ -101,6 +101,7 @@ void BufferedSocket::connect(const string& aAddress, const string& aPort, bool s
 }
 
 void BufferedSocket::connect(const string& aAddress, const string& aPort, const string& localPort, NatRoles natRole, bool secure, bool allowUntrusted, bool proxy, const string& expKP) {
+    (void)expKP;
     dcdebug("BufferedSocket::connect() %p\n", (void*)this);
     std::unique_ptr<Socket> s(secure ? (natRole == NAT_SERVER ? CryptoManager::getInstance()->getServerSocket(allowUntrusted) : CryptoManager::getInstance()->getClientSocket(allowUntrusted)) : new Socket);
 

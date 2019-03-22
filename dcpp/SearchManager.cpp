@@ -159,7 +159,7 @@ int SearchManager::run() {
                 }
 
                 // Spin for 60 seconds
-                for(int i = 0; i < 60 && !stop; ++i) {
+                for(auto i = 0; i < 60 && !stop; ++i) {
                     Thread::sleep(1000);
                 }
             }
