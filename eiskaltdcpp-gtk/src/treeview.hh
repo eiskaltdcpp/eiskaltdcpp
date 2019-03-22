@@ -56,7 +56,7 @@ public:
                       const std::string &linkedCol, const std::string &linkedTextColor);
     void insertHiddenColumn(const std::string &title, const GType &gtype);
     void finalize();
-    int getColCount();
+    int getColCount() const;
     int getRowCount();
     GType* getGTypes();
     void setSortColumn_gui(const std::string &column, const std::string &sortColumn);

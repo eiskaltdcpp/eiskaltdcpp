@@ -873,7 +873,7 @@ gboolean PrivateMessage::onFocusIn_gui(GtkWidget *widget, GdkEventFocus *event, 
     // fix select text
     gtk_editable_set_position(GTK_EDITABLE(pm->getWidget("entry")), -1);
 
-    return TRUE;
+    return true;
 }
 
 void PrivateMessage::onSendMessage_gui(GtkEntry *entry, gpointer data)
@@ -1063,7 +1063,7 @@ gboolean PrivateMessage::onKeyPress_gui(GtkWidget *widget, GdkEventKey *event, g
     string text;
     size_t index;
 
-    if (event->keyval == GDK_Up || event->keyval == GDK_KP_Up)
+    if (event->keyval == GDK_KEY_Up || event->keyval == GDK_KEY_KP_Up)
     {
         index = pm->historyIndex - 1;
         if (index >= 0 && index < pm->history.size())
@@ -1072,9 +1072,9 @@ gboolean PrivateMessage::onKeyPress_gui(GtkWidget *widget, GdkEventKey *event, g
             pm->historyIndex = index;
             gtk_entry_set_text(GTK_ENTRY(widget), text.c_str());
         }
-        return TRUE;
+        return true;
     }
-    else if (event->keyval == GDK_Down || event->keyval == GDK_KP_Down)
+    else if (event->keyval == GDK_KEY_Down || event->keyval == GDK_KEY_KP_Down)
     {
         index = pm->historyIndex + 1;
         if (index >= 0 && index < pm->history.size())
@@ -1083,10 +1083,10 @@ gboolean PrivateMessage::onKeyPress_gui(GtkWidget *widget, GdkEventKey *event, g
             pm->historyIndex = index;
             gtk_entry_set_text(GTK_ENTRY(widget), text.c_str());
         }
-        return TRUE;
+        return true;
     }
 
-    return FALSE;
+    return false;
 }
 
 gboolean PrivateMessage::onLinkTagEvent_gui(GtkTextTag *tag, GObject *textView, GdkEvent *event, GtkTextIter *iter, gpointer data)
@@ -1094,10 +1094,9 @@ gboolean PrivateMessage::onLinkTagEvent_gui(GtkTextTag *tag, GObject *textView, 
     (void)textView;
     (void)iter;
 
-    PrivateMessage *pm = (PrivateMessage *)data;
-
     if (event->type == GDK_BUTTON_PRESS)
     {
+        PrivateMessage *pm = (PrivateMessage *)data;
 #if GTK_CHECK_VERSION(3, 0, 0)
         gchar *tmp;
         g_object_get(G_OBJECT(tag),"name",&tmp,NULL);
@@ -1114,12 +1113,16 @@ gboolean PrivateMessage::onLinkTagEvent_gui(GtkTextTag *tag, GObject *textView, 
         case 3:
             // Pop-up link context menu
             gtk_widget_show_all(pm->getWidget("linkMenu"));
+#if GTK_CHECK_VERSION(3,22,0)
+            gtk_menu_popup_at_pointer(GTK_MENU(pm->getWidget("linkMenu")),NULL);
+#else
             gtk_menu_popup(GTK_MENU(pm->getWidget("linkMenu")), NULL, NULL, NULL, NULL, 0, gtk_get_current_event_time());
+#endif
             break;
         }
-        return TRUE;
+        return true;
     }
-    return FALSE;
+    return false;
 }
 
 gboolean PrivateMessage::onHubTagEvent_gui(GtkTextTag *tag, GObject *textView, GdkEvent *event, GtkTextIter *iter, gpointer data)
@@ -1127,10 +1130,9 @@ gboolean PrivateMessage::onHubTagEvent_gui(GtkTextTag *tag, GObject *textView, G
     (void)textView;
     (void)iter;
 
-    PrivateMessage *pm = (PrivateMessage *)data;
-
     if (event->type == GDK_BUTTON_PRESS)
     {
+        PrivateMessage *pm = (PrivateMessage *)data;
 #if GTK_CHECK_VERSION(3, 0, 0)
         gchar *tmp;
         g_object_get(G_OBJECT(tag),"name",&tmp,NULL);
@@ -1147,12 +1149,16 @@ gboolean PrivateMessage::onHubTagEvent_gui(GtkTextTag *tag, GObject *textView, G
         case 3:
             // Popup hub context menu
             gtk_widget_show_all(pm->getWidget("hubMenu"));
+#if GTK_CHECK_VERSION(3,22,0)
+            gtk_menu_popup_at_pointer(GTK_MENU(pm->getWidget("hubMenu")),NULL);
+#else
             gtk_menu_popup(GTK_MENU(pm->getWidget("hubMenu")), NULL, NULL, NULL, NULL, 0, gtk_get_current_event_time());
+#endif
             break;
         }
-        return TRUE;
+        return true;
     }
-    return FALSE;
+    return false;
 }
 
 gboolean PrivateMessage::onMagnetTagEvent_gui(GtkTextTag *tag, GObject *textView, GdkEvent *event, GtkTextIter *iter, gpointer data)
@@ -1181,12 +1187,16 @@ gboolean PrivateMessage::onMagnetTagEvent_gui(GtkTextTag *tag, GObject *textView
         case 3:
             // Popup magnet context menu
             gtk_widget_show_all(pm->getWidget("magnetMenu"));
+#if GTK_CHECK_VERSION(3,22,0)
+            gtk_menu_popup_at_pointer(GTK_MENU(pm->getWidget("magnetMenu")),NULL);
+#else
             gtk_menu_popup(GTK_MENU(pm->getWidget("magnetMenu")), NULL, NULL, NULL, NULL, 0, gtk_get_current_event_time());
+#endif
             break;
         }
-        return TRUE;
+        return true;
     }
-    return FALSE;
+    return false;
 }
 
 gboolean PrivateMessage::onChatPointerMoved_gui(GtkWidget* widget, GdkEventMotion* event, gpointer data)
@@ -1196,7 +1206,7 @@ gboolean PrivateMessage::onChatPointerMoved_gui(GtkWidget* widget, GdkEventMotio
 
     pm->updateCursor(widget);
 
-    return FALSE;
+    return false;
 }
 
 gboolean PrivateMessage::onChatVisibilityChanged_gui(GtkWidget* widget, GdkEventVisibility* event, gpointer data)
@@ -1206,7 +1216,7 @@ gboolean PrivateMessage::onChatVisibilityChanged_gui(GtkWidget* widget, GdkEvent
 
     pm->updateCursor(widget);
 
-    return FALSE;
+    return false;
 }
 
 gboolean PrivateMessage::onEmotButtonRelease_gui(GtkWidget *widget, GdkEventButton *event, gpointer data)
@@ -1241,12 +1251,15 @@ gboolean PrivateMessage::onEmotButtonRelease_gui(GtkWidget *widget, GdkEventButt
         g_signal_connect(check_item, "activate", G_CALLBACK(onUseEmoticons_gui), data);
 
         gtk_widget_show_all(emot_menu);
+#if GTK_CHECK_VERSION(3,22,0)
+        gtk_menu_popup_at_widget(GTK_MENU(emot_menu),widget,GDK_GRAVITY_SOUTH_WEST,GDK_GRAVITY_NORTH_WEST,NULL);
+#else
         gtk_menu_popup(GTK_MENU(emot_menu), NULL, NULL, NULL, NULL, 0, gtk_get_current_event_time());
-
+#endif
         break;
     }
 
-    return FALSE;
+    return false;
 }
 
 void PrivateMessage::onChatScroll_gui(GtkAdjustment *adjustment, gpointer data)
@@ -1374,14 +1387,18 @@ void PrivateMessage::onCommandClicked_gui(GtkWidget *widget, gpointer data)
 gboolean PrivateMessage::onChatCommandButtonRelease_gui(GtkWidget *widget, GdkEventButton *event, gpointer data)
 {
     (void)widget;
-    PrivateMessage *pm = (PrivateMessage *)data;
 
     if (event->button == 1)
     {
+        PrivateMessage *pm = (PrivateMessage *)data;
+#if GTK_CHECK_VERSION(3,22,0)
+        gtk_menu_popup_at_widget(GTK_MENU(pm->getWidget("chatCommandsMenu")),widget,GDK_GRAVITY_SOUTH_WEST,GDK_GRAVITY_NORTH_WEST,NULL);
+#else
         gtk_menu_popup(GTK_MENU(pm->getWidget("chatCommandsMenu")), NULL, NULL, NULL, NULL, 0, gtk_get_current_event_time());
+#endif
     }
 
-    return FALSE;
+    return false;
 }
 
 void PrivateMessage::onUseEmoticons_gui(GtkWidget *widget, gpointer data)

@@ -338,9 +338,9 @@ bool WulforUtil::splitMagnet(const string &magnet, string &name, int64_t &size, 
         tth=params["xt"];
         size = Util::toInt64(params["xl"]);
         name = params["dn"];
-        return TRUE;
+        return true;
     }
-    return FALSE;
+    return false;
 }
 
 bool WulforUtil::splitMagnet(const string &magnet, string &line)
@@ -352,9 +352,9 @@ bool WulforUtil::splitMagnet(const string &magnet, string &line)
     if (splitMagnet(magnet, name, size, tth))
         line = name + " (" + Util::formatBytes(size) + ")";
     else
-        return FALSE;
+        return false;
 
-    return TRUE;
+    return true;
 }
 
 bool WulforUtil::isMagnet(const string &text)
@@ -388,7 +388,7 @@ bool WulforUtil::profileIsLocked()
     static bool profileIsLocked = false;
 
     if (profileIsLocked)
-        return TRUE;
+        return true;
 
     // We can't use Util::getConfigPath() since the core has not been started yet.
     // Also, Util::getConfigPath() is utf8 and we need system encoding for g_open().

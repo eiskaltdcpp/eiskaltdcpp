@@ -205,10 +205,10 @@ bool SearchSpy::findIter_gui(const string &search, GtkTreeIter *iter)
         if (iter)
             *iter = it->second;
 
-        return TRUE;
+        return true;
     }
 
-    return FALSE;
+    return false;
 }
 
 void SearchSpy::addTop_gui(const string &search, const string &type)
@@ -608,10 +608,10 @@ gboolean SearchSpy::onButtonPressed_gui(GtkWidget *widget, GdkEventButton *event
             gtk_tree_path_free(path);
 
             if (selected)
-                return TRUE;
+                return true;
         }
     }
-    return FALSE;
+    return false;
 }
 
 gboolean SearchSpy::onButtonReleased_gui(GtkWidget *widget, GdkEventButton *event, gpointer data)
@@ -629,11 +629,15 @@ gboolean SearchSpy::onButtonReleased_gui(GtkWidget *widget, GdkEventButton *even
         else if (event->button == 3 && event->type == GDK_BUTTON_RELEASE)
         {
             // show menu
+#if GTK_CHECK_VERSION(3,22,0)
+            gtk_menu_popup_at_pointer(GTK_MENU(s->getWidget("menu")),NULL);
+#else
             gtk_menu_popup(GTK_MENU(s->getWidget("menu")), NULL, NULL, NULL, NULL, 0, gtk_get_current_event_time());
+#endif
         }
     }
 
-    return FALSE;
+    return false;
 }
 
 gboolean SearchSpy::onKeyReleased_gui(GtkWidget *widget, GdkEventKey *event, gpointer data)
@@ -643,17 +647,21 @@ gboolean SearchSpy::onKeyReleased_gui(GtkWidget *widget, GdkEventKey *event, gpo
 
     if (gtk_tree_selection_count_selected_rows(s->searchSelection) > 0)
     {
-        if (event->keyval == GDK_Delete || event->keyval == GDK_BackSpace)
+        if (event->keyval == GDK_KEY_Delete || event->keyval == GDK_KEY_BackSpace)
         {
             s->onRemoveItemClicked_gui(NULL, data);
         }
-        else if (event->keyval == GDK_Menu || (event->keyval == GDK_F10 && event->state & GDK_SHIFT_MASK))
+        else if (event->keyval == GDK_KEY_Menu || (event->keyval == GDK_KEY_F10 && event->state & GDK_SHIFT_MASK))
         {
+#if GTK_CHECK_VERSION(3,22,0)
+            gtk_menu_popup_at_pointer(GTK_MENU(s->getWidget("menu")),NULL);
+#else
             gtk_menu_popup(GTK_MENU(s->getWidget("menu")), NULL, NULL, NULL, NULL, 0, gtk_get_current_event_time());
+#endif
         }
     }
 
-    return FALSE;
+    return false;
 }
 
 void SearchSpy::on(ClientManagerListener::IncomingSearch, const string& s) noexcept

@@ -195,7 +195,7 @@ gboolean PublicHubs::onFocusIn_gui(GtkWidget *widget, GdkEventFocus *event, gpoi
 
     gtk_widget_grab_focus(ph->getWidget("filterEntry"));
 
-    return TRUE;
+    return true;
 }
 
 gboolean PublicHubs::onButtonPress_gui(GtkWidget *widget, GdkEventButton *event, gpointer data)
@@ -209,7 +209,7 @@ gboolean PublicHubs::onButtonPress_gui(GtkWidget *widget, GdkEventButton *event,
         ph->oldButton = event->button;
     }
 
-    return FALSE;
+    return false;
 }
 
 gboolean PublicHubs::onButtonRelease_gui(GtkWidget *widget, GdkEventButton *event, gpointer data)
@@ -221,7 +221,11 @@ gboolean PublicHubs::onButtonRelease_gui(GtkWidget *widget, GdkEventButton *even
     {
         if (event->button == 3 && ph->oldType == GDK_BUTTON_PRESS)
         {
+#if GTK_CHECK_VERSION(3,22,0)
+            gtk_menu_popup_at_pointer(GTK_MENU(ph->getWidget("menu")),NULL);
+#else
             gtk_menu_popup(GTK_MENU(ph->getWidget("menu")), NULL, NULL, NULL, NULL, 0, event->time);
+#endif
             gtk_widget_show_all(ph->getWidget("menu"));
         }
         else if (event->button == 1 && ph->oldType == GDK_2BUTTON_PRESS)
@@ -230,7 +234,7 @@ gboolean PublicHubs::onButtonRelease_gui(GtkWidget *widget, GdkEventButton *even
         }
     }
 
-    return FALSE;
+    return false;
 }
 
 gboolean PublicHubs::onKeyRelease_gui(GtkWidget *widget, GdkEventKey *event, gpointer data)
@@ -240,18 +244,22 @@ gboolean PublicHubs::onKeyRelease_gui(GtkWidget *widget, GdkEventKey *event, gpo
 
     if (gtk_tree_selection_get_selected(ph->hubSelection, NULL, NULL))
     {
-        if (event->keyval == GDK_Menu || (event->keyval == GDK_F10 && event->state & GDK_SHIFT_MASK))
+        if (event->keyval == GDK_KEY_Menu || (event->keyval == GDK_KEY_F10 && event->state & GDK_SHIFT_MASK))
         {
+#if GTK_CHECK_VERSION(3,22,0)
+            gtk_menu_popup_at_pointer(GTK_MENU(ph->getWidget("menu")),NULL);
+#else
             gtk_menu_popup(GTK_MENU(ph->getWidget("menu")), NULL, NULL, NULL, NULL, 0, event->time);
+#endif
             gtk_widget_show_all(ph->getWidget("menu"));
         }
-        else if (event->keyval == GDK_Return || event->keyval == GDK_KP_Enter)
+        else if (event->keyval == GDK_KEY_Return || event->keyval == GDK_KEY_KP_Enter)
         {
             ph->onConnect_gui(NULL, data);
         }
     }
 
-    return FALSE;
+    return false;
 }
 
 gboolean PublicHubs::onFilterHubs_gui(GtkWidget *widget, GdkEventKey *event, gpointer data)
@@ -268,7 +276,7 @@ gboolean PublicHubs::onFilterHubs_gui(GtkWidget *widget, GdkEventKey *event, gpo
         ph->updateList_gui();
     }
 
-    return FALSE;
+    return false;
 }
 
 void PublicHubs::onConnect_gui(GtkWidget *widget, gpointer data)

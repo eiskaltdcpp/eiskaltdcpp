@@ -161,7 +161,11 @@ void Transfers::popupTransferMenu_gui()
         gtk_widget_set_sensitive(getWidget("appsPreviewItem"), TRUE);
     else gtk_widget_set_sensitive(getWidget("appsPreviewItem"), FALSE);
 
+#if GTK_CHECK_VERSION(3,22,0)
+    gtk_menu_popup_at_pointer(GTK_MENU(getWidget("transferMenu")),NULL);
+#else
     gtk_menu_popup(GTK_MENU(getWidget("transferMenu")), NULL, NULL, NULL, NULL, 0, gtk_get_current_event_time());
+#endif
     gtk_widget_show_all(getWidget("transferMenu"));
 }
 
@@ -449,11 +453,11 @@ gboolean Transfers::onTransferButtonPressed_gui(GtkWidget *widget, GdkEventButto
             gtk_tree_path_free(path);
 
             if (selected)
-                return TRUE;
+                return true;
         }
     }
 
-    return FALSE;
+    return false;
 }
 
 gboolean Transfers::onTransferButtonReleased_gui(GtkWidget *widget, GdkEventButton *event, gpointer data)
@@ -466,7 +470,7 @@ gboolean Transfers::onTransferButtonReleased_gui(GtkWidget *widget, GdkEventButt
     if (count > 0 && event->type == GDK_BUTTON_RELEASE && event->button == 3)
         tr->popupTransferMenu_gui();
 
-    return FALSE;
+    return false;
 }
 
 bool Transfers::findParent_gui(const string& target, GtkTreeIter* iter)
@@ -480,12 +484,12 @@ bool Transfers::findParent_gui(const string& target, GtkTreeIter* iter)
         if (transferView.getValue<gboolean>(iter, "Download") &&
                 target == transferView.getString(iter, "Target") &&
                 transferView.getString(iter, "CID").empty())
-            return TRUE;
+            return true;
 
         valid = WulforUtil::getNextIter_gui(m, iter, FALSE, FALSE);
     }
 
-    return FALSE;
+    return false;
 }
 
 bool Transfers::findTransfer_gui(const string& cid, bool download, GtkTreeIter* iter)
@@ -498,14 +502,14 @@ bool Transfers::findTransfer_gui(const string& cid, bool download, GtkTreeIter* 
         if (cid == transferView.getString(iter, "CID") && !cid.empty())
         {
             if (download && transferView.getValue<gboolean>(iter, "Download"))
-                return TRUE;
+                return true;
             if (!download && !transferView.getValue<gboolean>(iter, "Download"))
-                return TRUE;
+                return true;
         }
         valid = WulforUtil::getNextIter_gui(m, iter, TRUE, TRUE);
     }
 
-    return FALSE;
+    return false;
 }
 
 void Transfers::addConnection_gui(StringMap params, bool download)

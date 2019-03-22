@@ -220,7 +220,7 @@ void Search::show()
 
 void Search::putValue_gui(const string &str, int64_t size, SearchManager::SizeModes mode, SearchManager::TypeModes type)
 {
-    gtk_entry_set_text(GTK_ENTRY(searchEntry), str.c_str());
+    gtk_entry_set_text(GTK_ENTRY(getWidget("SearchEntry")), str.c_str());
     gtk_entry_set_text(GTK_ENTRY(getWidget("entrySize")), Util::toString(size).c_str());
     gtk_combo_box_set_active(GTK_COMBO_BOX(getWidget("comboboxSize")), (int)mode);
     gtk_combo_box_set_active(GTK_COMBO_BOX(getWidget("comboboxFile")), (int)type);
@@ -236,9 +236,9 @@ void Search::initHubs_gui()
     auto lock = ClientManager::getInstance()->lock();
 #endif // DO_NOT_USE_MUTEX
 
-    Client::List& clients = ClientManager::getInstance()->getClients();
+    const Client::List clients = ClientManager::getInstance()->getClients();
 
-    Client *client = NULL;
+    Client *client = nullptr;
     for (auto it = clients.begin(); it != clients.end(); ++it)
     {
         client = *it;
@@ -432,7 +432,11 @@ void Search::popupMenu_gui()
     // Build user command menu
     userCommandMenu->buildMenu_gui();
 
+#if GTK_CHECK_VERSION(3,22,0)
+    gtk_menu_popup_at_pointer(GTK_MENU(getWidget("mainMenu")),NULL);
+#else
     gtk_menu_popup(GTK_MENU(getWidget("mainMenu")), NULL, NULL, NULL, NULL, 0, gtk_get_current_event_time());
+#endif
     gtk_widget_show_all(getWidget("mainMenu"));
 }
 
@@ -757,7 +761,7 @@ void Search::updateParentRow_gui(GtkTreeIter *parent, GtkTreeIter *child)
         break;
     }
     case TYPE:
-        WulforUtil::copyValue_gui(resultStore, child, parent, resultView.col(_("Type")));;
+        WulforUtil::copyValue_gui(resultStore, child, parent, resultView.col(_("Type")));
         break;
     default:
         ///@todo: throw an exception
@@ -945,18 +949,18 @@ gboolean Search::onFocusIn_gui(GtkWidget *widget, GdkEventFocus *event, gpointer
     (void)event;
 
     Search *s = (Search *)data;
-    if (!s) return FALSE;
+    if (!s) return false;
 
     gtk_widget_grab_focus(s->getWidget("comboboxentrySearch"));
 
-    return TRUE;
+    return true;
 }
 
 gboolean Search::onButtonPressed_gui(GtkWidget *widget, GdkEventButton *event, gpointer data)
 {
     (void)widget;
     Search *s = (Search *)data;
-    if (!s) return FALSE;
+    if (!s) return false;
     s->oldEventType = event->type;
 
     if (event->button == 3)
@@ -968,17 +972,17 @@ gboolean Search::onButtonPressed_gui(GtkWidget *widget, GdkEventButton *event, g
             gtk_tree_path_free(path);
 
             if (selected)
-                return TRUE;
+                return true;
         }
     }
-    return FALSE;
+    return false;
 }
 
 gboolean Search::onButtonReleased_gui(GtkWidget *widget, GdkEventButton *event, gpointer data)
 {
     (void)widget;
     Search *s = (Search *)data;
-    if (!s) return FALSE;
+    if (!s) return false;
     gint count = gtk_tree_selection_count_selected_rows(s->selection);
 
     if (count > 0 && event->type == GDK_BUTTON_RELEASE && event->button == 3)
@@ -986,13 +990,13 @@ gboolean Search::onButtonReleased_gui(GtkWidget *widget, GdkEventButton *event, 
     else if (count == 1 && s->oldEventType == GDK_2BUTTON_PRESS && event->button == 1)
         s->onDownloadClicked_gui(NULL, data);
 
-    return FALSE;
+    return false;
 }
 
 gboolean Search::onKeyReleased_gui(GtkWidget *widget, GdkEventKey *event, gpointer data)
 {
     Search *s = (Search *)data;
-    if (!s) return FALSE;
+    if (!s) return false;
 
     if (widget == GTK_WIDGET(s->resultView.get()))
     {
@@ -1000,11 +1004,11 @@ gboolean Search::onKeyReleased_gui(GtkWidget *widget, GdkEventKey *event, gpoint
 
         if (count > 0)
         {
-            if (event->keyval == GDK_Return || event->keyval == GDK_KP_Enter)
+            if (event->keyval == GDK_KEY_Return || event->keyval == GDK_KEY_KP_Enter)
                 s->onDownloadClicked_gui(NULL, data);
-            else if (event->keyval == GDK_Delete || event->keyval == GDK_BackSpace)
+            else if (event->keyval == GDK_KEY_Delete || event->keyval == GDK_KEY_BackSpace)
                 s->onRemoveClicked_gui(NULL, data);
-            else if (event->keyval == GDK_Menu || (event->keyval == GDK_F10 && event->state & GDK_SHIFT_MASK))
+            else if (event->keyval == GDK_KEY_Menu || (event->keyval == GDK_KEY_F10 && event->state & GDK_SHIFT_MASK))
                 s->popupMenu_gui();
         }
     }
@@ -1014,26 +1018,26 @@ gboolean Search::onKeyReleased_gui(GtkWidget *widget, GdkEventKey *event, gpoint
             gtk_tree_model_filter_refilter(GTK_TREE_MODEL_FILTER(s->searchFilterModel));
     }
 
-    return FALSE;
+    return false;
 }
 
 gboolean Search::onSearchEntryKeyPressed_gui(GtkWidget *widget, GdkEventKey *event, gpointer data)
 {
     (void)widget;
     Search *s = (Search *)data;
-    if (!s) return FALSE;
+    if (!s) return false;
 
-    if (event->keyval == GDK_Return || event->keyval == GDK_KP_Enter)
+    if (event->keyval == GDK_KEY_Return || event->keyval == GDK_KEY_KP_Enter)
     {
         s->search_gui();
     }
-    else if (event->keyval == GDK_Down || event->keyval == GDK_KP_Down)
+    else if (event->keyval == GDK_KEY_Down || event->keyval == GDK_KEY_KP_Down)
     {
         gtk_combo_box_popup(GTK_COMBO_BOX(s->getWidget("comboboxentrySearch")));
-        return TRUE;
+        return true;
     }
 
-    return FALSE;
+    return false;
 }
 
 void Search::onComboBoxChanged_gui(GtkWidget* widget, gpointer data)
@@ -2018,16 +2022,16 @@ void Search::on(SearchManagerListener::SR, const SearchResultPtr& result) noexce
 gboolean Search::searchFilterFunc_gui(GtkTreeModel *model, GtkTreeIter *iter, gpointer data)
 {
     Search *s = (Search *)data;
-    if (!s) return FALSE;
+    if (!s) return false;
     dcassert(model == GTK_TREE_MODEL(s->resultStore));
 
     // Enabler filtering only if search within local results is checked
     if (!gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(s->getWidget("checkbuttonFilter"))))
-        return TRUE;
+        return true;
 
     // Grouping shouldn't be enabled while filtering, but just in case...
     if (gtk_tree_model_iter_has_child(model, iter))
-        return TRUE;
+        return true;
 
     string hub = s->resultView.getString(iter, "Hub URL", model);
     GtkTreeIter hubIter;
@@ -2037,7 +2041,7 @@ gboolean Search::searchFilterFunc_gui(GtkTreeModel *model, GtkTreeIter *iter, gp
         if (hub == s->hubView.getString(&hubIter, "Url"))
         {
             if (!s->hubView.getValue<gboolean>(&hubIter, _("Search")))
-                return FALSE;
+                return false;
             else
                 break;
         }
@@ -2047,12 +2051,12 @@ gboolean Search::searchFilterFunc_gui(GtkTreeModel *model, GtkTreeIter *iter, gp
     // Filter based on free slots.
     gint freeSlots = s->resultView.getValue<gint>(iter, "Free Slots", model);
     if (s->onlyFree && freeSlots < 1)
-        return FALSE;
+        return false;
 
     // Hide results already in share
     if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(s->getWidget("checkbuttonShared"))) &&
             s->resultView.getValue<gboolean>(iter, "Shared", model) == TRUE)
-        return FALSE;
+        return false;
 
     // Filter based on search terms.
     string filter = Text::toLower(gtk_entry_get_text(GTK_ENTRY(s->searchEntry)));
@@ -2064,12 +2068,12 @@ gboolean Search::searchFilterFunc_gui(GtkTreeModel *model, GtkTreeIter *iter, gp
         if ((*term)[0] == '-')
         {
             if (filename.find((*term).substr(1)) != string::npos)
-                return FALSE;
+                return false;
             else if (path.find((*term).substr(1)) != string::npos)
-                return FALSE;
+                return false;
         }
         else if (filename.find(*term) == string::npos && path.find(*term) == string::npos)
-            return FALSE;
+            return false;
     }
 
     // Filter based on file size.
@@ -2095,23 +2099,23 @@ gboolean Search::searchFilterFunc_gui(GtkTreeModel *model, GtkTreeIter *iter, gp
         {
         case 0:
             if (size != filterSize)
-                return FALSE;
+                return false;
             break;
         case 1:
             if (size < filterSize)
-                return FALSE;
+                return false;
             break;
         case 2:
             if (size > filterSize)
-                return FALSE;
+                return false;
         }
     }
 
     int type = gtk_combo_box_get_active(GTK_COMBO_BOX(s->getWidget("comboboxFile")));
     if (type != SearchManager::TYPE_ANY && type != ShareManager::getInstance()->getType(filename))
-        return FALSE;
+        return false;
 
-    return TRUE;
+    return true;
 }
 
 void Search::onSidePanelToggled_gui(GtkWidget *widget, gpointer data)

@@ -1556,7 +1556,7 @@ gboolean MainWindow::onWindowState_gui(GtkWidget *widget, GdkEventWindowState *e
             Util::setAway(FALSE);
     }
 
-    return TRUE;
+    return true;
 }
 
 gboolean MainWindow::onFocusIn_gui(GtkWidget *widget, GdkEventFocus *event, gpointer data)
@@ -1574,7 +1574,7 @@ gboolean MainWindow::onFocusIn_gui(GtkWidget *widget, GdkEventFocus *event, gpoi
     }
 
     gtk_window_set_urgency_hint(mw->window, FALSE);
-    return FALSE;
+    return false;
 }
 
 gboolean MainWindow::onCloseWindow_gui(GtkWidget *widget, GdkEvent *event, gpointer data)
@@ -1592,13 +1592,13 @@ gboolean MainWindow::onCloseWindow_gui(GtkWidget *widget, GdkEvent *event, gpoin
     {
         gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(mw->getWidget("statusIconShowInterfaceItem")), FALSE);
 
-        return TRUE;
+        return true;
     }
 
     if (!WGETB("confirm-exit"))
     {
         WulforManager::get()->deleteMainWindow();
-        return FALSE;
+        return false;
     }
 
     gint response = gtk_dialog_run(GTK_DIALOG(mw->getWidget("exitDialog")));
@@ -1607,10 +1607,10 @@ gboolean MainWindow::onCloseWindow_gui(GtkWidget *widget, GdkEvent *event, gpoin
     if (response == GTK_RESPONSE_OK)
     {
         WulforManager::get()->deleteMainWindow();
-        return FALSE;
+        return false;
     }
 
-    return TRUE;
+    return true;
 }
 
 gboolean MainWindow::onDeleteEventMagnetDialog_gui(GtkWidget *dialog, GdkEvent *event, gpointer data)
@@ -1620,7 +1620,7 @@ gboolean MainWindow::onDeleteEventMagnetDialog_gui(GtkWidget *dialog, GdkEvent *
 
     gtk_widget_hide(dialog);
 
-    return TRUE;
+    return true;
 }
 
 void MainWindow::onTopToolbarToggled_gui(GtkWidget *widget, gpointer data)
@@ -1708,19 +1708,23 @@ void MainWindow::onSizeToolbarToggled_gui(GtkWidget *widget, gpointer data)
 gboolean MainWindow::onAddButtonClicked_gui(GtkWidget *widget, gpointer data)
 {
     (void)widget;
-    MainWindow *mw = (MainWindow *)data;
 
+    MainWindow *mw = (MainWindow *)data;
+#if GTK_CHECK_VERSION(3,22,0)
+    gtk_menu_popup_at_widget(GTK_MENU(mw->getWidget("toolbarMenu")),widget,GDK_GRAVITY_SOUTH_WEST,GDK_GRAVITY_NORTH_WEST,NULL);
+#else
     gtk_menu_popup(GTK_MENU(mw->getWidget("toolbarMenu")), NULL, NULL, NULL, NULL, 0, gtk_get_current_event_time());
-    return FALSE;
+#endif
+    return false;
 }
 
 void MainWindow::onToolToggled_gui(GtkWidget *widget, gpointer data)
 {
-    string key = (gchar*) g_object_get_data(G_OBJECT(widget), "key");
+    string skey = (gchar*) g_object_get_data(G_OBJECT(widget), "key");
     GtkWidget *button = (GtkWidget*) data;
-    bool active = gtk_check_menu_item_get_active(GTK_CHECK_MENU_ITEM(widget));
-    active ? gtk_widget_show(button) : gtk_widget_hide(button);
-    WSET(key, active);
+    bool bactive = gtk_check_menu_item_get_active(GTK_CHECK_MENU_ITEM(widget));
+    bactive ? gtk_widget_show(button) : gtk_widget_hide(button);
+    WSET(skey, bactive);
 }
 
 void MainWindow::checkToolbarMenu_gui()
@@ -1753,20 +1757,20 @@ gboolean MainWindow::onKeyPressed_gui(GtkWidget *widget, GdkEventKey *event, gpo
 
     if (event->state & GDK_CONTROL_MASK)
     {
-        if (event->state & GDK_SHIFT_MASK && event->keyval == GDK_ISO_Left_Tab)
+        if (event->state & GDK_SHIFT_MASK && event->keyval == GDK_KEY_Tab)
         {
             mw->previousTab_gui();
-            return TRUE;
+            return true;
         }
-        else if (event->keyval == GDK_Tab)
+        else if (event->keyval == GDK_KEY_Tab)
         {
             mw->nextTab_gui();
-            return TRUE;
+            return true;
         }
         else if (event->keyval == GDK_F4)
         {
             onCloseClicked_gui(widget, data);
-            return TRUE;
+            return true;
         }
     }
     else if (event->state & GDK_MOD1_MASK) {
@@ -1785,7 +1789,7 @@ gboolean MainWindow::onKeyPressed_gui(GtkWidget *widget, GdkEventKey *event, gpo
     }
 
 
-    return FALSE;
+    return false;
 }
 void MainWindow::onSwitchOnPage_gui(int pageNum){
     GtkNotebook *book = GTK_NOTEBOOK(getWidget("book"));
@@ -1804,10 +1808,10 @@ gboolean MainWindow::onButtonReleasePage_gui(GtkWidget *widget, GdkEventButton *
     {
         BookEntry *entry = (BookEntry *)data;
         WulforManager::get()->getMainWindow()->removeBookEntry_gui(entry);
-        return TRUE;
+        return true;
     }
 
-    return FALSE;
+    return false;
 }
 
 gboolean MainWindow::animationStatusIcon_gui(gpointer data)
@@ -1819,12 +1823,12 @@ gboolean MainWindow::animationStatusIcon_gui(gpointer data)
         gtk_status_icon_set_from_icon_name(mw->statusIcon, "eiskaltdcpp");
         mw->timer = 0;
 
-        return FALSE;
+        return false;
     }
 
     gtk_status_icon_set_from_icon_name(mw->statusIcon, (mw->statusFrame *= -1) > 0 ? "eiskaltdcpp" : "icon_msg");
 
-    return TRUE;
+    return true;
 }
 
 void MainWindow::onRaisePage_gui(GtkMenuItem *item, gpointer data)
@@ -2236,7 +2240,11 @@ void MainWindow::onStatusIconPopupMenu_gui(GtkStatusIcon *statusIcon, guint butt
 {
     MainWindow *mw = (MainWindow *)data;
     GtkMenu *menu = GTK_MENU(mw->getWidget("statusIconMenu"));
+#if GTK_CHECK_VERSION(3,22,0)
+    gtk_menu_popup_at_pointer(menu,NULL);
+#else
     gtk_menu_popup(menu, NULL, NULL, gtk_status_icon_position_menu, statusIcon, button, time);
+#endif
 }
 
 void MainWindow::onShowInterfaceToggled_gui(GtkCheckMenuItem *item, gpointer data)

@@ -35,7 +35,7 @@ void PreviewMenu::cleanMenu_gui()
 bool PreviewMenu::buildMenu_gui(const string &target)
 {
     if (target == "none" || target.empty())
-        return FALSE;
+        return false;
 
     string file = Util::getFileName(target);
     string ext = Util::getFileExt(file);
@@ -53,7 +53,7 @@ bool PreviewMenu::buildMenu_gui(const string &target)
     }
 
     if (ext.empty() || ext == "." || file == ext)
-        return FALSE;
+        return false;
 
     ext.erase(0, 1);
 
@@ -93,7 +93,7 @@ bool PreviewMenu::buildMenu_gui(const string &target)
     g_object_set_data_full(G_OBJECT(itemApp), "application", g_strdup(""), g_free);
     g_object_set_data_full(G_OBJECT(itemApp), "target", g_strdup(target.c_str()), g_free);
 
-    return TRUE;
+    return true;
 }
 
 void PreviewMenu::onPreviewAppClicked_gui(GtkMenuItem *menuItem, gpointer data)

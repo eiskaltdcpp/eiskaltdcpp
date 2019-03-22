@@ -38,11 +38,12 @@ TreeView::TreeView()
 
 TreeView::~TreeView()
 {
-    if (!name.empty())
+    if (!name.empty() && !( (name.length() == 3) && (name == "hub"))  )
         saveSettings();
-    if (gtypes)
-        delete [] gtypes;
+    delete [] gtypes;
     g_object_unref(menu);
+    menu = NULL;
+    view = NULL;
 }
 
 void TreeView::setView(GtkTreeView *view)
@@ -128,13 +129,17 @@ void TreeView::insertHiddenColumn(const string &title, const GType &gtype)
 
 void TreeView::finalize()
 {
+    bool restoreMain = true;
+    if(name.length() == 3 && name == "hub")
+        restoreMain = false;
+
     dcassert(count > 0);
 
     menu = GTK_MENU(gtk_menu_new());
     g_object_ref_sink(menu);
     visibleColumns = columns.size();
 
-    if (!name.empty())
+    if (restoreMain && !name.empty())
         restoreSettings();
 
     for (SortedColIter iter = sortedColumns.begin(); iter != sortedColumns.end(); ++iter)
@@ -148,7 +153,7 @@ void TreeView::finalize()
         gtk_menu_shell_append(GTK_MENU_SHELL(menu), colMenuItems[col.title]);
 
         if (!col.visible)
-            visibleColumns--;
+            --visibleColumns;
     }
 
     if (padding)
@@ -163,7 +168,7 @@ void TreeView::finalize()
 /*
  * This is the total number of columns, including hidden columns.
  */
-int TreeView::getColCount()
+int TreeView::getColCount() const
 {
     return count;
 }
@@ -223,7 +228,7 @@ void TreeView::sizeDataFunc(GtkTreeViewColumn *col, GtkCellRenderer *renderer, G
     (void)col;
 
     string sizeString;
-    int64_t size;
+    int64_t size = 0;
     gtk_tree_model_get(model, iter, static_cast<Column*>(column)->pos, &size, -1);
 
     if (size >= 0)
@@ -239,7 +244,7 @@ void TreeView::timeLeftDataFunc(GtkTreeViewColumn *col, GtkCellRenderer *rendere
     (void)col;
 
     string timeLeftString;
-    int64_t seconds;
+    int64_t seconds = 0;
     gtk_tree_model_get(model, iter, static_cast<Column*>(column)->pos, &seconds, -1);
 
     if (seconds >= 0)
@@ -253,7 +258,7 @@ void TreeView::timeLeftDataFunc(GtkTreeViewColumn *col, GtkCellRenderer *rendere
 void TreeView::addColumn_gui(Column& column)
 {
     GtkTreeViewColumn *col = NULL;
-    GtkCellRenderer *renderer;
+    GtkCellRenderer *renderer = NULL;
 
     switch (column.type)
     {
@@ -408,7 +413,11 @@ gboolean TreeView::popupMenu_gui(GtkWidget *widget, GdkEventButton *event, gpoin
 
     if (event->button == 3)
     {
+#if GTK_CHECK_VERSION(3,22,0)
+        gtk_menu_popup_at_pointer(tv->menu,NULL);
+#else
         gtk_menu_popup(tv->menu, NULL, NULL, NULL, NULL, event->button, gdk_event_get_time((GdkEvent*)event));
+#endif
         gtk_widget_show_all(GTK_WIDGET(tv->menu));
         return true;
     }
@@ -459,6 +468,8 @@ void TreeView::toggleColumnVisibility(GtkMenuItem *item, gpointer data)
 
 void TreeView::restoreSettings()
 {
+    if(name == "hub") return; // Do not load hub-based prop to main setttings
+
     vector<int> columnOrder, columnWidth, columnVisibility;
     columnOrder = WulforUtil::splitString(WGETS(name + "-order"), ",");
     columnWidth = WulforUtil::splitString(WGETS(name + "-width"), ",");
@@ -470,7 +481,7 @@ void TreeView::restoreSettings()
     {
         for (ColIter iter = columns.begin(); iter != columns.end(); ++iter)
         {
-            for (size_t i = 0; i < columns.size(); i++)
+            for (size_t i = 0; i < columns.size(); ++i)
             {
                 if (iter->second.id == columnOrder.at(i))
                 {
@@ -489,13 +500,15 @@ void TreeView::restoreSettings()
 
 void TreeView::saveSettings()
 {
+    if(name == "hub") return; //Do not save hub-based prop to main setttings
+
     string columnOrder, columnWidth, columnVisibility, title;
     GtkTreeViewColumn *col;
     gint width;
 
     dcassert(!columns.empty());
 
-    for (size_t i = 0; i < columns.size(); i++)
+    for (size_t i = 0; i < columns.size(); ++i)
     {
         col = gtk_tree_view_get_column(view, i);
         if (!col)

@@ -411,5 +411,5 @@ gboolean EmoticonsDialog::event(GtkWidget *widget, GdkEvent *event, gpointer dat
             break;
         }
     }
-    return FALSE;
+    return false;
 }

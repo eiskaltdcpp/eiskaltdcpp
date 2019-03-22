@@ -62,12 +62,12 @@ test_is_socket (const char *path)
     struct stat s;
 
     if (stat (path, &s) == -1)
-        return FALSE;
+        return false;
 
     if (S_ISSOCK (s.st_mode))
-        return TRUE;
+        return true;
 
-    return FALSE;
+    return false;
 }
 
 static gboolean
@@ -76,15 +76,15 @@ is_owned_by_user_and_socket (const char *path)
     struct stat s;
 
     if (stat (path, &s) == -1)
-        return FALSE;
+        return false;
 
     if (s.st_uid != geteuid ())
-        return FALSE;
+        return false;
 
     if ((s.st_mode & S_IFSOCK) != S_IFSOCK)
-        return FALSE;
+        return false;
 
-    return TRUE;
+    return true;
 }
 
 static gboolean server_cb (GIOChannel *source,
@@ -97,12 +97,12 @@ setup_connection (BaconMessageConnection *conn)
 
     conn->chan = g_io_channel_unix_new (conn->fd);
     if (!conn->chan) {
-        return FALSE;
+        return false;
     }
     g_io_channel_set_line_term (conn->chan, "\n", 1);
     conn->conn_id = g_io_add_watch (conn->chan, G_IO_IN, server_cb, conn);
 
-    return TRUE;
+    return true;
 }
 
 static void
@@ -137,7 +137,7 @@ server_cb (GIOChannel *source, GIOCondition, gpointer data)
     offset = 0;
     if (conn->is_server && conn->fd == g_io_channel_unix_get_fd (source)) {
         accept_new_connection (conn);
-        return TRUE;
+        return true;
     }
     message = (char *)(g_malloc (1));
     cd = conn->fd;
@@ -158,7 +158,7 @@ server_cb (GIOChannel *source, GIOCondition, gpointer data)
         g_free (message);
         conn->conn_id = 0;
 
-        return FALSE;
+        return false;
     }
     message[offset] = '\0';
 
@@ -177,7 +177,7 @@ server_cb (GIOChannel *source, GIOCondition, gpointer data)
 
     g_free (message);
 
-    return TRUE;
+    return true;
 }
 
 static char *
@@ -256,18 +256,18 @@ try_server (BaconMessageConnection *conn)
     conn->fd = socket (PF_UNIX, SOCK_STREAM, 0);
 
     if(conn->fd == -1)
-        return FALSE;
+        return false;
 
     if (bind (conn->fd, (struct sockaddr *) &uaddr, sizeof (uaddr)) == -1)
     {
         // conn->fd = -1;
-        return FALSE;
+        return false;
     }
     listen (conn->fd, 5);
 
     if (!setup_connection (conn))
-        return FALSE;
-    return TRUE;
+        return false;
+    return true;
 }
 
 static gboolean
@@ -280,13 +280,13 @@ try_client (BaconMessageConnection *conn)
              MIN(strlen(conn->path)+1, UNIX_PATH_MAX));
     conn->fd = socket (PF_UNIX, SOCK_STREAM, 0);
     if(conn->fd == -1)
-        return FALSE;
+        return false;
 
     if (connect (conn->fd, (struct sockaddr *) &uaddr,
                  sizeof (uaddr)) == -1)
     {
         //conn->fd = -1;
-        return FALSE;
+        return false;
     }
 
     return setup_connection (conn);

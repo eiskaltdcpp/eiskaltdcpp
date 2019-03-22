@@ -171,11 +171,11 @@ bool FavoriteHubs::showErrorDialog_gui(const string &description, FavoriteHubs *
 
     // Fix crash, if the dialog gets programmatically destroyed.
     if (response == GTK_RESPONSE_NONE)
-        return FALSE;
+        return false;
 
     gtk_widget_destroy(dialog);
 
-    return TRUE;
+    return true;
 }
 
 void FavoriteHubs::popupMenu_gui()
@@ -192,7 +192,11 @@ void FavoriteHubs::popupMenu_gui()
         gtk_widget_set_sensitive(getWidget("removeMenuItem"), TRUE);
         gtk_widget_set_sensitive(getWidget("connectMenuItem"), TRUE);
     }
+#if GTK_CHECK_VERSION(3,22,0)
+    gtk_menu_popup_at_pointer(GTK_MENU(getWidget("menu")),NULL);
+#else
     gtk_menu_popup(GTK_MENU(getWidget("menu")), NULL, NULL, NULL, NULL, 0, gtk_get_current_event_time());
+#endif
 }
 
 gboolean FavoriteHubs::onButtonPressed_gui(GtkWidget *widget, GdkEventButton *event, gpointer data)
@@ -200,7 +204,7 @@ gboolean FavoriteHubs::onButtonPressed_gui(GtkWidget *widget, GdkEventButton *ev
     (void)widget;
     FavoriteHubs *fh = (FavoriteHubs *)data;
     fh->previous = event->type;
-    return FALSE;
+    return false;
 }
 
 gboolean FavoriteHubs::onButtonReleased_gui(GtkWidget *widget, GdkEventButton *event, gpointer data)
@@ -233,7 +237,7 @@ gboolean FavoriteHubs::onButtonReleased_gui(GtkWidget *widget, GdkEventButton *e
         }
     }
 
-    return FALSE;
+    return false;
 }
 
 gboolean FavoriteHubs::onKeyReleased_gui(GtkWidget *widget, GdkEventKey *event, gpointer data)
@@ -247,23 +251,23 @@ gboolean FavoriteHubs::onKeyReleased_gui(GtkWidget *widget, GdkEventKey *event, 
         gtk_widget_set_sensitive(fh->getWidget("buttonRemove"), TRUE);
         gtk_widget_set_sensitive(fh->getWidget("buttonConnect"), TRUE);
 
-        if (event->keyval == GDK_Return || event->keyval == GDK_KP_Enter)
+        if (event->keyval == GDK_KEY_Return || event->keyval == GDK_KEY_KP_Enter)
         {
             WulforManager::get()->getMainWindow()->showHub_gui(
                         fh->favoriteView.getString(&iter, _("Address")),
                         fh->favoriteView.getString(&iter, _("Encoding")));
         }
-        else if (event->keyval == GDK_Delete || event->keyval == GDK_BackSpace)
+        else if (event->keyval == GDK_KEY_Delete || event->keyval == GDK_KEY_BackSpace)
         {
             fh->onRemoveEntry_gui(widget, data);
         }
-        else if (event->keyval == GDK_Menu || (event->keyval == GDK_F10 && event->state & GDK_SHIFT_MASK))
+        else if (event->keyval == GDK_KEY_Menu || (event->keyval == GDK_KEY_F10 && event->state & GDK_SHIFT_MASK))
         {
             fh->popupMenu_gui();
         }
     }
 
-    return FALSE;
+    return false;
 }
 
 void FavoriteHubs::onAddEntry_gui(GtkWidget *widget, gpointer data)
@@ -379,7 +383,7 @@ bool FavoriteHubs::showFavoriteHubDialog_gui(StringMap &params, FavoriteHubs *fh
 
     // Fix crash, if the dialog gets programmatically destroyed.
     if (response == GTK_RESPONSE_NONE)
-        return FALSE;
+        return false;
 
     while (response == GTK_RESPONSE_OK)
     {
@@ -426,20 +430,20 @@ bool FavoriteHubs::showFavoriteHubDialog_gui(StringMap &params, FavoriteHubs *fh
 
                 // Fix crash, if the dialog gets programmatically destroyed.
                 if (response == GTK_RESPONSE_NONE)
-                    return FALSE;
+                    return false;
             }
             else
-                return FALSE;
+                return false;
         }
         else
         {
             gtk_widget_hide(fh->getWidget("favoriteHubsDialog"));
-            return TRUE;
+            return true;
         }
     }
 
     gtk_widget_hide(fh->getWidget("favoriteHubsDialog"));
-    return FALSE;
+    return false;
 }
 
 void FavoriteHubs::onRemoveEntry_gui(GtkWidget *widget, gpointer data)

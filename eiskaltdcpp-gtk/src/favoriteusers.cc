@@ -130,17 +130,21 @@ gboolean FavoriteUsers::onKeyReleased_gui(GtkWidget *widget, GdkEventKey *event,
 
     if (gtk_tree_selection_count_selected_rows(fu->favoriteUserSelection) > 0)
     {
-        if (event->keyval == GDK_Delete || event->keyval == GDK_BackSpace)
+        if (event->keyval == GDK_KEY_Delete || event->keyval == GDK_KEY_BackSpace)
         {
             fu->onRemoveItemClicked_gui(NULL, data);
         }
-        else if (event->keyval == GDK_Menu || (event->keyval == GDK_F10 && event->state & GDK_SHIFT_MASK))
+        else if (event->keyval == GDK_KEY_Menu || (event->keyval == GDK_KEY_F10 && event->state & GDK_SHIFT_MASK))
         {
+#if GTK_CHECK_VERSION(3,22,0)
+            gtk_menu_popup_at_pointer(GTK_MENU(fu->getWidget("menu")),NULL);
+#else
             gtk_menu_popup(GTK_MENU(fu->getWidget("menu")), NULL, NULL, NULL, NULL, 0, gtk_get_current_event_time());
+#endif
         }
     }
 
-    return FALSE;
+    return false;
 }
 
 gboolean FavoriteUsers::onButtonPressed_gui(GtkWidget *widget, GdkEventButton *event, gpointer data)
@@ -159,10 +163,10 @@ gboolean FavoriteUsers::onButtonPressed_gui(GtkWidget *widget, GdkEventButton *e
             gtk_tree_path_free(path);
 
             if (selected)
-                return TRUE;
+                return true;
         }
     }
-    return FALSE;
+    return false;
 }
 
 gboolean FavoriteUsers::onButtonReleased_gui(GtkWidget *widget, GdkEventButton *event, gpointer data)
@@ -190,11 +194,15 @@ gboolean FavoriteUsers::onButtonReleased_gui(GtkWidget *widget, GdkEventButton *
         }
         else if (event->button == 3 && event->type == GDK_BUTTON_RELEASE)
         {
+#if GTK_CHECK_VERSION(3,22,0)
+            gtk_menu_popup_at_pointer(GTK_MENU(fu->getWidget("menu")),NULL);
+#else
             gtk_menu_popup(GTK_MENU(fu->getWidget("menu")), NULL, NULL, NULL, NULL, 0, gtk_get_current_event_time());
+#endif
         }
     }
 
-    return FALSE;
+    return false;
 }
 
 void FavoriteUsers::onBrowseItemClicked_gui(GtkMenuItem *item, gpointer data)
@@ -576,10 +584,10 @@ bool FavoriteUsers::findUser_gui(const string &cid, GtkTreeIter *iter)
         if (iter)
             *iter = it->second;
 
-        return TRUE;
+        return true;
     }
 
-    return FALSE;
+    return false;
 }
 
 void FavoriteUsers::updateFavoriteUser_gui(ParamMap params)

@@ -127,7 +127,7 @@ void Emoticons::clean()
 bool Emoticons::load(const string &file)
 {
     if (file.empty())
-        return FALSE;
+        return false;
 
     string path = string(_DATADIR) + G_DIR_SEPARATOR_S + "emoticons" + G_DIR_SEPARATOR_S;
     countfile = 0;
@@ -185,7 +185,7 @@ bool Emoticons::load(const string &file)
     catch (const Exception &e)
     {
         dcdebug("eiskaltdcpp-gtk: %s...\n", e.getError().c_str());
-        return FALSE;
+        return false;
     }
 
     return !pack.empty();

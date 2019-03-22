@@ -145,12 +145,12 @@ bool FinishedTransfers::findUser_gui(GtkTreeIter* iter, const string& cid)
     while (valid)
     {
         if (userView.getString(iter, "CID") == cid)
-            return TRUE;
+            return true;
 
         valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(userStore), iter);
     }
 
-    return FALSE;
+    return false;
 }
 
 bool FinishedTransfers::findFile_gui(GtkTreeIter* iter, const string& item)
@@ -160,12 +160,12 @@ bool FinishedTransfers::findFile_gui(GtkTreeIter* iter, const string& item)
     while (valid)
     {
         if (fileView.getString(iter, "Target") == item)
-            return TRUE;
+            return true;
 
         valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(fileStore), iter);
     }
 
-    return FALSE;
+    return false;
 }
 
 void FinishedTransfers::addUser_gui(StringMap params, bool update)
@@ -311,12 +311,12 @@ gboolean FinishedTransfers::onButtonPressed_gui(GtkWidget *widget, GdkEventButto
             gtk_tree_path_free(path);
 
             if (selected)
-                return TRUE;
+                return true;
         }
     }
 
 
-    return FALSE;
+    return false;
 }
 
 gboolean FinishedTransfers::onButtonReleased_gui(GtkWidget *widget, GdkEventButton *event, gpointer data)
@@ -369,10 +369,14 @@ gboolean FinishedTransfers::onButtonReleased_gui(GtkWidget *widget, GdkEventButt
         }
 
         gtk_widget_show_all(ft->getWidget("menu"));
+#if GTK_CHECK_VERSION(3,22,0)
+        gtk_menu_popup_at_pointer(GTK_MENU(ft->getWidget("menu")),NULL);
+#else
         gtk_menu_popup(GTK_MENU(ft->getWidget("menu")), NULL, NULL, NULL, NULL, 0, gtk_get_current_event_time());
+#endif
     }
 
-    return FALSE;
+    return false;
 }
 
 gboolean FinishedTransfers::onKeyReleased_gui(GtkWidget *widget, GdkEventKey *event, gpointer data)
@@ -396,15 +400,15 @@ gboolean FinishedTransfers::onKeyReleased_gui(GtkWidget *widget, GdkEventKey *ev
 
     if (count > 0)
     {
-        if (view == &ft->fileView && (event->keyval == GDK_Return || event->keyval == GDK_KP_Enter))
+        if (view == &ft->fileView && (event->keyval == GDK_KEY_Return || event->keyval == GDK_KEY_KP_Enter))
         {
             onOpen_gui(NULL, data);
         }
-        else if (event->keyval == GDK_Delete || event->keyval == GDK_BackSpace)
+        else if (event->keyval == GDK_KEY_Delete || event->keyval == GDK_KEY_BackSpace)
         {
             onRemoveItems_gui(NULL, data);
         }
-        else if (event->keyval == GDK_Menu || (event->keyval == GDK_F10 && event->state & GDK_SHIFT_MASK))
+        else if (event->keyval == GDK_KEY_Menu || (event->keyval == GDK_KEY_F10 && event->state & GDK_SHIFT_MASK))
         {
             ft->appsPreviewMenu->cleanMenu_gui();
 
@@ -435,11 +439,15 @@ gboolean FinishedTransfers::onKeyReleased_gui(GtkWidget *widget, GdkEventKey *ev
             }
 
             gtk_widget_show_all(ft->getWidget("menu"));
+#if GTK_CHECK_VERSION(3,22,0)
+            gtk_menu_popup_at_pointer(GTK_MENU(ft->getWidget("menu")),NULL);
+#else
             gtk_menu_popup(GTK_MENU(ft->getWidget("menu")), NULL, NULL, NULL, NULL, 1, event->time);
+#endif
         }
     }
 
-    return FALSE;
+    return false;
 }
 
 void FinishedTransfers::onShowOnlyFullFilesToggled_gui(GtkWidget *widget, gpointer data)

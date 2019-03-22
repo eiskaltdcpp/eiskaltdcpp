@@ -38,7 +38,9 @@ public:
 private:
     typedef std::map<std::string,GtkTreeIter> MapUsers;
 
-    void getParams(const std::string file, dcpp::UserPtr user, dcpp::StringMap &params);
+    //made clang happy
+    using dcpp::UploadManagerListener::on;
+    void getParams(const std::string& file, dcpp::UserPtr user, dcpp::StringMap &params);
     void addFile(dcpp::StringMap &params, GtkTreeIter *iter);
     void AddFile_gui(dcpp::StringMap params);
     void removeUser(std::string cid);

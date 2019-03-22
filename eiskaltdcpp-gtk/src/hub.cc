@@ -358,10 +358,10 @@ bool Hub::findUser_gui(const string &cid, GtkTreeIter *iter)
         if (iter)
             *iter = it->second;
 
-        return TRUE;
+        return true;
     }
 
-    return FALSE;
+    return false;
 }
 
 bool Hub::findNick_gui(const string &nick, GtkTreeIter *iter)
@@ -371,7 +371,7 @@ bool Hub::findNick_gui(const string &nick, GtkTreeIter *iter)
     if (it != userMap.end())
         return findUser_gui(it->second, iter);
 
-    return FALSE;
+    return false;
 }
 
 void Hub::updateUser_gui(ParamMap params)
@@ -548,7 +548,11 @@ void Hub::popupNickMenu_gui()
     userCommandMenu->addHub(client->getHubUrl());
     userCommandMenu->buildMenu_gui();
 
+#if GTK_CHECK_VERSION(3,22,0)
+    gtk_menu_popup_at_pointer(GTK_MENU(getWidget("nickMenu")),NULL);
+#else
     gtk_menu_popup(GTK_MENU(getWidget("nickMenu")), NULL, NULL, NULL, NULL, 0, gtk_get_current_event_time());
+#endif
     gtk_widget_show_all(getWidget("nickMenu"));
 }
 
@@ -1427,7 +1431,7 @@ gboolean Hub::onFocusIn_gui(GtkWidget *widget, GdkEventFocus *event, gpointer da
     // fix select text
     gtk_editable_set_position(GTK_EDITABLE(hub->getWidget("chatEntry")), -1);
 
-    return TRUE;
+    return true;
 }
 
 gboolean Hub::onNickListButtonPress_gui(GtkWidget *widget, GdkEventButton *event, gpointer data)
@@ -1447,11 +1451,11 @@ gboolean Hub::onNickListButtonPress_gui(GtkWidget *widget, GdkEventButton *event
             gtk_tree_path_free(path);
 
             if (selected)
-                return TRUE;
+                return true;
         }
     }
 
-    return FALSE;
+    return false;
 }
 
 gboolean Hub::onNickListButtonRelease_gui(GtkWidget *widget, GdkEventButton *event, gpointer data)
@@ -1481,7 +1485,7 @@ gboolean Hub::onNickListButtonRelease_gui(GtkWidget *widget, GdkEventButton *eve
         }
     }
 
-    return FALSE;
+    return false;
 }
 
 gboolean Hub::onNickListKeyRelease_gui(GtkWidget *widget, GdkEventKey *event, gpointer data)
@@ -1491,17 +1495,17 @@ gboolean Hub::onNickListKeyRelease_gui(GtkWidget *widget, GdkEventKey *event, gp
 
     if (gtk_tree_selection_count_selected_rows(hub->nickSelection) > 0)
     {
-        if (event->keyval == GDK_Menu || (event->keyval == GDK_F10 && event->state & GDK_SHIFT_MASK))
+        if (event->keyval == GDK_KEY_Menu || (event->keyval == GDK_KEY_F10 && event->state & GDK_SHIFT_MASK))
         {
             hub->popupNickMenu_gui();
         }
-        else if (event->keyval == GDK_Return || event->keyval == GDK_KP_Enter)
+        else if (event->keyval == GDK_KEY_Return || event->keyval == GDK_KEY_KP_Enter)
         {
             hub->onBrowseItemClicked_gui(NULL, data);
         }
     }
 
-    return FALSE;
+    return false;
 }
 /*
  * Implements a case-insensitive substring search for UTF-8 strings.
@@ -1532,7 +1536,7 @@ gboolean Hub::onEntryKeyPress_gui(GtkWidget *entry, GdkEventKey *event, gpointer
 {
     Hub *hub = (Hub *)data;
 
-    if (event->keyval == GDK_Up || event->keyval == GDK_KP_Up)
+    if (event->keyval == GDK_KEY_Up || event->keyval == GDK_KEY_KP_Up)
     {
         size_t index = hub->historyIndex - 1;
         if (index >= 0 && index < hub->history.size())
@@ -1540,9 +1544,9 @@ gboolean Hub::onEntryKeyPress_gui(GtkWidget *entry, GdkEventKey *event, gpointer
             hub->historyIndex = index;
             gtk_entry_set_text(GTK_ENTRY(entry), hub->history[index].c_str());
         }
-        return TRUE;
+        return true;
     }
-    else if (event->keyval == GDK_Down || event->keyval == GDK_KP_Down)
+    else if (event->keyval == GDK_KEY_Down || event->keyval == GDK_KEY_KP_Down)
     {
         size_t index = hub->historyIndex + 1;
         if (index >= 0 && index < hub->history.size())
@@ -1550,9 +1554,9 @@ gboolean Hub::onEntryKeyPress_gui(GtkWidget *entry, GdkEventKey *event, gpointer
             hub->historyIndex = index;
             gtk_entry_set_text(GTK_ENTRY(entry), hub->history[index].c_str());
         }
-        return TRUE;
+        return true;
     }
-    else if (event->keyval == GDK_Tab || event->keyval == GDK_ISO_Left_Tab)
+    else if (event->keyval == GDK_KEY_Tab)
     {
         string current;
         string::size_type start, end;
@@ -1561,7 +1565,7 @@ gboolean Hub::onEntryKeyPress_gui(GtkWidget *entry, GdkEventKey *event, gpointer
 
         // Allow tab to focus other widgets if entry is empty
         if (curpos <= 0 && text.empty())
-            return FALSE;
+            return false;
 
         // Erase ": " at the end of the nick.
         if (curpos > 2 && text.substr(curpos - 2, 2) == ": ")
@@ -1620,11 +1624,11 @@ gboolean Hub::onEntryKeyPress_gui(GtkWidget *entry, GdkEventKey *event, gpointer
         else
             hub->completionKey.clear();
 
-        return TRUE;
+        return true;
     }
 
     hub->completionKey.clear();
-    return FALSE;
+    return false;
 }
 
 gboolean Hub::onNickTagEvent_gui(GtkTextTag *tag, GObject *textView, GdkEvent *event, GtkTextIter *iter, gpointer data)
@@ -1648,7 +1652,7 @@ gboolean Hub::onNickTagEvent_gui(GtkTextTag *tag, GObject *textView, GdkEvent *e
 #endif
         hub->nickToChat_gui(tagName.substr(tagPrefix.size()));
 
-        return TRUE;
+        return true;
     }
     else if (event->type == GDK_BUTTON_PRESS)
     {
@@ -1669,10 +1673,10 @@ gboolean Hub::onNickTagEvent_gui(GtkTextTag *tag, GObject *textView, GdkEvent *e
                 hub->popupNickMenu_gui();
         }
 
-        return TRUE;
+        return true;
     }
 
-    return FALSE;
+    return false;
 }
 
 gboolean Hub::onLinkTagEvent_gui(GtkTextTag *tag, GObject *textView, GdkEvent *event, GtkTextIter *iter, gpointer data)
@@ -1680,8 +1684,6 @@ gboolean Hub::onLinkTagEvent_gui(GtkTextTag *tag, GObject *textView, GdkEvent *e
     (void)tag;
     (void)textView;
     (void)iter;
-
-    Hub *hub = (Hub *)data;
 
     if (event->type == GDK_BUTTON_PRESS)
     {
@@ -1691,14 +1693,19 @@ gboolean Hub::onLinkTagEvent_gui(GtkTextTag *tag, GObject *textView, GdkEvent *e
             onOpenLinkClicked_gui(NULL, data);
             break;
         case 3:
+            Hub *hub = (Hub *)data;
             // Popup uri context menu
             gtk_widget_show_all(hub->getWidget("linkMenu"));
+#if GTK_CHECK_VERSION(3,22,0)
+            gtk_menu_popup_at_pointer(GTK_MENU(hub->getWidget("linkMenu")),NULL);
+#else
             gtk_menu_popup(GTK_MENU(hub->getWidget("linkMenu")), NULL, NULL, NULL, NULL, 0, gtk_get_current_event_time());
+#endif
             break;
         }
-        return TRUE;
+        return true;
     }
-    return FALSE;
+    return false;
 }
 
 gboolean Hub::onHubTagEvent_gui(GtkTextTag *tag, GObject *textView, GdkEvent *event, GtkTextIter *iter, gpointer data)
@@ -1706,8 +1713,6 @@ gboolean Hub::onHubTagEvent_gui(GtkTextTag *tag, GObject *textView, GdkEvent *ev
     (void)tag;
     (void)textView;
     (void)iter;
-
-    Hub *hub = (Hub *)data;
 
     if (event->type == GDK_BUTTON_PRESS)
     {
@@ -1717,14 +1722,19 @@ gboolean Hub::onHubTagEvent_gui(GtkTextTag *tag, GObject *textView, GdkEvent *ev
             onOpenHubClicked_gui(NULL, data);
             break;
         case 3:
+            Hub *hub = (Hub *)data;
             // Popup uri context menu
             gtk_widget_show_all(hub->getWidget("hubMenu"));
+#if GTK_CHECK_VERSION(3,22,0)
+            gtk_menu_popup_at_pointer(GTK_MENU(hub->getWidget("hubMenu")),NULL);
+#else
             gtk_menu_popup(GTK_MENU(hub->getWidget("hubMenu")), NULL, NULL, NULL, NULL, 0, gtk_get_current_event_time());
+#endif
             break;
         }
-        return TRUE;
+        return true;
     }
-    return FALSE;
+    return false;
 }
 
 gboolean Hub::onMagnetTagEvent_gui(GtkTextTag *tag, GObject *textView, GdkEvent *event, GtkTextIter *iter, gpointer data)
@@ -1746,12 +1756,16 @@ gboolean Hub::onMagnetTagEvent_gui(GtkTextTag *tag, GObject *textView, GdkEvent 
         case 3:
             // Popup magnet context menu
             gtk_widget_show_all(hub->getWidget("magnetMenu"));
+#if GTK_CHECK_VERSION(3,22,0)
+            gtk_menu_popup_at_pointer(GTK_MENU(hub->getWidget("magnetMenu")),NULL);
+#else
             gtk_menu_popup(GTK_MENU(hub->getWidget("magnetMenu")), NULL, NULL, NULL, NULL, 0, gtk_get_current_event_time());
+#endif
             break;
         }
-        return TRUE;
+        return true;
     }
-    return FALSE;
+    return false;
 }
 
 gboolean Hub::onChatPointerMoved_gui(GtkWidget *widget, GdkEventMotion *event, gpointer data)
@@ -1761,7 +1775,7 @@ gboolean Hub::onChatPointerMoved_gui(GtkWidget *widget, GdkEventMotion *event, g
 
     hub->updateCursor_gui(widget);
 
-    return FALSE;
+    return false;
 }
 
 gboolean Hub::onChatVisibilityChanged_gui(GtkWidget *widget, GdkEventVisibility *event, gpointer data)
@@ -1771,7 +1785,7 @@ gboolean Hub::onChatVisibilityChanged_gui(GtkWidget *widget, GdkEventVisibility 
 
     hub->updateCursor_gui(widget);
 
-    return FALSE;
+    return false;
 }
 
 gboolean Hub::onEmotButtonRelease_gui(GtkWidget *widget, GdkEventButton *event, gpointer data)
@@ -1806,11 +1820,15 @@ gboolean Hub::onEmotButtonRelease_gui(GtkWidget *widget, GdkEventButton *event, 
         g_signal_connect(check_item, "activate", G_CALLBACK(onUseEmoticons_gui), data);
 
         gtk_widget_show_all(emot_menu);
+#if GTK_CHECK_VERSION(3,22,0)
+        gtk_menu_popup_at_widget(GTK_MENU(emot_menu),widget,GDK_GRAVITY_SOUTH_WEST,GDK_GRAVITY_NORTH_WEST,NULL);
+#else
         gtk_menu_popup(GTK_MENU(emot_menu), NULL, NULL, NULL, NULL, 0, gtk_get_current_event_time());
+#endif
         break;
     }
 
-    return FALSE;
+    return false;
 }
 
 void Hub::onChatScroll_gui(GtkAdjustment *adjustment, gpointer data)
@@ -2659,14 +2677,18 @@ void Hub::onDownloadClicked_gui(GtkMenuItem *item, gpointer data)
 gboolean Hub::onChatCommandButtonRelease_gui(GtkWidget *widget, GdkEventButton *event, gpointer data)
 {
     (void)widget;
-    Hub *hub = (Hub *)data;
 
     if (event->button == 1)
     {
+        Hub *hub = (Hub *)data;
+#if GTK_CHECK_VERSION(3,22,0)
+        gtk_menu_popup_at_widget(GTK_MENU(hub->getWidget("chatCommandsMenu")),widget,GDK_GRAVITY_SOUTH_WEST,GDK_GRAVITY_NORTH_WEST,NULL);
+#else
         gtk_menu_popup(GTK_MENU(hub->getWidget("chatCommandsMenu")), NULL, NULL, NULL, NULL, 0, gtk_get_current_event_time());
+#endif
     }
 
-    return FALSE;
+    return false;
 }
 
 void Hub::onCommandClicked_gui(GtkWidget *widget, gpointer data)
@@ -3294,15 +3316,18 @@ void Hub::onImageDestroy_gui(GtkWidget *widget, gpointer data)
 
 gboolean Hub::onImageEvent_gui(GtkWidget *widget, GdkEventButton *event, gpointer data)
 {
-    Hub *hub = (Hub*) data;
-
     if (event->button == 3 && event->type == GDK_BUTTON_RELEASE)
     {
+        Hub *hub = (Hub*) data;
         hub->imageMagnet.first = (gchar*) g_object_get_data(G_OBJECT(widget), "magnet");
         hub->imageMagnet.second = (gchar*) g_object_get_data(G_OBJECT(widget), "cid");
         g_object_set_data(G_OBJECT(hub->getWidget("removeImageItem")), "container", (gpointer)widget);
         g_object_set_data(G_OBJECT(hub->getWidget("downloadImageItem")), "container", (gpointer)widget);
+#if GTK_CHECK_VERSION(3,22,0)
+        gtk_menu_popup_at_widget(GTK_MENU(hub->getWidget("imageMenu")),widget,GDK_GRAVITY_SOUTH_WEST,GDK_GRAVITY_NORTH_WEST,NULL);
+#else
         gtk_menu_popup(GTK_MENU(hub->getWidget("imageMenu")), NULL, NULL, NULL, NULL, 0, gtk_get_current_event_time());
+#endif
     }
     return false;
 }

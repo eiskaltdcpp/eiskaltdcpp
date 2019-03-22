@@ -510,16 +510,16 @@ void DownloadQueue::sendMessage_gui(string cid)
 gboolean DownloadQueue::onDirButtonPressed_gui(GtkWidget *widget, GdkEventButton *event, gpointer data)
 {
     (void)widget;
-    DownloadQueue *dq = (DownloadQueue *)data;
+    DownloadQueue *dq = reinterpret_cast<DownloadQueue *>(data);
     dq->dirPrevious = event->type;
 
-    return FALSE;
+    return false;
 }
 
 gboolean DownloadQueue::onDirButtonReleased_gui(GtkWidget *widget, GdkEventButton *event, gpointer data)
 {
     (void)widget;
-    DownloadQueue *dq = (DownloadQueue *)data;
+    DownloadQueue *dq = reinterpret_cast<DownloadQueue *>(data);
 
     if (dq->dirPrevious == GDK_BUTTON_PRESS && gtk_tree_selection_get_selected(dq->dirSelection, NULL, NULL))
     {
@@ -530,37 +530,45 @@ gboolean DownloadQueue::onDirButtonReleased_gui(GtkWidget *widget, GdkEventButto
         else if (event->button == 3)
         {
             dq->updateFileView_gui();
+#if GTK_CHECK_VERSION(3,22,0)
+            gtk_menu_popup_at_pointer(GTK_MENU(dq->getWidget("dirMenu")),NULL);
+#else
             gtk_menu_popup(GTK_MENU(dq->getWidget("dirMenu")), NULL, NULL,
                            NULL, NULL, 0, gtk_get_current_event_time());
+#endif
         }
     }
 
-    return FALSE;
+    return false;
 }
 
 gboolean DownloadQueue::onDirKeyReleased_gui(GtkWidget *widget, GdkEventKey *event, gpointer data)
 {
     (void)widget;
-    DownloadQueue *dq = (DownloadQueue *)data;
+    DownloadQueue *dq = reinterpret_cast<DownloadQueue *>(data);
     GtkTreeIter iter;
 
     if (gtk_tree_selection_get_selected(dq->dirSelection, NULL, &iter))
     {
-        if (event->keyval == GDK_Delete || event->keyval == GDK_BackSpace)
+        if (event->keyval == GDK_KEY_Delete || event->keyval == GDK_KEY_BackSpace)
         {
             dq->onDirRemoveClicked_gui(NULL, data);
         }
-        else if (event->keyval == GDK_Menu || (event->keyval == GDK_F10 && event->state & GDK_SHIFT_MASK))
+        else if (event->keyval == GDK_KEY_Menu || (event->keyval == GDK_KEY_F10 && event->state & GDK_SHIFT_MASK))
         {
+#if GTK_CHECK_VERSION(3,22,0)
+            gtk_menu_popup_at_pointer(GTK_MENU(dq->getWidget("dirMenu")),NULL);
+#else
             gtk_menu_popup(GTK_MENU(dq->getWidget("dirMenu")), NULL, NULL,
                            NULL, NULL, 0, gtk_get_current_event_time());
+#endif
         }
-        else if (event->keyval == GDK_Up || event->keyval == GDK_KP_Up ||
-                 event->keyval == GDK_Down || event->keyval == GDK_KP_Down)
+        else if (event->keyval == GDK_KEY_Up || event->keyval == GDK_KEY_KP_Up ||
+                 event->keyval == GDK_KEY_Down || event->keyval == GDK_KEY_KP_Down)
         {
             dq->updateFileView_gui();
         }
-        else if (event->keyval == GDK_Return || event->keyval == GDK_KP_Enter)
+        else if (event->keyval == GDK_KEY_Return || event->keyval == GDK_KEY_KP_Enter)
         {
             GtkTreePath *path = gtk_tree_model_get_path(GTK_TREE_MODEL(dq->dirStore), &iter);
             if (gtk_tree_view_row_expanded(dq->dirView.get(), path))
@@ -571,13 +579,13 @@ gboolean DownloadQueue::onDirKeyReleased_gui(GtkWidget *widget, GdkEventKey *eve
         }
     }
 
-    return FALSE;
+    return false;
 }
 
 gboolean DownloadQueue::onFileButtonPressed_gui(GtkWidget *widget, GdkEventButton *event, gpointer data)
 {
     (void)widget;
-    DownloadQueue *dq = (DownloadQueue *)data;
+    DownloadQueue *dq = reinterpret_cast<DownloadQueue *>(data);
 
     if (event->button == 3)
     {
@@ -588,56 +596,64 @@ gboolean DownloadQueue::onFileButtonPressed_gui(GtkWidget *widget, GdkEventButto
             gtk_tree_path_free(path);
 
             if (selected)
-                return TRUE;
+                return true;
         }
     }
-    return FALSE;
+    return false;
 }
 
 gboolean DownloadQueue::onFileButtonReleased_gui(GtkWidget *widget, GdkEventButton *event, gpointer data)
 {
     (void)widget;
-    DownloadQueue *dq = (DownloadQueue *)data;
+    DownloadQueue *dq = reinterpret_cast<DownloadQueue *>(data);
 
     if (event->button == 3 && event->type == GDK_BUTTON_RELEASE)
     {
         if (gtk_tree_selection_count_selected_rows(dq->fileSelection) > 0)
         {
             dq->buildDynamicMenu_gui();
+#if GTK_CHECK_VERSION(3,22,0)
+            gtk_menu_popup_at_pointer(GTK_MENU(dq->getWidget("fileMenu")),NULL);
+#else
             gtk_menu_popup(GTK_MENU(dq->getWidget("fileMenu")), NULL, NULL,
                            NULL, NULL, 0, gtk_get_current_event_time());
-            return TRUE;
+#endif
+            return true;
         }
     }
-    return FALSE;
+    return false;
 }
 
 gboolean DownloadQueue::onFileKeyReleased_gui(GtkWidget *widget, GdkEventKey *event, gpointer data)
 {
     (void)widget;
-    DownloadQueue *dq = (DownloadQueue *)data;
+    DownloadQueue *dq = reinterpret_cast<DownloadQueue *>(data);
     const int count = gtk_tree_selection_count_selected_rows(dq->fileSelection);
 
     if (count > 0)
     {
-        if (event->keyval == GDK_Delete || event->keyval == GDK_BackSpace)
+        if (event->keyval == GDK_KEY_Delete || event->keyval == GDK_KEY_BackSpace)
         {
             dq->onFileRemoveClicked_gui(NULL, data);
         }
-        else if (event->keyval == GDK_Menu || (event->keyval == GDK_F10 && event->state & GDK_SHIFT_MASK))
+        else if (event->keyval == GDK_KEY_Menu || (event->keyval == GDK_KEY_F10 && event->state & GDK_SHIFT_MASK))
         {
             dq->buildDynamicMenu_gui();
+#if GTK_CHECK_VERSION(3,22,0)
+            gtk_menu_popup_at_pointer(GTK_MENU(dq->getWidget("fileMenu")),NULL);
+#else
             gtk_menu_popup(GTK_MENU(dq->getWidget("fileMenu")), NULL, NULL,
                            NULL, NULL, 0, gtk_get_current_event_time());
+#endif
         }
     }
 
-    return FALSE;
+    return false;
 }
 
 void DownloadQueue::onDirPriorityClicked_gui(GtkMenuItem *item, gpointer data)
 {
-    DownloadQueue *dq = (DownloadQueue *)data;
+    DownloadQueue *dq = reinterpret_cast<DownloadQueue *>(data);
     GtkTreeIter iter;
 
     if (gtk_tree_selection_get_selected(dq->dirSelection, NULL, &iter))
@@ -667,7 +683,7 @@ void DownloadQueue::onDirPriorityClicked_gui(GtkMenuItem *item, gpointer data)
 void DownloadQueue::onDirMoveClicked_gui(GtkMenuItem *menuItem, gpointer data)
 {
     (void)menuItem;
-    DownloadQueue *dq = (DownloadQueue *)data;
+    DownloadQueue *dq = reinterpret_cast<DownloadQueue *>(data);
     GtkTreeIter iter;
 
     if (gtk_tree_selection_get_selected(dq->dirSelection, NULL, &iter))
@@ -706,7 +722,7 @@ void DownloadQueue::onDirMoveClicked_gui(GtkMenuItem *menuItem, gpointer data)
 void DownloadQueue::onDirRemoveClicked_gui(GtkMenuItem *menuitem, gpointer data)
 {
     (void)menuitem;
-    DownloadQueue *dq = (DownloadQueue *)data;
+    DownloadQueue *dq = reinterpret_cast<DownloadQueue *>(data);
     GtkTreeIter iter;
 
     if (gtk_tree_selection_get_selected(dq->dirSelection, NULL, &iter))
@@ -723,7 +739,7 @@ void DownloadQueue::onDirRemoveClicked_gui(GtkMenuItem *menuitem, gpointer data)
 void DownloadQueue::onFileSearchAlternatesClicked_gui(GtkMenuItem *item, gpointer data)
 {
     (void)item;
-    DownloadQueue *dq = (DownloadQueue *)data;
+    DownloadQueue *dq = reinterpret_cast<DownloadQueue *>(data);
     string tth;
     GtkTreePath *path;
     GtkTreeIter iter;
@@ -750,7 +766,7 @@ void DownloadQueue::onFileSearchAlternatesClicked_gui(GtkMenuItem *item, gpointe
 void DownloadQueue::onCopyMagnetClicked_gui(GtkMenuItem* item, gpointer data)
 {
     (void)item;
-    DownloadQueue *dq = (DownloadQueue *)data;
+    DownloadQueue *dq = reinterpret_cast<DownloadQueue *>(data);
     GtkTreePath *path;
     GtkTreeIter iter;
     string magnets, magnet, filename, tth;
@@ -785,7 +801,7 @@ void DownloadQueue::onCopyMagnetClicked_gui(GtkMenuItem* item, gpointer data)
 void DownloadQueue::onFileMoveClicked_gui(GtkMenuItem *menuItem, gpointer data)
 {
     (void)menuItem;
-    DownloadQueue *dq = (DownloadQueue *)data;
+    DownloadQueue *dq = reinterpret_cast<DownloadQueue *>(data);
     typedef Func2<DownloadQueue, string, string> F2;
     F2 *func;
     string source;
@@ -871,7 +887,7 @@ void DownloadQueue::onFileMoveClicked_gui(GtkMenuItem *menuItem, gpointer data)
 
 void DownloadQueue::onFilePriorityClicked_gui(GtkMenuItem *item, gpointer data)
 {
-    DownloadQueue *dq = (DownloadQueue *)data;
+    DownloadQueue *dq = reinterpret_cast<DownloadQueue *>(data);
     typedef Func2<DownloadQueue, string, QueueItem::Priority> F2;
     F2 *func;
     string target;
@@ -910,7 +926,7 @@ void DownloadQueue::onFilePriorityClicked_gui(GtkMenuItem *item, gpointer data)
 
 void DownloadQueue::onFileGetListClicked_gui(GtkMenuItem *item, gpointer data)
 {
-    DownloadQueue *dq = (DownloadQueue *)data;
+    DownloadQueue *dq = reinterpret_cast<DownloadQueue *>(data);
     typedef Func2<DownloadQueue, string, string> F2;
     F2 *func;
     string nick, target;
@@ -936,7 +952,7 @@ void DownloadQueue::onFileGetListClicked_gui(GtkMenuItem *item, gpointer data)
 
 void DownloadQueue::onFileSendPMClicked_gui(GtkMenuItem *item, gpointer data)
 {
-    DownloadQueue *dq = (DownloadQueue *)data;
+    DownloadQueue *dq = reinterpret_cast<DownloadQueue *>(data);
     typedef Func2<DownloadQueue, string, string> F2;
     F2 *func;
     string nick, target;
@@ -962,7 +978,7 @@ void DownloadQueue::onFileSendPMClicked_gui(GtkMenuItem *item, gpointer data)
 
 void DownloadQueue::onFileReAddSourceClicked_gui(GtkMenuItem *item, gpointer data)
 {
-    DownloadQueue *dq = (DownloadQueue *)data;
+    DownloadQueue *dq = reinterpret_cast<DownloadQueue *>(data);
     typedef Func2<DownloadQueue, string, string> F2;
     F2 *func;
     string nick, target;
@@ -988,7 +1004,7 @@ void DownloadQueue::onFileReAddSourceClicked_gui(GtkMenuItem *item, gpointer dat
 
 void DownloadQueue::onFileRemoveSourceClicked_gui(GtkMenuItem *item, gpointer data)
 {
-    DownloadQueue *dq = (DownloadQueue *)data;
+    DownloadQueue *dq = reinterpret_cast<DownloadQueue *>(data);
     typedef Func2<DownloadQueue, string, string> F2;
     F2 *func;
     string nick, target;
@@ -1014,7 +1030,7 @@ void DownloadQueue::onFileRemoveSourceClicked_gui(GtkMenuItem *item, gpointer da
 
 void DownloadQueue::onFileRemoveUserFromQueueClicked_gui(GtkMenuItem *item, gpointer data)
 {
-    DownloadQueue *dq = (DownloadQueue *)data;
+    DownloadQueue *dq = reinterpret_cast<DownloadQueue *>(data);
     typedef Func2<DownloadQueue, string, string> F2;
     F2 *func;
     string nick, target;
@@ -1041,7 +1057,7 @@ void DownloadQueue::onFileRemoveUserFromQueueClicked_gui(GtkMenuItem *item, gpoi
 void DownloadQueue::onFileRemoveClicked_gui(GtkMenuItem *menuitem, gpointer data)
 {
     (void)menuitem;
-    DownloadQueue *dq = (DownloadQueue *)data;
+    DownloadQueue *dq = reinterpret_cast<DownloadQueue *>(data);
     typedef Func1<DownloadQueue, string> F1;
     F1 *func;
     string target;

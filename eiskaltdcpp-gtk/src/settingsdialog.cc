@@ -1799,7 +1799,7 @@ void Settings::onSTKeyReleased_gui(GtkWidget *widget, GdkEventKey *event, gpoint
     (void)widget;
     Settings *s = (Settings *)data;
 
-    if (event->keyval == GDK_Up || event->keyval == GDK_Down)
+    if (event->keyval == GDK_KEY_Up || event->keyval == GDK_KEY_Down)
     {
         GtkTreeIter iter;
         GtkTreeSelection *selection = gtk_tree_view_get_selection(s->searchTypeView.get());
@@ -2353,7 +2353,7 @@ void Settings::onNotifyKeyReleased_gui(GtkWidget *widget, GdkEventKey *event, gp
     (void)widget;
     Settings *s = (Settings *)data;
 
-    if (event->keyval == GDK_Up || event->keyval == GDK_Down)
+    if (event->keyval == GDK_KEY_Up || event->keyval == GDK_KEY_Down)
     {
         GtkTreeIter iter;
         GtkTreeSelection *selection = gtk_tree_view_get_selection(s->notifyView.get());
@@ -2766,7 +2766,7 @@ void Settings::applyTextTheme(bool useDefault)
 bool Settings::loadFileTheme(const string &file)
 {
     if (Util::getFileExt(file) != ".theme" || Util::getFileName(file) == ".theme")
-        return FALSE;
+        return false;
 
     intMapTheme.clear();
     stringMapTheme.clear();
@@ -2806,10 +2806,10 @@ bool Settings::loadFileTheme(const string &file)
     catch (const Exception& e)
     {
         dcdebug(_("eiskaltdcpp-gtk: load theme %s...\n"), e.getError().c_str());
-        return FALSE;
+        return false;
     }
 
-    return TRUE;
+    return true;
 }
 
 void Settings::setTheme()
@@ -3056,7 +3056,7 @@ void Settings::onPreviewKeyReleased_gui(GtkWidget *widget, GdkEventKey *event, g
     (void)widget;
     Settings *s = (Settings *)data;
 
-    if (event->keyval == GDK_Up || event->keyval == GDK_Down)
+    if (event->keyval == GDK_KEY_Up || event->keyval == GDK_KEY_Down)
     {
         GtkTreeIter iter;
         GtkTreeSelection *selection = gtk_tree_view_get_selection(s->previewAppView.get());
@@ -3509,22 +3509,22 @@ bool Settings::validateUserCommandInput(const string &oldName)
         if (name.empty() || command.empty())
         {
             showErrorDialog(_("Name and command must not be empty"));
-            return FALSE;
+            return false;
         }
 
         if (name != oldName && FavoriteManager::getInstance()->findUserCommand(name, hub) != -1)
         {
             showErrorDialog(_("Command name already exists"));
-            return FALSE;
+            return false;
         }
     }
     else if (FavoriteManager::getInstance()->findUserCommand(_("Separator"), "") != -1)
     {
         showErrorDialog(_("Command name already exists"));
-        return FALSE;
+        return false;
     }
 
-    return TRUE;
+    return true;
 }
 
 void Settings::showErrorDialog(const string error)
@@ -3863,7 +3863,7 @@ gboolean Settings::onFavoriteButtonReleased_gui(GtkWidget *widget, GdkEventButto
     else
         gtk_widget_set_sensitive(s->getWidget("favoriteRemoveButton"), FALSE);
 
-    return FALSE;
+    return false;
 }
 
 void Settings::addShare_gui(string path, string name, int64_t size)
@@ -3908,7 +3908,7 @@ gboolean Settings::onShareButtonReleased_gui(GtkWidget *widget, GdkEventButton *
     else
         gtk_widget_set_sensitive(s->getWidget("sharedRemoveButton"), TRUE);
 
-    return FALSE;
+    return false;
 }
 
 gboolean Settings::onShareHiddenPressed_gui(GtkToggleButton *togglebutton, gpointer data)
@@ -3921,7 +3921,7 @@ gboolean Settings::onShareHiddenPressed_gui(GtkToggleButton *togglebutton, gpoin
     Func1<Settings, bool> *func = new Func1<Settings, bool>(s, &Settings::shareHidden_client, show);
     WulforManager::get()->dispatchClientFunc(func);
 
-    return FALSE;
+    return false;
 }
 
 void Settings::updateShares_gui()
@@ -4289,7 +4289,7 @@ gboolean Settings::onUserCommandKeyPress_gui(GtkWidget *widget, GdkEventKey *eve
 
     s->updateUserCommandTextSent_gui();
 
-    return FALSE;
+    return false;
 }
 
 void Settings::onCertificatesPrivateBrowseClicked_gui(GtkWidget *widget, gpointer data)

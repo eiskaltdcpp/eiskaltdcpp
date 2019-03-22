@@ -214,9 +214,9 @@ bool ShareBrowser::buildList_gui()
     catch (const Exception &e)
     {
         setStatus_gui("mainStatus", _("Unable to load file list: ") + e.getError());
-        return FALSE;
+        return false;
     }
-    return TRUE;
+    return true;
 }
 
 /*
@@ -250,7 +250,7 @@ void ShareBrowser::openDir_gui(const string &dir)
 bool ShareBrowser::findDir_gui(const string &dir, GtkTreeIter *parent)
 {
     if (dir.empty())
-        return TRUE;
+        return true;
 
     string::size_type i = dir.find_first_of(PATH_SEPARATOR);
     const string &current = dir.substr(0, i);
@@ -268,7 +268,7 @@ bool ShareBrowser::findDir_gui(const string &dir, GtkTreeIter *parent)
         valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(dirStore), &iter);
     }
 
-    return FALSE;
+    return false;
 }
 
 void ShareBrowser::buildDirs_gui(DirectoryListing::Directory *dir, GtkTreeIter *iter)
@@ -578,7 +578,11 @@ void ShareBrowser::popupFileMenu_gui()
     g_list_free(list);
     fileUserCommandMenu->buildMenu_gui();
 
+#if GTK_CHECK_VERSION(3,22,0)
+    gtk_menu_popup_at_pointer(GTK_MENU(getWidget("fileMenu")),NULL);
+#else
     gtk_menu_popup(GTK_MENU(getWidget("fileMenu")), NULL, NULL, NULL, NULL, 0, gtk_get_current_event_time());
+#endif
     gtk_widget_show_all(getWidget("fileMenu"));
 }
 
@@ -628,7 +632,11 @@ void ShareBrowser::popupDirMenu_gui()
         dirUserCommandMenu->buildMenu_gui();
     }
 
+#if GTK_CHECK_VERSION(3,22,0)
+    gtk_menu_popup_at_pointer(GTK_MENU(getWidget("dirMenu")),NULL);
+#else
     gtk_menu_popup(GTK_MENU(getWidget("dirMenu")), NULL, NULL, NULL, NULL, 0, gtk_get_current_event_time());
+#endif
     gtk_widget_show_all(getWidget("dirMenu"));
 }
 
@@ -642,9 +650,9 @@ void ShareBrowser::popupDirMenu_gui()
 void ShareBrowser::find_gui()
 {
     string name;
-    bool findLeafNode = TRUE;
+    bool findLeafNode = true;
     int cursorPos, hits = 0;
-    DirectoryListing::Directory *dir;
+    DirectoryListing::Directory *dir = nullptr;
     DirectoryListing::File::Iter file;
     GtkTreeIter iter;
     GtkTreeModel *m = GTK_TREE_MODEL(dirStore);
@@ -758,11 +766,11 @@ gboolean ShareBrowser::onButtonPressed_gui(GtkWidget *widget, GdkEventButton *ev
             gtk_tree_path_free(path);
 
             if (selected)
-                return TRUE;
+                return true;
         }
     }
 
-    return FALSE;
+    return false;
 }
 
 gboolean ShareBrowser::onFileButtonReleased_gui(GtkWidget *widget, GdkEventButton *event, gpointer data)
@@ -776,7 +784,7 @@ gboolean ShareBrowser::onFileButtonReleased_gui(GtkWidget *widget, GdkEventButto
     else if (count == 1 && sb->oldType == GDK_2BUTTON_PRESS && event->button == 1)
         sb->fileViewSelected_gui();
 
-    return FALSE;
+    return false;
 }
 
 gboolean ShareBrowser::onFileKeyReleased_gui(GtkWidget *widget, GdkEventKey *event, gpointer data)
@@ -785,12 +793,12 @@ gboolean ShareBrowser::onFileKeyReleased_gui(GtkWidget *widget, GdkEventKey *eve
     ShareBrowser *sb = (ShareBrowser *)data;
     gint count = gtk_tree_selection_count_selected_rows(sb->fileSelection);
 
-    if (count > 0 && (event->keyval == GDK_Menu || (event->keyval == GDK_F10 && event->state & GDK_SHIFT_MASK)))
+    if (count > 0 && (event->keyval == GDK_KEY_Menu || (event->keyval == GDK_KEY_F10 && event->state & GDK_SHIFT_MASK)))
         sb->popupFileMenu_gui();
-    else if (count == 1 && (event->keyval == GDK_Return || event->keyval == GDK_KP_Enter))
+    else if (count == 1 && (event->keyval == GDK_KEY_Return || event->keyval == GDK_KEY_KP_Enter))
         sb->fileViewSelected_gui();
 
-    return FALSE;
+    return false;
 }
 
 gboolean ShareBrowser::onDirButtonReleased_gui(GtkWidget *widget, GdkEventButton *event, gpointer data)
@@ -801,7 +809,7 @@ gboolean ShareBrowser::onDirButtonReleased_gui(GtkWidget *widget, GdkEventButton
     gpointer ptr;
 
     if (!gtk_tree_selection_get_selected(sb->dirSelection, NULL, &iter))
-        return FALSE;
+        return false;
 
     if (!sb->isFull()) sb->viewPartial_gui();
 
@@ -826,7 +834,7 @@ gboolean ShareBrowser::onDirButtonReleased_gui(GtkWidget *widget, GdkEventButton
         sb->popupDirMenu_gui();
     }
 
-    return FALSE;
+    return false;
 }
 
 gboolean ShareBrowser::onDirKeyReleased_gui(GtkWidget *widget, GdkEventKey *event, gpointer data)
@@ -837,11 +845,11 @@ gboolean ShareBrowser::onDirKeyReleased_gui(GtkWidget *widget, GdkEventKey *even
     gpointer ptr;
 
     if (!gtk_tree_selection_get_selected(sb->dirSelection, NULL, &iter))
-        return FALSE;
+        return false;
 
     if (!sb->isFull()) sb->viewPartial_gui();
 
-    if (event->keyval == GDK_Return || event->keyval == GDK_KP_Enter || event->keyval == GDK_Right || event->keyval == GDK_Left)
+    if (event->keyval == GDK_KEY_Return || event->keyval == GDK_KEY_KP_Enter || event->keyval == GDK_Right || event->keyval == GDK_Left)
     {
         GtkTreePath *path = gtk_tree_model_get_path(GTK_TREE_MODEL(sb->dirStore), &iter);
         if (gtk_tree_view_row_expanded(sb->dirView.get(), path))
@@ -850,20 +858,20 @@ gboolean ShareBrowser::onDirKeyReleased_gui(GtkWidget *widget, GdkEventKey *even
             gtk_tree_view_expand_row(sb->dirView.get(), path, FALSE);
         gtk_tree_path_free(path);
     }
-    else if (event->keyval == GDK_Up || event->keyval == GDK_KP_Up ||
-             event->keyval == GDK_Down || event->keyval == GDK_KP_Down)
+    else if (event->keyval == GDK_KEY_Up || event->keyval == GDK_KEY_KP_Up ||
+             event->keyval == GDK_KEY_Down || event->keyval == GDK_KEY_KP_Down)
     {
         ptr = sb->dirView.getValue<gpointer>(&iter, "DL Dir");
         sb->updateFiles_gui((DirectoryListing::Directory *)ptr);
     }
-    else if (event->keyval == GDK_Menu || (event->keyval == GDK_F10 && event->state & GDK_SHIFT_MASK))
+    else if (event->keyval == GDK_KEY_Menu || (event->keyval == GDK_KEY_F10 && event->state & GDK_SHIFT_MASK))
     {
         ptr = sb->dirView.getValue<gpointer>(&iter, "DL Dir");
         sb->updateFiles_gui((DirectoryListing::Directory *)ptr);
         sb->popupDirMenu_gui();
     }
 
-    return FALSE;
+    return false;
 }
 
 void ShareBrowser::onMatchButtonClicked_gui(GtkWidget *widget, gpointer data)
