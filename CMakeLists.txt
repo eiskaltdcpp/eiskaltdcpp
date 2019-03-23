@@ -288,7 +288,7 @@ if (DEBUG)
 endif(DEBUG)
 
 if (CMAKE_CXX_COMPILER_ID STREQUAL GNU OR CMAKE_CXX_COMPILER_ID STREQUAL Clang)
-    set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -pipe -Wformat -Werror=format-security -fpermissive")
+    set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -pipe -Wformat -Werror=format-security")
     if (USE_GOLD)
         set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fuse-linker-plugin")
         set (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fuse-linker-plugin")
