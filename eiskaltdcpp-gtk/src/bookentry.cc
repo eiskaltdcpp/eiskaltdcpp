@@ -218,7 +218,7 @@ void BookEntry::updateLabel_gui()
 #endif
 }
 
-const string& BookEntry::getLabelText()
+const string& BookEntry::getLabelText() const
 {
     return labelText;
 }

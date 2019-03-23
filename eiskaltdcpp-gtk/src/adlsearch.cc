@@ -120,17 +120,15 @@ void SearchADL::show()
     }
 }
 
-void SearchADL::onRemoveClicked_gui(GtkWidget *widget, gpointer data)
+void SearchADL::onRemoveClicked_gui(GtkWidget*, gpointer data)
 {
-    (void)widget;
-    SearchADL *s = (SearchADL *)data;
+    SearchADL *s = reinterpret_cast<SearchADL *>(data);
 
     GtkTreeIter iter;
     if (gtk_tree_selection_get_selected(s->searchADLSelection, NULL, &iter))
     {
-        gchar *p = gtk_tree_model_get_string_from_iter(GTK_TREE_MODEL(s->searchADLStore), &iter);
+        g_autofree gchar *p = gtk_tree_model_get_string_from_iter(GTK_TREE_MODEL(s->searchADLStore), &iter);
         SearchType i = (SearchType)Util::toInt(p);
-        g_free(p);
 
         ADLSearchManager::SearchCollection &collection = ADLSearchManager::getInstance()->collection;
         if (i < collection.size())
@@ -141,12 +139,12 @@ void SearchADL::onRemoveClicked_gui(GtkWidget *widget, gpointer data)
     }
 }
 
-void SearchADL::onAddClicked_gui(GtkWidget *widget, gpointer data)
+void SearchADL::onAddClicked_gui(GtkWidget*, gpointer data)
 {
-    (void)widget;
-    SearchADL *s = (SearchADL *)data;
+    SearchADL *s = reinterpret_cast<SearchADL *>(data);
 
     ADLSearch search;
+
     if (showPropertiesDialog_gui(search, false, s))
     {
         GtkTreeIter iter;
@@ -154,9 +152,8 @@ void SearchADL::onAddClicked_gui(GtkWidget *widget, gpointer data)
 
         if (gtk_tree_selection_get_selected(s->searchADLSelection, NULL, &iter))
         {
-            gchar *p = gtk_tree_model_get_string_from_iter(GTK_TREE_MODEL(s->searchADLStore), &iter);
+            g_autofree gchar *p = gtk_tree_model_get_string_from_iter(GTK_TREE_MODEL(s->searchADLStore), &iter);
             SearchType i = (SearchType)Util::toInt(p);
-            g_free(p);
 
             if (i < collection.size())
             {
@@ -175,10 +172,9 @@ void SearchADL::onAddClicked_gui(GtkWidget *widget, gpointer data)
     }
 }
 
-void SearchADL::onPropertiesClicked_gui(GtkWidget *widget, gpointer data)
+void SearchADL::onPropertiesClicked_gui(GtkWidget*, gpointer data)
 {
-    (void)widget;
-    SearchADL *s = (SearchADL *)data;
+    SearchADL *s = reinterpret_cast<SearchADL *>(data);
     
     GtkTreeIter iter;
     if (gtk_tree_selection_get_selected(s->searchADLSelection, NULL, &iter))
@@ -186,9 +182,8 @@ void SearchADL::onPropertiesClicked_gui(GtkWidget *widget, gpointer data)
         ADLSearch search;
         if (showPropertiesDialog_gui(search, true, s))
         {
-            gchar *p = gtk_tree_model_get_string_from_iter(GTK_TREE_MODEL(s->searchADLStore), &iter);
+            g_autofree gchar *p = gtk_tree_model_get_string_from_iter(GTK_TREE_MODEL(s->searchADLStore), &iter);
             SearchType i = (SearchType)Util::toInt(p);
-            g_free(p);
 
             ADLSearchManager::SearchCollection &collection = ADLSearchManager::getInstance()->collection;
             if (i < collection.size())
@@ -313,10 +308,9 @@ bool SearchADL::showPropertiesDialog_gui(ADLSearch &search, bool edit, SearchADL
     return true;
 }
 
-void SearchADL::onMoveUpClicked_gui(GtkWidget *widget, gpointer data)
+void SearchADL::onMoveUpClicked_gui(GtkWidget*, gpointer data)
 {
-    (void)widget;
-    SearchADL *s = (SearchADL *)data;
+    SearchADL *s = reinterpret_cast<SearchADL *>(data);
 
     GtkTreeIter prev, current;
     GtkTreeModel *m = GTK_TREE_MODEL(s->searchADLStore);
@@ -324,12 +318,11 @@ void SearchADL::onMoveUpClicked_gui(GtkWidget *widget, gpointer data)
 
     if (gtk_tree_selection_get_selected(sel, NULL, &current))
     {
-        gchar *p = gtk_tree_model_get_string_from_iter(GTK_TREE_MODEL(s->searchADLStore), &current);
+        g_autofree gchar *p = gtk_tree_model_get_string_from_iter(GTK_TREE_MODEL(s->searchADLStore), &current);
         SearchType i = (SearchType)Util::toInt(p);
-        g_free(p);
 
         ADLSearchManager::SearchCollection &collection = ADLSearchManager::getInstance()->collection;
-        if (!i || !(i < collection.size()))
+        if (i == 0 || !(i < collection.size()))
             return;
 
         bool swap = false;
@@ -346,19 +339,17 @@ void SearchADL::onMoveUpClicked_gui(GtkWidget *widget, gpointer data)
     }
 }
 
-void SearchADL::onMoveDownClicked_gui(GtkWidget *widget, gpointer data)
+void SearchADL::onMoveDownClicked_gui(GtkWidget*, gpointer data)
 {
-    (void)widget;
-    SearchADL *s = (SearchADL *)data;
+    SearchADL *s = reinterpret_cast<SearchADL *>(data);
 
     GtkTreeIter current, next;
     GtkTreeSelection *sel = gtk_tree_view_get_selection(s->searchADLView.get());
 
     if (gtk_tree_selection_get_selected(sel, NULL, &current))
     {
-        gchar *p = gtk_tree_model_get_string_from_iter(GTK_TREE_MODEL(s->searchADLStore), &current);
+        g_autofree gchar *p = gtk_tree_model_get_string_from_iter(GTK_TREE_MODEL(s->searchADLStore), &current);
         SearchType i = (SearchType)Util::toInt(p);
-        g_free(p);
 
         ADLSearchManager::SearchCollection &collection = ADLSearchManager::getInstance()->collection;
         if (collection.empty() || !(i < collection.size() - 1))
@@ -377,17 +368,15 @@ void SearchADL::onMoveDownClicked_gui(GtkWidget *widget, gpointer data)
     }
 }
 
-void SearchADL::onActiveToggled_gui(GtkCellRendererToggle *cell, gchar *path, gpointer data)
+void SearchADL::onActiveToggled_gui(GtkCellRendererToggle*, gchar *path, gpointer data)
 {
-    (void)cell;
-    SearchADL *s = (SearchADL *)data;
+    SearchADL *s = reinterpret_cast<SearchADL *>(data);
     GtkTreeIter iter;
 
     if (gtk_tree_model_get_iter_from_string(GTK_TREE_MODEL(s->searchADLStore), &iter, path))
     {
-        gchar *p = gtk_tree_model_get_string_from_iter(GTK_TREE_MODEL(s->searchADLStore), &iter);
+        g_autofree gchar *p = gtk_tree_model_get_string_from_iter(GTK_TREE_MODEL(s->searchADLStore), &iter);
         SearchType i = (SearchType)Util::toInt(p);
-        g_free(p);
 
         ADLSearchManager::SearchCollection &collection = ADLSearchManager::getInstance()->collection;
         if (i < collection.size())
@@ -403,10 +392,9 @@ void SearchADL::onActiveToggled_gui(GtkCellRendererToggle *cell, gchar *path, gp
     }
 }
 
-gboolean SearchADL::onButtonPressed_gui(GtkWidget *widget, GdkEventButton *event, gpointer data)
+gboolean SearchADL::onButtonPressed_gui(GtkWidget*, GdkEventButton *event, gpointer data)
 {
-    (void)widget;
-    SearchADL *s = (SearchADL *)data;
+    SearchADL *s = reinterpret_cast<SearchADL *>(data);
     s->previous = event->type;
 
     if (event->button == 3)
@@ -425,10 +413,9 @@ gboolean SearchADL::onButtonPressed_gui(GtkWidget *widget, GdkEventButton *event
     return false;
 }
 
-gboolean SearchADL::onButtonReleased_gui(GtkWidget *widget, GdkEventButton *event, gpointer data)
+gboolean SearchADL::onButtonReleased_gui(GtkWidget*, GdkEventButton *event, gpointer data)
 {
-    (void)widget;
-    SearchADL *s = (SearchADL *)data;
+    SearchADL *s = reinterpret_cast<SearchADL *>(data);
 
     if (gtk_tree_selection_get_selected(s->searchADLSelection, NULL, NULL))
     {
@@ -451,10 +438,9 @@ gboolean SearchADL::onButtonReleased_gui(GtkWidget *widget, GdkEventButton *even
     return false;
 }
 
-gboolean SearchADL::onKeyReleased_gui(GtkWidget *widget, GdkEventKey *event, gpointer data)
+gboolean SearchADL::onKeyReleased_gui(GtkWidget*, GdkEventKey *event, gpointer data)
 {
-    (void)widget;
-    SearchADL *s = (SearchADL *)data;
+    SearchADL *s = reinterpret_cast<SearchADL *>(data);
 
     if (gtk_tree_selection_get_selected(s->searchADLSelection, NULL, NULL))
     {

@@ -36,7 +36,7 @@ public:
     void setIcon_gui(const EntryType type);
     void setIcon_gui(const std::string &stock);
     void setLabel_gui(std::string text);
-    const std::string& getLabelText();
+    const std::string& getLabelText() const;
     void setBold_gui();
     void setUrgent_gui();
     void setActive_gui();

@@ -259,8 +259,8 @@ void DownloadQueue::addFiles_gui(vector<StringMap> files, bool firstUpdate)
         gtk_tree_sortable_get_sort_column_id(GTK_TREE_SORTABLE(fileStore), &sortColumn, &sortType);
         gtk_tree_sortable_set_sort_column_id(GTK_TREE_SORTABLE(fileStore), GTK_TREE_SORTABLE_UNSORTED_SORT_COLUMN_ID, sortType);
 
-        for (auto it = files.begin(); it != files.end(); ++it)
-            addFile_gui(*it, FALSE);
+        for (auto &file : files)
+            addFile_gui(file, FALSE);
 
         gtk_tree_sortable_set_sort_column_id(GTK_TREE_SORTABLE(fileStore), sortColumn, sortType);
         gtk_tree_view_scroll_to_point(fileView.get(), 0, 0);
@@ -736,9 +736,8 @@ void DownloadQueue::onDirRemoveClicked_gui(GtkMenuItem *menuitem, gpointer data)
     }
 }
 
-void DownloadQueue::onFileSearchAlternatesClicked_gui(GtkMenuItem *item, gpointer data)
+void DownloadQueue::onFileSearchAlternatesClicked_gui(GtkMenuItem*, gpointer data)
 {
-    (void)item;
     DownloadQueue *dq = reinterpret_cast<DownloadQueue *>(data);
     string tth;
     GtkTreePath *path;

@@ -17,6 +17,8 @@
 * Serious code refactoring:
   — improved program stability and performance
   — decreased usage of boost: all possible is rewritten in C++14
+  — use C++14 features where it is possible
+  — fixed static code analyzers (cppcheck, clang) notes
 *** eiskaltdcpp-qt ***
 * Fixed Quit action in builds with Qt 5.x. With Qt 4.x all worked fine.
 * Added configuration option: USE_PROGRESS_BARS. This option is especially
@@ -27,6 +29,7 @@
   work of program packaged in snap, flatpak, AppImage, etc..
 * Update list of fake client tags in Favorite Hub settings.
 *** eiskaltdcpp-gtk ***
+* Fixed few bugs.
 * GTK+ UI is not supported anymore. Use it at own risk. As far as we know
   builds with GTK+ 3.x are almost unusable, but builds with GTK+ 2.x work
   more or less fine.
