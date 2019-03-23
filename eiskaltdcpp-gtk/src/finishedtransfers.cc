@@ -503,12 +503,8 @@ void FinishedTransfers::onOpen_gui(GtkMenuItem *item, gpointer data)
 
 }
 
-void FinishedTransfers::onPageSwitched_gui(GtkNotebook *notebook, GtkNotebook *page, guint num, gpointer data)
+void FinishedTransfers::onPageSwitched_gui(GtkNotebook*, GtkNotebook*, guint, gpointer data)
 {
-    (void)notebook;
-    (void)page;
-    (void)num;
-
     ((FinishedTransfers*)data)->updateStatus_gui(); // Switch the total count between users and files
 }
 
@@ -690,9 +686,9 @@ void FinishedTransfers::getFinishedParams_client(const FinishedFileItemPtr& item
     params["Filename"] = Util::getFileName(file);
     params["Time"] = Util::formatTime("%Y-%m-%d %H:%M:%S", item->getTime());
     params["Path"] = Util::getFilePath(file);
-    for (auto it = item->getUsers().begin(); it != item->getUsers().end(); ++it)
+    for (auto &user : item->getUsers())
     {
-        nicks += WulforUtil::getNicks(it->user->getCID(), it->hint) + ", ";
+        nicks += WulforUtil::getNicks(user.user->getCID(), user.hint) + ", ";
     }
     params["Nicks"] = nicks.substr(0, nicks.length() - 2);
     // item->getFileSize() seems to return crap. I guess there's no way to get
@@ -716,9 +712,9 @@ void FinishedTransfers::getFinishedParams_client(const FinishedUserItemPtr &item
     params["Time"] = Util::formatTime("%Y-%m-%d %H:%M:%S", item->getTime());
     params["Nick"] = WulforUtil::getNicks(user);
     params["Hub"] = WulforUtil::getHubNames(user);
-    for (auto it = item->getFiles().begin(); it != item->getFiles().end(); ++it)
+    for (auto &file : item->getFiles())
     {
-        files += *it + ", ";
+        files += file + ", ";
     }
     params["Files"] = files.substr(0, files.length() - 2);
     params["Transferred"] = Util::toString(item->getTransferred());

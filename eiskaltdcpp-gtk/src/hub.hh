@@ -53,7 +53,7 @@ public:
     void preferences_gui();
 
 private:
-    typedef enum
+    typedef enum Tag
     {
         TAG_FIRST = 0,
         TAG_GENERAL = TAG_FIRST,
@@ -198,7 +198,7 @@ private:
     ImageList imageList;
     ImageLoad imageLoad;
     dcpp::StringPair imageMagnet;
-    GtkTextTag *TagsMap[TAG_LAST];
+    GtkTextTag *TagsMap[Tag::TAG_LAST];
     std::string completionKey;
     dcpp::Client *client;
     TreeView nickView;

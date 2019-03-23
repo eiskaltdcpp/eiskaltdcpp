@@ -30,7 +30,7 @@ unsigned HashProgress::getHashStatus() {
     }
 
     string path;
-    int64_t bytes = 0;
+    uint64_t bytes = 0;
     size_t files = 0;
     HM->getStats(path, bytes, files);
 
@@ -91,7 +91,7 @@ float HashProgress::getProgress() {
 
 void HashProgress::timerTick(){
     string path;
-    int64_t bytes = 0;
+    uint64_t bytes = 0;
     size_t files = 0;
     uint64_t tick = GET_TICK();
 

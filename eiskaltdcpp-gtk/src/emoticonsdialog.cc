@@ -81,9 +81,9 @@ void EmoticonsDialog::addPacksMenu(GtkWidget *item)
     string packName;
     gtk_menu_item_set_submenu(GTK_MENU_ITEM(item), packs_menu);
 
-    for (StringIter it = files.begin(); it != files.end(); ++it)
+    for (auto &file : files)
     {
-        packName = Util::getFileName(*it);
+        packName = Util::getFileName(file);
         string::size_type pos = packName.rfind('.');
         packName = packName.substr(0, pos);
 
@@ -106,7 +106,7 @@ void EmoticonsDialog::addPacksMenu(GtkWidget *item)
         else
             gtk_check_menu_item_set_active((GtkCheckMenuItem*)check_item, false);
 
-        g_signal_connect(check_item, "activate", G_CALLBACK(onCheckPacksMenu), NULL);
+        g_signal_connect(check_item, "activate", G_CALLBACK(onCheckPacksMenu), (gpointer)this);
         g_object_set_data_full(G_OBJECT(check_item), "current-pack-name", g_strdup(packName.c_str()), g_free);
     }
 }
@@ -303,7 +303,8 @@ void EmoticonsDialog::build()
             {
                 left_attach = 0;
                 right_attach = left_attach + 1;
-                bottom_attach = ++top_attach + 1;
+                ++top_attach;
+                bottom_attach = top_attach + 1;
             }
 
             if (++i > sizetable)

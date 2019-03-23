@@ -45,7 +45,7 @@ public:
     bool getIsOffline() { return offline;}
 
 private:
-    typedef enum
+    typedef enum Tag
     {
         TAG_FIRST = 0,
         TAG_PRIVATE = TAG_FIRST,
@@ -120,7 +120,7 @@ private:
     std::string selectedTagStr;
     GtkTextTag* selectedTag;
     bool scrollToBottom;
-    GtkTextTag *TagsMap[TAG_LAST];
+    GtkTextTag *TagsMap[Tag::TAG_LAST];
     TypeTag tagMsg, tagNick;
     bool useEmoticons;
     gint totalEmoticons;

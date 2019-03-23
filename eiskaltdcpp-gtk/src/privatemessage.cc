@@ -153,20 +153,20 @@ PrivateMessage::PrivateMessage(const string &cid, const string &hubUrl):
     setLabel_gui(WulforUtil::getNicks(cid, hubUrl) + " [" + WulforUtil::getHubNames(cid, hubUrl) + "]");
 
     /* initial tags map */
-    TagsMap[TAG_PRIVATE] = createTag_gui("TAG_PRIVATE", TAG_PRIVATE);
-    TagsMap[TAG_MYOWN] = createTag_gui("TAG_MYOWN", TAG_MYOWN);
-    TagsMap[TAG_SYSTEM] = createTag_gui("TAG_SYSTEM", TAG_SYSTEM);
-    TagsMap[TAG_STATUS] = createTag_gui("TAG_STATUS", TAG_STATUS);
-    TagsMap[TAG_TIMESTAMP] = createTag_gui("TAG_TIMESTAMP", TAG_TIMESTAMP);
+    TagsMap[Tag::TAG_PRIVATE] = createTag_gui("TAG_PRIVATE", Tag::TAG_PRIVATE);
+    TagsMap[Tag::TAG_MYOWN] = createTag_gui("TAG_MYOWN", Tag::TAG_MYOWN);
+    TagsMap[Tag::TAG_SYSTEM] = createTag_gui("TAG_SYSTEM", Tag::TAG_SYSTEM);
+    TagsMap[Tag::TAG_STATUS] = createTag_gui("TAG_STATUS", Tag::TAG_STATUS);
+    TagsMap[Tag::TAG_TIMESTAMP] = createTag_gui("TAG_TIMESTAMP", Tag::TAG_TIMESTAMP);
     /*-*/
-    TagsMap[TAG_MYNICK] = createTag_gui("TAG_MYNICK", TAG_MYNICK);
-    TagsMap[TAG_NICK] = createTag_gui("TAG_NICK", TAG_NICK);
-    TagsMap[TAG_OPERATOR] = createTag_gui("TAG_OPERATOR", TAG_OPERATOR);
-    TagsMap[TAG_FAVORITE] = createTag_gui("TAG_FAVORITE", TAG_FAVORITE);
-    TagsMap[TAG_URL] = createTag_gui("TAG_URL", TAG_URL);
+    TagsMap[Tag::TAG_MYNICK] = createTag_gui("TAG_MYNICK", Tag::TAG_MYNICK);
+    TagsMap[Tag::TAG_NICK] = createTag_gui("TAG_NICK", Tag::TAG_NICK);
+    TagsMap[Tag::TAG_OPERATOR] = createTag_gui("TAG_OPERATOR", Tag::TAG_OPERATOR);
+    TagsMap[Tag::TAG_FAVORITE] = createTag_gui("TAG_FAVORITE", Tag::TAG_FAVORITE);
+    TagsMap[Tag::TAG_URL] = createTag_gui("TAG_URL", Tag::TAG_URL);
 
     // set default select tag (fix error show cursor in neutral space)
-    selectedTag = TagsMap[TAG_PRIVATE];
+    selectedTag = TagsMap[Tag::TAG_PRIVATE];
 }
 
 PrivateMessage::~PrivateMessage()
@@ -254,7 +254,7 @@ void PrivateMessage::preferences_gui()
     string fore, back;
     int bold, italic;
 
-    for (int i = TAG_FIRST; i < TAG_LAST; i++)
+    for (int i = Tag::TAG_FIRST; i < Tag::TAG_LAST; ++i)
     {
         getSettingTag_gui(wsm, (TypeTag)i, fore, back, bold, italic);
 
@@ -316,40 +316,40 @@ void PrivateMessage::addLine_gui(Msg::TypeMsg typemsg, const string &message)
     {
     case Msg::MYOWN:
 
-        tagMsg = TAG_MYOWN;
-        tagNick = TAG_MYNICK;
+        tagMsg = Tag::TAG_MYOWN;
+        tagNick = Tag::TAG_MYNICK;
         break;
 
     case Msg::SYSTEM:
 
-        tagMsg = TAG_SYSTEM;
-        tagNick = TAG_NICK;
+        tagMsg = Tag::TAG_SYSTEM;
+        tagNick = Tag::TAG_NICK;
         break;
 
     case Msg::STATUS:
 
-        tagMsg = TAG_STATUS;
-        tagNick = TAG_NICK;
+        tagMsg = Tag::TAG_STATUS;
+        tagNick = Tag::TAG_NICK;
         break;
 
     case Msg::OPERATOR:
 
-        tagMsg = TAG_PRIVATE;
-        tagNick = TAG_OPERATOR;
+        tagMsg = Tag::TAG_PRIVATE;
+        tagNick = Tag::TAG_OPERATOR;
         break;
 
     case Msg::FAVORITE:
 
-        tagMsg = TAG_PRIVATE;
-        tagNick = TAG_FAVORITE;
+        tagMsg = Tag::TAG_PRIVATE;
+        tagNick = Tag::TAG_FAVORITE;
         break;
 
     case Msg::PRIVATE:
 
     default:
 
-        tagMsg = TAG_PRIVATE;
-        tagNick = TAG_NICK;
+        tagMsg = Tag::TAG_PRIVATE;
+        tagNick = Tag::TAG_NICK;
     }
 
     totalEmoticons = 0;
@@ -387,7 +387,7 @@ void PrivateMessage::applyTags_gui(const string &line)
         gtk_text_buffer_get_end_iter(messageBuffer, &ts_start_iter);
         gtk_text_iter_backward_chars(&ts_start_iter, g_utf8_strlen(line.c_str(), -1));
 
-        gtk_text_buffer_apply_tag(messageBuffer, TagsMap[TAG_TIMESTAMP], &ts_start_iter, &ts_end_iter);
+        gtk_text_buffer_apply_tag(messageBuffer, TagsMap[Tag::TAG_TIMESTAMP], &ts_start_iter, &ts_end_iter);
 
         begin = ts.size() + 2 + 1;
     }
@@ -501,13 +501,13 @@ void PrivateMessage::applyTags_gui(const string &line)
                     gtk_text_buffer_delete(messageBuffer, &tag_start_iter, &tag_end_iter);
 
                     gtk_text_buffer_insert_with_tags(messageBuffer, &tag_start_iter,
-                                                     line.c_str(), line.size(), tag, TagsMap[TAG_URL], NULL);
+                                                     line.c_str(), line.size(), tag, TagsMap[Tag::TAG_URL], NULL);
                 }
             }
             else
             {
                 gtk_text_buffer_apply_tag(messageBuffer, tag, &tag_start_iter, &tag_end_iter);
-                gtk_text_buffer_apply_tag(messageBuffer, TagsMap[TAG_URL], &tag_start_iter, &tag_end_iter);
+                gtk_text_buffer_apply_tag(messageBuffer, TagsMap[Tag::TAG_URL], &tag_start_iter, &tag_end_iter);
             }
 
             applyEmoticons_gui();
@@ -549,7 +549,7 @@ void PrivateMessage::applyEmoticons_gui()
     gtk_text_buffer_apply_tag(messageBuffer, TagsMap[tagMsg], &start_iter, &end_iter);
 
     /* emoticons */
-    if (tagMsg == TAG_SYSTEM || tagMsg == TAG_STATUS)
+    if (tagMsg == Tag::TAG_SYSTEM || tagMsg == Tag::TAG_STATUS)
     {
         return;
     }
@@ -675,7 +675,7 @@ void PrivateMessage::getSettingTag_gui(WulforSettingsManager *wsm, TypeTag type,
 {
     switch (type)
     {
-    case TAG_MYOWN:
+    case Tag::TAG_MYOWN:
 
         fore = wsm->getString("text-myown-fore-color");
         back = wsm->getString("text-myown-back-color");
@@ -683,7 +683,7 @@ void PrivateMessage::getSettingTag_gui(WulforSettingsManager *wsm, TypeTag type,
         italic = wsm->getInt("text-myown-italic");
         break;
 
-    case TAG_SYSTEM:
+    case Tag::TAG_SYSTEM:
 
         fore = wsm->getString("text-system-fore-color");
         back = wsm->getString("text-system-back-color");
@@ -691,7 +691,7 @@ void PrivateMessage::getSettingTag_gui(WulforSettingsManager *wsm, TypeTag type,
         italic = wsm->getInt("text-system-italic");
         break;
 
-    case TAG_STATUS:
+    case Tag::TAG_STATUS:
 
         fore = wsm->getString("text-status-fore-color");
         back = wsm->getString("text-status-back-color");
@@ -699,7 +699,7 @@ void PrivateMessage::getSettingTag_gui(WulforSettingsManager *wsm, TypeTag type,
         italic = wsm->getInt("text-status-italic");
         break;
 
-    case TAG_TIMESTAMP:
+    case Tag::TAG_TIMESTAMP:
 
         fore = wsm->getString("text-timestamp-fore-color");
         back = wsm->getString("text-timestamp-back-color");
@@ -707,7 +707,7 @@ void PrivateMessage::getSettingTag_gui(WulforSettingsManager *wsm, TypeTag type,
         italic = wsm->getInt("text-timestamp-italic");
         break;
 
-    case TAG_MYNICK:
+    case Tag::TAG_MYNICK:
 
         fore = wsm->getString("text-mynick-fore-color");
         back = wsm->getString("text-mynick-back-color");
@@ -715,7 +715,7 @@ void PrivateMessage::getSettingTag_gui(WulforSettingsManager *wsm, TypeTag type,
         italic = wsm->getInt("text-mynick-italic");
         break;
 
-    case TAG_OPERATOR:
+    case Tag::TAG_OPERATOR:
 
         fore = wsm->getString("text-op-fore-color");
         back = wsm->getString("text-op-back-color");
@@ -723,7 +723,7 @@ void PrivateMessage::getSettingTag_gui(WulforSettingsManager *wsm, TypeTag type,
         italic = wsm->getInt("text-op-italic");
         break;
 
-    case TAG_FAVORITE:
+    case Tag::TAG_FAVORITE:
 
         fore = wsm->getString("text-fav-fore-color");
         back = wsm->getString("text-fav-back-color");
@@ -731,7 +731,7 @@ void PrivateMessage::getSettingTag_gui(WulforSettingsManager *wsm, TypeTag type,
         italic = wsm->getInt("text-fav-italic");
         break;
 
-    case TAG_URL:
+    case Tag::TAG_URL:
 
         fore = wsm->getString("text-url-fore-color");
         back = wsm->getString("text-url-back-color");
@@ -739,7 +739,7 @@ void PrivateMessage::getSettingTag_gui(WulforSettingsManager *wsm, TypeTag type,
         italic = wsm->getInt("text-url-italic");
         break;
 
-    case TAG_NICK:
+    case Tag::TAG_NICK:
 
         fore = wsm->getString("text-private-fore-color");
         back = wsm->getString("text-private-back-color");
@@ -751,7 +751,7 @@ void PrivateMessage::getSettingTag_gui(WulforSettingsManager *wsm, TypeTag type,
             bold = 0;
         break;
 
-    case TAG_PRIVATE:
+    case Tag::TAG_PRIVATE:
 
     default:
 
@@ -815,7 +815,7 @@ void PrivateMessage::updateCursor(GtkWidget *widget)
     {
         newTag = GTK_TEXT_TAG(tagList->data);
 
-        if (newTag == TagsMap[TAG_URL])
+        if (newTag == TagsMap[Tag::TAG_URL])
         {
             GSList *nextList = g_slist_next(tagList);
 
@@ -843,7 +843,7 @@ void PrivateMessage::updateCursor(GtkWidget *widget)
             selectedTagStr = newTag->name;
 #endif
 
-            if (find(TagsMap, TagsMap + TAG_URL, newTag) == TagsMap + TAG_URL)
+            if (find(TagsMap, TagsMap + Tag::TAG_URL, newTag) == TagsMap + Tag::TAG_URL)
             {
                 // Cursor was in neutral space.
                 gdk_window_set_cursor(gtk_text_view_get_window(GTK_TEXT_VIEW(widget), GTK_TEXT_WINDOW_TEXT), handCursor);

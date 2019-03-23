@@ -265,17 +265,17 @@ Hub::Hub(const string &address, const string &encoding):
     history.push_back("");
 
     /* initial tags map */
-    TagsMap[TAG_GENERAL] = createTag_gui("TAG_GENERAL", TAG_GENERAL);
-    TagsMap[TAG_MYOWN] = createTag_gui("TAG_MYOWN", TAG_MYOWN);
-    TagsMap[TAG_SYSTEM] = createTag_gui("TAG_SYSTEM", TAG_SYSTEM);
-    TagsMap[TAG_STATUS] = createTag_gui("TAG_STATUS", TAG_STATUS);
-    TagsMap[TAG_TIMESTAMP] = createTag_gui("TAG_TIMESTAMP", TAG_TIMESTAMP);
+    TagsMap[Tag::TAG_GENERAL] = createTag_gui("TAG_GENERAL", Tag::TAG_GENERAL);
+    TagsMap[Tag::TAG_MYOWN] = createTag_gui("TAG_MYOWN", Tag::TAG_MYOWN);
+    TagsMap[Tag::TAG_SYSTEM] = createTag_gui("TAG_SYSTEM", Tag::TAG_SYSTEM);
+    TagsMap[Tag::TAG_STATUS] = createTag_gui("TAG_STATUS", Tag::TAG_STATUS);
+    TagsMap[Tag::TAG_TIMESTAMP] = createTag_gui("TAG_TIMESTAMP", Tag::TAG_TIMESTAMP);
     /*-*/
-    TagsMap[TAG_MYNICK] = createTag_gui("TAG_MYNICK", TAG_MYNICK);
-    TagsMap[TAG_NICK] = createTag_gui("TAG_NICK", TAG_NICK);
-    TagsMap[TAG_OPERATOR] = createTag_gui("TAG_OPERATOR", TAG_OPERATOR);
-    TagsMap[TAG_FAVORITE] = createTag_gui("TAG_FAVORITE", TAG_FAVORITE);
-    TagsMap[TAG_URL] = createTag_gui("TAG_URL", TAG_URL);
+    TagsMap[Tag::TAG_MYNICK] = createTag_gui("TAG_MYNICK", Tag::TAG_MYNICK);
+    TagsMap[Tag::TAG_NICK] = createTag_gui("TAG_NICK", Tag::TAG_NICK);
+    TagsMap[Tag::TAG_OPERATOR] = createTag_gui("TAG_OPERATOR", Tag::TAG_OPERATOR);
+    TagsMap[Tag::TAG_FAVORITE] = createTag_gui("TAG_FAVORITE", Tag::TAG_FAVORITE);
+    TagsMap[Tag::TAG_URL] = createTag_gui("TAG_URL", Tag::TAG_URL);
 
     BoldTag = gtk_text_buffer_create_tag(chatBuffer, "TAG_WEIGHT", "weight", PANGO_WEIGHT_BOLD, NULL);
     UnderlineTag = gtk_text_buffer_create_tag(chatBuffer, "TAG_UNDERLINE", "underline", PANGO_UNDERLINE_SINGLE, NULL);
@@ -283,9 +283,8 @@ Hub::Hub(const string &address, const string &encoding):
 
     // Initialize favorite users list
     FavoriteManager::FavoriteMap map = FavoriteManager::getInstance()->getFavoriteUsers();
-    FavoriteManager::FavoriteMap::const_iterator it;
 
-    for (it = map.begin(); it != map.end(); ++it)
+    for (FavoriteManager::FavoriteMap::const_iterator it = map.begin(); it != map.end(); ++it)
     {
         if (it->second.getUrl() == address)
         {
@@ -294,7 +293,7 @@ Hub::Hub(const string &address, const string &encoding):
     }
 
     // set default select tag (fix error show cursor in neutral space).
-    selectedTag = TagsMap[TAG_GENERAL];
+    selectedTag = TagsMap[Tag::TAG_GENERAL];
 }
 
 Hub::~Hub()
@@ -687,21 +686,21 @@ void Hub::addMessage_gui(string cid, string message, Msg::TypeMsg typemsg)
     switch (typemsg)
     {
     case Msg::MYOWN:
-        tagMsg = TAG_MYOWN;
+        tagMsg = Tag::TAG_MYOWN;
         break;
 
     case Msg::SYSTEM:
-        tagMsg = TAG_SYSTEM;
+        tagMsg = Tag::TAG_SYSTEM;
         break;
 
     case Msg::STATUS:
-        tagMsg = TAG_STATUS;
+        tagMsg = Tag::TAG_STATUS;
         break;
 
     case Msg::GENERAL:
 
     default:
-        tagMsg = TAG_GENERAL;
+        tagMsg = Tag::TAG_GENERAL;
     }
 
     totalEmoticons = 0;
@@ -737,7 +736,7 @@ void Hub::applyTags_gui(const string cid, const string &line)
         gtk_text_buffer_get_end_iter(chatBuffer, &ts_start_iter);
         gtk_text_iter_backward_chars(&ts_start_iter, g_utf8_strlen(line.c_str(), -1));
 
-        gtk_text_buffer_apply_tag(chatBuffer, TagsMap[TAG_TIMESTAMP], &ts_start_iter, &ts_end_iter);
+        gtk_text_buffer_apply_tag(chatBuffer, TagsMap[Tag::TAG_TIMESTAMP], &ts_start_iter, &ts_end_iter);
     }
     else
         gtk_text_iter_backward_chars(&start_iter, g_utf8_strlen(line.c_str(), -1));
@@ -749,7 +748,7 @@ void Hub::applyTags_gui(const string cid, const string &line)
     gtk_text_buffer_move_mark(chatBuffer, end_mark, &start_iter);
 
     string tagName;
-    TypeTag tagStyle = TAG_GENERAL;
+    TypeTag tagStyle = Tag::TAG_GENERAL;
 
     bool firstNick = false;
     bool start = false;
@@ -816,13 +815,13 @@ void Hub::applyTags_gui(const string cid, const string &line)
                 string order = nickView.getString(&iter, "Favorite");
 
                 if (tagName == client->getMyNick())
-                    tagStyle = TAG_MYNICK;
+                    tagStyle = Tag::TAG_MYNICK;
                 else if (order[0] == 'f')
-                    tagStyle = TAG_FAVORITE;
+                    tagStyle = Tag::TAG_FAVORITE;
                 else if (order[0] == 'o')
-                    tagStyle = TAG_OPERATOR;
+                    tagStyle = Tag::TAG_OPERATOR;
                 else if (order[0] == 'u')
-                    tagStyle = TAG_NICK;
+                    tagStyle = Tag::TAG_NICK;
 
                 tagName = tagPrefix + tagName;
             }
@@ -879,7 +878,7 @@ void Hub::applyTags_gui(const string cid, const string &line)
                     else if (WulforUtil::isMagnet(tagName))
                         callback = G_CALLBACK(onMagnetTagEvent_gui);
 
-                    tagStyle = TAG_URL;
+                    tagStyle = Tag::TAG_URL;
                 }
             }
         }
@@ -1049,11 +1048,11 @@ void Hub::applyEmoticons_gui()
         return;
 
     /* apply general tag */
-    dcassert(tagMsg >= TAG_GENERAL && tagMsg < TAG_TIMESTAMP);
+    dcassert(tagMsg >= Tag::TAG_GENERAL && tagMsg < Tag::TAG_TIMESTAMP);
     gtk_text_buffer_apply_tag(chatBuffer, TagsMap[tagMsg], &start_iter, &end_iter);
 
     /* emoticons */
-    if (tagMsg == TAG_SYSTEM || tagMsg == TAG_STATUS)
+    if (tagMsg == Tag::TAG_SYSTEM || tagMsg == Tag::TAG_STATUS)
     {
         return;
     }
@@ -1203,7 +1202,7 @@ void Hub::updateCursor_gui(GtkWidget *widget)
     {
         newTag = GTK_TEXT_TAG(tagList->data);
 
-        if (find(TagsMap + TAG_MYNICK, TagsMap + TAG_LAST, newTag) != TagsMap + TAG_LAST)
+        if (find(TagsMap + Tag::TAG_MYNICK, TagsMap + Tag::TAG_LAST, newTag) != TagsMap + Tag::TAG_LAST)
         {
             GSList *nextList = g_slist_next(tagList);
 
@@ -1230,7 +1229,7 @@ void Hub::updateCursor_gui(GtkWidget *widget)
             selectedTagStr = newTag->name;
 #endif
 
-            if (find(TagsMap, TagsMap + TAG_MYNICK, newTag) == TagsMap + TAG_MYNICK)
+            if (find(TagsMap, TagsMap + Tag::TAG_MYNICK, newTag) == TagsMap + Tag::TAG_MYNICK)
             {
                 // Cursor was in neutral space.
                 gdk_window_set_cursor(gtk_text_view_get_window(GTK_TEXT_VIEW(widget), GTK_TEXT_WINDOW_TEXT), handCursor);
@@ -1253,7 +1252,7 @@ void Hub::preferences_gui()
     string fore, back;
     int bold, italic;
 
-    for (int i = TAG_FIRST; i < TAG_LAST; i++)
+    for (int i = Tag::TAG_FIRST; i < Tag::TAG_LAST; ++i)
     {
         getSettingTag_gui(wsm, (TypeTag)i, fore, back, bold, italic);
 
@@ -1295,7 +1294,7 @@ void Hub::getSettingTag_gui(WulforSettingsManager *wsm, TypeTag type, string &fo
 {
     switch (type)
     {
-    case TAG_MYOWN:
+    case Tag::TAG_MYOWN:
 
         fore = wsm->getString("text-myown-fore-color");
         back = wsm->getString("text-myown-back-color");
@@ -1303,7 +1302,7 @@ void Hub::getSettingTag_gui(WulforSettingsManager *wsm, TypeTag type, string &fo
         italic = wsm->getInt("text-myown-italic");
         break;
 
-    case TAG_SYSTEM:
+    case Tag::TAG_SYSTEM:
 
         fore = wsm->getString("text-system-fore-color");
         back = wsm->getString("text-system-back-color");
@@ -1311,7 +1310,7 @@ void Hub::getSettingTag_gui(WulforSettingsManager *wsm, TypeTag type, string &fo
         italic = wsm->getInt("text-system-italic");
         break;
 
-    case TAG_STATUS:
+    case Tag::TAG_STATUS:
 
         fore = wsm->getString("text-status-fore-color");
         back = wsm->getString("text-status-back-color");
@@ -1319,7 +1318,7 @@ void Hub::getSettingTag_gui(WulforSettingsManager *wsm, TypeTag type, string &fo
         italic = wsm->getInt("text-status-italic");
         break;
 
-    case TAG_TIMESTAMP:
+    case Tag::TAG_TIMESTAMP:
 
         fore = wsm->getString("text-timestamp-fore-color");
         back = wsm->getString("text-timestamp-back-color");
@@ -1327,7 +1326,7 @@ void Hub::getSettingTag_gui(WulforSettingsManager *wsm, TypeTag type, string &fo
         italic = wsm->getInt("text-timestamp-italic");
         break;
 
-    case TAG_MYNICK:
+    case Tag::TAG_MYNICK:
 
         fore = wsm->getString("text-mynick-fore-color");
         back = wsm->getString("text-mynick-back-color");
@@ -1335,7 +1334,7 @@ void Hub::getSettingTag_gui(WulforSettingsManager *wsm, TypeTag type, string &fo
         italic = wsm->getInt("text-mynick-italic");
         break;
 
-    case TAG_OPERATOR:
+    case Tag::TAG_OPERATOR:
 
         fore = wsm->getString("text-op-fore-color");
         back = wsm->getString("text-op-back-color");
@@ -1343,7 +1342,7 @@ void Hub::getSettingTag_gui(WulforSettingsManager *wsm, TypeTag type, string &fo
         italic = wsm->getInt("text-op-italic");
         break;
 
-    case TAG_FAVORITE:
+    case Tag::TAG_FAVORITE:
 
         fore = wsm->getString("text-fav-fore-color");
         back = wsm->getString("text-fav-back-color");
@@ -1351,7 +1350,7 @@ void Hub::getSettingTag_gui(WulforSettingsManager *wsm, TypeTag type, string &fo
         italic = wsm->getInt("text-fav-italic");
         break;
 
-    case TAG_URL:
+    case Tag::TAG_URL:
 
         fore = wsm->getString("text-url-fore-color");
         back = wsm->getString("text-url-back-color");
@@ -1359,7 +1358,7 @@ void Hub::getSettingTag_gui(WulforSettingsManager *wsm, TypeTag type, string &fo
         italic = wsm->getInt("text-url-italic");
         break;
 
-    case TAG_NICK:
+    case Tag::TAG_NICK:
 
         fore = wsm->getString("text-general-fore-color");
         back = wsm->getString("text-general-back-color");
@@ -1371,7 +1370,7 @@ void Hub::getSettingTag_gui(WulforSettingsManager *wsm, TypeTag type, string &fo
             bold = 0;
         break;
 
-    case TAG_GENERAL:
+    case Tag::TAG_GENERAL:
 
     default:
         fore = wsm->getString("text-general-fore-color");

@@ -41,7 +41,7 @@ private:
     QTimer *timer;
 
     bool autoClose;
-    qint64 startBytes;
+    uint64_t startBytes;
     size_t startFiles;
-    qint32 startTime;
+    uint64_t startTime;
 };

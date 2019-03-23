@@ -659,7 +659,7 @@ void HashManager::Hasher::stopHashing(const string& baseDir) {
     }
 }
 
-void HashManager::Hasher::getStats(string& curFile, int64_t& bytesLeft, size_t& filesLeft) {
+void HashManager::Hasher::getStats(string& curFile, uint64_t& bytesLeft, size_t& filesLeft) {
     Lock l(cs);
     curFile = currentFile;
     filesLeft = w.size();
@@ -1127,7 +1127,7 @@ void HashManager::on(TimerManagerListener::Second, uint64_t tick) noexcept {
 
         if (!ShareManager::getInstance()->isRefreshing()){
             string  curFile;
-            int64_t bytesLeft;
+            uint64_t bytesLeft;
             size_t  filesLeft = -1;
             getStats(curFile, bytesLeft, filesLeft);
             //fprintf(stdout,"filesLeft %d\n", filesLeft); fflush(stdout);

@@ -63,7 +63,7 @@ public:
     bool moveQueueItem(const string& source, const string& target);
     bool removeQueueItem(const string& target);
     void getItemSourcesbyTarget(const string& target, const string& separator, string& sources, unsigned int& online);
-    void getHashStatus(string& target, int64_t& bytesLeft, size_t& filesLeft, string& status);
+    void getHashStatus(string& target, uint64_t &bytesLeft, size_t& filesLeft, string& status);
     bool pauseHash();
     void matchAllList();
     void listHubsFullDesc(unordered_map<string,StringMap>& listhubs);

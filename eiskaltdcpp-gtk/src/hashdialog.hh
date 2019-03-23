@@ -36,14 +36,14 @@ public:
 
 private:
     // GUI functions
-    void updateStats_gui(std::string file, int64_t bytes, size_t files, uint64_t tick);
+    void updateStats_gui(std::string file, uint64_t bytes, size_t files, uint64_t tick);
 
     // Client callbacks
     virtual void on(dcpp::TimerManagerListener::Second, uint64_t tics) noexcept;
     // GUI callback
     static void onPauseHashing_gui(GtkWidget *widget, gpointer data);
 
-    int64_t startBytes;
+    uint64_t startBytes;
     size_t startFiles;
     uint64_t startTime;
     gulong handler_id;

@@ -95,9 +95,8 @@ void FavoriteUsers::show()
 {
     // Initialize favorite users list
     FavoriteManager::FavoriteMap map = FavoriteManager::getInstance()->getFavoriteUsers();
-    FavoriteManager::FavoriteMap::const_iterator it;
 
-    for (it = map.begin(); it != map.end(); ++it)
+    for (FavoriteManager::FavoriteMap::const_iterator it = map.begin(); it != map.end(); ++it)
     {
         GtkTreeIter iter;
         const FavoriteUser &user = it->second;

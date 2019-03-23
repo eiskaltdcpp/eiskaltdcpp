@@ -70,16 +70,6 @@ private:
     void removeUser_client(std::string cid);
     void removeAll_client();
 
-    /**
-        virtual void on(AddedFile, bool, const string&, const FinishedFileItemPtr&) noexcept { }
-        virtual void on(AddedUser, bool, const HintedUser&, const FinishedUserItemPtr&) noexcept { }
-        virtual void on(UpdatedFile, bool, const string&, const FinishedFileItemPtr&) noexcept { }
-        virtual void on(UpdatedUser, bool, const HintedUser&) noexcept { }
-        virtual void on(RemovedFile, bool, const string&) noexcept { }
-        virtual void on(RemovedUser, bool, const HintedUser&) noexcept { }
-        virtual void on(RemovedAll, bool) noexcept { }
-
-        */
     // Client callbacks
     virtual void on(dcpp::FinishedManagerListener::AddedFile, bool upload, const std::string &file, const dcpp::FinishedFileItemPtr &item) noexcept;
     virtual void on(dcpp::FinishedManagerListener::AddedUser, bool upload, const dcpp::HintedUser &user, const dcpp::FinishedUserItemPtr &item) noexcept;
