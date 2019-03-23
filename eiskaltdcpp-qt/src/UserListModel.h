@@ -16,6 +16,7 @@
 #include <QList>
 #include <QStringList>
 #include <QRegExp>
+#include <QHash>
 
 #if !defined(Q_OS_WIN)
 #include <limits.h>
@@ -34,13 +35,11 @@ class WulforUtil;
 
 namespace dcpp{
     inline uint qHash(const boost::intrusive_ptr<dcpp::User> &ptr){
-        ulong key = (ulong)(void*)ptr.get();
+        quint64 key = (quint64)(void*)ptr.get();
 
         return ::qHash(key);
     }
 }
-
-#include <QHash>
 
 class UserListProxyModel: public QSortFilterProxyModel {
     Q_OBJECT
