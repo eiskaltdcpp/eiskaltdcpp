@@ -503,7 +503,7 @@ void FinishedTransfers::onOpen_gui(GtkMenuItem *item, gpointer data)
 
 }
 
-void FinishedTransfers::onPageSwitched_gui(GtkNotebook*, GtkNotebook*, guint, gpointer data)
+void FinishedTransfers::onPageSwitched_gui(GtkNotebook*, GtkWidget*, guint, gpointer data)
 {
     ((FinishedTransfers*)data)->updateStatus_gui(); // Switch the total count between users and files
 }

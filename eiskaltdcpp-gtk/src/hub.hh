@@ -53,22 +53,16 @@ public:
     void preferences_gui();
 
 private:
-    typedef enum Tag
+    typedef enum
     {
-        TAG_FIRST = 0,
-        TAG_GENERAL = TAG_FIRST,
-        TAG_MYOWN,
-        TAG_SYSTEM,
-        TAG_STATUS,
-        TAG_TIMESTAMP,
-        /*-*/
-        TAG_MYNICK,
-        TAG_NICK,
-        TAG_OPERATOR,
-        TAG_FAVORITE,
-        TAG_URL,
-        TAG_LAST
-    } TypeTag;
+        BOT = 'b',
+        OPERATOR = 'o',
+        FAVORITE = 'f',
+        IGNORED = 'i',
+        PROTECTED = 'r',
+        PASIVE = 'p',
+        NORMAL = 'u'
+    } UserType;
 
     typedef std::map<std::string, std::string> ParamMap;
     typedef std::unordered_map<std::string, std::string> UserMap;
@@ -91,8 +85,8 @@ private:
     void addStatusMessage_gui(std::string message, Msg::TypeMsg typemsg, Sound::TypeSound sound);
     void applyEmoticons_gui();
     void updateCursor_gui(GtkWidget *widget);
-    void getSettingTag_gui(WulforSettingsManager *wsm, TypeTag type, std::string &fore, std::string &back, int &bold, int &italic);
-    GtkTextTag* createTag_gui(const std::string &tagname, TypeTag type);
+    void getSettingTag_gui(WulforSettingsManager *wsm, const Tag::TypeTag type, std::string &fore, std::string &back, bool &bold, bool &italic);
+    GtkTextTag* createTag_gui(const std::string &tagname, Tag::TypeTag type);
     void addStatusMessage_gui(std::string message, Msg::TypeMsg typemsg, Sound::TypeSound sound, Notify::TypeNotify notify);
     void nickToChat_gui(const std::string &nick);
     void addFavoriteUser_gui(ParamMap params);
@@ -220,7 +214,7 @@ private:
     std::string encoding;
     bool scrollToBottom;
     static const std::string tagPrefix;
-    TypeTag tagMsg;
+    Tag::TypeTag tagMsg;
     bool useEmoticons;
     gint totalEmoticons;
     EmoticonsDialog *emotdialog;

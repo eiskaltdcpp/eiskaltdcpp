@@ -46,7 +46,7 @@ class MainWindow:
 {
 public:
     MainWindow();
-    ~MainWindow();
+    virtual ~MainWindow();
 
     // Inherited from Entry
     GtkWidget *getContainer();
@@ -129,8 +129,9 @@ private:
     static gboolean onKeyPressed_gui(GtkWidget *widget, GdkEventKey *event, gpointer data);
     static gboolean onButtonReleasePage_gui(GtkWidget *widget, GdkEventButton *event, gpointer data);
     static gboolean animationStatusIcon_gui(gpointer data);
+    static void onSizeWindowState_gui(GtkWidget* widget,GtkAllocation *allocation,gpointer data);
     static void onRaisePage_gui(GtkMenuItem *item, gpointer data);
-    static void onPageSwitched_gui(GtkNotebook *notebook, GtkNotebook *page, guint num, gpointer data);
+    static void onPageSwitched_gui(GtkNotebook *notebook, GtkWidget *page, guint num, gpointer data);
     static void onPaneRealized_gui(GtkWidget *pane, gpointer data);
     static void onConnectClicked_gui(GtkWidget *widget, gpointer data);
     static void onFavoriteHubsClicked_gui(GtkWidget *widget, gpointer data);
@@ -202,6 +203,8 @@ private:
     virtual void on(dcpp::QueueManagerListener::PartialList, const dcpp::HintedUser& aUser, const std::string& text) noexcept;
 
     GtkWindow *window;
+    gint current_width, current_height;
+    gboolean is_maximized;
     Transfers* transfers;
     GtkStatusIcon *statusIcon;
     int64_t lastUpdate, lastUp, lastDown;
@@ -209,7 +212,7 @@ private:
     dcpp::StringList EntryList;
     guint timer;
     int statusFrame;
-    bool useStatusIconBlink;
+    bool bUseStatusIconBlink;
     bool onQuit;
     int ToolbarStyle;
 };

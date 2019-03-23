@@ -256,7 +256,10 @@ void PrivateMessage::preferences_gui()
 
     for (int i = Tag::TAG_FIRST; i < Tag::TAG_LAST; ++i)
     {
-        getSettingTag_gui(wsm, (TypeTag)i, fore, back, bold, italic);
+        if(i == Tag::TAG_GENERAL)
+            continue;
+
+        getSettingTag_gui(wsm, (Tag::TypeTag)i, fore, back, bold, italic);
 
         WGETB("use-native-back-color-for-text") ?
                     g_object_set(TagsMap[i],
@@ -671,7 +674,7 @@ void PrivateMessage::applyEmoticons_gui()
     }
 }
 
-void PrivateMessage::getSettingTag_gui(WulforSettingsManager *wsm, TypeTag type, string &fore, string &back, int &bold, int &italic)
+void PrivateMessage::getSettingTag_gui(WulforSettingsManager *wsm, Tag::TypeTag type, string &fore, string &back, int &bold, int &italic)
 {
     switch (type)
     {
@@ -762,7 +765,7 @@ void PrivateMessage::getSettingTag_gui(WulforSettingsManager *wsm, TypeTag type,
     }
 }
 
-GtkTextTag* PrivateMessage::createTag_gui(const string &tagname, TypeTag type)
+GtkTextTag* PrivateMessage::createTag_gui(const string &tagname, Tag::TypeTag type)
 {
     WulforSettingsManager *wsm = WulforSettingsManager::getInstance();
     GtkTextTag *tag = gtk_text_tag_table_lookup(gtk_text_buffer_get_tag_table(messageBuffer), tagname.c_str());

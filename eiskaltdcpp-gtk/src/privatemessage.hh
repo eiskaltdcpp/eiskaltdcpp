@@ -45,30 +45,13 @@ public:
     bool getIsOffline() { return offline;}
 
 private:
-    typedef enum Tag
-    {
-        TAG_FIRST = 0,
-        TAG_PRIVATE = TAG_FIRST,
-        TAG_MYOWN,
-        TAG_SYSTEM,
-        TAG_STATUS,
-        TAG_TIMESTAMP,
-        /*-*/
-        TAG_MYNICK,
-        TAG_NICK,
-        TAG_OPERATOR,
-        TAG_FAVORITE,
-        TAG_URL,
-        TAG_LAST
-    } TypeTag;
-
     // GUI functions
     void setStatus_gui(std::string text);
     void addLine_gui(Msg::TypeMsg typemsg, const std::string &line);
     void applyTags_gui(const std::string &line);
     void applyEmoticons_gui();
-    void getSettingTag_gui(WulforSettingsManager *wsm, TypeTag type, std::string &fore, std::string &back, int &bold, int &italic);
-    GtkTextTag* createTag_gui(const std::string &tagname, TypeTag type);
+    void getSettingTag_gui(WulforSettingsManager *wsm, Tag::TypeTag type, std::string &fore, std::string &back, int &bold, int &italic);
+    GtkTextTag* createTag_gui(const std::string &tagname, Tag::TypeTag type);
     void updateCursor(GtkWidget *widget);
     void updateOnlineStatus_gui(bool online);
 
@@ -121,7 +104,7 @@ private:
     GtkTextTag* selectedTag;
     bool scrollToBottom;
     GtkTextTag *TagsMap[Tag::TAG_LAST];
-    TypeTag tagMsg, tagNick;
+    Tag::TypeTag tagMsg, tagNick;
     bool useEmoticons;
     gint totalEmoticons;
     EmoticonsDialog *emotdialog;

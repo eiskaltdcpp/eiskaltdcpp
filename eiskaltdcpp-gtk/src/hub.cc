@@ -465,11 +465,12 @@ void Hub::updateUser_gui(ParamMap params)
 void Hub::removeUser_gui(string cid)
 {
     GtkTreeIter iter;
-    string nick, order;
+    string nick;
+    gint order;
 
     if (findUser_gui(cid, &iter))
     {
-        order = nickView.getString(&iter, "Favorite");
+        order = nickView.getString(&iter, "Favorite")[0];
         nick = nickView.getString(&iter, _("Nick"));
         totalShared -= nickView.getValue<int64_t>(&iter, _("Shared"));
         gtk_list_store_remove(nickStore, &iter);
@@ -481,15 +482,15 @@ void Hub::removeUser_gui(string cid)
 
         if (WGETB("show-joins"))
         {
-            // Show parts in chat by default
+            // Show parts in chat
             string message = nick + _(" has quit hub ") + client->getHubName();
-            addStatusMessage_gui(nick + _(" has quit"), Msg::STATUS, order[0] == 'f'? Sound::FAVORITE_USER_QUIT : Sound::NONE);
+            addStatusMessage_gui(nick + _(" has quit"), Msg::STATUS, order == FAVORITE? Sound::FAVORITE_USER_QUIT : Sound::NONE);
             WulforManager::get()->getMainWindow()->addPrivateStatusMessage_gui(Msg::STATUS, cid, message);
 
-            if (order[0] == 'f')
+            if (order == FAVORITE)
                 Notify::get()->showNotify("", message, Notify::FAVORITE_USER_QUIT);
         }
-        else if (WGETB("fav-show-joins") && order[0] == 'f')
+        else if (WGETB("fav-show-joins") && order == FAVORITE)
         {
             // Only show parts for favorite users
             string message = nick + _(" has quit hub ") + client->getHubName();
@@ -749,7 +750,7 @@ void Hub::applyTags_gui(const string cid, const string &line)
     gtk_text_buffer_move_mark(chatBuffer, end_mark, &start_iter);
 
     string tagName;
-    TypeTag tagStyle = Tag::TAG_GENERAL;
+    Tag::TypeTag tagStyle = Tag::TAG_GENERAL;
 
     bool firstNick = false;
     bool start = false;
@@ -762,8 +763,7 @@ void Hub::applyTags_gui(const string cid, const string &line)
             if (!g_unichar_isspace(ch))
                 break;
 
-        }
-        while (gtk_text_iter_forward_char(&start_iter));
+        } while (gtk_text_iter_forward_char(&start_iter));
 
         if(!start)
         {
@@ -797,9 +797,10 @@ void Hub::applyTags_gui(const string cid, const string &line)
         if (!temp)
             continue;
 
-        if (temp[0] != '\0')
+        if (!C_EMPTY(temp))
         {
             tagName = temp;
+            g_free(temp);
             GtkTreeIter iter;
 
             // Special case: catch nicks in the form <nick> at the beginning of the line.
@@ -813,15 +814,15 @@ void Hub::applyTags_gui(const string cid, const string &line)
             {
                 isNick = true;
                 callback = G_CALLBACK(onNickTagEvent_gui);
-                string order = nickView.getString(&iter, "Favorite");
+                gint order = nickView.getString(&iter, "Favorite")[0];
 
                 if (tagName == client->getMyNick())
                     tagStyle = Tag::TAG_MYNICK;
-                else if (order[0] == 'f')
+                else if (order == FAVORITE)
                     tagStyle = Tag::TAG_FAVORITE;
-                else if (order[0] == 'o')
+                else if (order == OPERATOR || order == BOT)
                     tagStyle = Tag::TAG_OPERATOR;
-                else if (order[0] == 'u')
+                else if (order == NORMAL || order == IGNORED || order == PROTECTED || order == PASIVE)
                     tagStyle = Tag::TAG_NICK;
 
                 tagName = tagPrefix + tagName;
@@ -832,7 +833,7 @@ void Hub::applyTags_gui(const string cid, const string &line)
                 // [img]magnet-link[/img]
 
                 bool notlink = false;
-                if (!g_ascii_strncasecmp(tagName.c_str(), "[img]", 5))
+                if (g_ascii_strncasecmp(tagName.c_str(), "[img]", 5) == 0)
                 {
                     string::size_type i = tagName.rfind("[/img]");
                     if (i != string::npos)
@@ -842,7 +843,7 @@ void Hub::applyTags_gui(const string cid, const string &line)
                             notlink = image_tag = true;
                     }
                 }
-                else if (!g_ascii_strncasecmp(tagName.c_str(), "[b]", 3))
+                else if (g_ascii_strncasecmp(tagName.c_str(), "[b]", 3) == 0)
                 {
                     string::size_type i = tagName.rfind("[/b]");
                     if (i != string::npos)
@@ -851,7 +852,7 @@ void Hub::applyTags_gui(const string cid, const string &line)
                         notlink = bold_tag = true;
                     }
                 }
-                else if (!g_ascii_strncasecmp(tagName.c_str(), "[i]", 3))
+                else if (g_ascii_strncasecmp(tagName.c_str(), "[i]", 3) == 0)
                 {
                     string::size_type i = tagName.rfind("[/i]");
                     if (i != string::npos)
@@ -860,7 +861,7 @@ void Hub::applyTags_gui(const string cid, const string &line)
                         notlink = italic_tag = true;
                     }
                 }
-                else if (!g_ascii_strncasecmp(tagName.c_str(), "[u]", 3))
+                else if (g_ascii_strncasecmp(tagName.c_str(), "[u]", 3) == 0)
                 {
                     string::size_type i = tagName.rfind("[/u]");
                     if (i != string::npos)
@@ -873,18 +874,22 @@ void Hub::applyTags_gui(const string cid, const string &line)
                 if (!notlink)
                 {
                     if (WulforUtil::isLink(tagName))
+                    {
                         callback = G_CALLBACK(onLinkTagEvent_gui);
+                    }
                     else if (WulforUtil::isHubURL(tagName))
+                    {
                         callback = G_CALLBACK(onHubTagEvent_gui);
+                    }
                     else if (WulforUtil::isMagnet(tagName))
+                    {
                         callback = G_CALLBACK(onMagnetTagEvent_gui);
+                    }
 
                     tagStyle = Tag::TAG_URL;
                 }
             }
         }
-
-        g_free(temp);
 
         if (image_tag)
         {
@@ -932,7 +937,7 @@ void Hub::applyTags_gui(const string cid, const string &line)
         }
         else if (bold_tag)
         {
-            dcassert(tagMsg >= TAG_GENERAL && tagMsg < TAG_TIMESTAMP);
+            dcassert(tagMsg >= Tag::TAG_GENERAL && tagMsg < Tag::TAG_TIMESTAMP);
 
             gtk_text_buffer_move_mark(chatBuffer, tag_mark, &tag_end_iter);
             gtk_text_buffer_delete(chatBuffer, &tag_start_iter, &tag_end_iter);
@@ -941,7 +946,7 @@ void Hub::applyTags_gui(const string cid, const string &line)
         }
         else if (italic_tag)
         {
-            dcassert(tagMsg >= TAG_GENERAL && tagMsg < TAG_TIMESTAMP);
+            dcassert(tagMsg >= Tag::TAG_GENERAL && tagMsg < Tag::TAG_TIMESTAMP);
 
             gtk_text_buffer_move_mark(chatBuffer, tag_mark, &tag_end_iter);
             gtk_text_buffer_delete(chatBuffer, &tag_start_iter, &tag_end_iter);
@@ -950,7 +955,7 @@ void Hub::applyTags_gui(const string cid, const string &line)
         }
         else if (underline_tag)
         {
-            dcassert(tagMsg >= TAG_GENERAL && tagMsg < TAG_TIMESTAMP);
+            dcassert(tagMsg >= Tag::TAG_GENERAL && tagMsg < Tag::TAG_TIMESTAMP);
 
             gtk_text_buffer_move_mark(chatBuffer, tag_mark, &tag_end_iter);
             gtk_text_buffer_delete(chatBuffer, &tag_start_iter, &tag_end_iter);
@@ -997,7 +1002,7 @@ void Hub::applyTags_gui(const string cid, const string &line)
 
                 if (WulforUtil::splitMagnet(tagName, line))
                 {
-                    dcassert(tagStyle == TAG_URL);
+                    dcassert(tagStyle == Tag::TAG_URL);
 
                     gtk_text_buffer_delete(chatBuffer, &tag_start_iter, &tag_end_iter);
                     gtk_text_buffer_insert_with_tags(chatBuffer, &tag_start_iter,
@@ -1006,7 +1011,7 @@ void Hub::applyTags_gui(const string cid, const string &line)
             }
             else
             {
-                dcassert(tagStyle >= TAG_MYNICK && tagStyle < TAG_LAST);
+                dcassert(tagStyle >= Tag::TAG_FIRST && tagStyle < Tag::TAG_LAST);
 
                 gtk_text_buffer_apply_tag(chatBuffer, tag, &tag_start_iter, &tag_end_iter);
                 gtk_text_buffer_apply_tag(chatBuffer, TagsMap[tagStyle], &tag_start_iter, &tag_end_iter);
@@ -1103,7 +1108,7 @@ void Hub::applyEmoticons_gui()
         {
             GList *names = (*it)->getNames();
 
-            for (GList *p = names; p ; p = p->next)
+            for (GList *p = names; p != NULL; p = p->next)
             {
                 if (gtk_text_iter_forward_search(&start_iter,
                                                  (gchar *)p->data,
@@ -1183,7 +1188,7 @@ void Hub::updateCursor_gui(GtkWidget *widget)
 {
     gint x, y, buf_x, buf_y;
     GtkTextIter iter;
-    GSList *tagList;
+    GSList *tagList = NULL;
     GtkTextTag *newTag = NULL;
 #if GTK_CHECK_VERSION(3, 0, 0)
     //gdk_window_get_pointer(gtk_widget_get_window(widget)  , &x, &y, NULL);
@@ -1203,7 +1208,7 @@ void Hub::updateCursor_gui(GtkWidget *widget)
     {
         newTag = GTK_TEXT_TAG(tagList->data);
 
-        if (find(TagsMap + Tag::TAG_MYNICK, TagsMap + Tag::TAG_LAST, newTag) != TagsMap + Tag::TAG_LAST)
+        if (find(TagsMap + Tag::TAG_GENERAL, TagsMap + Tag::TAG_LAST, newTag) != TagsMap + Tag::TAG_LAST)
         {
             GSList *nextList = g_slist_next(tagList);
 
@@ -1251,11 +1256,14 @@ void Hub::preferences_gui()
 {
     WulforSettingsManager *wsm = WulforSettingsManager::getInstance();
     string fore, back;
-    int bold, italic;
+    bool bold = false, italic = false;
 
     for (int i = Tag::TAG_FIRST; i < Tag::TAG_LAST; ++i)
     {
-        getSettingTag_gui(wsm, (TypeTag)i, fore, back, bold, italic);
+        if(i == Tag::TAG_PRIVATE)
+            continue;
+
+        getSettingTag_gui(wsm, (Tag::TypeTag)i, fore, back, bold, italic);
 
         WGETB("use-native-back-color-for-text") ?
                     g_object_set(TagsMap[i],
@@ -1291,7 +1299,7 @@ void Hub::preferences_gui()
     gtk_tree_sortable_set_sort_column_id(GTK_TREE_SORTABLE(nickStore), nickView.col(sort), GTK_SORT_ASCENDING);
 }
 
-void Hub::getSettingTag_gui(WulforSettingsManager *wsm, TypeTag type, string &fore, string &back, int &bold, int &italic)
+void Hub::getSettingTag_gui(WulforSettingsManager *wsm, const Tag::TypeTag type, string &fore, string &back, bool &bold, bool &italic)
 {
     switch (type)
     {
@@ -1299,76 +1307,72 @@ void Hub::getSettingTag_gui(WulforSettingsManager *wsm, TypeTag type, string &fo
 
         fore = wsm->getString("text-myown-fore-color");
         back = wsm->getString("text-myown-back-color");
-        bold = wsm->getInt("text-myown-bold");
-        italic = wsm->getInt("text-myown-italic");
+        bold = (bool)wsm->getInt("text-myown-bold");
+        italic = (bool)wsm->getInt("text-myown-italic");
         break;
 
     case Tag::TAG_SYSTEM:
 
         fore = wsm->getString("text-system-fore-color");
         back = wsm->getString("text-system-back-color");
-        bold = wsm->getInt("text-system-bold");
-        italic = wsm->getInt("text-system-italic");
+        bold = (bool)wsm->getInt("text-system-bold");
+        italic = (bool)wsm->getInt("text-system-italic");
         break;
 
     case Tag::TAG_STATUS:
 
         fore = wsm->getString("text-status-fore-color");
         back = wsm->getString("text-status-back-color");
-        bold = wsm->getInt("text-status-bold");
-        italic = wsm->getInt("text-status-italic");
+        bold = (bool)wsm->getInt("text-status-bold");
+        italic = (bool)wsm->getInt("text-status-italic");
         break;
 
     case Tag::TAG_TIMESTAMP:
 
         fore = wsm->getString("text-timestamp-fore-color");
         back = wsm->getString("text-timestamp-back-color");
-        bold = wsm->getInt("text-timestamp-bold");
-        italic = wsm->getInt("text-timestamp-italic");
+        bold = (bool)wsm->getInt("text-timestamp-bold");
+        italic = (bool)wsm->getInt("text-timestamp-italic");
         break;
 
     case Tag::TAG_MYNICK:
 
         fore = wsm->getString("text-mynick-fore-color");
         back = wsm->getString("text-mynick-back-color");
-        bold = wsm->getInt("text-mynick-bold");
-        italic = wsm->getInt("text-mynick-italic");
+        bold = (bool)wsm->getInt("text-mynick-bold");
+        italic = (bool)wsm->getInt("text-mynick-italic");
         break;
 
     case Tag::TAG_OPERATOR:
 
         fore = wsm->getString("text-op-fore-color");
         back = wsm->getString("text-op-back-color");
-        bold = wsm->getInt("text-op-bold");
-        italic = wsm->getInt("text-op-italic");
+        bold = (bool)wsm->getInt("text-op-bold");
+        italic = (bool)wsm->getInt("text-op-italic");
         break;
 
     case Tag::TAG_FAVORITE:
 
         fore = wsm->getString("text-fav-fore-color");
         back = wsm->getString("text-fav-back-color");
-        bold = wsm->getInt("text-fav-bold");
-        italic = wsm->getInt("text-fav-italic");
+        bold = (bool)wsm->getInt("text-fav-bold");
+        italic = (bool)wsm->getInt("text-fav-italic");
         break;
 
     case Tag::TAG_URL:
 
         fore = wsm->getString("text-url-fore-color");
         back = wsm->getString("text-url-back-color");
-        bold = wsm->getInt("text-url-bold");
-        italic = wsm->getInt("text-url-italic");
+        bold = (bool)wsm->getInt("text-url-bold");
+        italic = (bool)wsm->getInt("text-url-italic");
         break;
 
     case Tag::TAG_NICK:
 
         fore = wsm->getString("text-general-fore-color");
         back = wsm->getString("text-general-back-color");
-        italic = wsm->getInt("text-general-italic");
-
-        if (wsm->getBool("text-bold-autors"))
-            bold = 1;
-        else
-            bold = 0;
+        italic = (bool)wsm->getInt("text-general-italic");
+        bold = (bool)wsm->getBool("text-bold-autors");
         break;
 
     case Tag::TAG_GENERAL:
@@ -1376,12 +1380,12 @@ void Hub::getSettingTag_gui(WulforSettingsManager *wsm, TypeTag type, string &fo
     default:
         fore = wsm->getString("text-general-fore-color");
         back = wsm->getString("text-general-back-color");
-        bold = wsm->getInt("text-general-bold");
-        italic = wsm->getInt("text-general-italic");
+        bold = (bool)wsm->getInt("text-general-bold");
+        italic = (bool)wsm->getInt("text-general-italic");
     }
 }
 
-GtkTextTag* Hub::createTag_gui(const string &tagname, TypeTag type)
+GtkTextTag* Hub::createTag_gui(const string &tagname, Tag::TypeTag type)
 {
     WulforSettingsManager *wsm = WulforSettingsManager::getInstance();
     GtkTextTag *tag = gtk_text_tag_table_lookup(gtk_text_buffer_get_tag_table(chatBuffer), tagname.c_str());
@@ -1389,7 +1393,7 @@ GtkTextTag* Hub::createTag_gui(const string &tagname, TypeTag type)
     if (!tag)
     {
         string fore, back;
-        int bold, italic;
+        bool bold = false, italic = false;
 
         getSettingTag_gui(wsm, type, fore, back, bold, italic);
         tag = WGETB("use-native-back-color-for-text") ?
@@ -2714,11 +2718,8 @@ void Hub::onUseEmoticons_gui(GtkWidget *widget, gpointer data)
     hub->useEmoticons = !hub->useEmoticons;
 }
 
-void Hub::onDownloadToClicked_gui(GtkMenuItem *item, gpointer data)
+void Hub::onDownloadToClicked_gui(GtkMenuItem*, gpointer data)
 {
-    (void)item;
-    Hub *hub = (Hub *)data;
-
     GtkWidget *dialog = WulforManager::get()->getMainWindow()->getChooserDialog_gui();
     gtk_window_set_title(GTK_WINDOW(dialog), _("Choose a directory"));
     gtk_file_chooser_set_action(GTK_FILE_CHOOSER(dialog), GTK_FILE_CHOOSER_ACTION_SELECT_FOLDER);
@@ -2731,12 +2732,12 @@ void Hub::onDownloadToClicked_gui(GtkMenuItem *item, gpointer data)
 
     if (response == GTK_RESPONSE_OK)
     {
-        gchar *temp = gtk_file_chooser_get_current_folder(GTK_FILE_CHOOSER(dialog));
+        g_autofree gchar *temp = gtk_file_chooser_get_current_folder(GTK_FILE_CHOOSER(dialog));
 
         if (temp)
         {
+            Hub *hub = (Hub *)data;
             string path = Text::toUtf8(temp) + G_DIR_SEPARATOR_S;
-            g_free(temp);
 
             WulforManager::get()->getMainWindow()->fileToDownload_gui(hub->selectedTagStr, path);
         }
@@ -2770,7 +2771,8 @@ void Hub::onAddFavoriteUserClicked_gui(GtkMenuItem *item, gpointer data)
 
     if (gtk_tree_selection_count_selected_rows(hub->nickSelection) > 0)
     {
-        string cid, nick, order;
+        string cid, nick;
+        gint order;
         GtkTreeIter iter;
         GtkTreePath *path;
         typedef Func1<Hub, string> F1;
@@ -2784,11 +2786,11 @@ void Hub::onAddFavoriteUserClicked_gui(GtkMenuItem *item, gpointer data)
             {
                 cid = hub->nickView.getString(&iter, "CID");
                 nick = hub->nickView.getString(&iter, _("Nick"));
-                order = hub->nickView.getString(&iter, "Favorite");
+                order = hub->nickView.getString(&iter, "Favorite")[0];
 
                 if (!cid.empty() && nick != hub->client->getMyNick())
                 {
-                    if (order[0] == 'o' || order[0] == 'u')
+                    if (order != FAVORITE)
                     {
                         F1 *func = new F1(hub, &Hub::addFavoriteUser_client, cid);
                         WulforManager::get()->dispatchClientFunc(func);
@@ -2810,7 +2812,8 @@ void Hub::onRemoveFavoriteUserClicked_gui(GtkMenuItem *item, gpointer data)
 
     if (gtk_tree_selection_count_selected_rows(hub->nickSelection) > 0)
     {
-        string cid, nick, order;
+        string cid, nick;
+        gint order;
         GtkTreeIter iter;
         GtkTreePath *path;
         typedef Func1<Hub, string> F1;
@@ -2824,11 +2827,11 @@ void Hub::onRemoveFavoriteUserClicked_gui(GtkMenuItem *item, gpointer data)
             {
                 cid = hub->nickView.getString(&iter, "CID");
                 nick = hub->nickView.getString(&iter, _("Nick"));
-                order = hub->nickView.getString(&iter, "Favorite");
+                order = hub->nickView.getString(&iter, "Favorite")[0];
 
                 if (!cid.empty() && nick != hub->client->getMyNick())
                 {
-                    if (order[0] == 'f')
+                    if (order == FAVORITE)
                     {
                         F1 *func = new F1(hub, &Hub::removeFavoriteUser_client, cid);
                         WulforManager::get()->dispatchClientFunc(func);
@@ -2958,7 +2961,7 @@ void Hub::disconnect_client()
         client->removeListener(this);
         client->disconnect(true);
         ClientManager::getInstance()->putClient(client);
-        client = NULL;
+        client = nullptr;
     }
 }
 
@@ -3147,11 +3150,11 @@ void Hub::getParams_client(ParamMap &params, Identity &id)
     if (id.isOp())
     {
         params["Icon"] += "-op";
-        params.insert(ParamMap::value_type("Nick Order", "o" + id.getNick()));
+        params.insert(ParamMap::value_type("Nick Order", "O" + id.getNick()));
     }
     else
     {
-        params.insert(ParamMap::value_type("Nick Order", "u" + id.getNick()));
+        params.insert(ParamMap::value_type("Nick Order", "U" + id.getNick()));
     }
 
     params.insert(ParamMap::value_type("Nick", id.getNick()));
@@ -3363,13 +3366,13 @@ void Hub::onDownloadImageClicked_gui(GtkMenuItem *item, gpointer data)
 
 void Hub::onRemoveImageClicked_gui(GtkMenuItem *item, gpointer data)
 {
-    Hub *hub = (Hub*) data;
-
     GtkWidget *container = (GtkWidget*) g_object_get_data(G_OBJECT(item), "container");
 
     // if image destroy
     if (!container)
         return;
+
+    Hub *hub = (Hub*) data;
 
     GList *childs = gtk_container_get_children(GTK_CONTAINER(container));
     GtkWidget *image = (GtkWidget*)childs->data;
@@ -3547,9 +3550,9 @@ void Hub::on(ClientListener::UsersUpdated, Client *, const OnlineUserList &list)
     typedef Func1<Hub, ParamMap> F1;
     F1 *func;
 
-    for (auto it = list.begin(); it != list.end(); ++it)
+    for (auto &it : list)
     {
-        id = (*it)->getIdentity();
+        id = it->getIdentity();
         if (!id.isHidden())
         {
             ParamMap params;
