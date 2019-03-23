@@ -443,7 +443,8 @@ void Search::popupMenu_gui()
 void Search::setStatus_gui(string statusBar, string text)
 {
     gtk_statusbar_pop(GTK_STATUSBAR(getWidget(statusBar)), 0);
-    gtk_statusbar_push(GTK_STATUSBAR(getWidget(statusBar)), 0, text.c_str());
+    gtk_statusbar_push(GTK_STATUSBAR(getWidget(statusBar)), 0,
+                       g_filename_to_utf8(text.c_str(),-1,NULL,NULL,NULL));
 }
 
 void Search::setProgress_gui(const std::string& progressBar, const std::string& text, float fract)
