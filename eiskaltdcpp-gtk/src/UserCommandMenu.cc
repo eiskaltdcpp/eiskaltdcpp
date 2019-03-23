@@ -53,8 +53,9 @@ void UserCommandMenu::addUser(const string &cid)
     ucParams.push_back(u);
 }
 
-void UserCommandMenu::addFile(const std::string &cid, const std::string &name, const std::string &path,
-                              const int64_t &size, const string &tth)
+void UserCommandMenu::addFile(const string &cid, const string &name,
+                              const string &path, const int64_t &size,
+                              const string &tth)
 {
     UCParam u;
     u.cid = cid;

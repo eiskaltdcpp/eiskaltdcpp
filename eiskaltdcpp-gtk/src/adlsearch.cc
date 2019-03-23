@@ -95,10 +95,9 @@ void SearchADL::show()
     // initialize searches list
     string minSize, maxSize;
     ADLSearchManager::SearchCollection &collection = ADLSearchManager::getInstance()->collection;
-    for (auto i = collection.begin(); i != collection.end(); ++i)
+    for (ADLSearch &search : collection)
     {
         GtkTreeIter iter;
-        ADLSearch &search = *i;
         minSize = search.minFileSize >= 0 ? Util::toString(search.minFileSize) + " " +
                                             search.SizeTypeToString(search.typeFileSize) : "";
         maxSize = search.maxFileSize >= 0 ? Util::toString(search.maxFileSize) + " " +
