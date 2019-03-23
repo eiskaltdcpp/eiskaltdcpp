@@ -83,7 +83,7 @@ void UserCommandMenu::buildMenu_gui()
 
     GtkWidget *menuItem;
     GtkWidget *menu = userCommandMenu;
-    bool separator = FALSE; // tracks whether last menu item was a separator
+    bool separator = false; // tracks whether last menu item was a separator
 
     for (auto i = userCommandList.begin(); i != userCommandList.end(); ++i)
     {
@@ -94,12 +94,12 @@ void UserCommandMenu::buildMenu_gui()
         {
             menuItem = gtk_separator_menu_item_new();
             gtk_menu_shell_append(GTK_MENU_SHELL(menu), menuItem);
-            separator = TRUE;
+            separator = true;
         }
         else if (uc.getType() == UserCommand::TYPE_RAW || uc.getType() == UserCommand::TYPE_RAW_ONCE)
         {
             string command = uc.getName();
-            separator = FALSE;
+            separator = false;
             menu = userCommandMenu;
 
             createSubMenu_gui(menu, command);
@@ -123,7 +123,7 @@ void UserCommandMenu::createSubMenu_gui(GtkWidget *&menu, string &command)
     // Create subfolders based on path separators in the command
     while ((i = command.find('\\')) != string::npos)
     {
-        bool createSubmenu = TRUE;
+        bool createSubmenu = true;
         GList *menuItems = gtk_container_get_children(GTK_CONTAINER(menu));
 
         // Search for the sub menu to append the command to
@@ -133,7 +133,7 @@ void UserCommandMenu::createSubMenu_gui(GtkWidget *&menu, string &command)
             if (gtk_menu_item_get_submenu(item) && WulforUtil::getTextFromMenu(item) == command.substr(0, i))
             {
                 menu = gtk_menu_item_get_submenu(item);
-                createSubmenu = FALSE;
+                createSubmenu = false;
                 break;
             }
         }

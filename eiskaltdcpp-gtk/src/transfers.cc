@@ -53,7 +53,7 @@ Transfers::Transfers() :
     appsPreviewMenu = new PreviewMenu(getWidget("appsPreviewMenu"));
 
     // Initialize transfer treeview
-    transferView.setView(GTK_TREE_VIEW(getWidget("transfers")), TRUE, "transfers");
+    transferView.setView(GTK_TREE_VIEW(getWidget("transfers")), true, "transfers");
     transferView.insertColumn(_("User"), G_TYPE_STRING, TreeView::ICON_STRING, 150, "Icon");
     transferView.insertColumn(_("Hub Name"), G_TYPE_STRING, TreeView::STRING, 100);
     transferView.insertColumn(_("Progress"), G_TYPE_STRING, TreeView::PROGRESS, 85, "Progress Hidden");
@@ -87,8 +87,8 @@ Transfers::Transfers() :
     gtk_tree_selection_set_mode(transferSelection, GTK_SELECTION_MULTIPLE);
     transferView.setSortColumn_gui(_("User"), "Sort Order");
     gtk_tree_sortable_set_sort_column_id(GTK_TREE_SORTABLE(transferStore), transferView.col("Sort Order"), GTK_SORT_ASCENDING);
-    gtk_tree_view_column_set_sort_indicator(gtk_tree_view_get_column(transferView.get(), transferView.col(_("User"))), TRUE);
-    gtk_tree_view_set_fixed_height_mode(transferView.get(), TRUE);
+    gtk_tree_view_column_set_sort_indicator(gtk_tree_view_get_column(transferView.get(), transferView.col(_("User"))), true);
+    gtk_tree_view_set_fixed_height_mode(transferView.get(), true);
 
     g_signal_connect(transferView.get(), "button-press-event", G_CALLBACK(onTransferButtonPressed_gui), (gpointer)this);
     g_signal_connect(transferView.get(), "button-release-event", G_CALLBACK(onTransferButtonReleased_gui), (gpointer)this);
@@ -149,7 +149,7 @@ void Transfers::popupTransferMenu_gui()
                 userCommandMenu->addUser(cid);
                 userCommandMenu->addHub(WulforUtil::getHubAddress(CID(cid), hubUrl));
             }
-            while (parent && WulforUtil::getNextIter_gui(GTK_TREE_MODEL(transferStore), &iter, TRUE, FALSE));
+            while (parent && WulforUtil::getNextIter_gui(GTK_TREE_MODEL(transferStore), &iter, true, false));
         }
         gtk_tree_path_free(path);
     }
@@ -158,8 +158,8 @@ void Transfers::popupTransferMenu_gui()
     userCommandMenu->buildMenu_gui();
 
     if (appsPreviewMenu->buildMenu_gui(target))
-        gtk_widget_set_sensitive(getWidget("appsPreviewItem"), TRUE);
-    else gtk_widget_set_sensitive(getWidget("appsPreviewItem"), FALSE);
+        gtk_widget_set_sensitive(getWidget("appsPreviewItem"), true);
+    else gtk_widget_set_sensitive(getWidget("appsPreviewItem"), false);
 
 #if GTK_CHECK_VERSION(3,22,0)
     gtk_menu_popup_at_pointer(GTK_MENU(getWidget("transferMenu")),NULL);
@@ -196,7 +196,7 @@ void Transfers::onGetFileListClicked_gui(GtkMenuItem *item, gpointer data)
                     WulforManager::get()->dispatchClientFunc(func);
                 }
             }
-            while (parent && WulforUtil::getNextIter_gui(GTK_TREE_MODEL(tr->transferStore), &iter, TRUE, FALSE));
+            while (parent && WulforUtil::getNextIter_gui(GTK_TREE_MODEL(tr->transferStore), &iter, true, false));
         }
         gtk_tree_path_free(path);
     }
@@ -230,7 +230,7 @@ void Transfers::onMatchQueueClicked_gui(GtkMenuItem *item, gpointer data)
                     WulforManager::get()->dispatchClientFunc(func);
                 }
             }
-            while (parent && WulforUtil::getNextIter_gui(GTK_TREE_MODEL(tr->transferStore), &iter, TRUE, FALSE));
+            while (parent && WulforUtil::getNextIter_gui(GTK_TREE_MODEL(tr->transferStore), &iter, true, false));
         }
         gtk_tree_path_free(path);
     }
@@ -260,7 +260,7 @@ void Transfers::onPrivateMessageClicked_gui(GtkMenuItem *item, gpointer data)
                 if (!cid.empty())
                     WulforManager::get()->getMainWindow()->addPrivateMessage_gui(Msg::UNKNOWN, cid);
             }
-            while (parent && WulforUtil::getNextIter_gui(GTK_TREE_MODEL(tr->transferStore), &iter, TRUE, FALSE));
+            while (parent && WulforUtil::getNextIter_gui(GTK_TREE_MODEL(tr->transferStore), &iter, true, false));
         }
         gtk_tree_path_free(path);
     }
@@ -295,7 +295,7 @@ void Transfers::onAddFavoriteUserClicked_gui(GtkMenuItem *item, gpointer data)
                     WulforManager::get()->dispatchClientFunc(func);
                 }
             }
-            while (parent && WulforUtil::getNextIter_gui(GTK_TREE_MODEL(tr->transferStore), &iter, TRUE, FALSE));
+            while (parent && WulforUtil::getNextIter_gui(GTK_TREE_MODEL(tr->transferStore), &iter, true, false));
         }
         gtk_tree_path_free(path);
     }
@@ -329,7 +329,7 @@ void Transfers::onGrantExtraSlotClicked_gui(GtkMenuItem *item, gpointer data)
                     WulforManager::get()->dispatchClientFunc(func);
                 }
             }
-            while (parent && WulforUtil::getNextIter_gui(GTK_TREE_MODEL(tr->transferStore), &iter, TRUE, FALSE));
+            while (parent && WulforUtil::getNextIter_gui(GTK_TREE_MODEL(tr->transferStore), &iter, true, false));
         }
         gtk_tree_path_free(path);
     }
@@ -364,7 +364,7 @@ void Transfers::onRemoveUserFromQueueClicked_gui(GtkMenuItem *item, gpointer dat
                     WulforManager::get()->dispatchClientFunc(func);
                 }
             }
-            while (parent && WulforUtil::getNextIter_gui(GTK_TREE_MODEL(tr->transferStore), &iter, TRUE, FALSE));
+            while (parent && WulforUtil::getNextIter_gui(GTK_TREE_MODEL(tr->transferStore), &iter, true, false));
         }
         gtk_tree_path_free(path);
     }
@@ -431,7 +431,7 @@ void Transfers::onCloseConnectionClicked_gui(GtkMenuItem *menuItem, gpointer dat
                     WulforManager::get()->dispatchClientFunc(func);
                 }
             }
-            while (parent && WulforUtil::getNextIter_gui(GTK_TREE_MODEL(tr->transferStore), &iter, TRUE, FALSE));
+            while (parent && WulforUtil::getNextIter_gui(GTK_TREE_MODEL(tr->transferStore), &iter, true, false));
         }
         gtk_tree_path_free(path);
     }
@@ -486,7 +486,7 @@ bool Transfers::findParent_gui(const string& target, GtkTreeIter* iter)
                 transferView.getString(iter, "CID").empty())
             return true;
 
-        valid = WulforUtil::getNextIter_gui(m, iter, FALSE, FALSE);
+        valid = WulforUtil::getNextIter_gui(m, iter, false, false);
     }
 
     return false;
@@ -506,7 +506,7 @@ bool Transfers::findTransfer_gui(const string& cid, bool download, GtkTreeIter* 
             if (!download && !transferView.getValue<gboolean>(iter, "Download"))
                 return true;
         }
-        valid = WulforUtil::getNextIter_gui(m, iter, TRUE, TRUE);
+        valid = WulforUtil::getNextIter_gui(m, iter, true, true);
     }
 
     return false;
@@ -516,7 +516,7 @@ void Transfers::addConnection_gui(StringMap params, bool download)
 {
     GtkTreeIter iter;
     dcassert(params.find("CID") != params.end());
-    dcassert(findTransfer_gui(params["CID"], download, &iter) == FALSE);    // shouldn't fail, if it's already there we've forgot to remove it or dcpp core sends more than one Connection::Added
+    dcassert(findTransfer_gui(params["CID"], download, &iter) == false);    // shouldn't fail, if it's already there we've forgot to remove it or dcpp core sends more than one Connection::Added
 
     gtk_tree_store_append(transferStore, &iter, NULL);
     gtk_tree_store_set(transferStore, &iter,
@@ -575,7 +575,7 @@ void Transfers::updateParent_gui(GtkTreeIter* iter)
     if (gtk_tree_model_iter_has_child(GTK_TREE_MODEL(transferStore), iter))
     {
         child = *iter;
-        bool valid = WulforUtil::getNextIter_gui(GTK_TREE_MODEL(transferStore), &child, TRUE, FALSE);
+        bool valid = WulforUtil::getNextIter_gui(GTK_TREE_MODEL(transferStore), &child, true, false);
         while (valid)
         {
             if (transferView.getValue<int>(&child, "Failed") == 0 &&
@@ -587,7 +587,7 @@ void Transfers::updateParent_gui(GtkTreeIter* iter)
             }
             users += transferView.getString(&child, _("User")) + string(", ");
             hubs.insert(transferView.getString(&child, _("Hub Name")));
-            valid = WulforUtil::getNextIter_gui(GTK_TREE_MODEL(transferStore), &child, TRUE, FALSE);
+            valid = WulforUtil::getNextIter_gui(GTK_TREE_MODEL(transferStore), &child, true, false);
         }
     }
 
@@ -667,7 +667,7 @@ void Transfers::updateFilePosition_gui(const string cid, int64_t filePosition)
     GtkTreeIter iter;
     GtkTreeIter parent;
 
-    if (!findTransfer_gui(cid, TRUE, &iter))
+    if (!findTransfer_gui(cid, true, &iter))
         return;
 
     if (gtk_tree_model_iter_parent(GTK_TREE_MODEL(transferStore), &parent, &iter))
@@ -683,8 +683,8 @@ void Transfers::initTransfer_gui(StringMap params)
 {
     dcassert(!params["CID"].empty() && !params["Target"].empty());
 
-    bool oldParentValid = FALSE;
-    bool newParentValid = FALSE;
+    bool oldParentValid = false;
+    bool newParentValid = false;
     bool needParent;
     GtkTreeIter iter;
     GtkTreeIter oldParent;
@@ -696,7 +696,7 @@ void Transfers::initTransfer_gui(StringMap params)
     // it currently only shows the size of a transfer (and always starts from 0)
     needParent = (params["Filename"] != string(_("File list"))) && BOOLSETTING(SEGMENTED_DL);
 
-    if (!findTransfer_gui(params["CID"], TRUE, &iter))
+    if (!findTransfer_gui(params["CID"], true, &iter))
     {
         dcassert(0); // not really fatal only annoying as the dl can't be seen, can be ignored in release build
         return;
@@ -721,11 +721,11 @@ void Transfers::initTransfer_gui(StringMap params)
                 if (transferView.getValue<int>(&newParent, "Failed"))
                 {
                     gtk_tree_store_set(transferStore, &newParent,
-                                       transferView.col("Failed"), FALSE,
+                                       transferView.col("Failed"), false,
                                        -1);
                 }
 
-                oldParentValid = FALSE; // Don't update the parentRow twice, since old and new are the same (and definately don't remove twice)
+                oldParentValid = false; // Don't update the parentRow twice, since old and new are the same (and definately don't remove twice)
             }
         }
         else
@@ -734,13 +734,13 @@ void Transfers::initTransfer_gui(StringMap params)
             if (filename.find(_("TTH: ")) != string::npos)
                 filename = filename.substr((string(_("TTH: "))).length());
             gtk_tree_store_append(transferStore, &newParent, NULL);
-            newParentValid = TRUE;
+            newParentValid = true;
             gtk_tree_store_set(transferStore, &newParent,
                                transferView.col(_("Filename")), filename.c_str(),
                                transferView.col(_("Path")), params["Path"].c_str(),
                     transferView.col(_("Size")), Util::toInt64(params["File Size"]),
                     transferView.col("Icon"), "icon-download",
-                    transferView.col("Download"), TRUE,
+                    transferView.col("Download"), true,
                     transferView.col("Target"), params["Target"].c_str(),
                     -1);
 
@@ -945,7 +945,7 @@ void Transfers::on(DownloadManagerListener::Starting, Download* dl) noexcept
     params["tmpTarget"] = dl->getTempTarget();
 
     typedef Func3<Transfers, StringMap, bool, Sound::TypeSound> F3;
-    F3* f3 = new F3(this, &Transfers::updateTransfer_gui, params, TRUE, Sound::NONE);
+    F3* f3 = new F3(this, &Transfers::updateTransfer_gui, params, true, Sound::NONE);
     WulforManager::get()->dispatchGuiFunc(f3);
 }
 
@@ -978,7 +978,7 @@ void Transfers::on(DownloadManagerListener::Tick, const DownloadList& dls) noexc
         params["Status"] = _("Downloading");
 
         typedef Func3<Transfers, StringMap, bool, Sound::TypeSound> F3;
-        F3* f3 = new F3(this, &Transfers::updateTransfer_gui, params, TRUE, Sound::NONE);
+        F3* f3 = new F3(this, &Transfers::updateTransfer_gui, params, true, Sound::NONE);
         WulforManager::get()->dispatchGuiFunc(f3);
     }
 }
@@ -997,7 +997,7 @@ void Transfers::on(DownloadManagerListener::Complete, Download* dl) noexcept
     int64_t pos = QueueManager::getInstance()->getPos(dl->getPath()) + dl->getPos();
 
     typedef Func3<Transfers, StringMap, bool, Sound::TypeSound> F3;
-    F3* f3 = new F3(this, &Transfers::updateTransfer_gui, params, TRUE, Sound::NONE);
+    F3* f3 = new F3(this, &Transfers::updateTransfer_gui, params, true, Sound::NONE);
     WulforManager::get()->dispatchGuiFunc(f3);
 
     typedef Func2<Transfers, const string, int64_t> F2b;
@@ -1027,7 +1027,7 @@ void Transfers::onFailed(Download* dl, const string& reason) {
     int64_t pos = QueueManager::getInstance()->getPos(dl->getPath()) + dl->getPos();
 
     typedef Func3<Transfers, StringMap, bool, Sound::TypeSound> F3;
-    F3* f3 = new F3(this, &Transfers::updateTransfer_gui, params, TRUE, Sound::NONE);
+    F3* f3 = new F3(this, &Transfers::updateTransfer_gui, params, true, Sound::NONE);
     WulforManager::get()->dispatchGuiFunc(f3);
 
     typedef Func2<Transfers, const string, int64_t> F2b;
@@ -1138,7 +1138,7 @@ void Transfers::on(UploadManagerListener::Starting, Upload* ul) noexcept
     params["tmpTarget"] = _("none"); //fix open 'tmp' file
 
     typedef Func3<Transfers, StringMap, bool, Sound::TypeSound> F3;
-    F3* f3 = new F3(this, &Transfers::updateTransfer_gui, params, FALSE, Sound::NONE);
+    F3* f3 = new F3(this, &Transfers::updateTransfer_gui, params, false, Sound::NONE);
     WulforManager::get()->dispatchGuiFunc(f3);
 }
 
@@ -1169,7 +1169,7 @@ void Transfers::on(UploadManagerListener::Tick, const UploadList& uls) noexcept
         params["Status"] = _("Uploading");
 
         typedef Func3<Transfers, StringMap, bool, Sound::TypeSound> F3;
-        F3* f3 = new F3(this, &Transfers::updateTransfer_gui, params, FALSE, Sound::NONE);
+        F3* f3 = new F3(this, &Transfers::updateTransfer_gui, params, false, Sound::NONE);
         WulforManager::get()->dispatchGuiFunc(f3);
     }
 }
@@ -1186,7 +1186,7 @@ void Transfers::on(UploadManagerListener::Complete, Upload* ul) noexcept
     params["Speed"] = "-1";
 
     typedef Func3<Transfers, StringMap, bool, Sound::TypeSound> F3;
-    F3* f3 = new F3(this, &Transfers::updateTransfer_gui, params, FALSE, Sound::UPLOAD_FINISHED);
+    F3* f3 = new F3(this, &Transfers::updateTransfer_gui, params, false, Sound::UPLOAD_FINISHED);
     WulforManager::get()->dispatchGuiFunc(f3);
 }
 
@@ -1201,6 +1201,6 @@ void Transfers::on(UploadManagerListener::Failed, Upload* ul, const string& reas
     params["Time Left"] = "-1";
 
     typedef Func3<Transfers, StringMap, bool, Sound::TypeSound> F3;
-    F3* f3 = new F3(this, &Transfers::updateTransfer_gui, params, FALSE, Sound::NONE);
+    F3* f3 = new F3(this, &Transfers::updateTransfer_gui, params, false, Sound::NONE);
     WulforManager::get()->dispatchGuiFunc(f3);
 }

@@ -58,26 +58,26 @@ Hub::Hub(const string &address, const string &encoding):
     totalShared(0),
     address(address),
     encoding(encoding),
-    scrollToBottom(TRUE),
-    PasswordDialog(FALSE),
-    WaitingPassword(FALSE),
+    scrollToBottom(true),
+    PasswordDialog(false),
+    WaitingPassword(false),
     ImgLimit(0),
-    enableChat(TRUE)
+    enableChat(true)
 {
 #if !GTK_CHECK_VERSION(3,0,0)
-    gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("statusMain")),FALSE);
-    gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("statusShared")),FALSE);
-    gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("statusUsers")),FALSE);
+    gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("statusMain")),false);
+    gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("statusShared")),false);
+    gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("statusUsers")),false);
 #endif
 
     // Configure the dialog
-    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("userListCheckButton")), TRUE);
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("userListCheckButton")), true);
 
     if (WGETB("hub-nickview-left")) {
         gtk_container_remove (GTK_CONTAINER(getWidget("pane")), getWidget("chatScroll"));
         gtk_container_remove (GTK_CONTAINER(getWidget("pane")), getWidget("scrollnickView"));
-        gtk_paned_pack1 (GTK_PANED (getWidget("pane")), getWidget("scrollnickView"), FALSE, TRUE);
-        gtk_paned_pack2 (GTK_PANED (getWidget("pane")), getWidget("chatScroll"), TRUE, TRUE);
+        gtk_paned_pack1 (GTK_PANED (getWidget("pane")), getWidget("scrollnickView"), false, true);
+        gtk_paned_pack2 (GTK_PANED (getWidget("pane")), getWidget("chatScroll"), true, true);
     }
 
 
@@ -105,8 +105,8 @@ Hub::Hub(const string &address, const string &encoding):
     string sort = WGETB("sort-favusers-first")? "Favorite" : "Nick Order";
     nickView.setSortColumn_gui(_("Nick"), sort);
     gtk_tree_sortable_set_sort_column_id(GTK_TREE_SORTABLE(nickStore), nickView.col(sort), GTK_SORT_ASCENDING);
-    gtk_tree_view_column_set_sort_indicator(gtk_tree_view_get_column(nickView.get(), nickView.col(_("Nick"))), TRUE);
-    gtk_tree_view_set_fixed_height_mode(nickView.get(), TRUE);
+    gtk_tree_view_column_set_sort_indicator(gtk_tree_view_get_column(nickView.get(), nickView.col(_("Nick"))), true);
+    gtk_tree_view_set_fixed_height_mode(nickView.get(), true);
     gtk_tree_view_set_search_equal_func(nickView.get(), onNickListSearch_gui, 0,0);
 
     // Initialize the chat window
@@ -129,11 +129,11 @@ Hub::Hub(const string &address, const string &encoding):
     GtkTextIter iter;
     gtk_text_buffer_get_end_iter(chatBuffer, &iter);
 
-    chatMark = gtk_text_buffer_create_mark(chatBuffer, NULL, &iter, FALSE);
-    start_mark = gtk_text_buffer_create_mark(chatBuffer, NULL, &iter, TRUE);
-    end_mark = gtk_text_buffer_create_mark(chatBuffer, NULL, &iter, TRUE);
-    tag_mark = gtk_text_buffer_create_mark(chatBuffer, NULL, &iter, FALSE);
-    emot_mark = gtk_text_buffer_create_mark(chatBuffer, NULL, &iter, TRUE);
+    chatMark = gtk_text_buffer_create_mark(chatBuffer, NULL, &iter, false);
+    start_mark = gtk_text_buffer_create_mark(chatBuffer, NULL, &iter, true);
+    end_mark = gtk_text_buffer_create_mark(chatBuffer, NULL, &iter, true);
+    tag_mark = gtk_text_buffer_create_mark(chatBuffer, NULL, &iter, false);
+    emot_mark = gtk_text_buffer_create_mark(chatBuffer, NULL, &iter, true);
 
     handCursor = gdk_cursor_new(GDK_HAND2);
 
@@ -158,8 +158,8 @@ Hub::Hub(const string &address, const string &encoding):
     // Emoticons dialog
     emotdialog = new EmoticonsDialog(getWidget("chatEntry"), getWidget("emotButton"), getWidget("emotPacksMenu"));
     if (!WGETB("emoticons-use"))
-        gtk_widget_set_sensitive(getWidget("emotButton"), FALSE);
-    useEmoticons = TRUE;
+        gtk_widget_set_sensitive(getWidget("emotButton"), false);
+    useEmoticons = true;
 
     // Chat commands
     g_object_set_data_full(G_OBJECT(getWidget("awayCommandItem")), "command", g_strdup("/away"), g_free);
@@ -209,8 +209,8 @@ Hub::Hub(const string &address, const string &encoding):
     GtkAdjustment *adjustment = gtk_scrolled_window_get_vadjustment(GTK_SCROLLED_WINDOW(getWidget("chatScroll")));
     FavoriteHubEntry* entry = FavoriteManager::getInstance()->getFavoriteHubEntry(address);
     if (entry && entry->getDisableChat()) {
-        disableChat(TRUE);
-        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("disableChat")), TRUE);
+        disableChat(true);
+        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("disableChat")), true);
     }
 
     // Connect the signals to their callback functions.
@@ -569,7 +569,7 @@ void Hub::getPassword_gui()
         gtk_editable_set_position(GTK_EDITABLE(chatEntry), pos);
 
         if (!WaitingPassword)
-            WaitingPassword = TRUE;
+            WaitingPassword = true;
         return;
     }
 
@@ -586,17 +586,17 @@ void Hub::getPassword_gui()
                                                     GTK_STOCK_CANCEL,
                                                     GTK_RESPONSE_CANCEL,
                                                     NULL);
-    gtk_window_set_modal(GTK_WINDOW(dialog), TRUE);
+    gtk_window_set_modal(GTK_WINDOW(dialog), true);
     gtk_dialog_set_default_response(GTK_DIALOG(dialog), GTK_RESPONSE_OK);
 #if GTK_CHECK_VERSION(3, 2, 0)
     GtkWidget *box = gtk_box_new(GTK_ORIENTATION_VERTICAL,0);
 #else
-    GtkWidget *box = gtk_vbox_new(TRUE, 0);
+    GtkWidget *box = gtk_vbox_new(true, 0);
 #endif
     GtkWidget *entry = gtk_entry_new();
-    g_object_set(entry, "can-focus", TRUE, "visibility", FALSE, "activates-default", TRUE, NULL);
+    g_object_set(entry, "can-focus", true, "visibility", false, "activates-default", true, NULL);
 
-    gtk_box_pack_start(GTK_BOX(box), entry, FALSE, FALSE, 8);
+    gtk_box_pack_start(GTK_BOX(box), entry, false, false, 8);
 
     GtkWidget *frame = gtk_frame_new(NULL);
     g_object_set(frame, "border-width", 8, NULL);
@@ -617,8 +617,8 @@ void Hub::getPassword_gui()
     g_signal_connect(dialog, "response", G_CALLBACK(onPasswordDialog), (gpointer) this);
     gtk_widget_show_all(dialog);
 
-    PasswordDialog = TRUE;
-    WaitingPassword = TRUE;
+    PasswordDialog = true;
+    WaitingPassword = true;
 }
 
 void Hub::onPasswordDialog(GtkWidget *dialog, gint response, gpointer data)
@@ -634,11 +634,11 @@ void Hub::onPasswordDialog(GtkWidget *dialog, gint response, gpointer data)
         WulforManager::get()->dispatchClientFunc(func);
     }
     else
-        hub->client->disconnect(TRUE);
+        hub->client->disconnect(true);
 
     gtk_widget_destroy(dialog);
-    hub->PasswordDialog = FALSE;
-    hub->WaitingPassword = FALSE;
+    hub->PasswordDialog = false;
+    hub->WaitingPassword = false;
 }
 
 void Hub::addStatusMessage_gui(string message, Msg::TypeMsg typemsg, Sound::TypeSound sound)
@@ -751,8 +751,8 @@ void Hub::applyTags_gui(const string cid, const string &line)
     string tagName;
     TypeTag tagStyle = TAG_GENERAL;
 
-    bool firstNick = FALSE;
-    bool start = FALSE;
+    bool firstNick = false;
+    bool start = false;
 
     while(true)
     {
@@ -770,7 +770,7 @@ void Hub::applyTags_gui(const string cid, const string &line)
             gtk_text_buffer_move_mark(chatBuffer, start_mark, &start_iter);
             gtk_text_buffer_move_mark(chatBuffer, end_mark, &start_iter);
 
-            start = TRUE;
+            start = true;
         }
 
         tag_start_iter = start_iter;
@@ -786,11 +786,11 @@ void Hub::applyTags_gui(const string cid, const string &line)
         tag_end_iter = start_iter;
 
         GCallback callback = NULL;
-        bool isNick = FALSE;
-        bool image_tag = FALSE;
-        bool bold_tag = FALSE;
-        bool italic_tag = FALSE;
-        bool underline_tag = FALSE;
+        bool isNick = false;
+        bool image_tag = false;
+        bool bold_tag = false;
+        bool italic_tag = false;
+        bool underline_tag = false;
         string image_magnet, bold_text, italic_text, underline_text;
         gchar *temp = gtk_text_iter_get_text(&tag_start_iter, &tag_end_iter);
 
@@ -806,12 +806,12 @@ void Hub::applyTags_gui(const string cid, const string &line)
             if (!firstNick && tagName[0] == '<' && tagName[tagName.size() - 1] == '>')
             {
                 tagName = tagName.substr(1, tagName.size() - 2);
-                firstNick = TRUE;
+                firstNick = true;
             }
 
             if (findNick_gui(tagName, &iter))
             {
-                isNick = TRUE;
+                isNick = true;
                 callback = G_CALLBACK(onNickTagEvent_gui);
                 string order = nickView.getString(&iter, "Favorite");
 
@@ -831,7 +831,7 @@ void Hub::applyTags_gui(const string cid, const string &line)
                 // Support bbCode: [i]italic-text[/i], [u]underline-text[/u]
                 // [img]magnet-link[/img]
 
-                bool notlink = FALSE;
+                bool notlink = false;
                 if (!g_ascii_strncasecmp(tagName.c_str(), "[img]", 5))
                 {
                     string::size_type i = tagName.rfind("[/img]");
@@ -839,7 +839,7 @@ void Hub::applyTags_gui(const string cid, const string &line)
                     {
                         image_magnet = tagName.substr(5, i - 5);
                         if (WulforUtil::isMagnet(image_magnet))
-                            notlink = image_tag = TRUE;
+                            notlink = image_tag = true;
                     }
                 }
                 else if (!g_ascii_strncasecmp(tagName.c_str(), "[b]", 3))
@@ -848,7 +848,7 @@ void Hub::applyTags_gui(const string cid, const string &line)
                     if (i != string::npos)
                     {
                         bold_text = tagName.substr(3, i - 3);
-                        notlink = bold_tag = TRUE;
+                        notlink = bold_tag = true;
                     }
                 }
                 else if (!g_ascii_strncasecmp(tagName.c_str(), "[i]", 3))
@@ -857,7 +857,7 @@ void Hub::applyTags_gui(const string cid, const string &line)
                     if (i != string::npos)
                     {
                         italic_text = tagName.substr(3, i - 3);
-                        notlink = italic_tag = TRUE;
+                        notlink = italic_tag = true;
                     }
                 }
                 else if (!g_ascii_strncasecmp(tagName.c_str(), "[u]", 3))
@@ -866,7 +866,7 @@ void Hub::applyTags_gui(const string cid, const string &line)
                     if (i != string::npos)
                     {
                         underline_text = tagName.substr(3, i - 3);
-                        notlink = underline_tag = TRUE;
+                        notlink = underline_tag = true;
                     }
                 }
 
@@ -900,7 +900,7 @@ void Hub::applyTags_gui(const string cid, const string &line)
                 GtkWidget *event_box = gtk_event_box_new();
 
                 // Creating a visible window may cause artifacts that are visible to the user.
-                gtk_event_box_set_visible_window(GTK_EVENT_BOX(event_box), FALSE);
+                gtk_event_box_set_visible_window(GTK_EVENT_BOX(event_box), false);
 
                 GtkWidget *image = gtk_image_new_from_stock(GTK_STOCK_FILE, GTK_ICON_SIZE_BUTTON);
                 gtk_container_add(GTK_CONTAINER(event_box), image);
@@ -968,7 +968,7 @@ void Hub::applyTags_gui(const string cid, const string &line)
             if (gtk_text_iter_is_end(&start_iter))
                 return;
 
-            start = FALSE;
+            start = false;
 
             continue;
         }
@@ -1019,7 +1019,7 @@ void Hub::applyTags_gui(const string cid, const string &line)
             if (gtk_text_iter_is_end(&start_iter))
                 return;
 
-            start = FALSE;
+            start = false;
         }
         else
         {
@@ -1096,7 +1096,7 @@ void Hub::applyEmoticons_gui()
         gtk_text_buffer_get_iter_at_mark(chatBuffer, &start_iter, emot_mark);
         gtk_text_buffer_get_iter_at_mark(chatBuffer, &end_iter, end_mark);
 
-        search = FALSE;
+        search = false;
         set_start = gtk_text_iter_get_offset(&end_iter);
 
         for (Emot::Iter it = list.begin(); it != list.end(); ++it)
@@ -1114,7 +1114,7 @@ void Hub::applyEmoticons_gui()
                 {
                     if (!search)
                     {
-                        search = TRUE;
+                        search = true;
                         end_iter = match_start;
 
                         /* set new limit search */
@@ -1278,11 +1278,11 @@ void Hub::preferences_gui()
     if (!WGETB("emoticons-use"))
     {
         if (gtk_widget_is_sensitive(getWidget("emotButton")))
-            gtk_widget_set_sensitive(getWidget("emotButton"), FALSE);
+            gtk_widget_set_sensitive(getWidget("emotButton"), false);
     }
     else if (!gtk_widget_is_sensitive(getWidget("emotButton")))
     {
-        gtk_widget_set_sensitive(getWidget("emotButton"), TRUE);
+        gtk_widget_set_sensitive(getWidget("emotButton"), true);
     }
 
     // resort users
@@ -1514,7 +1514,7 @@ gboolean Hub::onNickListSearch_gui(GtkTreeModel *model, gint column, const gchar
 {
     (void)data;
 
-    gboolean result = TRUE;
+    gboolean result = true;
     gchar *nick;
     gtk_tree_model_get(model, iter, column, &nick, -1);
 
@@ -1523,7 +1523,7 @@ gboolean Hub::onNickListSearch_gui(GtkTreeModel *model, gint column, const gchar
 
     // Return false per search equal func API if the key is contained within the nick
     if (g_strstr_len(nickCasefold, -1, keyCasefold))
-        result = FALSE;
+        result = false;
 
     g_free(nick);
     g_free(keyCasefold);
@@ -1612,7 +1612,7 @@ gboolean Hub::onEntryKeyPress_gui(GtkWidget *entry, GdkEventKey *event, gpointer
                 }
 
                 if (nick == current)
-                    useNext = TRUE;
+                    useNext = true;
 
                 valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(hub->nickStore),&iter);
             }
@@ -1665,8 +1665,8 @@ gboolean Hub::onNickTagEvent_gui(GtkTextTag *tag, GObject *textView, GdkEvent *e
         {
             // Select the user in the nick list view
             GtkTreePath *path = gtk_tree_model_get_path(GTK_TREE_MODEL(hub->nickStore), &nickIter);
-            gtk_tree_view_scroll_to_cell(hub->nickView.get(), path, gtk_tree_view_get_column(hub->nickView.get(), hub->nickView.col(_("Nick"))), FALSE, 0.0, 0.0);
-            gtk_tree_view_set_cursor(hub->nickView.get(), path, NULL, FALSE);
+            gtk_tree_view_scroll_to_cell(hub->nickView.get(), path, gtk_tree_view_get_column(hub->nickView.get(), hub->nickView.col(_("Nick"))), false, 0.0, 0.0);
+            gtk_tree_view_set_cursor(hub->nickView.get(), path, NULL, false);
             gtk_tree_path_free(path);
 
             if (event->button.button == 3)
@@ -1815,7 +1815,7 @@ gboolean Hub::onEmotButtonRelease_gui(GtkWidget *widget, GdkEventButton *event, 
         gtk_menu_shell_append(GTK_MENU_SHELL(emot_menu), check_item);
 
         if (hub->useEmoticons)
-            gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(check_item), TRUE);
+            gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(check_item), true);
 
         g_signal_connect(check_item, "activate", G_CALLBACK(onUseEmoticons_gui), data);
 
@@ -1856,7 +1856,7 @@ void Hub::onChatResize_gui(GtkAdjustment *adjustment, gpointer data)
 
         gtk_text_buffer_get_end_iter(hub->chatBuffer, &iter);
         gtk_text_buffer_move_mark(hub->chatBuffer, hub->chatMark, &iter);
-        gtk_text_view_scroll_to_mark(GTK_TEXT_VIEW(hub->getWidget("chatText")), hub->chatMark, 0, FALSE, 0, 0);
+        gtk_text_view_scroll_to_mark(GTK_TEXT_VIEW(hub->getWidget("chatText")), hub->chatMark, 0, false, 0, 0);
     }
 }
 
@@ -1906,21 +1906,21 @@ void Hub::onSendMessage_gui(GtkEntry *entry, gpointer data)
         {
             if (Util::getAway() && param.empty())
             {
-                Util::setAway(FALSE);
-                Util::setManualAway(FALSE);
+                Util::setAway(false);
+                Util::setManualAway(false);
                 hub->addStatusMessage_gui(_("Away mode off"), Msg::SYSTEM, Sound::NONE);
             }
             else
             {
-                Util::setAway(TRUE);
-                Util::setManualAway(TRUE);
+                Util::setAway(true);
+                Util::setManualAway(true);
                 Util::setAwayMessage(param);
                 hub->addStatusMessage_gui(_("Away mode on: ") + Util::getAwayMessage(), Msg::SYSTEM, Sound::NONE);
             }
         }
         else if (command == "back")
         {
-            Util::setAway(FALSE);
+            Util::setAway(false);
             hub->addStatusMessage_gui(_("Away mode off"), Msg::SYSTEM, Sound::NONE);
         }
         else if (command == "clear")
@@ -1933,13 +1933,13 @@ void Hub::onSendMessage_gui(GtkEntry *entry, gpointer data)
         else if (command == "chat")
         {
             if (param == "off") {
-                gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(hub->getWidget("disableChat")), TRUE);
-                hub->disableChat(TRUE);
+                gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(hub->getWidget("disableChat")), true);
+                hub->disableChat(true);
                 hub->addStatusMessage_gui(_("Chat disabled"), Msg::SYSTEM, Sound::NONE);
             }
             else if (param == "on") {
-                gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(hub->getWidget("disableChat")), FALSE);
-                hub->disableChat(FALSE);
+                gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(hub->getWidget("disableChat")), false);
+                hub->disableChat(false);
                 hub->addStatusMessage_gui(_("Chat enabled"), Msg::SYSTEM, Sound::NONE);
             }
         }
@@ -1998,7 +1998,7 @@ void Hub::onSendMessage_gui(GtkEntry *entry, gpointer data)
         {
             if (hub->userMap.find(param) != hub->userMap.end())
             {
-                func3 = new F3(hub, &Hub::getFileList_client, hub->userMap[param], FALSE, TRUE);
+                func3 = new F3(hub, &Hub::getFileList_client, hub->userMap[param], false, true);
                 WulforManager::get()->dispatchClientFunc(func3);
             }
             else
@@ -2018,12 +2018,12 @@ void Hub::onSendMessage_gui(GtkEntry *entry, gpointer data)
         {
             if (hub->useEmoticons)
             {
-                hub->useEmoticons = FALSE;
+                hub->useEmoticons = false;
                 hub->addStatusMessage_gui(_("Emoticons mode off"), Msg::SYSTEM, Sound::NONE);
             }
             else
             {
-                hub->useEmoticons = TRUE;
+                hub->useEmoticons = true;
                 hub->addStatusMessage_gui(_("Emoticons mode on"), Msg::SYSTEM, Sound::NONE);
             }
         }
@@ -2148,7 +2148,7 @@ void Hub::onSendMessage_gui(GtkEntry *entry, gpointer data)
             else
             {
                 typedef Func2<Hub, string, bool> F2;
-                F2 *func = new F2(hub, &Hub::redirect_client, param, TRUE);
+                F2 *func = new F2(hub, &Hub::redirect_client, param, true);
                 WulforManager::get()->dispatchClientFunc(func);
             }
         }
@@ -2175,9 +2175,9 @@ void Hub::onSendMessage_gui(GtkEntry *entry, gpointer data)
         else if (command == "userlist")
         {
             if (gtk_widget_get_visible(hub->getWidget("scrollnickView")))
-                gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(hub->getWidget("userListCheckButton")), FALSE);
+                gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(hub->getWidget("userListCheckButton")), false);
             else
-                gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(hub->getWidget("userListCheckButton")), TRUE);
+                gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(hub->getWidget("userListCheckButton")), true);
         }
         else if (command == "sh" && !param.empty())
         {
@@ -2192,7 +2192,7 @@ void Hub::onSendMessage_gui(GtkEntry *entry, gpointer data)
                 WulforManager::get()->dispatchClientFunc(func);
             }
             //g_io_channel_close( gio_chanel );
-            g_io_channel_shutdown( gio_chanel ,FALSE, NULL );
+            g_io_channel_shutdown( gio_chanel ,false, NULL );
             g_free( command_res );
             pclose( pipe );
         }
@@ -2410,7 +2410,7 @@ void Hub::onSendMessage_gui(GtkEntry *entry, gpointer data)
 
             F1 *func = new F1(hub, &Hub::setPassword_client, param);
             WulforManager::get()->dispatchClientFunc(func);
-            hub->WaitingPassword = FALSE;
+            hub->WaitingPassword = false;
         }
         else if (BOOLSETTING(SEND_UNKNOWN_COMMANDS))
         {
@@ -2512,7 +2512,7 @@ void Hub::onBrowseItemClicked_gui(GtkMenuItem *item, gpointer data)
             if (gtk_tree_model_get_iter(GTK_TREE_MODEL(hub->nickStore), &iter, path))
             {
                 cid = hub->nickView.getString(&iter, "CID");
-                func = new F3(hub, &Hub::getFileList_client, cid, FALSE, TRUE);
+                func = new F3(hub, &Hub::getFileList_client, cid, false, true);
                 WulforManager::get()->dispatchClientFunc(func);
             }
             gtk_tree_path_free(path);
@@ -2541,7 +2541,7 @@ void Hub::onMatchItemClicked_gui(GtkMenuItem *item, gpointer data)
             if (gtk_tree_model_get_iter(GTK_TREE_MODEL(hub->nickStore), &iter, path))
             {
                 cid = hub->nickView.getString(&iter, "CID");
-                func = new F3(hub, &Hub::getFileList_client, cid, TRUE, TRUE);
+                func = new F3(hub, &Hub::getFileList_client, cid, true, true);
                 WulforManager::get()->dispatchClientFunc(func);
             }
             gtk_tree_path_free(path);
@@ -2956,7 +2956,7 @@ void Hub::disconnect_client()
         FavoriteManager::getInstance()->removeListener(this);
         QueueManager::getInstance()->removeListener(this);
         client->removeListener(this);
-        client->disconnect(TRUE);
+        client->disconnect(true);
         ClientManager::getInstance()->putClient(client);
         client = NULL;
     }
@@ -2992,7 +2992,7 @@ void Hub::getFileList_client(string cid, bool match, bool full)
                 if (user == ClientManager::getInstance()->getMe())
                 {
                     // Don't download file list, open locally instead
-                    WulforManager::get()->getMainWindow()->openOwnList_client(TRUE);
+                    WulforManager::get()->getMainWindow()->openOwnList_client(true);
                 }
                 else if (match)
                 {
@@ -3109,7 +3109,7 @@ void Hub::addAsFavorite_client()
         aEntry.setServer(client->getHubUrl());
         aEntry.setName(client->getHubName());
         aEntry.setDescription(client->getHubDescription());
-        aEntry.setConnect(FALSE);
+        aEntry.setConnect(false);
         aEntry.setNick(client->getMyNick());
         aEntry.setEncoding(encoding);
         FavoriteManager::getInstance()->addFavorite(aEntry);
@@ -3659,7 +3659,7 @@ void Hub::on(ClientListener::Message, Client*, const ChatMessage& message) noexc
         {
             typedef Func6<Hub, Msg::TypeMsg, string, string, string, string, bool> F6;
             F6 *func = new F6(this, &Hub::addPrivateMessage_gui, typemsg, message.from->getUser()->getCID().toBase32(),
-                              user->getUser()->getCID().toBase32(), client->getHubUrl(), line, TRUE);
+                              user->getUser()->getCID().toBase32(), client->getHubUrl(), line, true);
             WulforManager::get()->dispatchGuiFunc(func);
         }
     }
@@ -3731,9 +3731,9 @@ void Hub::on(ClientListener::StatusMessage, Client *, const string &message, int
         if (BOOLSETTING(LOG_STATUS_MESSAGES))
         {
             StringMap params;
-            client->getHubIdentity().getParams(params, "hub", FALSE);
+            client->getHubIdentity().getParams(params, "hub", false);
             params["hubURL"] = client->getHubUrl();
-            client->getMyIdentity().getParams(params, "my", TRUE);
+            client->getMyIdentity().getParams(params, "my", true);
             params["message"] = message;
             LOG(LogManager::STATUS, params);
         }
@@ -3761,12 +3761,12 @@ void Hub::on(ClientListener::SearchFlood, Client *, const string &msg) noexcept
 void Hub::disableChat(bool enable)
 {
     if (enable) {
-        gtk_widget_set_sensitive(getWidget("chatEntry"), FALSE);
+        gtk_widget_set_sensitive(getWidget("chatEntry"), false);
         enableChat = false;
     }
     else
     {
-        gtk_widget_set_sensitive(getWidget("chatEntry"), TRUE);
+        gtk_widget_set_sensitive(getWidget("chatEntry"), true);
         enableChat = true;
     }
 
@@ -3778,9 +3778,9 @@ void Hub::onDisableChatToggled_gui(GtkWidget *widget, gpointer data)
     Hub *hub = (Hub*) data;
 
     if (hub->enableChat)
-        hub->disableChat(TRUE);
+        hub->disableChat(true);
     else
-        hub->disableChat(FALSE);
+        hub->disableChat(false);
 }
 
 void Hub::onPartialFileListOpen_gui(GtkMenuItem *item, gpointer data)
@@ -3803,7 +3803,7 @@ void Hub::onPartialFileListOpen_gui(GtkMenuItem *item, gpointer data)
             if (gtk_tree_model_get_iter(GTK_TREE_MODEL(hub->nickStore), &iter, path))
             {
                 cid = hub->nickView.getString(&iter, "CID");
-                func = new F3(hub, &Hub::getFileList_client, cid, FALSE, FALSE);
+                func = new F3(hub, &Hub::getFileList_client, cid, false, false);
                 WulforManager::get()->dispatchClientFunc(func);
             }
             gtk_tree_path_free(path);

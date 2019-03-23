@@ -49,8 +49,8 @@ TreeView::~TreeView()
 void TreeView::setView(GtkTreeView *view)
 {
     this->view = view;
-    gtk_tree_view_set_headers_clickable(view, TRUE);
-    gtk_tree_view_set_rubber_banding(view, TRUE);
+    gtk_tree_view_set_headers_clickable(view, true);
+    gtk_tree_view_set_rubber_banding(view, true);
 }
 
 void TreeView::setView(GtkTreeView *view, bool padding, const string &name)
@@ -58,8 +58,8 @@ void TreeView::setView(GtkTreeView *view, bool padding, const string &name)
     this->view = view;
     this->padding = padding;
     this->name = name;
-    gtk_tree_view_set_headers_clickable(view, TRUE);
-    gtk_tree_view_set_rubber_banding(view, TRUE);
+    gtk_tree_view_set_headers_clickable(view, true);
+    gtk_tree_view_set_rubber_banding(view, true);
 }
 
 GtkTreeView *TreeView::get()
@@ -334,7 +334,7 @@ void TreeView::addColumn_gui(Column& column)
         break;
     case EDIT_STRING:
         renderer = gtk_cell_renderer_text_new();
-        g_object_set(renderer, "editable", TRUE, NULL);
+        g_object_set(renderer, "editable", true, NULL);
         col = gtk_tree_view_column_new_with_attributes(column.title.c_str(), renderer, "text", column.pos, NULL);
         break;
     case PROGRESS:
@@ -352,7 +352,7 @@ void TreeView::addColumn_gui(Column& column)
     if (column.width >= 20)
     {
         gtk_tree_view_column_set_fixed_width(col, column.width);
-        gtk_tree_view_column_set_resizable(col, TRUE);
+        gtk_tree_view_column_set_resizable(col, true);
     }
     if (column.width != -1)
         gtk_tree_view_column_set_sizing(col, GTK_TREE_VIEW_COLUMN_FIXED);
@@ -361,10 +361,10 @@ void TreeView::addColumn_gui(Column& column)
     if (column.type != BOOL && column.type != PIXBUF && column.type != EDIT_STRING)
     {
         gtk_tree_view_column_set_sort_column_id(col, column.pos);
-        gtk_tree_view_column_set_sort_indicator(col, TRUE);
+        gtk_tree_view_column_set_sort_indicator(col, true);
     }
 
-    gtk_tree_view_column_set_clickable(col, TRUE);
+    gtk_tree_view_column_set_clickable(col, true);
     gtk_tree_view_column_set_reorderable(col, true);
     gtk_tree_view_column_set_visible(col, column.visible);
 
@@ -460,7 +460,7 @@ void TreeView::toggleColumnVisibility(GtkMenuItem *item, gpointer data)
     {
         tv->visibleColumns++;
         // Seems to be a bug in gtk where sometimes columns are unresizable after being made visible
-        gtk_tree_view_column_set_resizable(column, TRUE);
+        gtk_tree_view_column_set_resizable(column, true);
     }
     else
         tv->visibleColumns--;

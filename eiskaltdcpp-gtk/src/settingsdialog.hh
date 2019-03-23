@@ -211,10 +211,10 @@ private:
     void saveFileTheme(const std::string &file);
     void saveTheme();
     void setTheme();
-    int getIntTheme(const std::string &key, bool useDefault = FALSE);
-    std::string getStringTheme(const std::string &key, bool useDefault = FALSE);
+    int getIntTheme(const std::string &key, bool useDefault = false);
+    std::string getStringTheme(const std::string &key, bool useDefault = false);
     void set(const std::string &key, int value);
     void set(const std::string &key, const std::string &value);
-    void applyIconsTheme(bool useDefault = FALSE);
-    void applyTextTheme(bool useDefault = FALSE);
+    void applyIconsTheme(bool useDefault = false);
+    void applyTextTheme(bool useDefault = false);
 };

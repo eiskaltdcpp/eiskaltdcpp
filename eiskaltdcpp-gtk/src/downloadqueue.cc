@@ -37,11 +37,11 @@ DownloadQueue::DownloadQueue():
     totalSize(0)
 {
 #if !GTK_CHECK_VERSION(3,0,0)
-    gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("statusMain")),FALSE);
-    gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("statusItems")),FALSE);
-    gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("statusFileSize")),FALSE);
-    gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("statusFiles")),FALSE);
-    gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("statusTotalSize")),FALSE);
+    gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("statusMain")),false);
+    gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("statusItems")),false);
+    gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("statusFileSize")),false);
+    gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("statusFiles")),false);
+    gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("statusTotalSize")),false);
 #endif
 
     // Configure the dialogs
@@ -65,10 +65,10 @@ DownloadQueue::DownloadQueue():
     g_object_unref(dirStore);
     dirSelection = gtk_tree_view_get_selection(dirView.get());
     gtk_tree_sortable_set_sort_column_id(GTK_TREE_SORTABLE(dirStore), dirView.col("Dir"), GTK_SORT_ASCENDING);
-    gtk_tree_view_set_enable_tree_lines(dirView.get(), TRUE);
+    gtk_tree_view_set_enable_tree_lines(dirView.get(), true);
 
     // Initialize file treeview
-    fileView.setView(GTK_TREE_VIEW(getWidget("fileView")), TRUE, "downloadqueue");
+    fileView.setView(GTK_TREE_VIEW(getWidget("fileView")), true, "downloadqueue");
     fileView.insertColumn(_("Filename"), G_TYPE_STRING, TreeView::ICON_STRING, 200, "Icon");
     fileView.insertColumn(_("Status"), G_TYPE_STRING, TreeView::STRING, 100);
     fileView.insertColumn(_("Size"), G_TYPE_STRING, TreeView::STRING, 100);
@@ -94,7 +94,7 @@ DownloadQueue::DownloadQueue():
     fileView.setSortColumn_gui(_("Exact Size"), "Size Sort");
     fileView.setSortColumn_gui(_("Downloaded"), "Downloaded Sort");
     gtk_tree_sortable_set_sort_column_id(GTK_TREE_SORTABLE(fileStore), fileView.col(_("Filename")), GTK_SORT_ASCENDING);
-    gtk_tree_view_column_set_sort_indicator(gtk_tree_view_get_column(fileView.get(), fileView.col(_("Filename"))), TRUE);
+    gtk_tree_view_column_set_sort_indicator(gtk_tree_view_get_column(fileView.get(), fileView.col(_("Filename"))), true);
 
     // Connect the signals to their callback functions.
     g_signal_connect(getWidget("pausedPriorityItem"), "activate", G_CALLBACK(onDirPriorityClicked_gui), (gpointer)this);
@@ -151,8 +151,8 @@ void DownloadQueue::show()
 
 void DownloadQueue::buildDynamicMenu_gui()
 {
-    bool showMenus = FALSE;
-    bool showReAddMenu = FALSE;
+    bool showMenus = false;
+    bool showReAddMenu = false;
     int count = gtk_tree_selection_count_selected_rows(fileSelection);
 
     if (count == 1)
@@ -175,7 +175,7 @@ void DownloadQueue::buildDynamicMenu_gui()
             ///@todo: Fix this. sources & badSources should not be accessible from gui thread.
             for (SourceIter it = sources[target].begin(); it != sources[target].end(); ++it)
             {
-                showMenus = TRUE;
+                showMenus = true;
                 menuItem = gtk_menu_item_new_with_label(it->first.c_str());
                 gtk_menu_shell_append(GTK_MENU_SHELL(getWidget("browseMenu")), menuItem);
                 g_signal_connect(menuItem, "activate", G_CALLBACK(onFileGetListClicked_gui), (gpointer)this);
@@ -195,7 +195,7 @@ void DownloadQueue::buildDynamicMenu_gui()
 
             for (SourceIter it = badSources[target].begin(); it != badSources[target].end(); ++it)
             {
-                showReAddMenu = TRUE;
+                showReAddMenu = true;
                 menuItem = gtk_menu_item_new_with_label(it->first.c_str());
                 gtk_menu_shell_append(GTK_MENU_SHELL(getWidget("reAddMenu")), menuItem);
                 g_signal_connect(menuItem, "activate", G_CALLBACK(onFileReAddSourceClicked_gui), (gpointer)this);
@@ -204,10 +204,10 @@ void DownloadQueue::buildDynamicMenu_gui()
         gtk_tree_path_free(path);
         g_list_free(list);
 
-        gtk_widget_set_sensitive(getWidget("searchForAlternatesItem"), TRUE);
+        gtk_widget_set_sensitive(getWidget("searchForAlternatesItem"), true);
     }
     else
-        gtk_widget_set_sensitive(getWidget("searchForAlternatesItem"), FALSE);
+        gtk_widget_set_sensitive(getWidget("searchForAlternatesItem"), false);
 
     if (showMenus)
     {
@@ -260,7 +260,7 @@ void DownloadQueue::addFiles_gui(vector<StringMap> files, bool firstUpdate)
         gtk_tree_sortable_set_sort_column_id(GTK_TREE_SORTABLE(fileStore), GTK_TREE_SORTABLE_UNSORTED_SORT_COLUMN_ID, sortType);
 
         for (auto &file : files)
-            addFile_gui(file, FALSE);
+            addFile_gui(file, false);
 
         gtk_tree_sortable_set_sort_column_id(GTK_TREE_SORTABLE(fileStore), sortColumn, sortType);
         gtk_tree_view_scroll_to_point(fileView.get(), 0, 0);
@@ -361,7 +361,7 @@ void DownloadQueue::addDir_gui(const string &path, GtkTreeIter *parent)
                        -1);
 
     GtkTreePath *treePath = gtk_tree_model_get_path(GTK_TREE_MODEL(dirStore), parent);
-    gtk_tree_view_expand_row(dirView.get(), treePath, FALSE);
+    gtk_tree_view_expand_row(dirView.get(), treePath, false);
     gtk_tree_path_free(treePath);
 
     if (fullpath == dirView.getString(parent, "Path") + path)
@@ -574,7 +574,7 @@ gboolean DownloadQueue::onDirKeyReleased_gui(GtkWidget *widget, GdkEventKey *eve
             if (gtk_tree_view_row_expanded(dq->dirView.get(), path))
                 gtk_tree_view_collapse_row(dq->dirView.get(), path);
             else
-                gtk_tree_view_expand_row(dq->dirView.get(), path, FALSE);
+                gtk_tree_view_expand_row(dq->dirView.get(), path, false);
             gtk_tree_path_free(path);
         }
     }
@@ -1088,7 +1088,7 @@ void DownloadQueue::buildList_client()
         params["Size Sort"] = Util::toString(it->second->getSize());
         params["Path"] = Util::getFilePath(*it->first);
 
-        addFile_gui(params, TRUE);
+        addFile_gui(params, true);
     }
 
     QueueManager::getInstance()->unlockQueue();
@@ -1280,7 +1280,7 @@ void DownloadQueue::updateFileView_client(string path)
 
         // Updating gui is smoother if we do it in large chunks.
         typedef Func2<DownloadQueue, vector<StringMap>, bool> F2;
-        F2 *func = new F2(this, &DownloadQueue::addFiles_gui, files, TRUE);
+        F2 *func = new F2(this, &DownloadQueue::addFiles_gui, files, true);
         WulforManager::get()->dispatchGuiFunc(func);
     }
 }
@@ -1412,7 +1412,7 @@ void DownloadQueue::on(QueueManagerListener::Added, QueueItem *item) noexcept
     getQueueParams_client(item, params);
 
     typedef Func2<DownloadQueue, StringMap, bool> F2;
-    F2 *func = new F2(this, &DownloadQueue::addFile_gui, params, TRUE);
+    F2 *func = new F2(this, &DownloadQueue::addFile_gui, params, true);
     WulforManager::get()->dispatchGuiFunc(func);
 }
 
@@ -1428,7 +1428,7 @@ void DownloadQueue::on(QueueManagerListener::Moved, QueueItem *item, const strin
     getQueueParams_client(item, params);
 
     typedef Func2<DownloadQueue, StringMap, bool> F2b;
-    F2b *func2 = new F2b(this, &DownloadQueue::addFile_gui, params, TRUE);
+    F2b *func2 = new F2b(this, &DownloadQueue::addFile_gui, params, true);
     WulforManager::get()->dispatchGuiFunc(func2);
 }
 

@@ -427,9 +427,9 @@ bool WulforUtil::profileIsLocked()
 }
 
 
-gboolean WulforUtil::getNextIter_gui(GtkTreeModel *model, GtkTreeIter *iter, bool children /* = TRUE */, bool parent /* = TRUE */)
+gboolean WulforUtil::getNextIter_gui(GtkTreeModel *model, GtkTreeIter *iter, bool children /* = true */, bool parent /* = true */)
 {
-    gboolean valid = FALSE;
+    gboolean valid = false;
     GtkTreeIter old = *iter;
 
     if (children && gtk_tree_model_iter_has_child(model, iter))

@@ -27,27 +27,27 @@ using namespace std;
 
 BookEntry::BookEntry(const EntryType type, const string &text, const string &ui, const string &id):
     Entry(type, ui, id),
-    bold(FALSE),
-    urgent(FALSE)
+    bold(false),
+    urgent(false)
 {
     GSList *group = NULL;
 #if GTK_CHECK_VERSION(3, 2, 0)
     labelBox = gtk_box_new(GTK_ORIENTATION_HORIZONTAL,5);
 #else
-    labelBox = gtk_hbox_new(FALSE, 5);
+    labelBox = gtk_hbox_new(false, 5);
 #endif
 
 
     eventBox = gtk_event_box_new();
-    gtk_event_box_set_above_child(GTK_EVENT_BOX(eventBox), TRUE);
-    gtk_event_box_set_visible_window(GTK_EVENT_BOX(eventBox), FALSE);
+    gtk_event_box_set_above_child(GTK_EVENT_BOX(eventBox), true);
+    gtk_event_box_set_visible_window(GTK_EVENT_BOX(eventBox), false);
 
     // icon
     icon = gtk_image_new();
-    gtk_box_pack_start(GTK_BOX(labelBox), icon, FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(labelBox), icon, false, false, 0);
 
     // Make the eventbox fill to all left-over space.
-    gtk_box_pack_start(GTK_BOX(labelBox), GTK_WIDGET(eventBox), TRUE, TRUE, 0);
+    gtk_box_pack_start(GTK_BOX(labelBox), GTK_WIDGET(eventBox), true, true, 0);
 
     label = GTK_LABEL(gtk_label_new(text.c_str()));
     gtk_container_add(GTK_CONTAINER(eventBox), GTK_WIDGET(label));
@@ -57,7 +57,7 @@ BookEntry::BookEntry(const EntryType type, const string &text, const string &ui,
 
     closeButton = gtk_button_new();
     gtk_button_set_relief(GTK_BUTTON(closeButton), GTK_RELIEF_NONE);
-    gtk_button_set_focus_on_click(GTK_BUTTON(closeButton), FALSE);
+    gtk_button_set_focus_on_click(GTK_BUTTON(closeButton), false);
 
 #if !GTK_CHECK_VERSION(3, 0, 0)
     // Shrink the padding around the close button
@@ -70,7 +70,7 @@ BookEntry::BookEntry(const EntryType type, const string &text, const string &ui,
     // Add the stock icon to the close button
     GtkWidget *image = gtk_image_new_from_stock(GTK_STOCK_CLOSE, GTK_ICON_SIZE_MENU);
     gtk_container_add(GTK_CONTAINER(closeButton), image);
-    gtk_box_pack_start(GTK_BOX(labelBox), closeButton, FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(labelBox), closeButton, false, false, 0);
 
     gtk_widget_set_tooltip_text(closeButton, _("Close tab"));
     gtk_widget_show_all(labelBox);
@@ -161,7 +161,7 @@ void BookEntry::setBold_gui()
 {
     if (!bold && !isActive_gui())
     {
-        bold = TRUE;
+        bold = true;
         updateLabel_gui();
     }
 }
@@ -174,8 +174,8 @@ void BookEntry::setUrgent_gui()
 
         if (!urgent)
         {
-            bold = TRUE;
-            urgent = TRUE;
+            bold = true;
+            urgent = true;
             updateLabel_gui();
         }
 
@@ -188,8 +188,8 @@ void BookEntry::setActive_gui()
 {
     if (bold || urgent)
     {
-        bold = FALSE;
-        urgent = FALSE;
+        bold = false;
+        urgent = false;
         updateLabel_gui();
     }
 }

@@ -38,7 +38,7 @@ SearchSpy::SearchSpy()
     , Top((guint)WGETI("search-spy-top"))
 {
 #if !GTK_CHECK_VERSION(3,0,0)
-    gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("statusbar")),FALSE);
+    gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("statusbar")),false);
 #endif
 
     // Configure the dialog
@@ -52,7 +52,7 @@ SearchSpy::SearchSpy()
     g_object_ref_sink(getWidget("menu"));
 
     // Initialize search list treeview
-    searchView.setView(GTK_TREE_VIEW(getWidget("searchSpyView")), TRUE, "searchspy");
+    searchView.setView(GTK_TREE_VIEW(getWidget("searchSpyView")), true, "searchspy");
     searchView.insertColumn(_("Search String"), G_TYPE_STRING, TreeView::ICON_STRING_TEXT_COLOR, 305, "icon", "color");
     searchView.insertColumn(_("Count"), G_TYPE_STRING, TreeView::STRING, 70);
     searchView.insertColumn(_("Time"), G_TYPE_STRING, TreeView::STRING, 90);
@@ -73,8 +73,8 @@ SearchSpy::SearchSpy()
     gtk_tree_selection_set_mode(searchSelection, GTK_SELECTION_MULTIPLE);
     searchView.setSortColumn_gui(_("Search String"), "count");
     gtk_tree_sortable_set_sort_column_id(GTK_TREE_SORTABLE(searchStore), searchView.col("count"), GTK_SORT_DESCENDING);
-    gtk_tree_view_column_set_sort_indicator(gtk_tree_view_get_column(searchView.get(), searchView.col(_("Search String"))), TRUE);
-    gtk_tree_view_set_fixed_height_mode(searchView.get(), TRUE);
+    gtk_tree_view_column_set_sort_indicator(gtk_tree_view_get_column(searchView.get(), searchView.col(_("Search String"))), true);
+    gtk_tree_view_set_fixed_height_mode(searchView.get(), true);
 
     topView.setView(GTK_TREE_VIEW(getWidget("topView")));
     topView.insertColumn(_("Search String"), G_TYPE_STRING, TreeView::STRING, -1);
@@ -327,7 +327,7 @@ bool SearchSpy::updateFrameStatus_gui(GtkTreeIter *iter, uint64_t tick)
         tick = GET_TICK();
 
     uint64_t second = (uint64_t)Waiting * 1000;
-    bool n = FALSE;
+    bool n = false;
     string status, icon;
     GtkTreeIter itree;
     string color;
@@ -345,7 +345,7 @@ bool SearchSpy::updateFrameStatus_gui(GtkTreeIter *iter, uint64_t tick)
             if (iter)
             {
                 *iter = itree;
-                n = TRUE;
+                n = true;
             }
             status = "?";
             icon = GTK_STOCK_DIALOG_QUESTION;

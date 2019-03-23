@@ -33,7 +33,7 @@ FavoriteUsers::FavoriteUsers():
     BookEntry(Entry::FAVORITE_USERS, _("Favorite Users"), "favoriteusers.ui")
 {
 #if !GTK_CHECK_VERSION(3,0,0)
-    gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("status")),FALSE);
+    gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("status")),false);
 #endif
 
     // Configure the dialog
@@ -43,7 +43,7 @@ FavoriteUsers::FavoriteUsers():
     g_object_ref_sink(getWidget("menu"));
 
     // Initialize favorite users list treeview
-    favoriteUserView.setView(GTK_TREE_VIEW(getWidget("favoriteUserView")), TRUE, "favoriteusers");
+    favoriteUserView.setView(GTK_TREE_VIEW(getWidget("favoriteUserView")), true, "favoriteusers");
     favoriteUserView.insertColumn(_("Auto grant slot"), G_TYPE_BOOLEAN, TreeView::BOOL, 100);
     favoriteUserView.insertColumn(_("Nick"), G_TYPE_STRING, TreeView::ICON_STRING, 100, "Icon");
     favoriteUserView.insertColumn(_("Hub (last seen in, if offline)"), G_TYPE_STRING, TreeView::STRING, 200);
@@ -61,8 +61,8 @@ FavoriteUsers::FavoriteUsers():
     favoriteUserSelection = gtk_tree_view_get_selection(favoriteUserView.get());
     gtk_tree_selection_set_mode(favoriteUserSelection, GTK_SELECTION_MULTIPLE);
     gtk_tree_sortable_set_sort_column_id(GTK_TREE_SORTABLE(favoriteUserStore), favoriteUserView.col(_("Nick")), GTK_SORT_ASCENDING);
-    gtk_tree_view_column_set_sort_indicator(gtk_tree_view_get_column(favoriteUserView.get(), favoriteUserView.col(_("Nick"))), TRUE);
-    gtk_tree_view_set_fixed_height_mode(favoriteUserView.get(), TRUE);
+    gtk_tree_view_column_set_sort_indicator(gtk_tree_view_get_column(favoriteUserView.get(), favoriteUserView.col(_("Nick"))), true);
+    gtk_tree_view_set_fixed_height_mode(favoriteUserView.get(), true);
 
     GList *list = gtk_cell_layout_get_cells(GTK_CELL_LAYOUT(gtk_tree_view_get_column(favoriteUserView.get(),
                                                                                      favoriteUserView.col(_("Auto grant slot")))));
@@ -108,7 +108,7 @@ void FavoriteUsers::show()
 
         gtk_list_store_append(favoriteUserStore, &iter);
         gtk_list_store_set(favoriteUserStore, &iter,
-                           favoriteUserView.col(_("Auto grant slot")), user.isSet(FavoriteUser::FLAG_GRANTSLOT) ? TRUE : FALSE,
+                           favoriteUserView.col(_("Auto grant slot")), user.isSet(FavoriteUser::FLAG_GRANTSLOT) ? true : false,
                            favoriteUserView.col(_("Nick")), user.getNick().c_str(),
                            favoriteUserView.col(_("Hub (last seen in, if offline)")), hub.c_str(),
                            favoriteUserView.col(_("Time last seen")), seen.c_str(),
@@ -226,7 +226,7 @@ void FavoriteUsers::onBrowseItemClicked_gui(GtkMenuItem *item, gpointer data)
                 F3 *func = new F3(fu, &FavoriteUsers::getFileList_client,
                                   fu->favoriteUserView.getString(&iter, _("CID")),
                                   fu->favoriteUserView.getString(&iter, "URL"),
-                                  FALSE);
+                                  false);
                 WulforManager::get()->dispatchClientFunc(func);
             }
             gtk_tree_path_free(path);
@@ -256,7 +256,7 @@ void FavoriteUsers::onMatchQueueItemClicked_gui(GtkMenuItem *item, gpointer data
                 F3 *func = new F3(fu, &FavoriteUsers::getFileList_client,
                                   fu->favoriteUserView.getString(&iter, _("CID")),
                                   fu->favoriteUserView.getString(&iter, "URL"),
-                                  TRUE);
+                                  true);
                 WulforManager::get()->dispatchClientFunc(func);
             }
             gtk_tree_path_free(path);

@@ -33,11 +33,11 @@ cmddebug::cmddebug():
 {
     buffer = gtk_text_view_get_buffer (GTK_TEXT_VIEW (getWidget("cmdtextview")));
     gtk_text_buffer_get_end_iter(buffer, &iter);
-    cmdMark = gtk_text_buffer_create_mark(buffer, NULL, &iter, FALSE);
-    gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON(getWidget("hub_in_button")) ,TRUE);
-    gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON(getWidget("hub_out_button")) ,TRUE);
-    gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON(getWidget("client_in_button")) ,TRUE);
-    gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON(getWidget("client_out_button")) ,TRUE);
+    cmdMark = gtk_text_buffer_create_mark(buffer, NULL, &iter, false);
+    gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON(getWidget("hub_in_button")) ,true);
+    gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON(getWidget("hub_out_button")) ,true);
+    gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON(getWidget("client_in_button")) ,true);
+    gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON(getWidget("client_out_button")) ,true);
     GtkAdjustment *adjustment = gtk_scrolled_window_get_vadjustment(GTK_SCROLLED_WINDOW(getWidget("cmdscroll")));
     g_signal_connect(adjustment, "value_changed", G_CALLBACK(onScroll_gui), (gpointer)this);
     g_signal_connect(adjustment, "changed", G_CALLBACK(onResize_gui), (gpointer)this);
@@ -89,25 +89,25 @@ void cmddebug::on(dcpp::DebugManagerListener::DebugCommand, const std::string& m
 {
     switch(typedir) {
     case dcpp::DebugManager::HUB_IN :
-        if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("hub_in_button"))) == TRUE)
+        if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("hub_in_button"))) == true)
         {
             addCmd("Hub:\t[Incoming][" + ip + "]\t\t"+mess, ip);
         }
         break;
     case dcpp::DebugManager::HUB_OUT :
-        if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("hub_out_button"))) == TRUE)
+        if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("hub_out_button"))) == true)
         {
             addCmd("Hub:\t[Outgoing][" + ip + "]\t\t"+mess, ip);
         }
         break;
     case dcpp::DebugManager::CLIENT_IN:
-        if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("client_in_button"))) == TRUE)
+        if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("client_in_button"))) == true)
         {
             addCmd("Client:\t[Incoming][" + ip + "]\t\t"+mess, ip);
         }
         break;
     case dcpp::DebugManager::CLIENT_OUT:
-        if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("client_out_button"))) == TRUE)
+        if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("client_out_button"))) == true)
         {
             addCmd("Client:\t[Outgoing][" + ip + "]\t\t"+mess, ip);
         }
@@ -139,7 +139,7 @@ void cmddebug::onResize_gui(GtkAdjustment *adjustment, gpointer data)
         GtkTextIter iter;
         gtk_text_buffer_get_end_iter(cmd->buffer, &iter);
         gtk_text_buffer_move_mark(cmd->buffer, cmd->cmdMark, &iter);
-        gtk_text_view_scroll_to_mark(GTK_TEXT_VIEW(cmd->getWidget("cmdtextview")), cmd->cmdMark, 0, FALSE, 0, 0);
+        gtk_text_view_scroll_to_mark(GTK_TEXT_VIEW(cmd->getWidget("cmdtextview")), cmd->cmdMark, 0, false, 0, 0);
     }
 }
 
@@ -148,7 +148,7 @@ void cmddebug::addCmd(const std::string& cmd,const std::string& ip) {
     //g_print("CMD %s\n",cmd.c_str());
     //g_print("CMDSIZE %d\n",cmdList.size());
 
-    if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("by_ip_button"))) == TRUE) {
+    if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("by_ip_button"))) == true) {
         if (!strcmp(gtk_entry_get_text(GTK_ENTRY(getWidget("entrybyip"))), ip.c_str()))
             cmdList.push_back(cmd);
     }
@@ -159,6 +159,6 @@ void cmddebug::addCmd(const std::string& cmd,const std::string& ip) {
 
 void cmddebug::on(dcpp::DebugManagerListener::DebugDetection, const std::string& com) noexcept
 {
-    if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("detection_button"))) == TRUE)
+    if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("detection_button"))) == true)
         addCmd(com,"");
 }

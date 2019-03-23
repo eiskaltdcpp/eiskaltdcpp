@@ -165,7 +165,7 @@ void Notify::showNotify(const string &head, const string &body, TypeNotify notif
             showNotify(wsm->getString("notify-download-finished-title"), head, Util::getFileName(body),
                        wsm->getString("notify-download-finished-icon"), wsm->getInt("notify-icon-size"), NOTIFY_URGENCY_NORMAL);
 
-            action = TRUE;
+            action = true;
         }
 
         break;

@@ -72,7 +72,7 @@ public:
     void showSearchADL_gui();
     void showCmdDebug_gui();
     void showUploadQueue_gui();
-    void addPrivateMessage_gui(Msg::TypeMsg typemsg, std::string cid, std::string hubUrl = "", std::string message = "", bool useSetting = FALSE);
+    void addPrivateMessage_gui(Msg::TypeMsg typemsg, std::string cid, std::string hubUrl = "", std::string message = "", bool useSetting = false);
     void addPrivateStatusMessage_gui(Msg::TypeMsg typemsg, std::string cid, std::string message = "");
     void showPublicHubs_gui();
     void showShareBrowser_gui(dcpp::UserPtr user, std::string file, std::string dir, bool useSetting);

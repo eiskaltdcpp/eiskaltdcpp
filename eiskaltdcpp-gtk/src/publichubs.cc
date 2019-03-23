@@ -31,9 +31,9 @@ PublicHubs::PublicHubs():
     filter("")
 {
 #if !GTK_CHECK_VERSION(3,0,0)
-    gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("statusMain")),FALSE);
-    gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("statusHubs")),FALSE);
-    gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("statusUsers")),FALSE);
+    gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("statusMain")),false);
+    gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("statusHubs")),false);
+    gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("statusUsers")),false);
 #endif
 
     // Configure the dialog
@@ -61,8 +61,8 @@ PublicHubs::PublicHubs():
     g_object_unref(hubStore);
     hubSelection = gtk_tree_view_get_selection(hubView.get());
     gtk_tree_sortable_set_sort_column_id(GTK_TREE_SORTABLE(hubStore), hubView.col(_("Users")), GTK_SORT_DESCENDING);
-    gtk_tree_view_column_set_sort_indicator(gtk_tree_view_get_column(hubView.get(), hubView.col(_("Users"))), TRUE);
-    gtk_tree_view_set_fixed_height_mode(hubView.get(), TRUE);
+    gtk_tree_view_column_set_sort_indicator(gtk_tree_view_get_column(hubView.get(), hubView.col(_("Users"))), true);
+    gtk_tree_view_set_fixed_height_mode(hubView.get(), true);
 
     // Initialize list of public hub lists treeview
     listsView.setView(GTK_TREE_VIEW(getWidget("listsView")));
@@ -71,7 +71,7 @@ PublicHubs::PublicHubs():
     listsStore = gtk_list_store_newv(listsView.getColCount(), listsView.getGTypes());
     gtk_tree_view_set_model(listsView.get(), GTK_TREE_MODEL(listsStore));
     g_object_unref(listsStore);
-    gtk_tree_view_set_headers_visible(listsView.get(), FALSE);
+    gtk_tree_view_set_headers_visible(listsView.get(), false);
     listsSelection = gtk_tree_view_get_selection(listsView.get());
     GtkTreeViewColumn *c = gtk_tree_view_get_column(listsView.get(), 0);
     GList *l = gtk_cell_layout_get_cells(GTK_CELL_LAYOUT(c));
@@ -386,7 +386,7 @@ void PublicHubs::onAdd_gui(GtkWidget *widget, gpointer data)
     gtk_list_store_set(ph->listsStore, &iter, ph->listsView.col(_("List")), _("New list"), -1);
     path = gtk_tree_model_get_path(GTK_TREE_MODEL(ph->listsStore), &iter);
     col = gtk_tree_view_get_column(ph->listsView.get(), 0);
-    gtk_tree_view_set_cursor(ph->listsView.get(), path, col, TRUE);
+    gtk_tree_view_set_cursor(ph->listsView.get(), path, col, true);
     gtk_tree_path_free(path);
 }
 

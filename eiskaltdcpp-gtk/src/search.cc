@@ -41,10 +41,10 @@ Search::Search():
     previousGrouping(NOGROUPING)
 {
 #if GTK_CHECK_VERSION(3,0,0)
-    gtk_progress_bar_set_show_text(GTK_PROGRESS_BAR(getWidget("progressbar1")), TRUE);
+    gtk_progress_bar_set_show_text(GTK_PROGRESS_BAR(getWidget("progressbar1")), true);
 #else
-    gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("statusbar2")),FALSE);
-    gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("statusbar3")),FALSE);
+    gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("statusbar2")),false);
+    gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("statusbar3")),false);
 #endif
 
     // Initialize variables for search progressbar
@@ -73,8 +73,8 @@ Search::Search():
     // Initialize check button options.
     onlyFree = BOOLSETTING(SEARCH_ONLY_FREE_SLOTS);
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("checkbuttonSlots")), onlyFree);
-    gtk_widget_set_sensitive(GTK_WIDGET(getWidget("checkbuttonSlots")), FALSE);
-    gtk_widget_set_sensitive(GTK_WIDGET(getWidget("checkbuttonShared")), FALSE);
+    gtk_widget_set_sensitive(GTK_WIDGET(getWidget("checkbuttonSlots")), false);
+    gtk_widget_set_sensitive(GTK_WIDGET(getWidget("checkbuttonShared")), false);
 
     gtk_combo_box_set_active(GTK_COMBO_BOX(getWidget("comboboxSize")), 1);
     gtk_combo_box_set_active(GTK_COMBO_BOX(getWidget("comboboxUnit")), 2);
@@ -96,7 +96,7 @@ Search::Search():
     g_list_free(list);
 
     // Initialize search result treeview
-    resultView.setView(GTK_TREE_VIEW(getWidget("treeviewResult")), TRUE, "search");
+    resultView.setView(GTK_TREE_VIEW(getWidget("treeviewResult")), true, "search");
     resultView.insertColumn(_("Filename"), G_TYPE_STRING, TreeView::ICON_STRING, 250, "Icon");
     resultView.insertColumn(_("Nick"), G_TYPE_STRING, TreeView::STRING, 100);
     resultView.insertColumn(_("Type"), G_TYPE_STRING, TreeView::STRING, 65);
@@ -131,7 +131,7 @@ Search::Search():
     resultView.setSortColumn_gui(_("Exact Size"), "Real Size");
     resultView.setSortColumn_gui(_("Slots"), "Slots Order");
     resultView.setSortColumn_gui(_("Filename"), "File Order");
-    gtk_tree_view_set_fixed_height_mode(resultView.get(), TRUE);
+    gtk_tree_view_set_fixed_height_mode(resultView.get(), true);
 
     // Initialize the user command menu
     userCommandMenu = new UserCommandMenu(getWidget("usercommandMenu"), ::UserCommand::CONTEXT_SEARCH);
@@ -163,7 +163,7 @@ Search::Search():
     }
     gtk_combo_box_set_active(combo_box, WGETI("last-search-type"));
 
-    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("togglebuttonSidePanel")), TRUE);
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("togglebuttonSidePanel")), true);
 
     // Connect the signals to their callback functions.
     g_signal_connect(getContainer(), "focus-in-event", G_CALLBACK(onFocusIn_gui), (gpointer)this);
@@ -256,7 +256,7 @@ void Search::addHub_gui(string name, string url)
     GtkTreeIter iter;
     gtk_list_store_append(hubStore, &iter);
     gtk_list_store_set(hubStore, &iter,
-                       hubView.col(_("Search")), TRUE,
+                       hubView.col(_("Search")), true,
                        hubView.col(_("Name")), name.empty() ? url.c_str() : name.c_str(),
                        hubView.col("Url"), url.c_str(),
                        -1);
@@ -314,16 +314,16 @@ void Search::popupMenu_gui()
         if (gtk_tree_model_get_iter(sortedFilterModel, &iter, path) &&
                 gtk_tree_model_iter_has_child(sortedFilterModel, &iter))
         {
-            gtk_widget_set_sensitive(getWidget("searchByTTHItem"), FALSE);
+            gtk_widget_set_sensitive(getWidget("searchByTTHItem"), false);
         }
         else
         {
-            gtk_widget_set_sensitive(getWidget("searchByTTHItem"), TRUE);
+            gtk_widget_set_sensitive(getWidget("searchByTTHItem"), true);
         }
     }
     else if (count > 1)
     {
-        gtk_widget_set_sensitive(getWidget("searchByTTHItem"), FALSE);
+        gtk_widget_set_sensitive(getWidget("searchByTTHItem"), false);
     }
 
     GtkWidget *menuItem;
@@ -359,8 +359,8 @@ void Search::popupMenu_gui()
     gtk_menu_shell_append(GTK_MENU_SHELL(getWidget("downloadMenu")), menuItem);
 
     // Add search results with the same TTH to menu
-    firstTTH = TRUE;
-    hasTTH = FALSE;
+    firstTTH = true;
+    hasTTH = false;
 
     for (GList *i = list; i; i = i->next)
     {
@@ -377,13 +377,13 @@ void Search::popupMenu_gui()
             if (firstTTH)
             {
                 tth = resultView.getString(&iter, _("TTH"));
-                firstTTH = FALSE;
-                hasTTH = TRUE;
+                firstTTH = false;
+                hasTTH = true;
             }
             else if (hasTTH)
             {
                 if (tth.empty() || tth != resultView.getString(&iter, _("TTH")))
-                    hasTTH = FALSE; // Can't break here since we have to free all the paths
+                    hasTTH = false; // Can't break here since we have to free all the paths
             }
         }
         gtk_tree_path_free(path);
@@ -597,7 +597,7 @@ void Search::search_gui()
             !gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("checkDontHideSideOnSearch"))))
         gtk_widget_hide(getWidget("sidePanel"));
 
-    gtk_widget_set_sensitive(getWidget("comboboxentrySearch"), FALSE);
+    gtk_widget_set_sensitive(getWidget("comboboxentrySearch"), false);
     gtk_button_set_label(GTK_BUTTON(getWidget("buttonSearch")), _("Stop"));
 }
 
@@ -607,7 +607,7 @@ void Search::addResult_gui(const SearchResultPtr result)
     GtkTreeIter iter;
     GtkTreeIter parent;
     GtkTreeModel *m = GTK_TREE_MODEL(resultStore);
-    bool foundParent = FALSE;
+    bool foundParent = false;
 
     vector<SearchResultPtr> &existingResults = results[result->getUser()->getCID().toBase32()];
     for (auto it = existingResults.begin(); it != existingResults.end(); ++it)
@@ -643,7 +643,7 @@ void Search::addResult_gui(const SearchResultPtr result)
             {
                 parent = createParentRow_gui(&iter, groupStr);
             }
-            foundParent = TRUE;
+            foundParent = true;
         }
 
         valid = WulforUtil::getNextIter_gui(m, &iter);
@@ -782,7 +782,7 @@ void Search::ungroup_gui()
         if (gtk_tree_model_iter_has_child(m, &iter))
         {
             GtkTreeIter child = iter;
-            valid = WulforUtil::getNextIter_gui(m, &child, TRUE, FALSE);
+            valid = WulforUtil::getNextIter_gui(m, &child, true, false);
 
             // Move all children out from under the old grouping parent
             while (valid)
@@ -936,7 +936,7 @@ void Search::download_gui(const string &target)
                     WulforManager::get()->dispatchClientFunc(func);
                 }
             }
-            while (parent && WulforUtil::getNextIter_gui(sortedFilterModel, &iter, TRUE, FALSE));
+            while (parent && WulforUtil::getNextIter_gui(sortedFilterModel, &iter, true, false));
         }
         gtk_tree_path_free(path);
     }
@@ -1059,16 +1059,16 @@ void Search::onGroupByComboBoxChanged_gui(GtkWidget *comboBox, gpointer data)
 
     if (groupBy != NOGROUPING)
     {
-        gtk_widget_set_sensitive(s->getWidget("checkbuttonFilter"), FALSE);
-        gtk_widget_set_sensitive(s->getWidget("checkbuttonSlots"), FALSE);
-        gtk_widget_set_sensitive(s->getWidget("checkbuttonShared"), FALSE);
+        gtk_widget_set_sensitive(s->getWidget("checkbuttonFilter"), false);
+        gtk_widget_set_sensitive(s->getWidget("checkbuttonSlots"), false);
+        gtk_widget_set_sensitive(s->getWidget("checkbuttonShared"), false);
         s->regroup_gui();
     }
     else
     {
-        gtk_widget_set_sensitive(s->getWidget("checkbuttonFilter"), TRUE);
-        gtk_widget_set_sensitive(s->getWidget("checkbuttonSlots"), FALSE);
-        gtk_widget_set_sensitive(s->getWidget("checkbuttonShared"), FALSE);
+        gtk_widget_set_sensitive(s->getWidget("checkbuttonFilter"), true);
+        gtk_widget_set_sensitive(s->getWidget("checkbuttonSlots"), false);
+        gtk_widget_set_sensitive(s->getWidget("checkbuttonShared"), false);
     }
 }
 
@@ -1091,16 +1091,16 @@ void Search::onFilterButtonToggled_gui(GtkToggleButton *button, gpointer data)
     {
         s->previousGrouping = (GroupType)gtk_combo_box_get_active(comboBox);
         gtk_combo_box_set_active(comboBox, (int)NOGROUPING);
-        gtk_widget_set_sensitive(GTK_WIDGET(comboBox), FALSE);
-        gtk_widget_set_sensitive(s->getWidget("checkbuttonSlots"), TRUE);
-        gtk_widget_set_sensitive(s->getWidget("checkbuttonShared"), TRUE);
+        gtk_widget_set_sensitive(GTK_WIDGET(comboBox), false);
+        gtk_widget_set_sensitive(s->getWidget("checkbuttonSlots"), true);
+        gtk_widget_set_sensitive(s->getWidget("checkbuttonShared"), true);
     }
     else
     {
         gtk_combo_box_set_active(comboBox, (int)s->previousGrouping);
-        gtk_widget_set_sensitive(GTK_WIDGET(comboBox), TRUE);
-        gtk_widget_set_sensitive(s->getWidget("checkbuttonSlots"), FALSE);
-        gtk_widget_set_sensitive(s->getWidget("checkbuttonShared"), FALSE);
+        gtk_widget_set_sensitive(GTK_WIDGET(comboBox), true);
+        gtk_widget_set_sensitive(s->getWidget("checkbuttonSlots"), false);
+        gtk_widget_set_sensitive(s->getWidget("checkbuttonShared"), false);
 
     }
 
@@ -1232,7 +1232,7 @@ void Search::onDownloadToMatchClicked_gui(GtkMenuItem *item, gpointer data)
                         WulforManager::get()->dispatchClientFunc(func);
                     }
                 }
-                while (parent && WulforUtil::getNextIter_gui(s->sortedFilterModel, &iter, TRUE, FALSE));
+                while (parent && WulforUtil::getNextIter_gui(s->sortedFilterModel, &iter, true, false));
             }
             gtk_tree_path_free(path);
         }
@@ -1273,7 +1273,7 @@ void Search::onDownloadDirClicked_gui(GtkMenuItem *item, gpointer data)
                         WulforManager::get()->dispatchClientFunc(func);
                     }
                 }
-                while (parent && WulforUtil::getNextIter_gui(s->sortedFilterModel, &iter, TRUE, FALSE));
+                while (parent && WulforUtil::getNextIter_gui(s->sortedFilterModel, &iter, true, false));
             }
             gtk_tree_path_free(path);
         }
@@ -1313,7 +1313,7 @@ void Search::onDownloadFavoriteDirClicked_gui(GtkMenuItem *item, gpointer data)
                         WulforManager::get()->dispatchClientFunc(func);
                     }
                 }
-                while (parent && WulforUtil::getNextIter_gui(s->sortedFilterModel, &iter, TRUE, FALSE));
+                while (parent && WulforUtil::getNextIter_gui(s->sortedFilterModel, &iter, true, false));
             }
             gtk_tree_path_free(path);
         }
@@ -1372,7 +1372,7 @@ void Search::onDownloadDirToClicked_gui(GtkMenuItem *item, gpointer data)
                             WulforManager::get()->dispatchClientFunc(func);
                         }
                     }
-                    while (parent && WulforUtil::getNextIter_gui(s->sortedFilterModel, &iter, TRUE, FALSE));
+                    while (parent && WulforUtil::getNextIter_gui(s->sortedFilterModel, &iter, true, false));
                 }
                 gtk_tree_path_free(path);
             }
@@ -1436,10 +1436,10 @@ void Search::onGetFileListClicked_gui(GtkMenuItem *item, gpointer data)
                     string cid = s->resultView.getString(&iter, "CID");
                     string dir = s->resultView.getString(&iter, _("Path"));
                     string hubUrl = s->resultView.getString(&iter, "Hub URL");
-                    F5 *func = new F5(s, &Search::getFileList_client, cid, dir, FALSE, hubUrl, TRUE);
+                    F5 *func = new F5(s, &Search::getFileList_client, cid, dir, false, hubUrl, true);
                     WulforManager::get()->dispatchClientFunc(func);
                 }
-                while (parent && WulforUtil::getNextIter_gui(s->sortedFilterModel, &iter, TRUE, FALSE));
+                while (parent && WulforUtil::getNextIter_gui(s->sortedFilterModel, &iter, true, false));
             }
             gtk_tree_path_free(path);
         }
@@ -1472,10 +1472,10 @@ void Search::onPartialFileListOpen_gui(GtkMenuItem *item, gpointer data)
                     string cid = s->resultView.getString(&iter, "CID");
                     string dir = s->resultView.getString(&iter, _("Path"));
                     string hubUrl = s->resultView.getString(&iter, "Hub URL");
-                    F5 *func = new F5(s, &Search::getFileList_client, cid, dir, FALSE, hubUrl, FALSE);
+                    F5 *func = new F5(s, &Search::getFileList_client, cid, dir, false, hubUrl, false);
                     WulforManager::get()->dispatchClientFunc(func);
                 }
-                while (parent && WulforUtil::getNextIter_gui(s->sortedFilterModel, &iter, TRUE, FALSE));
+                while (parent && WulforUtil::getNextIter_gui(s->sortedFilterModel, &iter, true, false));
             }
             gtk_tree_path_free(path);
         }
@@ -1507,10 +1507,10 @@ void Search::onMatchQueueClicked_gui(GtkMenuItem *item, gpointer data)
                 {
                     string cid = s->resultView.getString(&iter, "CID");
                     string hubUrl = s->resultView.getString(&iter, "Hub URL");
-                    F5 *func = new F5(s, &Search::getFileList_client, cid, "", TRUE, hubUrl, TRUE);
+                    F5 *func = new F5(s, &Search::getFileList_client, cid, "", true, hubUrl, true);
                     WulforManager::get()->dispatchClientFunc(func);
                 }
-                while (parent && WulforUtil::getNextIter_gui(s->sortedFilterModel, &iter, TRUE, FALSE));
+                while (parent && WulforUtil::getNextIter_gui(s->sortedFilterModel, &iter, true, false));
             }
             gtk_tree_path_free(path);
         }
@@ -1544,7 +1544,7 @@ void Search::onPrivateMessageClicked_gui(GtkMenuItem *item, gpointer data)
                     if (!cid.empty())
                         WulforManager::get()->getMainWindow()->addPrivateMessage_gui(Msg::UNKNOWN, cid, hubUrl);
                 }
-                while (parent && WulforUtil::getNextIter_gui(s->sortedFilterModel, &iter, TRUE, FALSE));
+                while (parent && WulforUtil::getNextIter_gui(s->sortedFilterModel, &iter, true, false));
             }
             gtk_tree_path_free(path);
         }
@@ -1580,7 +1580,7 @@ void Search::onAddFavoriteUserClicked_gui(GtkMenuItem *item, gpointer data)
                     func = new F1(s, &Search::addFavUser_client, cid);
                     WulforManager::get()->dispatchClientFunc(func);
                 }
-                while (parent && WulforUtil::getNextIter_gui(s->sortedFilterModel, &iter, TRUE, FALSE));
+                while (parent && WulforUtil::getNextIter_gui(s->sortedFilterModel, &iter, true, false));
             }
             gtk_tree_path_free(path);
         }
@@ -1615,7 +1615,7 @@ void Search::onGrantExtraSlotClicked_gui(GtkMenuItem *item, gpointer data)
                     F2 *func = new F2(s, &Search::grantSlot_client, cid, hubUrl);
                     WulforManager::get()->dispatchClientFunc(func);
                 }
-                while (parent && WulforUtil::getNextIter_gui(s->sortedFilterModel, &iter, TRUE, FALSE));
+                while (parent && WulforUtil::getNextIter_gui(s->sortedFilterModel, &iter, true, false));
             }
             gtk_tree_path_free(path);
         }
@@ -1651,7 +1651,7 @@ void Search::onRemoveUserFromQueueClicked_gui(GtkMenuItem *item, gpointer data)
                     func = new F1(s, &Search::removeSource_client, cid);
                     WulforManager::get()->dispatchClientFunc(func);
                 }
-                while (parent && WulforUtil::getNextIter_gui(s->sortedFilterModel, &iter, TRUE, FALSE));
+                while (parent && WulforUtil::getNextIter_gui(s->sortedFilterModel, &iter, true, false));
             }
             gtk_tree_path_free(path);
         }
@@ -1739,7 +1739,7 @@ void Search::onCopyMagnetClicked_gui(GtkMenuItem* item, gpointer data)
                         magnets += magnet;
                     }
                 }
-                while (parent && WulforUtil::getNextIter_gui(s->sortedFilterModel, &iter, TRUE, FALSE));
+                while (parent && WulforUtil::getNextIter_gui(s->sortedFilterModel, &iter, true, false));
             }
             gtk_tree_path_free(path);
         }
@@ -1976,7 +1976,7 @@ void Search::on(TimerManagerListener::Second, uint64_t aTick) noexcept {
     else
     {
         setProgress_gui("progressbar1", "", 0.0);
-        gtk_widget_set_sensitive(getWidget("comboboxentrySearch"), TRUE);
+        gtk_widget_set_sensitive(getWidget("comboboxentrySearch"), true);
     }
 }
 
@@ -2055,7 +2055,7 @@ gboolean Search::searchFilterFunc_gui(GtkTreeModel *model, GtkTreeIter *iter, gp
 
     // Hide results already in share
     if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(s->getWidget("checkbuttonShared"))) &&
-            s->resultView.getValue<gboolean>(iter, "Shared", model) == TRUE)
+            s->resultView.getValue<gboolean>(iter, "Shared", model) == true)
         return false;
 
     // Filter based on search terms.

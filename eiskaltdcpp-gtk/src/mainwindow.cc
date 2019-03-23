@@ -66,7 +66,7 @@ MainWindow::MainWindow():
     lastUpdate(0),
     lastUp(0),
     lastDown(0),
-    minimized(FALSE),
+    minimized(false),
     timer(0),
     statusFrame(1)
 {
@@ -114,8 +114,8 @@ MainWindow::MainWindow():
     GtkBox *box = GTK_BOX(getWidget("hbox4"));
     GtkWidget *child = getWidget("toolbar1");
     gtk_orientable_set_orientation(GTK_ORIENTABLE(child), GTK_ORIENTATION_VERTICAL);
-    gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(getWidget("leftToolbarItem")), TRUE);
-    gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(getWidget("hideToolbarItem")), (WGETI("toolbar-style") == 4) ? TRUE : FALSE);
+    gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(getWidget("leftToolbarItem")), true);
+    gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(getWidget("hideToolbarItem")), (WGETI("toolbar-style") == 4) ? true : false);
 
     if (WGETB("toolbar-small")) {
         g_object_set(G_OBJECT(child), "icon-size", GTK_ICON_SIZE_SMALL_TOOLBAR, NULL);
@@ -127,10 +127,10 @@ MainWindow::MainWindow():
     {
         box = GTK_BOX(getWidget("vbox1"));
         gtk_orientable_set_orientation(GTK_ORIENTABLE(child), GTK_ORIENTATION_HORIZONTAL);
-        gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(getWidget("topToolbarItem")), TRUE);
+        gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(getWidget("topToolbarItem")), true);
         pos = 1;
     }
-    gtk_box_pack_start(box, child, FALSE, FALSE, 2);
+    gtk_box_pack_start(box, child, false, false, 2);
     gtk_box_reorder_child(box, child, pos);
     g_object_unref(child);
 
@@ -178,7 +178,7 @@ MainWindow::MainWindow():
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("transferCheckButton")), WGETB("show-transfers"));
     gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(getWidget("freeSpaceBarItem")), WGETB("show-free-space-bar"));
 #if GTK_CHECK_VERSION(3,0,0)
-    gtk_progress_bar_set_show_text(GTK_PROGRESS_BAR(getWidget("progressbarFreeSpaceBar")), TRUE);
+    gtk_progress_bar_set_show_text(GTK_PROGRESS_BAR(getWidget("progressbarFreeSpaceBar")), true);
 #endif
     // About dialog
     gchar *comments = g_strdup_printf(_("DC++ Client based on the source code of FreeDC++ and LinuxDC++\n"
@@ -302,7 +302,7 @@ MainWindow::MainWindow():
     // In our case, this is just a placeholder, so we remove it.
     gtk_notebook_remove_page(GTK_NOTEBOOK(getWidget("book")), -1);
     g_object_set_data(G_OBJECT(getWidget("book")), "page-rotation-list", NULL);
-    gtk_widget_set_sensitive(getWidget("closeMenuItem"), FALSE);
+    gtk_widget_set_sensitive(getWidget("closeMenuItem"), false);
 
     // Connect the signals to their callback functions.
     g_signal_connect(window, "delete-event", G_CALLBACK(onCloseWindow_gui), (gpointer)this);
@@ -388,7 +388,7 @@ MainWindow::MainWindow():
                            g_strdup("https://github.com/eiskaltdcpp/eiskaltdcpp/blob/master/ChangeLog.txt"), g_free);
     g_signal_connect(getWidget("changeLogItem"), "activate", G_CALLBACK(onLinkClicked_gui), NULL);
 
-    onQuit = FALSE;
+    onQuit = false;
 
     // Load window state and position from settings manager
     gint posX = WGETI("main-window-pos-x");
@@ -422,7 +422,7 @@ MainWindow::MainWindow():
     if (WGETB("main-window-maximized"))
         gtk_window_maximize(window);
     if (WGETB("minimize-tray") && WGETB("always-tray"))
-        gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(getWidget("statusIconShowInterfaceItem")), FALSE);
+        gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(getWidget("statusIconShowInterfaceItem")), false);
     if (!WGETB("show-free-space-bar"))
         gtk_widget_hide(getWidget("progressbarFreeSpaceBar"));
     if (!WGETB("show-transfers"))
@@ -452,7 +452,7 @@ MainWindow::~MainWindow()
 
     // Save window state and position
     gint posX, posY, sizeX, sizeY, transferPanePosition;
-    bool maximized = TRUE;
+    bool maximized = true;
     GdkWindowState gdkState;
 
     gtk_window_get_position(window, &posX, &posY);
@@ -465,7 +465,7 @@ MainWindow::~MainWindow()
     transferPanePosition = sizeY - gtk_paned_get_position(GTK_PANED(getWidget("pane")));
 
     if (!(gdkState & GDK_WINDOW_STATE_MAXIMIZED))
-        maximized = FALSE;
+        maximized = false;
 
     WSET("main-window-pos-x", posX);
     WSET("main-window-pos-y", posY);
@@ -549,7 +549,7 @@ void MainWindow::showTransfersPane_gui()
     dcassert(transfers == NULL);
 
     transfers = new Transfers();
-    gtk_paned_pack2(GTK_PANED(getWidget("pane")), transfers->getContainer(), TRUE, TRUE);
+    gtk_paned_pack2(GTK_PANED(getWidget("pane")), transfers->getContainer(), true, true);
     addChild(transfers);
     transfers->show();
 }
@@ -627,9 +627,9 @@ void MainWindow::addBookEntry_gui(BookEntry *entry)
     g_signal_connect(closeButton, "button-release-event", G_CALLBACK(onButtonReleasePage_gui), (gpointer)entry);
     g_signal_connect(closeButton, "clicked", G_CALLBACK(onCloseBookEntry_gui), (gpointer)entry);
 
-    gtk_widget_set_sensitive(getWidget("closeMenuItem"), TRUE);
+    gtk_widget_set_sensitive(getWidget("closeMenuItem"), true);
 
-    gtk_notebook_set_tab_reorderable(GTK_NOTEBOOK(getWidget("book")), page, TRUE);
+    gtk_notebook_set_tab_reorderable(GTK_NOTEBOOK(getWidget("book")), page, true);
 
     entry->show();
 }
@@ -693,7 +693,7 @@ void MainWindow::removeBookEntry_gui(BookEntry *entry)
 
         if (!gtk_notebook_get_n_pages(book))
         {
-            gtk_widget_set_sensitive(getWidget("closeMenuItem"), FALSE);
+            gtk_widget_set_sensitive(getWidget("closeMenuItem"), false);
             setTitle(""); // Reset window title to default
         }
     }
@@ -725,9 +725,9 @@ void MainWindow::addTabMenuItem_gui(GtkWidget* menuItem, GtkWidget* page)
     gtk_menu_shell_append(GTK_MENU_SHELL(getWidget("tabsMenu")), menuItem);
     gtk_widget_show_all(getWidget("tabsMenu"));
 
-    gtk_widget_set_sensitive(getWidget("previousTabMenuItem"), TRUE);
-    gtk_widget_set_sensitive(getWidget("nextTabMenuItem"), TRUE);
-    gtk_widget_set_sensitive(getWidget("tabMenuSeparator"), TRUE);
+    gtk_widget_set_sensitive(getWidget("previousTabMenuItem"), true);
+    gtk_widget_set_sensitive(getWidget("nextTabMenuItem"), true);
+    gtk_widget_set_sensitive(getWidget("tabMenuSeparator"), true);
 }
 
 void MainWindow::removeTabMenuItem_gui(GtkWidget *menuItem)
@@ -738,9 +738,9 @@ void MainWindow::removeTabMenuItem_gui(GtkWidget *menuItem)
 
     if (!gtk_notebook_get_n_pages(book))
     {
-        gtk_widget_set_sensitive(getWidget("previousTabMenuItem"), FALSE);
-        gtk_widget_set_sensitive(getWidget("nextTabMenuItem"), FALSE);
-        gtk_widget_set_sensitive(getWidget("tabMenuSeparator"), FALSE);
+        gtk_widget_set_sensitive(getWidget("previousTabMenuItem"), false);
+        gtk_widget_set_sensitive(getWidget("nextTabMenuItem"), false);
+        gtk_widget_set_sensitive(getWidget("tabMenuSeparator"), false);
     }
 }
 
@@ -761,9 +761,9 @@ void MainWindow::createStatusIcon_gui()
     g_signal_connect(getWidget("statusIconBlinkUseItem"), "toggled", G_CALLBACK(onStatusIconBlinkUseToggled_gui), (gpointer)this);
 
     if (WGETB("always-tray"))
-        gtk_status_icon_set_visible(statusIcon, TRUE);
+        gtk_status_icon_set_visible(statusIcon, true);
     else
-        gtk_status_icon_set_visible(statusIcon, FALSE);
+        gtk_status_icon_set_visible(statusIcon, false);
 }
 
 void MainWindow::updateStatusIconTooltip_gui(string download, string upload)
@@ -926,11 +926,11 @@ void MainWindow::showCmdDebug_gui()
 void MainWindow::addPrivateMessage_gui(Msg::TypeMsg typemsg, string cid, string hubUrl, string message, bool useSetting)
 {
     BookEntry *entry = findBookEntry(Entry::PRIVATE_MESSAGE, cid);
-    bool raise = TRUE;
+    bool raise = true;
 
     // If PM is initiated by another user, use setting except if tab is already open.
     if (useSetting)
-        raise = (!entry ? !WGETB("popunder-pm") : FALSE);
+        raise = (!entry ? !WGETB("popunder-pm") : false);
 
     if (!entry)
     {
@@ -944,11 +944,11 @@ void MainWindow::addPrivateMessage_gui(Msg::TypeMsg typemsg, string cid, string 
     {
         dynamic_cast<PrivateMessage*>(entry)->addMessage_gui(message, typemsg);
 
-        bool show = FALSE;
+        bool show = false;
 
         if (!isActive_gui())
         {
-            show = TRUE;
+            show = true;
             if (useStatusIconBlink && !timer)
             {
                 timer = g_timeout_add(1000, animationStatusIcon_gui, (gpointer)this);
@@ -956,7 +956,7 @@ void MainWindow::addPrivateMessage_gui(Msg::TypeMsg typemsg, string cid, string 
         }
         else if (currentPage_gui() != entry->getContainer() && !WGETI("notify-only-not-active"))
         {
-            show = TRUE;
+            show = true;
         }
 
         if (show)
@@ -1023,7 +1023,7 @@ void MainWindow::showPublicHubs_gui()
 
 void MainWindow::showShareBrowser_gui(UserPtr user, string filename, string dir, bool useSetting)
 {
-    bool raise = useSetting ? !WGETB("popunder-filelist") : TRUE;
+    bool raise = useSetting ? !WGETB("popunder-filelist") : true;
     BookEntry *entry = findBookEntry(Entry::SHARE_BROWSER, user->getCID().toBase32());
 
     if (!entry)
@@ -1336,7 +1336,7 @@ void MainWindow::showMagnetDialog_gui(const string &magnet, const string &name, 
     gtk_file_chooser_set_action(GTK_FILE_CHOOSER(chooser), GTK_FILE_CHOOSER_ACTION_SELECT_FOLDER);
     gtk_file_chooser_set_current_folder(GTK_FILE_CHOOSER(chooser), Text::fromUtf8(WGETS("magnet-choose-dir")).c_str());
     // choose
-    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("choiceCheckButton")), FALSE);
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("choiceCheckButton")), false);
     setChooseMagnetDialog_gui();
 
     gtk_widget_show_all(getWidget("MagnetDialog"));
@@ -1347,18 +1347,18 @@ void MainWindow::setChooseMagnetDialog_gui()
     switch (WGETI("magnet-action"))
     {
     case 0: // start a search for this file
-        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("searchRadioButton")), TRUE);
-        gtk_widget_set_sensitive(getWidget("browseButton"), FALSE);
+        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("searchRadioButton")), true);
+        gtk_widget_set_sensitive(getWidget("browseButton"), false);
         break;
 
     case 1: // add this file to your download queue
-        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("dowloadQueueRadioButton")), TRUE);
-        gtk_widget_set_sensitive(getWidget("browseButton"), TRUE);
+        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("dowloadQueueRadioButton")), true);
+        gtk_widget_set_sensitive(getWidget("browseButton"), true);
         break;
 
     default: // show magnet dialog
-        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("showRadioButton")), TRUE);
-        gtk_widget_set_sensitive(getWidget("browseButton"), FALSE);
+        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("showRadioButton")), true);
+        gtk_widget_set_sensitive(getWidget("browseButton"), false);
     }
 }
 
@@ -1381,14 +1381,14 @@ void MainWindow::onDowloadQueueToggled_gui(GtkWidget *widget, gpointer data)
 {
     (void)widget;
     MainWindow *mw = (MainWindow *)data;
-    gtk_widget_set_sensitive(mw->getWidget("browseButton"), TRUE);
+    gtk_widget_set_sensitive(mw->getWidget("browseButton"), true);
 }
 
 void MainWindow::onSearchMagnetToggled_gui(GtkWidget *widget, gpointer data)
 {
     (void)widget;
     MainWindow *mw = (MainWindow *)data;
-    gtk_widget_set_sensitive(mw->getWidget("browseButton"), FALSE);
+    gtk_widget_set_sensitive(mw->getWidget("browseButton"), false);
 }
 
 void MainWindow::onSetMagnetChoiceDialog_gui(GtkWidget *widget, gpointer data)
@@ -1532,7 +1532,7 @@ void MainWindow::showMessageDialog_gui(const string primaryText, const string se
     if (!secondaryText.empty())
         gtk_message_dialog_format_secondary_text(GTK_MESSAGE_DIALOG(dialog), "%s", secondaryText.c_str());
 
-    gtk_window_set_modal(GTK_WINDOW(dialog), TRUE);
+    gtk_window_set_modal(GTK_WINDOW(dialog), true);
     g_signal_connect(dialog, "response", G_CALLBACK(gtk_widget_destroy), dialog);
     gtk_widget_show(dialog);
 }
@@ -1544,16 +1544,16 @@ gboolean MainWindow::onWindowState_gui(GtkWidget *widget, GdkEventWindowState *e
 
     if (!mw->minimized && event->new_window_state & (GDK_WINDOW_STATE_ICONIFIED | GDK_WINDOW_STATE_WITHDRAWN))
     {
-        mw->minimized = TRUE;
+        mw->minimized = true;
         if (BOOLSETTING(SettingsManager::AUTO_AWAY) && !Util::getAway())
-            Util::setAway(TRUE);
+            Util::setAway(true);
     }
     else if (mw->minimized && (event->new_window_state & GDK_WINDOW_STATE_MAXIMIZED ||
                                !event->new_window_state))
     {
-        mw->minimized = FALSE;
+        mw->minimized = false;
         if (BOOLSETTING(SettingsManager::AUTO_AWAY) && !Util::getManualAway())
-            Util::setAway(FALSE);
+            Util::setAway(false);
     }
 
     return true;
@@ -1573,7 +1573,7 @@ gboolean MainWindow::onFocusIn_gui(GtkWidget *widget, GdkEventFocus *event, gpoi
         entry->setActive_gui();
     }
 
-    gtk_window_set_urgency_hint(mw->window, FALSE);
+    gtk_window_set_urgency_hint(mw->window, false);
     return false;
 }
 
@@ -1586,11 +1586,11 @@ gboolean MainWindow::onCloseWindow_gui(GtkWidget *widget, GdkEvent *event, gpoin
 
     if (mw->onQuit)
     {
-        mw->onQuit = FALSE;
+        mw->onQuit = false;
     }
     else if (WGETB("main-window-no-close") && WGETB("always-tray"))
     {
-        gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(mw->getWidget("statusIconShowInterfaceItem")), FALSE);
+        gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(mw->getWidget("statusIconShowInterfaceItem")), false);
 
         return true;
     }
@@ -1638,7 +1638,7 @@ void MainWindow::onTopToolbarToggled_gui(GtkWidget *widget, gpointer data)
     gtk_container_remove(GTK_CONTAINER(parent), child);
     parent = mw->getWidget("vbox1");
     gtk_orientable_set_orientation(GTK_ORIENTABLE(child), GTK_ORIENTATION_HORIZONTAL);
-    gtk_box_pack_start(GTK_BOX(parent), child, FALSE, FALSE, 2);
+    gtk_box_pack_start(GTK_BOX(parent), child, false, false, 2);
     gtk_box_reorder_child(GTK_BOX(parent), child, 1);
     g_object_unref(child);
     WSET("toolbar-position", 0);
@@ -1659,7 +1659,7 @@ void MainWindow::onLeftToolbarToggled_gui(GtkWidget *widget, gpointer data)
     gtk_container_remove(GTK_CONTAINER(parent), child);
     parent = mw->getWidget("hbox4");
     gtk_orientable_set_orientation(GTK_ORIENTABLE(child), GTK_ORIENTATION_VERTICAL);
-    gtk_box_pack_start(GTK_BOX(parent), child, FALSE, FALSE, 2);
+    gtk_box_pack_start(GTK_BOX(parent), child, false, false, 2);
     gtk_box_reorder_child(GTK_BOX(parent), child, 0);
     g_object_unref(child);
     WSET("toolbar-position", 1);
@@ -1694,12 +1694,12 @@ void MainWindow::onSizeToolbarToggled_gui(GtkWidget *widget, gpointer data)
     GtkIconSize size;
     if (active)
     {
-        WSET("toolbar-small", TRUE);
+        WSET("toolbar-small", true);
         size = GTK_ICON_SIZE_SMALL_TOOLBAR;
     }
     else
     {
-        WSET("toolbar-small", FALSE);
+        WSET("toolbar-small", false);
         size = GTK_ICON_SIZE_LARGE_TOOLBAR;
     }
     g_object_set(G_OBJECT(toolbar), "icon-size", size, NULL);
@@ -1748,7 +1748,7 @@ void MainWindow::checkToolbarMenu_gui()
     gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(getWidget("finishedUploadsMenuItemBar")), WGETB("toolbar-button-finished-uploads"));
     gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(getWidget("quitMenuItemBar")), WGETB("toolbar-button-quit"));
     gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(getWidget("addMenuItemBar")), WGETB("toolbar-button-add"));
-    gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(getWidget("hideToolbarItem")), ((ToolbarStyle = WGETI("toolbar-style")) == 4) ? TRUE : FALSE);
+    gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(getWidget("hideToolbarItem")), ((ToolbarStyle = WGETI("toolbar-style")) == 4) ? true : false);
 }
 
 gboolean MainWindow::onKeyPressed_gui(GtkWidget *widget, GdkEventKey *event, gpointer data)
@@ -1852,7 +1852,7 @@ void MainWindow::onPageSwitched_gui(GtkNotebook *notebook, GtkNotebook *page, gu
         g_signal_handlers_block_by_func(item, (gpointer)onRaisePage_gui, child);
 
         entry->setActive_gui();
-        gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(entry->getTabMenuItem()), TRUE);
+        gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(entry->getTabMenuItem()), true);
         mw->setTitle(entry->getLabelText()); // Update window title with selected tab label
 
         g_signal_handlers_unblock_by_func(item, (gpointer)onRaisePage_gui, (gpointer)child);
@@ -1942,9 +1942,9 @@ void MainWindow::onPreferencesClicked_gui(GtkWidget *widget, gpointer data)
         WulforManager::get()->dispatchClientFunc(func);
 
         if (WGETB("always-tray"))
-            gtk_status_icon_set_visible(mw->statusIcon, TRUE);
+            gtk_status_icon_set_visible(mw->statusIcon, true);
         else
-            gtk_status_icon_set_visible(mw->statusIcon, FALSE);
+            gtk_status_icon_set_visible(mw->statusIcon, false);
 
         mw->setTabPosition_gui(WGETI("tab-position"));
         mw->setToolbarStyle_gui(WGETI("toolbar-style"));
@@ -2058,7 +2058,7 @@ void MainWindow::onQuitClicked_gui(GtkWidget *widget, gpointer data)
     if (gtk_widget_get_visible(mw->getWidget("exitDialog")))
         return;
 
-    mw->onQuit = TRUE;
+    mw->onQuit = true;
     gboolean retVal; // Not interested in the value, though.
     g_signal_emit_by_name(mw->window, "delete-event", NULL, &retVal);
 }
@@ -2092,7 +2092,7 @@ void MainWindow::onOpenFileListClicked_gui(GtkWidget *widget, gpointer data)
 
             UserPtr user = DirectoryListing::getUserFromFilename(path);
             if (user)
-                mw->showShareBrowser_gui(user, path, "", FALSE);
+                mw->showShareBrowser_gui(user, path, "", false);
             else
                 mw->setMainStatus_gui(_("Unable to load file list: Invalid file list name"));
         }
@@ -2104,7 +2104,7 @@ void MainWindow::onOpenOwnListClicked_gui(GtkWidget *widget, gpointer data)
     (void)widget;
     MainWindow *mw = (MainWindow *)data;
     typedef Func1<MainWindow, bool> F1;
-    F1 *func = new F1(mw, &MainWindow::openOwnList_client, FALSE);
+    F1 *func = new F1(mw, &MainWindow::openOwnList_client, false);
     WulforManager::get()->dispatchClientFunc(func);
 
     mw->setMainStatus_gui(_("Loading file list"));
@@ -2285,9 +2285,9 @@ void MainWindow::onStatusIconBlinkUseToggled_gui(GtkWidget *widget, gpointer dat
 
     if (gtk_check_menu_item_get_active(GTK_CHECK_MENU_ITEM(mw->getWidget("statusIconBlinkUseItem"))))
 
-        mw->useStatusIconBlink = TRUE;
+        mw->useStatusIconBlink = true;
     else
-        mw->useStatusIconBlink = FALSE;
+        mw->useStatusIconBlink = false;
 }
 
 void MainWindow::onLinkClicked_gui(GtkWidget *widget, gpointer data)
@@ -2362,7 +2362,7 @@ void MainWindow::refreshFileList_client()
     try
     {
         ShareManager::getInstance()->setDirty();
-        ShareManager::getInstance()->refresh(TRUE, TRUE, FALSE);
+        ShareManager::getInstance()->refresh(true, true, false);
     }
     catch (const ShareException&)
     {
@@ -2406,7 +2406,7 @@ void MainWindow::on(QueueManagerListener::Finished, QueueItem *item, const strin
         WulforManager::get()->dispatchGuiFunc(f3);
 
         typedef Func4<MainWindow, UserPtr, string, string, bool> F4;
-        F4 *func = new F4(this, &MainWindow::showShareBrowser_gui, user.user, listName, dir, TRUE);
+        F4 *func = new F4(this, &MainWindow::showShareBrowser_gui, user.user, listName, dir, true);
         WulforManager::get()->dispatchGuiFunc(func);
     }
     else if (!item->isSet(QueueItem::FLAG_XML_BZLIST))

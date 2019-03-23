@@ -36,7 +36,7 @@ UploadQueue::UploadQueue():
     BookEntry(Entry::UPLOADQUEUE, _("Upload Queue"), "uploadqueue.ui")
 {
 #if !GTK_CHECK_VERSION(3,0,0)
-    gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("statusbar1")),FALSE);
+    gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("statusbar1")),false);
 #endif
 
     users.setView(GTK_TREE_VIEW(getWidget("viewUsers")));

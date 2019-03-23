@@ -44,16 +44,16 @@ ShareBrowser::ShareBrowser(UserPtr user, const string &file, const string &initi
     currentSize(0),
     shareItems(0),
     currentItems(0),
-    updateFileView(TRUE),
+    updateFileView(true),
     skipHits(0),
     full(full)
 {
 #if !GTK_CHECK_VERSION(3,0,0)
-    gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("mainStatus")),FALSE);
-    gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("itemsStatus")),FALSE);
-    gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("sizeStatus")),FALSE);
-    gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("filesStatus")),FALSE);
-    gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("totalStatus")),FALSE);
+    gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("mainStatus")),false);
+    gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("itemsStatus")),false);
+    gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("sizeStatus")),false);
+    gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("filesStatus")),false);
+    gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("totalStatus")),false);
 #endif
 
     // Use the nick from the file name in case the user is offline and core only returns CID
@@ -104,8 +104,8 @@ ShareBrowser::ShareBrowser(UserPtr user, const string &file, const string &initi
     fileSelection = gtk_tree_view_get_selection(fileView.get());
     gtk_tree_selection_set_mode(gtk_tree_view_get_selection(fileView.get()), GTK_SELECTION_MULTIPLE);
     gtk_tree_sortable_set_sort_column_id(GTK_TREE_SORTABLE(fileStore), fileView.col("File Order"), GTK_SORT_ASCENDING);
-    gtk_tree_view_column_set_sort_indicator(gtk_tree_view_get_column(fileView.get(), fileView.col(_("Filename"))), TRUE);
-    gtk_tree_view_set_fixed_height_mode(fileView.get(), TRUE);
+    gtk_tree_view_column_set_sort_indicator(gtk_tree_view_get_column(fileView.get(), fileView.col(_("Filename"))), true);
+    gtk_tree_view_set_fixed_height_mode(fileView.get(), true);
     fileView.setSortColumn_gui(_("Filename"), "File Order");
     fileView.setSortColumn_gui(_("Size"), "Size Order");
     fileView.setSortColumn_gui(_("Exact Size"), "Size Order");
@@ -121,7 +121,7 @@ ShareBrowser::ShareBrowser(UserPtr user, const string &file, const string &initi
     gtk_tree_view_set_model(dirView.get(), GTK_TREE_MODEL(dirStore));
     g_object_unref(dirStore);
     dirSelection = gtk_tree_view_get_selection(dirView.get());
-    gtk_tree_view_set_enable_tree_lines(dirView.get(), TRUE);
+    gtk_tree_view_set_enable_tree_lines(dirView.get(), true);
 
     // Initialize the user command menus
     fileUserCommandMenu = new UserCommandMenu(getWidget("fileUserCommandMenu"), ::UserCommand::CONTEXT_FILELIST);
@@ -147,7 +147,7 @@ ShareBrowser::ShareBrowser(UserPtr user, const string &file, const string &initi
 
 #if !GLIB_CHECK_VERSION(2,32,0)
     GError *error = NULL;
-    g_thread_create(threadLoad_list, (gpointer)this, FALSE, &error);
+    g_thread_create(threadLoad_list, (gpointer)this, false, &error);
     if (error)
     {
         cerr << "Unable to create filelist loader thread: " << error->message << endl;
@@ -239,8 +239,8 @@ void ShareBrowser::openDir_gui(const string &dir)
         directory = dirView.getValue<gpointer, DirectoryListing::Directory *>(&iter, "DL Dir");
 
         gtk_tree_view_expand_to_path(dirView.get(), path);
-        gtk_tree_view_scroll_to_cell(dirView.get(), path, gtk_tree_view_get_column(dirView.get(), 0), FALSE, 0.0, 0.0);
-        gtk_tree_view_set_cursor(dirView.get(), path, NULL, FALSE);
+        gtk_tree_view_scroll_to_cell(dirView.get(), path, gtk_tree_view_get_column(dirView.get(), 0), false, 0.0, 0.0);
+        gtk_tree_view_set_cursor(dirView.get(), path, NULL, false);
         gtk_tree_path_free(path);
 
         updateFiles_gui(directory);
@@ -380,7 +380,7 @@ void ShareBrowser::updateFiles_gui(DirectoryListing::Directory *dir)
     gtk_tree_sortable_set_sort_column_id(GTK_TREE_SORTABLE(fileStore), sortColumn, sortType);
     //gtk_tree_view_scroll_to_point(fileView.get(), 0, 0);
     updateStatus_gui();
-    updateFileView = TRUE;
+    updateFileView = true;
 }
 
 void ShareBrowser::updateStatus_gui()
@@ -442,7 +442,7 @@ void ShareBrowser::fileViewSelected_gui()
                 WulforManager::get()->dispatchClientFunc(func);
                 path = gtk_tree_model_get_path(m, &iter);
                 gtk_tree_view_expand_to_path(dirView.get(), path);
-                gtk_tree_view_set_cursor(dirView.get(), path, NULL, FALSE);
+                gtk_tree_view_set_cursor(dirView.get(), path, NULL, false);
             } else {
                 updateFiles_gui((DirectoryListing::Directory *)ptr);
             }
@@ -670,10 +670,10 @@ void ShareBrowser::find_gui()
     if (sortColumn != fileView.col("File Order") || sortType != GTK_SORT_ASCENDING)
     {
         gtk_tree_sortable_set_sort_column_id(GTK_TREE_SORTABLE(fileStore), fileView.col("File Order"), GTK_SORT_ASCENDING);
-        gtk_tree_view_column_set_sort_indicator(gtk_tree_view_get_column(fileView.get(), fileView.col(_("Filename"))), TRUE);
+        gtk_tree_view_column_set_sort_indicator(gtk_tree_view_get_column(fileView.get(), fileView.col(_("Filename"))), true);
     }
 
-    while (TRUE)
+    while (true)
     {
         // Drill down until we reach a leaf node (e.g. a dir with no child dirs).
         if (findLeafNode)
@@ -686,11 +686,11 @@ void ShareBrowser::find_gui()
                 {
                     skipHits = hits;
                     gtk_tree_view_expand_to_path(dirView.get(), dirPath);
-                    gtk_tree_view_set_cursor(dirView.get(), dirPath, NULL, FALSE);
+                    gtk_tree_view_set_cursor(dirView.get(), dirPath, NULL, false);
                     dir = dirView.getValue<gpointer, DirectoryListing::Directory *>(&iter, "DL Dir");
                     updateFiles_gui(dir);
                     gtk_widget_grab_focus(GTK_WIDGET(dirView.get()));
-                    updateFileView = FALSE;
+                    updateFileView = false;
                     gtk_tree_path_free(dirPath);
                     setStatus_gui("mainStatus", _("Found a match"));
                     return;
@@ -723,15 +723,15 @@ void ShareBrowser::find_gui()
                 if (updateFileView)
                 {
                     gtk_tree_view_expand_to_path(dirView.get(), dirPath);
-                    gtk_tree_view_set_cursor(dirView.get(), dirPath, NULL, FALSE);
+                    gtk_tree_view_set_cursor(dirView.get(), dirPath, NULL, false);
                     updateFiles_gui(dir);
-                    updateFileView = FALSE;
+                    updateFileView = false;
                 }
 
                 skipHits = hits;
                 // Keeping track of the current index allows us to quickly get the path to the file.
                 GtkTreePath *path = gtk_tree_path_new_from_string(Util::toString(cursorPos).c_str());
-                gtk_tree_view_set_cursor(fileView.get(), path, NULL, FALSE);
+                gtk_tree_view_set_cursor(fileView.get(), path, NULL, false);
                 gtk_widget_grab_focus(GTK_WIDGET(fileView.get()));
                 gtk_tree_path_free(path);
                 gtk_tree_path_free(dirPath);
@@ -739,14 +739,14 @@ void ShareBrowser::find_gui()
                 return;
             }
         }
-        updateFileView = TRUE;
+        updateFileView = true;
 
         // Determine if we are to go to the next sibling or back to the parent dir.
         gtk_tree_path_next(dirPath);
         if (!gtk_tree_model_get_iter(m, &iter, dirPath))
-            findLeafNode = FALSE;
+            findLeafNode = false;
         else
-            findLeafNode = TRUE;
+            findLeafNode = true;
     }
 }
 
@@ -819,7 +819,7 @@ gboolean ShareBrowser::onDirButtonReleased_gui(GtkWidget *widget, GdkEventButton
         if (gtk_tree_view_row_expanded(sb->dirView.get(), path))
             gtk_tree_view_collapse_row(sb->dirView.get(), path);
         else
-            gtk_tree_view_expand_row(sb->dirView.get(), path, FALSE);
+            gtk_tree_view_expand_row(sb->dirView.get(), path, false);
         gtk_tree_path_free(path);
     }
     else if (event->button == 1 && event->type == GDK_BUTTON_RELEASE)
@@ -855,7 +855,7 @@ gboolean ShareBrowser::onDirKeyReleased_gui(GtkWidget *widget, GdkEventKey *even
         if (gtk_tree_view_row_expanded(sb->dirView.get(), path))
             gtk_tree_view_collapse_row(sb->dirView.get(), path);
         else
-            gtk_tree_view_expand_row(sb->dirView.get(), path, FALSE);
+            gtk_tree_view_expand_row(sb->dirView.get(), path, false);
         gtk_tree_path_free(path);
     }
     else if (event->keyval == GDK_KEY_Up || event->keyval == GDK_KEY_KP_Up ||
@@ -1117,7 +1117,7 @@ void ShareBrowser::downloadFile_client(DirectoryListing::File *file, string targ
 {
     try
     {
-        listing.download(file, target, FALSE, FALSE);
+        listing.download(file, target, false, false);
     }
     catch (const Exception& e)
     {
@@ -1131,7 +1131,7 @@ void ShareBrowser::downloadDir_client(DirectoryListing::Directory *dir, string t
 {
     try
     {
-        listing.download(dir, target, FALSE);
+        listing.download(dir, target, false);
     }
     catch (const Exception& e)
     {
@@ -1249,7 +1249,7 @@ void ShareBrowser::load(string xml)
         gtk_list_store_clear(fileStore);
         buildDirs_gui(listing.getRoot(),NULL);
         gtk_tree_view_expand_to_path(dirView.get(), treepath);
-        gtk_tree_view_scroll_to_cell(dirView.get(),treepath,NULL,FALSE,0,0);
+        gtk_tree_view_scroll_to_cell(dirView.get(),treepath,NULL,false,0,0);
         gtk_tree_selection_select_path(dirSelection,treepath);
         updateFiles_gui(dirList);
     }

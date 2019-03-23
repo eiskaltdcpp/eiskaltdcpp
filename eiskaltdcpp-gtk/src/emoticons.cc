@@ -76,7 +76,7 @@ void Emoticons::create()
     /* load current pack */
     if (load(path + packName + ".xml"))
     {
-        useEmotions = TRUE;
+        useEmotions = true;
         return;
     }
 
@@ -93,7 +93,7 @@ void Emoticons::create()
         {
             if (load(path + file + ".xml"))
             {
-                useEmotions = TRUE;
+                useEmotions = true;
                 currPackName = file;
                 return;
             }
@@ -121,7 +121,7 @@ void Emoticons::clean()
         filter.clear();
     }
 
-    useEmotions = FALSE;
+    useEmotions = false;
 }
 
 bool Emoticons::load(const string &file)

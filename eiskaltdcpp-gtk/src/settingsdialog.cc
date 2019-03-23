@@ -738,7 +738,7 @@ void Settings::initPersonal_gui()
     gtk_entry_set_text(GTK_ENTRY(getWidget("emailEntry")), SETTING(EMAIL).c_str());
     gtk_entry_set_text(GTK_ENTRY(getWidget("descriptionEntry")), SETTING(DESCRIPTION).c_str());
     connectionSpeedComboBox = GTK_COMBO_BOX_TEXT(gtk_combo_box_text_new());
-    gtk_box_pack_start(GTK_BOX(getWidget("connectionBox")), GTK_WIDGET(connectionSpeedComboBox), FALSE, TRUE, 0);
+    gtk_box_pack_start(GTK_BOX(getWidget("connectionBox")), GTK_WIDGET(connectionSpeedComboBox), false, true, 0);
     gtk_widget_show_all(GTK_WIDGET(connectionSpeedComboBox));
 
     for (StringIter i = SettingsManager::connectionSpeeds.begin(); i != SettingsManager::connectionSpeeds.end(); ++i)
@@ -779,22 +779,22 @@ void Settings::initConnection_gui()
         switch (SETTING(INCOMING_CONNECTIONS))
         {
         case SettingsManager::INCOMING_DIRECT:
-            gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("activeRadioButton")), TRUE);
+            gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("activeRadioButton")), true);
             break;
         case SettingsManager::INCOMING_FIREWALL_NAT:
-            gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("portForwardRadioButton")), TRUE);
+            gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("portForwardRadioButton")), true);
             break;
         case SettingsManager::INCOMING_FIREWALL_UPNP:
 #ifdef USE_MINIUPNP
-            gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("upnpRadioButton")), TRUE);
+            gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("upnpRadioButton")), true);
 #endif
             break;
         case SettingsManager::INCOMING_FIREWALL_PASSIVE:
-            gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("passiveRadioButton")), TRUE);
+            gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("passiveRadioButton")), true);
             break;
         }
 #ifndef USE_MINIUPNP
-        gtk_widget_set_sensitive(getWidget("upnpRadioButton"), FALSE);
+        gtk_widget_set_sensitive(getWidget("upnpRadioButton"), false);
 #endif
 
         // Outgoing
@@ -809,11 +809,11 @@ void Settings::initConnection_gui()
         switch (SETTING(OUTGOING_CONNECTIONS))
         {
         case SettingsManager::OUTGOING_DIRECT:
-            gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("outDirectRadioButton")), TRUE);
+            gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("outDirectRadioButton")), true);
             onOutDirect_gui(NULL, (gpointer)this);
             break;
         case SettingsManager::OUTGOING_SOCKS5:
-            gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("socksRadioButton")), TRUE);
+            gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("socksRadioButton")), true);
             break;
         }
     }
@@ -856,7 +856,7 @@ void Settings::initConnection_gui()
 #else
         gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("useDHTCheckButton")), false);
         gtk_entry_set_text(GTK_ENTRY(getWidget("dhtEntry")), "6250");
-        gtk_widget_set_sensitive(getWidget("dhtFrame"), FALSE);
+        gtk_widget_set_sensitive(getWidget("dhtFrame"), false);
 #endif
     }
 }
@@ -889,7 +889,7 @@ void Settings::initDownloads_gui()
         publicListStore = gtk_list_store_newv(publicListView.getColCount(), publicListView.getGTypes());
         gtk_tree_view_set_model(publicListView.get(), GTK_TREE_MODEL(publicListStore));
         g_object_unref(publicListStore);
-        gtk_tree_view_set_headers_visible(publicListView.get(), FALSE);
+        gtk_tree_view_set_headers_visible(publicListView.get(), false);
         GtkTreeViewColumn *col = gtk_tree_view_get_column(publicListView.get(), 0);
         GList *list = gtk_cell_layout_get_cells(GTK_CELL_LAYOUT(col));
         GObject *editRenderer = G_OBJECT(g_list_nth_data(list, 0));
@@ -908,7 +908,7 @@ void Settings::initDownloads_gui()
         gtk_tree_view_set_model(downloadToView.get(), GTK_TREE_MODEL(downloadToStore));
         g_object_unref(downloadToStore);
         g_signal_connect(downloadToView.get(), "button-release-event", G_CALLBACK(onFavoriteButtonReleased_gui), (gpointer)this);
-        gtk_widget_set_sensitive(getWidget("favoriteRemoveButton"), FALSE);
+        gtk_widget_set_sensitive(getWidget("favoriteRemoveButton"), false);
 
         StringPairList directories = FavoriteManager::getInstance()->getFavoriteDirs();
         for (StringPairIter j = directories.begin(); j != directories.end(); ++j)
@@ -938,9 +938,9 @@ void Settings::initDownloads_gui()
         gtk_tree_view_set_model(previewAppView.get(), GTK_TREE_MODEL(previewAppToStore));
         g_object_unref(previewAppToStore);
 
-        gtk_widget_set_sensitive(getWidget("previewAddButton"), TRUE);
-        gtk_widget_set_sensitive(getWidget("previewRemoveButton"), TRUE);
-        gtk_widget_set_sensitive(getWidget("previewApplyButton"), TRUE);
+        gtk_widget_set_sensitive(getWidget("previewAddButton"), true);
+        gtk_widget_set_sensitive(getWidget("previewRemoveButton"), true);
+        gtk_widget_set_sensitive(getWidget("previewApplyButton"), true);
 
         WulforSettingsManager *wsm = WulforSettingsManager::getInstance();
         const PreviewApp::List &Apps = wsm->getPreviewApps();
@@ -1012,7 +1012,7 @@ void Settings::initSharing_gui()
     exceptionStore = gtk_list_store_newv(exceptionView.getColCount(), exceptionView.getGTypes());
     gtk_tree_view_set_model(exceptionView.get(), GTK_TREE_MODEL(exceptionStore));
     g_object_unref(exceptionStore);
-    gtk_tree_view_set_headers_visible(exceptionView.get(), FALSE);
+    gtk_tree_view_set_headers_visible(exceptionView.get(), false);
     GtkTreeViewColumn *col = gtk_tree_view_get_column(exceptionView.get(), 0);
     GList *list = gtk_cell_layout_get_cells(GTK_CELL_LAYOUT(col));
     GObject *editRenderer = G_OBJECT(g_list_nth_data(list, 0));
@@ -1039,7 +1039,7 @@ void Settings::initSharing_gui()
     g_object_unref(shareStore);
     shareView.setSortColumn_gui(_("Size"), "Real Size");
     g_signal_connect(shareView.get(), "button-release-event", G_CALLBACK(onShareButtonReleased_gui), (gpointer)this);
-    gtk_widget_set_sensitive(getWidget("sharedRemoveButton"), FALSE);
+    gtk_widget_set_sensitive(getWidget("sharedRemoveButton"), false);
 
     updateShares_gui();
 
@@ -1184,8 +1184,8 @@ void Settings::initAppearance_gui()
         addOption_gui(soundStore, wsm, _("Favorite user joined"), "sound-fuser-join-use", "sound-fuser-join");
         addOption_gui(soundStore, wsm, _("Favorite user quit"), "sound-fuser-quit-use", "sound-fuser-quit");
 
-        gtk_widget_set_sensitive(getWidget("soundPlayButton"), TRUE);
-        gtk_widget_set_sensitive(getWidget("soundFileBrowseButton"), TRUE);
+        gtk_widget_set_sensitive(getWidget("soundPlayButton"), true);
+        gtk_widget_set_sensitive(getWidget("soundFileBrowseButton"), true);
 
         gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("soundPMReceivedCheckButton")), WGETB("sound-pm"));
         gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("soundPMWindowCheckButton")), WGETB("sound-pm-open"));
@@ -1807,9 +1807,9 @@ void Settings::onSTKeyReleased_gui(GtkWidget *widget, GdkEventKey *event, gpoint
         if (gtk_tree_selection_get_selected(selection, NULL, &iter))
         {
             int key = s->searchTypeView.getValue<int>(&iter, "Key");
-            gboolean sensitive = FALSE;
+            gboolean sensitive = false;
             if (key == SearchManager::TYPE_ANY)
-                sensitive = TRUE;
+                sensitive = true;
             gtk_widget_set_sensitive(s->getWidget("renameSTButton"), sensitive);
             gtk_widget_set_sensitive(s->getWidget("removeSTButton"), sensitive);
         }
@@ -1829,9 +1829,9 @@ void Settings::onSTButtonReleased_gui(GtkWidget *widget, GdkEventButton *event, 
         if (gtk_tree_selection_get_selected(selection, NULL, &iter))
         {
             int key = s->searchTypeView.getValue<int>(&iter, "Key");
-            gboolean sensitive = FALSE;
+            gboolean sensitive = false;
             if (key == SearchManager::TYPE_ANY)
-                sensitive = TRUE;
+                sensitive = true;
             gtk_widget_set_sensitive(s->getWidget("renameSTButton"), sensitive);
             gtk_widget_set_sensitive(s->getWidget("removeSTButton"), sensitive);
         }
@@ -1877,7 +1877,7 @@ void Settings::onAddSTButton_gui(GtkWidget *widget, gpointer data)
         }
         gtk_list_store_clear(s->extensionStore);
         gtk_entry_set_text(GTK_ENTRY(s->getWidget("extensionEntry")), "");
-        s->showExtensionDialog_gui(TRUE);
+        s->showExtensionDialog_gui(true);
     }
     else
         gtk_widget_hide(dialog);
@@ -2092,7 +2092,7 @@ void Settings::onModifySTButton_gui(GtkWidget *widget, gpointer data)
         gtk_list_store_append(s->extensionStore, &iter);
         gtk_list_store_set(s->extensionStore, &iter, 0, ext.c_str(), -1);
     }
-    s->showExtensionDialog_gui(FALSE);
+    s->showExtensionDialog_gui(false);
 }
 
 void Settings::onRenameSTButton_gui(GtkWidget *widget, gpointer data)
@@ -2436,8 +2436,8 @@ void Settings::onNotifyDefaultButton_gui(GtkWidget *widget, gpointer data)
     {
         GdkPixbuf *icon = NULL;
         WulforSettingsManager *wsm = WulforSettingsManager::getInstance();
-        string title = wsm->getString(s->notifyView.getString(&iter, "keyTitle"), TRUE);
-        string path = wsm->getString(s->notifyView.getString(&iter, "keyIcon"), TRUE);
+        string title = wsm->getString(s->notifyView.getString(&iter, "keyTitle"), true);
+        string path = wsm->getString(s->notifyView.getString(&iter, "keyIcon"), true);
 
         if (!path.empty())
         {
@@ -2533,7 +2533,7 @@ void Settings::onDefaultIconsThemeButton_gui(GtkWidget *widget, gpointer data)
     Settings *s = (Settings *)data;
 
     gtk_label_set_text(GTK_LABEL(s->getWidget("currentThemeLabel")), _("default icons"));
-    s->applyIconsTheme(TRUE);
+    s->applyIconsTheme(true);
 }
 
 void Settings::onSystemIconsThemeButton_gui(GtkWidget *widget, gpointer data)
@@ -2567,8 +2567,8 @@ void Settings::onDefaultThemeButton_gui(GtkWidget *widget, gpointer data)
     Settings *s = (Settings *)data;
 
     gtk_label_set_text(GTK_LABEL(s->getWidget("currentThemeLabel")), _("default theme"));
-    s->applyIconsTheme(TRUE);
-    s->applyTextTheme(TRUE);
+    s->applyIconsTheme(true);
+    s->applyTextTheme(true);
 }
 
 void Settings::onDefaultColorsSPButton_gui(GtkWidget *widget, gpointer data)
@@ -2590,19 +2590,19 @@ void Settings::onDefaultColorsSPButton_gui(GtkWidget *widget, gpointer data)
 
     WulforSettingsManager *wsm = WulforSettingsManager::getInstance();
 
-    if (g_c_p(wsm->getString("search-spy-a-color", TRUE).c_str(), &color))
+    if (g_c_p(wsm->getString("search-spy-a-color", true).c_str(), &color))
         g_c_b_s(G_C_B(s->getWidget("aSPColorButton")), &color);
 
-    if (g_c_p(wsm->getString("search-spy-t-color", TRUE).c_str(), &color))
+    if (g_c_p(wsm->getString("search-spy-t-color", true).c_str(), &color))
         g_c_b_s(G_C_B(s->getWidget("tSPColorButton")), &color);
 
-    if (g_c_p(wsm->getString("search-spy-q-color", TRUE).c_str(), &color))
+    if (g_c_p(wsm->getString("search-spy-q-color", true).c_str(), &color))
         g_c_b_s(G_C_B(s->getWidget("qSPColorButton")), &color);
 
-    if (g_c_p(wsm->getString("search-spy-c-color", TRUE).c_str(), &color))
+    if (g_c_p(wsm->getString("search-spy-c-color", true).c_str(), &color))
         g_c_b_s(G_C_B(s->getWidget("cSPColorButton")), &color);
 
-    if (g_c_p(wsm->getString("search-spy-r-color", TRUE).c_str(), &color))
+    if (g_c_p(wsm->getString("search-spy-r-color", true).c_str(), &color))
         g_c_b_s(G_C_B(s->getWidget("rSPColorButton")), &color);
 
 #undef g_c_p
@@ -2617,9 +2617,9 @@ void Settings::onDefaultFrameSPButton_gui(GtkWidget *widget, gpointer data)
     Settings *s = (Settings *)data;
 
     WulforSettingsManager *wsm = WulforSettingsManager::getInstance();
-    gtk_spin_button_set_value(GTK_SPIN_BUTTON(s->getWidget("frameSPSpinButton")), double(wsm->getInt("search-spy-frame", TRUE)));
-    gtk_spin_button_set_value(GTK_SPIN_BUTTON(s->getWidget("waitingSPSpinButton")), double(wsm->getInt("search-spy-waiting", TRUE)));
-    gtk_spin_button_set_value(GTK_SPIN_BUTTON(s->getWidget("topSPSpinButton")), double(wsm->getInt("search-spy-top", TRUE)));
+    gtk_spin_button_set_value(GTK_SPIN_BUTTON(s->getWidget("frameSPSpinButton")), double(wsm->getInt("search-spy-frame", true)));
+    gtk_spin_button_set_value(GTK_SPIN_BUTTON(s->getWidget("waitingSPSpinButton")), double(wsm->getInt("search-spy-waiting", true)));
+    gtk_spin_button_set_value(GTK_SPIN_BUTTON(s->getWidget("topSPSpinButton")), double(wsm->getInt("search-spy-top", true)));
 }
 
 void Settings::onEnableDynDNSCheckToggled_gui(GtkWidget *widget, gpointer data)
@@ -2629,13 +2629,13 @@ void Settings::onEnableDynDNSCheckToggled_gui(GtkWidget *widget, gpointer data)
 
     if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(s->getWidget("enableDynDNSCheckButton"))))
     {
-        gtk_widget_set_sensitive(s->getWidget("dyndnsEntry"), TRUE);
-        gtk_widget_set_sensitive(s->getWidget("dyndnsLabel"), TRUE);
+        gtk_widget_set_sensitive(s->getWidget("dyndnsEntry"), true);
+        gtk_widget_set_sensitive(s->getWidget("dyndnsLabel"), true);
     }
     else
     {
-        gtk_widget_set_sensitive(s->getWidget("dyndnsEntry"), FALSE);
-        gtk_widget_set_sensitive(s->getWidget("dyndnsLabel"), FALSE);
+        gtk_widget_set_sensitive(s->getWidget("dyndnsEntry"), false);
+        gtk_widget_set_sensitive(s->getWidget("dyndnsLabel"), false);
     }
 }
 
@@ -2646,13 +2646,13 @@ void Settings::onDHTCheckToggled_gui(GtkWidget *widget, gpointer data)
 
     if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(s->getWidget("useDHTCheckButton"))))
     {
-        gtk_widget_set_sensitive(s->getWidget("dhtEntry"), TRUE);
-        gtk_widget_set_sensitive(s->getWidget("dhtLabel"), TRUE);
+        gtk_widget_set_sensitive(s->getWidget("dhtEntry"), true);
+        gtk_widget_set_sensitive(s->getWidget("dhtLabel"), true);
     }
     else
     {
-        gtk_widget_set_sensitive(s->getWidget("dhtEntry"), FALSE);
-        gtk_widget_set_sensitive(s->getWidget("dhtLabel"), FALSE);
+        gtk_widget_set_sensitive(s->getWidget("dhtEntry"), false);
+        gtk_widget_set_sensitive(s->getWidget("dhtLabel"), false);
     }
 }
 
@@ -2664,15 +2664,15 @@ void Settings::onLimitToggled_gui(GtkWidget *widget, gpointer data)
 
     if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(s->getWidget("useLimitCheckButton"))))
     {
-        gtk_widget_set_sensitive(s->getWidget("transferSettingsFrame"), TRUE);
-        gtk_widget_set_sensitive(s->getWidget("secondaryTransferSwitcherFrame"), TRUE);
+        gtk_widget_set_sensitive(s->getWidget("transferSettingsFrame"), true);
+        gtk_widget_set_sensitive(s->getWidget("secondaryTransferSwitcherFrame"), true);
         onLimitSecondToggled_gui(NULL, (gpointer)s);
     }
     else
     {
-        gtk_widget_set_sensitive(s->getWidget("transferSettingsFrame"), FALSE);
-        gtk_widget_set_sensitive(s->getWidget("secondaryTransferSwitcherFrame"), FALSE);
-        gtk_widget_set_sensitive(s->getWidget("secondaryTransferSettingsFrame"), FALSE);
+        gtk_widget_set_sensitive(s->getWidget("transferSettingsFrame"), false);
+        gtk_widget_set_sensitive(s->getWidget("secondaryTransferSwitcherFrame"), false);
+        gtk_widget_set_sensitive(s->getWidget("secondaryTransferSettingsFrame"), false);
     }
 }
 
@@ -2683,15 +2683,15 @@ void Settings::onLimitSecondToggled_gui(GtkWidget *widget, gpointer data)
 
     if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(s->getWidget("useLimitSecondCheckButton"))))
     {
-        gtk_widget_set_sensitive(s->getWidget("secondaryTransferSettingsFrame"), TRUE);
-        gtk_widget_set_sensitive(s->getWidget("limitsFromCombobox"), TRUE);
-        gtk_widget_set_sensitive(s->getWidget("limitsToCombobox"), TRUE);
+        gtk_widget_set_sensitive(s->getWidget("secondaryTransferSettingsFrame"), true);
+        gtk_widget_set_sensitive(s->getWidget("limitsFromCombobox"), true);
+        gtk_widget_set_sensitive(s->getWidget("limitsToCombobox"), true);
     }
     else
     {
-        gtk_widget_set_sensitive(s->getWidget("secondaryTransferSettingsFrame"), FALSE);
-        gtk_widget_set_sensitive(s->getWidget("limitsFromCombobox"), FALSE);
-        gtk_widget_set_sensitive(s->getWidget("limitsToCombobox"), FALSE);
+        gtk_widget_set_sensitive(s->getWidget("secondaryTransferSettingsFrame"), false);
+        gtk_widget_set_sensitive(s->getWidget("limitsFromCombobox"), false);
+        gtk_widget_set_sensitive(s->getWidget("limitsToCombobox"), false);
     }
 }
 
@@ -3431,7 +3431,7 @@ void Settings::saveUserCommand(UserCommand *uc)
 
         if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("commandDialogChat"))))
         {
-            command = "<%[myNI]> " + NmdcHub::validateMessage(command, FALSE) + "|";
+            command = "<%[myNI]> " + NmdcHub::validateMessage(command, false) + "|";
         }
         else if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("commandDialogPM"))))
         {
@@ -3439,7 +3439,7 @@ void Settings::saveUserCommand(UserCommand *uc)
             if (to.empty() == 0)
                 to = "%[userNI]";
 
-            command = "$To: " + to + " From: %[myNI] $<%[myNI]> " + NmdcHub::validateMessage(command, FALSE) + "|";
+            command = "$To: " + to + " From: %[myNI] $<%[myNI]> " + NmdcHub::validateMessage(command, false) + "|";
         }
 
         if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("commandDialogOnce"))))
@@ -3485,14 +3485,14 @@ void Settings::updateUserCommandTextSent_gui()
     }
     else if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("commandDialogChat"))))
     {
-        command = "<%[myNI]> " + NmdcHub::validateMessage(command, FALSE) + "|";
+        command = "<%[myNI]> " + NmdcHub::validateMessage(command, false) + "|";
     }
     else if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("commandDialogPM"))))
     {
         string to = gtk_entry_get_text(GTK_ENTRY(getWidget("commandDialogTo")));
         if (to.empty())
             to = "%[userNI]";
-        command = "$To: " + to + " From: %[myNI] $<%[myNI]> " + NmdcHub::validateMessage(command, FALSE) + "|";
+        command = "$To: " + to + " From: %[myNI] $<%[myNI]> " + NmdcHub::validateMessage(command, false) + "|";
     }
 
     gtk_entry_set_text(GTK_ENTRY(getWidget("commandDialogTextSent")), command.c_str());
@@ -3531,7 +3531,7 @@ void Settings::showErrorDialog(const string error)
 {
     GtkWidget *errorDialog = gtk_message_dialog_new(GTK_WINDOW(getWidget("dialog")),
                                                     GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_ERROR, GTK_BUTTONS_OK, "%s", error.c_str());
-    gtk_window_set_modal(GTK_WINDOW(errorDialog), TRUE);
+    gtk_window_set_modal(GTK_WINDOW(errorDialog), true);
     g_signal_connect(errorDialog, "response", G_CALLBACK(gtk_widget_destroy), errorDialog);
     gtk_widget_show(errorDialog);
 }
@@ -3555,30 +3555,30 @@ void Settings::onInDirect_gui(GtkToggleButton *button, gpointer data)
 {
     (void)button;
     Settings *s = (Settings *)data;
-    gtk_widget_set_sensitive(s->getWidget("ipEntry"), TRUE);
-    gtk_widget_set_sensitive(s->getWidget("ipLabel"), TRUE);
-    gtk_widget_set_sensitive(s->getWidget("tcpEntry"), TRUE);
-    gtk_widget_set_sensitive(s->getWidget("tcpLabel"), TRUE);
-    gtk_widget_set_sensitive(s->getWidget("udpEntry"), TRUE);
-    gtk_widget_set_sensitive(s->getWidget("udpLabel"), TRUE);
-    gtk_widget_set_sensitive(s->getWidget("tlsEntry"), TRUE);
-    gtk_widget_set_sensitive(s->getWidget("tlsLabel"), TRUE);
-    gtk_widget_set_sensitive(s->getWidget("forceIPCheckButton"), TRUE);
+    gtk_widget_set_sensitive(s->getWidget("ipEntry"), true);
+    gtk_widget_set_sensitive(s->getWidget("ipLabel"), true);
+    gtk_widget_set_sensitive(s->getWidget("tcpEntry"), true);
+    gtk_widget_set_sensitive(s->getWidget("tcpLabel"), true);
+    gtk_widget_set_sensitive(s->getWidget("udpEntry"), true);
+    gtk_widget_set_sensitive(s->getWidget("udpLabel"), true);
+    gtk_widget_set_sensitive(s->getWidget("tlsEntry"), true);
+    gtk_widget_set_sensitive(s->getWidget("tlsLabel"), true);
+    gtk_widget_set_sensitive(s->getWidget("forceIPCheckButton"), true);
 }
 
 void Settings::onInFW_UPnP_gui(GtkToggleButton *button, gpointer data)
 {
     (void)button;
     Settings *s = (Settings *)data;
-    gtk_widget_set_sensitive(s->getWidget("ipEntry"), TRUE);
-    gtk_widget_set_sensitive(s->getWidget("ipLabel"), TRUE);
-    gtk_widget_set_sensitive(s->getWidget("tcpEntry"), TRUE);
-    gtk_widget_set_sensitive(s->getWidget("tcpLabel"), TRUE);
-    gtk_widget_set_sensitive(s->getWidget("udpEntry"), TRUE);
-    gtk_widget_set_sensitive(s->getWidget("udpLabel"), TRUE);
-    gtk_widget_set_sensitive(s->getWidget("tlsEntry"), TRUE);
-    gtk_widget_set_sensitive(s->getWidget("tlsEntry"), TRUE);
-    gtk_widget_set_sensitive(s->getWidget("forceIPCheckButton"), TRUE);
+    gtk_widget_set_sensitive(s->getWidget("ipEntry"), true);
+    gtk_widget_set_sensitive(s->getWidget("ipLabel"), true);
+    gtk_widget_set_sensitive(s->getWidget("tcpEntry"), true);
+    gtk_widget_set_sensitive(s->getWidget("tcpLabel"), true);
+    gtk_widget_set_sensitive(s->getWidget("udpEntry"), true);
+    gtk_widget_set_sensitive(s->getWidget("udpLabel"), true);
+    gtk_widget_set_sensitive(s->getWidget("tlsEntry"), true);
+    gtk_widget_set_sensitive(s->getWidget("tlsEntry"), true);
+    gtk_widget_set_sensitive(s->getWidget("forceIPCheckButton"), true);
 }
 
 
@@ -3586,60 +3586,60 @@ void Settings::onInFW_NAT_gui(GtkToggleButton *button, gpointer data)
 {
     (void)button;
     Settings *s = (Settings *)data;
-    gtk_widget_set_sensitive(s->getWidget("ipEntry"), TRUE);
-    gtk_widget_set_sensitive(s->getWidget("ipLabel"), TRUE);
-    gtk_widget_set_sensitive(s->getWidget("tcpEntry"), TRUE);
-    gtk_widget_set_sensitive(s->getWidget("tcpLabel"), TRUE);
-    gtk_widget_set_sensitive(s->getWidget("udpEntry"), TRUE);
-    gtk_widget_set_sensitive(s->getWidget("udpLabel"), TRUE);
-    gtk_widget_set_sensitive(s->getWidget("tlsEntry"), TRUE);
-    gtk_widget_set_sensitive(s->getWidget("tlsLabel"), TRUE);
-    gtk_widget_set_sensitive(s->getWidget("forceIPCheckButton"), TRUE);
+    gtk_widget_set_sensitive(s->getWidget("ipEntry"), true);
+    gtk_widget_set_sensitive(s->getWidget("ipLabel"), true);
+    gtk_widget_set_sensitive(s->getWidget("tcpEntry"), true);
+    gtk_widget_set_sensitive(s->getWidget("tcpLabel"), true);
+    gtk_widget_set_sensitive(s->getWidget("udpEntry"), true);
+    gtk_widget_set_sensitive(s->getWidget("udpLabel"), true);
+    gtk_widget_set_sensitive(s->getWidget("tlsEntry"), true);
+    gtk_widget_set_sensitive(s->getWidget("tlsLabel"), true);
+    gtk_widget_set_sensitive(s->getWidget("forceIPCheckButton"), true);
 }
 
 void Settings::onInPassive_gui(GtkToggleButton *button, gpointer data)
 {
     (void)button;
     Settings *s = (Settings *)data;
-    gtk_widget_set_sensitive(s->getWidget("ipEntry"), FALSE);
-    gtk_widget_set_sensitive(s->getWidget("ipLabel"), FALSE);
-    gtk_widget_set_sensitive(s->getWidget("tcpEntry"), FALSE);
-    gtk_widget_set_sensitive(s->getWidget("tcpLabel"), FALSE);
-    gtk_widget_set_sensitive(s->getWidget("udpEntry"), FALSE);
-    gtk_widget_set_sensitive(s->getWidget("udpLabel"), FALSE);
-    gtk_widget_set_sensitive(s->getWidget("tlsEntry"), FALSE);
-    gtk_widget_set_sensitive(s->getWidget("tlsLabel"), FALSE);
-    gtk_widget_set_sensitive(s->getWidget("forceIPCheckButton"), FALSE);
+    gtk_widget_set_sensitive(s->getWidget("ipEntry"), false);
+    gtk_widget_set_sensitive(s->getWidget("ipLabel"), false);
+    gtk_widget_set_sensitive(s->getWidget("tcpEntry"), false);
+    gtk_widget_set_sensitive(s->getWidget("tcpLabel"), false);
+    gtk_widget_set_sensitive(s->getWidget("udpEntry"), false);
+    gtk_widget_set_sensitive(s->getWidget("udpLabel"), false);
+    gtk_widget_set_sensitive(s->getWidget("tlsEntry"), false);
+    gtk_widget_set_sensitive(s->getWidget("tlsLabel"), false);
+    gtk_widget_set_sensitive(s->getWidget("forceIPCheckButton"), false);
 }
 
 void Settings::onOutDirect_gui(GtkToggleButton *button, gpointer data)
 {
     (void)button;
     Settings *s = (Settings *)data;
-    gtk_widget_set_sensitive(s->getWidget("socksIPEntry"), FALSE);
-    gtk_widget_set_sensitive(s->getWidget("socksIPLabel"), FALSE);
-    gtk_widget_set_sensitive(s->getWidget("socksUserEntry"), FALSE);
-    gtk_widget_set_sensitive(s->getWidget("socksUserLabel"), FALSE);
-    gtk_widget_set_sensitive(s->getWidget("socksPortEntry"), FALSE);
-    gtk_widget_set_sensitive(s->getWidget("socksPortLabel"), FALSE);
-    gtk_widget_set_sensitive(s->getWidget("socksPassEntry"), FALSE);
-    gtk_widget_set_sensitive(s->getWidget("socksPassLabel"), FALSE);
-    gtk_widget_set_sensitive(s->getWidget("socksCheckButton"), FALSE);
+    gtk_widget_set_sensitive(s->getWidget("socksIPEntry"), false);
+    gtk_widget_set_sensitive(s->getWidget("socksIPLabel"), false);
+    gtk_widget_set_sensitive(s->getWidget("socksUserEntry"), false);
+    gtk_widget_set_sensitive(s->getWidget("socksUserLabel"), false);
+    gtk_widget_set_sensitive(s->getWidget("socksPortEntry"), false);
+    gtk_widget_set_sensitive(s->getWidget("socksPortLabel"), false);
+    gtk_widget_set_sensitive(s->getWidget("socksPassEntry"), false);
+    gtk_widget_set_sensitive(s->getWidget("socksPassLabel"), false);
+    gtk_widget_set_sensitive(s->getWidget("socksCheckButton"), false);
 }
 
 void Settings::onSocks5_gui(GtkToggleButton *button, gpointer data)
 {
     (void)button;
     Settings *s = (Settings *)data;
-    gtk_widget_set_sensitive(s->getWidget("socksIPEntry"), TRUE);
-    gtk_widget_set_sensitive(s->getWidget("socksIPLabel"), TRUE);
-    gtk_widget_set_sensitive(s->getWidget("socksUserEntry"), TRUE);
-    gtk_widget_set_sensitive(s->getWidget("socksUserLabel"), TRUE);
-    gtk_widget_set_sensitive(s->getWidget("socksPortEntry"), TRUE);
-    gtk_widget_set_sensitive(s->getWidget("socksPortLabel"), TRUE);
-    gtk_widget_set_sensitive(s->getWidget("socksPassEntry"), TRUE);
-    gtk_widget_set_sensitive(s->getWidget("socksPassLabel"), TRUE);
-    gtk_widget_set_sensitive(s->getWidget("socksCheckButton"), TRUE);
+    gtk_widget_set_sensitive(s->getWidget("socksIPEntry"), true);
+    gtk_widget_set_sensitive(s->getWidget("socksIPLabel"), true);
+    gtk_widget_set_sensitive(s->getWidget("socksUserEntry"), true);
+    gtk_widget_set_sensitive(s->getWidget("socksUserLabel"), true);
+    gtk_widget_set_sensitive(s->getWidget("socksPortEntry"), true);
+    gtk_widget_set_sensitive(s->getWidget("socksPortLabel"), true);
+    gtk_widget_set_sensitive(s->getWidget("socksPassEntry"), true);
+    gtk_widget_set_sensitive(s->getWidget("socksPassLabel"), true);
+    gtk_widget_set_sensitive(s->getWidget("socksCheckButton"), true);
 }
 
 void Settings::onBrowseFinished_gui(GtkWidget *widget, gpointer data)
@@ -3727,7 +3727,7 @@ void Settings::onPublicAdd_gui(GtkWidget *widget, gpointer data)
     gtk_list_store_set(s->publicListStore, &iter, s->publicListView.col(_("List")), _("New list"), -1);
     path = gtk_tree_model_get_path(GTK_TREE_MODEL(s->publicListStore), &iter);
     col = gtk_tree_view_get_column(s->publicListView.get(), 0);
-    gtk_tree_view_set_cursor(s->publicListView.get(), path, col, TRUE);
+    gtk_tree_view_set_cursor(s->publicListView.get(), path, col, true);
     gtk_tree_path_free(path);
 }
 
@@ -3844,7 +3844,7 @@ void Settings::onRemoveFavorite_gui(GtkWidget *widget, gpointer data)
         if (FavoriteManager::getInstance()->removeFavoriteDir(path))
         {
             gtk_list_store_remove(s->downloadToStore, &iter);
-            gtk_widget_set_sensitive(s->getWidget("favoriteRemoveButton"), FALSE);
+            gtk_widget_set_sensitive(s->getWidget("favoriteRemoveButton"), false);
         }
     }
 }
@@ -3859,9 +3859,9 @@ gboolean Settings::onFavoriteButtonReleased_gui(GtkWidget *widget, GdkEventButto
     GtkTreeSelection *selection = gtk_tree_view_get_selection(s->downloadToView.get());
 
     if (gtk_tree_selection_get_selected(selection, NULL, &iter))
-        gtk_widget_set_sensitive(s->getWidget("favoriteRemoveButton"), TRUE);
+        gtk_widget_set_sensitive(s->getWidget("favoriteRemoveButton"), true);
     else
-        gtk_widget_set_sensitive(s->getWidget("favoriteRemoveButton"), FALSE);
+        gtk_widget_set_sensitive(s->getWidget("favoriteRemoveButton"), false);
 
     return false;
 }
@@ -3889,7 +3889,7 @@ void Settings::onRemoveShare_gui(GtkWidget *widget, gpointer data)
     {
         string path = s->shareView.getString(&iter, _("Directory"));
         gtk_list_store_remove(s->shareStore, &iter);
-        gtk_widget_set_sensitive(s->getWidget("sharedRemoveButton"), FALSE);
+        gtk_widget_set_sensitive(s->getWidget("sharedRemoveButton"), false);
 
         ShareManager::getInstance()->removeDirectory(path);
     }
@@ -3904,9 +3904,9 @@ gboolean Settings::onShareButtonReleased_gui(GtkWidget *widget, GdkEventButton *
     GtkTreeSelection *selection = gtk_tree_view_get_selection(s->shareView.get());
 
     if(!gtk_tree_selection_count_selected_rows(selection))
-        gtk_widget_set_sensitive(s->getWidget("sharedRemoveButton"), FALSE);
+        gtk_widget_set_sensitive(s->getWidget("sharedRemoveButton"), false);
     else
-        gtk_widget_set_sensitive(s->getWidget("sharedRemoveButton"), TRUE);
+        gtk_widget_set_sensitive(s->getWidget("sharedRemoveButton"), true);
 
     return false;
 }
@@ -4031,21 +4031,21 @@ void Settings::onUserCommandAdd_gui(GtkWidget *widget, gpointer data)
     Settings *s = (Settings *)data;
 
     // Reset dialog to default
-    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(s->getWidget("commandDialogSeparator")), TRUE);
-    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(s->getWidget("commandDialogHubMenu")), TRUE);
-    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(s->getWidget("commandDialogUserMenu")), TRUE);
-    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(s->getWidget("commandDialogSearchMenu")), TRUE);
-    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(s->getWidget("commandDialogFilelistMenu")), TRUE);
-    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(s->getWidget("commandDialogOnce")), FALSE);
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(s->getWidget("commandDialogSeparator")), true);
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(s->getWidget("commandDialogHubMenu")), true);
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(s->getWidget("commandDialogUserMenu")), true);
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(s->getWidget("commandDialogSearchMenu")), true);
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(s->getWidget("commandDialogFilelistMenu")), true);
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(s->getWidget("commandDialogOnce")), false);
     gtk_entry_set_text(GTK_ENTRY(s->getWidget("commandDialogName")), "");
     gtk_entry_set_text(GTK_ENTRY(s->getWidget("commandDialogCommand")), "");
     gtk_entry_set_text(GTK_ENTRY(s->getWidget("commandDialogHub")), "");
     gtk_entry_set_text(GTK_ENTRY(s->getWidget("commandDialogTo")), "");
-    gtk_widget_set_sensitive(s->getWidget("commandDialogName"), FALSE);
-    gtk_widget_set_sensitive(s->getWidget("commandDialogCommand"), FALSE);
-    gtk_widget_set_sensitive(s->getWidget("commandDialogHub"), FALSE);
-    gtk_widget_set_sensitive(s->getWidget("commandDialogTo"), FALSE);
-    gtk_widget_set_sensitive(s->getWidget("commandDialogOnce"), FALSE);
+    gtk_widget_set_sensitive(s->getWidget("commandDialogName"), false);
+    gtk_widget_set_sensitive(s->getWidget("commandDialogCommand"), false);
+    gtk_widget_set_sensitive(s->getWidget("commandDialogHub"), false);
+    gtk_widget_set_sensitive(s->getWidget("commandDialogTo"), false);
+    gtk_widget_set_sensitive(s->getWidget("commandDialogOnce"), false);
 
     gint response;
 
@@ -4091,7 +4091,7 @@ void Settings::onUserCommandEdit_gui(GtkWidget *widget, gpointer data)
 
         if (uc.getType() == UserCommand::TYPE_SEPARATOR)
         {
-            gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(s->getWidget("commandDialogSeparator")), TRUE);
+            gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(s->getWidget("commandDialogSeparator")), true);
         }
         else
         {
@@ -4105,8 +4105,8 @@ void Settings::onUserCommandEdit_gui(GtkWidget *widget, gpointer data)
                     command.find('|') == command.length() - 1)
             {
                 string::size_type i = command.find('>') + 2;
-                command = NmdcHub::validateMessage(command.substr(i, command.length() - i - 1), TRUE);
-                gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(s->getWidget("commandDialogChat")), TRUE);
+                command = NmdcHub::validateMessage(command.substr(i, command.length() - i - 1), true);
+                gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(s->getWidget("commandDialogChat")), true);
             }
             // PM command
             else if (!strncmp(command.c_str(), "$To: ", 5) && (
@@ -4117,13 +4117,13 @@ void Settings::onUserCommandEdit_gui(GtkWidget *widget, gpointer data)
                 string::size_type i = command.find(' ', 5);
                 nick = command.substr(5, i - 5);
                 i = command.find('>', 5) + 2;
-                command = NmdcHub::validateMessage(command.substr(i, command.length() - i - 1), FALSE);
-                gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(s->getWidget("commandDialogPM")), TRUE);
+                command = NmdcHub::validateMessage(command.substr(i, command.length() - i - 1), false);
+                gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(s->getWidget("commandDialogPM")), true);
             }
             // Raw command
             else
             {
-                gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(s->getWidget("commandDialogRaw")), TRUE);
+                gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(s->getWidget("commandDialogRaw")), true);
             }
         }
 
@@ -4222,11 +4222,11 @@ void Settings::onUserCommandTypeSeparator_gui(GtkWidget *widget, gpointer data)
 
     if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(widget)))
     {
-        gtk_widget_set_sensitive(s->getWidget("commandDialogName"), FALSE);
-        gtk_widget_set_sensitive(s->getWidget("commandDialogCommand"), FALSE);
-        gtk_widget_set_sensitive(s->getWidget("commandDialogHub"), FALSE);
-        gtk_widget_set_sensitive(s->getWidget("commandDialogTo"), FALSE);
-        gtk_widget_set_sensitive(s->getWidget("commandDialogOnce"), FALSE);
+        gtk_widget_set_sensitive(s->getWidget("commandDialogName"), false);
+        gtk_widget_set_sensitive(s->getWidget("commandDialogCommand"), false);
+        gtk_widget_set_sensitive(s->getWidget("commandDialogHub"), false);
+        gtk_widget_set_sensitive(s->getWidget("commandDialogTo"), false);
+        gtk_widget_set_sensitive(s->getWidget("commandDialogOnce"), false);
 
         s->updateUserCommandTextSent_gui();
     }
@@ -4238,11 +4238,11 @@ void Settings::onUserCommandTypeRaw_gui(GtkWidget *widget, gpointer data)
 
     if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(widget)))
     {
-        gtk_widget_set_sensitive(s->getWidget("commandDialogName"), TRUE);
-        gtk_widget_set_sensitive(s->getWidget("commandDialogCommand"), TRUE);
-        gtk_widget_set_sensitive(s->getWidget("commandDialogHub"), TRUE);
-        gtk_widget_set_sensitive(s->getWidget("commandDialogTo"), FALSE);
-        gtk_widget_set_sensitive(s->getWidget("commandDialogOnce"), TRUE);
+        gtk_widget_set_sensitive(s->getWidget("commandDialogName"), true);
+        gtk_widget_set_sensitive(s->getWidget("commandDialogCommand"), true);
+        gtk_widget_set_sensitive(s->getWidget("commandDialogHub"), true);
+        gtk_widget_set_sensitive(s->getWidget("commandDialogTo"), false);
+        gtk_widget_set_sensitive(s->getWidget("commandDialogOnce"), true);
 
         s->updateUserCommandTextSent_gui();
     }
@@ -4254,11 +4254,11 @@ void Settings::onUserCommandTypeChat_gui(GtkWidget *widget, gpointer data)
 
     if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(widget)))
     {
-        gtk_widget_set_sensitive(s->getWidget("commandDialogName"), TRUE);
-        gtk_widget_set_sensitive(s->getWidget("commandDialogCommand"), TRUE);
-        gtk_widget_set_sensitive(s->getWidget("commandDialogHub"), FALSE);
-        gtk_widget_set_sensitive(s->getWidget("commandDialogTo"), FALSE);
-        gtk_widget_set_sensitive(s->getWidget("commandDialogOnce"), TRUE);
+        gtk_widget_set_sensitive(s->getWidget("commandDialogName"), true);
+        gtk_widget_set_sensitive(s->getWidget("commandDialogCommand"), true);
+        gtk_widget_set_sensitive(s->getWidget("commandDialogHub"), false);
+        gtk_widget_set_sensitive(s->getWidget("commandDialogTo"), false);
+        gtk_widget_set_sensitive(s->getWidget("commandDialogOnce"), true);
 
         s->updateUserCommandTextSent_gui();
     }
@@ -4270,11 +4270,11 @@ void Settings::onUserCommandTypePM_gui(GtkWidget *widget, gpointer data)
 
     if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(widget)))
     {
-        gtk_widget_set_sensitive(s->getWidget("commandDialogName"), TRUE);
-        gtk_widget_set_sensitive(s->getWidget("commandDialogCommand"), TRUE);
-        gtk_widget_set_sensitive(s->getWidget("commandDialogHub"), TRUE);
-        gtk_widget_set_sensitive(s->getWidget("commandDialogTo"), TRUE);
-        gtk_widget_set_sensitive(s->getWidget("commandDialogOnce"), TRUE);
+        gtk_widget_set_sensitive(s->getWidget("commandDialogName"), true);
+        gtk_widget_set_sensitive(s->getWidget("commandDialogCommand"), true);
+        gtk_widget_set_sensitive(s->getWidget("commandDialogHub"), true);
+        gtk_widget_set_sensitive(s->getWidget("commandDialogTo"), true);
+        gtk_widget_set_sensitive(s->getWidget("commandDialogOnce"), true);
 
         s->updateUserCommandTextSent_gui();
     }
@@ -4364,7 +4364,7 @@ void Settings::shareHidden_client(bool show)
 {
     SettingsManager::getInstance()->set(SettingsManager::SHARE_HIDDEN, show);
     ShareManager::getInstance()->setDirty();
-    ShareManager::getInstance()->refresh(TRUE, FALSE, TRUE);
+    ShareManager::getInstance()->refresh(true, false, true);
 
     Func0<Settings> *func = new Func0<Settings>(this, &Settings::updateShares_gui);
     WulforManager::get()->dispatchGuiFunc(func);
@@ -4433,7 +4433,7 @@ void Settings::onExceptionAdd_gui(GtkWidget *widget, gpointer data)
     gtk_list_store_set(s->exceptionStore, &iter, s->exceptionView.col(_("List")), _("New exception"), -1);
     path = gtk_tree_model_get_path(GTK_TREE_MODEL(s->exceptionStore), &iter);
     col = gtk_tree_view_get_column(s->exceptionView.get(), 0);
-    gtk_tree_view_set_cursor(s->exceptionView.get(), path, col, TRUE);
+    gtk_tree_view_set_cursor(s->exceptionView.get(), path, col, true);
     gtk_tree_path_free(path);
 }
 

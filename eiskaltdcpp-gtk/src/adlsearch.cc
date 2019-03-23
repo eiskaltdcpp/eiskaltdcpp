@@ -34,7 +34,7 @@ SearchADL::SearchADL():
     g_object_ref_sink(getWidget("menu"));
 
     // Initialize search list treeview
-    searchADLView.setView(GTK_TREE_VIEW(getWidget("searchADLView")), TRUE, "searchadl");
+    searchADLView.setView(GTK_TREE_VIEW(getWidget("searchADLView")), true, "searchadl");
     searchADLView.insertColumn(_("Enabled"), G_TYPE_BOOLEAN, TreeView::BOOL, 100);
     searchADLView.insertColumn(_("Search String"), G_TYPE_STRING, TreeView::STRING, 100);
     searchADLView.insertColumn(_("Source Type"), G_TYPE_STRING, TreeView::STRING, 90);
@@ -55,12 +55,12 @@ SearchADL::SearchADL():
     searchADLSelection = gtk_tree_view_get_selection(searchADLView.get());
     gtk_tree_selection_set_mode(searchADLSelection, GTK_SELECTION_SINGLE);
 
-    gtk_tree_view_column_set_clickable(gtk_tree_view_get_column(searchADLView.get(), searchADLView.col(_("Enabled"))), FALSE);
-    gtk_tree_view_column_set_clickable(gtk_tree_view_get_column(searchADLView.get(), searchADLView.col(_("Search String"))), FALSE);
-    gtk_tree_view_column_set_clickable(gtk_tree_view_get_column(searchADLView.get(), searchADLView.col(_("Source Type"))), FALSE);
-    gtk_tree_view_column_set_clickable(gtk_tree_view_get_column(searchADLView.get(), searchADLView.col(_("Destination Directory"))), FALSE);
-    gtk_tree_view_column_set_clickable(gtk_tree_view_get_column(searchADLView.get(), searchADLView.col(_("Min Size"))), FALSE);
-    gtk_tree_view_column_set_clickable(gtk_tree_view_get_column(searchADLView.get(), searchADLView.col(_("Max Size"))), FALSE);
+    gtk_tree_view_column_set_clickable(gtk_tree_view_get_column(searchADLView.get(), searchADLView.col(_("Enabled"))), false);
+    gtk_tree_view_column_set_clickable(gtk_tree_view_get_column(searchADLView.get(), searchADLView.col(_("Search String"))), false);
+    gtk_tree_view_column_set_clickable(gtk_tree_view_get_column(searchADLView.get(), searchADLView.col(_("Source Type"))), false);
+    gtk_tree_view_column_set_clickable(gtk_tree_view_get_column(searchADLView.get(), searchADLView.col(_("Destination Directory"))), false);
+    gtk_tree_view_column_set_clickable(gtk_tree_view_get_column(searchADLView.get(), searchADLView.col(_("Min Size"))), false);
+    gtk_tree_view_column_set_clickable(gtk_tree_view_get_column(searchADLView.get(), searchADLView.col(_("Max Size"))), false);
 
     GList *list = gtk_cell_layout_get_cells(GTK_CELL_LAYOUT(gtk_tree_view_get_column(searchADLView.get(),
                                                                                      searchADLView.col(_("Enabled")))));

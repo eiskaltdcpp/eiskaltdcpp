@@ -93,7 +93,7 @@ static gboolean server_cb (GIOChannel *source,
 static gboolean
 setup_connection (BaconMessageConnection *conn)
 {
-    g_return_val_if_fail (conn->chan == NULL, FALSE);
+    g_return_val_if_fail (conn->chan == NULL, false);
 
     conn->chan = g_io_channel_unix_new (conn->fd);
     if (!conn->chan) {
@@ -114,7 +114,7 @@ accept_new_connection (BaconMessageConnection *server_conn)
     g_return_if_fail (server_conn->is_server);
 
     conn = g_new0 (BaconMessageConnection, 1);
-    conn->is_server = FALSE;
+    conn->is_server = false;
     conn->func = server_conn->func;
     conn->data = server_conn->data;
 
@@ -150,7 +150,7 @@ server_cb (GIOChannel *source, GIOCondition, gpointer data)
         rc = read (cd, &buf, 1);
     }
     if (rc <= 0) {
-        g_io_channel_shutdown (conn->chan, FALSE, NULL);
+        g_io_channel_shutdown (conn->chan, false, NULL);
         g_io_channel_unref (conn->chan);
         conn->chan = NULL;
         close (conn->fd);
@@ -163,16 +163,16 @@ server_cb (GIOChannel *source, GIOCondition, gpointer data)
     message[offset] = '\0';
 
     subs = message;
-    finished = FALSE;
+    finished = false;
 
-    while (finished == FALSE && *subs != '\0')
+    while (finished == false && *subs != '\0')
     {
         if (conn->func != NULL)
             (*conn->func) (subs, conn->data);
 
         subs += strlen (subs) + 1;
         if (subs - message >= offset)
-            finished = TRUE;
+            finished = true;
     }
 
     g_free (message);
@@ -302,7 +302,7 @@ bacon_message_connection_new (const char *prefix)
     conn = g_new0 (BaconMessageConnection, 1);
     conn->path = socket_filename (prefix);
 
-    if (test_is_socket (conn->path) == FALSE)
+    if (test_is_socket (conn->path) == false)
     {
         if (!try_server (conn))
         {
@@ -310,11 +310,11 @@ bacon_message_connection_new (const char *prefix)
             return NULL;
         }
 
-        conn->is_server = TRUE;
+        conn->is_server = true;
         return conn;
     }
 
-    if (try_client (conn) == FALSE)
+    if (try_client (conn) == false)
     {
         unlink (conn->path);
         try_server (conn);
@@ -324,11 +324,11 @@ bacon_message_connection_new (const char *prefix)
             return NULL;
         }
 
-        conn->is_server = TRUE;
+        conn->is_server = true;
         return conn;
     }
 
-    conn->is_server = FALSE;
+    conn->is_server = false;
     return conn;
 }
 
@@ -339,7 +339,7 @@ bacon_message_connection_free (BaconMessageConnection *conn)
 
     g_return_if_fail (conn != NULL);
     /* Only servers can accept other connections */
-    g_return_if_fail (conn->is_server != FALSE ||
+    g_return_if_fail (conn->is_server != false ||
             conn->accepted_connections == NULL);
 
     child_conn = conn->accepted_connections;
@@ -354,11 +354,11 @@ bacon_message_connection_free (BaconMessageConnection *conn)
         conn->conn_id = 0;
     }
     if (conn->chan) {
-        g_io_channel_shutdown (conn->chan, FALSE, NULL);
+        g_io_channel_shutdown (conn->chan, false, NULL);
         g_io_channel_unref (conn->chan);
     }
 
-    if (conn->is_server != FALSE) {
+    if (conn->is_server != false) {
         unlink (conn->path);
     }
     if (conn->fd != -1) {
@@ -396,7 +396,7 @@ bacon_message_connection_send (BaconMessageConnection *conn,
 gboolean
 bacon_message_connection_get_is_server (BaconMessageConnection *conn)
 {
-    g_return_val_if_fail (conn != NULL, FALSE);
+    g_return_val_if_fail (conn != NULL, false);
 
     return conn->is_server;
 }

@@ -70,7 +70,7 @@ WulforManager *WulforManager::get()
 WulforManager::WulforManager()
     : guiCondValue(0)
     , clientCondValue(0)
-    , abort(FALSE)
+    , abort(false)
 {
 #if !GLIB_CHECK_VERSION(2,32,0)
     guiCond = g_cond_new();
@@ -107,7 +107,7 @@ WulforManager::WulforManager()
 
 #if !GLIB_CHECK_VERSION(2,32,0)
     GError *error = NULL;
-    guiThread = g_thread_create(threadFunc_gui, (gpointer)this, TRUE, &error);
+    guiThread = g_thread_create(threadFunc_gui, (gpointer)this, true, &error);
     if (error)
     {
         cerr << "Unable to create gui thread: " << error->message << endl;
@@ -117,7 +117,7 @@ WulforManager::WulforManager()
 
     g_clear_error(&error);
 
-    clientThread = g_thread_create(threadFunc_client, (gpointer)this, TRUE, &error);
+    clientThread = g_thread_create(threadFunc_client, (gpointer)this, true, &error);
     if (error)
     {
         cerr << "Unable to create client thread: " << error->message << endl;
@@ -149,7 +149,7 @@ WulforManager::WulforManager()
 
 WulforManager::~WulforManager()
 {
-    abort = TRUE;
+    abort = true;
 
     g_mutex_lock(guiCondMutex);
     guiCondValue++;

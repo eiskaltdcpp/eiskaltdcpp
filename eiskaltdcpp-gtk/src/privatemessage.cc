@@ -39,12 +39,12 @@ PrivateMessage::PrivateMessage(const string &cid, const string &hubUrl):
     cid(cid),
     hubUrl(hubUrl),
     historyIndex(0),
-    sentAwayMessage(FALSE),
-    scrollToBottom(TRUE),
+    sentAwayMessage(false),
+    scrollToBottom(true),
     offline(false)
 {
 #if !GTK_CHECK_VERSION(3,0,0)
-    gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("status")),FALSE);
+    gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("status")),false);
 #endif
 
     // Intialize the chat window
@@ -67,11 +67,11 @@ PrivateMessage::PrivateMessage(const string &cid, const string &hubUrl):
     GtkTextIter iter;
     gtk_text_buffer_get_end_iter(messageBuffer, &iter);
 
-    mark = gtk_text_buffer_create_mark(messageBuffer, NULL, &iter, FALSE);
-    start_mark = gtk_text_buffer_create_mark(messageBuffer, NULL, &iter, TRUE);
-    end_mark = gtk_text_buffer_create_mark(messageBuffer, NULL, &iter, TRUE);
-    tag_mark = gtk_text_buffer_create_mark(messageBuffer, NULL, &iter, FALSE);
-    emot_mark = gtk_text_buffer_create_mark(messageBuffer, NULL, &iter, TRUE);
+    mark = gtk_text_buffer_create_mark(messageBuffer, NULL, &iter, false);
+    start_mark = gtk_text_buffer_create_mark(messageBuffer, NULL, &iter, true);
+    end_mark = gtk_text_buffer_create_mark(messageBuffer, NULL, &iter, true);
+    tag_mark = gtk_text_buffer_create_mark(messageBuffer, NULL, &iter, false);
+    emot_mark = gtk_text_buffer_create_mark(messageBuffer, NULL, &iter, true);
 
     handCursor = gdk_cursor_new(GDK_HAND2);
 
@@ -86,8 +86,8 @@ PrivateMessage::PrivateMessage(const string &cid, const string &hubUrl):
     // Emoticons dialog
     emotdialog = new EmoticonsDialog(getWidget("entry"), getWidget("emotButton"), getWidget("emotMenu"));
     if (!WGETB("emoticons-use"))
-        gtk_widget_set_sensitive(getWidget("emotButton"), FALSE);
-    useEmoticons = TRUE;
+        gtk_widget_set_sensitive(getWidget("emotButton"), false);
+    useEmoticons = true;
 
     // PM commands
     g_object_set_data_full(G_OBJECT(getWidget("awayCommandItem")), "command", g_strdup("/away"), g_free);
@@ -148,7 +148,7 @@ PrivateMessage::PrivateMessage(const string &cid, const string &hubUrl):
     gtk_widget_grab_focus(getWidget("entry"));
     history.push_back("");
     UserPtr user = ClientManager::getInstance()->findUser(CID(cid));
-    isBot = user ? user->isSet(User::BOT) : FALSE;
+    isBot = user ? user->isSet(User::BOT) : false;
 
     setLabel_gui(WulforUtil::getNicks(cid, hubUrl) + " [" + WulforUtil::getHubNames(cid, hubUrl) + "]");
 
@@ -218,11 +218,11 @@ void PrivateMessage::addMessage_gui(string message, Msg::TypeMsg typemsg)
     // Send an away message, but only the first time after setting away mode.
     if (!Util::getAway())
     {
-        sentAwayMessage = FALSE;
+        sentAwayMessage = false;
     }
     else if (!sentAwayMessage && !(BOOLSETTING(NO_AWAYMSG_TO_BOTS) && isBot))
     {
-        sentAwayMessage = TRUE;
+        sentAwayMessage = true;
         typedef Func1<PrivateMessage, string> F1;
         F1 *func = new F1(this, &PrivateMessage::sendMessage_client, Util::getAwayMessage());
         WulforManager::get()->dispatchClientFunc(func);
@@ -278,11 +278,11 @@ void PrivateMessage::preferences_gui()
     if (!WGETB("emoticons-use"))
     {
         if (gtk_widget_is_sensitive(getWidget("emotButton")))
-            gtk_widget_set_sensitive(getWidget("emotButton"), FALSE);
+            gtk_widget_set_sensitive(getWidget("emotButton"), false);
     }
     else if (!gtk_widget_is_sensitive(getWidget("emotButton")))
     {
-        gtk_widget_set_sensitive(getWidget("emotButton"), TRUE);
+        gtk_widget_set_sensitive(getWidget("emotButton"), true);
     }
 }
 
@@ -425,7 +425,7 @@ void PrivateMessage::applyTags_gui(const string &line)
     gtk_text_buffer_move_mark(messageBuffer, end_mark, &start_iter);
 
     string tagName;
-    bool start = FALSE;
+    bool start = false;
 
     while(true)
     {
@@ -443,7 +443,7 @@ void PrivateMessage::applyTags_gui(const string &line)
             gtk_text_buffer_move_mark(messageBuffer, start_mark, &start_iter);
             gtk_text_buffer_move_mark(messageBuffer, end_mark, &start_iter);
 
-            start = TRUE;
+            start = true;
         }
 
         tag_start_iter = start_iter;
@@ -517,7 +517,7 @@ void PrivateMessage::applyTags_gui(const string &line)
             if (gtk_text_iter_is_end(&start_iter))
                 return;
 
-            start = FALSE;
+            start = false;
         }
         else
         {
@@ -592,7 +592,7 @@ void PrivateMessage::applyEmoticons_gui()
         gtk_text_buffer_get_iter_at_mark(messageBuffer, &start_iter, emot_mark);
         gtk_text_buffer_get_iter_at_mark(messageBuffer, &end_iter, end_mark);
 
-        search = FALSE;
+        search = false;
         set_start = gtk_text_iter_get_offset(&end_iter);
 
         for (Emot::Iter it = list.begin(); it != list.end(); ++it)
@@ -610,7 +610,7 @@ void PrivateMessage::applyEmoticons_gui()
                 {
                     if (!search)
                     {
-                        search = TRUE;
+                        search = true;
                         end_iter = match_start;
 
                         /* set new limit search */
@@ -913,22 +913,22 @@ void PrivateMessage::onSendMessage_gui(GtkEntry *entry, gpointer data)
         {
             if (Util::getAway() && param.empty())
             {
-                Util::setAway(FALSE);
-                Util::setManualAway(FALSE);
+                Util::setAway(false);
+                Util::setManualAway(false);
                 pm->addStatusMessage_gui(_("Away mode off"), Msg::SYSTEM);
-                pm->sentAwayMessage = FALSE;
+                pm->sentAwayMessage = false;
             }
             else
             {
-                Util::setAway(TRUE);
-                Util::setManualAway(TRUE);
+                Util::setAway(true);
+                Util::setManualAway(true);
                 Util::setAwayMessage(param);
                 pm->addStatusMessage_gui(_("Away mode on: ") + Util::getAwayMessage(), Msg::SYSTEM);
             }
         }
         else if (command == "back")
         {
-            Util::setAway(FALSE);
+            Util::setAway(false);
             pm->addStatusMessage_gui(_("Away mode off"), Msg::SYSTEM);
         }
         else if (command == "clear")
@@ -970,12 +970,12 @@ void PrivateMessage::onSendMessage_gui(GtkEntry *entry, gpointer data)
         {
             if (pm->useEmoticons)
             {
-                pm->useEmoticons = FALSE;
+                pm->useEmoticons = false;
                 pm->addStatusMessage_gui(_("Emoticons mode off"), Msg::SYSTEM);
             }
             else
             {
-                pm->useEmoticons = TRUE;
+                pm->useEmoticons = true;
                 pm->addStatusMessage_gui(_("Emoticons mode on"), Msg::SYSTEM);
             }
         }
@@ -1246,7 +1246,7 @@ gboolean PrivateMessage::onEmotButtonRelease_gui(GtkWidget *widget, GdkEventButt
         gtk_menu_shell_append(GTK_MENU_SHELL(emot_menu), check_item);
 
         if (pm->useEmoticons)
-            gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(check_item), TRUE);
+            gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(check_item), true);
 
         g_signal_connect(check_item, "activate", G_CALLBACK(onUseEmoticons_gui), data);
 
@@ -1288,7 +1288,7 @@ void PrivateMessage::onChatResize_gui(GtkAdjustment *adjustment, gpointer data)
 
         gtk_text_buffer_get_end_iter(pm->messageBuffer, &iter);
         gtk_text_buffer_move_mark(pm->messageBuffer, pm->mark, &iter);
-        gtk_text_view_scroll_to_mark(GTK_TEXT_VIEW(pm->getWidget("text")), pm->mark, 0, FALSE, 0, 0);
+        gtk_text_view_scroll_to_mark(GTK_TEXT_VIEW(pm->getWidget("text")), pm->mark, 0, false, 0, 0);
     }
 }
 
