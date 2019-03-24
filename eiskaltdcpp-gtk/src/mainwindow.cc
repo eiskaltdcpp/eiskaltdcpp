@@ -926,11 +926,11 @@ void MainWindow::showCmdDebug_gui()
 void MainWindow::addPrivateMessage_gui(Msg::TypeMsg typemsg, string cid, string hubUrl, string message, bool useSetting)
 {
     BookEntry *entry = findBookEntry(Entry::PRIVATE_MESSAGE, cid);
-    bool raise = true;
+    bool braise = true;
 
     // If PM is initiated by another user, use setting except if tab is already open.
     if (useSetting)
-        raise = (!entry ? !WGETB("popunder-pm") : false);
+        braise = (!entry ? !WGETB("popunder-pm") : false);
 
     if (!entry)
     {
@@ -986,7 +986,7 @@ void MainWindow::addPrivateMessage_gui(Msg::TypeMsg typemsg, string cid, string 
         }
     }
 
-    if (raise)
+    if (braise)
         raisePage_gui(entry->getContainer());
 }
 

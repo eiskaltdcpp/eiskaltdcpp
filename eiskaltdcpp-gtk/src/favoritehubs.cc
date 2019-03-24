@@ -42,9 +42,8 @@ FavoriteHubs::FavoriteHubs():
     gtk_window_set_destroy_with_parent(GTK_WINDOW(getWidget("favoriteHubsDialog")), true);
 
     // Fill the charset drop-down list in edit fav hub dialog.
-    vector<string> &charsets = WulforUtil::getCharsets();
-    for (auto it = charsets.begin(); it != charsets.end(); ++it)
-        gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(getWidget("comboboxCharset")), it->c_str());
+    for (auto& it : WulforUtil::getCharsets())
+        gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(getWidget("comboboxCharset")), it.c_str());
 
     // Initialize favorite hub list treeview
     favoriteView.setView(GTK_TREE_VIEW(getWidget("favoriteView")), true, "favoritehubs");

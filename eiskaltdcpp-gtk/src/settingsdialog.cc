@@ -748,9 +748,8 @@ void Settings::initPersonal_gui()
     }
 
     // Fill charset drop-down list
-    vector<string> &charsets = WulforUtil::getCharsets();
-    for (auto it = charsets.begin(); it != charsets.end(); ++it)
-        gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(getWidget("comboboxCharset")), it->c_str());
+    for (auto& it : WulforUtil::getCharsets())
+        gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(getWidget("comboboxCharset")), it.c_str());
 
     gtk_entry_set_text(GTK_ENTRY(getWidget("comboboxentryCharset")), WGETS("default-charset").c_str());
 }

@@ -183,12 +183,12 @@ void SearchSpy::resetFrame()
         SearchType i = 0;
         gtk_tree_selection_select_all(searchSelection);
 
-        for (auto it = searchIters.begin(); it != searchIters.end(); ++it)
+        for (auto& it : searchIters)
         {
             if (++i > FrameSize)
                 break;
 
-            iter = it->second;
+            iter = it.second;
             gtk_tree_selection_unselect_iter(searchSelection, &iter);
         }
         onRemoveItemClicked_gui(NULL, (gpointer)this);
@@ -331,9 +331,9 @@ bool SearchSpy::updateFrameStatus_gui(GtkTreeIter *iter, uint64_t tick)
     GtkTreeIter itree;
     string color;
 
-    for (auto it = searchIters.begin(); it != searchIters.end(); ++it)
+    for (auto& it : searchIters)
     {
-        itree = it->second;
+        itree = it.second;
         uint64_t gettick = searchView.getValue<uint64_t>(&itree, "tick");
         string order = searchView.getString(&itree, "order");
 
@@ -421,9 +421,9 @@ void SearchSpy::onOKButtonClicked_gui(GtkWidget*, gpointer data)
 void SearchSpy::resetCount()
 {
     GtkTreeIter iter;
-    for (auto it = searchIters.begin(); it != searchIters.end(); ++it)
+    for (auto& it : searchIters)
     {
-        iter = it->second;
+        iter = it.second;
         guint count = searchView.getValue<guint>(&iter, "count");
 
         if (count > Top)
@@ -514,9 +514,8 @@ void SearchSpy::onIgnoreTTHSearchToggled_gui(GtkWidget *widget, gpointer)
     WSET("spyframe-ignore-tth-searches",toggle);
 }
 
-void SearchSpy::onRemoveItemClicked_gui(GtkMenuItem *item, gpointer data)
+void SearchSpy::onRemoveItemClicked_gui(GtkMenuItem*, gpointer data)
 {
-    (void)item;
     SearchSpy *s = (SearchSpy *)data;
 
     if (gtk_tree_selection_count_selected_rows(s->searchSelection) > 0)
@@ -548,9 +547,8 @@ void SearchSpy::onRemoveItemClicked_gui(GtkMenuItem *item, gpointer data)
     }
 }
 
-void SearchSpy::onSearchItemClicked_gui(GtkMenuItem *item, gpointer data)
+void SearchSpy::onSearchItemClicked_gui(GtkMenuItem*, gpointer data)
 {
-    (void)item;
     SearchSpy *s = (SearchSpy *)data;
 
     if (gtk_tree_selection_count_selected_rows(s->searchSelection) == 1)
@@ -583,9 +581,8 @@ void SearchSpy::onSearchItemClicked_gui(GtkMenuItem *item, gpointer data)
     }
 }
 
-gboolean SearchSpy::onButtonPressed_gui(GtkWidget *widget, GdkEventButton *event, gpointer data)
+gboolean SearchSpy::onButtonPressed_gui(GtkWidget*, GdkEventButton *event, gpointer data)
 {
-    (void)widget;
     SearchSpy *s = (SearchSpy *)data;
     s->previous = event->type;
 
@@ -605,9 +602,8 @@ gboolean SearchSpy::onButtonPressed_gui(GtkWidget *widget, GdkEventButton *event
     return false;
 }
 
-gboolean SearchSpy::onButtonReleased_gui(GtkWidget *widget, GdkEventButton *event, gpointer data)
+gboolean SearchSpy::onButtonReleased_gui(GtkWidget*, GdkEventButton *event, gpointer data)
 {
-    (void)widget;
     SearchSpy *s = (SearchSpy *)data;
 
     if (gtk_tree_selection_count_selected_rows(s->searchSelection) > 0)
@@ -631,9 +627,8 @@ gboolean SearchSpy::onButtonReleased_gui(GtkWidget *widget, GdkEventButton *even
     return false;
 }
 
-gboolean SearchSpy::onKeyReleased_gui(GtkWidget *widget, GdkEventKey *event, gpointer data)
+gboolean SearchSpy::onKeyReleased_gui(GtkWidget*, GdkEventKey *event, gpointer data)
 {
-    (void)widget;
     SearchSpy *s = (SearchSpy *)data;
 
     if (gtk_tree_selection_count_selected_rows(s->searchSelection) > 0)
@@ -679,9 +674,8 @@ void SearchSpy::on(ClientManagerListener::IncomingSearch, const string& s) noexc
     WulforManager::get()->dispatchGuiFunc(func);
 }
 
-void SearchSpy::on(TimerManagerListener::Minute, uint64_t tick) noexcept
+void SearchSpy::on(TimerManagerListener::Minute, uint64_t) noexcept
 {
-    (void)tick;
     typedef Func0<SearchSpy> F0;
     F0 *func = new F0(this, &SearchSpy::updateFrameStatus_gui);
     WulforManager::get()->dispatchGuiFunc(func);

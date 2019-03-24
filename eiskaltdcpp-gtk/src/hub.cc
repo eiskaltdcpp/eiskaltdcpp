@@ -283,11 +283,11 @@ Hub::Hub(const string &address, const string &encoding):
     // Initialize favorite users list
     FavoriteManager::FavoriteMap map = FavoriteManager::getInstance()->getFavoriteUsers();
 
-    for (FavoriteManager::FavoriteMap::const_iterator it = map.begin(); it != map.end(); ++it)
+    for (auto& it :  map)
     {
-        if (it->second.getUrl() == address)
+        if (it.second.getUrl() == address)
         {
-            userFavoriteMap.insert(UserMap::value_type(it->first.toBase32(), it->second.getNick()));
+            userFavoriteMap.insert(UserMap::value_type(it.first.toBase32(), it.second.getNick()));
         }
     }
 
@@ -514,9 +514,8 @@ void Hub::removeTag_gui(const string &nick)
 void Hub::clearNickList_gui()
 {
     // Remove all old nick tags from the text view
-    unordered_map<string, string>::const_iterator it;
-    for (it = userMap.begin(); it != userMap.end(); ++it)
-        removeTag_gui(it->first);
+    for (auto& it : userMap)
+        removeTag_gui(it.first);
 
     gtk_list_store_clear(nickStore);
     userMap.clear();
@@ -1991,9 +1990,9 @@ void Hub::onSendMessage_gui(GtkEntry *entry, gpointer data)
         else if (command == "listfu" || command == "lsfu")
         {
             string list;
-            for (auto it = hub->userFavoriteMap.begin(); it != hub->userFavoriteMap.end(); ++it)
+            for (auto& it : hub->userFavoriteMap)
             {
-                list += " " + it->second;
+                list += " " + it.second;
             }
             hub->addMessage_gui("", _("User favorite list:") + (list.empty()? list = _(" empty...") : list), Msg::SYSTEM);
         }
@@ -2250,11 +2249,11 @@ void Hub::onSendMessage_gui(GtkEntry *entry, gpointer data)
                         return;
                     g_print("/ip %s\n",sl.getTokens().at(1).c_str());
                     StringTokenizer<string> purge( sl.getTokens().at(1), ";" );
-                    for(StringIter i = purge.getTokens().begin(); i != purge.getTokens().end(); ++i) {
-                        if (!i->find("!"))
-                            ipfilter::getInstance()->remFromRules((*i), etaDROP);
+                    for(auto& i : purge.getTokens()) {
+                        if (!i.find("!"))
+                            ipfilter::getInstance()->remFromRules(i, etaDROP);
                         else
-                            ipfilter::getInstance()->remFromRules((*i), etaACPT);
+                            ipfilter::getInstance()->remFromRules(i, etaACPT);
                     }
                 }
                 else if (sl.getTokens().at(0) == "on") {
@@ -2289,9 +2288,9 @@ void Hub::onSendMessage_gui(GtkEntry *entry, gpointer data)
                     if (!ipfilter::getInstance())
                         return;
                     StringTokenizer<string> add( param, ";" );
-                    for(StringIter i = add.getTokens().begin(); i != add.getTokens().end(); ++i)
+                    for(auto& i : add.getTokens())
                     {
-                        StringTokenizer<string> addsub( (*i), "::" );
+                        StringTokenizer<string> addsub( i, "::" );
                         if (addsub.getTokens().at(1) == "in")
                             ipfilter::getInstance()->addToRules(addsub.getTokens().at(0), eDIRECTION_IN);
                         else if (addsub.getTokens().at(1) == "out")
@@ -2299,7 +2298,7 @@ void Hub::onSendMessage_gui(GtkEntry *entry, gpointer data)
                         else
                             ipfilter::getInstance()->addToRules(addsub.getTokens().at(0), eDIRECTION_BOTH);
 
-                        hub->addStatusMessage_gui(string( "Add rule in ipfilter: " + *i ), Msg::SYSTEM, Sound::NONE);
+                        hub->addStatusMessage_gui(string( "Add rule in ipfilter: " + i ), Msg::SYSTEM, Sound::NONE);
                     }
                 }
             }
@@ -2318,8 +2317,8 @@ void Hub::onSendMessage_gui(GtkEntry *entry, gpointer data)
                     if( !aliases.getTokens().empty() ) {
                         hub->addMessage_gui("", string( "Alias list:" ), Msg::SYSTEM);
 
-                        for(StringIter i = aliases.getTokens().begin(); i != aliases.getTokens().end(); ++i) {
-                            hub->addMessage_gui("", *i, Msg::SYSTEM);
+                        for(auto& i : aliases.getTokens()) {
+                            hub->addMessage_gui("", i, Msg::SYSTEM);
                         }
                     }
                     else
@@ -2331,10 +2330,10 @@ void Hub::onSendMessage_gui(GtkEntry *entry, gpointer data)
                 {
                     // удаление алиаса из списка
                     string store(""), name("");
-                    for(StringIter i = aliases.getTokens().begin(); i != aliases.getTokens().end(); ++i) {
-                        name = i->substr( 0, i->find_first_of( "::", 0 ) );
-                        if ( name.compare(sl.getTokens().at(1)) )
-                            store = store + *i + "#";
+                    for(auto& i : aliases.getTokens()) {
+                        name = i.substr( 0, i.find_first_of( "::", 0 ) );
+                        if (name.compare(sl.getTokens().at(1)) != 0)
+                            store = store + i + "#";
                     }
                     WSET( "custom-aliases", store );
 
@@ -2343,15 +2342,15 @@ void Hub::onSendMessage_gui(GtkEntry *entry, gpointer data)
                 {
                     // добавление алиаса к списку
                     StringTokenizer<string> command( param, "::" );
-                    string store(""), name("");
+                    string name("");
                     bool exists = false;
-                    for(StringIter i = aliases.getTokens().begin(); i != aliases.getTokens().end(); ++i)
+                    for(auto& i : aliases.getTokens())
                     {
-                        name = i->substr( 0, i->find_first_of( "::", 0 ) );
-                        if( !name.compare(param.substr(0, param.find_first_of("::", 0))) )
+                        name = i.substr( 0, i.find_first_of( "::", 0 ) );
+                        if(name.compare(param.substr(0, param.find_first_of("::", 0))) == 0)
                         {
                             exists = true;
-                            hub->addMessage_gui("", string( "This alias already exists: " + *i ), Msg::SYSTEM);
+                            hub->addMessage_gui("", string( "This alias already exists: " + i ), Msg::SYSTEM);
                             break;
                         }
                     }
@@ -2359,9 +2358,9 @@ void Hub::onSendMessage_gui(GtkEntry *entry, gpointer data)
                     {
                         aliases.getTokens().push_back( param );
                         string store("");
-                        for(StringIter i = aliases.getTokens().begin(); i != aliases.getTokens().end(); ++i)
+                        for(auto& i : aliases.getTokens())
                         {
-                            store = store + *i + "#";
+                            store = store + i + "#";
                         }
                         WSET( "custom-aliases", store );
                     }
@@ -2373,12 +2372,12 @@ void Hub::onSendMessage_gui(GtkEntry *entry, gpointer data)
             // поиск алиаса в списке
             StringTokenizer<string> aliases( WGETS("custom-aliases"), '#' );
             string name("");
-            for(StringIter i = aliases.getTokens().begin(); i != aliases.getTokens().end(); ++i)
+            for(auto& i : aliases.getTokens())
             {
-                name = i->substr( 0, i->find_first_of( "::", 0 ) );
-                if( !name.compare(command) )
+                name = i.substr( 0, i.find_first_of( "::", 0 ) );
+                if(name.compare(command) == 0)
                 {
-                    string exec = i->substr( i->find_first_of( "::", 0 ) + 2, i->size() );
+                    string exec = i.substr( i.find_first_of( "::", 0 ) + 2, i.size() );
 
                     if( !exec.empty() )
                     {
