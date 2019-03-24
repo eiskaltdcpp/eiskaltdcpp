@@ -765,9 +765,8 @@ void Settings::initConnection_gui()
         gtk_entry_set_text(GTK_ENTRY(getWidget("ipEntry")), SETTING(EXTERNAL_IP).c_str());
 
         // Fill IP address combo box
-        vector<string> addresses = WulforUtil::getLocalIPs();
-        for (auto it = addresses.begin(); it != addresses.end(); ++it)
-            gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(getWidget("ipComboboxEntry")), it->c_str());
+        for (auto& it : WulforUtil::getLocalIPs())
+            gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(getWidget("ipComboboxEntry")), it.c_str());
 
         gtk_entry_set_text(GTK_ENTRY(getWidget("tcpEntry")), Util::toString(SETTING(TCP_PORT)).c_str());
         gtk_entry_set_text(GTK_ENTRY(getWidget("udpEntry")), Util::toString(SETTING(UDP_PORT)).c_str());
@@ -908,13 +907,12 @@ void Settings::initDownloads_gui()
         g_signal_connect(downloadToView.get(), "button-release-event", G_CALLBACK(onFavoriteButtonReleased_gui), (gpointer)this);
         gtk_widget_set_sensitive(getWidget("favoriteRemoveButton"), false);
 
-        StringPairList directories = FavoriteManager::getInstance()->getFavoriteDirs();
-        for (StringPairIter j = directories.begin(); j != directories.end(); ++j)
+        for (auto& j : FavoriteManager::getInstance()->getFavoriteDirs())
         {
             gtk_list_store_append(downloadToStore, &iter);
             gtk_list_store_set(downloadToStore, &iter,
-                               downloadToView.col(_("Favorite Name")), j->second.c_str(),
-                               downloadToView.col(_("Directory")), j->first.c_str(),
+                               downloadToView.col(_("Favorite Name")), j.second.c_str(),
+                               downloadToView.col(_("Directory")), j.first.c_str(),
                                -1);
         }
     }
@@ -952,13 +950,13 @@ void Settings::initDownloads_gui()
             wsm->addPreviewApp(_("Amarok player"), "amarok", "mp3");
         }
 
-        for (PreviewApp::Iter item = Apps.begin(); item != Apps.end(); ++item)
+        for (auto& item : Apps)
         {
             gtk_list_store_append(previewAppToStore, &iter);
             gtk_list_store_set(previewAppToStore, &iter,
-                               previewAppView.col(_("Name")), ((*item)->name).c_str(),
-                               previewAppView.col(_("Application")), ((*item)->app).c_str(),
-                               previewAppView.col(_("Extensions")), ((*item)->ext).c_str(),
+                               previewAppView.col(_("Name")), (item->name).c_str(),
+                               previewAppView.col(_("Application")), (item->app).c_str(),
+                               previewAppView.col(_("Extensions")), (item->ext).c_str(),
                                -1);
         }
     }
@@ -1020,10 +1018,10 @@ void Settings::initSharing_gui()
     GtkTreeIter iter;
     gtk_list_store_clear(exceptionStore);
     StringTokenizer<string> lists(SETTING(SKIPLIST_SHARE), "|");
-    for (auto idx = lists.getTokens().begin(); idx != lists.getTokens().end(); ++idx)
+    for (auto& idx : lists.getTokens())
     {
         gtk_list_store_append(exceptionStore, &iter);
-        gtk_list_store_set(exceptionStore, &iter, exceptionView.col(_("List")), (*idx).c_str(), -1);
+        gtk_list_store_set(exceptionStore, &iter, exceptionView.col(_("List")), idx.c_str(), -1);
     }
 
     shareView.setView(GTK_TREE_VIEW(getWidget("sharedTreeView")));
@@ -1758,10 +1756,9 @@ void Settings::initSearchTypes_gui()
     g_object_unref(extensionStore);
 
     // search types
-    const SettingsManager::SearchTypes &searchTypes = SettingsManager::getInstance()->getSearchTypes();
-    for (SettingsManager::SearchTypesIterC i = searchTypes.begin(), iend = searchTypes.end(); i != iend; ++i)
+    for (auto& i : SettingsManager::getInstance()->getSearchTypes())
     {
-        string type = i->first;
+        string type = i.first;
         bool predefined = false;
         int key = SearchManager::TYPE_ANY;
 
@@ -1773,7 +1770,7 @@ void Settings::initSearchTypes_gui()
             type = SearchManager::getTypeStr(key);
             predefined = true;
         }
-        addOption_gui(searchTypeStore, type, i->second, predefined, key);
+        addOption_gui(searchTypeStore, type, i.second, predefined, key);
     }
 
     g_signal_connect(getWidget("addSTButton"), "clicked", G_CALLBACK(onAddSTButton_gui), (gpointer)this);
@@ -1792,9 +1789,8 @@ void Settings::initSearchTypes_gui()
     g_signal_connect(searchTypeView.get(), "button-release-event", G_CALLBACK(onSTButtonReleased_gui), (gpointer)this);
 }
 
-void Settings::onSTKeyReleased_gui(GtkWidget *widget, GdkEventKey *event, gpointer data)
+void Settings::onSTKeyReleased_gui(GtkWidget*, GdkEventKey *event, gpointer data)
 {
-    (void)widget;
     Settings *s = (Settings *)data;
 
     if (event->keyval == GDK_KEY_Up || event->keyval == GDK_KEY_Down)
@@ -1814,9 +1810,8 @@ void Settings::onSTKeyReleased_gui(GtkWidget *widget, GdkEventKey *event, gpoint
     }
 }
 
-void Settings::onSTButtonReleased_gui(GtkWidget *widget, GdkEventButton *event, gpointer data)
+void Settings::onSTButtonReleased_gui(GtkWidget*, GdkEventButton *event, gpointer data)
 {
-    (void)widget;
     Settings *s = (Settings *)data;
 
     if (event->button == 3 || event->button == 1)
@@ -1848,9 +1843,8 @@ void Settings::addOption_gui(GtkListStore *store, const string &type, const Stri
                        -1);
 }
 
-void Settings::onAddSTButton_gui(GtkWidget *widget, gpointer data)
+void Settings::onAddSTButton_gui(GtkWidget*, gpointer data)
 {
-    (void)widget;
     Settings *s = (Settings *)data;
 
     GtkWidget *dialog = s->getWidget("nameDialog");
@@ -2015,25 +2009,26 @@ void Settings::addExtension_gui(const string ext)
                        -1);
 }
 
-void Settings::onAddExtensionButton_gui(GtkWidget *widget, gpointer data)
+void Settings::onAddExtensionButton_gui(GtkWidget*, gpointer data)
 {
-    (void)widget;
     Settings *s = (Settings *)data;
 
     string error;
     string text = gtk_entry_get_text(GTK_ENTRY(s->getWidget("extensionEntry")));
     StringTokenizer<string> exts(text, ';');
-    for (StringIterC i = exts.getTokens().begin(), j = exts.getTokens().end(); i != j; ++i)
+    for (auto& i : exts.getTokens())
     {
-        if (!i->empty())
+        if (!i.empty())
         {
-            string ext = *i;
+            string ext = i;
             if (Util::checkExtension(ext))
             {
                 s->addExtension_gui(ext);
             }
             else
+            {
                 error += ext + " ";
+            }
         }
     }
 
@@ -2041,9 +2036,8 @@ void Settings::onAddExtensionButton_gui(GtkWidget *widget, gpointer data)
         s->showErrorDialog(string(_("Invalid extension: ")) + error);
 }
 
-void Settings::onModifySTButton_gui(GtkWidget *widget, gpointer data)
+void Settings::onModifySTButton_gui(GtkWidget*, gpointer data)
 {
-    (void)widget;
     Settings *s = (Settings *)data;
 
     GtkTreeIter iter;
@@ -2084,18 +2078,17 @@ void Settings::onModifySTButton_gui(GtkWidget *widget, gpointer data)
     gtk_list_store_clear(s->extensionStore);
     gtk_entry_set_text(GTK_ENTRY(s->getWidget("extensionEntry")), "");
 
-    for (StringIterC i = list.begin(), j = list.end(); i != j; ++i)
+    for (auto& i : list)
     {
-        string ext = *i;
+        string ext = i;
         gtk_list_store_append(s->extensionStore, &iter);
         gtk_list_store_set(s->extensionStore, &iter, 0, ext.c_str(), -1);
     }
     s->showExtensionDialog_gui(false);
 }
 
-void Settings::onRenameSTButton_gui(GtkWidget *widget, gpointer data)
+void Settings::onRenameSTButton_gui(GtkWidget*, gpointer data)
 {
-    (void)widget;
     Settings *s = (Settings *)data;
 
     GtkTreeIter iter;
@@ -2142,9 +2135,8 @@ void Settings::onRenameSTButton_gui(GtkWidget *widget, gpointer data)
                        -1);
 }
 
-void Settings::onRemoveSTButton_gui(GtkWidget *widget, gpointer data)
+void Settings::onRemoveSTButton_gui(GtkWidget*, gpointer data)
 {
-    (void)widget;
     Settings *s = (Settings *)data;
 
     GtkTreeIter iter;
@@ -2170,19 +2162,17 @@ void Settings::onRemoveSTButton_gui(GtkWidget *widget, gpointer data)
     gtk_list_store_remove(s->searchTypeStore, &iter);
 }
 
-void Settings::onDefaultSTButton_gui(GtkWidget *widget, gpointer data)
+void Settings::onDefaultSTButton_gui(GtkWidget*, gpointer data)
 {
-    (void)widget;
     Settings *s = (Settings *)data;
 
     gtk_list_store_clear(s->searchTypeStore);
     SettingsManager::getInstance()->setSearchTypeDefaults();
 
     // search types
-    const SettingsManager::SearchTypes &searchTypes = SettingsManager::getInstance()->getSearchTypes();
-    for (SettingsManager::SearchTypesIterC i = searchTypes.begin(), j = searchTypes.end(); i != j; ++i)
+    for (auto& i : SettingsManager::getInstance()->getSearchTypes())
     {
-        string type = i->first;
+        string type = i.first;
         bool predefined = false;
         int key = SearchManager::TYPE_ANY;
         if (type.size() == 1 && type[0] >= '1' && type[0] <= '7')
@@ -2193,7 +2183,7 @@ void Settings::onDefaultSTButton_gui(GtkWidget *widget, gpointer data)
             type = SearchManager::getTypeStr(key);
             predefined = true;
         }
-        s->addOption_gui(s->searchTypeStore, type, i->second, predefined, key);
+        s->addOption_gui(s->searchTypeStore, type, i.second, predefined, key);
     }
 }
 
@@ -2780,20 +2770,18 @@ bool Settings::loadFileTheme(const string &file)
         {
             xml.stepIn();
 
-            IntMap::iterator iit;
-            for (iit = defaultIntTheme.begin(); iit != defaultIntTheme.end(); ++iit)
+            for (auto& iit : defaultIntTheme)
             {
-                if (xml.findChild(iit->first))
-                    intMapTheme.insert(IntMap::value_type(iit->first, Util::toInt(xml.getChildData())));
+                if (xml.findChild(iit.first))
+                    intMapTheme.insert(IntMap::value_type(iit.first, Util::toInt(xml.getChildData())));
                 xml.resetCurrentChild();
             }
 
-            StringMap::iterator sit;
-            for (sit = defaultStringTheme.begin(); sit != defaultStringTheme.end(); ++sit)
+            for (auto& sit : defaultStringTheme)
             {
-                if (xml.findChild(sit->first))
+                if (xml.findChild(sit.first))
                 {
-                    stringMapTheme.insert(StringMap::value_type(sit->first, xml.getChildData()));
+                    stringMapTheme.insert(StringMap::value_type(sit.first, xml.getChildData()));
                 }
                 xml.resetCurrentChild();
             }
@@ -2844,19 +2832,15 @@ void Settings::saveFileTheme(const string &file)
     xml.addTag("Settings");
     xml.stepIn();
 
-    IntMap::iterator iit;
-
-    for (iit = intMapTheme.begin(); iit != intMapTheme.end(); ++iit)
+    for (auto& iit : intMapTheme)
     {
-        xml.addTag(iit->first, iit->second);
+        xml.addTag(iit.first, iit.second);
         xml.addChildAttrib(string("type"), string("int"));
     }
 
-    StringMap::iterator sit;
-
-    for (sit = stringMapTheme.begin(); sit != stringMapTheme.end(); ++sit)
+    for (auto& sit : stringMapTheme)
     {
-        xml.addTag(sit->first, sit->second);
+        xml.addTag(sit.first, sit.second);
         xml.addChildAttrib(string("type"), string("string"));
     }
 
@@ -2916,9 +2900,8 @@ void Settings::set(const string &key, const string &value)
     stringMapTheme[key] = value;
 }
 
-void Settings::onSoundFileBrowseClicked_gui(GtkWidget *widget, gpointer data)
+void Settings::onSoundFileBrowseClicked_gui(GtkWidget*, gpointer data)
 {
-    (void)widget;
     Settings *s = (Settings *)data;
 
     gtk_file_chooser_set_action(GTK_FILE_CHOOSER(s->getWidget("fileChooserDialog")), GTK_FILE_CHOOSER_ACTION_OPEN);
@@ -2944,9 +2927,8 @@ void Settings::onSoundFileBrowseClicked_gui(GtkWidget *widget, gpointer data)
     }
 }
 
-void Settings::onSoundPlayButton_gui(GtkWidget *widget, gpointer data)
+void Settings::onSoundPlayButton_gui(GtkWidget*, gpointer data)
 {
-    (void)widget;
     Settings *s = (Settings *)data;
 
     GtkTreeIter iter;
@@ -2962,44 +2944,38 @@ void Settings::onSoundPlayButton_gui(GtkWidget *widget, gpointer data)
     }
 }
 
-void Settings::onTextColorForeClicked_gui(GtkWidget *widget, gpointer data)
+void Settings::onTextColorForeClicked_gui(GtkWidget*, gpointer data)
 {
-    (void)widget;
     Settings *s = (Settings *)data;
     s->selectTextColor_gui(0);
 }
 
-void Settings::onTextColorBackClicked_gui(GtkWidget *widget, gpointer data)
+void Settings::onTextColorBackClicked_gui(GtkWidget*, gpointer data)
 {
-    (void)widget;
     Settings *s = (Settings *)data;
     s->selectTextColor_gui(1);
 }
 
-void Settings::onTextColorBWClicked_gui(GtkWidget *widget, gpointer data)
+void Settings::onTextColorBWClicked_gui(GtkWidget*, gpointer data)
 {
-    (void)widget;
     Settings *s = (Settings *)data;
     s->selectTextColor_gui(2);
 }
 
-void Settings::onTextStyleClicked_gui(GtkWidget *widget, gpointer data)
+void Settings::onTextStyleClicked_gui(GtkWidget*, gpointer data)
 {
-    (void)widget;
     Settings *s = (Settings *)data;
     s->selectTextStyle_gui(0);
 }
 
-void Settings::onTextStyleDefaultClicked_gui(GtkWidget *widget, gpointer data)
+void Settings::onTextStyleDefaultClicked_gui(GtkWidget*, gpointer data)
 {
-    (void)widget;
     Settings *s = (Settings *)data;
     s->selectTextStyle_gui(1);
 }
 
-void Settings::onPreviewAdd_gui(GtkWidget *widget, gpointer data)
+void Settings::onPreviewAdd_gui(GtkWidget*, gpointer data)
 {
-    (void)widget;
     Settings *s = (Settings*)data;
 
     string name = gtk_entry_get_text(GTK_ENTRY(s->getWidget("previewNameEntry")));
@@ -3032,9 +3008,8 @@ void Settings::onPreviewAdd_gui(GtkWidget *widget, gpointer data)
     }
 }
 
-void Settings::onPreviewRemove_gui(GtkWidget *widget, gpointer data)
+void Settings::onPreviewRemove_gui(GtkWidget*, gpointer data)
 {
-    (void)widget;
     Settings *s = (Settings *)data;
 
     GtkTreeIter iter;
@@ -3049,9 +3024,8 @@ void Settings::onPreviewRemove_gui(GtkWidget *widget, gpointer data)
     }
 }
 
-void Settings::onPreviewKeyReleased_gui(GtkWidget *widget, GdkEventKey *event, gpointer data)
+void Settings::onPreviewKeyReleased_gui(GtkWidget*, GdkEventKey *event, gpointer data)
 {
-    (void)widget;
     Settings *s = (Settings *)data;
 
     if (event->keyval == GDK_KEY_Up || event->keyval == GDK_KEY_Down)
@@ -3068,9 +3042,8 @@ void Settings::onPreviewKeyReleased_gui(GtkWidget *widget, GdkEventKey *event, g
     }
 }
 
-void Settings::onPreviewButtonReleased_gui(GtkWidget *widget, GdkEventButton *event, gpointer data)
+void Settings::onPreviewButtonReleased_gui(GtkWidget*, GdkEventButton *event, gpointer data)
 {
-    (void)widget;
     Settings *s = (Settings *)data;
 
     if (event->button == 3 || event->button == 1)
@@ -3087,9 +3060,8 @@ void Settings::onPreviewButtonReleased_gui(GtkWidget *widget, GdkEventButton *ev
     }
 }
 
-void Settings::onPreviewApply_gui(GtkWidget *widget, gpointer data)
+void Settings::onPreviewApply_gui(GtkWidget*, gpointer data)
 {
-    (void)widget;
     Settings *s = (Settings *)data;
 
     string name = gtk_entry_get_text(GTK_ENTRY(s->getWidget("previewNameEntry")));
@@ -3120,9 +3092,8 @@ void Settings::onPreviewApply_gui(GtkWidget *widget, gpointer data)
     }
 }
 
-void Settings::onAddShare_gui(GtkWidget *widget, gpointer data)
+void Settings::onAddShare_gui(GtkWidget*, gpointer data)
 {
-    (void)widget;
     Settings *s = (Settings *)data;
 
     gtk_file_chooser_set_action(GTK_FILE_CHOOSER(s->getWidget("dirChooserDialog")), GTK_FILE_CHOOSER_ACTION_SELECT_FOLDER);
@@ -3159,9 +3130,8 @@ void Settings::onAddShare_gui(GtkWidget *widget, gpointer data)
     }
 }
 
-void Settings::onPictureShare_gui(GtkWidget *widget, gpointer data)
+void Settings::onPictureShare_gui(GtkWidget*, gpointer data)
 {
-    (void)widget;
     Settings *s = (Settings *)data;
 
     string name = "MAGNET-IMAGE";
@@ -3383,11 +3353,8 @@ void Settings::loadUserCommands_gui()
     GtkTreeIter iter;
     gtk_list_store_clear(userCommandStore);
 
-    UserCommand::List userCommands = FavoriteManager::getInstance()->getUserCommands();
-
-    for (auto i = userCommands.begin(); i != userCommands.end(); ++i)
+    for (auto &uc : FavoriteManager::getInstance()->getUserCommands())
     {
-        UserCommand &uc = *i;
         if (!uc.isSet(UserCommand::FLAG_NOSAVE))
         {
             gtk_list_store_append(userCommandStore, &iter);
@@ -3534,9 +3501,8 @@ void Settings::showErrorDialog(const string error)
     gtk_widget_show(errorDialog);
 }
 
-void Settings::onOptionsViewToggled_gui(GtkCellRendererToggle *cell, gchar *path, gpointer data)
+void Settings::onOptionsViewToggled_gui(GtkCellRendererToggle*, gchar *path, gpointer data)
 {
-    (void)cell;
     GtkTreeIter iter;
     GtkListStore *store = (GtkListStore *)data;
     GtkTreeModel *model = GTK_TREE_MODEL(store);
@@ -3549,9 +3515,8 @@ void Settings::onOptionsViewToggled_gui(GtkCellRendererToggle *cell, gchar *path
     }
 }
 
-void Settings::onInDirect_gui(GtkToggleButton *button, gpointer data)
+void Settings::onInDirect_gui(GtkToggleButton*, gpointer data)
 {
-    (void)button;
     Settings *s = (Settings *)data;
     gtk_widget_set_sensitive(s->getWidget("ipEntry"), true);
     gtk_widget_set_sensitive(s->getWidget("ipLabel"), true);
@@ -3564,9 +3529,8 @@ void Settings::onInDirect_gui(GtkToggleButton *button, gpointer data)
     gtk_widget_set_sensitive(s->getWidget("forceIPCheckButton"), true);
 }
 
-void Settings::onInFW_UPnP_gui(GtkToggleButton *button, gpointer data)
+void Settings::onInFW_UPnP_gui(GtkToggleButton*, gpointer data)
 {
-    (void)button;
     Settings *s = (Settings *)data;
     gtk_widget_set_sensitive(s->getWidget("ipEntry"), true);
     gtk_widget_set_sensitive(s->getWidget("ipLabel"), true);
@@ -3580,9 +3544,8 @@ void Settings::onInFW_UPnP_gui(GtkToggleButton *button, gpointer data)
 }
 
 
-void Settings::onInFW_NAT_gui(GtkToggleButton *button, gpointer data)
+void Settings::onInFW_NAT_gui(GtkToggleButton*, gpointer data)
 {
-    (void)button;
     Settings *s = (Settings *)data;
     gtk_widget_set_sensitive(s->getWidget("ipEntry"), true);
     gtk_widget_set_sensitive(s->getWidget("ipLabel"), true);
@@ -3595,9 +3558,8 @@ void Settings::onInFW_NAT_gui(GtkToggleButton *button, gpointer data)
     gtk_widget_set_sensitive(s->getWidget("forceIPCheckButton"), true);
 }
 
-void Settings::onInPassive_gui(GtkToggleButton *button, gpointer data)
+void Settings::onInPassive_gui(GtkToggleButton*, gpointer data)
 {
-    (void)button;
     Settings *s = (Settings *)data;
     gtk_widget_set_sensitive(s->getWidget("ipEntry"), false);
     gtk_widget_set_sensitive(s->getWidget("ipLabel"), false);
@@ -3610,9 +3572,8 @@ void Settings::onInPassive_gui(GtkToggleButton *button, gpointer data)
     gtk_widget_set_sensitive(s->getWidget("forceIPCheckButton"), false);
 }
 
-void Settings::onOutDirect_gui(GtkToggleButton *button, gpointer data)
+void Settings::onOutDirect_gui(GtkToggleButton*, gpointer data)
 {
-    (void)button;
     Settings *s = (Settings *)data;
     gtk_widget_set_sensitive(s->getWidget("socksIPEntry"), false);
     gtk_widget_set_sensitive(s->getWidget("socksIPLabel"), false);
@@ -3625,9 +3586,8 @@ void Settings::onOutDirect_gui(GtkToggleButton *button, gpointer data)
     gtk_widget_set_sensitive(s->getWidget("socksCheckButton"), false);
 }
 
-void Settings::onSocks5_gui(GtkToggleButton *button, gpointer data)
+void Settings::onSocks5_gui(GtkToggleButton*, gpointer data)
 {
-    (void)button;
     Settings *s = (Settings *)data;
     gtk_widget_set_sensitive(s->getWidget("socksIPEntry"), true);
     gtk_widget_set_sensitive(s->getWidget("socksIPLabel"), true);
@@ -3640,9 +3600,8 @@ void Settings::onSocks5_gui(GtkToggleButton *button, gpointer data)
     gtk_widget_set_sensitive(s->getWidget("socksCheckButton"), true);
 }
 
-void Settings::onBrowseFinished_gui(GtkWidget *widget, gpointer data)
+void Settings::onBrowseFinished_gui(GtkWidget*, gpointer data)
 {
-    (void)widget;
     Settings *s = (Settings *)data;
 
     //gtk_file_chooser_set_action(GTK_FILE_CHOOSER(s->getWidget("dirChooserDialog")), GTK_FILE_CHOOSER_ACTION_CREATE_FOLDER);
@@ -3660,9 +3619,8 @@ void Settings::onBrowseFinished_gui(GtkWidget *widget, gpointer data)
     }
 }
 
-void Settings::onBrowseUnfinished_gui(GtkWidget *widget, gpointer data)
+void Settings::onBrowseUnfinished_gui(GtkWidget*, gpointer data)
 {
-    (void)widget;
     Settings *s = (Settings *)data;
 
     //gtk_file_chooser_set_action(GTK_FILE_CHOOSER(s->getWidget("dirChooserDialog")), GTK_FILE_CHOOSER_ACTION_CREATE_FOLDER);
@@ -3680,18 +3638,16 @@ void Settings::onBrowseUnfinished_gui(GtkWidget *widget, gpointer data)
     }
 }
 
-void Settings::onPublicHubs_gui(GtkWidget *widget, gpointer data)
+void Settings::onPublicHubs_gui(GtkWidget*, gpointer data)
 {
-    (void)widget;
     Settings *s = (Settings *)data;
     GtkTreeIter iter;
 
     gtk_list_store_clear(s->publicListStore);
-    StringList lists(FavoriteManager::getInstance()->getHubLists());
-    for (auto idx = lists.begin(); idx != lists.end(); ++idx)
+    for (auto& idx : FavoriteManager::getInstance()->getHubLists())
     {
         gtk_list_store_append(s->publicListStore, &iter);
-        gtk_list_store_set(s->publicListStore, &iter, s->publicListView.col(_("List")), (*idx).c_str(), -1);
+        gtk_list_store_set(s->publicListStore, &iter, s->publicListView.col(_("List")), idx.c_str(), -1);
     }
 
     gint response = gtk_dialog_run(GTK_DIALOG(s->getWidget("publicHubsDialog")));
@@ -3713,9 +3669,8 @@ void Settings::onPublicHubs_gui(GtkWidget *widget, gpointer data)
     }
 }
 
-void Settings::onPublicAdd_gui(GtkWidget *widget, gpointer data)
+void Settings::onPublicAdd_gui(GtkWidget*, gpointer data)
 {
-    (void)widget;
     Settings *s = (Settings *)data;
     GtkTreeIter iter;
     GtkTreePath *path;
@@ -3729,9 +3684,8 @@ void Settings::onPublicAdd_gui(GtkWidget *widget, gpointer data)
     gtk_tree_path_free(path);
 }
 
-void Settings::onPublicMoveUp_gui(GtkWidget *widget, gpointer data)
+void Settings::onPublicMoveUp_gui(GtkWidget*, gpointer data)
 {
-    (void)widget;
     Settings *s = (Settings *)data;
     GtkTreeIter prev, current;
     GtkTreeModel *m = GTK_TREE_MODEL(s->publicListStore);
@@ -3746,9 +3700,8 @@ void Settings::onPublicMoveUp_gui(GtkWidget *widget, gpointer data)
     }
 }
 
-void Settings::onPublicMoveDown_gui(GtkWidget *widget, gpointer data)
+void Settings::onPublicMoveDown_gui(GtkWidget*, gpointer data)
 {
-    (void)widget;
     Settings *s = (Settings *)data;
     GtkTreeIter current, next;
     GtkTreeSelection *sel = gtk_tree_view_get_selection(s->publicListView.get());
@@ -3761,9 +3714,8 @@ void Settings::onPublicMoveDown_gui(GtkWidget *widget, gpointer data)
     }
 }
 
-void Settings::onPublicEdit_gui(GtkCellRendererText *cell, char *path, char *text, gpointer data)
+void Settings::onPublicEdit_gui(GtkCellRendererText*, char *path, char *text, gpointer data)
 {
-    (void)cell;
     Settings *s = (Settings *)data;
     GtkTreeIter iter;
 
@@ -3771,9 +3723,8 @@ void Settings::onPublicEdit_gui(GtkCellRendererText *cell, char *path, char *tex
         gtk_list_store_set(s->publicListStore, &iter, 0, text, -1);
 }
 
-void Settings::onPublicRemove_gui(GtkWidget *widget, gpointer data)
+void Settings::onPublicRemove_gui(GtkWidget*, gpointer data)
 {
-    (void)widget;
     Settings *s = (Settings *)data;
     GtkTreeIter iter;
     GtkTreeSelection *selection = gtk_tree_view_get_selection(s->publicListView.get());
@@ -3782,9 +3733,8 @@ void Settings::onPublicRemove_gui(GtkWidget *widget, gpointer data)
         gtk_list_store_remove(s->publicListStore, &iter);
 }
 
-void Settings::onAddFavorite_gui(GtkWidget *widget, gpointer data)
+void Settings::onAddFavorite_gui(GtkWidget*, gpointer data)
 {
-    (void)widget;
     Settings *s = (Settings *)data;
 
     gint response = gtk_dialog_run(GTK_DIALOG(s->getWidget("dirChooserDialog")));
@@ -3829,9 +3779,8 @@ void Settings::onAddFavorite_gui(GtkWidget *widget, gpointer data)
     }
 }
 
-void Settings::onRemoveFavorite_gui(GtkWidget *widget, gpointer data)
+void Settings::onRemoveFavorite_gui(GtkWidget*, gpointer data)
 {
-    (void)widget;
     Settings *s = (Settings *)data;
     GtkTreeIter iter;
     GtkTreeSelection *selection = gtk_tree_view_get_selection(s->downloadToView.get());
@@ -3847,11 +3796,8 @@ void Settings::onRemoveFavorite_gui(GtkWidget *widget, gpointer data)
     }
 }
 
-gboolean Settings::onFavoriteButtonReleased_gui(GtkWidget *widget, GdkEventButton *event, gpointer data)
+gboolean Settings::onFavoriteButtonReleased_gui(GtkWidget*, GdkEventButton*, gpointer data)
 {
-    (void)widget;
-    (void)event;
-
     Settings *s = (Settings *)data;
     GtkTreeIter iter;
     GtkTreeSelection *selection = gtk_tree_view_get_selection(s->downloadToView.get());
@@ -3876,9 +3822,8 @@ void Settings::addShare_gui(string path, string name, int64_t size)
                        -1);
 }
 
-void Settings::onRemoveShare_gui(GtkWidget *widget, gpointer data)
+void Settings::onRemoveShare_gui(GtkWidget*, gpointer data)
 {
-    (void)widget;
     Settings *s = (Settings *)data;
     GtkTreeIter iter;
     GtkTreeSelection *selection = gtk_tree_view_get_selection(s->shareView.get());
@@ -3893,11 +3838,8 @@ void Settings::onRemoveShare_gui(GtkWidget *widget, gpointer data)
     }
 }
 
-gboolean Settings::onShareButtonReleased_gui(GtkWidget *widget, GdkEventButton *event, gpointer data)
+gboolean Settings::onShareButtonReleased_gui(GtkWidget*, GdkEventButton*, gpointer data)
 {
-    (void)widget;
-    (void)event;
-
     Settings *s = (Settings *)data;
     GtkTreeSelection *selection = gtk_tree_view_get_selection(s->shareView.get());
 
@@ -3909,9 +3851,8 @@ gboolean Settings::onShareButtonReleased_gui(GtkWidget *widget, GdkEventButton *
     return false;
 }
 
-gboolean Settings::onShareHiddenPressed_gui(GtkToggleButton *togglebutton, gpointer data)
+gboolean Settings::onShareHiddenPressed_gui(GtkToggleButton*, gpointer data)
 {
-    (void)togglebutton;
     Settings *s = (Settings *)data;
 
     bool show = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(s->getWidget("shareHiddenCheckButton")));
@@ -3929,22 +3870,21 @@ void Settings::updateShares_gui()
     string vname;
 
     gtk_list_store_clear(shareStore);
-    StringPairList directories = ShareManager::getInstance()->getDirectories();
-    for (auto it = directories.begin(); it != directories.end(); ++it)
+    for (auto& it : ShareManager::getInstance()->getDirectories())
     {
-        size = ShareManager::getInstance()->getShareSize(it->second);
+        size = ShareManager::getInstance()->getShareSize(it.second);
 
         if (size == -1 && !BOOLSETTING(SHARE_HIDDEN))
         {
-            vname = _("[HIDDEN SHARE] ") + it->first;
+            vname = _("[HIDDEN SHARE] ") + it.first;
             size = 0;
         } else
-            vname = it->first;
+            vname = it.first;
 
         gtk_list_store_append(shareStore, &iter);
         gtk_list_store_set(shareStore, &iter,
                            shareView.col(_("Virtual Name")), vname.c_str(),
-                           shareView.col(_("Directory")), it->second.c_str(),
+                           shareView.col(_("Directory")), it.second.c_str(),
                            shareView.col(_("Size")), Util::formatBytes(size).c_str(),
                            shareView.col("Real Size"), size,
                            -1);
@@ -3954,9 +3894,8 @@ void Settings::updateShares_gui()
     gtk_label_set_text(GTK_LABEL(getWidget("sharedSizeLabel")), text.c_str());
 }
 
-void Settings::onLogBrowseClicked_gui(GtkWidget *widget, gpointer data)
+void Settings::onLogBrowseClicked_gui(GtkWidget*, gpointer data)
 {
-    (void)widget;
     Settings *s = (Settings *)data;
 
     gint response = gtk_dialog_run(GTK_DIALOG(s->getWidget("dirChooserDialog")));
@@ -4023,9 +3962,8 @@ void Settings::onLogFinishedDownloadClicked_gui(GtkToggleButton *button, gpointe
     gtk_widget_set_sensitive(s->getWidget("logFinishedDownloadsEntryFile"), toggled);
 }
 
-void Settings::onUserCommandAdd_gui(GtkWidget *widget, gpointer data)
+void Settings::onUserCommandAdd_gui(GtkWidget*, gpointer data)
 {
-    (void)widget;
     Settings *s = (Settings *)data;
 
     // Reset dialog to default
@@ -4059,9 +3997,8 @@ void Settings::onUserCommandAdd_gui(GtkWidget *widget, gpointer data)
         s->saveUserCommand(NULL);
 }
 
-void Settings::onUserCommandEdit_gui(GtkWidget *widget, gpointer data)
+void Settings::onUserCommandEdit_gui(GtkWidget*, gpointer data)
 {
-    (void)widget;
     Settings *s = (Settings *)data;
     GtkTreeIter iter;
     GtkTreeSelection *selection = gtk_tree_view_get_selection(s->userCommandView.get());
@@ -4098,8 +4035,8 @@ void Settings::onUserCommandEdit_gui(GtkWidget *widget, gpointer data)
             gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(s->getWidget("commandDialogOnce")), once);
 
             // Chat Command
-            if((!strncmp(command.c_str(), "<%[mynick]> ", 12) ||
-                !strncmp(command.c_str(), "<%[myNI]> ", 10)) &&
+            if((strncmp(command.c_str(), "<%[mynick]> ", 12) == 0 ||
+                strncmp(command.c_str(), "<%[myNI]> ", 10) == 0) &&
                     command.find('|') == command.length() - 1)
             {
                 string::size_type i = command.find('>') + 2;
@@ -4107,7 +4044,7 @@ void Settings::onUserCommandEdit_gui(GtkWidget *widget, gpointer data)
                 gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(s->getWidget("commandDialogChat")), true);
             }
             // PM command
-            else if (!strncmp(command.c_str(), "$To: ", 5) && (
+            else if (strncmp(command.c_str(), "$To: ", 5) == 0 && (
                          command.find(" From: %[myNI] $<%[myNI]> ") != string::npos ||
                          command.find(" From: %[mynick] $<%[mynick]> ") != string::npos) &&
                      command.find('|') == command.length() - 1)
@@ -4147,9 +4084,8 @@ void Settings::onUserCommandEdit_gui(GtkWidget *widget, gpointer data)
     }
 }
 
-void Settings::onUserCommandMoveUp_gui(GtkWidget *widget, gpointer data)
+void Settings::onUserCommandMoveUp_gui(GtkWidget*, gpointer data)
 {
-    (void)widget;
     Settings *s = (Settings *)data;
     GtkTreeIter prev, current;
     GtkTreeModel *m = GTK_TREE_MODEL(s->userCommandStore);
@@ -4172,9 +4108,8 @@ void Settings::onUserCommandMoveUp_gui(GtkWidget *widget, gpointer data)
     }
 }
 
-void Settings::onUserCommandMoveDown_gui(GtkWidget *widget, gpointer data)
+void Settings::onUserCommandMoveDown_gui(GtkWidget*, gpointer data)
 {
-    (void)widget;
     Settings *s = (Settings *)data;
     GtkTreeIter current, next;
     GtkTreeSelection *selection = gtk_tree_view_get_selection(s->userCommandView.get());
@@ -4195,9 +4130,8 @@ void Settings::onUserCommandMoveDown_gui(GtkWidget *widget, gpointer data)
     }
 }
 
-void Settings::onUserCommandRemove_gui(GtkWidget *widget, gpointer data)
+void Settings::onUserCommandRemove_gui(GtkWidget*, gpointer data)
 {
-    (void)widget;
     Settings *s = (Settings *)data;
     GtkTreeIter iter;
     GtkTreeSelection *selection = gtk_tree_view_get_selection(s->userCommandView.get());
@@ -4278,11 +4212,8 @@ void Settings::onUserCommandTypePM_gui(GtkWidget *widget, gpointer data)
     }
 }
 
-gboolean Settings::onUserCommandKeyPress_gui(GtkWidget *widget, GdkEventKey *event, gpointer data)
+gboolean Settings::onUserCommandKeyPress_gui(GtkWidget*, GdkEventKey*, gpointer data)
 {
-    (void)widget;
-    (void)event;
-
     Settings *s = (Settings *)data;
 
     s->updateUserCommandTextSent_gui();
@@ -4290,9 +4221,8 @@ gboolean Settings::onUserCommandKeyPress_gui(GtkWidget *widget, GdkEventKey *eve
     return false;
 }
 
-void Settings::onCertificatesPrivateBrowseClicked_gui(GtkWidget *widget, gpointer data)
+void Settings::onCertificatesPrivateBrowseClicked_gui(GtkWidget*, gpointer data)
 {
-    (void)widget;
     Settings *s = (Settings *)data;
 
     gtk_file_chooser_set_action(GTK_FILE_CHOOSER(s->getWidget("fileChooserDialog")), GTK_FILE_CHOOSER_ACTION_OPEN);
@@ -4310,9 +4240,8 @@ void Settings::onCertificatesPrivateBrowseClicked_gui(GtkWidget *widget, gpointe
     }
 }
 
-void Settings::onCertificatesFileBrowseClicked_gui(GtkWidget *widget, gpointer data)
+void Settings::onCertificatesFileBrowseClicked_gui(GtkWidget*, gpointer data)
 {
-    (void)widget;
     Settings *s = (Settings *)data;
 
     gtk_file_chooser_set_action(GTK_FILE_CHOOSER(s->getWidget("fileChooserDialog")), GTK_FILE_CHOOSER_ACTION_OPEN);
@@ -4330,9 +4259,8 @@ void Settings::onCertificatesFileBrowseClicked_gui(GtkWidget *widget, gpointer d
     }
 }
 
-void Settings::onCertificatesPathBrowseClicked_gui(GtkWidget *widget, gpointer data)
+void Settings::onCertificatesPathBrowseClicked_gui(GtkWidget*, gpointer data)
 {
-    (void)widget;
     Settings *s = (Settings *)data;
 
     gtk_file_chooser_set_action(GTK_FILE_CHOOSER(s->getWidget("dirChooserDialog")), GTK_FILE_CHOOSER_ACTION_SELECT_FOLDER);
@@ -4350,9 +4278,8 @@ void Settings::onCertificatesPathBrowseClicked_gui(GtkWidget *widget, gpointer d
     }
 }
 
-void Settings::onGenerateCertificatesClicked_gui(GtkWidget *widget, gpointer data)
+void Settings::onGenerateCertificatesClicked_gui(GtkWidget*, gpointer data)
 {
-    (void)widget;
     Settings *s = (Settings *)data;
     Func0<Settings> *func = new Func0<Settings>(s, &Settings::generateCertificates_client);
     WulforManager::get()->dispatchClientFunc(func);
@@ -4419,9 +4346,8 @@ void Settings::generateCertificates_client()
     }
 }
 
-void Settings::onExceptionAdd_gui(GtkWidget *widget, gpointer data)
+void Settings::onExceptionAdd_gui(GtkWidget*, gpointer data)
 {
-    (void)widget;
     Settings *s = (Settings *)data;
     GtkTreeIter iter;
     GtkTreePath *path;
@@ -4435,9 +4361,8 @@ void Settings::onExceptionAdd_gui(GtkWidget *widget, gpointer data)
     gtk_tree_path_free(path);
 }
 
-void Settings::onExceptionEdit_gui(GtkCellRendererText *cell, char *path, char *text, gpointer data)
+void Settings::onExceptionEdit_gui(GtkCellRendererText*, char *path, char *text, gpointer data)
 {
-    (void)cell;
     Settings *s = (Settings *)data;
     GtkTreeIter iter;
 
@@ -4445,9 +4370,8 @@ void Settings::onExceptionEdit_gui(GtkCellRendererText *cell, char *path, char *
         gtk_list_store_set(s->exceptionStore, &iter, 0, text, -1);
 }
 
-void Settings::onExceptionRemove_gui(GtkWidget *widget, gpointer data)
+void Settings::onExceptionRemove_gui(GtkWidget*, gpointer data)
 {
-    (void)widget;
     Settings *s = (Settings *)data;
     GtkTreeIter iter;
     GtkTreeSelection *selection = gtk_tree_view_get_selection(s->exceptionView.get());
@@ -4456,17 +4380,16 @@ void Settings::onExceptionRemove_gui(GtkWidget *widget, gpointer data)
         gtk_list_store_remove(s->exceptionStore, &iter);
 }
 
-void Settings::onExceptionDefault_gui(GtkWidget *widget, gpointer data)
+void Settings::onExceptionDefault_gui(GtkWidget*, gpointer data)
 {
-    (void)widget;
     Settings *s = (Settings *)data;
     GtkTreeIter iter;
 
     gtk_list_store_clear(s->exceptionStore);
     StringTokenizer<string> lists(SETTING(SKIPLIST_SHARE), "|");
-    for (auto idx = lists.getTokens().begin(); idx != lists.getTokens().end(); ++idx)
+    for (auto& idx : lists.getTokens())
     {
         gtk_list_store_append(s->exceptionStore, &iter);
-        gtk_list_store_set(s->exceptionStore, &iter, s->exceptionView.col(_("List")), (*idx).c_str(), -1);
+        gtk_list_store_set(s->exceptionStore, &iter, s->exceptionView.col(_("List")), idx.c_str(), -1);
     }
 }

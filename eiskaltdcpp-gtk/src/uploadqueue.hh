@@ -41,7 +41,7 @@ private:
     void getParams(const std::string& file, dcpp::UserPtr user, dcpp::StringMap &params);
     void addFile(dcpp::StringMap &params, GtkTreeIter *iter);
     void AddFile_gui(dcpp::StringMap params);
-    void removeUser(std::string cid);
+    void removeUser(const std::string &cid);
 
     static void onGrantSlotItemClicked_gui(GtkMenuItem *item, gpointer data);
     static void onRemoveItem_gui(GtkMenuItem *item, gpointer data);
@@ -53,11 +53,11 @@ private:
     static gboolean onButtonReleased_gui(GtkWidget *widget, GdkEventButton *event, gpointer data);
 
     //client funcs
-    void grantSlot_client(const std::string cid);
-    void getFileList_client(const std::string cid);
-    void removeUploadFromQueue(const std::string cid);
-    void addFavoriteUser_client(const std::string cid);
-    void init();
+    void grantSlot_client(const std::string &cid);
+    void getFileList_client(const std::string &cid);
+    void removeUploadFromQueue(const std::string &cid);
+    void addFavoriteUser_client(const std::string &cid);
+    void intilaize_client();
 
     virtual void on(dcpp::UploadManagerListener::WaitingAddFile, const dcpp::HintedUser& hUser, const std::string& file) noexcept;
     virtual void on(dcpp::UploadManagerListener::WaitingRemoveUser, const dcpp::HintedUser& user) noexcept;

@@ -378,7 +378,7 @@ string WulforManager::getURL()
     return argv1;
 }
 
-string WulforManager::getPath()
+string WulforManager::getPath() const
 {
     return path;
 }

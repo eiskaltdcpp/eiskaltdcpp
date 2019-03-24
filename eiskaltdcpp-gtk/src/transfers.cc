@@ -129,7 +129,7 @@ void Transfers::popupTransferMenu_gui()
     GtkTreePath *path;
     GtkTreeIter iter;
     GList *list = gtk_tree_selection_get_selected_rows(transferSelection, NULL);
-    string target = "";
+    string target = string();
 
     for (GList *i = list; i; i = i->next)
     {
@@ -168,10 +168,8 @@ void Transfers::popupTransferMenu_gui()
     gtk_widget_show_all(getWidget("transferMenu"));
 }
 
-void Transfers::onGetFileListClicked_gui(GtkMenuItem *item, gpointer data)
+void Transfers::onGetFileListClicked_gui(GtkMenuItem*, gpointer data)
 {
-    (void)item;
-
     Transfers *tr = (Transfers *)data;
     GtkTreeIter iter;
     GtkTreePath *path;
@@ -202,10 +200,8 @@ void Transfers::onGetFileListClicked_gui(GtkMenuItem *item, gpointer data)
     g_list_free(list);
 }
 
-void Transfers::onMatchQueueClicked_gui(GtkMenuItem *item, gpointer data)
+void Transfers::onMatchQueueClicked_gui(GtkMenuItem*, gpointer data)
 {
-    (void)item;
-
     Transfers *tr = (Transfers *)data;
     GtkTreeIter iter;
     GtkTreePath *path;
@@ -236,10 +232,8 @@ void Transfers::onMatchQueueClicked_gui(GtkMenuItem *item, gpointer data)
     g_list_free(list);
 }
 
-void Transfers::onPrivateMessageClicked_gui(GtkMenuItem *item, gpointer data)
+void Transfers::onPrivateMessageClicked_gui(GtkMenuItem*, gpointer data)
 {
-    (void)item;
-
     Transfers *tr = (Transfers *)data;
     string cid;
     GtkTreeIter iter;
@@ -266,10 +260,8 @@ void Transfers::onPrivateMessageClicked_gui(GtkMenuItem *item, gpointer data)
     g_list_free(list);
 }
 
-void Transfers::onAddFavoriteUserClicked_gui(GtkMenuItem *item, gpointer data)
+void Transfers::onAddFavoriteUserClicked_gui(GtkMenuItem*, gpointer data)
 {
-    (void)item;
-
     Transfers *tr = (Transfers *)data;
     string cid;
     GtkTreeIter iter;
@@ -301,10 +293,8 @@ void Transfers::onAddFavoriteUserClicked_gui(GtkMenuItem *item, gpointer data)
     g_list_free(list);
 }
 
-void Transfers::onGrantExtraSlotClicked_gui(GtkMenuItem *item, gpointer data)
+void Transfers::onGrantExtraSlotClicked_gui(GtkMenuItem*, gpointer data)
 {
-    (void)item;
-
     Transfers *tr = (Transfers *)data;
     GtkTreeIter iter;
     GtkTreePath *path;
@@ -335,10 +325,8 @@ void Transfers::onGrantExtraSlotClicked_gui(GtkMenuItem *item, gpointer data)
     g_list_free(list);
 }
 
-void Transfers::onRemoveUserFromQueueClicked_gui(GtkMenuItem *item, gpointer data)
+void Transfers::onRemoveUserFromQueueClicked_gui(GtkMenuItem*, gpointer data)
 {
-    (void)item;
-
     Transfers *tr = (Transfers *)data;
     string cid;
     GtkTreeIter iter;
@@ -370,10 +358,8 @@ void Transfers::onRemoveUserFromQueueClicked_gui(GtkMenuItem *item, gpointer dat
     g_list_free(list);
 }
 
-void Transfers::onForceAttemptClicked_gui(GtkMenuItem *menuItem, gpointer data)
+void Transfers::onForceAttemptClicked_gui(GtkMenuItem*, gpointer data)
 {
-    (void)menuItem;
-
     Transfers *tr = (Transfers *)data;
     string cid;
     GtkTreeIter iter;
@@ -398,10 +384,8 @@ void Transfers::onForceAttemptClicked_gui(GtkMenuItem *menuItem, gpointer data)
     g_list_free(list);
 }
 
-void Transfers::onCloseConnectionClicked_gui(GtkMenuItem *menuItem, gpointer data)
+void Transfers::onCloseConnectionClicked_gui(GtkMenuItem*, gpointer data)
 {
-    (void)menuItem;
-
     Transfers *tr = (Transfers *)data;
     string cid;
     GtkTreeIter iter;
@@ -437,10 +421,8 @@ void Transfers::onCloseConnectionClicked_gui(GtkMenuItem *menuItem, gpointer dat
     g_list_free(list);
 }
 
-gboolean Transfers::onTransferButtonPressed_gui(GtkWidget *widget, GdkEventButton *event, gpointer data)
+gboolean Transfers::onTransferButtonPressed_gui(GtkWidget*, GdkEventButton *event, gpointer data)
 {
-    (void)widget;
-
     Transfers *tr = (Transfers *)data;
 
     if (event->button == 3)
@@ -459,10 +441,8 @@ gboolean Transfers::onTransferButtonPressed_gui(GtkWidget *widget, GdkEventButto
     return false;
 }
 
-gboolean Transfers::onTransferButtonReleased_gui(GtkWidget *widget, GdkEventButton *event, gpointer data)
+gboolean Transfers::onTransferButtonReleased_gui(GtkWidget*, GdkEventButton *event, gpointer data)
 {
-    (void)widget;
-
     Transfers *tr = (Transfers *)data;
     int count = gtk_tree_selection_count_selected_rows(tr->transferSelection);
 
@@ -950,13 +930,13 @@ void Transfers::on(DownloadManagerListener::Starting, Download* dl) noexcept
 
 void Transfers::on(DownloadManagerListener::Tick, const DownloadList& dls) noexcept
 {
-    for (auto it = dls.begin(); it != dls.end(); ++it)
+    for (auto& it : dls)
     {
-        Download* dl = *it;
+        Download* dl = it;
         StringMap params;
         string flags;
 
-        getParams_client(params, *it);
+        getParams_client(params, dl);
 
         if (dl->getUserConnection().isSecure())
         {
@@ -1143,9 +1123,9 @@ void Transfers::on(UploadManagerListener::Starting, Upload* ul) noexcept
 
 void Transfers::on(UploadManagerListener::Tick, const UploadList& uls) noexcept
 {
-    for (auto it = uls.begin(); it != uls.end(); ++it)
+    for (auto& it : uls)
     {
-        Upload* ul = *it;
+        Upload* ul = it;
         StringMap params;
         string flags;
 

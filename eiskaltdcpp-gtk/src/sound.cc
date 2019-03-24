@@ -58,7 +58,7 @@ Sound* Sound::get()
     return pSound;
 }
 
-void Sound::sound_init()
+void Sound::sound_init() const
 {
 #ifdef USE_LIBGNOME2
     gnome_sound_init(NULL);
@@ -145,7 +145,7 @@ void Sound::playSound(const string &target)
 #endif
 }
 
-void Sound::sound_finalize()
+void Sound::sound_finalize() const
 {
 #ifdef USE_LIBGNOME2
     gnome_sound_shutdown();

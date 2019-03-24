@@ -652,7 +652,7 @@ void ShareBrowser::find_gui()
     bool findLeafNode = true;
     int cursorPos, hits = 0;
     DirectoryListing::Directory *dir = nullptr;
-    DirectoryListing::File::Iter file;
+    DirectoryListing::File::Iter _file;
     GtkTreeIter iter;
     GtkTreeModel *m = GTK_TREE_MODEL(dirStore);
     GtkTreePath *dirPath = gtk_tree_path_new_first();
@@ -712,9 +712,9 @@ void ShareBrowser::find_gui()
         dir = dirView.getValue<gpointer, DirectoryListing::Directory *>(&iter, "DL Dir");
         std::sort(dir->files.begin(), dir->files.end(), DirectoryListing::File::FileSort());
 
-        for (file = dir->files.begin(), cursorPos = dir->directories.size(); file != dir->files.end(); ++file, ++cursorPos)
+        for (_file = dir->files.begin(), cursorPos = dir->directories.size(); _file != dir->files.end(); ++_file, ++cursorPos)
         {
-            name = Text::toLower((*file)->getName());
+            name = Text::toLower((*_file)->getName());
 
             // We found a matching file. Update the cursors and the fileView if necessary.
             if (name.find(search, 0) != string::npos && hits++ == skipHits)

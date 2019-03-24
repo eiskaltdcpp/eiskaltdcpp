@@ -50,6 +50,6 @@ public:
 private:
     static Sound *pSound;
 
-    void sound_init();
-    void sound_finalize();
+    void sound_init() const;
+    void sound_finalize() const;
 };
