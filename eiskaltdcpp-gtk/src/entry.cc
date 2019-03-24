@@ -69,9 +69,9 @@ void Entry::remove()
 /*
  * Generates a unique ID to allow for duplicate entries
  */
-string Entry::generateID()
+string Entry::generateID(const Entry *ptr)
 {
-    return dcpp::Util::toString((long)this);
+    return dcpp::Util::toString(reinterpret_cast<uint64_t>(ptr));
 }
 
 GtkWidget *Entry::getWidget(const string &name)

@@ -36,7 +36,7 @@ using namespace dcpp;
 GtkTreeModel* Search::searchEntriesModel = NULL;
 
 Search::Search():
-    BookEntry(Entry::SEARCH, _("Search"), "search.ui", generateID()),
+    BookEntry(Entry::SEARCH, _("Search"), "search.ui", generateID(this)),
     previousGrouping(NOGROUPING)
 {
 #if GTK_CHECK_VERSION(3,0,0)

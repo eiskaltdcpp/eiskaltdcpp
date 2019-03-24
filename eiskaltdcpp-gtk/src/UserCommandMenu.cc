@@ -29,7 +29,7 @@ using namespace std;
 using namespace dcpp;
 
 UserCommandMenu::UserCommandMenu(GtkWidget *userCommandMenu, int ctx):
-    Entry(Entry::USER_COMMAND_MENU, "", generateID()),
+    Entry(Entry::USER_COMMAND_MENU, "", generateID(this)),
     userCommandMenu(userCommandMenu),
     ctx(ctx)
 {

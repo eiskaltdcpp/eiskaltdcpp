@@ -67,7 +67,7 @@ public:
     virtual void show() {}
 
 protected:
-    std::string generateID();
+    static std::string generateID(const Entry *ptr);
     GtkWidget *getWidget(const std::string &name);
     void addChild(Entry *entry);
     Entry *getChild(const EntryType childType, const std::string &childId);
