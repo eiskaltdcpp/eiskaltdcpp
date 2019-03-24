@@ -27,8 +27,8 @@
 #include <dcpp/UserCommand.h>
 #include "UserCommandMenu.hh"
 #include "wulformanager.hh"
-#include "settingsmanager.hh"
 #include "WulforUtil.hh"
+#include "settingsmanager.hh"
 
 using namespace std;
 using namespace dcpp;
@@ -144,16 +144,16 @@ Search::Search():
     const SettingsManager::SearchTypes &searchTypes = SettingsManager::getInstance()->getSearchTypes();
 
     // Predefined
-    for (int i = SearchManager::TYPE_ANY; i < SearchManager::TYPE_LAST; i++)
+    for (int i = SearchManager::TYPE_ANY; i < SearchManager::TYPE_LAST; ++i)
     {
         gtk_list_store_append(store, &iter);
         gtk_list_store_set(store, &iter, 0, SearchManager::getTypeStr(i), -1);
     }
 
     // Customs
-    for (SettingsManager::SearchTypesIterC i = searchTypes.begin(), iend = searchTypes.end(); i != iend; ++i)
+    for (auto& i: searchTypes)
     {
-        string type = i->first;
+        const string type = i.first;
         if (!(type.size() == 1 && type[0] >= '1' && type[0] <= '7'))
         {
             gtk_list_store_append(store, &iter);
@@ -341,10 +341,10 @@ void Search::popupMenu_gui()
     StringPairList spl = FavoriteManager::getInstance()->getFavoriteDirs();
     if (!spl.empty())
     {
-        for (StringPairIter i = spl.begin(); i != spl.end(); ++i)
+        for (auto& i : spl)
         {
-            menuItem = gtk_menu_item_new_with_label(i->second.c_str());
-            g_object_set_data_full(G_OBJECT(menuItem), "fav", g_strdup(i->first.c_str()), g_free);
+            menuItem = gtk_menu_item_new_with_label(i.second.c_str());
+            g_object_set_data_full(G_OBJECT(menuItem), "fav", g_strdup(i.first.c_str()), g_free);
             g_signal_connect(menuItem, "activate", G_CALLBACK(onDownloadFavoriteClicked_gui), (gpointer)this);
             gtk_menu_shell_append(GTK_MENU_SHELL(getWidget("downloadMenu")), menuItem);
         }
@@ -413,10 +413,10 @@ void Search::popupMenu_gui()
     spl = FavoriteManager::getInstance()->getFavoriteDirs();
     if (!spl.empty())
     {
-        for (StringPairIter i = spl.begin(); i != spl.end(); ++i)
+        for (auto& i : spl)
         {
-            menuItem = gtk_menu_item_new_with_label(i->second.c_str());
-            g_object_set_data_full(G_OBJECT(menuItem), "fav", g_strdup(i->first.c_str()), g_free);
+            menuItem = gtk_menu_item_new_with_label(i.second.c_str());
+            g_object_set_data_full(G_OBJECT(menuItem), "fav", g_strdup(i.first.c_str()), g_free);
             g_signal_connect(menuItem, "activate", G_CALLBACK(onDownloadFavoriteDirClicked_gui), (gpointer)this);
             gtk_menu_shell_append(GTK_MENU_SHELL(getWidget("downloadDirMenu")), menuItem);
         }
@@ -504,9 +504,9 @@ void Search::search_gui()
 
     // Strip out terms beginning with -
     text.clear();
-    for (auto si = searchlist.begin(); si != searchlist.end(); ++si)
-        if ((*si)[0] != '-')
-            text += *si + ' ';
+    for (auto& si : searchlist)
+        if (si[0] != '-')
+            text += si + ' ';
     text = text.substr(0, std::max(text.size(), static_cast<string::size_type>(1)) - 1);
 
     SearchManager::SizeModes mode((SearchManager::SizeModes)gtk_combo_box_get_active(GTK_COMBO_BOX(getWidget("comboboxSize"))));
@@ -522,7 +522,9 @@ void Search::search_gui()
     }
     else
     {
-        ftypeStr = gtk_combo_box_text_get_active_text(GTK_COMBO_BOX_TEXT(getWidget("comboboxFile")));
+        gchar *tmp = gtk_combo_box_text_get_active_text(GTK_COMBO_BOX_TEXT(getWidget("comboboxFile")));
+        ftypeStr = tmp;
+        g_free(tmp);
         ftype = SearchManager::TYPE_ANY;
     }
 
@@ -535,7 +537,7 @@ void Search::search_gui()
             // Custom searchtype
             exts = SettingsManager::getInstance()->getExtensions(ftypeStr);
         }
-        else if ((ftype > SearchManager::TYPE_ANY && ftype < SearchManager::TYPE_DIRECTORY) || ftype == SearchManager::TYPE_CD_IMAGE)
+        else if (ftype > SearchManager::TYPE_ANY && ftype < SearchManager::TYPE_DIRECTORY)
         {
             // Predefined searchtype
             exts = SettingsManager::getInstance()->getExtensions(string(1, '0' + ftype));
@@ -606,14 +608,16 @@ void Search::addResult_gui(const SearchResultPtr result)
     // Check that it's not a duplicate and find parent for grouping
     GtkTreeIter iter;
     GtkTreeIter parent;
+    GtkTreeIter child;
     GtkTreeModel *m = GTK_TREE_MODEL(resultStore);
     bool foundParent = false;
+    bool createParent = false;
 
     vector<SearchResultPtr> &existingResults = results[result->getUser()->getCID().toBase32()];
-    for (auto it = existingResults.begin(); it != existingResults.end(); ++it)
+    for (auto& it : existingResults)
     {
         // Check if it's a duplicate
-        if (result->getFile() == (*it)->getFile())
+        if (result->getFile() == it->getFile())
             return;
     }
     existingResults.push_back(result);
@@ -632,21 +636,31 @@ void Search::addResult_gui(const SearchResultPtr result)
         // Found a row which matches the grouping criteria
         if (resultView.getString(&iter, groupColumn, m) == groupStr)
         {
-            // Group the row under the existing parent row
+            // Parent row
             if (gtk_tree_model_iter_has_child(m, &iter))
             {
                 parent = iter;
+                foundParent = true;
             }
             // If two rows that match the grouping criteria
             // are found, group them under a new parent row
-            else
+            else if (!foundParent)
             {
-                parent = createParentRow_gui(&iter, groupStr);
+                child = iter;
+                createParent = true;
+                foundParent = true;
             }
-            foundParent = true;
         }
 
         valid = WulforUtil::getNextIter_gui(m, &iter);
+    }
+
+    // Move top level row to be under newly created grouping parent.
+    // This needs to be done outside of the loop so that we don't modify the
+    // tree until after the duplication check.
+    if (createParent)
+    {
+        parent = createParentRow_gui(child, groupStr);
     }
 
     // Have to use insert with values since appending would cause searchFilterFunc to be
@@ -686,7 +700,7 @@ void Search::addResult_gui(const SearchResultPtr result)
 /*
   * Move top level row to be under a newly created grouping parent.
   */
-GtkTreeIter Search::createParentRow_gui(GtkTreeIter *child, const string &groupStr, gint position /* = -1 */)
+GtkTreeIter Search::createParentRow_gui(GtkTreeIter &child, const string &groupStr, const gint position)
 {
     GtkTreeIter parent;
     GroupType groupBy = (GroupType)gtk_combo_box_get_active(GTK_COMBO_BOX(getWidget("comboboxGroupBy")));
@@ -694,7 +708,7 @@ GtkTreeIter Search::createParentRow_gui(GtkTreeIter *child, const string &groupS
 
     // As a special case, use the first child's filename for TTH grouping
     if (groupBy == TTH)
-        filename = resultView.getString(child, _("Filename"), GTK_TREE_MODEL(resultStore));
+        filename = resultView.getString(&child, _("Filename"), GTK_TREE_MODEL(resultStore));
 
     // Insert the new parent row
     gtk_tree_store_insert_with_values(resultStore, &parent, NULL, position,
@@ -703,9 +717,9 @@ GtkTreeIter Search::createParentRow_gui(GtkTreeIter *child, const string &groupS
                                       -1);
 
     // Move the row to be a child of the new parent
-    GtkTreeIter newChild = WulforUtil::copyRow_gui(resultStore, child, &parent);
-    gtk_tree_store_remove(resultStore, child);
-    *child = newChild;
+    GtkTreeIter newChild = WulforUtil::copyRow_gui(resultStore, &child, &parent);
+    gtk_tree_store_remove(resultStore, &child);
+    child = newChild;
 
     return parent;
 }
@@ -843,14 +857,16 @@ void Search::regroup_gui()
             if (!gtk_tree_model_iter_has_child(GTK_TREE_MODEL(resultStore), &parent))
             {
                 GtkTreeIter child = parent;
-                parent = createParentRow_gui(&child, groupStr, position);
+                parent = createParentRow_gui(child, groupStr, position);
+                updateParentRow_gui(&parent, &child);
+
                 mapIter->second = parent;
             }
 
             // Insert the row as a child
-            GtkTreeIter child = WulforUtil::copyRow_gui(resultStore, &iter, &parent);
+            WulforUtil::copyRow_gui(resultStore, &iter, &parent);
             valid = gtk_tree_store_remove(resultStore, &iter);
-            updateParentRow_gui(&parent,&child);
+            updateParentRow_gui(&parent);
         }
     }
 }
@@ -943,11 +959,8 @@ void Search::download_gui(const string &target)
     g_list_free(list);
 }
 
-gboolean Search::onFocusIn_gui(GtkWidget *widget, GdkEventFocus *event, gpointer data)
+gboolean Search::onFocusIn_gui(GtkWidget*, GdkEventFocus*, gpointer data)
 {
-    (void)widget;
-    (void)event;
-
     Search *s = (Search *)data;
     if (!s) return false;
 
@@ -956,9 +969,8 @@ gboolean Search::onFocusIn_gui(GtkWidget *widget, GdkEventFocus *event, gpointer
     return true;
 }
 
-gboolean Search::onButtonPressed_gui(GtkWidget *widget, GdkEventButton *event, gpointer data)
+gboolean Search::onButtonPressed_gui(GtkWidget*, GdkEventButton *event, gpointer data)
 {
-    (void)widget;
     Search *s = (Search *)data;
     if (!s) return false;
     s->oldEventType = event->type;
@@ -978,9 +990,8 @@ gboolean Search::onButtonPressed_gui(GtkWidget *widget, GdkEventButton *event, g
     return false;
 }
 
-gboolean Search::onButtonReleased_gui(GtkWidget *widget, GdkEventButton *event, gpointer data)
+gboolean Search::onButtonReleased_gui(GtkWidget*, GdkEventButton *event, gpointer data)
 {
-    (void)widget;
     Search *s = (Search *)data;
     if (!s) return false;
     gint count = gtk_tree_selection_count_selected_rows(s->selection);
@@ -1021,9 +1032,8 @@ gboolean Search::onKeyReleased_gui(GtkWidget *widget, GdkEventKey *event, gpoint
     return false;
 }
 
-gboolean Search::onSearchEntryKeyPressed_gui(GtkWidget *widget, GdkEventKey *event, gpointer data)
+gboolean Search::onSearchEntryKeyPressed_gui(GtkWidget*, GdkEventKey *event, gpointer data)
 {
-    (void)widget;
     Search *s = (Search *)data;
     if (!s) return false;
 
@@ -1040,9 +1050,8 @@ gboolean Search::onSearchEntryKeyPressed_gui(GtkWidget *widget, GdkEventKey *eve
     return false;
 }
 
-void Search::onComboBoxChanged_gui(GtkWidget* widget, gpointer data)
+void Search::onComboBoxChanged_gui(GtkWidget*, gpointer data)
 {
-    (void)widget;
     Search *s = (Search *)data;
     if (!s) return;
 
@@ -1072,9 +1081,8 @@ void Search::onGroupByComboBoxChanged_gui(GtkWidget *comboBox, gpointer data)
     }
 }
 
-void Search::onSearchButtonClicked_gui(GtkWidget *widget, gpointer data)
+void Search::onSearchButtonClicked_gui(GtkWidget*, gpointer data)
 {
-    (void)widget;
     Search *s = (Search *)data;
     if (!s) return;
     s->search_gui();
@@ -1240,9 +1248,8 @@ void Search::onDownloadToMatchClicked_gui(GtkMenuItem *item, gpointer data)
     }
 }
 
-void Search::onDownloadDirClicked_gui(GtkMenuItem *item, gpointer data)
+void Search::onDownloadDirClicked_gui(GtkMenuItem*, gpointer data)
 {
-    (void)item;
     Search *s = (Search *)data;
     if (!s) return;
 
@@ -1321,9 +1328,8 @@ void Search::onDownloadFavoriteDirClicked_gui(GtkMenuItem *item, gpointer data)
     }
 }
 
-void Search::onDownloadDirToClicked_gui(GtkMenuItem *item, gpointer data)
+void Search::onDownloadDirToClicked_gui(GtkMenuItem*, gpointer data)
 {
-    (void)item;
     Search *s = (Search *)data;
     if (!s) return;
 
@@ -1381,9 +1387,8 @@ void Search::onDownloadDirToClicked_gui(GtkMenuItem *item, gpointer data)
     }
 }
 
-void Search::onSearchByTTHClicked_gui(GtkMenuItem *item, gpointer data)
+void Search::onSearchByTTHClicked_gui(GtkMenuItem*, gpointer data)
 {
-    (void)item;
     Search *s = (Search *)data;
     if (!s) return;
 
@@ -1411,9 +1416,8 @@ void Search::onSearchByTTHClicked_gui(GtkMenuItem *item, gpointer data)
     }
 }
 
-void Search::onGetFileListClicked_gui(GtkMenuItem *item, gpointer data)
+void Search::onGetFileListClicked_gui(GtkMenuItem*, gpointer data)
 {
-    (void)item;
     Search *s = (Search *)data;
     if (!s) return;
 
@@ -1447,9 +1451,8 @@ void Search::onGetFileListClicked_gui(GtkMenuItem *item, gpointer data)
     }
 }
 
-void Search::onPartialFileListOpen_gui(GtkMenuItem *item, gpointer data)
+void Search::onPartialFileListOpen_gui(GtkMenuItem*, gpointer data)
 {
-    (void)item;
     Search *s = (Search *)data;
     if (!s) return;
 
@@ -1483,9 +1486,8 @@ void Search::onPartialFileListOpen_gui(GtkMenuItem *item, gpointer data)
     }
 }
 
-void Search::onMatchQueueClicked_gui(GtkMenuItem *item, gpointer data)
+void Search::onMatchQueueClicked_gui(GtkMenuItem*, gpointer data)
 {
-    (void)item;
     Search *s = (Search *)data;
     if (!s) return;
 
@@ -1518,9 +1520,8 @@ void Search::onMatchQueueClicked_gui(GtkMenuItem *item, gpointer data)
     }
 }
 
-void Search::onPrivateMessageClicked_gui(GtkMenuItem *item, gpointer data)
+void Search::onPrivateMessageClicked_gui(GtkMenuItem*, gpointer data)
 {
-    (void)item;
     Search *s = (Search *)data;
     if (!s) return;
 
@@ -1552,9 +1553,8 @@ void Search::onPrivateMessageClicked_gui(GtkMenuItem *item, gpointer data)
     }
 }
 
-void Search::onAddFavoriteUserClicked_gui(GtkMenuItem *item, gpointer data)
+void Search::onAddFavoriteUserClicked_gui(GtkMenuItem*, gpointer data)
 {
-    (void)item;
     Search *s = (Search *)data;
     if (!s) return;
 
@@ -1588,9 +1588,8 @@ void Search::onAddFavoriteUserClicked_gui(GtkMenuItem *item, gpointer data)
     }
 }
 
-void Search::onGrantExtraSlotClicked_gui(GtkMenuItem *item, gpointer data)
+void Search::onGrantExtraSlotClicked_gui(GtkMenuItem*, gpointer data)
 {
-    (void)item;
     Search *s = (Search *)data;
     if (!s) return;
 
@@ -1623,9 +1622,8 @@ void Search::onGrantExtraSlotClicked_gui(GtkMenuItem *item, gpointer data)
     }
 }
 
-void Search::onRemoveUserFromQueueClicked_gui(GtkMenuItem *item, gpointer data)
+void Search::onRemoveUserFromQueueClicked_gui(GtkMenuItem*, gpointer data)
 {
-    (void)item;
     Search *s = (Search *)data;
     if (!s) return;
 
@@ -1661,9 +1659,8 @@ void Search::onRemoveUserFromQueueClicked_gui(GtkMenuItem *item, gpointer data)
 
 // Removing a row from treeStore still leaves the SearchResultPtr to results map. This way if a duplicate
 // result comes in later it won't be readded, before the results map is cleared with a new search.
-void Search::onRemoveClicked_gui(GtkMenuItem *item, gpointer data)
+void Search::onRemoveClicked_gui(GtkMenuItem*, gpointer data)
 {
-    (void)item;
     Search *s = (Search *)data;
     if (!s) return;
 
@@ -1704,9 +1701,8 @@ void Search::onRemoveClicked_gui(GtkMenuItem *item, gpointer data)
     }
 }
 
-void Search::onCopyMagnetClicked_gui(GtkMenuItem* item, gpointer data)
+void Search::onCopyMagnetClicked_gui(GtkMenuItem*, gpointer data)
 {
-    (void)item;
     Search *s = (Search *)data;
     if (!s) return;
 
@@ -1884,12 +1880,17 @@ void Search::getFileList_client(string cid, string dir, bool match, string hubUr
             UserPtr user = ClientManager::getInstance()->findUser(CID(cid));
             if (user)
             {
-                QueueItem::FileFlags flags;
+                int flags = 0;
+
                 if (match)
                     flags = QueueItem::FLAG_MATCH_QUEUE;
                 else
                     flags = QueueItem::FLAG_CLIENT_VIEW;
-                QueueManager::getInstance()->addList(HintedUser(user, hubUrl), full ? flags : QueueItem::FLAG_CLIENT_VIEW | QueueItem::FLAG_PARTIAL_LIST, dir);
+
+                if (!full)
+                    flags = QueueItem::FLAG_CLIENT_VIEW | QueueItem::FLAG_PARTIAL_LIST;
+
+                QueueManager::getInstance()->addList(HintedUser(user, hubUrl), flags, dir);
             }
         }
         catch (const Exception&)
@@ -2063,16 +2064,16 @@ gboolean Search::searchFilterFunc_gui(GtkTreeModel *model, GtkTreeIter *iter, gp
     TStringList filterList = StringTokenizer<tstring>(filter, ' ').getTokens();
     string filename = Text::toLower(s->resultView.getString(iter, _("Filename"), model));
     string path = Text::toLower(s->resultView.getString(iter, _("Path"), model));
-    for (auto term = filterList.begin(); term != filterList.end(); ++term)
+    for (auto& term : filterList)
     {
-        if ((*term)[0] == '-')
+        if (term[0] == '-')
         {
-            if (filename.find((*term).substr(1)) != string::npos)
+            if (filename.find(term.substr(1)) != string::npos)
                 return false;
-            else if (path.find((*term).substr(1)) != string::npos)
+            else if (path.find(term.substr(1)) != string::npos)
                 return false;
         }
-        else if (filename.find(*term) == string::npos && path.find(*term) == string::npos)
+        else if (filename.find(term) == string::npos && path.find(term) == string::npos)
             return false;
     }
 

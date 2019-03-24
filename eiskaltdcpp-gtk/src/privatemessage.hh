@@ -33,7 +33,7 @@ class PrivateMessage:
         public dcpp::ClientManagerListener
 {
 public:
-    PrivateMessage(const std::string &cid, const std::string &hubUrl);
+    PrivateMessage(const std::string &_cid, const std::string &_hubUrl);
     virtual ~PrivateMessage();
     virtual void show();
 
@@ -49,7 +49,7 @@ private:
     void addLine_gui(Msg::TypeMsg typemsg, const std::string &line);
     void applyTags_gui(const std::string &line);
     void applyEmoticons_gui();
-    void getSettingTag_gui(WulforSettingsManager *wsm, Tag::TypeTag type, std::string &fore, std::string &back, int &bold, int &italic);
+    void getSettingTag_gui(WulforSettingsManager *wsm, const Tag::TypeTag type, std::string &fore, std::string &back, bool &bold, bool &italic);
     GtkTextTag* createTag_gui(const std::string &tagname, Tag::TypeTag type);
     void updateCursor(GtkWidget *widget);
     void updateOnlineStatus_gui(bool online);

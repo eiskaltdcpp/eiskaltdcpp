@@ -142,9 +142,9 @@ void SearchSpy::preferences_gui()
     string color, order;
     GtkTreeIter iter;
 
-    for (auto it = searchIters.begin(); it != searchIters.end(); ++it)
+    for (auto& it : searchIters)
     {
-        iter = it->second;
+        iter = it.second;
         order = searchView.getString(&iter, "order");
         guint count = searchView.getValue<guint>(&iter, "count");
 
@@ -400,9 +400,8 @@ void SearchSpy::setStatus_gui(const string text)
     }
 }
 
-void SearchSpy::onOKButtonClicked_gui(GtkWidget *widget, gpointer data)
+void SearchSpy::onOKButtonClicked_gui(GtkWidget*, gpointer data)
 {
-    (void)widget;
     SearchSpy *s =  (SearchSpy *) data;
 
     s->FrameSize = (SearchType)gtk_spin_button_get_value(GTK_SPIN_BUTTON(s->getWidget("frameSpinButton")));
@@ -437,9 +436,8 @@ void SearchSpy::resetCount()
     }
 }
 
-void SearchSpy::onShowTopClicked_gui(GtkWidget *widget, gpointer data)
+void SearchSpy::onShowTopClicked_gui(GtkWidget*, gpointer data)
 {
-    (void)widget;
     SearchSpy *s = (SearchSpy *)data;
 
     GtkWidget *dialog = s->getWidget("TopSearchDialog");
@@ -451,16 +449,14 @@ void SearchSpy::onShowTopClicked_gui(GtkWidget *widget, gpointer data)
     gtk_widget_hide(dialog);
 }
 
-void SearchSpy::onClearTopClicked_gui(GtkWidget *widget, gpointer data)
+void SearchSpy::onClearTopClicked_gui(GtkWidget*, gpointer data)
 {
-    (void)widget;
     SearchSpy *s = (SearchSpy *)data;
     gtk_list_store_clear(s->topStore);
 }
 
-void SearchSpy::onSearchTopClicked_gui(GtkWidget *widget, gpointer data)
+void SearchSpy::onSearchTopClicked_gui(GtkWidget*, gpointer data)
 {
-    (void)widget;
     SearchSpy *s = (SearchSpy *)data;
 
     GtkTreeIter iter;
@@ -483,9 +479,8 @@ void SearchSpy::onSearchTopClicked_gui(GtkWidget *widget, gpointer data)
     }
 }
 
-void SearchSpy::onRemoveTopClicked_gui(GtkWidget *widget, gpointer data)
+void SearchSpy::onRemoveTopClicked_gui(GtkWidget*, gpointer data)
 {
-    (void)widget;
     SearchSpy *s = (SearchSpy *)data;
 
     GtkTreeIter iter;
@@ -497,9 +492,8 @@ void SearchSpy::onRemoveTopClicked_gui(GtkWidget *widget, gpointer data)
     }
 }
 
-void SearchSpy::onClearFrameClicked_gui(GtkWidget *widget, gpointer data)
+void SearchSpy::onClearFrameClicked_gui(GtkWidget*, gpointer data)
 {
-    (void)widget;
     SearchSpy *s = (SearchSpy *)data;
 
     gtk_list_store_clear(s->searchStore);
@@ -507,17 +501,15 @@ void SearchSpy::onClearFrameClicked_gui(GtkWidget *widget, gpointer data)
     s->setStatus_gui(_("Clear frame search"));
 }
 
-void SearchSpy::onUpdateFrameClicked_gui(GtkWidget *widget, gpointer data)
+void SearchSpy::onUpdateFrameClicked_gui(GtkWidget*, gpointer data)
 {
-    (void)widget;
     SearchSpy *s = (SearchSpy *)data;
 
     s->updateFrameStatus_gui();
 }
 
-void SearchSpy::onIgnoreTTHSearchToggled_gui(GtkWidget *widget, gpointer data)
+void SearchSpy::onIgnoreTTHSearchToggled_gui(GtkWidget *widget, gpointer)
 {
-    (void)data;
     gboolean toggle = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(widget));
     WSET("spyframe-ignore-tth-searches",toggle);
 }
@@ -665,11 +657,11 @@ gboolean SearchSpy::onKeyReleased_gui(GtkWidget *widget, GdkEventKey *event, gpo
 
 void SearchSpy::on(ClientManagerListener::IncomingSearch, const string& s) noexcept
 {
-    if(!WGETB("spyframe-ignore-tth-searches") && s.compare(0, 4, "TTH:"))
+    if(WGETB("spyframe-ignore-tth-searches") && s.compare(0, 4, "TTH:") == 0)
         return;
 
     string search, type;
-    if(!s.compare(0, 4, "TTH:"))
+    if(s.compare(0, 4, "TTH:") == 0)
     {
         type = "t";
         search = s.substr(4);

@@ -81,7 +81,7 @@ private:
     int icon_height = 16;
     int currIconSize = x16;
     NotifyNotification *notification = nullptr;
-    bool action = false;
+    bool bAction = false;
 
     //GUI callback functions
     static void onAction(NotifyNotification *notify, const char *action, gpointer data);

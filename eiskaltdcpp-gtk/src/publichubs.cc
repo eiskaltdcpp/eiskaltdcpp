@@ -121,11 +121,11 @@ void PublicHubs::buildHubList_gui()
     StringList list = FavoriteManager::getInstance()->getHubLists();
     int selected = FavoriteManager::getInstance()->getSelectedHubList();
 
-    for (auto it = list.begin(); it != list.end(); ++it)
+    for (auto &it : list)
     {
         GtkTreeIter iter;
         gtk_list_store_append(listsStore, &iter);
-        gtk_list_store_set(listsStore, &iter, 0, it->c_str(), -1);
+        gtk_list_store_set(listsStore, &iter, 0, it.c_str(), -1);
     }
 
     if (static_cast<size_t>(selected) >= list.size())
@@ -186,11 +186,8 @@ void PublicHubs::setStatus_gui(string statusBar, string text)
                        g_filename_to_utf8(text.c_str(),-1,NULL,NULL,NULL));
 }
 
-gboolean PublicHubs::onFocusIn_gui(GtkWidget *widget, GdkEventFocus *event, gpointer data)
+gboolean PublicHubs::onFocusIn_gui(GtkWidget*, GdkEventFocus*, gpointer data)
 {
-    (void)widget;
-    (void)event;
-
     PublicHubs *ph = (PublicHubs *)data;
 
     gtk_widget_grab_focus(ph->getWidget("filterEntry"));
@@ -198,9 +195,8 @@ gboolean PublicHubs::onFocusIn_gui(GtkWidget *widget, GdkEventFocus *event, gpoi
     return true;
 }
 
-gboolean PublicHubs::onButtonPress_gui(GtkWidget *widget, GdkEventButton *event, gpointer data)
+gboolean PublicHubs::onButtonPress_gui(GtkWidget*, GdkEventButton *event, gpointer data)
 {
-    (void)widget;
     PublicHubs *ph = (PublicHubs *)data;
 
     if (event->type == GDK_BUTTON_PRESS || event->type == GDK_2BUTTON_PRESS)
@@ -212,9 +208,8 @@ gboolean PublicHubs::onButtonPress_gui(GtkWidget *widget, GdkEventButton *event,
     return false;
 }
 
-gboolean PublicHubs::onButtonRelease_gui(GtkWidget *widget, GdkEventButton *event, gpointer data)
+gboolean PublicHubs::onButtonRelease_gui(GtkWidget*, GdkEventButton *event, gpointer data)
 {
-    (void)widget;
     PublicHubs *ph = (PublicHubs *)data;
 
     if (ph->oldButton == event->button && gtk_tree_selection_get_selected(ph->hubSelection, NULL, NULL))
@@ -237,9 +232,8 @@ gboolean PublicHubs::onButtonRelease_gui(GtkWidget *widget, GdkEventButton *even
     return false;
 }
 
-gboolean PublicHubs::onKeyRelease_gui(GtkWidget *widget, GdkEventKey *event, gpointer data)
+gboolean PublicHubs::onKeyRelease_gui(GtkWidget*, GdkEventKey *event, gpointer data)
 {
-    (void)widget;
     PublicHubs *ph = (PublicHubs *)data;
 
     if (gtk_tree_selection_get_selected(ph->hubSelection, NULL, NULL))
@@ -262,11 +256,8 @@ gboolean PublicHubs::onKeyRelease_gui(GtkWidget *widget, GdkEventKey *event, gpo
     return false;
 }
 
-gboolean PublicHubs::onFilterHubs_gui(GtkWidget *widget, GdkEventKey *event, gpointer data)
+gboolean PublicHubs::onFilterHubs_gui(GtkWidget*, GdkEventKey*, gpointer data)
 {
-    (void)widget;
-    (void)event;
-
     PublicHubs *ph = (PublicHubs *)data;
     StringSearch pattern(gtk_entry_get_text(GTK_ENTRY(ph->getWidget("filterEntry"))));
 
@@ -279,9 +270,8 @@ gboolean PublicHubs::onFilterHubs_gui(GtkWidget *widget, GdkEventKey *event, gpo
     return false;
 }
 
-void PublicHubs::onConnect_gui(GtkWidget *widget, gpointer data)
+void PublicHubs::onConnect_gui(GtkWidget*, gpointer data)
 {
-    (void)widget;
     PublicHubs *ph = (PublicHubs *)data;
     GtkTreeIter iter;
 
@@ -292,9 +282,8 @@ void PublicHubs::onConnect_gui(GtkWidget *widget, gpointer data)
     }
 }
 
-void PublicHubs::onRefresh_gui(GtkWidget *widget, gpointer data)
+void PublicHubs::onRefresh_gui(GtkWidget*, gpointer data)
 {
-    (void)widget;
     PublicHubs *ph = (PublicHubs *)data;
     int pos = gtk_combo_box_get_active(GTK_COMBO_BOX(ph->getWidget("hubListBox")));
 
@@ -303,9 +292,8 @@ void PublicHubs::onRefresh_gui(GtkWidget *widget, gpointer data)
     WulforManager::get()->dispatchClientFunc(func);
 }
 
-void PublicHubs::onAddFav_gui(GtkMenuItem *item, gpointer data)
+void PublicHubs::onAddFav_gui(GtkMenuItem*, gpointer data)
 {
-    (void)item;
     PublicHubs *ph = (PublicHubs *)data;
     GtkTreeIter iter;
 
@@ -329,9 +317,8 @@ void PublicHubs::onAddFav_gui(GtkMenuItem *item, gpointer data)
     }
 }
 
-void PublicHubs::onConfigure_gui(GtkWidget *widget, gpointer data)
+void PublicHubs::onConfigure_gui(GtkWidget*, gpointer data)
 {
-    (void)widget;
     PublicHubs *ph = (PublicHubs *)data;
 
     // Have to get active here since temp could be NULL after dialog is closed
@@ -374,9 +361,8 @@ void PublicHubs::onConfigure_gui(GtkWidget *widget, gpointer data)
     }
 }
 
-void PublicHubs::onAdd_gui(GtkWidget *widget, gpointer data)
+void PublicHubs::onAdd_gui(GtkWidget*, gpointer data)
 {
-    (void)widget;
     PublicHubs *ph = (PublicHubs *)data;
     GtkTreeIter iter;
     GtkTreePath *path;
@@ -390,9 +376,8 @@ void PublicHubs::onAdd_gui(GtkWidget *widget, gpointer data)
     gtk_tree_path_free(path);
 }
 
-void PublicHubs::onMoveUp_gui(GtkWidget *widget, gpointer data)
+void PublicHubs::onMoveUp_gui(GtkWidget*, gpointer data)
 {
-    (void)widget;
     PublicHubs *ph = (PublicHubs *)data;
     GtkTreeIter prev, current;
     GtkTreeModel *m = GTK_TREE_MODEL(ph->listsStore);
@@ -406,9 +391,8 @@ void PublicHubs::onMoveUp_gui(GtkWidget *widget, gpointer data)
     }
 }
 
-void PublicHubs::onMoveDown_gui(GtkWidget *widget, gpointer data)
+void PublicHubs::onMoveDown_gui(GtkWidget*, gpointer data)
 {
-    (void)widget;
     PublicHubs *ph = (PublicHubs *)data;
     GtkTreeIter current, next;
 
@@ -420,9 +404,8 @@ void PublicHubs::onMoveDown_gui(GtkWidget *widget, gpointer data)
     }
 }
 
-void PublicHubs::onRemove_gui(GtkWidget *widget, gpointer data)
+void PublicHubs::onRemove_gui(GtkWidget*, gpointer data)
 {
-    (void)widget;
     PublicHubs *ph = (PublicHubs *)data;
     GtkTreeIter current;
 
@@ -430,9 +413,8 @@ void PublicHubs::onRemove_gui(GtkWidget *widget, gpointer data)
         gtk_list_store_remove(ph->listsStore, &current);
 }
 
-void PublicHubs::onCellEdited_gui(GtkCellRendererText *cell, char *path, char *text, gpointer data)
+void PublicHubs::onCellEdited_gui(GtkCellRendererText*, char *path, char *text, gpointer data)
 {
-    (void)cell;
     PublicHubs *ph = (PublicHubs *)data;
     GtkTreeIter it;
 

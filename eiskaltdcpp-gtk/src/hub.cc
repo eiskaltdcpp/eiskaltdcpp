@@ -1371,7 +1371,7 @@ void Hub::getSettingTag_gui(WulforSettingsManager *wsm, const Tag::TypeTag type,
         fore = wsm->getString("text-general-fore-color");
         back = wsm->getString("text-general-back-color");
         italic = (bool)wsm->getInt("text-general-italic");
-        bold = (bool)wsm->getBool("text-bold-autors");
+        bold = wsm->getBool("text-bold-autors");
         break;
 
     case Tag::TAG_GENERAL:
@@ -2081,11 +2081,13 @@ void Hub::onSendMessage_gui(GtkEntry *entry, gpointer data)
                               % uploaded
                               % downloaded);
 
-            if (!param.compare("show")){
+            if (param.compare("show") == 0)
+            {
                 F2 *func = new F2( hub, &Hub::sendMessage_client, line, false);
                 WulforManager::get()->dispatchClientFunc(func);
             }
-            else{
+            else
+            {
                 hub->addStatusMessage_gui(line, Msg::SYSTEM, Sound::NONE);
             }
         }

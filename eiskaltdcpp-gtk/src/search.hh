@@ -69,7 +69,7 @@ private:
     void search_gui();
     void addResult_gui(const dcpp::SearchResultPtr result);
     void updateParentRow_gui(GtkTreeIter *parent, GtkTreeIter *child = NULL);
-    GtkTreeIter createParentRow_gui(GtkTreeIter *child, const std::string &groupStr, gint position = -1);
+    GtkTreeIter createParentRow_gui(GtkTreeIter &child, const std::string &groupStr, const gint position = -1);
     void ungroup_gui();
     void regroup_gui();
     std::string getGroupingColumn(GroupType groupBy);

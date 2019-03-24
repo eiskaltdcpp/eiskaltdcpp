@@ -79,7 +79,7 @@ void Notify::init()
                                            , NULL);
 #endif
 #endif // USE_LIBNOTIFY
-    action = false;
+    bAction = false;
 }
 
 void Notify::finalize()
@@ -143,12 +143,12 @@ void Notify::showNotify(const string &head, const string &body, TypeNotify notif
     {
     case DOWNLOAD_FINISHED:
 
-        if (action)
+        if (bAction)
         {
 #ifdef USE_LIBNOTIFY
             notify_notification_clear_actions(notification);
 #endif // USE_LIBNOTIFY
-            action = false;
+            bAction = false;
         }
 
         if (wsm->getInt("notify-download-finished-use"))
@@ -164,7 +164,7 @@ void Notify::showNotify(const string &head, const string &body, TypeNotify notif
             showNotify(wsm->getString("notify-download-finished-title"), head, Util::getFileName(body),
                        wsm->getString("notify-download-finished-icon"), wsm->getInt("notify-icon-size"), NOTIFY_URGENCY_NORMAL);
 
-            action = true;
+            bAction = true;
         }
 
         break;
@@ -263,12 +263,12 @@ void Notify::showNotify(const string &title, const string &head, const string &b
         }
     }
 
-    if (action)
+    if (bAction)
     {
 #ifdef USE_LIBNOTIFY
         notify_notification_clear_actions(notification);
 #endif // USE_LIBNOTIFY
-        action = false;
+        bAction = false;
     }
 
 #ifdef USE_LIBNOTIFY
@@ -276,9 +276,8 @@ void Notify::showNotify(const string &title, const string &head, const string &b
 #endif // USE_LIBNOTIFY
 }
 
-void Notify::onAction(NotifyNotification *notify, const char *action, gpointer data)
+void Notify::onAction(NotifyNotification *notify, const char*, gpointer data)
 {
-    (void)action;
     const string target = (gchar*)data;
 
     if (!target.empty())
