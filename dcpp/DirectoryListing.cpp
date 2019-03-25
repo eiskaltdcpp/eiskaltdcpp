@@ -79,18 +79,25 @@ UserPtr DirectoryListing::getUserFromFilename(const string& fileName) {
     return ClientManager::getInstance()->getUser(cid);
 }
 
-void DirectoryListing::loadFile(const string& name) {
-    string txt;
+void DirectoryListing::loadFile(const string& path) {
+    string actualPath;
+    if(dcpp::File::getSize(path + ".bz2") != -1) {
+        actualPath = path + ".bz2";
+    }
 
     // For now, we detect type by ending...
-    string ext = Util::getFileExt(name);
+    auto ext = Util::getFileExt(actualPath.empty() ? path : actualPath);
 
-    dcpp::File ff(name, dcpp::File::READ, dcpp::File::OPEN);
-    if(Util::stricmp(ext, ".bz2") == 0) {
-        FilteredInputStream<UnBZFilter, false> f(&ff);
-        loadXML(f, false);
-    } else if(Util::stricmp(ext, ".xml") == 0) {
-        loadXML(ff, false);
+    {
+        dcpp::File file(actualPath.empty() ? path : actualPath, dcpp::File::READ, dcpp::File::OPEN);
+        if(Util::stricmp(ext, ".bz2") == 0) {
+            FilteredInputStream<UnBZFilter, false> f(&file);
+            loadXML(f, false);
+        } else if(Util::stricmp(ext, ".xml") == 0) {
+            loadXML(file, false);
+        } else {
+            throw Exception(_("Invalid file list extension (must be .xml or .bz2)"));
+        }
     }
 }
 
@@ -130,7 +137,7 @@ string DirectoryListing::updateXML(const string& xml) {
 string DirectoryListing::loadXML(InputStream& is, bool updating) {
     ListLoader ll(getRoot(), updating);
 
-    dcpp::SimpleXMLReader(&ll).parse(is, SETTING(MAX_FILELIST_SIZE) ? (size_t)SETTING(MAX_FILELIST_SIZE)*1024*1024 : 0);
+    SimpleXMLReader(&ll).parse(is, SETTING(MAX_FILELIST_SIZE) ? (size_t)SETTING(MAX_FILELIST_SIZE)*1024*1024 : 0);
 
     return ll.getBase();
 }
@@ -237,16 +244,16 @@ void ListLoader::startTag(const string& name, StringPairList& attribs, bool simp
             base = b;
         }
         StringList sl = StringTokenizer<string>(base.substr(1), '/').getTokens();
-        for(auto i = sl.begin(); i != sl.end(); ++i) {
-            DirectoryListing::Directory* d = NULL;
-            for(auto j = cur->directories.begin(); j != cur->directories.end(); ++j) {
-                if((*j)->getName() == *i) {
-                    d = *j;
+        for(auto& i: sl) {
+            DirectoryListing::Directory* d = nullptr;
+            for(auto j: cur->directories) {
+                if(j->getName() == i) {
+                    d = j;
                     break;
                 }
             }
-            if(d == NULL) {
-                d = new DirectoryListing::Directory(cur, *i, false, false);
+            if(!d) {
+                d = new DirectoryListing::Directory(cur, i, false, false);
                 cur->directories.push_back(d);
             }
             cur = d;
@@ -306,19 +313,13 @@ StringList DirectoryListing::getLocalPaths(const Directory* d) const {
 }
 
 void DirectoryListing::download(Directory* aDir, const string& aTarget, bool highPrio) {
-    string tmp;
     string target = (aDir == getRoot()) ? aTarget : aTarget + aDir->getName() + PATH_SEPARATOR;
     // First, recurse over the directories
-    Directory::List& lst = aDir->directories;
-    sort(lst.begin(), lst.end(), Directory::DirSort());
-    for(auto j = lst.begin(); j != lst.end(); ++j) {
-        download(*j, target, highPrio);
+    for(auto& j: aDir->directories) {
+        download(j, target, highPrio);
     }
     // Then add the files
-    File::List& l = aDir->files;
-    sort(l.begin(), l.end(), File::FileSort());
-    for(auto i = aDir->files.begin(); i != aDir->files.end(); ++i) {
-        File* file = *i;
+    for(auto file: aDir->files) {
         try {
             download(file, target + file->getName(), false, highPrio);
         } catch(const QueueException&) {
@@ -346,38 +347,25 @@ void DirectoryListing::download(File* aFile, const string& aTarget, bool view, b
         QueueManager::getInstance()->setPriority(aTarget, QueueItem::HIGHEST);
 }
 
-DirectoryListing::Directory* DirectoryListing::find(const string& aName, Directory* current) {
+DirectoryListing::Directory* DirectoryListing::find(const string& aName, Directory* current) const {
     auto end = aName.find('\\');
     dcassert(end != string::npos);
     auto name = aName.substr(0, end);
 
-    auto i = std::find(current->directories.begin(), current->directories.end(), name);
-    if(i != current->directories.end()) {
+    auto i = std::find(current->directories.cbegin(), current->directories.cend(), name);
+    if(i != current->directories.cend()) {
         if(end == (aName.size() - 1))
             return *i;
         else
             return find(aName.substr(end + 1), *i);
     }
-    return NULL;
+    return nullptr;
 }
 
-struct HashContained {
-    HashContained(const DirectoryListing::Directory::TTHSet& l) : tl(l) { }
-    const DirectoryListing::Directory::TTHSet& tl;
-    bool operator()(const DirectoryListing::File::Ptr i) const {
-        return tl.count((i->getTTH())) && (DeleteFunction()(i), true);
-    }
-private:
-    HashContained& operator=(HashContained&);
-};
-
-struct DirectoryEmpty {
-    bool operator()(const DirectoryListing::Directory::Ptr i) const {
-        bool r = i->getFileCount() == 0 && i->directories.empty();
-        if (r) DeleteFunction()(i);
-        return r;
-    }
-};
+DirectoryListing::Directory::~Directory() {
+    std::for_each(directories.begin(), directories.end(), DeleteFunction());
+    std::for_each(files.begin(), files.end(), DeleteFunction());
+}
 
 void DirectoryListing::Directory::filterList(DirectoryListing& dirList) {
     DirectoryListing::Directory* d = dirList.getRoot();
@@ -388,30 +376,49 @@ void DirectoryListing::Directory::filterList(DirectoryListing& dirList) {
 }
 
 void DirectoryListing::Directory::filterList(DirectoryListing::Directory::TTHSet& l) {
-    for(auto i = directories.begin(); i != directories.end(); ++i) (*i)->filterList(l);
-    directories.erase(std::remove_if(directories.begin(),directories.end(),DirectoryEmpty()),directories.end());
-    files.erase(std::remove_if(files.begin(),files.end(),HashContained(l)),files.end());
+    for(auto i = directories.begin(); i != directories.end();) {
+        auto d = *i;
+
+        d->filterList(l);
+
+        if(d->directories.empty() && d->files.empty()) {
+            i = directories.erase(i);
+            delete d;
+        } else {
+            ++i;
+        }
+    }
+
+    for(auto i = files.begin(); i != files.end();) {
+        auto f = *i;
+        if(l.find(f->getTTH()) != l.end()) {
+            i = files.erase(i);
+            delete f;
+        } else {
+            ++i;
+        }
+    }
 }
 
 void DirectoryListing::Directory::getHashList(DirectoryListing::Directory::TTHSet& l) {
-    for(auto i = directories.begin(); i != directories.end(); ++i) (*i)->getHashList(l);
-    for(auto i = files.begin(); i != files.end(); ++i) l.insert((*i)->getTTH());
+    for(auto i: directories) i->getHashList(l);
+    for(auto i: files) l.insert(i->getTTH());
 }
 
 int64_t DirectoryListing::Directory::getTotalSize(bool adl) {
     int64_t x = getSize();
-    for(auto i = directories.begin(); i != directories.end(); ++i) {
-        if(!(adl && (*i)->getAdls()))
-            x += (*i)->getTotalSize(adls);
+    for(auto i: directories) {
+        if(!(adl && i->getAdls()))
+            x += i->getTotalSize(adls);
     }
     return x;
 }
 
 size_t DirectoryListing::Directory::getTotalFileCount(bool adl) {
     size_t x = getFileCount();
-    for(auto i = directories.begin(); i != directories.end(); ++i) {
-        if(!(adl && (*i)->getAdls()))
-            x += (*i)->getTotalFileCount(adls);
+    for(auto i: directories) {
+        if(!(adl && i->getAdls()))
+            x += i->getTotalFileCount(adls);
     }
     return x;
 }

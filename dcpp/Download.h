@@ -33,7 +33,8 @@ using std::string;
  * Comes as an argument in the DownloadManagerListener functions.
  * Use it to retrieve information about the ongoing transfer.
  */
-class Download : public Transfer, public Flags {
+class Download : public Transfer, public Flags
+{
 public:
     enum {
         FLAG_ZDOWNLOAD = 1 << 1,
@@ -50,12 +51,10 @@ public:
     virtual ~Download();
 
     /** @return Target filename without path. */
-    string getTargetFileName();
+    string getTargetFileName() const;
 
     /** @internal */
-    const string& getDownloadTarget() {
-        return (getTempTarget().empty() ? getPath() : getTempTarget());
-    }
+    const string& getDownloadTarget() const;
 
     /** @internal */
     TigerTree& getTigerTree() { return tt; }
@@ -66,9 +65,8 @@ public:
     GETSET(string, tempTarget, TempTarget);
     GETSET(OutputStream*, file, File);
     GETSET(bool, treeValid, TreeValid);
+
 private:
-    Download(const Download&);
-    Download& operator=(const Download&);
 
     TigerTree tt;
     string pfs;

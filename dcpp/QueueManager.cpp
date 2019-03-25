@@ -1156,7 +1156,7 @@ void QueueManager::setFile(Download* d) {
             throw QueueException(_("Target removed"));
         }
 
-        string target = d->getDownloadTarget();
+        const string target = d->getDownloadTarget();
 
         if(d->getSegment().getStart() > 0) {
             if(File::getSize(target) != qi->getSize()) {

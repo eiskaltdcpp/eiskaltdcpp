@@ -99,12 +99,17 @@ AdcCommand Download::getCommand(bool zlib) {
     return cmd;
 }
 
+const string &Download::getDownloadTarget() const
+{
+    return (getTempTarget().empty() ? getPath() : getTempTarget());
+}
+
 void Download::getParams(const UserConnection& aSource, StringMap& params) {
     Transfer::getParams(aSource, params);
     params["target"] = getPath();
 }
 
-string Download::getTargetFileName() {
+string Download::getTargetFileName() const {
     return Util::getFileName(getPath());
 }
 

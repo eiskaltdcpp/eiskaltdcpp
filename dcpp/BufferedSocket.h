@@ -121,8 +121,18 @@ public:
         virtual ~TaskData() { }
     };
     struct ConnectInfo : public TaskData {
-        ConnectInfo(const string& addr_, const string& port_, const string& localPort_, NatRoles natRole_, bool proxy_)
-            : addr(addr_), port(port_), localPort(localPort_), natRole(natRole_), proxy(proxy_) { }
+        ConnectInfo(const string& addr_,
+                    const string& port_,
+                    const string& localPort_,
+                    const NatRoles natRole_,
+                    const bool proxy_) :
+            addr(addr_),
+            port(port_),
+            localPort(localPort_),
+            natRole(natRole_),
+            proxy(proxy_)
+        { }
+
         string addr;
         string port;
         string localPort;

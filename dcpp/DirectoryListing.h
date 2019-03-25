@@ -34,7 +34,7 @@ class DirectoryListing : private NonCopyable
 public:
     class Directory;
 
-    class File : public FastAlloc<File> {
+    class File : public FastAlloc<File>, private NonCopyable {
     public:
         typedef File* Ptr;
         struct FileSort {
@@ -46,11 +46,14 @@ public:
         typedef List::iterator Iter;
 
         File(Directory* aDir, const string& aName, int64_t aSize, const TTHValue& aTTH) noexcept :
+            NonCopyable(),
             name(aName), size(aSize), parent(aDir), tthRoot(aTTH), adls(false)
         {
         }
 
-        File(const File& rhs, bool _adls = false) : name(rhs.name), size(rhs.size), parent(rhs.parent), tthRoot(rhs.tthRoot), adls(_adls)
+        File(const File& rhs, bool _adls = false) :
+            NonCopyable(),
+            name(rhs.name), size(rhs.size), parent(rhs.parent), tthRoot(rhs.tthRoot), adls(_adls)
         {
         }
 
@@ -61,13 +64,13 @@ public:
 
         ~File() { }
 
-        GETSET(string, name, Name)
-        GETSET(int64_t, size, Size)
-        GETSET(Directory*, parent, Parent)
-        GETSET(TTHValue, tthRoot, TTH)
-        GETSET(bool, adls, Adls)
-        GETSET(uint64_t, ts, TS)
-        GETSET(uint64_t, hit, Hit)
+        GETSET(string, name, Name);
+        GETSET(int64_t, size, Size);
+        GETSET(Directory*, parent, Parent);
+        GETSET(TTHValue, tthRoot, TTH);
+        GETSET(bool, adls, Adls);
+        GETSET(uint64_t, ts, TS);
+        GETSET(uint64_t, hit, Hit);
         MediaInfo mediaInfo;
     };
 
@@ -87,13 +90,11 @@ public:
         List directories;
         File::List files;
 
-        Directory(Directory* aParent, const string& aName, bool _adls, bool aComplete)
-            : name(aName), parent(aParent), adls(_adls), complete(aComplete) { }
+        Directory(Directory* aParent, const string& aName, bool _adls, bool aComplete):
+            NonCopyable(),
+            name(aName), parent(aParent), adls(_adls), complete(aComplete) { }
 
-        virtual ~Directory() {
-            for_each(directories.begin(), directories.end(), DeleteFunction());
-            for_each(files.begin(), files.end(), DeleteFunction());
-        }
+        virtual ~Directory();
 
         size_t getTotalFileCount(bool adls = false);
         int64_t getTotalSize(bool adls = false);
@@ -101,12 +102,12 @@ public:
         void filterList(TTHSet& l);
         void getHashList(TTHSet& l);
 
-        size_t getFileCount() { return files.size(); }
+        size_t getFileCount() const { return files.size(); }
 
-        int64_t getSize() {
+        int64_t getSize() const {
             int64_t x = 0;
-            for(auto i = files.begin(); i != files.end(); ++i) {
-                x+=(*i)->getSize();
+            for(auto& i: files) {
+                x+=i->getSize();
             }
             return x;
         }
@@ -128,7 +129,7 @@ public:
     DirectoryListing(const HintedUser& aUser);
     ~DirectoryListing();
 
-    void loadFile(const string& name);
+    void loadFile(const string& path);
 
     string updateXML(const std::string&);
     string loadXML(InputStream& xml, bool updating);
@@ -155,7 +156,7 @@ public:
 
     GETSET(HintedUser, user, User);
 
-    Directory* find(const string& aName, Directory* current);
+    Directory* find(const string& aName, Directory* current) const;
 
 private:
     friend class ListLoader;
