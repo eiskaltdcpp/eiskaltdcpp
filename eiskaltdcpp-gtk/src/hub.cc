@@ -795,7 +795,7 @@ void Hub::applyTags_gui(const string cid, const string &line)
         if (!temp)
             continue;
 
-        if (!C_EMPTY(temp))
+        if (!isEmptyString(temp))
         {
             tagName = temp;
             g_free(temp);

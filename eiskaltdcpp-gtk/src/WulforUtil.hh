@@ -25,7 +25,15 @@
 #include <dcpp/CID.h>
 #include <dcpp/User.h>
 
-#define C_EMPTY(x) ((x) == NULL || (x)[0] == '\0')
+auto isEmptyString = [](gchar *c) -> bool {
+    if (c == NULL)
+        return true;
+
+    if (c[0] == '\0')
+        return true;
+
+    return false;
+};
 
 class WulforUtil
 {
