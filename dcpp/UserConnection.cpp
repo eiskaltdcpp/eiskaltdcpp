@@ -98,9 +98,6 @@ void UserConnection::on(BufferedSocketListener::Line, const string& aLine) throw
         if(Util::stricmp(param.c_str(), FILE_NOT_AVAILABLE) == 0 ||
                 param.rfind(/*path/file*/" no more exists") != string::npos) {
             fire(UserConnectionListener::FileNotAvailable(), this);
-        } else if (::strncmp(param.c_str(), "CTM2HUB", 7) == 0 ) {
-            ConnectionManager::getInstance()->addCTM2HUB(socket->getIp(), getPort());
-            fire(UserConnectionListener::ProtocolError(), this, param);
         } else {
             fire(UserConnectionListener::ProtocolError(), this, param);
         }

@@ -18,6 +18,9 @@
 
 #pragma once
 
+#include <unordered_map>
+#include <vector>
+
 #include "TimerManager.h"
 #include "UserConnection.h"
 #include "User.h"
@@ -28,6 +31,9 @@
 #include "ConnectionManagerListener.h"
 
 namespace dcpp {
+
+using std::unordered_map;
+using std::vector;
 
 class SocketException;
 
@@ -44,14 +50,13 @@ public:
         ACTIVE                      // In one up/downmanager
     };
 
-    ConnectionQueueItem(const HintedUser& aUser, bool aDownload) : token(Util::toString(Util::rand())),
-        lastAttempt(0), errors(0), state(WAITING), download(aDownload), user(aUser) { }
+    ConnectionQueueItem(const HintedUser& aUser, bool aDownload);
 
-    GETSET(string, token, Token)
-    GETSET(uint64_t, lastAttempt, LastAttempt)
-    GETSET(int, errors, Errors) // Number of connection errors, or -1 after a protocol error
-    GETSET(State, state, State)
-    GETSET(bool, download, Download)
+    GETSET(string, token, Token);
+    GETSET(uint64_t, lastAttempt, LastAttempt);
+    GETSET(int, errors, Errors); // Number of connection errors, or -1 after a protocol error
+    GETSET(State, state, State);
+    GETSET(bool, download, Download);
 
     const HintedUser& getUser() const { return user; }
 
@@ -107,8 +112,8 @@ public:
     void getDownloadConnection(const HintedUser& aUser);
     void force(const UserPtr& aUser);
 
-    void disconnect(const UserPtr& aUser); // disconnect downloads and uploads
-    void disconnect(const UserPtr& aUser, int isDownload);
+    void disconnect(const UserPtr& user); // disconnect all transfers for the user
+    void disconnect(const UserPtr& user, int isDownload);
 
     void shutdown();
 
@@ -119,11 +124,7 @@ public:
     const string& getPort() const;
     const string& getSecurePort() const;
 
-    void addCTM2HUB(const string &server, const string &port);
-
 private:
-
-    unordered_set<string> ddosctm2hub;
 
     class Server : public Thread {
     public:
@@ -159,6 +160,7 @@ private:
     ExpectedMap expectedConnections;
 
     uint32_t floodCounter;
+    unordered_set<string> hubsBlockingCC;
 
     Server* server;
     Server* secureServer;
@@ -173,10 +175,10 @@ private:
     UserConnection* getConnection(bool aNmdc, bool secure) noexcept;
     void putConnection(UserConnection* aConn);
 
-    void addUploadConnection(UserConnection* uc);
     void addDownloadConnection(UserConnection* uc);
+    void addUploadConnection(UserConnection* uc);
 
-    ConnectionQueueItem* getCQI(const HintedUser& aUser, bool download);
+    ConnectionQueueItem* getCQI(const HintedUser& user, bool download);
     void putCQI(ConnectionQueueItem* cqi);
 
     bool checkKeyprint(UserConnection *aSource);
@@ -184,6 +186,8 @@ private:
     void accept(const Socket& sock, bool secure) noexcept;
 
     void failed(UserConnection* aSource, const string& aError, bool protocolError);
+
+    bool checkHubCCBlock(const string& aServer, const string& aPort, const string& aHubUrl);
 
     // UserConnectionListener
     virtual void on(Connected, UserConnection*) noexcept;

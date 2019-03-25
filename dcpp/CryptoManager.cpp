@@ -293,14 +293,14 @@ void CryptoManager::loadCertificates() noexcept {
     StringList certs2 = File::findFiles(SETTING(TLS_TRUSTED_CERTIFICATES_PATH), "*.crt");
     certs.insert(certs.end(), certs2.begin(), certs2.end());
 
-    for(auto i = certs.begin(); i != certs.end(); ++i) {
+    for(auto& i: certs) {
         if(
-                SSL_CTX_load_verify_locations(clientContext, i->c_str(), NULL) != SSL_SUCCESS ||
-                SSL_CTX_load_verify_locations(clientVerContext, i->c_str(), NULL) != SSL_SUCCESS ||
-                SSL_CTX_load_verify_locations(serverContext, i->c_str(), NULL) != SSL_SUCCESS ||
-                SSL_CTX_load_verify_locations(serverVerContext, i->c_str(), NULL) != SSL_SUCCESS
+                SSL_CTX_load_verify_locations(clientContext, i.c_str(), NULL) != SSL_SUCCESS ||
+                SSL_CTX_load_verify_locations(clientVerContext, i.c_str(), NULL) != SSL_SUCCESS ||
+                SSL_CTX_load_verify_locations(serverContext, i.c_str(), NULL) != SSL_SUCCESS ||
+                SSL_CTX_load_verify_locations(serverVerContext, i.c_str(), NULL) != SSL_SUCCESS
                 ) {
-            LogManager::getInstance()->message("Failed to load trusted certificate from " + *i);
+            LogManager::getInstance()->message("Failed to load trusted certificate from " + i);
         }
     }
 
