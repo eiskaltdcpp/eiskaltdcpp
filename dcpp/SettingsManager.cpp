@@ -535,7 +535,7 @@ void SettingsManager::setSearchTypeDefaults() {
     searchTypes.clear();
 
     // for conveniency, the default search exts will be the same as the ones defined by SEGA.
-    const vector<StringList>& searchExts = AdcHub::getSearchExts();
+    const auto& searchExts = AdcHub::getSearchExts();
     for(size_t i = 0, n = searchExts.size(); i < n; ++i)
         searchTypes[string(1, '1' + i)] = searchExts[i];
 

@@ -62,7 +62,7 @@ public:
     virtual size_t getUserCount() const { Lock l(cs); return users.size(); }
     virtual int64_t getAvailable() const;
 
-    virtual string escape(string const& str) const { return validateMessage(str, false); }
+    static string escape(const string& str) { return validateMessage(str, false); }
     static string unescape(const string& str) { return validateMessage(str, true); }
 
     virtual void send(const AdcCommand&) { dcassert(0); }

@@ -477,14 +477,16 @@ void ADLSearchManager::matchListing(DirectoryListing& aDirList) {
 }
 
 void ADLSearchManager::matchRecurse(DestDirList &aDestList, DirectoryListing::Directory* aDir, string &aPath) {
-    for(DirectoryListing::Directory::Iter dirIt = aDir->directories.begin(); dirIt != aDir->directories.end(); ++dirIt) {
-        string tmpPath = aPath + "\\" + (*dirIt)->getName();
-        matchesDirectory(aDestList, *dirIt, tmpPath);
-        matchRecurse(aDestList, *dirIt, tmpPath);
+    for(auto& dirIt: aDir->directories) {
+        string tmpPath = aPath + "\\" + dirIt->getName();
+        matchesDirectory(aDestList, dirIt, tmpPath);
+        matchRecurse(aDestList, dirIt, tmpPath);
     }
-    for(DirectoryListing::File::Iter fileIt = aDir->files.begin(); fileIt != aDir->files.end(); ++fileIt) {
-        matchesFile(aDestList, *fileIt, aPath);
+
+    for(auto& fileIt: aDir->files) {
+        matchesFile(aDestList, fileIt, aPath);
     }
+
     stepUpDirectory(aDestList);
 }
 

@@ -197,7 +197,7 @@ private:
         TimerManager::getInstance()->removeListener(this);
     }
 
-    void updateNick(const OnlineUser& user) noexcept;
+    void updateUser(const OnlineUser& user) noexcept;
 
     /// @return OnlineUser* found by CID and hint; discard any user that doesn't match the hint.
     OnlineUser* findOnlineUserHint(const CID& cid, const string& hintUrl) const {
@@ -221,7 +221,7 @@ private:
     virtual void on(HubUserCommand, Client*, int, int, const string&, const string&) noexcept;
     virtual void on(NmdcSearch, Client* aClient, const string& aSeeker, int aSearchType, int64_t aSize,
                     int aFileType, const string& aString) noexcept;
-    virtual void on(AdcSearch, Client* c, const AdcCommand& adc, const CID& from) noexcept;
+    virtual void on(AdcSearch, Client*, const AdcCommand& adc, const CID& from) noexcept;
     // TimerManagerListener
     virtual void on(TimerManagerListener::Minute, uint64_t aTick) noexcept;
 };

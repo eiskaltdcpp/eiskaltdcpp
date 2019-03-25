@@ -144,7 +144,7 @@ private:
 
     friend class Server;
 
-    CriticalSection cs;
+    mutable CriticalSection cs;
 
     /** All ConnectionQueueItems */
     ConnectionQueueItem::List downloads;

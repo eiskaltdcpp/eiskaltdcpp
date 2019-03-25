@@ -30,19 +30,28 @@
 
 namespace dcpp {
 
-ConnectionManager::ConnectionManager() : floodCounter(0), server(0), secureServer(0), shuttingDown(false) {
+ConnectionManager::ConnectionManager() :
+    floodCounter(0),
+    server(0),
+    secureServer(0),
+    shuttingDown(false)
+{
     TimerManager::getInstance()->addListener(this);
 
-    features.push_back(UserConnection::FEATURE_MINISLOTS);
-    features.push_back(UserConnection::FEATURE_XML_BZLIST);
-    features.push_back(UserConnection::FEATURE_ADCGET);
-    features.push_back(UserConnection::FEATURE_TTHL);
-    features.push_back(UserConnection::FEATURE_TTHF);
+    features = {
+        UserConnection::FEATURE_MINISLOTS,
+        UserConnection::FEATURE_XML_BZLIST,
+        UserConnection::FEATURE_ADCGET,
+        UserConnection::FEATURE_TTHL,
+        UserConnection::FEATURE_TTHF
+    };
 
-    adcFeatures.push_back("AD" + UserConnection::FEATURE_ADC_BAS0);
-    adcFeatures.push_back("AD" + UserConnection::FEATURE_ADC_BASE);
-    adcFeatures.push_back("AD" + UserConnection::FEATURE_ADC_TIGR);
-    adcFeatures.push_back("AD" + UserConnection::FEATURE_ADC_BZIP);
+    adcFeatures = {
+        "AD" + UserConnection::FEATURE_ADC_BAS0,
+        "AD" + UserConnection::FEATURE_ADC_BASE,
+        "AD" + UserConnection::FEATURE_ADC_TIGR,
+        "AD" + UserConnection::FEATURE_ADC_BZIP
+    };
 }
 
 void ConnectionManager::listen() {
@@ -68,7 +77,7 @@ void ConnectionManager::getDownloadConnection(const HintedUser& aUser) {
     dcassert((bool)aUser.user);
     {
         Lock l(cs);
-        ConnectionQueueItem::Iter i = find(downloads.begin(), downloads.end(), aUser.user);
+        auto i = find(downloads.begin(), downloads.end(), aUser.user);
         if(i == downloads.end()) {
             getCQI(aUser, true);
         } else {
@@ -132,8 +141,7 @@ void ConnectionManager::on(TimerManagerListener::Second, uint64_t aTick) noexcep
 
         bool attemptDone = false;
 
-        for(auto i = downloads.begin(); i != downloads.end(); ++i) {
-            ConnectionQueueItem* cqi = *i;
+        for(auto& cqi: downloads) {
 
             if(cqi->getState() != ConnectionQueueItem::ACTIVE) {
                 if(!cqi->getUser().user->isOnline()) {
@@ -154,7 +162,7 @@ void ConnectionManager::on(TimerManagerListener::Second, uint64_t aTick) noexcep
                 }
 
                 if(cqi->getLastAttempt() == 0 || (!attemptDone &&
-                                                  cqi->getLastAttempt() + 60 * 1000 * max(1, cqi->getErrors()) < aTick))
+                                                 cqi->getLastAttempt() + 60 * 1000 * max(1, cqi->getErrors()) < aTick))
                 {
                     cqi->setLastAttempt(aTick);
 
@@ -188,23 +196,23 @@ void ConnectionManager::on(TimerManagerListener::Second, uint64_t aTick) noexcep
             }
         }
 
-        for(auto m = removed.begin(); m != removed.end(); ++m) {
-            putCQI(*m);
+        for(auto& m : removed) {
+            putCQI(m);
         }
 
     }
 
-    for(auto ui = passiveUsers.begin(); ui != passiveUsers.end(); ++ui) {
-        QueueManager::getInstance()->removeSource(*ui, QueueItem::Source::FLAG_PASSIVE);
+    for(auto& ui : passiveUsers) {
+        QueueManager::getInstance()->removeSource(ui, QueueItem::Source::FLAG_PASSIVE);
     }
 }
 
 void ConnectionManager::on(TimerManagerListener::Minute, uint64_t aTick) noexcept {
     Lock l(cs);
 
-    for(auto j = userConnections.begin(); j != userConnections.end(); ++j) {
-        if(((*j)->getLastActivity() + 180*1000) < aTick) {
-            (*j)->disconnect(true);
+    for(auto& j : userConnections) {
+        if((j->getLastActivity() + 180*1000) < aTick) {
+           j->disconnect(true);
         }
     }
 }
@@ -270,7 +278,7 @@ int ConnectionManager::Server::run() noexcept {
                 }
 
                 // Spin for 60 seconds
-                for(int i = 0; i < 60 && !die; ++i) {
+                for(auto i = 0; i < 60 && !die; ++i) {
                     Thread::sleep(1000);
                 }
             }
@@ -379,8 +387,8 @@ void ConnectionManager::adcConnect(const OnlineUser& aUser, const std::string &a
 void ConnectionManager::disconnect() noexcept {
     delete server;
     delete secureServer;
-
-    server = secureServer = 0;
+    server = nullptr;
+    secureServer = nullptr;
 }
 
 void ConnectionManager::on(AdcCommand::SUP, UserConnection* aSource, const AdcCommand& cmd) noexcept {
@@ -392,9 +400,9 @@ void ConnectionManager::on(AdcCommand::SUP, UserConnection* aSource, const AdcCo
 
     bool baseOk = false;
 
-    for(auto i = cmd.getParameters().begin(); i != cmd.getParameters().end(); ++i) {
-        if(i->compare(0, 2, "AD") == 0) {
-            string feat = i->substr(2);
+    for(auto& i: cmd.getParameters()) {
+        if(i.compare(0, 2, "AD") == 0) {
+            string feat = i.substr(2);
             if(feat == UserConnection::FEATURE_ADC_BASE || feat == UserConnection::FEATURE_ADC_BAS0) {
                 baseOk = true;
                 // ADC clients must support all these...
@@ -489,8 +497,7 @@ void ConnectionManager::on(UserConnectionListener::MyNick, UserConnection* aSour
     // First, we try looking in the pending downloads...hopefully it's one of them...
     {
         Lock l(cs);
-        for(auto i = downloads.begin(); i != downloads.end(); ++i) {
-            ConnectionQueueItem* cqi = *i;
+        for(auto& cqi: downloads) {
             cqi->setErrors(0);
             if((cqi->getState() == ConnectionQueueItem::CONNECTING || cqi->getState() == ConnectionQueueItem::WAITING) &&
                     cqi->getUser().user->getCID() == cid)

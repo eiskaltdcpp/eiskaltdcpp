@@ -84,7 +84,7 @@ public:
     static int getTotalCounts() { return counts.normal + counts.registered + counts.op; }
     virtual void send(const AdcCommand& command) = 0;
 
-    virtual string escape(string const& str) const { return str; }
+    static string escape(string const& str) { return str; }
 
     bool isConnected() const { return state != STATE_DISCONNECTED; }
     bool isReady() const { return state != STATE_CONNECTING && state != STATE_DISCONNECTED; }
@@ -113,8 +113,8 @@ public:
     }
 
     StringMap& escapeParams(StringMap& sm) {
-        for(StringMapIter i = sm.begin(); i != sm.end(); ++i) {
-            i->second = escape(i->second);
+        for(auto& i : sm) {
+            i.second = escape(i.second);
         }
         return sm;
     }

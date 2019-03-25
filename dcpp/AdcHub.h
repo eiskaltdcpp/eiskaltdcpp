@@ -46,18 +46,18 @@ public:
     void connect(const OnlineUser& user, const string& token);
     void connect(const OnlineUser& user, string const& token, bool secure);
 
-    void hubMessage(const string& aMessage, bool thirdPerson = false);
-    void privateMessage(const OnlineUser& user, const string& aMessage, bool thirdPerson = false);
-    void sendUserCmd(const UserCommand& command, const StringMap& params);
-    void search(int aSizeMode, int64_t aSize, int aFileType, const string& aString, const string& aToken, const StringList& aExtList);
-    void password(const string& pwd);
-    void info(bool alwaysSend);
+    virtual void hubMessage(const string& aMessage, bool thirdPerson = false);
+    virtual void privateMessage(const OnlineUser& user, const string& aMessage, bool thirdPerson = false);
+    virtual void sendUserCmd(const UserCommand& command, const StringMap& params);
+    virtual void search(int aSizeMode, int64_t aSize, int aFileType, const string& aString, const string& aToken, const StringList& aExtList);
+    virtual void password(const string& pwd);
+    virtual void info(bool alwaysSend);
 
-    size_t getUserCount() const { Lock l(cs); return users.size(); }
-    int64_t getAvailable() const;
+    virtual size_t getUserCount() const { Lock l(cs); return users.size(); }
+    virtual int64_t getAvailable() const;
 
-    string escape(string const& str) const { return AdcCommand::escape(str, false); }
-    void send(const AdcCommand& cmd);
+    static string escape(const string& str) { return AdcCommand::escape(str, false); }
+    virtual void send(const AdcCommand& cmd);
 
     string getMySID() { return AdcCommand::fromSID(sid); }
 

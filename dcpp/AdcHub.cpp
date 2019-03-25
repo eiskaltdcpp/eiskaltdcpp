@@ -94,16 +94,16 @@ OnlineUser* AdcHub::findUser(const uint32_t aSID) const {
 
 OnlineUser* AdcHub::findUser(const CID& aCID) const {
     Lock l(cs);
-    for(auto i = users.begin(); i != users.end(); ++i) {
-        if(i->second->getUser()->getCID() == aCID) {
-            return i->second;
+    for(auto& i: users) {
+        if(i.second->getUser()->getCID() == aCID) {
+            return i.second;
         }
     }
     return 0;
 }
 
 void AdcHub::putUser(const uint32_t aSID, bool disconnect) {
-    OnlineUser* ou = 0;
+    OnlineUser* ou = nullptr;
     {
         Lock l(cs);
         auto i = users.find(aSID);
@@ -127,10 +127,10 @@ void AdcHub::clearUsers() {
         users.swap(tmp);
     }
 
-    for(auto i = tmp.begin(); i != tmp.end(); ++i) {
-        if(i->first != AdcCommand::HUB_SID)
-            ClientManager::getInstance()->putOffline(i->second);
-        delete i->second;
+    for(auto& i: tmp) {
+        if(i.first != AdcCommand::HUB_SID)
+            ClientManager::getInstance()->putOffline(i.second);
+        delete i.second;
     }
 }
 
@@ -169,11 +169,11 @@ void AdcHub::handle(AdcCommand::INF, AdcCommand& c) noexcept {
         return;
     }
 
-    for(auto i = c.getParameters().begin(); i != c.getParameters().end(); ++i) {
-        if(i->length() < 2)
+    for(auto& i: c.getParameters()) {
+        if(i.length() < 2)
             continue;
 
-        u->getIdentity().set(i->c_str(), i->substr(2));
+        u->getIdentity().set(i.c_str(), i.substr(2));
     }
 
     if(u->getIdentity().isBot()) {
@@ -210,13 +210,13 @@ void AdcHub::handle(AdcCommand::SUP, AdcCommand& c) noexcept {
         return;
     bool baseOk = false;
     bool tigrOk = false;
-    for(auto i = c.getParameters().begin(); i != c.getParameters().end(); ++i) {
-        if(*i == BAS0_SUPPORT) {
+    for(auto& i: c.getParameters()) {
+        if(i == BAS0_SUPPORT) {
             baseOk = true;
             tigrOk = true;
-        } else if(*i == BASE_SUPPORT) {
+        } else if(i == BASE_SUPPORT) {
             baseOk = true;
-        } else if(*i == TIGR_SUPPORT) {
+        } else if(i == TIGR_SUPPORT) {
             tigrOk = true;
         }
     }
@@ -469,15 +469,19 @@ void AdcHub::handle(AdcCommand::STA, AdcCommand& c) noexcept {
 
     case AdcCommand::ERROR_BAD_PASSWORD:
     {
-        setPassword(Util::emptyString);
+        if(c.getType() == AdcCommand::TYPE_INFO) {
+            setPassword(Util::emptyString);
+        }
         break;
     }
 
     case AdcCommand::ERROR_COMMAND_ACCESS:
     {
-        string tmp;
-        if(c.getParam("FC", 1, tmp) && tmp.size() == 4)
-            forbiddenCommands.insert(AdcCommand::toFourCC(tmp.c_str()));
+        if(c.getType() == AdcCommand::TYPE_INFO) {
+            string tmp;
+            if(c.getParam("FC", 1, tmp) && tmp.size() == 4)
+                forbiddenCommands.insert(AdcCommand::toFourCC(tmp.c_str()));
+        }
         break;
     }
 
@@ -647,19 +651,22 @@ void AdcHub::handle(AdcCommand::RNT, AdcCommand& c) noexcept {
     ConnectionManager::getInstance()->adcConnect(*u, port, sock->getLocalPort(), BufferedSocket::NAT_SERVER, token, secure);
 }
 void AdcHub::handle(AdcCommand::ZON, AdcCommand& c) noexcept {
-    (void)c;
-    try {
-        sock->setMode(BufferedSocket::MODE_ZPIPE);
-    } catch (const Exception& e) {
-        dcdebug("AdcHub::handleZON failed with error: %s\n", e.getError().c_str());
+    if(c.getType() == AdcCommand::TYPE_INFO) {
+        try {
+            sock->setMode(BufferedSocket::MODE_ZPIPE);
+        } catch (const Exception& e) {
+            dcdebug("AdcHub::handleZON failed with error: %s\n", e.getError().c_str());
+        }
     }
 }
+
 void AdcHub::handle(AdcCommand::ZOF, AdcCommand& c) noexcept {
-    (void)c;
-    try {
-        sock->setMode(BufferedSocket::MODE_LINE);
-    } catch (const Exception& e) {
-        dcdebug("AdcHub::handleZOF failed with error: %s\n", e.getError().c_str());
+    if(c.getType() == AdcCommand::TYPE_INFO) {
+        try {
+            sock->setMode(BufferedSocket::MODE_LINE);
+        } catch (const Exception& e) {
+            dcdebug("AdcHub::handleZOF failed with error: %s\n", e.getError().c_str());
+        }
     }
 }
 
@@ -730,9 +737,9 @@ void AdcHub::sendUserCmd(const UserCommand& command, const StringMap& params) {
         } else {
             const string& to = command.getTo();
             Lock l(cs);
-            for(auto i = users.begin(); i != users.end(); ++i) {
-                if(i->second->getIdentity().getNick() == to) {
-                    privateMessage(*i->second, cmd);
+            for(auto& i: users) {
+                if(i.second->getIdentity().getNick() == to) {
+                    privateMessage(*i.second, cmd);
                     return;
                 }
             }
@@ -747,67 +754,17 @@ const vector<StringList>& AdcHub::getSearchExts() {
         return searchExts;
 
     // the list is always immutable except for this function where it is initially being filled.
-    auto& xSearchExts = const_cast<vector<StringList>&>(searchExts);
+    const_cast<vector<StringList>&>(searchExts) = {
+            // these extensions *must* be sorted alphabetically!
+    { "ape", "flac", "m4a", "mid", "mp3", "mpc", "ogg", "ra", "wav", "wma" },
+    { "7z", "ace", "arj", "bz2", "gz", "lha", "lzh", "rar", "tar", "z", "zip" },
+    { "doc", "docx", "htm", "html", "nfo", "odf", "odp", "ods", "odt", "pdf", "ppt", "pptx", "rtf", "txt", "xls", "xlsx", "xml", "xps" },
+    { "app", "bat", "cmd", "com", "dll", "exe", "jar", "msi", "ps1", "vbs", "wsf" },
+    { "bmp", "cdr", "eps", "gif", "ico", "img", "jpeg", "jpg", "png", "ps", "psd", "sfw", "tga", "tif", "webp" },
+    { "3gp", "asf", "asx", "avi", "divx", "flv", "mkv", "mov", "mp4", "mpeg", "mpg", "ogm", "pxp", "qt", "rm", "rmvb", "swf", "vob", "webm", "wmv" },
+    { "iso", "mdf", "mds", "nrg", "vcd", "bwt", "ccd", "cdi", "pdi", "cue", "isz", "img", "vc4" }
+};
 
-    xSearchExts.resize(7);
-
-    /// @todo simplify this as searchExts[0] = { "mp3", "etc" } when VC++ supports initializer lists
-    // these extensions *must* be sorted alphabetically!
-
-    {
-        StringList& l = xSearchExts[0];
-        l.push_back("ape"); l.push_back("flac"); l.push_back("m4a"); l.push_back("mid");
-        l.push_back("mp3"); l.push_back("mpc"); l.push_back("ogg"); l.push_back("ra");
-        l.push_back("wav"); l.push_back("wma");
-    }
-
-    {
-        StringList& l = xSearchExts[1];
-        l.push_back("7z"); l.push_back("ace"); l.push_back("arj"); l.push_back("bz2");
-        l.push_back("gz"); l.push_back("lha"); l.push_back("lzh"); l.push_back("rar");
-        l.push_back("tar"); l.push_back("z"); l.push_back("zip");
-    }
-
-    {
-        StringList& l = xSearchExts[2];
-        l.push_back("doc"); l.push_back("docx"); l.push_back("htm"); l.push_back("html");
-        l.push_back("nfo"); l.push_back("odf"); l.push_back("odp"); l.push_back("ods");
-        l.push_back("odt"); l.push_back("pdf"); l.push_back("ppt"); l.push_back("pptx");
-        l.push_back("rtf"); l.push_back("txt"); l.push_back("xls"); l.push_back("xlsx");
-        l.push_back("xml"); l.push_back("xps");
-    }
-
-    {
-        StringList& l = xSearchExts[3];
-        l.push_back("app"); l.push_back("bat"); l.push_back("cmd"); l.push_back("com");
-        l.push_back("dll"); l.push_back("exe"); l.push_back("jar"); l.push_back("msi");
-        l.push_back("ps1"); l.push_back("vbs"); l.push_back("wsf");
-    }
-
-    {
-        StringList& l = xSearchExts[4];
-        l.push_back("bmp"); l.push_back("cdr"); l.push_back("eps"); l.push_back("gif");
-        l.push_back("ico"); l.push_back("img"); l.push_back("jpeg"); l.push_back("jpg");
-        l.push_back("png"); l.push_back("ps"); l.push_back("psd"); l.push_back("sfw");
-        l.push_back("tga"); l.push_back("tif"); l.push_back("webp");
-    }
-
-    {
-        StringList& l = xSearchExts[5];
-        l.push_back("3gp"); l.push_back("asf"); l.push_back("asx"); l.push_back("avi");
-        l.push_back("divx"); l.push_back("flv"); l.push_back("mkv"); l.push_back("mov");
-        l.push_back("mp4"); l.push_back("mpeg"); l.push_back("mpg"); l.push_back("ogm");
-        l.push_back("pxp"); l.push_back("qt"); l.push_back("rm"); l.push_back("rmvb");
-        l.push_back("swf"); l.push_back("vob"); l.push_back("webm"); l.push_back("wmv");
-    }
-
-    {
-        StringList& l = xSearchExts[6];
-        l.push_back("iso"); l.push_back("mdf"); l.push_back("mds"); l.push_back("nrg");
-        l.push_back("vcd"); l.push_back("bwt"); l.push_back("ccd"); l.push_back("cdi");
-        l.push_back("pdi"); l.push_back("cue"); l.push_back("isz"); l.push_back("img");
-        l.push_back("vc4");
-    }
     return searchExts;
 }
 
@@ -840,8 +797,8 @@ void AdcHub::search(int aSizeMode, int64_t aSize, int aFileType, const string& a
             c.addParam("LE", Util::toString(aSize));
         }
         StringTokenizer<string> st(aString, ' ');
-        for(auto i = st.getTokens().begin(); i != st.getTokens().end(); ++i) {
-            c.addParam("AN", *i);
+        for(auto& i: st.getTokens()) {
+            c.addParam("AN", i);
         }
         if(aFileType == SearchManager::TYPE_DIRECTORY) {
             c.addParam("TY", "2");
@@ -900,14 +857,14 @@ void AdcHub::search(int aSizeMode, int64_t aSize, int aFileType, const string& a
                 c_gr.setFeatures('+' + SEGA_FEATURE);
 
                 const auto& params = c.getParameters();
-                for(auto i = params.cbegin(), iend = params.cend(); i != iend; ++i)
-                    c_gr.addParam(*i);
+                for(auto& i: params)
+                    c_gr.addParam(i);
 
-                for(auto i = exts.cbegin(), iend = exts.cend(); i != iend; ++i)
-                    c_gr.addParam("EX", *i);
+                for(auto& i: exts)
+                    c_gr.addParam("EX", i);
                 c_gr.addParam("GR", Util::toString(gr));
-                for(auto i = rx.cbegin(), iend = rx.cend(); i != iend; ++i)
-                    c_gr.addParam("RX", *i);
+                for(auto& i: rx)
+                    c_gr.addParam("RX", i);
 
                 sendSearch(c_gr);
 
@@ -917,8 +874,8 @@ void AdcHub::search(int aSizeMode, int64_t aSize, int aFileType, const string& a
             }
         }
 
-        for(auto i = aExtList.cbegin(), iend = aExtList.cend(); i != iend; ++i)
-            c.addParam("EX", *i);
+        for(auto& i: aExtList)
+            c.addParam("EX", i);
     }
 
     sendSearch(c);
@@ -1051,8 +1008,8 @@ void AdcHub::info(bool /*alwaysSend*/) {
 int64_t AdcHub::getAvailable() const {
     Lock l(cs);
     int64_t x = 0;
-    for(auto i = users.begin(); i != users.end(); ++i) {
-        x+=i->second->getIdentity().getBytesShared();
+    for(auto& i: users) {
+        x+=i.second->getIdentity().getBytesShared();
     }
     return x;
 }
