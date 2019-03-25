@@ -37,9 +37,6 @@ ZFilter::ZFilter() : totalIn(0), totalOut(0), compressing(true) {
 }
 
 ZFilter::~ZFilter() {
-#ifdef ZLIB_DEBUG
-    dcdebug("ZFilter end, %ld/%ld = %.04f\n", zs.total_out, zs.total_in, (float)zs.total_out / max((float)zs.total_in, (float)1));
-#endif
     deflateEnd(&zs);
 }
 
@@ -49,10 +46,6 @@ bool ZFilter::operator()(const void* in, size_t& insize, void* out, size_t& outs
 
     zs.next_in = (Bytef*)in;
     zs.next_out = (Bytef*)out;
-
-#ifdef ZLIB_DEBUG
-    dcdebug("ZFilter: totalOut = %lld, totalIn = %lld, outsize = %d\n", totalOut, totalIn, outsize);
-#endif
 
     // Check if there's any use compressing; if not, save some cpu...
     if(compressing && insize > 0 && outsize > 16 && (totalIn > (64 * 1024)) &&
@@ -123,9 +116,6 @@ UnZFilter::UnZFilter() {
 }
 
 UnZFilter::~UnZFilter() {
-#ifdef ZLIB_DEBUG
-    dcdebug("UnZFilter end, %ld/%ld = %.04f\n", zs.total_out, zs.total_in, (float)zs.total_out / max((float)zs.total_in, (float)1));
-#endif
     inflateEnd(&zs);
 }
 
