@@ -70,7 +70,7 @@ void SettingsGUI::init(){
 
         QDir translationsDir(WulforUtil::getInstance()->getTranslationsPath());
 
-        const QMap<QString, QString> langNames = {
+        const QMap<QString, QString> langNames ({
             { "en.qm",       tr("English") },
             { "ru.qm",       tr("Russian") },
             { "be.qm",       tr("Belarusian") },
@@ -93,7 +93,7 @@ void SettingsGUI::init(){
             { "zh_CN.qm",    tr("Chinese (China)") },
             { "sv_SE.qm",    tr("Swedish (Sweden)") },
             { "tr.qm",       tr("Turkish") }
-        };
+        });
 
         QString full_path;
         QString lang;
