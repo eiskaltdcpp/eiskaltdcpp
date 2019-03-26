@@ -40,7 +40,7 @@ else (WIN32)
 endif (WIN32)
 
 if (NOT LINK)
-  set (LINK SHARED)
+    set (LINK SHARED)
 endif (NOT LINK)
 
 if (APPLE)
@@ -78,17 +78,17 @@ if (ICONV_SECOND_ARGUMENT_IS_CONST)
 endif (ICONV_SECOND_ARGUMENT_IS_CONST)
 
 if (FORCE_XDG)
-   set_property(SOURCE ${PROJECT_SOURCE_DIR}/Util.cpp PROPERTY COMPILE_DEFINITIONS FORCE_XDG APPEND)
+    set_property(SOURCE ${PROJECT_SOURCE_DIR}/Util.cpp PROPERTY COMPILE_DEFINITIONS FORCE_XDG APPEND)
 endif (FORCE_XDG)
 
 if (HAVE_IFADDRS_H)
-  set_property(SOURCE ${PROJECT_SOURCE_DIR}/Util.cpp PROPERTY COMPILE_DEFINITIONS HAVE_IFADDRS_H APPEND)
+    set_property(SOURCE ${PROJECT_SOURCE_DIR}/Util.cpp PROPERTY COMPILE_DEFINITIONS HAVE_IFADDRS_H APPEND)
 endif (HAVE_IFADDRS_H)
 
 if (WIN32)
-   set_property(TARGET dcpp PROPERTY COMPILE_FLAGS)
+    set_property(TARGET dcpp PROPERTY COMPILE_FLAGS)
 else(WIN32)
-   set_property(TARGET dcpp PROPERTY COMPILE_FLAGS -fPIC)
+    set_property(TARGET dcpp PROPERTY COMPILE_FLAGS -fPIC)
 endif (WIN32)
 
 target_link_libraries (dcpp
@@ -111,9 +111,9 @@ target_link_libraries (dcpp
 set_target_properties(dcpp PROPERTIES VERSION ${SOVERSION} OUTPUT_NAME "eiskaltdcpp")
 
 if (APPLE)
-  set (LIBDIR ${PROJECT_NAME_GLOBAL}.app/Contents/Frameworks)
-  set_target_properties(dcpp PROPERTIES BUILD_WITH_INSTALL_RPATH 1
-                        INSTALL_NAME_DIR "@executable_path/../Frameworks")
+    set (LIBDIR ${PROJECT_NAME_GLOBAL}.app/Contents/Frameworks)
+    set_target_properties(dcpp PROPERTIES BUILD_WITH_INSTALL_RPATH 1
+                          INSTALL_NAME_DIR "@executable_path/../Frameworks")
 endif(APPLE)
 
 if (LINK STREQUAL SHARED)
