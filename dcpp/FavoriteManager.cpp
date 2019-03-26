@@ -157,7 +157,7 @@ void FavoriteManager::addFavoriteUser(const UserPtr& aUser) {
         if(nicks.empty())
             nicks.push_back(Util::emptyString);
 
-        auto i = users.insert(make_pair(aUser->getCID(), FavoriteUser(aUser, nicks[0], urls[0]))).first;
+        auto i = users.emplace(aUser->getCID(), FavoriteUser(aUser, nicks[0], urls[0])).first;
         fire(FavoriteManagerListener::UserAdded(), i->second);
         save();
     }
@@ -184,20 +184,17 @@ std::string FavoriteManager::getUserURL(const UserPtr& aUser) const {
 }
 
 void FavoriteManager::addFavorite(const FavoriteHubEntry& aEntry) {
-    FavoriteHubEntry* f;
-
-    FavoriteHubEntryList::iterator i = getFavoriteHub(aEntry.getServer());
-    if(i != favoriteHubs.end()) {
+    if(getFavoriteHub(aEntry.getServer()) != favoriteHubs.end()) {
         return;
     }
-    f = new FavoriteHubEntry(aEntry);
+    auto f = new FavoriteHubEntry(aEntry);
     favoriteHubs.push_back(f);
     fire(FavoriteManagerListener::FavoriteAdded(), f);
     save();
 }
 
 void FavoriteManager::removeFavorite(FavoriteHubEntry* entry) {
-    FavoriteHubEntryList::iterator i = find(favoriteHubs.begin(), favoriteHubs.end(), entry);
+    auto i = find(favoriteHubs.begin(), favoriteHubs.end(), entry);
     if(i == favoriteHubs.end()) {
         return;
     }
@@ -209,8 +206,7 @@ void FavoriteManager::removeFavorite(FavoriteHubEntry* entry) {
 }
 
 bool FavoriteManager::isFavoriteHub(const std::string& url) {
-    FavoriteHubEntryList::iterator i = getFavoriteHub(url);
-    if(i != favoriteHubs.end()) {
+    if(getFavoriteHub(url) != favoriteHubs.end()) {
         return true;
     }
     return false;
@@ -222,15 +218,15 @@ bool FavoriteManager::addFavoriteDir(const string& aDirectory, const string & aN
     if( path[ path.length() -1 ] != PATH_SEPARATOR )
         path += PATH_SEPARATOR;
 
-    for(auto i = favoriteDirs.begin(); i != favoriteDirs.end(); ++i) {
-        if((Util::strnicmp(path, i->first, i->first.length()) == 0) && (Util::strnicmp(path, i->first, path.length()) == 0)) {
+    for(auto& i: favoriteDirs) {
+        if((Util::strnicmp(path, i.first, i.first.size()) == 0) && (Util::strnicmp(path, i.first, path.size()) == 0)) {
             return false;
         }
-        if(Util::stricmp(aName, i->second) == 0) {
+        if(Util::stricmp(aName, i.second) == 0) {
             return false;
         }
     }
-    favoriteDirs.push_back(make_pair(aDirectory, aName));
+    favoriteDirs.emplace_back(aDirectory, aName);
     save();
     return true;
 }
@@ -253,9 +249,9 @@ bool FavoriteManager::removeFavoriteDir(const string& aName) {
 
 bool FavoriteManager::renameFavoriteDir(const string& aName, const string& anotherName) {
 
-    for(auto j = favoriteDirs.begin(); j != favoriteDirs.end(); ++j) {
-        if(Util::stricmp(j->second.c_str(), aName.c_str()) == 0) {
-            j->second = anotherName;
+    for(auto& j: favoriteDirs) {
+        if(Util::stricmp(j.second.c_str(), aName.c_str()) == 0) {
+            j.second = anotherName;
             save();
             return true;
         }

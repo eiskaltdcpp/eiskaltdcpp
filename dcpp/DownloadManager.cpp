@@ -104,15 +104,14 @@ void DownloadManager::on(TimerManagerListener::Second, uint64_t aTick) noexcept 
             }
         }
     }
-    for(auto i = dropTargets.begin(); i != dropTargets.end(); ++i) {
-        QueueManager::getInstance()->removeSource(i->first, i->second, QueueItem::Source::FLAG_SLOW_SOURCE);
+    for(auto& i: dropTargets) {
+        QueueManager::getInstance()->removeSource(i.first, i.second, QueueItem::Source::FLAG_SLOW_SOURCE);
     }
 }
 
 void DownloadManager::checkIdle(const UserPtr& user) {
     Lock l(cs);
-    for(auto i = idlers.begin(); i != idlers.end(); ++i) {
-        UserConnection* uc = *i;
+    for(auto uc: idlers) {
         if(uc->getUser() == user) {
             uc->updated();
             return;
