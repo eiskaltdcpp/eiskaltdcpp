@@ -143,8 +143,8 @@ Keys for cmake
     DHT support (http://www.adcportal.com/wiki/StrongDC++_DHT)
 -DLINK=STATIC/SHARED (default: SHARED)
     Build static or shared library.
-    Option available only on Unix-like systems.
-    On MS Windows and macOS platforms it is forcibly set to STATIC.
+    This option is available only on Unix-like systems.
+    For MS Windows, macOS and Haiku systems it is forcibly set to STATIC.
 -DLOCAL_BOOST=ON/OFF (default: OFF)
     Use local boost headers.
     This script downloads archive with only necessary boost headers from:
