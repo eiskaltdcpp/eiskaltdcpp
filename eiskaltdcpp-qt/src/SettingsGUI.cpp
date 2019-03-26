@@ -70,29 +70,30 @@ void SettingsGUI::init(){
 
         QDir translationsDir(WulforUtil::getInstance()->getTranslationsPath());
 
-        QMap<QString, QString> langNames;
-        langNames["en.qm"]       = tr("English");
-        langNames["ru.qm"]       = tr("Russian");
-        langNames["be.qm"]       = tr("Belarusian");
-        langNames["hu.qm"]       = tr("Hungarian");
-        langNames["fr.qm"]       = tr("French");
-        langNames["pl.qm"]       = tr("Polish");
-        langNames["pt_BR.qm"]    = tr("Portuguese (Brazil)");
-        langNames["sr.qm"]       = tr("Serbian (Cyrillic)");
-        langNames["sr@latin.qm"] = tr("Serbian (Latin)");
-        langNames["uk.qm"]       = tr("Ukrainian");
-        langNames["es.qm"]       = tr("Spanish");
-        langNames["eu.qm"]       = tr("Basque");
-        langNames["bg.qm"]       = tr("Bulgarian");
-        langNames["sk.qm"]       = tr("Slovak");
-        langNames["cs.qm"]       = tr("Czech");
-        langNames["de.qm"]       = tr("German");
-        langNames["el.qm"]       = tr("Greek");
-        langNames["it.qm"]       = tr("Italian");
-        langNames["vi.qm"]       = tr("Vietnamese");
-        langNames["zh_CN.qm"]    = tr("Chinese (China)");
-        langNames["sv_SE.qm"]    = tr("Swedish (Sweden)");
-        langNames["tr.qm"]       = tr("Turkish");
+        const QMap<QString, QString> langNames = {
+            { "en.qm",       tr("English") },
+            { "ru.qm",       tr("Russian") },
+            { "be.qm",       tr("Belarusian") },
+            { "hu.qm",       tr("Hungarian") },
+            { "fr.qm",       tr("French") },
+            { "pl.qm",       tr("Polish") },
+            { "pt_BR.qm",    tr("Portuguese (Brazil)") },
+            { "sr.qm",       tr("Serbian (Cyrillic)") },
+            { "sr@latin.qm", tr("Serbian (Latin)") },
+            { "uk.qm",       tr("Ukrainian") },
+            { "es.qm",       tr("Spanish") },
+            { "eu.qm",       tr("Basque") },
+            { "bg.qm",       tr("Bulgarian") },
+            { "sk.qm",       tr("Slovak") },
+            { "cs.qm",       tr("Czech") },
+            { "de.qm",       tr("German") },
+            { "el.qm",       tr("Greek") },
+            { "it.qm",       tr("Italian") },
+            { "vi.qm",       tr("Vietnamese") },
+            { "zh_CN.qm",    tr("Chinese (China)") },
+            { "sv_SE.qm",    tr("Swedish (Sweden)") },
+            { "tr.qm",       tr("Turkish") }
+        };
 
         QString full_path;
         QString lang;
@@ -161,7 +162,7 @@ void SettingsGUI::init(){
         comboBox_EMOT->setCurrentIndex(0);
         i = 0;
         for (const QString &f : QDir(WulforUtil::getInstance()->getEmoticonsPath())
-                                     .entryList(QDir::Dirs | QDir::NoSymLinks | QDir::NoDotAndDotDot)){
+             .entryList(QDir::Dirs | QDir::NoSymLinks | QDir::NoDotAndDotDot)){
             if (!f.isEmpty()){
                 comboBox_EMOT->addItem(f);
 
@@ -346,7 +347,7 @@ void SettingsGUI::init(){
     connect(toolButton_LANGBROWSE, SIGNAL(clicked()), this, SLOT(slotBrowseLng()));
     connect(comboBox_LANGS, SIGNAL(activated(int)), this, SLOT(slotLngIndexChanged(int)));
     connect(comboBox_USERS, SIGNAL(activated(int)), this, SLOT(slotUsersChanged()));
-	connect(comboBox_ICONS, SIGNAL(activated(int)), this, SLOT(slotIconsChanged()));
+    connect(comboBox_ICONS, SIGNAL(activated(int)), this, SLOT(slotIconsChanged()));
     connect(toolButton_H_COLOR, SIGNAL(clicked()), this, SLOT(slotGetColor()));
     connect(toolButton_SHAREDFILES, SIGNAL(clicked()), this, SLOT(slotGetColor()));
     connect(toolButton_CHAT_BACKGROUND_COLOR, SIGNAL(clicked()), this, SLOT(slotGetColor()));
