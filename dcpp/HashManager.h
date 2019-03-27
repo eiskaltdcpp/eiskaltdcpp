@@ -76,7 +76,7 @@ public:
     bool getTree(const TTHValue& root, TigerTree& tt);
 
     /** Return block size of the tree associated with root, or 0 if no such tree is in the store */
-    size_t getBlockSize(const TTHValue& root);
+    int64_t getBlockSize(const TTHValue& root);
 
     void addTree(const string& aFileName, uint32_t aTimeStamp, const TigerTree& tt) {
         hashDone(aFileName, aTimeStamp, tt, -1, -1);
@@ -110,26 +110,26 @@ public:
     };
 
     /// @return whether hashing was already paused
-    bool pauseHashing();
-    void resumeHashing();
-    bool isHashingPaused() const;
+    bool pauseHashing() noexcept;
+    void resumeHashing() noexcept;
+    bool isHashingPaused() const noexcept;
 
 private:
     class Hasher : public Thread {
     public:
         Hasher() : stop(false), running(false), paused(0), rebuild(false), currentSize(0) { }
 
-        void hashFile(const string& fileName, int64_t size);
+        void hashFile(const string& fileName, int64_t size) noexcept;
 
         /// @return whether hashing was already paused
-        bool pause();
-        void resume();
-        bool isPaused() const;
+        bool pause() noexcept;
+        void resume() noexcept;
+        bool isPaused() const noexcept;
 
         void stopHashing(const string& baseDir);
         virtual int run();
         bool fastHash(const string& fname, uint8_t* buf, TigerTree& tth, int64_t size, CRC32Filter* xcrc32);
-        void getStats(string& curFile, uint64_t &bytesLeft, size_t& filesLeft);
+        void getStats(string& curFile, uint64_t &bytesLeft, size_t& filesLeft) const;
         void shutdown() { stop = true; if(paused){ s.signal(); resume();} s.signal(); }
         void scheduleRebuild() { rebuild = true; if(paused) s.signal(); s.signal(); }
 
@@ -170,7 +170,7 @@ private:
         void addTree(const TigerTree& tt) noexcept;
         const TTHValue* getTTH(const string& aFileName);
         bool getTree(const TTHValue& root, TigerTree& tth);
-        size_t getBlockSize(const TTHValue& root) const;
+        int64_t getBlockSize(const TTHValue& root) const;
         bool isDirty() { return dirty; }
     private:
         /** Root -> tree mapping info, we assume there's only one tree for each root (a collision would mean we've broken tiger...) */

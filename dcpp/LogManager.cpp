@@ -40,7 +40,7 @@ void LogManager::message(const string& msg) {
         // Keep the last 100 messages (completely arbitrary number...)
         while(lastLogs.size() > 100)
             lastLogs.pop_front();
-        lastLogs.push_back(make_pair(t, msg));
+        lastLogs.emplace_back(t, msg);
     }
     fire(LogManagerListener::Message(), t, msg);
 }
