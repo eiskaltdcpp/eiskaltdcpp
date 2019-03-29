@@ -136,15 +136,7 @@ public:
     static void initialize(PathsMap pathOverrides = PathsMap());
 
     /** Path of temporary storage */
-    static string getTempPath() {
-#ifdef _WIN32
-        TCHAR buf[MAX_PATH + 1];
-        DWORD x = GetTempPath(MAX_PATH, buf);
-        return Text::fromT(tstring(buf, x));
-#else
-        return "/tmp/";
-#endif
-    }
+    static string getTempPath();
 
     /** Path of configuration files */
     static const string& getPath(Paths path) { return paths[path]; }
@@ -220,9 +212,10 @@ public:
     static void sanitizeUrl(string& url);
     static void decodeUrl(const string& aUrl, string& protocol, string& host, string& port, string& path, string& query, string& fragment);
     static map<string, string> decodeQuery(const string& query);
+
     static string validateFileName(string aFile, const string& badCharsExtra = "");
     static bool checkExtension(const string& tmp);
-    static string cleanPathChars(const std::string &str);
+    static string cleanPathChars(const string &str);
     static string addBrackets(const string& s);
 
     static string formatBytes(const string& aString) { return formatBytes(toInt64(aString)); }

@@ -514,10 +514,12 @@ void ShareManager::Directory::merge(const Directory::Ptr& source) {
             if(findFile(subSource->getName()) != files.end()) {
                 dcdebug("File named the same as directory");
             } else {
-                directories.insert(std::make_pair(subSource->getName(), subSource));
+                // the directory doesn't exist; create it.
+                directories.emplace(subSource->getName(), subSource);
                 subSource->parent = this;
             }
         } else {
+            // the directory was already existing; merge into it.
             auto subTarget = ti->second;
             subTarget->merge(subSource);
         }
@@ -526,12 +528,13 @@ void ShareManager::Directory::merge(const Directory::Ptr& source) {
     // All subdirs either deleted or moved to target...
     source->directories.clear();
 
-    for(auto i = source->files.begin(); i != source->files.end(); ++i) {
-        if(findFile(i->getName()) == files.end()) {
-            if(directories.find(i->getName()) != directories.end()) {
+    // merge files
+    for(auto& i: source->files) {
+        if(findFile(i.getName()) == files.end()) {
+            if(directories.find(i.getName()) != directories.end()) {
                 dcdebug("Directory named the same as file");
             } else {
-                auto added = files.insert(*i);
+                auto added = files.insert(i);
                 if(added.second) {
                     const_cast<File&>(*added.first).setParent(this);
                 }
@@ -610,8 +613,8 @@ int64_t ShareManager::getShareSize(const string& realPath) const noexcept {
 int64_t ShareManager::getShareSize() const noexcept {
     Lock l(cs);
     int64_t tmp = 0;
-    for(auto i = tthIndex.begin(); i != tthIndex.end(); ++i) {
-        tmp += i->second->getSize();
+    for(auto& i: tthIndex) {
+        tmp += i.second->getSize();
     }
     return tmp;
 }
@@ -817,8 +820,8 @@ void ShareManager::refresh(bool dirs /* = false */, bool aUpdate /* = true */, b
 StringPairList ShareManager::getDirectories() const noexcept {
     Lock l(cs);
     StringPairList ret;
-    for(auto i = shares.begin(); i != shares.end(); ++i) {
-        ret.push_back(make_pair(i->second, i->first));
+    for(auto& i: shares) {
+        ret.emplace_back(i.second, i.first);
     }
     return ret;
 }
@@ -838,11 +841,11 @@ int ShareManager::run() {
         lastFullUpdate = GET_TICK();
 
         DirList newDirs;
-        for(auto i = dirs.begin(); i != dirs.end(); ++i) {
-            if (checkHidden(i->second)) {
-                Directory::Ptr dp = buildTree(i->second, Directory::Ptr());
-                dp->setName(i->first);
-                newDirs.push_back(dp);
+        for(auto& i: dirs) {
+            if (checkHidden(i.second)) {
+                auto dp = buildTree(i.second, Directory::Ptr());
+                dp->setName(i.first);
+                newDirs.emplace_back(dp);
             }
         }
 
@@ -850,8 +853,8 @@ int ShareManager::run() {
             Lock l(cs);
             directories.clear();
 
-            for(auto i = newDirs.begin(); i != newDirs.end(); ++i) {
-                merge(*i);
+            for(auto& i: newDirs) {
+                merge(i);
             }
 
             rebuildIndices();
@@ -880,8 +883,8 @@ void ShareManager::getBloom(ByteVector& v, size_t k, size_t m, size_t h) const {
 
     HashBloom bloom;
     bloom.reset(k, m, h);
-    for(auto i = tthIndex.begin(); i != tthIndex.end(); ++i) {
-        bloom.add(i->first);
+    for(auto& i: tthIndex) {
+        bloom.add(i.first);
     }
     bloom.copy_to(v);
 }
@@ -1000,8 +1003,8 @@ MemoryInputStream* ShareManager::generatePartialList(const string& dir, bool rec
         if(!root)
             return 0;
 
-        for(auto it2 = root->directories.begin(); it2 != root->directories.end(); ++it2) {
-            it2->second->toXml(sos, indent, tmp, recurse);
+        for(auto& it2: root->directories) {
+            it2.second->toXml(sos, indent, tmp, recurse);
         }
         root->filesToXml(sos, indent, tmp);
     }
@@ -1285,23 +1288,26 @@ namespace {
 inline uint16_t toCode(char a, char b) { return (uint16_t)a | ((uint16_t)b)<<8; }
 }
 
-ShareManager::AdcSearch::AdcSearch(const StringList& params) : include(&includeX), gt(0),
-    lt(numeric_limits<int64_t>::max()), hasRoot(false), isDirectory(false)
+ShareManager::AdcSearch::AdcSearch(const StringList& adcParams) :
+    include(&includeInit),
+    gt(0),
+    lt(numeric_limits<int64_t>::max()),
+    hasRoot(false),
+    isDirectory(false)
 {
-    for(auto i = params.begin(); i != params.end(); ++i) {
-        const string& p = *i;
-        if(p.length() <= 2)
+    for(auto& p: adcParams) {
+        if(p.size() <= 2)
             continue;
 
-        uint16_t cmd = toCode(p[0], p[1]);
+        auto cmd = toCode(p[0], p[1]);
         if(toCode('T', 'R') == cmd) {
             hasRoot = true;
             root = TTHValue(p.substr(2));
             return;
         } else if(toCode('A', 'N') == cmd) {
-            includeX.push_back(StringSearch(p.substr(2)));
+            includeInit.emplace_back(p.substr(2));
         } else if(toCode('N', 'O') == cmd) {
-            exclude.push_back(StringSearch(p.substr(2)));
+            exclude.emplace_back(p.substr(2));
         } else if(toCode('E', 'X') == cmd) {
             ext.push_back(p.substr(2));
         } else if(toCode('G', 'R') == cmd) {
@@ -1427,7 +1433,7 @@ void ShareManager::search(SearchResultList& results, const StringList& params, S
         return;
     }
 
-    for(auto i = srch.includeX.begin(); i != srch.includeX.end(); ++i) {
+    for(auto i = srch.includeInit.begin(); i != srch.includeInit.end(); ++i) {
         if(!bloom.match(i->getPattern()))
             return;
     }

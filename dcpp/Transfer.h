@@ -78,7 +78,7 @@ public:
 
     UserPtr getUser();
     const UserPtr getUser() const;
-    const HintedUser getHintedUser() const;
+    HintedUser getHintedUser() const;
 
     const string& getPath() const { return path; }
     const TTHValue& getTTH() const { return tth; }

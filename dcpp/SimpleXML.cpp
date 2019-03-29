@@ -172,13 +172,13 @@ void SimpleXML::addAttrib(const string& aName, const string& aData) {
     if(current == &root)
         throw SimpleXMLException("No tag is currently selected");
 
-    current->attribs.push_back(make_pair(aName, aData));
+    current->attribs.emplace_back(aName, aData);
 }
 
 void SimpleXML::addChildAttrib(const string& aName, const string& aData) {
     checkChildSelected();
 
-    (*currentChild)->attribs.push_back(make_pair(aName, aData));
+    (*currentChild)->attribs.emplace_back(aName, aData);
 }
 
 void SimpleXML::fromXML(const string& aXML) {

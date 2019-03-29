@@ -50,7 +50,7 @@ public:
         ACTIVE                      // In one up/downmanager
     };
 
-    ConnectionQueueItem(const HintedUser& aUser, bool aDownload);
+    ConnectionQueueItem(const HintedUser& user, bool aDownload);
 
     GETSET(string, token, Token);
     GETSET(uint64_t, lastAttempt, LastAttempt);
@@ -68,7 +68,7 @@ class ExpectedMap {
 public:
     void add(const string& aNick, const string& aMyNick, const string& aHubUrl) {
         Lock l(cs);
-        expectedConnections.insert(make_pair(aNick, make_pair(aMyNick, aHubUrl)));
+        expectedConnections.emplace(aNick, make_pair(aMyNick, aHubUrl));
     }
 
     StringPair remove(const string& aNick) {
@@ -86,7 +86,7 @@ public:
 
 private:
     /** Nick -> myNick, hubUrl for expected NMDC incoming connections */
-    typedef map<string, StringPair> ExpectMap;
+    typedef unordered_map<string, StringPair> ExpectMap;
     ExpectMap expectedConnections;
 
     CriticalSection cs;

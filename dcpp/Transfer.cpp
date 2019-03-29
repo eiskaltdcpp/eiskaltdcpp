@@ -21,6 +21,7 @@
 
 #include "UserConnection.h"
 #include "ClientManager.h"
+#include "format.h"
 
 namespace dcpp {
 
@@ -57,7 +58,7 @@ void Transfer::tick() {
         }
     }
 
-    samples.push_back(std::make_pair(t, pos));
+    samples.emplace_back(t, pos);
 }
 
 double Transfer::getAverageSpeed() const {
@@ -100,7 +101,7 @@ const UserPtr Transfer::getUser() const {
     return getUserConnection().getUser();
 }
 
-const HintedUser Transfer::getHintedUser() const {
+HintedUser Transfer::getHintedUser() const {
     return getUserConnection().getHintedUser();
 }
 

@@ -1368,6 +1368,16 @@ string Util::formatAdditionalInfo(const string& aIp, bool sIp, bool sCC) {
     return Text::toT(ret);
 }
 
+string Util::getTempPath() {
+#ifdef _WIN32
+    TCHAR buf[MAX_PATH + 1];
+    DWORD x = GetTempPath(MAX_PATH, buf);
+    return Text::fromT(tstring(buf, x));
+#else
+    return "/tmp/";
+#endif
+}
+
 bool Util::fileExists(const string &aFile) {
 #if defined(_WIN32)
     DWORD attr = GetFileAttributes(Text::toT(aFile).c_str());

@@ -51,8 +51,8 @@ bool Identity::isUdpActive() const {
 void Identity::getParams(StringMap& sm, const string& prefix, bool compatibility, bool dht) const {
     {
         FastLock l(cs);
-        for(InfMap::const_iterator i = info.begin(); i != info.end(); ++i) {
-            sm[prefix + string((char*)(&i->first), 2)] = i->second;
+        for(auto& i: info) {
+            sm[prefix + string((char*)(&i.first), 2)] = i.second;
         }
     }
     if(

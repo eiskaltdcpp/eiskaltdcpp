@@ -262,7 +262,7 @@ void HashManager::HashStore::addTree(const TigerTree& tt) noexcept {
         try {
             File f(getDataFile(), File::READ | File::WRITE, File::OPEN);
             int64_t index = saveTree(f, tt);
-            treeIndex.insert(make_pair(tt.getRoot(), TreeInfo(tt.getFileSize(), index, tt.getBlockSize())));
+            treeIndex.emplace(tt.getRoot(), TreeInfo(tt.getFileSize(), index, tt.getBlockSize()));
             dirty = true;
         } catch (const FileException& e) {
             LogManager::getInstance()->message(str(F_("Error saving hash data: %1%") % e.getError()));

@@ -61,8 +61,8 @@ void NmdcHub::connect(const OnlineUser& aUser, const string&) {
 int64_t NmdcHub::getAvailable() const {
     Lock l(cs);
     int64_t x = 0;
-    for(auto i = users.begin(); i != users.end(); ++i) {
-        x+=i->second->getIdentity().getBytesShared();
+    for(auto& i: users) {
+        x+=i.second->getIdentity().getBytesShared();
     }
     return x;
 }
@@ -72,7 +72,7 @@ OnlineUser& NmdcHub::getUser(const string& aNick) {
     {
         Lock l(cs);
 
-        NickIter i = users.find(aNick);
+        auto i = users.find(aNick);
         if(i != users.end())
             return *i->second;
     }
@@ -86,7 +86,7 @@ OnlineUser& NmdcHub::getUser(const string& aNick) {
 
     {
         Lock l(cs);
-        u = users.insert(make_pair(aNick, new OnlineUser(p, *this, 0))).first->second;
+        u = users.emplace(aNick, new OnlineUser(p, *this, 0)).first->second;
         u->getIdentity().setNick(aNick);
         if(u->getUser() == getMyIdentity().getUser()) {
             setMyIdentity(u->getIdentity());
@@ -98,13 +98,16 @@ OnlineUser& NmdcHub::getUser(const string& aNick) {
 }
 
 void NmdcHub::supports(const StringList& feat) {
-    const string x = Util::toString(" ",feat);
+    string x;
+    for(auto& i: feat) {
+        x += i + ' ';
+    }
     send("$Supports " + x + '|');
 }
 
 OnlineUser* NmdcHub::findUser(const string& aNick) {
     Lock l(cs);
-    NickIter i = users.find(aNick);
+    auto i = users.find(aNick);
     return i == users.end() ? NULL : i->second;
 }
 
@@ -112,7 +115,7 @@ void NmdcHub::putUser(const string& aNick) {
     OnlineUser* ou = NULL;
     {
         Lock l(cs);
-        NickIter i = users.find(aNick);
+        auto i = users.find(aNick);
         if(i == users.end())
             return;
         ou = i->second;
@@ -130,9 +133,9 @@ void NmdcHub::clearUsers() {
         u2.swap(users);
     }
 
-    for(auto i = u2.begin(); i != u2.end(); ++i) {
-        ClientManager::getInstance()->putOffline(i->second);
-        delete i->second;
+    for(auto& i: u2) {
+        ClientManager::getInstance()->putOffline(i.second);
+        delete i.second;
     }
 }
 
@@ -140,32 +143,33 @@ void NmdcHub::updateFromTag(Identity& id, const string& tag) {
     StringTokenizer<string> tok(tag, ',');
     string::size_type j;
     id.set("US", Util::emptyString);
-    for(auto i = tok.getTokens().begin(); i != tok.getTokens().end(); ++i) {
-        if(i->length() < 2)
+    for(auto& i: tok.getTokens()) {
+        if(i.size() < 2)
             continue;
 
-        if(i->compare(0, 2, "H:") == 0) {
-            StringTokenizer<string> t(i->substr(2), '/');
+        if(i.compare(0, 2, "H:") == 0) {
+            StringTokenizer<string> t(i.substr(2), '/');
             if(t.getTokens().size() != 3)
                 continue;
             id.set("HN", t.getTokens()[0]);
             id.set("HR", t.getTokens()[1]);
             id.set("HO", t.getTokens()[2]);
-        } else if(i->compare(0, 2, "S:") == 0) {
-            id.set("SL", i->substr(2));
-        } else if((j = i->find("V:")) != string::npos) {
-            i->erase(i->begin(), i->begin() + j + 2);
-            id.set("VE", *i);
-        } else if(i->compare(0, 2, "M:") == 0) {
-            if(i->size() == 3) {
-                if((*i)[2] == 'A')
+        } else if(i.compare(0, 2, "S:") == 0) {
+            id.set("SL", i.substr(2));
+        } else if(i.find("V:") != string::npos) {
+            string::size_type j = i.find("V:");
+            i.erase(i.begin(), i.begin() + j + 2);
+            id.set("VE", i);
+        } else if(i.compare(0, 2, "M:") == 0) {
+            if(i.size() == 3) {
+                if(i[2] == 'A')
                     id.getUser()->unsetFlag(User::PASSIVE);
                 else
                     id.getUser()->setFlag(User::PASSIVE);
             }
-        } else if((j = i->find("L:")) != string::npos) {
-            i->erase(i->begin() + j, i->begin() + j + 2);
-            id.set("US", Util::toString(Util::toInt(*i) * 1024));
+        } else if((j = i.find("L:")) != string::npos) {
+            i.erase(i.begin() + j, i.begin() + j + 2);
+            id.set("US", Util::toString(Util::toInt(i) * 1024));
         }
     }
     /// @todo Think about this
@@ -272,18 +276,18 @@ void NmdcHub::onLine(const string& aLine) noexcept {
         uint64_t tick = GET_TICK();
         clearFlooders(tick);
 
-        seekers.push_back(make_pair(seeker, tick));
+        seekers.emplace_back(seeker, tick);
 
         // First, check if it's a flooder
-        for(auto fi = flooders.begin(); fi != flooders.end(); ++fi) {
-            if(fi->first == seeker) {
+        for(auto& fi: flooders) {
+            if(fi.first == seeker) {
                 return;
             }
         }
 
         int count = 0;
-        for(auto fi = seekers.begin(); fi != seekers.end(); ++fi) {
-            if(fi->first == seeker)
+        for(auto& fi: seekers) {
+            if(fi.first == seeker)
                 count++;
 
             if(count > 7) {
@@ -292,7 +296,7 @@ void NmdcHub::onLine(const string& aLine) noexcept {
                 else
                     fire(ClientListener::SearchFlood(), this, str(F_("%1% (Nick unknown)") % seeker));
 
-                flooders.push_back(make_pair(seeker, tick));
+                flooders.emplace_back(seeker, tick);
                 return;
             }
         }
@@ -361,7 +365,7 @@ void NmdcHub::onLine(const string& aLine) noexcept {
 
         string tmpDesc = unescape(param.substr(i, j-i));
         // Look for a tag...
-        if(tmpDesc.size() > 0 && tmpDesc[tmpDesc.size()-1] == '>') {
+        if(!tmpDesc.empty() && tmpDesc[tmpDesc.size()-1] == '>') {
             x = tmpDesc.rfind('<');
             if(x != string::npos) {
                 // Hm, we have something...disassemble it...

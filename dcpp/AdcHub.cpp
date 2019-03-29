@@ -930,7 +930,7 @@ static void addParam(StringMap& lastInfoMap, AdcCommand& c, const string& var, c
             c.addParam(var, value);
         }
     } else if(!value.empty()) {
-        lastInfoMap.insert(make_pair(var, value));
+        lastInfoMap.emplace(var, value);
         c.addParam(var, value);
     }
 }

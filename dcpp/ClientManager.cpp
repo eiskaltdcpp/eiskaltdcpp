@@ -266,7 +266,7 @@ UserPtr ClientManager::getUser(const string& aNick, const string& aHubUrl) noexc
 
     UserPtr p(new User(cid));
     p->setFlag(User::NMDC);
-    users.insert(make_pair(cid, p));
+    users.emplace(cid, p);
 
     return p;
 }
@@ -278,15 +278,19 @@ UserPtr ClientManager::getUser(const CID& cid) noexcept {
         return ui->second;
     }
 
+    if(cid == getMe()->getCID()) {
+        return getMe();
+    }
+
     UserPtr p(new User(cid));
-    users.insert(make_pair(cid, p));
+    users.emplace(cid, p);
     return p;
 }
 
 UserPtr ClientManager::findUser(const CID& cid) const noexcept {
     Lock l(cs);
     auto ui = users.find(cid);
-    return ui == users.end() ? 0 : ui->second;
+    return ui == users.end() ? nullptr : ui->second;
 }
 
 bool ClientManager::isOp(const UserPtr& user, const string& aHubUrl) const {
@@ -312,7 +316,7 @@ CID ClientManager::makeCid(const string& aNick, const string& aHubUrl) const noe
 void ClientManager::putOnline(OnlineUser* ou) noexcept {
     {
         Lock l(cs);
-        onlineUsers.insert(make_pair(ou->getUser()->getCID(), ou));
+        onlineUsers.emplace(ou->getUser()->getCID(), ou);
     }
 
     if(!ou->getUser()->isOnline()) {
@@ -322,27 +326,29 @@ void ClientManager::putOnline(OnlineUser* ou) noexcept {
 }
 
 void ClientManager::putOffline(OnlineUser* ou, bool disconnect) noexcept {
-    bool lastUser = false;
+    OnlineIter::difference_type diff = 0;
     {
         Lock l(cs);
-        OnlinePair op = onlineUsers.equal_range(ou->getUser()->getCID());
+        auto op = onlineUsers.equal_range(ou->getUser()->getCID());
         dcassert(op.first != op.second);
-        for(OnlineIter i = op.first; i != op.second; ++i) {
-            OnlineUser* ou2 = i->second;
+        for(auto i = op.first; i != op.second; ++i) {
+            auto ou2 = i->second;
             if(ou == ou2) {
-                lastUser = (distance(op.first, op.second) == 1);
+                diff = distance(op.first, op.second);
                 onlineUsers.erase(i);
                 break;
             }
         }
     }
 
-    if(lastUser) {
+    if(diff == 1) { //last user
         UserPtr& u = ou->getUser();
         u->unsetFlag(User::ONLINE);
         if(disconnect)
             ConnectionManager::getInstance()->disconnect(u);
         fire(ClientManagerListener::UserDisconnected(), u);
+    } else if(diff > 1) {
+        fire(ClientManagerListener::UserUpdated(), *ou);
     }
 }
 

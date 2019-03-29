@@ -224,12 +224,12 @@ public:
     virtual ~ShareManager();
 
     struct AdcSearch {
-        AdcSearch(const StringList& params);
+        AdcSearch(const StringList& adcParams);
 
         bool isExcluded(const string& str);
         bool hasExt(const string& name);
         StringSearch::List* include;
-        StringSearch::List includeX;
+        StringSearch::List includeInit;
         StringSearch::List exclude;
         StringList ext;
         StringList noExt;

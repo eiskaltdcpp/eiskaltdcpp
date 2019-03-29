@@ -512,7 +512,7 @@ void FavoriteManager::load(SimpleXML& aXml) {
             } else {
                 u = ClientManager::getInstance()->getUser(CID(cid));
             }
-            auto i = users.insert(make_pair(u->getCID(), FavoriteUser(u, nick, hubUrl))).first;
+            auto i = users.emplace(u->getCID(), FavoriteUser(u, nick, hubUrl)).first;
 
             if(aXml.getBoolChildAttrib("GrantSlot"))
                 i->second.setFlag(FavoriteUser::FLAG_GRANTSLOT);

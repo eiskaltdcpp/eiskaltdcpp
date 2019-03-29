@@ -100,7 +100,7 @@ QueueItem* QueueManager::FileQueue::add(const string& aTarget, int64_t aSize,
 
 void QueueManager::FileQueue::add(QueueItem* qi) {
     if(lastInsert == queue.end())
-        lastInsert = queue.insert(make_pair(const_cast<string*>(&qi->getTarget()), qi)).first;
+        lastInsert = queue.emplace(const_cast<string*>(&qi->getTarget()), qi).first;
     else
         lastInsert = queue.insert(lastInsert, make_pair(const_cast<string*>(&qi->getTarget()), qi));
 }
@@ -113,24 +113,24 @@ void QueueManager::FileQueue::remove(QueueItem* qi) {
 }
 
 QueueItem* QueueManager::FileQueue::find(const string& target) {
-    QueueItem::StringIter i = queue.find(const_cast<string*>(&target));
+    auto i = queue.find(const_cast<string*>(&target));
     return (i == queue.end()) ? NULL : i->second;
 }
 
 void QueueManager::FileQueue::find(QueueItem::List& sl, int64_t aSize, const string& suffix) {
-    for(QueueItem::StringIter i = queue.begin(); i != queue.end(); ++i) {
-        if(i->second->getSize() == aSize) {
-            const string& t = i->second->getTarget();
+    for(auto& i: queue) {
+        if(i.second->getSize() == aSize) {
+            const string& t = i.second->getTarget();
             if(suffix.empty() || (suffix.length() < t.length() &&
                                   Util::stricmp(suffix.c_str(), t.c_str() + (t.length() - suffix.length())) == 0) )
-                sl.push_back(i->second);
+                sl.push_back(i.second);
         }
     }
 }
 
 void QueueManager::FileQueue::find(QueueItem::List& ql, const TTHValue& tth) {
-    for(QueueItem::StringIter i = queue.begin(); i != queue.end(); ++i) {
-        QueueItem* qi = i->second;
+    for(auto& i: queue) {
+        auto qi = i.second;
         if(qi->getTTH() == tth) {
             ql.push_back(qi);
         }
@@ -919,7 +919,7 @@ void QueueManager::addDirectory(const string& aDir, const HintedUser& aUser, con
         }
 
         // Unique directory, fine...
-        directories.insert(make_pair(aUser, new DirectoryItem(aUser, aDir, aTarget, p)));
+        directories.emplace(aUser, new DirectoryItem(aUser, aDir, aTarget, p));
         needList = (dp.first == dp.second);
         setDirty();
     }
@@ -941,41 +941,38 @@ QueueItem::Priority QueueManager::hasDownload(const UserPtr& aUser) noexcept {
     }
     return qi->getPriority();
 }
-namespace {
+
 typedef unordered_map<TTHValue, const DirectoryListing::File*> TTHMap;
 
-// *** WARNING ***
-// Lock(cs) makes sure that there's only one thread accessing this
-static TTHMap tthMap;
+namespace {
+void buildMap(const DirectoryListing::Directory* dir, TTHMap& tthMap) noexcept {
+    std::for_each(dir->directories.cbegin(), dir->directories.cend(), [&](DirectoryListing::Directory* d) {
+        if(!d->getAdls())
+            buildMap(d, tthMap);
+    });
 
-void buildMap(const DirectoryListing::Directory* dir) noexcept {
-    for(DirectoryListing::Directory::List::const_iterator j = dir->directories.begin(); j != dir->directories.end(); ++j) {
-        if(!(*j)->getAdls())
-            buildMap(*j);
-    }
-
-    for(DirectoryListing::File::List::const_iterator i = dir->files.begin(); i != dir->files.end(); ++i) {
-        const DirectoryListing::File* df = *i;
-        tthMap.insert(make_pair(df->getTTH(), df));
-    }
+    std::for_each(dir->files.cbegin(), dir->files.cend(), [&](DirectoryListing::File* f) {
+        tthMap.emplace(f->getTTH(), f);
+    });
 }
 }
 
 int QueueManager::matchListing(const DirectoryListing& dl) noexcept {
     int matches = 0;
+
     {
         Lock l(cs);
-        tthMap.clear();
-        buildMap(dl.getRoot());
+        TTHMap tthMap;
+        buildMap(dl.getRoot(), tthMap);
 
-        for(QueueItem::StringMap::const_iterator i = fileQueue.getQueue().begin(); i != fileQueue.getQueue().end(); ++i) {
-            QueueItem* qi = i->second;
+        for(auto& i: fileQueue.getQueue()) {
+            auto qi = i.second;
             if(qi->isFinished())
                 continue;
             if(qi->isSet(QueueItem::FLAG_USER_LIST))
                 continue;
-            TTHMap::iterator j = tthMap.find(qi->getTTH());
-            if(j != tthMap.end() && i->second->getSize() == qi->getSize()) {
+            auto j = tthMap.find(qi->getTTH());
+            if(j != tthMap.end() && j->second->getSize() == qi->getSize()) {
                 try {
                     addSource(qi, dl.getUser(), QueueItem::Source::FLAG_FILE_NOT_AVAILABLE);
                 } catch(...) {
@@ -1039,10 +1036,11 @@ void QueueManager::move(const string& aSource, const string& aTarget) noexcept {
             if(qs->getSize() != qt->getSize() || qs->getTTH() != qt->getTTH())
                 return;
 
-            for(QueueItem::SourceConstIter i = qs->getSources().begin(); i != qs->getSources().end(); ++i) {
+            for(auto& i: qs->getSources()) {
                 try {
-                    addSource(qt, i->getUser(), QueueItem::Source::FLAG_MASK);
-                } catch(const Exception&) { }
+                    addSource(qt, i.getUser(), QueueItem::Source::FLAG_MASK);
+                } catch(const Exception&) {
+                }
             }
             delSource = true;
         }
@@ -1057,8 +1055,8 @@ void QueueManager::getTargets(const TTHValue& tth, StringList& sl) {
     Lock l(cs);
     QueueItem::List ql;
     fileQueue.find(ql, tth);
-    for(QueueItem::Iter i = ql.begin(); i != ql.end(); ++i) {
-        sl.push_back((*i)->getTarget());
+    for(auto& i: ql) {
+        sl.push_back(i->getTarget());
     }
 }
 
