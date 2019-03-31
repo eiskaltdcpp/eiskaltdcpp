@@ -40,6 +40,7 @@
 #include <QTimer>
 #include <QAction>
 #include <QStatusBar>
+#include <QDate>
 
 #include "ArenaWidgetManager.h"
 #include "ArenaWidgetFactory.h"
@@ -354,8 +355,12 @@ void MainWindow::closeEvent(QCloseEvent *c_e){
     if (d->isUnload && WBGET(WB_EXIT_CONFIRM) && !d->exitBegin){
         QMessageBox::StandardButton ret;
 
-        ret = QMessageBox::question(this, tr("Exit confirm"),
-                                    tr("Exit program?"),
+        QString dlg_message = tr("Exit program?");
+        if (QDate::currentDate().day() == 1 && QDate::currentDate().month() == 4) {
+            dlg_message = tr("Kill all humans?");
+        }
+        ret = QMessageBox::question(this,  tr("Action confirm"),
+                                    dlg_message,
                                     QMessageBox::Yes | QMessageBox::No,
                                     QMessageBox::Yes);
 
