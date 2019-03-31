@@ -102,7 +102,7 @@ private:
         void addResult(const string& buf, const string& ip) {
             {
                 Lock l(csudp);
-                resultList.push_back(make_pair(buf, ip));
+                resultList.emplace_back(buf, ip);
             }
             s.signal();
         }

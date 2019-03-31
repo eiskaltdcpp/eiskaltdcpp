@@ -103,7 +103,7 @@ public:
             h.update(&zero, 1);
             h.update(buf + i, n);
             if((int64_t)baseBlockSize < blockSize) {
-                blocks.push_back(make_pair(MerkleValue(h.finalize()), baseBlockSize));
+                blocks.emplace_back(MerkleValue(h.finalize()), baseBlockSize);
                 reduceBlocks();
             } else {
                 leaves.emplace_back(h.finalize());

@@ -98,7 +98,7 @@ void DownloadManager::on(TimerManagerListener::Second, uint64_t aTick) noexcept 
                     if(BOOLSETTING(AUTODROP_DISCONNECT) && isUserList) {
                         d->getUserConnection().disconnect();
                     } else {
-                        dropTargets.push_back(make_pair(d->getPath(), d->getUser()));
+                        dropTargets.emplace_back(d->getPath(), d->getUser());
                     }
                 }
             }

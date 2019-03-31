@@ -774,14 +774,15 @@ void ShareManager::updateIndices(Directory& dir, const Directory::File::Set::ite
                 LogManager::getInstance()->message(str(F_("Duplicate file will not be shared: %1% (Size: %2% B) Dupe matched against: %3%")
                                                        % Util::addBrackets(dir.getRealPath(f.getName())) % Util::toString(f.getSize()) % Util::addBrackets(j->second->getParent()->getRealPath(j->second->getName()))));
                 dir.files.erase(i);
-            } catch (const ShareException&) { }
+            } catch (const ShareException&) {
+            }
             return;
         }
     }
 
     dir.addType(getType(f.getName()));
 
-    tthIndex.insert(make_pair(f.getTTH(), i));
+    tthIndex.emplace(f.getTTH(), i);
     bloom.add(Text::toLower(f.getName()));
 #ifdef WITH_DHT
     dht::IndexManager* im = dht::IndexManager::getInstance();
@@ -1501,7 +1502,7 @@ void ShareManager::on(HashManagerListener::TTHDone, const string& fname, const T
             // Get rid of false constness...
             auto f = const_cast<Directory::File*>(&(*i));
             f->setTTH(root);
-            tthIndex.insert(make_pair(f->getTTH(), i));
+            tthIndex.emplace(f->getTTH(), i);
         } else {
             string name = Util::getFileName(fname);
             int64_t size = File::getSize(fname);

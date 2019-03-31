@@ -357,7 +357,7 @@ void QueueManager::UserQueue::remove(QueueItem* qi, const UserPtr& aUser, bool r
 
 void QueueManager::FileMover::moveFile(const string& source, const string& target) {
     Lock l(cs);
-    files.push_back(make_pair(source, target));
+    files.emplace_back(source, target);
     if(!active) {
         active = true;
         start();
@@ -501,7 +501,7 @@ int QueueManager::Rechecker::run() {
                     }
                     check.flush();
 
-                    sizes.push_back(make_pair(startPos, segmentSize));
+                    sizes.emplace_back(startPos, segmentSize);
                 } catch(const Exception&) {
                     hasBadBlocks = true;
                     dcdebug("Found bad block at " I64_FMT "\n", static_cast<long long int>(startPos));
@@ -2085,20 +2085,20 @@ void QueueManager::FileQueue::findPFSSources(PFSSourceList& sl)
         const QueueItem::SourceList& sources = q->getSources();
         const QueueItem::SourceList& badSources = q->getBadSources();
 
-        for(QueueItem::SourceConstIter j = sources.begin(); j != sources.end(); ++j) {
-            if( (*j).isSet(QueueItem::Source::FLAG_PARTIAL) && (*j).getPartialSource()->getNextQueryTime() <= now &&
-                    (*j).getPartialSource()->getPendingQueryCount() < 10 && Util::toInt((*j).getPartialSource()->getUdpPort()) > 0)
+        for(auto& j : sources) {
+            if( j.isSet(QueueItem::Source::FLAG_PARTIAL) && j.getPartialSource()->getNextQueryTime() <= now &&
+                    j.getPartialSource()->getPendingQueryCount() < 10 && Util::toInt(j.getPartialSource()->getUdpPort()) > 0)
             {
-                buffer.insert(make_pair((*j).getPartialSource()->getNextQueryTime(), make_pair(j, q)));
+                buffer.emplace(j.getPartialSource()->getNextQueryTime(), make_pair(&j, q));
             }
         }
 
-        for(QueueItem::SourceConstIter j = badSources.begin(); j != badSources.end(); ++j) {
-            if( (*j).isSet(QueueItem::Source::FLAG_TTH_INCONSISTENCY) == false && (*j).isSet(QueueItem::Source::FLAG_PARTIAL) &&
-                    (*j).getPartialSource()->getNextQueryTime() <= now && (*j).getPartialSource()->getPendingQueryCount() < 10 &&
-                    Util::toInt((*j).getPartialSource()->getUdpPort()) > 0)
+        for(auto& j : badSources) {
+            if( j.isSet(QueueItem::Source::FLAG_TTH_INCONSISTENCY) == false && j.isSet(QueueItem::Source::FLAG_PARTIAL) &&
+                    j.getPartialSource()->getNextQueryTime() <= now && j.getPartialSource()->getPendingQueryCount() < 10 &&
+                    Util::toInt(j.getPartialSource()->getUdpPort()) > 0)
             {
-                buffer.insert(make_pair((*j).getPartialSource()->getNextQueryTime(), make_pair(j, q)));
+                buffer.emplace(j.getPartialSource()->getNextQueryTime(), make_pair(&j, q));
             }
         }
     }

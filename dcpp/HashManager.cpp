@@ -403,7 +403,7 @@ void HashManager::HashStore::rebuild() {
         }
 
         for (auto& i: fileIndex) {
-            DirIter fi = newFileIndex.insert(make_pair(i.first, FileInfoList())).first;
+            DirIter fi = newFileIndex.emplace(i.first, FileInfoList()).first;
 
             for (auto& j: i.second) {
                 if (newTreeIndex.find(j.getRoot()) != newTreeIndex.end()) {
@@ -614,7 +614,7 @@ void HashManager::HashStore::createDataFile(const string& name) {
 
 void HashManager::Hasher::hashFile(const string& fileName, int64_t size) noexcept {
     Lock l(cs);
-    if (w.insert(make_pair(fileName, size)).second) {
+    if(w.emplace(fileName, size).second) {
         if(paused > 0)
             paused = 1 ;
         else
