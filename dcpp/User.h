@@ -165,6 +165,7 @@ public:
     void setBot(bool bot) { set("BO", bot ? "1" : Util::emptyString); }
     void setHidden(bool hidden) { set("HI", hidden ? "1" : Util::emptyString); }
     string getTag() const;
+    string getApplication() const;
     bool supports(const string& name) const;
     bool isHub() const { return isClientType(CT_HUB) || isSet("HU"); }
     bool isOp() const { return isClientType(CT_OP) || isClientType(CT_SU) || isClientType(CT_OWNER) || isSet("OP"); }

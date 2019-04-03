@@ -93,8 +93,24 @@ string Identity::getTag() const {
         return get("TA");
     if(get("VE").empty() || get("HN").empty() || get("HR").empty() ||get("HO").empty() || get("SL").empty())
         return Util::emptyString;
-    return "<" + get("VE") + ",M:" + string(isTcpActive() ? "A" : "P") + ",H:" + get("HN") + "/" +
-            get("HR") + "/" + get("HO") + ",S:" + get("SL") + ">";
+    return "<" + getApplication() + ",M:" + string(isTcpActive() ? "A" : "P") +
+            ",H:" + get("HN") + "/" + get("HR") + "/" + get("HO") + ",S:" + get("SL") + ">";
+}
+
+string Identity::getApplication() const {
+    auto application = get("AP");
+    auto version = get("VE");
+
+    if(version.empty()) {
+        return application;
+    }
+
+    if(application.empty()) {
+        // AP is an extension, so we can't guarantee that the other party supports it, so default to VE.
+        return version;
+    }
+
+    return application + ' ' + version;
 }
 
 string Identity::get(const char* name) const {

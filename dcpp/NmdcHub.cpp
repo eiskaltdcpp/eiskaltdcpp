@@ -158,7 +158,7 @@ void NmdcHub::updateFromTag(Identity& id, const string& tag) {
             id.set("SL", i.substr(2));
         } else if(i.find("V:") != string::npos) {
             string::size_type j = i.find("V:");
-            i.erase(i.begin(), i.begin() + j + 2);
+            i.erase(i.begin() + j, i.begin() + j + 2);
             id.set("VE", i);
         } else if(i.compare(0, 2, "M:") == 0) {
             if(i.size() == 3) {

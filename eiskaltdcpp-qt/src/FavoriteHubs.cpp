@@ -261,7 +261,7 @@ void FavoriteHubs::slotUpdateComboBox_CID(){
         tags = fakeNMDCTags;
 
     QStringList old_tags;
-    for (int i = 0; i < editor->comboBox_CID->count(); i++)
+    for (int i = 0; i < editor->comboBox_CID->count(); ++i)
         old_tags.append(editor->comboBox_CID->itemText(i));
 
     if (tags != old_tags){
