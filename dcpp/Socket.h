@@ -68,8 +68,14 @@ public:
         TYPE_UDP
     };
 
-    Socket() : sock(INVALID_SOCKET), connected(false) { }
-    Socket(const string& aIp, uint16_t aPort) : sock(INVALID_SOCKET), connected(false) { connect(aIp, aPort); }
+    enum {
+        PROTO_DEFAULT = 0,
+        PROTO_NMDC = 1,
+        PROTO_ADC = 2
+    };
+
+    Socket() : sock(INVALID_SOCKET), connected(false), proto(PROTO_DEFAULT) { }
+    Socket(const string& aIp, uint16_t aPort) : sock(INVALID_SOCKET), connected(false), proto(PROTO_DEFAULT) { connect(aIp, aPort); }
     virtual ~Socket() { disconnect(); }
 
     /**
@@ -155,6 +161,8 @@ public:
     string getLocalIp() noexcept;
     string getLocalPort() noexcept;
 
+    int getNextProtocol() noexcept;
+
     // Low level interface
     virtual void create(int aType = TYPE_TCP);
 
@@ -180,6 +188,7 @@ public:
 protected:
     int type;
     bool connected;
+    int proto;
 
     class Stats {
     public:

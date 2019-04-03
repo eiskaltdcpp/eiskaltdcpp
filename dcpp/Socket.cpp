@@ -673,6 +673,10 @@ string Socket::getLocalPort() noexcept {
     return Util::emptyString;
 }
 
+int Socket::getNextProtocol() noexcept {
+    return proto;
+}
+
 void Socket::socksUpdated() {
     udpServer.clear();
     udpPort.clear();
