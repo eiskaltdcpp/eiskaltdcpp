@@ -957,7 +957,8 @@ void AdcHub::info(bool /*alwaysSend*/) {
     addParam(lastInfoMap, c, "HN", Util::toString(counts.normal));
     addParam(lastInfoMap, c, "HR", Util::toString(counts.registered));
     addParam(lastInfoMap, c, "HO", Util::toString(counts.op));
-    addParam(lastInfoMap, c, "VE", getClientId().c_str());
+    addParam(lastInfoMap, c, "AP", string(EISKALTDCPP_APPNAME));
+    addParam(lastInfoMap, c, "VE", string(EISKALTDCPP_VERSION));
     addParam(lastInfoMap, c, "AW", Util::getAway() ? "1" : Util::emptyString);
     int limit = ThrottleManager::getInstance()->getDownLimit();
     if (limit > 0 && BOOLSETTING(THROTTLE_ENABLE)) {
