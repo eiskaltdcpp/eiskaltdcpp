@@ -16,7 +16,6 @@
  */
 
 #include "stdinc.h"
-
 #include "AdcHub.h"
 
 #include "ChatMessage.h"
