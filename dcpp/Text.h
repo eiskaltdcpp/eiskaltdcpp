@@ -96,14 +96,14 @@ inline string fromT(const tstring& str) noexcept { return acpToUtf8(str); }
 #endif
 
 inline const TStringList& toT(const StringList& lst, TStringList& tmp) noexcept {
-    for(StringIterC i = lst.begin(), iend = lst.end(); i != iend; ++i)
-        tmp.push_back(toT(*i));
+    for(auto& i: lst)
+        tmp.push_back(toT(i));
     return tmp;
 }
 
 inline const StringList& fromT(const TStringList& lst, StringList& tmp) noexcept {
-    for(TStringIterC i = lst.begin(), iend = lst.end(); i != iend; ++i)
-        tmp.push_back(fromT(*i));
+    for(auto& i: lst)
+        tmp.push_back(fromT(i));
     return tmp;
 }
 
