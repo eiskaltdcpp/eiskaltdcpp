@@ -945,6 +945,14 @@ void AdcHub::info(bool /*alwaysSend*/) {
     if (state == STATE_NORMAL) {
         updateCounts(false);
     }
+    string app_name = string(EISKALTDCPP_APPNAME);
+    string app_version = string(EISKALTDCPP_VERSION);
+    StringTokenizer<string> st(getClientId(), ' ');
+    if(st.getTokens().size() == 2) {
+        app_name = st.getTokens().at(0);
+        app_version = st.getTokens().at(1);
+    }
+
     addParam(lastInfoMap, c, "ID", ClientManager::getInstance()->getMyCID().toBase32());
     addParam(lastInfoMap, c, "PD", ClientManager::getInstance()->getMyPID().toBase32());
     addParam(lastInfoMap, c, "NI", getCurrentNick());
@@ -957,8 +965,8 @@ void AdcHub::info(bool /*alwaysSend*/) {
     addParam(lastInfoMap, c, "HN", Util::toString(counts.normal));
     addParam(lastInfoMap, c, "HR", Util::toString(counts.registered));
     addParam(lastInfoMap, c, "HO", Util::toString(counts.op));
-    addParam(lastInfoMap, c, "AP", string(EISKALTDCPP_APPNAME));
-    addParam(lastInfoMap, c, "VE", string(EISKALTDCPP_VERSION));
+    addParam(lastInfoMap, c, "AP", app_name);
+    addParam(lastInfoMap, c, "VE", app_version);
     addParam(lastInfoMap, c, "AW", Util::getAway() ? "1" : Util::emptyString);
     int limit = ThrottleManager::getInstance()->getDownLimit();
     if (limit > 0 && BOOLSETTING(THROTTLE_ENABLE)) {
