@@ -2085,20 +2085,20 @@ void QueueManager::FileQueue::findPFSSources(PFSSourceList& sl)
         const QueueItem::SourceList& sources = q->getSources();
         const QueueItem::SourceList& badSources = q->getBadSources();
 
-        for(auto& j : sources) {
-            if( j.isSet(QueueItem::Source::FLAG_PARTIAL) && j.getPartialSource()->getNextQueryTime() <= now &&
-                    j.getPartialSource()->getPendingQueryCount() < 10 && Util::toInt(j.getPartialSource()->getUdpPort()) > 0)
+        for(QueueItem::SourceConstIter j = sources.begin(); j != sources.end(); ++j) {
+            if( (*j).isSet(QueueItem::Source::FLAG_PARTIAL) && (*j).getPartialSource()->getNextQueryTime() <= now &&
+                    (*j).getPartialSource()->getPendingQueryCount() < 10 && Util::toInt((*j).getPartialSource()->getUdpPort()) > 0)
             {
-                buffer.emplace(j.getPartialSource()->getNextQueryTime(), make_pair(&j, q));
+                buffer.emplace((*j).getPartialSource()->getNextQueryTime(), make_pair(j, q));
             }
         }
 
-        for(auto& j : badSources) {
-            if( j.isSet(QueueItem::Source::FLAG_TTH_INCONSISTENCY) == false && j.isSet(QueueItem::Source::FLAG_PARTIAL) &&
-                    j.getPartialSource()->getNextQueryTime() <= now && j.getPartialSource()->getPendingQueryCount() < 10 &&
-                    Util::toInt(j.getPartialSource()->getUdpPort()) > 0)
+        for(QueueItem::SourceConstIter j = badSources.begin(); j != badSources.end(); ++j) {
+            if( (*j).isSet(QueueItem::Source::FLAG_TTH_INCONSISTENCY) == false && (*j).isSet(QueueItem::Source::FLAG_PARTIAL) &&
+                    (*j).getPartialSource()->getNextQueryTime() <= now && (*j).getPartialSource()->getPendingQueryCount() < 10 &&
+                    Util::toInt((*j).getPartialSource()->getUdpPort()) > 0)
             {
-                buffer.emplace(j.getPartialSource()->getNextQueryTime(), make_pair(&j, q));
+                buffer.emplace((*j).getPartialSource()->getNextQueryTime(), make_pair(j, q));
             }
         }
     }
