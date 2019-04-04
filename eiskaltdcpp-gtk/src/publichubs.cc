@@ -306,7 +306,7 @@ void PublicHubs::onAddFav_gui(GtkMenuItem*, gpointer data)
 
         entry.setName(name);
         entry.setServer(address);
-        entry.setDescription(description);
+        entry.setHubDescription(description);
         entry.setNick(SETTING(NICK));
         entry.setPassword("");
         entry.setUserDescription(SETTING(DESCRIPTION));

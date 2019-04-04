@@ -17,9 +17,11 @@
 
 #pragma once
 
-#include "noexcept.h"
+#include <string>
 
 namespace dcpp {
+
+using std::string;
 
 class LogManagerListener {
 public:

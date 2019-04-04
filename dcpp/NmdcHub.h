@@ -17,19 +17,22 @@
 
 #pragma once
 
+#include <list>
+
 #include "TimerManager.h"
 #include "SettingsManager.h"
 #include "forward.h"
 #include "CriticalSection.h"
 #include "Text.h"
 #include "Client.h"
-#include "BufferedSocket.h"
-#include "ClientManager.h"
 
 #ifdef LUA_SCRIPT
 #include "ScriptManager.h"
 #endif
+
 namespace dcpp {
+
+using std::list;
 
 #ifdef LUA_SCRIPT
 struct NmdcHubScriptInstance : public ScriptInstance {
@@ -40,10 +43,11 @@ struct NmdcHubScriptInstance : public ScriptInstance {
 
 class ClientManager;
 
+#ifdef LUA_SCRIPT
+class NmdcHub : public Client, private Flags ,public NmdcHubScriptInstance
+#else
 class NmdcHub : public Client, private Flags
-        #ifdef LUA_SCRIPT
-        ,public NmdcHubScriptInstance
-        #endif
+#endif
 {
 public:
     using Client::send;
@@ -79,10 +83,7 @@ private:
 
     mutable CriticalSection cs;
 
-    typedef unordered_map<string, OnlineUser*, CaseStringHash, CaseStringEq> NickMap;
-    typedef NickMap::iterator NickIter;
-
-    NickMap users;
+    unordered_map<string, OnlineUser*, CaseStringHash, CaseStringEq> users;
 
     int supportFlags;
 
@@ -99,10 +100,6 @@ private:
 
     NmdcHub(const string& aHubURL, bool secure);
     virtual ~NmdcHub();
-
-    // Dummy
-    NmdcHub(const NmdcHub&);
-    NmdcHub& operator=(const NmdcHub&);
 
     void clearUsers();
 

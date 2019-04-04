@@ -218,7 +218,7 @@ std::string SSLSocket::getCipherName() const noexcept {
     return SSL_get_cipher_name(ssl);
 }
 
-vector<uint8_t> SSLSocket::getKeyprint() const noexcept {
+ByteVector SSLSocket::getKeyprint() const noexcept {
     if(!ssl)
         return vector<uint8_t>();
     X509* x509 = SSL_get_peer_certificate(ssl);

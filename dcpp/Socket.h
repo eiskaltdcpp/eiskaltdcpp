@@ -90,7 +90,7 @@ public:
     /**
      * Same as connect(), but through the SOCKS5 server
      */
-    void socksConnect(const string& aIp, const std::string &aPort, uint32_t timeout = 0);
+    void socksConnect(const string& aIp, const string &aPort, uint32_t timeout = 0);
 
     /**
      * Sends data, will block until all data has been sent or an exception occurs
@@ -176,8 +176,8 @@ public:
 
     virtual bool isSecure() const noexcept { return false; }
     virtual bool isTrusted() const noexcept { return false; }
-    virtual std::string getCipherName() const noexcept { return Util::emptyString; }
-    virtual std::vector<uint8_t> getKeyprint() const noexcept { return std::vector<uint8_t>(); }
+    virtual string getCipherName() const noexcept { return Util::emptyString; }
+    virtual ByteVector getKeyprint() const noexcept { return ByteVector(); }
 
     /** When socks settings are updated, this has to be called... */
     static void socksUpdated();

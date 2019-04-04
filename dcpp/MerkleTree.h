@@ -17,6 +17,8 @@
 
 #pragma once
 
+#include <algorithm>
+
 #include "debug.h"
 #include "typedefs.h"
 #include "TigerHash.h"

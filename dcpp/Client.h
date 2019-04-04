@@ -102,8 +102,6 @@ public:
     string getIpPort() const { return getIp() + ':' + port; }
     string getLocalIp() const;
 
-    void updated(const OnlineUser& aUser) { fire(ClientListener::UserUpdated(), this, aUser); }
-
     static string getCounts() {
         char buf[128];
         return string(buf, snprintf(buf, sizeof(buf), "%ld/%ld/%ld",
@@ -189,8 +187,11 @@ protected:
     void updateCounts(bool aRemove);
     void updateActivity() { lastActivity = GET_TICK(); }
 
-    virtual string checkNick(const string& nick) = 0;
+    void updated(OnlineUser& user);
+    void updated(OnlineUserList& users);
+
     virtual void search(int aSizeMode, int64_t aSize, int aFileType, const string& aString, const string& aToken, const StringList& aExtList) = 0;
+    virtual string checkNick(const string& nick) = 0;
 
     // TimerManagerListener
     virtual void on(Second, uint64_t aTick) noexcept;

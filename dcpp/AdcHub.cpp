@@ -122,7 +122,7 @@ void AdcHub::putUser(const uint32_t aSID, bool disconnect) {
 }
 
 void AdcHub::clearUsers() {
-    SIDMap tmp;
+    decltype(users) tmp;
     {
         Lock l(cs);
         users.swap(tmp);
@@ -202,7 +202,7 @@ void AdcHub::handle(AdcCommand::INF, AdcCommand& c) noexcept {
         setHubIdentity(u->getIdentity());
         fire(ClientListener::HubUpdated(), this);
     } else {
-        fire(ClientListener::UserUpdated(), this, *u);
+        updated(*u);
     }
 }
 

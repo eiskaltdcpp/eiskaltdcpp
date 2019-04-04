@@ -199,6 +199,7 @@ std::string Client::getCipherName() const {
 vector<uint8_t> Client::getKeyprint() const {
     return isReady() ? sock->getKeyprint() : vector<uint8_t>();
 }
+
 void Client::updateCounts(bool aRemove) {
     // We always remove the count and then add the correct one if requested...
     if(countType == COUNT_NORMAL) {
@@ -223,6 +224,14 @@ void Client::updateCounts(bool aRemove) {
             countType = COUNT_NORMAL;
         }
     }
+}
+
+void Client::updated(OnlineUser& user) {
+    fire(ClientListener::UserUpdated(), this, user);
+}
+
+void Client::updated(OnlineUserList& users) {
+    fire(ClientListener::UsersUpdated(), this, users);
 }
 
 string Client::getLocalIp() const {

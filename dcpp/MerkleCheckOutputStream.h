@@ -38,7 +38,7 @@ public:
         cur.getLeaves().insert(cur.getLeaves().begin(), aTree.getLeaves().begin(), aTree.getLeaves().begin() + nBlocks);
     }
 
-    virtual ~MerkleCheckOutputStream() noexcept { if(managed) delete s; }
+    virtual ~MerkleCheckOutputStream() { if(managed) delete s; }
 
     virtual size_t flush() {
         if (bufPos != 0)

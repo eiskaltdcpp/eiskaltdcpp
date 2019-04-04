@@ -2332,7 +2332,7 @@ void HubFrame::addAsFavorite(){
 
         aEntry.setServer(d->client->getHubUrl());
         aEntry.setName(d->client->getHubName());
-        aEntry.setDescription(d->client->getHubDescription());
+        aEntry.setHubDescription(d->client->getHubDescription());
         aEntry.setConnect(false);
         aEntry.setNick(d->client->getMyNick());
         aEntry.setEncoding(d->client->getEncoding());

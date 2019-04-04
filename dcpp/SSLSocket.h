@@ -55,7 +55,7 @@ public:
     virtual bool isSecure() const noexcept { return true; }
     virtual bool isTrusted() const noexcept;
     virtual std::string getCipherName() const noexcept;
-    virtual vector<uint8_t> getKeyprint() const noexcept;
+    virtual ByteVector getKeyprint() const noexcept;
 
     virtual bool waitConnected(uint32_t millis);
     virtual bool waitAccepted(uint32_t millis);

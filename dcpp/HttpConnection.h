@@ -43,11 +43,12 @@ public:
     int64_t getSize() const { return size; }
     int64_t getDone() const { return done; }
 
+    GETSET(string, url, Url);
+
 private:
     enum RequestType { TYPE_GET, TYPE_POST };
     enum ConnectionStates { CONN_UNKNOWN, CONN_OK, CONN_FAILED, CONN_MOVED, CONN_CHUNKED };
 
-    string currentUrl;
     string userAgent;
     string method;
     string file;

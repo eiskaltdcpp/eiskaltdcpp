@@ -127,7 +127,7 @@ void FavoriteHubs::init(){
 
         data << entry->getConnect()
              << _q(entry->getName())
-             << _q(entry->getDescription())
+             << _q(entry->getHubDescription())
              << _q(entry->getServer())
              << _q(entry->getNick())
              << _q(entry->getPassword())
@@ -277,7 +277,7 @@ void FavoriteHubs::getParams(const FavoriteHubEntry *entry, StrMap &map){
 
     map["NAME"]     = _q(entry->getName());
     map["ADDR"]     = _q(entry->getServer());
-    map["DESC"]     = _q(entry->getDescription());
+    map["DESC"]     = _q(entry->getHubDescription());
     map["AUTO"]     = entry->getConnect();
     map["NICK"]     = _q(entry->getNick());
     map["PASS"]     = _q(entry->getPassword());
@@ -340,7 +340,7 @@ void FavoriteHubs::updateEntry(FavoriteHubEntry &entry, StrMap &map){
     entry.setNick(map["NICK"].toString().toStdString());
     entry.setPassword(map["PASS"].toString().toStdString());
     entry.setUserDescription(map["UDESC"].toString().toStdString());
-    entry.setDescription(map["DESC"].toString().toStdString());
+    entry.setHubDescription(map["DESC"].toString().toStdString());
     entry.setExternalIP(map["IP"].toString().toStdString());
     entry.setClientId(map["TAG"].toString().toStdString());
     entry.setOverrideId(map["OVERTAG"].toBool());
@@ -488,7 +488,7 @@ void FavoriteHubs::on(FavoriteAdded, const FavoriteHubEntryPtr entry) noexcept{
 
     data << entry->getConnect()
          << _q(entry->getName())
-         << _q(entry->getDescription())
+         << _q(entry->getHubDescription())
          << _q(entry->getServer())
          << _q(entry->getNick())
          << _q(entry->getPassword())

@@ -51,7 +51,7 @@ HttpConnection::~HttpConnection() {
  * @return A string with the content, or empty if download failed
  */
 void HttpConnection::downloadFile(const string& aFile) {
-    currentUrl = aFile;
+    url = aFile;
     prepareRequest(TYPE_GET);
 }
 
@@ -61,7 +61,7 @@ void HttpConnection::downloadFile(const string& aFile) {
  * @param aData StringMap with the args and values
  */
 void HttpConnection::postData(const string& aUrl, const StringMap& aData) {
-    currentUrl = aUrl;
+    url = aUrl;
     requestBody.clear();
 
     for(StringMap::const_iterator i = aData.begin(); i != aData.end(); ++i)
@@ -72,8 +72,8 @@ void HttpConnection::postData(const string& aUrl, const StringMap& aData) {
 }
 
 void HttpConnection::prepareRequest(RequestType type) {
-    dcassert(Util::findSubString(currentUrl, "http://") == 0 || Util::findSubString(currentUrl, "https://") == 0);
-    Util::sanitizeUrl(currentUrl);
+    dcassert(Util::findSubString(url, "http://") == 0 || Util::findSubString(url, "https://") == 0);
+    Util::sanitizeUrl(url);
 
     // Reset the connection states
     if(connState == CONN_OK || connState == CONN_FAILED)
@@ -88,7 +88,7 @@ void HttpConnection::prepareRequest(RequestType type) {
     method = (connType == TYPE_POST) ? "POST" : "GET";
 
     // set download type
-    if(Util::stricmp(currentUrl.substr(currentUrl.size() - 4), ".bz2") == 0) {
+    if(Util::stricmp(url.substr(url.size() - 4), ".bz2") == 0) {
         mimeType = "application/x-bzip2";
         fire(HttpConnectionListener::TypeBZ2(), this);
     } else {
@@ -98,12 +98,12 @@ void HttpConnection::prepareRequest(RequestType type) {
 
     string proto, query, fragment;
     if(SETTING(HTTP_PROXY).empty()) {
-        Util::decodeUrl(currentUrl, proto, server, port, file, query, fragment);
+        Util::decodeUrl(url, proto, server, port, file, query, fragment);
         if(file.empty())
             file = "/";
     } else {
         Util::decodeUrl(SETTING(HTTP_PROXY), proto, server, port, file, query, fragment);
-        file = currentUrl;
+        file = url;
     }
 
     if(!query.empty())
@@ -123,7 +123,7 @@ void HttpConnection::prepareRequest(RequestType type) {
     try {
         socket->connect(server, port, (proto == "https"), true, false);
     } catch(const Exception& e) {
-        fire(HttpConnectionListener::Failed(), this, e.getError() + " (" + currentUrl + ")");
+        fire(HttpConnectionListener::Failed(), this, e.getError() + " (" + url + ")");
         connState = CONN_FAILED;
     }
 }
@@ -177,10 +177,10 @@ void HttpConnection::on(BufferedSocketListener::Line, const string& aLine) noexc
             abortRequest(true);
 
             if(chunkSize == 0) {
-                fire(HttpConnectionListener::Complete(), this, currentUrl);
+                fire(HttpConnectionListener::Complete(), this, url);
                 connState = CONN_OK;
             } else {
-                fire(HttpConnectionListener::Failed(), this, "Transfer-encoding error (" + currentUrl + ")");
+                fire(HttpConnectionListener::Failed(), this, "Transfer-encoding error (" + url + ")");
                 connState = CONN_FAILED;
             }
 
@@ -192,7 +192,7 @@ void HttpConnection::on(BufferedSocketListener::Line, const string& aLine) noexc
             connState = CONN_MOVED;
         } else {
             abortRequest(true);
-            fire(HttpConnectionListener::Failed(), this, str(F_("%1% (%2%)") % aLine % currentUrl));
+            fire(HttpConnectionListener::Failed(), this, str(F_("%1% (%2%)") % aLine % url));
             connState = CONN_FAILED;
         }
     } else if(connState == CONN_MOVED && Util::findSubString(aLine, "Location") != string::npos) {
@@ -205,21 +205,21 @@ void HttpConnection::on(BufferedSocketListener::Line, const string& aLine) noexc
         if(location.find("://") == string::npos) {
             if(location[0] == '/') {
                 string proto, query, fragment;
-                Util::decodeUrl(currentUrl, proto, server, port, file, query, fragment);
+                Util::decodeUrl(url, proto, server, port, file, query, fragment);
                 string tmp = proto + "://" + server;
                 if(port != "80" || port != "443")
                     tmp += ':' + port;
                 location = tmp + location;
             } else {
-                string::size_type i = currentUrl.rfind('/');
+                string::size_type i = url.rfind('/');
                 dcassert(i != string::npos);
-                location = currentUrl.substr(0, i + 1) + location;
+                location = url.substr(0, i + 1) + location;
             }
         }
 
-        if(location == currentUrl) {
+        if(location == url) {
             connState = CONN_FAILED;
-            fire(HttpConnectionListener::Failed(), this, str(F_("Endless redirection loop (%1%)") % currentUrl));
+            fire(HttpConnectionListener::Failed(), this, str(F_("Endless redirection loop (%1%)") % url));
             return;
         }
 
@@ -247,14 +247,14 @@ void HttpConnection::on(BufferedSocketListener::Line, const string& aLine) noexc
 void HttpConnection::on(BufferedSocketListener::Failed, const string& aLine) noexcept {
     abortRequest(false);
     connState = CONN_FAILED;
-    fire(HttpConnectionListener::Failed(), this, str(F_("%1% (%2%)") % aLine % currentUrl));
+    fire(HttpConnectionListener::Failed(), this, str(F_("%1% (%2%)") % aLine % url));
 }
 
 void HttpConnection::on(BufferedSocketListener::ModeChange) noexcept {
     if(connState != CONN_CHUNKED) {
         abortRequest(true);
 
-        fire(HttpConnectionListener::Complete(), this, currentUrl);
+        fire(HttpConnectionListener::Complete(), this, url);
     }
 }
 void HttpConnection::on(BufferedSocketListener::Data, uint8_t* aBuf, size_t aLen) noexcept {
@@ -262,7 +262,7 @@ void HttpConnection::on(BufferedSocketListener::Data, uint8_t* aBuf, size_t aLen
         abortRequest(true);
 
         connState = CONN_FAILED;
-        fire(HttpConnectionListener::Failed(), this, "Too much data in response body (" + currentUrl + ")");
+        fire(HttpConnectionListener::Failed(), this, "Too much data in response body (" + url + ")");
         return;
     }
 

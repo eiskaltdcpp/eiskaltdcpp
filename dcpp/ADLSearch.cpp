@@ -464,7 +464,7 @@ void ADLSearchManager::matchListing(DirectoryListing& aDirList) {
 
     setUser(aDirList.getUser());
 
-    auto root = aDirList.getRoot();
+    const auto root = aDirList.getRoot();
 
     DestDirList destDirs;
     prepareDestinationDirectories(destDirs, root, params);

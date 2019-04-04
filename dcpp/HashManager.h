@@ -83,7 +83,7 @@ public:
     }
     void addTree(const TigerTree& tree) { Lock l(cs); store.addTree(tree); }
 
-    void getStats(string& curFile, uint64_t& bytesLeft, size_t& filesLeft) {
+    void getStats(string& curFile, uint64_t& bytesLeft, size_t& filesLeft) const {
         hasher.getStats(curFile, bytesLeft, filesLeft);
     }
 
@@ -136,10 +136,7 @@ private:
     private:
         // Case-sensitive (faster), it is rather unlikely that case changes, and if it does it's harmless.
         // map because it's sorted (to avoid random hash order that would create quite strange shares while hashing)
-        typedef map<string, int64_t> WorkMap;
-        typedef WorkMap::iterator WorkIter;
-
-        WorkMap w;
+        map<string, int64_t> w;
         mutable CriticalSection cs;
         Semaphore s;
 
@@ -166,9 +163,9 @@ private:
         void rebuild();
 
         bool checkTTH(const string& aFileName, int64_t aSize, uint32_t aTimeStamp);
+        const TTHValue* getTTH(const string& aFileName);
 
         void addTree(const TigerTree& tt) noexcept;
-        const TTHValue* getTTH(const string& aFileName);
         bool getTree(const TTHValue& root, TigerTree& tth);
         int64_t getBlockSize(const TTHValue& root) const;
         bool isDirty() { return dirty; }
@@ -199,19 +196,10 @@ private:
             GETSET(bool, used, Used);
         };
 
-        typedef vector<FileInfo> FileInfoList;
-        typedef FileInfoList::iterator FileInfoIter;
-
-        typedef unordered_map<string, FileInfoList> DirMap;
-        typedef DirMap::iterator DirIter;
-
-        typedef unordered_map<TTHValue, TreeInfo> TreeMap;
-        typedef TreeMap::iterator TreeIter;
-
         friend class HashLoader;
 
-        DirMap fileIndex;
-        TreeMap treeIndex;
+        unordered_map<string, vector<FileInfo>> fileIndex;
+        unordered_map<TTHValue, TreeInfo> treeIndex;
 
         bool dirty;
 
@@ -220,8 +208,8 @@ private:
         bool loadTree(File& dataFile, const TreeInfo& ti, const TTHValue& root, TigerTree& tt);
         int64_t saveTree(File& dataFile, const TigerTree& tt);
 
-        string getIndexFile() { return Util::getPath(Util::PATH_USER_CONFIG) + "HashIndex.xml"; }
-        string getDataFile() { return Util::getPath(Util::PATH_USER_CONFIG) + "HashData.dat"; }
+        static string getIndexFile();
+        static string getDataFile();
     };
 
     friend class HashLoader;

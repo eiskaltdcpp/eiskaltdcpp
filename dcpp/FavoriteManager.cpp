@@ -339,7 +339,7 @@ void FavoriteManager::save() {
             xml.addTag("Hub");
             xml.addChildAttrib("Name", (*i)->getName());
             xml.addChildAttrib("Connect", (*i)->getConnect());
-            xml.addChildAttrib("Description", (*i)->getDescription());
+            xml.addChildAttrib("Description", (*i)->getHubDescription());
             xml.addChildAttrib("Nick", (*i)->getNick(false));
             xml.addChildAttrib("Password", (*i)->getPassword());
             xml.addChildAttrib("Server", (*i)->getServer());
@@ -455,7 +455,7 @@ void FavoriteManager::load(SimpleXML& aXml) {
             FavoriteHubEntry* e = new FavoriteHubEntry();
             e->setName(aXml.getChildAttrib("Name"));
             e->setConnect(aXml.getBoolChildAttrib("Connect"));
-            e->setDescription(aXml.getChildAttrib("Description"));
+            e->setHubDescription(aXml.getChildAttrib("Description"));
             e->setNick(aXml.getChildAttrib("Nick"));
             e->setPassword(aXml.getChildAttrib("Password"));
             e->setServer(aXml.getChildAttrib("Server"));

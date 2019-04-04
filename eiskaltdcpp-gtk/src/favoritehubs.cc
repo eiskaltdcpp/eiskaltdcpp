@@ -542,7 +542,7 @@ void FavoriteHubs::getFavHubParams_client(const FavoriteHubEntry *entry, StringM
 {
     params["Auto Connect"] = entry->getConnect() ? "1" : "0";
     params["Name"] = entry->getName();
-    params["Description"] = entry->getDescription();
+    params["Description"] = entry->getHubDescription();
     params["Nick"] = entry->getNick(false); // Don't display default nick to avoid accidentally saving it
     params["Password"] = entry->getPassword();
     params["Address"] = entry->getServer();
@@ -561,7 +561,7 @@ void FavoriteHubs::addEntry_client(StringMap params)
     entry.setConnect(Util::toInt(params["Auto Connect"]));
     entry.setName(params["Name"]);
     entry.setServer(params["Address"]);
-    entry.setDescription(params["Description"]);
+    entry.setHubDescription(params["Description"]);
     entry.setNick(params["Nick"]);
     entry.setPassword(params["Password"]);
     entry.setUserDescription(params["User Description"]);
@@ -586,7 +586,7 @@ void FavoriteHubs::editEntry_client(string address, StringMap params)
         entry->setConnect(Util::toInt(params["Auto Connect"]));
         entry->setName(params["Name"]);
         entry->setServer(params["Address"]);
-        entry->setDescription(params["Description"]);
+        entry->setHubDescription(params["Description"]);
         entry->setNick(params["Nick"]);
         entry->setPassword(params["Password"]);
         entry->setUserDescription(params["User Description"]);

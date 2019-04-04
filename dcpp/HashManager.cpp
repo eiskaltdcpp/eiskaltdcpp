@@ -338,7 +338,7 @@ bool HashManager::HashStore::checkTTH(const string& aFileName, int64_t aSize, ui
         auto j = find(i->second.begin(), i->second.end(), fname);
         if (j != i->second.end()) {
             FileInfo& fi = *j;
-            TreeIter ti = treeIndex.find(fi.getRoot());
+            auto ti = treeIndex.find(fi.getRoot());
             if (ti == treeIndex.end() || ti->second.getSize() != aSize || fi.getTimeStamp() != aTimeStamp) {
                 i->second.erase(j);
                 dirty = true;
@@ -354,9 +354,9 @@ const TTHValue* HashManager::HashStore::getTTH(const string& aFileName) {
     string fname = Util::getFileName(aFileName);
     string fpath = Util::getFilePath(aFileName);
 
-    DirIter i = fileIndex.find(fpath);
+    auto i = fileIndex.find(fpath);
     if (i != fileIndex.end()) {
-        FileInfoIter j = find(i->second.begin(), i->second.end(), fname);
+        auto j = find(i->second.begin(), i->second.end(), fname);
         if (j != i->second.end()) {
             j->setUsed(true);
             return &(j->getRoot());
@@ -367,8 +367,8 @@ const TTHValue* HashManager::HashStore::getTTH(const string& aFileName) {
 
 void HashManager::HashStore::rebuild() {
     try {
-        DirMap newFileIndex;
-        TreeMap newTreeIndex;
+        decltype(fileIndex) newFileIndex;
+        decltype(treeIndex) newTreeIndex;
 
         for (auto& i: fileIndex) {
             for (auto& j : i.second) {
@@ -403,7 +403,7 @@ void HashManager::HashStore::rebuild() {
         }
 
         for (auto& i: fileIndex) {
-            DirIter fi = newFileIndex.emplace(i.first, FileInfoList()).first;
+            auto fi = newFileIndex.emplace(i.first, vector<FileInfo>()).first;
 
             for (auto& j: i.second) {
                 if (newTreeIndex.find(j.getRoot()) != newTreeIndex.end()) {
@@ -481,6 +481,9 @@ void HashManager::HashStore::save() {
         }
     }
 }
+
+string HashManager::HashStore::getIndexFile() { return Util::getPath(Util::PATH_USER_CONFIG) + "HashIndex.xml"; }
+string HashManager::HashStore::getDataFile() { return Util::getPath(Util::PATH_USER_CONFIG) + "HashData.dat"; }
 
 class HashLoader: public SimpleXMLReader::CallBack {
 public:

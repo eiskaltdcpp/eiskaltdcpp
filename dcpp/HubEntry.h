@@ -21,7 +21,7 @@ namespace dcpp {
 
 class HubEntry {
 public:
-    HubEntry(const string& aName, const string& aServer, const string& aDescription, const string& aUsers) noexcept :
+    HubEntry(const string& aName, const string& aServer, const string& aDescription, const string& aUsers) :
         name(aName), server(aServer), description(aDescription), country(Util::emptyString),
         rating(Util::emptyString), reliability(0.0), shared(0), minShare(0), users(Util::toInt(aUsers)), minSlots(0), maxHubs(0), maxUsers(0) { }
 
@@ -34,12 +34,7 @@ public:
 
     }
 
-    HubEntry() noexcept { }
-    HubEntry(const HubEntry& rhs) noexcept : name(rhs.name), server(rhs.server), description(rhs.description), country(rhs.country),
-        rating(rhs.rating), reliability(rhs.reliability), shared(rhs.shared), minShare(rhs.minShare), users(rhs.users), minSlots(rhs.minSlots),
-        maxHubs(rhs.maxHubs), maxUsers(rhs.maxUsers) { }
-
-    ~HubEntry() noexcept { }
+    HubEntry() = default;
 
     GETSET(string, name, Name);
     GETSET(string, server, Server);
@@ -58,23 +53,27 @@ const string DEF_FAKE_ID = "";
 
 class FavoriteHubEntry {
 public:
-    FavoriteHubEntry() noexcept : connect(false), encoding(Text::systemCharset),
-        mode(0), overrideId(0), clientId(DEF_FAKE_ID), searchInterval(SETTING(MINIMUM_SEARCH_INTERVAL)) { }
-    FavoriteHubEntry(const HubEntry& rhs) noexcept : name(rhs.getName()),
+    FavoriteHubEntry() : encoding(Text::systemCharset), connect(false),
+        mode(0), overrideId(0), clientId(DEF_FAKE_ID),
+        searchInterval(SETTING(MINIMUM_SEARCH_INTERVAL))
+    { }
+
+    FavoriteHubEntry(const HubEntry& rhs) : name(rhs.getName()),
         server(rhs.getServer()),
-        description(rhs.getDescription()), connect(false),
-        encoding(Text::systemCharset), mode(0), overrideId(0),
-        clientId(DEF_FAKE_ID), searchInterval(SETTING(MINIMUM_SEARCH_INTERVAL)) { }
-    FavoriteHubEntry(const FavoriteHubEntry& rhs) noexcept :
-        userdescription(rhs.userdescription), name(rhs.getName()),
-        server(rhs.getServer()), description(rhs.getDescription()),
-        password(rhs.getPassword()), connect(rhs.getConnect()),
-        encoding(rhs.getEncoding()), mode(rhs.mode),
+        hubDescription(rhs.getDescription()), encoding(Text::systemCharset),
+        connect(false), mode(0), overrideId(0),
+        clientId(DEF_FAKE_ID), searchInterval(SETTING(MINIMUM_SEARCH_INTERVAL))
+    { }
+
+    FavoriteHubEntry(const FavoriteHubEntry& rhs) :
+        userDescription(rhs.userDescription), name(rhs.getName()),
+        server(rhs.getServer()), hubDescription(rhs.getHubDescription()),
+        password(rhs.getPassword()), encoding(rhs.getEncoding()),
+        connect(rhs.getConnect()), mode(rhs.mode),
         overrideId(rhs.overrideId), clientId(rhs.clientId),
         externalIP(""), useInternetIp(false), disableChat(false),
         searchInterval(rhs.searchInterval), nick(rhs.nick)
     { }
-    ~FavoriteHubEntry() noexcept { }
 
     const string& getNick(bool useDefault = true) const {
         return (!nick.empty() || !useDefault) ? nick : SETTING(NICK);
@@ -82,13 +81,13 @@ public:
 
     void setNick(const string& aNick) { nick = aNick; }
 
-    GETSET(string, userdescription, UserDescription);
+    GETSET(string, userDescription, UserDescription);
     GETSET(string, name, Name);
     GETSET(string, server, Server);
-    GETSET(string, description, Description);
+    GETSET(string, hubDescription, HubDescription);
     GETSET(string, password, Password);
-    GETSET(bool, connect, Connect);
     GETSET(string, encoding, Encoding);
+    GETSET(bool, connect, Connect);
     GETSET(int, mode, Mode); // 0 = default, 1 = active, 2 = passive
     GETSET(bool, overrideId, OverrideId);
     GETSET(string, clientId, ClientId);
@@ -97,6 +96,7 @@ public:
     GETSET(bool, disableChat, DisableChat);
     GETSET(string, group, Group);
     GETSET(uint32_t, searchInterval, SearchInterval);
+
 private:
     string nick;
 };
