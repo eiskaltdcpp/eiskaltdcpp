@@ -319,7 +319,7 @@ void ADLSearchManager::matchesFile(DestDirList& destDirVector, DirectoryListing:
             DirectoryListing::File *copyFile = new DirectoryListing::File(*currentFile, true);
             dcassert(id.subdir->getAdls());
 
-            id.subdir->files.push_back(copyFile);
+            id.subdir->files.insert(copyFile);
         }
         id.fileAdded = false;  // Prepare for next stage
     }
@@ -337,7 +337,7 @@ void ADLSearchManager::matchesFile(DestDirList& destDirVector, DirectoryListing:
         }
         if(is.matchesFile(currentFile->getName(), filePath, currentFile->getSize())) {
             DirectoryListing::File *copyFile = new DirectoryListing::File(*currentFile, true);
-            destDirVector[is.ddIndex].dir->files.push_back(copyFile);
+            destDirVector[is.ddIndex].dir->files.insert(copyFile);
             destDirVector[is.ddIndex].fileAdded = true;
 
             if(is.isAutoQueue){
@@ -361,7 +361,7 @@ void ADLSearchManager::matchesDirectory(DestDirList& destDirVector, DirectoryLis
         if(id.subdir != NULL) {
             DirectoryListing::Directory* newDir =
                     new DirectoryListing::AdlDirectory(fullPath, id.subdir, currentDir->getName());
-            id.subdir->directories.push_back(newDir);
+            id.subdir->directories.insert(newDir);
             id.subdir = newDir;
         }
     }
@@ -379,7 +379,7 @@ void ADLSearchManager::matchesDirectory(DestDirList& destDirVector, DirectoryLis
         if(is.matchesDirectory(currentDir->getName())) {
             destDirVector[is.ddIndex].subdir =
                     new DirectoryListing::AdlDirectory(fullPath, destDirVector[is.ddIndex].dir, currentDir->getName());
-            destDirVector[is.ddIndex].dir->directories.push_back(destDirVector[is.ddIndex].subdir);
+            destDirVector[is.ddIndex].dir->directories.insert(destDirVector[is.ddIndex].subdir);
             if(breakOnFirst) {
                 // Found a match, search no more
                 break;
@@ -449,7 +449,7 @@ void ADLSearchManager::finalizeDestinationDirectories(DestDirList& destDirs, Dir
         } else if(Util::stricmp(i.dir->getName(), szDiscard) == 0) {
             delete i.dir;
         } else {
-            root->directories.push_back(i.dir);
+            root->directories.insert(i.dir);
         }
     }
 }

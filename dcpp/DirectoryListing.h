@@ -17,15 +17,21 @@
 
 #pragma once
 
-#include "noexcept.h"
+#include <set>
+
 #include "NonCopyable.h"
 #include "User.h"
+
+#include "forward.h"
+
 #include "FastAlloc.h"
 #include "MerkleTree.h"
 #include "Streams.h"
 #include "MediaInfo.h"
 
 namespace dcpp {
+
+using std::set;
 
 class ListLoader;
 
@@ -37,13 +43,6 @@ public:
     class File : public FastAlloc<File>, private NonCopyable {
     public:
         typedef File* Ptr;
-        struct FileSort {
-            bool operator()(const Ptr& a, const Ptr& b) const {
-                return Util::stricmp(a->getName().c_str(), b->getName().c_str()) < 0;
-            }
-        };
-        typedef vector<Ptr> List;
-        typedef List::iterator Iter;
 
         File(Directory* aDir, const string& aName, int64_t aSize, const TTHValue& aTTH) noexcept :
             NonCopyable(),
@@ -56,13 +55,6 @@ public:
             name(rhs.name), size(rhs.size), parent(rhs.parent), tthRoot(rhs.tthRoot), adls(_adls)
         {
         }
-
-        File& operator=(const File& rhs) {
-            name = rhs.name; size = rhs.size; parent = rhs.parent; tthRoot = rhs.tthRoot;
-            return *this;
-        }
-
-        ~File() { }
 
         GETSET(string, name, Name);
         GETSET(int64_t, size, Size);
@@ -77,18 +69,15 @@ public:
     class Directory : public FastAlloc<Directory>, private NonCopyable {
     public:
         typedef Directory* Ptr;
-        struct DirSort {
-            bool operator()(const Ptr& a, const Ptr& b) const {
-                return Util::stricmp(a->getName().c_str(), b->getName().c_str()) < 0;
-            }
-        };
-        typedef vector<Ptr> List;
-        typedef List::iterator Iter;
 
         typedef unordered_set<TTHValue> TTHSet;
 
-        List directories;
-        File::List files;
+        template<typename T> struct Less {
+            bool operator()(typename T::Ptr a, typename T::Ptr b) const { return compare(a->getName(), b->getName()) < 0; }
+        };
+
+        set<Ptr, Less<Directory>> directories;
+        set<File::Ptr, Less<File>> files;
 
         Directory(Directory* aParent, const string& aName, bool _adls, bool aComplete):
             NonCopyable(),

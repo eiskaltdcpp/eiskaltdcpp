@@ -592,9 +592,7 @@ void ShareBrowser::changeRoot(dcpp::DirectoryListing::Directory *root){
         list_root->appendChild(child);
     }
 
-    DirectoryListing::File::List *files = &(root->files);
-
-    for (const auto &file : *files){
+    for (const auto& file : root->files){
         FileBrowserItem *child;
         quint64 size = 0;
         QList<QVariant> data;

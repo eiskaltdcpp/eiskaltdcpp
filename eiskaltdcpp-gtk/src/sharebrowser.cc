@@ -272,8 +272,6 @@ bool ShareBrowser::findDir_gui(const string &dir, GtkTreeIter *parent)
 
 void ShareBrowser::buildDirs_gui(DirectoryListing::Directory *dir, GtkTreeIter *iter)
 {
-    DirectoryListing::Directory::Iter it;
-    DirectoryListing::File::Iter file;
     GtkTreeIter newIter;
 
     gtk_tree_store_append(dirStore, &newIter, iter);
@@ -284,24 +282,19 @@ void ShareBrowser::buildDirs_gui(DirectoryListing::Directory *dir, GtkTreeIter *
                        dirView.col("Icon"), "icon-directory",
                        -1);
 
-    for (file = dir->files.begin(); file != dir->files.end(); ++file)
+    for (auto& file : dir->files)
     {
         shareItems++;
-        shareSize += (*file)->getSize();
+        shareSize += file->getSize();
     }
 
     // Recursive call for all subdirs of current dir.
-    std::sort(dir->directories.begin(), dir->directories.end(), DirectoryListing::Directory::DirSort());
-    for (it = dir->directories.begin(); it != dir->directories.end(); ++it)
-        buildDirs_gui(*it, &newIter);
+    for (auto& it : dir->directories)
+        buildDirs_gui(it, &newIter);
 }
 
 void ShareBrowser::updateFiles_gui(DirectoryListing::Directory *dir)
 {
-    DirectoryListing::Directory::List *dirs = &(dir->directories);
-    DirectoryListing::Directory::Iter it_dir;
-    DirectoryListing::File::List *files = &(dir->files);
-    DirectoryListing::File::Iter it_file;
     GtkTreeIter iter;
     int64_t size;
     gint sortColumn;
@@ -316,22 +309,22 @@ void ShareBrowser::updateFiles_gui(DirectoryListing::Directory *dir)
     gtk_tree_sortable_set_sort_column_id(GTK_TREE_SORTABLE(fileStore), GTK_TREE_SORTABLE_UNSORTED_SORT_COLUMN_ID, sortType);
 
     // Add directories to the store.
-    for (it_dir = dirs->begin(); it_dir != dirs->end(); ++it_dir)
+    for (auto& it_dir : dir->directories)
     {
         gtk_list_store_append(fileStore, &iter);
         gtk_list_store_set(fileStore, &iter,
-                           fileView.col(_("Filename")), Util::getFileName((*it_dir)->getName()).c_str(),
-                           fileView.col("File Order"), Util::getFileName("d"+(*it_dir)->getName()).c_str(),
+                           fileView.col(_("Filename")), Util::getFileName(it_dir->getName()).c_str(),
+                           fileView.col("File Order"), Util::getFileName("d"+it_dir->getName()).c_str(),
                            -1);
 
-        size = (*it_dir)->getTotalSize(false);
+        size = it_dir->getTotalSize(false);
         gtk_list_store_set(fileStore, &iter,
                            fileView.col("Icon"), "icon-directory",
                            fileView.col(_("Size")), Util::formatBytes(size).c_str(),
                            fileView.col(_("Exact Size")), Util::formatExactSize(size).c_str(),
                            fileView.col("Size Order"), size,
                            fileView.col(_("Type")), _("Directory"),
-                           fileView.col("DL File"), (gpointer)(*it_dir),
+                           fileView.col("DL File"), (gpointer)it_dir,
                            fileView.col(_("TTH")), "",
                            -1);
 
@@ -340,36 +333,36 @@ void ShareBrowser::updateFiles_gui(DirectoryListing::Directory *dir)
     }
 
     // Add files to the store.
-    for (it_file = files->begin(); it_file != files->end(); ++it_file)
+    for (auto& it_file : dir->files)
     {
         gtk_list_store_append(fileStore, &iter);
 
         // If ext is empty we cannot do substr on it.
-        string ext = Util::getFileExt((*it_file)->getName());
+        string ext = Util::getFileExt(it_file->getName());
         if(!ext.empty())
             ext = ext.substr(1);
 
         gtk_list_store_set(fileStore, &iter,
-                           fileView.col(_("Filename")), Util::getFileName((*it_file)->getName()).c_str(),
+                           fileView.col(_("Filename")), Util::getFileName(it_file->getName()).c_str(),
                            fileView.col(_("Type")), ext.c_str(),
-                           fileView.col("File Order"), Util::getFileName("f"+(*it_file)->getName()).c_str(),
+                           fileView.col("File Order"), Util::getFileName("f"+it_file->getName()).c_str(),
                            -1);
 
-        size = (*it_file)->getSize();
+        size = it_file->getSize();
         gtk_list_store_set(fileStore, &iter,
                            fileView.col("Icon"), "icon-file",
                            fileView.col(_("Size")), Util::formatBytes(size).c_str(),
                            fileView.col(_("Exact Size")), Util::formatExactSize(size).c_str(),
                            fileView.col("Size Order"), size,
-                           fileView.col("DL File"), (gpointer)(*it_file),
-                           fileView.col(_("TTH")), (*it_file)->getTTH().toBase32().c_str(),
-                           fileView.col(_("Bitrate")), ((*it_file)->mediaInfo.bitrate) ? (Util::toString((*it_file)->mediaInfo.bitrate)).c_str() : Util::emptyString.c_str(),
-                           fileView.col(_("Resolution")), !(*it_file)->mediaInfo.video_info.empty() ? (*it_file)->mediaInfo.resolution.c_str() : Util::emptyString.c_str(),
-                           fileView.col(_("Video")), (*it_file)->mediaInfo.video_info.c_str(),
-                           fileView.col(_("Audio")), (*it_file)->mediaInfo.audio_info.c_str(),
-                           fileView.col(_("Downloaded")), (Util::toString((*it_file)->getHit())).c_str(),
-                           fileView.col(_("Shared")), (Util::formatTime("%Y-%m-%d %H:%M", (*it_file)->getTS())).c_str(),
-                           fileView.col("Shared Order"), (*it_file)->getTS(),
+                           fileView.col("DL File"), (gpointer)it_file,
+                           fileView.col(_("TTH")), it_file->getTTH().toBase32().c_str(),
+                           fileView.col(_("Bitrate")), (it_file->mediaInfo.bitrate) ? (Util::toString(it_file->mediaInfo.bitrate)).c_str() : Util::emptyString.c_str(),
+                           fileView.col(_("Resolution")), !it_file->mediaInfo.video_info.empty() ? it_file->mediaInfo.resolution.c_str() : Util::emptyString.c_str(),
+                           fileView.col(_("Video")), it_file->mediaInfo.video_info.c_str(),
+                           fileView.col(_("Audio")), it_file->mediaInfo.audio_info.c_str(),
+                           fileView.col(_("Downloaded")), (Util::toString(it_file->getHit())).c_str(),
+                           fileView.col(_("Shared")), (Util::formatTime("%Y-%m-%d %H:%M", it_file->getTS())).c_str(),
+                           fileView.col("Shared Order"), it_file->getTS(),
                            -1);
 
         currentSize += size;
@@ -652,7 +645,6 @@ void ShareBrowser::find_gui()
     bool findLeafNode = true;
     int cursorPos, hits = 0;
     DirectoryListing::Directory *dir = nullptr;
-    DirectoryListing::File::Iter _file;
     GtkTreeIter iter;
     GtkTreeModel *m = GTK_TREE_MODEL(dirStore);
     GtkTreePath *dirPath = gtk_tree_path_new_first();
@@ -710,11 +702,11 @@ void ShareBrowser::find_gui()
 
         // Search the files that are contained in this directory.
         dir = dirView.getValue<gpointer, DirectoryListing::Directory *>(&iter, "DL Dir");
-        std::sort(dir->files.begin(), dir->files.end(), DirectoryListing::File::FileSort());
 
-        for (_file = dir->files.begin(), cursorPos = dir->directories.size(); _file != dir->files.end(); ++_file, ++cursorPos)
+        cursorPos = dir->directories.size();
+        for (auto& _file : dir->files)
         {
-            name = Text::toLower((*_file)->getName());
+            name = Text::toLower(_file->getName());
 
             // We found a matching file. Update the cursors and the fileView if necessary.
             if (name.find(search, 0) != string::npos && hits++ == skipHits)
@@ -737,6 +729,8 @@ void ShareBrowser::find_gui()
                 setStatus_gui("mainStatus", _("Found a match"));
                 return;
             }
+
+            ++cursorPos;
         }
         updateFileView = true;
 

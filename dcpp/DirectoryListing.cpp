@@ -208,7 +208,7 @@ void ListLoader::startTag(const string& name, StringPairList& attribs, bool simp
                 f->mediaInfo.bitrate    = atoi(getAttrib(attribs, sBR, 4).c_str());
             }
 
-            cur->files.push_back(f);
+            cur->files.insert(f);
         } else if(name == sDirectory) {
             const string& n = getAttrib(attribs, sName, 0);
             if(n.empty()) {
@@ -229,7 +229,7 @@ void ListLoader::startTag(const string& name, StringPairList& attribs, bool simp
             }
             if(d == NULL) {
                 d = new DirectoryListing::Directory(cur, n, false, !incomp);
-                cur->directories.push_back(d);
+                cur->directories.insert(d);
             }
             cur = d;
 
@@ -254,7 +254,7 @@ void ListLoader::startTag(const string& name, StringPairList& attribs, bool simp
             }
             if(!d) {
                 d = new DirectoryListing::Directory(cur, i, false, false);
-                cur->directories.push_back(d);
+                cur->directories.insert(d);
             }
             cur = d;
         }
