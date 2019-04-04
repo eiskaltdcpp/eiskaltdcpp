@@ -1245,7 +1245,11 @@ void QueueManager::putDownload(Download* aDownload, bool finished) noexcept {
         aDownload->setFile(0);
 
         if(aDownload->getType() == Transfer::TYPE_PARTIAL_LIST) {
-            QueueItem* q = fileQueue.find(getListPath(aDownload->getHintedUser()));
+            QueueItem* q = nullptr;
+            try {
+                q = fileQueue.find(getListPath(aDownload->getHintedUser()));
+            }
+            catch(const Exception&) { }
             if(q) {
                 if(!aDownload->getPFS().empty()) {
                     if( (q->isSet(QueueItem::FLAG_DIRECTORY_DOWNLOAD) && directories.find(aDownload->getUser()) != directories.end()) ||

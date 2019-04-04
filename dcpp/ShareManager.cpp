@@ -320,7 +320,7 @@ bool ShareManager::hasVirtual(const string& virtualName) const noexcept {
     return getByVirtual(virtualName) != directories.end();
 }
 
-void ShareManager::load(SimpleXML& aXml) noexcept {
+void ShareManager::load(SimpleXML& aXml) {
     Lock l(cs);
 
     aXml.resetCurrentChild();
@@ -343,7 +343,10 @@ void ShareManager::load(SimpleXML& aXml) noexcept {
                 directories.push_back(Directory::create(vName));
             }
         }
-        aXml.stepOut();
+        try {
+            aXml.stepOut();
+        }
+        catch(const Exception&) { }
     }
 }
 
@@ -428,7 +431,7 @@ bool ShareManager::loadCache() noexcept {
     return false;
 }
 
-void ShareManager::save(SimpleXML& aXml) noexcept {
+void ShareManager::save(SimpleXML& aXml) {
     Lock l(cs);
 
     aXml.addTag("Share");
@@ -437,7 +440,10 @@ void ShareManager::save(SimpleXML& aXml) noexcept {
         aXml.addTag("Directory", i->first);
         aXml.addChildAttrib("Virtual", i->second);
     }
-    aXml.stepOut();
+    try {
+        aXml.stepOut();
+    }
+    catch(const Exception&) { }
 }
 
 void ShareManager::addDirectory(const string& realPath, const string& virtualName) {

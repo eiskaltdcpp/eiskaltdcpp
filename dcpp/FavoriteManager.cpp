@@ -482,7 +482,10 @@ void FavoriteManager::load(SimpleXML& aXml) {
                 needSave = true;
             }
         }
-        aXml.stepOut();
+        try {
+            aXml.stepOut();
+        }
+        catch(const Exception&) { }
     }
     // parse groups that have the "Connect" param and send their hubs to WindowManager
     //for(auto i = favHubGroups.begin(), iend = favHubGroups.end(); i != iend; ++i) {
@@ -521,7 +524,10 @@ void FavoriteManager::load(SimpleXML& aXml) {
             i->second.setDescription(aXml.getChildAttrib("UserDescription"));
 
         }
-        aXml.stepOut();
+        try {
+            aXml.stepOut();
+        }
+        catch(const Exception&) { }
     }
     aXml.resetCurrentChild();
     if(aXml.findChild("UserCommands")) {
@@ -530,7 +536,10 @@ void FavoriteManager::load(SimpleXML& aXml) {
             addUserCommand(aXml.getIntChildAttrib("Type"), aXml.getIntChildAttrib("Context"), 0, aXml.getChildAttrib("Name"),
                            aXml.getChildAttrib("Command"), aXml.getChildAttrib("To"), aXml.getChildAttrib("Hub"));
         }
-        aXml.stepOut();
+        try {
+            aXml.stepOut();
+        }
+        catch(const Exception&) { }
     }
     //Favorite download to dirs
     aXml.resetCurrentChild();
@@ -541,7 +550,10 @@ void FavoriteManager::load(SimpleXML& aXml) {
             string d(aXml.getChildData());
             FavoriteManager::getInstance()->addFavoriteDir(d, virt);
         }
-        aXml.stepOut();
+        try {
+            aXml.stepOut();
+        }
+        catch(const Exception&) { }
     }
 
     dontSave = false;

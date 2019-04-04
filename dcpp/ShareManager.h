@@ -320,8 +320,8 @@ public:
 
     // TimerManagerListener
     virtual void on(TimerManagerListener::Minute, uint64_t tick) noexcept;
-    void load(SimpleXML& aXml) noexcept;
-    void save(SimpleXML& aXml) noexcept;
+    void load(SimpleXML& aXml);
+    void save(SimpleXML& aXml);
 
 };
 
