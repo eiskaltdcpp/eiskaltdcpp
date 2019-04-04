@@ -27,6 +27,10 @@
 
 namespace dcpp {
 
+using std::make_pair;
+using std::max;
+using std::min;
+
 /**
  * A class that represents a Merkle Tree hash. Storing
  * only the leaves of the tree, it is rather memory efficient,
@@ -177,7 +181,6 @@ private:
     int64_t blockSize;
 
     MerkleValue getHash(int64_t start, int64_t length) {
-        dcassert((start % blockSize) == 0);
         if(length <= blockSize) {
             dcassert((start / blockSize) < (int64_t)leaves.size());
             return leaves[(uint32_t)(start / blockSize)];
