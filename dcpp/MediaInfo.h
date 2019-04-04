@@ -21,5 +21,5 @@ struct MediaInfo{
     std::string video_info;
     std::string audio_info;
     std::string resolution;
-    uint16_t bitrate;
+    uint16_t bitrate = 0;
 };

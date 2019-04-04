@@ -46,13 +46,15 @@ public:
 
         File(Directory* aDir, const string& aName, int64_t aSize, const TTHValue& aTTH) noexcept :
             NonCopyable(),
-            name(aName), size(aSize), parent(aDir), tthRoot(aTTH), adls(false)
+            name(aName), size(aSize), parent(aDir), tthRoot(aTTH), adls(false),
+            ts(0), hit(0)
         {
         }
 
         File(const File& rhs, bool _adls = false) :
             NonCopyable(),
-            name(rhs.name), size(rhs.size), parent(rhs.parent), tthRoot(rhs.tthRoot), adls(_adls)
+            name(rhs.name), size(rhs.size), parent(rhs.parent), tthRoot(rhs.tthRoot), adls(_adls),
+            ts(rhs.ts), hit(rhs.hit)
         {
         }
 

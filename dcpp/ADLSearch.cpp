@@ -193,7 +193,7 @@ bool ADLSearch::searchAll(const string& s) {
 #endif
 }
 
-ADLSearchManager::ADLSearchManager() : user(UserPtr(), Util::emptyString) {
+ADLSearchManager::ADLSearchManager() : breakOnFirst(false), user(UserPtr(), Util::emptyString) {
     load();
 }
 

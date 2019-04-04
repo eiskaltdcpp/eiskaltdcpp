@@ -1,6 +1,6 @@
 /*
 * The Tiger algorithm was written by Eli Biham and Ross Anderson and
-* is available on the official Tiger algorithm page <http://www.cs.technion.ac.il/~biham/Reports/Tiger/>.
+* is available on the official Tiger algorithm page <https://www.cs.technion.ac.il/~biham/Reports/Tiger/>.
 * The below Tiger implementation is a C++ version of their original C code.
 * Permission was granted by Eli Biham to use with the following conditions;
 * a) This note must be retained.
@@ -43,6 +43,7 @@ public:
         res[0]=_ULL(0x0123456789ABCDEF);
         res[1]=_ULL(0xFEDCBA9876543210);
         res[2]=_ULL(0xF096A5B4C3B2E187);
+        memset(&tmp, 0, sizeof(tmp));
     }
 
     ~TigerHash() {

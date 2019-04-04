@@ -33,6 +33,7 @@ HttpConnection::HttpConnection(const string& aUserAgent) :
     size(-1),
     done(0),
     connState(CONN_UNKNOWN),
+    connType(TYPE_POST),
     socket(0)
 {
 }

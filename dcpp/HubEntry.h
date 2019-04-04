@@ -55,6 +55,7 @@ class FavoriteHubEntry {
 public:
     FavoriteHubEntry() : encoding(Text::systemCharset), connect(false),
         mode(0), overrideId(0), clientId(DEF_FAKE_ID),
+        useInternetIp(false), disableChat(false),
         searchInterval(SETTING(MINIMUM_SEARCH_INTERVAL))
     { }
 
@@ -62,7 +63,8 @@ public:
         server(rhs.getServer()),
         hubDescription(rhs.getDescription()), encoding(Text::systemCharset),
         connect(false), mode(0), overrideId(0),
-        clientId(DEF_FAKE_ID), searchInterval(SETTING(MINIMUM_SEARCH_INTERVAL))
+        clientId(DEF_FAKE_ID), useInternetIp(false), disableChat(false),
+        searchInterval(SETTING(MINIMUM_SEARCH_INTERVAL))
     { }
 
     FavoriteHubEntry(const FavoriteHubEntry& rhs) :

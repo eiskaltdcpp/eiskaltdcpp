@@ -74,8 +74,8 @@ public:
         PROTO_ADC = 2
     };
 
-    Socket() : sock(INVALID_SOCKET), connected(false), proto(PROTO_DEFAULT) { }
-    Socket(const string& aIp, uint16_t aPort) : sock(INVALID_SOCKET), connected(false), proto(PROTO_DEFAULT) { connect(aIp, aPort); }
+    Socket() : sock(INVALID_SOCKET), type(TYPE_TCP), connected(false), proto(PROTO_DEFAULT) { }
+    Socket(const string& aIp, uint16_t aPort) : sock(INVALID_SOCKET), type(TYPE_TCP), connected(false), proto(PROTO_DEFAULT) { connect(aIp, aPort); }
     virtual ~Socket() { disconnect(); }
 
     /**
