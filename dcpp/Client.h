@@ -82,9 +82,10 @@ public:
     virtual size_t getUserCount() const = 0;
     virtual int64_t getAvailable() const = 0;
     static int getTotalCounts() { return counts.normal + counts.registered + counts.op; }
-    virtual void send(const AdcCommand& command) = 0;
-
     static string escape(string const& str) { return str; }
+
+    virtual void emulateCommand(const string& cmd) = 0;
+    virtual void send(const AdcCommand& command) = 0;
 
     bool isConnected() const { return state != STATE_DISCONNECTED; }
     bool isReady() const { return state != STATE_CONNECTING && state != STATE_DISCONNECTED; }

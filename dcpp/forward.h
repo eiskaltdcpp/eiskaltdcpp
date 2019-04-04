@@ -73,6 +73,7 @@ class OnlineUser;
 typedef OnlineUser* OnlineUserPtr;
 
 class QueueItem;
+typedef QueueItem* QueueItemPtr;
 
 class SearchResult;
 typedef boost::intrusive_ptr<SearchResult> SearchResultPtr;

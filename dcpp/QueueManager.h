@@ -17,20 +17,24 @@
 
 #pragma once
 
-#include "TimerManager.h"
+#include <deque>
+
+#include "ClientManagerListener.h"
 #include "CriticalSection.h"
-#include "Exception.h"
-#include "User.h"
-#include "File.h"
-#include "QueueItem.h"
-#include "Singleton.h"
 #include "DirectoryListing.h"
+#include "Exception.h"
+#include "File.h"
 #include "MerkleTree.h"
+#include "QueueItem.h"
 #include "QueueManagerListener.h"
 #include "SearchManagerListener.h"
-#include "ClientManagerListener.h"
+#include "Singleton.h"
+#include "TimerManager.h"
+#include "User.h"
 
 namespace dcpp {
+
+using std::deque;
 
 STANDARD_EXCEPTION(QueueException);
 
@@ -68,8 +72,9 @@ class QueueManager : public Singleton<QueueManager>, public Speaker<QueueManager
         private SearchManagerListener, private ClientManagerListener
 {
 public:
-    //NOTE: freedcpp
-    void add(const string& aTarget, int64_t aSize, const TTHValue& root);
+    typedef deque<QueueItemPtr> QueueItemList;
+
+    void add(const string& aTarget, int64_t aSize, const TTHValue& root); // NOTE: freedcpp
 
     /** Add a file to the queue. */
     void add(const string& aTarget, int64_t aSize, const TTHValue& root, const HintedUser& aUser,
@@ -101,7 +106,7 @@ public:
 
     void setPriority(const string& aTarget, QueueItem::Priority p) noexcept;
 
-    void getTargets(const TTHValue& tth, StringList& sl);
+    StringList getTargets(const TTHValue& tth);
     QueueItem::StringMap& lockQueue() noexcept { cs.lock(); return fileQueue.getQueue(); }
     void unlockQueue() noexcept { cs.unlock(); }
 
@@ -128,8 +133,7 @@ public:
 
     bool isChunkDownloaded(const TTHValue& tth, int64_t startPos, int64_t& bytes, string& tempTarget, int64_t& size) {
         Lock l(cs);
-        QueueItem::List ql;
-        fileQueue.find(ql, tth);
+        auto ql = fileQueue.find(tth);
 
         if(ql.empty()) return false;
 
@@ -199,8 +203,7 @@ private:
                        const string& aTempTarget, time_t aAdded, const TTHValue& root);
 
         QueueItem* find(const string& target);
-        void find(QueueItem::List& sl, int64_t aSize, const string& ext);
-        void find(QueueItem::List& ql, const TTHValue& tth);
+        QueueManager::QueueItemList find(const TTHValue& tth);
         // find some PFS sources to exchange parts info
         void findPFSSources(PFSSourceList&);
         bool exists(const TTHValue& tth) const;

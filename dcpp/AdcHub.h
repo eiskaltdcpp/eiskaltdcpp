@@ -57,6 +57,7 @@ public:
     virtual int64_t getAvailable() const;
 
     static string escape(const string& str) { return AdcCommand::escape(str, false); }
+    void emulateCommand(const string& cmd) { dispatch(cmd); }
     virtual void send(const AdcCommand& cmd);
 
     string getMySID() { return AdcCommand::fromSID(sid); }

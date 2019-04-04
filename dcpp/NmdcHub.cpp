@@ -323,6 +323,7 @@ void NmdcHub::onLine(const string& aLine) noexcept {
         i = j + 1;
         string terms = unescape(param.substr(i));
 
+        // without terms, this is an invalid search.
         if(!terms.empty()) {
             if(seeker.compare(0, 4, "Hub:") == 0) {
                 OnlineUser* u = findUser(seeker.substr(4));
@@ -557,12 +558,12 @@ void NmdcHub::onLine(const string& aLine) noexcept {
     } else if(cmd == "$Supports") {
         StringTokenizer<string> st(param, ' ');
         StringList& sl = st.getTokens();
-        for(auto i = sl.begin(); i != sl.end(); ++i) {
-            if(*i == "UserCommand") {
+        for(auto& i: sl) {
+            if(i == "UserCommand") {
                 supportFlags |= SUPPORTS_USERCOMMAND;
-            } else if(*i == "NoGetINFO") {
+            } else if(i == "NoGetINFO") {
                 supportFlags |= SUPPORTS_NOGETINFO;
-            } else if(*i == "UserIP2") {
+            } else if(i == "UserIP2") {
                 supportFlags |= SUPPORTS_USERIP2;
             }
         }
@@ -619,13 +620,14 @@ void NmdcHub::onLine(const string& aLine) noexcept {
             }
 
             if(CryptoManager::getInstance()->isExtended(lock)) {
-                StringList feat;
-                feat.push_back("UserCommand");
-                feat.push_back("NoGetINFO");
-                feat.push_back("NoHello");
-                feat.push_back("UserIP2");
-                feat.push_back("TTHSearch");
-                feat.push_back("ZPipe0");
+                StringList feat = {
+                    "UserCommand",
+                    "NoGetINFO",
+                    "NoHello"
+                    "UserIP2",
+                    "TTHSearch",
+                    "ZPipe0"
+                };
 
                 if(CryptoManager::getInstance()->TLSOk())
                     feat.push_back("TLS");
@@ -781,8 +783,12 @@ void NmdcHub::onLine(const string& aLine) noexcept {
             return;
 
         string fromNick = param.substr(i+1, j-i-1);
-        if(fromNick.empty() || param.size() < j + 2)
+        if(fromNick.empty())
             return;
+
+        if(param.size() < j + 2) {
+            return;
+        }
 
         ChatMessage message = { unescape(param.substr(j + 2)), findUser(fromNick), &getUser(getMyNick()), findUser(rtNick), false, 0 };
 

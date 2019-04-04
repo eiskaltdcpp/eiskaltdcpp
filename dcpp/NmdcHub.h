@@ -69,6 +69,7 @@ public:
     static string escape(const string& str) { return validateMessage(str, false); }
     static string unescape(const string& str) { return validateMessage(str, true); }
 
+    void emulateCommand(const string& cmd) { onLine(cmd); }
     virtual void send(const AdcCommand&) { dcassert(0); }
 
     static string validateMessage(string tmp, bool reverse);

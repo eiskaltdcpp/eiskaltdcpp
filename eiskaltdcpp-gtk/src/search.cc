@@ -391,8 +391,7 @@ void Search::popupMenu_gui()
 
     if (hasTTH)
     {
-        StringList targets;
-        QueueManager::getInstance()->getTargets(TTHValue(tth), targets);
+        StringList targets = QueueManager::getInstance()->getTargets(TTHValue(tth));
 
         if (!targets.empty())
         {

@@ -17,7 +17,6 @@
  */
 
 #include "stdinc.h"
-
 #include "QueueManager.h"
 
 #include "ClientManager.h"
@@ -25,21 +24,21 @@
 #include "DirectoryListing.h"
 #include "Download.h"
 #include "DownloadManager.h"
+#include "FilteredFile.h"
+#include "FinishedItem.h"
+#include "FinishedManager.h"
 #include "HashManager.h"
 #include "LogManager.h"
+#include "MerkleCheckOutputStream.h"
 #include "SearchManager.h"
+#include "SearchResult.h"
+#include "SFVReader.h"
 #include "ShareManager.h"
 #include "SimpleXML.h"
 #include "StringTokenizer.h"
 #include "Transfer.h"
 #include "UserConnection.h"
 #include "version.h"
-#include "SearchResult.h"
-#include "MerkleCheckOutputStream.h"
-#include "SFVReader.h"
-#include "FilteredFile.h"
-#include "FinishedItem.h"
-#include "FinishedManager.h"
 #include "ZUtils.h"
 
 #ifdef WITH_DHT
@@ -92,7 +91,6 @@ QueueItem* QueueManager::FileQueue::add(const string& aTarget, int64_t aSize,
 
     qi->setTempTarget(aTempTarget);
 
-    dcassert(find(aTarget) == NULL);
     add(qi);
     return qi;
 }
@@ -116,24 +114,15 @@ QueueItem* QueueManager::FileQueue::find(const string& target) {
     return (i == queue.end()) ? NULL : i->second;
 }
 
-void QueueManager::FileQueue::find(QueueItem::List& sl, int64_t aSize, const string& suffix) {
-    for(auto& i: queue) {
-        if(i.second->getSize() == aSize) {
-            const string& t = i.second->getTarget();
-            if(suffix.empty() || (suffix.length() < t.length() &&
-                                  Util::stricmp(suffix.c_str(), t.c_str() + (t.length() - suffix.length())) == 0) )
-                sl.push_back(i.second);
-        }
-    }
-}
-
-void QueueManager::FileQueue::find(QueueItem::List& ql, const TTHValue& tth) {
+QueueManager::QueueItemList QueueManager::FileQueue::find(const TTHValue& tth) {
+    QueueItemList ql;
     for(auto& i: queue) {
         auto qi = i.second;
         if(qi->getTTH() == tth) {
             ql.push_back(qi);
         }
     }
+    return ql;
 }
 
 bool QueueManager::FileQueue::exists(const TTHValue& tth) const {
@@ -677,7 +666,8 @@ string QueueManager::getListPath(const HintedUser& user) {
     string nick = nicks.empty() ? Util::emptyString : Util::cleanPathChars(nicks[0]) + ".";
     return checkTarget(Util::getListPath() + nick + user.user->getCID().toBase32(), /*checkExistence*/ false);
 }
-//NOTE: freedcpp
+
+// NOTE: freedcpp: begin
 void QueueManager::add(const string& aTarget, int64_t aSize, const TTHValue& root)
 {
     // Check if we're not downloading something already in our share
@@ -708,8 +698,7 @@ void QueueManager::add(const string& aTarget, int64_t aSize, const TTHValue& roo
     // This will be pretty slow on large queues...
     if (BOOLSETTING(DONT_DL_ALREADY_QUEUED))
     {
-        QueueItem::List ql;
-        fileQueue.find(ql, root);
+        auto ql = fileQueue.find(root);
         if (!ql.empty())
             throw QueueException(_("This file is already queued"));
     }
@@ -731,7 +720,8 @@ void QueueManager::add(const string& aTarget, int64_t aSize, const TTHValue& roo
             throw QueueException(_("A file with different tth root already exists in the queue"));
         }
     }
-}//NOTE: freedcpp
+}
+// NOTE: freedcpp: end
 
 void QueueManager::add(const string& aTarget, int64_t aSize, const TTHValue& root, const HintedUser& aUser,
                        int aFlags /* = 0 */, bool addBad /* = true */)
@@ -773,15 +763,14 @@ void QueueManager::add(const string& aTarget, int64_t aSize, const TTHValue& roo
 
         // This will be pretty slow on large queues...
         if(BOOLSETTING(DONT_DL_ALREADY_QUEUED) && !(aFlags & QueueItem::FLAG_USER_LIST)) {
-            QueueItem::List ql;
-            fileQueue.find(ql, root);
+            auto ql = fileQueue.find(root);
             if (!ql.empty()) {
                 // Found one or more existing queue items, lets see if we can add the source to them
                 bool sourceAdded = false;
-                for(QueueItem::Iter i = ql.begin(); i != ql.end(); ++i) {
-                    if(!(*i)->isSource(aUser)) {
+                for(auto& i : ql) {
+                    if(!i->isSource(aUser)) {
                         try {
-                            wantConnection = addSource(*i, aUser, addBad ? QueueItem::Source::FLAG_MASK : 0);
+                            wantConnection = addSource(i, aUser, addBad ? QueueItem::Source::FLAG_MASK : 0);
                             sourceAdded = true;
                         } catch(...) { }
                     }
@@ -1047,13 +1036,14 @@ void QueueManager::move(const string& aSource, const string& aTarget) noexcept {
     }
 }
 
-void QueueManager::getTargets(const TTHValue& tth, StringList& sl) {
+StringList QueueManager::getTargets(const TTHValue& tth) {
     Lock l(cs);
-    QueueItem::List ql;
-    fileQueue.find(ql, tth);
+    auto ql = fileQueue.find(tth);
+    StringList sl;
     for(auto& i: ql) {
         sl.push_back(i->getTarget());
     }
+    return sl;
 }
 
 Download* QueueManager::getDownload(UserConnection& aSource, bool supportsTrees) noexcept {
@@ -1750,7 +1740,7 @@ void QueueLoader::startTag(const string& name, StringPairList& attribs, bool sim
     if(!inDownloads && name == "Downloads") {
         inDownloads = true;
     } else if(inDownloads) {
-        if(cur == NULL && name == sDownload) {
+        if(cur == nullptr && name == sDownload) {
             int64_t size = Util::toInt64(getAttrib(attribs, sSize, 1));
             if(size == 0)
                 return;
@@ -1779,7 +1769,7 @@ void QueueLoader::startTag(const string& name, StringPairList& attribs, bool sim
 
             QueueItem* qi = qm->fileQueue.find(target);
 
-            if(qi == NULL) {
+            if(qi == nullptr) {
                 qi = qm->fileQueue.add(target, size, 0, p, tempTarget, added, TTHValue(tthRoot));
                 if(downloaded > 0) {
                     qi->addSegment(Segment(0, downloaded));
@@ -1821,7 +1811,7 @@ void QueueLoader::startTag(const string& name, StringPairList& attribs, bool sim
 void QueueLoader::endTag(const string& name, const string&) {
     if(inDownloads) {
         if(name == sDownload) {
-            cur = NULL;
+            cur = nullptr;
         } else if(name == "Downloads") {
             inDownloads = false;
         }
@@ -1841,13 +1831,9 @@ void QueueManager::on(SearchManagerListener::SR, const SearchResultPtr& sr) noex
 
     {
         Lock l(cs);
-        QueueItem::List matches;
+        auto matches = fileQueue.find(sr->getTTH());
 
-        fileQueue.find(matches, sr->getTTH());
-
-        for(QueueItem::Iter i = matches.begin(); i != matches.end(); ++i) {
-            QueueItem* qi = *i;
-
+        for(auto qi : matches) {
             // Size compare to avoid popular spoof
             if(qi->getSize() == sr->getSize() && !qi->isSource(sr->getUser())) {
                 try {
@@ -1922,15 +1908,14 @@ bool QueueManager::handlePartialResult(const UserPtr& aUser, const string& hubHi
         Lock l(cs);
 
         // Locate target QueueItem in download queue
-        QueueItem::List ql;
-        fileQueue.find(ql, tth);
+        auto ql = fileQueue.find(tth);
 
         if(ql.empty()){
             dcdebug("Not found in download queue\n");
             return false;
         }
 
-        QueueItem::Ptr qi = ql[0];
+        QueueItemPtr qi = ql[0];
         // don't add sources to finished files
         // this could happen when "Keep finished files in queue" is enabled
         if(qi->isFinished())
@@ -1996,14 +1981,13 @@ bool QueueManager::handlePartialSearch(const TTHValue& tth, PartsInfo& _outParts
         Lock l(cs);
 
         // Locate target QueueItem in download queue
-        QueueItem::List ql;
-        fileQueue.find(ql, tth);
+        auto ql = fileQueue.find(tth);
 
         if(ql.empty()){
             return false;
         }
 
-        QueueItem::Ptr qi = ql[0];
+        QueueItemPtr qi = ql[0];
         if(qi->getSize() < PARTIAL_SHARE_MIN_SIZE){
             return false;
         }
