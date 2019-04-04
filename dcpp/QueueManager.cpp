@@ -19,7 +19,6 @@
 #include "stdinc.h"
 
 #include "QueueManager.h"
-#include "format.h"
 
 #include "ClientManager.h"
 #include "ConnectionManager.h"
@@ -391,7 +390,7 @@ void QueueManager::Rechecker::add(const string& file) {
 int QueueManager::Rechecker::run() {
     setThreadName("Rechecker");
     while(true) {
-        string file;
+        unique_ptr<string> file;
         {
             Lock l(cs);
             StringIter i = files.begin();
@@ -399,7 +398,7 @@ int QueueManager::Rechecker::run() {
                 active = false;
                 return 0;
             }
-            file = *i;
+            *file = *i;
             files.erase(i);
         }
 
@@ -410,12 +409,12 @@ int QueueManager::Rechecker::run() {
         {
             Lock l(qm->cs);
 
-            q = qm->fileQueue.find(file);
+            q = qm->fileQueue.find(*file);
             if(!q || q->isSet(QueueItem::FLAG_USER_LIST))
                 continue;
 
             qm->fire(QueueManagerListener::RecheckStarted(), q->getTarget());
-            dcdebug("Rechecking %s\n", file.c_str());
+            dcdebug("Rechecking %s\n", file->c_str());
 
             tempSize = File::getSize(q->getTempTarget());
 
@@ -450,7 +449,7 @@ int QueueManager::Rechecker::run() {
             Lock l(qm->cs);
 
             // get q again in case it has been (re)moved
-            q = qm->fileQueue.find(file);
+            q = qm->fileQueue.find(*file);
             if(!q)
                 continue;
 
@@ -511,7 +510,7 @@ int QueueManager::Rechecker::run() {
         Lock l(qm->cs);
 
         // get q again in case it has been (re)moved
-        q = qm->fileQueue.find(file);
+        q = qm->fileQueue.find(*file);
         if(!q)
             continue;
 
