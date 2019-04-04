@@ -27,10 +27,6 @@
 
 namespace dcpp {
 
-using std::make_pair;
-using std::max;
-using std::min;
-
 /**
  * A class that represents a Merkle Tree hash. Storing
  * only the leaves of the tree, it is rather memory efficient,

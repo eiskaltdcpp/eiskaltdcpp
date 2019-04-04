@@ -188,7 +188,7 @@ void QueueManager::FileQueue::move(QueueItem* qi, const string& aTarget) {
 bool QueueManager::getQueueInfo(const UserPtr& aUser, string& aTarget, int64_t& aSize, int& aFlags) noexcept {
     Lock l(cs);
     QueueItem* qi = userQueue.getNext(aUser);
-    if(qi == NULL)
+    if(!qi)
         return false;
 
     aTarget = qi->getTarget();
@@ -219,7 +219,7 @@ QueueItem* QueueManager::UserQueue::getNext(const UserPtr& aUser, QueueItem::Pri
     string lastError = Util::emptyString;
 
     do {
-        QueueItem::UserListIter i = userQueue[p].find(aUser);
+        auto i = userQueue[p].find(aUser);
         if(i != userQueue[p].end()) {
             dcassert(!i->second.empty());
             for(auto qi: i->second) {
@@ -352,19 +352,21 @@ void QueueManager::FileMover::moveFile(const string& source, const string& targe
 
 int QueueManager::FileMover::run() {
     setThreadName("FileMover");
-    for(;;) {
-        FilePair next;
+    while(true) {
+        unique_ptr<FilePair> next;
         {
             Lock l(cs);
             if(files.empty()) {
                 active = false;
                 return 0;
             }
-            next = files.back();
+            *next = files.back();
             files.pop_back();
         }
-        moveFile_(next.first, next.second);
+
+        moveFile_(next->first, next->second);
     }
+    return 0;
 }
 
 void QueueManager::Rechecker::add(const string& file) {
@@ -382,7 +384,7 @@ int QueueManager::Rechecker::run() {
         unique_ptr<string> file;
         {
             Lock l(cs);
-            StringIter i = files.begin();
+            auto i = files.begin();
             if(i == files.end()) {
                 active = false;
                 return 0;
@@ -541,7 +543,7 @@ QueueManager::~QueueManager() {
 
         std::sort(protectedFileLists.begin(), protectedFileLists.end());
 
-        StringList filelists = File::findFiles(path, "*.xml.bz2");
+        auto filelists = File::findFiles(path, "*.xml*");
         std::sort(filelists.begin(), filelists.end());
         std::for_each(filelists.begin(), std::set_difference(filelists.begin(), filelists.end(),
                                                              protectedFileLists.begin(), protectedFileLists.end(), filelists.begin()), &File::deleteFile);
@@ -896,10 +898,10 @@ void QueueManager::addDirectory(const string& aDir, const HintedUser& aUser, con
     {
         Lock l(cs);
 
-        DirectoryItem::DirectoryPair dp = directories.equal_range(aUser);
+        auto dp = directories.equal_range(aUser);
 
-        for(DirectoryItem::DirectoryIter i = dp.first; i != dp.second; ++i) {
-            if(Util::stricmp(aTarget.c_str(), i->second->getName().c_str()) == 0)
+        for(auto i = dp.first; i != dp.second; ++i) {
+            if(Util::stricmp(aDir.c_str(), i->second->getName().c_str()) == 0)
                 return;
         }
 
