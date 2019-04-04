@@ -198,10 +198,6 @@ Segment QueueItem::getNextSegment(int64_t blockSize, int64_t wantedSize, int64_t
                         int64_t b = max(start, *j);
                         int64_t e = min(end, *(j+1));
 
-                        // segment must be blockSize aligned
-                        dcassert(b % blockSize == 0);
-                        dcassert(e % blockSize == 0 || e == getSize());
-
                         bool merged = false;
                         if(!neededParts.empty())
                         {
@@ -265,10 +261,7 @@ Segment QueueItem::getNextSegment(int64_t blockSize, int64_t wantedSize, int64_t
             // new user should finish this chunk more than 2x faster
             const int64_t newChunkLeft = size / lastSpeed;
             if(2 * newChunkLeft < d->getSecondsLeft()) {
-                dcdebug("Overlapping... old user: %ld s, new user: %ld s\n",
-                        static_cast<int64_t>(d->getSecondsLeft()),
-                        static_cast<int64_t>(newChunkLeft));
-                return Segment(d->getStartPos() + pos, size/*, true*/);//TODO bool
+                return Segment(d->getStartPos() + pos, size/*, true*/); // TODO: bool
             }
         }
     }
@@ -315,12 +308,10 @@ string QueueItem::getListName() const {
     }
 }
 
-//Partial
+// Partial
 bool QueueItem::isNeededPart(const PartsInfo& partsInfo, int64_t blockSize) const {
-    dcassert(partsInfo.size() % 2 == 0);
-
-    SegmentConstIter i  = done.begin();
-    for(PartsInfo::const_iterator j = partsInfo.begin(); j != partsInfo.end(); j+=2) {
+    auto i  = done.begin();
+    for(auto j = partsInfo.begin(); j != partsInfo.end(); j+=2) {
         while(i != done.end() && (*i).getEnd() <= (*j) * blockSize)
             ++i;
 
@@ -335,11 +326,12 @@ void QueueItem::getPartialInfo(PartsInfo& partialInfo, int64_t blockSize) const 
     size_t maxSize = min(done.size() * 2, (size_t)510);
     partialInfo.reserve(maxSize);
 
-    SegmentConstIter i = done.begin();
-    for(; i != done.end() && partialInfo.size() < maxSize; ++i) {
+    for(auto& i : done) {
+        if(partialInfo.size() >= maxSize)
+            break;
 
-        uint16_t s = (uint16_t)((*i).getStart() / blockSize);
-        uint16_t e = (uint16_t)(((*i).getEnd() - 1) / blockSize + 1);
+        uint16_t s = (uint16_t)(i.getStart() / blockSize);
+        uint16_t e = (uint16_t)((i.getEnd() - 1) / blockSize + 1);
 
         partialInfo.push_back(s);
         partialInfo.push_back(e);

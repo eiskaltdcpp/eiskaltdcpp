@@ -145,7 +145,7 @@ bool QueueManager::FileQueue::exists(const TTHValue& tth) const {
 }
 
 static QueueItem* findCandidate(QueueItem* cand, QueueItem::StringIter start, QueueItem::StringIter end, const StringList& recent) {
-    for(QueueItem::StringIter i = start; i != end; ++i) {
+    for(auto i = start; i != end; ++i) {
         QueueItem* q = i->second;
 
         // We prefer to search for things that are not running...
@@ -179,7 +179,7 @@ QueueItem* QueueManager::FileQueue::findAutoSearch(StringList& recent) {
     // We pick a start position at random, hoping that we will find something to search for...
     QueueItem::StringMap::size_type start = (QueueItem::StringMap::size_type)Util::rand((uint32_t)queue.size());
 
-    QueueItem::StringIter i = queue.begin();
+    auto i = queue.begin();
     advance(i, start);
 
     QueueItem* cand = findCandidate(NULL, i, queue.end(), recent);
@@ -211,13 +211,13 @@ bool QueueManager::getQueueInfo(const UserPtr& aUser, string& aTarget, int64_t& 
 }
 
 void QueueManager::UserQueue::add(QueueItem* qi) {
-    for(QueueItem::SourceConstIter i = qi->getSources().begin(); i != qi->getSources().end(); ++i) {
-        add(qi, i->getUser());
+    for(auto& i: qi->getSources()) {
+        add(qi, i.getUser());
     }
 }
 
 void QueueManager::UserQueue::add(QueueItem* qi, const UserPtr& aUser) {
-    QueueItem::List& l = userQueue[qi->getPriority()][aUser];
+    auto& l = userQueue[qi->getPriority()][aUser];
 
     if(qi->getDownloadedBytes() > 0) {
         l.push_front(qi);
@@ -234,12 +234,11 @@ QueueItem* QueueManager::UserQueue::getNext(const UserPtr& aUser, QueueItem::Pri
         QueueItem::UserListIter i = userQueue[p].find(aUser);
         if(i != userQueue[p].end()) {
             dcassert(!i->second.empty());
-            for(QueueItem::Iter j = i->second.begin(); j != i->second.end(); ++j) {
-                QueueItem* qi = *j;
+            for(auto qi: i->second) {
                 QueueItem::SourceConstIter source = qi->getSource(aUser);
                 if(source->isSet(QueueItem::Source::FLAG_PARTIAL)) {
                     // check partial source
-                    int64_t blockSize = HashManager::getInstance()->getBlockSize(qi->getTTH());
+                    auto blockSize = HashManager::getInstance()->getBlockSize(qi->getTTH());
                     if(blockSize == 0)
                         blockSize = qi->getSize();
 
@@ -262,7 +261,7 @@ QueueItem* QueueManager::UserQueue::getNext(const UserPtr& aUser, QueueItem::Pri
                     continue;
                 }
                 if(!qi->isSet(QueueItem::FLAG_USER_LIST)) {
-                    int64_t blockSize = HashManager::getInstance()->getBlockSize(qi->getTTH());
+                    auto blockSize = HashManager::getInstance()->getBlockSize(qi->getTTH());
                     if(blockSize == 0)
                         blockSize = qi->getSize();
                     if(qi->getNextSegment(blockSize, wantedSize,lastSpeed, source->getPartialSource()).getSize() == 0) {
@@ -292,7 +291,7 @@ void QueueManager::UserQueue::addDownload(QueueItem* qi, Download* d) {
 void QueueManager::UserQueue::removeDownload(QueueItem* qi, const UserPtr& user) {
     running.erase(user);
 
-    for(DownloadList::iterator i = qi->getDownloads().begin(); i != qi->getDownloads().end(); ++i) {
+    for(auto i = qi->getDownloads().begin(); i != qi->getDownloads().end(); ++i) {
         if((*i)->getUser() == user) {
             qi->getDownloads().erase(i);
             break;
@@ -309,14 +308,13 @@ void QueueManager::UserQueue::setPriority(QueueItem* qi, QueueItem::Priority p) 
 int64_t QueueManager::UserQueue::getQueued(const UserPtr& aUser) const {
     int64_t total = 0;
     for(size_t i = QueueItem::LOWEST; i < QueueItem::LAST; ++i) {
-        const QueueItem::UserListMap& ulm = userQueue[i];
-        QueueItem::UserListMap::const_iterator iulm = ulm.find(aUser);
+        const auto& ulm = userQueue[i];
+        auto iulm = ulm.find(aUser);
         if(iulm == ulm.end()) {
             continue;
         }
 
-        for(QueueItem::List::const_iterator j = iulm->second.begin(); j != iulm->second.end(); ++j) {
-            const QueueItem::Ptr qi = *j;
+        for(auto& qi: iulm->second) {
             if(qi->getSize() != -1) {
                 total += qi->getSize() - qi->getDownloadedBytes();
             }
@@ -326,13 +324,13 @@ int64_t QueueManager::UserQueue::getQueued(const UserPtr& aUser) const {
 }
 
 QueueItem* QueueManager::UserQueue::getRunning(const UserPtr& aUser) {
-    QueueItem::UserIter i = running.find(aUser);
+    auto i = running.find(aUser);
     return (i == running.end()) ? 0 : i->second;
 }
 
 void QueueManager::UserQueue::remove(QueueItem* qi, bool removeRunning) {
-    for(QueueItem::SourceConstIter i = qi->getSources().begin(); i != qi->getSources().end(); ++i) {
-        remove(qi, i->getUser(), removeRunning);
+    for(auto& i: qi->getSources()) {
+        remove(qi, i.getUser(), removeRunning);
     }
 }
 
@@ -342,11 +340,11 @@ void QueueManager::UserQueue::remove(QueueItem* qi, const UserPtr& aUser, bool r
     }
 
     dcassert(qi->isSource(aUser));
-    QueueItem::UserListMap& ulm = userQueue[qi->getPriority()];
-    QueueItem::UserListIter j = ulm.find(aUser);
+    auto& ulm = userQueue[qi->getPriority()];
+    auto j = ulm.find(aUser);
     dcassert(j != ulm.end());
-    QueueItem::List& l = j->second;
-    QueueItem::Iter i = find(l.begin(), l.end(), qi);
+    auto& l = j->second;
+    auto i = find(l.begin(), l.end(), qi);
     dcassert(i != l.end());
     l.erase(i);
 
@@ -645,7 +643,6 @@ void QueueManager::on(TimerManagerListener::Minute, uint64_t aTick) noexcept {
     // Request parts info from partial file sharing sources
     for(vector<const PartsInfoReqParam*>::const_iterator i = params.begin(); i != params.end(); ++i){
         const PartsInfoReqParam* param = *i;
-        dcassert(param->udpPort > 0);
 
         try {
             AdcCommand cmd = SearchManager::getInstance()->toPSR(true, param->myNick, param->hubIpPort, param->tth, param->parts);
@@ -1110,6 +1107,7 @@ namespace {
 class TreeOutputStream : public OutputStream {
 public:
     TreeOutputStream(TigerTree& aTree) : tree(aTree), bufPos(0) {
+        memset(&buf, 0, sizeof(buf));
     }
 
     virtual size_t write(const void* xbuf, size_t len) {
@@ -1137,6 +1135,7 @@ public:
     virtual size_t flush() {
         return 0;
     }
+
 private:
     TigerTree& tree;
     uint8_t buf[TigerTree::BYTES];
@@ -1724,8 +1723,8 @@ int QueueManager::countOnlineSources(const string& aTarget) {
     if(!qi)
         return 0;
     int onlineSources = 0;
-    for(QueueItem::SourceConstIter i = qi->getSources().begin(); i != qi->getSources().end(); ++i) {
-        if(i->getUser().user->isOnline())
+    for(auto& i: qi->getSources()) {
+        if(i.getUser().user->isOnline())
             onlineSources++;
     }
     return onlineSources;

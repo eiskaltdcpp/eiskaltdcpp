@@ -740,7 +740,7 @@ void Settings::initPersonal_gui()
     gtk_box_pack_start(GTK_BOX(getWidget("connectionBox")), GTK_WIDGET(connectionSpeedComboBox), false, true, 0);
     gtk_widget_show_all(GTK_WIDGET(connectionSpeedComboBox));
 
-    for (StringIter i = SettingsManager::connectionSpeeds.begin(); i != SettingsManager::connectionSpeeds.end(); ++i)
+    for (auto i = SettingsManager::connectionSpeeds.begin(); i != SettingsManager::connectionSpeeds.end(); ++i)
     {
         gtk_combo_box_text_append_text(connectionSpeedComboBox, (*i).c_str());
         if (SETTING(UPLOAD_SPEED) == *i)

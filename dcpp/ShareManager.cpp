@@ -320,7 +320,7 @@ bool ShareManager::hasVirtual(const string& virtualName) const noexcept {
     return getByVirtual(virtualName) != directories.end();
 }
 
-void ShareManager::load(SimpleXML& aXml) {
+void ShareManager::load(SimpleXML& aXml) noexcept {
     Lock l(cs);
 
     aXml.resetCurrentChild();
@@ -428,7 +428,7 @@ bool ShareManager::loadCache() noexcept {
     return false;
 }
 
-void ShareManager::save(SimpleXML& aXml) {
+void ShareManager::save(SimpleXML& aXml) noexcept {
     Lock l(cs);
 
     aXml.addTag("Share");
@@ -1473,15 +1473,15 @@ ShareManager::Directory::Ptr ShareManager::getDirectory(const string& fname) {
     return Directory::Ptr();
 }
 
-void ShareManager::on(QueueManagerListener::FileMoved, const string& n) noexcept {
+void ShareManager::on(QueueManagerListener::FileMoved, const string& realPath) noexcept {
     if(BOOLSETTING(ADD_FINISHED_INSTANTLY)) {
         // Check if finished download is supposed to be shared
         Lock l(cs);
         for(auto i = shares.begin(); i != shares.end(); ++i) {
-            if(Util::strnicmp(i->first, n, i->first.size()) == 0 && n[i->first.size() - 1] == PATH_SEPARATOR) {
+            if(Util::strnicmp(i->first, realPath, i->first.size()) == 0 && realPath[i->first.size() - 1] == PATH_SEPARATOR) {
                 try {
                     // Schedule for hashing, it'll be added automatically later on...
-                    HashManager::getInstance()->checkTTH(n, File::getSize(n), 0);
+                    HashManager::getInstance()->checkTTH(realPath, File::getSize(realPath), 0);
                 } catch(const Exception&) {
                     // Not a vital feature...
                 }
@@ -1491,11 +1491,11 @@ void ShareManager::on(QueueManagerListener::FileMoved, const string& n) noexcept
     }
 }
 
-void ShareManager::on(HashManagerListener::TTHDone, const string& fname, const TTHValue& root) noexcept {
+void ShareManager::on(HashManagerListener::TTHDone, const string& realPath, const TTHValue& root) noexcept {
     Lock l(cs);
-    Directory::Ptr d = getDirectory(fname);
+    Directory::Ptr d = getDirectory(realPath);
     if(d) {
-        auto i = d->findFile(Util::getFileName(fname));
+        auto i = d->findFile(Util::getFileName(realPath));
         if(i != d->files.end()) {
             if(root != i->getTTH())
                 tthIndex.erase(i->getTTH());
@@ -1504,8 +1504,8 @@ void ShareManager::on(HashManagerListener::TTHDone, const string& fname, const T
             f->setTTH(root);
             tthIndex.emplace(f->getTTH(), i);
         } else {
-            string name = Util::getFileName(fname);
-            int64_t size = File::getSize(fname);
+            string name = Util::getFileName(realPath);
+            int64_t size = File::getSize(realPath);
             auto it = d->files.insert(Directory::File(name, size, d, root)).first;
             updateIndices(*d, it);
         }

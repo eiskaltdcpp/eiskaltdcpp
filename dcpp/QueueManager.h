@@ -191,8 +191,8 @@ private:
     public:
         FileQueue() : lastInsert(queue.end()) { }
         ~FileQueue() {
-            for(QueueItem::StringIter i = queue.begin(); i != queue.end(); ++i)
-                delete i->second;
+            for(auto& i : queue)
+                delete i.second;
         }
         void add(QueueItem* qi);
         QueueItem* add(const string& aTarget, int64_t aSize, int aFlags, QueueItem::Priority p,

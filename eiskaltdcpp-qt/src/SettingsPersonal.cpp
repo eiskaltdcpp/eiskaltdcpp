@@ -66,7 +66,7 @@ void SettingsPersonal::init(){
     lineEdit_DESC->setText(SETTING(DESCRIPTION).c_str());
     lineEdit_AWAYMSG->setText(SETTING(DEFAULT_AWAY_MESSAGE).c_str());
 
-    for (StringIter i = SettingsManager::connectionSpeeds.begin(); i != SettingsManager::connectionSpeeds.end(); ++i){
+    for (auto i = SettingsManager::connectionSpeeds.begin(); i != SettingsManager::connectionSpeeds.end(); ++i){
         comboBox_SPEED->addItem((*i).c_str());
 
         if (SETTING(UPLOAD_SPEED) == *i)

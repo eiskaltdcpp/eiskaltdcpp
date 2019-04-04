@@ -82,9 +82,9 @@ void Emoticons::create()
     /* load next packs */
     StringList files = File::findFiles(path, "*.xml");
 
-    for(StringIter it = files.begin(); it != files.end(); ++it)
+    for(auto& it : files)
     {
-        file = Util::getFileName(*it);
+        file = Util::getFileName(it);
         string::size_type pos = file.rfind('.');
         file = file.substr(0, pos);
 

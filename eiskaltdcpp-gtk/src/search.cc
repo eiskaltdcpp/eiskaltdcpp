@@ -398,9 +398,9 @@ void Search::popupMenu_gui()
         {
             menuItem = gtk_separator_menu_item_new();
             gtk_menu_shell_append(GTK_MENU_SHELL(getWidget("downloadMenu")), menuItem);
-            for (StringIter i = targets.begin(); i != targets.end(); ++i)
+            for (auto& i : targets)
             {
-                menuItem = gtk_menu_item_new_with_label(i->c_str());
+                menuItem = gtk_menu_item_new_with_label(i.c_str());
                 g_signal_connect(menuItem, "activate", G_CALLBACK(onDownloadToMatchClicked_gui), (gpointer)this);
                 gtk_menu_shell_append(GTK_MENU_SHELL(getWidget("downloadMenu")), menuItem);
             }

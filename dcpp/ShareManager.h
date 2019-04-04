@@ -306,9 +306,9 @@ public:
     virtual int run();
 
     // QueueManagerListener
-    virtual void on(QueueManagerListener::FileMoved, const string& n) noexcept;
+    virtual void on(QueueManagerListener::FileMoved, const string& realPath) noexcept;
     // HashManagerListener
-    virtual void on(HashManagerListener::TTHDone, const string& fname, const TTHValue& root) noexcept;
+    virtual void on(HashManagerListener::TTHDone, const string& realPath, const TTHValue& root) noexcept;
 
     // SettingsManagerListener
     virtual void on(SettingsManagerListener::Save, SimpleXML& xml) noexcept {
@@ -320,8 +320,8 @@ public:
 
     // TimerManagerListener
     virtual void on(TimerManagerListener::Minute, uint64_t tick) noexcept;
-    void load(SimpleXML& aXml);
-    void save(SimpleXML& aXml);
+    void load(SimpleXML& aXml) noexcept;
+    void save(SimpleXML& aXml) noexcept;
 
 };
 

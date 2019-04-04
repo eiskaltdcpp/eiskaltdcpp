@@ -284,8 +284,8 @@ bool Wildcard::patternMatch(const wstring& text, const wstring& pattern, bool us
 bool Wildcard::patternMatch(const string& text, const string& patternlist, char delimiter, bool useSet) {
     StringTokenizer<string> st(patternlist, delimiter);
     bool bMatched = false;
-    for (StringIter i = st.getTokens().begin(); i != st.getTokens().end(); ++i) {
-        bMatched = patternMatch(text, *i, useSet);
+    for (auto& i : st.getTokens()) {
+        bMatched = patternMatch(text, i, useSet);
         if (bMatched)
             return true;
     }

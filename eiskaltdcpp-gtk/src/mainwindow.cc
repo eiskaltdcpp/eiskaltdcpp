@@ -660,7 +660,7 @@ void MainWindow::removeBookEntry_gui(BookEntry *entry)
     string::size_type pos = entryID.find(':');
     if (pos != string::npos) entryID.erase(0, pos + 1);
 
-    StringIter it = find(EntryList.begin(), EntryList.end(), entryID);
+    auto it = find(EntryList.begin(), EntryList.end(), entryID);
 
     if (it != EntryList.end())
         EntryList.erase(it);

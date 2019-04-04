@@ -402,8 +402,8 @@ void SearchManager::onPSR(const AdcCommand& cmd, UserPtr from, const string& rem
             partialCount = Util::toUInt32(str.substr(2))*2;
         } else if(str.compare(0, 2, "PI") == 0) {
             StringTokenizer<string> tok(str.substr(2), ',');
-            for(StringIter i = tok.getTokens().begin(); i != tok.getTokens().end(); ++i) {
-                partialInfo.push_back((uint16_t)Util::toInt(*i));
+            for(auto& i : tok.getTokens()) {
+                partialInfo.push_back((uint16_t)Util::toInt(i));
             }
         }
     }
