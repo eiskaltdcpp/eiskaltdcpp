@@ -64,6 +64,7 @@ bool SSLSocket::waitConnected(uint32_t millis) {
         if(ret == 1) {
             dcdebug("Connected to SSL server using %s as %s\n", SSL_get_cipher(ssl), SSL_is_server(ssl)?"server":"client");
 
+#if OPENSSL_VERSION_NUMBER >= 0x10002000L
             if (SSL_is_server(ssl)) return true;
 
             const unsigned char* protocol = 0;
@@ -77,6 +78,7 @@ bool SSLSocket::waitConnected(uint32_t millis) {
                     proto = PROTO_NMDC;
                 dcdebug("ALPN negotiated %.*s (%d)\n", len, protocol, proto);
             }
+#endif
             return true;
         }
         if(!waitWant(ret, millis)) {
