@@ -75,7 +75,7 @@ public:
     };
 
     Socket() : sock(INVALID_SOCKET), type(TYPE_TCP), connected(false), proto(PROTO_DEFAULT) { }
-    Socket(const string& aIp, uint16_t aPort) : sock(INVALID_SOCKET), type(TYPE_TCP), connected(false), proto(PROTO_DEFAULT) { connect(aIp, aPort); }
+    Socket(const string& aIp, const string& aPort) : sock(INVALID_SOCKET), type(TYPE_TCP), connected(false), proto(PROTO_DEFAULT) { connect(aIp, aPort); }
     virtual ~Socket() { disconnect(); }
 
     /**
@@ -85,8 +85,8 @@ public:
      * @param aPort Server port.
      * @throw SocketException If any connection error occurs.
      */
-    virtual void connect(const string& aIp, uint16_t aPort);
-    void connect(const string& aIp, const string& aPort) { connect(aIp, static_cast<uint16_t>(Util::toInt(aPort))); }
+    virtual void connect(const string& aIp, const string &aPort, const string &localPort = Util::emptyString);
+    // void connect(const string& aIp, uint16_t aPort, uint16_t localPort = 0) { connect(aIp, aPort == 0 ? Util::emptyString : Util::toString(aPort), localPort == 0 ? Util::emptyString : Util::toString(localPort)); }
     /**
      * Same as connect(), but through the SOCKS5 server
      */

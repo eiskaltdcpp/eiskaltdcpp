@@ -17,42 +17,35 @@
 
 #include "stdinc.h"
 #include "DCPlusPlus.h"
-#include "format.h"
 
-#include "ConnectionManager.h"
-#include "DownloadManager.h"
-#include "UploadManager.h"
-#include "CryptoManager.h"
-#include "ShareManager.h"
-#include "SearchManager.h"
-#include "QueueManager.h"
+#include "ADLSearch.h"
 #include "ClientManager.h"
+#include "ConnectionManager.h"
+#include "ConnectivityManager.h"
+#include "CryptoManager.h"
+#include "DebugManager.h"
+#include "DownloadManager.h"
+#include "FavoriteManager.h"
+#include "FinishedManager.h"
 #include "HashManager.h"
 #include "LogManager.h"
-#include "FavoriteManager.h"
-#include "SettingsManager.h"
-#include "FinishedManager.h"
+#include "QueueManager.h"
 #include "ResourceManager.h"
-#include "ThrottleManager.h"
-#include "ADLSearch.h"
-//#include "WindowManager.h"
-#include "StringTokenizer.h"
+#include "SearchManager.h"
+#include "SettingsManager.h"
 #ifdef LUA_SCRIPT
 #include "ScriptManager.h"
 #endif
+#include "ShareManager.h"
+#include "StringTokenizer.h"
+#include "ThrottleManager.h"
+#include "UploadManager.h"
 #include "UPnPManager.h"
-#include "ConnectivityManager.h"
+
 #include "extra/ipfilter.h"
 #include "extra/dyndns.h"
 #ifdef WITH_DHT
 #include "dht/DHT.h"
-#endif
-#include "DebugManager.h"
-
-#ifdef _STLP_DEBUG
-void __stl_debug_terminate() {
-    int* x = 0;
-}
 #endif
 
 namespace dcpp {

@@ -187,7 +187,7 @@ void Socket::listen() {
     connected = true;
 }
 
-void Socket::connect(const string& aAddr, uint16_t aPort) {
+void Socket::connect(const string& aAddr, const string& aPort, const string&) {
     sockaddr_in serv_addr;
 
     if(sock == INVALID_SOCKET) {
@@ -197,7 +197,7 @@ void Socket::connect(const string& aAddr, uint16_t aPort) {
     string addr = resolve(aAddr);
 
     memset(&serv_addr, 0, sizeof(serv_addr));
-    serv_addr.sin_port = htons(aPort);
+    serv_addr.sin_port = htons(static_cast<uint16_t>(Util::toInt(aPort)));
     serv_addr.sin_family = AF_INET;
     serv_addr.sin_addr.s_addr = inet_addr(addr.c_str());
 
@@ -231,7 +231,7 @@ void Socket::socksConnect(const string& aAddr, const string& aPort, uint32_t tim
 
     uint64_t start = GET_TICK();
 
-    connect(SETTING(SOCKS_SERVER), static_cast<uint16_t>(SETTING(SOCKS_PORT)));
+    connect(SETTING(SOCKS_SERVER), Util::toString(SETTING(SOCKS_PORT)));
 
     if(wait(timeLeft(start, timeout), WAIT_CONNECT) != WAIT_CONNECT) {
         throw SocketException(_("The socks server failed establish a connection"));
@@ -685,7 +685,7 @@ void Socket::socksUpdated() {
         try {
             Socket s;
             s.setBlocking(false);
-            s.connect(SETTING(SOCKS_SERVER), static_cast<uint16_t>(SETTING(SOCKS_PORT)));
+            s.connect(SETTING(SOCKS_SERVER), Util::toString(SETTING(SOCKS_PORT)));
             s.socksAuth(SOCKS_TIMEOUT);
 
             char connStr[10];

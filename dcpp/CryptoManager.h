@@ -17,13 +17,12 @@
 
 #pragma once
 
-#ifdef _WIN32
-#include <wincrypt.h>
-#endif
+#include "typedefs.h"
 
 #include "SettingsManager.h"
 #include "Exception.h"
 #include "Singleton.h"
+
 #include "SSLSocket.h"
 
 namespace dcpp {

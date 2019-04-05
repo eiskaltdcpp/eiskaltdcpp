@@ -31,7 +31,7 @@ SSLSocket::SSLSocket(SSL_CTX* context) : ctx(context), ssl(0) {
 
 }
 
-void SSLSocket::connect(const string& aIp, uint16_t aPort) {
+void SSLSocket::connect(const string& aIp, const string& aPort) {
     Socket::connect(aIp, aPort);
 
     waitConnected(0);

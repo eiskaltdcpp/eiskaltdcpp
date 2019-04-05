@@ -16,25 +16,21 @@
  */
 
 #include "stdinc.h"
-
 #include "FavoriteManager.h"
 
+#include "BZUtils.h"
 #include "ClientManager.h"
 #include "CryptoManager.h"
-//#include "WindowManager.h"
-
-#include "HttpConnection.h"
-#include "StringTokenizer.h"
-#include "SimpleXML.h"
-#include "UserCommand.h"
-//#include "WindowInfo.h"
 #include "File.h"
-#include "BZUtils.h"
 #include "FilteredFile.h"
+#include "HttpConnection.h"
+#include "SimpleXML.h"
+#include "StringTokenizer.h"
+#include "UserCommand.h"
 
 namespace dcpp {
 
-FavoriteManager::FavoriteManager() : lastId(0), useHttp(false), running(false), c(NULL), lastServer(0), listType(TYPE_NORMAL), dontSave(false) {
+FavoriteManager::FavoriteManager() : lastId(0), useHttp(false), running(false), c(nullptr), lastServer(0), listType(TYPE_NORMAL), dontSave(false) {
     SettingsManager::getInstance()->addListener(this);
     ClientManager::getInstance()->addListener(this);
 
