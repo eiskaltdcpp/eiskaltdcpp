@@ -120,7 +120,7 @@ void FinishedManager::onComplete(Transfer* t, bool upload, bool crc32Checked) {
         uint64_t milliSeconds = GET_TICK() - t->getStart();
         time_t time = GET_TIME();
 
-        int64_t size = 0;
+        int64_t size = 0, pos = 0;
         // get downloads' file size here to avoid deadlocks
         if(!upload) {
             if(t->getType() == Transfer::TYPE_FULL_LIST) {
@@ -134,18 +134,23 @@ void FinishedManager::onComplete(Transfer* t, bool upload, bool crc32Checked) {
                     }
                 }
                 size = t->getSize();
-            } else
-                size = QueueManager::getInstance()->getSize(file);
+            } else {
+                QueueManager::getInstance()->getSizeInfo(size, pos, file);
+                if (size == -1) {
+                    // not in the queue anymore?
+                    return;
+                }
+            }
         }
 
         Lock l(cs);
 
         {
             MapByFile& map = upload ? ULByFile : DLByFile;
-            MapByFile::iterator it = map.find(file);
+            auto it = map.find(file);
             if(it == map.end()) {
                 FinishedFileItemPtr p = new FinishedFileItem(
-                            t->getPos(),
+                            pos + t->getPos(),
                             milliSeconds,
                             time,
                             upload ? File::getSize(file) : size,

@@ -254,8 +254,7 @@ bool FavoriteManager::renameFavoriteDir(const string& aName, const string& anoth
 class XmlListLoader : public SimpleXMLReader::CallBack {
 public:
     XmlListLoader(HubEntryList& lst) : publicHubs(lst) { }
-    virtual ~XmlListLoader() { }
-    virtual void startTag(const string& name, StringPairList& attribs, bool) {
+    void startTag(const string& name, StringPairList& attribs, bool) {
         if(name == "Hub") {
             const string& name = getAttrib(attribs, "Name", 0);
             const string& server = getAttrib(attribs, "Address", 1);
@@ -272,9 +271,7 @@ public:
             publicHubs.emplace_back(name, server, description, users, country, shared, minShare, minSlots, maxHubs, maxUsers, reliability, rating);
         }
     }
-    virtual void endTag(const string&, const string&) {
 
-    }
 private:
     HubEntryList& publicHubs;
 };

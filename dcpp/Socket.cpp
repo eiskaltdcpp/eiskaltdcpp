@@ -17,8 +17,8 @@
  */
 
 #include "stdinc.h"
-
 #include "Socket.h"
+
 #include "format.h"
 #include "SettingsManager.h"
 #include "TimerManager.h"

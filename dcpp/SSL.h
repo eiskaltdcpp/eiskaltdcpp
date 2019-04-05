@@ -1,21 +1,29 @@
 /*
-* This program is free software; you can redistribute it and/or modify
-* it under the terms of the GNU General Public License as published by
-* the Free Software Foundation; either version 2 of the License, or
-* (at your option) any later version.
-*
-* This program is distributed in the hope that it will be useful,
-* but WITHOUT ANY WARRANTY; without even the implied warranty of
-* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-* GNU General Public License for more details.
-*
-* You should have received a copy of the GNU General Public License
-* along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ * Copyright (C) 2001-2012 Jacek Sieka, arnetheduck on gmail point com
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
 #pragma once
 
+#include "w.h"
+#include "typedefs.h"
+
 #include <openssl/ssl.h>
+
+#include <vector>
+#include <cstdint>
 
 namespace dcpp {
 
@@ -24,16 +32,22 @@ namespace ssl {
 template<typename T, void (*Release)(T*)>
 class scoped_handle {
 public:
-    explicit scoped_handle(T* t_ = 0) : t(t_) { }
-    ~scoped_handle() { Release(t); }
+    explicit scoped_handle(T* t_ = nullptr) : t(t_) { }
+    ~scoped_handle() { if(t) { Release(t); } }
 
     operator T*() { return t; }
     operator const T*() const { return t; }
 
+    explicit operator bool() const { return t; }
+
     T* operator->() { return t; }
     const T* operator->() const { return t; }
 
-    void reset(T* t_ = NULL) { Release(t); t = t_; }
+    void reset(T* t_ = nullptr) { Release(t); t = t_; }
+
+    scoped_handle(scoped_handle&& rhs) : t(rhs.t) { rhs.t = nullptr; }
+    scoped_handle& operator=(scoped_handle&& rhs) { if(&rhs != this) { t = rhs.t; rhs.t = nullptr; } return *this; }
+
 private:
     scoped_handle(const scoped_handle<T, Release>&);
     scoped_handle<T, Release>& operator=(const scoped_handle<T, Release>&);
@@ -52,7 +66,7 @@ typedef scoped_handle<SSL_CTX, SSL_CTX_free> SSL_CTX;
 typedef scoped_handle<X509, X509_free> X509;
 typedef scoped_handle<X509_NAME, X509_NAME_free> X509_NAME;
 
-vector<uint8_t> X509_digest(::X509* x509, const ::EVP_MD* md);
+ByteVector X509_digest(::X509* x509, const ::EVP_MD* md);
 
 }
 

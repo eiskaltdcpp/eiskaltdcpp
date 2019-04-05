@@ -16,11 +16,12 @@
  */
 
 #include "stdinc.h"
-
 #include "SSLSocket.h"
+
+#include "format.h"
+#include "CryptoManager.h"
 #include "LogManager.h"
 #include "SettingsManager.h"
-#include "format.h"
 
 #include <openssl/err.h>
 
@@ -62,7 +63,8 @@ bool SSLSocket::waitConnected(uint32_t millis) {
     while(true) {
         int ret = SSL_is_server(ssl)?SSL_accept(ssl):SSL_connect(ssl);
         if(ret == 1) {
-            dcdebug("Connected to SSL server using %s as %s\n", SSL_get_cipher(ssl), SSL_is_server(ssl)?"server":"client");
+            dcdebug("Connected to SSL server using %s as %s\n",
+                    SSL_get_cipher(ssl), SSL_is_server(ssl) ? "server" : "client");
 
 #if OPENSSL_VERSION_NUMBER >= 0x10002000L
             if (SSL_is_server(ssl)) return true;
@@ -138,7 +140,7 @@ bool SSLSocket::waitWant(int ret, uint32_t millis) {
 
 int SSLSocket::read(void* aBuffer, int aBufLen) {
     if(!ssl) {
-        return 0;
+        return -1;
     }
     int len = checkSSL(SSL_read(ssl, aBuffer, aBufLen));
 
@@ -166,7 +168,9 @@ int SSLSocket::checkSSL(int ret) {
         return -1;
     }
     if(ret <= 0) {
-        int err = SSL_get_error(ssl, ret);
+        /* inspired by boost.asio (asio/ssl/detail/impl/engine.ipp, function engine::perform) and
+           the SSL_get_error doc at <https://www.openssl.org/docs/ssl/SSL_get_error.html>. */
+        auto err = SSL_get_error(ssl, ret);
         switch(err) {
         case SSL_ERROR_NONE:        // Fallthrough - YaSSL doesn't for example return an openssl compatible error on recv fail
         case SSL_ERROR_WANT_READ:   // Fallthrough
@@ -222,10 +226,10 @@ std::string SSLSocket::getCipherName() const noexcept {
 
 ByteVector SSLSocket::getKeyprint() const noexcept {
     if(!ssl)
-        return vector<uint8_t>();
+        return ByteVector();
     X509* x509 = SSL_get_peer_certificate(ssl);
     if(!x509)
-        return vector<uint8_t>();
+        return ByteVector();
 
     return ssl::X509_digest(x509, EVP_sha256());
 }

@@ -188,7 +188,7 @@ void SimpleXML::fromXML(const string& aXML) {
     }
 
     TagReader t(&root);
-    SimpleXMLReader(&t).parse(aXML.c_str(), aXML.size(), false);
+    SimpleXMLReader(&t).parse(aXML.c_str(), aXML.size());
 
     if(root.children.size() != 1) {
         throw SimpleXMLException("Invalid XML file, missing or multiple root tags");
@@ -196,6 +196,10 @@ void SimpleXML::fromXML(const string& aXML) {
 
     current = &root;
     resetCurrentChild();
+}
+
+string SimpleXML::toXML() {
+    string tmp; StringOutputStream os(tmp); toXML(&os); return tmp;
 }
 
 } // namespace dcpp

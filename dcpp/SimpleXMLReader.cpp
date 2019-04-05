@@ -37,19 +37,19 @@ static bool isNameStartChar(int c) {
             || c == '_'
             || inRange(c, 'a', 'z')
             // Comment out some valid XML chars that we don't allow
-            || c == '+' //NOTE: freedcpp
+            || c == '+' // NOTE: freedcpp
             /*              || inRange(c, 0xC0, 0xD6)
-                    || inRange(c, 0xD8, 0xF6)
-                    || inRange(c, 0xF8, 0x2FF)
-                    || inRange(c, 0x370, 0x37D)
-                    || inRange(c, 0x37F, 0x1FFF)
-                    || inRange(c, 0x200C, 0x200D)
-                    || inRange(c, 0x2070, 0x218F)
-                    || inRange(c, 0x2C00, 0x2FEF)
-                    || inRange(c, 0x3001, 0xD7FF)
-                    || inRange(c, 0xF900, 0xFDCF)
-                    || inRange(c, 0xFDF0, 0xFFFD)
-                    || inRange(c, 0x10000, 0xEFFFF) */
+                                                                    || inRange(c, 0xD8, 0xF6)
+                                                                    || inRange(c, 0xF8, 0x2FF)
+                                                                    || inRange(c, 0x370, 0x37D)
+                                                                    || inRange(c, 0x37F, 0x1FFF)
+                                                                    || inRange(c, 0x200C, 0x200D)
+                                                                    || inRange(c, 0x2070, 0x218F)
+                                                                    || inRange(c, 0x2C00, 0x2FEF)
+                                                                    || inRange(c, 0x3001, 0xD7FF)
+                                                                    || inRange(c, 0xF900, 0xFDCF)
+                                                                    || inRange(c, 0xFDF0, 0xFFFD)
+                                                                    || inRange(c, 0x10000, 0xEFFFF) */
             ;
 }
 
@@ -60,8 +60,8 @@ static bool isNameChar(int c) {
             || inRange(c, '0', '9')
             // Again, real XML is more permissive
             /*              || c == 0xB7
-                    || inRange(c, 0x0300, 0x036F)
-                    || inRange(c, 0x203F, 0x2040) */
+                                                                    || inRange(c, 0x0300, 0x036F)
+                                                                    || inRange(c, 0x203F, 0x2040) */
             ;
 }
 
@@ -393,6 +393,28 @@ bool SimpleXMLReader::comment() {
     return true;
 }
 
+bool SimpleXMLReader::cdata() {
+    while(bufSize() > 0) {
+        int c = charAt(0);
+
+        if(c == ']') {
+            if(!needChars(3)) {
+                return true;
+            }
+            if(charAt(1) == ']' && charAt(2) == '>') {
+                state = STATE_CONTENT;
+                advancePos(3);
+                return true;
+            }
+        }
+
+        append(value, MAX_VALUE_SIZE, c);
+        advancePos(1);
+    }
+
+    return true;
+}
+
 bool SimpleXMLReader::entref(string& d) {
     if(d.size() + 1 >= MAX_VALUE_SIZE) {
         error("Buffer overflow");
@@ -463,12 +485,6 @@ bool SimpleXMLReader::content() {
     }
 
     int c = charAt(0);
-    if(c == '<') {
-        if(!value.empty()) {
-            error("Mixed content not supported");
-        }
-        return false;
-    }
 
     if(c == '&') {
         return entref(value);
@@ -506,11 +522,7 @@ bool SimpleXMLReader::elementEndEnd() {
     }
 
     if(charAt(0) == '>') {
-        if(!encoding.empty() && encoding != Text::utf8) {
-            value = Text::toUtf8(encoding);
-        }
-        cb->endTag(elements.back(), value);
-        value.clear();
+        cb->endTag(elements.back());
         elements.pop_back();
 
         state = STATE_CONTENT;
@@ -569,11 +581,15 @@ void SimpleXMLReader::parse(InputStream& stream, size_t maxSize) {
     } while(process());
 }
 
-bool SimpleXMLReader::parse(const char* data, size_t len, bool more) {
-    (void)more;
+bool SimpleXMLReader::parse(const char* data, size_t len) {
     buf.append(data, len);
     return process();
 }
+
+bool SimpleXMLReader::parse(const string& str) {
+    return parse(str.c_str(), str.size());
+}
+
 bool SimpleXMLReader::spaceOrError(const char* message) {
     if(!skipSpace()) {
         error(message);
@@ -688,9 +704,14 @@ bool SimpleXMLReader::process() {
             comment()
                     || error("Error while parsing comment");
             break;
+        case STATE_CDATA:
+            cdata()
+                    || error("Error while parsing CDATA");
+            break;
         case STATE_CONTENT:
             skipSpace(true)
                     || literal(LITN("<!--"), false, STATE_COMMENT)
+                    || literal(LITN("<![CDATA["), false, STATE_CDATA)
                     || element()
                     || literal(LITN("</"), false, STATE_ELEMENT_END)
                     || content()
@@ -712,8 +733,11 @@ bool SimpleXMLReader::process() {
             return true;
         }
 
-        if(state == STATE_CONTENT && state != oldState) {
-            // might contain whitespace from previous unfruitful contents (that turned out to be elements / comments)
+        if(oldState == STATE_CONTENT && state != oldState && !value.empty()) {
+            if(!encoding.empty() && encoding != Text::utf8) {
+                value = Text::toUtf8(value, encoding);
+            }
+            cb->data(value);
             value.clear();
         }
 
@@ -723,6 +747,6 @@ bool SimpleXMLReader::process() {
 
     // should never happen
     return false;
-}
+};
 
 }

@@ -27,17 +27,18 @@
 #include <sys/time.h>
 #endif
 
+#include "NonCopyable.h"
 #include "noexcept.h"
 
 namespace dcpp {
 
-class Semaphore
+class Semaphore : private NonCopyable
 {
 #if defined(_WIN32)
 public:
-    Semaphore() noexcept {
-        h = CreateSemaphore(NULL, 0, MAXLONG, NULL);
-    }
+    Semaphore() noexcept :
+        h(CreateSemaphore(NULL, 0, MAXLONG, NULL))
+    { }
 
     void signal() noexcept {
         ReleaseSemaphore(h, 1, NULL);
@@ -140,8 +141,6 @@ public:
 private:
     sem_t semaphore;
 #endif
-    Semaphore(const Semaphore&);
-    Semaphore& operator=(const Semaphore&);
 
 };
 

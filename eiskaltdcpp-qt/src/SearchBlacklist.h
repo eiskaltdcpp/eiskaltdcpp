@@ -20,8 +20,7 @@
 
 class SearchBlacklist:
         public QObject,
-        public dcpp::Singleton<SearchBlacklist>,
-        public NonCopyable
+        public dcpp::Singleton<SearchBlacklist>
 {
     Q_OBJECT
 

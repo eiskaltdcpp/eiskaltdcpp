@@ -488,10 +488,15 @@ string HashManager::HashStore::getDataFile() { return Util::getPath(Util::PATH_U
 class HashLoader: public SimpleXMLReader::CallBack {
 public:
     HashLoader(HashManager::HashStore& s) :
-        store(s), size(0), timeStamp(0), version(HASH_FILE_VERSION), inTrees(false), inFiles(false), inHashStore(false) {
-    }
-    virtual void startTag(const string& name, StringPairList& attribs, bool simple);
-    virtual void endTag(const string& name, const string& data);
+        store(s),
+        size(0),
+        timeStamp(0),
+        version(HASH_FILE_VERSION),
+        inTrees(false),
+        inFiles(false),
+        inHashStore(false)
+    { }
+    void startTag(const string& name, StringPairList& attribs, bool simple);
 
 private:
     HashManager::HashStore& store;
@@ -568,12 +573,6 @@ void HashLoader::startTag(const string& name, StringPairList& attribs, bool simp
         } else if (name == sFiles) {
             inFiles = !simple;
         }
-    }
-}
-
-void HashLoader::endTag(const string& name, const string&) {
-    if (name == sFile) {
-        file.clear();
     }
 }
 

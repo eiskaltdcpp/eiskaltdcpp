@@ -375,7 +375,7 @@ bool CryptoManager::checkCertificate() noexcept {
     return true;
 }
 
-const vector<uint8_t>& CryptoManager::getKeyprint() const noexcept {
+const ByteVector &CryptoManager::getKeyprint() const noexcept {
     return keyprint;
 }
 

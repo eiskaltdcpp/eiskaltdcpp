@@ -46,7 +46,7 @@ public:
     void loadCertificates() noexcept;
     void generateCertificate();
     bool checkCertificate() noexcept;
-    const vector<uint8_t>& getKeyprint() const noexcept;
+    const ByteVector& getKeyprint() const noexcept;
 
     bool TLSOk() const noexcept;
 private:
@@ -65,7 +65,7 @@ private:
 
     bool certsLoaded;
 
-    vector<uint8_t> keyprint;
+    ByteVector keyprint;
     const string lock;
     const string pk;
 

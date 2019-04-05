@@ -94,6 +94,7 @@ public:
 
     int64_t getSize(const string& target) noexcept;
     int64_t getPos(const string& target) noexcept;
+    void getSizeInfo(int64_t& size, int64_t& pos, const string& target) noexcept;
 
     /** Move the target location of a queued item. Running items are silently ignored */
     void move(const string& aSource, const string& aTarget) noexcept;
@@ -148,7 +149,8 @@ public:
     GETSET(uint64_t, lastSave, LastSave);
     GETSET(string, queueFile, QueueFile);
 private:
-    enum { MOVER_LIMIT = 10*1024*1024 };
+    static const int64_t MOVER_LIMIT = 10*1024*1024;
+
     class FileMover : public Thread {
     public:
         FileMover() : active(false) { }
@@ -158,13 +160,11 @@ private:
         virtual int run();
     private:
         typedef pair<string, string> FilePair;
-        typedef vector<FilePair> FileList;
-        typedef FileList::iterator FileIter;
 
         bool active;
-
-        FileList files;
         CriticalSection cs;
+
+        vector<FilePair> files;
     } mover;
 
     typedef vector<pair<QueueItem::SourceConstIter, const QueueItem*> > PFSSourceList;
@@ -292,7 +292,7 @@ private:
     bool checkSfv(QueueItem* qi, Download* d);
     uint32_t calcCrc32(const string& file);
 
-    void logFinishedDownload(QueueItem* qi, Download* d, bool crcError);
+    void logFinishedDownload(QueueItem* qi, Download* d, bool crcChecked);
 
     // TimerManagerListener
     virtual void on(TimerManagerListener::Second, uint64_t aTick) noexcept;

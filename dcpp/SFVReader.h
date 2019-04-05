@@ -17,8 +17,8 @@
 
 #pragma once
 
+#include <cstdint>
 #include <string>
-#include "noexcept.h"
 
 namespace dcpp {
 

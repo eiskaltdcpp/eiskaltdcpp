@@ -393,7 +393,7 @@ struct ShareLoader : public SimpleXMLReader::CallBack {
             cur->files.insert(ShareManager::Directory::File(fname, Util::toInt64(size), cur, TTHValue(root)));
         }
     }
-    virtual void endTag(const string& name, const string&) {
+    virtual void endTag(const string& name) {
         if(name == SDIRECTORY) {
             depth--;
             if(cur) {

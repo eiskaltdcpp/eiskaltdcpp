@@ -16,28 +16,45 @@
 #pragma once
 
 #include "typedefs.h"
+
 #include "NonCopyable.h"
 
 namespace dcpp {
-
-class InputStream;
 
 class SimpleXMLReader {
 public:
     struct CallBack : private NonCopyable {
         virtual ~CallBack() { }
-        virtual void startTag(const std::string& name, StringPairList& attribs, bool simple) = 0;
-        virtual void endTag(const std::string& name, const std::string& data) = 0;
+
+        /** A new XML tag has been encountered.
+                        @param name Name of the tag.
+                        @param attribs List of attribute name / contents pairs representing attributes of the tag.
+                        Use the getAttrib function to retrieve one particular attribute.
+                        @param simple Whether this tag is void of any data (<example/>). */
+        virtual void startTag(const std::string& name, StringPairList& attribs, bool simple) { }
+
+        /** Contents of an XML tag have been read.
+                        @param data Contents of the tag.
+                        @note This may be called several times per tag with partial contents in mixed content
+                        situations, such as: <outer>Data1<inner>Data2</inner>Data3</outer> (data will be called
+                        once for "Data1", once for "Data2", once for "Data3"). */
+        virtual void data(const std::string& data) { }
+
+        /** Contents of an XML tag have been read.
+                        @param name Name of the tag. */
+        virtual void endTag(const std::string& name) { }
 
     protected:
-        static const std::string& getAttrib(dcpp::StringPairList& attribs, const std::string& name, size_t hint);
+        static const std::string& getAttrib(StringPairList& attribs, const std::string& name, size_t hint);
     };
 
     SimpleXMLReader(CallBack* callback);
     virtual ~SimpleXMLReader() { }
 
     void parse(InputStream& is, size_t maxSize = 0);
-    bool parse(const char* data, size_t len, bool more);
+    bool parse(const char* data, size_t len);
+    bool parse(const string& str);
+
 private:
 
     static const size_t MAX_NAME_SIZE = 256;
@@ -112,6 +129,8 @@ private:
 
         STATE_CONTENT,
 
+        STATE_CDATA,
+
         STATE_END
     };
 
@@ -120,7 +139,7 @@ private:
     std::string::size_type bufPos;
     uint64_t pos;
 
-    dcpp::StringPairList attribs;
+    StringPairList attribs;
     std::string value;
 
     CallBack* cb;
@@ -128,7 +147,7 @@ private:
 
     ParseState state;
 
-    dcpp::StringList elements;
+    StringList elements;
 
     void append(std::string& str, size_t maxLen, int c);
     void append(std::string& str, size_t maxLen, std::string::const_iterator begin, std::string::const_iterator end);
@@ -156,6 +175,7 @@ private:
     bool elementAttrValue();
 
     bool comment();
+    bool cdata();
 
     bool content();
 
