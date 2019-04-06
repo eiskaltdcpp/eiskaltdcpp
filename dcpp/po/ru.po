@@ -1,24 +1,23 @@
-# SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR EiskaltDC++ team
 # This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
+# Boris Pek <tehnick-8@yandex.ru>, 2019.
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://github.com/eiskaltdcpp/eiskaltdcpp/issues\n"
 "POT-Creation-Date: 2019-04-09 16:41+0300\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Andrei Stepanov, 2018\n"
-"Language-Team: Russian (https://www.transifex.com/tehnick/teams/11818/ru/)\n"
+"PO-Revision-Date: 2019-04-09 16:59+0300\n"
+"Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
+"Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<"
+"=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
+"X-Generator: Lokalize 2.0\n"
 
 #: ../ADLSearch.cpp:39
 msgid "<Enter string>"
@@ -112,11 +111,11 @@ msgstr "Ошибка соединения: %1%"
 
 #: ../ConnectionManager.cpp:822
 msgid "Blocked a C-C connection to a hub ('%1%:%2%'; request from '%3%')"
-msgstr ""
+msgstr "Заблокировано C-C подключение к хабу ('%1%:%2%'; запрос от '%3%')"
 
 #: ../ConnectionManager.cpp:840
 msgid "Blocking '%1%', potential DDoS detected (originating hub '%2%')"
-msgstr ""
+msgstr "Блокировка '%1%', потенциальная DDoS атака (из хаба '%2%') "
 
 #: ../ConnectivityManager.cpp:80
 msgid "Determining the best connectivity settings..."
@@ -219,7 +218,7 @@ msgstr "Пользователи"
 
 #: ../DirectoryListing.cpp:99
 msgid "Invalid file list extension (must be .xml or .bz2)"
-msgstr ""
+msgstr "Неправильный формат файла (должен быть .xml или .bz2)"
 
 #: ../DirectoryListing.cpp:217
 msgid "Directory missing name attribute"
@@ -267,7 +266,7 @@ msgstr "Авто-подключение группы (сконвертирова
 
 #: ../FavoriteManager.cpp:667
 msgid "Invalid URL: %1%"
-msgstr ""
+msgstr "Неправильный URL: %1%"
 
 #: ../HashManager.cpp:227 ../HashManager.cpp:425
 msgid "Hashing failed: %1%"
@@ -312,7 +311,7 @@ msgstr "Ошибка хэширования %1%: %2%"
 
 #: ../HttpConnection.cpp:196 ../HttpConnection.cpp:251
 msgid "%1% (%2%)"
-msgstr ""
+msgstr "%1% (%2%)"
 
 #: ../HttpConnection.cpp:223
 msgid "Endless redirection loop (%1%)"
@@ -771,3 +770,4 @@ msgstr "Несовпадение TTH"
 #: ../Streams.h:140
 msgid "More bytes written than requested"
 msgstr "Записано больше байт чем требуется"
+

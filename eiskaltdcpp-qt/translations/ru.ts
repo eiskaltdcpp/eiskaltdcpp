@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="ru">
+<TS version="2.0" language="ru">
 <context>
     <name>ADLS</name>
     <message>
@@ -1673,7 +1673,7 @@ Favorite user</source>
     </message>
     <message>
         <source>Exit confirm</source>
-        <translation type="vanished">Подтверждение закрытия</translation>
+        <translation>Подтверждение закрытия</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="358"/>
@@ -1683,12 +1683,12 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="360"/>
         <source>Kill all humans?</source>
-        <translation type="unfinished"></translation>
+        <translation>Убить всех человеков?</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="362"/>
         <source>Action confirm</source>
-        <translation type="unfinished"></translation>
+        <translation>Подтверждение действия</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="471"/>
@@ -2676,15 +2676,15 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/PublicHubs.cpp" line="290"/>
         <source>Hub list downloaded... (%1)</source>
-        <translation type="unfinished"></translation>
+        <translation>Список хабов загружен... (%1)</translation>
     </message>
     <message>
         <source>Hub list downloaded... (%1 %2) </source>
-        <translation type="vanished">Список хабов загружен... (%1 %2) </translation>
+        <translation>Список хабов загружен... (%1 %2) </translation>
     </message>
     <message>
         <source>from Coral</source>
-        <translation type="vanished">из Коралла</translation>
+        <translation>из Коралла</translation>
     </message>
     <message>
         <location filename="../src/PublicHubs.cpp" line="294"/>
