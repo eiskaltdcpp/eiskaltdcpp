@@ -1,26 +1,24 @@
-# SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR EiskaltDC++ team
 # This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
+# Boris Pek <tehnick-8@yandex.ru>, 2019.
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://github.com/eiskaltdcpp/eiskaltdcpp/issues\n"
 "POT-Creation-Date: 2019-04-09 16:41+0300\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: gray <grayich@ukr.net>, 2018\n"
-"Language-Team: Ukrainian (https://www.transifex.com/tehnick/teams/11818/"
-"uk/)\n"
+"PO-Revision-Date: 2019-04-09 17:26+0300\n"
+"Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
+"Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != "
-"11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % "
-"100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || "
-"(n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
+"Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != 11"
+" ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 >"
+" 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || (n %"
+" 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
+"X-Generator: Lokalize 2.0\n"
 
 #: ../ADLSearch.cpp:39
 msgid "<Enter string>"
@@ -114,9 +112,10 @@ msgstr "Помилка SSL: %1% (%2%, %3%)"
 
 #: ../ConnectionManager.cpp:822
 msgid "Blocked a C-C connection to a hub ('%1%:%2%'; request from '%3%')"
-msgstr ""
+msgstr "Заблоковано C-C підключення до хабу ('%1%:%2%'; запит від '%3%')"
 
 #: ../ConnectionManager.cpp:840
+#, fuzzy
 msgid "Blocking '%1%', potential DDoS detected (originating hub '%2%')"
 msgstr ""
 
@@ -221,6 +220,7 @@ msgid "Users"
 msgstr "Користувачі"
 
 #: ../DirectoryListing.cpp:99
+#, fuzzy
 msgid "Invalid file list extension (must be .xml or .bz2)"
 msgstr ""
 
@@ -269,6 +269,7 @@ msgid "Auto-connect group (converted)"
 msgstr "Автопідключення групи"
 
 #: ../FavoriteManager.cpp:667
+#, fuzzy
 msgid "Invalid URL: %1%"
 msgstr ""
 
@@ -316,7 +317,7 @@ msgstr "Помилка хешування %1%: %2%"
 
 #: ../HttpConnection.cpp:196 ../HttpConnection.cpp:251
 msgid "%1% (%2%)"
-msgstr ""
+msgstr "%1% (%2%)"
 
 #: ../HttpConnection.cpp:223
 msgid "Endless redirection loop (%1%)"
@@ -331,6 +332,7 @@ msgid "Hub topic:"
 msgstr "Топік хабу:"
 
 #: ../PerFolderLimit.cpp:87
+#, fuzzy
 msgid "Too small share to download from "
 msgstr ""
 
@@ -339,6 +341,7 @@ msgid "GiB"
 msgstr "ГіБ"
 
 #: ../PerFolderLimit.cpp:89
+#, fuzzy
 msgid "Denied to send file"
 msgstr ""
 
@@ -644,6 +647,7 @@ msgid " DHT Port (%1% UDP)"
 msgstr "DHT порт (%1% UDP)"
 
 #: ../UPnPManager.cpp:111
+#, fuzzy
 msgid ""
 "Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%, DHT: %4%), "
 "mapped using the %5% interface"
@@ -712,7 +716,7 @@ msgid "%.02f KiB"
 msgstr "%.02f КБ"
 
 #: ../Util.cpp:699
-#, c-format
+#, fuzzy, c-format
 msgid "%.02f KB"
 msgstr ""
 
@@ -722,7 +726,7 @@ msgid "%.02f MiB"
 msgstr "%.02f МБ"
 
 #: ../Util.cpp:701
-#, c-format
+#, fuzzy, c-format
 msgid "%.02f MB"
 msgstr ""
 
@@ -732,7 +736,7 @@ msgid "%.02f GiB"
 msgstr "%.02f ГБ"
 
 #: ../Util.cpp:703
-#, c-format
+#, fuzzy, c-format
 msgid "%.02f GB"
 msgstr ""
 
@@ -742,7 +746,7 @@ msgid "%.02f TiB"
 msgstr "%.02f ТБ"
 
 #: ../Util.cpp:705
-#, c-format
+#, fuzzy, c-format
 msgid "%.02f TB"
 msgstr ""
 
@@ -752,7 +756,7 @@ msgid "%.02f PiB"
 msgstr "%.02f ПБ"
 
 #: ../Util.cpp:707
-#, c-format
+#, fuzzy, c-format
 msgid "%.02f PB"
 msgstr ""
 
@@ -773,3 +777,4 @@ msgstr "Незбіг TTH"
 #: ../Streams.h:140
 msgid "More bytes written than requested"
 msgstr "Записано більше байтів ніж потрібно"
+

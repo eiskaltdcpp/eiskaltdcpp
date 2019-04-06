@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="ru">
+<TS version="2.1" language="ru">
 <context>
     <name>ADLS</name>
     <message>
@@ -1555,25 +1555,6 @@ Favorite user</source>
     </message>
 </context>
 <context>
-    <name>IPFilter</name>
-    <message>
-        <source>Nothing to export.</source>
-        <translation type="obsolete">Экспортировать нечего.</translation>
-    </message>
-    <message>
-        <source>Unable to export settings.</source>
-        <translation type="obsolete">Невозможно экспортировать настройки.</translation>
-    </message>
-    <message>
-        <source>Nothing to import.</source>
-        <translation type="obsolete">Импортировать нечего.</translation>
-    </message>
-    <message>
-        <source>Invalid signature.</source>
-        <translation type="obsolete">Неверная подпись.</translation>
-    </message>
-</context>
-<context>
     <name>IPFilterFrame</name>
     <message>
         <location filename="../src/IPFilterFrame.cpp" line="183"/>
@@ -1673,7 +1654,7 @@ Favorite user</source>
     </message>
     <message>
         <source>Exit confirm</source>
-        <translation>Подтверждение закрытия</translation>
+        <translation type="vanished">Подтверждение закрытия</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="358"/>
@@ -2680,11 +2661,11 @@ Downloaded: %3 Uploaded: %4</source>
     </message>
     <message>
         <source>Hub list downloaded... (%1 %2) </source>
-        <translation>Список хабов загружен... (%1 %2) </translation>
+        <translation type="vanished">Список хабов загружен... (%1 %2) </translation>
     </message>
     <message>
         <source>from Coral</source>
-        <translation>из Коралла</translation>
+        <translation type="vanished">из Коралла</translation>
     </message>
     <message>
         <location filename="../src/PublicHubs.cpp" line="294"/>

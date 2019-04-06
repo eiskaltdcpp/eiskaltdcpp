@@ -875,7 +875,7 @@ EiskaltDC++ - кросплатформенна програма для робо�
         <location filename="../src/HashProgress.cpp" line="139"/>
         <location filename="../src/HashProgress.cpp" line="165"/>
         <source>%1% %2 left</source>
-        <translation type="unfinished"></translation>
+        <translation>%1% %2 залишилось</translation>
     </message>
     <message>
         <location filename="../src/HashProgress.cpp" line="148"/>
@@ -1683,12 +1683,12 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="360"/>
         <source>Kill all humans?</source>
-        <translation type="unfinished"></translation>
+        <translation>Вбити всіх людей?</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="362"/>
         <source>Action confirm</source>
-        <translation type="unfinished"></translation>
+        <translation>Підтвердження дії</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="471"/>
@@ -2259,17 +2259,17 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="2708"/>
         <source>Total up: &lt;b&gt;%1&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Віддано (всього): &lt;b&gt;%1&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2710"/>
         <source>Total down: &lt;b&gt;%1&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Завантажено (всього): &lt;b&gt;%1&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2712"/>
         <source>Ratio: &lt;b&gt;%1&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Коефіцієнт: &lt;b&gt;%1&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2722"/>
@@ -2676,7 +2676,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/PublicHubs.cpp" line="290"/>
         <source>Hub list downloaded... (%1)</source>
-        <translation type="unfinished"></translation>
+        <translation>Список хабів завантажено... (%1)</translation>
     </message>
     <message>
         <source>Hub list downloaded... (%1 %2) </source>
@@ -3064,7 +3064,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SearchFrame.cpp" line="1571"/>
         <source>Search progress of &quot;%1&quot; is %2%</source>
-        <translation type="unfinished"></translation>
+        <translation>Прогрес пошуку &quot;%1&quot;: %2%</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="1594"/>
@@ -3213,7 +3213,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SettingsAdvanced.cpp" line="44"/>
         <source>Select mime handler binary</source>
-        <translation type="unfinished"></translation>
+        <translation>Програма для запуску файлів даного типу</translation>
     </message>
 </context>
 <context>
@@ -5052,7 +5052,7 @@ in options, file will be downloaded without opening search dialog.</source>
     <message>
         <location filename="../ui/UISettingsAdvanced.ui" line="36"/>
         <source>Mime Handler</source>
-        <translation type="unfinished"></translation>
+        <translation>Прив&apos;язки файлів</translation>
     </message>
 </context>
 <context>
