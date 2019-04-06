@@ -9,7 +9,8 @@ Comment=Share files over the DC++ network
 Categories=Network;FileTransfer;P2P;Qt;
 MimeType=x-scheme-handler/magnet;x-scheme-handler/dchub;x-scheme-handler/adc;x-scheme-handler/adcs;
 Keywords=FileSharing;Chat;p2p;DirectConnect;ADC;DHT;
-GenericName[be]=Кліент сеткі DC++
+
+
+# Translations
 GenericName[ru]=Клиент сетей DC++
-Comment[be]=Паздяляйцеся файламі праз сетку DC++
 Comment[ru]=Делитесь файлами с помощью сетей DC++
