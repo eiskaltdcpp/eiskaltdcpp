@@ -218,13 +218,16 @@ const string& wideToAcp(const wstring& str, string& tmp) noexcept {
     return tmp;
 #else
     const wchar_t* src = str.c_str();
-    int n = wcsrtombs(NULL, &src, 0, NULL);
+    mbstate_t ps;
+    memset(&ps, 0, sizeof(ps)); // initialize ps
+    int n = wcsrtombs(NULL, &src, 0, &ps);
     if(n < 1) {
         return Util::emptyString;
     }
     src = str.c_str();
     tmp.resize(n);
-    n = wcsrtombs(&tmp[0], &src, n, NULL);
+    memset(&ps, 0, sizeof(ps)); // reset ps
+    n = wcsrtombs(&tmp[0], &src, n, &ps);
     if(n < 1) {
         return Util::emptyString;
     }
