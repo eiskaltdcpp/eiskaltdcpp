@@ -3,14 +3,18 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
+# Translators:
+# Boris Pek <tehnick-8@yandex.ru>, 2017
+# mauron, 2019
+#
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://github.com/eiskaltdcpp/eiskaltdcpp/issues\n"
-"POT-Creation-Date: 2019-04-09 16:41+0300\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: mauron, 2018\n"
+"POT-Creation-Date: 2019-04-09 18:49+0300\n"
+"PO-Revision-Date: 2017-06-18 13:35+0000\n"
+"Last-Translator: mauron, 2019\n"
 "Language-Team: Turkish (https://www.transifex.com/tehnick/teams/11818/tr/)\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
@@ -113,10 +117,12 @@ msgstr "Bağlantı hatası: %1%"
 #: ../ConnectionManager.cpp:822
 msgid "Blocked a C-C connection to a hub ('%1%:%2%'; request from '%3%')"
 msgstr ""
+"Bir hub'a C-C (istemci - istemci) bağlantısı engellendi ('%1%:%2%'; talep "
+"şuradan: '%3%')"
 
 #: ../ConnectionManager.cpp:840
 msgid "Blocking '%1%', potential DDoS detected (originating hub '%2%')"
-msgstr ""
+msgstr "'%1%' engellendi, muhtemel DDoS tespit edildi (kaynak hub '%2%')"
 
 #: ../ConnectivityManager.cpp:80
 msgid "Determining the best connectivity settings..."
@@ -217,7 +223,7 @@ msgstr "Kullanıcılar"
 
 #: ../DirectoryListing.cpp:99
 msgid "Invalid file list extension (must be .xml or .bz2)"
-msgstr ""
+msgstr "Geçersiz dosya listesi uzantısı (.xml veya .bz2 olmalıdır)"
 
 #: ../DirectoryListing.cpp:217
 msgid "Directory missing name attribute"
@@ -265,7 +271,7 @@ msgstr "Otomatik bağlantı grubu (dönüştürülmüş)"
 
 #: ../FavoriteManager.cpp:667
 msgid "Invalid URL: %1%"
-msgstr ""
+msgstr "Geçersiz URL: %1%"
 
 #: ../HashManager.cpp:227 ../HashManager.cpp:425
 msgid "Hashing failed: %1%"
@@ -310,7 +316,7 @@ msgstr "%1% karma değeri hesaplanmasında hata: %2%"
 
 #: ../HttpConnection.cpp:196 ../HttpConnection.cpp:251
 msgid "%1% (%2%)"
-msgstr ""
+msgstr "%1% (%2%)"
 
 #: ../HttpConnection.cpp:223
 msgid "Endless redirection loop (%1%)"

@@ -3,14 +3,19 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
+# Translators:
+# Boris Pek <tehnick-8@yandex.ru>, 2017
+# Klondike klondikeño <franxisco1988@gmail.com>, 2018
+# Gustavo Alvarez Lopez <sl1pkn07@gmail.com>, 2019
+#
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://github.com/eiskaltdcpp/eiskaltdcpp/issues\n"
-"POT-Creation-Date: 2019-04-09 16:41+0300\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Klondike klondikeño <franxisco1988@gmail.com>, 2018\n"
+"POT-Creation-Date: 2019-04-09 18:49+0300\n"
+"PO-Revision-Date: 2017-06-18 13:35+0000\n"
+"Last-Translator: Gustavo Alvarez Lopez <sl1pkn07@gmail.com>, 2019\n"
 "Language-Team: Spanish (https://www.transifex.com/tehnick/teams/11818/es/)\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -110,11 +115,12 @@ msgstr "Error de conectividad: %1%"
 
 #: ../ConnectionManager.cpp:822
 msgid "Blocked a C-C connection to a hub ('%1%:%2%'; request from '%3%')"
-msgstr ""
+msgstr "Bloqueado una C-C conexión al hub ('%1%:%2%';solicitado desde '%3%')"
 
 #: ../ConnectionManager.cpp:840
 msgid "Blocking '%1%', potential DDoS detected (originating hub '%2%')"
 msgstr ""
+"Bloqueando '%1%', posible DDoS detectado (originado desde el hub '%2%')"
 
 #: ../ConnectivityManager.cpp:80
 msgid "Determining the best connectivity settings..."
@@ -216,7 +222,7 @@ msgstr "Usuarios"
 
 #: ../DirectoryListing.cpp:99
 msgid "Invalid file list extension (must be .xml or .bz2)"
-msgstr ""
+msgstr "Extensión de archivo inválida (debe ser .xml o .bz2)"
 
 #: ../DirectoryListing.cpp:217
 msgid "Directory missing name attribute"
@@ -264,7 +270,7 @@ msgstr "Grupo de conexión automática (convertido)"
 
 #: ../FavoriteManager.cpp:667
 msgid "Invalid URL: %1%"
-msgstr ""
+msgstr "URL Invalida: %1%"
 
 #: ../HashManager.cpp:227 ../HashManager.cpp:425
 msgid "Hashing failed: %1%"
@@ -311,7 +317,7 @@ msgstr "Error en el indexado %1%: %2%"
 
 #: ../HttpConnection.cpp:196 ../HttpConnection.cpp:251
 msgid "%1% (%2%)"
-msgstr ""
+msgstr "%1%(%2%)"
 
 #: ../HttpConnection.cpp:223
 msgid "Endless redirection loop (%1%)"

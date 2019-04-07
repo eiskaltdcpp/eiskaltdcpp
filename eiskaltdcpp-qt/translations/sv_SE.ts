@@ -1555,25 +1555,6 @@ Favoritanvändare</translation>
     </message>
 </context>
 <context>
-    <name>IPFilter</name>
-    <message>
-        <source>Nothing to export.</source>
-        <translation type="obsolete">Inget att exportera</translation>
-    </message>
-    <message>
-        <source>Unable to export settings.</source>
-        <translation type="obsolete">Kunde inte exportera inställningar.</translation>
-    </message>
-    <message>
-        <source>Nothing to import.</source>
-        <translation type="obsolete">Inget att importera</translation>
-    </message>
-    <message>
-        <source>Invalid signature.</source>
-        <translation type="obsolete">Ogiltig signatur</translation>
-    </message>
-</context>
-<context>
     <name>IPFilterFrame</name>
     <message>
         <location filename="../src/IPFilterFrame.cpp" line="183"/>
@@ -1683,12 +1664,12 @@ Favoritanvändare</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="360"/>
         <source>Kill all humans?</source>
-        <translation type="unfinished"></translation>
+        <translation>Döda alla människor?</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="362"/>
         <source>Action confirm</source>
-        <translation type="unfinished"></translation>
+        <translation>Åtgärd bekräftad</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="471"/>
@@ -2676,7 +2657,7 @@ Nedladdat: %3 Uppladdat: %4</translation>
     <message>
         <location filename="../src/PublicHubs.cpp" line="290"/>
         <source>Hub list downloaded... (%1)</source>
-        <translation type="unfinished"></translation>
+        <translation>Hubblista nedladdad... (%1)</translation>
     </message>
     <message>
         <source>Hub list downloaded... (%1 %2) </source>

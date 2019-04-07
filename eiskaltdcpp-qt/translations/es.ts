@@ -875,7 +875,7 @@ Opciones:
         <location filename="../src/HashProgress.cpp" line="139"/>
         <location filename="../src/HashProgress.cpp" line="165"/>
         <source>%1% %2 left</source>
-        <translation type="unfinished"></translation>
+        <translation>%1% %2 restante</translation>
     </message>
     <message>
         <location filename="../src/HashProgress.cpp" line="148"/>
@@ -1554,25 +1554,6 @@ Usuario favorito</translation>
     </message>
 </context>
 <context>
-    <name>IPFilter</name>
-    <message>
-        <source>Nothing to export.</source>
-        <translation type="obsolete">Nada para exportar.</translation>
-    </message>
-    <message>
-        <source>Unable to export settings.</source>
-        <translation type="obsolete">Incapaz de exportar ajustes.</translation>
-    </message>
-    <message>
-        <source>Nothing to import.</source>
-        <translation type="obsolete">Nada para importar.</translation>
-    </message>
-    <message>
-        <source>Invalid signature.</source>
-        <translation type="obsolete">Firma inválida.</translation>
-    </message>
-</context>
-<context>
     <name>IPFilterFrame</name>
     <message>
         <location filename="../src/IPFilterFrame.cpp" line="183"/>
@@ -1682,12 +1663,12 @@ Usuario favorito</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="360"/>
         <source>Kill all humans?</source>
-        <translation type="unfinished"></translation>
+        <translation>¿Matar a todos los humanos?</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="362"/>
         <source>Action confirm</source>
-        <translation type="unfinished"></translation>
+        <translation>Conformar acción</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="471"/>
@@ -2675,7 +2656,7 @@ Descargas: %3 Subidas: %4</translation>
     <message>
         <location filename="../src/PublicHubs.cpp" line="290"/>
         <source>Hub list downloaded... (%1)</source>
-        <translation type="unfinished"></translation>
+        <translation>Lista de Hubs descargada... (%1)</translation>
     </message>
     <message>
         <source>Hub list downloaded... (%1 %2) </source>
@@ -3063,7 +3044,7 @@ Descargas: %3 Subidas: %4</translation>
     <message>
         <location filename="../src/SearchFrame.cpp" line="1571"/>
         <source>Search progress of &quot;%1&quot; is %2%</source>
-        <translation type="unfinished"></translation>
+        <translation>Progreso de búsqueda de &quot;%1&quot; es %2%</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="1594"/>

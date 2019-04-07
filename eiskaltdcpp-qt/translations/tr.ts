@@ -875,7 +875,7 @@ Anahtarlar:
         <location filename="../src/HashProgress.cpp" line="139"/>
         <location filename="../src/HashProgress.cpp" line="165"/>
         <source>%1% %2 left</source>
-        <translation type="unfinished"></translation>
+        <translation>%1% %2 kaldı</translation>
     </message>
     <message>
         <location filename="../src/HashProgress.cpp" line="148"/>
@@ -1530,25 +1530,6 @@ Favori kullanıcı</translation>
     </message>
 </context>
 <context>
-    <name>IPFilter</name>
-    <message>
-        <source>Nothing to export.</source>
-        <translation type="obsolete">Dışa aktarılacak bir şey yok.</translation>
-    </message>
-    <message>
-        <source>Unable to export settings.</source>
-        <translation type="obsolete">Ayarlar dışa aktarılamadı.</translation>
-    </message>
-    <message>
-        <source>Nothing to import.</source>
-        <translation type="obsolete">İçe aktarılacak bir şey yok.</translation>
-    </message>
-    <message>
-        <source>Invalid signature.</source>
-        <translation type="obsolete">Geçersiz imza.</translation>
-    </message>
-</context>
-<context>
     <name>IPFilterFrame</name>
     <message>
         <location filename="../src/IPFilterFrame.cpp" line="183"/>
@@ -1658,12 +1639,12 @@ Favori kullanıcı</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="360"/>
         <source>Kill all humans?</source>
-        <translation type="unfinished"></translation>
+        <translation>Tüm insanlar öldürülsün mü?</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="362"/>
         <source>Action confirm</source>
-        <translation type="unfinished"></translation>
+        <translation>Eylem teyidi</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="471"/>
@@ -2651,7 +2632,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/PublicHubs.cpp" line="290"/>
         <source>Hub list downloaded... (%1)</source>
-        <translation type="unfinished"></translation>
+        <translation>Hub listesi indirildi… (%1)</translation>
     </message>
     <message>
         <source>Hub list downloaded... (%1 %2) </source>
@@ -3039,7 +3020,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SearchFrame.cpp" line="1571"/>
         <source>Search progress of &quot;%1&quot; is %2%</source>
-        <translation type="unfinished"></translation>
+        <translation>&quot;%1&quot; aramasının ilerleyişi şudur: %2%</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="1594"/>
