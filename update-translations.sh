@@ -3,7 +3,7 @@
 # Author:  Boris Pek <tehnick-8@yandex.ru>
 # License: Public Domain
 # Created: 2011-11-26
-# Updated: 2019-04-07
+# Updated: 2019-04-09
 # Version: N/A
 
 set -e
@@ -168,6 +168,14 @@ case "${1}" in
     COMMENT_FULL_DATA=$(grep -r "Comment\[" "${CUR_DIR}/eiskaltdcpp-qt/desktop-file/" | grep -v '/en.desktop:')
     COMMENT_FILTERED_DATA=$(echo "${COMMENT_FULL_DATA}" | sed -ne 's|^.*/.*.desktop:\(.*\)$|\1|p')
     COMMENT_SORTED_DATA=$(echo "${COMMENT_FILTERED_DATA}" | sort -uV)
+
+    DESKTOP_FILE="${CUR_DIR}/eiskaltdcpp-gtk/eiskaltdcpp-gtk.desktop"
+    grep -v "GenericName\[" "${DESKTOP_FILE}" > "${DESKTOP_FILE}.tmp"
+    mv -f "${DESKTOP_FILE}.tmp" "${DESKTOP_FILE}"
+    grep -v "Comment\[" "${DESKTOP_FILE}" > "${DESKTOP_FILE}.tmp"
+    mv -f "${DESKTOP_FILE}.tmp" "${DESKTOP_FILE}"
+    echo "${GENERICNAME_SORTED_DATA}" >> "${DESKTOP_FILE}"
+    echo "${COMMENT_SORTED_DATA}" >> "${DESKTOP_FILE}"
 
     DESKTOP_FILE="${CUR_DIR}/eiskaltdcpp-qt/eiskaltdcpp-qt.desktop"
     grep -v "GenericName\[" "${DESKTOP_FILE}" > "${DESKTOP_FILE}.tmp"
