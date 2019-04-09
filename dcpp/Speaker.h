@@ -22,7 +22,6 @@
 #include <algorithm>
 #include <iterator>
 #include "CriticalSection.h"
-#include "noexcept.h"
 
 namespace dcpp {
 

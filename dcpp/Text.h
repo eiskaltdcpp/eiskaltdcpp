@@ -19,7 +19,6 @@
 
 #include "debug.h"
 #include "typedefs.h"
-#include "noexcept.h"
 
 namespace dcpp {
 

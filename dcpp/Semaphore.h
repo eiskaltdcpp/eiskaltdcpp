@@ -28,7 +28,6 @@
 #endif
 
 #include "NonCopyable.h"
-#include "noexcept.h"
 
 namespace dcpp {
 

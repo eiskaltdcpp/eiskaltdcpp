@@ -18,10 +18,15 @@
 #pragma once
 
 #include <boost/intrusive_ptr.hpp>
+
+#include <memory>
+
 #include <atomic>
-#include "noexcept.h"
 
 namespace dcpp {
+
+using std::unique_ptr;
+using std::forward;
 
 template<typename T>
 class intrusive_ptr_base
@@ -43,12 +48,11 @@ protected:
     intrusive_ptr_base() noexcept : ref(0) { }
 
 private:
-    friend void intrusive_ptr_add_ref(intrusive_ptr_base* p) {++p->ref;}
+    friend void intrusive_ptr_add_ref(intrusive_ptr_base* p) { ++p->ref; }
     friend void intrusive_ptr_release(intrusive_ptr_base* p) { if(--p->ref == 0) { delete static_cast<T*>(p); } }
 
     std::atomic<long> ref;
 };
-
 
 struct DeleteFunction {
     template<typename T>
@@ -56,3 +60,4 @@ struct DeleteFunction {
 };
 
 } // namespace dcpp
+

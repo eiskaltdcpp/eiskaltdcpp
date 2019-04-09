@@ -19,7 +19,6 @@
 
 #include <string>
 #include "forward.h"
-#include "noexcept.h"
 #include "Transfer.h"
 #include "MerkleTree.h"
 #include "Flags.h"

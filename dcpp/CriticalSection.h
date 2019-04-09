@@ -18,7 +18,6 @@
 #pragma once
 
 #include "debug.h"
-#include "noexcept.h"
 
 #ifndef DO_NOT_USE_MUTEX
 

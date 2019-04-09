@@ -17,7 +17,6 @@
 
 #pragma once
 
-#include "noexcept.h"
 #include <string>
 
 namespace dcpp {

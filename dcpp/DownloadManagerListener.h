@@ -18,7 +18,6 @@
 #pragma once
 
 #include "typedefs.h"
-#include "noexcept.h"
 
 namespace dcpp {
 

@@ -18,7 +18,6 @@
 #pragma once
 
 #include "forward.h"
-#include "noexcept.h"
 
 namespace dcpp {
 
