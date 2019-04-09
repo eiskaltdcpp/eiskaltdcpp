@@ -18,7 +18,7 @@
 #pragma once
 
 #include <boost/intrusive_ptr.hpp>
-#include <boost/detail/atomic_count.hpp>
+#include <atomic>
 #include "noexcept.h"
 
 namespace dcpp {
@@ -46,7 +46,7 @@ private:
     friend void intrusive_ptr_add_ref(intrusive_ptr_base* p) {++p->ref;}
     friend void intrusive_ptr_release(intrusive_ptr_base* p) { if(--p->ref == 0) { delete static_cast<T*>(p); } }
 
-    boost::detail::atomic_count ref;
+    std::atomic<long> ref;
 };
 
 
