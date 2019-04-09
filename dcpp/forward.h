@@ -27,7 +27,12 @@ namespace dcpp {
 
 class AdcCommand;
 
+class ADLSearch;
+
 class BufferedSocket;
+
+class Bundle;
+typedef boost::intrusive_ptr<Bundle> BundlePtr;
 
 struct ChatMessage;
 
@@ -40,6 +45,8 @@ class ClientManager;
 class ConnectionQueueItem;
 
 class CRC32Filter;
+
+struct DcextInfo;
 
 class Download;
 typedef Download* DownloadPtr;
@@ -59,7 +66,12 @@ typedef boost::intrusive_ptr<FinishedUserItem> FinishedUserItemPtr;
 
 class FinishedManager;
 
+template<class Hasher>
+struct HashValue;
+
 struct HintedUser;
+
+class HttpConnection;
 
 class HubEntry;
 
@@ -72,6 +84,8 @@ class LogManager;
 class OnlineUser;
 typedef OnlineUser* OnlineUserPtr;
 
+class OutputStream;
+
 class QueueItem;
 typedef QueueItem* QueueItemPtr;
 
@@ -81,9 +95,18 @@ typedef boost::intrusive_ptr<SearchResult> SearchResultPtr;
 class Socket;
 class SocketException;
 
+class StringOutputStream;
+class StringRefOutputStream;
+
 class StringSearch;
 
+class Tagger;
+
+class TigerHash;
+
 class Transfer;
+
+typedef HashValue<TigerHash> TTHValue;
 
 class UnZFilter;
 
@@ -98,5 +121,9 @@ class UserCommand;
 class UserConnection;
 typedef UserConnection* UserConnectionPtr;
 
+struct UserMatch;
+
 class WindowInfo;
+
 } // namespace dcpp
+

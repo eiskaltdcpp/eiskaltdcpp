@@ -219,7 +219,6 @@ private:
 };
 
 typedef MerkleTree<TigerHash> TigerTree;
-typedef TigerTree::MerkleValue TTHValue;
 
 template<int64_t aBlockSize>
 struct TTFilter {
