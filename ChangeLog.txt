@@ -11,8 +11,6 @@
   Connection --> Advanced --> Enable DHT.
 * Added dht.fly-server.ru server to list of servers for bootstrapping of
   initial list of available DHT nodes.
-* Delete configuration option DO_NOT_USE_MUTEX: this workaround is not required
-  anymore with modern versions of compilers for MS Windows and Haiku.
 * Delete configuration option LOCAL_MINIUPNP.
 * Delete embedded copy of miniupnpc library: it was extremely outdated and in
   any case system library is used now in builds for all supported systems.

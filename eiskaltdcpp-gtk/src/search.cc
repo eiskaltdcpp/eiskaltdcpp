@@ -229,7 +229,11 @@ void Search::putValue_gui(const string &str, int64_t size, SearchManager::SizeMo
 
 void Search::initHubs_gui()
 {
+#ifdef DO_NOT_USE_MUTEX
+    ClientManager::getInstance()->lock();
+#else // DO_NOT_USE_MUTEX
     auto lock = ClientManager::getInstance()->lock();
+#endif // DO_NOT_USE_MUTEX
 
     const Client::List clients = ClientManager::getInstance()->getClients();
 
@@ -240,6 +244,10 @@ void Search::initHubs_gui()
         if (client->isConnected())
             addHub_gui(client->getHubName(), client->getHubUrl());
     }
+
+#ifdef DO_NOT_USE_MUTEX
+    ClientManager::getInstance()->unlock();
+#endif // DO_NOT_USE_MUTEX
 }
 
 void Search::addHub_gui(string name, string url)

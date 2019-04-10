@@ -2146,7 +2146,11 @@ void QueueManager::logFinishedDownload(QueueItem* qi, Download*, bool crcChecked
     params["sfv"] = Util::toString(crcChecked ? 1 : 0);
 
     {
+#ifdef DO_NOT_USE_MUTEX
+        FinishedManager::getInstance()->lockLists();
+#else // DO_NOT_USE_MUTEX
         auto lock = FinishedManager::getInstance()->lockLists();
+#endif // DO_NOT_USE_MUTEX
         const FinishedManager::MapByFile& map = FinishedManager::getInstance()->getMapByFile(false);
         FinishedManager::MapByFile::const_iterator it = map.find(qi->getTarget());
         if(it != map.end()) {
@@ -2202,6 +2206,9 @@ void QueueManager::logFinishedDownload(QueueItem* qi, Download*, bool crcChecked
     }
 
     LOG(LogManager::FINISHED_DOWNLOAD, params);
+#ifdef DO_NOT_USE_MUTEX
+    FinishedManager::getInstance()->unlockLists();
+#endif // DO_NOT_USE_MUTEX
 }
 
 class ListMatcher : public dcpp::Thread
