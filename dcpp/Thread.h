@@ -98,7 +98,6 @@ public:
 #endif
 
 protected:
-    void setThreadName(const char* const threadName) const;
     virtual int run() = 0;
 
 #ifdef _WIN32

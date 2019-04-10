@@ -69,7 +69,6 @@ void ServerThread::Resume() {
 }
 
 int ServerThread::run() {
-    setThreadName("ServerThread");
     dcpp::TimerManager::getInstance()->start();
     TimerManager::getInstance()->addListener(this);
     QueueManager::getInstance()->addListener(this);

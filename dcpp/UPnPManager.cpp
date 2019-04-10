@@ -63,7 +63,6 @@ void UPnPManager::close() {
 }
 
 int UPnPManager::run() {
-    setThreadName("UPnPManager");
     // cache these
     const string
             conn_port = ConnectionManager::getInstance()->getPort(),

@@ -482,7 +482,6 @@ void BufferedSocket::checkSocket() {
  */
 int BufferedSocket::run() {
     dcdebug("BufferedSocket::run() start %p\n", (void*)this);
-    setThreadName("BufferedSocket");
     while(true) {
         try {
             if(!checkEvents()) {

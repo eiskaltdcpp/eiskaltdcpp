@@ -40,7 +40,6 @@ void TimerManager::shutdown() {
 }
 
 int TimerManager::run() {
-    setThreadName("TimerManager");
     int nextMin = 0;
 
     ptime now = microsec_clock::universal_time();

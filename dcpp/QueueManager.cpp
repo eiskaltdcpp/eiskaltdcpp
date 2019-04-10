@@ -351,7 +351,6 @@ void QueueManager::FileMover::moveFile(const string& source, const string& targe
 }
 
 int QueueManager::FileMover::run() {
-    setThreadName("FileMover");
     while(true) {
         FilePair next;
         {
@@ -379,7 +378,6 @@ void QueueManager::Rechecker::add(const string& file) {
 }
 
 int QueueManager::Rechecker::run() {
-    setThreadName("Rechecker");
     while(true) {
         string file;
         {

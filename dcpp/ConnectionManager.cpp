@@ -254,7 +254,6 @@ int ConnectionManager::Server::run() noexcept {
     {
         char threadName[17];
         snprintf(threadName, sizeof threadName, "Server_%s", port.c_str());
-        setThreadName(threadName);
     }
     while(!die) {
         try {
