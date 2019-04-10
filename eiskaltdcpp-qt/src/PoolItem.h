@@ -9,7 +9,7 @@
 
 #pragma once
 
-#include <boost/pool/pool_alloc.hpp>
+#include <memory>
 #include <assert.h>
 
 template <class T>
@@ -24,7 +24,7 @@ public:
     static void* operator new(size_t s) {
         assert(sizeof(T) == s);
 
-        return reinterpret_cast<void*>(pool.allocate());
+        return reinterpret_cast<void*>(pool.allocate(1));
     }
 
     static void* operator new(size_t, void* m) {
@@ -36,12 +36,12 @@ public:
     static void operator delete(void* m, size_t s) {
         assert(sizeof(T) == s);
 
-        pool.deallocate(reinterpret_cast<T*>(m));
+        pool.deallocate(reinterpret_cast<T*>(m), 1);
     }
 
 private:
-    static boost::fast_pool_allocator<T> pool;
+    static std::allocator<T> pool;
 };
 
 template <class T>
-boost::fast_pool_allocator<T> PoolItem<T>::pool = boost::fast_pool_allocator<T>();
+std::allocator<T> PoolItem<T>::pool = std::allocator<T>();
