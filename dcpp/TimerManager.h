@@ -21,17 +21,10 @@
 #include "Speaker.h"
 #include "Singleton.h"
 
-#ifdef TIMER_OLD_BOOST
-#include "Semaphore.h"
-#else
 #include <boost/thread/mutex.hpp>
-#endif
 
 #ifndef _WIN32
 #include <ctime>
-#ifdef TIMER_OLD_BOOST
-#include <climits>
-#endif
 #endif
 
 namespace dcpp {
@@ -57,12 +50,9 @@ public:
     static uint64_t getTick();
 private:
     friend class Singleton<TimerManager>;
-#ifdef TIMER_OLD_BOOST
-    Semaphore s;
-    static timeval tv;
-#else
+
     boost::timed_mutex boostmtx;
-#endif
+
     TimerManager();
     virtual ~TimerManager();
 

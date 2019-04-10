@@ -19,24 +19,15 @@
 
 #include "TimerManager.h"
 
-#ifndef TIMER_OLD_BOOST
 #include <boost/date_time/posix_time/ptime.hpp>
-#endif
+
 namespace dcpp {
 
-#ifdef TIMER_OLD_BOOST
-timeval TimerManager::tv;
-#else
 using namespace boost::posix_time;
-#endif
 
 TimerManager::TimerManager() {
-#ifdef TIMER_OLD_BOOST
-    gettimeofday(&tv, NULL);
-#else
     // This mutex will be unlocked only upon shutdown
     boostmtx.lock();
-#endif
 }
 
 TimerManager::~TimerManager() {
@@ -44,32 +35,14 @@ TimerManager::~TimerManager() {
 }
 
 void TimerManager::shutdown() {
-#ifdef TIMER_OLD_BOOST
-    s.signal();
-#else
     boostmtx.unlock();
-#endif
     join();
 }
 
 int TimerManager::run() {
     setThreadName("TimerManager");
     int nextMin = 0;
-#ifdef TIMER_OLD_BOOST
-    uint64_t x = getTick();
-    uint64_t nextTick = x + 1000;
 
-    while(!s.wait(nextTick > x ? nextTick - x : 0)) {
-        uint64_t z = getTick();
-        nextTick = z + 1000;
-        fire(TimerManagerListener::Second(), z);
-        if(nextMin++ >= 60) {
-            fire(TimerManagerListener::Minute(), z);
-            nextMin = 0;
-        }
-        x = getTick();
-    }
-#else
     ptime now = microsec_clock::universal_time();
     ptime nextSecond = now + seconds(1);
 
@@ -88,21 +61,14 @@ int TimerManager::run() {
         }
     }
     boostmtx.unlock();
-#endif
 
     dcdebug("TimerManager done\n");
     return 0;
 }
 
 uint64_t TimerManager::getTick() {
-#ifdef TIMER_OLD_BOOST
-    timeval tv2;
-    gettimeofday(&tv2, NULL);
-    return static_cast<uint64_t>(((tv2.tv_sec - tv.tv_sec) * 1000 ) + ( (tv2.tv_usec - tv.tv_usec) / 1000));
-#else
     static ptime start = microsec_clock::universal_time();
     return (microsec_clock::universal_time() - start).total_milliseconds();
-#endif
 }
 
 } // namespace dcpp
