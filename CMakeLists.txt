@@ -83,10 +83,6 @@ if (WIN32)
     option (INSTALL_DEPENDENCIES "Install all necessary libraries and plugins (only for Windows)" OFF)
 endif ()
 
-if (WIN32 OR HAIKU OR APPLE)
-    add_definitions ( -DDO_NOT_USE_MUTEX )
-endif ()
-
 if (USE_QT OR USE_QT5 OR USE_GTK OR USE_GTK3)
     find_package (X11)
 endif()
@@ -260,7 +256,7 @@ message (STATUS "${PROJECT_NAME} base version: ${VERSION_BASE}")
 
 configure_file (${PROJECT_SOURCE_DIR}/Version.h.in ${PROJECT_BINARY_DIR}/VersionGlobal.h)
 
-if (DO_NOT_USE_MUTEX)
+if (DO_NOT_USE_MUTEX OR HAIKU OR APPLE)
     add_definitions ( -DDO_NOT_USE_MUTEX )
 endif ()
 
