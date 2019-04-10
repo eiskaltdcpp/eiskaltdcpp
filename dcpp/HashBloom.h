@@ -17,11 +17,11 @@
 
 #pragma once
 
-#include "MerkleTree.h"
+#include "typedefs.h"
 
 namespace dcpp {
 /**
- * According to http://www.eecs.harvard.edu/~michaelm/NEWWORK/postscripts/BloomFilterSurvey.pdf
+ * According to https://www.eecs.harvard.edu/~michaelm/NEWWORK/postscripts/BloomFilterSurvey.pdf
  * the optimal number of hashes k is (m/n)*ln(2), m = number of bits in the filter and n = number
  * of items added. The largest k that we can get from a single TTH value depends on the number of
  * bits we need to address the bloom structure, which in turn depends on m, so the optimal size

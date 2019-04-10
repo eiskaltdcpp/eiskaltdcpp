@@ -21,6 +21,8 @@
 
 #include <cmath>
 
+#include "MerkleTree.h"
+
 namespace dcpp {
 
 size_t HashBloom::get_k(size_t n, size_t h) {
