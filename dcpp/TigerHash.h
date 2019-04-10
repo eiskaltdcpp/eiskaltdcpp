@@ -1,29 +1,31 @@
 /*
-* The Tiger algorithm was written by Eli Biham and Ross Anderson and
-* is available on the official Tiger algorithm page <https://www.cs.technion.ac.il/~biham/Reports/Tiger/>.
-* The below Tiger implementation is a C++ version of their original C code.
-* Permission was granted by Eli Biham to use with the following conditions;
-* a) This note must be retained.
-* b) The algorithm must correctly compute Tiger.
-* c) The algorithm's use must be legal.
-* d) The algorithm may not be exported to countries banned by law.
-* e) The authors of the C code are not responsible of this use of the code, 
-*    the software or anything else.
+ * The Tiger algorithm was written by Eli Biham and Ross Anderson and
+ * is available on the official Tiger algorithm page <https://www.cs.technion.ac.il/~biham/Reports/Tiger/>.
+ * The below Tiger implementation is a C++ version of their original C code.
+ * Permission was granted by Eli Biham to use with the following conditions;
+ * a) This note must be retained.
+ * b) The algorithm must correctly compute Tiger.
+ * c) The algorithm's use must be legal.
+ * d) The algorithm may not be exported to countries banned by law.
+ * e) The authors of the C code are not responsible of this use of the code,
+ *    the software or anything else.
 */
 
 /*
-* This program is free software; you can redistribute it and/or modify
-* it under the terms of the GNU General Public License as published by
-* the Free Software Foundation; either version 2 of the License, or
-* (at your option) any later version.
-*
-* This program is distributed in the hope that it will be useful,
-* but WITHOUT ANY WARRANTY; without even the implied warranty of
-* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-* GNU General Public License for more details.
-*
-* You should have received a copy of the GNU General Public License
-* along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ * Copyright (C) 2001-2012 Jacek Sieka, arnetheduck on gmail point com
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
 #pragma once

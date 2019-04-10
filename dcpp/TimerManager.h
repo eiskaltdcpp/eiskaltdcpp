@@ -51,7 +51,7 @@ public:
 private:
     friend class Singleton<TimerManager>;
 
-    boost::timed_mutex boostmtx;
+    boost::timed_mutex mtx;
 
     TimerManager();
     virtual ~TimerManager();

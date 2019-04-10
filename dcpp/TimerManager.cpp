@@ -27,7 +27,7 @@ using namespace boost::posix_time;
 
 TimerManager::TimerManager() {
     // This mutex will be unlocked only upon shutdown
-    boostmtx.lock();
+    mtx.lock();
 }
 
 TimerManager::~TimerManager() {
@@ -35,7 +35,7 @@ TimerManager::~TimerManager() {
 }
 
 void TimerManager::shutdown() {
-    boostmtx.unlock();
+    mtx.unlock();
     join();
 }
 
@@ -46,7 +46,7 @@ int TimerManager::run() {
     ptime now = microsec_clock::universal_time();
     ptime nextSecond = now + seconds(1);
 
-    while(!boostmtx.timed_lock(nextSecond)) {
+    while(!mtx.timed_lock(nextSecond)) {
         uint64_t t = getTick();
         now = microsec_clock::universal_time();
         nextSecond += seconds(1);
@@ -60,7 +60,7 @@ int TimerManager::run() {
             nextMin = 0;
         }
     }
-    boostmtx.unlock();
+    mtx.unlock();
 
     dcdebug("TimerManager done\n");
     return 0;
