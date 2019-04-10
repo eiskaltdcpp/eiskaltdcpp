@@ -1,6 +1,7 @@
 --- 2.4.0 2019-xx-xx ---
 *** common changes ***
 * Added support of OpenSSL >= 1.1.
+* Stop support of boost < 1.48.0.
 * Updated patches for Haiku.
 * Huge amount of improvements for macOS.
 * Updated list of hub list servers (with most popular public hubs).
