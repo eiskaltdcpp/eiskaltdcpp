@@ -43,7 +43,6 @@ CMAKE_OPTIONS="-DCMAKE_INSTALL_PREFIX=../../EiskaltDC++ \
                -DUSE_CLI_JSONRPC=ON \
                -DFORCE_XDG=OFF \
                -DDBUS_NOTIFY=OFF \
-               -DDO_NOT_USE_MUTEX=ON \
                -DNO_UI_DAEMON=ON \
                -DJSONRPC_DAEMON=ON \
                -DPERL_REGEX=ON \

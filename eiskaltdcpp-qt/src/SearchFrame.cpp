@@ -371,11 +371,7 @@ SearchFrame::SearchFrame(QWidget *parent): QWidget(parent), d_ptr(new SearchFram
 
     ClientManager* clientMgr = ClientManager::getInstance();
 
-#ifdef DO_NOT_USE_MUTEX
-    clientMgr->lock();
-#else // DO_NOT_USE_MUTEX
     auto lock = clientMgr->lock();
-#endif // DO_NOT_USE_MUTEX
     clientMgr->addListener(this);
     Client::List& clients = clientMgr->getClients();
 
@@ -387,17 +383,8 @@ SearchFrame::SearchFrame(QWidget *parent): QWidget(parent), d_ptr(new SearchFram
         d->client_list.push_back(client);
     }
 
-#ifdef DO_NOT_USE_MUTEX
-    clientMgr->unlock();
-#endif // DO_NOT_USE_MUTEX
-
-#if defined(USE_PROGRESS_BARS)
-    progressBar->show();
-    progressIndicator->hide();
-#else
     progressBar->hide();
     progressIndicator->show();
-#endif
 
     d->str_model->setStringList(d->hubs);
 
