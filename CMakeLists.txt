@@ -73,7 +73,6 @@ option (CHECK_GTK_DEPRECATED "Check GTK+ backend for deprecated function" OFF)
 option (USE_LIBCANBERRA "Use LibCanberra in GTK+ interface (sound notification)" OFF)
 option (INSTALL_RUNTIME_PATH "Install rpath" OFF)
 option (USE_GOLD "Use ld.gold instead ld.bfd" OFF)
-option (DO_NOT_USE_MUTEX "Do not use mutex (necessary for Haiku and WINE)" OFF)
 option (LOCAL_JSONCPP "Use local JsonCpp" ON)
 option (LOCAL_BOOST "Use local boost headers" OFF)
 option (OPENSSL_MSVC "Use MSVC build openssl (only for Windows)" OFF)
@@ -258,10 +257,6 @@ message (STATUS "${PROJECT_NAME} full version: ${VERSION}")
 message (STATUS "${PROJECT_NAME} base version: ${VERSION_BASE}")
 
 configure_file (${PROJECT_SOURCE_DIR}/Version.h.in ${PROJECT_BINARY_DIR}/VersionGlobal.h)
-
-if (DO_NOT_USE_MUTEX OR APPLE)
-    add_definitions ( -DDO_NOT_USE_MUTEX )
-endif ()
 
 if (UNIX)
     add_definitions (-D_GNU_SOURCE)

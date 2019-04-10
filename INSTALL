@@ -262,9 +262,6 @@ Keys for cmake
     path to directory with system *.desktop files
 -DPIXMAPS_ENTRY_PATH=<common prefix> (default: /usr/local/share/pixmaps/)
     path to directory with pixmaps of applications for system *.desktop files
--DDO_NOT_USE_MUTEX=ON/OFF (default: OFF)
-    Do not use mutexes.
-    Currently this option is forcibly set to "ON" in builds for macOS.
 -DHAIKU_PKG=ON/OFF (default: OFF)
     Make Haiku package
 -DCMAKE_BUILD_TYPE={Release, RelWithDebInfo, Debug, MinRelSize}

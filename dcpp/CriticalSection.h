@@ -18,9 +18,7 @@
 
 #pragma once
 
-#include "debug.h"
-
-#ifndef DO_NOT_USE_MUTEX
+#if !defined(__APPLE__) && !defined(__MACH__)
 
 #include <mutex>
 
@@ -33,7 +31,7 @@ typedef std::lock_guard<std::mutex> FastLock;
 
 } // namespace dcpp
 
-#else // DO_NOT_USE_MUTEX
+#else // !defined(__APPLE__) && !defined(__MACH__)
 
 #include <boost/signals2/mutex.hpp>
 
@@ -41,28 +39,6 @@ namespace dcpp {
 
 class CriticalSection
 {
-#ifdef _WIN32
-public:
-    void lock() noexcept {
-        EnterCriticalSection(&cs);
-        dcdrun(counter++);
-    }
-    void unlock() noexcept {
-        dcassert(--counter >= 0);
-        LeaveCriticalSection(&cs);
-    }
-    CriticalSection() noexcept {
-        dcdrun(counter = 0;);
-        InitializeCriticalSection(&cs);
-    }
-    ~CriticalSection() noexcept {
-        dcassert(counter==0);
-        DeleteCriticalSection(&cs);
-    }
-private:
-    dcdrun(long counter);
-    CRITICAL_SECTION cs;
-#else // _WIN32
 public:
     CriticalSection() noexcept {
         pthread_mutexattr_init(&ma);
@@ -77,11 +53,11 @@ public:
     void unlock() noexcept { pthread_mutex_unlock(&mtx); }
     pthread_mutex_t& getMutex() { return mtx; }
 private:
-    pthread_mutex_t mtx;
-    pthread_mutexattr_t ma;
-#endif // _WIN32
     CriticalSection(const CriticalSection&);
     CriticalSection& operator=(const CriticalSection&);
+
+    pthread_mutex_t mtx;
+    pthread_mutexattr_t ma;
 };
 
 // A fast, non-recursive and unfair implementation of the Critical Section.
@@ -112,8 +88,7 @@ private:
 
 typedef LockBase<CriticalSection> Lock;
 typedef LockBase<FastCriticalSection> FastLock;
-
 }
 
-#endif // DO_NOT_USE_MUTEX
+#endif // !defined(__APPLE__) && !defined(__MACH__)
 
