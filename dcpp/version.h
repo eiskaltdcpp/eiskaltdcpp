@@ -17,9 +17,13 @@
 
 #pragma once
 
+#include <string>
+
 #include "VersionGlobal.h"
 
 namespace dcpp {
+
 extern const char * const fullVersionString;
 extern const char * const fullADCVersionString;
+
 }

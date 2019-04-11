@@ -46,32 +46,6 @@ extern "C" int  _nl_msg_cat_cntr;
 
 namespace dcpp {
 
-template<typename T, bool flag> struct ReferenceSelector {
-    typedef T ResultType;
-};
-template<typename T> struct ReferenceSelector<T,true> {
-    typedef const T& ResultType;
-};
-
-template<typename T> class IsOfClassType {
-public:
-    template<typename U> static char check(int U::*);
-    template<typename U> static float check(...);
-public:
-    enum { Result = sizeof(check<T>(0)) };
-};
-
-template<typename T> struct TypeTraits {
-    typedef IsOfClassType<T> ClassType;
-    typedef ReferenceSelector<T, ((ClassType::Result == 1) || (sizeof(T) > sizeof(char*)) ) > Selector;
-    typedef typename Selector::ResultType ParameterType;
-};
-
-#define GETSET(type, name, name2) \
-    private: type name; \
-    public: TypeTraits<type>::ParameterType get##name2() const { return name; } \
-    void set##name2(TypeTraits<type>::ParameterType a##name2) { name = a##name2; }
-
 #define LIT(x) x, (sizeof(x)-1)
 
 /** Evaluates op(pair<T1, T2>.first, compareTo) */

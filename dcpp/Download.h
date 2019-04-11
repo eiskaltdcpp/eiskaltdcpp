@@ -18,15 +18,18 @@
 #pragma once
 
 #include <string>
+#include <memory>
+
 #include "forward.h"
 #include "Transfer.h"
 #include "MerkleTree.h"
 #include "Flags.h"
-#include "Streams.h"
+#include "GetSet.h"
 
 namespace dcpp {
 
 using std::string;
+using std::unique_ptr;
 
 /**
  * Comes as an argument in the DownloadManagerListener functions.

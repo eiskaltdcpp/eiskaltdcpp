@@ -28,6 +28,8 @@
 #include "MerkleTree.h"
 #include "Streams.h"
 #include "MediaInfo.h"
+#include "GetSet.h"
+#include "Util.h"
 
 namespace dcpp {
 

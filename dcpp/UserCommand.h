@@ -17,10 +17,17 @@
 
 #pragma once
 
-#include "Util.h"
+#include <vector>
+#include <string>
+
 #include "Flags.h"
+#include "GetSet.h"
+#include "typedefs.h"
 
 namespace dcpp {
+
+using std::string;
+using std::vector;
 
 class UserCommand : public Flags {
 public:

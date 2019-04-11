@@ -17,7 +17,7 @@
 
 #pragma once
 
-#include "MerkleTree.h"
+#include "forward.h"
 
 namespace dcpp {
 

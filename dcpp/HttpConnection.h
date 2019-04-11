@@ -21,6 +21,7 @@
 #include "BufferedSocketListener.h"
 #include "HttpConnectionListener.h"
 #include "NonCopyable.h"
+#include "GetSet.h"
 #include "Speaker.h"
 #include "Util.h"
 

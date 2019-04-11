@@ -17,16 +17,17 @@
 
 #pragma once
 
-#include "Util.h"
+#include <map>
+#include <vector>
+
+#include "forward.h"
 #include "Pointer.h"
 #include "CID.h"
 #include "FastAlloc.h"
 #include "CriticalSection.h"
 #include "NonCopyable.h"
 #include "Flags.h"
-#include "forward.h"
-#include <map>
-#include <vector>
+#include "GetSet.h"
 
 namespace dcpp {
 

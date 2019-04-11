@@ -23,11 +23,11 @@
 #include "CriticalSection.h"
 #include "Semaphore.h"
 #include "TimerManager.h"
-#include "Util.h"
 #include "FastAlloc.h"
 #include "Text.h"
 #include "Streams.h"
 #include "HashManagerListener.h"
+#include "GetSet.h"
 
 #ifdef USE_XATTR
 #include "attr/attributes.h"
@@ -54,7 +54,7 @@ public:
     HashManager() {
         TimerManager::getInstance()->addListener(this);
     }
-    virtual ~HashManager() noexcept {
+    virtual ~HashManager() {
         TimerManager::getInstance()->removeListener(this);
         hasher.join();
     }

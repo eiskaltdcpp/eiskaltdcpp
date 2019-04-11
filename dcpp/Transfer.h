@@ -20,10 +20,10 @@
 #include "forward.h"
 #include "MerkleTree.h"
 #include "TimerManager.h"
-#include "Util.h"
 #include "CriticalSection.h"
 #include "NonCopyable.h"
 #include "Segment.h"
+#include "GetSet.h"
 
 namespace dcpp {
 

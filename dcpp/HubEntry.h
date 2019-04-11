@@ -17,6 +17,10 @@
 
 #pragma once
 
+#include <string>
+
+#include "GetSet.h"
+
 namespace dcpp {
 
 class HubEntry {

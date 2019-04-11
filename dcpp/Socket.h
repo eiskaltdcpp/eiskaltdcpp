@@ -34,6 +34,8 @@ typedef int socket_t;
 const int INVALID_SOCKET = -1;
 #define SOCKET_ERROR -1
 #endif
+
+#include "GetSet.h"
 #include "Util.h"
 #include "Exception.h"
 
@@ -86,7 +88,6 @@ public:
      * @throw SocketException If any connection error occurs.
      */
     virtual void connect(const string& aIp, const string &aPort, const string &localPort = Util::emptyString);
-    // void connect(const string& aIp, uint16_t aPort, uint16_t localPort = 0) { connect(aIp, aPort == 0 ? Util::emptyString : Util::toString(aPort), localPort == 0 ? Util::emptyString : Util::toString(localPort)); }
     /**
      * Same as connect(), but through the SOCKS5 server
      */

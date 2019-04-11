@@ -30,6 +30,7 @@
 #include "Speaker.h"
 #include "PerFolderLimit.h"
 #include "SettingsManager.h"
+#include "GetSet.h"
 
 namespace dcpp {
 

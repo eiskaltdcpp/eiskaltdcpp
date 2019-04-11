@@ -44,6 +44,8 @@ public:
      */
     int write(Socket* sock, void* buffer, size_t& len);
 
+    void shutdown();
+
     static SettingsManager::IntSetting getCurSetting(SettingsManager::IntSetting setting);
 
     static int getUpLimit();
@@ -51,19 +53,18 @@ public:
 
     static void setSetting(SettingsManager::IntSetting setting, int value);
 
-    void shutdown();
 private:
     // stack up throttled read & write threads
     CriticalSection stateCS;
     CriticalSection waitCS[2];
     long activeWaiter;
 
-#ifndef _WIN32 //*nix
-
+#ifndef _WIN32
     // shutdown wait
     CriticalSection shutdownCS;
     long n_lock, halt;
 #endif
+
     // download limiter
     CriticalSection downCS;
     int64_t         downTokens;
@@ -74,15 +75,15 @@ private:
 
     friend class Singleton<ThrottleManager>;
 
-    ThrottleManager(void) : activeWaiter(-1), downTokens(0), upTokens(0)
+    ThrottleManager() : activeWaiter(-1), downTokens(0), upTokens(0)
     {
-#ifndef _WIN32 //*nix
+#ifndef _WIN32
         n_lock = halt = 0;
 #endif
         TimerManager::getInstance()->addListener(this);
     }
 
-    ~ThrottleManager(void);
+    virtual ~ThrottleManager();
 
     bool getCurThrottling();
     void waitToken();
