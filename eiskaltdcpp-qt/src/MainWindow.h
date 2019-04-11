@@ -22,7 +22,6 @@
 #include <QHash>
 #include <QSessionManager>
 
-
 #include "dcpp/stdinc.h"
 #include "dcpp/ConnectionManager.h"
 #include "dcpp/DownloadManager.h"
@@ -53,9 +52,6 @@ class MultiLineToolBar;
 class ScriptConsole;
 #endif
 
-extern const char * const EISKALTDCPP_VERSION_STRING;
-extern const char * const EISKALTDCPP_APPNAME_STRING;
-
 class QProgressBar;
 
 class About:
@@ -82,7 +78,7 @@ public:
     }
 
     void printVersion() const {
-        printf("%s\n", EISKALTDCPP_VERSION_STRING);
+        printf("%s\n", eiskaltdcppVersionString.c_str());
     }
 };
 

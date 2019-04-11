@@ -56,7 +56,7 @@ void printHelp()
 
 void printVersion()
 {
-    printf("%s version: %s\n", EISKALTDCPP_APPNAME_STRING, EISKALTDCPP_VERSION_STRING);
+    printf("%s version: %s\n", eiskaltdcppAppNameString.c_str(), eiskaltdcppVersionString.c_str());
     printf("GTK+ version: %d.%d.%d\n", gtk_major_version, gtk_minor_version, gtk_micro_version);
     printf("Glib version: %d.%d.%d\n", glib_major_version, glib_minor_version, glib_micro_version);
 }

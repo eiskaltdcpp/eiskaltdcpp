@@ -7,14 +7,14 @@
 *                                                                         *
 ***************************************************************************/
 
-#ifndef VERSION_H
-#define VERSION_H
+#pragma once
+
+#include <string>
 
 #define EISKALTDCPP_VERSION "@VERSION_BASE@"
 #define EISKALTDCPP_APPNAME "@PROJECT_NAME@"
 #define DCPP_VERSION "0.785"
 
-const char * const EISKALTDCPP_VERSION_STRING = "@VERSION@";
-const char * const EISKALTDCPP_APPNAME_STRING = "@PROJECT_NAME@";
+const std::string eiskaltdcppVersionString("@VERSION@");
+const std::string eiskaltdcppAppNameString("@PROJECT_NAME@");
 
-#endif // VERSION_H

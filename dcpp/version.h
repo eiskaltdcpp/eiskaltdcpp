@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2001-2012 Jacek Sieka, arnetheduck on gmail point com
+ * Copyright (C) 2009-2019 EiskaltDC++ developers
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -22,8 +23,6 @@
 #include "VersionGlobal.h"
 
 namespace dcpp {
-
-extern const char * const fullVersionString;
-extern const char * const fullADCVersionString;
-
+extern const std::string fullVersionString;
+extern const std::string fullADCVersionString;
 }

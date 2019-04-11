@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2001-2012 Jacek Sieka, arnetheduck on gmail point com
+ * Copyright (C) 2009-2019 EiskaltDC++ developers
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -16,10 +17,9 @@
  */
 
 #include "stdinc.h"
-
 #include "version.h"
 
 namespace dcpp {
-const char * const  fullVersionString = EISKALTDCPP_APPNAME " V:" EISKALTDCPP_VERSION;
-const char * const  fullADCVersionString = EISKALTDCPP_APPNAME " " EISKALTDCPP_VERSION;
+const std::string fullVersionString(EISKALTDCPP_APPNAME " V:" EISKALTDCPP_VERSION);
+const std::string fullADCVersionString(EISKALTDCPP_APPNAME " " EISKALTDCPP_VERSION);
 }

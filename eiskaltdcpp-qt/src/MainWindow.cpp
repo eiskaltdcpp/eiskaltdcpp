@@ -570,7 +570,7 @@ void MainWindow::init(){
 
     this->setWindowIcon(WICON(WulforUtil::eiICON_APPL));
 
-    setWindowTitle(QString("%1").arg(EISKALTDCPP_APPNAME_STRING));
+    setWindowTitle(QString::fromStdString(eiskaltdcppAppNameString));
 
     initActions();
 
@@ -1936,7 +1936,7 @@ void MainWindow::redrawToolPanel(){
             has_unread = true;
 
         if (awgt && d->arena->widget() && d->arena->widget() == awgt->getWidget())
-            setWindowTitle(awgt->getArenaTitle() + " :: " + QString("%1").arg(EISKALTDCPP_APPNAME_STRING));
+            setWindowTitle(awgt->getArenaTitle() + " :: " + QString::fromStdString(eiskaltdcppAppNameString));
     }
 
 #if !defined(Q_OS_MAC)
@@ -1965,7 +1965,7 @@ void MainWindow::mapWidgetOnArena(ArenaWidget *awgt){
     if (d->arena->widget() != awgt->getWidget())
         d->arena->setWidget(awgt->getWidget());
 
-    setWindowTitle(awgt->getArenaTitle() + " :: " + QString("%1").arg(EISKALTDCPP_APPNAME_STRING));
+    setWindowTitle(awgt->getArenaTitle() + " :: " + QString::fromStdString(eiskaltdcppAppNameString));
 
     if (awgt->toolButton())
         awgt->toolButton()->setChecked(true);
@@ -2688,8 +2688,8 @@ void MainWindow::slotAboutClient() {
         ratio = 0;
 
     a.label->setText(QString("<b>%1</b> %2")
-                     .arg(EISKALTDCPP_APPNAME_STRING)
-                     .arg(EISKALTDCPP_VERSION_STRING));
+                     .arg(QString::fromStdString(eiskaltdcppAppNameString))
+                     .arg(QString::fromStdString(eiskaltdcppVersionString)));
 
     QString html_format = "a { text-decoration:none; }\n"
                           "a:hover { text-decoration: underline; }\n";

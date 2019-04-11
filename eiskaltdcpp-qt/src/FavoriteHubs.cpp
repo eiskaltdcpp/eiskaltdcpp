@@ -84,7 +84,7 @@ void FavoriteHubs::init(){
     fakeADCTags.clear();
 
     fakeNMDCTags = QStringList({
-        QString("%1").arg(fullVersionString),
+        QString::fromStdString(fullVersionString),
         "++ V:0.791",
         "++ V:0.851",
         "++ V:0.868",
@@ -103,7 +103,7 @@ void FavoriteHubs::init(){
     });
 
     fakeADCTags = QStringList({
-        QString("%1").arg(fullADCVersionString),
+        QString::fromStdString(fullADCVersionString),
         "++ 0.791",
         "++ 0.851",
         "++ 0.868",

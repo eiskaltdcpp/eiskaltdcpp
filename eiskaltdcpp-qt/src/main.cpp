@@ -153,7 +153,7 @@ int main(int argc, char *argv[])
 #endif
     app.setOrganizationName("EiskaltDC++ Team");
     app.setApplicationName("EiskaltDC++ Qt");
-    app.setApplicationVersion(EISKALTDCPP_VERSION_STRING);
+    app.setApplicationVersion(QString::fromStdString(eiskaltdcppVersionString));
     
     GlobalTimer::newInstance();
 

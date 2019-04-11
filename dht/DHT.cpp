@@ -307,7 +307,7 @@ namespace dht
         AdcCommand cmd(AdcCommand::CMD_INF, AdcCommand::TYPE_UDP);
 
         cmd.addParam("TY", Util::toString(type));
-        cmd.addParam("VE", std::string(EISKALTDCPP_APPNAME) + " " + std::string(EISKALTDCPP_VERSION));
+        cmd.addParam("VE", fullADCVersionString);
         cmd.addParam("NI", SETTING(NICK));
         cmd.addParam("SL", Util::toString(UploadManager::getInstance()->getSlots()));
 

@@ -132,7 +132,7 @@ void printHelp() {
 }
 
 void printVersion() {
-    printf("%s\n", EISKALTDCPP_VERSION_STRING);
+    printf("%s\n", eiskaltdcppVersionString.c_str());
 }
 
 #ifndef _WIN32
@@ -230,7 +230,7 @@ int main(int argc, char* argv[])
 {
     parseArgs(argc, argv);
 
-    sTitle = "eiskaltdcpp-daemon (EiskaltDC++ core " + string(EISKALTDCPP_VERSION_STRING) + ")";
+    sTitle = "eiskaltdcpp-daemon (" + eiskaltdcppVersionString + ")";
 
 #ifdef _DEBUG_DAEMON
     sTitle += " [debug]";
