@@ -17,16 +17,26 @@
 
 #pragma once
 
+#include <cstdlib>
+#include <ctime>
+
+#include <map>
+
 #ifdef _WIN32
+
 # define PATH_SEPARATOR '\\'
 # define PATH_SEPARATOR_STR "\\"
+
 #else
+
 # define PATH_SEPARATOR '/'
 # define PATH_SEPARATOR_STR "/"
+
 #endif
 
 #include <sys/stat.h>
 #include <sys/types.h>
+#include <unistd.h>
 
 #ifdef _WIN32
 #include <winsock2.h>
@@ -34,12 +44,6 @@
 #include <sys/socket.h>
 #endif
 
-#include <unistd.h>
-#include <cstdlib>
-#include <vector>
-#include <functional>
-#include <algorithm>
-#include <map>
 #include "Text.h"
 
 extern "C" int  _nl_msg_cat_cntr;
@@ -197,6 +201,8 @@ public:
     static string getShortTimeString(time_t t = time(NULL) );
 
     static string getTimeString();
+    static string getTimeString(time_t t);
+    static string getTimeString(time_t t, const string& formatting);
     static string toAdcFile(const string& file);
     static string toNmdcFile(const string& file);
 
@@ -407,18 +413,8 @@ public:
     static int stricmp(const wstring& a, const wstring& b) { return stricmp(a.c_str(), b.c_str()); }
     static int strnicmp(const wstring& a, const wstring& b, size_t n) { return strnicmp(a.c_str(), b.c_str(), n); }
 
-    static int strcmp(const wchar_t* a, const wchar_t* b) {
-        while(*a && (*a) == (*b))
-            ++a, ++b;
-        return ((int)(*a)) - ((int)(*b));
-    }
-    static int strncmp(const wchar_t* a, const wchar_t* b, size_t n) {
-        while(n && *a && (*a) == (*b))
-            --n, ++a, ++b;
-
-        return n == 0 ? 0 : ((int)(*a)) - ((int)(*b));
-    }
-
+    static int strcmp(const wchar_t* a, const wchar_t* b);
+    static int strncmp(const wchar_t* a, const wchar_t* b, size_t n);
     static int strcmp(const wstring& a, const wstring& b) { return strcmp(a.c_str(), b.c_str()); }
     static int strncmp(const wstring& a, const wstring& b, size_t n) { return strncmp(a.c_str(), b.c_str(), n); }
 
@@ -442,6 +438,11 @@ public:
     static double randd() { return ((double)rand()) / ((double)0xffffffff); }
 
     static void parseIpPort(const string &aIpPort, string &ip, std::string &port);
+
+    static bool isAdcUrl(const string& aHubURL);
+    static bool isAdcsUrl(const string& aHubURL);
+    static bool isNmdcUrl(const string& aHubURL);
+
 private:
     /** In local mode, all config and temp files are kept in the same dir as the executable */
     static bool localMode;
@@ -468,35 +469,12 @@ struct CaseStringHash {
         return operator()(*s);
     }
 
-    size_t operator()(const string& s) const {
-        size_t x = 0;
-        const char* end = s.data() + s.size();
-        for(const char* str = s.data(); str < end; ) {
-            wchar_t c = 0;
-            int n = Text::utf8ToWc(str, c);
-            if(n < 0) {
-                x = x*32 - x + '_';
-                str += abs(n);
-            } else {
-                x = x*32 - x + (size_t)(c);
-                str += n;
-            }
-        }
-        return x;
-    }
+    size_t operator()(const string& s) const;
 
     size_t operator()(const wstring* s) const {
         return operator()(*s);
     }
-    size_t operator()(const wstring& s) const {
-        size_t x = 0;
-        const wchar_t* y = s.data();
-        wstring::size_type j = s.size();
-        for(wstring::size_type i = 0; i < j; ++i) {
-            x = x*31 + (size_t)(y[i]);
-        }
-        return x;
-    }
+    size_t operator()(const wstring& s) const;
 
     bool operator()(const string* a, const string* b) const {
         return ::strcmp((*a).c_str(), (*b).c_str()) < 0;

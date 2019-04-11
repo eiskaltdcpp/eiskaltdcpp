@@ -18,18 +18,18 @@
 #pragma once
 
 #if defined(__GNUC__) && !defined(__clang__)
-#if (__GNUC__ < 4) || (__GNUC__ == 4 && __GNUC_MINOR__ < 6)
-#error Build with GCC < 4.6 is not supported anymore!
+#if (__GNUC__ < 5) || (__GNUC__ == 5 && __GNUC_MINOR__ < 2)
+#error GCC 5.2 is required
 #endif
 
 #elif defined(__clang__)
-#if (__clang_major__ < 3) || (__clang_major__ == 3 && __clang_minor__ < 1)
-#error Build with Clang < 3.1 is not supported anymore!
+#if (__clang_major__ < 3) || (__clang_major__ == 3 && __clang_minor__ < 5)
+#error Clang 3.5 is required
 #endif
 
 #elif defined(_MSC_VER)
-#if _MSC_VER < 1600
-//#error MSVC 10 (2010) is required
+#if _MSC_VER < 1800 || _MSC_FULL_VER < 180021114
+#error Visual Studio 2013 with the Nov 2013 CTP is required
 #endif
 
 //disable the deprecated warnings for the CRT functions.

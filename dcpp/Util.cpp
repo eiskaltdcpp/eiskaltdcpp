@@ -1015,6 +1015,20 @@ int Util::strnicmp(const char* a, const char* b, size_t n) {
     return (a >= end) ? 0 : ((int)Text::toLower(ca) - (int)Text::toLower(cb));
 }
 
+int Util::strcmp(const wchar_t *a, const wchar_t *b) {
+    while(*a && (*a) == (*b)) {
+        ++a, ++b;
+    }
+    return ((int)(*a)) - ((int)(*b));
+}
+
+int Util::strncmp(const wchar_t *a, const wchar_t *b, size_t n) {
+    while(n && *a && (*a) == (*b)) {
+        --n, ++a, ++b;
+    }
+    return n == 0 ? 0 : ((int)(*a)) - ((int)(*b));
+}
+
 string Util::encodeURI(const string& aString, bool reverse) {
     // reference: rfc2396
     string tmp = aString;
@@ -1251,14 +1265,23 @@ void Util::setLang(const string &lang)
 }
 
 string Util::getTimeString() {
-    char buf[64];
     time_t _tt;
     time(&_tt);
+
+    return getTimeString(_tt);
+}
+
+string Util::getTimeString(time_t _tt) {
+    return getTimeString(_tt, "%X");
+}
+
+string Util::getTimeString(time_t _tt, const string& formatting) {
+    char buf[254];
     tm* _tm = localtime(&_tt);
     if(_tm == NULL) {
         strcpy(buf, "xx:xx:xx");
     } else {
-        strftime(buf, 64, "%X", _tm);
+        strftime(buf, 254, formatting.c_str(), _tm);
     }
     return buf;
 }
@@ -1386,6 +1409,44 @@ bool Util::fileExists(const string &aFile) {
     struct stat stFileInfo;
     return (stat(aFile.c_str(),&stFileInfo) == 0);
 #endif
+}
+
+bool Util::isAdcUrl(const string& aHubURL) {
+    return Util::strnicmp("adc://", aHubURL.c_str(), 6) == 0;
+}
+
+bool Util::isAdcsUrl(const string& aHubURL) {
+    return Util::strnicmp("adcs://", aHubURL.c_str(), 7) == 0;
+}
+
+bool Util::isNmdcUrl(const string& aHubURL) {
+    return Util::strnicmp("dchub://", aHubURL.c_str(), 8) == 0;
+}
+
+size_t CaseStringHash::operator()(const string &s) const {
+    size_t x = 0;
+    auto end = s.data() + s.size();
+    for(auto str = s.data(); str < end; ) {
+        wchar_t c = 0;
+        int n = Text::utf8ToWc(str, c);
+        if(n < 0) {
+            x = x*32 - x + '_';
+            str += abs(n);
+        } else {
+            x = x * 32 - x + static_cast<size_t>(c);
+            str += n;
+        }
+    }
+    return x;
+}
+
+size_t CaseStringHash::operator()(const wstring &s) const {
+    size_t x = 0;
+    auto y = s.data();
+    for(decltype(s.size()) i = 0, j = s.size(); i < j; ++i) {
+        x = x * 31 + static_cast<size_t>(y[i]);
+    }
+    return x;
 }
 
 } // namespace dcpp

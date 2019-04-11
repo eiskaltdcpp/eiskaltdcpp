@@ -66,10 +66,10 @@ void DownloadManager::on(TimerManagerListener::Second, uint64_t aTick) noexcept 
 
         DownloadList tickList;
         // Tick each ongoing download
-        for(auto i = downloads.begin(); i != downloads.end(); ++i) {
-            if((*i)->getPos() > 0) {
-                tickList.push_back(*i);
-                (*i)->tick();
+        for(auto i: downloads) {
+            if(i->getPos() > 0) {
+                tickList.push_back(i);
+                i->tick();
             }
         }
 
@@ -79,8 +79,7 @@ void DownloadManager::on(TimerManagerListener::Second, uint64_t aTick) noexcept 
 
         // Automatically remove or disconnect slow sources
         if((uint32_t)(aTick / 1000) % SETTING(AUTODROP_INTERVAL) == 0) {
-            for(auto i = downloads.begin(); i != downloads.end(); ++i) {
-                Download* d = *i;
+            for(auto d: downloads) {
                 uint64_t timeElapsed = aTick - d->getStart();
                 uint64_t timeInactive = aTick - d->getUserConnection().getLastActivity();
                 uint64_t bytesDownloaded = d->getPos();
@@ -365,8 +364,7 @@ void DownloadManager::endData(UserConnection* aSource) {
 int64_t DownloadManager::getRunningAverage() {
     Lock l(cs);
     int64_t avg = 0;
-    for(auto i = downloads.begin(); i != downloads.end(); ++i) {
-        Download* d = *i;
+    for(auto d: downloads) {
         avg += d->getAverageSpeed();
     }
     return avg;

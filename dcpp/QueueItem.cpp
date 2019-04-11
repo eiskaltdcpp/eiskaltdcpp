@@ -239,8 +239,7 @@ Segment QueueItem::getNextSegment(int64_t blockSize, int64_t wantedSize, int64_t
     if(partialSource == NULL && BOOLSETTING(OVERLAP_CHUNKS) && lastSpeed > 0) {
         // overlap slow running chunk
 
-        for(auto i = downloads.begin(); i != downloads.end(); ++i) {
-            Download* d = *i;
+        for(auto d: downloads) {
 
             // current chunk mustn't be already overlapped
             if(d->getOverlapped())

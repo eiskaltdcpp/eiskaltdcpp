@@ -20,16 +20,17 @@
 #include <libintl.h>
 #include <boost/format.hpp>
 
-#if defined(BUILDING_DCPP)
+#ifdef BUILDING_DCPP
 
 #define PACKAGE "libeiskaltdcpp"
+#define LOCALEDIR dcpp::Util::getPath(Util::PATH_LOCALE).c_str()
 #define _(String) dgettext(PACKAGE, String)
 #define gettext_noop(String) String
 #define N_(String) gettext_noop (String)
 #define F_(String) dcpp::dcpp_fmt(dgettext(PACKAGE, String))
 #define FN_(String1,String2, N) dcpp::dcpp_fmt(dngettext(PACKAGE, String1, String2, N))
 
-#endif // defined(BUILDING_DCPP)
+#endif
 
 namespace dcpp {
 
