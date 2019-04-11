@@ -45,7 +45,7 @@ namespace dht
         Source source;
         source.setCID(node->getUser()->getCID());
         source.setIp(node->getIdentity().getIp());
-        source.setUdpPort(static_cast<uint16_t>(Util::toInt(node->getIdentity().getUdpPort())));
+        source.setUdpPort(node->getIdentity().getUdpPort());
         source.setSize(size);
         source.setExpires(GET_TICK() + (partial ? PFS_REPUBLISH_TIME : REPUBLISH_TIME));
         source.setPartial(partial);
@@ -140,7 +140,7 @@ namespace dht
                     Source source;
                     source.setCID(CID(xml.getChildAttrib("CID")));
                     source.setIp(xml.getChildAttrib("I4"));
-                    source.setUdpPort(static_cast<uint16_t>(xml.getIntChildAttrib("U4")));
+                    source.setUdpPort(xml.getChildAttrib("U4"));
                     source.setSize(xml.getLongLongChildAttrib("SI"));
                     source.setExpires(xml.getLongLongChildAttrib("EX"));
                     source.setPartial(false);

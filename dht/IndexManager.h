@@ -46,7 +46,7 @@ namespace dht
         GETSET(string, ip, Ip);
         GETSET(uint64_t, expires, Expires);
         GETSET(uint64_t, size, Size);
-        GETSET(uint16_t, udpPort, UdpPort);
+        GETSET(string, udpPort, UdpPort);
         GETSET(bool, partial, Partial);
     };
 

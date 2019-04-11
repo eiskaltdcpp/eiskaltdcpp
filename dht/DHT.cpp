@@ -432,7 +432,7 @@ namespace dht
     // user's info
     void DHT::handle(AdcCommand::INF, const Node::Ptr& node, AdcCommand& c) throw()
     {
-        string ip = node->getIdentity().getIp();
+        //string ip = node->getIdentity().getIp();
         string udpPort = node->getIdentity().getUdpPort();
 
         InfType it = NONE;
