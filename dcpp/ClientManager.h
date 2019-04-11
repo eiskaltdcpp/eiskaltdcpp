@@ -17,13 +17,13 @@
 
 #pragma once
 
-#include "TimerManager.h"
 #include "Client.h"
+#include "ClientManagerListener.h"
 #include "Singleton.h"
 #include "SettingsManager.h"
-#include "User.h"
 #include "Socket.h"
-#include "ClientManagerListener.h"
+#include "TimerManager.h"
+#include "User.h"
 
 namespace dcpp {
 
@@ -43,7 +43,6 @@ public:
     StringList getHubs(const CID& cid, const string& hintUrl);
     StringList getHubNames(const CID& cid, const string& hintUrl);
     StringList getNicks(const CID& cid, const string& hintUrl);
-    string getField(const CID& cid, const string& hintUrl, const char* field) const;
 
     StringList getHubs(const CID& cid, const string& hintUrl, bool priv);
     StringList getHubNames(const CID& cid, const string& hintUrl, bool priv);
@@ -53,6 +52,7 @@ public:
     StringList getHubNames(const HintedUser& user) { return getHubNames(user.user->getCID(), user.hint); }
     StringList getHubs(const HintedUser& user) { return getHubs(user.user->getCID(), user.hint); }
 
+    string getField(const CID& cid, const string& hintUrl, const char* field) const;
     string getConnection(const CID& cid) const;
     uint8_t getSlots(const CID& cid) const;
 
@@ -189,13 +189,8 @@ private:
 
     friend class Singleton<ClientManager>;
 
-    ClientManager() {
-        TimerManager::getInstance()->addListener(this);
-    }
-
-    virtual ~ClientManager() {
-        TimerManager::getInstance()->removeListener(this);
-    }
+    ClientManager();
+    virtual ~ClientManager();
 
     void updateUser(const OnlineUser& user) noexcept;
 

@@ -38,13 +38,21 @@
 
 namespace dcpp {
 
+ClientManager::ClientManager() {
+    TimerManager::getInstance()->addListener(this);
+}
+
+ClientManager::~ClientManager() {
+    TimerManager::getInstance()->removeListener(this);
+}
+
 Client* ClientManager::getClient(const string& aHubURL) {
     Client* c;
-    if(strncmp("adc://", aHubURL.c_str(), 6) == 0) {
+    if(Util::strnicmp("adc://", aHubURL.c_str(), 6) == 0) {
         c = new AdcHub(aHubURL, false);
-    } else if(strncmp("adcs://", aHubURL.c_str(), 7) == 0) {
+    } else if(Util::strnicmp("adcs://", aHubURL.c_str(), 7) == 0) {
         c = new AdcHub(aHubURL, true);
-    } else if(strncmp("nmdcs://", aHubURL.c_str(), 8) == 0) {
+    } else if(Util::strnicmp("nmdcs://", aHubURL.c_str(), 8) == 0) {
         c = new NmdcHub(aHubURL, true);
     } else {
         c = new NmdcHub(aHubURL, false);
@@ -806,6 +814,7 @@ OnlineUserPtr ClientManager::findDHTNode(const CID& cid) const {
 
     return NULL;
 }
+
 #endif
 
 #ifdef LUA_SCRIPT

@@ -163,7 +163,7 @@ public:
     vector<uint8_t> getKeyprint() const { return socket ? socket->getKeyprint() : vector<uint8_t>(); }
     std::string getRemoteIp() const { return socket ? socket->getIp() : Util::emptyString; }
     Download* getDownload() { dcassert(isSet(FLAG_DOWNLOAD)); return download; }
-    //uint16_t getPort() const { if(socket) return socket->getPort(); else return 0; }
+    //std::string getPort() const { if(socket) return socket->getPort(); else return 0; }
     void setDownload(Download* d) { dcassert(isSet(FLAG_DOWNLOAD)); download = d; }
     Upload* getUpload() { dcassert(isSet(FLAG_UPLOAD)); return upload; }
     void setUpload(Upload* u) { dcassert(isSet(FLAG_UPLOAD)); upload = u; }

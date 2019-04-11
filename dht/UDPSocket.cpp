@@ -139,9 +139,9 @@ namespace dht
                 if(s[0] == ADC_PACKET_HEADER && s[s.length() - 1] == ADC_PACKET_FOOTER) // is it valid ADC command?
                 {
                     string ip = inet_ntoa(remoteAddr.sin_addr);
-                    uint16_t port = ntohs(remoteAddr.sin_port);
-                    COMMAND_DEBUG(s.substr(0, s.length() - 1), DebugManager::DHT_IN,  ip + ":" + Util::toString(port));
-                    DHT::getInstance()->dispatch(s.substr(0, s.length() - 1), ip, Util::toString(port), isUdpKeyValid);
+                    string port = Util::toString(ntohs(remoteAddr.sin_port));
+                    COMMAND_DEBUG(s.substr(0, s.length() - 1), DebugManager::DHT_IN,  ip + ":" + port);
+                    DHT::getInstance()->dispatch(s.substr(0, s.length() - 1), ip, port, isUdpKeyValid);
                 }
 
                 Thread::sleep(25);
