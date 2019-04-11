@@ -332,10 +332,11 @@ void AdcHub::handle(AdcCommand::QUI, AdcCommand& c) noexcept {
 }
 
 void AdcHub::handle(AdcCommand::CTM, AdcCommand& c) noexcept {
+    if(c.getParameters().size() < 3)
+        return;
+
     OnlineUser* u = findUser(c.getFrom());
     if(!u || u->getUser() == ClientManager::getInstance()->getMe())
-        return;
-    if(c.getParameters().size() < 3)
         return;
 
     const string& protocol = c.getParam(0);
@@ -343,7 +344,7 @@ void AdcHub::handle(AdcCommand::CTM, AdcCommand& c) noexcept {
     const string& token = c.getParam(2);
 
     bool secure = false;
-    if(protocol == CLIENT_PROTOCOL) {
+    if(protocol == CLIENT_PROTOCOL && !SETTING(REQUIRE_TLS)) {
         // Nothing special
     } else if(protocol == SECURE_CLIENT_PROTOCOL_TEST && CryptoManager::getInstance()->TLSOk()) {
         secure = true;
@@ -373,7 +374,7 @@ void AdcHub::handle(AdcCommand::RCM, AdcCommand& c) noexcept {
     const string& token = c.getParam(1);
 
     bool secure;
-    if(protocol == CLIENT_PROTOCOL) {
+    if(protocol == CLIENT_PROTOCOL && !SETTING(REQUIRE_TLS)) {
         secure = false;
     } else if(protocol == SECURE_CLIENT_PROTOCOL_TEST && CryptoManager::getInstance()->TLSOk()) {
         secure = true;
@@ -591,11 +592,14 @@ void AdcHub::handle(AdcCommand::GET, AdcCommand& c) noexcept {
     }
 }
 void AdcHub::handle(AdcCommand::NAT, AdcCommand& c) noexcept {
+    if (c.getParameters().size() < 3)
+        return;
+
     if (!BOOLSETTING(ALLOW_NATT))
         return;
 
     OnlineUser* u = findUser(c.getFrom());
-    if(!u || u->getUser() == ClientManager::getInstance()->getMe() || c.getParameters().size() < 3)
+    if(!u || u->getUser() == ClientManager::getInstance()->getMe())
         return;
 
     const string& protocol = c.getParam(0);
@@ -623,13 +627,16 @@ void AdcHub::handle(AdcCommand::NAT, AdcCommand& c) noexcept {
 }
 
 void AdcHub::handle(AdcCommand::RNT, AdcCommand& c) noexcept {
+    if(c.getParameters().size() < 3)
+        return;
+
     // Sent request for NAT traversal cooperation, which
     // was acknowledged (with requisite local port information).
     if(!BOOLSETTING(ALLOW_NATT))
         return;
 
     OnlineUser* u = findUser(c.getFrom());
-    if(!u || u->getUser() == ClientManager::getInstance()->getMe() || c.getParameters().size() < 3)
+    if(!u || u->getUser() == ClientManager::getInstance()->getMe())
         return;
 
     const string& protocol = c.getParam(0);
@@ -686,8 +693,8 @@ void AdcHub::connect(const OnlineUser& user, string const& token, bool secure) {
         }
         proto = &SECURE_CLIENT_PROTOCOL_TEST;
     } else {
-        if(user.getUser()->isSet(User::NO_ADC_1_0_PROTOCOL)) {
-            /// @todo log
+        if(user.getUser()->isSet(User::NO_ADC_1_0_PROTOCOL) || SETTING(REQUIRE_TLS)) {
+            /// @todo log, consider removing from queue
             return;
         }
         proto = &CLIENT_PROTOCOL;

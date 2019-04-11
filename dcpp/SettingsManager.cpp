@@ -143,12 +143,14 @@ SettingsManager::SettingsManager()
 
     setDefault(DOWNLOAD_DIRECTORY, Util::getPath(Util::PATH_DOWNLOADS));
     setDefault(TEMP_DOWNLOAD_DIRECTORY, Util::getPath(Util::PATH_DOWNLOADS) + "Incomplete" PATH_SEPARATOR_STR);
+    setDefault(BIND_ADDRESS, "0.0.0.0");
     setDefault(SLOTS, 5);
     setDefault(TCP_PORT, 3000);
     setDefault(UDP_PORT, 3000);
     setDefault(TLS_PORT, 3001);
     setDefault(INCOMING_CONNECTIONS, INCOMING_DIRECT);
     setDefault(OUTGOING_CONNECTIONS, OUTGOING_DIRECT);
+    setDefault(AUTO_DETECT_CONNECTION, false);
     setDefault(AUTO_FOLLOW, true);
     setDefault(SHARE_HIDDEN, false);
     setDefault(FILTER_MESSAGES, true);
@@ -197,10 +199,8 @@ SettingsManager::SettingsManager()
     setDefault(LOG_FILE_DOWNLOAD,     "Downloads.log");
     setDefault(LOG_FILE_FINISHED_DOWNLOAD, "Finished_downloads.log");
     setDefault(LOG_FILE_SYSTEM,       "System.log");
-    setDefault(LOG_FILE_SPY,       "Spy.log");
-    setDefault(LOG_FILE_CMD_DEBUG,       "CmdDebug.log");
-    setDefault(AUTO_AWAY, false);
-    setDefault(BIND_ADDRESS, "0.0.0.0");
+    setDefault(LOG_FILE_SPY,          "Spy.log");
+    setDefault(LOG_FILE_CMD_DEBUG,    "CmdDebug.log");
     setDefault(SOCKS_PORT, 1080);
     setDefault(SOCKS_RESOLVE, 1);
     setDefault(CONFIG_VERSION, "0.181");        // 0.181 is the last version missing configversion
@@ -209,6 +209,7 @@ SettingsManager::SettingsManager()
     setDefault(COMPRESS_TRANSFERS, true);
     setDefault(SFV_CHECK, true);
     setDefault(DEFAULT_AWAY_MESSAGE, "I'm away. State your business and I might answer later if you're lucky.");
+    setDefault(AUTO_AWAY, false);
     setDefault(TIME_STAMPS_FORMAT, "%H:%M");
     setDefault(MAX_COMPRESSION, 6);
     setDefault(NO_AWAYMSG_TO_BOTS, true);
@@ -254,9 +255,9 @@ SettingsManager::SettingsManager()
     setDefault(TLS_TRUSTED_CERTIFICATES_PATH, Util::getPath(Util::PATH_USER_CONFIG) + "Certificates" PATH_SEPARATOR_STR);
     setDefault(TLS_PRIVATE_KEY_FILE, Util::getPath(Util::PATH_USER_CONFIG) + "Certificates" PATH_SEPARATOR_STR "client.key");
     setDefault(TLS_CERTIFICATE_FILE, Util::getPath(Util::PATH_USER_CONFIG) + "Certificates" PATH_SEPARATOR_STR "client.crt");
-    setDefault(AUTO_REFRESH_TIME, 60);  // minutes
-    setDefault(HASHING_START_DELAY, 60); // seconds
     setDefault(USE_TLS, true);
+    setDefault(HASHING_START_DELAY, 60); // seconds
+    setDefault(AUTO_REFRESH_TIME, 60);
     setDefault(AUTO_SEARCH_LIMIT, 5);
     setDefault(AUTO_KICK_NO_FAVS, false);
     setDefault(PROMPT_PASSWORD, false);
@@ -278,17 +279,16 @@ SettingsManager::SettingsManager()
     setDefault(DHT_PORT, 6250);
     setDefault(USE_DHT, true);
     setDefault(SEARCH_PASSIVE, false);
-    setDefault(AUTO_DETECT_CONNECTION, false);
     setDefault(MAX_UPLOAD_SPEED_MAIN, 0);
     setDefault(MAX_DOWNLOAD_SPEED_MAIN, 0);
     setDefault(TIME_DEPENDENT_THROTTLE, false);
-    setDefault(THROTTLE_ENABLE, false);
     setDefault(MAX_DOWNLOAD_SPEED_ALTERNATE, 0);
     setDefault(MAX_UPLOAD_SPEED_ALTERNATE, 0);
     setDefault(BANDWIDTH_LIMIT_START, 1);
     setDefault(BANDWIDTH_LIMIT_END, 1);
     setDefault(SLOTS_ALTERNATE_LIMITING, 1);
     setDefault(SLOTS_PRIMARY, 3);
+    setDefault(THROTTLE_ENABLE, false);
     setDefault(KEEP_FINISHED_FILES, false);
     setDefault(USE_IP, true);
     setDefault(SHOW_FREE_SLOTS_DESC, false);
@@ -310,6 +310,8 @@ SettingsManager::SettingsManager()
     setDefault(CHECK_TARGETS_PATHS_ON_START, false);
     setDefault(SHARE_SKIP_ZERO_BYTE, false);
     setDefault(APP_UNIT_BASE, 0);
+    setDefault(REQUIRE_TLS, true); // True by default: We assume TLS is commonplace enough among ADC clients.
+
     setSearchTypeDefaults();
 }
 
@@ -426,7 +428,7 @@ void SettingsManager::load(string const& aFileName)
             set(AUTO_SEARCH_LIMIT, 5);
         else if(SETTING(AUTO_SEARCH_LIMIT) < 1)
             set(AUTO_SEARCH_LIMIT, 1);
-        if(SETTING(MAX_FILELIST_SIZE) && SETTING(MAX_FILELIST_SIZE) < 1024)
+        if(SETTING(MAX_FILELIST_SIZE) < 1024)
             set(MAX_FILELIST_SIZE, 1024);
 
 #ifdef _DEBUG

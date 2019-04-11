@@ -128,6 +128,7 @@ void DownloadManager::addConnection(UserConnectionPtr conn) {
         conn->disconnect();
         return;
     }
+
     if (BOOLSETTING(IPFILTER) && !ipfilter::getInstance()->OK(conn->getRemoteIp(),eDIRECTION_IN)) {
         conn->error("Your IP is Blocked!");
         LogManager::getInstance()->message(_("IPFilter: Blocked outgoing connection to ") + conn->getRemoteIp());
