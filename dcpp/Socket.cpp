@@ -708,7 +708,7 @@ void Socket::socksUpdated() {
                 return;
             }
 
-            udpPort = static_cast<uint16_t>(ntohs(*((uint16_t*)(&connStr[8]))));
+            udpPort = Util::toString(ntohs(*((uint16_t*)(&connStr[8]))));
 
             in_addr serv_addr;
 
