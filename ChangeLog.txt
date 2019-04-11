@@ -20,6 +20,9 @@
   — decreased usage of boost: all possible is rewritten in C++14
   — use C++14 features where it is possible
   — fixed static code analyzers (cppcheck, clang) notes
+*** libeiskaltdcpp ***
+* Partially sync with DC++ 0.868 core in non-critical sections. The diff is
+  still huge, but it was noticeably reduced.
 *** eiskaltdcpp-qt ***
 * Fixed Quit action in builds with Qt 5.x. With Qt 4.x all worked fine.
 * Added configuration option: USE_PROGRESS_BARS. This option is especially
