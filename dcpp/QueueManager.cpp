@@ -125,13 +125,6 @@ QueueManager::QueueItemList QueueManager::FileQueue::find(const TTHValue& tth) {
     return ql;
 }
 
-bool QueueManager::FileQueue::exists(const TTHValue& tth) const {
-    for(QueueItem::StringMap::const_iterator i = queue.begin(); i != queue.end(); ++i)
-        if(i->second->getTTH() == tth)
-            return true;
-    return false;
-}
-
 static QueueItem* findCandidate(QueueItem* cand, QueueItem::StringIter start, QueueItem::StringIter end, const StringList& recent) {
     for(auto i = start; i != end; ++i) {
         QueueItem* q = i->second;
