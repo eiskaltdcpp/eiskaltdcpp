@@ -20,15 +20,27 @@
 
 namespace dcpp {
 
-DynDNS::DynDNS() {
+DynDNS::DynDNS() :
+    request(false),
+    minutesCounter(0)
+{
     httpConnection.addListener(this);
-    request = true;
-    Request();
 }
-
 
 DynDNS::~DynDNS() {
     httpConnection.removeListener(this);
+}
+
+void DynDNS::load()
+{
+    request = true;
+    minutesCounter = 0;
+    Request();
+}
+
+void DynDNS::stop()
+{
+    request = false;
 }
 
 void DynDNS::Request() {
@@ -42,10 +54,18 @@ void DynDNS::Request() {
     }
 }
 
-void DynDNS::on(TimerManagerListener::Minute, uint64_t aTick) noexcept {
-    (void)aTick;
-    if (request)
+void DynDNS::on(TimerManagerListener::Minute, uint64_t) noexcept {
+    ++minutesCounter;
+    if (minutesCounter < 2) {
+        return;
+    }
+    else {
+        minutesCounter = 0;
+    }
+
+    if (request) {
         Request();
+    }
 }
 
 void DynDNS::on(HttpConnectionListener::Data, HttpConnection*, const uint8_t* buf, size_t len) noexcept {
@@ -59,15 +79,15 @@ void DynDNS::on(HttpConnectionListener::Complete, HttpConnection*, string const&
         int start = html.find(":")+2;
         int end = html.find("</body>");
 
-
         if ((start == -1) || (end < start)) {
             internetIP = "";
         } else {
             internetIP = html.substr(start, end - start);
         }
     }
-    else
+    else {
         internetIP = "";
+    }
 
     if (!internetIP.empty()) {
         SettingsManager::getInstance()->set(SettingsManager::INTERNETIP, internetIP);
@@ -82,10 +102,10 @@ void DynDNS::on(HttpConnectionListener::Complete, HttpConnection*, string const&
     request = true;
 }
 
-void DynDNS::on(HttpConnectionListener::Failed, HttpConnection* conn, const string& aLine) noexcept {
-    (void)conn;
-    (void)aLine;
-    Request();
+void DynDNS::on(HttpConnectionListener::Failed, HttpConnection*, const string&) noexcept {
+    if (request) {
+        Request();
+    }
 }
 
 }

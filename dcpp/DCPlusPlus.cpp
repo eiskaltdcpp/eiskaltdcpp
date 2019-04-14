@@ -102,6 +102,7 @@ void startup(void (*f)(void*, const string&), void* p) {
 #ifdef USE_MINIUPNP
     UPnPManager::getInstance()->runMiniUPnP();
 #endif
+    DynDNS::getInstance()->load();
     if (BOOLSETTING(IPFILTER)){
         IPFilter::getInstance()->load();
     }
