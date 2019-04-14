@@ -122,36 +122,11 @@ public:
         typedef Map::iterator MapIter;
 
         struct File {
-            struct StringComp {
-                StringComp(const string& s) : a(s) { }
-                bool operator()(const File& b) const {
-                    if (BOOLSETTING(CASESENSITIVE_FILELIST))
-                        return strcmp(a.c_str(), b.getName().c_str()) == 0;
-                    else
-                        return Util::stricmp(a, b.getName()) == 0;
-                }
-
-                const string& a;
-            private:
-                StringComp& operator=(const StringComp&);
-            };
-            struct FileLess {
-                bool operator()(const File& a, const File& b) const {
-                    if (BOOLSETTING(CASESENSITIVE_FILELIST))
-                        return (strcmp(a.getName().c_str(), b.getName().c_str()) < 0);
-                    else
-                        return (Util::stricmp(a.getName(), b.getName()) < 0);
-                }
-            };
-            typedef set<File, FileLess> Set;
-
             File() : size(0), parent(0) { }
             File(const string& aName, int64_t aSize, const Directory::Ptr& aParent, const TTHValue& aRoot) :
                 name(aName), tth(aRoot), size(aSize), parent(aParent.get()) { }
             File(const File& rhs) :
                 name(rhs.getName()), tth(rhs.getTTH()), size(rhs.getSize()), parent(rhs.getParent()) { }
-
-            ~File() { }
 
             File& operator=(const File& rhs) {
                 name = rhs.name; size = rhs.size; parent = rhs.parent; tth = rhs.tth;
@@ -165,6 +140,32 @@ public:
                     return getParent() == rhs.getParent() && (Util::stricmp(getName(), rhs.getName()) == 0);
             }
 
+            struct StringComp {
+                StringComp(const string& s) : a(s) { }
+                bool operator()(const File& b) const {
+                    if (BOOLSETTING(CASESENSITIVE_FILELIST))
+                        return strcmp(a.c_str(), b.getName().c_str()) == 0;
+                    else
+                        return Util::stricmp(a, b.getName()) == 0;
+                }
+
+                const string& a;
+
+            private:
+                StringComp& operator=(const StringComp&);
+            };
+
+            struct FileLess {
+                bool operator()(const File& a, const File& b) const {
+                    if (BOOLSETTING(CASESENSITIVE_FILELIST))
+                        return (strcmp(a.getName().c_str(), b.getName().c_str()) < 0);
+                    else
+                        return (Util::stricmp(a.getName(), b.getName()) < 0);
+                }
+            };
+
+            typedef set<File, FileLess> Set;
+
             string getADCPath() const { return parent->getADCPath() + name; }
             string getFullName() const { return parent->getFullName() + name; }
             string getRealPath() const { return parent->getRealPath(name); }
@@ -177,7 +178,7 @@ public:
 
         int64_t size;
         Map directories;
-        File::Set files;
+        set<File, File::FileLess> files;
 
         static Ptr create(const string& aName, const Ptr& aParent = Ptr()) { return Ptr(new Directory(aName, aParent)); }
 
@@ -198,7 +199,7 @@ public:
         void toXml(OutputStream& xmlFile, string& indent, string& tmp2, bool fullList) const;
         void filesToXml(OutputStream& xmlFile, string& indent, string& tmp2) const;
 
-        File::Set::const_iterator findFile(const string& aFile) const { return find_if(files.begin(), files.end(), Directory::File::StringComp(aFile)); }
+        auto findFile(const string& aFile) const -> decltype(files.cbegin()) { return find_if(files.begin(), files.end(), Directory::File::StringComp(aFile)); }
 
         void merge(const Ptr& source);
 
@@ -290,7 +291,7 @@ public:
     void rebuildIndices();
 
     void updateIndices(Directory& aDirectory);
-    void updateIndices(Directory& dir, const Directory::File::Set::iterator& i);
+    void updateIndices(Directory& dir, const decltype(std::declval<Directory>().files.begin())& i);
 
     Directory::Ptr merge(const Directory::Ptr& directory);
 

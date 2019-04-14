@@ -302,7 +302,7 @@ namespace dht
             return; // no requested nodes found, don't send empty list
 
         string nodes;
-        StringOutputStream sos(nodes);
+        StringRefOutputStream sos(nodes);
         //sos.write(SimpleXML::utf8Header); // don't write header to save some bytes
         xml.toXML(&sos);
 

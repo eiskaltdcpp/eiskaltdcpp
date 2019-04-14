@@ -436,9 +436,9 @@ void ShareManager::save(SimpleXML& aXml) {
 
     aXml.addTag("Share");
     aXml.stepIn();
-    for(auto i = shares.begin(); i != shares.end(); ++i) {
-        aXml.addTag("Directory", i->first);
-        aXml.addChildAttrib("Virtual", i->second);
+    for(auto& i: shares) {
+        aXml.addTag("Directory", i.first);
+        aXml.addChildAttrib("Virtual", i.second);
     }
     try {
         aXml.stepOut();
@@ -462,15 +462,15 @@ void ShareManager::addDirectory(const string& realPath, const string& virtualNam
     {
         Lock l(cs);
 
-        for(auto i = shares.begin(); i != shares.end(); ++i) {
-            if(Util::strnicmp(realPath, i->first, i->first.length()) == 0) {
+        for(auto& i: shares) {
+            if(Util::strnicmp(realPath, i.first, i.first.length()) == 0) {
                 // Trying to share an already shared directory
                 //throw ShareException(_("Directory already shared"));
-                removeMap.push_front(i->first);
-            } else if(Util::strnicmp(realPath, i->first, realPath.length()) == 0) {
+                removeMap.push_front(i.first);
+            } else if(Util::strnicmp(realPath, i.first, realPath.length()) == 0) {
                 // Trying to share a parent directory
                 //throw ShareException(_("Remove all subdirectories before adding this one"));
-                removeMap.push_front(i->first);
+                removeMap.push_front(i.first);
             }
         }
     }
@@ -481,7 +481,7 @@ void ShareManager::addDirectory(const string& realPath, const string& virtualNam
 
     HashManager::HashPauser pauser;
 
-    Directory::Ptr dp = buildTree(realPath, Directory::Ptr());
+    auto dp = buildTree(realPath, Directory::Ptr());
 
     string vName = validateVirtual(virtualName);
     dp->setName(vName);
@@ -512,8 +512,9 @@ ShareManager::Directory::Ptr ShareManager::merge(const Directory::Ptr& directory
 }
 
 void ShareManager::Directory::merge(const Directory::Ptr& source) {
-    for(auto i = source->directories.begin(); i != source->directories.end(); ++i) {
-        auto subSource = i->second;
+    // merge directories
+    for(auto& i: source->directories) {
+        auto subSource = i.second;
 
         auto ti = directories.find(subSource->getName());
         if(ti == directories.end()) {
@@ -578,7 +579,7 @@ void ShareManager::removeDirectory(const string& realPath) {
     // Readd all directories with the same vName
     for(i = shares.begin(); i != shares.end(); ++i) {
         if(Util::stricmp(i->second, vName) == 0 && checkHidden(i->first)) {
-            Directory::Ptr dp = buildTree(i->first, 0);
+            auto dp = buildTree(i->first, 0);
             dp->setName(i->second);
             merge(dp);
         }
@@ -763,12 +764,12 @@ void ShareManager::rebuildIndices() {
     tthIndex.clear();
     bloom.clear();
 
-    for(auto i = directories.begin(); i != directories.end(); ++i) {
-        updateIndices(**i);
+    for(auto& i: directories) {
+        updateIndices(*i);
     }
 }
 
-void ShareManager::updateIndices(Directory& dir, const Directory::File::Set::iterator& i) {
+void ShareManager::updateIndices(Directory& dir, const decltype(std::declval<Directory>().files.begin())& i) {
     const Directory::File& f = *i;
 
     auto j = tthIndex.find(f.getTTH());
@@ -914,8 +915,8 @@ void ShareManager::generateXmlList() {
 
                 newXmlFile.write(SimpleXML::utf8Header);
                 newXmlFile.write("<FileListing Version=\"1\" CID=\"" + ClientManager::getInstance()->getMe()->getCID().toBase32() + "\" Base=\"/\" Generator=\"" EISKALTDCPP_APPNAME " " EISKALTDCPP_VERSION "\">\r\n");
-                for(auto i = directories.begin(); i != directories.end(); ++i) {
-                    (*i)->toXml(newXmlFile, indent, tmp2, true);
+                for(auto& i: directories) {
+                    i->toXml(newXmlFile, indent, tmp2, true);
                 }
                 newXmlFile.write("</FileListing>");
                 newXmlFile.flush();
@@ -966,14 +967,14 @@ MemoryInputStream* ShareManager::generatePartialList(const string& dir, bool rec
     string xml = SimpleXML::utf8Header;
     string tmp;
     xml += "<FileListing Version=\"1\" CID=\"" + ClientManager::getInstance()->getMe()->getCID().toBase32() + "\" Base=\"" + SimpleXML::escape(dir, tmp, false) + "\" Generator=\"" EISKALTDCPP_APPNAME " " EISKALTDCPP_VERSION "\">\r\n";
-    StringOutputStream sos(xml);
+    StringRefOutputStream sos(xml);
     string indent = "\t";
 
     Lock l(cs);
     if(dir == "/") {
-        for(auto i = directories.begin(); i != directories.end(); ++i) {
+        for(auto& i: directories) {
             tmp.clear();
-            (*i)->toXml(sos, indent, tmp, recurse);
+            i->toXml(sos, indent, tmp, recurse);
         }
     } else {
         string::size_type i = 1, j = 1;
@@ -1028,8 +1029,8 @@ void ShareManager::Directory::toXml(OutputStream& xmlFile, string& indent, strin
         xmlFile.write(LITERAL("\">\r\n"));
 
         indent += '\t';
-        for(auto i = directories.begin(); i != directories.end(); ++i) {
-            i->second->toXml(xmlFile, indent, tmp2, fullList);
+        for(auto& i: directories) {
+            i.second->toXml(xmlFile, indent, tmp2, fullList);
         }
 
         filesToXml(xmlFile, indent, tmp2);
@@ -1452,9 +1453,9 @@ ShareManager::Directory::Ptr ShareManager::getDirectory(const string& fname) {
     for(auto mi = shares.begin(); mi != shares.end(); ++mi) {
         if(Util::strnicmp(fname, mi->first, mi->first.length()) == 0) {
             Directory::Ptr d;
-            for(auto i = directories.begin(); i != directories.end(); ++i) {
-                if(Util::stricmp((*i)->getName(), mi->second) == 0) {
-                    d = *i;
+            for(auto& i: directories) {
+                if(Util::stricmp(i->getName(), mi->second) == 0) {
+                    d = i;
                 }
             }
 
@@ -1481,8 +1482,8 @@ void ShareManager::on(QueueManagerListener::FileMoved, const string& realPath) n
     if(BOOLSETTING(ADD_FINISHED_INSTANTLY)) {
         // Check if finished download is supposed to be shared
         Lock l(cs);
-        for(auto i = shares.begin(); i != shares.end(); ++i) {
-            if(Util::strnicmp(i->first, realPath, i->first.size()) == 0 && realPath[i->first.size() - 1] == PATH_SEPARATOR) {
+        for(auto& i: shares) {
+            if(Util::strnicmp(i.first, realPath, i.first.size()) == 0 && realPath[i.first.size() - 1] == PATH_SEPARATOR) {
                 try {
                     // Schedule for hashing, it'll be added automatically later on...
                     HashManager::getInstance()->checkTTH(realPath, File::getSize(realPath), 0);

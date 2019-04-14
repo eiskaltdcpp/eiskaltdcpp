@@ -76,15 +76,15 @@ string& SimpleXML::escape(string& aString, bool aAttrib, bool aLoading /* = fals
 }
 
 void SimpleXML::Tag::appendAttribString(string& tmp) {
-    for(StringPairIter i = attribs.begin(); i!= attribs.end(); ++i) {
-        tmp.append(i->first);
+    for(auto& i: attribs) {
+        tmp.append(i.first);
         tmp.append("=\"", 2);
-        if(needsEscape(i->second, true)) {
-            string tmp2(i->second);
+        if(needsEscape(i.second, true)) {
+            string tmp2(i.second);
             escape(tmp2, true);
             tmp.append(tmp2);
         } else {
-            tmp.append(i->second);
+            tmp.append(i.second);
         }
         tmp.append("\" ", 2);
     }
@@ -127,8 +127,8 @@ void SimpleXML::Tag::toXML(int indent, OutputStream* f) {
             tmp.append(">\r\n", 3);
             f->write(tmp);
             tmp.clear();
-            for(Iter i = children.begin(); i!=children.end(); ++i) {
-                (*i)->toXML(indent + 1, f);
+            for(auto& i: children) {
+                i->toXML(indent + 1, f);
             }
             tmp.append(indent, '\t');
         }
@@ -199,7 +199,9 @@ void SimpleXML::fromXML(const string& aXML) {
 }
 
 string SimpleXML::toXML() {
-    string tmp; StringOutputStream os(tmp); toXML(&os); return tmp;
+    StringOutputStream os;
+    toXML(&os);
+    return os.getString();
 }
 
 } // namespace dcpp

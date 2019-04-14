@@ -661,7 +661,7 @@ namespace dht
             xml.stepOut();
 
             string nodesXML;
-            StringOutputStream sos(nodesXML);
+            StringRefOutputStream sos(nodesXML);
             //sos.write(SimpleXML::utf8Header);
             xml.toXML(&sos);
 

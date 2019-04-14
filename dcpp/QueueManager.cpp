@@ -1174,7 +1174,7 @@ void QueueManager::setFile(Download* d) {
         }
         d->setFile(new File(target, File::WRITE, File::OPEN | File::TRUNCATE | File::CREATE));
     } else if(d->getType() == Transfer::TYPE_PARTIAL_LIST) {
-        d->setFile(new StringOutputStream(d->getPFS()));
+        d->setFile(new StringRefOutputStream(d->getPFS()));
     } else if(d->getType() == Transfer::TYPE_TREE) {
         d->setFile(new TreeOutputStream(d->getTigerTree()));
     }

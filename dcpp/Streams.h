@@ -164,7 +164,8 @@ public:
             // We must do this in order not to lose bytes when a download
             // is disconnected prematurely
             flush();
-        } catch(const Exception&) { }
+        } catch(const Exception&) {
+        }
         if(managed) delete s;
     }
 
@@ -206,17 +207,38 @@ private:
 
 class StringOutputStream : public OutputStream {
 public:
-    StringOutputStream(string& out) : str(out) { }
+    StringOutputStream() { }
     virtual ~StringOutputStream() { }
     using OutputStream::write;
 
     virtual size_t flush() { return 0; }
     virtual size_t write(const void* buf, size_t len) {
-        str.append((char*)buf, len);
+        str.append(reinterpret_cast<const char*>(buf), len);
         return len;
     }
+
+    string getString() { return move(str); }
+    string& stringRef() { return str; }
+
+private:
+    string str;
+};
+
+class StringRefOutputStream : public OutputStream {
+public:
+    StringRefOutputStream(string& out) : str(out) { }
+    virtual ~StringRefOutputStream() { }
+    using OutputStream::write;
+
+    virtual size_t flush() { return 0; }
+    virtual size_t write(const void* buf, size_t len) {
+        str.append(reinterpret_cast<const char*>(buf), len);
+        return len;
+    }
+
 private:
     string& str;
 };
+
 
 } // namespace dcpp
