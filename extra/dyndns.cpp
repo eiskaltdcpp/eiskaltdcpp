@@ -33,7 +33,11 @@ DynDNS::~DynDNS() {
 
 void DynDNS::Request() {
     if (BOOLSETTING(DYNDNS_ENABLE)) {
-        string tmps = !SETTING(DYNDNS_SERVER).compare(0,7,"http://") ? SETTING(DYNDNS_SERVER) : "http://" + SETTING(DYNDNS_SERVER);
+        string tmps = SETTING(DYNDNS_SERVER);
+        if (!SETTING(DYNDNS_SERVER).compare(0,7,"http://") &&
+                !SETTING(DYNDNS_SERVER).compare(0,8,"https://")) {
+            "http://" + SETTING(DYNDNS_SERVER);
+        }
         httpConnection.downloadFile(tmps);
     }
 }

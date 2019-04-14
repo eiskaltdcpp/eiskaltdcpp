@@ -86,29 +86,29 @@ void startup(void (*f)(void*, const string&), void* p) {
     ADLSearchManager::newInstance();
     ConnectivityManager::newInstance();
     UPnPManager::newInstance();
-    //WindowManager::newInstance();
+    DynDNS::newInstance();
+    DebugManager::newInstance();
+    ipfilter::newInstance();
+#ifdef WITH_DHT
+    dht::DHT::newInstance();
+#endif
 #ifdef LUA_SCRIPT
     ScriptManager::newInstance();
 #endif
-    DebugManager::newInstance();
 
     SettingsManager::getInstance()->load();
+
+    Util::setLang(SETTING(LANGUAGE));
 #ifdef USE_MINIUPNP
     UPnPManager::getInstance()->runMiniUPnP();
 #endif
     if (BOOLSETTING(IPFILTER)){
-        ipfilter::newInstance();
         ipfilter::getInstance()->load();
     }
-    DynDNS::newInstance();
-
-    Util::setLang(SETTING(LANGUAGE));
 
     FavoriteManager::getInstance()->load();
     CryptoManager::getInstance()->loadCertificates();
-#ifdef WITH_DHT
-    dht::DHT::newInstance();
-#endif
+
     if(f != NULL)
         (*f)(p, _("Hash database"));
     HashManager::getInstance()->startup();
