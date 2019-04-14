@@ -18,16 +18,16 @@
 #include "stdinc.h"
 
 #include "UserConnection.h"
-#include "ClientManager.h"
 
-#include "StringTokenizer.h"
 #include "AdcCommand.h"
+#include "ClientManager.h"
+#include "ConnectionManager.h"
+#include "DebugManager.h"
+#include "StringTokenizer.h"
 #include "Transfer.h"
 #ifdef LUA_SCRIPT
 #include "ScriptManager.h"
 #endif
-#include "DebugManager.h"
-#include "ConnectionManager.h"
 
 namespace dcpp {
 
@@ -47,7 +47,7 @@ const string UserConnection::FILE_NOT_AVAILABLE = "File Not Available";
 const string UserConnection::UPLOAD = "Upload";
 const string UserConnection::DOWNLOAD = "Download";
 
-void UserConnection::on(BufferedSocketListener::Line, const string& aLine) throw () {
+void UserConnection::on(BufferedSocketListener::Line, const string& aLine) noexcept {
     if(aLine.length() < 2) {
         fire(UserConnectionListener::ProtocolError(), this, _("Invalid data"));
         return;

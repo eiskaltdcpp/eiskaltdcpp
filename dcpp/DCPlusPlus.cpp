@@ -89,9 +89,6 @@ void startup(void (*f)(void*, const string&), void* p) {
     DynDNS::newInstance();
     DebugManager::newInstance();
     IPFilter::newInstance();
-#ifdef WITH_DHT
-    dht::DHT::newInstance();
-#endif
 #ifdef LUA_SCRIPT
     ScriptManager::newInstance();
 #endif
@@ -109,6 +106,9 @@ void startup(void (*f)(void*, const string&), void* p) {
 
     FavoriteManager::getInstance()->load();
     CryptoManager::getInstance()->loadCertificates();
+#ifdef WITH_DHT
+    dht::DHT::newInstance();
+#endif
 
     if(f != NULL)
         (*f)(p, _("Hash database"));
@@ -147,14 +147,13 @@ void shutdown() {
     UPnPManager::getInstance()->close();
 
     BufferedSocket::waitShutdown();
-    //WindowManager::getInstance()->prepareSave();
     QueueManager::getInstance()->saveQueue(true);
     ClientManager::getInstance()->saveUsers();
-    if (IPFilter::getInstance())
+    if (IPFilter::getInstance()) {
         IPFilter::getInstance()->shutdown();
+    }
     SettingsManager::getInstance()->save();
 
-    //WindowManager::deleteInstance();
     UPnPManager::deleteInstance();
     ConnectivityManager::deleteInstance();
     ADLSearchManager::deleteInstance();

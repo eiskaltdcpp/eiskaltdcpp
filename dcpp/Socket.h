@@ -50,7 +50,8 @@ public:
 #endif // _DEBUG
 
     SocketException(int aError) noexcept;
-    virtual ~SocketException() noexcept { }
+    virtual ~SocketException() throw() { }
+
 private:
     static string errorToString(int aError) noexcept;
 };
@@ -143,21 +144,7 @@ public:
     static uint64_t getTotalDown() { return stats.totalDown; }
     static uint64_t getTotalUp() { return stats.totalUp; }
 
-#ifdef _WIN32
-    void setBlocking(bool block) noexcept {
-        u_long b = block ? 0 : 1;
-        ioctlsocket(sock, FIONBIO, &b);
-    }
-#else
-    void setBlocking(bool block) noexcept {
-        int flags = fcntl(sock, F_GETFL, 0);
-        if(block) {
-            fcntl(sock, F_SETFL, flags & (~O_NONBLOCK));
-        } else {
-            fcntl(sock, F_SETFL, flags | O_NONBLOCK);
-        }
-    }
-#endif
+    void setBlocking(bool block) noexcept;
 
     string getLocalIp() noexcept;
     string getLocalPort() noexcept;
@@ -185,7 +172,9 @@ public:
     string getIfaceI4 (const string &iface);
 
     GETSET(string, ip, Ip);
+
     socket_t sock;
+
 protected:
     int type;
     bool connected;
@@ -205,48 +194,11 @@ private:
     Socket(const Socket&);
     Socket& operator=(const Socket&);
 
-
     void socksAuth(uint32_t timeout);
 
-#ifdef _WIN32
-    static int getLastError() { return ::WSAGetLastError(); }
-    static int checksocket(int ret) {
-        if(ret == SOCKET_ERROR) {
-            throw SocketException(getLastError());
-        }
-        return ret;
-    }
-    static int check(int ret, bool blockOk = false) {
-        if(ret == SOCKET_ERROR) {
-            int error = getLastError();
-            if(blockOk && error == WSAEWOULDBLOCK) {
-                return -1;
-            } else {
-                throw SocketException(error);
-            }
-        }
-        return ret;
-    }
-#else
-    static int getLastError() { return errno; }
-    static int checksocket(int ret) {
-        if(ret < 0) {
-            throw SocketException(getLastError());
-        }
-        return ret;
-    }
-    static int check(int ret, bool blockOk = false) {
-        if(ret == -1) {
-            int error = getLastError();
-            if(blockOk && (error == EWOULDBLOCK || error == ENOBUFS || error == EINPROGRESS || error == EAGAIN) ) {
-                return -1;
-            } else {
-                throw SocketException(error);
-            }
-        }
-        return ret;
-    }
-#endif
+    static int getLastError();
+    static int checksocket(int ret);
+    static int check(int ret, bool blockOk = false);
 
 };
 

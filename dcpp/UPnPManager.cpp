@@ -150,6 +150,7 @@ void UPnPManager::close(UPnP& impl) {
 void UPnPManager::log(const string& message) {
     ConnectivityManager::getInstance()->log(str(F_("UPnP: %1%") % message));
 }
+
 #ifdef USE_MINIUPNP
 void UPnPManager::runMiniUPnP() {
     addImplementation(new UPnPc());

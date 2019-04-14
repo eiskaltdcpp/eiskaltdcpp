@@ -523,7 +523,9 @@ void NmdcHub::onLine(const string& aLine) noexcept {
             bool secure = CryptoManager::getInstance()->TLSOk() && u->getUser()->isSet(User::TLS);
             // NMDC v2.205 supports "$ConnectToMe sender_nick remote_nick ip:port", but many NMDC hubsofts block it
             // sender_nick at the end should work at least in most used hubsofts
-            send("$ConnectToMe " + fromUtf8(u->getIdentity().getNick()) + " " + getLocalIp() + ":" + sock->getLocalPort() + (secure ? "NS " : "N ") + fromUtf8(getMyNick()) + "|");
+            send("$ConnectToMe " + fromUtf8(u->getIdentity().getNick()) + " " +
+                 getLocalIp() + ":" + sock->getLocalPort() +
+                 (secure ? "NS " : "N ") + fromUtf8(getMyNick()) + "|");
         } else {
             if(!u->getUser()->isSet(User::PASSIVE)) {
                 u->getUser()->setFlag(User::PASSIVE);

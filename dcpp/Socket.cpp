@@ -336,6 +336,54 @@ void Socket::socksAuth(uint32_t timeout) {
     }
 }
 
+#ifdef _WIN32
+int Socket::getLastError() {
+    return ::WSAGetLastError();
+}
+
+int Socket::checksocket(int ret) {
+    if(ret == SOCKET_ERROR) {
+        throw SocketException(getLastError());
+    }
+    return ret;
+}
+
+int Socket::check(int ret, bool blockOk) {
+    if(ret == SOCKET_ERROR) {
+        int error = getLastError();
+        if(blockOk && error == WSAEWOULDBLOCK) {
+            return -1;
+        } else {
+            throw SocketException(error);
+        }
+    }
+    return ret;
+}
+#else
+int Socket::getLastError() {
+    return errno;
+}
+
+int Socket::checksocket(int ret) {
+    if(ret < 0) {
+        throw SocketException(getLastError());
+    }
+    return ret;
+}
+
+int Socket::check(int ret, bool blockOk) {
+    if(ret == -1) {
+        int error = getLastError();
+        if(blockOk && (error == EWOULDBLOCK || error == ENOBUFS || error == EINPROGRESS || error == EAGAIN) ) {
+            return -1;
+        } else {
+            throw SocketException(error);
+        }
+    }
+    return ret;
+}
+#endif
+
 int Socket::getSocketOptInt(int option) {
     int val;
     socklen_t len = sizeof(val);
@@ -648,6 +696,22 @@ string Socket::resolve(const string& aDns) {
     return address;
 #endif
 }
+
+#ifdef _WIN32
+void Socket::setBlocking(bool block) noexcept {
+    u_long b = block ? 0 : 1;
+    ioctlsocket(sock, FIONBIO, &b);
+}
+#else
+void Socket::setBlocking(bool block) noexcept {
+    int flags = fcntl(sock, F_GETFL, 0);
+    if(block) {
+        fcntl(sock, F_SETFL, flags & (~O_NONBLOCK));
+    } else {
+        fcntl(sock, F_SETFL, flags | O_NONBLOCK);
+    }
+}
+#endif
 
 string Socket::getLocalIp() noexcept {
     if(sock == INVALID_SOCKET)

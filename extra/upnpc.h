@@ -32,6 +32,7 @@ class UPnPc :
 {
     public:
         UPnPc() {}
+
     private:
         bool init();
 
