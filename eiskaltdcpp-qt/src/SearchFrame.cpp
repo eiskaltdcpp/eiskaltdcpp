@@ -1570,7 +1570,7 @@ void SearchFrame::slotTimer(){
 #else
         const QString msg = tr("Search progress of \"%1\" is %2\%")
                 .arg(d->target)
-                .arg(QString::number(fraction));
+                .arg(QString::number(fraction, 'f', 1));
         progressIndicator->setText(msg);
 #endif
     }
