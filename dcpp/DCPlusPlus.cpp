@@ -88,7 +88,7 @@ void startup(void (*f)(void*, const string&), void* p) {
     UPnPManager::newInstance();
     DynDNS::newInstance();
     DebugManager::newInstance();
-    ipfilter::newInstance();
+    IPFilter::newInstance();
 #ifdef WITH_DHT
     dht::DHT::newInstance();
 #endif
@@ -103,7 +103,7 @@ void startup(void (*f)(void*, const string&), void* p) {
     UPnPManager::getInstance()->runMiniUPnP();
 #endif
     if (BOOLSETTING(IPFILTER)){
-        ipfilter::getInstance()->load();
+        IPFilter::getInstance()->load();
     }
 
     FavoriteManager::getInstance()->load();
@@ -149,8 +149,8 @@ void shutdown() {
     //WindowManager::getInstance()->prepareSave();
     QueueManager::getInstance()->saveQueue(true);
     ClientManager::getInstance()->saveUsers();
-    if (ipfilter::getInstance())
-        ipfilter::getInstance()->shutdown();
+    if (IPFilter::getInstance())
+        IPFilter::getInstance()->shutdown();
     SettingsManager::getInstance()->save();
 
     //WindowManager::deleteInstance();

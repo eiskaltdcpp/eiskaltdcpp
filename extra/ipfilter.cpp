@@ -30,21 +30,21 @@ inline static uint32_t make_ip(unsigned int a, unsigned int b, unsigned int c, u
     return ((a << 24) | (b << 16) | (c << 8) | d);
 }
 
-ipfilter::ipfilter() {
+IPFilter::IPFilter() {
 }
 
-ipfilter::~ipfilter() {
+IPFilter::~IPFilter() {
     clearRules();
 }
 
-uint32_t ipfilter::StringToUint32(const string& ip){
+uint32_t IPFilter::StringToUint32(const string& ip){
     unsigned int ip1=0,ip2=0,ip3=0,ip4=0;
     if (sscanf(ip.c_str(),"%3u.%3u.%3u.%3u",&ip1,&ip2,&ip3,&ip4) != 4 || ip1 > 255 || ip2 > 255 || ip3 > 255 || ip4 > 255)
         return 0;
     return make_ip(ip1,ip2,ip3,ip4);
 }
 
-string ipfilter::Uint32ToString(uint32_t ip){
+string IPFilter::Uint32ToString(uint32_t ip){
     string ret;
     unsigned int ip1,ip2,ip3,ip4;
     ip1 = (ip & 0xFF000000) >> 24;
@@ -57,7 +57,7 @@ string ipfilter::Uint32ToString(uint32_t ip){
     return ret;
 }
 
-uint32_t ipfilter::MaskToCIDR(uint32_t mask){
+uint32_t IPFilter::MaskToCIDR(uint32_t mask){
 #ifdef _DEBUG_IPFILTER
     fprintf(stdout,"ipfilter::MaskToCIDR(%x)\n", mask);fflush(stdout);
 #endif
@@ -77,7 +77,7 @@ uint32_t ipfilter::MaskToCIDR(uint32_t mask){
     return j;
 }
 
-uint32_t ipfilter::MaskForBits(uint32_t bits){
+uint32_t IPFilter::MaskForBits(uint32_t bits){
     bits = 32 - (bits > 32?32:bits);
 
     uint32_t mask = 0xFFFFFFFF;
@@ -89,7 +89,7 @@ uint32_t ipfilter::MaskForBits(uint32_t bits){
     return mask;
 }
 
-bool ipfilter::ParseString(string exp, uint32_t &ip, uint32_t &mask, eTableAction &act){
+bool IPFilter::ParseString(string exp, uint32_t &ip, uint32_t &mask, eTableAction &act){
     if (exp.empty())
         return false;
 
@@ -140,7 +140,7 @@ bool ipfilter::ParseString(string exp, uint32_t &ip, uint32_t &mask, eTableActio
     return true;
 }
 
-bool ipfilter::addToRules(const std::string &exp, eDIRECTION direction) {
+bool IPFilter::addToRules(const std::string &exp, eDIRECTION direction) {
     uint32_t exp_ip, exp_mask;
     eTableAction act;
 
@@ -197,7 +197,7 @@ bool ipfilter::addToRules(const std::string &exp, eDIRECTION direction) {
     return true;
 }
 
-void ipfilter::remFromRules(string exp, eTableAction act) {
+void IPFilter::remFromRules(string exp, eTableAction act) {
 
     string str_ip;
     uint32_t exp_ip;
@@ -215,7 +215,7 @@ void ipfilter::remFromRules(string exp, eTableAction act) {
 #ifdef _DEBUG_IPFILTER
     printf("remove: str_ip - %s\n", str_ip.c_str());
 #endif
-    exp_ip = ipfilter::StringToUint32(str_ip);
+    exp_ip = IPFilter::StringToUint32(str_ip);
     IPHash::iterator it = list_ip.find(exp_ip);
 
     if (it != list_ip.end() && it->first == exp_ip){
@@ -247,7 +247,7 @@ void ipfilter::remFromRules(string exp, eTableAction act) {
     }
 }
 
-void ipfilter::changeRuleDirection(string exp, eDIRECTION direction, eTableAction act) {
+void IPFilter::changeRuleDirection(string exp, eDIRECTION direction, eTableAction act) {
     string str_ip;
     size_t pos = exp.find("/");
 #ifdef _DEBUG_IPFILTER
@@ -258,7 +258,7 @@ void ipfilter::changeRuleDirection(string exp, eDIRECTION direction, eTableActio
     else
         str_ip = exp;
 
-    uint32_t exp_ip = ipfilter::StringToUint32(str_ip);
+    uint32_t exp_ip = IPFilter::StringToUint32(str_ip);
     IPHash::const_iterator it = list_ip.find(exp_ip);
 
     if (it != list_ip.end() && it->first == exp_ip) {
@@ -270,7 +270,7 @@ void ipfilter::changeRuleDirection(string exp, eDIRECTION direction, eTableActio
     }
 }
 
-bool ipfilter::OK(const string &exp, eDIRECTION direction){
+bool IPFilter::OK(const string &exp, eDIRECTION direction){
 #ifdef _DEBUG_IPFILTER
     fprintf(stdout,"ipfilter::OK(%s,%i)\n",exp.c_str(),(int)direction);fflush(stdout);
 #endif
@@ -281,7 +281,7 @@ bool ipfilter::OK(const string &exp, eDIRECTION direction){
         //XXX.XXX.XXX.XXX:PORT -> XXX.XXX.XXX.XXX
     }
 
-    uint32_t src = ipfilter::StringToUint32(str_src);
+    uint32_t src = IPFilter::StringToUint32(str_src);
     IPFilterElem *el;
 
     for (unsigned i = 0; i < rules.size(); i++){
@@ -322,7 +322,7 @@ bool ipfilter::OK(const string &exp, eDIRECTION direction){
     return true;
 }
 
-void ipfilter::step(uint32_t ip, eTableAction act, bool down){
+void IPFilter::step(uint32_t ip, eTableAction act, bool down){
     IPFilterElem *el = NULL;
 
     IPHash::const_iterator it = list_ip.find(ip);
@@ -400,15 +400,15 @@ void ipfilter::step(uint32_t ip, eTableAction act, bool down){
 
 }
 
-void ipfilter::moveRuleUp(uint32_t ip, eTableAction act){
+void IPFilter::moveRuleUp(uint32_t ip, eTableAction act){
     step(ip, act, false);
 }
 
-void ipfilter::moveRuleDown(uint32_t ip, eTableAction act){
+void IPFilter::moveRuleDown(uint32_t ip, eTableAction act){
     step(ip, act, true);
 }
 
-void ipfilter::loadList() {
+void IPFilter::loadList() {
     if (!Util::fileExists(Util::getPath(Util::PATH_USER_CONFIG) + "ipfilter"))
         return;
     File file(Util::getPath(Util::PATH_USER_CONFIG) + "ipfilter", File::READ, File::OPEN);
@@ -448,7 +448,7 @@ void ipfilter::loadList() {
 
 }
 
-void ipfilter::saveList(){
+void IPFilter::saveList(){
     string file= Util::getPath(Util::PATH_USER_CONFIG) + "ipfilter";
     File f(file, File::WRITE, File::CREATE | File::TRUNCATE);
     f.write(signature+"\n");
@@ -469,7 +469,7 @@ void ipfilter::saveList(){
     f.close();
 }
 
-void ipfilter::exportTo(string path, string& error) {
+void IPFilter::exportTo(string path, string& error) {
     string file = Util::getPath(Util::PATH_USER_CONFIG) + "ipfilter";
     saveList();
     if (!Util::fileExists(path)) {
@@ -488,7 +488,7 @@ void ipfilter::exportTo(string path, string& error) {
     return;
 }
 
-void ipfilter::importFrom(string path, string& error) {
+void IPFilter::importFrom(string path, string& error) {
     if (!Util::fileExists(path)) {
         error = "Nothing to export.";
         fprintf(stdout,"Nothing to export.");fflush(stdout);
@@ -514,31 +514,31 @@ void ipfilter::importFrom(string path, string& error) {
     }
 }
 
-const IPList &ipfilter::getRules() {
+const IPList &IPFilter::getRules() {
     return rules;
 }
 
-const IPHash &ipfilter::getHash() {
+const IPHash &IPFilter::getHash() {
     return list_ip;
 }
 
-void ipfilter::clearRules() {
+void IPFilter::clearRules() {
     list_ip.clear();
     rules.clear();
 }
 
-void ipfilter::load() {
-    if (ipfilter::getInstance())
-        ipfilter::loadList();
+void IPFilter::load() {
+    if (IPFilter::getInstance())
+        IPFilter::loadList();
     else {
-        ipfilter::newInstance();
-        ipfilter::loadList();
+        IPFilter::newInstance();
+        IPFilter::loadList();
     }
 }
 
-void ipfilter::shutdown() {
-    if (ipfilter::getInstance()) {
-        ipfilter::saveList();
-        ipfilter::deleteInstance();
+void IPFilter::shutdown() {
+    if (IPFilter::getInstance()) {
+        IPFilter::saveList();
+        IPFilter::deleteInstance();
     }
 }

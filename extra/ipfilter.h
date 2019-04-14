@@ -36,10 +36,10 @@ typedef struct _IPFilterElem {
 typedef std::unordered_map<uint32_t, IPFilterElem*> IPHash;
 typedef std::vector<IPFilterElem*> IPList;
 
-class ipfilter :
-        public dcpp::Singleton<ipfilter>
+class IPFilter :
+        public dcpp::Singleton<IPFilter>
 {
-    friend class dcpp::Singleton<ipfilter>;
+    friend class dcpp::Singleton<IPFilter>;
 
 public:
     static uint32_t StringToUint32(const std::string&);
@@ -72,8 +72,8 @@ public:
     void step(uint32_t, eTableAction, bool down = true);
 
 private:
-    ipfilter();
-    virtual ~ipfilter();
+    IPFilter();
+    virtual ~IPFilter();
 
 
     IPHash list_ip;

@@ -233,7 +233,7 @@ int ServerThread::run() {
     return 0;
 }
 
-bool ServerThread::disconnect_all() {
+bool ServerThread::disconnectAll() {
     for (const auto& client : clientsMap) {
         if (clientsMap[client.first].curclient)
             disconnectClient(client.first);
@@ -259,7 +259,7 @@ void ServerThread::Close() {
 #endif
 
     ConnectionManager::getInstance()->disconnect();
-    disconnect_all();
+    disconnectAll();
 }
 
 void ServerThread::WaitFor() {
@@ -1428,12 +1428,12 @@ bool ServerThread::settingsGetSet(string& out, const string& param, const string
     return b;
 }
 
-void ServerThread::ipfilterList(string& out, const string& separator)
+void ServerThread::ipFilterList(string& out, const string& separator)
 {
-    if (!ipfilter::getInstance())
+    if (!IPFilter::getInstance())
         return;
     string sep = separator.empty()? ";" : separator;
-    IPList list = ipfilter::getInstance()->getRules();
+    IPList list = IPFilter::getInstance()->getRules();
     for (unsigned int i = 0; i < list.size(); ++i) {
 
         IPFilterElem *el = list.at(i);
@@ -1452,38 +1452,38 @@ void ServerThread::ipfilterList(string& out, const string& separator)
             default:
                 break;
         }
-        out+=prefix+string(ipfilter::Uint32ToString(el->ip)) + "/" + Util::toString(ipfilter::MaskToCIDR(el->mask))+ "|" + type + sep;
+        out+=prefix+string(IPFilter::Uint32ToString(el->ip)) + "/" + Util::toString(IPFilter::MaskToCIDR(el->mask))+ "|" + type + sep;
     }
 }
 
-void ServerThread::ipfilterOnOff(bool on)
+void ServerThread::ipFilterOnOff(bool on)
 {
     if (on) {
-        ipfilter::newInstance();
-        ipfilter::getInstance()->load();
+        IPFilter::newInstance();
+        IPFilter::getInstance()->load();
         SettingsManager::getInstance()->set(SettingsManager::IPFILTER, 1);
     } else {
-        if (!ipfilter::getInstance())
+        if (!IPFilter::getInstance())
             return;
-        ipfilter::getInstance()->shutdown();
+        IPFilter::getInstance()->shutdown();
         SettingsManager::getInstance()->set(SettingsManager::IPFILTER, 0);
     }
 }
 
-void ServerThread::ipfilterPurgeRules(const string& rules) {
-    if (!ipfilter::getInstance())
+void ServerThread::ipFilterPurgeRules(const string& rules) {
+    if (!IPFilter::getInstance())
         return;
     StringTokenizer<string> purge( rules, ";" );
     for(const auto &token : purge.getTokens()) {
         if (!token.find("!"))
-            ipfilter::getInstance()->remFromRules(token, etaDROP);
+            IPFilter::getInstance()->remFromRules(token, etaDROP);
         else
-            ipfilter::getInstance()->remFromRules(token, etaACPT);
+            IPFilter::getInstance()->remFromRules(token, etaACPT);
     }
 }
 
-void ServerThread::ipfilterAddRules(const string& rules) {
-    if (!ipfilter::getInstance())
+void ServerThread::ipFilterAddRules(const string& rules) {
+    if (!IPFilter::getInstance())
         return;
     StringTokenizer<string> add( rules, ";" );
     for(const auto &token : add.getTokens())
@@ -1492,27 +1492,27 @@ void ServerThread::ipfilterAddRules(const string& rules) {
         if (addsub.getTokens().size() == 0)
             return;
         if (addsub.getTokens().at(1) == "in")
-            ipfilter::getInstance()->addToRules(addsub.getTokens().at(0), eDIRECTION_IN);
+            IPFilter::getInstance()->addToRules(addsub.getTokens().at(0), eDIRECTION_IN);
         else if (addsub.getTokens().at(1) == "out")
-            ipfilter::getInstance()->addToRules(addsub.getTokens().at(0), eDIRECTION_OUT);
+            IPFilter::getInstance()->addToRules(addsub.getTokens().at(0), eDIRECTION_OUT);
         else
-            ipfilter::getInstance()->addToRules(addsub.getTokens().at(0), eDIRECTION_BOTH);
+            IPFilter::getInstance()->addToRules(addsub.getTokens().at(0), eDIRECTION_BOTH);
     }
 }
 
-void ServerThread::ipfilterUpDownRule(bool up, const string& rule) {
+void ServerThread::ipFilterUpDownRule(bool up, const string& rule) {
     if (up){
-        if (!ipfilter::getInstance())
+        if (!IPFilter::getInstance())
             return;
         uint32_t ip,mask; eTableAction act;
-        if (ipfilter::getInstance()->ParseString(rule, ip, mask, act))
-            ipfilter::getInstance()->moveRuleUp(ip, act);
+        if (IPFilter::getInstance()->ParseString(rule, ip, mask, act))
+            IPFilter::getInstance()->moveRuleUp(ip, act);
     } else {
-        if (!ipfilter::getInstance())
+        if (!IPFilter::getInstance())
             return;
         uint32_t ip,mask; eTableAction act;
-        if (ipfilter::getInstance()->ParseString(rule, ip, mask, act))
-            ipfilter::getInstance()->moveRuleDown(ip, act);
+        if (IPFilter::getInstance()->ParseString(rule, ip, mask, act))
+            IPFilter::getInstance()->moveRuleDown(ip, act);
     }
 }
 

@@ -252,9 +252,9 @@ MainWindow::MainWindow (QWidget *parent):
     }
 
     if (WBGET(WB_IPFILTER_ENABLED)){
-        ipfilter::newInstance();
+        IPFilter::newInstance();
 
-        ipfilter::getInstance()->loadList();
+        IPFilter::getInstance()->loadList();
     }
 
     ShortcutManager::newInstance();
@@ -862,7 +862,7 @@ void MainWindow::initActions(){
         d->toolsIPFilter->setObjectName("toolsIPFilter");
         d->toolsIPFilter->setIcon(WU->getPixmap(WulforUtil::eiFILTER));
         d->toolsIPFilter->setCheckable(true);
-        d->toolsIPFilter->setChecked(ipfilter::getInstance() != NULL);
+        d->toolsIPFilter->setChecked(IPFilter::getInstance() != NULL);
         connect(d->toolsIPFilter, SIGNAL(triggered()), this, SLOT(slotToolsIPFilter()));
 
         d->toolsAwayOn = new QAction("", this);
@@ -2297,7 +2297,7 @@ void MainWindow::slotToolsIPFilter(){
 
     Q_D(MainWindow);
 
-    d->toolsIPFilter->setChecked(ipfilter::getInstance() != NULL);
+    d->toolsIPFilter->setChecked(IPFilter::getInstance() != NULL);
 }
 
 void MainWindow::slotToolsAutoAway(){

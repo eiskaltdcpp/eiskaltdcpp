@@ -257,9 +257,9 @@ int main(int argc, char *argv[])
 
     dcpp::shutdown();
 
-    if (ipfilter::getInstance()){
-        ipfilter::getInstance()->saveList();
-        ipfilter::deleteInstance();
+    if (IPFilter::getInstance()){
+        IPFilter::getInstance()->saveList();
+        IPFilter::deleteInstance();
     }
 
     std::cout << QObject::tr("Quit...").toStdString() << std::endl;
