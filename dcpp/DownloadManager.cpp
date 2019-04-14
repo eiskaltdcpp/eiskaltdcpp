@@ -168,8 +168,6 @@ bool DownloadManager::startDownload(QueueItem::Priority prio) {
 }
 
 void DownloadManager::checkDownloads(UserConnection* aConn) {
-    dcassert(aConn->getDownload() == NULL);
-
     QueueItem::Priority prio = QueueManager::getInstance()->hasDownload(aConn->getUser());
     if(!startDownload(prio)) {
         removeConnection(aConn);

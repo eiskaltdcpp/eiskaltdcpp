@@ -475,7 +475,6 @@ void ConnectionManager::on(UserConnectionListener::MyNick, UserConnection* aSour
 
     dcassert(!aNick.empty());
     dcdebug("ConnectionManager::onMyNick %p, %s\n", (void*)aSource, aNick.c_str());
-    dcassert(!aSource->getUser());
 
     if(aSource->isSet(UserConnection::FLAG_INCOMING)) {
         // Try to guess where this came from...
@@ -653,8 +652,6 @@ void ConnectionManager::on(UserConnectionListener::Key, UserConnection* aSource,
         return;
     }
 
-    dcassert(aSource->getUser());
-
     if(aSource->isSet(UserConnection::FLAG_DOWNLOAD)) {
         addDownloadConnection(aSource);
     } else {
@@ -749,8 +746,6 @@ void ConnectionManager::force(const UserPtr& aUser) {
 }
 
 bool ConnectionManager::checkKeyprint(UserConnection *aSource) {
-    dcassert(aSource->getUser());
-
     auto kp = aSource->getKeyprint();
     if(kp.empty()) {
         return true;

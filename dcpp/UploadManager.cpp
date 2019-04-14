@@ -561,7 +561,6 @@ void UploadManager::addConnection(UserConnectionPtr conn) {
 }
 
 void UploadManager::removeConnection(UserConnection* aSource) {
-    dcassert(aSource->getUpload() == NULL);
     aSource->removeListener(this);
     if(aSource->isSet(UserConnection::FLAG_HASSLOT)) {
         running--;

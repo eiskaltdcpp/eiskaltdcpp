@@ -265,7 +265,6 @@ void QueueManager::UserQueue::addDownload(QueueItem* qi, Download* d) {
     qi->getDownloads().push_back(d);
 
     // Only one download per user...
-    dcassert(running.find(d->getUser()) == running.end());
     running[d->getUser()] = qi;
 }
 
@@ -1442,7 +1441,6 @@ void QueueManager::remove(const string& aTarget) noexcept {
             return;
 
         if(q->isSet(QueueItem::FLAG_DIRECTORY_DOWNLOAD)) {
-            dcassert(q->getSources().size() == 1);
             auto dp = directories.equal_range(q->getSources()[0].getUser());
             for(auto i = dp.first; i != dp.second; ++i) {
                 delete i->second;
