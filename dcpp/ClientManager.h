@@ -19,11 +19,11 @@
 
 #include "Client.h"
 #include "ClientManagerListener.h"
-#include "Singleton.h"
+#include "OnlineUser.h"
 #include "SettingsManager.h"
+#include "Singleton.h"
 #include "Socket.h"
 #include "TimerManager.h"
-#include "User.h"
 
 namespace dcpp {
 

@@ -17,15 +17,15 @@
 
 #pragma once
 
+#include "Atomic.h"
+#include "BufferedSocketListener.h"
+#include "ClientListener.h"
 #include "compiler.h"
 #include "forward.h"
-#include "User.h"
-#include "Speaker.h"
-#include "BufferedSocketListener.h"
-#include "TimerManager.h"
-#include "ClientListener.h"
-#include "Atomic.h"
+#include "OnlineUser.h"
 #include "SearchQueue.h"
+#include "Speaker.h"
+#include "TimerManager.h"
 
 #ifdef LUA_SCRIPT
 #include "ScriptManager.h"
