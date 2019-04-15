@@ -47,6 +47,13 @@ public:\
         virtual ~name() throw() { } \
 }
 
+#define EXTEND_EXCEPTION(name, parent) class name : public parent { \
+    public:\
+    name() : parent(#name) { } \
+    name(const string& aError) : parent(#name ": " + aError) { } \
+    virtual ~name() throw() { } \
+}
+
 #else // _DEBUG
 
 #define STANDARD_EXCEPTION(name) class name : public Exception { \
@@ -55,6 +62,14 @@ public:\
         name(const string& aError) : Exception(aError) { } \
         virtual ~name() throw() { } \
 }
+
+#define EXTEND_EXCEPTION(name, parent) class name : public parent { \
+    public:\
+    name() : parent() { } \
+    name(const string& aError) : parent(aError) { } \
+    virtual ~name() throw() { } \
+}
+
 #endif
 
 } // namespace dcpp
