@@ -101,7 +101,7 @@ public:
         hits += aHits;
     }
 
-    string getOwnListFile() {
+    const string getOwnListFile() {
         generateXmlList();
         return getBZXmlFile();
     }
@@ -111,10 +111,12 @@ public:
         return tthIndex.find(tth) != tthIndex.end();
     }
     void publish();
-    GETSET(uint32_t, hits, Hits)
-    GETSET(string, bzXmlFile, BZXmlFile)
-    private:
-        struct AdcSearch;
+
+    GETSET(uint32_t, hits, Hits);
+    GETSET(string, bzXmlFile, BZXmlFile);
+
+private:
+    struct AdcSearch;
     class Directory : public FastAlloc<Directory>, public intrusive_ptr_base<Directory>, private NonCopyable {
     public:
         typedef boost::intrusive_ptr<Directory> Ptr;

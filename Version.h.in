@@ -11,8 +11,8 @@
 
 #include <string>
 
-#define EISKALTDCPP_VERSION "@VERSION_BASE@"
-#define EISKALTDCPP_APPNAME "@PROJECT_NAME@"
+#define VERSIONSTRING "@VERSION_BASE@"
+#define APPNAME "@PROJECT_NAME@"
 #define DCPP_VERSION "0.785"
 
 const std::string eiskaltdcppVersionString("@VERSION@");

@@ -176,8 +176,8 @@ void ListLoader::startTag(const string& name, StringPairList& attribs, bool simp
 
             if(updating) {
                 // just update the current file if it is already there.
-                for(auto i = cur->files.cbegin(), iend = cur->files.cend(); i != iend; ++i) {
-                    auto& file = **i;
+                for(auto& i : cur->files) {
+                    auto& file = *i;
                     /// @todo comparisons should be case-insensitive but it takes too long - add a cache
                     if(file.getTTH() == tth || file.getName() == n) {
                         file.setName(n);
@@ -219,10 +219,10 @@ void ListLoader::startTag(const string& name, StringPairList& attribs, bool simp
             bool incomp = getAttrib(attribs, sIncomplete, 1) == "1";
             DirectoryListing::Directory* d = NULL;
             if(updating) {
-                for(auto i = cur->directories.begin(); i != cur->directories.end(); ++i) {
+                for(auto& i : cur->directories) {
                     /// @todo comparisons should be case-insensitive but it takes too long - add a cache
-                    if((*i)->getName() == n) {
-                        d = *i;
+                    if(i->getName() == n) {
+                        d = i;
                         if(!d->getComplete())
                             d->setComplete(!incomp);
                         break;

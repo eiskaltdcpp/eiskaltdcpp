@@ -154,9 +154,9 @@ void HttpConnection::on(BufferedSocketListener::Connected) noexcept {
     if (sRemoteServer == "strongdc.sourceforge.net")
         socket->write("User-Agent: StrongDC++ v2.42\r\n");
     else
-        socket->write("User-Agent: " EISKALTDCPP_APPNAME " v" EISKALTDCPP_VERSION "\r\n");
+        socket->write("User-Agent: " APPNAME " v" VERSIONSTRING "\r\n");
 #else
-    socket->write("User-Agent: " EISKALTDCPP_APPNAME " v" EISKALTDCPP_VERSION "\r\n");
+    socket->write("User-Agent: " APPNAME " v" VERSIONSTRING "\r\n");
 #endif
 
     socket->write("Host: " + sRemoteServer + "\r\n");

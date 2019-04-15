@@ -82,22 +82,22 @@ int UPnPManager::run() {
             continue;
         }
 
-        if(!conn_port.empty() && !impl.open(conn_port, UPnP::PROTOCOL_TCP, str(F_(EISKALTDCPP_APPNAME " Transfer Port (%1% TCP)") % conn_port))){
+        if(!conn_port.empty() && !impl.open(conn_port, UPnP::PROTOCOL_TCP, str(F_(APPNAME " Transfer Port (%1% TCP)") % conn_port))){
             log(str(F_("The %1% interface has failed to map the %2% %3% port") % impl.getName() % "TCP" % conn_port));
             continue;
         }
 
-        if(!secure_port.empty() && !impl.open(secure_port, UPnP::PROTOCOL_TCP, str(F_(EISKALTDCPP_APPNAME " Encrypted Transfer Port (%1% TCP)") % secure_port))){
+        if(!secure_port.empty() && !impl.open(secure_port, UPnP::PROTOCOL_TCP, str(F_(APPNAME " Encrypted Transfer Port (%1% TCP)") % secure_port))){
             log(str(F_("The %1% interface has failed to map the %2% %3% port") % impl.getName() % "TLS" % secure_port));
             continue;
         }
 
-        if(!search_port.empty() && !impl.open(search_port, UPnP::PROTOCOL_UDP, str(F_(EISKALTDCPP_APPNAME " Search Port (%1% UDP)") % search_port))){
+        if(!search_port.empty() && !impl.open(search_port, UPnP::PROTOCOL_UDP, str(F_(APPNAME " Search Port (%1% UDP)") % search_port))){
             log(str(F_("The %1% interface has failed to map the %2% %3% port") % impl.getName() % "UDP" % search_port));
             continue;
         }
 #ifdef WITH_DHT
-        if(!dht_port.empty() && !impl.open(dht_port, UPnP::PROTOCOL_UDP, str(F_(EISKALTDCPP_APPNAME " DHT Port (%1% UDP)") % dht_port))){
+        if(!dht_port.empty() && !impl.open(dht_port, UPnP::PROTOCOL_UDP, str(F_(APPNAME " DHT Port (%1% UDP)") % dht_port))){
             log(str(F_("The %1% interface has failed to map the %2% %3% port") % impl.getName() % "UDP" % dht_port));
             continue;
         }

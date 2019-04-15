@@ -50,7 +50,7 @@ CryptoManager::CryptoManager()
     :
       certsLoaded(false),
       lock("EXTENDEDPROTOCOLABCABCABCABCABCABC"),
-      pk("DCPLUSPLUS" EISKALTDCPP_VERSION)
+      pk("DCPLUSPLUS" VERSIONSTRING)
 {
     SSL_library_init();
 

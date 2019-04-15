@@ -685,7 +685,7 @@ map<string, string> Util::decodeQuery(const string& query) {
 }
 
 string Util::getAwayMessage() {
-    return (formatTime(awayMsg.empty() ? SETTING(DEFAULT_AWAY_MESSAGE) : awayMsg, awayTime)) + " <" EISKALTDCPP_APPNAME " v" EISKALTDCPP_VERSION ">";
+    return (formatTime(awayMsg.empty() ? SETTING(DEFAULT_AWAY_MESSAGE) : awayMsg, awayTime)) + " <" APPNAME " v" VERSIONSTRING ">";
 }
 
 string Util::formatBytes(int64_t aBytes, uint8_t base) {

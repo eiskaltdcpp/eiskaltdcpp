@@ -20,6 +20,6 @@
 #include "version.h"
 
 namespace dcpp {
-const std::string fullVersionString(EISKALTDCPP_APPNAME " V:" EISKALTDCPP_VERSION);
-const std::string fullADCVersionString(EISKALTDCPP_APPNAME " " EISKALTDCPP_VERSION);
+const std::string fullVersionString(APPNAME " V:" VERSIONSTRING);
+const std::string fullADCVersionString(APPNAME " " VERSIONSTRING);
 }

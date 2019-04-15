@@ -464,7 +464,7 @@ void SettingsManager::save(string const& aFileName) {
     for(i=STR_FIRST; i<STR_LAST; i++)
     {
         if(i == CONFIG_VERSION) {
-            xml.addTag(settingTags[i], EISKALTDCPP_VERSION);
+            xml.addTag(settingTags[i], VERSIONSTRING);
             xml.addChildAttrib(type, curType);
         } else if(isSet[i]) {
             xml.addTag(settingTags[i], get(StrSetting(i), false));
