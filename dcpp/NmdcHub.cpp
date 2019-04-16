@@ -625,7 +625,7 @@ void NmdcHub::onLine(const string& aLine) noexcept {
                 StringList feat = {
                     "UserCommand",
                     "NoGetINFO",
-                    "NoHello"
+                    "NoHello",
                     "UserIP2",
                     "TTHSearch",
                     "ZPipe0"
