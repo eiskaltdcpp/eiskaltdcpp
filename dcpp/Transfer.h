@@ -17,15 +17,18 @@
 
 #pragma once
 
+#include <deque>
+
 #include "forward.h"
 #include "MerkleTree.h"
-#include "TimerManager.h"
 #include "CriticalSection.h"
 #include "NonCopyable.h"
 #include "Segment.h"
 #include "GetSet.h"
 
 namespace dcpp {
+
+using std::deque;
 
 class Transfer : private NonCopyable {
 public:

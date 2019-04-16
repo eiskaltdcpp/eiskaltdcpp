@@ -20,9 +20,10 @@
 #include "User.h"
 
 #include "AdcHub.h"
-#include "FavoriteUser.h"
-#include "StringTokenizer.h"
 #include "ClientManager.h"
+#include "FavoriteUser.h"
+#include "format.h"
+#include "StringTokenizer.h"
 
 namespace dcpp {
 

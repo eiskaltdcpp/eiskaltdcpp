@@ -19,6 +19,8 @@
 
 #include "UploadManager.h"
 
+#include <cmath>
+
 #include "ConnectionManager.h"
 #include "LogManager.h"
 #include "ShareManager.h"
@@ -33,8 +35,8 @@
 #include "UserConnection.h"
 #include "QueueManager.h"
 #include "FinishedManager.h"
+#include "File.h"
 #include "extra/ipfilter.h"
-#include <functional>
 
 namespace dcpp {
 

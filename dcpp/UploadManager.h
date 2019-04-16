@@ -17,19 +17,23 @@
 
 #pragma once
 
+#include <algorithm>
+#include <list>
+#include <set>
+#include <unordered_map>
+
 #include "forward.h"
 #include "UserConnectionListener.h"
 #include "Singleton.h"
 #include "UploadManagerListener.h"
 #include "Client.h"
 #include "ClientManagerListener.h"
-#include "MerkleTree.h"
 #include "User.h"
-#include "Util.h"
 #include "TimerManager.h"
 #include "Speaker.h"
 #include "PerFolderLimit.h"
 #include "SettingsManager.h"
+#include "UserConnection.h"
 #include "GetSet.h"
 
 namespace dcpp {

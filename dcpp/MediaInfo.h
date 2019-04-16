@@ -19,9 +19,15 @@
 
 #include <string>
 
+namespace dcpp {
+
+using std::string;
+
 struct MediaInfo{
-    std::string video_info;
-    std::string audio_info;
-    std::string resolution;
+    string video_info;
+    string audio_info;
+    string resolution;
     uint16_t bitrate = 0;
 };
+
+} // namespace dcpp

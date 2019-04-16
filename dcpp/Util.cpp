@@ -1434,7 +1434,7 @@ size_t CaseStringHash::operator()(const string &s) const {
             x = x*32 - x + '_';
             str += abs(n);
         } else {
-            x = x * 32 - x + static_cast<size_t>(c);
+            x = x * 32 - x + static_cast<size_t>(c); // libeiskaltdcpp
             str += n;
         }
     }
@@ -1445,7 +1445,7 @@ size_t CaseStringHash::operator()(const wstring &s) const {
     size_t x = 0;
     auto y = s.data();
     for(decltype(s.size()) i = 0, j = s.size(); i < j; ++i) {
-        x = x * 31 + static_cast<size_t>(y[i]);
+        x = x * 31 + static_cast<size_t>(y[i]); // libeiskaltdcpp
     }
     return x;
 }

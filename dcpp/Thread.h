@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001-2012 Jacek Sieka, arnetheduck on gmail point com
+ * Copyright (C) 2001-2019 Jacek Sieka, arnetheduck on gmail point com
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -23,7 +23,10 @@
 #include <pthread.h>
 #include <sched.h>
 #include <sys/resource.h>
+#include <unistd.h>
 #endif
+
+#include <cstdint>
 
 #include "NonCopyable.h"
 #include "Exception.h"
@@ -87,11 +90,12 @@ public:
         }
     }
 
-    void setThreadPriority(Priority p) {
 #ifndef __HAIKU__
-        setpriority(PRIO_PROCESS, 0, p);
+    void setThreadPriority(Priority p) { setpriority(PRIO_PROCESS, 0, p); }
+#else
+    void setThreadPriority(Priority p) { }
 #endif
-    }
+
     static void sleep(uint32_t millis) { ::usleep(millis*1000); }
     static void yield() { ::sched_yield(); }
 
