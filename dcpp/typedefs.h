@@ -102,6 +102,7 @@ typedef vector<SearchResultPtr> SearchResultList;
 typedef vector<UploadPtr> UploadList;
 typedef vector<UserPtr> UserList;
 typedef vector<UserConnectionPtr> UserConnectionList;
+
 typedef vector<uint16_t> PartsInfo;
 
 }

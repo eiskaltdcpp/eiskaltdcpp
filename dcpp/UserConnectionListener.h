@@ -19,6 +19,7 @@
 
 #include "forward.h"
 #include "AdcCommand.h"
+#include "Util.h"
 
 namespace dcpp {
 

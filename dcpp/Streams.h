@@ -18,6 +18,9 @@
 #pragma once
 
 #include <algorithm>
+
+#include "NonCopyable.h"
+
 #include "typedefs.h"
 #include "format.h"
 #include "SettingsManager.h"
@@ -32,7 +35,7 @@ STANDARD_EXCEPTION(FileException);
 /**
  * A simple output stream. Intended to be used for nesting streams one inside the other.
  */
-class OutputStream {
+class OutputStream : private NonCopyable {
 public:
     OutputStream() { }
     virtual ~OutputStream() { }
@@ -57,12 +60,9 @@ public:
     virtual bool eof() { return false; }
 
     size_t write(const string& str) { return write(str.c_str(), str.size()); }
-private:
-    OutputStream(const OutputStream&);
-    OutputStream& operator=(const OutputStream&);
 };
 
-class InputStream {
+class InputStream : private NonCopyable {
 public:
     InputStream() { }
     virtual ~InputStream() { }
@@ -72,9 +72,6 @@ public:
      *         actually read from the stream source in this call.
      */
     virtual size_t read(void* buf, size_t& len) = 0;
-private:
-    InputStream(const InputStream&);
-    InputStream& operator=(const InputStream&);
 };
 
 class MemoryInputStream : public InputStream {
@@ -106,6 +103,26 @@ private:
 };
 
 class IOStream : public InputStream, public OutputStream {
+};
+
+/** Count how many bytes have been read. */
+template<bool managed>
+class CountedInputStream : public InputStream {
+public:
+    CountedInputStream(InputStream* is) : s(is), readBytes(0) { }
+    virtual ~CountedInputStream() { if(managed) delete s; }
+
+    size_t read(void* buf, size_t& len) {
+        auto ret = s->read(buf, len);
+        readBytes += len;
+        return ret;
+    }
+
+    uint64_t getReadBytes() const { return readBytes; }
+
+private:
+    InputStream* s;
+    uint64_t readBytes;
 };
 
 template<bool managed>

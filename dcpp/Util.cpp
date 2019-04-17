@@ -17,34 +17,40 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-#include <array>
 #include "stdinc.h"
 
 #include "Util.h"
-#include "File.h"
 
-#include "StringTokenizer.h"
-#include "ClientManager.h"
-#include "SettingsManager.h"
-#include "LogManager.h"
-#include "version.h"
-#include "File.h"
-#include "SimpleXML.h"
+#ifdef _WIN32
 
-#if defined(_WIN32)
 #include "w.h"
-#include "shlobj.h"
-#include "lmcons.h"
-#else // defined(_WIN32)
+#include <iphlpapi.h>
+#include <shlobj.h>
+
+#endif
+
+#include <cmath>
+
+#include "CID.h"
+#include "ClientManager.h"
+#include "File.h"
+#include "LogManager.h"
+#include "SettingsManager.h"
+#include "SimpleXML.h"
+#include "StringTokenizer.h"
+#include "version.h"
+
+#ifndef _WIN32
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
 #include <netdb.h>
 #include <sys/utsname.h>
 #include <cctype>
-#endif // defined(_WIN32)
+#endif
 
 #ifdef HAVE_IFADDRS_H
+#include <cstring>
 #include <ifaddrs.h>
 #include <net/if.h>
 #endif
@@ -111,7 +117,7 @@ extern "C" void bz_internal_error(int errcode) {
     dcdebug("bzip2 internal error: %d\n", errcode);
 }
 
-#if defined(_WIN32)
+#ifdef _WIN32
 
 typedef HRESULT (WINAPI* _SHGetKnownFolderPath)(GUID& rfid, DWORD dwFlags, HANDLE hToken, PWSTR *ppszPath);
 
@@ -142,7 +148,7 @@ static string getDownloadsPath(const string& def) {
     return def + "Downloads\\";
 }
 
-#endif // defined(_WIN32)
+#endif // _WIN32
 
 void Util::initialize(PathsMap pathOverrides) {
     static bool initDone = false;
@@ -160,7 +166,7 @@ void Util::initialize(PathsMap pathOverrides) {
             paths[it->first] = it->second;
     }
 
-#if defined(_WIN32)
+#ifdef _WIN32
     TCHAR buf[MAX_PATH+1] = { 0 };
     string exePath = winExecutablePath();
 
@@ -377,7 +383,7 @@ void Util::loadBootConfig() {
 
         if(boot.findChild("ConfigPath")) {
             StringMap params;
-#if defined(_WIN32)
+#ifdef _WIN32
             // @todo load environment variables instead? would make it more useful on *nix
             TCHAR path[MAX_PATH];
 
@@ -391,7 +397,7 @@ void Util::loadBootConfig() {
     }
 }
 
-#if defined(_WIN32)
+#ifdef _WIN32
 static const char badChars[] = {
     1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16,
     17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30,
@@ -663,13 +669,13 @@ map<string, string> Util::decodeQuery(const string& query) {
     map<string, string> ret;
     size_t start = 0;
     while(start < query.size()) {
-        size_t eq = query.find('=', start);
+        auto eq = query.find('=', start);
         if(eq == string::npos) {
             break;
         }
 
-        size_t param = eq + 1;
-        size_t end = query.find('&', param);
+        auto param = eq + 1;
+        auto end = query.find('&', param);
 
         if(end == string::npos) {
             end = query.size();
@@ -716,7 +722,7 @@ string Util::formatBytes(int64_t aBytes) {
 }
 
 string Util::formatExactSize(int64_t aBytes) {
-#if defined(_WIN32)
+#ifdef _WIN32
     TCHAR tbuf[128];
     TCHAR number[64];
     NUMBERFMT nf;
@@ -759,34 +765,28 @@ vector<string> Util::getLocalIPs(unsigned short sa_family) {
         bool ipv4 = (sa_family == AF_UNSPEC) || (sa_family == AF_INET);
         bool ipv6 = (sa_family == AF_UNSPEC) || (sa_family == AF_INET6);
 
-        for (struct ifaddrs *i = ifap; i != NULL; i = i->ifa_next)
-        {
+        for (struct ifaddrs *i = ifap; i != NULL; i = i->ifa_next) {
             struct sockaddr *sa = i->ifa_addr;
 
             // If the interface is up, is not a loopback and it has an address
-            if ((i->ifa_flags & IFF_UP) && !(i->ifa_flags & IFF_LOOPBACK) && sa != NULL)
-            {
-                void* src = NULL;
+            if ((i->ifa_flags & IFF_UP) && !(i->ifa_flags & IFF_LOOPBACK) && sa != NULL) {
+                void* src = nullptr;
                 socklen_t len;
 
-                // IPv4 address
-                if (ipv4 && (sa->sa_family == AF_INET))
-                {
+                if (ipv4 && (sa->sa_family == AF_INET)) {
+                    // IPv4 address
                     struct sockaddr_in* sai = (struct sockaddr_in*)sa;
                     src = (void*) &(sai->sin_addr);
                     len = INET_ADDRSTRLEN;
-                }
-                // IPv6 address
-                else if (ipv6 && (sa->sa_family == AF_INET6))
-                {
+                } else if (ipv6 && (sa->sa_family == AF_INET6)) {
+                    // IPv6 address
                     struct sockaddr_in6* sai6 = (struct sockaddr_in6*)sa;
                     src = (void*) &(sai6->sin6_addr);
                     len = INET6_ADDRSTRLEN;
                 }
 
                 // Convert the binary address to a string and add it to the output list
-                if (src != NULL)
-                {
+                if (src) {
                     char address[len];
                     inet_ntop(sa->sa_family, src, address, len);
                     addresses.push_back(address);
@@ -977,8 +977,9 @@ wstring::size_type Util::findSubString(const wstring& aString, const wstring& aS
 }
 
 int Util::stricmp(const char* a, const char* b) {
+    wchar_t ca = 0, cb = 0;
     while(*a) {
-        wchar_t ca = 0, cb = 0;
+        ca = cb = 0;
         int na = Text::utf8ToWc(a, ca);
         int nb = Text::utf8ToWc(b, cb);
         ca = Text::toLower(ca);
@@ -989,7 +990,7 @@ int Util::stricmp(const char* a, const char* b) {
         a += abs(na);
         b += abs(nb);
     }
-    wchar_t ca = 0, cb = 0;
+    ca = cb = 0;
     Text::utf8ToWc(a, ca);
     Text::utf8ToWc(b, cb);
 
@@ -998,8 +999,9 @@ int Util::stricmp(const char* a, const char* b) {
 
 int Util::strnicmp(const char* a, const char* b, size_t n) {
     const char* end = a + n;
+    wchar_t ca = 0, cb = 0;
     while(*a && a < end) {
-        wchar_t ca = 0, cb = 0;
+        ca = cb = 0;
         int na = Text::utf8ToWc(a, ca);
         int nb = Text::utf8ToWc(b, cb);
         ca = Text::toLower(ca);
@@ -1010,7 +1012,7 @@ int Util::strnicmp(const char* a, const char* b, size_t n) {
         a += abs(na);
         b += abs(nb);
     }
-    wchar_t ca = 0, cb = 0;
+    ca = cb = 0;
     Text::utf8ToWc(a, ca);
     Text::utf8ToWc(b, cb);
     return (a >= end) ? 0 : ((int)Text::toLower(ca) - (int)Text::toLower(cb));
@@ -1137,7 +1139,7 @@ string Util::formatTime(const string &msg, const time_t t) {
             buf.resize(strftime(&buf[0], bufsize-1, msg.c_str(), loc));
         }
 
-#if defined(_WIN32)
+#ifdef _WIN32
         if(!Text::validateUtf8(buf))
 #endif
         {
@@ -1317,7 +1319,7 @@ string Util::toNmdcFile(const string& file) {
 }
 
 string Util::translateError(int aError) {
-#if defined(_WIN32)
+#ifdef _WIN32
     LPTSTR lpMsgBuf;
     DWORD chars = FormatMessage(
                 FORMAT_MESSAGE_ALLOCATE_BUFFER |
@@ -1342,9 +1344,9 @@ string Util::translateError(int aError) {
         tmp.erase(i, 1);
     }
     return tmp;
-#else // defined(_WIN32)
+#else // _WIN32
     return Text::toUtf8(strerror(aError));
-#endif // defined(_WIN32)
+#endif // _WIN32
 }
 
 bool Util::getAway() {

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001-2012 Jacek Sieka, arnetheduck on gmail point com
+ * Copyright (C) 2001-2019 Jacek Sieka, arnetheduck on gmail point com
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -21,6 +21,7 @@
 #include "Exception.h"
 #include "File.h"
 #include "format.h"
+#include "ScopedFunctor.h"
 
 namespace dcpp {
 
@@ -142,10 +143,15 @@ bool UnZFilter::operator()(const void* in, size_t& insize, void* out, size_t& ou
 }
 
 void GZ::decompress(const string& source, const string& target) {
+#ifdef UNICODE
+    auto gz = gzopen_w(Text::toT(source).c_str(), "rb");
+#else
     auto gz = gzopen(source.c_str(), "rb");
+#endif
     if(!gz) {
         throw Exception(_("Error during decompression"));
     }
+    ScopedFunctor([&gz] { gzclose(gz); });
     File f(target, File::WRITE, File::CREATE | File::TRUNCATE);
 
     const size_t BUF_SIZE = 64 * 1024;
@@ -161,8 +167,6 @@ void GZ::decompress(const string& source, const string& target) {
             break;
         }
     }
-
-    gzclose(gz);
 }
 
 } // namespace dcpp

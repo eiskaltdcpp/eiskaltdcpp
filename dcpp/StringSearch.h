@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001-2012 Jacek Sieka, arnetheduck on gmail point com
+ * Copyright (C) 2001-2019 Jacek Sieka, arnetheduck on gmail point com
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,6 +17,8 @@
 
 #pragma once
 
+#include <string.h>
+
 #include "Text.h"
 
 namespace dcpp {
@@ -32,18 +34,19 @@ class StringSearch {
 public:
     typedef vector<StringSearch> List;
 
-    explicit StringSearch(const string& aPattern) noexcept : pattern(Text::toLower(aPattern)) {
+    StringSearch() { }
+    StringSearch(const string& aPattern) noexcept : pattern(Text::toLower(aPattern)) {
         initDelta1();
     }
     StringSearch(const StringSearch& rhs) noexcept : pattern(rhs.pattern) {
         memcpy(delta1, rhs.delta1, sizeof(delta1));
     }
-    const StringSearch& operator=(const StringSearch& rhs) {
+    StringSearch& operator=(const StringSearch& rhs) {
         memcpy(delta1, rhs.delta1, sizeof(delta1));
         pattern = rhs.pattern;
         return *this;
     }
-    const StringSearch& operator=(const string& rhs) {
+    StringSearch& operator=(const string& rhs) {
         pattern = Text::toLower(rhs);
         initDelta1();
         return *this;

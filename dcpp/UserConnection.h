@@ -127,15 +127,29 @@ public:
     void error(const string& aError) { isSet(FLAG_NMDC) ? send("$Error " + aError + '|') :
                                                           send(AdcCommand(AdcCommand::SEV_FATAL, AdcCommand::ERROR_TRANSFER_GENERIC, aError)); }
     void listLen(const string& aLength) { send("$ListLen " + aLength + '|'); }
-    void maxedOut() { isSet(FLAG_NMDC) ? send("$MaxedOut|") : send(AdcCommand(AdcCommand::SEV_RECOVERABLE, AdcCommand::ERROR_SLOTS_FULL, "Slots full")); }
+
+    void maxedOut(size_t queue_position = 0) {
+        bool sendPos = queue_position > 0;
+
+        if(isSet(FLAG_NMDC)) {
+            send("$MaxedOut|");
+        } else {
+            AdcCommand cmd(AdcCommand::SEV_RECOVERABLE, AdcCommand::ERROR_SLOTS_FULL, "Slots full");
+            if(sendPos) {
+                cmd.addParam("QP", Util::toString(queue_position));
+            }
+            send(cmd);
+        }
+    }
+
     void fileNotAvail(const std::string& msg = FILE_NOT_AVAILABLE) { isSet(FLAG_NMDC) ? send("$Error " + msg + "|") : send(AdcCommand(AdcCommand::SEV_RECOVERABLE, AdcCommand::ERROR_FILE_NOT_AVAILABLE, msg)); }
     void supports(const StringList& feat);
 
     // ADC Stuff
     void sup(const StringList& features);
     void inf(bool withToken);
-    void get(const string& aType, const string& aName, const int64_t aStart, const int64_t aBytes) { send(AdcCommand(AdcCommand::CMD_GET).addParam(aType).addParam(aName).addParam(Util::toString(aStart)).addParam(Util::toString(aBytes))); }
-    void snd(const string& aType, const string& aName, const int64_t aStart, const int64_t aBytes) { send(AdcCommand(AdcCommand::CMD_SND).addParam(aType).addParam(aName).addParam(Util::toString(aStart)).addParam(Util::toString(aBytes))); }
+    void get(const string& aType, const string& aName, const int64_t aStart, const int64_t aBytes);
+    void snd(const string& aType, const string& aName, const int64_t aStart, const int64_t aBytes);
     void send(const AdcCommand& c) { send(c.toString(0, isSet(FLAG_NMDC))); }
 
     void setDataMode(int64_t aBytes = -1) { dcassert(socket); socket->setDataMode(aBytes); }
@@ -156,13 +170,14 @@ public:
 
     const UserPtr& getUser() const { return user; }
     UserPtr& getUser() { return user; }
-    const HintedUser getHintedUser() const { return HintedUser(user, hubUrl); }
+    HintedUser getHintedUser() const { return HintedUser(user, hubUrl); }
 
     bool isSecure() const { return socket && socket->isSecure(); }
     bool isTrusted() const { return socket && socket->isTrusted(); }
-    std::string getCipherName() const { return socket ? socket->getCipherName() : Util::emptyString; }
-    vector<uint8_t> getKeyprint() const { return socket ? socket->getKeyprint() : vector<uint8_t>(); }
-    std::string getRemoteIp() const { return socket ? socket->getIp() : Util::emptyString; }
+    string getCipherName() const { return socket ? socket->getCipherName() : Util::emptyString; }
+    ByteVector getKeyprint() const { return socket ? socket->getKeyprint() : ByteVector(); }
+
+    string getRemoteIp() const { return socket ? socket->getIp() : Util::emptyString; }
     Download* getDownload() { dcassert(isSet(FLAG_DOWNLOAD)); return download; }
     //std::string getPort() const { if(socket) return socket->getPort(); else return 0; }
     void setDownload(Download* d) { dcassert(isSet(FLAG_DOWNLOAD)); download = d; }
@@ -182,7 +197,7 @@ public:
 
     int64_t getChunkSize() const { return chunkSize; }
     void updateChunkSize(int64_t leafSize, int64_t lastChunk, uint64_t ticks);
-    void sendRaw(const string& raw) { send(raw); }//aded
+    void sendRaw(const string& raw) { send(raw); } // libeiskaltdcpp
     GETSET(string, hubUrl, HubUrl);
     GETSET(string, token, Token);
     GETSET(string, encoding, Encoding);
@@ -190,6 +205,7 @@ public:
     GETSET(States, state, State);
     GETSET(uint64_t, lastActivity, LastActivity);
     GETSET(double, speed, Speed);
+
 private:
     int64_t chunkSize;
     BufferedSocket* socket;
@@ -210,7 +226,7 @@ private:
             setFlag(FLAG_SECURE);
     }
 
-    virtual ~UserConnection() noexcept {
+    virtual ~UserConnection() {
         BufferedSocket::putSocket(socket);
     }
 
@@ -222,17 +238,7 @@ private:
 
     void onLine(const string& aLine) noexcept;
 
-    void send(const string& aString) {
-        lastActivity = GET_TICK();
-        COMMAND_DEBUG((Util::stricmp(getEncoding(), Text::utf8) != 0 ? Text::toUtf8(aString, getEncoding()) : aString), DebugManager::CLIENT_OUT, getRemoteIp());
-#ifdef LUA_SCRIPT
-        if(onUserConnectionMessageOut(this, aString)) {
-            disconnect(true);
-            return;
-        }
-#endif
-        socket->write(aString);
-    }
+    void send(const string& aString);
 
     virtual void on(Connected) noexcept;
     virtual void on(Line, const string&) noexcept;

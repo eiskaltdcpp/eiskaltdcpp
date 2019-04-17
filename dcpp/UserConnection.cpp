@@ -24,6 +24,7 @@
 #include "ClientManager.h"
 #include "ConnectionManager.h"
 #include "DebugManager.h"
+#include "format.h"
 #include "StringTokenizer.h"
 #include "Transfer.h"
 #ifdef LUA_SCRIPT
@@ -182,6 +183,14 @@ void UserConnection::inf(bool withToken) {
     send(c);
 }
 
+void UserConnection::get(const string &aType, const string &aName, const int64_t aStart, const int64_t aBytes) {
+    send(AdcCommand(AdcCommand::CMD_GET).addParam(aType).addParam(aName).addParam(Util::toString(aStart)).addParam(Util::toString(aBytes)));
+}
+
+void UserConnection::snd(const string &aType, const string &aName, const int64_t aStart, const int64_t aBytes) {
+    send(AdcCommand(AdcCommand::CMD_SND).addParam(aType).addParam(aName).addParam(Util::toString(aStart)).addParam(Util::toString(aBytes)));
+}
+
 void UserConnection::sup(const StringList& features) {
     AdcCommand c(AdcCommand::CMD_SUP);
     for(auto& i: features)
@@ -251,7 +260,7 @@ static const int64_t MIN_CHUNK_SIZE = 64*1024;
 void UserConnection::updateChunkSize(int64_t leafSize, int64_t lastChunk, uint64_t ticks) {
 
     if(chunkSize == 0) {
-        chunkSize = std::max((int64_t)64*1024, std::min(lastChunk, (int64_t)1024*1024));
+        chunkSize = std::max(MIN_CHUNK_SIZE, std::min(lastChunk, (int64_t)1024*1024));
         return;
     }
 
@@ -281,6 +290,18 @@ void UserConnection::updateChunkSize(int64_t leafSize, int64_t lastChunk, uint64
     }
 
     chunkSize = targetSize;
+}
+
+void UserConnection::send(const string &aString) {
+    lastActivity = GET_TICK();
+    COMMAND_DEBUG((Util::stricmp(getEncoding(), Text::utf8) != 0 ? Text::toUtf8(aString, getEncoding()) : aString), DebugManager::CLIENT_OUT, getRemoteIp());
+#ifdef LUA_SCRIPT
+    if(onUserConnectionMessageOut(this, aString)) {
+        disconnect(true);
+        return;
+    }
+#endif
+    socket->write(aString);
 }
 
 } // namespace dcpp
