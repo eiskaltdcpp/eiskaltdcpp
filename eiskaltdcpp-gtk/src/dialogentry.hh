@@ -33,6 +33,5 @@ public:
     gint getResponseID() const;
 
 private:
-    GtkWindow* parent;
     gint responseID;
 };

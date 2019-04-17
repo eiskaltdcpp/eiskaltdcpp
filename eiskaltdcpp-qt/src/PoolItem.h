@@ -23,6 +23,7 @@ public:
 
     static void* operator new(size_t s) {
         assert(sizeof(T) == s);
+        (void)s;
 
         return reinterpret_cast<void*>(pool.allocate(1));
     }
@@ -35,6 +36,7 @@ public:
 
     static void operator delete(void* m, size_t s) {
         assert(sizeof(T) == s);
+        (void)s;
 
         pool.deallocate(reinterpret_cast<T*>(m), 1);
     }

@@ -25,7 +25,6 @@ using namespace std;
 
 DialogEntry::DialogEntry(const EntryType type, const string &ui, GtkWindow* parent):
     Entry(type, ui),
-    parent(parent),
     responseID(GTK_RESPONSE_NONE)
 {
     GtkWindow* window = GTK_WINDOW(getContainer());

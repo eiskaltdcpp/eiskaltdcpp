@@ -117,7 +117,7 @@ namespace dht
         void handle(AdcCommand::SND, const Node::Ptr& node, AdcCommand& c) throw();
 
         /** Unsupported command */
-        template<typename T> void handle(T, const Node::Ptr&user, AdcCommand&) { }
+        template<typename T> void handle(T, const Node::Ptr&, AdcCommand&) { }
 
         /** UDP socket */
         UDPSocket   socket;
