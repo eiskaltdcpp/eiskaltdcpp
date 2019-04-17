@@ -356,7 +356,7 @@ namespace dht
                     bool partial        = xml.getBoolChildAttrib("PF");
 
                     // don't bother with invalid sources and private IPs
-                    if( cid.isZero() || ClientManager::getInstance()->getMe()->getCID() == cid || !Utils::isGoodIPPort(i4, u4))
+                    if( !cid || ClientManager::getInstance()->getMe()->getCID() == cid || !Utils::isGoodIPPort(i4, u4))
                         continue;
 
                     // create user as offline (only TCP connected users will be online)

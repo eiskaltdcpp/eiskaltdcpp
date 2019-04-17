@@ -691,7 +691,7 @@ namespace dht
                 {
                     CID cid = CID(xml.getChildAttrib("CID"));
 
-                    if(cid.isZero())
+                    if(!cid)
                         continue;
 
                     // don't bother with myself

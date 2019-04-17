@@ -74,7 +74,7 @@ UserPtr DirectoryListing::getUserFromFilename(const string& fileName) {
         return UserPtr();
 
     CID cid(name.substr(i + 1));
-    if(cid.isZero())
+    if(!cid)
         return UserPtr();
 
     return ClientManager::getInstance()->getUser(cid);

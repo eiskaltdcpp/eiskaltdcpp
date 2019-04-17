@@ -646,7 +646,7 @@ UserPtr& ClientManager::getMe() {
 }
 
 const CID& ClientManager::getMyPID() {
-    if(pid.isZero())
+    if(!pid)
         pid = CID(SETTING(PRIVATE_ID));
     return pid;
 }

@@ -364,7 +364,7 @@ namespace dht
             xml.addChildAttrib("type", node->getType());
             xml.addChildAttrib("verified", node->isIpVerified());
 
-            if(!node->getUDPKey().key.isZero() && !node->getUDPKey().ip.empty())
+            if(node->getUDPKey().key && !node->getUDPKey().ip.empty())
             {
                 xml.addChildAttrib("key", node->getUDPKey().key.toBase32());
                 xml.addChildAttrib("keyIP", node->getUDPKey().ip);

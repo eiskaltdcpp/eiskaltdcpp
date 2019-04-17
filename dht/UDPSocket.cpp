@@ -314,7 +314,7 @@ namespace dht
 #ifdef HEADER_RC4_H
         // generate encryption key
         TigerHash th;
-        if(!udpKey.isZero())
+        if(udpKey)
         {
             th.update(udpKey.data(), sizeof(udpKey));
             th.update(targetCID.data(), sizeof(targetCID));

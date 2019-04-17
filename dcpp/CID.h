@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001-2012 Jacek Sieka, arnetheduck on gmail point com
+ * Copyright (C) 2001-2019 Jacek Sieka, arnetheduck on gmail point com
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,7 +17,6 @@
 
 #pragma once
 
-#include <functional>
 #include <algorithm>
 #include <cstdint>
 #include <cstring>
@@ -50,7 +49,7 @@ public:
     }
     const uint8_t* data() const { return cid; }
 
-    bool isZero() const { return find_if(cid, cid+SIZE, bind2nd(std::not_equal_to<uint8_t>(), 0)) == (cid+SIZE); }
+    explicit operator bool() const { return find_if(cid, cid + SIZE, [](uint8_t c) { return c != 0; }) != cid + SIZE; }
 
     static CID generate();
 
@@ -64,9 +63,7 @@ namespace std {
 template<>
 struct hash<dcpp::CID> {
     size_t operator()(const dcpp::CID& cid) const {
-        size_t hvHash;
-        memcpy(&hvHash, cid.data(), sizeof(size_t));
-        return hvHash;
+        return cid.toHash();
     }
 };
 }
