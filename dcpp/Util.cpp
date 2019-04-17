@@ -30,6 +30,7 @@
 #endif
 
 #include <cmath>
+#include <array>
 
 #include "CID.h"
 #include "ClientManager.h"
