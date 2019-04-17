@@ -1371,7 +1371,7 @@ void PrivateMessage::onCommandClicked_gui(GtkWidget *widget, gpointer data)
     gtk_editable_set_position(GTK_EDITABLE(entry), pos);
 }
 
-gboolean PrivateMessage::onChatCommandButtonRelease_gui(GtkWidget*, GdkEventButton *event, gpointer data)
+gboolean PrivateMessage::onChatCommandButtonRelease_gui(GtkWidget *widget, GdkEventButton *event, gpointer data)
 {
     if (event->button == 1)
     {
@@ -1379,6 +1379,7 @@ gboolean PrivateMessage::onChatCommandButtonRelease_gui(GtkWidget*, GdkEventButt
 #if GTK_CHECK_VERSION(3,22,0)
         gtk_menu_popup_at_widget(GTK_MENU(pm->getWidget("chatCommandsMenu")),widget,GDK_GRAVITY_SOUTH_WEST,GDK_GRAVITY_NORTH_WEST,NULL);
 #else
+        (void)widget;
         gtk_menu_popup(GTK_MENU(pm->getWidget("chatCommandsMenu")), NULL, NULL, NULL, NULL, 0, gtk_get_current_event_time());
 #endif
     }
