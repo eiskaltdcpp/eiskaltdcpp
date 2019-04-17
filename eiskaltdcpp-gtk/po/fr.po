@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: https://github.com/eiskaltdcpp/eiskaltdcpp/issues\n"
-"POT-Creation-Date: 2019-04-09 16:41+0300\n"
+"POT-Creation-Date: 2019-04-17 23:12+0300\n"
 "PO-Revision-Date: 2018-09-04 10:41+0000\n"
 "Last-Translator: Alexandre Wallimann <adressalacon@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/tehnick/eiskaltdcpp/language/"
@@ -68,11 +68,11 @@ msgstr " a quitté"
 msgid " has quit hub "
 msgstr " a quitté le serveur"
 
-#: ../src/hub.cc:1970 ../src/hub.cc:2799 ../src/privatemessage.cc:1424
+#: ../src/hub.cc:1970 ../src/hub.cc:2799 ../src/privatemessage.cc:1425
 msgid " is favorite user"
 msgstr " est un utilisateur favoris"
 
-#: ../src/hub.cc:1988 ../src/hub.cc:2840 ../src/privatemessage.cc:1445
+#: ../src/hub.cc:1988 ../src/hub.cc:2840 ../src/privatemessage.cc:1446
 msgid " is not favorite user"
 msgstr " n'est pas un utilisateur favoris"
 
@@ -580,7 +580,7 @@ msgstr "<b>What would you like to do?</b>"
 msgid "<b>Window Options</b>"
 msgstr "<b>Options de la fenêtre</b>"
 
-#: ../src/mainwindow.cc:2422
+#: ../src/mainwindow.cc:2423
 msgid "<b>file:</b> "
 msgstr "<b>fichier:</b> "
 
@@ -868,7 +868,7 @@ msgstr "Couleur de fond"
 msgid "Basque"
 msgstr "Basque"
 
-#: ../src/mainwindow.cc:256
+#: ../src/mainwindow.cc:257
 msgid "Basque translation\n"
 msgstr "Traduction Basque\n"
 
@@ -876,7 +876,7 @@ msgstr "Traduction Basque\n"
 msgid "Belarusian"
 msgstr "Biélorusse"
 
-#: ../src/mainwindow.cc:226
+#: ../src/mainwindow.cc:227
 msgid "Belarusian translation\n"
 msgstr "Traduction Biélorusse\n"
 
@@ -933,7 +933,7 @@ msgstr "Parcourir..."
 msgid "Bulgarian"
 msgstr "Bulgare"
 
-#: ../src/mainwindow.cc:259
+#: ../src/mainwindow.cc:260
 msgid "Bulgarian translation\n"
 msgstr "Traduction Bulgare\n"
 
@@ -1051,7 +1051,7 @@ msgstr "Vérifier toutes les"
 msgid "Chinese (China)"
 msgstr "Chinois (Chine)"
 
-#: ../src/mainwindow.cc:284
+#: ../src/mainwindow.cc:285
 msgid "Chinese (China) translation\n"
 msgstr "Traduction Chinoise (Chine)\n"
 
@@ -1059,7 +1059,7 @@ msgstr "Traduction Chinoise (Chine)\n"
 msgid "Choose a File"
 msgstr "Choisissez un répertoire"
 
-#: ../src/hub.cc:2724 ../src/mainwindow.cc:1335 ../src/mainwindow.cc:1407
+#: ../src/hub.cc:2724 ../src/mainwindow.cc:1336 ../src/mainwindow.cc:1408
 #: ../src/privatemessage.cc:1328 ../ui/search.ui:7 ../ui/settingsdialog.ui:8510
 #: ../ui/sharebrowser.ui:7
 msgid "Choose a directory"
@@ -1203,11 +1203,11 @@ msgstr "Connexion..."
 msgid "Connection"
 msgstr "Connexion"
 
-#: ../src/mainwindow.cc:2365
+#: ../src/mainwindow.cc:2366
 msgid "Connectivity Manager: Warning"
 msgstr "Gestionnaire de connexion: Alerte"
 
-#: ../src/mainwindow.cc:212
+#: ../src/mainwindow.cc:213
 msgid "Contributors"
 msgstr "Contributeurs"
 
@@ -1224,7 +1224,7 @@ msgstr "Pays"
 msgid "Czech"
 msgstr "Tchèque"
 
-#: ../src/mainwindow.cc:265
+#: ../src/mainwindow.cc:266
 msgid "Czech translation\n"
 msgstr "Traduction Tchèque\n"
 
@@ -1291,7 +1291,7 @@ msgstr "Description"
 msgid "Destination Directory"
 msgstr "Répertoire de destination"
 
-#: ../src/mainwindow.cc:208
+#: ../src/mainwindow.cc:209
 msgid "Developers"
 msgstr "Développeurs"
 
@@ -1458,7 +1458,7 @@ msgstr "Démarrage du téléchargement..."
 msgid "Download whole director_y to..."
 msgstr "Téléchargement terminé..."
 
-#: ../src/mainwindow.cc:772
+#: ../src/mainwindow.cc:773
 msgid "Download: "
 msgstr "Téléchargement: "
 
@@ -1560,7 +1560,7 @@ msgstr "Entrez la valeur pour "
 msgid "Enter text to search for"
 msgstr "Entrez le texte à rechercher pour"
 
-#: ../src/mainwindow.cc:1269
+#: ../src/mainwindow.cc:1270
 msgid "Enter value for "
 msgstr "Entrez la valeur pour "
 
@@ -1849,7 +1849,7 @@ msgstr ""
 msgid "Frame:"
 msgstr "Frame:"
 
-#: ../src/mainwindow.cc:2481
+#: ../src/mainwindow.cc:2482
 msgid "Free "
 msgstr "Libre"
 
@@ -1857,7 +1857,7 @@ msgstr "Libre"
 msgid "French"
 msgstr "Français"
 
-#: ../src/mainwindow.cc:234
+#: ../src/mainwindow.cc:235
 msgid "French translation\n"
 msgstr "Traduction Française\n"
 
@@ -1885,7 +1885,7 @@ msgstr "Générer les certificats"
 msgid "German"
 msgstr "Allemand"
 
-#: ../src/mainwindow.cc:268
+#: ../src/mainwindow.cc:269
 msgid "German translation\n"
 msgstr "Traduction allemande\n"
 
@@ -1913,7 +1913,7 @@ msgstr "Donner un slot"
 msgid "Greek"
 msgstr "Grecque"
 
-#: ../src/mainwindow.cc:274
+#: ../src/mainwindow.cc:275
 msgid "Greek translation\n"
 msgstr "Traduction Grecque\n"
 
@@ -2044,7 +2044,7 @@ msgstr "Serveurs: "
 msgid "Hungarian"
 msgstr "Hongrois"
 
-#: ../src/mainwindow.cc:230
+#: ../src/mainwindow.cc:231
 msgid "Hungarian translation\n"
 msgstr "Traduction Hongroise\n"
 
@@ -2150,7 +2150,7 @@ msgstr "IpFilter on/off"
 msgid "Italian"
 msgstr "Italien"
 
-#: ../src/mainwindow.cc:277
+#: ../src/mainwindow.cc:278
 msgid "Italian translation\n"
 msgstr "Traduction italienne\n"
 
@@ -2230,7 +2230,7 @@ msgstr "Chargement de la liste"
 msgid "Loaded from cache: "
 msgstr "Chargé depuis le cache:"
 
-#: ../src/mainwindow.cc:2121
+#: ../src/mainwindow.cc:2122
 msgid "Loading file list"
 msgstr "Chargement de la liste"
 
@@ -2294,11 +2294,11 @@ msgstr "Plus basse"
 msgid "Magnet"
 msgstr "Choix Magnet"
 
-#: ../src/mainwindow.cc:1400
+#: ../src/mainwindow.cc:1401
 msgid "Magnet Choice"
 msgstr "Choix Magnet"
 
-#: ../src/mainwindow.cc:1326
+#: ../src/mainwindow.cc:1327
 msgid "Magnet Properties / Choice"
 msgstr "Choix / Propriétés Magnet"
 
@@ -2750,7 +2750,7 @@ msgstr "Jouer"
 msgid "Polish"
 msgstr "Polonais"
 
-#: ../src/mainwindow.cc:237
+#: ../src/mainwindow.cc:238
 msgid "Polish translation\n"
 msgstr "Traduction Polonaise\n"
 
@@ -2977,7 +2977,7 @@ msgstr "En cours"
 msgid "Russian"
 msgstr "Russe"
 
-#: ../src/mainwindow.cc:222
+#: ../src/mainwindow.cc:223
 msgid "Russian translation\n"
 msgstr "Traduction Russe\n"
 
@@ -3069,11 +3069,11 @@ msgstr "Sélectionnez la couleur"
 msgid "Select Font"
 msgstr "Sélectionner Police"
 
-#: ../src/mainwindow.cc:2509
+#: ../src/mainwindow.cc:2510
 msgid "Select file to Get TTH"
 msgstr "Sélectionner le fichier pour obtenir le TTH"
 
-#: ../src/mainwindow.cc:2084 ../ui/mainwindow.ui:809
+#: ../src/mainwindow.cc:2085 ../ui/mainwindow.ui:809
 msgid "Select filelist to browse"
 msgstr "Sélectionnez la liste à parcourir"
 
@@ -3115,7 +3115,7 @@ msgstr "Séparateurs"
 msgid "Serbian (Cyrillic)"
 msgstr "Serbe (Cyrillique)"
 
-#: ../src/mainwindow.cc:244
+#: ../src/mainwindow.cc:245
 msgid "Serbian (Cyrillic) translation\n"
 msgstr "Traduction Serbe (Cyrillique)\n"
 
@@ -3123,7 +3123,7 @@ msgstr "Traduction Serbe (Cyrillique)\n"
 msgid "Serbian (Latin)"
 msgstr "Serbe (Latin)"
 
-#: ../src/mainwindow.cc:248
+#: ../src/mainwindow.cc:249
 msgid "Serbian (Latin) translation\n"
 msgstr "Traduction Serbe (Latin)\n"
 
@@ -3290,7 +3290,7 @@ msgstr "Ignorer les fichiers de 0 octet"
 msgid "Skip zero-byte files"
 msgstr "Ignorer les fichiers de 0 octet"
 
-#: ../src/privatemessage.cc:1477
+#: ../src/privatemessage.cc:1478
 msgid "Slot granted"
 msgstr "Slot donné"
 
@@ -3306,7 +3306,7 @@ msgstr "Slots"
 msgid "Slovak"
 msgstr "Slovaque"
 
-#: ../src/mainwindow.cc:262
+#: ../src/mainwindow.cc:263
 msgid "Slovak translation\n"
 msgstr "Traduction Slovaque\n"
 
@@ -3351,7 +3351,7 @@ msgstr "Source trop lente"
 msgid "Spanish"
 msgstr "Espagnol"
 
-#: ../src/mainwindow.cc:252
+#: ../src/mainwindow.cc:253
 msgid "Spanish translation\n"
 msgstr "Traduction Espagnol\n"
 
@@ -3394,7 +3394,7 @@ msgstr "Arrêt"
 msgid "Swedish (Sweden)"
 msgstr "Suédois (Suède)"
 
-#: ../src/mainwindow.cc:287
+#: ../src/mainwindow.cc:288
 msgid "Swedish (Sweden) translation\n"
 msgstr "Traduction Suédoise (Suède)\n"
 
@@ -3582,7 +3582,7 @@ msgstr "Chemin des certificats de confiance"
 msgid "Turkish"
 msgstr "Turc"
 
-#: ../src/mainwindow.cc:290
+#: ../src/mainwindow.cc:291
 msgid "Turkish translation\n"
 msgstr "Traduction turc\n"
 
@@ -3604,7 +3604,7 @@ msgstr "UTF-8"
 msgid "Ukrainian"
 msgstr "Ukrainien"
 
-#: ../src/mainwindow.cc:240
+#: ../src/mainwindow.cc:241
 msgid "Ukrainian translation\n"
 msgstr "Traduction Ukrainienne\n"
 
@@ -3616,11 +3616,11 @@ msgstr "Impossible de se connecter: Déjà connecté au serveur"
 msgid "Unable to load file list: "
 msgstr "Impossible de charger la liste de fichiers"
 
-#: ../src/mainwindow.cc:2108
+#: ../src/mainwindow.cc:2109
 msgid "Unable to load file list: Invalid file list name"
 msgstr "Impossible de charger la liste de fichiers: Nom de liste invalide"
 
-#: ../src/mainwindow.cc:2363
+#: ../src/mainwindow.cc:2364
 msgid ""
 "Unable to open %1% port. Searching or file transfers will not work correctly "
 "until you change settings or turn off any application that might be using "
@@ -3636,7 +3636,7 @@ msgstr "Répertoire de téléchargement temporaire"
 
 #: ../src/WulforUtil.cc:331 ../src/WulforUtil.cc:333
 #: ../src/downloadqueue.cc:1320 ../src/downloadqueue.cc:1321
-#: ../src/mainwindow.cc:1095 ../src/mainwindow.cc:1489
+#: ../src/mainwindow.cc:1096 ../src/mainwindow.cc:1490
 msgid "Unknown"
 msgstr "Inconnu"
 
@@ -3696,7 +3696,7 @@ msgstr "Vitesse d'envoi"
 msgid "Upload starting..."
 msgstr "Envoi démarré..."
 
-#: ../src/mainwindow.cc:772
+#: ../src/mainwindow.cc:773
 msgid "Upload: "
 msgstr "Envoi:"
 
@@ -3837,7 +3837,7 @@ msgstr "Opérateur pare-feu de l'utilisateur (dc)"
 msgid "User operator firewall (normal)"
 msgstr "Opérateur pare-feu de l'utilisateur (normal)"
 
-#: ../src/privatemessage.cc:1412
+#: ../src/privatemessage.cc:1413
 msgid "User went offline"
 msgstr "L'utilisateur est hors-ligne"
 
@@ -3893,7 +3893,7 @@ msgstr "Vidéo"
 msgid "Vietnamese"
 msgstr "Vietnamien"
 
-#: ../src/mainwindow.cc:281
+#: ../src/mainwindow.cc:282
 msgid "Vietnamese translation\n"
 msgstr "Traduction Vietnamienne\n"
 
@@ -3949,7 +3949,7 @@ msgstr "En attente d'un nouvel essai"
 msgid "Waiting:"
 msgstr "Attente"
 
-#: ../src/mainwindow.cc:411
+#: ../src/mainwindow.cc:412
 msgid "Welcome to "
 msgstr "Bienvenue sur "
 
@@ -4235,7 +4235,7 @@ msgstr "eMail"
 msgid "eiskaltdcpp-gtk: load theme %s...\n"
 msgstr "eiskaltdcpp-gtk: load theme %s...\n"
 
-#: ../src/mainwindow.cc:2412
+#: ../src/mainwindow.cc:2413
 msgid "file list from "
 msgstr "Liste de fichiers depuis"
 
@@ -4263,7 +4263,7 @@ msgstr "Accueil du projet:"
 msgid "ratio: %1% (uploads: %2%, downloads: %3% )"
 msgstr "ratio: %1 (envois: %2, téléchargements: %3)"
 
-#: ../src/hashdialog.cc:72 ../src/mainwindow.cc:2446 ../src/mainwindow.cc:2448
+#: ../src/hashdialog.cc:72 ../src/mainwindow.cc:2447 ../src/mainwindow.cc:2449
 #: ../src/treeview.cc:219 ../ui/settingsdialog.ui:3522
 #: ../ui/settingsdialog.ui:3538 ../ui/settingsdialog.ui:3582
 msgid "s"

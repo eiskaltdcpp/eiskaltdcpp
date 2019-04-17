@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: https://github.com/eiskaltdcpp/eiskaltdcpp/issues\n"
-"POT-Creation-Date: 2019-04-09 16:41+0300\n"
+"POT-Creation-Date: 2019-04-17 23:12+0300\n"
 "PO-Revision-Date: 2018-10-12 22:18+0000\n"
 "Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
 "Language-Team: Turkish (http://www.transifex.com/tehnick/eiskaltdcpp/"
@@ -69,11 +69,11 @@ msgstr "ayrıldı"
 msgid " has quit hub "
 msgstr "hub'dan ayrıldı"
 
-#: ../src/hub.cc:1970 ../src/hub.cc:2799 ../src/privatemessage.cc:1424
+#: ../src/hub.cc:1970 ../src/hub.cc:2799 ../src/privatemessage.cc:1425
 msgid " is favorite user"
 msgstr "favori kullanıcı"
 
-#: ../src/hub.cc:1988 ../src/hub.cc:2840 ../src/privatemessage.cc:1445
+#: ../src/hub.cc:1988 ../src/hub.cc:2840 ../src/privatemessage.cc:1446
 msgid " is not favorite user"
 msgstr "favori kullanıcı değil"
 
@@ -581,7 +581,7 @@ msgstr "<b>Ne yapmak istersiniz?</b>"
 msgid "<b>Window Options</b>"
 msgstr "<b>Pencere Seçenekleri</b>"
 
-#: ../src/mainwindow.cc:2422
+#: ../src/mainwindow.cc:2423
 msgid "<b>file:</b> "
 msgstr "<b>dosya:</b>"
 
@@ -869,7 +869,7 @@ msgstr "Arka Renk"
 msgid "Basque"
 msgstr "Baskça"
 
-#: ../src/mainwindow.cc:256
+#: ../src/mainwindow.cc:257
 msgid "Basque translation\n"
 msgstr "Baskça tercüme\n"
 
@@ -877,7 +877,7 @@ msgstr "Baskça tercüme\n"
 msgid "Belarusian"
 msgstr "Beyaz Rusça"
 
-#: ../src/mainwindow.cc:226
+#: ../src/mainwindow.cc:227
 msgid "Belarusian translation\n"
 msgstr "Beyaz Rusça tercüme\n"
 
@@ -934,7 +934,7 @@ msgstr "Tara..."
 msgid "Bulgarian"
 msgstr "Bulgarca"
 
-#: ../src/mainwindow.cc:259
+#: ../src/mainwindow.cc:260
 msgid "Bulgarian translation\n"
 msgstr "Bulgarca tercüme\n"
 
@@ -1052,7 +1052,7 @@ msgstr "Her şu kadarda kontrol et:"
 msgid "Chinese (China)"
 msgstr "Çince (Çin)"
 
-#: ../src/mainwindow.cc:284
+#: ../src/mainwindow.cc:285
 msgid "Chinese (China) translation\n"
 msgstr "Çince (Çin) tercüme\n"
 
@@ -1060,7 +1060,7 @@ msgstr "Çince (Çin) tercüme\n"
 msgid "Choose a File"
 msgstr "Bir Dosya Seç"
 
-#: ../src/hub.cc:2724 ../src/mainwindow.cc:1335 ../src/mainwindow.cc:1407
+#: ../src/hub.cc:2724 ../src/mainwindow.cc:1336 ../src/mainwindow.cc:1408
 #: ../src/privatemessage.cc:1328 ../ui/search.ui:7 ../ui/settingsdialog.ui:8510
 #: ../ui/sharebrowser.ui:7
 msgid "Choose a directory"
@@ -1204,11 +1204,11 @@ msgstr "Bağlanıyor..."
 msgid "Connection"
 msgstr "Bağlantı"
 
-#: ../src/mainwindow.cc:2365
+#: ../src/mainwindow.cc:2366
 msgid "Connectivity Manager: Warning"
 msgstr "Bağlantı Yöneticisi: İkaz"
 
-#: ../src/mainwindow.cc:212
+#: ../src/mainwindow.cc:213
 msgid "Contributors"
 msgstr "İştirak edenler"
 
@@ -1225,7 +1225,7 @@ msgstr "Ülke"
 msgid "Czech"
 msgstr "Çekçe"
 
-#: ../src/mainwindow.cc:265
+#: ../src/mainwindow.cc:266
 msgid "Czech translation\n"
 msgstr "Çekçe tercüme\n"
 
@@ -1292,7 +1292,7 @@ msgstr "Tanımlama"
 msgid "Destination Directory"
 msgstr "Hedef Klasör"
 
-#: ../src/mainwindow.cc:208
+#: ../src/mainwindow.cc:209
 msgid "Developers"
 msgstr "Geliştiriciler"
 
@@ -1456,7 +1456,7 @@ msgstr "Şuraya indir..."
 msgid "Download whole director_y to..."
 msgstr "Tüm klas_örü şuraya indir..."
 
-#: ../src/mainwindow.cc:772
+#: ../src/mainwindow.cc:773
 msgid "Download: "
 msgstr "İndir:"
 
@@ -1558,7 +1558,7 @@ msgstr "Kullanıcı komutu için satır gir"
 msgid "Enter text to search for"
 msgstr "Aranacak metin gir"
 
-#: ../src/mainwindow.cc:1269
+#: ../src/mainwindow.cc:1270
 msgid "Enter value for "
 msgstr "Şunun için değer gir:"
 
@@ -1847,7 +1847,7 @@ msgstr ""
 msgid "Frame:"
 msgstr "Dördül:"
 
-#: ../src/mainwindow.cc:2481
+#: ../src/mainwindow.cc:2482
 msgid "Free "
 msgstr "Boş"
 
@@ -1855,7 +1855,7 @@ msgstr "Boş"
 msgid "French"
 msgstr "Fransızca"
 
-#: ../src/mainwindow.cc:234
+#: ../src/mainwindow.cc:235
 msgid "French translation\n"
 msgstr "Fransızca tercüme\n"
 
@@ -1883,7 +1883,7 @@ msgstr "Sertifikaları oluştur"
 msgid "German"
 msgstr "Almanca"
 
-#: ../src/mainwindow.cc:268
+#: ../src/mainwindow.cc:269
 msgid "German translation\n"
 msgstr "Almanca tercüme\n"
 
@@ -1911,7 +1911,7 @@ msgstr "Ekstra oluk ver"
 msgid "Greek"
 msgstr "Yunanca"
 
-#: ../src/mainwindow.cc:274
+#: ../src/mainwindow.cc:275
 msgid "Greek translation\n"
 msgstr "Yunanca tercüme\n"
 
@@ -2042,7 +2042,7 @@ msgstr "Hub'lar:"
 msgid "Hungarian"
 msgstr "Macarca"
 
-#: ../src/mainwindow.cc:230
+#: ../src/mainwindow.cc:231
 msgid "Hungarian translation\n"
 msgstr "Macarca tercüme\n"
 
@@ -2148,7 +2148,7 @@ msgstr "Ip filtresi açık/kapalı"
 msgid "Italian"
 msgstr "İtalyanca"
 
-#: ../src/mainwindow.cc:277
+#: ../src/mainwindow.cc:278
 msgid "Italian translation\n"
 msgstr "İtalyanca tercüme\n"
 
@@ -2228,7 +2228,7 @@ msgstr "Lua dosyası yükle"
 msgid "Loaded from cache: "
 msgstr "Tampondan yüklendi:"
 
-#: ../src/mainwindow.cc:2121
+#: ../src/mainwindow.cc:2122
 msgid "Loading file list"
 msgstr "Dosya listesi yükleniyor"
 
@@ -2292,11 +2292,11 @@ msgstr "En düşük"
 msgid "Magnet"
 msgstr "Magnet"
 
-#: ../src/mainwindow.cc:1400
+#: ../src/mainwindow.cc:1401
 msgid "Magnet Choice"
 msgstr "Magnet Seçmesi"
 
-#: ../src/mainwindow.cc:1326
+#: ../src/mainwindow.cc:1327
 msgid "Magnet Properties / Choice"
 msgstr "Magnet Özellikleri / Seçmesi"
 
@@ -2741,7 +2741,7 @@ msgstr "Oynat"
 msgid "Polish"
 msgstr "Lehçe"
 
-#: ../src/mainwindow.cc:237
+#: ../src/mainwindow.cc:238
 msgid "Polish translation\n"
 msgstr "Lehçe tercüme\n"
 
@@ -2970,7 +2970,7 @@ msgstr "Çalışıyor..."
 msgid "Russian"
 msgstr "Rusça"
 
-#: ../src/mainwindow.cc:222
+#: ../src/mainwindow.cc:223
 msgid "Russian translation\n"
 msgstr "Rusça tercüme\n"
 
@@ -3062,11 +3062,11 @@ msgstr "Renk Seç"
 msgid "Select Font"
 msgstr "Yazıtipi Seç"
 
-#: ../src/mainwindow.cc:2509
+#: ../src/mainwindow.cc:2510
 msgid "Select file to Get TTH"
 msgstr "TTH almak için dosya seç"
 
-#: ../src/mainwindow.cc:2084 ../ui/mainwindow.ui:809
+#: ../src/mainwindow.cc:2085 ../ui/mainwindow.ui:809
 msgid "Select filelist to browse"
 msgstr "Taranacak dosya listesi seç"
 
@@ -3108,7 +3108,7 @@ msgstr "Ayraçlar"
 msgid "Serbian (Cyrillic)"
 msgstr "Sıprça (Kiril)"
 
-#: ../src/mainwindow.cc:244
+#: ../src/mainwindow.cc:245
 msgid "Serbian (Cyrillic) translation\n"
 msgstr "Sırpça (Kiril) tercüme\n"
 
@@ -3116,7 +3116,7 @@ msgstr "Sırpça (Kiril) tercüme\n"
 msgid "Serbian (Latin)"
 msgstr "Sırpça (Latin)"
 
-#: ../src/mainwindow.cc:248
+#: ../src/mainwindow.cc:249
 msgid "Serbian (Latin) translation\n"
 msgstr "Sırpça (Latin) tercüme\n"
 
@@ -3285,7 +3285,7 @@ msgstr "Sıfır boyutlu dosyaları atla"
 msgid "Skip zero-byte files"
 msgstr "Sıfır boyutlu dosyaları atla"
 
-#: ../src/privatemessage.cc:1477
+#: ../src/privatemessage.cc:1478
 msgid "Slot granted"
 msgstr "Oluk verildi"
 
@@ -3301,7 +3301,7 @@ msgstr "Oluklar"
 msgid "Slovak"
 msgstr "Slovakça"
 
-#: ../src/mainwindow.cc:262
+#: ../src/mainwindow.cc:263
 msgid "Slovak translation\n"
 msgstr "Slovakça tercüme\n"
 
@@ -3346,7 +3346,7 @@ msgstr "Kaynak çok yavaş"
 msgid "Spanish"
 msgstr "İspanyolca"
 
-#: ../src/mainwindow.cc:252
+#: ../src/mainwindow.cc:253
 msgid "Spanish translation\n"
 msgstr "İspanyolca tercüme\n"
 
@@ -3389,7 +3389,7 @@ msgstr "Durdur"
 msgid "Swedish (Sweden)"
 msgstr "İsveççe"
 
-#: ../src/mainwindow.cc:287
+#: ../src/mainwindow.cc:288
 msgid "Swedish (Sweden) translation\n"
 msgstr "İsveççe (İsveç) tercüme\n"
 
@@ -3577,7 +3577,7 @@ msgstr "Güvenilen sertifikalar yolu"
 msgid "Turkish"
 msgstr "Türkçe"
 
-#: ../src/mainwindow.cc:290
+#: ../src/mainwindow.cc:291
 msgid "Turkish translation\n"
 msgstr "Türkçe tercüme\n"
 
@@ -3599,7 +3599,7 @@ msgstr "UTF-8"
 msgid "Ukrainian"
 msgstr "Ukraynaca"
 
-#: ../src/mainwindow.cc:240
+#: ../src/mainwindow.cc:241
 msgid "Ukrainian translation\n"
 msgstr "Ukraynaca tercüme\n"
 
@@ -3611,11 +3611,11 @@ msgstr "Bağlanılamadı: istenilen hub ile zaten bağlantı var"
 msgid "Unable to load file list: "
 msgstr "Dosya listesi yüklenemedi:"
 
-#: ../src/mainwindow.cc:2108
+#: ../src/mainwindow.cc:2109
 msgid "Unable to load file list: Invalid file list name"
 msgstr "Dosya listesi yüklenemedi: geçersiz dosya listesi ismi"
 
-#: ../src/mainwindow.cc:2363
+#: ../src/mainwindow.cc:2364
 msgid ""
 "Unable to open %1% port. Searching or file transfers will not work correctly "
 "until you change settings or turn off any application that might be using "
@@ -3631,7 +3631,7 @@ msgstr "Kısmi indirmeler klasörü"
 
 #: ../src/WulforUtil.cc:331 ../src/WulforUtil.cc:333
 #: ../src/downloadqueue.cc:1320 ../src/downloadqueue.cc:1321
-#: ../src/mainwindow.cc:1095 ../src/mainwindow.cc:1489
+#: ../src/mainwindow.cc:1096 ../src/mainwindow.cc:1490
 msgid "Unknown"
 msgstr "Bilinmeyen"
 
@@ -3691,7 +3691,7 @@ msgstr "Gönderme hızı"
 msgid "Upload starting..."
 msgstr "Gönderme başlıyor..."
 
-#: ../src/mainwindow.cc:772
+#: ../src/mainwindow.cc:773
 msgid "Upload: "
 msgstr "Gönderme:"
 
@@ -3833,7 +3833,7 @@ msgstr "Kullanıcı operatörü güvenlik duvarı (dc) "
 msgid "User operator firewall (normal)"
 msgstr "Kullanıcı operatörü güvenlik duvarı (normal)"
 
-#: ../src/privatemessage.cc:1412
+#: ../src/privatemessage.cc:1413
 msgid "User went offline"
 msgstr "Kullanıcı çevimdışına gitti"
 
@@ -3883,7 +3883,7 @@ msgstr "Video"
 msgid "Vietnamese"
 msgstr "Vietnamca"
 
-#: ../src/mainwindow.cc:281
+#: ../src/mainwindow.cc:282
 msgid "Vietnamese translation\n"
 msgstr "Vietnamca tercüme\n"
 
@@ -3938,7 +3938,7 @@ msgstr "Tekrar deneme bekleniyor"
 msgid "Waiting:"
 msgstr "Bekliyor:"
 
-#: ../src/mainwindow.cc:411
+#: ../src/mainwindow.cc:412
 msgid "Welcome to "
 msgstr "Hoş geldiniz"
 
@@ -4224,7 +4224,7 @@ msgstr "e-posta"
 msgid "eiskaltdcpp-gtk: load theme %s...\n"
 msgstr "eiskaltdcpp-gtk: %s temasını yükle...\n"
 
-#: ../src/mainwindow.cc:2412
+#: ../src/mainwindow.cc:2413
 msgid "file list from "
 msgstr "şundan dosya listesi"
 
@@ -4252,7 +4252,7 @@ msgstr "proje sayfası:"
 msgid "ratio: %1% (uploads: %2%, downloads: %3% )"
 msgstr "oran:  %1% (göndermeler: %2%, indirmeler: %3% )"
 
-#: ../src/hashdialog.cc:72 ../src/mainwindow.cc:2446 ../src/mainwindow.cc:2448
+#: ../src/hashdialog.cc:72 ../src/mainwindow.cc:2447 ../src/mainwindow.cc:2449
 #: ../src/treeview.cc:219 ../ui/settingsdialog.ui:3522
 #: ../ui/settingsdialog.ui:3538 ../ui/settingsdialog.ui:3582
 msgid "s"
