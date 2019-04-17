@@ -22,7 +22,6 @@
 #include "format.h"
 #include "SettingsManager.h"
 #include "TimerManager.h"
-#include "LogManager.h"
 
 #ifdef __MINGW32__
 #ifndef EADDRNOTAVAIL
@@ -498,7 +497,6 @@ void Socket::writeTo(const string& aAddr, const string& aPort, const void* aBuff
     if(aLen <= 0)
         return;
 
-    uint8_t* buf = (uint8_t*)aBuffer;
     if(sock == INVALID_SOCKET) {
         create(TYPE_UDP);
     }
@@ -512,6 +510,7 @@ void Socket::writeTo(const string& aAddr, const string& aPort, const void* aBuff
     }
 
     memset(&serv_addr, 0, sizeof(serv_addr));
+    auto buf = (const uint8_t*)aBuffer;
 
     int sent;
     if(SETTING(OUTGOING_CONNECTIONS) == SettingsManager::OUTGOING_SOCKS5 && proxy) {

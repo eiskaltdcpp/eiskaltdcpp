@@ -29,6 +29,7 @@
 #include "User.h"
 #include "MerkleTree.h"
 #include "ClientManager.h"
+#include "HintedUser.h"
 
 namespace dcpp {
 

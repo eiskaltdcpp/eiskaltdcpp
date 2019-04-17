@@ -17,14 +17,24 @@
 
 #pragma once
 
+#include <functional>
+#include <list>
+#include <map>
+#include <memory>
+#include <set>
+#include <unordered_map>
+
+#include "NonCopyable.h"
+
 #include "TimerManager.h"
 #include "SearchManager.h"
 #include "SettingsManager.h"
 #include "HashManagerListener.h"
 #include "QueueManagerListener.h"
+
 #include "Exception.h"
 #include "CriticalSection.h"
-#include "NonCopyable.h"
+
 #include "StringSearch.h"
 #include "Singleton.h"
 #include "BloomFilter.h"
@@ -40,6 +50,12 @@ class IndexManager;
 #endif
 
 namespace dcpp {
+
+using std::function;
+using std::map;
+using std::set;
+using std::unique_ptr;
+using std::unordered_map;
 
 STANDARD_EXCEPTION(ShareException);
 

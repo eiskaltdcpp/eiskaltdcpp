@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001-2012 Jacek Sieka, arnetheduck on gmail point com
+ * Copyright (C) 2001-2019 Jacek Sieka, arnetheduck on gmail point com
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,9 +17,12 @@
 
 #pragma once
 
-#include "Exception.h"
 #include "NonCopyable.h"
+
+#include "forward.h"
+#include "Exception.h"
 #include "Streams.h"
+
 #include "SimpleXMLReader.h"
 
 namespace dcpp {
@@ -100,6 +103,15 @@ public:
     const string& getChildData() const {
         checkChildSelected();
         return (*currentChild)->data;
+    }
+
+    StringMap getCurrentChildren() {
+        dcassert(current != NULL);
+        StringMap d;
+        for(Tag::Iter i = current->children.begin(); i != current->children.end(); ++i) {
+            d[(*i)->name] = (*i)->data;
+        }
+        return d;
     }
 
     const string& getChildAttrib(const string& aName, const string& aDefault = Util::emptyString) {

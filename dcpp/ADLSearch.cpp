@@ -24,10 +24,10 @@
 #include "stdinc.h"
 
 #include "ADLSearch.h"
-#include "QueueManager.h"
-#include "ClientManager.h"
 
+#include "ClientManager.h"
 #include "File.h"
+#include "QueueManager.h"
 #include "SimpleXML.h"
 #include "StringTokenizer.h"
 

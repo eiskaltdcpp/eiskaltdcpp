@@ -21,10 +21,12 @@
 #include "UserConnection.h"
 
 #include "AdcCommand.h"
+#include "ChatMessage.h"
 #include "ClientManager.h"
 #include "ConnectionManager.h"
 #include "DebugManager.h"
 #include "format.h"
+#include "SettingsManager.h"
 #include "StringTokenizer.h"
 #include "Transfer.h"
 #ifdef LUA_SCRIPT
@@ -158,7 +160,7 @@ bool UserConnectionScriptInstance::onUserConnectionMessageOut(UserConnection* aC
 }
 #endif
 
-void UserConnection::connect(const string& aServer, const string& aPort, const string& localPort, BufferedSocket::NatRoles natRole) {
+void UserConnection::connect(const string& aServer, const string& aPort, const string& localPort, BufferedSocket::NatRoles natRole, UserPtr) {
     dcassert(!socket);
 
     port = aPort;

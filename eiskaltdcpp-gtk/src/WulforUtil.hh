@@ -23,7 +23,7 @@
 #include <gtk/gtk.h>
 #include <dcpp/stdinc.h>
 #include <dcpp/CID.h>
-#include <dcpp/User.h>
+#include <dcpp/HintedUser.h>
 
 auto isEmptyString = [](gchar *c) -> bool {
     if (c == NULL)

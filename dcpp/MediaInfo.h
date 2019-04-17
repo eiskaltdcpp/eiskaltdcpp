@@ -23,7 +23,7 @@ namespace dcpp {
 
 using std::string;
 
-struct MediaInfo{
+struct MediaInfo {
     string video_info;
     string audio_info;
     string resolution;

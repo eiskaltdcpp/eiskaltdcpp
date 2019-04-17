@@ -34,6 +34,8 @@
 
 #include "CID.h"
 #include "ClientManager.h"
+#include "ConnectivityManager.h"
+#include "FastAlloc.h"
 #include "File.h"
 #include "LogManager.h"
 #include "SettingsManager.h"
@@ -1354,9 +1356,9 @@ bool Util::getAway() {
     return away;
 }
 
-void Util::setAway(bool aAway) {
-    bool changed = aAway != away;
-    away = aAway;
+void Util::setAway(bool b) {
+    bool changed = b != away;
+    away = b;
     if(away)
         awayTime = time(NULL);
 

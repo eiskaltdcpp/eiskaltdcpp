@@ -29,7 +29,7 @@ typedef SOCKET socket_t;
 #include <netdb.h>
 #include <fcntl.h>
 #include <errno.h>
-#include <vector>
+
 typedef int socket_t;
 const int INVALID_SOCKET = -1;
 #define SOCKET_ERROR -1

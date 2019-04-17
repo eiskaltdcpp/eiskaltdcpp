@@ -48,6 +48,13 @@ public:
     typedef std::unordered_map<string, StringList> SearchTypes;
     typedef SearchTypes::iterator SearchTypesIter;
     typedef SearchTypes::const_iterator SearchTypesIterC;
+
+    enum Types {
+        TYPE_STRING,
+        TYPE_INT,
+        TYPE_INT64
+    };
+
     static StringList connectionSpeeds;
 
     enum StrSetting { STR_FIRST,
@@ -125,8 +132,14 @@ public:
 
     enum FloatSetting { FLOAT_FIRST = INT64_LAST +1,
                         FLOAT_LAST, SETTINGS_LAST = FLOAT_LAST };
-    enum {  INCOMING_DIRECT, INCOMING_FIREWALL_UPNP, INCOMING_FIREWALL_NAT,
-            INCOMING_FIREWALL_PASSIVE };
+
+    enum {
+        INCOMING_DIRECT,
+        INCOMING_FIREWALL_UPNP,
+        INCOMING_FIREWALL_NAT,
+        INCOMING_FIREWALL_PASSIVE
+    };
+
     enum {  OUTGOING_DIRECT, OUTGOING_SOCKS5 };
 
     enum {  MAGNET_AUTO_SEARCH, MAGNET_AUTO_DOWNLOAD };
@@ -138,15 +151,14 @@ public:
         int get(IntSetting key, bool useDefault = true) const {
         return (isSet[key] || !useDefault) ? intSettings[key - INT_FIRST] : intDefaults[key - INT_FIRST];
     }
+    bool getBool(IntSetting key, bool useDefault = true) const {
+        return (get(key, useDefault) != 0);
+    }
     int64_t get(Int64Setting key, bool useDefault = true) const {
         return (isSet[key] || !useDefault) ? int64Settings[key - INT64_FIRST] : int64Defaults[key - INT64_FIRST];
         }
         float get(FloatSetting key, bool useDefault = true) const {
         return (isSet[key] || !useDefault) ? floatSettings[key - FLOAT_FIRST] : floatDefaults[key - FLOAT_FIRST];
-    }
-
-    bool getBool(IntSetting key, bool useDefault = true) const {
-        return (get(key, useDefault) != 0);
     }
 
     void set(StrSetting key, string const& value) {
@@ -232,13 +244,7 @@ public:
     void load(const string& aFileName);
     void save(const string& aFileName);
 
-    enum Types {
-        TYPE_STRING,
-        TYPE_INT,
-        TYPE_INT64
-    };
-
-    bool getType(const char* name, int& n, int& type) const;
+    bool getType(const char* name, int& n, Types& type) const;
     // Search types
     void validateSearchTypeName(const string& name) const;
     void setSearchTypeDefaults();
@@ -252,13 +258,13 @@ public:
     }
     const StringList& getExtensions(const string& name);
 
-    const std::string parseCoreCmd(const std::string& cmd);
-    bool parseCoreCmd(string& ret, const std::string& key, const string& value);
+    const string parseCoreCmd(const string& cmd);
+    bool parseCoreCmd(string& ret, const string& key, const string& value);
 
 private:
     friend class Singleton<SettingsManager>;
     SettingsManager();
-    virtual ~SettingsManager() noexcept { }
+    virtual ~SettingsManager() { }
 
     static const string settingTags[SETTINGS_LAST+1];
 
@@ -274,7 +280,7 @@ private:
 
     bool isSet[SETTINGS_LAST];
 
-    string getConfigFile() { return Util::getPath(Util::PATH_USER_CONFIG) + "DCPlusPlus.xml"; }
+    static string getConfigFile() { return Util::getPath(Util::PATH_USER_CONFIG) + "DCPlusPlus.xml"; }
 
     // Search types
     SearchTypes searchTypes; // name, extlist

@@ -33,6 +33,7 @@
 #include "Speaker.h"
 #include "PerFolderLimit.h"
 #include "SettingsManager.h"
+#include "HintedUser.h"
 #include "UserConnection.h"
 #include "GetSet.h"
 
@@ -109,8 +110,8 @@ private:
     UploadManager() noexcept;
     virtual ~UploadManager();
 
+    bool hasUpload(UserConnection& aSource);
     bool getAutoSlot();
-    bool hasUpload ( UserConnection& aSource );
     void removeConnection(UserConnection* aConn);
     void removeUpload(Upload* aUpload);
 

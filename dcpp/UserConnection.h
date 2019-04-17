@@ -27,6 +27,7 @@
 #include "NonCopyable.h"
 #include "File.h"
 #include "User.h"
+#include "HintedUser.h"
 #include "AdcCommand.h"
 #include "MerkleTree.h"
 #include "DebugManager.h"
@@ -35,6 +36,7 @@
 #endif
 
 namespace dcpp {
+
 #ifdef LUA_SCRIPT
 class UserConnectionScriptInstance : public ScriptInstance {
 protected:
@@ -155,7 +157,7 @@ public:
     void setDataMode(int64_t aBytes = -1) { dcassert(socket); socket->setDataMode(aBytes); }
     void setLineMode(size_t rollback) { dcassert(socket); socket->setLineMode(rollback); }
 
-    void connect(const string& aServer, const std::string &aPort, const std::string &localPort, const BufferedSocket::NatRoles natRole);
+    void connect(const string& aServer, const string &aPort, const string &localPort, const BufferedSocket::NatRoles natRole, UserPtr user = nullptr);
     void accept(const Socket& aServer);
 
     void updated() { if(socket) socket->updated(); }

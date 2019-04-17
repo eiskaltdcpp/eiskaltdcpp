@@ -422,7 +422,7 @@ public:
     static void setLang(const string& lang);
 
     static bool getAway();
-    static void setAway(bool aAway);
+    static void setAway(bool b);
     static void switchAway();
 
     static bool getManualAway() { return manualAway; }

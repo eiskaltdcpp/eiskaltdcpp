@@ -19,16 +19,24 @@
 
 #pragma once
 
+#include <deque>
+#include <memory>
+
 #include "typedefs.h"
 #include "BufferedSocketListener.h"
 #include "Semaphore.h"
 #include "Thread.h"
 #include "Speaker.h"
-#include "Util.h"
 #include "Socket.h"
+#include "Util.h"
 #include "Atomic.h"
 
 namespace dcpp {
+
+using std::deque;
+using std::function;
+using std::pair;
+using std::unique_ptr;
 
 class BufferedSocket : public Speaker<BufferedSocketListener>, private Thread {
 public:
@@ -84,7 +92,7 @@ public:
 
     bool isSecure() const { return sock->isSecure(); }
     bool isTrusted() const { return sock->isTrusted(); }
-    std::string getCipherName() const { return sock->getCipherName(); }
+    string getCipherName() const { return sock->getCipherName(); }
     vector<uint8_t> getKeyprint() const { return sock->getKeyprint(); }
 
     void write(const string& aData) { write(aData.data(), aData.length()); }
@@ -155,7 +163,7 @@ public:
     deque<pair<Tasks, unique_ptr<TaskData> > > tasks;
 
     Modes mode;
-    std::unique_ptr<UnZFilter> filterIn;
+    unique_ptr<UnZFilter> filterIn;
     int64_t dataBytes;
     size_t rollback;
     string line;
@@ -163,7 +171,7 @@ public:
     ByteVector writeBuf;
     ByteVector sendBuf;
 
-    std::unique_ptr<Socket> sock;
+    unique_ptr<Socket> sock;
     State state;
     bool disconnecting;
 
@@ -181,7 +189,7 @@ public:
     bool checkEvents();
     void checkSocket();
 
-    void setSocket(std::unique_ptr<Socket> s);
+    void setSocket(unique_ptr<Socket> s);
     void shutdown();
     void addTask(Tasks task, TaskData* data);
 };

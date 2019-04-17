@@ -26,6 +26,7 @@
 #include "Segment.h"
 #include "Util.h"
 #include "GetSet.h"
+#include "HintedUser.h"
 
 namespace dcpp {
 

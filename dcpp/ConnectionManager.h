@@ -26,6 +26,7 @@
 #include "User.h"
 #include "CriticalSection.h"
 #include "NonCopyable.h"
+#include "HintedUser.h"
 #include "Singleton.h"
 #include "Util.h"
 #include "ConnectionManagerListener.h"

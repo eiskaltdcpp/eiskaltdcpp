@@ -197,7 +197,8 @@ int LuaManager::DropUserConnection(lua_State* L) {
 
 int LuaManager::GetSetting(lua_State* L) {
     /* arguments: string */
-    int n, type;
+    int n;
+    SettingsManager::Types type;
     if(lua_gettop(L) == 1 && lua_isstring(L, -1) && SettingsManager::getInstance()->getType(lua_tostring(L, -1), n, type)) {
         if(type == SettingsManager::TYPE_STRING) {
             lua_pushstring(L, SettingsManager::getInstance()->get((SettingsManager::StrSetting)n).c_str());

@@ -16,9 +16,9 @@
  */
 
 #include "stdinc.h"
-
 #include "FinishedItem.h"
 
+#include "HintedUser.h"
 #include "User.h"
 
 namespace dcpp {
@@ -82,7 +82,7 @@ void FinishedFileItem::update(
     if(crc32Checked_)
         crc32Checked = true;
 
-    HintedUserList::iterator i = find(users.begin(), users.end(), user);
+    auto i = find(users.begin(), users.end(), user);
     if(i == users.end())
         users.push_back(user);
     else

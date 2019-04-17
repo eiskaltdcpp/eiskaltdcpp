@@ -22,11 +22,11 @@
 
 #pragma once
 
-#include "Util.h"
-#include "SettingsManager.h"
-#include "StringSearch.h"
-#include "Singleton.h"
 #include "DirectoryListing.h"
+#include "SettingsManager.h"
+#include "Singleton.h"
+#include "StringSearch.h"
+#include "Util.h"
 
 namespace dcpp {
 
@@ -96,6 +96,7 @@ private:
     //decide if regexp should be used
     bool bUseRegexp;
     string regexpstring;
+
     // Substring searches
     StringSearch::List stringSearchList;
 };
@@ -132,8 +133,8 @@ public:
     void matchListing(DirectoryListing& aDirList);
 
 private:
-    // @internal
-    void matchRecurse(DestDirList& /*aDestList*/, DirectoryListing::Directory* /*aDir*/, string& /*aPath*/);
+    // Recurse through the directories
+    void matchRecurse(DestDirList& aDestList, DirectoryListing::Directory* aDir, string& aPath);
     // Search for file match
     void matchesFile(DestDirList& destDirVector, DirectoryListing::File *currentFile, string& fullPath);
     // Search for directory match

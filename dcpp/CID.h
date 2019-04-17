@@ -17,12 +17,16 @@
 
 #pragma once
 
-#include "Encoder.h"
-#include "Util.h"
 #include <functional>
 #include <algorithm>
+#include <cstdint>
+#include <cstring>
+
+#include "Encoder.h"
 
 namespace dcpp {
+
+using std::find_if;
 
 class CID {
 public:
@@ -46,7 +50,7 @@ public:
     }
     const uint8_t* data() const { return cid; }
 
-    bool isZero() const { return std::find_if(cid, cid+SIZE, bind2nd(std::not_equal_to<uint8_t>(), 0)) == (cid+SIZE); }
+    bool isZero() const { return find_if(cid, cid+SIZE, bind2nd(std::not_equal_to<uint8_t>(), 0)) == (cid+SIZE); }
 
     static CID generate();
 
@@ -59,11 +63,10 @@ private:
 namespace std {
 template<>
 struct hash<dcpp::CID> {
-    size_t operator()(const dcpp::CID& rhs) const {
+    size_t operator()(const dcpp::CID& cid) const {
         size_t hvHash;
-        memcpy(&hvHash, rhs.data(), sizeof(size_t));
+        memcpy(&hvHash, cid.data(), sizeof(size_t));
         return hvHash;
     }
 };
-
-} // namespace dcpp
+}

@@ -20,6 +20,7 @@
 #include "forward.h"
 #include "AdcCommand.h"
 #include "FastAlloc.h"
+#include "HintedUser.h"
 #include "MerkleTree.h"
 #include "Pointer.h"
 #include "Util.h"

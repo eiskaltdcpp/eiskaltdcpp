@@ -21,15 +21,16 @@
 
 #include "BufferedSocket.h"
 
-#include "TimerManager.h"
-#include "SettingsManager.h"
+#include <algorithm>
 
-#include "Streams.h"
-#include "SSLSocket.h"
 #include "CryptoManager.h"
+#include "SettingsManager.h"
+#include "SSLSocket.h"
+#include "Streams.h"
+#include "ThrottleManager.h"
+#include "TimerManager.h"
 #include "ZUtils.h"
 
-#include "ThrottleManager.h"
 
 namespace dcpp {
 

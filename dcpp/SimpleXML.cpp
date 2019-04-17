@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001-2012 Jacek Sieka, arnetheduck on gmail point com
+ * Copyright (C) 2001-2019 Jacek Sieka, arnetheduck on gmail point com
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -16,8 +16,8 @@
  */
 
 #include "stdinc.h"
-
 #include "SimpleXML.h"
+#include "Streams.h"
 
 namespace dcpp {
 
@@ -188,7 +188,7 @@ void SimpleXML::fromXML(const string& aXML) {
     }
 
     TagReader t(&root);
-    SimpleXMLReader(&t).parse(aXML.c_str(), aXML.size());
+    SimpleXMLReader(&t).parse(aXML);
 
     if(root.children.size() != 1) {
         throw SimpleXMLException("Invalid XML file, missing or multiple root tags");

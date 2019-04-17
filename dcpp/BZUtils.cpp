@@ -16,8 +16,10 @@
  */
 
 #include "stdinc.h"
-
 #include "BZUtils.h"
+
+#include <cstring>
+
 #include "Exception.h"
 #include "format.h"
 

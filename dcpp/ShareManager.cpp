@@ -16,32 +16,32 @@
  */
 
 #include "stdinc.h"
-
 #include "ShareManager.h"
+
 #include "AdcHub.h"
-#include "CryptoManager.h"
+#include "BZUtils.h"
 #include "ClientManager.h"
-#include "LogManager.h"
-#include "HashManager.h"
-#include "QueueManager.h"
-#include "UploadManager.h"
-#include "SimpleXML.h"
-#include "StringTokenizer.h"
+#include "CryptoManager.h"
+#include "Download.h"
 #include "File.h"
 #include "FilteredFile.h"
-#include "BZUtils.h"
+#include "LogManager.h"
+#include "HashBloom.h"
+#include "HashManager.h"
+#include "QueueManager.h"
+#include "ScopedFunctor.h"
+#include "SearchResult.h"
+#include "SimpleXML.h"
+#include "StringTokenizer.h"
 #include "Wildcards.h"
 #include "Transfer.h"
+#include "UploadManager.h"
 #include "UserConnection.h"
-#include "Download.h"
-#include "HashBloom.h"
-#include "SearchResult.h"
 #include "version.h"
 #ifdef WITH_DHT
 #include "dht/IndexManager.h"
 #endif
 #ifndef _WIN32
-#include <sys/types.h>
 #include <dirent.h>
 #include <sys/stat.h>
 #include <unistd.h>
@@ -51,6 +51,8 @@
 #include <limits>
 
 namespace dcpp {
+
+using std::numeric_limits;
 
 ShareManager::ShareManager() : hits(0), xmlListLen(0), bzXmlListLen(0),
     xmlDirty(true), forceXmlRefresh(false), refreshDirs(false), update(false), initial(true), listN(0), refreshing(false),

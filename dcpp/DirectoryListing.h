@@ -25,6 +25,7 @@
 
 #include "forward.h"
 
+#include "HintedUser.h"
 #include "FastAlloc.h"
 #include "MerkleTree.h"
 #include "MediaInfo.h"

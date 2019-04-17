@@ -500,9 +500,9 @@ void SettingsManager::save(string const& aFileName) {
 
     xml.addTag("SearchTypes");
     xml.stepIn();
-    for(SearchTypesIterC i = searchTypes.begin(); i != searchTypes.end(); ++i) {
-        xml.addTag("SearchType", Util::toString(";", i->second));
-        xml.addChildAttrib("Id", i->first);
+    for(auto& i: searchTypes) {
+        xml.addTag("SearchType", Util::toString(";", i.second));
+        xml.addChildAttrib("Id", i.first);
     }
     xml.stepOut();
 
@@ -587,7 +587,7 @@ SettingsManager::SearchTypesIter SettingsManager::getSearchType(const string& na
     return ret;
 }
 
-bool SettingsManager::getType(const char* name, int& n, int& type) const {
+bool SettingsManager::getType(const char* name, int& n, Types &type) const {
     for(n = 0; n < INT64_LAST; n++) {
         if (strcmp(settingTags[n].c_str(), name) == 0) {
             if (n < STR_LAST) {
@@ -605,7 +605,7 @@ bool SettingsManager::getType(const char* name, int& n, int& type) const {
     return false;
 }
 
-const std::string SettingsManager::parseCoreCmd(const std::string& cmd) {
+const std::string SettingsManager::parseCoreCmd(const string& cmd) {
     StringTokenizer<string> sl(cmd, ' ');
     if (sl.getTokens().size() == 1) {
         string ret;
@@ -620,13 +620,14 @@ const std::string SettingsManager::parseCoreCmd(const std::string& cmd) {
     return Util::emptyString;
 }
 
-bool SettingsManager::parseCoreCmd(string& ret, const std::string& key, const string& value) {
+bool SettingsManager::parseCoreCmd(string& ret, const string& key, const string& value) {
     if (key.empty()) {
         return false;
     }
 
-    int n,type;
-    getType(key.c_str(),n,type);
+    int n;
+    SettingsManager::Types type;
+    getType(key.c_str(), n, type);
     if (type == SettingsManager::TYPE_INT) {
         if (!value.empty()) {
             int i = atoi(value.c_str());

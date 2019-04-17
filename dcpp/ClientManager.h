@@ -19,6 +19,7 @@
 
 #include "Client.h"
 #include "ClientManagerListener.h"
+#include "HintedUser.h"
 #include "OnlineUser.h"
 #include "SettingsManager.h"
 #include "Singleton.h"
