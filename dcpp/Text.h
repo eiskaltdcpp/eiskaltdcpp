@@ -106,9 +106,7 @@ inline const StringList& fromT(const TStringList& lst, StringList& tmp) noexcept
     return tmp;
 }
 
-inline bool isAscii(const string& str) noexcept { return isAscii(str.c_str()); }
 bool isAscii(const char* str) noexcept;
-
 bool validateUtf8(const string& str) noexcept;
 
 inline char asciiToLower(char c) { dcassert((((uint8_t)c) & 0x80) == 0); return (char)tolower(c); }
