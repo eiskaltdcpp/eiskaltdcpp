@@ -45,6 +45,8 @@ During the development EiskaltDC++ in past years we have used different CVS (Sub
 * In case of significant changes (for example, total code refactoring) in any part of program the `<major>` part of program version should be changed.
 * In case when where are very few changes since last stable release, but they are important and should be quickly delivered to users the `<patch>` part of program version should be changed.
 
+During development all changes are tested on Continuous Integration services [Travis CI](https://travis-ci.org/eiskaltdcpp/eiskaltdcpp) and [Sibuserv CI](https://sibuserv-ci.org/projects/eiskaltdcpp).
+
 ## Developers
 
 ### Main developers
