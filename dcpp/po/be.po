@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://github.com/eiskaltdcpp/eiskaltdcpp/issues\n"
-"POT-Creation-Date: 2019-04-17 23:12+0300\n"
+"POT-Creation-Date: 2019-04-18 21:07+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Zmicer <m_d@mail.by>, 2018\n"
 "Language-Team: Belarusian (https://www.transifex.com/tehnick/teams/11818/"
@@ -29,19 +29,19 @@ msgstr "<Упішыце радок>"
 msgid "Discard"
 msgstr "Адкінуць"
 
-#: ../AdcHub.cpp:154
+#: ../AdcHub.cpp:155
 msgid "%1% (%2%) has same CID {%3%} as %4% (%5%), ignoring"
 msgstr "Прапускаем: %1% (%2%) мае такі самы CID {%3%}, як і %4% (%5%)"
 
-#: ../AdcHub.cpp:191 ../QueueManager.cpp:2192 ../Transfer.cpp:91
+#: ../AdcHub.cpp:192 ../QueueManager.cpp:2192 ../Transfer.cpp:91
 msgid "%1%/s"
 msgstr "%1%/с"
 
-#: ../AdcHub.cpp:226
+#: ../AdcHub.cpp:227
 msgid "Failed to negotiate base protocol"
 msgstr "Не ўдалося дамовіцца пра галоўны пратакол"
 
-#: ../AdcHub.cpp:232
+#: ../AdcHub.cpp:233
 msgid ""
 "Hub probably uses an old version of ADC, please encourage the owner to "
 "upgrade"
@@ -49,91 +49,91 @@ msgstr ""
 "Магчыма, асяродак выкарыстоўвае старую вэрсію ADC. Паспрыяйце, каб "
 "уладальнік абнавіў яе"
 
-#: ../AdcHub.cpp:303
+#: ../AdcHub.cpp:304
 msgid "%1% was kicked by %2%: %3%"
 msgstr "%2% даў высьпятка карыстальніку %1%: %3%"
 
-#: ../AdcHub.cpp:306
+#: ../AdcHub.cpp:307
 msgid "%1% was kicked: %2%"
 msgstr "Карыстальніку %1% далі высьпятка: %2%"
 
-#: ../AdcHub.cpp:708
+#: ../AdcHub.cpp:709
 msgid "Not listening for connections - please restart %1%"
 msgstr "Ня чую злучэньняў — запусьціце %1% нанова"
 
-#: ../BZUtils.cpp:32 ../BZUtils.cpp:53 ../BZUtils.cpp:61 ../ZUtils.cpp:36
+#: ../BZUtils.cpp:34 ../BZUtils.cpp:55 ../BZUtils.cpp:63 ../ZUtils.cpp:36
 #: ../ZUtils.cpp:65 ../ZUtils.cpp:92 ../ZUtils.cpp:102
 msgid "Error during compression"
 msgstr "Не ўдалося сьціснуць"
 
-#: ../BZUtils.cpp:73 ../BZUtils.cpp:95 ../BZUtils.cpp:98
-#: ../CryptoManager.cpp:415 ../CryptoManager.cpp:434 ../CryptoManager.cpp:448
+#: ../BZUtils.cpp:75 ../BZUtils.cpp:97 ../BZUtils.cpp:100
+#: ../CryptoManager.cpp:417 ../CryptoManager.cpp:436 ../CryptoManager.cpp:450
 #: ../ZUtils.cpp:116 ../ZUtils.cpp:138 ../ZUtils.cpp:152
 msgid "Error during decompression"
 msgstr "Не ўдалося распакаваць"
 
-#: ../BufferedSocket.cpp:155 ../BufferedSocket.cpp:171
-#: ../ConnectionManager.cpp:203 ../Socket.cpp:221
+#: ../BufferedSocket.cpp:159 ../BufferedSocket.cpp:175
+#: ../ConnectionManager.cpp:204 ../Socket.cpp:220
 msgid "Connection timeout"
 msgstr "Выйшаў час злучэньня"
 
-#: ../BufferedSocket.cpp:186 ../SSLSocket.cpp:180
+#: ../BufferedSocket.cpp:190 ../SSLSocket.cpp:180
 msgid "Connection closed"
 msgstr "Злучэньне зачынілі"
 
-#: ../BufferedSocket.cpp:277
+#: ../BufferedSocket.cpp:281
 msgid "Maximum command length exceeded"
 msgstr "Загад задаўгі"
 
-#: ../BufferedSocket.cpp:463
+#: ../BufferedSocket.cpp:467
 msgid "Disconnected"
 msgstr "Адлучаны"
 
-#: ../ChatMessage.cpp:32
+#: ../ChatMessage.cpp:35
 msgid "Sent "
 msgstr "Даслалі "
 
-#: ../ClientManager.cpp:185 ../QueueManager.cpp:2163 ../QueueManager.cpp:2169
+#: ../ClientManager.cpp:186 ../QueueManager.cpp:2163 ../QueueManager.cpp:2169
 #: ../QueueManager.cpp:2175 ../SearchManager.cpp:279 ../SearchManager.cpp:366
 #: ../SearchManager.cpp:368 ../Transfer.cpp:81 ../Transfer.cpp:85
 msgid "Offline"
 msgstr "Ня ў сетцы"
 
-#: ../ConnectionManager.cpp:196
+#: ../ConnectionManager.cpp:197
 msgid "All download slots taken"
 msgstr "Усе шчыліны сьцягваньня занятыя"
 
-#: ../ConnectionManager.cpp:277
+#: ../ConnectionManager.cpp:278
 msgid "Connectivity restored"
 msgstr "Злучэньне аднавілі"
 
-#: ../ConnectionManager.cpp:285
+#: ../ConnectionManager.cpp:286
 msgid "Connectivity error: %1%"
 msgstr "Памылка злучэньня: %1%"
 
-#: ../ConnectionManager.cpp:816
+#: ../ConnectionManager.cpp:817
 msgid "Blocked a C-C connection to a hub ('%1%:%2%'; request from '%3%')"
 msgstr ""
 
-#: ../ConnectionManager.cpp:834
+#: ../ConnectionManager.cpp:835
 msgid "Blocking '%1%', potential DDoS detected (originating hub '%2%')"
 msgstr ""
 
-#: ../ConnectivityManager.cpp:80
+#: ../ConnectivityManager.cpp:83
 msgid "Determining the best connectivity settings..."
 msgstr "Вызначаюцца найлепшыя налады злучэньня…"
 
-#: ../ConnectivityManager.cpp:85
+#: ../ConnectivityManager.cpp:88
 msgid ""
 "Unable to open %1% port(s); connectivity settings must be configured manually"
 msgstr "Не ўдаецца адчыніць порт(ы) %1%; настаўце злучэньне самастойна"
 
-#: ../ConnectivityManager.cpp:95
+#: ../ConnectivityManager.cpp:98
 msgid ""
 "Public IP address detected, selecting active mode with direct connection"
 msgstr "Выявілі публічны адрас IP; абіраем дзейны спосаб простага злучэньня"
 
-#: ../ConnectivityManager.cpp:102
+#: ../ConnectivityManager.cpp:105
 msgid ""
 "Local network with possible NAT detected, trying to map the ports using "
 "UPnP..."
@@ -141,7 +141,7 @@ msgstr ""
 "Выявілі мясцовую сетку і, магчыма, NAT; спрабуем адлюстраваць порты з "
 "дапамогаю UPnP…"
 
-#: ../ConnectivityManager.cpp:130
+#: ../ConnectivityManager.cpp:133
 msgid ""
 "Automatic setup of active mode has failed. You may want to set up your "
 "connection manually for better connectivity"
@@ -149,53 +149,53 @@ msgstr ""
 "Не ўдалося самарушна наладзіць злучэньне дзейным спосабам. Мажліва, вы "
 "захочаце наладзіць злучэньне самастойна для лепшае сувязі"
 
-#: ../ConnectivityManager.cpp:142
+#: ../ConnectivityManager.cpp:145
 msgid "Transfer (TCP)"
 msgstr "Перадаваньне (TCP)"
 
-#: ../ConnectivityManager.cpp:148
+#: ../ConnectivityManager.cpp:151
 msgid "Search (UDP)"
 msgstr "Пошук (UDP)"
 
-#: ../ConnectivityManager.cpp:154
+#: ../ConnectivityManager.cpp:157
 msgid "DHT (UDP)"
 msgstr "DHT (UDP)"
 
-#: ../ConnectivityManager.cpp:169
+#: ../ConnectivityManager.cpp:172
 msgid "Connectivity: "
 msgstr "Злучэньне: "
 
-#: ../CryptoManager.cpp:175
+#: ../CryptoManager.cpp:177
 msgid "No private key file chosen"
 msgstr "Не абралі файл асабістага ключа"
 
-#: ../CryptoManager.cpp:178
+#: ../CryptoManager.cpp:180
 msgid "No certificate file chosen"
 msgstr "Не абралі пасьведчаньня"
 
-#: ../CryptoManager.cpp:190
+#: ../CryptoManager.cpp:192
 msgid "Error generating certificate"
 msgstr "Не ўдалося стварыць пасьведчаньне"
 
-#: ../CryptoManager.cpp:253
+#: ../CryptoManager.cpp:255
 msgid "TLS disabled, no certificate file set"
 msgstr "TLS не задзейнічаны, файл пасьведчаньня ня вызначаны"
 
-#: ../CryptoManager.cpp:261
+#: ../CryptoManager.cpp:263
 msgid "Generated new TLS certificate"
 msgstr "Стварылі новае пасьведчаньне TLS"
 
-#: ../CryptoManager.cpp:263
+#: ../CryptoManager.cpp:265
 msgid "TLS disabled, failed to generate certificate: %1%"
 msgstr "Не ўдалося стварыць пасьведчаньне — TLS не задзейнічалі: %1%"
 
-#: ../CryptoManager.cpp:268 ../CryptoManager.cpp:272 ../CryptoManager.cpp:277
-#: ../CryptoManager.cpp:281
+#: ../CryptoManager.cpp:270 ../CryptoManager.cpp:274 ../CryptoManager.cpp:279
+#: ../CryptoManager.cpp:283
 msgid "Failed to load certificate file"
 msgstr "Не ўдалося прачытаць файл пасьведчаньня"
 
-#: ../CryptoManager.cpp:286 ../CryptoManager.cpp:290 ../CryptoManager.cpp:295
-#: ../CryptoManager.cpp:299
+#: ../CryptoManager.cpp:288 ../CryptoManager.cpp:292 ../CryptoManager.cpp:297
+#: ../CryptoManager.cpp:301
 msgid "Failed to load private key"
 msgstr "Не ўдалося прачытаць асабісты ключ"
 
@@ -215,11 +215,11 @@ msgstr "Чарга сьцягванага"
 msgid "Users"
 msgstr "Карыстальнікі"
 
-#: ../DirectoryListing.cpp:100
+#: ../DirectoryListing.cpp:95
 msgid "Invalid file list extension (must be .xml or .bz2)"
 msgstr ""
 
-#: ../DirectoryListing.cpp:218
+#: ../DirectoryListing.cpp:214
 msgid "Directory missing name attribute"
 msgstr "Каталёґ ня мае назвы"
 
@@ -267,45 +267,45 @@ msgstr "Самарушна злучацца суполцы (перароблен
 msgid "Invalid URL: %1%"
 msgstr ""
 
-#: ../HashManager.cpp:228 ../HashManager.cpp:426
+#: ../HashManager.cpp:229 ../HashManager.cpp:427
 msgid "Hashing failed: %1%"
 msgstr "Не ўдалося стварыць скароты: %1%"
 
-#: ../HashManager.cpp:235
+#: ../HashManager.cpp:236
 msgid "Finished hashing: %1% (%2% at %3%/s)"
 msgstr "Скароты стварылі: %1% (%2% на %3%/с)"
 
-#: ../HashManager.cpp:238
+#: ../HashManager.cpp:239
 msgid "Finished hashing: %1% (%2%)"
 msgstr "Скароты стварылі: %1% (%2%)"
 
-#: ../HashManager.cpp:241
+#: ../HashManager.cpp:242
 msgid "Finished hashing: %1%"
 msgstr "Скончылі ствараць скароты: %1%"
 
-#: ../HashManager.cpp:269 ../HashManager.cpp:481
+#: ../HashManager.cpp:270 ../HashManager.cpp:482
 msgid "Error saving hash data: %1%"
 msgstr "Не ўдалося захаваць зьвесткі скаротаў: %1%"
 
-#: ../HashManager.cpp:282
+#: ../HashManager.cpp:283
 msgid "Unable to read hash data file"
 msgstr "Не ўдалося прачытаць файл зьвестак скаротаў"
 
-#: ../HashManager.cpp:614
+#: ../HashManager.cpp:615
 msgid "Error creating hash data file: %1%"
 msgstr "Не ўдалося стварыць файл зьвестак скаротаў: %1%"
 
-#: ../HashManager.cpp:965
+#: ../HashManager.cpp:966
 msgid "Hash database rebuilt"
 msgstr "Адбудавалі базу зьвестак"
 
-#: ../HashManager.cpp:1059
+#: ../HashManager.cpp:1060
 msgid ""
 "%1% not shared; calculated CRC32 does not match the one found in SFV file."
 msgstr ""
 "%1% не абагулілі: падлічаная сума CRC32 не адпавядае знойдзенай у файле SFV."
 
-#: ../HashManager.cpp:1064
+#: ../HashManager.cpp:1065
 msgid "Error hashing %1%: %2%"
 msgstr "Не ўдалося стварыць скарот да %1%: %2%"
 
@@ -316,6 +316,72 @@ msgstr ""
 #: ../HttpConnection.cpp:223
 msgid "Endless redirection loop (%1%)"
 msgstr "Бясконцая пятля перанакіроўваньня (%1%)"
+
+#: ../MappingManager.cpp:44
+msgid "No UPnP implementation available"
+msgstr "Няма даступнага выкананьня UPnP"
+
+#: ../MappingManager.cpp:49
+msgid "Another UPnP port mapping attempt is in progress..."
+msgstr "Спрабуем стварыць іншае люстра портаў UPnP…"
+
+#: ../MappingManager.cpp:81
+msgid "Failed to initialize the %1% interface"
+msgstr "Не ўдалося задзейнічаць інтэрфэйс %1%"
+
+#: ../MappingManager.cpp:85
+msgid " Transfer Port (%1% TCP)"
+msgstr " Порт перадаваньня (%1% TCP)"
+
+#: ../MappingManager.cpp:86 ../MappingManager.cpp:91 ../MappingManager.cpp:96
+#: ../MappingManager.cpp:101
+msgid "The %1% interface has failed to map the %2% %3% port"
+msgstr "Інтэрфэйсу %1% не ўдалося адлюстраваць порт %2% на %3%"
+
+#: ../MappingManager.cpp:90
+msgid " Encrypted Transfer Port (%1% TCP)"
+msgstr " Шыфраваны порт перадаваньня (%1% TCP)"
+
+#: ../MappingManager.cpp:95
+msgid " Search Port (%1% UDP)"
+msgstr " Порт пошуку (%1% UDP)"
+
+#: ../MappingManager.cpp:100
+msgid " DHT Port (%1% UDP)"
+msgstr " Порт DHT (%1% UDP)"
+
+#: ../MappingManager.cpp:110
+msgid ""
+"Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%, DHT: %4%), "
+"mapped using the %5% interface"
+msgstr ""
+
+#: ../MappingManager.cpp:112 ../MappingManager.cpp:114
+msgid ""
+"Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%), mapped "
+"using the %4% interface"
+msgstr ""
+"Адлюстравалі порты (TCP: %1%, UDP: %2%, TLS: %3%) з дапамогаю інтэрфэйсу %4%"
+
+#: ../MappingManager.cpp:126
+msgid "Failed to get external IP"
+msgstr "Не ўдалося атрымаць вонкавы адрас IP"
+
+#: ../MappingManager.cpp:136
+msgid "Failed to create port mappings"
+msgstr "Не ўдалося адлюстраваць порты"
+
+#: ../MappingManager.cpp:145
+msgid "Successfully removed port mappings with the %1% interface"
+msgstr "Зьнішчылі люстры портаў на інтэрфэйсе %1%"
+
+#: ../MappingManager.cpp:146
+msgid "Failed to remove port mappings with the %1% interface"
+msgstr "Не ўдалося зьнішчыць люстры портаў на інтэрфэйсе %1%"
+
+#: ../MappingManager.cpp:151
+msgid "UPnP: %1%"
+msgstr "UPnP: %1%"
 
 #: ../NmdcHub.cpp:299
 msgid "%1% (Nick unknown)"
@@ -514,37 +580,37 @@ msgstr "Наладкі ядра"
 msgid "Change core setting "
 msgstr "Зьмяніць наладу асновы "
 
-#: ../ShareManager.cpp:450
+#: ../ShareManager.cpp:452
 msgid "No directory specified"
 msgstr "Ня вызначылі каталёґ"
 
-#: ../ShareManager.cpp:454
+#: ../ShareManager.cpp:456
 msgid "Directory is hidden"
 msgstr "Схаваны каталёґ"
 
-#: ../ShareManager.cpp:458
+#: ../ShareManager.cpp:460
 msgid "The temporary download directory cannot be shared"
 msgstr "Нельга абагуляць часовы каталёґ"
 
-#: ../ShareManager.cpp:649
+#: ../ShareManager.cpp:651
 msgid "Invalid file name found while hashing folder %1%"
 msgstr "Выявілі хібную назву файла, калі стваралі скароты ў каталёґу %1%"
 
-#: ../ShareManager.cpp:668
+#: ../ShareManager.cpp:670
 msgid "Skip share file: %1% (Size: %2%)"
 msgstr "Не абагуляецца файл: %1% (памер: %2%)"
 
-#: ../ShareManager.cpp:689
+#: ../ShareManager.cpp:691
 msgid "Skip share temp file: %1% (Size: %2%)"
 msgstr "Не абагуляецца часовы файл: %1% (памер: %2%)"
 
-#: ../ShareManager.cpp:779
+#: ../ShareManager.cpp:781
 msgid ""
 "Duplicate file will not be shared: %1% (Size: %2% B) Dupe matched against: "
 "%3%"
 msgstr "Файл %1% (памер: %2% Б) — блізьнюк файла %3%"
 
-#: ../ShareManager.cpp:801
+#: ../ShareManager.cpp:803
 msgid ""
 "File list refresh in progress, please wait for it to finish before trying to "
 "refresh again"
@@ -552,46 +618,46 @@ msgstr ""
 "Сьпіс файлаў абнаўляецца. Пачакайце, пакуль ён абновіцца, каб паспрабаваць "
 "абнавіць ізноў."
 
-#: ../ShareManager.cpp:822
+#: ../ShareManager.cpp:824
 msgid "File list refresh failed: %1%"
 msgstr "Не ўдалося абнавіць сьпіс файлаў: %1%"
 
-#: ../ShareManager.cpp:843
+#: ../ShareManager.cpp:845
 msgid "File list refresh initiated"
 msgstr "Распачалі абнаўляць сьпіс файлаў"
 
-#: ../ShareManager.cpp:868
+#: ../ShareManager.cpp:870
 msgid "File list refresh finished"
 msgstr "Сьпіс файлаў абнавілі"
 
-#: ../ShareManager.cpp:950
+#: ../ShareManager.cpp:952
 msgid "File list %1% generated"
 msgstr "Стварылі сьпіс файлаў %1%"
 
-#: ../Socket.cpp:86
+#: ../Socket.cpp:85
 #, c-format
 msgid "Unknown error: 0x%1$x"
 msgstr "Невядомая памылка: 0x%1$x"
 
-#: ../Socket.cpp:229 ../Socket.cpp:237 ../Socket.cpp:270 ../Socket.cpp:274
-#: ../Socket.cpp:298 ../Socket.cpp:313
+#: ../Socket.cpp:228 ../Socket.cpp:236 ../Socket.cpp:269 ../Socket.cpp:273
+#: ../Socket.cpp:297 ../Socket.cpp:312
 msgid "The socks server failed establish a connection"
 msgstr "Паслужніку Socks не ўдалося наладзіць злучэньне"
 
-#: ../Socket.cpp:302
+#: ../Socket.cpp:301
 msgid "The socks server requires authentication"
 msgstr "Паслужнік SOCKS патрабуе апазнацца"
 
-#: ../Socket.cpp:316
+#: ../Socket.cpp:315
 msgid "The socks server doesn't support login / password authentication"
 msgstr "Паслужнік SOCKS не падтрымвае апазнаваньня «ўліковае ймя — пароль»"
 
-#: ../Socket.cpp:330 ../Socket.cpp:334
+#: ../Socket.cpp:329 ../Socket.cpp:333
 msgid "Socks server authentication failed (bad login / password?)"
 msgstr ""
 "Не ўдалося апазнацца на паслужніку SOCKS (кепскі пароль ці ўліковае ймя?)"
 
-#: ../Socket.cpp:519
+#: ../Socket.cpp:518
 msgid ""
 "Failed to set up the socks server for UDP relay (check socks address and "
 "port)"
@@ -602,72 +668,6 @@ msgstr ""
 #: ../Thread.cpp:29 ../Thread.cpp:37
 msgid "Unable to create thread"
 msgstr "Не ўдаецца стварыць ніць"
-
-#: ../UPnPManager.cpp:44
-msgid "No UPnP implementation available"
-msgstr "Няма даступнага выкананьня UPnP"
-
-#: ../UPnPManager.cpp:49
-msgid "Another UPnP port mapping attempt is in progress..."
-msgstr "Спрабуем стварыць іншае люстра портаў UPnP…"
-
-#: ../UPnPManager.cpp:81
-msgid "Failed to initialize the %1% interface"
-msgstr "Не ўдалося задзейнічаць інтэрфэйс %1%"
-
-#: ../UPnPManager.cpp:85
-msgid " Transfer Port (%1% TCP)"
-msgstr " Порт перадаваньня (%1% TCP)"
-
-#: ../UPnPManager.cpp:86 ../UPnPManager.cpp:91 ../UPnPManager.cpp:96
-#: ../UPnPManager.cpp:101
-msgid "The %1% interface has failed to map the %2% %3% port"
-msgstr "Інтэрфэйсу %1% не ўдалося адлюстраваць порт %2% на %3%"
-
-#: ../UPnPManager.cpp:90
-msgid " Encrypted Transfer Port (%1% TCP)"
-msgstr " Шыфраваны порт перадаваньня (%1% TCP)"
-
-#: ../UPnPManager.cpp:95
-msgid " Search Port (%1% UDP)"
-msgstr " Порт пошуку (%1% UDP)"
-
-#: ../UPnPManager.cpp:100
-msgid " DHT Port (%1% UDP)"
-msgstr " Порт DHT (%1% UDP)"
-
-#: ../UPnPManager.cpp:110
-msgid ""
-"Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%, DHT: %4%), "
-"mapped using the %5% interface"
-msgstr ""
-
-#: ../UPnPManager.cpp:112 ../UPnPManager.cpp:114
-msgid ""
-"Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%), mapped "
-"using the %4% interface"
-msgstr ""
-"Адлюстравалі порты (TCP: %1%, UDP: %2%, TLS: %3%) з дапамогаю інтэрфэйсу %4%"
-
-#: ../UPnPManager.cpp:126
-msgid "Failed to get external IP"
-msgstr "Не ўдалося атрымаць вонкавы адрас IP"
-
-#: ../UPnPManager.cpp:136
-msgid "Failed to create port mappings"
-msgstr "Не ўдалося адлюстраваць порты"
-
-#: ../UPnPManager.cpp:145
-msgid "Successfully removed port mappings with the %1% interface"
-msgstr "Зьнішчылі люстры портаў на інтэрфэйсе %1%"
-
-#: ../UPnPManager.cpp:146
-msgid "Failed to remove port mappings with the %1% interface"
-msgstr "Не ўдалося зьнішчыць люстры портаў на інтэрфэйсе %1%"
-
-#: ../UPnPManager.cpp:151
-msgid "UPnP: %1%"
-msgstr "UPnP: %1%"
 
 #: ../UploadManager.cpp:134
 msgid "Connection already exists."
@@ -685,75 +685,75 @@ msgstr "Сіта IP: забаранілі ўваходнае злучэньне 
 msgid "Disconnected user leaving the hub: %1%"
 msgstr "Карыстальнік адлучыўся і выходзіць з асяродку: %1%"
 
-#: ../UserConnection.cpp:54 ../UserConnection.cpp:69 ../UserConnection.cpp:143
+#: ../UserConnection.cpp:56 ../UserConnection.cpp:71 ../UserConnection.cpp:145
 msgid "Invalid data"
 msgstr "Хібныя зьвесткі"
 
-#: ../UserConnection.cpp:60
+#: ../UserConnection.cpp:62
 msgid "Non-UTF-8 data in an ADC connection"
 msgstr "Зьвесткі злучэньня ADC не ў кадоўцы UTF-8"
 
-#: ../Util.cpp:704
+#: ../Util.cpp:707
 #, c-format
 msgid "%d B"
 msgstr "%d Б"
 
-#: ../Util.cpp:706
+#: ../Util.cpp:709
 #, c-format
 msgid "%.02f KiB"
 msgstr "%.02f КіБ"
 
-#: ../Util.cpp:706
+#: ../Util.cpp:709
 #, c-format
 msgid "%.02f KB"
 msgstr "%.02f КБ"
 
-#: ../Util.cpp:708
+#: ../Util.cpp:711
 #, c-format
 msgid "%.02f MiB"
 msgstr "%.02f МіБ"
 
-#: ../Util.cpp:708
+#: ../Util.cpp:711
 #, c-format
 msgid "%.02f MB"
 msgstr "%.02f МБ"
 
-#: ../Util.cpp:710
+#: ../Util.cpp:713
 #, c-format
 msgid "%.02f GiB"
 msgstr "%.02f ҐіБ"
 
-#: ../Util.cpp:710
+#: ../Util.cpp:713
 #, c-format
 msgid "%.02f GB"
 msgstr "%.02f ГБ"
 
-#: ../Util.cpp:712
+#: ../Util.cpp:715
 #, c-format
 msgid "%.02f TiB"
 msgstr "%.02f ТіБ"
 
-#: ../Util.cpp:712
+#: ../Util.cpp:715
 #, c-format
 msgid "%.02f TB"
 msgstr "%.02f ТБ"
 
-#: ../Util.cpp:714
+#: ../Util.cpp:717
 #, c-format
 msgid "%.02f PiB"
 msgstr "%.02f ПіБ"
 
-#: ../Util.cpp:714
+#: ../Util.cpp:717
 #, c-format
 msgid "%.02f PB"
 msgstr "%.02f ПБ"
 
-#: ../Util.cpp:748
+#: ../Util.cpp:751
 #, c-format
 msgid "%s B"
 msgstr "%s Б"
 
-#: ../Util.cpp:752
+#: ../Util.cpp:755
 #, c-format
 msgid "%'lld B"
 msgstr "%'lld Б"

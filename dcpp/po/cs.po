@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://github.com/eiskaltdcpp/eiskaltdcpp/issues\n"
-"POT-Creation-Date: 2019-04-17 23:12+0300\n"
+"POT-Creation-Date: 2019-04-18 21:07+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Boris Pek <tehnick-8@yandex.ru>, 2017\n"
 "Language-Team: Czech (https://www.transifex.com/tehnick/teams/11818/cs/)\n"
@@ -27,19 +27,19 @@ msgstr ""
 msgid "Discard"
 msgstr "Zahodit"
 
-#: ../AdcHub.cpp:154
+#: ../AdcHub.cpp:155
 msgid "%1% (%2%) has same CID {%3%} as %4% (%5%), ignoring"
 msgstr "%1% (%2%) má stejné CID {%3%} jako %4% (%5%), ignoruji"
 
-#: ../AdcHub.cpp:191 ../QueueManager.cpp:2192 ../Transfer.cpp:91
+#: ../AdcHub.cpp:192 ../QueueManager.cpp:2192 ../Transfer.cpp:91
 msgid "%1%/s"
 msgstr "%1%/s"
 
-#: ../AdcHub.cpp:226
+#: ../AdcHub.cpp:227
 msgid "Failed to negotiate base protocol"
 msgstr "Nemohu nastavit základní protokol"
 
-#: ../AdcHub.cpp:232
+#: ../AdcHub.cpp:233
 msgid ""
 "Hub probably uses an old version of ADC, please encourage the owner to "
 "upgrade"
@@ -47,91 +47,91 @@ msgstr ""
 "Hub pravděpodobně používá starou verzi ADC, prosím doporučte majiteli "
 "upgrade."
 
-#: ../AdcHub.cpp:303
+#: ../AdcHub.cpp:304
 msgid "%1% was kicked by %2%: %3%"
 msgstr "%1% byl vykopnut uživatelem %2%: %3%"
 
-#: ../AdcHub.cpp:306
+#: ../AdcHub.cpp:307
 msgid "%1% was kicked: %2%"
 msgstr "%1% byl vykopnut: %2%"
 
-#: ../AdcHub.cpp:708
+#: ../AdcHub.cpp:709
 msgid "Not listening for connections - please restart %1%"
 msgstr "Nenaslouchá připojením - prosím restartujte %1%"
 
-#: ../BZUtils.cpp:32 ../BZUtils.cpp:53 ../BZUtils.cpp:61 ../ZUtils.cpp:36
+#: ../BZUtils.cpp:34 ../BZUtils.cpp:55 ../BZUtils.cpp:63 ../ZUtils.cpp:36
 #: ../ZUtils.cpp:65 ../ZUtils.cpp:92 ../ZUtils.cpp:102
 msgid "Error during compression"
 msgstr "Chyba pocesu komprese"
 
-#: ../BZUtils.cpp:73 ../BZUtils.cpp:95 ../BZUtils.cpp:98
-#: ../CryptoManager.cpp:415 ../CryptoManager.cpp:434 ../CryptoManager.cpp:448
+#: ../BZUtils.cpp:75 ../BZUtils.cpp:97 ../BZUtils.cpp:100
+#: ../CryptoManager.cpp:417 ../CryptoManager.cpp:436 ../CryptoManager.cpp:450
 #: ../ZUtils.cpp:116 ../ZUtils.cpp:138 ../ZUtils.cpp:152
 msgid "Error during decompression"
 msgstr "Chyba během dekomprese"
 
-#: ../BufferedSocket.cpp:155 ../BufferedSocket.cpp:171
-#: ../ConnectionManager.cpp:203 ../Socket.cpp:221
+#: ../BufferedSocket.cpp:159 ../BufferedSocket.cpp:175
+#: ../ConnectionManager.cpp:204 ../Socket.cpp:220
 msgid "Connection timeout"
 msgstr "Čas pro připojení vypršel"
 
-#: ../BufferedSocket.cpp:186 ../SSLSocket.cpp:180
+#: ../BufferedSocket.cpp:190 ../SSLSocket.cpp:180
 msgid "Connection closed"
 msgstr "Spojení ukončeno"
 
-#: ../BufferedSocket.cpp:277
+#: ../BufferedSocket.cpp:281
 msgid "Maximum command length exceeded"
 msgstr "Překročena maximální délka příkazu"
 
-#: ../BufferedSocket.cpp:463
+#: ../BufferedSocket.cpp:467
 msgid "Disconnected"
 msgstr "Odpojený"
 
-#: ../ChatMessage.cpp:32
+#: ../ChatMessage.cpp:35
 msgid "Sent "
 msgstr "Odesláno "
 
-#: ../ClientManager.cpp:185 ../QueueManager.cpp:2163 ../QueueManager.cpp:2169
+#: ../ClientManager.cpp:186 ../QueueManager.cpp:2163 ../QueueManager.cpp:2169
 #: ../QueueManager.cpp:2175 ../SearchManager.cpp:279 ../SearchManager.cpp:366
 #: ../SearchManager.cpp:368 ../Transfer.cpp:81 ../Transfer.cpp:85
 msgid "Offline"
 msgstr "Nepřipojen"
 
-#: ../ConnectionManager.cpp:196
+#: ../ConnectionManager.cpp:197
 msgid "All download slots taken"
 msgstr "Všechny download sloty jsou obsazené"
 
-#: ../ConnectionManager.cpp:277
+#: ../ConnectionManager.cpp:278
 msgid "Connectivity restored"
 msgstr "Spojení obnoveno"
 
-#: ../ConnectionManager.cpp:285
+#: ../ConnectionManager.cpp:286
 msgid "Connectivity error: %1%"
 msgstr ""
 
-#: ../ConnectionManager.cpp:816
+#: ../ConnectionManager.cpp:817
 msgid "Blocked a C-C connection to a hub ('%1%:%2%'; request from '%3%')"
 msgstr ""
 
-#: ../ConnectionManager.cpp:834
+#: ../ConnectionManager.cpp:835
 msgid "Blocking '%1%', potential DDoS detected (originating hub '%2%')"
 msgstr ""
 
-#: ../ConnectivityManager.cpp:80
+#: ../ConnectivityManager.cpp:83
 msgid "Determining the best connectivity settings..."
 msgstr "Ustavuji nejlepší nastavení spojení..."
 
-#: ../ConnectivityManager.cpp:85
+#: ../ConnectivityManager.cpp:88
 msgid ""
 "Unable to open %1% port(s); connectivity settings must be configured manually"
 msgstr "Nemohu otevřít %1% port(y); Nastavení spojení musí být nastaveno ručně"
 
-#: ../ConnectivityManager.cpp:95
+#: ../ConnectivityManager.cpp:98
 msgid ""
 "Public IP address detected, selecting active mode with direct connection"
 msgstr "Detekována veřejná IP adresa, vybírám aktivní mód s přímým spojením"
 
-#: ../ConnectivityManager.cpp:102
+#: ../ConnectivityManager.cpp:105
 msgid ""
 "Local network with possible NAT detected, trying to map the ports using "
 "UPnP..."
@@ -139,7 +139,7 @@ msgstr ""
 "Zjištěna místní síť s možností použití NAT, pokouším se namapovat porty "
 "pomocí UPnP..."
 
-#: ../ConnectivityManager.cpp:130
+#: ../ConnectivityManager.cpp:133
 msgid ""
 "Automatic setup of active mode has failed. You may want to set up your "
 "connection manually for better connectivity"
@@ -147,53 +147,53 @@ msgstr ""
 "Automatické nastavení aktivního módu selhalo. Možná budete chtít nastavit "
 "vaše připojení ručně pro lepší funkčnost"
 
-#: ../ConnectivityManager.cpp:142
+#: ../ConnectivityManager.cpp:145
 msgid "Transfer (TCP)"
 msgstr "Přenosy (TCP)"
 
-#: ../ConnectivityManager.cpp:148
+#: ../ConnectivityManager.cpp:151
 msgid "Search (UDP)"
 msgstr "Hledání (UDP)"
 
-#: ../ConnectivityManager.cpp:154
+#: ../ConnectivityManager.cpp:157
 msgid "DHT (UDP)"
 msgstr "DHT (UDP)"
 
-#: ../ConnectivityManager.cpp:169
+#: ../ConnectivityManager.cpp:172
 msgid "Connectivity: "
 msgstr "Spojení obnoveno"
 
-#: ../CryptoManager.cpp:175
+#: ../CryptoManager.cpp:177
 msgid "No private key file chosen"
 msgstr ""
 
-#: ../CryptoManager.cpp:178
+#: ../CryptoManager.cpp:180
 msgid "No certificate file chosen"
 msgstr ""
 
-#: ../CryptoManager.cpp:190
+#: ../CryptoManager.cpp:192
 msgid "Error generating certificate"
 msgstr ""
 
-#: ../CryptoManager.cpp:253
+#: ../CryptoManager.cpp:255
 msgid "TLS disabled, no certificate file set"
 msgstr "TLS zakázáno, chybí certifikát"
 
-#: ../CryptoManager.cpp:261
+#: ../CryptoManager.cpp:263
 msgid "Generated new TLS certificate"
 msgstr "Vygenerovaný nový TLS certifikát"
 
-#: ../CryptoManager.cpp:263
+#: ../CryptoManager.cpp:265
 msgid "TLS disabled, failed to generate certificate: %1%"
 msgstr "TLS zakázáno, nelze vygenerovat certifikát: %1%"
 
-#: ../CryptoManager.cpp:268 ../CryptoManager.cpp:272 ../CryptoManager.cpp:277
-#: ../CryptoManager.cpp:281
+#: ../CryptoManager.cpp:270 ../CryptoManager.cpp:274 ../CryptoManager.cpp:279
+#: ../CryptoManager.cpp:283
 msgid "Failed to load certificate file"
 msgstr "Nemohu nahrát soubor s certifikátem"
 
-#: ../CryptoManager.cpp:286 ../CryptoManager.cpp:290 ../CryptoManager.cpp:295
-#: ../CryptoManager.cpp:299
+#: ../CryptoManager.cpp:288 ../CryptoManager.cpp:292 ../CryptoManager.cpp:297
+#: ../CryptoManager.cpp:301
 msgid "Failed to load private key"
 msgstr "Nemohu nahrát privátní klíč"
 
@@ -213,11 +213,11 @@ msgstr "Fronta souborů ke stáhnutí"
 msgid "Users"
 msgstr "Uživatelé"
 
-#: ../DirectoryListing.cpp:100
+#: ../DirectoryListing.cpp:95
 msgid "Invalid file list extension (must be .xml or .bz2)"
 msgstr ""
 
-#: ../DirectoryListing.cpp:218
+#: ../DirectoryListing.cpp:214
 msgid "Directory missing name attribute"
 msgstr ""
 
@@ -265,46 +265,46 @@ msgstr ""
 msgid "Invalid URL: %1%"
 msgstr ""
 
-#: ../HashManager.cpp:228 ../HashManager.cpp:426
+#: ../HashManager.cpp:229 ../HashManager.cpp:427
 msgid "Hashing failed: %1%"
 msgstr "Hashování selhalo: %1%"
 
-#: ../HashManager.cpp:235
+#: ../HashManager.cpp:236
 msgid "Finished hashing: %1% (%2% at %3%/s)"
 msgstr "Dokončeno hashování: %1% (%2% v %3%/s)"
 
-#: ../HashManager.cpp:238
+#: ../HashManager.cpp:239
 msgid "Finished hashing: %1% (%2%)"
 msgstr "Hashování dokončeno: %1% (%2%)"
 
-#: ../HashManager.cpp:241
+#: ../HashManager.cpp:242
 msgid "Finished hashing: %1%"
 msgstr "Dokončeno hashování: %1%"
 
-#: ../HashManager.cpp:269 ../HashManager.cpp:481
+#: ../HashManager.cpp:270 ../HashManager.cpp:482
 msgid "Error saving hash data: %1%"
 msgstr "Chyba při ukládání hashe: %1%"
 
-#: ../HashManager.cpp:282
+#: ../HashManager.cpp:283
 msgid "Unable to read hash data file"
 msgstr "Nelze číst hash souborů"
 
-#: ../HashManager.cpp:614
+#: ../HashManager.cpp:615
 msgid "Error creating hash data file: %1%"
 msgstr "Chyba vytváření souboru hashe: %1%"
 
-#: ../HashManager.cpp:965
+#: ../HashManager.cpp:966
 msgid "Hash database rebuilt"
 msgstr "Hash databáze obnovena"
 
-#: ../HashManager.cpp:1059
+#: ../HashManager.cpp:1060
 msgid ""
 "%1% not shared; calculated CRC32 does not match the one found in SFV file."
 msgstr ""
 "%1% není sdíleno; vypočtený součet CRC32 nesouhlasí se součtem ze souboru "
 "SFV."
 
-#: ../HashManager.cpp:1064
+#: ../HashManager.cpp:1065
 msgid "Error hashing %1%: %2%"
 msgstr "Chyba hashování %1%: %2%"
 
@@ -315,6 +315,71 @@ msgstr ""
 #: ../HttpConnection.cpp:223
 msgid "Endless redirection loop (%1%)"
 msgstr ""
+
+#: ../MappingManager.cpp:44
+msgid "No UPnP implementation available"
+msgstr "Soubor nedostupný"
+
+#: ../MappingManager.cpp:49
+msgid "Another UPnP port mapping attempt is in progress..."
+msgstr ""
+
+#: ../MappingManager.cpp:81
+msgid "Failed to initialize the %1% interface"
+msgstr "Spuštěno obnovení filelistu"
+
+#: ../MappingManager.cpp:85
+msgid " Transfer Port (%1% TCP)"
+msgstr " Transfer Port (%1% TCP)"
+
+#: ../MappingManager.cpp:86 ../MappingManager.cpp:91 ../MappingManager.cpp:96
+#: ../MappingManager.cpp:101
+msgid "The %1% interface has failed to map the %2% %3% port"
+msgstr ""
+
+#: ../MappingManager.cpp:90
+msgid " Encrypted Transfer Port (%1% TCP)"
+msgstr " Šifrovaný Transfer Port (%1% TCP)"
+
+#: ../MappingManager.cpp:95
+msgid " Search Port (%1% UDP)"
+msgstr " Search Port (%1% UDP)"
+
+#: ../MappingManager.cpp:100
+msgid " DHT Port (%1% UDP)"
+msgstr " DHT Port (%1% UDP)"
+
+#: ../MappingManager.cpp:110
+msgid ""
+"Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%, DHT: %4%), "
+"mapped using the %5% interface"
+msgstr ""
+
+#: ../MappingManager.cpp:112 ../MappingManager.cpp:114
+msgid ""
+"Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%), mapped "
+"using the %4% interface"
+msgstr ""
+
+#: ../MappingManager.cpp:126
+msgid "Failed to get external IP"
+msgstr "Selhalo získání externí IP"
+
+#: ../MappingManager.cpp:136
+msgid "Failed to create port mappings"
+msgstr ""
+
+#: ../MappingManager.cpp:145
+msgid "Successfully removed port mappings with the %1% interface"
+msgstr "Spuštěno obnovení filelistu"
+
+#: ../MappingManager.cpp:146
+msgid "Failed to remove port mappings with the %1% interface"
+msgstr "Spuštěno obnovení filelistu"
+
+#: ../MappingManager.cpp:151
+msgid "UPnP: %1%"
+msgstr "UPnP: %1%"
 
 #: ../NmdcHub.cpp:299
 msgid "%1% (Nick unknown)"
@@ -512,81 +577,81 @@ msgstr ""
 msgid "Change core setting "
 msgstr "Změna nastavení jádra "
 
-#: ../ShareManager.cpp:450
+#: ../ShareManager.cpp:452
 msgid "No directory specified"
 msgstr "Nebyl zvolen adresář"
 
-#: ../ShareManager.cpp:454
+#: ../ShareManager.cpp:456
 msgid "Directory is hidden"
 msgstr "Adresář je již ve sdílení"
 
-#: ../ShareManager.cpp:458
+#: ../ShareManager.cpp:460
 msgid "The temporary download directory cannot be shared"
 msgstr "Není možné sdílet pracovní adresář neztažených souborů"
 
-#: ../ShareManager.cpp:649
+#: ../ShareManager.cpp:651
 msgid "Invalid file name found while hashing folder %1%"
 msgstr ""
 
-#: ../ShareManager.cpp:668
+#: ../ShareManager.cpp:670
 msgid "Skip share file: %1% (Size: %2%)"
 msgstr ""
 
-#: ../ShareManager.cpp:689
+#: ../ShareManager.cpp:691
 msgid "Skip share temp file: %1% (Size: %2%)"
 msgstr ""
 
-#: ../ShareManager.cpp:779
+#: ../ShareManager.cpp:781
 msgid ""
 "Duplicate file will not be shared: %1% (Size: %2% B) Dupe matched against: "
 "%3%"
 msgstr ""
 
-#: ../ShareManager.cpp:801
+#: ../ShareManager.cpp:803
 msgid ""
 "File list refresh in progress, please wait for it to finish before trying to "
 "refresh again"
 msgstr "Probíhá obnovení seznamu souborů, prosím počkejte"
 
-#: ../ShareManager.cpp:822
+#: ../ShareManager.cpp:824
 msgid "File list refresh failed: %1%"
 msgstr "Nemohu obnovit seznam souborů: %1%"
 
-#: ../ShareManager.cpp:843
+#: ../ShareManager.cpp:845
 msgid "File list refresh initiated"
 msgstr "Zahájení obnovení seznamu souborů"
 
-#: ../ShareManager.cpp:868
+#: ../ShareManager.cpp:870
 msgid "File list refresh finished"
 msgstr "Obnovení seznamu souborů dokončeno"
 
-#: ../ShareManager.cpp:950
+#: ../ShareManager.cpp:952
 msgid "File list %1% generated"
 msgstr "Spuštěno obnovení filelistu"
 
-#: ../Socket.cpp:86
+#: ../Socket.cpp:85
 #, c-format
 msgid "Unknown error: 0x%1$x"
 msgstr "Neznámá chyba: 0x%1$x"
 
-#: ../Socket.cpp:229 ../Socket.cpp:237 ../Socket.cpp:270 ../Socket.cpp:274
-#: ../Socket.cpp:298 ../Socket.cpp:313
+#: ../Socket.cpp:228 ../Socket.cpp:236 ../Socket.cpp:269 ../Socket.cpp:273
+#: ../Socket.cpp:297 ../Socket.cpp:312
 msgid "The socks server failed establish a connection"
 msgstr "Socket Server nedokázal navázat spojení"
 
-#: ../Socket.cpp:302
+#: ../Socket.cpp:301
 msgid "The socks server requires authentication"
 msgstr "Socket Server vyžaduje autorizaci"
 
-#: ../Socket.cpp:316
+#: ../Socket.cpp:315
 msgid "The socks server doesn't support login / password authentication"
 msgstr "Socket Server nepodporuje autorizaci"
 
-#: ../Socket.cpp:330 ../Socket.cpp:334
+#: ../Socket.cpp:329 ../Socket.cpp:333
 msgid "Socks server authentication failed (bad login / password?)"
 msgstr "Socket Server přihlášení odmítl (neplatné jméno / heslo)"
 
-#: ../Socket.cpp:519
+#: ../Socket.cpp:518
 msgid ""
 "Failed to set up the socks server for UDP relay (check socks address and "
 "port)"
@@ -597,71 +662,6 @@ msgstr ""
 #: ../Thread.cpp:29 ../Thread.cpp:37
 msgid "Unable to create thread"
 msgstr "Nepodařilo se vytvořit připojení"
-
-#: ../UPnPManager.cpp:44
-msgid "No UPnP implementation available"
-msgstr "Soubor nedostupný"
-
-#: ../UPnPManager.cpp:49
-msgid "Another UPnP port mapping attempt is in progress..."
-msgstr ""
-
-#: ../UPnPManager.cpp:81
-msgid "Failed to initialize the %1% interface"
-msgstr "Spuštěno obnovení filelistu"
-
-#: ../UPnPManager.cpp:85
-msgid " Transfer Port (%1% TCP)"
-msgstr " Transfer Port (%1% TCP)"
-
-#: ../UPnPManager.cpp:86 ../UPnPManager.cpp:91 ../UPnPManager.cpp:96
-#: ../UPnPManager.cpp:101
-msgid "The %1% interface has failed to map the %2% %3% port"
-msgstr ""
-
-#: ../UPnPManager.cpp:90
-msgid " Encrypted Transfer Port (%1% TCP)"
-msgstr " Šifrovaný Transfer Port (%1% TCP)"
-
-#: ../UPnPManager.cpp:95
-msgid " Search Port (%1% UDP)"
-msgstr " Search Port (%1% UDP)"
-
-#: ../UPnPManager.cpp:100
-msgid " DHT Port (%1% UDP)"
-msgstr " DHT Port (%1% UDP)"
-
-#: ../UPnPManager.cpp:110
-msgid ""
-"Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%, DHT: %4%), "
-"mapped using the %5% interface"
-msgstr ""
-
-#: ../UPnPManager.cpp:112 ../UPnPManager.cpp:114
-msgid ""
-"Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%), mapped "
-"using the %4% interface"
-msgstr ""
-
-#: ../UPnPManager.cpp:126
-msgid "Failed to get external IP"
-msgstr "Selhalo získání externí IP"
-
-#: ../UPnPManager.cpp:136
-msgid "Failed to create port mappings"
-msgstr ""
-
-#: ../UPnPManager.cpp:145
-msgid "Successfully removed port mappings with the %1% interface"
-msgstr "Spuštěno obnovení filelistu"
-
-#: ../UPnPManager.cpp:146
-msgid "Failed to remove port mappings with the %1% interface"
-msgstr "Spuštěno obnovení filelistu"
-
-#: ../UPnPManager.cpp:151
-msgid "UPnP: %1%"
-msgstr "UPnP: %1%"
 
 #: ../UploadManager.cpp:134
 msgid "Connection already exists."
@@ -679,75 +679,75 @@ msgstr "IPFilter: Blokováno příchozí spojení k "
 msgid "Disconnected user leaving the hub: %1%"
 msgstr "Odpojený uživatel opouštějící hub: %1%"
 
-#: ../UserConnection.cpp:54 ../UserConnection.cpp:69 ../UserConnection.cpp:143
+#: ../UserConnection.cpp:56 ../UserConnection.cpp:71 ../UserConnection.cpp:145
 msgid "Invalid data"
 msgstr "Velikost nesouhlasí"
 
-#: ../UserConnection.cpp:60
+#: ../UserConnection.cpp:62
 msgid "Non-UTF-8 data in an ADC connection"
 msgstr ""
 
-#: ../Util.cpp:704
+#: ../Util.cpp:707
 #, c-format
 msgid "%d B"
 msgstr "%d B"
 
-#: ../Util.cpp:706
+#: ../Util.cpp:709
 #, c-format
 msgid "%.02f KiB"
 msgstr "%.02f KiB"
 
-#: ../Util.cpp:706
+#: ../Util.cpp:709
 #, c-format
 msgid "%.02f KB"
 msgstr ""
 
-#: ../Util.cpp:708
+#: ../Util.cpp:711
 #, c-format
 msgid "%.02f MiB"
 msgstr "%.02f MiB"
 
-#: ../Util.cpp:708
+#: ../Util.cpp:711
 #, c-format
 msgid "%.02f MB"
 msgstr ""
 
-#: ../Util.cpp:710
+#: ../Util.cpp:713
 #, c-format
 msgid "%.02f GiB"
 msgstr "%.02f GiB"
 
-#: ../Util.cpp:710
+#: ../Util.cpp:713
 #, c-format
 msgid "%.02f GB"
 msgstr ""
 
-#: ../Util.cpp:712
+#: ../Util.cpp:715
 #, c-format
 msgid "%.02f TiB"
 msgstr "%.02f TiB"
 
-#: ../Util.cpp:712
+#: ../Util.cpp:715
 #, c-format
 msgid "%.02f TB"
 msgstr ""
 
-#: ../Util.cpp:714
+#: ../Util.cpp:717
 #, c-format
 msgid "%.02f PiB"
 msgstr "%.02f PiB"
 
-#: ../Util.cpp:714
+#: ../Util.cpp:717
 #, c-format
 msgid "%.02f PB"
 msgstr ""
 
-#: ../Util.cpp:748
+#: ../Util.cpp:751
 #, c-format
 msgid "%s B"
 msgstr "%s B"
 
-#: ../Util.cpp:752
+#: ../Util.cpp:755
 #, c-format
 msgid "%'lld B"
 msgstr "%'lld B"
