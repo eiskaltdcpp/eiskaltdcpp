@@ -77,7 +77,7 @@ void Client::reloadSettings(bool updateNick) {
             ::strncmp(getHubUrl().c_str(),"adcs://", 7) == 0)
         ClientId = fullADCVersionString;
     else
-        ClientId = fullVersionString;
+        ClientId = fullNMDCVersionString;
 
     if(hub) {
         if(updateNick) {

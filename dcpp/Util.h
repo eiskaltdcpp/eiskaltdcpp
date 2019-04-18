@@ -189,6 +189,7 @@ public:
     }
 
     static void sanitizeUrl(string& url);
+    static string trimCopy(const string& aLine);
     static void decodeUrl(const string& aUrl, string& protocol, string& host, string& port, string& path, string& query, string& fragment);
     static map<string, string> decodeQuery(const string& query);
 

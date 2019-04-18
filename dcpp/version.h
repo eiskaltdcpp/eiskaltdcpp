@@ -23,6 +23,7 @@
 #include "VersionGlobal.h"
 
 namespace dcpp {
-extern const std::string fullVersionString;
+extern const std::string fullNMDCVersionString;
 extern const std::string fullADCVersionString;
+extern const std::string fullHTTPVersionString;
 }

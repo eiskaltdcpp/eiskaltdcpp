@@ -548,6 +548,12 @@ void Util::sanitizeUrl(string& url) {
     }
 }
 
+string Util::trimCopy(const string &aLine) {
+    string out = aLine;
+    sanitizeUrl(out);
+    return out;
+}
+
 /**
  * Decodes a URL the best it can...
  * Default ports:

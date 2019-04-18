@@ -17,12 +17,12 @@
 
 #pragma once
 
-#include "forward.h"
 #include <string>
+
+#include "forward.h"
 
 namespace dcpp {
 
-class HttpConnection;
 using std::string;
 
 class HttpConnectionListener {

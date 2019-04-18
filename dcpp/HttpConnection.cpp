@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2001-2012 Jacek Sieka, arnetheduck on gmail point com
+ * Copyright (C) 2009-2013 EiskaltDC++ developers
  * Copyright (C) 2019 Boris Pek <tehnick-8@yandex.ru>
  *
  * This program is free software; you can redistribute it and/or modify
@@ -16,13 +17,13 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-#include "limits.h"
 #include "stdinc.h"
 #include "HttpConnection.h"
 
 #include "BufferedSocket.h"
 #include "format.h"
 #include "SettingsManager.h"
+#include "TimerManager.h"
 #include "version.h"
 
 namespace dcpp {
@@ -32,6 +33,9 @@ HttpConnection::HttpConnection(const string& aUserAgent) :
     port("80"),
     size(-1),
     done(0),
+    speed(0),
+    lastPos(0),
+    lastTick(0),
     connState(CONN_UNKNOWN),
     connType(TYPE_POST),
     socket(0)
@@ -39,9 +43,7 @@ HttpConnection::HttpConnection(const string& aUserAgent) :
 }
 
 HttpConnection::~HttpConnection() {
-    if(socket) {
-        abortRequest(true);
-    }
+    abort();
 }
 
 /**
@@ -61,15 +63,21 @@ void HttpConnection::downloadFile(const string& aFile) {
  * @param aFile Fully qualified file URL
  * @param aData StringMap with the args and values
  */
-void HttpConnection::postData(const string& aUrl, const StringMap& aData) {
+void HttpConnection::download(const string& aUrl, const StringMap& postData) {
     url = aUrl;
     requestBody.clear();
 
-    for(StringMap::const_iterator i = aData.begin(); i != aData.end(); ++i)
-        requestBody += "&" + Util::encodeURI(i->first) + "=" + Util::encodeURI(i->second);
+    for(auto& i : postData)
+        requestBody += "&" + Util::encodeURI(i.first) + "=" + Util::encodeURI(i.second);
 
     if (!requestBody.empty()) requestBody = requestBody.substr(1);
     prepareRequest(TYPE_POST);
+}
+
+void HttpConnection::abort() {
+    if(socket) {
+        abortRequest(true);
+    }
 }
 
 void HttpConnection::prepareRequest(RequestType type) {
@@ -82,6 +90,10 @@ void HttpConnection::prepareRequest(RequestType type) {
 
     size = -1;
     done = 0;
+    speed = 0;
+    lastPos = 0;
+    lastTick = GET_TICK();
+
     connState = CONN_UNKNOWN;
     connType = type;
 
@@ -114,7 +126,7 @@ void HttpConnection::prepareRequest(RequestType type) {
         port = "80";
 
     if(userAgent.empty())
-        userAgent = dcpp::fullVersionString;
+        userAgent = dcpp::fullHTTPVersionString;
 
     if(!socket)
         socket = BufferedSocket::getSocket(0x0a);
@@ -124,8 +136,8 @@ void HttpConnection::prepareRequest(RequestType type) {
     try {
         socket->connect(server, port, (proto == "https"), true, false);
     } catch(const Exception& e) {
-        fire(HttpConnectionListener::Failed(), this, e.getError() + " (" + url + ")");
         connState = CONN_FAILED;
+        fire(HttpConnectionListener::Failed(), this, str(dcpp::dcpp_fmt("%1% (%2%)") % e.getError() % url));
     }
 }
 
@@ -139,9 +151,23 @@ void HttpConnection::abortRequest(bool disconnect) {
     socket = NULL;
 }
 
+void HttpConnection::updateSpeed() {
+    if(done > lastPos) {
+        auto tick = GET_TICK();
+
+        auto tickDelta = static_cast<double>(tick - lastTick);
+        if(tickDelta > 0) {
+            speed = static_cast<double>(done - lastPos) / tickDelta * 1000.0;
+        }
+
+        lastPos = done;
+        lastTick = tick;
+    }
+}
+
 void HttpConnection::on(BufferedSocketListener::Connected) noexcept {
     dcassert(socket);
-    socket->write("GET " + file + " HTTP/1.1\r\n");
+    socket->write(method + " " + file + " HTTP/1.1\r\n");
 
     string sRemoteServer = server;
     if(!SETTING(HTTP_PROXY).empty())
@@ -154,15 +180,22 @@ void HttpConnection::on(BufferedSocketListener::Connected) noexcept {
     if (sRemoteServer == "strongdc.sourceforge.net")
         socket->write("User-Agent: StrongDC++ v2.42\r\n");
     else
-        socket->write("User-Agent: " APPNAME " v" VERSIONSTRING "\r\n");
+        socket->write("User-Agent: " + userAgent + "\r\n");
 #else
-    socket->write("User-Agent: " APPNAME " v" VERSIONSTRING "\r\n");
+    socket->write("User-Agent: " + userAgent + "\r\n");
 #endif
 
     socket->write("Host: " + sRemoteServer + "\r\n");
-    socket->write("Connection: close\r\n"); // we'll only be doing one request
-    socket->write("Cache-Control: no-cache\r\n\r\n");
-    if (connType == TYPE_POST) socket->write(requestBody);
+    socket->write("Cache-Control: no-cache\r\n");
+    if(connType == TYPE_POST)
+    {
+        socket->write("Content-Type: application/x-www-form-urlencoded\r\n");
+        socket->write("Content-Length: " + Util::toString(requestBody.size()) + "\r\n");
+    }
+    socket->write("Connection: close\r\n\r\n");    // we'll only be doing one request
+
+    if (connType == TYPE_POST)
+        socket->write(requestBody);
 }
 
 void HttpConnection::on(BufferedSocketListener::Line, const string& aLine) noexcept {
@@ -178,23 +211,24 @@ void HttpConnection::on(BufferedSocketListener::Line, const string& aLine) noexc
             abortRequest(true);
 
             if(chunkSize == 0) {
-                fire(HttpConnectionListener::Complete(), this, url);
                 connState = CONN_OK;
+                fire(HttpConnectionListener::Complete(), this, url);
             } else {
-                fire(HttpConnectionListener::Failed(), this, "Transfer-encoding error (" + url + ")");
                 connState = CONN_FAILED;
+                fire(HttpConnectionListener::Failed(), this, str(F_("Transfer-encoding error (%1%)") % url));
             }
 
         } else socket->setDataMode(chunkSize);
     } else if(connState == CONN_UNKNOWN) {
+        statusLine = Util::trimCopy(aLine);
         if(aLine.find("200") != string::npos) {
             connState = CONN_OK;
         } else if(aLine.find("301") != string::npos || aLine.find("302") != string::npos) {
             connState = CONN_MOVED;
         } else {
             abortRequest(true);
-            fire(HttpConnectionListener::Failed(), this, str(F_("%1% (%2%)") % aLine % url));
             connState = CONN_FAILED;
+            fire(HttpConnectionListener::Failed(), this, str(dcpp::dcpp_fmt("%1% (%2%)") % statusLine % url));
         }
     } else if(connState == CONN_MOVED && Util::findSubString(aLine, "Location") != string::npos) {
         abortRequest(true);
@@ -212,7 +246,7 @@ void HttpConnection::on(BufferedSocketListener::Line, const string& aLine) noexc
                     tmp += ':' + port;
                 location = tmp + location;
             } else {
-                string::size_type i = url.rfind('/');
+                auto i = url.rfind('/');
                 dcassert(i != string::npos);
                 location = url.substr(0, i + 1) + location;
             }
@@ -248,7 +282,8 @@ void HttpConnection::on(BufferedSocketListener::Line, const string& aLine) noexc
 void HttpConnection::on(BufferedSocketListener::Failed, const string& aLine) noexcept {
     abortRequest(false);
     connState = CONN_FAILED;
-    fire(HttpConnectionListener::Failed(), this, str(F_("%1% (%2%)") % aLine % url));
+    statusLine = Util::trimCopy(aLine);
+    fire(HttpConnectionListener::Failed(), this, str(dcpp::dcpp_fmt("%1% (%2%)") % statusLine % url));
 }
 
 void HttpConnection::on(BufferedSocketListener::ModeChange) noexcept {
@@ -263,12 +298,13 @@ void HttpConnection::on(BufferedSocketListener::Data, uint8_t* aBuf, size_t aLen
         abortRequest(true);
 
         connState = CONN_FAILED;
-        fire(HttpConnectionListener::Failed(), this, "Too much data in response body (" + url + ")");
+        fire(HttpConnectionListener::Failed(), this, str(F_("Too much data in response body (%1%)") % url));
         return;
     }
 
-    fire(HttpConnectionListener::Data(), this, aBuf, aLen);
     done += aLen;
+    updateSpeed();
+    fire(HttpConnectionListener::Data(), this, aBuf, aLen);
 }
 
 } // namespace dcpp

@@ -18,6 +18,8 @@
 
 #pragma once
 
+#include <string>
+
 #include "BufferedSocketListener.h"
 #include "HttpConnectionListener.h"
 #include "NonCopyable.h"
@@ -28,7 +30,6 @@
 namespace dcpp {
 
 using std::string;
-class HttpConnection;
 
 class HttpConnection : BufferedSocketListener, public Speaker<HttpConnectionListener>, private NonCopyable
 {
@@ -37,12 +38,16 @@ public:
     virtual ~HttpConnection();
 
     void downloadFile(const string& aUrl);
-    void postData(const string& aUrl, const StringMap& aData);
+    void download(const string& aUrl, const StringMap& postData);
+
+    void abort();
 
     const string& getMimeType() const { return mimeType; }
+    const string& getStatus() const { return statusLine; }
 
     int64_t getSize() const { return size; }
     int64_t getDone() const { return done; }
+    double getSpeed() const { return speed; }
 
     GETSET(string, url, Url);
 
@@ -59,8 +64,14 @@ private:
     string requestBody;
 
     string mimeType;
+    string statusLine;
     int64_t size;
     int64_t done;
+    double speed;
+
+    // counters to compute a best-effort speed
+    int64_t lastPos;
+    uint64_t lastTick;
 
     ConnectionStates connState;
     RequestType connType;
@@ -69,6 +80,8 @@ private:
 
     void prepareRequest(RequestType type);
     void abortRequest(bool disconnect);
+
+    void updateSpeed();
 
     // BufferedSocketListener
     void on(Connected) noexcept;

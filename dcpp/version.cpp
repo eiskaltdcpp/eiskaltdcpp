@@ -20,6 +20,7 @@
 #include "version.h"
 
 namespace dcpp {
-const std::string fullVersionString(APPNAME " V:" VERSIONSTRING);
+const std::string fullNMDCVersionString(APPNAME " V:" VERSIONSTRING);
 const std::string fullADCVersionString(APPNAME " " VERSIONSTRING);
+const std::string fullHTTPVersionString(APPNAME " v" VERSIONSTRING);
 }
