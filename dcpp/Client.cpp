@@ -21,10 +21,11 @@
 #include "Client.h"
 
 #include "BufferedSocket.h"
+#include "ClientManager.h"
+#include "ConnectivityManager.h"
 #include "DebugManager.h"
 #include "FavoriteManager.h"
 #include "TimerManager.h"
-#include "ClientManager.h"
 #include "version.h"
 
 namespace dcpp {

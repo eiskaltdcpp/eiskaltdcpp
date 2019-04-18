@@ -16,14 +16,13 @@
  */
 
 #include "stdinc.h"
-
 #include "File.h"
 
 namespace dcpp {
 
 #ifdef _WIN32
 File::File(const string& aFileName, int access, int mode) {
-    dcassert(access == WRITE || access == READ || access == (READ | WRITE));
+    dcassert(access == static_cast<int>(WRITE) || access == static_cast<int>(READ) || access == static_cast<int>((READ | WRITE)));
 
     int m = 0;
     if(mode & OPEN) {
@@ -41,7 +40,8 @@ File::File(const string& aFileName, int access, int mode) {
     }
     DWORD shared = FILE_SHARE_READ | (mode & SHARED ? FILE_SHARE_WRITE : 0);
 
-    h = ::CreateFileW(Text::utf8ToWide(aFileName).c_str(), access, shared, NULL, m, FILE_FLAG_SEQUENTIAL_SCAN, NULL);
+    h = ::CreateFileW(Text::utf8ToWide(aFileName).c_str(), access, shared, nullptr, m,
+                      FILE_FLAG_SEQUENTIAL_SCAN, nullptr);
 
     if(h == INVALID_HANDLE_VALUE) {
         throw FileException(Util::translateError(GetLastError()));
@@ -166,9 +166,7 @@ void File::deleteFile(const string& aFileName) noexcept
 
 int64_t File::getSize(const string& aFileName) noexcept {
     WIN32_FIND_DATAW fd;
-    HANDLE hFind;
-
-    hFind = FindFirstFileW(Text::utf8ToWide(aFileName).c_str(), &fd);
+    auto hFind = FindFirstFileW(Text::utf8ToWide(aFileName).c_str(), &fd);
 
     if (hFind == INVALID_HANDLE_VALUE) {
         return -1;

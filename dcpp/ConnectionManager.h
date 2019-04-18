@@ -18,21 +18,22 @@
 
 #pragma once
 
+#include <memory>
 #include <unordered_map>
 #include <vector>
 
-#include "TimerManager.h"
-#include "UserConnection.h"
-#include "User.h"
-#include "CriticalSection.h"
-#include "NonCopyable.h"
-#include "HintedUser.h"
-#include "Singleton.h"
-#include "Util.h"
+#include "BufferedSocket.h"
 #include "ConnectionManagerListener.h"
+#include "CriticalSection.h"
+#include "HintedUser.h"
+#include "NonCopyable.h"
+#include "Singleton.h"
+#include "TimerManager.h"
+#include "UserConnectionListener.h"
 
 namespace dcpp {
 
+using std::unique_ptr;
 using std::unordered_map;
 using std::vector;
 

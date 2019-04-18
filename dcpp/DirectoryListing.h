@@ -21,7 +21,6 @@
 #include <set>
 
 #include "NonCopyable.h"
-#include "User.h"
 
 #include "forward.h"
 
@@ -30,6 +29,7 @@
 #include "MerkleTree.h"
 #include "MediaInfo.h"
 #include "GetSet.h"
+#include "User.h"
 #include "Util.h"
 
 namespace dcpp {

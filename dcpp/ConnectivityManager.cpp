@@ -17,14 +17,17 @@
  */
 
 #include "stdinc.h"
-
 #include "ConnectivityManager.h"
-#include "SettingsManager.h"
+
 #include "ClientManager.h"
 #include "ConnectionManager.h"
-#include "SearchManager.h"
+#include "debug.h"
+#include "format.h"
 #include "LogManager.h"
-#include "UPnPManager.h"
+#include "MappingManager.h"
+#include "SearchManager.h"
+#include "SettingsManager.h"
+#include "version.h"
 #ifdef WITH_DHT
 #include "dht/DHT.h"
 #endif
@@ -48,7 +51,7 @@ void ConnectivityManager::startSocket() {
 
         // must be done after listen calls; otherwise ports won't be set
         if(SETTING(INCOMING_CONNECTIONS) == SettingsManager::INCOMING_FIREWALL_UPNP)
-            UPnPManager::getInstance()->open();
+            MappingManager::getInstance()->open();
     }
 
     updateLast();
@@ -71,8 +74,8 @@ void ConnectivityManager::detectConnection() {
     //SettingsManager::getInstance()->unset(SettingsManager::MAPPER);
     SettingsManager::getInstance()->unset(SettingsManager::BIND_ADDRESS);
 
-    if (UPnPManager::getInstance()->getOpened()) {
-        UPnPManager::getInstance()->close();
+    if (MappingManager::getInstance()->getOpened()) {
+        MappingManager::getInstance()->close();
     }
 
     disconnect();
@@ -101,7 +104,7 @@ void ConnectivityManager::detectConnection() {
     SettingsManager::getInstance()->set(SettingsManager::INCOMING_CONNECTIONS, SettingsManager::INCOMING_FIREWALL_UPNP);
     log(_("Local network with possible NAT detected, trying to map the ports using UPnP..."));
 
-    if (!UPnPManager::getInstance()->open()) {
+    if (!MappingManager::getInstance()->open()) {
         running = false;
     }
 }
@@ -112,12 +115,12 @@ void ConnectivityManager::setup(bool settingsChanged) {
     } else {
         if(autoDetected || (settingsChanged && (SearchManager::getInstance()->getPort() != Util::toString(SETTING(UDP_PORT)) || ConnectionManager::getInstance()->getPort() != Util::toString(SETTING(TCP_PORT)) || ConnectionManager::getInstance()->getSecurePort() != Util::toString(SETTING(TLS_PORT)) || SETTING(BIND_ADDRESS) != lastBind))) {
             if(settingsChanged || SETTING(INCOMING_CONNECTIONS) != SettingsManager::INCOMING_FIREWALL_UPNP) {
-                UPnPManager::getInstance()->close();
+                MappingManager::getInstance()->close();
             }
             startSocket();
-        } else if(SETTING(INCOMING_CONNECTIONS) == SettingsManager::INCOMING_FIREWALL_UPNP && !UPnPManager::getInstance()->getOpened()) {
+        } else if(SETTING(INCOMING_CONNECTIONS) == SettingsManager::INCOMING_FIREWALL_UPNP && !MappingManager::getInstance()->getOpened()) {
             // previous UPnP mappings had failed; try again
-            UPnPManager::getInstance()->open();
+            MappingManager::getInstance()->open();
         }
     }
 }

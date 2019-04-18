@@ -17,11 +17,19 @@
 
 #pragma once
 
-#include "Util.h"
-#include "Speaker.h"
+#include "CriticalSection.h"
+#include "SettingsManager.h"
 #include "Singleton.h"
+#include "Speaker.h"
+#include "Util.h"
+
+#include <string>
+#include <unordered_map>
 
 namespace dcpp {
+
+using std::string;
+using std::unordered_map;
 
 class ConnectivityManagerListener {
 public:
@@ -45,7 +53,7 @@ public:
 
 private:
     friend class Singleton<ConnectivityManager>;
-    friend class UPnPManager;
+    friend class MappingManager;
 
     ConnectivityManager();
     virtual ~ConnectivityManager() { }

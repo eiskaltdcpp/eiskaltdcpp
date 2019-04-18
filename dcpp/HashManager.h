@@ -18,6 +18,9 @@
 
 #pragma once
 
+#include <functional>
+#include <map>
+
 #include "Singleton.h"
 #include "MerkleTree.h"
 #include "Thread.h"
@@ -37,6 +40,9 @@
 #endif
 
 namespace dcpp {
+
+using std::function;
+using std::map;
 
 STANDARD_EXCEPTION(HashException);
 class File;

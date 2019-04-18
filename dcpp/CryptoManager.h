@@ -24,8 +24,12 @@
 #include "Singleton.h"
 
 #include "SSLSocket.h"
+#include "SSL.h"
 
 namespace dcpp {
+
+using std::pair;
+using std::string;
 
 STANDARD_EXCEPTION(CryptoException);
 

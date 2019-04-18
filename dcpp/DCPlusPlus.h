@@ -17,7 +17,7 @@
 
 #pragma once
 
-#include "compiler.h"
+#include <functional>
 #include <string>
 
 namespace dcpp {

@@ -17,24 +17,19 @@
  */
 
 #include "stdinc.h"
-
 #include "DirectoryListing.h"
 
-#include "QueueManager.h"
-#include "ClientManager.h"
-
-#include "StringTokenizer.h"
-#include "SimpleXML.h"
-#include "FilteredFile.h"
 #include "BZUtils.h"
+#include "ClientManager.h"
 #include "CryptoManager.h"
-#include "ShareManager.h"
-#include "SimpleXMLReader.h"
 #include "File.h"
-
-#ifdef ff
-#undef ff
-#endif
+#include "FilteredFile.h"
+#include "QueueManager.h"
+#include "ShareManager.h"
+#include "SimpleXML.h"
+#include "SimpleXMLReader.h"
+#include "StringTokenizer.h"
+#include "version.h"
 
 namespace dcpp {
 
@@ -114,7 +109,8 @@ public:
     {
     }
 
-    virtual ~ListLoader() { }
+    virtual ~ListLoader() {
+    }
 
     void startTag(const string& name, StringPairList& attribs, bool simple);
     void endTag(const string& name);

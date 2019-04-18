@@ -17,9 +17,10 @@
 
 #pragma once
 
-namespace dcpp {
+#include "forward.h"
+#include "typedefs.h"
 
-class ConnectionQueueItem;
+namespace dcpp {
 
 class ConnectionManagerListener {
 public:

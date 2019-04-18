@@ -19,20 +19,21 @@
 #include "stdinc.h"
 
 #include "HashManager.h"
+
+#include <memory>
+
+#include "File.h"
 #include "ShareManager.h"
 #include "SimpleXML.h"
 #include "LogManager.h"
-#include "File.h"
-#include "ZUtils.h"
 #include "SFVReader.h"
+#include "ZUtils.h"
 
 #ifndef _WIN32
 #include <sys/mman.h> // mmap, munmap, madvise
 #include <signal.h>  // for handling read errors from previous trio
 #include <setjmp.h>
 #endif
-
-#include <memory>
 
 #ifdef USE_XATTR
 #include <sys/types.h>

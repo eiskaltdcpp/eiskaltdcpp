@@ -18,8 +18,11 @@
 #include "stdinc.h"
 #include "ChatMessage.h"
 
+#include "Client.h"
 #include "format.h"
 #include "OnlineUser.h"
+#include "SettingsManager.h"
+#include "SimpleXML.h"
 #include "Util.h"
 
 namespace dcpp {

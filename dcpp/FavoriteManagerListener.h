@@ -18,9 +18,13 @@
 
 #pragma once
 
+#include <string>
+
 #include "forward.h"
 
 namespace dcpp {
+
+using std::string;
 
 class FavoriteManagerListener {
 public:
@@ -45,7 +49,7 @@ public:
     virtual void on(FavoriteRemoved, const FavoriteHubEntryPtr) noexcept { }
     virtual void on(UserAdded, const FavoriteUser&) noexcept { }
     virtual void on(UserRemoved, const FavoriteUser&) noexcept { }
-    virtual void on(StatusChanged, const FavoriteUser&) noexcept { }//NOTE: freedcpp
+    virtual void on(StatusChanged, const FavoriteUser&) noexcept { } // NOTE: freedcpp
     virtual void on(LoadedFromCache, const string&, const string&) noexcept { }
     virtual void on(Corrupted, const string&) noexcept { }
 };

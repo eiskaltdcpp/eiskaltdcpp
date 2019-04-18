@@ -18,10 +18,11 @@
 
 #pragma once
 
+#include "compiler.h"
+
 #include "Atomic.h"
 #include "BufferedSocketListener.h"
 #include "ClientListener.h"
-#include "compiler.h"
 #include "forward.h"
 #include "OnlineUser.h"
 #include "SearchQueue.h"
@@ -31,6 +32,8 @@
 #ifdef LUA_SCRIPT
 #include "ScriptManager.h"
 #endif
+
+#include "NonCopyable.h"
 
 namespace dcpp {
 #ifdef LUA_SCRIPT
@@ -60,6 +63,7 @@ class Client : public ClientBase, public Speaker<ClientListener>, public Buffere
         #ifdef LUA_SCRIPT
         , public ClientScriptInstance
         #endif
+        , private NonCopyable
 {
 public:
     typedef Client* Ptr;

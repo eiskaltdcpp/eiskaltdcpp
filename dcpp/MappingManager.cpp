@@ -17,7 +17,7 @@
 
 #include "stdinc.h"
 
-#include "UPnPManager.h"
+#include "MappingManager.h"
 
 #include "ConnectionManager.h"
 #include "SearchManager.h"
@@ -32,11 +32,11 @@
 #endif
 namespace dcpp {
 
-void UPnPManager::addImplementation(UPnP* impl) {
+void MappingManager::addImplementation(UPnP* impl) {
     impls.push_back(std::unique_ptr<UPnP>(impl));
 }
 
-bool UPnPManager::open() {
+bool MappingManager::open() {
     if(opened)
         return false;
 
@@ -55,14 +55,14 @@ bool UPnPManager::open() {
     return true;
 }
 
-void UPnPManager::close() {
+void MappingManager::close() {
     for(auto &i : impls) {
         close(*i);
     }
     opened = false;
 }
 
-int UPnPManager::run() {
+int MappingManager::run() {
     // cache these
     const string
             conn_port = ConnectionManager::getInstance()->getPort(),
@@ -140,19 +140,19 @@ int UPnPManager::run() {
     return 0;
 }
 
-void UPnPManager::close(UPnP& impl) {
+void MappingManager::close(UPnP& impl) {
     if(impl.hasRules()) {
         log(impl.close() ? str(F_("Successfully removed port mappings with the %1% interface") % impl.getName()) :
                            str(F_("Failed to remove port mappings with the %1% interface") % impl.getName()));
     }
 }
 
-void UPnPManager::log(const string& message) {
+void MappingManager::log(const string& message) {
     ConnectivityManager::getInstance()->log(str(F_("UPnP: %1%") % message));
 }
 
 #ifdef USE_MINIUPNP
-void UPnPManager::runMiniUPnP() {
+void MappingManager::runMiniUPnP() {
     addImplementation(new UPnPc());
 }
 #endif

@@ -23,6 +23,7 @@
 
 #include <algorithm>
 
+#include "ConnectivityManager.h"
 #include "CryptoManager.h"
 #include "SettingsManager.h"
 #include "SSLSocket.h"
@@ -31,8 +32,10 @@
 #include "TimerManager.h"
 #include "ZUtils.h"
 
-
 namespace dcpp {
+
+using std::min;
+using std::max;
 
 // Polling is used for tasks...should be fixed...
 #define POLL_TIMEOUT 250

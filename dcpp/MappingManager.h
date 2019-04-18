@@ -17,22 +17,31 @@
 
 #pragma once
 
+#include <memory>
+#include <functional>
+#include <vector>
+
+#include "Atomic.h"
 #include "forward.h"
 #include "Singleton.h"
 #include "Thread.h"
 #include "UPnP.h"
-#include "Atomic.h"
 
 namespace dcpp {
 
-class UPnPManager :
-        public Singleton<UPnPManager>,
+using std::atomic;
+using std::function;
+using std::unique_ptr;
+using std::vector;
+
+class MappingManager :
+        public Singleton<MappingManager>,
         private Thread
 {
 public:
     /**
     * add an implementation, derived from the base UPnP class.
-    * must be allocated on the heap; its deletion will be managed by UPnPManager.
+    * must be allocated on the heap; its deletion will be managed by MappingManager.
     * first added impl will be tried first.
     */
 
@@ -44,7 +53,7 @@ public:
     bool getOpened() const { return opened; }
 
 private:
-    friend class Singleton<UPnPManager>;
+    friend class Singleton<MappingManager>;
 
     typedef std::vector<std::unique_ptr<UPnP>> Impls;
     Impls impls;
@@ -52,8 +61,8 @@ private:
     bool opened;
     Atomic<bool,memory_ordering_strong> portMapping;
 
-    UPnPManager() : opened(false), portMapping(false) { }
-    virtual ~UPnPManager() noexcept { join(); }
+    MappingManager() : opened(false), portMapping(false) { }
+    virtual ~MappingManager() noexcept { join(); }
 
     int run();
 

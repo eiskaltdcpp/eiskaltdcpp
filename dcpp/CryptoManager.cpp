@@ -18,13 +18,15 @@
 #include "stdinc.h"
 #include "CryptoManager.h"
 
-#include "ClientManager.h"
 #include "File.h"
 #include "LogManager.h"
+#include "ClientManager.h"
 #include "version.h"
 
 #include <openssl/bn.h>
+#include <openssl/err.h>
 #include <openssl/rand.h>
+
 #include <bzlib.h>
 
 namespace dcpp {

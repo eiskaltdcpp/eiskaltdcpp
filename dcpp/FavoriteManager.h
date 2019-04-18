@@ -20,7 +20,6 @@
 #include "SettingsManager.h"
 #include "CriticalSection.h"
 #include "HttpConnection.h"
-#include "User.h"
 #include "UserCommand.h"
 #include "FavoriteUser.h"
 #include "Singleton.h"
@@ -28,6 +27,7 @@
 #include "FavoriteManagerListener.h"
 #include "HubEntry.h"
 #include "FavHubGroup.h"
+#include "User.h"
 
 namespace dcpp {
 

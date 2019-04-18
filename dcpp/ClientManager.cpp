@@ -19,22 +19,23 @@
 
 #include "ClientManager.h"
 
-#include "ShareManager.h"
-#include "SearchManager.h"
+#include "AdcHub.h"
 #include "ConnectionManager.h"
+#include "ConnectivityManager.h"
 #include "CryptoManager.h"
 #include "FavoriteManager.h"
+#include "FinishedManager.h"
+#include "File.h"
+#include "NmdcHub.h"
+#include "QueueManager.h"
+#include "SearchManager.h"
+#include "SearchResult.h"
+#include "ShareManager.h"
 #include "SimpleXML.h"
 #include "UserCommand.h"
-#include "SearchResult.h"
-
-#include "AdcHub.h"
-#include "NmdcHub.h"
 #ifdef WITH_DHT
 #include "dht/DHT.h"
 #endif
-#include "FinishedManager.h"//sdc
-#include "QueueManager.h"
 
 namespace dcpp {
 

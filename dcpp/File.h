@@ -38,6 +38,8 @@ namespace dcpp {
 
 class File : public IOStream {
 public:
+    using OutputStream::write;
+
     enum {
         OPEN = 0x01,
         CREATE = 0x02,

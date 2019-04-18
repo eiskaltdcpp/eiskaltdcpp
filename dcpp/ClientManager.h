@@ -17,7 +17,9 @@
 
 #pragma once
 
+#include "CID.h"
 #include "Client.h"
+#include "ClientListener.h"
 #include "ClientManagerListener.h"
 #include "HintedUser.h"
 #include "OnlineUser.h"

@@ -46,7 +46,7 @@
 #endif
 #include <climits>
 
-#if !defined(_WIN32) && !defined(PATH_MAX) // Extra PATH_MAX check for Mac OS X
+#if !defined(_WIN32) && !defined(PATH_MAX) // Extra PATH_MAX check for macOS
 #if defined(__linux)
 #include <sys/syslimits.h>
 #elif defined(__GNU__)

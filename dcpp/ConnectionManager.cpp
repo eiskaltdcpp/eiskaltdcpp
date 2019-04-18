@@ -19,13 +19,14 @@
 
 #include "ConnectionManager.h"
 
-#include "DownloadManager.h"
-#include "UploadManager.h"
-#include "CryptoManager.h"
+#include "Client.h"
 #include "ClientManager.h"
-#include "QueueManager.h"
+#include "ConnectivityManager.h"
+#include "CryptoManager.h"
+#include "DownloadManager.h"
 #include "LogManager.h"
-
+#include "QueueManager.h"
+#include "UploadManager.h"
 #include "UserConnection.h"
 
 namespace dcpp {

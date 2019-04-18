@@ -22,6 +22,11 @@
 #include "UserConnection.h"
 #include "QueueItem.h"
 #include "HashManager.h"
+#include "SettingsManager.h"
+#include "MerkleCheckOutputStream.h"
+#include "File.h"
+#include "FilteredFile.h"
+#include "ZUtils.h"
 
 namespace dcpp {
 

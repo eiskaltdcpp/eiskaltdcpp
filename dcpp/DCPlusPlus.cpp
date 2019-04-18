@@ -30,6 +30,7 @@
 #include "FinishedManager.h"
 #include "HashManager.h"
 #include "LogManager.h"
+#include "MappingManager.h"
 #include "QueueManager.h"
 #include "ResourceManager.h"
 #include "SearchManager.h"
@@ -41,7 +42,6 @@
 #include "StringTokenizer.h"
 #include "ThrottleManager.h"
 #include "UploadManager.h"
-#include "UPnPManager.h"
 
 #include "extra/ipfilter.h"
 #include "extra/dyndns.h"
@@ -86,7 +86,7 @@ void startup(void (*f)(void*, const string&), void* p) {
     FinishedManager::newInstance();
     ADLSearchManager::newInstance();
     ConnectivityManager::newInstance();
-    UPnPManager::newInstance();
+    MappingManager::newInstance();
     DynDNS::newInstance();
     DebugManager::newInstance();
     IPFilter::newInstance();
@@ -98,7 +98,7 @@ void startup(void (*f)(void*, const string&), void* p) {
 
     Util::setLang(SETTING(LANGUAGE));
 #ifdef USE_MINIUPNP
-    UPnPManager::getInstance()->runMiniUPnP();
+    MappingManager::getInstance()->runMiniUPnP();
 #endif
     DynDNS::getInstance()->load();
     if (BOOLSETTING(IPFILTER)){
@@ -145,7 +145,7 @@ void shutdown() {
     HashManager::getInstance()->shutdown();
 
     ConnectionManager::getInstance()->shutdown();
-    UPnPManager::getInstance()->close();
+    MappingManager::getInstance()->close();
 
     BufferedSocket::waitShutdown();
     QueueManager::getInstance()->saveQueue(true);
@@ -155,7 +155,7 @@ void shutdown() {
     }
     SettingsManager::getInstance()->save();
 
-    UPnPManager::deleteInstance();
+    MappingManager::deleteInstance();
     ConnectivityManager::deleteInstance();
     ADLSearchManager::deleteInstance();
     FinishedManager::deleteInstance();
