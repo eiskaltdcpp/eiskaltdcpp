@@ -23,9 +23,10 @@
 #include <memory>
 
 #include "File.h"
+#include "LogManager.h"
+#include "ScopedFunctor.h"
 #include "ShareManager.h"
 #include "SimpleXML.h"
-#include "LogManager.h"
 #include "SFVReader.h"
 #include "ZUtils.h"
 

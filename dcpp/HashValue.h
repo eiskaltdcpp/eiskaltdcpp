@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001-2012 Jacek Sieka, arnetheduck on gmail point com
+ * Copyright (C) 2001-2019 Jacek Sieka, arnetheduck on gmail point com
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,6 +17,8 @@
 
 #pragma once
 
+#include <algorithm>
+
 #include "FastAlloc.h"
 #include "Encoder.h"
 
@@ -27,17 +29,18 @@ struct HashValue : FastAlloc<HashValue<Hasher> >{
     static const size_t BITS = Hasher::BITS;
     static const size_t BYTES = Hasher::BYTES;
 
-    HashValue() { }
+    HashValue() { memset(data, 0, BYTES); }
     explicit HashValue(const uint8_t* aData) { memcpy(data, aData, BYTES); }
     explicit HashValue(const std::string& base32) { Encoder::fromBase32(base32.c_str(), data, BYTES); }
-    HashValue(const HashValue& rhs) { memcpy(data, rhs.data, BYTES); }
-    HashValue& operator=(const HashValue& rhs) { memcpy(data, rhs.data, BYTES); return *this; }
+
     bool operator!=(const HashValue& rhs) const { return !(*this == rhs); }
     bool operator==(const HashValue& rhs) const { return memcmp(data, rhs.data, BYTES) == 0; }
     bool operator<(const HashValue& rhs) const { return memcmp(data, rhs.data, BYTES) < 0; }
 
     std::string toBase32() const { return Encoder::toBase32(data, BYTES); }
     std::string& toBase32(std::string& tmp) const { return Encoder::toBase32(data, BYTES, tmp); }
+
+    explicit operator bool() const { return find_if(data, data + BYTES, [](uint8_t c) { return c != 0; }) != data + BYTES; }
 
     uint8_t data[BYTES];
 };
