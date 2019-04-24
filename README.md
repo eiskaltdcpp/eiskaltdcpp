@@ -105,6 +105,7 @@ But you may send donations to project contributors (developers, maintainers, tra
 
 * [Official PPA for Ubuntu and distros based on it](https://launchpad.net/~tehnick/+archive/ubuntu/direct-connect) (stable releases)
 * [Official PPA for Ubuntu and distros based on it](https://launchpad.net/~tehnick/+archive/ubuntu/direct-connect-devel) (daily builds)
+* [Official Snap packages for Ubuntu and other distros](https://snapcraft.io/eiskaltdcpp) (daily builds)
 * [Official builds for Windows](https://sourceforge.net/projects/eiskaltdcpp/files/Windows/)
 * [Official builds for macOS](https://sourceforge.net/projects/eiskaltdcpp/files/macOS/)
 * [Official packages in Debian](https://tracker.debian.org/pkg/eiskaltdcpp)
