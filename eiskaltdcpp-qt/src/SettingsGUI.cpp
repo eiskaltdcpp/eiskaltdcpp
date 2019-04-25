@@ -369,8 +369,7 @@ void SettingsGUI::ok(){
         if (!lineEdit_APPFONT->text().isEmpty())
             WSSET(WS_APP_FONT, lineEdit_APPFONT->text());
 
-        if (!lineEdit_LANGFILE->text().isEmpty() && (lineEdit_LANGFILE->text() != WSGET(WS_TRANSLATION_FILE)))
-            WSSET(WS_TRANSLATION_FILE, lineEdit_LANGFILE->text());
+        WSSET(WS_TRANSLATION_FILE, lineEdit_LANGFILE->text());
 
         WBSET(WB_MAINWINDOW_REMEMBER, radioButton_REMEMBER->isChecked());
         WBSET(WB_MAINWINDOW_HIDE, radioButton_HIDE->isChecked());
