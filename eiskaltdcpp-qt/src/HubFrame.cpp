@@ -461,7 +461,7 @@ QString HubFrame::LinkParser::parseForLinks(QString input, bool use_emot){
 
     static QList<QChar> unwise_chars = QList<QChar>() << '{' << '}' << '|' << '\\' << '^' << '[' << ']' << '`';
     static QStringList link_types = QStringList() << "http://" << "https://" << "ftp://" << "www."
-                                                  << "dchub://" << "adc://" << "adcs://" << "magnet:";
+                                                  << "dchub://" << "nmdcs://" << "adc://" << "adcs://" << "magnet:";
 
     QString output = "";
 
@@ -532,6 +532,7 @@ QString HubFrame::LinkParser::parseForLinks(QString input, bool use_emot){
                         QString keywords = u.queryItemValue("kt");
                         QString hub = u.hasQueryItem("xs")? u.queryItemValue("xs") : "";
                         if (!(hub.startsWith("dchub://", Qt::CaseInsensitive) ||
+                              hub.startsWith("nmdcs://", Qt::CaseInsensitive) ||
                               hub.startsWith("adc://", Qt::CaseInsensitive) ||
                               hub.startsWith("adcs://", Qt::CaseInsensitive)) && !hub.isEmpty())
                             hub.prepend("dchub://");

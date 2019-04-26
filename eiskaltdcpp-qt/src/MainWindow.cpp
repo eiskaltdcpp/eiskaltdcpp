@@ -1868,7 +1868,7 @@ void MainWindow::parseCmdLine(const QStringList &args){
             m.setLink(arg);
             m.exec();
         }
-        else if (arg.startsWith("dchub://")){
+        else if (arg.startsWith("dchub://") || arg.startsWith("nmdcs://")){
             newHubFrame(arg, "");
         }
         else if (arg.startsWith("adc://") || arg.startsWith("adcs://")){

@@ -754,7 +754,7 @@ bool WulforUtil::openUrl(const QString &url){
     else if (url.startsWith("adc://") || url.startsWith("adcs://")){
         MainWindow::getInstance()->newHubFrame(url, "UTF-8");
     }
-    else if (url.startsWith("dchub://")){
+    else if (url.startsWith("dchub://") || url.startsWith("nmdcs://")){
         MainWindow::getInstance()->newHubFrame(url, WSGET(WS_DEFAULT_LOCALE));
     }
     else if (url.startsWith("magnet:") && url.contains("urn:tree:tiger")){
@@ -797,6 +797,7 @@ bool WulforUtil::openUrl(const QString &url){
             QString hub = u.hasQueryItem("xs")? u.queryItemValue("xs") : "";
 
             if (!(hub.startsWith("dchub://", Qt::CaseInsensitive) ||
+                  hub.startsWith("nmdcs://", Qt::CaseInsensitive) ||
                   hub.startsWith("adc://", Qt::CaseInsensitive) ||
                   hub.startsWith("adcs://", Qt::CaseInsensitive)) && !hub.isEmpty())
                 hub.prepend("dchub://");

@@ -378,6 +378,7 @@ bool WulforUtil::isLink(const string &text)
 bool WulforUtil::isHubURL(const string &text)
 {
     return g_ascii_strncasecmp(text.c_str(), "dchub://", 8) == 0 ||
+            g_ascii_strncasecmp(text.c_str(), "nmdcs://", 8) == 0 ||
             g_ascii_strncasecmp(text.c_str(), "adc://", 6) == 0 ||
             g_ascii_strncasecmp(text.c_str(), "adcs://", 7) == 0;
 }
