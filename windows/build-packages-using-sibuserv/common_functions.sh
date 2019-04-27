@@ -3,7 +3,7 @@
 # Author:  Boris Pek <tehnick-8@yandex.ru>
 # License: MIT (Expat)
 # Created: 2019-04-01
-# Updated: 2019-04-22
+# Updated: 2019-04-27
 # Version: N/A
 #
 # Dependencies:
@@ -111,9 +111,18 @@ InstallAllToTempDir()
 {
     [ -z "${MAIN_DIR}" ] && return 1
     [ -z "${BUILD_TARGETS}" ] && return 1
+    [ -z "${WEB_UI_DIR_NAME}" ] && return 1
 
     cd "${MAIN_DIR}/${PROJECT_DIR_NAME}"
     build-project install ${BUILD_TARGETS}
+
+    cd "${MAIN_DIR}/${WEB_UI_DIR_NAME}"
+    for TARGET in ${BUILD_TARGETS} ; do
+        DIR_OUT="${MAIN_DIR}/build-${PROJECT_DIR_NAME}/${TARGET}-out/usr"
+        mkdir -p "${DIR_OUT}/web-ui"
+        cp -af images js config.js favicon.ico index.html INSTALL style.css \
+               "${DIR_OUT}/web-ui/"
+    done
 }
 
 CopyFinalResults()
