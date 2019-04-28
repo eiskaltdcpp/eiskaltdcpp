@@ -90,7 +90,7 @@ if (CMAKE_PREFIX_PATH MATCHES "mxe" AND NOT STATIC)
         endif ()
     endforeach ()
 
-    install (FILES ${LIBS_TO_INSTALL} DESTINATION ${BINDIR})
+    install (FILES ${LIBS_TO_INSTALL} windows/qt.conf DESTINATION ${BINDIR})
     install (DIRECTORY ${DIRS_TO_INSTALL} DESTINATION ${BINDIR}/plugins)
 endif ()
 
