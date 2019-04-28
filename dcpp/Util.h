@@ -243,9 +243,9 @@ public:
 #ifdef _WIN32
         return _atoi64(aString.c_str());
 #elif defined(__HAIKU__)
-        return strtoq(aString.c_str(), (char **)NULL, 10);
-#else
         return strtoll(aString.c_str(), (char **)NULL, 10);
+#else
+        return strtoq(aString.c_str(), (char **)NULL, 10);
 #endif
     }
 
