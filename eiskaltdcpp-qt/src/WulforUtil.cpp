@@ -217,6 +217,8 @@ QString WulforUtil::getTranslationsPath() const
     static const QString translationsPath = bin_path + "/" CLIENT_TRANSLATIONS_DIR "/";
 #elif defined (Q_OS_MAC)
     static const QString translationsPath = bin_path + "/../../qt/ts/";
+#elif defined (__HAIKU__)
+    static const QString translationsPath = bin_path + "/translations/";
 #else // Other OS
     static QString translationsPath = CLIENT_TRANSLATIONS_DIR "/";
     if (!QDir(translationsPath).exists()) // Fix for Snap, AppImage, etc.
