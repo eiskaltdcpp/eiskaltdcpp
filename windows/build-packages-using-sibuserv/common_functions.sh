@@ -123,6 +123,7 @@ InstallAllToTempDir()
         cd "${MAIN_DIR}/${PROJECT_DIR_NAME}"
         cp -af eiskaltdcpp-qt/man.eiskaltdcpp-qt.html \
                eiskaltdcpp-daemon/man.eiskaltdcpp-daemon.html \
+               windows/build-packages-using-sibuserv/Readme.aspell.txt \
                "${DIR_OUT}/docs/"
 
         mkdir -p "${DIR_OUT}/web-ui"
