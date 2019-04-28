@@ -87,7 +87,7 @@ PrepareToBuild()
     sed -i "s|option (NO_UI_DAEMON .*$|option (NO_UI_DAEMON \"\" ON)|g" CMakeLists.txt
     sed -i "s|option (JSONRPC_DAEMON .*$|option (JSONRPC_DAEMON \"\" ON)|g" CMakeLists.txt
     sed -i "s|option (WITH_LUASCRIPTS .*$|option (WITH_LUASCRIPTS \"\" ON)|g" CMakeLists.txt
-    sed -i "s|option (LOCAL_ASPELL_DATA .*$|option (LOCAL_ASPELL_DATA \"\" ON)|g" CMakeLists.txt
+    #sed -i "s|option (LOCAL_ASPELL_DATA .*$|option (LOCAL_ASPELL_DATA \"\" ON)|g" CMakeLists.txt
     sed -i "s|option (INSTALL_DEPENDENCIES .*$|option (INSTALL_DEPENDENCIES \"\" ON)|g" CMakeLists.txt
 }
 
