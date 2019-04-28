@@ -414,8 +414,10 @@ void WulforSettings::parseCmd(const QString &cmd, QString& res) {
 }
 
 void WulforSettings::loadTranslation(){
-    const QString appTranslationFile = getStr(WS_TRANSLATION_FILE);
-    const QString translationsPath = WulforUtil::getInstance()->getTranslationsPath();
+    const QString appTranslationFile =
+            QDir::fromNativeSeparators(getStr(WS_TRANSLATION_FILE));
+    const QString translationsPath =
+            QDir::fromNativeSeparators(WulforUtil::getInstance()->getTranslationsPath());
 
     if (appTranslationFile.isEmpty() || !QFile::exists(appTranslationFile)){
         const QString lcName = QLocale::system().name();

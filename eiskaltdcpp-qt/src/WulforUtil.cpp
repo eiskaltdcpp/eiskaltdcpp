@@ -218,11 +218,11 @@ QString WulforUtil::getTranslationsPath() const
 #elif defined (Q_OS_MAC)
     static const QString translationsPath = bin_path + "/../../qt/ts/";
 #else // Other OS
-    static const QString translationsPath = CLIENT_TRANSLATIONS_DIR "/";
-    if (!QDir(QDir::toNativeSeparators(translationsPath)).exists())
-        return QString(bin_path + "/../" + translationsPath);
+    static QString translationsPath = CLIENT_TRANSLATIONS_DIR "/";
+    if (!QDir(translationsPath).exists()) // Fix for Snap, AppImage, etc.
+        translationsPath = QString(bin_path + "/../" + translationsPath);
 #endif
-    return QDir(translationsPath).absolutePath();
+    return QDir(QDir::toNativeSeparators(translationsPath)).absolutePath();
 }
 
 QString WulforUtil::getAspellDataPath() const
