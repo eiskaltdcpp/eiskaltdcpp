@@ -43,7 +43,7 @@ echo "Building EiskaltDC++..."
 BuildProjectForWindows
 echo;
 
-echo "Copying programs, libraries and resources to..."
+echo "Copying programs, libraries, resources and documentation to..."
 InstallAllToTempDir
 echo;
 

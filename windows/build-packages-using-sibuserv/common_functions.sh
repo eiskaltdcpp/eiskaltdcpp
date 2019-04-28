@@ -87,7 +87,6 @@ PrepareToBuild()
     sed -i "s|option (NO_UI_DAEMON .*$|option (NO_UI_DAEMON \"\" ON)|g" CMakeLists.txt
     sed -i "s|option (JSONRPC_DAEMON .*$|option (JSONRPC_DAEMON \"\" ON)|g" CMakeLists.txt
     sed -i "s|option (WITH_LUASCRIPTS .*$|option (WITH_LUASCRIPTS \"\" ON)|g" CMakeLists.txt
-    #sed -i "s|option (LOCAL_ASPELL_DATA .*$|option (LOCAL_ASPELL_DATA \"\" ON)|g" CMakeLists.txt
     sed -i "s|option (INSTALL_DEPENDENCIES .*$|option (INSTALL_DEPENDENCIES \"\" ON)|g" CMakeLists.txt
 }
 
@@ -117,11 +116,19 @@ InstallAllToTempDir()
     cd "${MAIN_DIR}/${PROJECT_DIR_NAME}"
     build-project install ${BUILD_TARGETS}
 
-    cd "${MAIN_DIR}/${WEB_UI_DIR_NAME}"
     for TARGET in ${BUILD_TARGETS} ; do
         DIR_OUT="${MAIN_DIR}/build-${PROJECT_DIR_NAME}/${TARGET}-out/usr"
+
+        mkdir -p "${DIR_OUT}/docs"
+        cd "${MAIN_DIR}/${PROJECT_DIR_NAME}"
+        cp -af eiskaltdcpp-qt/man.eiskaltdcpp-qt.html \
+               eiskaltdcpp-daemon/man.eiskaltdcpp-daemon.html \
+               "${DIR_OUT}/docs/"
+
         mkdir -p "${DIR_OUT}/web-ui"
-        cp -af images js config.js favicon.ico index.html INSTALL style.css \
+        cd "${MAIN_DIR}/${WEB_UI_DIR_NAME}"
+        cp -af images js config.js favicon.ico style.css \
+               index.html README.html windows/help.html \
                "${DIR_OUT}/web-ui/"
     done
 }
