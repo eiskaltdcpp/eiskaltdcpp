@@ -263,7 +263,12 @@ if (UNIX)
     mark_as_advanced (GZIP_CMD)
 endif (UNIX)
 
-set (CLIENT_TRANSLATIONS_DEST "${CLIENT_DATA_DIR}/qt/ts")
+if (WIN32 OR APPLE OR HAIKU)
+    set (CLIENT_TRANSLATIONS_DEST "${CLIENT_DATA_DIR}/translations")
+else ()
+    set (CLIENT_TRANSLATIONS_DEST "${CLIENT_DATA_DIR}/qt/translations")
+endif ()
+
 set (CLIENT_SOUNDS_DEST "${CLIENT_DATA_DIR}/sounds")
 set (CLIENT_ICONS_DEST "${CLIENT_DATA_DIR}/icons")
 
