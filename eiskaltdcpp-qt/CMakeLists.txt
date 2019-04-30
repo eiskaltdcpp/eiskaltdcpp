@@ -215,13 +215,13 @@ add_custom_target(${PROJECT_NAME}_tr ALL DEPENDS ${TRANSLATIONS_BINARY})
 
 set (DEFAULT_QRC_FILE ${PROJECT_SOURCE_DIR}/icons/appl/default/default.qrc)
 
-if (UNIX)
+if (UNIX AND NOT APPLE AND NOT HAIKU)
     execute_process (OUTPUT_FILE ${PROJECT_BINARY_DIR}/${PROJECT_NAME}.1.gz
                      COMMAND "${GZIP_CMD}" -9
                      INPUT_FILE eiskaltdcpp-qt.1
                      WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/)
     install (FILES ${PROJECT_BINARY_DIR}/${PROJECT_NAME}.1.gz DESTINATION ${MAN_DIR})
-endif (UNIX)
+endif ()
 
 execute_process (COMMAND ${QT_RCC_EXECUTABLE} -binary  ${DEFAULT_QRC_FILE}
                                               -o ${PROJECT_BINARY_DIR}/default.rcc
@@ -383,17 +383,21 @@ if (DEBUG_IPFILTER)
 endif (DEBUG_IPFILTER)
 
 if (USE_JS)
-    set (CLIENT_SCRIPTS_DEST "${CLIENT_DATA_DIR}/qt/qtscripts")
+    if (UNIX AND NOT APPLE AND NOT HAIKU)
+        set (CLIENT_SCRIPTS_DEST "${CLIENT_DATA_DIR}/qt/qtscripts")
+    else ()
+        set (CLIENT_SCRIPTS_DEST "${CLIENT_DATA_DIR}/qtscripts")
+    endif ()
     add_definitions (-DCLIENT_SCRIPTS_DIR="${CLIENT_SCRIPTS_DEST}")
 endif (USE_JS)
 
-if (APPLE)
-    add_definitions (-DCLIENT_ICONS_DIR="qt/icons")
-    add_definitions (-DCLIENT_RES_DIR="qt/resources")
-else (APPLE)
+if (UNIX AND NOT APPLE AND NOT HAIKU)
     add_definitions (-DCLIENT_ICONS_DIR="${CLIENT_DATA_DIR}/qt/icons")
     add_definitions (-DCLIENT_RES_DIR="${CLIENT_DATA_DIR}/qt/resources")
-endif (APPLE)
+else ()
+    add_definitions (-DCLIENT_ICONS_DIR="icons")
+    add_definitions (-DCLIENT_RES_DIR="resources")
+endif ()
 
 if (APPLE)
     target_link_libraries (${PROJECT_NAME} ${LIBS} dcpp iconv)
@@ -443,17 +447,19 @@ if (USE_JS)
              PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE)
 endif (USE_JS)
 
-install (DIRECTORY icons/appl icons/user DESTINATION "${CLIENT_DATA_DIR}/qt/icons")
 install (FILES ${TRANSLATIONS_BINARY} DESTINATION ${CLIENT_TRANSLATIONS_DEST})
 
-if (APPLE)
-    install (FILES ${PROJECT_BINARY_DIR}/default.rcc DESTINATION ${PROJECT_NAME_GLOBAL}.app/qt/resources)
-else (APPLE)
-    install (FILES ${PROJECT_BINARY_DIR}/default.rcc DESTINATION ${CLIENT_DATA_DIR}/qt/resources)
-    if (UNIX AND NOT HAIKU)
-        install (FILES ${PROJECT_NAME}.desktop DESTINATION ${SHARE_DIR}/applications)
-    endif (UNIX AND NOT HAIKU)
-endif (APPLE)
+if (UNIX AND NOT APPLE AND NOT HAIKU)
+    install (DIRECTORY icons/appl icons/user DESTINATION "${CLIENT_DATA_DIR}/qt/icons")
+    install (FILES ${PROJECT_BINARY_DIR}/default.rcc DESTINATION "${CLIENT_DATA_DIR}/qt/resources")
+else ()
+    install (DIRECTORY icons/appl icons/user DESTINATION "${CLIENT_DATA_DIR}/icons")
+    install (FILES ${PROJECT_BINARY_DIR}/default.rcc DESTINATION "${CLIENT_DATA_DIR}/resources")
+endif ()
+
+if (UNIX AND NOT APPLE AND NOT HAIKU)
+    install (FILES ${PROJECT_NAME}.desktop DESTINATION ${SHARE_DIR}/applications)
+endif ()
 
 if (APPLE)
     if (USE_QT)

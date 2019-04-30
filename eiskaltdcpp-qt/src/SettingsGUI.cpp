@@ -113,15 +113,15 @@ void SettingsGUI::init(){
         }
         comboBox_LANGS->setCurrentIndex(k);
 
-#if !defined(Q_OS_WIN)
 #if defined(Q_OS_MAC)
-        QString users = qApp->applicationDirPath()+ "/../../" CLIENT_ICONS_DIR "/user/";
-#else // defined(Q_OS_MAC)
+        QString users = qApp->applicationDirPath() + "/../Resources/" CLIENT_ICONS_DIR "/user/";
+#elif defined(Q_OS_WIN)
+        QString users = qApp->applicationDirPath() + "/" CLIENT_ICONS_DIR "/user/";
+#elif defined(__HAIKU__)
+        QString users = qApp->applicationDirPath() + "/" CLIENT_ICONS_DIR "/user/";
+#else
         QString users = CLIENT_ICONS_DIR "/user/";
-#endif // defined(Q_OS_MAC)
-#else // !defined(Q_OS_WIN)
-        QString users = qApp->applicationDirPath()+QDir::separator()+CLIENT_ICONS_DIR "/user/";
-#endif // !defined(Q_OS_WIN)
+#endif
         i = 0;
         k = -1;
         for (const QString &f : QDir(users).entryList(QDir::Dirs | QDir::NoSymLinks | QDir::NoDotAndDotDot)){
@@ -136,15 +136,15 @@ void SettingsGUI::init(){
         }
         comboBox_USERS->setCurrentIndex(k);
 
-#if !defined(Q_OS_WIN)
 #if defined(Q_OS_MAC)
-        QString icons = qApp->applicationDirPath()+ "/../../" CLIENT_ICONS_DIR "/appl/";
-#else // defined(Q_OS_MAC)
+        QString icons = qApp->applicationDirPath()+ "/../Resources/" CLIENT_ICONS_DIR "/appl/";
+#elif defined(Q_OS_WIN)
+        QString icons = qApp->applicationDirPath() "/" CLIENT_ICONS_DIR "/appl/";
+#elif defined(__HAIKU__)
+        QString icons = qApp->applicationDirPath() "/" CLIENT_ICONS_DIR "/appl/";
+#else
         QString icons = CLIENT_ICONS_DIR "/appl/";
-#endif // defined(Q_OS_MAC)
-#else // !defined(Q_OS_WIN)
-        QString icons = qApp->applicationDirPath()+QDir::separator()+CLIENT_ICONS_DIR "/appl/";
-#endif // !defined(Q_OS_WIN)
+#endif
         i = 0;
         k = -1;
         for (const QString &f : QDir(icons).entryList(QDir::Dirs | QDir::NoSymLinks | QDir::NoDotAndDotDot)){
@@ -200,10 +200,10 @@ void SettingsGUI::init(){
         checkBox_HIDE_ICONS_IN_MENU->setChecked(WBGET("mainwindow/dont-show-icons-in-menus", false));
 
         // Hide options which do not work in Mac OS X, MS Windows or Haiku:
-#if defined (Q_OS_WIN) || defined (__HAIKU__)
+#if defined (Q_OS_WIN) || defined(Q_OS_MAC) || defined (__HAIKU__)
         checkBox_ICONTHEME->hide();
-#elif defined(Q_OS_MAC)
-        checkBox_ICONTHEME->hide();
+#endif
+#if defined(Q_OS_MAC)
         groupBox_TRAY->hide();
 #endif
     }

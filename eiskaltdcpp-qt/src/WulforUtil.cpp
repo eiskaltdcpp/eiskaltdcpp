@@ -145,8 +145,8 @@ QString WulforUtil::findAppIconsPath() const
     QStringList settings_path_list = {
         QDir::currentPath() + "/icons/appl/" + icon_theme,
 #if defined(Q_OS_MAC)
-        bin_path + "/../../qt/icons/appl/" + icon_theme,
-        "/Applications/EiskaltDC++.app/qt/icons/appl/" + icon_theme,
+        bin_path + "/../Resources/icons/appl/" + icon_theme,
+        "/Applications/EiskaltDC++.app/Contents/Resources/icons/appl/" + icon_theme,
 #endif // defined(Q_OS_MAC)
         QDir::homePath() + "/.eiskaltdc++/icons/appl/" + icon_theme,
         bin_path + "/appl/" + icon_theme,
@@ -172,8 +172,8 @@ QString WulforUtil::findUserIconsPath() const
     QStringList settings_path_list = {
         QDir::currentPath() + "/icons/user/" + user_theme,
 #if defined(Q_OS_MAC)
-        bin_path + "/../../qt/icons/user/" + user_theme,
-        "/Applications/EiskaltDC++.app/qt/icons/user/" + user_theme,
+        bin_path + "/../Resources/icons/user/" + user_theme,
+        "/Applications/EiskaltDC++.app/Contents/Resources/icons/user/" + user_theme,
 #endif // defined(Q_OS_MAC)
         QDir::homePath() + "/.eiskaltdc++/icons/user/" + user_theme,
         bin_path + "icons/user/" + user_theme,
@@ -202,7 +202,7 @@ QString WulforUtil::getEmoticonsPath() const
 #if defined (Q_OS_WIN)
     static const QString emoticonsPath = bin_path + "/" CLIENT_DATA_DIR "/emoticons/";
 #elif defined (Q_OS_MAC)
-    static const QString emoticonsPath = bin_path + "/../../emoticons/";
+    static const QString emoticonsPath = bin_path + "/../Resources/emoticons/";
 #else // Other OS
     static const QString emoticonsPath = CLIENT_DATA_DIR "/emoticons/";
     if (!QDir(QDir::toNativeSeparators(emoticonsPath)).exists())
@@ -216,7 +216,7 @@ QString WulforUtil::getTranslationsPath() const
 #if defined (Q_OS_WIN)
     static const QString translationsPath = bin_path + "/" CLIENT_TRANSLATIONS_DIR "/";
 #elif defined (Q_OS_MAC)
-    static const QString translationsPath = bin_path + "/../../qt/ts/";
+    static const QString translationsPath = bin_path + "/../Resources/translations/";
 #elif defined (__HAIKU__)
     static const QString translationsPath = bin_path + "/translations/";
 #else // Other OS
@@ -232,7 +232,9 @@ QString WulforUtil::getAspellDataPath() const
 #if defined (Q_OS_WIN)
     static const QString aspellDataPath = bin_path + "/" CLIENT_DATA_DIR "/aspell/";
 #elif defined (Q_OS_MAC)
-    static const QString aspellDataPath = bin_path + "/../../aspell/";
+    static const QString aspellDataPath = bin_path + "/../Resources/aspell/";
+#elif defined (__HAIKU__)
+    static const QString aspellDataPath = bin_path + "/aspell/";
 #elif defined(LOCAL_ASPELL_DATA) // Other OS
     static const QString aspellDataPath = CLIENT_DATA_DIR "/aspell/";
     if (!QDir(QDir::toNativeSeparators(aspellDataPath)).exists())
@@ -250,7 +252,7 @@ QString WulforUtil::getClientResourcesPath() const
 #if defined(Q_OS_WIN)
     const QString client_res_path = bin_path + CLIENT_RES_DIR + PATH_SEPARATOR_STR + icon_theme + ".rcc";
 #elif defined(Q_OS_MAC)
-    const QString client_res_path = bin_path + QString("/../../" CLIENT_RES_DIR "/") + icon_theme + ".rcc";
+    const QString client_res_path = bin_path + QString("/../Resources/" CLIENT_RES_DIR "/") + icon_theme + ".rcc";
 #else // Other systems
     const QString client_res_path = QString(CLIENT_RES_DIR) + PATH_SEPARATOR_STR + icon_theme + ".rcc";
     if (!QDir(QDir::toNativeSeparators(client_res_path)).exists())
