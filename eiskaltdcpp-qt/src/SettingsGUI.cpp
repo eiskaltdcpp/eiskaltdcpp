@@ -137,11 +137,11 @@ void SettingsGUI::init(){
         comboBox_USERS->setCurrentIndex(k);
 
 #if defined(Q_OS_MAC)
-        QString icons = qApp->applicationDirPath()+ "/../Resources/" CLIENT_ICONS_DIR "/appl/";
+        QString icons = qApp->applicationDirPath() + "/../Resources/" CLIENT_ICONS_DIR "/appl/";
 #elif defined(Q_OS_WIN)
-        QString icons = qApp->applicationDirPath() "/" CLIENT_ICONS_DIR "/appl/";
+        QString icons = qApp->applicationDirPath() + "/" CLIENT_ICONS_DIR "/appl/";
 #elif defined(__HAIKU__)
-        QString icons = qApp->applicationDirPath() "/" CLIENT_ICONS_DIR "/appl/";
+        QString icons = qApp->applicationDirPath() + "/" CLIENT_ICONS_DIR "/appl/";
 #else
         QString icons = CLIENT_ICONS_DIR "/appl/";
 #endif
