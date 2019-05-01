@@ -1,4 +1,4 @@
-project (${PROJECT_NAME_GLOBAL}-gtk)
+project (eiskaltdcpp-gtk)
 
 cmake_minimum_required (VERSION 2.6)
 

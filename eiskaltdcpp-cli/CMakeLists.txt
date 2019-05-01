@@ -1,4 +1,5 @@
-project(${PROJECT_NAME_GLOBAL}-cli)
+project(eiskaltdcpp-cli)
+
 cmake_minimum_required(VERSION 2.6)
 
 if (USE_CLI_XMLRPC)

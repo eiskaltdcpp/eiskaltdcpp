@@ -1,6 +1,7 @@
 project (dcpp)
-include_directories(${PROJECT_BINARY_DIR})
+
 cmake_minimum_required (VERSION 2.6)
+include_directories(${PROJECT_BINARY_DIR})
 
 aux_source_directory(${PROJECT_SOURCE_DIR} dcpp_srcs)
 file (GLOB dcpp_hdrs ${PROJECT_SOURCE_DIR}/*.h)

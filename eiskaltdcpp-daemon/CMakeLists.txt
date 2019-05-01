@@ -1,4 +1,5 @@
-project(${PROJECT_NAME_GLOBAL}-daemon)
+project(eiskaltdcpp-daemon)
+
 cmake_minimum_required(VERSION 2.6)
 # ######### General setup ##########
 include_directories(${PROJECT_SOURCE_DIR}
