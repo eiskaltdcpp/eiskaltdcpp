@@ -413,11 +413,11 @@ else (APPLE)
     target_link_libraries (${PROJECT_NAME} ${LIBS} dcpp)
 endif (APPLE)
 
-if (APPLE)
+if (WIN32 OR APPLE OR HAIKU)
     set_property (TARGET ${PROJECT_NAME} PROPERTY OUTPUT_NAME "${PROJECT_NAME_GLOBAL}")
-else (APPLE)
+else ()
     set_property (TARGET ${PROJECT_NAME} PROPERTY OUTPUT_NAME "${PROJECT_NAME}")
-endif (APPLE)
+endif ()
 
 install (TARGETS ${PROJECT_NAME} RUNTIME DESTINATION ${BINDIR} BUNDLE DESTINATION ${BUNDLEDIR})
 
