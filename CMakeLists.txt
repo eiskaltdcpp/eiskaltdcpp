@@ -1,15 +1,15 @@
 project (eiskaltdcpp)
 cmake_minimum_required (VERSION 2.6.3)
 
-if (APPLE)
-    set (PROJECT_NAME_GLOBAL EiskaltDC++)
-else (APPLE)
-    set (PROJECT_NAME_GLOBAL eiskaltdcpp)
-endif (APPLE)
-
 set (PROJECT_NAME "EiskaltDC++")
 set (VERSION "2.3.0-devel")
 set (SOVERSION "2.4" )
+
+if (WIN32 OR APPLE OR HAIKU)
+    set (PROJECT_NAME_GLOBAL "EiskaltDC++")
+else ()
+    set (PROJECT_NAME_GLOBAL "eiskaltdcpp")
+endif ()
 
 include (CheckIncludeFile)
 include (CheckIncludeFiles)
