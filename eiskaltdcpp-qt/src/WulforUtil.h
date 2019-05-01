@@ -140,6 +140,7 @@ public:
 
     QString getAppIconsPath() const;
     QString getEmoticonsPath() const;
+    QString getClientIconsPath() const;
     QString getTranslationsPath() const;
     QString getAspellDataPath() const;
 
@@ -181,6 +182,7 @@ public:
     static bool isTTH(const QString &text);
 
     QString getNickViaOnlineUser(const QString &cid, const QString &hintUrl);
+
 public Q_SLOTS:
     const QPixmap &getPixmap(Icons);
     QString getNicks(const QString&,const QString& = "");

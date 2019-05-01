@@ -68,7 +68,7 @@ void SettingsGUI::init(){
         int i = 0;
         int k = -1;
 
-        QDir translationsDir(WulforUtil::getInstance()->getTranslationsPath());
+        QDir translationsDir(WU->getTranslationsPath());
 
         const QMap<QString, QString> langNames ({
             { "en.qm",       tr("English") },
@@ -108,20 +108,12 @@ void SettingsGUI::init(){
                 if (WSGET(WS_TRANSLATION_FILE).endsWith(f))
                     k = i;
 
-                i++;
+                ++i;
             }
         }
         comboBox_LANGS->setCurrentIndex(k);
 
-#if defined(Q_OS_MAC)
-        QString users = qApp->applicationDirPath() + "/../Resources/" CLIENT_ICONS_DIR "/user/";
-#elif defined(Q_OS_WIN)
-        QString users = qApp->applicationDirPath() + "/" CLIENT_ICONS_DIR "/user/";
-#elif defined(__HAIKU__)
-        QString users = qApp->applicationDirPath() + "/" CLIENT_ICONS_DIR "/user/";
-#else
-        QString users = CLIENT_ICONS_DIR "/user/";
-#endif
+        const QString users = WU->getClientIconsPath() + "/user/";
         i = 0;
         k = -1;
         for (const QString &f : QDir(users).entryList(QDir::Dirs | QDir::NoSymLinks | QDir::NoDotAndDotDot)){
@@ -131,20 +123,12 @@ void SettingsGUI::init(){
                 if (f == WSGET(WS_APP_USERTHEME))
                     k = i;
 
-                i++;
+                ++i;
             }
         }
         comboBox_USERS->setCurrentIndex(k);
 
-#if defined(Q_OS_MAC)
-        QString icons = qApp->applicationDirPath() + "/../Resources/" CLIENT_ICONS_DIR "/appl/";
-#elif defined(Q_OS_WIN)
-        QString icons = qApp->applicationDirPath() + "/" CLIENT_ICONS_DIR "/appl/";
-#elif defined(__HAIKU__)
-        QString icons = qApp->applicationDirPath() + "/" CLIENT_ICONS_DIR "/appl/";
-#else
-        QString icons = CLIENT_ICONS_DIR "/appl/";
-#endif
+        const QString icons = WU->getClientIconsPath() + "/appl/";
         i = 0;
         k = -1;
         for (const QString &f : QDir(icons).entryList(QDir::Dirs | QDir::NoSymLinks | QDir::NoDotAndDotDot)){
@@ -154,14 +138,14 @@ void SettingsGUI::init(){
                 if (f == WSGET(WS_APP_ICONTHEME))
                     k = i;
 
-                i++;
+                ++i;
             }
         }
         comboBox_ICONS->setCurrentIndex(k);
 
         comboBox_EMOT->setCurrentIndex(0);
         i = 0;
-        for (const QString &f : QDir(WulforUtil::getInstance()->getEmoticonsPath())
+        for (const QString &f : QDir(WU->getEmoticonsPath())
              .entryList(QDir::Dirs | QDir::NoSymLinks | QDir::NoDotAndDotDot)){
             if (!f.isEmpty()){
                 comboBox_EMOT->addItem(f);
