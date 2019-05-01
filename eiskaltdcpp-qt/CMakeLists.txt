@@ -218,9 +218,13 @@ set (DEFAULT_QRC_FILE ${PROJECT_SOURCE_DIR}/icons/appl/default/default.qrc)
 if (UNIX AND NOT APPLE AND NOT HAIKU)
     execute_process (OUTPUT_FILE ${PROJECT_BINARY_DIR}/${PROJECT_NAME}.1.gz
                      COMMAND "${GZIP_CMD}" -9
-                     INPUT_FILE eiskaltdcpp-qt.1
+                     INPUT_FILE ${PROJECT_NAME}.1
                      WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/)
     install (FILES ${PROJECT_BINARY_DIR}/${PROJECT_NAME}.1.gz DESTINATION ${MAN_DIR})
+endif ()
+
+if (WIN32 OR APPLE)
+    install (FILES manual.${PROJECT_NAME}.html DESTINATION "${CLIENT_DOCS_DIR}" RENAME manual.${PROJECT_NAME_GLOBAL}.html)
 endif ()
 
 execute_process (COMMAND ${QT_RCC_EXECUTABLE} -binary  ${DEFAULT_QRC_FILE}

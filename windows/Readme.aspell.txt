@@ -4,7 +4,7 @@ If you want use spellchecker in chats then:
    https://sourceforge.net/projects/eiskaltdcpp/files/Other/aspell.zip
 
 2) Unpack archive "aspell.zip" and put "aspell" directory into "resources"
-   subdirectory of main directory where "eiskaltdcpp-qt.exe" program is stored.
+   subdirectory of main directory where "EiskaltDC++.exe" program is stored.
 
    For example "aspell" directory may be here:
    * C:\Program Files\EiskaltDC++\resources\aspell\

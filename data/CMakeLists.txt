@@ -42,5 +42,11 @@ endif (USE_QT OR USE_QT5 OR USE_GTK OR USE_GTK3)
 
 if (USE_ASPELL AND LOCAL_ASPELL_DATA)
     install (DIRECTORY aspell/ DESTINATION ${CLIENT_DATA_DIR}/aspell)
-endif (USE_ASPELL AND LOCAL_ASPELL_DATA)
+elseif (USE_ASPELL AND NOT LOCAL_ASPELL_DATA)
+    if (WIN32)
+        install (FILES ${CMAKE_SOURCE_DIR}/windows/Readme.aspell.txt DESTINATION "${CLIENT_DOCS_DIR}")
+    elseif (APPLE)
+        install (FILES ${CMAKE_SOURCE_DIR}/macos/Readme.aspell.txt DESTINATION "${CLIENT_DOCS_DIR}")
+    endif ()
+endif ()
 

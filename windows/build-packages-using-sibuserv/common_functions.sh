@@ -3,7 +3,7 @@
 # Author:  Boris Pek <tehnick-8@yandex.ru>
 # License: MIT (Expat)
 # Created: 2019-04-01
-# Updated: 2019-04-28
+# Updated: 2019-05-01
 # Version: N/A
 #
 # Dependencies:
@@ -118,13 +118,6 @@ InstallAllToTempDir()
 
     for TARGET in ${BUILD_TARGETS} ; do
         DIR_OUT="${MAIN_DIR}/build-${PROJECT_DIR_NAME}/${TARGET}-out/usr"
-
-        mkdir -p "${DIR_OUT}/docs"
-        cd "${MAIN_DIR}/${PROJECT_DIR_NAME}"
-        cp -af eiskaltdcpp-qt/man.eiskaltdcpp-qt.html \
-               eiskaltdcpp-daemon/man.eiskaltdcpp-daemon.html \
-               windows/build-packages-using-sibuserv/Readme.aspell.txt \
-               "${DIR_OUT}/docs/"
 
         mkdir -p "${DIR_OUT}/web-ui"
         cd "${MAIN_DIR}/${WEB_UI_DIR_NAME}"
