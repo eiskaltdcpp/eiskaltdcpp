@@ -199,7 +199,7 @@ QString WulforUtil::getAppIconsPath() const
 
 QString WulforUtil::getEmoticonsPath() const
 {
-#if defined (Q_OS_WIN)
+#if defined (Q_OS_WIN) || defined (__HAIKU__)
     static const QString emoticonsPath = bin_path + "/" CLIENT_DATA_DIR "/emoticons/";
 #elif defined (Q_OS_MAC)
     static const QString emoticonsPath = bin_path + "/../Resources/emoticons/";
