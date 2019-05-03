@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://github.com/eiskaltdcpp/eiskaltdcpp/issues\n"
-"POT-Creation-Date: 2019-04-18 21:07+0300\n"
+"POT-Creation-Date: 2019-05-04 00:31+0300\n"
 "PO-Revision-Date: 2017-06-18 13:35+0000\n"
 "Last-Translator: Boris Pek <tehnick-8@yandex.ru>, 2019\n"
 "Language-Team: Russian (https://www.transifex.com/tehnick/teams/11818/ru/)\n"
@@ -273,54 +273,59 @@ msgstr "Авто-подключение группы (сконвертирова
 msgid "Invalid URL: %1%"
 msgstr "Неправильный URL: %1%"
 
-#: ../HashManager.cpp:229 ../HashManager.cpp:427
+#: ../HashManager.cpp:230 ../HashManager.cpp:428
 msgid "Hashing failed: %1%"
 msgstr "Не удалось хэширование: %1%"
 
-#: ../HashManager.cpp:236
+#: ../HashManager.cpp:237
 msgid "Finished hashing: %1% (%2% at %3%/s)"
 msgstr "Завершено хэширование: %1% (%2% на %3%/с)"
 
-#: ../HashManager.cpp:239
+#: ../HashManager.cpp:240
 msgid "Finished hashing: %1% (%2%)"
 msgstr "Завершено хэширование: %1% (%2%)"
 
-#: ../HashManager.cpp:242
+#: ../HashManager.cpp:243
 msgid "Finished hashing: %1%"
 msgstr "Завершено хэширование: %1%"
 
-#: ../HashManager.cpp:270 ../HashManager.cpp:482
+#: ../HashManager.cpp:271 ../HashManager.cpp:483
 msgid "Error saving hash data: %1%"
 msgstr "Ошибка сохранения хэш данных: %1%"
 
-#: ../HashManager.cpp:283
+#: ../HashManager.cpp:284
 msgid "Unable to read hash data file"
 msgstr "Невозможно считать хэш файла"
 
-#: ../HashManager.cpp:615
+#: ../HashManager.cpp:616
 msgid "Error creating hash data file: %1%"
 msgstr "Ошибка создания файла данных хэша: %1%"
 
-#: ../HashManager.cpp:966
+#: ../HashManager.cpp:967
 msgid "Hash database rebuilt"
 msgstr "Хеш базы данных обновлен"
 
-#: ../HashManager.cpp:1060
+#: ../HashManager.cpp:1061
 msgid ""
 "%1% not shared; calculated CRC32 does not match the one found in SFV file."
 msgstr "%1% не расшарен из-за несоответсвия хеш-суммы (CRC32)."
 
-#: ../HashManager.cpp:1065
+#: ../HashManager.cpp:1066
 msgid "Error hashing %1%: %2%"
 msgstr "Ошибка хэширования %1%: %2%"
 
-#: ../HttpConnection.cpp:196 ../HttpConnection.cpp:251
-msgid "%1% (%2%)"
-msgstr "%1% (%2%)"
+#: ../HttpConnection.cpp:218
+#, fuzzy
+msgid "Transfer-encoding error (%1%)"
+msgstr " Порт передачи (%1% TCP)"
 
-#: ../HttpConnection.cpp:223
+#: ../HttpConnection.cpp:257
 msgid "Endless redirection loop (%1%)"
 msgstr "Бесконечный цикл перенаправления (%1%)"
+
+#: ../HttpConnection.cpp:301
+msgid "Too much data in response body (%1%)"
+msgstr ""
 
 #: ../MappingManager.cpp:44
 msgid "No UPnP implementation available"
@@ -703,67 +708,67 @@ msgstr "Неверные данные"
 msgid "Non-UTF-8 data in an ADC connection"
 msgstr "Данные не в UTF-8 при ADC подключении"
 
-#: ../Util.cpp:707
+#: ../Util.cpp:713
 #, c-format
 msgid "%d B"
 msgstr "%d Б"
 
-#: ../Util.cpp:709
+#: ../Util.cpp:715
 #, c-format
 msgid "%.02f KiB"
 msgstr "%.02f КиБ"
 
-#: ../Util.cpp:709
+#: ../Util.cpp:715
 #, c-format
 msgid "%.02f KB"
 msgstr "%.02f КБ"
 
-#: ../Util.cpp:711
+#: ../Util.cpp:717
 #, c-format
 msgid "%.02f MiB"
 msgstr "%.02f МиБ"
 
-#: ../Util.cpp:711
+#: ../Util.cpp:717
 #, c-format
 msgid "%.02f MB"
 msgstr "%.02f МБ"
 
-#: ../Util.cpp:713
+#: ../Util.cpp:719
 #, c-format
 msgid "%.02f GiB"
 msgstr "%.02f ГиБ"
 
-#: ../Util.cpp:713
+#: ../Util.cpp:719
 #, c-format
 msgid "%.02f GB"
 msgstr "%.02f ГБ"
 
-#: ../Util.cpp:715
+#: ../Util.cpp:721
 #, c-format
 msgid "%.02f TiB"
 msgstr "%.02f ТиБ"
 
-#: ../Util.cpp:715
+#: ../Util.cpp:721
 #, c-format
 msgid "%.02f TB"
 msgstr "%.02f ТБ"
 
-#: ../Util.cpp:717
+#: ../Util.cpp:723
 #, c-format
 msgid "%.02f PiB"
 msgstr "%.02f ПиБ"
 
-#: ../Util.cpp:717
+#: ../Util.cpp:723
 #, c-format
 msgid "%.02f PB"
 msgstr "%.02f ПБ"
 
-#: ../Util.cpp:751
+#: ../Util.cpp:757
 #, c-format
 msgid "%s B"
 msgstr "%s Б"
 
-#: ../Util.cpp:755
+#: ../Util.cpp:761
 #, c-format
 msgid "%'lld B"
 msgstr "%'lld Б"
@@ -775,3 +780,6 @@ msgstr "Несовпадение TTH"
 #: ../Streams.h:157
 msgid "More bytes written than requested"
 msgstr "Записано больше байт чем требуется"
+
+#~ msgid "%1% (%2%)"
+#~ msgstr "%1% (%2%)"

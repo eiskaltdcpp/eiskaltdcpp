@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://github.com/eiskaltdcpp/eiskaltdcpp/issues\n"
-"POT-Creation-Date: 2019-04-18 21:07+0300\n"
+"POT-Creation-Date: 2019-05-04 00:31+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Márk Lutring <marcus@elitemail.hu>, 2018\n"
 "Language-Team: Hungarian (https://www.transifex.com/tehnick/teams/11818/"
@@ -268,55 +268,60 @@ msgstr "Automatikusan csatlakozó hubok csoportja (konvertált)"
 msgid "Invalid URL: %1%"
 msgstr ""
 
-#: ../HashManager.cpp:229 ../HashManager.cpp:427
+#: ../HashManager.cpp:230 ../HashManager.cpp:428
 msgid "Hashing failed: %1%"
 msgstr "Sikertelen indexelés: %1%"
 
-#: ../HashManager.cpp:236
+#: ../HashManager.cpp:237
 msgid "Finished hashing: %1% (%2% at %3%/s)"
 msgstr "Indexelés befejezve: %1% (%2%, %3%/s sebességgel)"
 
-#: ../HashManager.cpp:239
+#: ../HashManager.cpp:240
 msgid "Finished hashing: %1% (%2%)"
 msgstr "Indexelés befejezve: %1% (%2%)"
 
-#: ../HashManager.cpp:242
+#: ../HashManager.cpp:243
 msgid "Finished hashing: %1%"
 msgstr "Indexelés befejezve: %1%"
 
-#: ../HashManager.cpp:270 ../HashManager.cpp:482
+#: ../HashManager.cpp:271 ../HashManager.cpp:483
 msgid "Error saving hash data: %1%"
 msgstr "Hiba a hash adatok mentésekor: %1%"
 
-#: ../HashManager.cpp:283
+#: ../HashManager.cpp:284
 msgid "Unable to read hash data file"
 msgstr "A hash adatfájl beolvasása nem lehetséges"
 
-#: ../HashManager.cpp:615
+#: ../HashManager.cpp:616
 msgid "Error creating hash data file: %1%"
 msgstr "Hiba a hash adatfájl létrehozásakor: %1%"
 
-#: ../HashManager.cpp:966
+#: ../HashManager.cpp:967
 msgid "Hash database rebuilt"
 msgstr "A hash adatbázis újraépítve"
 
-#: ../HashManager.cpp:1060
+#: ../HashManager.cpp:1061
 msgid ""
 "%1% not shared; calculated CRC32 does not match the one found in SFV file."
 msgstr ""
 "%1% nincs megosztva. A kiszámított CRC32 nem egyezik az SFV fájlban lévővel."
 
-#: ../HashManager.cpp:1065
+#: ../HashManager.cpp:1066
 msgid "Error hashing %1%: %2%"
 msgstr "Hiba a következő hashelésekor: %1%: %2%"
 
-#: ../HttpConnection.cpp:196 ../HttpConnection.cpp:251
-msgid "%1% (%2%)"
-msgstr ""
+#: ../HttpConnection.cpp:218
+#, fuzzy
+msgid "Transfer-encoding error (%1%)"
+msgstr " Átviteli port (%1% TCP)"
 
-#: ../HttpConnection.cpp:223
+#: ../HttpConnection.cpp:257
 msgid "Endless redirection loop (%1%)"
 msgstr "Végtelen átirányítási kör (%1%)"
+
+#: ../HttpConnection.cpp:301
+msgid "Too much data in response body (%1%)"
+msgstr ""
 
 #: ../MappingManager.cpp:44
 msgid "No UPnP implementation available"
@@ -708,67 +713,67 @@ msgstr "Érvénytelen adat"
 msgid "Non-UTF-8 data in an ADC connection"
 msgstr "Nem-UTF-8 adat az ADC kapcsolatban"
 
-#: ../Util.cpp:707
+#: ../Util.cpp:713
 #, c-format
 msgid "%d B"
 msgstr "%d B"
 
-#: ../Util.cpp:709
+#: ../Util.cpp:715
 #, c-format
 msgid "%.02f KiB"
 msgstr "%.02f KiB"
 
-#: ../Util.cpp:709
+#: ../Util.cpp:715
 #, c-format
 msgid "%.02f KB"
 msgstr ""
 
-#: ../Util.cpp:711
+#: ../Util.cpp:717
 #, c-format
 msgid "%.02f MiB"
 msgstr "%.02f MiB"
 
-#: ../Util.cpp:711
+#: ../Util.cpp:717
 #, c-format
 msgid "%.02f MB"
 msgstr ""
 
-#: ../Util.cpp:713
+#: ../Util.cpp:719
 #, c-format
 msgid "%.02f GiB"
 msgstr "%.02f GiB"
 
-#: ../Util.cpp:713
+#: ../Util.cpp:719
 #, c-format
 msgid "%.02f GB"
 msgstr ""
 
-#: ../Util.cpp:715
+#: ../Util.cpp:721
 #, c-format
 msgid "%.02f TiB"
 msgstr "%.02f TiB"
 
-#: ../Util.cpp:715
+#: ../Util.cpp:721
 #, c-format
 msgid "%.02f TB"
 msgstr ""
 
-#: ../Util.cpp:717
+#: ../Util.cpp:723
 #, c-format
 msgid "%.02f PiB"
 msgstr "%.02f PiB"
 
-#: ../Util.cpp:717
+#: ../Util.cpp:723
 #, c-format
 msgid "%.02f PB"
 msgstr ""
 
-#: ../Util.cpp:751
+#: ../Util.cpp:757
 #, c-format
 msgid "%s B"
 msgstr "%s B"
 
-#: ../Util.cpp:755
+#: ../Util.cpp:761
 #, c-format
 msgid "%'lld B"
 msgstr "%'lld B"
