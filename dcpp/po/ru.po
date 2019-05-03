@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://github.com/eiskaltdcpp/eiskaltdcpp/issues\n"
-"POT-Creation-Date: 2019-05-04 00:31+0300\n"
+"POT-Creation-Date: 2019-05-04 00:55+0300\n"
 "PO-Revision-Date: 2017-06-18 13:35+0000\n"
 "Last-Translator: Boris Pek <tehnick-8@yandex.ru>, 2019\n"
 "Language-Team: Russian (https://www.transifex.com/tehnick/teams/11818/ru/)\n"
@@ -315,9 +315,8 @@ msgid "Error hashing %1%: %2%"
 msgstr "Ошибка хэширования %1%: %2%"
 
 #: ../HttpConnection.cpp:218
-#, fuzzy
 msgid "Transfer-encoding error (%1%)"
-msgstr " Порт передачи (%1% TCP)"
+msgstr "Ошибка кодировки передачи (%1%)"
 
 #: ../HttpConnection.cpp:257
 msgid "Endless redirection loop (%1%)"
@@ -325,7 +324,7 @@ msgstr "Бесконечный цикл перенаправления (%1%)"
 
 #: ../HttpConnection.cpp:301
 msgid "Too much data in response body (%1%)"
-msgstr ""
+msgstr "Слишком много данных в теле ответа (%1%)"
 
 #: ../MappingManager.cpp:44
 msgid "No UPnP implementation available"
@@ -780,6 +779,3 @@ msgstr "Несовпадение TTH"
 #: ../Streams.h:157
 msgid "More bytes written than requested"
 msgstr "Записано больше байт чем требуется"
-
-#~ msgid "%1% (%2%)"
-#~ msgstr "%1% (%2%)"
