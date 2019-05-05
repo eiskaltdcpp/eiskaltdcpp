@@ -61,7 +61,7 @@ const string AdcHub::DHT0_SUPPORT("ADDHT0");
 const vector<StringList> AdcHub::searchExts;
 
 AdcHub::AdcHub(const string& aHubURL, bool secure) :
-    Client(aHubURL, '\n', secure), oldPassword(false), sid(0) {
+    Client(aHubURL, '\n', secure, Socket::PROTO_ADC), oldPassword(false), sid(0) {
     TimerManager::getInstance()->addListener(this);
 }
 
