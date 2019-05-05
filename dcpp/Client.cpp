@@ -32,7 +32,7 @@ namespace dcpp {
 
 Client::Counts Client::counts;
 
-Client::Client(const string& hubURL, char separator_, bool secure_, int proto_) :
+Client::Client(const string& hubURL, char separator_, bool secure_, Socket::Protocol proto_) :
     myIdentity(ClientManager::getInstance()->getMe(), 0),
     reconnDelay(120), lastActivity(GET_TICK()), registered(false), autoReconnect(false),
     encoding(Text::hubDefaultCharset), state(STATE_DISCONNECTED), sock(0),

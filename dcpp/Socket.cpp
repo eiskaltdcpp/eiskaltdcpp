@@ -736,7 +736,7 @@ string Socket::getLocalPort() noexcept {
     return Util::emptyString;
 }
 
-int Socket::getNextProtocol() noexcept {
+Socket::Protocol Socket::getNextProtocol() noexcept {
     return proto;
 }
 

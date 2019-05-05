@@ -36,7 +36,7 @@ static const unsigned char alpn_protos_adc[] = {
 };
 #endif
 
-SSLSocket::SSLSocket(SSL_CTX* context, int proto) : ctx(context), ssl(0), nextProto(proto) {
+SSLSocket::SSLSocket(SSL_CTX* context, Socket::Protocol proto) : ctx(context), ssl(0), nextProto(proto) {
 
 }
 

@@ -163,7 +163,7 @@ public:
     void reloadSettings(bool updateNick);
 protected:
     friend class ClientManager;
-    Client(const string& hubURL, char separator, bool secure_, int proto_);
+    Client(const string& hubURL, char separator, bool secure_, Socket::Protocol proto_);
     virtual ~Client();
     struct Counts {
     private:
@@ -227,7 +227,7 @@ private:
     string port;
     string externalIP;
     char separator;
-    int  proto;
+    Socket::Protocol proto;
     bool secure;
     CountType countType;
 };

@@ -391,7 +391,7 @@ void CryptoManager::loadKeyprint(const string& file) noexcept {
     keyprint = ssl::X509_digest(x509, EVP_sha256());
 }
 
-SSLSocket* CryptoManager::getClientSocket(bool allowUntrusted, int proto) {
+SSLSocket* CryptoManager::getClientSocket(bool allowUntrusted, Socket::Protocol proto) {
     return new SSLSocket(allowUntrusted ? clientContext : clientVerContext, proto);
 }
 SSLSocket* CryptoManager::getServerSocket(bool allowUntrusted) {
