@@ -71,7 +71,7 @@ public:
         TYPE_UDP
     };
 
-    enum {
+    enum Protocol {
         PROTO_DEFAULT = 0,
         PROTO_NMDC = 1,
         PROTO_ADC = 2
@@ -149,7 +149,7 @@ public:
     string getLocalIp() noexcept;
     string getLocalPort() noexcept;
 
-    int getNextProtocol() noexcept;
+    Protocol getNextProtocol() noexcept;
 
     // Low level interface
     virtual void create(int aType = TYPE_TCP);
@@ -178,7 +178,7 @@ public:
 protected:
     int type;
     bool connected;
-    int proto;
+    Protocol proto;
 
     class Stats {
     public:
