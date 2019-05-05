@@ -28,7 +28,26 @@ See [ChangeLog.txt](https://github.com/eiskaltdcpp/eiskaltdcpp/blob/master/Chang
 
 ## Installation
 
-See [INSTALL](https://github.com/eiskaltdcpp/eiskaltdcpp/blob/master/INSTALL) file.
+For build from sources see [INSTALL](https://github.com/eiskaltdcpp/eiskaltdcpp/blob/master/INSTALL) file.
+
+GNU/Linux and FreeBSD users may install packages from official and unofficial repositories, ports, etc.
+
+macOS users may install and update official builds using [Homebrew](https://brew.sh/) cask:
+
+```
+brew cask install eiskaltdcpp
+```
+
+or download app bundles from SourceForge (see links below) and install them manually. Program doesn't have embedded mechanism of updates, so in this case users should monitor updates themselves.
+
+
+Haiku users may install official package from HaikuPorts:
+
+```
+pkgman install eiskaltdcpp
+```
+
+MS Windows users may download official installers and portable builds from SourceForge (see links below). Program doesn't have embedded mechanism of updates, so users should monitor updates themselves.
 
 ## Development
 
