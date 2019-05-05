@@ -71,12 +71,13 @@ public:
 private:
     friend class CryptoManager;
 
-    SSLSocket(SSL_CTX* context);
+    SSLSocket(SSL_CTX* context, int proto);
     SSLSocket(const SSLSocket&);
     SSLSocket& operator=(const SSLSocket&);
 
     SSL_CTX* ctx;
     ssl::SSL ssl;
+    int nextProto;
 
     int checkSSL(int ret);
     bool waitWant(int ret, uint32_t millis);

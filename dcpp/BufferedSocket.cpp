@@ -100,14 +100,14 @@ void BufferedSocket::accept(const Socket& srv, bool secure, bool allowUntrusted)
     addTask(ACCEPTED, 0);
 }
 
-void BufferedSocket::connect(const string& aAddress, const string& aPort, bool secure, bool allowUntrusted, bool proxy, const string& expKP) {
-    connect(aAddress, aPort, Util::emptyString, NAT_NONE, secure, allowUntrusted, proxy, expKP);
+void BufferedSocket::connect(const string& aAddress, const string& aPort, bool secure, bool allowUntrusted, bool proxy, int proto, const string& expKP) {
+    connect(aAddress, aPort, Util::emptyString, NAT_NONE, secure, allowUntrusted, proxy, proto, expKP);
 }
 
-void BufferedSocket::connect(const string& aAddress, const string& aPort, const string& localPort, NatRoles natRole, bool secure, bool allowUntrusted, bool proxy, const string& expKP) {
+void BufferedSocket::connect(const string& aAddress, const string& aPort, const string& localPort, NatRoles natRole, bool secure, bool allowUntrusted, bool proxy, int proto, const string& expKP) {
     (void)expKP;
     dcdebug("BufferedSocket::connect() %p\n", (void*)this);
-    std::unique_ptr<Socket> s(secure ? (natRole == NAT_SERVER ? CryptoManager::getInstance()->getServerSocket(allowUntrusted) : CryptoManager::getInstance()->getClientSocket(allowUntrusted)) : new Socket);
+    std::unique_ptr<Socket> s(secure ? (natRole == NAT_SERVER ? CryptoManager::getInstance()->getServerSocket(allowUntrusted) : CryptoManager::getInstance()->getClientSocket(allowUntrusted, proto)) : new Socket);
 
     s->create();
     setSocket(move(s));

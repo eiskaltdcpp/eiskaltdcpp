@@ -134,7 +134,7 @@ void HttpConnection::prepareRequest(RequestType type) {
 
     socket->addListener(this);
     try {
-        socket->connect(server, port, (proto == "https"), true, false);
+        socket->connect(server, port, (proto == "https"), true, false, Socket::PROTO_DEFAULT);
     } catch(const Exception& e) {
         connState = CONN_FAILED;
         fire(HttpConnectionListener::Failed(), this, str(dcpp::dcpp_fmt("%1% (%2%)") % e.getError() % url));
