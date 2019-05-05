@@ -32,11 +32,11 @@ namespace dcpp {
 
 Client::Counts Client::counts;
 
-Client::Client(const string& hubURL, char separator_, bool secure_) :
+Client::Client(const string& hubURL, char separator_, bool secure_, Socket::Protocol proto_) :
     myIdentity(ClientManager::getInstance()->getMe(), 0),
     reconnDelay(120), lastActivity(GET_TICK()), registered(false), autoReconnect(false),
     encoding(Text::hubDefaultCharset), state(STATE_DISCONNECTED), sock(0),
-    hubUrl(hubURL), separator(separator_),
+    hubUrl(hubURL), separator(separator_), proto(proto_),
     secure(secure_), countType(COUNT_UNCOUNTED)
 {
     string file, proto, query, fragment;
@@ -134,7 +134,7 @@ void Client::connect() {
     try {
         sock = BufferedSocket::getSocket(separator);
         sock->addListener(this);
-        sock->connect(address, port, secure, BOOLSETTING(ALLOW_UNTRUSTED_HUBS), true);
+        sock->connect(address, port, secure, BOOLSETTING(ALLOW_UNTRUSTED_HUBS), true, proto);
     } catch(const Exception& e) {
         shutdown();
         /// @todo at this point, this hub instance is completely useless

@@ -27,7 +27,16 @@
 
 namespace dcpp {
 
-SSLSocket::SSLSocket(SSL_CTX* context) : ctx(context), ssl(0) {
+#if OPENSSL_VERSION_NUMBER >= 0x10002000L
+static const unsigned char alpn_protos_nmdc[] = {
+	4, 'n', 'm', 'd', 'c',
+};
+static const unsigned char alpn_protos_adc[] = {
+	3, 'a', 'd', 'c',
+};
+#endif
+
+SSLSocket::SSLSocket(SSL_CTX* context, Socket::Protocol proto) : ctx(context), ssl(0), nextProto(proto) {
 
 }
 
@@ -55,6 +64,14 @@ bool SSLSocket::waitConnected(uint32_t millis) {
 
         checkSSL(SSL_set_fd(ssl, sock));
     }
+
+#if OPENSSL_VERSION_NUMBER >= 0x10002000L
+    if (nextProto == Socket::PROTO_NMDC) {
+        SSL_set_alpn_protos(ssl, alpn_protos_nmdc, sizeof(alpn_protos_nmdc));
+    } else if (nextProto == Socket::PROTO_ADC) {
+        SSL_set_alpn_protos(ssl, alpn_protos_adc, sizeof(alpn_protos_adc));
+    }
+#endif
 
     if(SSL_is_init_finished(ssl)) {
         return true;

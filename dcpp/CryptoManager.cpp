@@ -41,13 +41,6 @@ static const char ciphersuites[] =
         "AES256-GCM-SHA384:AES256-SHA256:AES256-SHA:AES128-SHA"
         "!aNULL:!eNULL:!EXPORT:!DES:!RC4:!3DES:!MD5:!PSK";
 
-#if OPENSSL_VERSION_NUMBER >= 0x10002000L
-static const unsigned char alpn_protos[] = {
-	3, 'a', 'd', 'c',
-	4, 'n', 'm', 'd', 'c',
-};
-#endif
-
 CryptoManager::CryptoManager()
     :
       certsLoaded(false),
@@ -157,10 +150,6 @@ CryptoManager::CryptoManager()
         SSL_CTX_set_verify(clientContext, SSL_VERIFY_NONE, 0);
         SSL_CTX_set_verify(clientVerContext, SSL_VERIFY_PEER | SSL_VERIFY_FAIL_IF_NO_PEER_CERT, 0);
         SSL_CTX_set_verify(serverVerContext, SSL_VERIFY_PEER | SSL_VERIFY_FAIL_IF_NO_PEER_CERT, 0);
-#if OPENSSL_VERSION_NUMBER >= 0x10002000L
-        SSL_CTX_set_alpn_protos(clientContext, alpn_protos, sizeof(alpn_protos));
-        SSL_CTX_set_alpn_protos(clientVerContext, alpn_protos, sizeof(alpn_protos));
-#endif
     }
 }
 
@@ -402,11 +391,11 @@ void CryptoManager::loadKeyprint(const string& file) noexcept {
     keyprint = ssl::X509_digest(x509, EVP_sha256());
 }
 
-SSLSocket* CryptoManager::getClientSocket(bool allowUntrusted) {
-    return new SSLSocket(allowUntrusted ? clientContext : clientVerContext);
+SSLSocket* CryptoManager::getClientSocket(bool allowUntrusted, Socket::Protocol proto) {
+    return new SSLSocket(allowUntrusted ? clientContext : clientVerContext, proto);
 }
 SSLSocket* CryptoManager::getServerSocket(bool allowUntrusted) {
-    return new SSLSocket(allowUntrusted ? serverContext : serverVerContext);
+    return new SSLSocket(allowUntrusted ? serverContext : serverVerContext, Socket::PROTO_DEFAULT);
 }
 
 

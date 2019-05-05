@@ -43,7 +43,7 @@ public:
 
     void decodeBZ2(const uint8_t* is, size_t sz, string& os);
 
-    SSLSocket* getClientSocket(bool allowUntrusted);
+    SSLSocket* getClientSocket(bool allowUntrusted, Socket::Protocol proto);
     SSLSocket* getServerSocket(bool allowUntrusted);
 
     void loadCertificates() noexcept;

@@ -38,7 +38,7 @@
 namespace dcpp {
 
 NmdcHub::NmdcHub(const string& aHubURL, bool secure) :
-    Client(aHubURL, '|', secure),
+    Client(aHubURL, '|', secure, Socket::PROTO_NMDC),
     supportFlags(0),
     lastUpdate(0)
 {
