@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://github.com/eiskaltdcpp/eiskaltdcpp/issues\n"
-"POT-Creation-Date: 2019-05-04 00:31+0300\n"
+"POT-Creation-Date: 2019-05-07 01:10+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Zmicer <m_d@mail.by>, 2018\n"
 "Language-Team: Belarusian (https://www.transifex.com/tehnick/teams/11818/"
@@ -33,7 +33,7 @@ msgstr "Адкінуць"
 msgid "%1% (%2%) has same CID {%3%} as %4% (%5%), ignoring"
 msgstr "Прапускаем: %1% (%2%) мае такі самы CID {%3%}, як і %4% (%5%)"
 
-#: ../AdcHub.cpp:192 ../QueueManager.cpp:2192 ../Transfer.cpp:91
+#: ../AdcHub.cpp:192 ../QueueManager.cpp:2188 ../Transfer.cpp:91
 msgid "%1%/s"
 msgstr "%1%/с"
 
@@ -67,7 +67,7 @@ msgid "Error during compression"
 msgstr "Не ўдалося сьціснуць"
 
 #: ../BZUtils.cpp:75 ../BZUtils.cpp:97 ../BZUtils.cpp:100
-#: ../CryptoManager.cpp:417 ../CryptoManager.cpp:436 ../CryptoManager.cpp:450
+#: ../CryptoManager.cpp:406 ../CryptoManager.cpp:425 ../CryptoManager.cpp:439
 #: ../ZUtils.cpp:116 ../ZUtils.cpp:138 ../ZUtils.cpp:152
 msgid "Error during decompression"
 msgstr "Не ўдалося распакаваць"
@@ -77,7 +77,7 @@ msgstr "Не ўдалося распакаваць"
 msgid "Connection timeout"
 msgstr "Выйшаў час злучэньня"
 
-#: ../BufferedSocket.cpp:190 ../SSLSocket.cpp:180
+#: ../BufferedSocket.cpp:190 ../SSLSocket.cpp:197
 msgid "Connection closed"
 msgstr "Злучэньне зачынілі"
 
@@ -93,8 +93,8 @@ msgstr "Адлучаны"
 msgid "Sent "
 msgstr "Даслалі "
 
-#: ../ClientManager.cpp:186 ../QueueManager.cpp:2163 ../QueueManager.cpp:2169
-#: ../QueueManager.cpp:2175 ../SearchManager.cpp:279 ../SearchManager.cpp:366
+#: ../ClientManager.cpp:186 ../QueueManager.cpp:2159 ../QueueManager.cpp:2165
+#: ../QueueManager.cpp:2171 ../SearchManager.cpp:279 ../SearchManager.cpp:366
 #: ../SearchManager.cpp:368 ../Transfer.cpp:81 ../Transfer.cpp:85
 msgid "Offline"
 msgstr "Ня ў сетцы"
@@ -165,37 +165,37 @@ msgstr "DHT (UDP)"
 msgid "Connectivity: "
 msgstr "Злучэньне: "
 
-#: ../CryptoManager.cpp:177
+#: ../CryptoManager.cpp:166
 msgid "No private key file chosen"
 msgstr "Не абралі файл асабістага ключа"
 
-#: ../CryptoManager.cpp:180
+#: ../CryptoManager.cpp:169
 msgid "No certificate file chosen"
 msgstr "Не абралі пасьведчаньня"
 
-#: ../CryptoManager.cpp:192
+#: ../CryptoManager.cpp:181
 msgid "Error generating certificate"
 msgstr "Не ўдалося стварыць пасьведчаньне"
 
-#: ../CryptoManager.cpp:255
+#: ../CryptoManager.cpp:244
 msgid "TLS disabled, no certificate file set"
 msgstr "TLS не задзейнічаны, файл пасьведчаньня ня вызначаны"
 
-#: ../CryptoManager.cpp:263
+#: ../CryptoManager.cpp:252
 msgid "Generated new TLS certificate"
 msgstr "Стварылі новае пасьведчаньне TLS"
 
-#: ../CryptoManager.cpp:265
+#: ../CryptoManager.cpp:254
 msgid "TLS disabled, failed to generate certificate: %1%"
 msgstr "Не ўдалося стварыць пасьведчаньне — TLS не задзейнічалі: %1%"
 
-#: ../CryptoManager.cpp:270 ../CryptoManager.cpp:274 ../CryptoManager.cpp:279
-#: ../CryptoManager.cpp:283
+#: ../CryptoManager.cpp:259 ../CryptoManager.cpp:263 ../CryptoManager.cpp:268
+#: ../CryptoManager.cpp:272
 msgid "Failed to load certificate file"
 msgstr "Не ўдалося прачытаць файл пасьведчаньня"
 
-#: ../CryptoManager.cpp:288 ../CryptoManager.cpp:292 ../CryptoManager.cpp:297
-#: ../CryptoManager.cpp:301
+#: ../CryptoManager.cpp:277 ../CryptoManager.cpp:281 ../CryptoManager.cpp:286
+#: ../CryptoManager.cpp:290
 msgid "Failed to load private key"
 msgstr "Не ўдалося прачытаць асабісты ключ"
 
@@ -501,11 +501,11 @@ msgstr "Да прызначанага шляху няма доступу: %1%; �
 msgid "CRC32 inconsistency (SFV-Check)"
 msgstr "Неадпаведнасьць CRC32 (спраўджаньне SFV)"
 
-#: ../QueueManager.cpp:2217
+#: ../QueueManager.cpp:2210
 msgid "%1% : Matched %2% files"
 msgstr "%1% — супала файлаў: %2%"
 
-#: ../SSLSocket.cpp:186
+#: ../SSLSocket.cpp:203
 msgid "SSL Error: %1% (%2%, %3%)"
 msgstr "Памылка SSL: %1% (%2%, %3%)"
 
@@ -698,67 +698,67 @@ msgstr "Хібныя зьвесткі"
 msgid "Non-UTF-8 data in an ADC connection"
 msgstr "Зьвесткі злучэньня ADC не ў кадоўцы UTF-8"
 
-#: ../Util.cpp:713
+#: ../Util.cpp:715
 #, c-format
 msgid "%d B"
 msgstr "%d Б"
 
-#: ../Util.cpp:715
+#: ../Util.cpp:717
 #, c-format
 msgid "%.02f KiB"
 msgstr "%.02f КіБ"
 
-#: ../Util.cpp:715
+#: ../Util.cpp:717
 #, c-format
 msgid "%.02f KB"
 msgstr "%.02f КБ"
 
-#: ../Util.cpp:717
+#: ../Util.cpp:719
 #, c-format
 msgid "%.02f MiB"
 msgstr "%.02f МіБ"
 
-#: ../Util.cpp:717
+#: ../Util.cpp:719
 #, c-format
 msgid "%.02f MB"
 msgstr "%.02f МБ"
 
-#: ../Util.cpp:719
+#: ../Util.cpp:721
 #, c-format
 msgid "%.02f GiB"
 msgstr "%.02f ҐіБ"
 
-#: ../Util.cpp:719
+#: ../Util.cpp:721
 #, c-format
 msgid "%.02f GB"
 msgstr "%.02f ГБ"
 
-#: ../Util.cpp:721
+#: ../Util.cpp:723
 #, c-format
 msgid "%.02f TiB"
 msgstr "%.02f ТіБ"
 
-#: ../Util.cpp:721
+#: ../Util.cpp:723
 #, c-format
 msgid "%.02f TB"
 msgstr "%.02f ТБ"
 
-#: ../Util.cpp:723
+#: ../Util.cpp:725
 #, c-format
 msgid "%.02f PiB"
 msgstr "%.02f ПіБ"
 
-#: ../Util.cpp:723
+#: ../Util.cpp:725
 #, c-format
 msgid "%.02f PB"
 msgstr "%.02f ПБ"
 
-#: ../Util.cpp:757
+#: ../Util.cpp:759
 #, c-format
 msgid "%s B"
 msgstr "%s Б"
 
-#: ../Util.cpp:761
+#: ../Util.cpp:763
 #, c-format
 msgid "%'lld B"
 msgstr "%'lld Б"
@@ -770,3 +770,15 @@ msgstr "Разыходжаньне TTH"
 #: ../Streams.h:157
 msgid "More bytes written than requested"
 msgstr "Запісалі байтаў болей за тое, колькі было трэба"
+
+#: ../../dht/BootstrapManager.cpp:50
+msgid "DHT bootstrapping started"
+msgstr ""
+
+#: ../../dht/BootstrapManager.cpp:113
+msgid "DHT bootstrapping is finished successfully."
+msgstr ""
+
+#: ../../dht/BootstrapManager.cpp:117 ../../dht/BootstrapManager.cpp:124
+msgid "DHT bootstrap error: "
+msgstr ""

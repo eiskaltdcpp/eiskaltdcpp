@@ -768,12 +768,12 @@ EiskaltDC++ - кросплатформенна програма для робо�
 <context>
     <name>FinishedTransfers</name>
     <message>
-        <location filename="../src/FinishedTransfers.h" line="492"/>
+        <location filename="../src/FinishedTransfers.h" line="484"/>
         <source>Open file</source>
         <translation>Відкрити файл</translation>
     </message>
     <message>
-        <location filename="../src/FinishedTransfers.h" line="493"/>
+        <location filename="../src/FinishedTransfers.h" line="485"/>
         <source>Open directory</source>
         <translation>Відкрити теку</translation>
     </message>
@@ -3041,38 +3041,38 @@ Downloaded: %3 Uploaded: %4</source>
         <translation>Вибрати теку</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="490"/>
+        <location filename="../src/SearchFrame.cpp" line="477"/>
         <source>Close</source>
         <translation>Закрити</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="1093"/>
+        <location filename="../src/SearchFrame.cpp" line="1080"/>
         <source>Search - %1</source>
         <translation>Пошук - %1</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="1201"/>
-        <location filename="../src/SearchFrame.cpp" line="1259"/>
+        <location filename="../src/SearchFrame.cpp" line="1188"/>
+        <location filename="../src/SearchFrame.cpp" line="1246"/>
         <source>Select directory</source>
         <translation>Вибрати теку</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="1567"/>
+        <location filename="../src/SearchFrame.cpp" line="1554"/>
         <source>Searching for %1 ...</source>
         <translation>Шукаємо %1 ...</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="1571"/>
+        <location filename="../src/SearchFrame.cpp" line="1558"/>
         <source>Search progress of &quot;%1&quot; is %2%</source>
         <translation>Прогрес пошуку &quot;%1&quot;: %2%</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="1594"/>
+        <location filename="../src/SearchFrame.cpp" line="1581"/>
         <source>&lt;b&gt;No results&lt;/b&gt;</source>
         <translation>&lt;b&gt;Результати відсутні&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="1603"/>
+        <location filename="../src/SearchFrame.cpp" line="1590"/>
         <source>Found: &lt;b&gt;%1&lt;/b&gt;  Dropped: &lt;b&gt;%2&lt;/b&gt;</source>
         <translation>Знайдено: &lt;b&gt;%1&lt;/b&gt; Відсіяно: &lt;b&gt;%2&lt;/b&gt;</translation>
     </message>

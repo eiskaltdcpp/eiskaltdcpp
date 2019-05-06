@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://github.com/eiskaltdcpp/eiskaltdcpp/issues\n"
-"POT-Creation-Date: 2019-05-04 00:31+0300\n"
+"POT-Creation-Date: 2019-05-07 01:10+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Helder <heldercro@gmail.com>, 2018\n"
 "Language-Team: Portuguese (Brazil) (https://www.transifex.com/tehnick/"
@@ -31,7 +31,7 @@ msgstr "Cancelar"
 msgid "%1% (%2%) has same CID {%3%} as %4% (%5%), ignoring"
 msgstr "%1% (%2%) tem os mesmo CID {%3%} que %4% (%5%), ignorando"
 
-#: ../AdcHub.cpp:192 ../QueueManager.cpp:2192 ../Transfer.cpp:91
+#: ../AdcHub.cpp:192 ../QueueManager.cpp:2188 ../Transfer.cpp:91
 msgid "%1%/s"
 msgstr "%1%/s"
 
@@ -65,7 +65,7 @@ msgid "Error during compression"
 msgstr "Erro durante a compressão"
 
 #: ../BZUtils.cpp:75 ../BZUtils.cpp:97 ../BZUtils.cpp:100
-#: ../CryptoManager.cpp:417 ../CryptoManager.cpp:436 ../CryptoManager.cpp:450
+#: ../CryptoManager.cpp:406 ../CryptoManager.cpp:425 ../CryptoManager.cpp:439
 #: ../ZUtils.cpp:116 ../ZUtils.cpp:138 ../ZUtils.cpp:152
 msgid "Error during decompression"
 msgstr "Erro durante a descompressão"
@@ -75,7 +75,7 @@ msgstr "Erro durante a descompressão"
 msgid "Connection timeout"
 msgstr "Connection timeout"
 
-#: ../BufferedSocket.cpp:190 ../SSLSocket.cpp:180
+#: ../BufferedSocket.cpp:190 ../SSLSocket.cpp:197
 msgid "Connection closed"
 msgstr "Conexão fechada"
 
@@ -91,8 +91,8 @@ msgstr "Desconectado"
 msgid "Sent "
 msgstr "Enviou"
 
-#: ../ClientManager.cpp:186 ../QueueManager.cpp:2163 ../QueueManager.cpp:2169
-#: ../QueueManager.cpp:2175 ../SearchManager.cpp:279 ../SearchManager.cpp:366
+#: ../ClientManager.cpp:186 ../QueueManager.cpp:2159 ../QueueManager.cpp:2165
+#: ../QueueManager.cpp:2171 ../SearchManager.cpp:279 ../SearchManager.cpp:366
 #: ../SearchManager.cpp:368 ../Transfer.cpp:81 ../Transfer.cpp:85
 msgid "Offline"
 msgstr "Offline"
@@ -165,37 +165,37 @@ msgstr "DHT (UDP)"
 msgid "Connectivity: "
 msgstr "Conectividade:"
 
-#: ../CryptoManager.cpp:177
+#: ../CryptoManager.cpp:166
 msgid "No private key file chosen"
 msgstr "Sem chave privada"
 
-#: ../CryptoManager.cpp:180
+#: ../CryptoManager.cpp:169
 msgid "No certificate file chosen"
 msgstr "Sem certificado"
 
-#: ../CryptoManager.cpp:192
+#: ../CryptoManager.cpp:181
 msgid "Error generating certificate"
 msgstr "Erro ao gerar certificado"
 
-#: ../CryptoManager.cpp:255
+#: ../CryptoManager.cpp:244
 msgid "TLS disabled, no certificate file set"
 msgstr "TLS desabilitado, o certificado não foi criado"
 
-#: ../CryptoManager.cpp:263
+#: ../CryptoManager.cpp:252
 msgid "Generated new TLS certificate"
 msgstr "Gerar novo certificado TLS"
 
-#: ../CryptoManager.cpp:265
+#: ../CryptoManager.cpp:254
 msgid "TLS disabled, failed to generate certificate: %1%"
 msgstr "TLS desabilitado, falha ao gerar certificado: %1%"
 
-#: ../CryptoManager.cpp:270 ../CryptoManager.cpp:274 ../CryptoManager.cpp:279
-#: ../CryptoManager.cpp:283
+#: ../CryptoManager.cpp:259 ../CryptoManager.cpp:263 ../CryptoManager.cpp:268
+#: ../CryptoManager.cpp:272
 msgid "Failed to load certificate file"
 msgstr "Falha ao carregar certificado"
 
-#: ../CryptoManager.cpp:288 ../CryptoManager.cpp:292 ../CryptoManager.cpp:297
-#: ../CryptoManager.cpp:301
+#: ../CryptoManager.cpp:277 ../CryptoManager.cpp:281 ../CryptoManager.cpp:286
+#: ../CryptoManager.cpp:290
 msgid "Failed to load private key"
 msgstr "Falha ao carregar chave privada"
 
@@ -502,11 +502,11 @@ msgstr "O local de destino não está disponível: %1%; item pausado."
 msgid "CRC32 inconsistency (SFV-Check)"
 msgstr "Inconsistência de CRC32 (SFV-Check)"
 
-#: ../QueueManager.cpp:2217
+#: ../QueueManager.cpp:2210
 msgid "%1% : Matched %2% files"
 msgstr "%1% : possui %2% arquivos"
 
-#: ../SSLSocket.cpp:186
+#: ../SSLSocket.cpp:203
 msgid "SSL Error: %1% (%2%, %3%)"
 msgstr "Erro de SSL: %1% (%2%, %3%)"
 
@@ -697,67 +697,67 @@ msgstr "Dado inválido"
 msgid "Non-UTF-8 data in an ADC connection"
 msgstr "Nenhum dado UTF-8 em uma conexão ADC"
 
-#: ../Util.cpp:713
+#: ../Util.cpp:715
 #, c-format
 msgid "%d B"
 msgstr "%d B"
 
-#: ../Util.cpp:715
+#: ../Util.cpp:717
 #, c-format
 msgid "%.02f KiB"
 msgstr "%.02f KiB"
 
-#: ../Util.cpp:715
+#: ../Util.cpp:717
 #, c-format
 msgid "%.02f KB"
 msgstr "%.02f KB"
 
-#: ../Util.cpp:717
+#: ../Util.cpp:719
 #, c-format
 msgid "%.02f MiB"
 msgstr "%.02f MiB"
 
-#: ../Util.cpp:717
+#: ../Util.cpp:719
 #, c-format
 msgid "%.02f MB"
 msgstr "%.02f MB"
 
-#: ../Util.cpp:719
+#: ../Util.cpp:721
 #, c-format
 msgid "%.02f GiB"
 msgstr "%.02f GiB"
 
-#: ../Util.cpp:719
+#: ../Util.cpp:721
 #, c-format
 msgid "%.02f GB"
 msgstr "%.02f GB"
 
-#: ../Util.cpp:721
+#: ../Util.cpp:723
 #, c-format
 msgid "%.02f TiB"
 msgstr "%.02f TiB"
 
-#: ../Util.cpp:721
+#: ../Util.cpp:723
 #, c-format
 msgid "%.02f TB"
 msgstr "%.02f TB"
 
-#: ../Util.cpp:723
+#: ../Util.cpp:725
 #, c-format
 msgid "%.02f PiB"
 msgstr "%.02f PiB"
 
-#: ../Util.cpp:723
+#: ../Util.cpp:725
 #, c-format
 msgid "%.02f PB"
 msgstr "%.02f PB"
 
-#: ../Util.cpp:757
+#: ../Util.cpp:759
 #, c-format
 msgid "%s B"
 msgstr "%s B"
 
-#: ../Util.cpp:761
+#: ../Util.cpp:763
 #, c-format
 msgid "%'lld B"
 msgstr "%'lld B"
@@ -769,3 +769,15 @@ msgstr "Inconsistência de TTH"
 #: ../Streams.h:157
 msgid "More bytes written than requested"
 msgstr "Foram escritos mais bytes do que o requisitado"
+
+#: ../../dht/BootstrapManager.cpp:50
+msgid "DHT bootstrapping started"
+msgstr ""
+
+#: ../../dht/BootstrapManager.cpp:113
+msgid "DHT bootstrapping is finished successfully."
+msgstr ""
+
+#: ../../dht/BootstrapManager.cpp:117 ../../dht/BootstrapManager.cpp:124
+msgid "DHT bootstrap error: "
+msgstr ""

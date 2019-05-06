@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: https://github.com/eiskaltdcpp/eiskaltdcpp/issues\n"
-"POT-Creation-Date: 2019-04-17 23:12+0300\n"
+"POT-Creation-Date: 2019-05-07 01:10+0300\n"
 "PO-Revision-Date: 2019-04-09 14:05+0000\n"
 "Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
 "Language-Team: Russian (http://www.transifex.com/tehnick/eiskaltdcpp/"
@@ -99,7 +99,7 @@ msgstr " удалён из списка фаворитов"
 msgid " to "
 msgstr " в "
 
-#: ../src/search.cc:733
+#: ../src/search.cc:725
 msgid " user(s)"
 msgstr " юзер(ы)"
 
@@ -925,7 +925,7 @@ msgstr "Выбрать файл..."
 msgid "Browse the list of public hubs"
 msgstr "Просмотр списка открытых хабов"
 
-#: ../src/search.cc:356 ../src/search.cc:426 ../src/sharebrowser.cc:531
+#: ../src/search.cc:348 ../src/search.cc:418 ../src/sharebrowser.cc:531
 #: ../src/sharebrowser.cc:603 ../ui/hub.ui:231 ../ui/mainwindow.ui:319
 #: ../ui/privatemessage.ui:188 ../ui/settingsdialog.ui:2646
 #: ../ui/settingsdialog.ui:2716 ../ui/settingsdialog.ui:6749
@@ -1202,7 +1202,7 @@ msgid "Connecting..."
 msgstr "Соединение..."
 
 #: ../src/hub.cc:89 ../src/hub.cc:408 ../src/hub.cc:428 ../src/search.cc:105
-#: ../src/search.cc:674 ../src/search.cc:759 ../src/search.cc:894
+#: ../src/search.cc:666 ../src/search.cc:751 ../src/search.cc:886
 #: ../ui/search.ui:141 ../ui/settingsdialog.ui:1883
 #: ../ui/settingsdialog.ui:2585
 msgid "Connection"
@@ -1310,7 +1310,7 @@ msgstr "Дир"
 msgid "Direct connection"
 msgstr "Прямое соединение (активный режим)"
 
-#: ../src/UserCommandMenu.cc:66 ../src/search.cc:940 ../src/search.cc:1780
+#: ../src/UserCommandMenu.cc:66 ../src/search.cc:932 ../src/search.cc:1772
 #: ../src/settingsdialog.cc:902 ../src/settingsdialog.cc:915
 #: ../src/settingsdialog.cc:1029 ../src/settingsdialog.cc:1438
 #: ../src/settingsdialog.cc:3770 ../src/settingsdialog.cc:3790
@@ -1488,7 +1488,7 @@ msgstr "Закачки"
 msgid "Drop sources below"
 msgstr "Сброс если ниже"
 
-#: ../src/search.cc:2008
+#: ../src/search.cc:2000
 msgid "Dropped: "
 msgstr "Отброшено: "
 
@@ -1592,8 +1592,8 @@ msgstr "Каждый раз, когда получено личное сообщ
 
 #: ../src/downloadqueue.cc:78 ../src/downloadqueue.cc:93
 #: ../src/downloadqueue.cc:285 ../src/downloadqueue.cc:392 ../src/search.cc:107
-#: ../src/search.cc:130 ../src/search.cc:676 ../src/search.cc:753
-#: ../src/search.cc:762 ../src/sharebrowser.cc:87 ../src/sharebrowser.cc:110
+#: ../src/search.cc:130 ../src/search.cc:668 ../src/search.cc:745
+#: ../src/search.cc:754 ../src/sharebrowser.cc:87 ../src/sharebrowser.cc:110
 #: ../src/sharebrowser.cc:324 ../src/sharebrowser.cc:355
 msgid "Exact Size"
 msgstr "Точный размер"
@@ -1735,11 +1735,11 @@ msgstr "Меню файл-листа"
 #: ../src/downloadqueue.cc:388 ../src/downloadqueue.cc:777
 #: ../src/downloadqueue.cc:820 ../src/downloadqueue.cc:871
 #: ../src/finishedtransfers.cc:62 ../src/finishedtransfers.cc:236
-#: ../src/search.cc:99 ../src/search.cc:132 ../src/search.cc:371
-#: ../src/search.cc:669 ../src/search.cc:710 ../src/search.cc:715
-#: ../src/search.cc:885 ../src/search.cc:933 ../src/search.cc:943
-#: ../src/search.cc:1276 ../src/search.cc:1316 ../src/search.cc:1374
-#: ../src/search.cc:1725 ../src/search.cc:2064 ../src/sharebrowser.cc:83
+#: ../src/search.cc:99 ../src/search.cc:132 ../src/search.cc:363
+#: ../src/search.cc:661 ../src/search.cc:702 ../src/search.cc:707
+#: ../src/search.cc:877 ../src/search.cc:925 ../src/search.cc:935
+#: ../src/search.cc:1268 ../src/search.cc:1308 ../src/search.cc:1366
+#: ../src/search.cc:1717 ../src/search.cc:2056 ../src/sharebrowser.cc:83
 #: ../src/sharebrowser.cc:106 ../src/sharebrowser.cc:108
 #: ../src/sharebrowser.cc:316 ../src/sharebrowser.cc:346
 #: ../src/sharebrowser.cc:563 ../src/sharebrowser.cc:664
@@ -1769,11 +1769,11 @@ msgstr "Фильтровать уже расшаренные файлы"
 msgid "Filter kick and NMDC debug messages"
 msgstr "Фильтровать kick и NMDC в отладочных сообщениях"
 
-#: ../src/search.cc:1995
+#: ../src/search.cc:1987
 msgid "Filtered: "
 msgstr "Отфильтровано: "
 
-#: ../src/search.cc:580
+#: ../src/search.cc:572
 msgid "Filtered: 0"
 msgstr "Отфильтровано: 0"
 
@@ -1829,11 +1829,11 @@ msgstr "Формат"
 msgid "Found a match"
 msgstr "Найден"
 
-#: ../src/search.cc:693
+#: ../src/search.cc:685
 msgid "Found: "
 msgstr "Найдено: "
 
-#: ../src/search.cc:579
+#: ../src/search.cc:571
 msgid "Found: 0"
 msgstr "Найдено: 0"
 
@@ -1991,8 +1991,8 @@ msgid "Homepage"
 msgstr "Домашняя страница"
 
 #: ../src/finishedtransfers.cc:84 ../src/finishedtransfers.cc:193
-#: ../src/search.cc:106 ../src/search.cc:675 ../src/search.cc:772
-#: ../src/search.cc:903 ../src/settingsdialog.cc:1674
+#: ../src/search.cc:106 ../src/search.cc:667 ../src/search.cc:764
+#: ../src/search.cc:895 ../src/settingsdialog.cc:1674
 #: ../src/settingsdialog.cc:1684 ../src/settingsdialog.cc:3363
 #: ../src/settingsdialog.cc:3437 ../src/settingsdialog.cc:4009
 #: ../src/settingsdialog.cc:4100 ../src/settingsdialog.cc:4123
@@ -2052,7 +2052,7 @@ msgstr "Венгерский"
 msgid "Hungarian translation\n"
 msgstr "Венгерский перевод\n"
 
-#: ../src/search.cc:108 ../src/search.cc:677 ../src/transfers.cc:68
+#: ../src/search.cc:108 ../src/search.cc:669 ../src/transfers.cc:68
 msgid "IP"
 msgstr "IP"
 
@@ -2466,7 +2466,7 @@ msgstr "Н_ик"
 #: ../src/favoritehubs.cc:76 ../src/favoritehubs.cc:130
 #: ../src/favoritehubs.cc:312 ../src/favoritehubs.cc:457
 #: ../src/publichubs.cc:46 ../src/publichubs.cc:158 ../src/publichubs.cc:303
-#: ../src/search.cc:86 ../src/search.cc:259 ../src/search.cc:275
+#: ../src/search.cc:86 ../src/search.cc:251 ../src/search.cc:267
 #: ../src/settingsdialog.cc:689 ../src/settingsdialog.cc:698
 #: ../src/settingsdialog.cc:922 ../src/settingsdialog.cc:957
 #: ../src/settingsdialog.cc:1399 ../src/settingsdialog.cc:1453
@@ -2521,8 +2521,8 @@ msgstr "Далее"
 #: ../src/hub.cc:404 ../src/hub.cc:424 ../src/hub.cc:473 ../src/hub.cc:1296
 #: ../src/hub.cc:1603 ../src/hub.cc:1670 ../src/hub.cc:2453 ../src/hub.cc:2485
 #: ../src/hub.cc:2788 ../src/hub.cc:2829 ../src/search.cc:100
-#: ../src/search.cc:668 ../src/search.cc:734 ../src/search.cc:768
-#: ../src/search.cc:900 ../ui/search.ui:147 ../ui/settingsdialog.ui:1199
+#: ../src/search.cc:660 ../src/search.cc:726 ../src/search.cc:760
+#: ../src/search.cc:892 ../ui/search.ui:147 ../ui/settingsdialog.ui:1199
 msgid "Nick"
 msgstr "Ник"
 
@@ -2534,7 +2534,7 @@ msgstr "Ник занят"
 msgid "Nicks"
 msgstr "Ники"
 
-#: ../src/finishedtransfers.cc:698
+#: ../src/finishedtransfers.cc:683
 msgid "No"
 msgstr "Нет"
 
@@ -2705,11 +2705,11 @@ msgstr "Пароль"
 
 #: ../src/downloadqueue.cc:77 ../src/downloadqueue.cc:290
 #: ../src/downloadqueue.cc:397 ../src/finishedtransfers.cc:63
-#: ../src/finishedtransfers.cc:237 ../src/finishedtransfers.cc:528
-#: ../src/search.cc:103 ../src/search.cc:372 ../src/search.cc:672
-#: ../src/search.cc:749 ../src/search.cc:888 ../src/search.cc:942
-#: ../src/search.cc:1275 ../src/search.cc:1315 ../src/search.cc:1373
-#: ../src/search.cc:1440 ../src/search.cc:1475 ../src/search.cc:2065
+#: ../src/finishedtransfers.cc:237 ../src/finishedtransfers.cc:521
+#: ../src/search.cc:103 ../src/search.cc:364 ../src/search.cc:664
+#: ../src/search.cc:741 ../src/search.cc:880 ../src/search.cc:934
+#: ../src/search.cc:1267 ../src/search.cc:1307 ../src/search.cc:1365
+#: ../src/search.cc:1432 ../src/search.cc:1467 ../src/search.cc:2057
 #: ../src/transfers.cc:67 ../src/transfers.cc:719 ../ui/search.ui:135
 msgid "Path"
 msgstr "Путь"
@@ -2987,8 +2987,8 @@ msgid "Say a third person"
 msgstr "Сказать от третьего лица"
 
 #: ../src/search.cc:39 ../src/search.cc:85 ../src/search.cc:92
-#: ../src/search.cc:258 ../src/search.cc:460 ../src/search.cc:474
-#: ../src/search.cc:1151 ../src/search.cc:1152 ../src/search.cc:2043
+#: ../src/search.cc:250 ../src/search.cc:452 ../src/search.cc:466
+#: ../src/search.cc:1143 ../src/search.cc:1144 ../src/search.cc:2035
 #: ../src/settingsdialog.cc:1147 ../src/settingsdialog.cc:1432
 #: ../src/settingsdialog.cc:1490 ../ui/mainwindow.ui:1230
 #: ../ui/mainwindow.ui:2203 ../ui/mainwindow.ui:2481 ../ui/search.ui:227
@@ -3050,7 +3050,7 @@ msgstr "Поисковый тип"
 msgid "Search within local results"
 msgstr "Искать включая локальные результаты"
 
-#: ../src/search.cc:1974
+#: ../src/search.cc:1966
 msgid "Searching for "
 msgstr "Ищем "
 
@@ -3094,7 +3094,7 @@ msgstr "Отправить по разу для каждого ника"
 msgid "Send unknown /commands to the hub"
 msgstr "Отправлять неизвестные /команды хабу"
 
-#: ../src/search.cc:586
+#: ../src/search.cc:578
 #, c-format
 msgid "Sent ADC extensions : %s\n"
 msgstr "Отправлены разрешения ADC : %s\n"
@@ -3261,8 +3261,8 @@ msgstr "Сигналы обработки установлены.\n"
 
 #: ../src/downloadqueue.cc:73 ../src/downloadqueue.cc:92
 #: ../src/downloadqueue.cc:284 ../src/downloadqueue.cc:391 ../src/search.cc:102
-#: ../src/search.cc:129 ../src/search.cc:671 ../src/search.cc:754
-#: ../src/search.cc:763 ../src/search.cc:891 ../src/settingsdialog.cc:1030
+#: ../src/search.cc:129 ../src/search.cc:663 ../src/search.cc:746
+#: ../src/search.cc:755 ../src/search.cc:883 ../src/settingsdialog.cc:1030
 #: ../src/settingsdialog.cc:1036 ../src/settingsdialog.cc:3820
 #: ../src/settingsdialog.cc:3888 ../src/sharebrowser.cc:84
 #: ../src/sharebrowser.cc:109 ../src/sharebrowser.cc:323
@@ -3297,7 +3297,7 @@ msgstr "Слот открыт"
 msgid "Slot granted to "
 msgstr "Слот открыт на "
 
-#: ../src/search.cc:104 ../src/search.cc:131 ../src/search.cc:670
+#: ../src/search.cc:104 ../src/search.cc:131 ../src/search.cc:662
 msgid "Slots"
 msgstr "Слоты"
 
@@ -3385,7 +3385,7 @@ msgstr "Статус"
 msgid "Status message"
 msgstr "Статус сообщение"
 
-#: ../src/search.cc:602
+#: ../src/search.cc:594
 msgid "Stop"
 msgstr "Стоп"
 
@@ -3416,10 +3416,10 @@ msgstr "TIS-620"
 
 #: ../src/downloadqueue.cc:81 ../src/downloadqueue.cc:293
 #: ../src/downloadqueue.cc:400 ../src/downloadqueue.cc:751
-#: ../src/downloadqueue.cc:779 ../src/search.cc:109 ../src/search.cc:374
-#: ../src/search.cc:378 ../src/search.cc:384 ../src/search.cc:678
-#: ../src/search.cc:765 ../src/search.cc:897 ../src/search.cc:948
-#: ../src/search.cc:1236 ../src/search.cc:1405 ../src/search.cc:1727
+#: ../src/downloadqueue.cc:779 ../src/search.cc:109 ../src/search.cc:366
+#: ../src/search.cc:370 ../src/search.cc:376 ../src/search.cc:670
+#: ../src/search.cc:757 ../src/search.cc:889 ../src/search.cc:940
+#: ../src/search.cc:1228 ../src/search.cc:1397 ../src/search.cc:1719
 #: ../src/sharebrowser.cc:86 ../src/sharebrowser.cc:328
 #: ../src/sharebrowser.cc:358 ../src/sharebrowser.cc:566
 #: ../src/sharebrowser.cc:1054 ../src/sharebrowser.cc:1090
@@ -3563,7 +3563,7 @@ msgstr "Итого: "
 
 #: ../src/finishedtransfers.cc:65 ../src/finishedtransfers.cc:86
 #: ../src/finishedtransfers.cc:186 ../src/finishedtransfers.cc:195
-#: ../src/finishedtransfers.cc:239 ../src/finishedtransfers.cc:621
+#: ../src/finishedtransfers.cc:239 ../src/finishedtransfers.cc:614
 #: ../src/transfers.cc:64 ../src/transfers.cc:601
 msgid "Transferred"
 msgstr "Передано"
@@ -3585,8 +3585,8 @@ msgstr "Турецкий"
 msgid "Turkish translation\n"
 msgstr "Турецкий перевод\n"
 
-#: ../src/search.cc:101 ../src/search.cc:673 ../src/search.cc:777
-#: ../src/search.cc:906 ../src/search.cc:940 ../src/sharebrowser.cc:85
+#: ../src/search.cc:101 ../src/search.cc:665 ../src/search.cc:769
+#: ../src/search.cc:898 ../src/search.cc:932 ../src/sharebrowser.cc:85
 #: ../src/sharebrowser.cc:326 ../src/sharebrowser.cc:347
 msgid "Type"
 msgstr "Тип"
@@ -3965,7 +3965,7 @@ msgstr "Буфер записи"
 msgid "Xine player"
 msgstr "Xine плеер"
 
-#: ../src/finishedtransfers.cc:698
+#: ../src/finishedtransfers.cc:683
 msgid "Yes"
 msgstr "Да"
 
