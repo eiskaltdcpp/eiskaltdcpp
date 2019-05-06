@@ -258,7 +258,9 @@ void Util::initialize(PathsMap pathOverrides) {
 #if defined(_WIN32)
         paths[PATH_LOCALE] = winExecutablePath() + "resources\\locale\\";
 #elif defined(__APPLE__) && defined(__MACH__)
-        paths[PATH_LOCALE] = macExecutablePath() + "../../locale/";
+        paths[PATH_LOCALE] = macExecutablePath() + "/../Resources/locale/";
+#elif defined(__HAIKU__)
+        paths[PATH_LOCALE] = "/boot/system/apps/Eiskaltdcpp/locale/";
 #else // Other systems
         paths[PATH_LOCALE] = LOCALE_DIR PATH_SEPARATOR_STR;
 #endif // defined(_WIN32)
