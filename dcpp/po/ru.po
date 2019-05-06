@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://github.com/eiskaltdcpp/eiskaltdcpp/issues\n"
-"POT-Creation-Date: 2019-05-07 01:10+0300\n"
+"POT-Creation-Date: 2019-05-07 01:20+0300\n"
 "PO-Revision-Date: 2017-06-18 13:35+0000\n"
 "Last-Translator: Boris Pek <tehnick-8@yandex.ru>, 2019\n"
 "Language-Team: Russian (https://www.transifex.com/tehnick/teams/11818/ru/)\n"
@@ -782,12 +782,12 @@ msgstr "Записано больше байт чем требуется"
 
 #: ../../dht/BootstrapManager.cpp:50
 msgid "DHT bootstrapping started"
-msgstr ""
+msgstr "Начальная загрузка DHT"
 
 #: ../../dht/BootstrapManager.cpp:113
 msgid "DHT bootstrapping is finished successfully."
-msgstr ""
+msgstr "Начальная загрузка DHT успешно завершена."
 
 #: ../../dht/BootstrapManager.cpp:117 ../../dht/BootstrapManager.cpp:124
 msgid "DHT bootstrap error: "
-msgstr ""
+msgstr "Ошибка начальной загрузки DHT: "
