@@ -19,12 +19,13 @@
 
 #include "Streams.h"
 
+#ifdef _WIN32
+#include "w.h"
+
 #ifndef PATH_MAX
 #define PATH_MAX MAX_PATH
 #endif
 
-#ifdef _WIN32
-#include "w.h"
 #else
 #include <sys/stat.h>
 #include <fcntl.h>
