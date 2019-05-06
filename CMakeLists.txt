@@ -259,7 +259,7 @@ message (STATUS "${PROJECT_NAME} base version: ${VERSION_BASE}")
 
 configure_file (${PROJECT_SOURCE_DIR}/Version.h.in ${PROJECT_BINARY_DIR}/VersionGlobal.h)
 
-if (DO_NOT_USE_MUTEX OR HAIKU OR APPLE)
+if (DO_NOT_USE_MUTEX OR APPLE)
     add_definitions ( -DDO_NOT_USE_MUTEX )
 endif ()
 
