@@ -37,7 +37,7 @@ macro(GET_RELATIVE_SOURCES varname dir sources)
 
 endmacro(GET_RELATIVE_SOURCES)
 
-get_absolute_sources(abs_dcpp_sources "${DCPP_SRCS};${DCPP_HDRS}")
+get_absolute_sources(abs_dcpp_sources "${DCPP_SRCS};${DCPP_HDRS};${DHT_SRCS}")
 get_relative_sources(rel_dcpp_sources "${dcpp_SOURCE_DIR}/po" "${abs_dcpp_sources}")
 file(MAKE_DIRECTORY "${dcpp_BINARY_DIR}/po")
 set(dcpp_files_from "${dcpp_BINARY_DIR}/po/libeiskaltdcpp_srcs.txt")
