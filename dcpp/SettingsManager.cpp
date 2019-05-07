@@ -168,7 +168,8 @@ SettingsManager::SettingsManager()
                "https://dchublist.ru/hublist.xml.bz2;"
                "https://dchublist.org/hublist.xml.bz2;"
                "https://dchublist.biz/hublist.xml.bz2;"
-               "https://hublist.eu/hublist.xml.bz2"
+               "https://hublist.eu/hublist.xml.bz2;"
+               "https://dcnf.github.io/Hublist/hublist.xml.bz2"
                );
     setDefault(DOWNLOAD_SLOTS, 3);
     setDefault(SKIPLIST_SHARE, "*.~*|*.*~");
