@@ -752,7 +752,7 @@ QString HubFrame::LinkParser::parseForLinks(QString input, bool use_emot){
                 output += html_link;
                 input.remove(0, input.indexOf("[/magnet]")+1+9);
             }
-            while (0);
+            while (false);
         }
 
         if (input.isEmpty())
@@ -2128,7 +2128,7 @@ void HubFrame::userUpdated(const UserPtr &user, const dcpp::Identity &id){
                     break;
 
                 addStatus(nick + tr(" joins the chat"));
-            } while (0);
+            } while (false);
         }
 
         if (isFavorite)
@@ -2186,7 +2186,7 @@ void HubFrame::userRemoved(const UserPtr &user, const dcpp::Identity &id){
                 break;
 
             addStatus(nick + tr(" left the chat"));
-        } while (0);
+        } while (false);
     }
 
     if (FavoriteManager::getInstance()->isFavoriteUser(user))
@@ -3864,7 +3864,7 @@ void HubFrame::on(ClientListener::Message, Client*, const ChatMessage &message) 
 
                     return;
                 }
-            } while (0);
+            } while (false);
         }
         else if (isEcho && isInSandBox && !hasPMWindow)
             return;

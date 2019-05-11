@@ -507,7 +507,7 @@ static QScriptValue parseChatLinks(QScriptContext *ctx, QScriptEngine *engine){
     if (ctx->argumentCount() != 1)
         return engine->undefinedValue();
 
-    return QScriptValue(HubFrame::LinkParser::parseForLinks(ctx->argument(0).toString(), 0));
+    return QScriptValue(HubFrame::LinkParser::parseForLinks(ctx->argument(0).toString(), false));
 }
 
 static QScriptValue parseMagnetAlias(QScriptContext *ctx, QScriptEngine *engine) {

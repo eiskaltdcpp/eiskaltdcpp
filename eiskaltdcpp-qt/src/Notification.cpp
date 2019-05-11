@@ -187,7 +187,7 @@ void Notification::showMessage(int t, const QString &title, const QString &msg){
 
             if (notify)
                 notify->showMessage(title, msg, tray);
-        } while (0);
+        } while (false);
     }
 
     if (WBGET(WB_NOTIFY_SND_ENABLED) && !suppressSnd){
@@ -217,7 +217,7 @@ void Notification::showMessage(int t, const QString &title, const QString &msg){
                     r->start();
                 }
             }
-        } while (0);
+        } while (false);
     }
 }
 
