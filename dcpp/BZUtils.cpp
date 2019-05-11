@@ -42,7 +42,7 @@ BZFilter::~BZFilter() {
 
 bool BZFilter::operator()(const void* in, size_t& insize, void* out, size_t& outsize) {
     if(outsize == 0)
-        return 0;
+        return false;
 
     zs.avail_in = insize;
     zs.next_in = (char*)in;
@@ -83,7 +83,7 @@ UnBZFilter::~UnBZFilter() {
 
 bool UnBZFilter::operator()(const void* in, size_t& insize, void* out, size_t& outsize) {
     if(outsize == 0)
-        return 0;
+        return false;
 
     zs.avail_in = insize;
     zs.next_in = (char*)in;

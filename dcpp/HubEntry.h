@@ -58,7 +58,7 @@ const string DEF_FAKE_ID = "";
 class FavoriteHubEntry {
 public:
     FavoriteHubEntry() : encoding(Text::systemCharset), connect(false),
-        mode(0), overrideId(0), clientId(DEF_FAKE_ID),
+        mode(0), overrideId(false), clientId(DEF_FAKE_ID),
         useInternetIp(false), disableChat(false),
         searchInterval(SETTING(MINIMUM_SEARCH_INTERVAL))
     { }
@@ -66,7 +66,7 @@ public:
     FavoriteHubEntry(const HubEntry& rhs) : name(rhs.getName()),
         server(rhs.getServer()),
         hubDescription(rhs.getDescription()), encoding(Text::systemCharset),
-        connect(false), mode(0), overrideId(0),
+        connect(false), mode(0), overrideId(false),
         clientId(DEF_FAKE_ID), useInternetIp(false), disableChat(false),
         searchInterval(SETTING(MINIMUM_SEARCH_INTERVAL))
     { }
