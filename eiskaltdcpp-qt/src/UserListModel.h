@@ -105,7 +105,7 @@ class UserListModel : public QAbstractItemModel {
     Q_OBJECT
 
 public:
-    UserListModel(QObject * parent = 0);
+    UserListModel(QObject * parent = nullptr);
     virtual ~UserListModel();
 
     virtual int rowCount(const QModelIndex & index = QModelIndex()) const;

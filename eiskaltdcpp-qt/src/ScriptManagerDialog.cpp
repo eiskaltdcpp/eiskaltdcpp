@@ -30,7 +30,7 @@ ScriptManagerDialog::ScriptManagerDialog(QWidget *parent) :
 {
     setupUi(this);
 
-    model = new ScriptManagerModel(NULL);
+    model = new ScriptManagerModel(nullptr);
     connect(this, SIGNAL(accepted()), model, SLOT(save()));
     connect(comboBox, SIGNAL(activated(int)), this, SLOT(slotSetChangedAction(int)));
 
@@ -50,7 +50,7 @@ void ScriptManagerDialog::slotSetChangedAction(int index){
 }
 
 ScriptManagerModel::ScriptManagerModel(QObject * parent) : QAbstractItemModel(parent) {
-    rootItem = new ScriptManagerItem(NULL);
+    rootItem = new ScriptManagerItem(nullptr);
 
     load();
 }

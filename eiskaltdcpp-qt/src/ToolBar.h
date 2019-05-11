@@ -28,7 +28,7 @@ class ToolBar : public QToolBar
     typedef QMap<ArenaWidget*, int> WidgetMap;
 
 public:
-    ToolBar(QWidget* = NULL);
+    ToolBar(QWidget* = nullptr);
     virtual ~ToolBar();
 
     virtual bool hasWidget(ArenaWidget*) const;

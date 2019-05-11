@@ -17,7 +17,7 @@ class SettingsAdvanced : public QWidget, private Ui::UISettingsAdvanced
 {
     Q_OBJECT
 public:
-    explicit SettingsAdvanced(QWidget *parent = 0);
+    explicit SettingsAdvanced(QWidget *parent = nullptr);
     virtual ~SettingsAdvanced();
 public slots:
     void ok();

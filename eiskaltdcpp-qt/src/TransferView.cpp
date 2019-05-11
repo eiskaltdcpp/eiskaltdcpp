@@ -40,7 +40,7 @@
 #include <QDir>
 
 TransferView::Menu::Menu(bool showTransferredFilesOnly):
-        menu(NULL),
+        menu(nullptr),
         selectedColumn(0)
 {
     WulforUtil *WU = WulforUtil::getInstance();
@@ -146,7 +146,7 @@ TransferView::Menu::Action TransferView::Menu::exec(){
 
 TransferView::TransferView(QWidget *parent):
         QWidget(parent),
-        model(NULL)
+        model(nullptr)
 {
     setupUi(this);
 
@@ -565,7 +565,7 @@ void TransferView::slotContextMenu(const QPoint &){
     }
     case Menu::SendPM:
     {
-        HubFrame *fr = NULL;
+        HubFrame *fr = nullptr;
 
         for (const auto &i : items){
             dcpp::CID cid(_tq(i->cid));

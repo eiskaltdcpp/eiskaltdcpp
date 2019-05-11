@@ -604,7 +604,7 @@ void PMWindow::slotSmileClicked(){
 
 void PMWindow::slotSmileContextMenu(){
     QMenu *m = new QMenu(this);
-    QAction * a = NULL;
+    QAction * a = nullptr;
 
     for (const auto &f : QDir(WulforUtil::getInstance()->getEmoticonsPath())
                               .entryList(QDir::Dirs | QDir::NoSymLinks | QDir::NoDotAndDotDot)){
@@ -698,7 +698,7 @@ void PMWindow::slotFindTextEdited(const QString & text){
     QTextCursor c = textEdit_CHAT->textCursor();
 
     c.movePosition(QTextCursor::StartOfLine,QTextCursor::MoveAnchor,1);
-    c = textEdit_CHAT->document()->find(lineEdit_FIND->text(), c, 0);
+    c = textEdit_CHAT->document()->find(lineEdit_FIND->text(), c, nullptr);
     if (!c.isNull()) {
         textEdit_CHAT->setExtraSelections(QList<QTextEdit::ExtraSelection>());
         textEdit_CHAT->setTextCursor(c);
@@ -724,13 +724,13 @@ void PMWindow::slotFindAll(){
 
         selection.format.setBackground(color);
 
-        QTextCursor c = textEdit_CHAT->document()->find(lineEdit_FIND->text(), 0, 0);
+        QTextCursor c = textEdit_CHAT->document()->find(lineEdit_FIND->text(), 0, nullptr);
 
         while (!c.isNull()){
             selection.cursor = c;
             extraSelections.append(selection);
 
-            c = textEdit_CHAT->document()->find(lineEdit_FIND->text(), c, 0);
+            c = textEdit_CHAT->document()->find(lineEdit_FIND->text(), c, nullptr);
         }
     }
 

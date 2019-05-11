@@ -18,7 +18,7 @@ class SettingsGUI :
 {
 Q_OBJECT
 public:
-    explicit SettingsGUI(QWidget *parent = 0);
+    explicit SettingsGUI(QWidget *parent = nullptr);
     virtual ~SettingsGUI();
 
 private:

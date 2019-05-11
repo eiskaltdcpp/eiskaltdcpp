@@ -19,7 +19,7 @@ class ShortcutEdit : public LineEdit
 {
     Q_OBJECT
 public:
-    explicit ShortcutEdit(QWidget *parent = 0);
+    explicit ShortcutEdit(QWidget *parent = nullptr);
 
 protected:
     virtual bool eventFilter(QObject *, QEvent *);

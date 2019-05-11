@@ -175,9 +175,9 @@ public:
 
     QString compactToolTipText(QString, int, QString);
 
-    QMenu *buildUserCmdMenu(const std::string &hub_url, int ctx, QWidget* = 0);
-    QMenu *buildUserCmdMenu(const StringList& hub_list, int ctx, QWidget* = 0);
-    QMenu *buildUserCmdMenu(const QList<QString> &hub_list, int ctx, QWidget* = 0);
+    QMenu *buildUserCmdMenu(const std::string &hub_url, int ctx, QWidget* = nullptr);
+    QMenu *buildUserCmdMenu(const StringList& hub_list, int ctx, QWidget* = nullptr);
+    QMenu *buildUserCmdMenu(const QList<QString> &hub_list, int ctx, QWidget* = nullptr);
 
     static bool isTTH(const QString &text);
 

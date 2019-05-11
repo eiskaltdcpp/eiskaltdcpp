@@ -30,7 +30,7 @@ static int getBitPos(unsigned eventId){
 }
 
 Notification::Notification(QObject *parent) :
-    QObject(parent), tray(NULL), notify(NULL), suppressSnd(false), suppressTxt(false)
+    QObject(parent), tray(nullptr), notify(nullptr), suppressSnd(false), suppressTxt(false)
 {
     switchModule(static_cast<unsigned>(WIGET(WI_NOTIFY_MODULE)));
 
@@ -55,7 +55,7 @@ void Notification::enableTray(bool enable){
 
         delete tray;
 
-        tray = NULL;
+        tray = nullptr;
 
 #if defined(Q_OS_MAC)
         MainWindow::getInstance()->setUnload(false);
@@ -68,7 +68,7 @@ void Notification::enableTray(bool enable){
     else {
         delete tray;
 
-        tray = NULL;
+        tray = nullptr;
 
         if (!QSystemTrayIcon::isSystemTrayAvailable() && checkSystemTrayCounter < 12){
             QTimer *timer = new QTimer(this);

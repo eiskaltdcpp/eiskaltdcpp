@@ -26,7 +26,7 @@ public:
         EmitSignal
     };
 
-    explicit LineEdit(QWidget *parent = 0);
+    explicit LineEdit(QWidget *parent = nullptr);
     virtual ~LineEdit();
 
     virtual void setPixmap(const QPixmap&);

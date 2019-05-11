@@ -24,7 +24,7 @@ class TabFrame : public QFrame
 {
 Q_OBJECT
 public:
-    explicit TabFrame(QWidget *parent = 0);
+    explicit TabFrame(QWidget *parent = nullptr);
     ~TabFrame();
 
     virtual QSize sizeHint() const;

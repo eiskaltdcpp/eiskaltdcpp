@@ -28,7 +28,7 @@ class CmdDebug : public QWidget,
 
     friend class dcpp::Singleton<CmdDebug>;
 public:
-    explicit CmdDebug(QWidget *parent = 0);
+    explicit CmdDebug(QWidget *parent = nullptr);
     virtual ~CmdDebug();
     QWidget *getWidget();
     QString getArenaTitle();

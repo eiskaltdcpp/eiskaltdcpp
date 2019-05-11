@@ -43,7 +43,7 @@ namespace dht
 {
 
     DHT::DHT(void)
-        : bucket(NULL)
+        : bucket(nullptr)
         , lastExternalIP(Util::getLocalIp()) // hack
         , lastPacket(0)
         , firewalled(true)
@@ -58,7 +58,7 @@ namespace dht
     DHT::~DHT(void) throw()
     {
         // when DHT is disabled, we shouldn't try to perform exit cleanup
-        if(bucket == NULL) {
+        if(bucket == nullptr) {
             IndexManager::deleteInstance();
             return;
         }
@@ -118,7 +118,7 @@ namespace dht
             BootstrapManager::deleteInstance();
 
             delete bucket;
-            bucket = NULL;
+            bucket = nullptr;
         }
     }
 
@@ -374,7 +374,7 @@ namespace dht
             xml.stepIn();
 
             // load nodes; when file is older than 7 days, bootstrap from database later
-            if(f.getLastModified() > time(NULL) - 7 * 24 * 60 * 60)
+            if(f.getLastModified() > time(nullptr) - 7 * 24 * 60 * 60)
                 bucket->loadNodes(xml);
 
             // load indexes

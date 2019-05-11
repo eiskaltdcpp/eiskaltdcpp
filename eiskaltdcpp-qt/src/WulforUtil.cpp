@@ -287,7 +287,7 @@ void WulforUtil::clearUserIconCache(){
         for (int y = 0; y < USERLIST_XPM_ROWS; ++y) {
             if (userIconCache[x][y]) {
                 delete userIconCache[x][y];
-                userIconCache[x][y] = 0;
+                userIconCache[x][y] = nullptr;
             }
         }
     }
@@ -320,7 +320,7 @@ QPixmap *WulforUtil::getUserIcon(const UserPtr &id, bool isAway, bool isOp, cons
             x = 7;
     }
 
-    if (userIconCache[x][y] == 0) {
+    if (userIconCache[x][y] == nullptr) {
         userIconCache[x][y] = new QPixmap(
                 QPixmap::fromImage(
                                     userIcons->copy(
@@ -975,7 +975,7 @@ QStringList WulforUtil::getLocalIPs(){
 
             // If the interface is up, is not a loopback and it has an address
             if ((i->ifa_flags & IFF_UP) && !(i->ifa_flags & IFF_LOOPBACK) && sa){
-                void* src = NULL;
+                void* src = nullptr;
                 socklen_t len;
 
                 // IPv4 address
@@ -1096,7 +1096,7 @@ void WulforUtil::headerMenu(QTreeView *tree){
     if (!tree || !tree->model() || !tree->header())
         return;
 
-    QMenu * mcols = new QMenu(NULL);
+    QMenu * mcols = new QMenu(nullptr);
     QAbstractItemModel *model = tree->model();
     QAction * column;
 
@@ -1152,7 +1152,7 @@ QMenu *WulforUtil::buildUserCmdMenu(const StringList& hub_list, int ctx, QWidget
     UserCommand::List userCommands = FavoriteManager::getInstance()->getUserCommands(ctx, hub_list);
 
     if (userCommands.empty())
-        return NULL;
+        return nullptr;
 
     QMenu *ucMenu = new QMenu(tr("User commands"), parent);
 

@@ -147,7 +147,7 @@ bool IPFilter::addToRules(const std::string &exp, eDIRECTION direction) {
     if (!ParseString(exp, exp_ip, exp_mask, act))
         return false;
 
-    IPFilterElem *el = NULL;
+    IPFilterElem *el = nullptr;
 
     if (list_ip.find(exp_ip) != list_ip.end()) {
 #ifdef _DEBUG_IPFILTER
@@ -323,7 +323,7 @@ bool IPFilter::OK(const string &exp, eDIRECTION direction){
 }
 
 void IPFilter::step(uint32_t ip, eTableAction act, bool down){
-    IPFilterElem *el = NULL;
+    IPFilterElem *el = nullptr;
 
     IPHash::const_iterator it = list_ip.find(ip);
 

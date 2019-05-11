@@ -37,13 +37,13 @@ using namespace dcpp;
 static void sortRecursive(int column, Qt::SortOrder order, FileBrowserItem *i);
 
 FileBrowserModel::FileBrowserModel(QObject *parent)
-    : QAbstractItemModel(parent), listing(NULL), iconsScaled(false), restrictionsLoaded(false), ownList(false)
+    : QAbstractItemModel(parent), listing(nullptr), iconsScaled(false), restrictionsLoaded(false), ownList(false)
 {
     QList<QVariant> rootItemCulumns;
     for (int k = 0; k < NUM_OF_COLUMNS; ++k)
         rootItemCulumns << QString();
 
-    rootItem = new FileBrowserItem(rootItemCulumns, NULL);
+    rootItem = new FileBrowserItem(rootItemCulumns, nullptr);
 
     sortColumn = COLUMN_FILEBROWSER_NAME;
     sortOrder = Qt::DescendingOrder;
@@ -264,14 +264,14 @@ struct Compare {
         template <int i>
         bool static AttrCmp(const FileBrowserItem * l, const FileBrowserItem * r) {
             if ((l->dir && !r->dir) || (!l->dir && r->dir)){
-                return (l->dir != NULL);
+                return (l->dir != nullptr);
             }
             return Cmp(QString::localeAwareCompare(l->data(i).toString(), r->data(i).toString()), 0);
         }
         template <int column>
         bool static NumCmp(const FileBrowserItem * l, const FileBrowserItem * r) {
             if ((l->dir && !r->dir) || (!l->dir && r->dir)){
-                return (l->dir != NULL);
+                return (l->dir != nullptr);
             }
             return Cmp(l->data(column).toULongLong(), r->data(column).toULongLong());
        }
@@ -467,7 +467,7 @@ void FileBrowserModel::setRootElem(FileBrowserItem *root, bool del_old, bool con
     if (del_old && root != rootItem){//prevent deleting own root element
         delete rootItem;
 
-        rootItem = NULL;
+        rootItem = nullptr;
     }
 
     rootItem = root;
@@ -527,7 +527,7 @@ QString FileBrowserModel::createRemotePath(FileBrowserItem *item) const{
 
 FileBrowserItem *FileBrowserModel::createRootForPath(const QString &path, FileBrowserItem *pathRoot){
     if (path.isEmpty() || path.isNull())
-        return NULL;
+        return nullptr;
 
     QString _path = path;
     _path.replace("\\", "/");
@@ -536,14 +536,14 @@ FileBrowserItem *FileBrowserModel::createRootForPath(const QString &path, FileBr
     FileBrowserItem *root = pathRoot?pathRoot:rootItem;
 
     if (list.empty() || !root)
-        return NULL;
+        return nullptr;
 
     for (const auto &s : list){
         if (s.isEmpty())
             continue;
 
         if (!root)
-            return NULL;
+            return nullptr;
 
         if (s == ".." && root->parent()){
             root = root->parent();
@@ -751,10 +751,10 @@ void FileBrowserItem::updateColumn(int column, QVariant var){
 
 FileBrowserItem *FileBrowserItem::nextSibling(){
     if (!parent())
-        return NULL;
+        return nullptr;
 
     if (row() == (parent()->childCount()-1))
-        return NULL;
+        return nullptr;
 
     return parent()->child(row()+1);
 }

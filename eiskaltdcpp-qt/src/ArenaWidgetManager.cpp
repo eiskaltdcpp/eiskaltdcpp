@@ -17,14 +17,14 @@
 
 #include <QApplication>
 
-ArenaWidgetManager::ArenaWidgetManager() : QObject(NULL) {
+ArenaWidgetManager::ArenaWidgetManager() : QObject(nullptr) {
     DEBUG_BLOCK
 }
 
 ArenaWidgetManager::~ArenaWidgetManager(){
     DEBUG_BLOCK
 
-    disconnect(this, 0, 0, 0);
+    disconnect(this, nullptr, nullptr, nullptr);
 
     for (const auto &awgt : widgets) {
         if (!dynamic_cast<QObject*>(awgt)){
@@ -105,11 +105,11 @@ void ArenaWidgetManager::activate ( ArenaWidget *awgt ) {
     DEBUG_BLOCK
     
     if (!awgt){
-        emit activated(NULL);
+        emit activated(nullptr);
         return;
     }
     else if (!widgets.contains(awgt)){
-        emit activated(NULL);
+        emit activated(nullptr);
         return;
     }
     

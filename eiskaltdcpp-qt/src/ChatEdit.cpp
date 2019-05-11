@@ -21,7 +21,7 @@
 #include <QDir>
 #include <QMimeData>
 
-ChatEdit::ChatEdit(QWidget *parent) : QTextEdit(parent), cc(NULL)
+ChatEdit::ChatEdit(QWidget *parent) : QTextEdit(parent), cc(nullptr)
 {
     setMinimumHeight(10);
 
@@ -38,7 +38,7 @@ ChatEdit::~ChatEdit()
 void ChatEdit::setCompleter(QCompleter *completer, UserListModel *model)
 {
     if (cc)
-        QObject::disconnect(cc, 0, this, 0);
+        QObject::disconnect(cc, nullptr, this, nullptr);
 
     cc = completer;
 

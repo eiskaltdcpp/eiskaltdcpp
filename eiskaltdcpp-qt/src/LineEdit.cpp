@@ -18,7 +18,7 @@
 static const int margin = 3;
 
 LineEdit::LineEdit(QWidget *parent) :
-        QLineEdit(parent), menu(NULL), role(LineEdit::InsertText)
+        QLineEdit(parent), menu(nullptr), role(LineEdit::InsertText)
 {
     parentHeight = QLineEdit::sizeHint().height();//save parent height before setting up new stylesheet
                                                   //because we losing top and bottom margins
@@ -126,7 +126,7 @@ void LineEdit::setMenu(QMenu *m){
     menu = m;
 
     if (menu){
-        menu->setParent(NULL);
+        menu->setParent(nullptr);
 
         slotTextChanged();
     }

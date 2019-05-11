@@ -22,7 +22,7 @@ class ActionCustomizer :
 {
 Q_OBJECT
 public:
-    explicit ActionCustomizer(const QList<QAction*> &available, const QList<QAction*> &enabled, QWidget *parent = 0);
+    explicit ActionCustomizer(const QList<QAction*> &available, const QList<QAction*> &enabled, QWidget *parent = nullptr);
 
 Q_SIGNALS:
     void done(const QList<QAction*> &enabled);

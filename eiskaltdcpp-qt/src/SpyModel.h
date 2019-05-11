@@ -22,7 +22,7 @@ class SpyItem
 {
 
 public:
-    SpyItem(const QList<QVariant> &data, SpyItem *parent = 0);
+    SpyItem(const QList<QVariant> &data, SpyItem *parent = nullptr);
     ~SpyItem();
 
     void appendChild(SpyItem *child);
@@ -53,7 +53,7 @@ class SpyModel : public QAbstractItemModel
 
 public:
 
-    SpyModel(QObject *parent = 0);
+    SpyModel(QObject *parent = nullptr);
     virtual ~SpyModel();
 
     /** */

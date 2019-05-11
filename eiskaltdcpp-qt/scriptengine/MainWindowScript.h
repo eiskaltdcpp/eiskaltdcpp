@@ -19,7 +19,7 @@ class MainWindowScript : public QObject
 {
 Q_OBJECT
 public:
-    explicit MainWindowScript(QScriptEngine *engine, QObject *parent = 0);
+    explicit MainWindowScript(QScriptEngine *engine, QObject *parent = nullptr);
     virtual ~MainWindowScript();
 
 public slots:

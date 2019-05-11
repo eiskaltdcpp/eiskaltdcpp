@@ -26,8 +26,8 @@ class ShellCommandRunner : public QThread {
 
 public:
     /** constructor */
-    ShellCommandRunner(const QString &args, QObject * parent = 0);
-    ShellCommandRunner(const QString &cmd_, const QStringList &argList_, QObject * parent = 0);
+    ShellCommandRunner(const QString &args, QObject * parent = nullptr);
+    ShellCommandRunner(const QString &cmd_, const QStringList &argList_, QObject * parent = nullptr);
     /** destructor */
     virtual ~ShellCommandRunner();
 

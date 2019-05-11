@@ -87,7 +87,7 @@ public:
     int status = lua_pcall(L, 1+nargs, nresults, errfunc);  // call method
     if (status) {
       const char *msg = lua_tostring(L, -1);
-      if (msg == NULL) msg = "(error with no message)";
+      if (msg == nullptr) msg = "(error with no message)";
       lua_pushfstring(L, "%s:%s status = %d\n%s",
                       T::className, method, status, msg);
       lua_remove(L, base);             // remove old message
@@ -129,7 +129,7 @@ public:
       static_cast<userdataType*>(luaL_checkudata(L, narg, T::className));
     if(!ud) {
         luaL_argerror(L, narg, T::className);
-        return NULL;
+        return nullptr;
     }
     return ud->pT;  // pointer to T object
   }
@@ -208,7 +208,7 @@ private:
   }
 
   static void *pushuserdata(lua_State *L, void *key, size_t sz) {
-    void *ud = 0;
+    void *ud = nullptr;
     lua_pushlightuserdata(L, key);
     lua_gettable(L, -2);     // lookup[key]
     if (lua_isnil(L, -1)) {

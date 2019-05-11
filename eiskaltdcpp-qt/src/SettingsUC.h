@@ -20,7 +20,7 @@ class SettingsUC :
 {
 Q_OBJECT
 public:
-    explicit SettingsUC(QWidget *parent = 0);
+    explicit SettingsUC(QWidget *parent = nullptr);
     virtual ~SettingsUC();
 
 signals:

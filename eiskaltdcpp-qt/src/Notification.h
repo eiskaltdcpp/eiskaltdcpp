@@ -83,7 +83,7 @@ private Q_SLOTS:
     void slotSuppressSnd();
 
 private:
-    explicit Notification(QObject *parent = 0);
+    explicit Notification(QObject *parent = nullptr);
     virtual ~Notification();
 
     QStringList sounds;

@@ -25,7 +25,7 @@
 class SearchProxyModel: public QSortFilterProxyModel {
 Q_OBJECT
 public:
-    SearchProxyModel(QObject *parent = NULL): QSortFilterProxyModel(parent){}
+    SearchProxyModel(QObject *parent = nullptr): QSortFilterProxyModel(parent){}
     virtual ~SearchProxyModel(){}
 
     virtual void sort(int column, Qt::SortOrder order);
@@ -69,7 +69,7 @@ class SearchItem
 {
 
 public:
-    SearchItem(const QList<QVariant> &data, SearchItem *parent = 0);
+    SearchItem(const QList<QVariant> &data, SearchItem *parent = nullptr);
     virtual ~SearchItem();
 
     void appendChild(SearchItem *child);
@@ -101,7 +101,7 @@ class SearchModel : public QAbstractItemModel
     typedef QMap<QString, QVariant> VarMap;
 public:
 
-    SearchModel(QObject *parent = 0);
+    SearchModel(QObject *parent = nullptr);
     ~SearchModel();
 
     /** */

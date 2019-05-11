@@ -16,7 +16,7 @@
 #include <QDir>
 #include <QComboBox>
 
-ShareBrowserSearch::ShareBrowserSearch(FileBrowserModel *model, QWidget *parent): QDialog(parent), searchRoot(NULL) {
+ShareBrowserSearch::ShareBrowserSearch(FileBrowserModel *model, QWidget *parent): QDialog(parent), searchRoot(nullptr) {
     if ( !model )
         throw 0;
     

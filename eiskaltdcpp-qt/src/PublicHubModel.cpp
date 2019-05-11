@@ -28,7 +28,7 @@ PublicHubModel::PublicHubModel(QObject *parent)
              << tr("Country") << tr("Shared") << tr("Min share") << tr("Min slots")
              << tr("Max hubs") << tr("Max users") << tr("Reliability") << tr("Rating");
 
-    rootItem = new PublicHubItem(rootData, NULL);
+    rootItem = new PublicHubItem(rootData, nullptr);
 }
 
 PublicHubModel::~PublicHubModel()
@@ -84,7 +84,7 @@ QVariant PublicHubModel::data(const QModelIndex &index, int role) const
 Qt::ItemFlags PublicHubModel::flags(const QModelIndex &index) const
 {
     if (!index.isValid())
-        return 0;
+        return nullptr;
 
     Qt::ItemFlags flags = Qt::ItemIsEnabled | Qt::ItemIsSelectable;
 
@@ -184,7 +184,7 @@ struct Compare {
                      return NumCmp<COLUMN_PHUB_USERS>;
             }
 
-            return 0;
+            return nullptr;
         }
         template <int i>
         bool static AttrCmp(const PublicHubItem * l, const PublicHubItem * r) {
@@ -258,7 +258,7 @@ void PublicHubModel::addResult(const QList<QVariant> &data, dcpp::HubEntry *entr
 
 
 PublicHubItem::PublicHubItem(const QList<QVariant> &data, PublicHubItem *parent) :
-    entry(NULL), itemData(data), parentItem(parent)
+    entry(nullptr), itemData(data), parentItem(parent)
 {
 }
 

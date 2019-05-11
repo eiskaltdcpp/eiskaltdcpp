@@ -43,9 +43,9 @@ using namespace dcpp;
 WulforSettings::WulforSettings()
     : settings(_q(Util::getPath(Util::PATH_USER_CONFIG)) + "EiskaltDC++_Qt.conf", QSettings::IniFormat)
     , configFileOld(_q(Util::getPath(Util::PATH_USER_CONFIG)) + "EiskaltDC++.xml")
-    , appTranslator(0)
-    , qtTranslator(0)
-    , qtBaseTranslator(0)
+    , appTranslator(nullptr)
+    , qtTranslator(nullptr)
+    , qtBaseTranslator(nullptr)
 {
     QStringList idns = QUrl::idnWhitelist();
     idns.push_back("рф");

@@ -303,7 +303,7 @@ void ServerThread::disconnectClient(const string& address) {
         cl->removeListener(this);
         cl->disconnect(true);
         ClientManager::getInstance()->putClient(cl);
-        clientsMap[i->first].curclient = NULL;
+        clientsMap[i->first].curclient = nullptr;
     }
 }
 
@@ -1318,7 +1318,7 @@ void ServerThread::lsDirInList(const string& directory, const string& filelist, 
 }
 
 void ServerThread::lsDirInList(DirectoryListing::Directory *dir, unordered_map<string,StringMap>& ret) {
-    if (dir == NULL)
+    if (dir == nullptr)
         return;
     for (const auto& d : dir->directories) {
         StringMap map;
@@ -1347,7 +1347,7 @@ bool ServerThread::downloadDirFromList(const string& directory, const string& do
 {
     auto it = listsMap.find(filelist);
     if (it != listsMap.end()) {
-        DirectoryListing::Directory *dir = NULL;
+        DirectoryListing::Directory *dir = nullptr;
         if (directory.empty() || directory == "\\") {
             dir = it->second->getRoot();
         } else {
@@ -1382,7 +1382,7 @@ bool ServerThread::downloadFileFromList(const string& target_file, const string&
     auto it = listsMap.find(filelist);
     if (it != listsMap.end()) {
         string directory = Util::getFilePath(target_file, '\\');
-        DirectoryListing::Directory *dir = NULL;
+        DirectoryListing::Directory *dir = nullptr;
         if (directory.empty() || directory == "\\") {
             dir = it->second->getRoot();
         } else {
@@ -1391,7 +1391,7 @@ bool ServerThread::downloadFileFromList(const string& target_file, const string&
         if (!dir)
             return false;
         string fname = Util::getFileName(target_file, '\\');
-        DirectoryListing::File* filePtr = NULL;
+        DirectoryListing::File* filePtr = nullptr;
         for (const auto& file : dir->files) {
             if (file->getName() == fname) {
                 filePtr = file;

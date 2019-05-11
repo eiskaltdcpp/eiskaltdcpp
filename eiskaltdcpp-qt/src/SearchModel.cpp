@@ -147,7 +147,7 @@ void SearchModel::repaint(){
 Qt::ItemFlags SearchModel::flags(const QModelIndex &index) const
 {
     if (!index.isValid())
-        return 0;
+        return nullptr;
 
     return Qt::ItemIsEnabled | Qt::ItemIsSelectable;
 }
@@ -366,7 +366,7 @@ bool SearchModel::addResult
     if (size > 0)
         ext = file_info.suffix().toUpper();
 
-    SearchItem * parent = NULL;
+    SearchItem * parent = nullptr;
 
     if (!isDir && tths.contains(tth)) {
         parent = tths[tth];

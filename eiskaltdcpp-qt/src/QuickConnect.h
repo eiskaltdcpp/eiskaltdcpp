@@ -20,7 +20,7 @@ class QuickConnect : public QDialog,
     Q_OBJECT
 
 public:
-    QuickConnect(QWidget *parent = 0);
+    QuickConnect(QWidget *parent = nullptr);
     ~QuickConnect();
 
 public slots:

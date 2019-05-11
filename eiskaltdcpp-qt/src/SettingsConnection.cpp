@@ -106,7 +106,7 @@ void SettingsConnection::ok(){
         QString ip = lineEdit_SIP->text();
 
         if (!validateIp(ip)){
-            showMsg(tr("No valid SOCKS5 server IP found!"), NULL);
+            showMsg(tr("No valid SOCKS5 server IP found!"), nullptr);
 
             return;
         }
@@ -151,7 +151,7 @@ void SettingsConnection::ok(){
         SM->set(SettingsManager::DHT_PORT, spinBox_DHT->value()+1);
 
     if (!(old_dht < 1024) && (SETTING(DHT_PORT) < 1024))
-        showMsg(tr("Program need root privileges to open ports less than 1024"), NULL);
+        showMsg(tr("Program need root privileges to open ports less than 1024"), nullptr);
 #endif
     SM->set(SettingsManager::ALLOW_UNTRUSTED_CLIENTS, checkBox_UNTRUSTED_CLIENTS->isChecked());
     SM->set(SettingsManager::ALLOW_UNTRUSTED_HUBS, checkBox_UNTRUSTED_HUBS->isChecked());
@@ -164,7 +164,7 @@ void SettingsConnection::ok(){
     {
         if (!(old_tcp < 1024 || old_tls < 1024 || old_udp < 1024) &&
             (SETTING(TCP_PORT) < 1024 || SETTING(UDP_PORT) < 1024 || SETTING(TLS_PORT) < 1024))
-            showMsg(tr("Program need root privileges to open ports less than 1024"), NULL);
+            showMsg(tr("Program need root privileges to open ports less than 1024"), nullptr);
 
         MainWindow::getInstance()->startSocket(true);
     }

@@ -41,7 +41,7 @@ class FileHasher :
 {
 Q_OBJECT
 public:
-    explicit FileHasher(QWidget *parent = 0);
+    explicit FileHasher(QWidget *parent = nullptr);
     virtual ~FileHasher();
 
     private slots:

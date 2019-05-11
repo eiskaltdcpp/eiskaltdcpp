@@ -23,7 +23,7 @@ class Magnet :
 {
 Q_OBJECT
 public:
-    explicit Magnet(QWidget *parent = 0);
+    explicit Magnet(QWidget *parent = nullptr);
     virtual ~Magnet();
 
     void setLink(const QString &);

@@ -21,7 +21,7 @@ class MultiLineToolBar : public QToolBar
 {
 Q_OBJECT
 public:
-    explicit MultiLineToolBar(QWidget *parent = 0);
+    explicit MultiLineToolBar(QWidget *parent = nullptr);
     virtual ~MultiLineToolBar();
 
 protected:

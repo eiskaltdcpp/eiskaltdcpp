@@ -20,7 +20,7 @@ class ShareDirModel: public QDirModel{
     Q_OBJECT
 public:
 
-    ShareDirModel(QObject* = NULL);
+    ShareDirModel(QObject* = nullptr);
     virtual ~ShareDirModel();
 
     Qt::ItemFlags flags(const QModelIndex& index) const;
@@ -44,7 +44,7 @@ class SettingsSharing :
 {
     Q_OBJECT
 public:
-    SettingsSharing(QWidget* = NULL);
+    SettingsSharing(QWidget* = nullptr);
     virtual ~SettingsSharing();
 protected:
     virtual void showEvent(QShowEvent *);

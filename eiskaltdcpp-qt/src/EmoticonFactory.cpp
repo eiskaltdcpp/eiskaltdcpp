@@ -25,7 +25,7 @@ static const QString EmoticonSubsectionName = "emoticon";
 static const QString EmoticonTextSectionName = "name";
 
 EmoticonFactory::EmoticonFactory() :
-    QObject(NULL)
+    QObject(nullptr)
 {
 }
 

@@ -22,7 +22,7 @@ class EmoticonDialog : public QDialog {
 
 public:
     /** construtor */
-    EmoticonDialog(QWidget * parent = 0, Qt::WindowFlags f = 0);
+    EmoticonDialog(QWidget * parent = nullptr, Qt::WindowFlags f = nullptr);
     /** destructor */
     virtual ~EmoticonDialog();
 

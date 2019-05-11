@@ -19,7 +19,7 @@ class PublicHubsList:
 {
 Q_OBJECT
 public:
-    PublicHubsList(QWidget* = NULL);
+    PublicHubsList(QWidget* = nullptr);
 
 private slots:
     void slotAccepted();

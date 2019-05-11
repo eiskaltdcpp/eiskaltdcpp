@@ -36,7 +36,7 @@ class FavoriteHubEditor:
     Q_OBJECT
 
     public:
-        FavoriteHubEditor(QWidget *parent = NULL):
+        FavoriteHubEditor(QWidget *parent = nullptr):
                 QDialog(parent)
         {
             setupUi(this);
@@ -82,7 +82,7 @@ private Q_SLOTS:
     void slotUpdateComboBox_CID();
 
 private:
-    FavoriteHubs(QWidget* = NULL);
+    FavoriteHubs(QWidget* = nullptr);
     virtual ~FavoriteHubs();
 
     void load();

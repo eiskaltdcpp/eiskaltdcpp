@@ -33,7 +33,7 @@ class TransferViewDelegate:
     Q_OBJECT
 
 public:
-    TransferViewDelegate(QObject* = NULL);
+    TransferViewDelegate(QObject* = nullptr);
     virtual ~TransferViewDelegate();
 
     virtual void paint(QPainter*, const QStyleOptionViewItem&, const QModelIndex&) const;
@@ -50,7 +50,7 @@ class TransferViewItem
 {
 
 public:
-    TransferViewItem(const QList<QVariant> &data, TransferViewItem *parent = 0);
+    TransferViewItem(const QList<QVariant> &data, TransferViewItem *parent = nullptr);
     TransferViewItem(const TransferViewItem&);
     void operator=(const TransferViewItem&);
     virtual ~TransferViewItem();
@@ -89,7 +89,7 @@ class TransferViewModel: public QAbstractItemModel
     typedef QMap<QString, QVariant> VarMap;
 
 public:
-    TransferViewModel(QObject* = NULL);
+    TransferViewModel(QObject* = nullptr);
     virtual ~TransferViewModel();
 
     /** */

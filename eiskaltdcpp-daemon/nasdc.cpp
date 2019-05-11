@@ -63,7 +63,7 @@ static void SigHandler(int sig) {
     sigemptyset(&sigact.sa_mask);
     sigact.sa_flags = 0;
 
-    sigaction(sig, &sigact, NULL);
+    sigaction(sig, &sigact, nullptr);
 }
 
 // code of this function based on function tr_daemon from transmission daemon
@@ -137,21 +137,21 @@ void printVersion() {
 
 #ifndef _WIN32
 static struct option opts[] = {
-    { "help",    no_argument,       NULL, 'h'},
-    { "version", no_argument,       NULL, 'V'},
-    { "daemon",  no_argument,       NULL, 'd'},
-    { "verbose", no_argument,       NULL, 'v'},
-    { "debug",   no_argument,       NULL, 'D'},
-    { "confdir", required_argument, NULL, 'c'},
-    { "localdir",required_argument, NULL, 'l'},
-    { "pidfile", required_argument, NULL, 'p'},
-    { "port",    required_argument, NULL, 'P'},
-    { "rpclog",  required_argument, NULL, 'u'},
-    { "uripath", required_argument, NULL, 'U'},
-    { "ip",      required_argument, NULL, 'L'},
-    { "syslog",  required_argument, NULL, 's'},
-    { "log",     required_argument, NULL, 'S'},
-    { NULL,      0,                 NULL, 0}
+    { "help",    no_argument,       nullptr, 'h'},
+    { "version", no_argument,       nullptr, 'V'},
+    { "daemon",  no_argument,       nullptr, 'd'},
+    { "verbose", no_argument,       nullptr, 'v'},
+    { "debug",   no_argument,       nullptr, 'D'},
+    { "confdir", required_argument, nullptr, 'c'},
+    { "localdir",required_argument, nullptr, 'l'},
+    { "pidfile", required_argument, nullptr, 'p'},
+    { "port",    required_argument, nullptr, 'P'},
+    { "rpclog",  required_argument, nullptr, 'u'},
+    { "uripath", required_argument, nullptr, 'U'},
+    { "ip",      required_argument, nullptr, 'L'},
+    { "syslog",  required_argument, nullptr, 's'},
+    { "log",     required_argument, nullptr, 'S'},
+    { nullptr,   0,                 nullptr, 0}
 };
 
 void writePidFile(char *path)
@@ -162,7 +162,7 @@ void writePidFile(char *path)
 
 void parseArgs(int argc, char* argv[]) {
     int ch;
-    while((ch = getopt_long(argc, argv, "hVdvDsp:c:l:P:L:S:u:U:", opts, NULL)) != -1) {
+    while((ch = getopt_long(argc, argv, "hVdvDsp:c:l:P:L:S:u:U:", opts, nullptr)) != -1) {
         switch (ch) {
             case 'P':
                 lport = (unsigned short int) atoi (optarg);
@@ -319,7 +319,7 @@ int main(int argc, char* argv[])
     if (bDaemon)
         sigaddset(&sst, SIGHUP);
 
-    pthread_sigmask(SIG_BLOCK, &sst, NULL);
+    pthread_sigmask(SIG_BLOCK, &sst, nullptr);
 
     struct sigaction sigact;
 
@@ -327,22 +327,22 @@ int main(int argc, char* argv[])
     sigemptyset(&sigact.sa_mask);
     sigact.sa_flags = 0;
 
-    if (sigaction(SIGINT, &sigact, NULL) == -1) {
+    if (sigaction(SIGINT, &sigact, nullptr) == -1) {
         logging(bDaemon, bsyslog, false, string("Cannot create sigaction SIGINT!" + string(strerror(errno))));
         exit(EXIT_FAILURE);
     }
 
-    if (sigaction(SIGTERM, &sigact, NULL) == -1) {
+    if (sigaction(SIGTERM, &sigact, nullptr) == -1) {
         logging(bDaemon, bsyslog, false, string("Cannot create sigaction SIGTERM!"+ string(strerror(errno))));
         exit(EXIT_FAILURE);
     }
 
-    if (sigaction(SIGQUIT, &sigact, NULL) == -1) {
+    if (sigaction(SIGQUIT, &sigact, nullptr) == -1) {
         logging(bDaemon, bsyslog, false, string("Cannot create sigaction SIGQUIT!" + string(strerror(errno))));
         exit(EXIT_FAILURE);
     }
 
-    if (!bDaemon && sigaction(SIGHUP, &sigact, NULL) == -1) {
+    if (!bDaemon && sigaction(SIGHUP, &sigact, nullptr) == -1) {
         logging(bDaemon, bsyslog, false, string("Cannot create sigaction SIGHUP!" + string(strerror(errno))));
         exit(EXIT_FAILURE);
     }

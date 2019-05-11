@@ -22,7 +22,7 @@
 
 ToolBar::ToolBar(QWidget *parent):
     QToolBar(parent),
-    tabbar(NULL)
+    tabbar(nullptr)
 {
     setContextMenuPolicy(Qt::CustomContextMenu);
 }
@@ -205,8 +205,8 @@ void ToolBar::toggled ( ArenaWidget *awgt) {
 }
 
 void ToolBar::slotTabMoved(int from, int to){
-    ArenaWidget *from_wgt = NULL;
-    ArenaWidget *to_wgt   = NULL;
+    ArenaWidget *from_wgt = nullptr;
+    ArenaWidget *to_wgt   = nullptr;
 
     for (auto it = map.begin(); it != map.end(); ++it){
         if (it.value() == from){
@@ -281,14 +281,14 @@ void ToolBar::slotShorcuts(){
 
 ArenaWidget *ToolBar::findWidgetForIndex(const int index){
     if (index < 0)
-        return NULL;
+        return nullptr;
 
     for (const auto &k : map.keys()) {
         if (map[k] == index)
             return const_cast<ArenaWidget*>(k);
     }
 
-    return NULL;
+    return nullptr;
 }
 
 void ToolBar::redraw(){

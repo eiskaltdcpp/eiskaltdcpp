@@ -37,7 +37,7 @@ class DownloadQueueDelegate:
     Q_OBJECT
 
 public:
-    DownloadQueueDelegate(QObject* = NULL);
+    DownloadQueueDelegate(QObject* = nullptr);
     virtual ~DownloadQueueDelegate();
 
     virtual void paint(QPainter*, const QStyleOptionViewItem&, const QModelIndex&) const;
@@ -47,7 +47,7 @@ class DownloadQueueItem
 {
 
 public:
-    DownloadQueueItem(const QList<QVariant> &data, DownloadQueueItem *parent = 0);
+    DownloadQueueItem(const QList<QVariant> &data, DownloadQueueItem *parent = nullptr);
     DownloadQueueItem(const DownloadQueueItem&);
     void operator=(const DownloadQueueItem&);
     virtual ~DownloadQueueItem();
@@ -79,7 +79,7 @@ class DownloadQueueModel: public QAbstractItemModel
 {
     Q_OBJECT
 public:
-    DownloadQueueModel(QObject* = NULL);
+    DownloadQueueModel(QObject* = nullptr);
     virtual ~DownloadQueueModel();
 
     /** */

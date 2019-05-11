@@ -21,7 +21,7 @@
 class ShortcutItem{
 
 public:
-    ShortcutItem(ShortcutItem* = NULL);
+    ShortcutItem(ShortcutItem* = nullptr);
     virtual ~ShortcutItem();
 
     void appendChild(ShortcutItem *child);
@@ -43,7 +43,7 @@ class ShortcutsModel : public QAbstractItemModel {
     Q_OBJECT
 
 public:
-    ShortcutsModel(QObject * parent = 0);
+    ShortcutsModel(QObject * parent = nullptr);
     virtual ~ShortcutsModel();
 
     virtual int rowCount(const QModelIndex & index = QModelIndex()) const;
@@ -67,7 +67,7 @@ class SettingsShortcuts : public QWidget, private Ui::UISettingsShortcuts
 {
     Q_OBJECT
 public:
-    explicit SettingsShortcuts(QWidget *parent = 0);
+    explicit SettingsShortcuts(QWidget *parent = nullptr);
     virtual ~SettingsShortcuts();
 
 public Q_SLOTS:

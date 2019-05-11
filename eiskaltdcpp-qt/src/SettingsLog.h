@@ -18,7 +18,7 @@ class SettingsLog :
 {
 Q_OBJECT
 public:
-    explicit SettingsLog(QWidget *parent = 0);
+    explicit SettingsLog(QWidget *parent = nullptr);
 
 private:
     void init();

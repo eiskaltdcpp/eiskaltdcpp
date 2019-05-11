@@ -31,7 +31,7 @@
 
 #define CREATE_ROOT_EL(a, b, c, d, e) \
     do { \
-    SideBarItem *root = new SideBarItem(NULL, (a)); \
+    SideBarItem *root = new SideBarItem(nullptr, (a)); \
     root->pixmap = WU->getPixmap(WulforUtil::b); \
     root->title  = (c); \
     (d).insert(ArenaWidget::e, root); \
@@ -61,7 +61,7 @@ SideBarItem::~SideBarItem()
 SideBarModel::SideBarModel(QObject *parent) :
     QAbstractItemModel(parent)
 {
-    rootItem = new SideBarItem(NULL, NULL);
+    rootItem = new SideBarItem(nullptr, nullptr);
 
     WulforUtil *WU = WulforUtil::getInstance();
 
@@ -494,7 +494,7 @@ QSize SideBarDelegate::sizeHint(const QStyleOptionViewItem &option, const QModel
     return QSize( 200, HEIGHT );
 }
 
-SideBarView::SideBarView ( QWidget* parent ) : QTreeView(parent), _model(NULL) {
+SideBarView::SideBarView ( QWidget* parent ) : QTreeView(parent), _model(nullptr) {
     installEventFilter(this);
 
     _model = new SideBarModel(this);
@@ -566,7 +566,7 @@ void SideBarView::slotSidebarContextMenu(){
 
     SideBarItem *item = reinterpret_cast<SideBarItem*>(selected.at(0).internalPointer());
 
-    QMenu *menu = NULL;
+    QMenu *menu = nullptr;
     
     if (item && item->childCount() > 0){
         menu = new QMenu(this);

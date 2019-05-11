@@ -19,7 +19,7 @@ ADLSModel::ADLSModel(QObject *parent)
     rootData << tr("Checked") << tr("Search String") << tr("Type source")
              << tr("Name directory") << tr("Min. Size") << tr("Max. Size") << tr("Type Size");
 
-    rootItem = new ADLSItem(rootData, NULL);
+    rootItem = new ADLSItem(rootData, nullptr);
 }
 
 ADLSModel::~ADLSModel()
@@ -70,7 +70,7 @@ QVariant ADLSModel::data(const QModelIndex &index, int role) const
 Qt::ItemFlags ADLSModel::flags(const QModelIndex &index) const
 {
     if (!index.isValid())
-        return 0;
+        return nullptr;
 
     Qt::ItemFlags flags = Qt::ItemIsEnabled | Qt::ItemIsSelectable | Qt::ItemIsEditable;
 
@@ -156,7 +156,7 @@ bool ADLSModel::removeRow(int row, const QModelIndex &parent){
 bool ADLSModel::insertRows(int position, int rows, const QModelIndex &index){
     Q_UNUSED(rows)
 
-    ADLSItem *from = NULL;
+    ADLSItem *from = nullptr;
 
     beginRemoveRows(QModelIndex(), position, position);
     {
@@ -215,7 +215,7 @@ struct Compare {
                      break;//return AttrCmp<COLUMN_SSTRING>;
             }
 
-            return 0;
+            return nullptr;
         }
         template <int i>
         bool static AttrCmp(const ADLSItem * l, const ADLSItem * r) {
@@ -321,7 +321,7 @@ QModelIndex ADLSModel::moveDown(const QModelIndex &index){
     if (index.row() >= rootItem->childCount() - 1)
         return QModelIndex();
 
-    ADLSItem *item = NULL;
+    ADLSItem *item = nullptr;
 
     beginRemoveRows(QModelIndex(), index.row(), index.row());
     {
@@ -342,7 +342,7 @@ QModelIndex ADLSModel::moveUp(const QModelIndex &index){
     if (index.row() < 1)
         return QModelIndex();
 
-    ADLSItem *item = NULL;
+    ADLSItem *item = nullptr;
 
     beginRemoveRows(QModelIndex(), index.row(), index.row());
     {

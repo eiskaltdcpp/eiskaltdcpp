@@ -104,7 +104,7 @@ namespace dht
     {
         if(u->isSet(User::DHT)) // is this user already known in DHT?
         {
-            Node::Ptr node = NULL;
+            Node::Ptr node = nullptr;
 
             // no online node found, try get from routing table
             for(NodeList::iterator it = nodes.begin(); it != nodes.end(); ++it)
@@ -120,7 +120,7 @@ namespace dht
                 }
             }
 
-            if(node == NULL && u->isOnline())
+            if(node == nullptr && u->isOnline())
             {
                 // try to get node from ClientManager (user can be online but not in our routing table)
                 // this fixes the bug with DHT node online twice
@@ -128,7 +128,7 @@ namespace dht
                 node = node.get();
             }
 
-            if(node != NULL)
+            if(node != nullptr)
             {
                 // fine, node found, update it and return it
                 if(update)

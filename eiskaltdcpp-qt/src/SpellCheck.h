@@ -32,7 +32,7 @@ public:
     void addToDict(const QString &word);
 
 private:
-    SpellCheck(QObject *parent = 0);
+    SpellCheck(QObject *parent = nullptr);
     ~SpellCheck();
 
     void deleteSpeller();

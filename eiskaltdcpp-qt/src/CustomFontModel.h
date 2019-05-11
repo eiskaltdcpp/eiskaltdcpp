@@ -16,7 +16,7 @@
 
 class CustomFontItem{
 public:
-    CustomFontItem(const QList<QVariant> &data, CustomFontItem *parent = 0);
+    CustomFontItem(const QList<QVariant> &data, CustomFontItem *parent = nullptr);
     virtual ~CustomFontItem();
 
     void appendChild(CustomFontItem *child);
@@ -43,7 +43,7 @@ class CustomFontModel : public QAbstractItemModel
 {
 Q_OBJECT
 public:
-    explicit CustomFontModel(QObject *parent = 0);
+    explicit CustomFontModel(QObject *parent = nullptr);
     virtual ~CustomFontModel();
 
     /** */

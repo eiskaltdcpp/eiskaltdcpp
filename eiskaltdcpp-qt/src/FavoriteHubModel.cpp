@@ -20,7 +20,7 @@ FavoriteHubModel::FavoriteHubModel(QObject *parent)
              << tr("Address") << tr("Nick") << tr("Password") << tr("User description")
              << tr("Remote encoding");
 
-    rootItem = new FavoriteHubItem(rootData, NULL);
+    rootItem = new FavoriteHubItem(rootData, nullptr);
 }
 
 FavoriteHubModel::~FavoriteHubModel()
@@ -76,7 +76,7 @@ QVariant FavoriteHubModel::data(const QModelIndex &index, int role) const
 Qt::ItemFlags FavoriteHubModel::flags(const QModelIndex &index) const
 {
     if (!index.isValid())
-        return 0;
+        return nullptr;
 
     Qt::ItemFlags flags = Qt::ItemIsEnabled | Qt::ItemIsSelectable | Qt::ItemIsEditable;
 
@@ -165,7 +165,7 @@ bool FavoriteHubModel::removeRow(int row, const QModelIndex &parent){
 bool FavoriteHubModel::insertRows(int position, int rows, const QModelIndex &index){
     Q_UNUSED(rows)
 
-    FavoriteHubItem *from = NULL;
+    FavoriteHubItem *from = nullptr;
 
     beginRemoveRows(QModelIndex(), position, position);
     {
@@ -224,7 +224,7 @@ struct Compare {
                      return AttrCmp<COLUMN_HUB_USERDESC>;
             }
 
-            return 0;
+            return nullptr;
         }
         template <int i>
         bool static AttrCmp(const FavoriteHubItem * l, const FavoriteHubItem * r) {
@@ -330,7 +330,7 @@ QModelIndex FavoriteHubModel::moveDown(const QModelIndex &index){
     if (index.row() >= rootItem->childCount() - 1)
         return QModelIndex();
 
-    FavoriteHubItem *item = NULL;
+    FavoriteHubItem *item = nullptr;
 
     beginRemoveRows(QModelIndex(), index.row(), index.row());
     {
@@ -351,7 +351,7 @@ QModelIndex FavoriteHubModel::moveUp(const QModelIndex &index){
     if (index.row() < 1)
         return QModelIndex();
 
-    FavoriteHubItem *item = NULL;
+    FavoriteHubItem *item = nullptr;
 
     beginRemoveRows(QModelIndex(), index.row(), index.row());
     {

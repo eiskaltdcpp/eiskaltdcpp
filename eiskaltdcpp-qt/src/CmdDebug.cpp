@@ -44,7 +44,7 @@ QString CmdDebug::getArenaShortTitle() {
 }
 
 QMenu *CmdDebug::getMenu() {
-    return NULL;
+    return nullptr;
 }
 
 void CmdDebug::on(DebugManagerListener::DebugDetection, const string &com) noexcept {

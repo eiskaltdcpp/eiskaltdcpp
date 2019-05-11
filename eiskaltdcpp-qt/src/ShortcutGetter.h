@@ -18,7 +18,7 @@ class ShortcutGetter : public QDialog
     Q_OBJECT
 
 public:
-    ShortcutGetter(QWidget *parent = 0);
+    ShortcutGetter(QWidget *parent = nullptr);
 
     QString exec(const QString& s);
 

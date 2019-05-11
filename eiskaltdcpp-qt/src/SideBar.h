@@ -26,7 +26,7 @@ class SideBarDelegate:
     Q_OBJECT
 
 public:
-    SideBarDelegate(QObject* = NULL);
+    SideBarDelegate(QObject* = nullptr);
     virtual ~SideBarDelegate();
 
     virtual void paint(QPainter*, const QStyleOptionViewItem&, const QModelIndex&) const;
@@ -39,7 +39,7 @@ class SideBarItem
 {
 
 public:
-    SideBarItem(ArenaWidget *wgt = NULL, SideBarItem *parent = NULL);
+    SideBarItem(ArenaWidget *wgt = nullptr, SideBarItem *parent = nullptr);
     virtual ~SideBarItem();
 
     void appendChild(SideBarItem *i){
@@ -86,7 +86,7 @@ class SideBarModel : public QAbstractItemModel
 Q_OBJECT
 
 public:
-    explicit SideBarModel(QObject *parent = 0);
+    explicit SideBarModel(QObject *parent = nullptr);
     virtual ~SideBarModel();
 
     /** */
@@ -141,7 +141,7 @@ class SideBarView: public QTreeView {
 Q_OBJECT
 
 public:
-    SideBarView(QWidget *parent=0);
+    SideBarView(QWidget *parent=nullptr);
     virtual ~SideBarView();
 
 private Q_SLOTS:

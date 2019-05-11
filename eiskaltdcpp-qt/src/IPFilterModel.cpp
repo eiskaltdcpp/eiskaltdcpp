@@ -22,7 +22,7 @@ IPFilterModel::IPFilterModel(QObject *parent)
     QList<QVariant> rootData;
     rootData << tr("IP/Mask") << tr("Direction");
 
-    rootItem = new IPFilterModelItem(rootData, NULL);
+    rootItem = new IPFilterModelItem(rootData, nullptr);
 }
 
 IPFilterModel::~IPFilterModel()
@@ -64,7 +64,7 @@ QVariant IPFilterModel::data(const QModelIndex &index, int role) const
 Qt::ItemFlags IPFilterModel::flags(const QModelIndex &index) const
 {
     if (!index.isValid())
-        return 0;
+        return nullptr;
 
     return Qt::ItemIsEnabled | Qt::ItemIsSelectable;
 }

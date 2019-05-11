@@ -461,14 +461,14 @@ UserListItem *UserListModel::addUser(const UserPtr& _ptr, const Identity& _id, c
 UserListItem *UserListModel::itemForPtr(const UserPtr &ptr){
     auto iter = users.find(ptr);
 
-    UserListItem *item = (iter != users.end())? (iter.value()) : (NULL);
+    UserListItem *item = (iter != users.end()) ? iter.value() : nullptr;
 
     return item;
 }
 
 UserListItem *UserListModel::itemForNick(const QString &nick, const QString &){   
     if (nick.isEmpty())
-        return NULL;
+        return nullptr;
     
     auto it = std::find_if(rootItem->childItems.begin(), rootItem->childItems.end(),
                                                      [&nick] (const UserListItem *i) {
@@ -476,7 +476,7 @@ UserListItem *UserListModel::itemForNick(const QString &nick, const QString &){
                                                      }
                                                     );
 
-    return (it == rootItem->childItems.end()? NULL : *it);
+    return (it == rootItem->childItems.end() ? nullptr : *it);
 }
 
 QString UserListModel::CIDforNick(const QString &nick, const QString &){

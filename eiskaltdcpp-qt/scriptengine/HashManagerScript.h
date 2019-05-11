@@ -44,7 +44,7 @@ protected:
     virtual void on(TTHDone, const dcpp::string& , const dcpp::TTHValue&) throw();
 
 private:
-    HashManagerScript(QObject *parent = 0);
+    HashManagerScript(QObject *parent = nullptr);
     HashManagerScript(const HashManagerScript&);
     ~HashManagerScript();
     HashManagerScript &operator=(const HashManagerScript&);

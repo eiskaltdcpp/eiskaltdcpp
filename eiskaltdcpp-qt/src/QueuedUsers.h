@@ -27,7 +27,7 @@ class QueuedUserItem
 {
 
 public:
-    QueuedUserItem(const QList<QVariant> &data, QueuedUserItem *parent = 0);
+    QueuedUserItem(const QList<QVariant> &data, QueuedUserItem *parent = nullptr);
     virtual ~QueuedUserItem();
 
     void appendChild(QueuedUserItem *child);
@@ -56,7 +56,7 @@ class QueuedUsersModel : public QAbstractItemModel
     typedef QMap<QString, QVariant> VarMap;
 public:
 
-    QueuedUsersModel(QObject *parent = 0);
+    QueuedUsersModel(QObject *parent = nullptr);
     ~QueuedUsersModel();
 
     /** */
@@ -101,7 +101,7 @@ public:
     QWidget *getWidget() { return this; }
     QString getArenaTitle() { return tr("Queued Users"); }
     QString getArenaShortTitle() { return getArenaTitle(); }
-    QMenu *getMenu() { return NULL; }
+    QMenu *getMenu() { return nullptr; }
     const QPixmap &getPixmap(){ return WulforUtil::getInstance()->getPixmap(WulforUtil::eiUSERS); }
     ArenaWidget::Role role() const { return ArenaWidget::QueuedUsers; }
 

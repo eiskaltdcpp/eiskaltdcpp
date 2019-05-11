@@ -20,7 +20,7 @@
 class EmoticonLabel: public QLabel{
 Q_OBJECT
 public:
-    EmoticonLabel(QWidget *parent = NULL) : QLabel(parent){}
+    EmoticonLabel(QWidget *parent = nullptr) : QLabel(parent){}
     virtual ~EmoticonLabel(){}
 
 Q_SIGNALS:

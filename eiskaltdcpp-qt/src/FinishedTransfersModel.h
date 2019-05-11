@@ -29,7 +29,7 @@ class FinishedTransfersItem
 {
 
 public:
-    FinishedTransfersItem(const QList<QVariant> &data, FinishedTransfersItem *parent = 0);
+    FinishedTransfersItem(const QList<QVariant> &data, FinishedTransfersItem *parent = nullptr);
     ~FinishedTransfersItem();
 
     void appendChild(FinishedTransfersItem *child);
@@ -71,7 +71,7 @@ public:
         UserView
     };
 
-    FinishedTransfersModel(QObject *parent = 0);
+    FinishedTransfersModel(QObject *parent = nullptr);
     virtual ~FinishedTransfersModel();
 
     /** */

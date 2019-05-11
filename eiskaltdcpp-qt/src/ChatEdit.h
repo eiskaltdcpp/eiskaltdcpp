@@ -24,9 +24,9 @@ class NickCompletionModel: public QStringListModel
     Q_OBJECT
 
 public:
-    NickCompletionModel(QObject *parent = 0) : QStringListModel(parent)
+    NickCompletionModel(QObject *parent = nullptr) : QStringListModel(parent)
     {}
-    NickCompletionModel(const QStringList &strings, QObject *parent = 0) : QStringListModel(strings, parent)
+    NickCompletionModel(const QStringList &strings, QObject *parent = nullptr) : QStringListModel(strings, parent)
     {}
     virtual ~NickCompletionModel()
     { }
@@ -53,7 +53,7 @@ class ChatEdit : public QTextEdit
     Q_OBJECT
 
 public:
-    ChatEdit(QWidget *parent = 0);
+    ChatEdit(QWidget *parent = nullptr);
     virtual ~ChatEdit();
 
     void setCompleter(QCompleter *, UserListModel *);

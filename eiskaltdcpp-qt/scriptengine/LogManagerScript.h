@@ -32,7 +32,7 @@ protected:
     virtual void on(Message, time_t, const dcpp::string&) throw();
 
 private:
-    LogManagerScript(QObject *parent = 0);
+    LogManagerScript(QObject *parent = nullptr);
     LogManagerScript(const LogManagerScript&){}
     ~LogManagerScript();
     LogManagerScript &operator=(const LogManagerScript&){ return *this; }

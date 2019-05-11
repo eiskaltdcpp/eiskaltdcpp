@@ -19,7 +19,7 @@ using namespace dcpp;
 
 UCModel::UCModel(QObject *parent): QAbstractItemModel(parent)
 {
-    rootItem = new UCItem(NULL);
+    rootItem = new UCItem(nullptr);
 }
 
 UCModel::~UCModel()
@@ -69,7 +69,7 @@ QVariant UCModel::data(const QModelIndex &index, int role) const
 Qt::ItemFlags UCModel::flags(const QModelIndex &index) const
 {
     if (!index.isValid())
-        return 0;
+        return nullptr;
 
     Qt::ItemFlags flags = Qt::ItemIsEnabled | Qt::ItemIsSelectable;
 

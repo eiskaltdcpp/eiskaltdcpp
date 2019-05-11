@@ -23,7 +23,7 @@ class SettingsConnection :
 {
     Q_OBJECT
 public:
-    SettingsConnection(QWidget* = NULL);
+    SettingsConnection(QWidget* = nullptr);
 
 public slots:
     void ok();
@@ -39,7 +39,7 @@ private:
     void init();
 
     bool validateIp(QString&);
-    void showMsg(QString, QWidget* = NULL);
+    void showMsg(QString, QWidget* = nullptr);
 
     bool dirty;
 

@@ -21,7 +21,7 @@ class SettingsPersonal :
 {
     Q_OBJECT
 public:
-    SettingsPersonal(QWidget* = NULL);
+    SettingsPersonal(QWidget* = nullptr);
     ~SettingsPersonal();
 
 public slots:

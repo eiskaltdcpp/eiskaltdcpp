@@ -20,7 +20,7 @@ class ScriptConsole : public QDialog,
 {
 Q_OBJECT
 public:
-    explicit ScriptConsole(QWidget *parent = 0);
+    explicit ScriptConsole(QWidget *parent = nullptr);
 
 private Q_SLOTS:
     void startEvaluation();

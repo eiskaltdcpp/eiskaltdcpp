@@ -144,7 +144,7 @@ int main(int argc, char *argv[])
     migrateConfig();
 #endif
 
-    dcpp::startup(callBack, NULL);
+    dcpp::startup(callBack, nullptr);
     dcpp::TimerManager::getInstance()->start();
 
     HashManager::getInstance()->setPriority(Thread::IDLE);
@@ -320,13 +320,13 @@ void installHandlers(){
     memset(&sa, 0, sizeof(sa));
     sa.sa_handler = SIG_IGN;
 
-    if (sigaction(SIGPIPE, &sa, NULL) == -1)
+    if (sigaction(SIGPIPE, &sa, nullptr) == -1)
         printf("Cannot handle SIGPIPE\n");
     else {
         sigset_t set;
         sigemptyset (&set);
         sigaddset (&set, SIGPIPE);
-        pthread_sigmask(SIG_BLOCK, &set, NULL);
+        pthread_sigmask(SIG_BLOCK, &set, nullptr);
     }
 
     catchSignals<SIGSEGV, SIGABRT, SIGBUS, SIGTERM>();

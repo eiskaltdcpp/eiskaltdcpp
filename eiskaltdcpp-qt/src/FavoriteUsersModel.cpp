@@ -26,7 +26,7 @@ FavoriteUsersModel::FavoriteUsersModel(QObject *parent)
     QList<QVariant> rootData;
     rootData << tr("Nick") << tr("Hub") << tr("Last seen") << tr("Description");
 
-    rootItem = new FavoriteUserItem(rootData, NULL);
+    rootItem = new FavoriteUserItem(rootData, nullptr);
 }
 
 FavoriteUsersModel::~FavoriteUsersModel()
@@ -88,7 +88,7 @@ QVariant FavoriteUsersModel::data(const QModelIndex &index, int role) const
 Qt::ItemFlags FavoriteUsersModel::flags(const QModelIndex &index) const
 {
     if (!index.isValid())
-        return 0;
+        return nullptr;
 
     Qt::ItemFlags flags = Qt::ItemIsEnabled | Qt::ItemIsSelectable;
 
@@ -179,7 +179,7 @@ struct Compare {
                      return AttrCmp<COLUMN_USER_DESC>;
             }
 
-            return 0;
+            return nullptr;
         }
         template <int i>
         bool static AttrCmp(const FavoriteUserItem * l, const FavoriteUserItem * r) {

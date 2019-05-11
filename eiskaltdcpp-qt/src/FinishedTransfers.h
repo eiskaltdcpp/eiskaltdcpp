@@ -83,7 +83,7 @@ public:
     QWidget *getWidget() { return this;}
     QString getArenaTitle(){ return (isUpload? uploadTitle() : downloadTitle()); }
     QString getArenaShortTitle(){ return getArenaTitle(); }
-    QMenu *getMenu() { return NULL; }
+    QMenu *getMenu() { return nullptr; }
     ArenaWidget::Role role() const;
 
     const QPixmap &getPixmap(){
@@ -99,7 +99,7 @@ protected:
     }
 
 private:
-    FinishedTransfers(QWidget *parent = NULL) :
+    FinishedTransfers(QWidget *parent = nullptr) :
         FinishedTransferProxy(parent), db_opened(false)
     {
         setupUi(this);
@@ -421,7 +421,7 @@ private:
             return;
 
         QStringList files;
-        FinishedTransfersItem *item = NULL;
+        FinishedTransfersItem *item = nullptr;
         QString file;
         bool full;
 
@@ -454,7 +454,7 @@ private:
         QStringList files;
 
         if (comboBox->currentIndex() == 0){
-            FinishedTransfersItem *item = NULL;
+            FinishedTransfersItem *item = nullptr;
             QString file;
 
             for (const auto &i : indexes){
@@ -466,7 +466,7 @@ private:
             }
         }
         else {
-            FinishedTransfersItem *item = NULL;
+            FinishedTransfersItem *item = nullptr;
             QString file_list;
 
             for (const auto &i : indexes){

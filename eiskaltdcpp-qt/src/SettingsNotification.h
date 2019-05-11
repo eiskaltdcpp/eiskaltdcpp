@@ -19,7 +19,7 @@ class SettingsNotification :
 {
 Q_OBJECT
 public:
-    explicit SettingsNotification(QWidget *parent = 0);
+    explicit SettingsNotification(QWidget *parent = nullptr);
 
 private:
     void init();

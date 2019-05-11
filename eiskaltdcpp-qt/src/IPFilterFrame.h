@@ -25,7 +25,7 @@ class IPFilterFrame : public QDialog, private Ui::UIIPFilter {
 
 public:
     /** */
-    IPFilterFrame(QWidget *parent = 0);
+    IPFilterFrame(QWidget *parent = nullptr);
     /** */
     virtual ~IPFilterFrame();
 

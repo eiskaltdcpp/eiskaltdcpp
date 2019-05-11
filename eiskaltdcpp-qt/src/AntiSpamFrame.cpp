@@ -216,7 +216,7 @@ bool AntiSpamFrame::addToList(AntiSpamObjectState state, const QString &nick) {
 
         AntiSpam::getInstance()->move(nick, state);
 
-        QTreeWidget *tree = NULL;
+        QTreeWidget *tree = nullptr;
 
         switch (e) {
             case eIN_BLACK:
@@ -231,7 +231,7 @@ bool AntiSpamFrame::addToList(AntiSpamObjectState state, const QString &nick) {
         }
         remItemFromTree(tree, nick);
 
-        tree = NULL;
+        tree = nullptr;
         switch (state) {
             case eIN_BLACK:
                 tree = treeWidget_BLACK;
@@ -248,7 +248,7 @@ bool AntiSpamFrame::addToList(AntiSpamObjectState state, const QString &nick) {
         return true;
     }
 
-    QTreeWidget *tree = NULL;
+    QTreeWidget *tree = nullptr;
 
     (*AntiSpam::getInstance()) << state << nick;
 

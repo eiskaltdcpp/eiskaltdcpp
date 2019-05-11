@@ -24,7 +24,7 @@ class TabButton : public QPushButton
 {
 Q_OBJECT
 public:
-    explicit TabButton(QWidget *parent = 0);
+    explicit TabButton(QWidget *parent = nullptr);
 
     QSize sizeHint() const;
     void setWidgetIcon(const QPixmap &px);
