@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://github.com/eiskaltdcpp/eiskaltdcpp/issues\n"
-"POT-Creation-Date: 2019-05-07 01:10+0300\n"
+"POT-Creation-Date: 2019-05-15 12:45+0300\n"
 "PO-Revision-Date: 2017-06-18 13:35+0000\n"
 "Last-Translator: Sopor, 2019\n"
 "Language-Team: Swedish (Sweden) (https://www.transifex.com/tehnick/"
@@ -116,10 +116,11 @@ msgstr "Anslutningsfel: %1%"
 #: ../ConnectionManager.cpp:817
 msgid "Blocked a C-C connection to a hub ('%1%:%2%'; request from '%3%')"
 msgstr ""
+"Blockerat en C-C-anslutning till en hubb ('%1%:%2%'; förfrågan från '%3%')"
 
 #: ../ConnectionManager.cpp:835
 msgid "Blocking '%1%', potential DDoS detected (originating hub '%2%')"
-msgstr ""
+msgstr "Blockerar '%1%', potentiell DDoS upptäcktes (ursprungshubb '%2%')"
 
 #: ../ConnectivityManager.cpp:83
 msgid "Determining the best connectivity settings..."
@@ -316,9 +317,8 @@ msgid "Error hashing %1%: %2%"
 msgstr "Indexeringsfel %1%: %2%"
 
 #: ../HttpConnection.cpp:218
-#, fuzzy
 msgid "Transfer-encoding error (%1%)"
-msgstr " Överföringsport (%1% TCP)"
+msgstr "Överföringskodningsfel (%1%)"
 
 #: ../HttpConnection.cpp:257
 msgid "Endless redirection loop (%1%)"
@@ -326,7 +326,7 @@ msgstr "Ändlös omdirgeringsloop (%1%)"
 
 #: ../HttpConnection.cpp:301
 msgid "Too much data in response body (%1%)"
-msgstr ""
+msgstr "För mycket data i response body (%1%)"
 
 #: ../MappingManager.cpp:44
 msgid "No UPnP implementation available"
@@ -417,7 +417,7 @@ msgstr "GiB"
 msgid "Denied to send file"
 msgstr "Nekad till att skicka fil"
 
-#: ../PerFolderLimit.cpp:90 ../SettingsManager.cpp:618
+#: ../PerFolderLimit.cpp:90 ../SettingsManager.cpp:619
 msgid " to "
 msgstr "till"
 
@@ -566,31 +566,31 @@ msgstr "Sök är aktivt igen"
 msgid "Search disabled: %1%"
 msgstr "Sökning inaktiverad: %1%"
 
-#: ../SettingsManager.cpp:187
+#: ../SettingsManager.cpp:188
 msgid "downloaded from"
 msgstr "nedladdat från"
 
-#: ../SettingsManager.cpp:527
+#: ../SettingsManager.cpp:528
 msgid "Invalid search type name"
 msgstr "Ogiltig söktyp"
 
-#: ../SettingsManager.cpp:531 ../SettingsManager.cpp:553
+#: ../SettingsManager.cpp:532 ../SettingsManager.cpp:554
 msgid "This search type already exists"
 msgstr "Denna söktyp finns redan"
 
-#: ../SettingsManager.cpp:585
+#: ../SettingsManager.cpp:586
 msgid "No such search type"
 msgstr "Söktypen finns inte"
 
-#: ../SettingsManager.cpp:613 ../SettingsManager.cpp:618
+#: ../SettingsManager.cpp:614 ../SettingsManager.cpp:619
 msgid "Error: setting not found!"
 msgstr "Fel: inställning finns inte!"
 
-#: ../SettingsManager.cpp:613
+#: ../SettingsManager.cpp:614
 msgid "Core setting "
 msgstr "Inställning"
 
-#: ../SettingsManager.cpp:618
+#: ../SettingsManager.cpp:619
 msgid "Change core setting "
 msgstr "Ändra huvudinställning"
 
@@ -784,15 +784,12 @@ msgstr "Fler bytes skrivna än begärt"
 
 #: ../../dht/BootstrapManager.cpp:50
 msgid "DHT bootstrapping started"
-msgstr ""
+msgstr "DHT bootstrapping startad"
 
 #: ../../dht/BootstrapManager.cpp:113
 msgid "DHT bootstrapping is finished successfully."
-msgstr ""
+msgstr "DHT bootstrapping är klar."
 
 #: ../../dht/BootstrapManager.cpp:117 ../../dht/BootstrapManager.cpp:124
 msgid "DHT bootstrap error: "
-msgstr ""
-
-#~ msgid "%1% (%2%)"
-#~ msgstr "%1% (%2%)"
+msgstr "DHT bootstrap-fel: "
