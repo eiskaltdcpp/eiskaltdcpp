@@ -383,8 +383,13 @@ SearchFrame::SearchFrame(QWidget *parent): QWidget(parent), d_ptr(new SearchFram
         d->client_list.push_back(client);
     }
 
+#if defined(USE_PROGRESS_BARS)
+    progressBar->show();
+    progressIndicator->hide();
+#else
     progressBar->hide();
     progressIndicator->show();
+#endif
 
     d->str_model->setStringList(d->hubs);
 
