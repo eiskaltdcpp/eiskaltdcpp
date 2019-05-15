@@ -138,7 +138,11 @@ CopyFinalResults()
         DIR_IN="${MAIN_DIR}/build-${PROJECT_DIR_NAME}/${TARGET}-out/usr"
         if [ "${TARGET}" = "i686-w64-mingw32.shared" ] ; then
             DIR_OUT="${ARCHIVE_DIR_NAME}_x86"
+        elif [ "${TARGET}" = "i686-w64-mingw32.static" ] ; then
+            DIR_OUT="${ARCHIVE_DIR_NAME}_x86"
         elif [ "${TARGET}" = "x86_64-w64-mingw32.shared" ] ; then
+            DIR_OUT="${ARCHIVE_DIR_NAME}_x86_64"
+        elif [ "${TARGET}" = "x86_64-w64-mingw32.static" ] ; then
             DIR_OUT="${ARCHIVE_DIR_NAME}_x86_64"
         else
             continue
