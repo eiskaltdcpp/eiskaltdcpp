@@ -5,6 +5,7 @@
 * Huge amount of improvements for macOS.
 * Huge amount of improvements for Haiku.
 * Added official support of Debian GNU/Hurd.
+* Rewritten build scripts for MS Windows.
 * Updated list of hub list servers (with most popular public hubs).
 * Removed Coral CDN support, since it's stopped running.
 * Enable DHT by default. (Affects only new users.) In case you need you may
