@@ -302,31 +302,34 @@ FreeBSD specific notes
 *******************************************************************************
 # If you use GCC, specific configuration options are not required. But if you
 # use clang, try something like this:
-mkdir -p builddir && cd builddir
-cmake -DCMAKE_C_COMPILER=/usr/bin/clang -DCMAKE_CXX_COMPILER=/usr/bin/clang++ -DCMAKE_CXX_FLAGS='-I/opt/local/include -stdlib=libc++' -DNO_UI_DAEMON=ON -DXMLRPC_DAEMON=ON -DJSONRPC_DAEMON=ON -DUSE_QT=ON ..
-make
+mkdir -p builddir
+cd builddir
+cmake .. \
+      -DCMAKE_C_COMPILER=/usr/bin/clang -DCMAKE_CXX_COMPILER=/usr/bin/clang++ \
+      -DCMAKE_CXX_FLAGS='-I/opt/local/include -stdlib=libc++' \
+      -DNO_UI_DAEMON=ON -DXMLRPC_DAEMON=ON -DJSONRPC_DAEMON=ON -DUSE_QT=ON
+make -j4
 sudo make install
 
 
 *******************************************************************************
 macOS specific notes
 *******************************************************************************
-Examples of build scripts:
-macosx/build-universal-binary.sh (outdated)
-macosx/build-for-personal-use.sh (outdated)
-macosx/build-using-homebrew.sh (recommended)
+Example of build script:
+macosx/build-using-homebrew.sh
 
 
 *******************************************************************************
 MS Windows specific notes
 *******************************************************************************
-Instructions are available in the file: windows/READ_ME.txt
+Examples of build script are available in windows/ subdirectory.
+Do not forget to read notes in windows/READ_ME.txt file.
 
 
 *******************************************************************************
 Haiku specific notes
 *******************************************************************************
-To configure program use command like this:
+Example of configuration options:
 cmake .. \
     -DCMAKE_INSTALL_PREFIX=/boot/apps/Eiskaltdcpp \
     -DSHARE_DIR=/boot/apps/Eiskaltdcpp \
@@ -334,6 +337,6 @@ cmake .. \
     -DFORCE_XDG=OFF \
     -DHAIKU_PKG=ON
 
-Full build rules for Haiku you may see in recipe from official package:
+Full build rules for Haiku you may see in recipe of official package:
 https://github.com/haikuports/haikuports/tree/master/net-p2p/eiskaltdcpp
 
