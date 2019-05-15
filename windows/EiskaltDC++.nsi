@@ -82,17 +82,9 @@ FunctionEnd
 
 Name "${PRODUCT_NAME}"
 !ifdef arch_x86
-    !ifdef shared
-        OutFile "EiskaltDC++-${PRODUCT_DISPLAY_VERSION}-x86-installer.exe"
-    !else
-        OutFile "EiskaltDC++-${PRODUCT_DISPLAY_VERSION}-x86-static-installer.exe"
-    !endif
+    OutFile "EiskaltDC++-${PRODUCT_DISPLAY_VERSION}-x86-installer.exe"
 !else
-    !ifdef shared
-        OutFile "EiskaltDC++-${PRODUCT_DISPLAY_VERSION}-x86_64-installer.exe"
-    !else
-        OutFile "EiskaltDC++-${PRODUCT_DISPLAY_VERSION}-x86_64-static-installer.exe"
-    !endif
+    OutFile "EiskaltDC++-${PRODUCT_DISPLAY_VERSION}-x86_64-installer.exe"
 !endif
 InstallDir "${PRODUCT_INSTALL_DIR}"
 ShowInstDetails show
@@ -137,7 +129,7 @@ Section "Start Menu Shortcuts"
         CreateShortCut  "$SMPROGRAMS\EiskaltDC++\Uninstall.lnk"   "$INSTDIR\uninstall.exe"
     !else
         CreateDirectory "$SMPROGRAMS\EiskaltDC++ (x64)"
-        CreateShortCut  "$SMPROGRAMS\EiskaltDC++ (x64)\EiskaltDC++64.lnk" "$INSTDIR\EiskaltDC++.exe"
+        CreateShortCut  "$SMPROGRAMS\EiskaltDC++ (x64)\EiskaltDC++.lnk" "$INSTDIR\EiskaltDC++.exe"
         CreateShortCut  "$SMPROGRAMS\EiskaltDC++ (x64)\Uninstall.lnk"   "$INSTDIR\uninstall.exe"
     !endif
 SectionEnd
