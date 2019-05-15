@@ -1,24 +1,29 @@
 !include MUI2.nsh
 
 !if ${static} == 32
-  !define arch_x86
+    !define arch_x86
 !endif
 
 !if ${shared} == 32
-  !define arch_x86
+    !define arch_x86
 !endif
 
-!define PRODUCT_DISPLAY_VERSION      "2.4.0"
+!ifdef version
+    !define PRODUCT_DISPLAY_VERSION  "${version}"
+!else
+    !define PRODUCT_DISPLAY_VERSION  "X.Y.Z"
+!endif
+
 !define PRODUCT_PUBLISHER            "EiskaltDC++"
 !define PRODUCT_WEB_SITE             "https://github.com/eiskaltdcpp/eiskaltdcpp"
 !ifdef arch_x86
-  !define PRODUCT_INSTALL_DIR        "$PROGRAMFILES\EiskaltDC++"
-  !define PRODUCT_NAME               "EiskaltDC++ ${PRODUCT_DISPLAY_VERSION}"
-  !define PRODUCT_UNINST_KEY         "Software\Microsoft\Windows\CurrentVersion\Uninstall\EiskaltDC++"
+    !define PRODUCT_INSTALL_DIR      "$PROGRAMFILES\EiskaltDC++"
+    !define PRODUCT_NAME             "EiskaltDC++ ${PRODUCT_DISPLAY_VERSION} (32-bit)"
+    !define PRODUCT_UNINST_KEY       "Software\Microsoft\Windows\CurrentVersion\Uninstall\EiskaltDC++"
 !else
-  !define PRODUCT_INSTALL_DIR        "$PROGRAMFILES64\EiskaltDC++"
-  !define PRODUCT_NAME               "EiskaltDC++ ${PRODUCT_DISPLAY_VERSION} (64)"
-  !define PRODUCT_UNINST_KEY         "Software\Microsoft\Windows\CurrentVersion\Uninstall\EiskaltDC++64"
+    !define PRODUCT_INSTALL_DIR      "$PROGRAMFILES64\EiskaltDC++"
+    !define PRODUCT_NAME             "EiskaltDC++ ${PRODUCT_DISPLAY_VERSION} (64-bit)"
+    !define PRODUCT_UNINST_KEY       "Software\Microsoft\Windows\CurrentVersion\Uninstall\EiskaltDC++64"
 !endif
 !define PRODUCT_UNINST_ROOT_KEY      "HKLM"
 !define MUI_ICON                     "installer\eiskaltdcpp.ico"
@@ -68,25 +73,26 @@ SetCompressor /SOLID lzma
 !insertmacro MUI_LANGUAGE "Swedish"
 !insertmacro MUI_LANGUAGE "Turkish"
 !insertmacro MUI_LANGUAGE "Ukrainian"
+;!insertmacro MUI_LANGUAGE "Chinese (China)"
 ;!insertmacro MUI_LANGUAGE "Vietnamese"
 !insertmacro MUI_RESERVEFILE_LANGDLL
 Function .onInit
-  !insertmacro MUI_LANGDLL_DISPLAY
+    !insertmacro MUI_LANGDLL_DISPLAY
 FunctionEnd
 
 Name "${PRODUCT_NAME}"
 !ifdef arch_x86
-  !ifdef shared
-    OutFile "EiskaltDC++-${PRODUCT_DISPLAY_VERSION}-x86.exe"
-  !else
-    OutFile "EiskaltDC++-${PRODUCT_DISPLAY_VERSION}-x86-static.exe"
-  !endif
+    !ifdef shared
+        OutFile "EiskaltDC++-${PRODUCT_DISPLAY_VERSION}-x86-installer.exe"
+    !else
+        OutFile "EiskaltDC++-${PRODUCT_DISPLAY_VERSION}-x86-static-installer.exe"
+    !endif
 !else
-  !ifdef shared
-    OutFile "EiskaltDC++-${PRODUCT_DISPLAY_VERSION}-x86_64.exe"
-  !else
-    OutFile "EiskaltDC++-${PRODUCT_DISPLAY_VERSION}-x86_64-static.exe"
-  !endif
+    !ifdef shared
+        OutFile "EiskaltDC++-${PRODUCT_DISPLAY_VERSION}-x86_64-installer.exe"
+    !else
+        OutFile "EiskaltDC++-${PRODUCT_DISPLAY_VERSION}-x86_64-static-installer.exe"
+    !endif
 !endif
 InstallDir "${PRODUCT_INSTALL_DIR}"
 ShowInstDetails show
@@ -94,102 +100,56 @@ ShowUnInstDetails show
 RequestExecutionLevel admin
 
 ;Function RunEiskaltDC++
-;  ShellExecAsUser::ShellExecAsUser "" "$INSTDIR/eiskaltdcpp-qt.exe" ""
+;  ShellExecAsUser::ShellExecAsUser "" "$INSTDIR/EiskaltDC++.exe" ""
 ;FunctionEnd
 
 Section "EiskaltDC++"
-  SetOutPath $INSTDIR
-  File "installer\eiskaltdcpp-qt.exe"
-  File "installer\eiskaltdcpp-daemon.exe"
-  File "installer\eiskaltdcpp-cli-jsonrpc"
-  File "installer\cli-jsonrpc-config.pl"
-  File "installer\dcppboot.xml"
+    SetOutPath $INSTDIR
+    File "installer\EiskaltDC++.exe"
+    File "installer\eiskaltdcpp-daemon.exe"
+    File "installer\dcppboot.xml"
+
+    File /r "installer\docs"
+    File /r "installer\resources"
+    File /r "installer\web-ui"
 
 !ifdef shared
-  ;File "installer\qt.conf"
-  File "installer\Qt5Concurrent.dll"
-  File "installer\Qt5Core.dll"
-  ;File "installer\Qt5Declarative.dll"
-  File "installer\Qt5Gui.dll"
-  File "installer\Qt5Multimedia.dll"
-  File "installer\Qt5Network.dll"
-  ;File "installer\Qt5Script.dll"
-  File "installer\Qt5Sql.dll"
-  File "installer\Qt5Widgets.dll"
-  File "installer\Qt5Xml.dll"
-  ;File "installer\Qt5XmlPatterns.dll"
-  File "installer\libaspell-15.dll"
-  File "installer\libboost_system-mt.dll"
-  File "installer\libbz2.dll"
-  File "installer\libeay32.dll"
-  File "installer\libfreetype-6.dll"
-  ;File "installer\libgcc_s_dw2-1.dll"
-  !ifdef arch_x86
-    File "installer\libgcc_s_sjlj-1.dll"
-  !else
-    File "installer\libgcc_s_seh-1.dll"
-  !endif
-  File "installer\libglib-2.0-0.dll"
-  File "installer\libharfbuzz-0.dll"
-  File "installer\libiconv-2.dll"
-  File "installer\libidn-11.dll"
-  File "installer\libintl-8.dll"
-  File "installer\libjsoncpp.dll"
-  File "installer\lua53.dll"
-  File "installer\libminiupnpc.dll"
-  File "installer\libpcre2-16-0.dll"
-  File "installer\libpcre-1.dll"
-  File "installer\libpcrecpp-0.dll"
-  File "installer\libpng16-16.dll"
-  File "installer\libsqlite3-0.dll"
-  File "installer\libstdc++-6.dll"
-  ;File "installer\libwinpthread-1.dll"
-  File "installer\ssleay32.dll"
-  File "installer\zlib1.dll"
+    File "installer\qt.conf"
+    File "installer\*.dll"
 
-  SetOutPath "$INSTDIR\audio"
-  File "/oname=qtaudio_windows.dll" "installer\audio\qtaudio_windows.dll"
-  SetOutPath "$INSTDIR\platforms"
-  File "/oname=qwindows.dll" "installer\platforms\qwindows.dll"
-  SetOutPath "$INSTDIR\sqldrivers"
-  File "/oname=qsqlite.dll" "installer\sqldrivers\qsqlite.dll"
+    File /r "installer\plugins"
 !endif
 
-  SetOutPath $INSTDIR
-  File /r "installer\aspell"
-  ;File /r "installer\plugins"
-  File /r "installer\resources"
-
-  WriteUninstaller "$INSTDIR\uninstall.exe"
-  WriteRegStr   ${PRODUCT_UNINST_ROOT_KEY} ${PRODUCT_UNINST_KEY} "DisplayName"     "${PRODUCT_NAME}"
-  WriteRegStr   ${PRODUCT_UNINST_ROOT_KEY} ${PRODUCT_UNINST_KEY} "DisplayIcon"     "$INSTDIR\eiskaltdcpp-qt.exe"
-  WriteRegStr   ${PRODUCT_UNINST_ROOT_KEY} ${PRODUCT_UNINST_KEY} "UninstallString" "$INSTDIR\uninstall.exe"
-  WriteRegStr   ${PRODUCT_UNINST_ROOT_KEY} ${PRODUCT_UNINST_KEY} "DisplayVersion"  "${PRODUCT_DISPLAY_VERSION}"
-  WriteRegStr   ${PRODUCT_UNINST_ROOT_KEY} ${PRODUCT_UNINST_KEY} "URLInfoAbout"    "${PRODUCT_WEB_SITE}"
-  WriteRegStr   ${PRODUCT_UNINST_ROOT_KEY} ${PRODUCT_UNINST_KEY} "Publisher"       "${PRODUCT_PUBLISHER}"
+    WriteUninstaller "$INSTDIR\uninstall.exe"
+    WriteRegStr   ${PRODUCT_UNINST_ROOT_KEY} ${PRODUCT_UNINST_KEY} "DisplayName"     "${PRODUCT_NAME}"
+    WriteRegStr   ${PRODUCT_UNINST_ROOT_KEY} ${PRODUCT_UNINST_KEY} "DisplayIcon"     "$INSTDIR\EiskaltDC++.exe"
+    WriteRegStr   ${PRODUCT_UNINST_ROOT_KEY} ${PRODUCT_UNINST_KEY} "UninstallString" "$INSTDIR\uninstall.exe"
+    WriteRegStr   ${PRODUCT_UNINST_ROOT_KEY} ${PRODUCT_UNINST_KEY} "DisplayVersion"  "${PRODUCT_DISPLAY_VERSION}"
+    WriteRegStr   ${PRODUCT_UNINST_ROOT_KEY} ${PRODUCT_UNINST_KEY} "URLInfoAbout"    "${PRODUCT_WEB_SITE}"
+    WriteRegStr   ${PRODUCT_UNINST_ROOT_KEY} ${PRODUCT_UNINST_KEY} "Publisher"       "${PRODUCT_PUBLISHER}"
 SectionEnd
 
 Section "Start Menu Shortcuts"
-  SetShellVarContext all
-  !ifdef arch_x86
-    CreateDirectory "$SMPROGRAMS\EiskaltDC++"
-    CreateShortCut  "$SMPROGRAMS\EiskaltDC++\EiskaltDC++.lnk" "$INSTDIR\eiskaltdcpp-qt.exe"
-    CreateShortCut  "$SMPROGRAMS\EiskaltDC++\Uninstall.lnk"   "$INSTDIR\uninstall.exe"
-  !else
-    CreateDirectory "$SMPROGRAMS\EiskaltDC++ (64)"
-    CreateShortCut  "$SMPROGRAMS\EiskaltDC++ (64)\EiskaltDC++ (64).lnk" "$INSTDIR\eiskaltdcpp-qt.exe"
-    CreateShortCut  "$SMPROGRAMS\EiskaltDC++ (64)\Uninstall.lnk"   "$INSTDIR\uninstall.exe"
-  !endif
+    SetShellVarContext all
+    !ifdef arch_x86
+        CreateDirectory "$SMPROGRAMS\EiskaltDC++"
+        CreateShortCut  "$SMPROGRAMS\EiskaltDC++\EiskaltDC++.lnk" "$INSTDIR\EiskaltDC++.exe"
+        CreateShortCut  "$SMPROGRAMS\EiskaltDC++\Uninstall.lnk"   "$INSTDIR\uninstall.exe"
+    !else
+        CreateDirectory "$SMPROGRAMS\EiskaltDC++ (x64)"
+        CreateShortCut  "$SMPROGRAMS\EiskaltDC++ (x64)\EiskaltDC++64.lnk" "$INSTDIR\EiskaltDC++.exe"
+        CreateShortCut  "$SMPROGRAMS\EiskaltDC++ (x64)\Uninstall.lnk"   "$INSTDIR\uninstall.exe"
+    !endif
 SectionEnd
 
 Section "Uninstall"
-  SetShellVarContext all
-  !ifdef arch_x86
-    RMDir /r "$SMPROGRAMS\EiskaltDC++"
-  !else
-    RMDir /r "$SMPROGRAMS\EiskaltDC++ (64)"
-  !endif
-  RMDir /r "$INSTDIR"
-  DeleteRegKey ${PRODUCT_UNINST_ROOT_KEY} ${PRODUCT_UNINST_KEY}
+    SetShellVarContext all
+    !ifdef arch_x86
+        RMDir /r "$SMPROGRAMS\EiskaltDC++"
+    !else
+        RMDir /r "$SMPROGRAMS\EiskaltDC++ (x64)"
+    !endif
+    RMDir /r "$INSTDIR"
+    DeleteRegKey ${PRODUCT_UNINST_ROOT_KEY} ${PRODUCT_UNINST_KEY}
 SectionEnd
 

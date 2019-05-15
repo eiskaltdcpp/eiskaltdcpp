@@ -3,7 +3,7 @@
 # Author:  Boris Pek <tehnick-8@yandex.ru>
 # License: MIT (Expat)
 # Created: 2019-04-01
-# Updated: 2019-05-01
+# Updated: 2019-05-16
 # Version: N/A
 #
 # Dependencies:
@@ -158,12 +158,67 @@ CompressDirs()
     [ -z "${ARCHIVER_OPTIONS}" ] && return 1
 
     cd "${MAIN_DIR}"
-    rm -f ${ARCHIVE_DIR_NAME}*.7z
+    rm -f ${ARCHIVE_DIR_NAME}*-portable.7z
     for DIR in ${ARCHIVE_DIR_NAME}* ; do
         [ ! -d "${DIR}" ] && continue
 
         echo "Creating archive: ${DIR}-portable.7z"
         7z ${ARCHIVER_OPTIONS} "${DIR}-portable.7z" "${DIR}" > /dev/null
     done
+}
+
+MakeInstallers()
+{
+    [ -z "${MAIN_DIR}" ] && return 1
+    [ -z "${BUILD_TARGETS}" ] && return 1
+    [ -z "${VERSION}" ] && return 1
+
+    cd "${MAIN_DIR}"
+    for TARGET in ${BUILD_TARGETS} ; do
+        WORK_DIR="${MAIN_DIR}/build-${PROJECT_DIR_NAME}/${TARGET}-out"
+        cd "${WORK_DIR}"
+        rm -rf installer *.exe EiskaltDC++.nsi
+        cp -af "${MAIN_DIR}/${PROJECT_DIR_NAME}/windows/EiskaltDC++.nsi" ./
+
+        mkdir "installer"
+        rsync -a "usr/" "installer/" > /dev/null
+        cp -a "${MAIN_DIR}/${PROJECT_DIR_NAME}/windows/dcppboot.xml" \
+              "installer/"
+
+        cp -a "${MAIN_DIR}/${PROJECT_DIR_NAME}/data/icons/eiskaltdcpp.ico" \
+              "installer/"
+        cp -a "${MAIN_DIR}/${PROJECT_DIR_NAME}/data/icons/icon_164x314.bmp" \
+              "installer/"
+        cp -a "${MAIN_DIR}/${PROJECT_DIR_NAME}/LICENSE" \
+              "installer/"
+
+        if [ "${TARGET}" = "i686-w64-mingw32.shared" ] ; then
+            makensis -Dversion=${VERSION} -Dshared=32 \
+                     ./EiskaltDC++.nsi > /dev/null
+        elif [ "${TARGET}" = "i686-w64-mingw32.static" ] ; then
+            makensis -Dversion=${VERSION} -Dstatic=32 \
+                     ./EiskaltDC++.nsi > /dev/null
+        elif [ "${TARGET}" = "x86_64-w64-mingw32.shared" ] ; then
+            makensis -Dversion=${VERSION} -Dshared=64 \
+                     ./EiskaltDC++.nsi > /dev/null
+        elif [ "${TARGET}" = "x86_64-w64-mingw32.static" ] ; then
+            makensis -Dversion=${VERSION} -Dstatic=64 \
+                     ./EiskaltDC++.nsi > /dev/null
+        else
+            continue
+        fi
+    done
+}
+
+MoveInstallers()
+{
+    [ -z "${MAIN_DIR}" ] && return 1
+    [ -z "${ARCHIVE_DIR_NAME}" ] && return 1
+
+    cd "${MAIN_DIR}"
+    rm -f ${ARCHIVE_DIR_NAME}*-installer.exe
+
+    cd "${MAIN_DIR}/build-${PROJECT_DIR_NAME}"
+    mv */*-installer.exe "${MAIN_DIR}/"
 }
 
