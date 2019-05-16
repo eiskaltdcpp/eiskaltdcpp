@@ -12,9 +12,9 @@ This program is licensed under the GNU General Public License. See the [COPYING]
 
 ## Description
 
-EiskaltDC++ is a cross-platform program that uses the [Direct Connect](https://en.wikipedia.org/wiki/Direct_Connect_\(protocol\)) (DC) and [Advanced Direct Connect](https://en.wikipedia.org/wiki/Advanced_Direct_Connect) (ADC) protocols. It is compatible with DC++, FlylinkDC++, LinuxDC++ and other DC clients. EiskaltDC++ also interoperates with all common DC hub software.
+EiskaltDC++ is a cross-platform program that uses the [Direct Connect](https://en.wikipedia.org/wiki/Direct_Connect_\(protocol\)) (DC aka NMDC) and [Advanced Direct Connect](https://en.wikipedia.org/wiki/Advanced_Direct_Connect) (ADC) protocols. It is compatible with DC++, FlylinkDC++, LinuxDC++ and other DC clients. EiskaltDC++ also interoperates with all common DC hub software.
 
-Currently supported systems (in order of decreasing importance): GNU/Linux, macOS, MS Windows, FreeBSD, GNU/Hurd and Haiku.
+Currently supported systems (in order of decreasing importance): GNU/Linux, macOS, MS Windows, FreeBSD, Haiku and GNU/Hurd.
 
 Currently supported features (not full list):
 
@@ -59,18 +59,13 @@ EiskaltDC++ is designed mostly for experienced users who know how DC works which
 
 Here are small recommendations for initial configuration after first launch of program:
 
-1. Open Preferences dialog.
-2. Set nickname and default encoding for DC hubs (for example, WINDOWS-1251 for Russian hubs).
-3. Set type of incoming connections (active mode, firewall with UPnP or passive mode).
-4. Set downloads directory.
-5. Apply settings and close Preferences dialog.
-6. Open Public Hubs widget.
-7. Connect to few popular public hubs (you may sort list by amount of users or by total amount of shared data).
-8. Open Search widget and try to search any popular file.
-9. Add few hubs to list of Favourite hubs and enable auto connect on program startup for them.
-10. Program settings will be saved on program exit.
+1. Open Preferences dialog and set nickname (it is important), default encoding for DC hubs (for example, WINDOWS-1251 for Russian hubs), type of incoming connections (active mode, firewall with UPnP or passive mode) and downloads directory.
+2. Open Public Hubs widget and connect to few popular public hubs (you may sort list by amount of users or by total amount of shared data).
+3. Open Search widget and try to search any popular file. (Do not forget to use spaces as words separator.)
+4. Add few hubs to list of Favourite hubs and enable auto connect on program startup for them.
+5. Program settings will be saved on program exit.
 
-All programs (`eiskaltdcpp-qt`, `eiskaltdcpp-gtk` and `eiskaltdcpp-daemon`) use the same common settings. So once you have correctly configured connections in EiskaltDC++ Qt, for example, you may launch `eiskaltdcpp-daemon` and use Web UI for ruling it.
+All programs from EiskaltDC++ project (`eiskaltdcpp-qt`, `eiskaltdcpp-gtk` and `eiskaltdcpp-daemon`) use the same common settings. So once you have correctly configured connections in EiskaltDC++ Qt, for example, you may launch `eiskaltdcpp-daemon` and use Web UI for ruling it (search files, add them to downloads queue, etc.).
 
 ## Development
 
