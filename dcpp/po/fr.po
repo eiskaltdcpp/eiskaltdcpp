@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://github.com/eiskaltdcpp/eiskaltdcpp/issues\n"
-"POT-Creation-Date: 2019-05-07 01:10+0300\n"
+"POT-Creation-Date: 2019-05-17 01:23+0300\n"
 "PO-Revision-Date: 2017-06-18 13:35+0000\n"
 "Last-Translator: Alexandre Wallimann <adressalacon@gmail.com>, 2019\n"
 "Language-Team: French (https://www.transifex.com/tehnick/teams/11818/fr/)\n"
@@ -24,7 +24,7 @@ msgstr ""
 
 #: ../ADLSearch.cpp:40
 msgid "<Enter string>"
-msgstr "<Entrez chaîne>"
+msgstr "<Enter string>"
 
 #: ../ADLSearch.cpp:444
 msgid "Discard"
@@ -314,9 +314,8 @@ msgid "Error hashing %1%: %2%"
 msgstr "Erreur lors du scan de %1% : %2%"
 
 #: ../HttpConnection.cpp:218
-#, fuzzy
 msgid "Transfer-encoding error (%1%)"
-msgstr "Port de transfert (%1% TCP)"
+msgstr "Erreur d'encodage-transfert (%1%)"
 
 #: ../HttpConnection.cpp:257
 msgid "Endless redirection loop (%1%)"
@@ -324,7 +323,7 @@ msgstr "Redirection loop sans fin (%1%)"
 
 #: ../HttpConnection.cpp:301
 msgid "Too much data in response body (%1%)"
-msgstr ""
+msgstr "Trop de donnée dans le corps de réponse (%1%)"
 
 #: ../MappingManager.cpp:44
 msgid "No UPnP implementation available"
@@ -415,7 +414,7 @@ msgstr "Go"
 msgid "Denied to send file"
 msgstr "Refus d'envoi de fichier"
 
-#: ../PerFolderLimit.cpp:90 ../SettingsManager.cpp:618
+#: ../PerFolderLimit.cpp:90 ../SettingsManager.cpp:619
 msgid " to "
 msgstr "vers"
 
@@ -567,31 +566,31 @@ msgstr "Recherche à nouveau activée"
 msgid "Search disabled: %1%"
 msgstr "Recherche désactivée : %1%"
 
-#: ../SettingsManager.cpp:187
+#: ../SettingsManager.cpp:188
 msgid "downloaded from"
 msgstr "téléchargé depuis"
 
-#: ../SettingsManager.cpp:527
+#: ../SettingsManager.cpp:528
 msgid "Invalid search type name"
 msgstr "Type de nom de recherche invalide"
 
-#: ../SettingsManager.cpp:531 ../SettingsManager.cpp:553
+#: ../SettingsManager.cpp:532 ../SettingsManager.cpp:554
 msgid "This search type already exists"
 msgstr "Cette recherche existe déjà"
 
-#: ../SettingsManager.cpp:585
+#: ../SettingsManager.cpp:586
 msgid "No such search type"
 msgstr "Pas de type de recherche de la sorte"
 
-#: ../SettingsManager.cpp:613 ../SettingsManager.cpp:618
+#: ../SettingsManager.cpp:614 ../SettingsManager.cpp:619
 msgid "Error: setting not found!"
 msgstr "Erreur: paramètre absent !"
 
-#: ../SettingsManager.cpp:613
+#: ../SettingsManager.cpp:614
 msgid "Core setting "
 msgstr "Paramètre Principal"
 
-#: ../SettingsManager.cpp:618
+#: ../SettingsManager.cpp:619
 msgid "Change core setting "
 msgstr "Changer les paramètres principaux"
 
@@ -787,15 +786,12 @@ msgstr "Plus d'octets écris que prévus"
 
 #: ../../dht/BootstrapManager.cpp:50
 msgid "DHT bootstrapping started"
-msgstr ""
+msgstr "Amorçage DHT démarré"
 
 #: ../../dht/BootstrapManager.cpp:113
 msgid "DHT bootstrapping is finished successfully."
-msgstr ""
+msgstr "Amorçage DHT s'est terminé avec succès."
 
 #: ../../dht/BootstrapManager.cpp:117 ../../dht/BootstrapManager.cpp:124
 msgid "DHT bootstrap error: "
-msgstr ""
-
-#~ msgid "%1% (%2%)"
-#~ msgstr "%1% (%2%)"
+msgstr "Erreur d'amorçage DHT:"
