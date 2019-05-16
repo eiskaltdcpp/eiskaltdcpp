@@ -1,7 +1,7 @@
 <h1>EiskaltDC++ &ndash; file sharing using DC and ADC protocols</h1>
 
-<p>Website: https://sourceforge.net/projects/eiskaltdcpp/ <br>
-Sources: https://github.com/eiskaltdcpp/eiskaltdcpp</p>
+<p>Website: <a href="https://sourceforge.net/projects/eiskaltdcpp/">https://sourceforge.net/projects/eiskaltdcpp</a> <br>
+Sources: <a href="https://github.com/eiskaltdcpp/eiskaltdcpp">https://github.com/eiskaltdcpp/eiskaltdcpp</a></p>
 
 <p>Public chat room: https://gitter.im/eiskaltdcpp/eiskaltdcpp <br>
 Wiki: https://github.com/eiskaltdcpp/eiskaltdcpp/wiki</p>
@@ -23,6 +23,10 @@ Wiki: https://github.com/eiskaltdcpp/eiskaltdcpp/wiki</p>
 <li>2</li>
 <li>3</li>
 </ul>
+
+<p><a href="https://tehnick.github.io/eiskaltdcpp/eiskaltdcpp-qt-2.2.10-588_search_widget.png" title="Example of search results">
+    <img src="https://tehnick.github.io/eiskaltdcpp/eiskaltdcpp-qt-2.2.10-588_search_widget.png" width="99%">
+</a></p>
 
 <h2>Versions history</h2>
 
@@ -50,6 +54,27 @@ pkgman install eiskaltdcpp
 
 <p>MS Windows users may download official installers and portable builds from SourceForge (see links below). Program doesn't have embedded mechanism of updates, so users should monitor updates themselves.</p>
 
+<h2>Usage</h2>
+
+<p>EiskaltDC++ is designed mostly for experienced users who know how DC works which settings should be used with their type of network connection, etc.. This short introduction is not intended to describe such basic things.</p>
+
+<p>Here are small recommendations for initial configuration after first launch of program:</p>
+
+<ol>
+<li>Open Preferences dialog.</li>
+<li>Set nickname and default encoding for DC hubs (for example, WINDOWS-1251 for Russian hubs).</li>
+<li>Set type of incoming connections (active mode, firewall with UPnP or passive mode).</li>
+<li>Set downloads directory.</li>
+<li>Apply settings and close Preferences dialog.</li>
+<li>Open Public Hubs widget.</li>
+<li>Connect to few popular public hubs (you may sort list by amount of users or by total amount of shared data).</li>
+<li>Open Search widget and try to search any popular file.</li>
+<li>Add few hubs to list of Favourite hubs and enable auto connect on program startup for them.</li>
+<li>Program settings will be saved on program exit.</li>
+</ol>
+
+<p>All programs (<code>eiskaltdcpp-qt</code>, <code>eiskaltdcpp-gtk</code> and <code>eiskaltdcpp-daemon</code>) use the same common settings. So once you have correctly configured connections in EiskaltDC++ Qt, for example, you may launch <code>eiskaltdcpp-daemon</code> and use Web UI for ruling it.</p>
+
 <h2>Development</h2>
 
 <p>During the development EiskaltDC++ in past years we have used different CVS (Subversion first and then Git) and different development models. Currently the process looks like this:</p>
@@ -59,7 +84,7 @@ pkgman install eiskaltdcpp
 <li>Change log file should be updated together with changes in source code. It may be done in a same git commit or in a separate git commit depending on situation. Just use common sense for this. (There were no rule of updating change log in the past which leads to significant delaying of stable releases.)</li>
 <li>Once the changes from <code>work</code> branch are ready for usage and build of program is tested for most important systems (Linux, macOS, Windows) they may be merged to <code>master</code> branch.</li>
 <li>Daily builds of program for testers, active users and just curious people should be done from git <code>master</code> branch.</li>
-<li>Version scheme for builds from git snapshots should look like: <code>&lt;major&gt;.&lt;minor&gt;.&lt;patch&gt;-&lt;commits&gt;-&lt;hash&gt;</code> (where <code>&lt;major&gt;</code>, <code>&lt;minor&gt;</code> and <code>&lt;patch&gt;</code> are not digits but numbers). <code>&lt;major&gt;.&lt;minor&gt;.&lt;patch&gt;</code> is last git tag (for stable release), <code>&lt;commits&gt;</code> &ndash; the number of commits since last git tag and <code>&lt;hash&gt;</code> &ndash; short hash of current git commit.</li>
+<li>Version scheme for builds from git snapshots should look like: <code>&lt;major&gt;.&lt;minor&gt;.&lt;patch&gt;-&lt;commits&gt;-g&lt;hash&gt;</code> (where <code>&lt;major&gt;</code>, <code>&lt;minor&gt;</code> and <code>&lt;patch&gt;</code> are not digits but numbers). <code>&lt;major&gt;.&lt;minor&gt;.&lt;patch&gt;</code> is last git tag (for stable release), <code>&lt;commits&gt;</code> &ndash; the number of commits since last git tag and <code>&lt;hash&gt;</code> &ndash; short hash of current git commit.</li>
 <li>Once there is noticeable amount of changes since last stable release or if there are very important bug fixes which should be quickly delivered to users new git tag (<code>v&lt;major&gt;.&lt;minor&gt;.&lt;patch&gt;</code>) is created and tarballs with sources are uploaded to SourceForge.</li>
 <li>There is no strict limitation of type of changes suitable for new releases: even "minor" or "patch" version may contain new features and significant changes in GUI.</li>
 <li>In case of noticeable changes in Core of program (library libeiskaltdcpp) the <code>&lt;major&gt;</code> part of program version should be changed.</li>
@@ -142,8 +167,8 @@ pkgman install eiskaltdcpp
 <li><a href="https://www.freshports.org/search.php?query=eiskaltdcpp">Official packages in FreeBSD</a></li>
 <li><a href="https://software.opensuse.org/package/eiskaltdcpp">Packages for openSUSE</a> (official and unofficial)</li>
 <li><a href="https://aur.archlinux.org/packages.php?K=eiskaltdcpp">Packages for Arch Linux</a> (in AUR)</li>
-<li><a href="https://pkgs.org/download/eiskaltdcpp">Packages for different Linux distros</a> (small aggregator of links)</li>
 <li><a href="https://repology.org/metapackage/eiskaltdcpp/versions">Packages for different Linux distros</a> (the best aggregator of links)</li>
+<li><a href="https://pkgs.org/download/eiskaltdcpp">Packages for different Linux distros</a> (alternative aggregator of links)</li>
 <li><a href="https://notesalexp.org/index-old.html">Unofficial PPA for Debian and Ubuntu</a> (maintained by Alex_P)</li>
 </ul>
 
