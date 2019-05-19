@@ -55,7 +55,7 @@ MS Windows users may download official installers and portable builds from Sourc
 
 ## Usage
 
-EiskaltDC++ is designed mostly for experienced users who know how DC works which settings should be used with their type of network connection, etc.. This short introduction is not intended to describe such basic things.
+EiskaltDC++ is designed mostly for experienced users who know how DC works, which settings should be used with their type of network connection, etc.. This short introduction is not intended to describe such basic things.
 
 Here are small recommendations for initial configuration after first launch of program:
 
