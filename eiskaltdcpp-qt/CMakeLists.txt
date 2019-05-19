@@ -273,27 +273,32 @@ list (APPEND LIBS ${Boost_LIBRARIES} ${ICONV_LIBRARIES})
 if (WIN32)
     if (STATIC)
         if (USE_QT5)
-            add_definitions (-DSTATIC)
             find_library(QT5FontDatabaseSupport Qt5FontDatabaseSupport)
             find_library(QT5EventDispatcherSupport Qt5EventDispatcherSupport)
             find_library(QT5ThemeSupport Qt5ThemeSupport)
+            find_library(QT5AccessibilitySupport Qt5AccessibilitySupport)
+            find_library(QT5WindowsUIAutomationSupport Qt5WindowsUIAutomationSupport)
+            list (INSERT LIBS 0 Qt5::QWindowsVistaStylePlugin)
             list (APPEND LIBS Qt5::QWindowsIntegrationPlugin
                               ${QT5FontDatabaseSupport}
                               ${QT5EventDispatcherSupport}
                               ${QT5ThemeSupport}
+                              ${QT5AccessibilitySupport}
+                              ${QT5WindowsUIAutomationSupport}
                               Qt5::QSQLiteDriverPlugin
                               Qt5::Sql
                               Qt5::QWindowsAudioPlugin
                               Qt5::Multimedia
                               -lpcre16
+                              -lpcre2-16
                               -lharfbuzz
-                              -lglib-2.0
                               -lwinmm
                               -limm32
                               -lsqlite3
                               -ljpeg
                               -lpng
                               -lopengl32
+                              -lwtsapi32
                               -lwinmm
                               -lcrypt32
                               -lstrmiids

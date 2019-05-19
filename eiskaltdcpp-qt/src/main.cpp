@@ -13,8 +13,11 @@
 Q_IMPORT_PLUGIN (QWindowsAudioPlugin);
 Q_IMPORT_PLUGIN (QWindowsIntegrationPlugin);
 Q_IMPORT_PLUGIN (QSQLiteDriverPlugin);
-#endif
-#endif
+#if (QT_VERSION >= QT_VERSION_CHECK(5, 10, 0))
+Q_IMPORT_PLUGIN (QWindowsVistaStylePlugin);
+#endif // QT_VERSION
+#endif // _WIN32
+#endif // STATIC
 
 #include <stdlib.h>
 #include <iostream>
