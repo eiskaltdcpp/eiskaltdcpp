@@ -279,6 +279,9 @@ if (WIN32)
             find_library(QT5AccessibilitySupport Qt5AccessibilitySupport)
             find_library(QT5WindowsUIAutomationSupport Qt5WindowsUIAutomationSupport)
             list (INSERT LIBS 0 Qt5::QWindowsVistaStylePlugin)
+            if (DBUS_NOTIFY)
+                list (APPEND LIBS Qt5::DBus -ldbus-1)
+            endif (DBUS_NOTIFY)
             list (APPEND LIBS Qt5::QWindowsIntegrationPlugin
                               ${QT5FontDatabaseSupport}
                               ${QT5EventDispatcherSupport}
