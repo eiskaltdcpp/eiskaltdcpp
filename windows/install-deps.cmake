@@ -1,6 +1,6 @@
 cmake_minimum_required (VERSION 2.6.3)
 
-if (CMAKE_PREFIX_PATH MATCHES "mxe" AND NOT STATIC)
+if (CMAKE_PREFIX_PATH MATCHES "mxe" AND NOT BUILD_STATIC)
     set (LIBS_TARGET install-dependencies)
     set (COMMON_LIBS_DIR "${CMAKE_PREFIX_PATH}/bin")
     set (QT_LIBS_DIR "${CMAKE_PREFIX_PATH}/qt5/bin")

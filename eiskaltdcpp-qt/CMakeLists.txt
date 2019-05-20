@@ -271,7 +271,7 @@ include_directories (${PROJECT_SOURCE_DIR}
 list (APPEND LIBS ${Boost_LIBRARIES} ${ICONV_LIBRARIES})
 
 if (WIN32)
-    if (STATIC)
+    if (BUILD_STATIC)
         if (USE_QT5)
             find_library(QT5FontDatabaseSupport Qt5FontDatabaseSupport)
             find_library(QT5EventDispatcherSupport Qt5EventDispatcherSupport)
@@ -308,7 +308,7 @@ if (WIN32)
                               -lfreetype
                  )
         endif (USE_QT5)
-    endif (STATIC)
+    endif (BUILD_STATIC)
     if (OPENSSL_MSVC)
         list (APPEND SRCS ../windows/applink.c)
     endif (OPENSSL_MSVC)

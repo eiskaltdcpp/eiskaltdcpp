@@ -7,7 +7,7 @@
 *                                                                         *
 ***************************************************************************/
 
-#ifdef STATIC
+#ifdef BUILD_STATIC
 #ifdef _WIN32
 #include <QtPlugin>
 Q_IMPORT_PLUGIN (QWindowsAudioPlugin);
@@ -17,7 +17,7 @@ Q_IMPORT_PLUGIN (QSQLiteDriverPlugin);
 Q_IMPORT_PLUGIN (QWindowsVistaStylePlugin);
 #endif // QT_VERSION
 #endif // _WIN32
-#endif // STATIC
+#endif // BUILD_STATIC
 
 #include <stdlib.h>
 #include <iostream>

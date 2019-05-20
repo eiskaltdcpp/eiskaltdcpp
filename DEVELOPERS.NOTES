@@ -8,9 +8,7 @@ Extra keys for cmake
 -DUSE_GOLD=ON/OFF (default: OFF)
     Use ld.gold instead ld.bfd
 -DOPENSSL_MSVC=ON/OFF (default: OFF)
-    Use MSVC build openssl (only for Windows)
--DSTATIC=ON/OFF (default: OFF)
-    Static build (only for Windows)
+    Use MSVC build openssl (only for MS Windows)
 -DUPDATE_PO=ON/OFF (default: OFF)
     Update *.po files
 -DCREATE_MO=ON/OFF (default: ON)
@@ -27,7 +25,7 @@ Extra keys for cmake
 -DDEBUG_MONGOOSE=ON/OFF (default: OFF)
     Enable debug output of mongoose library
 .
--DSTATIC=ON/OFF (default: OFF)
-    Static build (only for Windows)
+-DBUILD_STATIC=ON/OFF (default: OFF)
+    Static build (only for MS Windows)
 -DINSTALL_DEPENDENCIES=ON/OFF (default: OFF)
-    Install all necessary libraries and plugins (only for Windows)
+    Install all necessary libraries and plugins (only for MS Windows)
