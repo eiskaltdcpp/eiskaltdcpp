@@ -8,15 +8,19 @@
 ***************************************************************************/
 
 #ifdef BUILD_STATIC
-#ifdef _WIN32
 #include <QtPlugin>
+#if defined(_WIN32)
+#error "????????????????? 222"
 Q_IMPORT_PLUGIN (QWindowsAudioPlugin);
 Q_IMPORT_PLUGIN (QWindowsIntegrationPlugin);
 Q_IMPORT_PLUGIN (QSQLiteDriverPlugin);
 #if (QT_VERSION >= QT_VERSION_CHECK(5, 10, 0))
 Q_IMPORT_PLUGIN (QWindowsVistaStylePlugin);
 #endif // QT_VERSION
-#endif // _WIN32
+#elif defined(__linux) // defined(_WIN32)
+Q_IMPORT_PLUGIN (QXcbIntegrationPlugin);
+//Q_IMPORT_PLUGIN (QSQLiteDriverPlugin);
+#endif // defined(_WIN32)
 #endif // BUILD_STATIC
 
 #include <stdlib.h>
@@ -48,7 +52,7 @@ using namespace std;
 #include "MainWindow.h"
 #include "GlobalTimer.h"
 
-#if defined (__HAIKU__)
+#if defined(__HAIKU__)
 #include "EiskaltApp_haiku.h"
 #elif defined(Q_OS_MAC)
 #include "EiskaltApp_mac.h"

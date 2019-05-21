@@ -71,6 +71,12 @@ list(APPEND LIBS
         ${ICONV_LIBRARIES}
         )
 
+if (BUILD_STATIC)
+    if (UNIX AND NOT APPLE AND NOT HAIKU)
+        list (APPEND LIBS -lssl -lcrypto -lm -ldl)
+    endif (UNIX AND NOT APPLE AND NOT HAIKU)
+endif (BUILD_STATIC)
+
 target_link_libraries (${PROJECT_NAME} dcpp ${LIBS})
 
 if (DEBUG_DAEMON)

@@ -270,45 +270,100 @@ include_directories (${PROJECT_SOURCE_DIR}
                      ${GETTEXT_INCLUDE_DIR})
 list (APPEND LIBS ${Boost_LIBRARIES} ${ICONV_LIBRARIES})
 
+if (BUILD_STATIC AND USE_QT5)
+    if (WIN32)
+        find_library(QT5FontDatabaseSupport Qt5FontDatabaseSupport)
+        find_library(QT5EventDispatcherSupport Qt5EventDispatcherSupport)
+        find_library(QT5ThemeSupport Qt5ThemeSupport)
+        find_library(QT5AccessibilitySupport Qt5AccessibilitySupport)
+        find_library(QT5WindowsUIAutomationSupport Qt5WindowsUIAutomationSupport)
+        list (INSERT LIBS 0 Qt5::QWindowsVistaStylePlugin)
+        if (DBUS_NOTIFY)
+            list (APPEND LIBS Qt5::DBus -ldbus-1)
+        endif (DBUS_NOTIFY)
+        list (APPEND LIBS Qt5::QWindowsIntegrationPlugin
+                          ${QT5FontDatabaseSupport}
+                          ${QT5EventDispatcherSupport}
+                          ${QT5ThemeSupport}
+                          ${QT5AccessibilitySupport}
+                          ${QT5WindowsUIAutomationSupport}
+                          Qt5::QSQLiteDriverPlugin
+                          Qt5::Sql
+                          Qt5::QWindowsAudioPlugin
+                          Qt5::Multimedia
+                          -lpcre16
+                          -lpcre2-16
+                          -lharfbuzz
+                          -lwinmm
+                          -limm32
+                          -lsqlite3
+                          -ljpeg
+                          -lpng
+                          -lopengl32
+                          -lwtsapi32
+                          -lwinmm
+                          -lcrypt32
+                          -lstrmiids
+                          -lfreetype
+             )
+    elseif (UNIX AND NOT APPLE AND NOT HAIKU)
+        add_definitions (-DSQLITE_ENABLE_COLUMN_METADATA=1)
+        find_library(QT5FontDatabaseSupport Qt5FontDatabaseSupport)
+        find_library(QT5EventDispatcherSupport Qt5EventDispatcherSupport)
+        find_library(QT5ThemeSupport Qt5ThemeSupport)
+        find_library(QT5ServiceSupport Qt5ServiceSupport)
+        find_library(QT5AccessibilitySupport Qt5AccessibilitySupport)
+        find_library(QT5EdidSupport Qt5EdidSupport)
+        find_library(XcbStatic xcb-static)
+        if (DBUS_NOTIFY)
+            set (QT5DBus Qt5::DBus)
+        else (DBUS_NOTIFY)
+            set (QT5DBus "")
+        endif (DBUS_NOTIFY)
+        list (APPEND LIBS Qt5::QXcbIntegrationPlugin
+                          ${QT5XcbQpa}
+                          ${QT5FontDatabaseSupport}
+                          ${QT5EventDispatcherSupport}
+                          ${QT5ThemeSupport}
+                          ${QT5ServiceSupport}
+                          ${QT5AccessibilitySupport}
+                          ${QT5EdidSupport}
+                          Qt5::QSQLiteDriverPlugin
+                          Qt5::Sql
+                          Qt5::Multimedia
+                          ${QT5DBus}
+                          ${XcbStatic}
+                          -lpcre2-16
+                          -lsqlite3
+                          -ljpeg
+                          -lpng
+                          -lfontconfig
+                          -lfreetype
+                          -lexpat
+                          -lSM
+                          -lICE
+                          -lGL
+                          -lm
+                          -ldl
+                          -ldrm
+                          -lxkbcommon
+                          -lxkbcommon-x11
+                          -lXdamage
+                          -lXfixes
+                          -lX11-xcb
+                          -lxcb-glx
+                          -lxcb-dri2
+                          -lXxf86vm
+                          -lXext
+                          -lX11
+                          -lxcb
+                          -lXau
+                          -lXdmcp
+             )
+    endif (WIN32)
+endif (BUILD_STATIC AND USE_QT5)
+
 if (WIN32)
-    if (BUILD_STATIC)
-        if (USE_QT5)
-            find_library(QT5FontDatabaseSupport Qt5FontDatabaseSupport)
-            find_library(QT5EventDispatcherSupport Qt5EventDispatcherSupport)
-            find_library(QT5ThemeSupport Qt5ThemeSupport)
-            find_library(QT5AccessibilitySupport Qt5AccessibilitySupport)
-            find_library(QT5WindowsUIAutomationSupport Qt5WindowsUIAutomationSupport)
-            list (INSERT LIBS 0 Qt5::QWindowsVistaStylePlugin)
-            if (DBUS_NOTIFY)
-                list (APPEND LIBS Qt5::DBus -ldbus-1)
-            endif (DBUS_NOTIFY)
-            list (APPEND LIBS Qt5::QWindowsIntegrationPlugin
-                              ${QT5FontDatabaseSupport}
-                              ${QT5EventDispatcherSupport}
-                              ${QT5ThemeSupport}
-                              ${QT5AccessibilitySupport}
-                              ${QT5WindowsUIAutomationSupport}
-                              Qt5::QSQLiteDriverPlugin
-                              Qt5::Sql
-                              Qt5::QWindowsAudioPlugin
-                              Qt5::Multimedia
-                              -lpcre16
-                              -lpcre2-16
-                              -lharfbuzz
-                              -lwinmm
-                              -limm32
-                              -lsqlite3
-                              -ljpeg
-                              -lpng
-                              -lopengl32
-                              -lwtsapi32
-                              -lwinmm
-                              -lcrypt32
-                              -lstrmiids
-                              -lfreetype
-                 )
-        endif (USE_QT5)
-    endif (BUILD_STATIC)
     if (OPENSSL_MSVC)
         list (APPEND SRCS ../windows/applink.c)
     endif (OPENSSL_MSVC)
