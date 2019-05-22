@@ -10,7 +10,6 @@
 #ifdef BUILD_STATIC
 #include <QtPlugin>
 #if defined(_WIN32)
-#error "????????????????? 222"
 Q_IMPORT_PLUGIN (QWindowsAudioPlugin);
 Q_IMPORT_PLUGIN (QWindowsIntegrationPlugin);
 Q_IMPORT_PLUGIN (QSQLiteDriverPlugin);
