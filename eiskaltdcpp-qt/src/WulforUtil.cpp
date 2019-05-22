@@ -206,7 +206,7 @@ QString WulforUtil::getEmoticonsPath() const
 #else // Other OS
     static QString emoticonsPath = CLIENT_DATA_DIR "/emoticons/";
     if (!QDir(emoticonsPath).exists()) // Fix for Snap, AppImage, etc.
-        emoticonsPath = bin_path + "/../" + emoticonsPath;
+        emoticonsPath = bin_path + "/../../" + emoticonsPath;
 #endif
     return emoticonsPath;
 }
@@ -220,7 +220,7 @@ QString WulforUtil::getClientIconsPath() const
 #else // Other OS
     static QString iconsPath = CLIENT_ICONS_DIR "/";
     if (!QDir(iconsPath).exists()) // Fix for Snap, AppImage, etc.
-        iconsPath = QString(bin_path + "/../" + iconsPath);
+        iconsPath = QString(bin_path + "/../../" + iconsPath);
 #endif
     return QDir(iconsPath).absolutePath();
 }
@@ -234,7 +234,7 @@ QString WulforUtil::getTranslationsPath() const
 #else // Other OS
     static QString translationsPath = CLIENT_TRANSLATIONS_DIR "/";
     if (!QDir(translationsPath).exists()) // Fix for Snap, AppImage, etc.
-        translationsPath = QString(bin_path + "/../" + translationsPath);
+        translationsPath = QString(bin_path + "/../../" + translationsPath);
 #endif
     return QDir(QDir::toNativeSeparators(translationsPath)).absolutePath();
 }
@@ -248,7 +248,7 @@ QString WulforUtil::getAspellDataPath() const
 #elif defined(LOCAL_ASPELL_DATA) // Other OS
     static const QString aspellDataPath = CLIENT_DATA_DIR "/aspell/";
     if (!QDir(QDir::toNativeSeparators(aspellDataPath)).exists())
-        return QString(bin_path + "/../" + aspellDataPath);
+        return QString(bin_path + "/../../" + aspellDataPath);
 #else
     static const QString aspellDataPath = QString();
 #endif
@@ -266,7 +266,7 @@ QString WulforUtil::getClientResourcesPath() const
 #else // Other systems
     QString client_res_path = QString(CLIENT_RES_DIR) + PATH_SEPARATOR_STR + icon_theme + ".rcc";
     if (!QDir(client_res_path).exists()) // Fix for Snap, AppImage, etc.
-        client_res_path = bin_path + "/../" + client_res_path;
+        client_res_path = bin_path + "/../../" + client_res_path;
 #endif
 
     return client_res_path;
