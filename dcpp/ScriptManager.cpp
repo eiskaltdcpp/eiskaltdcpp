@@ -30,10 +30,6 @@
 #include "Thread.h"
 #include <cstddef>
 
-#ifdef __linux
-#include <libgen.h>
-#endif // __linux
-
 namespace dcpp {
 
 static void callalert (lua_State *L, int status) {
@@ -410,10 +406,8 @@ void ScriptInstance::EvaluateFile(const string& fn) {
         string test_path_2;
         char result[PATH_MAX];
         const ssize_t count = readlink("/proc/self/exe", result, PATH_MAX);
-        const char *path;
         if (count != -1) {
-            path = dirname(result);
-            test_path_2 = string(path) + "/../../";
+            test_path_2 = Util::getFilePath(string(result)) + "/../../";
         }
         test_path_2 = test_path_2 + string(_DATADIR) + PATH_SEPARATOR + "luascripts" + PATH_SEPARATOR + fn;
 #endif // __linux

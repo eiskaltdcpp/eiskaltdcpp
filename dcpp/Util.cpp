@@ -93,6 +93,17 @@ string macExecutablePath()
     _NSGetExecutablePath(buf, &bufsize);
     return Util::getFilePath(string(buf, bufsize));
 }
+#elif defined(__linux)
+string linExecutablePath()
+{
+    string path;
+    char result[PATH_MAX];
+    const ssize_t count = readlink("/proc/self/exe", result, PATH_MAX);
+    if (count != -1) {
+        path = Util::getFilePath(string(result));
+    }
+    return path;
+}
 #endif // defined(_WIN32)
 
 #ifndef _DEBUG
@@ -254,16 +265,23 @@ void Util::initialize(PathsMap pathOverrides) {
 
     if (Util::getPath(Util::PATH_RESOURCES).empty())
         paths[PATH_RESOURCES] = paths[PATH_USER_CONFIG];
-    if (Util::getPath(Util::PATH_LOCALE).empty())
+    if (Util::getPath(Util::PATH_LOCALE).empty()) {
 #if defined(_WIN32)
         paths[PATH_LOCALE] = winExecutablePath() + "resources\\locale\\";
 #elif defined(__APPLE__) && defined(__MACH__)
         paths[PATH_LOCALE] = macExecutablePath() + "/../Resources/locale/";
 #elif defined(__HAIKU__)
         paths[PATH_LOCALE] = "/boot/system/apps/Eiskaltdcpp/locale/";
+#elif defined(__linux)
+        paths[PATH_LOCALE] = LOCALE_DIR PATH_SEPARATOR_STR;
+        const string test_path = paths[PATH_LOCALE] + "en/LC_MESSAGES/libeiskaltdcpp.mo";
+        if(!Util::fileExists(test_path)) { // Fix for Snap, AppImage, etc.
+            paths[PATH_LOCALE] = linExecutablePath() + "/../../" LOCALE_DIR PATH_SEPARATOR_STR;
+        }
 #else // Other systems
         paths[PATH_LOCALE] = LOCALE_DIR PATH_SEPARATOR_STR;
 #endif // defined(_WIN32)
+    }
 
     if (Util::getPath(Util::PATH_DOWNLOADS).empty()) {
 #ifdef FORCE_XDG
