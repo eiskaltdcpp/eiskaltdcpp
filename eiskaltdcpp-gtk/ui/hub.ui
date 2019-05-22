@@ -78,7 +78,7 @@
       </object>
     </child>
     <child>
-      <object class="GtkMenuItem" id="limitimgCommandItem">
+      <object class="GtkMenuItem" id="limitingCommandItem">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
         <property name="tooltip_text" translatable="yes">Set download limit image</property>

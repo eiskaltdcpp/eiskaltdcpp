@@ -188,8 +188,8 @@ Hub::Hub(const string &address, const string &encoding):
     g_object_set_data_full(G_OBJECT(getWidget("rebuildCommandItem")), "command", g_strdup("/rebuild"), g_free);
     g_signal_connect(getWidget("rebuildCommandItem"), "activate", G_CALLBACK(onCommandClicked_gui), (gpointer)this);
 
-    g_object_set_data_full(G_OBJECT(getWidget("limitimgCommandItem")), "command", g_strdup("/limg"), g_free);
-    g_signal_connect(getWidget("limitimgCommandItem"), "activate", G_CALLBACK(onCommandClicked_gui), (gpointer)this);
+    g_object_set_data_full(G_OBJECT(getWidget("limitingCommandItem")), "command", g_strdup("/limg"), g_free);
+    g_signal_connect(getWidget("limitingCommandItem"), "activate", G_CALLBACK(onCommandClicked_gui), (gpointer)this);
 
     g_object_set_data_full(G_OBJECT(getWidget("versionCommandItem")), "command", g_strdup("/version"), g_free);
     g_signal_connect(getWidget("versionCommandItem"), "activate", G_CALLBACK(onCommandClicked_gui), (gpointer)this);
@@ -2029,7 +2029,7 @@ void Hub::onSendMessage_gui(GtkEntry *entry, gpointer data)
                 hub->addStatusMessage_gui(_("Emoticons mode on"), Msg::SYSTEM, Sound::NONE);
             }
         }
-        else if (command == "limitimg" || command == "limg")
+        else if (command == "limiting" || command == "limg")
         {
             int n;
             string text;
@@ -2110,7 +2110,7 @@ void Hub::onSendMessage_gui(GtkEntry *entry, gpointer data)
                                 "/rebuild\t\t\t\t - " + _("Rebuild hash") + "\n" +
                                 "/refresh\t\t\t\t - " + _("Update own file list") + "\n" +
                                 "/userlist\t\t\t\t - " + _("User list show/hide") + "\n" +
-                                "/limitimg <n>, limg <n> - " + _("Download limit image: 0 - disable, n < 0 - unlimit, empty - info") + "\n" +
+                                "/limiting <n>, limg <n> - " + _("Download limit image: 0 - disable, n < 0 - unlimit, empty - info") + "\n" +
                                 "/version\t\t\t\t - " + _("Show version") + "\n" +
                                 "/ratio [show]\t\t\t - " + _("Show ratio [send in chat]") + "\n" +
                                 "/emoticons, /emot\t - " + _("Emoticons on/off") + "\n" +
