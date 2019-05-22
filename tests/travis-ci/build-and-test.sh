@@ -9,7 +9,7 @@ set -x
 
 if [ "${TARGET}" = "linux64" ]
 then
-    ./tests/travis-ci/build-in-ubuntu.sh
+    ./linux/build-in-ubuntu.sh
 
     ls -alp /usr/bin/eiskaltdcpp-*
     ls -alp /usr/lib*/libeiskaltdcpp.so*
