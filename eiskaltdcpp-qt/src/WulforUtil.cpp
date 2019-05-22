@@ -210,7 +210,7 @@ QString WulforUtil::getEmoticonsPath() const
     if (!QDir(emoticonsPath).exists()) // Fix for Snap, AppImage, etc.
         emoticonsPath = bin_path + "/../../" + emoticonsPath;
 #endif
-    return QDir(emoticonsPath).absolutePath();;
+    return QDir(emoticonsPath).absolutePath() + "/";
 }
 
 QString WulforUtil::getClientIconsPath() const
