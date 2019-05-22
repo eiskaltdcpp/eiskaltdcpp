@@ -29,3 +29,5 @@ Extra keys for cmake
     Static build (only for MS Windows and GNU/Linux)
 -DINSTALL_DEPENDENCIES=ON/OFF (default: OFF)
     Install all necessary libraries and plugins (only for MS Windows)
+-DINSTALL_QT_TRANSLATIONS=ON/OFF (default: OFF)
+    Install Qt internal translations into the directory with Qt UI translations

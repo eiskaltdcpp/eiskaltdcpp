@@ -152,7 +152,8 @@ QString WulforUtil::findAppIconsPath() const
         bin_path + "/appl/" + icon_theme,
         CLIENT_ICONS_DIR "/appl/" + icon_theme,
         bin_path + CLIENT_ICONS_DIR "/appl/" + icon_theme,
-        bin_path + "/../" CLIENT_ICONS_DIR "/appl/" + icon_theme
+        bin_path + "/../" CLIENT_ICONS_DIR "/appl/" + icon_theme,
+        bin_path + "/../../" CLIENT_ICONS_DIR "/appl/" + icon_theme
     };
 
     for (QString settings_path : settings_path_list) {
@@ -180,7 +181,8 @@ QString WulforUtil::findUserIconsPath() const
         bin_path + "/user/" + user_theme,
         CLIENT_ICONS_DIR "/user/" + user_theme,
         bin_path + CLIENT_ICONS_DIR "/user/" + user_theme,
-        bin_path + "/../" CLIENT_ICONS_DIR "/user/" + user_theme
+        bin_path + "/../" CLIENT_ICONS_DIR "/user/" + user_theme,
+        bin_path + "/../../" CLIENT_ICONS_DIR "/user/" + user_theme
     };
 
     for (QString settings_path : settings_path_list) {
@@ -208,7 +210,7 @@ QString WulforUtil::getEmoticonsPath() const
     if (!QDir(emoticonsPath).exists()) // Fix for Snap, AppImage, etc.
         emoticonsPath = bin_path + "/../../" + emoticonsPath;
 #endif
-    return emoticonsPath;
+    return QDir(emoticonsPath).absolutePath();;
 }
 
 QString WulforUtil::getClientIconsPath() const
@@ -269,7 +271,7 @@ QString WulforUtil::getClientResourcesPath() const
         client_res_path = bin_path + "/../../" + client_res_path;
 #endif
 
-    return client_res_path;
+    return QDir(client_res_path).absolutePath();;
 }
 
 bool WulforUtil::loadUserIconsFromFile(QString file){

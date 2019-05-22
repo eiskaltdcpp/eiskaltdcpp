@@ -76,6 +76,7 @@ option (USE_GOLD "Use ld.gold instead ld.bfd" OFF)
 option (LOCAL_JSONCPP "Use local JsonCpp" ON)
 option (LOCAL_BOOST "Use local boost headers" OFF)
 option (BUILD_STATIC "Static build (only for MS Windows and GNU/Linux)" OFF)
+option (INSTALL_QT_TRANSLATIONS "Install Qt internal translations" OFF)
 
 if (WIN32)
     option (OPENSSL_MSVC "Use MSVC build openssl (only for MS Windows)" OFF)

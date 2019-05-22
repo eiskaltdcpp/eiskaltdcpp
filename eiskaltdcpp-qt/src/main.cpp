@@ -18,7 +18,7 @@ Q_IMPORT_PLUGIN (QWindowsVistaStylePlugin);
 #endif // QT_VERSION
 #elif defined(__linux) // defined(_WIN32)
 Q_IMPORT_PLUGIN (QXcbIntegrationPlugin);
-//Q_IMPORT_PLUGIN (QSQLiteDriverPlugin);
+Q_IMPORT_PLUGIN (QSQLiteDriverPlugin);
 #endif // defined(_WIN32)
 #endif // BUILD_STATIC
 
