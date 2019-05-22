@@ -30,6 +30,10 @@
 #include "Thread.h"
 #include <cstddef>
 
+#ifdef __linux
+#include <libgen.h>
+#endif // __linux
+
 namespace dcpp {
 
 static void callalert (lua_State *L, int status) {
@@ -402,11 +406,26 @@ void ScriptInstance::EvaluateFile(const string& fn) {
 #else //_WIN32
         test_path_0 = Text::utf8ToAcp(Util::getPath(Util::PATH_USER_CONFIG)) + "luascripts" + PATH_SEPARATOR + fn;
         test_path_1 = string(_DATADIR) + PATH_SEPARATOR + "luascripts" + PATH_SEPARATOR + fn;
+#ifdef __linux
+        string test_path_2;
+        char result[PATH_MAX];
+        const ssize_t count = readlink("/proc/self/exe", result, PATH_MAX);
+        const char *path;
+        if (count != -1) {
+            path = dirname(result);
+            test_path_2 = string(path) + "/../../";
+        }
+        test_path_2 = test_path_2 + string(_DATADIR) + PATH_SEPARATOR + "luascripts" + PATH_SEPARATOR + fn;
+#endif // __linux
 
         if(Util::fileExists(test_path_0))
             script_full_name = test_path_0;
         else if(Util::fileExists(test_path_1))
             script_full_name = test_path_1;
+#ifdef __linux
+        else if(Util::fileExists(test_path_2))
+            script_full_name = test_path_2;
+#endif // __linux
         else {
             LogManager::getInstance()->message("File '" + fn + "' not found!");
             printf("File '%s' not found!\n",fn.c_str()); fflush(stdout);// temporary
