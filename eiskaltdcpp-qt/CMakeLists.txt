@@ -344,6 +344,7 @@ if (BUILD_STATIC AND USE_QT5)
                           -lpng
                           -lfontconfig
                           -lfreetype
+                          -luuid
                           -lexpat
                           -lSM
                           -lICE
