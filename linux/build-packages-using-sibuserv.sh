@@ -7,12 +7,13 @@
 # Version: N/A
 #
 # Dependencies:
-# git, wget, curl, rsync, find, sed, p7zip, nsis
-# MXE: https://github.com/sibuserv/mxe/tree/hobby
+# git, wget, curl, rsync, find, sed, tar
+# MXE: https://github.com/sibuserv/lxe/tree/hobby
 # Sibuserv: https://github.com/sibuserv/sibuserv
 #
 # Current versions of used libraries may be found here:
-# https://github.com/sibuserv/mxe/blob/hobby/docs/packages.json
+# https://github.com/sibuserv/lxe/blob/hobby/etc/Ubuntu-14.04_amd64_static.sh
+# https://github.com/sibuserv/lxe/blob/hobby/etc/Ubuntu-14.04_i386_static.sh
 
 set -e
 
@@ -22,8 +23,7 @@ CUR_DIR="$(dirname $(realpath -s ${0}))"
 . "${CUR_DIR}/downloads-library.sh"
 . "${CUR_DIR}/common-functions.sh"
 
-#BUILD_TARGETS="i686-w64-mingw32.shared x86_64-w64-mingw32.shared"
-BUILD_TARGETS="i686-w64-mingw32.static x86_64-w64-mingw32.static"
+BUILD_TARGETS="Ubuntu-14.04_amd64_static Ubuntu-14.04_i386_static"
 
 # Script body
 
@@ -38,7 +38,7 @@ GetWebUISources
 GetProgramVersion
 
 echo "Preparing to build..."
-PrepareToBuildForWindows
+PrepareToBuildForLinux
 CleanBuildDir
 echo "Done."
 echo;
@@ -48,26 +48,16 @@ BuildProject
 echo;
 
 echo "Copying programs, libraries, resources and documentation to..."
-InstallAllToTempDirForWindows
+InstallAllToTempDirForLinux
 echo;
 
-echo "Copying the results to main directory..."
-CopyFinalResultsForWindows
+echo "Compressing directories into *.tar.xz archives..."
+CompressDirsForLinux
 echo "Done."
 echo;
 
-echo "Compressing directories into 7z archives..."
-CompressDirsForWindows
-echo "Done."
-echo;
-
-echo "Making installers..."
-MakeInstallers
-echo "Done."
-echo;
-
-echo "Moving installers to main directory..."
-MoveInstallers
+echo "Moving tarballs to main directory..."
+MoveTarballs
 echo "Done."
 echo;
 
