@@ -22,7 +22,7 @@ Currently supported features (not full list):
 * Multi-threaded download (download fragments of a single file from several sources at once).
 * Support of PFSR (partial file sharing): users may download parts of file from each other during file download even when no one of them do not have fully downloaded file.
 * Support of DHT (allows to search file by TTH and exchange these files without connection to any hub). Implementation of this feature is based on StrongDC++ code and compatible with all versions of StrongDC++, ApexDC++, RSX++, FlylinkDC++ and Pulse++K where this feature exists. (Some DC clients have dropped the support of this function in lastest versions.)
-* Support of UPnP (simplifies network connection configuration when user Wi-Fi supports this feature).
+* Support of UPnP (simplifies network connection configuration when user Wi-Fi router supports this feature).
 * Support of binding to specific network interface or address (in case when user system has few network connections simultaneously).
 * Support of auto updating of external IPv4 address via DynDNS services.
 * Support of case-sensitive file lists. This feature is extremely important on all supported systems except MS Windows (in fact even NTFS supports case-sensitive file names, but MS Windows does not use this feature.).
