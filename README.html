@@ -19,9 +19,44 @@ Wiki: https://github.com/eiskaltdcpp/eiskaltdcpp/wiki</p>
 <p>Currently supported features (not full list):</p>
 
 <ul>
-<li>1</li>
-<li>2</li>
-<li>3</li>
+<li>Programs with graphical user interface (UI) on Qt (main) and GTK+ (alternative), plus daemon which may be controlled from command line or from Web UI (connected via JSON-RPC).</li>
+<li>Multi-threaded download (download fragments of a single file from several sources at once).</li>
+<li>Support of PFSR (partial file sharing): users may download parts of file from each other during file download even when no one of them do not have fully downloaded file.</li>
+<li>Support of DHT (allows to search file by TTH and exchange these files without connection to any hub). Implementation of this feature is based on StrongDC++ code and compatible with all versions of StrongDC++, ApexDC++, RSX++, FlylinkDC++ and Pulse++K where this feature exists. (Some DC clients have dropped the support of this function in lastest versions.)</li>
+<li>Support of UPnP (simplifies network connection configuration when user Wi-Fi supports this feature).</li>
+<li>Support of binding to specific network interface or address (in case when user system has few network connections simultaneously).</li>
+<li>Support of auto updating of external IPv4 address via DynDNS services.</li>
+<li>Support of case-sensitive file lists. This feature is extremely important on all supported systems except MS Windows (in fact even NTFS supports case-sensitive file names, but MS Windows does not use this feature.).</li>
+<li>GUI is localized to few languages.</li>
+<li>GUI programs allow to place list of widgets on sidebar, on multiline tabbar panel or on single-line tabbar.</li>
+<li>GUI program based on Qt has support of hiding the program menu (it will be available by special button to the toolbar).</li>
+<li>Advanced search with the ability to group results; black list for search results.</li>
+<li>Lists of downloaded and uploaded files; ability to save logs of downloads.</li>
+<li>Lists of public and favorite hubs. Public hubs lists have multiple sources; favorite hubs are extremely flexible in configuration features.</li>
+<li>Lists of favorite users (they will receive extra slot for downloading files, etc.).</li>
+<li>List of downloads/uploads, including the queue of users waiting for the slot (user may temporary grant extra slot for them).</li>
+<li>Flexible settings for downloading files (lists of destination directories, directory for incomplete downloads, limitation of number of simultaneous downloads, compressing traffic, check of check sums, etc.).</li>
+<li>Indicator of free space on disk where main downloads directory is located.</li>
+<li>Support IP filter and basic antispam.</li>
+<li>Search spy (allows to see search phrases which send other users, but without identifying users of course).</li>
+<li>ADL search with support for Perl-style regular expressions (using PCRE library).</li>
+<li>Flexible filter (with regular expressions support) in users list, search results, public hubs lists, file lists, etc.. (Use ##<regexp> string and read about Qt QRegExp syntax.)</li>
+<li>Full-featured chat (different fonts, nick coloring, parsing of magnets and other links, emoticons, chat search, chat commands, BBCode support, disable/enable/clear chat, spell check (Aspell is used), keywords highlighting in the chat, separator for unread messages, the ability to display IP addresses and countries of users in the chat (depends on hub settings: some of them hide this data for usual users).</li>
+<li>User commands on hub.</li>
+<li>Flexible keyboard shortcuts settings.</li>
+<li>Text and sound notifications for different events.</li>
+<li>Highlighting of duplicates in shared files.</li>
+<li>Flexible settings for files hashing (speed of hashing, filters for ignoring files, etc.).</li>
+<li>Indicator of hashing progress in program status bar.</li>
+<li>Special tool for calculating of TTH for any file (without necessity to share this file) and preparing magnet link or web maget link for it.</li>
+<li>Support of limitations of download/upload speed (permanent or by timetable).</li>
+<li>Support of limitations by size of shared files. (Yes, this is questionable feature, but it is highly demanded by users.)</li>
+<li>Support of handling of magnet links, web magnet links and hub links transferred via command line from other programs (for example from web browsers).</li>
+<li>Support of files drag-and-drop into field for entering messages (if file is present in user file list, magnet link to it will be added).</li>
+<li>Support of automatic replies to private messages in case of user absent.</li>
+<li>Support of user extensions on QtScript (only in Qt based GUI) and Lua.</li>
+<li>Support of IDNA (recognition of national domain names).</li>
+<li>Support of URL encoded strings for hub addresses.</li>
 </ul>
 
 <p><a href="https://tehnick.github.io/eiskaltdcpp/eiskaltdcpp-qt-2.2.10-588_search_widget.png" title="Example of search results">
@@ -153,6 +188,7 @@ pkgman install eiskaltdcpp
 <li><a href="https://snapcraft.io/eiskaltdcpp">Official Snap packages for Ubuntu and other distros</a> (daily builds)</li>
 <li><a href="https://sourceforge.net/projects/eiskaltdcpp/files/Windows/">Official builds for Windows</a></li>
 <li><a href="https://sourceforge.net/projects/eiskaltdcpp/files/macOS/">Official builds for macOS</a></li>
+<li><a href="https://sourceforge.net/projects/eiskaltdcpp/files/Linux/">Official builds for Linux</a></li>
 <li><a href="https://tracker.debian.org/pkg/eiskaltdcpp">Official packages in Debian</a></li>
 <li><a href="https://launchpad.net/ubuntu/+source/eiskaltdcpp">Official packages in Ubuntu</a></li>
 <li><a href="https://apps.fedoraproject.org/packages/s/eiskaltdcpp">Official packages in Fedora</a></li>
