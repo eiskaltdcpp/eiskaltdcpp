@@ -45,10 +45,14 @@
 * Improve support of nmdcs:// hubs.
 *** eiskaltdcpp-gtk ***
 * Fixed few bugs.
-* Improve support of nmdcs:// hubs.
-* GTK+ UI is still supported but with extremely low priority and we are going
-  to stop its support in one of future versions. Consider using of Qt UI even
-  in GTK+ based Desktop Environments.
+* Improved support of nmdcs:// hubs.
+* GTK+ 3.x based builds have long standing problem with segfault in search
+  widget. Everything else works more or less fine, but GTK+ based GUI always
+  had less functions when Qt based GUI and this situation will not be changed
+  in the future.
+* GTK+ based UI is still supported but with extremely low priority and we are
+  going to stop its support in one of future versions. Consider using of Qt UI
+  even in GTK+ based Desktop Environments.
 
 --- 2.3.0 2018-xx-xx ---
 * This release was skipped due to problems with versions scheme.
