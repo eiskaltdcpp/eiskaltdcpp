@@ -111,15 +111,15 @@ pkgman install eiskaltdcpp
 
 <ul>
 <li>All development of is done in git <code>work</code> branch or special (feature) branches detached from <code>work</code> branch.</li>
-<li>Change log file should be updated together with changes in source code. It may be done in a same git commit or in a separate git commit depending on situation. Just use common sense for this. (There were no rule of updating change log in the past which leads to significant delaying of stable releases.)</li>
+<li>Changelog file should be updated together with changes in source code. It may be done in a same git commit or in a separate git commit depending on situation. Just use common sense for this. (There were no rule of updating change log in the past which leads to significant delaying of stable releases.)</li>
 <li>Once the changes from <code>work</code> branch are ready for usage and build of program is tested for most important systems (Linux, macOS, Windows) they may be merged to <code>master</code> branch.</li>
 <li>Daily builds of program for testers, active users and just curious people should be done from git <code>master</code> branch.</li>
 <li>Version scheme for builds from git snapshots should look like: <code>&lt;major&gt;.&lt;minor&gt;.&lt;patch&gt;-&lt;commits&gt;-g&lt;hash&gt;</code> (where <code>&lt;major&gt;</code>, <code>&lt;minor&gt;</code> and <code>&lt;patch&gt;</code> are not digits but numbers). <code>&lt;major&gt;.&lt;minor&gt;.&lt;patch&gt;</code> is last git tag (for stable release), <code>&lt;commits&gt;</code> &ndash; the number of commits since last git tag and <code>&lt;hash&gt;</code> &ndash; short hash of current git commit.</li>
 <li>Once there is noticeable amount of changes since last stable release or if there are very important bug fixes which should be quickly delivered to users new git tag (<code>v&lt;major&gt;.&lt;minor&gt;.&lt;patch&gt;</code>) is created and tarballs with sources are uploaded to SourceForge.</li>
-<li>There is no strict limitation of type of changes suitable for new releases: even "minor" or "patch" version may contain new features and significant changes in GUI.</li>
-<li>In case of noticeable changes in Core of program (library libeiskaltdcpp) the <code>&lt;major&gt;</code> part of program version should be changed.</li>
-<li>In case of significant changes (for example, total code refactoring) in any part of program the <code>&lt;major&gt;</code> part of program version should be changed.</li>
+<li>In case of noticeable changes in Core of program (library libeiskaltdcpp) the <code>&lt;minor&gt;</code> or <code>&lt;major&gt;</code> part of program version should be changed.</li>
+<li>In case of significant changes (for example, total code refactoring) in any part of program the <code>&lt;minor&gt;</code> or <code>&lt;major&gt;</code> part of program version should be changed.</li>
 <li>In case when where are very few changes since last stable release, but they are important and should be quickly delivered to users the <code>&lt;patch&gt;</code> part of program version should be changed.</li>
+<li>There are no limits for changes suitable for a new <code>&lt;patch&gt;</code> releases if they do not affect Core of program: they may contain new features and noticeable changes in any part of GUI.</li>
 </ul>
 
 <p>During development all changes are tested on Continuous Integration services <a href="https://travis-ci.org/eiskaltdcpp/eiskaltdcpp">Travis CI</a> and <a href="https://sibuserv-ci.org/projects/eiskaltdcpp">Sibuserv CI</a>.</p>

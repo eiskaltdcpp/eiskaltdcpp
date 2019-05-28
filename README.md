@@ -57,11 +57,6 @@ Currently supported features (not full list):
 * Support of IDNA (recognition of national domain names).
 * Support of URL encoded strings for hub addresses.
 
-
-
-
-
-
 <a href="https://tehnick.github.io/eiskaltdcpp/eiskaltdcpp-qt-2.2.10-588_search_widget.png" title="Example of search results">
     <img src="https://tehnick.github.io/eiskaltdcpp/eiskaltdcpp-qt-2.2.10-588_search_widget.png" width="99%">
 </a>
@@ -112,15 +107,15 @@ All programs from EiskaltDC++ project (`eiskaltdcpp-qt`, `eiskaltdcpp-gtk` and `
 During the development EiskaltDC++ in past years we have used different CVS (Subversion first and then Git) and different development models. Currently the process looks like this:
 
 * All development of is done in git `work` branch or special (feature) branches detached from `work` branch.
-* Change log file should be updated together with changes in source code. It may be done in a same git commit or in a separate git commit depending on situation. Just use common sense for this. (There were no rule of updating change log in the past which leads to significant delaying of stable releases.)
+* Changelog file should be updated together with changes in source code. It may be done in a same git commit or in a separate git commit depending on situation. Just use common sense for this. (There were no rule of updating change log in the past which leads to significant delaying of stable releases.)
 * Once the changes from `work` branch are ready for usage and build of program is tested for most important systems (Linux, macOS, Windows) they may be merged to `master` branch.
 * Daily builds of program for testers, active users and just curious people should be done from git `master` branch.
 * Version scheme for builds from git snapshots should look like: `<major>.<minor>.<patch>-<commits>-g<hash>` (where `<major>`, `<minor>` and `<patch>` are not digits but numbers). `<major>.<minor>.<patch>` is last git tag (for stable release), `<commits>` &ndash; the number of commits since last git tag and `<hash>` &ndash; short hash of current git commit.
 * Once there is noticeable amount of changes since last stable release or if there are very important bug fixes which should be quickly delivered to users new git tag (`v<major>.<minor>.<patch>`) is created and tarballs with sources are uploaded to SourceForge.
-* There is no strict limitation of type of changes suitable for new releases: even "minor" or "patch" version may contain new features and significant changes in GUI.
-* In case of noticeable changes in Core of program (library libeiskaltdcpp) the `<major>` part of program version should be changed.
-* In case of significant changes (for example, total code refactoring) in any part of program the `<major>` part of program version should be changed.
+* In case of noticeable changes in Core of program (library libeiskaltdcpp) the `<minor>` or `<major>` part of program version should be changed.
+* In case of significant changes (for example, total code refactoring) in any part of program the `<minor>` or `<major>` part of program version should be changed.
 * In case when where are very few changes since last stable release, but they are important and should be quickly delivered to users the `<patch>` part of program version should be changed.
+* There are no limits for changes suitable for a new `<patch>` releases if they do not affect Core of program: they may contain new features and noticeable changes in any part of GUI.
 
 During development all changes are tested on Continuous Integration services [Travis CI](https://travis-ci.org/eiskaltdcpp/eiskaltdcpp) and [Sibuserv CI](https://sibuserv-ci.org/projects/eiskaltdcpp).
 
