@@ -12,7 +12,7 @@ This program is licensed under the GNU General Public License. See the [COPYING]
 
 ## Description
 
-EiskaltDC++ is a cross-platform program that uses the [Direct Connect](https://en.wikipedia.org/wiki/Direct_Connect_\(protocol\)) (DC aka NMDC) and [Advanced Direct Connect](https://en.wikipedia.org/wiki/Advanced_Direct_Connect) (ADC) protocols. It is compatible with DC++, FlylinkDC++, LinuxDC++ and other DC clients. EiskaltDC++ also interoperates with all common DC hub software.
+EiskaltDC++ is a cross-platform program that uses the [Direct Connect](https://en.wikipedia.org/wiki/Direct_Connect_\(protocol\)) (DC aka NMDC) and [Advanced Direct Connect](https://en.wikipedia.org/wiki/Advanced_Direct_Connect) (ADC) protocols. It is compatible with DC++, AirDC++, FlylinkDC++ and other [DC clients](https://en.wikipedia.org/wiki/Comparison_of_ADC_software#Client_software). EiskaltDC++ also interoperates with all common DC hub software.
 
 Currently supported systems (in order of decreasing importance): GNU/Linux, macOS, MS Windows, FreeBSD, Haiku and GNU/Hurd.
 
