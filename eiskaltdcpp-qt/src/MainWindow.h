@@ -64,10 +64,10 @@ public:
     About(QWidget *parent = nullptr): QDialog(parent){ setupUi(this); }
 
     void printHelp() const {
-        QString msg =   tr("Using:\n"
+        QString msg =   tr("Usage:\n"
                         "  eiskaltdcpp-qt <magnet link> <dchub://link> <adc(s)://link>\n"
                         "  eiskaltdcpp-qt <Key>\n"
-                        "EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC protocol.\n"
+                        "EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC protocols.\n"
                         "\n"
                         "Keys:\n"
                         "  -h, --help\t Show this message\n"

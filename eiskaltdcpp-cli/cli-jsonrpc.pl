@@ -63,11 +63,11 @@ if ($version)
 }
 if ($help)
 {
-	print(  "Using:
+	print(  "Usage:
 \teiskaltdcpp-jcli
 \teiskaltdcpp-jcli <Key>
 This is command line JSON-RPC interface for eiskaltdcpp-daemon written on perl.
-EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC protocol.
+EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC protocols.
 
 Keys:
 \t-h, --help\t Show this message

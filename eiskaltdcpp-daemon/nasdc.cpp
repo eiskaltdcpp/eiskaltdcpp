@@ -104,10 +104,10 @@ static int eidcpp_daemon( int nochdir, int noclose ) {
 
 #endif
 void printHelp() {
-    printf("Using:\n"
+    printf("Usage:\n"
            "  eiskaltdcpp-daemon -d [options]\n"
            "  eiskaltdcpp-daemon <Key>\n"
-           "EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC protocol.\n"
+           "EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC protocols.\n"
            "\n"
            "Keys:\n"
            "  -d, --daemon\t Run program as daemon\n"

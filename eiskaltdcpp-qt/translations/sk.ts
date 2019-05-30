@@ -102,10 +102,10 @@
     <name>About</name>
     <message>
         <location filename="../src/MainWindow.h" line="67"/>
-        <source>Using:
+        <source>Usage:
   eiskaltdcpp-qt &lt;magnet link&gt; &lt;dchub://link&gt; &lt;adc(s)://link&gt;
   eiskaltdcpp-qt &lt;Key&gt;
-EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC protocol.
+EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC protocols.
 
 Keys:
   -h, --help	 Show this message
@@ -113,7 +113,7 @@ Keys:
         <translation>Použitie:
   eiskaltdcpp-qt &lt;magnet link&gt; &lt;dchub://link&gt; &lt;adc(s)://link&gt;
   eiskaltdcpp-qt &lt;Key&gt;
-EiskaltDC++  je multiplatformový program ktorý využíva Direct Connect and ADC protocol.
+EiskaltDC++  je multiplatformový program ktorý využíva Direct Connect and ADC protocols.
 Kľúčové skratky:
   -h, --pomoc	 Zobraziť túto správu
   -v, --verzia Zobraziť verziu produktu</translation>
