@@ -3,18 +3,19 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
-# Translators:
-# Translators:
 # Boris Pek <tehnick-8@yandex.ru>, 2014
-# miroslav <miroslav031@yandex.com>, 2015
+# markosm <chabro@zoho.com>, 2014
 # markosm <chajbo@ro.ru>, 2014
+# miroslav <inactive+miroslav@transifex.com>, 2015
+# miroslav <miroslav031@yandex.com>, 2015
+# markosm <chabro@zoho.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: https://github.com/eiskaltdcpp/eiskaltdcpp/issues\n"
-"POT-Creation-Date: 2019-05-07 01:10+0300\n"
-"PO-Revision-Date: 2015-11-29 11:21+0000\n"
-"Last-Translator: miroslav <miroslav031@yandex.com>\n"
+"POT-Creation-Date: 2019-05-31 00:45+0300\n"
+"PO-Revision-Date: 2019-05-30 21:42+0000\n"
+"Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
 "Language-Team: Serbian (http://www.transifex.com/tehnick/eiskaltdcpp/"
 "language/sr/)\n"
 "Language: sr\n"
@@ -3690,6 +3691,28 @@ msgstr "Отпремање:"
 msgid "Uploading"
 msgstr "Отпремање"
 
+#: ../src/wulfor.cc:45
+#, c-format
+msgid ""
+"Usage:\n"
+"  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n"
+"  eiskaltdcpp-gtk <Key>\n"
+"EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC "
+"protocols.\n"
+"\n"
+"Keys:\n"
+"  -h, --help\t Show this message\n"
+"  -V, --version\t Show version string\n"
+msgstr ""
+"Usage:\n"
+"  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n"
+"  eiskaltdcpp-gtk <Key>\n"
+"EiskaltDC++ је програм који користи директно повезивање и АДЦ протокол.\n"
+"\n"
+"Keys:\n"
+"  -h, --help\t Прикажи ову поруку\n"
+"  -V, --version\t Прикажи верзију\n"
+
 #: ../src/settingsdialog.cc:362 ../src/settingsdialog.cc:400
 #: ../src/settingsdialog.cc:434 ../src/settingsdialog.cc:688
 #: ../src/settingsdialog.cc:701 ../src/settingsdialog.cc:717
@@ -3839,28 +3862,6 @@ msgstr "Корисници"
 #: ../src/publichubs.cc:179
 msgid "Users: "
 msgstr "Корисници:"
-
-#: ../src/wulfor.cc:45
-#, c-format
-msgid ""
-"Usage:\n"
-"  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n"
-"  eiskaltdcpp-gtk <Key>\n"
-"EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC "
-"protocols.\n"
-"\n"
-"Keys:\n"
-"  -h, --help\t Show this message\n"
-"  -V, --version\t Show version string\n"
-msgstr ""
-"Usage:\n"
-"  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n"
-"  eiskaltdcpp-gtk <Key>\n"
-"EiskaltDC++ је програм који користи директно повезивање и АДЦ протокол.\n"
-"\n"
-"Keys:\n"
-"  -h, --help\t Прикажи ову поруку\n"
-"  -V, --version\t Прикажи верзију\n"
 
 #: ../src/sharebrowser.cc:90 ../src/sharebrowser.cc:361
 msgid "Video"
@@ -4271,9 +4272,3 @@ msgstr "врх/чекање/оквир:"
 #: ../src/searchspy.cc:296 ../src/searchspy.cc:364
 msgid "waiting..."
 msgstr "чекање..."
-
-#~ msgid "from Coral"
-#~ msgstr "од Coral"
-
-#~ msgid "https://github.com/eiskaltdcpp/eiskaltdcpp/raw/master/ChangeLog.txt"
-#~ msgstr "https://github.com/eiskaltdcpp/eiskaltdcpp/raw/master/ChangeLog.txt"

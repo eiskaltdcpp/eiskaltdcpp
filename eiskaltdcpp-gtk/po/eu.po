@@ -3,17 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
-# Translators:
-# Translators:
 # Boris Pek <tehnick-8@yandex.ru>, 2014
-# Egoitz Rodriguez Obieta <egoitzro@gmail.com>, 2015
+# Egoitz Rodriguez <egoitzro@gmail.com>, 2015,2017
 msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: https://github.com/eiskaltdcpp/eiskaltdcpp/issues\n"
-"POT-Creation-Date: 2019-05-07 01:10+0300\n"
-"PO-Revision-Date: 2015-08-27 14:59+0000\n"
-"Last-Translator: Egoitz Rodriguez Obieta <egoitzro@gmail.com>\n"
+"POT-Creation-Date: 2019-05-31 00:45+0300\n"
+"PO-Revision-Date: 2019-05-30 21:42+0000\n"
+"Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
 "Language-Team: Basque (http://www.transifex.com/tehnick/eiskaltdcpp/language/"
 "eu/)\n"
 "Language: eu\n"
@@ -129,7 +127,7 @@ msgstr ""
 
 #: ../src/settingsdialog.cc:2296
 msgid "*** T E S T ***"
-msgstr ""
+msgstr "*** T E S T ***"
 
 #: ../src/settingsdialog.cc:1468 ../ui/mainwindow.ui:251
 #: ../ui/mainwindow.ui:2375 ../ui/mainwindow.ui:2393
@@ -159,19 +157,19 @@ msgstr "0 Erabiltzile"
 
 #: ../ui/settingsdialog.ui:8781 ../ui/settingsdialog.ui:8861
 msgid "10AM"
-msgstr ""
+msgstr "10AM"
 
 #: ../ui/settingsdialog.ui:8817 ../ui/settingsdialog.ui:8897
 msgid "10PM"
-msgstr ""
+msgstr "10PM"
 
 #: ../ui/settingsdialog.ui:8784 ../ui/settingsdialog.ui:8864
 msgid "11AM"
-msgstr ""
+msgstr "11AM"
 
 #: ../ui/settingsdialog.ui:8820 ../ui/settingsdialog.ui:8900
 msgid "11PM"
-msgstr ""
+msgstr "11PM"
 
 #: ../ui/settingsdialog.ui:8969
 msgid "16x16"
@@ -179,11 +177,11 @@ msgstr "16x16"
 
 #: ../ui/settingsdialog.ui:8754 ../ui/settingsdialog.ui:8834
 msgid "1AM"
-msgstr ""
+msgstr "1AM"
 
 #: ../ui/settingsdialog.ui:8790 ../ui/settingsdialog.ui:8870
 msgid "1PM"
-msgstr ""
+msgstr "1PM"
 
 #: ../ui/settingsdialog.ui:8972
 msgid "22x22"
@@ -195,11 +193,11 @@ msgstr "24x24"
 
 #: ../ui/settingsdialog.ui:8757 ../ui/settingsdialog.ui:8837
 msgid "2AM"
-msgstr ""
+msgstr "2AM"
 
 #: ../ui/settingsdialog.ui:8793 ../ui/settingsdialog.ui:8873
 msgid "2PM"
-msgstr ""
+msgstr "2PM"
 
 #: ../ui/settingsdialog.ui:8978
 msgid "32x32"
@@ -215,7 +213,7 @@ msgstr ""
 
 #: ../ui/settingsdialog.ui:8796 ../ui/settingsdialog.ui:8876
 msgid "3PM"
-msgstr ""
+msgstr "3PM"
 
 #: ../ui/settingsdialog.ui:8984
 msgid "48x48"
@@ -223,19 +221,19 @@ msgstr "48x48"
 
 #: ../ui/settingsdialog.ui:8763 ../ui/settingsdialog.ui:8843
 msgid "4AM"
-msgstr ""
+msgstr "4AM"
 
 #: ../ui/settingsdialog.ui:8799 ../ui/settingsdialog.ui:8879
 msgid "4PM"
-msgstr ""
+msgstr "4PM"
 
 #: ../ui/settingsdialog.ui:8766 ../ui/settingsdialog.ui:8846
 msgid "5AM"
-msgstr ""
+msgstr "5AM"
 
 #: ../ui/settingsdialog.ui:8802 ../ui/settingsdialog.ui:8882
 msgid "5PM"
-msgstr ""
+msgstr "5PM"
 
 #: ../ui/settingsdialog.ui:8987
 msgid "64x64"
@@ -243,7 +241,7 @@ msgstr "64x64"
 
 #: ../ui/settingsdialog.ui:8769 ../ui/settingsdialog.ui:8849
 msgid "6AM"
-msgstr ""
+msgstr "6AM"
 
 #: ../ui/settingsdialog.ui:8805 ../ui/settingsdialog.ui:8885
 msgid "6PM"
@@ -251,27 +249,27 @@ msgstr ""
 
 #: ../ui/settingsdialog.ui:8772 ../ui/settingsdialog.ui:8852
 msgid "7AM"
-msgstr ""
+msgstr "7AM"
 
 #: ../ui/settingsdialog.ui:8808 ../ui/settingsdialog.ui:8888
 msgid "7PM"
-msgstr ""
+msgstr "7PM"
 
 #: ../ui/settingsdialog.ui:8775 ../ui/settingsdialog.ui:8855
 msgid "8AM"
-msgstr ""
+msgstr "8AM"
 
 #: ../ui/settingsdialog.ui:8811 ../ui/settingsdialog.ui:8891
 msgid "8PM"
-msgstr ""
+msgstr "8PM"
 
 #: ../ui/settingsdialog.ui:8778 ../ui/settingsdialog.ui:8858
 msgid "9AM"
-msgstr ""
+msgstr "9AM"
 
 #: ../ui/settingsdialog.ui:8814 ../ui/settingsdialog.ui:8894
 msgid "9PM"
-msgstr ""
+msgstr "9PM"
 
 #: ../src/privatemessage.cc:1050
 msgid ": type /help for a list of available commands"
@@ -407,7 +405,7 @@ msgstr "<b>Mugak</b>"
 
 #: ../ui/settingsdialog.ui:7275
 msgid "<b>Logging</b>"
-msgstr ""
+msgstr "<b>Saioa hasi</b>"
 
 #: ../ui/mainwindow.ui:260
 msgid "<b>Magnet properties</b>"
@@ -439,7 +437,7 @@ msgstr ""
 
 #: ../src/settingsdialog.cc:2108
 msgid "<b>New name</b>"
-msgstr ""
+msgstr "<b>Izen berria</b>"
 
 #: ../ui/publichubs.ui:151 ../ui/settingsdialog.ui:9258
 msgid "<b>Note:</b> Edit urls in the list by clicking them once when selected"
@@ -840,7 +838,7 @@ msgstr ""
 #: ../ui/adlsearch.ui:406 ../ui/search.ui:103 ../ui/settingsdialog.ui:7978
 #: ../ui/settingsdialog.ui:7991
 msgid "B"
-msgstr ""
+msgstr "B"
 
 #: ../src/hashdialog.cc:63 ../ui/settingsdialog.ui:3552
 msgid "B/s"
@@ -982,7 +980,7 @@ msgstr ""
 
 #: ../src/downloadqueue.cc:1382
 msgid "CRC32 inconsistency (SFV-Check)"
-msgstr ""
+msgstr "CRC32 koherentzia eza (SFV-Egiaztatu)"
 
 #: ../ui/mainwindow.ui:1112
 msgid "Calculate file TTH"
@@ -1011,7 +1009,7 @@ msgstr ""
 
 #: ../ui/settingsdialog.ui:609
 msgid "Chat"
-msgstr ""
+msgstr "Txat"
 
 #: ../ui/hub.ui:332 ../ui/privatemessage.ui:260
 msgid "Chat Commands"
@@ -1057,7 +1055,7 @@ msgstr ""
 
 #: ../ui/search.ui:242 ../ui/searchspy.ui:124 ../ui/searchspy.ui:340
 msgid "Clear"
-msgstr ""
+msgstr "Garbitu"
 
 #: ../src/privatemessage.cc:1037 ../ui/privatemessage.ui:30
 msgid "Clear PM"
@@ -1119,7 +1117,7 @@ msgstr ""
 #: ../src/settingsdialog.cc:3364 ../src/settingsdialog.cc:3438
 #: ../ui/settingsdialog.ui:812
 msgid "Command"
-msgstr ""
+msgstr "Komandoa"
 
 #: ../src/settingsdialog.cc:3482 ../src/settingsdialog.cc:3488
 msgid "Command name already exists"
@@ -1144,7 +1142,7 @@ msgstr ""
 #: ../src/settingsdialog.cc:1435 ../src/settingsdialog.cc:1474
 #: ../ui/mainwindow.ui:2144 ../ui/mainwindow.ui:2417
 msgid "Connect"
-msgstr ""
+msgstr "Konektatu"
 
 #: ../src/hub.cc:3586
 msgid "Connect failed: "
@@ -1187,7 +1185,7 @@ msgstr ""
 #: ../ui/search.ui:141 ../ui/settingsdialog.ui:1883
 #: ../ui/settingsdialog.ui:2585
 msgid "Connection"
-msgstr ""
+msgstr "Konexioa"
 
 #: ../src/mainwindow.cc:2366
 msgid "Connectivity Manager: Warning"
@@ -1266,7 +1264,7 @@ msgstr ""
 #: ../src/publichubs.cc:159 ../src/publichubs.cc:304 ../ui/favoriteusers.ui:212
 #: ../ui/settingsdialog.ui:1171
 msgid "Description"
-msgstr ""
+msgstr "Deskribapena"
 
 #: ../src/adlsearch.cc:40 ../src/adlsearch.cc:60 ../src/adlsearch.cc:110
 #: ../src/adlsearch.cc:208 ../src/adlsearch.cc:233
@@ -1295,7 +1293,7 @@ msgstr ""
 #: ../src/settingsdialog.cc:3887 ../src/sharebrowser.cc:326
 #: ../ui/adlsearch.ui:392 ../ui/settingsdialog.ui:6725
 msgid "Directory"
-msgstr ""
+msgstr "Direktorioak"
 
 #: ../src/settingsdialog.cc:3775
 msgid "Directory or favorite name already exists"
@@ -1343,12 +1341,12 @@ msgstr ""
 
 #: ../src/hashdialog.cc:101 ../src/sharebrowser.cc:188
 msgid "Done"
-msgstr ""
+msgstr "Eginda"
 
 #: ../src/settingsdialog.cc:1420 ../ui/sharebrowser.ui:80
 #: ../ui/sharebrowser.ui:126
 msgid "Download"
-msgstr ""
+msgstr "Deskargatu"
 
 #: ../ui/adlsearch.ui:327
 msgid "Download Matches"
@@ -1357,7 +1355,7 @@ msgstr ""
 #: ../src/downloadqueue.cc:32 ../src/settingsdialog.cc:1144
 #: ../src/settingsdialog.cc:1554 ../ui/mainwindow.ui:1268
 msgid "Download Queue"
-msgstr ""
+msgstr "Deskarga Ilara"
 
 #: ../ui/hub.ui:221 ../ui/privatemessage.ui:178 ../ui/search.ui:664
 msgid "Download _to..."
@@ -1445,7 +1443,7 @@ msgstr ""
 #: ../src/downloadqueue.cc:287 ../src/downloadqueue.cc:394
 #: ../src/sharebrowser.cc:92 ../src/sharebrowser.cc:363
 msgid "Downloaded"
-msgstr ""
+msgstr "Deskargatuta"
 
 #: ../src/publichubs.cc:493
 msgid "Downloaded hub list is corrupted or unsupported "
@@ -1457,7 +1455,7 @@ msgstr ""
 
 #: ../ui/settingsdialog.ui:2995 ../ui/settingsdialog.ui:3966
 msgid "Downloads"
-msgstr ""
+msgstr "Deskargak"
 
 #: ../ui/settingsdialog.ui:3626
 msgid "Drop sources below"
@@ -1546,11 +1544,11 @@ msgstr ""
 #: ../src/settingsdialog.cc:1914 ../src/settingsdialog.cc:1958
 #: ../src/settingsdialog.cc:2995
 msgid "Error"
-msgstr ""
+msgstr "Akats"
 
 #: ../src/settingsmanager.cc:527
 msgid "Error: segv parser :D"
-msgstr ""
+msgstr "Error: segv parser :D"
 
 #: ../src/settingsmanager.cc:522
 msgid "Error: setting not found!"
@@ -1559,7 +1557,7 @@ msgstr ""
 #: ../src/downloadqueue.cc:79 ../src/downloadqueue.cc:291
 #: ../src/downloadqueue.cc:398
 msgid "Errors"
-msgstr ""
+msgstr "Akatsak"
 
 #: ../ui/settingsdialog.ui:5199
 msgid "Every time a private message is received"
@@ -1575,7 +1573,7 @@ msgstr ""
 
 #: ../ui/mainwindow.ui:218
 msgid "Exact size"
-msgstr ""
+msgstr "Tamaina zehatza"
 
 #: ../ui/settingsdialog.ui:4409
 msgid "Exceptions"
@@ -1591,7 +1589,7 @@ msgstr ""
 
 #: ../ui/mainwindow.ui:2021
 msgid "Exit"
-msgstr ""
+msgstr "Irten"
 
 #: ../ui/mainwindow.ui:734
 msgid "Exit EiskaltDC++ Gtk?"
@@ -1679,7 +1677,7 @@ msgstr ""
 #: ../ui/settingsdialog.ui:6994 ../ui/settingsdialog.ui:7078
 #: ../ui/settingsdialog.ui:7159
 msgid "File"
-msgstr ""
+msgstr "Fitxategia"
 
 #: ../src/transfers.cc:676 ../src/transfers.cc:878
 msgid "File list"
@@ -1695,7 +1693,7 @@ msgstr ""
 
 #: ../src/downloadqueue.cc:1378
 msgid "File not available"
-msgstr ""
+msgstr "Fitxategia ez dago eskuragarri"
 
 #: ../ui/search.ui:153
 msgid "File type"
@@ -1722,11 +1720,11 @@ msgstr ""
 #: ../src/transfers.cc:65 ../src/transfers.cc:718 ../ui/adlsearch.ui:389
 #: ../ui/search.ui:132
 msgid "Filename"
-msgstr ""
+msgstr "Fitxategi izena"
 
 #: ../src/finishedtransfers.cc:85 ../src/finishedtransfers.cc:194
 msgid "Files"
-msgstr ""
+msgstr "Fitxategiak"
 
 #: ../src/downloadqueue.cc:244 ../src/sharebrowser.cc:381
 msgid "Files: "
@@ -1840,7 +1838,7 @@ msgstr ""
 
 #: ../ui/adlsearch.ui:395
 msgid "Full Path"
-msgstr ""
+msgstr "Bide Osoa"
 
 #: ../src/downloadqueue.cc:1384
 msgid "Full tree does not match TTH root"
@@ -1872,7 +1870,7 @@ msgstr ""
 
 #: ../ui/adlsearch.ui:415 ../ui/search.ui:112
 msgid "GiB"
-msgstr ""
+msgstr "GiB"
 
 #: ../src/favoritehubs.cc:368 ../src/hub.cc:2936
 msgid "Global hub default"
@@ -1945,7 +1943,7 @@ msgstr ""
 
 #: ../src/downloadqueue.cc:1354
 msgid "High"
-msgstr ""
+msgstr "Altu"
 
 #: ../ui/settingsdialog.ui:3200
 msgid "High priority max size"
@@ -1953,7 +1951,7 @@ msgstr ""
 
 #: ../src/downloadqueue.cc:1357
 msgid "Highest"
-msgstr ""
+msgstr "Altuena"
 
 #: ../ui/settingsdialog.ui:3322
 msgid "Highest priority max size"
@@ -1971,7 +1969,7 @@ msgstr ""
 #: ../src/settingsdialog.cc:4100 ../src/settingsdialog.cc:4123
 #: ../src/settingsdialog.cc:4142 ../ui/search.ui:150
 msgid "Hub"
-msgstr ""
+msgstr "Hub"
 
 #: ../src/settingsdialog.cc:1145
 msgid "Hub (also sets urgency hint)"
@@ -2027,7 +2025,7 @@ msgstr ""
 
 #: ../src/search.cc:108 ../src/search.cc:669 ../src/transfers.cc:68
 msgid "IP"
-msgstr ""
+msgstr "IP"
 
 #: ../src/WulforUtil.cc:217
 msgid "ISO-2022-JP"
@@ -2166,7 +2164,7 @@ msgstr ""
 #: ../ui/settingsdialog.ui:3294 ../ui/settingsdialog.ui:3506
 #: ../ui/settingsdialog.ui:7696 ../ui/settingsdialog.ui:7943
 msgid "KiB"
-msgstr ""
+msgstr "KiB"
 
 #: ../ui/downloadqueue.ui:109 ../ui/downloadqueue.ui:243
 msgid "L_ow"
@@ -2255,7 +2253,7 @@ msgstr ""
 
 #: ../src/downloadqueue.cc:1351
 msgid "Low"
-msgstr ""
+msgstr "Baxu"
 
 #: ../ui/settingsdialog.ui:3214
 msgid "Low priority size"
@@ -2263,11 +2261,11 @@ msgstr ""
 
 #: ../src/downloadqueue.cc:1348
 msgid "Lowest"
-msgstr ""
+msgstr "Baxuena"
 
 #: ../ui/mainwindow.ui:8 ../ui/mainwindow.ui:92
 msgid "Magnet"
-msgstr ""
+msgstr "Magnetikoa"
 
 #: ../src/mainwindow.cc:1401
 msgid "Magnet Choice"
@@ -2340,11 +2338,11 @@ msgstr ""
 
 #: ../ui/adlsearch.ui:412 ../ui/search.ui:109 ../ui/settingsdialog.ui:7709
 msgid "MiB"
-msgstr ""
+msgstr "MiB"
 
 #: ../ui/settingsdialog.ui:7672
 msgid "MiB/s"
-msgstr ""
+msgstr "MiB/s"
 
 #: ../ui/settingsdialog.ui:8751 ../ui/settingsdialog.ui:8831
 msgid "Midnight"
@@ -2454,7 +2452,7 @@ msgstr ""
 #: ../src/settingsdialog.cc:4099 ../src/settingsdialog.cc:4122
 #: ../src/settingsdialog.cc:4141 ../ui/settingsdialog.ui:774
 msgid "Name"
-msgstr ""
+msgstr "Izena"
 
 #: ../src/settingsdialog.cc:3476
 msgid "Name and command must not be empty"
@@ -2497,7 +2495,7 @@ msgstr ""
 #: ../src/search.cc:660 ../src/search.cc:726 ../src/search.cc:760
 #: ../src/search.cc:892 ../ui/search.ui:147 ../ui/settingsdialog.ui:1199
 msgid "Nick"
-msgstr ""
+msgstr "Ezizena"
 
 #: ../src/hub.cc:3753
 msgid "Nick already taken"
@@ -2509,11 +2507,11 @@ msgstr ""
 
 #: ../src/finishedtransfers.cc:683
 msgid "No"
-msgstr ""
+msgstr "Ez"
 
 #: ../src/downloadqueue.cc:1394
 msgid "No errors"
-msgstr ""
+msgstr "Akatsik ez"
 
 #: ../ui/search.ui:129
 msgid "No grouping"
@@ -2545,7 +2543,7 @@ msgstr ""
 
 #: ../src/downloadqueue.cc:1360 ../ui/search.ui:86
 msgid "Normal"
-msgstr ""
+msgstr "Normal"
 
 #: ../ui/settingsdialog.ui:3308
 msgid "Normal priority max size"
@@ -2581,7 +2579,7 @@ msgstr ""
 
 #: ../src/WulforUtil.cc:158
 msgid "Offline"
-msgstr ""
+msgstr "Lerroz kanpo"
 
 #: ../src/favoriteusers.cc:104 ../src/favoriteusers.cc:643
 #: ../src/favoriteusers.cc:662
@@ -2667,12 +2665,12 @@ msgstr ""
 
 #: ../src/downloadqueue.cc:1380
 msgid "Passive user"
-msgstr ""
+msgstr "Erabiltzaile pasiboa"
 
 #: ../src/favoritehubs.cc:55 ../src/favoritehubs.cc:133
 #: ../ui/settingsdialog.ui:1723
 msgid "Password"
-msgstr ""
+msgstr "Pasahitza"
 
 #: ../src/downloadqueue.cc:77 ../src/downloadqueue.cc:290
 #: ../src/downloadqueue.cc:397 ../src/finishedtransfers.cc:63
@@ -2683,15 +2681,15 @@ msgstr ""
 #: ../src/search.cc:1432 ../src/search.cc:1467 ../src/search.cc:2057
 #: ../src/transfers.cc:67 ../src/transfers.cc:719 ../ui/search.ui:135
 msgid "Path"
-msgstr ""
+msgstr "Bidea"
 
 #: ../ui/hash.ui:155
 msgid "Pause"
-msgstr ""
+msgstr "Pausatu"
 
 #: ../src/downloadqueue.cc:1345
 msgid "Paused"
-msgstr ""
+msgstr "Pausatuta"
 
 #: ../src/hashdialog.cc:136
 msgid "Paused..."
@@ -2755,7 +2753,7 @@ msgstr ""
 #: ../src/downloadqueue.cc:75 ../src/downloadqueue.cc:289
 #: ../src/downloadqueue.cc:396
 msgid "Priority"
-msgstr ""
+msgstr "Lehentasuna"
 
 #: ../src/settingsdialog.cc:1146
 msgid "Private Message (also sets urgency hint)"
@@ -2769,7 +2767,7 @@ msgstr ""
 #: ../src/settingsdialog.cc:1230 ../src/settingsdialog.cc:1364
 #: ../src/settingsmanager.cc:239
 msgid "Private message"
-msgstr ""
+msgstr "Mezu pribatua"
 
 #: ../src/transfers.cc:58 ../src/transfers.cc:603
 msgid "Progress"
@@ -2793,7 +2791,7 @@ msgstr ""
 #: ../ui/mainwindow.ui:2246 ../ui/mainwindow.ui:2505
 #: ../ui/settingsdialog.ui:3710
 msgid "Queue"
-msgstr ""
+msgstr "Ilara"
 
 #: ../ui/mainwindow.ui:2142
 msgid "Quick connect to the hub"
@@ -2802,7 +2800,7 @@ msgstr ""
 #: ../src/settingsdialog.cc:1434 ../src/settingsdialog.cc:1502
 #: ../ui/mainwindow.ui:2349 ../ui/mainwindow.ui:2529
 msgid "Quit"
-msgstr ""
+msgstr "Irten"
 
 #: ../ui/mainwindow.ui:2347
 msgid "Quit the program"
@@ -2835,7 +2833,7 @@ msgstr ""
 #: ../src/settingsdialog.cc:1436 ../src/settingsdialog.cc:1472
 #: ../ui/mainwindow.ui:2127 ../ui/mainwindow.ui:2409
 msgid "Reconnect"
-msgstr ""
+msgstr "Birkonektatu"
 
 #: ../ui/mainwindow.ui:1455
 msgid "Reconnect all hubs"
@@ -2873,7 +2871,7 @@ msgstr ""
 #: ../ui/adlsearch.ui:508 ../ui/settingsdialog.ui:4341
 #: ../ui/settingsdialog.ui:8406 ../ui/uploadqueue.ui:69
 msgid "Remove"
-msgstr ""
+msgstr "Ezabatu"
 
 #: ../ui/finishedtransfers.ui:188
 msgid "Remove All"
@@ -2925,7 +2923,7 @@ msgstr ""
 
 #: ../src/sharebrowser.cc:89 ../src/sharebrowser.cc:360
 msgid "Resolution"
-msgstr ""
+msgstr "Bereizmena"
 
 #: ../ui/settingsdialog.ui:8929
 msgid "Right"
@@ -2937,7 +2935,7 @@ msgstr ""
 
 #: ../src/downloadqueue.cc:1314
 msgid "Running..."
-msgstr ""
+msgstr "Exekutatzen..."
 
 #: ../src/settingsdialog.cc:1058
 msgid "Russian"
@@ -2963,7 +2961,7 @@ msgstr ""
 #: ../ui/mainwindow.ui:2203 ../ui/mainwindow.ui:2481 ../ui/search.ui:227
 #: ../ui/searchspy.ui:94 ../ui/searchspy.ui:401 ../ui/settingsdialog.ui:8487
 msgid "Search"
-msgstr ""
+msgstr "Bilatu"
 
 #: ../src/settingsdialog.cc:1439 ../ui/mainwindow.ui:1242
 msgid "Search ADL"
@@ -2987,7 +2985,7 @@ msgstr ""
 #: ../src/searchspy.cc:293 ../src/searchspy.cc:309 ../src/searchspy.cc:468
 #: ../src/searchspy.cc:533 ../src/searchspy.cc:566
 msgid "Search String"
-msgstr ""
+msgstr "Bilaketa Katea"
 
 #: ../ui/search.ui:174
 msgid "Search for"
@@ -3049,7 +3047,7 @@ msgstr ""
 
 #: ../ui/uploadqueue.ui:78
 msgid "Send Private Message"
-msgstr ""
+msgstr "Bidali Mezu Pribatua"
 
 #: ../ui/downloadqueue.ui:297 ../ui/search.ui:758
 msgid "Send _private message"
@@ -3071,7 +3069,7 @@ msgstr ""
 #: ../src/settingsdialog.cc:3388 ../src/settingsdialog.cc:3486
 #: ../ui/settingsdialog.ui:627
 msgid "Separator"
-msgstr ""
+msgstr "Banatzailea"
 
 #: ../src/settingsdialog.cc:1470 ../ui/mainwindow.ui:2401
 msgid "Separators"
@@ -3128,7 +3126,7 @@ msgstr ""
 #: ../src/sharebrowser.cc:93 ../src/sharebrowser.cc:111
 #: ../src/sharebrowser.cc:364
 msgid "Shared"
-msgstr ""
+msgstr "Partekatuta"
 
 #: ../ui/settingsdialog.ui:4279 ../ui/settingsdialog.ui:4486
 msgid "Sharing"
@@ -3233,7 +3231,7 @@ msgstr ""
 #: ../src/transfers.cc:720 ../src/transfers.cc:732 ../ui/mainwindow.ui:118
 #: ../ui/search.ui:138 ../ui/search.ui:294
 msgid "Size"
-msgstr ""
+msgstr "Tamaina"
 
 #: ../src/downloadqueue.cc:243 ../src/downloadqueue.cc:245
 #: ../src/sharebrowser.cc:387
@@ -3307,7 +3305,7 @@ msgstr ""
 
 #: ../src/downloadqueue.cc:1386
 msgid "Source too slow"
-msgstr ""
+msgstr "Iturria motelegia"
 
 #: ../src/settingsdialog.cc:1076
 msgid "Spanish"
@@ -3322,7 +3320,7 @@ msgstr ""
 #: ../src/transfers.cc:62 ../src/transfers.cc:564 ../src/transfers.cc:600
 #: ../src/transfers.cc:769
 msgid "Speed"
-msgstr ""
+msgstr "Abiadura"
 
 #: ../ui/mainwindow.ui:2323 ../ui/mainwindow.ui:2497
 msgid "Spy"
@@ -3342,7 +3340,7 @@ msgstr ""
 #: ../src/transfers.cc:410 ../src/transfers.cc:504 ../src/transfers.cc:590
 #: ../src/transfers.cc:604 ../src/transfers.cc:767
 msgid "Status"
-msgstr ""
+msgstr "Egoera"
 
 #: ../src/settingsdialog.cc:1236
 msgid "Status message"
@@ -3350,7 +3348,7 @@ msgstr ""
 
 #: ../src/search.cc:594
 msgid "Stop"
-msgstr ""
+msgstr "Gelditu"
 
 #: ../src/settingsdialog.cc:1096
 msgid "Swedish (Sweden)"
@@ -3363,7 +3361,7 @@ msgstr ""
 #: ../src/WulforUtil.cc:41 ../src/settingsdialog.cc:1054
 #: ../ui/settingsdialog.ui:8958
 msgid "System default"
-msgstr ""
+msgstr "Sistema lehenetsia"
 
 #: ../ui/settingsdialog.ui:6089
 msgid "System icons"
@@ -3388,7 +3386,7 @@ msgstr ""
 #: ../src/sharebrowser.cc:1054 ../src/sharebrowser.cc:1090
 #: ../ui/mainwindow.ui:132 ../ui/search.ui:144
 msgid "TTH"
-msgstr ""
+msgstr "TTH"
 
 #: ../src/transfers.cc:713 ../src/transfers.cc:714 ../src/transfers.cc:880
 msgid "TTH: "
@@ -3400,7 +3398,7 @@ msgstr ""
 
 #: ../src/hub.cc:88 ../src/hub.cc:407 ../src/hub.cc:427
 msgid "Tag"
-msgstr ""
+msgstr "Etiketa"
 
 #: ../ui/settingsdialog.ui:5646
 msgid "Test"
@@ -3408,7 +3406,7 @@ msgstr ""
 
 #: ../ui/settingsdialog.ui:8946
 msgid "Text"
-msgstr ""
+msgstr "Testua"
 
 #: ../ui/settingsdialog.ui:5400
 msgid "Text color"
@@ -3525,7 +3523,7 @@ msgstr ""
 #: ../src/finishedtransfers.cc:239 ../src/finishedtransfers.cc:614
 #: ../src/transfers.cc:64 ../src/transfers.cc:601
 msgid "Transferred"
-msgstr ""
+msgstr "Transferituta"
 
 #: ../src/transfers.cc:617
 #, c-format
@@ -3541,15 +3539,14 @@ msgid "Turkish"
 msgstr ""
 
 #: ../src/mainwindow.cc:291
-#, fuzzy
 msgid "Turkish translation\n"
-msgstr "Bulgariar itzulpena\n"
+msgstr ""
 
 #: ../src/search.cc:101 ../src/search.cc:665 ../src/search.cc:769
 #: ../src/search.cc:898 ../src/search.cc:932 ../src/sharebrowser.cc:85
 #: ../src/sharebrowser.cc:326 ../src/sharebrowser.cc:347
 msgid "Type"
-msgstr ""
+msgstr "Mota"
 
 #: ../src/settingsdialog.cc:1242
 msgid "URL"
@@ -3642,7 +3639,7 @@ msgstr ""
 
 #: ../ui/settingsdialog.ui:4207
 msgid "Upload slots"
-msgstr ""
+msgstr "Slot-ak igo"
 
 #: ../ui/mainwindow.ui:1890
 msgid "Upload speed"
@@ -3658,6 +3655,20 @@ msgstr ""
 
 #: ../src/transfers.cc:1148
 msgid "Uploading"
+msgstr ""
+
+#: ../src/wulfor.cc:45
+#, c-format
+msgid ""
+"Usage:\n"
+"  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n"
+"  eiskaltdcpp-gtk <Key>\n"
+"EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC "
+"protocols.\n"
+"\n"
+"Keys:\n"
+"  -h, --help\t Show this message\n"
+"  -V, --version\t Show version string\n"
 msgstr ""
 
 #: ../src/settingsdialog.cc:362 ../src/settingsdialog.cc:400
@@ -3732,7 +3743,7 @@ msgstr ""
 #: ../src/transfers.cc:56 ../src/transfers.cc:87 ../src/transfers.cc:89
 #: ../src/transfers.cc:502 ../src/transfers.cc:567 ../src/transfers.cc:598
 msgid "User"
-msgstr ""
+msgstr "Erabiltzailea"
 
 #: ../src/settingsdialog.cc:1411
 msgid "User (dc)"
@@ -3753,7 +3764,7 @@ msgstr ""
 
 #: ../ui/sharebrowser.ui:109 ../ui/sharebrowser.ui:182 ../ui/transfers.ui:90
 msgid "User commands"
-msgstr ""
+msgstr "erabiltzaile komandoak"
 
 #: ../src/hub.cc:1997
 msgid "User favorite list:"
@@ -3804,29 +3815,15 @@ msgstr ""
 #: ../src/publichubs.cc:63 ../src/publichubs.cc:160 ../ui/mainwindow.ui:2186
 #: ../ui/mainwindow.ui:2433
 msgid "Users"
-msgstr ""
+msgstr "Erabiltzaileak"
 
 #: ../src/publichubs.cc:179
 msgid "Users: "
 msgstr ""
 
-#: ../src/wulfor.cc:45
-#, c-format
-msgid ""
-"Usage:\n"
-"  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n"
-"  eiskaltdcpp-gtk <Key>\n"
-"EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC "
-"protocols.\n"
-"\n"
-"Keys:\n"
-"  -h, --help\t Show this message\n"
-"  -V, --version\t Show version string\n"
-msgstr ""
-
 #: ../src/sharebrowser.cc:90 ../src/sharebrowser.cc:361
 msgid "Video"
-msgstr ""
+msgstr "Bideoak"
 
 #: ../src/settingsdialog.cc:1092
 msgid "Vietnamese"
@@ -4233,6 +4230,3 @@ msgstr ""
 #: ../src/searchspy.cc:296 ../src/searchspy.cc:364
 msgid "waiting..."
 msgstr ""
-
-#~ msgid "https://github.com/eiskaltdcpp/eiskaltdcpp/raw/master/ChangeLog.txt"
-#~ msgstr "https://github.com/eiskaltdcpp/eiskaltdcpp/raw/master/ChangeLog.txt"

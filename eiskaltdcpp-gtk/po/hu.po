@@ -3,17 +3,16 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
-# Translators:
 # Márk Lutring <marcus@elitemail.hu>, 2012-2014
 # Szabolcs Molnár <fleet@elitemail.hu>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: https://github.com/eiskaltdcpp/eiskaltdcpp/issues\n"
-"POT-Creation-Date: 2019-05-07 01:10+0300\n"
-"PO-Revision-Date: 2014-06-03 04:41+0000\n"
+"POT-Creation-Date: 2019-05-31 00:45+0300\n"
+"PO-Revision-Date: 2019-05-30 21:42+0000\n"
 "Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
-"Language-Team: Hungarian (http://www.transifex.com/projects/p/eiskaltdcpp/"
+"Language-Team: Hungarian (http://www.transifex.com/tehnick/eiskaltdcpp/"
 "language/hu/)\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
@@ -92,7 +91,7 @@ msgstr " törölve a favoritok közül"
 
 #: ../src/settingsmanager.cc:525
 msgid " to "
-msgstr ""
+msgstr "erre:"
 
 #: ../src/search.cc:725
 msgid " user(s)"
@@ -876,9 +875,8 @@ msgid "Basque"
 msgstr ""
 
 #: ../src/mainwindow.cc:257
-#, fuzzy
 msgid "Basque translation\n"
-msgstr "Spanyol fordítás\n"
+msgstr ""
 
 #: ../src/settingsdialog.cc:1060
 msgid "Belarusian"
@@ -1237,17 +1235,13 @@ msgid "Czech translation\n"
 msgstr "Cseh fordítás\n"
 
 #: ../src/mainwindow.cc:186
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "DC++ Client based on the source code of FreeDC++ and LinuxDC++\n"
 "\n"
 "EiskaltDC++ version: %s\n"
 "DC++ core version: %s"
 msgstr ""
-"Ez a DC++ kliens a FreeDC++ és a LinuxDC++ forráskódján alapszik.\n"
-"\n"
-"EiskaltDC++ verzió: %s (%s)\n"
-"DC++ verzió: %s"
 
 #: ../ui/cmddebug.ui:99
 msgid "DETECTION"
@@ -3116,14 +3110,12 @@ msgid "Separators"
 msgstr "Elválasztók"
 
 #: ../src/settingsdialog.cc:1070
-#, fuzzy
 msgid "Serbian (Cyrillic)"
-msgstr "Szerb (Latin) fordítás"
+msgstr ""
 
 #: ../src/mainwindow.cc:245
-#, fuzzy
 msgid "Serbian (Cyrillic) translation\n"
-msgstr "Szerb (latin) fordítás\n"
+msgstr ""
 
 #: ../src/settingsdialog.cc:1072
 msgid "Serbian (Latin)"
@@ -3585,9 +3577,8 @@ msgid "Turkish"
 msgstr ""
 
 #: ../src/mainwindow.cc:291
-#, fuzzy
 msgid "Turkish translation\n"
-msgstr "Lengyel fordítás\n"
+msgstr ""
 
 #: ../src/search.cc:101 ../src/search.cc:665 ../src/search.cc:769
 #: ../src/search.cc:898 ../src/search.cc:932 ../src/sharebrowser.cc:85
@@ -3707,6 +3698,29 @@ msgstr "Feltöltés: "
 msgid "Uploading"
 msgstr "Feltöltés"
 
+#: ../src/wulfor.cc:45
+#, c-format
+msgid ""
+"Usage:\n"
+"  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n"
+"  eiskaltdcpp-gtk <Key>\n"
+"EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC "
+"protocols.\n"
+"\n"
+"Keys:\n"
+"  -h, --help\t Show this message\n"
+"  -V, --version\t Show version string\n"
+msgstr ""
+"Használat:\n"
+"  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n"
+"  eiskaltdcpp <Kapcsoló>\n"
+"Az EiskaltDC++ egy kereszt-platformos program, a Direct Connect és az ADC "
+"protokollok használatára.\n"
+"\n"
+"Kapcsolók:\n"
+"  -h, --help\t\t Help megjelenítése\n"
+"  -V, --version\t  Verzióinformáció mutatása\n"
+
 #: ../src/settingsdialog.cc:362 ../src/settingsdialog.cc:400
 #: ../src/settingsdialog.cc:434 ../src/settingsdialog.cc:688
 #: ../src/settingsdialog.cc:701 ../src/settingsdialog.cc:717
@@ -3767,7 +3781,7 @@ msgstr ""
 
 #: ../src/settingsdialog.cc:1122
 msgid "Use magnet split"
-msgstr ""
+msgstr "Sebességkorlátozások használata"
 
 #: ../ui/settingsdialog.ui:2060
 msgid "Use second set of bandwidth limits"
@@ -3857,29 +3871,6 @@ msgstr "Felhasználó"
 #: ../src/publichubs.cc:179
 msgid "Users: "
 msgstr "Felhasználó(k): "
-
-#: ../src/wulfor.cc:45
-#, c-format
-msgid ""
-"Usage:\n"
-"  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n"
-"  eiskaltdcpp-gtk <Key>\n"
-"EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC "
-"protocols.\n"
-"\n"
-"Keys:\n"
-"  -h, --help\t Show this message\n"
-"  -V, --version\t Show version string\n"
-msgstr ""
-"Használat:\n"
-"  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n"
-"  eiskaltdcpp <Kapcsoló>\n"
-"Az EiskaltDC++ egy kereszt-platformos program, a Direct Connect és az ADC "
-"protokollok használatára.\n"
-"\n"
-"Kapcsolók:\n"
-"  -h, --help\t\t Help megjelenítése\n"
-"  -V, --version\t  Verzióinformáció mutatása\n"
 
 #: ../src/sharebrowser.cc:90 ../src/sharebrowser.cc:361
 msgid "Video"
@@ -4278,7 +4269,7 @@ msgstr "téma"
 
 #: ../ui/settingsdialog.ui:2122
 msgid "to"
-msgstr ""
+msgstr "-"
 
 #: ../src/searchspy.cc:359
 msgid "top..."
@@ -4291,9 +4282,3 @@ msgstr ""
 #: ../src/searchspy.cc:296 ../src/searchspy.cc:364
 msgid "waiting..."
 msgstr "várakozás..."
-
-#~ msgid "from Coral"
-#~ msgstr "a Coral-ról"
-
-#~ msgid "https://github.com/eiskaltdcpp/eiskaltdcpp/raw/master/ChangeLog.txt"
-#~ msgstr "https://github.com/eiskaltdcpp/eiskaltdcpp/raw/master/ChangeLog.txt"

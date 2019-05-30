@@ -3,8 +3,6 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
-# Translators:
-# Translators:
 # Jackl <be.w@mail.ru>, 2013-2016
 # Jackl <be.w@mail.ru>, 2012
 # Jackl <be.w@mail.ru>, 2012-2013
@@ -12,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: https://github.com/eiskaltdcpp/eiskaltdcpp/issues\n"
-"POT-Creation-Date: 2019-05-07 01:10+0300\n"
-"PO-Revision-Date: 2016-01-22 21:56+0000\n"
-"Last-Translator: Jackl <be.w@mail.ru>\n"
+"POT-Creation-Date: 2019-05-31 00:45+0300\n"
+"PO-Revision-Date: 2019-05-30 21:42+0000\n"
+"Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
 "Language-Team: German (http://www.transifex.com/tehnick/eiskaltdcpp/language/"
 "de/)\n"
 "Language: de\n"
@@ -3717,6 +3715,29 @@ msgstr "Upload: "
 msgid "Uploading"
 msgstr "Upload"
 
+#: ../src/wulfor.cc:45
+#, c-format
+msgid ""
+"Usage:\n"
+"  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n"
+"  eiskaltdcpp-gtk <Key>\n"
+"EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC "
+"protocols.\n"
+"\n"
+"Keys:\n"
+"  -h, --help\t Show this message\n"
+"  -V, --version\t Show version string\n"
+msgstr ""
+"Aufruf:\n"
+"  eiskaltdcpp-gtk <Magnet-Link> <dchub://Link> <adc(s)://Link>\n"
+"  eiskaltdcpp-gtk <Option>\n"
+"EiskaltDC++ ist ein plattformübergreifendes Programm, das die Protokolle\n"
+"Direct Connect und ADC benutzt.\n"
+"\n"
+"Optionen:\n"
+"  -h, --help      Diese Nachricht anzeigen\n"
+"  -V, --version   Version anzeigen\n"
+
 #: ../src/settingsdialog.cc:362 ../src/settingsdialog.cc:400
 #: ../src/settingsdialog.cc:434 ../src/settingsdialog.cc:688
 #: ../src/settingsdialog.cc:701 ../src/settingsdialog.cc:717
@@ -3868,29 +3889,6 @@ msgstr "Benutzer"
 #: ../src/publichubs.cc:179
 msgid "Users: "
 msgstr "Benutzer: "
-
-#: ../src/wulfor.cc:45
-#, c-format
-msgid ""
-"Usage:\n"
-"  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n"
-"  eiskaltdcpp-gtk <Key>\n"
-"EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC "
-"protocols.\n"
-"\n"
-"Keys:\n"
-"  -h, --help\t Show this message\n"
-"  -V, --version\t Show version string\n"
-msgstr ""
-"Aufruf:\n"
-"  eiskaltdcpp-gtk <Magnet-Link> <dchub://Link> <adc(s)://Link>\n"
-"  eiskaltdcpp-gtk <Option>\n"
-"EiskaltDC++ ist ein plattformübergreifendes Programm, das die Protokolle\n"
-"Direct Connect und ADC benutzt.\n"
-"\n"
-"Optionen:\n"
-"  -h, --help      Diese Nachricht anzeigen\n"
-"  -V, --version   Version anzeigen\n"
 
 #: ../src/sharebrowser.cc:90 ../src/sharebrowser.cc:361
 msgid "Video"
@@ -4302,9 +4300,3 @@ msgstr "Kopfende/warten/Frame:"
 #: ../src/searchspy.cc:296 ../src/searchspy.cc:364
 msgid "waiting..."
 msgstr "Warten …"
-
-#~ msgid "from Coral"
-#~ msgstr "von Coral"
-
-#~ msgid "https://github.com/eiskaltdcpp/eiskaltdcpp/raw/master/ChangeLog.txt"
-#~ msgstr "https://github.com/eiskaltdcpp/eiskaltdcpp/raw/master/ChangeLog.txt"

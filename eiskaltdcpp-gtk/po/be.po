@@ -3,19 +3,18 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
-# Translators:
-# Translators:
 # Zmicer <m_d@mail.by>, 2015
-# Ехе́ Кім Урґ <yehekim@gmail.com>, 2012
-# Ехе́ Кім Урґ <yehekim@gmail.com>, 2012
-# Ехе́ Кім Урґ <yehekim@gmail.com>, 2012
+# Paval “Клёк” Shalamitski <yehekim@gmail.com>, 2012
+# Paval “Клёк” Shalamitski <yehekim@gmail.com>, 2012
+# Paval “Клёк” Shalamitski <yehekim@gmail.com>, 2012
+# Paval “Клёк” Shalamitski <yehekim@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: https://github.com/eiskaltdcpp/eiskaltdcpp/issues\n"
-"POT-Creation-Date: 2019-05-07 01:10+0300\n"
-"PO-Revision-Date: 2015-11-15 16:46+0000\n"
-"Last-Translator: Zmicer <m_d@mail.by>\n"
+"POT-Creation-Date: 2019-05-31 00:45+0300\n"
+"PO-Revision-Date: 2019-05-30 21:42+0000\n"
+"Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
 "Language-Team: Belarusian (http://www.transifex.com/tehnick/eiskaltdcpp/"
 "language/be/)\n"
 "Language: be\n"
@@ -1233,17 +1232,13 @@ msgid "Czech translation\n"
 msgstr "Чэская мова\n"
 
 #: ../src/mainwindow.cc:186
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "DC++ Client based on the source code of FreeDC++ and LinuxDC++\n"
 "\n"
 "EiskaltDC++ version: %s\n"
 "DC++ core version: %s"
 msgstr ""
-"Кліент DC++, які грунтуецца на выточным кодзе FreeDC++ і LinuxDC++\n"
-"\n"
-"Вэрсія «EiskaltDC++»: %s (%s)\n"
-"Вэрсія асновы DC++: %s"
 
 #: ../ui/cmddebug.ui:99
 msgid "DETECTION"
@@ -1573,7 +1568,7 @@ msgstr "Памылка"
 
 #: ../src/settingsmanager.cc:527
 msgid "Error: segv parser :D"
-msgstr ""
+msgstr "Error: segv parser :D"
 
 #: ../src/settingsmanager.cc:522
 msgid "Error: setting not found!"
@@ -3577,12 +3572,11 @@ msgstr "Шлях да давераных пасьведч."
 
 #: ../src/settingsdialog.cc:1098
 msgid "Turkish"
-msgstr ""
+msgstr "Турэцкі"
 
 #: ../src/mainwindow.cc:291
-#, fuzzy
 msgid "Turkish translation\n"
-msgstr "Польская мова\n"
+msgstr ""
 
 #: ../src/search.cc:101 ../src/search.cc:665 ../src/search.cc:769
 #: ../src/search.cc:898 ../src/search.cc:932 ../src/sharebrowser.cc:85
@@ -3701,6 +3695,29 @@ msgstr "Зацягнулі: "
 #: ../src/transfers.cc:1148
 msgid "Uploading"
 msgstr "Зацягваецца"
+
+#: ../src/wulfor.cc:45
+#, c-format
+msgid ""
+"Usage:\n"
+"  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n"
+"  eiskaltdcpp-gtk <Key>\n"
+"EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC "
+"protocols.\n"
+"\n"
+"Keys:\n"
+"  -h, --help\t Show this message\n"
+"  -V, --version\t Show version string\n"
+msgstr ""
+"Як карыстацца:\n"
+"  eiskaltdcpp-gtk <маґніт-спасылка> <dchub://спасылка> <adc(s)://спасылка>\n"
+"  eiskaltdcpp-gtk <ключ>\n"
+"EiskaltDC++ — гэта міжплятформавая праґрама, якая выкарыстоўвае пратаколы "
+"Direct Connect і ADC.\n"
+"\n"
+"Ключы:\n"
+"  -h, --help\t Паказвае гэтае паведамленьне\n"
+"  -V, --version\t Паказвае радок з вэрсіяй\n"
 
 #: ../src/settingsdialog.cc:362 ../src/settingsdialog.cc:400
 #: ../src/settingsdialog.cc:434 ../src/settingsdialog.cc:688
@@ -3853,29 +3870,6 @@ msgstr "Карыстальнікі"
 #: ../src/publichubs.cc:179
 msgid "Users: "
 msgstr "Карыстачы: "
-
-#: ../src/wulfor.cc:45
-#, c-format
-msgid ""
-"Usage:\n"
-"  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n"
-"  eiskaltdcpp-gtk <Key>\n"
-"EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC "
-"protocols.\n"
-"\n"
-"Keys:\n"
-"  -h, --help\t Show this message\n"
-"  -V, --version\t Show version string\n"
-msgstr ""
-"Як карыстацца:\n"
-"  eiskaltdcpp-gtk <маґніт-спасылка> <dchub://спасылка> <adc(s)://спасылка>\n"
-"  eiskaltdcpp-gtk <ключ>\n"
-"EiskaltDC++ — гэта міжплятформавая праґрама, якая выкарыстоўвае пратаколы "
-"Direct Connect і ADC.\n"
-"\n"
-"Ключы:\n"
-"  -h, --help\t Паказвае гэтае паведамленьне\n"
-"  -V, --version\t Паказвае радок з вэрсіяй\n"
 
 #: ../src/sharebrowser.cc:90 ../src/sharebrowser.cc:361
 msgid "Video"
@@ -4286,9 +4280,3 @@ msgstr "найлепшыя/чакаюць/бачныя: "
 #: ../src/searchspy.cc:296 ../src/searchspy.cc:364
 msgid "waiting..."
 msgstr "чакаем…"
-
-#~ msgid "from Coral"
-#~ msgstr "з Каралу (Coral)"
-
-#~ msgid "https://github.com/eiskaltdcpp/eiskaltdcpp/raw/master/ChangeLog.txt"
-#~ msgstr "https://github.com/eiskaltdcpp/eiskaltdcpp/raw/master/ChangeLog.txt"

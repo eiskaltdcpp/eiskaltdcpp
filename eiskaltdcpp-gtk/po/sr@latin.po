@@ -3,19 +3,19 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
-# Translators:
-# Translators:
-# miroslav <miroslav031@yandex.com>, 2011-2012
-# miroslav <miroslav031@yandex.com>, 2013-2015
-# miroslav <miroslav031@yandex.com>, 2013
+# markosm <chabro@zoho.com>, 2014
 # markosm <chajbo@ro.ru>, 2014
+# miroslav <inactive+miroslav@transifex.com>, 2011-2012
+# miroslav <inactive+miroslav@transifex.com>, 2013-2015
+# miroslav <miroslav031@yandex.com>, 2013
+# markosm <chabro@zoho.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: https://github.com/eiskaltdcpp/eiskaltdcpp/issues\n"
-"POT-Creation-Date: 2019-05-07 01:10+0300\n"
-"PO-Revision-Date: 2015-11-29 11:29+0000\n"
-"Last-Translator: miroslav <miroslav031@yandex.com>\n"
+"POT-Creation-Date: 2019-05-31 00:45+0300\n"
+"PO-Revision-Date: 2019-05-30 21:42+0000\n"
+"Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
 "Language-Team: Serbian (Latin) (http://www.transifex.com/tehnick/eiskaltdcpp/"
 "language/sr@latin/)\n"
 "Language: sr@latin\n"
@@ -3706,6 +3706,31 @@ msgstr "Otpremanje"
 msgid "Uploading"
 msgstr "Otpremanje"
 
+#: ../src/wulfor.cc:45
+#, c-format
+msgid ""
+"Usage:\n"
+"  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n"
+"  eiskaltdcpp-gtk <Key>\n"
+"EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC "
+"protocols.\n"
+"\n"
+"Keys:\n"
+"  -h, --help\t Show this message\n"
+"  -V, --version\t Show version string\n"
+msgstr ""
+"Korišćenje:\n"
+"  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n"
+"  eiskaltdcpp-gtk <Key>\n"
+"EiskaltDC++ je  cross-platform program koji koristi direktno povezivanje i "
+"ADC protokol.\n"
+"\n"
+"Keys:\n"
+"  -h, --help<span class=\"whitespace other\" title=\"Tab\">»</span> Pokaži "
+"ovu poruku\n"
+"  -V, --version<span class=\"whitespace other\" title=\"Tab\">»</span> Show "
+"version string\n"
+
 #: ../src/settingsdialog.cc:362 ../src/settingsdialog.cc:400
 #: ../src/settingsdialog.cc:434 ../src/settingsdialog.cc:688
 #: ../src/settingsdialog.cc:701 ../src/settingsdialog.cc:717
@@ -3855,31 +3880,6 @@ msgstr "Korisnici"
 #: ../src/publichubs.cc:179
 msgid "Users: "
 msgstr "Korisnici:"
-
-#: ../src/wulfor.cc:45
-#, c-format
-msgid ""
-"Usage:\n"
-"  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n"
-"  eiskaltdcpp-gtk <Key>\n"
-"EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC "
-"protocols.\n"
-"\n"
-"Keys:\n"
-"  -h, --help\t Show this message\n"
-"  -V, --version\t Show version string\n"
-msgstr ""
-"Korišćenje:\n"
-"  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n"
-"  eiskaltdcpp-gtk <Key>\n"
-"EiskaltDC++ je  cross-platform program koji koristi direktno povezivanje i "
-"ADC protokol.\n"
-"\n"
-"Keys:\n"
-"  -h, --help<span class=\"whitespace other\" title=\"Tab\">»</span> Pokaži "
-"ovu poruku\n"
-"  -V, --version<span class=\"whitespace other\" title=\"Tab\">»</span> Show "
-"version string\n"
 
 #: ../src/sharebrowser.cc:90 ../src/sharebrowser.cc:361
 msgid "Video"
@@ -4290,9 +4290,3 @@ msgstr "top/čekanje/okvir: "
 #: ../src/searchspy.cc:296 ../src/searchspy.cc:364
 msgid "waiting..."
 msgstr "čekanje ..."
-
-#~ msgid "from Coral"
-#~ msgstr "od Coral"
-
-#~ msgid "https://github.com/eiskaltdcpp/eiskaltdcpp/raw/master/ChangeLog.txt"
-#~ msgstr "https://github.com/eiskaltdcpp/eiskaltdcpp/raw/master/ChangeLog.txt"

@@ -1,23 +1,23 @@
+# SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR EiskaltDC++ team
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
-# Translators:
-# Boris Pek <tehnick-8@yandex.ru>, 2013, 2015.
+# Boris Pek <tehnick-8@yandex.ru>, 2013,2015
 msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: https://github.com/eiskaltdcpp/eiskaltdcpp/issues\n"
-"POT-Creation-Date: 2019-05-07 01:10+0300\n"
-"PO-Revision-Date: 2015-11-30 02:06+0300\n"
+"POT-Creation-Date: 2019-05-31 00:45+0300\n"
+"PO-Revision-Date: 2019-05-30 21:42+0000\n"
 "Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
-"Language-Team: Russian <kde-russian@lists.kde.ru>\n"
+"Language-Team: Chinese (China) (http://www.transifex.com/tehnick/eiskaltdcpp/"
+"language/zh_CN/)\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 2.0\n"
 
 #: ../src/hub.cc:1076 ../src/hub.cc:1155 ../src/privatemessage.cc:571
 #: ../src/privatemessage.cc:650
@@ -594,7 +594,7 @@ msgstr ""
 
 #: ../ui/mainwindow.ui:1628
 msgid "About EiskaltDC++"
-msgstr ""
+msgstr "关于 EiskaltDC++"
 
 #: ../src/settingsdialog.cc:1652
 msgid "Accept custom user commands from hub"
@@ -636,7 +636,7 @@ msgstr ""
 
 #: ../ui/publichubs.ui:415
 msgid "Add to favorites"
-msgstr ""
+msgstr "添加至最爱"
 
 #: ../src/hub.cc:2101 ../src/privatemessage.cc:1039 ../ui/privatemessage.ui:48
 msgid "Add user to favorites list"
@@ -649,7 +649,7 @@ msgstr ""
 #: ../src/downloadqueue.cc:80 ../src/downloadqueue.cc:292
 #: ../src/downloadqueue.cc:399
 msgid "Added"
-msgstr ""
+msgstr "添加时间"
 
 #: ../ui/settingsdialog.ui:6284
 msgid "Adding string or TTH to the top"
@@ -663,7 +663,7 @@ msgstr ""
 #: ../src/publichubs.cc:49 ../src/publichubs.cc:161 ../src/publichubs.cc:280
 #: ../src/publichubs.cc:305
 msgid "Address"
-msgstr ""
+msgstr "地址"
 
 #: ../ui/settingsdialog.ui:2569 ../ui/settingsdialog.ui:4470
 #: ../ui/settingsdialog.ui:7341
@@ -688,7 +688,7 @@ msgstr ""
 
 #: ../src/hub.cc:2326
 msgid "Aliases not found."
-msgstr ""
+msgstr "假名未找到。"
 
 #: ../src/settingsdialog.cc:1728
 msgid "Allow TLS connections to clients without trusted certificate"
@@ -726,7 +726,7 @@ msgstr ""
 #: ../src/settingsdialog.cc:3005 ../src/settingsdialog.cc:3039
 #: ../src/settingsdialog.cc:3057 ../src/settingsdialog.cc:3088
 msgid "Application"
-msgstr ""
+msgstr "应用程序"
 
 #: ../ui/settingsdialog.ui:3802
 msgid "Application:"
@@ -751,11 +751,11 @@ msgstr ""
 
 #: ../ui/search.ui:89
 msgid "At least"
-msgstr ""
+msgstr "至少"
 
 #: ../ui/search.ui:92
 msgid "At most"
-msgstr ""
+msgstr "最多"
 
 #: ../src/sharebrowser.cc:91 ../src/sharebrowser.cc:362
 msgid "Audio"
@@ -826,16 +826,16 @@ msgstr ""
 #: ../src/privatemessage.cc:917 ../src/privatemessage.cc:931
 #: ../src/privatemessage.cc:1036 ../ui/hub.ui:21 ../ui/privatemessage.ui:21
 msgid "Away mode off"
-msgstr ""
+msgstr "取消离去模式"
 
 #: ../src/hub.cc:1920 ../src/privatemessage.cc:925
 msgid "Away mode on: "
-msgstr ""
+msgstr "启用离去模式"
 
 #: ../ui/adlsearch.ui:406 ../ui/search.ui:103 ../ui/settingsdialog.ui:7978
 #: ../ui/settingsdialog.ui:7991
 msgid "B"
-msgstr ""
+msgstr "B"
 
 #: ../src/hashdialog.cc:63 ../ui/settingsdialog.ui:3552
 msgid "B/s"
@@ -981,7 +981,7 @@ msgstr ""
 
 #: ../ui/mainwindow.ui:1112
 msgid "Calculate file TTH"
-msgstr ""
+msgstr "计算文件 TTH"
 
 #: ../src/wulfor.cc:108
 #, c-format
@@ -1002,7 +1002,7 @@ msgstr ""
 
 #: ../ui/mainwindow.ui:1611
 msgid "Changelog (git)"
-msgstr ""
+msgstr "更变日志(git)"
 
 #: ../ui/settingsdialog.ui:609
 msgid "Chat"
@@ -1052,7 +1052,7 @@ msgstr ""
 
 #: ../ui/search.ui:242 ../ui/searchspy.ui:124 ../ui/searchspy.ui:340
 msgid "Clear"
-msgstr ""
+msgstr "清除"
 
 #: ../src/privatemessage.cc:1037 ../ui/privatemessage.ui:30
 msgid "Clear PM"
@@ -1060,7 +1060,7 @@ msgstr ""
 
 #: ../src/hub.cc:2098 ../ui/hub.ui:30
 msgid "Clear chat"
-msgstr ""
+msgstr "清空聊天室"
 
 #: ../src/searchspy.cc:501 ../ui/searchspy.ui:344
 msgid "Clear frame search"
@@ -1139,7 +1139,7 @@ msgstr ""
 #: ../src/settingsdialog.cc:1435 ../src/settingsdialog.cc:1474
 #: ../ui/mainwindow.ui:2144 ../ui/mainwindow.ui:2417
 msgid "Connect"
-msgstr ""
+msgstr "连接"
 
 #: ../src/hub.cc:3586
 msgid "Connect failed: "
@@ -1186,7 +1186,7 @@ msgstr ""
 
 #: ../src/mainwindow.cc:2366
 msgid "Connectivity Manager: Warning"
-msgstr ""
+msgstr "连接管理器: 警告"
 
 #: ../src/mainwindow.cc:213
 msgid "Contributors"
@@ -1199,7 +1199,7 @@ msgstr ""
 
 #: ../src/publichubs.cc:50 ../src/publichubs.cc:162
 msgid "Country"
-msgstr ""
+msgstr "国家"
 
 #: ../src/settingsdialog.cc:1084
 msgid "Czech"
@@ -1261,7 +1261,7 @@ msgstr ""
 #: ../src/publichubs.cc:159 ../src/publichubs.cc:304 ../ui/favoriteusers.ui:212
 #: ../ui/settingsdialog.ui:1171
 msgid "Description"
-msgstr ""
+msgstr "描述"
 
 #: ../src/adlsearch.cc:40 ../src/adlsearch.cc:60 ../src/adlsearch.cc:110
 #: ../src/adlsearch.cc:208 ../src/adlsearch.cc:233
@@ -1290,7 +1290,7 @@ msgstr ""
 #: ../src/settingsdialog.cc:3887 ../src/sharebrowser.cc:326
 #: ../ui/adlsearch.ui:392 ../ui/settingsdialog.ui:6725
 msgid "Directory"
-msgstr ""
+msgstr "目录"
 
 #: ../src/settingsdialog.cc:3775
 msgid "Directory or favorite name already exists"
@@ -1338,12 +1338,12 @@ msgstr ""
 
 #: ../src/hashdialog.cc:101 ../src/sharebrowser.cc:188
 msgid "Done"
-msgstr ""
+msgstr "已完成"
 
 #: ../src/settingsdialog.cc:1420 ../ui/sharebrowser.ui:80
 #: ../ui/sharebrowser.ui:126
 msgid "Download"
-msgstr ""
+msgstr "下载"
 
 #: ../ui/adlsearch.ui:327
 msgid "Download Matches"
@@ -1352,7 +1352,7 @@ msgstr ""
 #: ../src/downloadqueue.cc:32 ../src/settingsdialog.cc:1144
 #: ../src/settingsdialog.cc:1554 ../ui/mainwindow.ui:1268
 msgid "Download Queue"
-msgstr ""
+msgstr "下载队列"
 
 #: ../ui/hub.ui:221 ../ui/privatemessage.ui:178 ../ui/search.ui:664
 msgid "Download _to..."
@@ -1426,7 +1426,7 @@ msgstr ""
 
 #: ../ui/sharebrowser.ui:89 ../ui/sharebrowser.ui:135
 msgid "Download to..."
-msgstr ""
+msgstr "下载到……"
 
 #: ../ui/search.ui:687
 msgid "Download whole director_y to..."
@@ -1440,7 +1440,7 @@ msgstr ""
 #: ../src/downloadqueue.cc:287 ../src/downloadqueue.cc:394
 #: ../src/sharebrowser.cc:92 ../src/sharebrowser.cc:363
 msgid "Downloaded"
-msgstr ""
+msgstr "已下载"
 
 #: ../src/publichubs.cc:493
 msgid "Downloaded hub list is corrupted or unsupported "
@@ -1541,7 +1541,7 @@ msgstr ""
 #: ../src/settingsdialog.cc:1914 ../src/settingsdialog.cc:1958
 #: ../src/settingsdialog.cc:2995
 msgid "Error"
-msgstr ""
+msgstr "错误"
 
 #: ../src/settingsmanager.cc:527
 msgid "Error: segv parser :D"
@@ -1554,7 +1554,7 @@ msgstr ""
 #: ../src/downloadqueue.cc:79 ../src/downloadqueue.cc:291
 #: ../src/downloadqueue.cc:398
 msgid "Errors"
-msgstr ""
+msgstr "错误"
 
 #: ../ui/settingsdialog.ui:5199
 msgid "Every time a private message is received"
@@ -1570,7 +1570,7 @@ msgstr ""
 
 #: ../ui/mainwindow.ui:218
 msgid "Exact size"
-msgstr ""
+msgstr "实际大小"
 
 #: ../ui/settingsdialog.ui:4409
 msgid "Exceptions"
@@ -1586,7 +1586,7 @@ msgstr ""
 
 #: ../ui/mainwindow.ui:2021
 msgid "Exit"
-msgstr ""
+msgstr "退出"
 
 #: ../ui/mainwindow.ui:734
 msgid "Exit EiskaltDC++ Gtk?"
@@ -1674,7 +1674,7 @@ msgstr ""
 #: ../ui/settingsdialog.ui:6994 ../ui/settingsdialog.ui:7078
 #: ../ui/settingsdialog.ui:7159
 msgid "File"
-msgstr ""
+msgstr "文件"
 
 #: ../src/transfers.cc:676 ../src/transfers.cc:878
 msgid "File list"
@@ -1690,7 +1690,7 @@ msgstr ""
 
 #: ../src/downloadqueue.cc:1378
 msgid "File not available"
-msgstr ""
+msgstr "文件不可用"
 
 #: ../ui/search.ui:153
 msgid "File type"
@@ -1717,11 +1717,11 @@ msgstr ""
 #: ../src/transfers.cc:65 ../src/transfers.cc:718 ../ui/adlsearch.ui:389
 #: ../ui/search.ui:132
 msgid "Filename"
-msgstr ""
+msgstr "文件名"
 
 #: ../src/finishedtransfers.cc:85 ../src/finishedtransfers.cc:194
 msgid "Files"
-msgstr ""
+msgstr "文件"
 
 #: ../src/downloadqueue.cc:244 ../src/sharebrowser.cc:381
 msgid "Files: "
@@ -1835,11 +1835,11 @@ msgstr ""
 
 #: ../ui/adlsearch.ui:395
 msgid "Full Path"
-msgstr ""
+msgstr "完整路径"
 
 #: ../src/downloadqueue.cc:1384
 msgid "Full tree does not match TTH root"
-msgstr ""
+msgstr "完整的树与 TTH 根不符"
 
 #: ../src/WulforUtil.cc:224
 msgid "GB18030"
@@ -1867,7 +1867,7 @@ msgstr ""
 
 #: ../ui/adlsearch.ui:415 ../ui/search.ui:112
 msgid "GiB"
-msgstr ""
+msgstr "GiB"
 
 #: ../src/favoritehubs.cc:368 ../src/hub.cc:2936
 msgid "Global hub default"
@@ -1879,7 +1879,7 @@ msgstr ""
 
 #: ../src/hub.cc:2105 ../src/privatemessage.cc:1042 ../ui/privatemessage.ui:75
 msgid "Grant extra slot"
-msgstr ""
+msgstr "添加额外空位"
 
 #: ../src/settingsdialog.cc:1088
 msgid "Greek"
@@ -1940,7 +1940,7 @@ msgstr ""
 
 #: ../src/downloadqueue.cc:1354
 msgid "High"
-msgstr ""
+msgstr "高"
 
 #: ../ui/settingsdialog.ui:3200
 msgid "High priority max size"
@@ -1948,7 +1948,7 @@ msgstr ""
 
 #: ../src/downloadqueue.cc:1357
 msgid "Highest"
-msgstr ""
+msgstr "最高"
 
 #: ../ui/settingsdialog.ui:3322
 msgid "Highest priority max size"
@@ -1956,7 +1956,7 @@ msgstr ""
 
 #: ../ui/mainwindow.ui:1561
 msgid "Homepage"
-msgstr ""
+msgstr "主页"
 
 #: ../src/finishedtransfers.cc:84 ../src/finishedtransfers.cc:193
 #: ../src/search.cc:106 ../src/search.cc:667 ../src/search.cc:764
@@ -1966,7 +1966,7 @@ msgstr ""
 #: ../src/settingsdialog.cc:4100 ../src/settingsdialog.cc:4123
 #: ../src/settingsdialog.cc:4142 ../ui/search.ui:150
 msgid "Hub"
-msgstr ""
+msgstr "中枢"
 
 #: ../src/settingsdialog.cc:1145
 msgid "Hub (also sets urgency hint)"
@@ -1983,7 +1983,7 @@ msgstr ""
 
 #: ../ui/settingsdialog.ui:724
 msgid "Hub Menu"
-msgstr ""
+msgstr "中枢菜单"
 
 #: ../src/transfers.cc:57 ../src/transfers.cc:503 ../src/transfers.cc:568
 #: ../src/transfers.cc:599
@@ -2002,7 +2002,7 @@ msgstr ""
 
 #: ../ui/mainwindow.ui:2170 ../ui/mainwindow.ui:2425 ../ui/search.ui:510
 msgid "Hubs"
-msgstr ""
+msgstr "中枢"
 
 #: ../ui/mainwindow.ui:1762
 msgid "Hubs (normal / registered / op)"
@@ -2022,7 +2022,7 @@ msgstr ""
 
 #: ../src/search.cc:108 ../src/search.cc:669 ../src/transfers.cc:68
 msgid "IP"
-msgstr ""
+msgstr "IP"
 
 #: ../src/WulforUtil.cc:217
 msgid "ISO-2022-JP"
@@ -2161,7 +2161,7 @@ msgstr ""
 #: ../ui/settingsdialog.ui:3294 ../ui/settingsdialog.ui:3506
 #: ../ui/settingsdialog.ui:7696 ../ui/settingsdialog.ui:7943
 msgid "KiB"
-msgstr ""
+msgstr "KiB"
 
 #: ../ui/downloadqueue.ui:109 ../ui/downloadqueue.ui:243
 msgid "L_ow"
@@ -2206,7 +2206,7 @@ msgstr ""
 
 #: ../src/wulfor.cc:75
 msgid "Loading: "
-msgstr ""
+msgstr "载入中: "
 
 #: ../ui/settingsdialog.ui:6940
 msgid "Log downloads"
@@ -2250,7 +2250,7 @@ msgstr ""
 
 #: ../src/downloadqueue.cc:1351
 msgid "Low"
-msgstr ""
+msgstr "低"
 
 #: ../ui/settingsdialog.ui:3214
 msgid "Low priority size"
@@ -2258,11 +2258,11 @@ msgstr ""
 
 #: ../src/downloadqueue.cc:1348
 msgid "Lowest"
-msgstr ""
+msgstr "最低"
 
 #: ../ui/mainwindow.ui:8 ../ui/mainwindow.ui:92
 msgid "Magnet"
-msgstr ""
+msgstr "磁力链接"
 
 #: ../src/mainwindow.cc:1401
 msgid "Magnet Choice"
@@ -2274,7 +2274,7 @@ msgstr ""
 
 #: ../ui/sharebrowser.ui:418
 msgid "Match Queue"
-msgstr ""
+msgstr "匹配队列"
 
 #: ../ui/mainwindow.ui:1063
 msgid "Match all listings"
@@ -2335,7 +2335,7 @@ msgstr ""
 
 #: ../ui/adlsearch.ui:412 ../ui/search.ui:109 ../ui/settingsdialog.ui:7709
 msgid "MiB"
-msgstr ""
+msgstr "MiB"
 
 #: ../ui/settingsdialog.ui:7672
 msgid "MiB/s"
@@ -2449,7 +2449,7 @@ msgstr ""
 #: ../src/settingsdialog.cc:4099 ../src/settingsdialog.cc:4122
 #: ../src/settingsdialog.cc:4141 ../ui/settingsdialog.ui:774
 msgid "Name"
-msgstr ""
+msgstr "名称"
 
 #: ../src/settingsdialog.cc:3476
 msgid "Name and command must not be empty"
@@ -2492,7 +2492,7 @@ msgstr ""
 #: ../src/search.cc:660 ../src/search.cc:726 ../src/search.cc:760
 #: ../src/search.cc:892 ../ui/search.ui:147 ../ui/settingsdialog.ui:1199
 msgid "Nick"
-msgstr ""
+msgstr "昵称"
 
 #: ../src/hub.cc:3753
 msgid "Nick already taken"
@@ -2508,7 +2508,7 @@ msgstr ""
 
 #: ../src/downloadqueue.cc:1394
 msgid "No errors"
-msgstr ""
+msgstr "没有错误"
 
 #: ../ui/search.ui:129
 msgid "No grouping"
@@ -2540,7 +2540,7 @@ msgstr ""
 
 #: ../src/downloadqueue.cc:1360 ../ui/search.ui:86
 msgid "Normal"
-msgstr ""
+msgstr "普通"
 
 #: ../ui/settingsdialog.ui:3308
 msgid "Normal priority max size"
@@ -2581,7 +2581,7 @@ msgstr ""
 #: ../src/favoriteusers.cc:104 ../src/favoriteusers.cc:643
 #: ../src/favoriteusers.cc:662
 msgid "Online"
-msgstr ""
+msgstr "在线"
 
 #: ../src/settingsdialog.cc:1119
 msgid "Only show joins / parts for favorite users"
@@ -2589,7 +2589,7 @@ msgstr ""
 
 #: ../ui/search.ui:455
 msgid "Only users with free slots"
-msgstr ""
+msgstr "仅有空闲空位的用户"
 
 #: ../ui/mainwindow.ui:1037
 msgid "Open _file list..."
@@ -2605,7 +2605,7 @@ msgstr ""
 
 #: ../src/notify.cc:157 ../ui/finishedtransfers.ui:153
 msgid "Open file"
-msgstr ""
+msgstr "打开文件"
 
 #: ../src/settingsdialog.cc:1564
 msgid "Open file list window in the background"
@@ -2662,12 +2662,12 @@ msgstr ""
 
 #: ../src/downloadqueue.cc:1380
 msgid "Passive user"
-msgstr ""
+msgstr "被动用户"
 
 #: ../src/favoritehubs.cc:55 ../src/favoritehubs.cc:133
 #: ../ui/settingsdialog.ui:1723
 msgid "Password"
-msgstr ""
+msgstr "密码"
 
 #: ../src/downloadqueue.cc:77 ../src/downloadqueue.cc:290
 #: ../src/downloadqueue.cc:397 ../src/finishedtransfers.cc:63
@@ -2678,15 +2678,15 @@ msgstr ""
 #: ../src/search.cc:1432 ../src/search.cc:1467 ../src/search.cc:2057
 #: ../src/transfers.cc:67 ../src/transfers.cc:719 ../ui/search.ui:135
 msgid "Path"
-msgstr ""
+msgstr "路径"
 
 #: ../ui/hash.ui:155
 msgid "Pause"
-msgstr ""
+msgstr "暂停"
 
 #: ../src/downloadqueue.cc:1345
 msgid "Paused"
-msgstr ""
+msgstr "暂停"
 
 #: ../src/hashdialog.cc:136
 msgid "Paused..."
@@ -2741,7 +2741,7 @@ msgstr ""
 #: ../ui/mainwindow.ui:2041 ../ui/mainwindow.ui:2449
 #: ../ui/settingsdialog.ui:1011
 msgid "Preferences"
-msgstr ""
+msgstr "用户偏好"
 
 #: ../ui/settingsdialog.ui:3950 ../ui/transfers.ui:110
 msgid "Preview"
@@ -2750,7 +2750,7 @@ msgstr ""
 #: ../src/downloadqueue.cc:75 ../src/downloadqueue.cc:289
 #: ../src/downloadqueue.cc:396
 msgid "Priority"
-msgstr ""
+msgstr "优先度"
 
 #: ../src/settingsdialog.cc:1146
 msgid "Private Message (also sets urgency hint)"
@@ -2764,7 +2764,7 @@ msgstr ""
 #: ../src/settingsdialog.cc:1230 ../src/settingsdialog.cc:1364
 #: ../src/settingsmanager.cc:239
 msgid "Private message"
-msgstr ""
+msgstr "私信"
 
 #: ../src/transfers.cc:58 ../src/transfers.cc:603
 msgid "Progress"
@@ -2778,7 +2778,7 @@ msgstr ""
 #: ../src/settingsdialog.cc:1480 ../src/settingsdialog.cc:1552
 #: ../ui/mainwindow.ui:1186 ../ui/mainwindow.ui:2220 ../ui/mainwindow.ui:2441
 msgid "Public Hubs"
-msgstr ""
+msgstr "公共中枢"
 
 #: ../ui/settingsdialog.ui:2890
 msgid "Public Hubs list URL"
@@ -2797,7 +2797,7 @@ msgstr ""
 #: ../src/settingsdialog.cc:1434 ../src/settingsdialog.cc:1502
 #: ../ui/mainwindow.ui:2349 ../ui/mainwindow.ui:2529
 msgid "Quit"
-msgstr ""
+msgstr "退出"
 
 #: ../ui/mainwindow.ui:2347
 msgid "Quit the program"
@@ -2805,11 +2805,11 @@ msgstr ""
 
 #: ../src/wulfor.cc:194
 msgid "Quit..."
-msgstr ""
+msgstr "退出……"
 
 #: ../src/publichubs.cc:56 ../src/publichubs.cc:168
 msgid "Rating"
-msgstr ""
+msgstr "评分"
 
 #: ../ui/settingsdialog.ui:571
 msgid "Raw"
@@ -2830,7 +2830,7 @@ msgstr ""
 #: ../src/settingsdialog.cc:1436 ../src/settingsdialog.cc:1472
 #: ../ui/mainwindow.ui:2127 ../ui/mainwindow.ui:2409
 msgid "Reconnect"
-msgstr ""
+msgstr "重新连接"
 
 #: ../ui/mainwindow.ui:1455
 msgid "Reconnect all hubs"
@@ -2863,12 +2863,12 @@ msgstr ""
 
 #: ../src/downloadqueue.cc:1388
 msgid "Remote client does not fully support TTH - cannot download"
-msgstr ""
+msgstr "远程客户端不完全兼容 TTH - 无法下载"
 
 #: ../ui/adlsearch.ui:508 ../ui/settingsdialog.ui:4341
 #: ../ui/settingsdialog.ui:8406 ../ui/uploadqueue.ui:69
 msgid "Remove"
-msgstr ""
+msgstr "移除"
 
 #: ../ui/finishedtransfers.ui:188
 msgid "Remove All"
@@ -2908,7 +2908,7 @@ msgstr ""
 
 #: ../ui/mainwindow.ui:1583
 msgid "Report a Bug"
-msgstr ""
+msgstr "报告漏洞"
 
 #: ../src/transfers.cc:908
 msgid "Requesting"
@@ -2932,7 +2932,7 @@ msgstr ""
 
 #: ../src/downloadqueue.cc:1314
 msgid "Running..."
-msgstr ""
+msgstr "正在运行……"
 
 #: ../src/settingsdialog.cc:1058
 msgid "Russian"
@@ -2958,7 +2958,7 @@ msgstr ""
 #: ../ui/mainwindow.ui:2203 ../ui/mainwindow.ui:2481 ../ui/search.ui:227
 #: ../ui/searchspy.ui:94 ../ui/searchspy.ui:401 ../ui/settingsdialog.ui:8487
 msgid "Search"
-msgstr ""
+msgstr "搜索"
 
 #: ../src/settingsdialog.cc:1439 ../ui/mainwindow.ui:1242
 msgid "Search ADL"
@@ -2973,7 +2973,7 @@ msgstr ""
 #: ../src/settingsdialog.cc:1558 ../ui/mainwindow.ui:1317
 #: ../ui/mainwindow.ui:2321 ../ui/settingsdialog.ui:6675
 msgid "Search Spy"
-msgstr ""
+msgstr "搜索间谍"
 
 #: ../src/adlsearch.cc:38 ../src/adlsearch.cc:58 ../src/adlsearch.cc:108
 #: ../src/adlsearch.cc:206 ../src/adlsearch.cc:232 ../src/searchspy.cc:55
@@ -2982,7 +2982,7 @@ msgstr ""
 #: ../src/searchspy.cc:293 ../src/searchspy.cc:309 ../src/searchspy.cc:468
 #: ../src/searchspy.cc:533 ../src/searchspy.cc:566
 msgid "Search String"
-msgstr ""
+msgstr "搜索字符串"
 
 #: ../ui/search.ui:174
 msgid "Search for"
@@ -3044,7 +3044,7 @@ msgstr ""
 
 #: ../ui/uploadqueue.ui:78
 msgid "Send Private Message"
-msgstr ""
+msgstr "发送私信"
 
 #: ../ui/downloadqueue.ui:297 ../ui/search.ui:758
 msgid "Send _private message"
@@ -3123,7 +3123,7 @@ msgstr ""
 #: ../src/sharebrowser.cc:93 ../src/sharebrowser.cc:111
 #: ../src/sharebrowser.cc:364
 msgid "Shared"
-msgstr ""
+msgstr "已共享"
 
 #: ../ui/settingsdialog.ui:4279 ../ui/settingsdialog.ui:4486
 msgid "Sharing"
@@ -3143,7 +3143,7 @@ msgstr ""
 
 #: ../ui/mainwindow.ui:1338
 msgid "Show free space bar"
-msgstr ""
+msgstr "显示可用空间栏"
 
 #: ../src/hub.cc:2106 ../src/privatemessage.cc:1046 ../ui/hub.ui:111
 #: ../ui/privatemessage.ui:102
@@ -3210,7 +3210,7 @@ msgstr ""
 
 #: ../src/wulfor.cc:192
 msgid "Shutting down libeiskaltdcpp..."
-msgstr ""
+msgstr "正在关闭 libeiskaltdcpp ……"
 
 #: ../src/wulfor.cc:118
 #, c-format
@@ -3228,7 +3228,7 @@ msgstr ""
 #: ../src/transfers.cc:720 ../src/transfers.cc:732 ../ui/mainwindow.ui:118
 #: ../ui/search.ui:138 ../ui/search.ui:294
 msgid "Size"
-msgstr ""
+msgstr "大小"
 
 #: ../src/downloadqueue.cc:243 ../src/downloadqueue.cc:245
 #: ../src/sharebrowser.cc:387
@@ -3253,7 +3253,7 @@ msgstr ""
 
 #: ../src/favoriteusers.cc:531 ../src/hub.cc:3040
 msgid "Slot granted to "
-msgstr ""
+msgstr "添加空位至"
 
 #: ../src/search.cc:104 ../src/search.cc:131 ../src/search.cc:662
 msgid "Slots"
@@ -3293,7 +3293,7 @@ msgstr ""
 
 #: ../ui/mainwindow.ui:1572
 msgid "Source (git)"
-msgstr ""
+msgstr "源(git)"
 
 #: ../src/adlsearch.cc:39 ../src/adlsearch.cc:59 ../src/adlsearch.cc:109
 #: ../src/adlsearch.cc:207
@@ -3302,7 +3302,7 @@ msgstr ""
 
 #: ../src/downloadqueue.cc:1386
 msgid "Source too slow"
-msgstr ""
+msgstr "源速度太慢"
 
 #: ../src/settingsdialog.cc:1076
 msgid "Spanish"
@@ -3317,7 +3317,7 @@ msgstr ""
 #: ../src/transfers.cc:62 ../src/transfers.cc:564 ../src/transfers.cc:600
 #: ../src/transfers.cc:769
 msgid "Speed"
-msgstr ""
+msgstr "速度"
 
 #: ../ui/mainwindow.ui:2323 ../ui/mainwindow.ui:2497
 msgid "Spy"
@@ -3337,7 +3337,7 @@ msgstr ""
 #: ../src/transfers.cc:410 ../src/transfers.cc:504 ../src/transfers.cc:590
 #: ../src/transfers.cc:604 ../src/transfers.cc:767
 msgid "Status"
-msgstr ""
+msgstr "状态"
 
 #: ../src/settingsdialog.cc:1236
 msgid "Status message"
@@ -3345,7 +3345,7 @@ msgstr ""
 
 #: ../src/search.cc:594
 msgid "Stop"
-msgstr ""
+msgstr "停止"
 
 #: ../src/settingsdialog.cc:1096
 msgid "Swedish (Sweden)"
@@ -3358,7 +3358,7 @@ msgstr ""
 #: ../src/WulforUtil.cc:41 ../src/settingsdialog.cc:1054
 #: ../ui/settingsdialog.ui:8958
 msgid "System default"
-msgstr ""
+msgstr "系统默认"
 
 #: ../ui/settingsdialog.ui:6089
 msgid "System icons"
@@ -3383,7 +3383,7 @@ msgstr ""
 #: ../src/sharebrowser.cc:1054 ../src/sharebrowser.cc:1090
 #: ../ui/mainwindow.ui:132 ../ui/search.ui:144
 msgid "TTH"
-msgstr ""
+msgstr "TTH"
 
 #: ../src/transfers.cc:713 ../src/transfers.cc:714 ../src/transfers.cc:880
 msgid "TTH: "
@@ -3395,7 +3395,7 @@ msgstr ""
 
 #: ../src/hub.cc:88 ../src/hub.cc:407 ../src/hub.cc:427
 msgid "Tag"
-msgstr ""
+msgstr "标签"
 
 #: ../ui/settingsdialog.ui:5646
 msgid "Test"
@@ -3438,7 +3438,7 @@ msgstr ""
 #: ../src/searchspy.cc:57 ../src/searchspy.cc:270 ../src/searchspy.cc:295
 #: ../src/searchspy.cc:311 ../src/transfers.cc:60
 msgid "Time"
-msgstr ""
+msgstr "用时"
 
 #: ../src/transfers.cc:61 ../src/transfers.cc:602
 msgid "Time Left"
@@ -3477,7 +3477,7 @@ msgstr ""
 
 #: ../ui/mainwindow.ui:1485
 msgid "Tools panel"
-msgstr ""
+msgstr "工具面板"
 
 #: ../ui/searchspy.ui:10 ../ui/searchspy.ui:372 ../ui/settingsdialog.ui:8923
 msgid "Top"
@@ -3520,7 +3520,7 @@ msgstr ""
 #: ../src/finishedtransfers.cc:239 ../src/finishedtransfers.cc:614
 #: ../src/transfers.cc:64 ../src/transfers.cc:601
 msgid "Transferred"
-msgstr ""
+msgstr "已传输"
 
 #: ../src/transfers.cc:617
 #, c-format
@@ -3543,7 +3543,7 @@ msgstr ""
 #: ../src/search.cc:898 ../src/search.cc:932 ../src/sharebrowser.cc:85
 #: ../src/sharebrowser.cc:326 ../src/sharebrowser.cc:347
 msgid "Type"
-msgstr ""
+msgstr "类型"
 
 #: ../src/settingsdialog.cc:1242
 msgid "URL"
@@ -3571,7 +3571,7 @@ msgstr ""
 
 #: ../src/mainwindow.cc:2109
 msgid "Unable to load file list: Invalid file list name"
-msgstr ""
+msgstr "无法载入文件列表: 无效的文件列表名"
 
 #: ../src/mainwindow.cc:2364
 msgid ""
@@ -3654,6 +3654,20 @@ msgstr ""
 msgid "Uploading"
 msgstr ""
 
+#: ../src/wulfor.cc:45
+#, c-format
+msgid ""
+"Usage:\n"
+"  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n"
+"  eiskaltdcpp-gtk <Key>\n"
+"EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC "
+"protocols.\n"
+"\n"
+"Keys:\n"
+"  -h, --help\t Show this message\n"
+"  -V, --version\t Show version string\n"
+msgstr ""
+
 #: ../src/settingsdialog.cc:362 ../src/settingsdialog.cc:400
 #: ../src/settingsdialog.cc:434 ../src/settingsdialog.cc:688
 #: ../src/settingsdialog.cc:701 ../src/settingsdialog.cc:717
@@ -3726,7 +3740,7 @@ msgstr ""
 #: ../src/transfers.cc:56 ../src/transfers.cc:87 ../src/transfers.cc:89
 #: ../src/transfers.cc:502 ../src/transfers.cc:567 ../src/transfers.cc:598
 msgid "User"
-msgstr ""
+msgstr "用户"
 
 #: ../src/settingsdialog.cc:1411
 msgid "User (dc)"
@@ -3767,7 +3781,7 @@ msgstr ""
 
 #: ../src/hub.cc:3011 ../src/hub.cc:3031
 msgid "User not found"
-msgstr ""
+msgstr "无法找到用户"
 
 #: ../src/settingsdialog.cc:1414
 msgid "User operator (dc)"
@@ -3787,7 +3801,7 @@ msgstr ""
 
 #: ../src/privatemessage.cc:1413
 msgid "User went offline"
-msgstr ""
+msgstr "用户下线"
 
 #: ../ui/settingsdialog.ui:1671
 msgid "Username"
@@ -3798,24 +3812,10 @@ msgstr ""
 #: ../src/publichubs.cc:63 ../src/publichubs.cc:160 ../ui/mainwindow.ui:2186
 #: ../ui/mainwindow.ui:2433
 msgid "Users"
-msgstr ""
+msgstr "用户"
 
 #: ../src/publichubs.cc:179
 msgid "Users: "
-msgstr ""
-
-#: ../src/wulfor.cc:45
-#, c-format
-msgid ""
-"Usage:\n"
-"  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n"
-"  eiskaltdcpp-gtk <Key>\n"
-"EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC "
-"protocols.\n"
-"\n"
-"Keys:\n"
-"  -h, --help\t Show this message\n"
-"  -V, --version\t Show version string\n"
 msgstr ""
 
 #: ../src/sharebrowser.cc:90 ../src/sharebrowser.cc:361
@@ -3890,7 +3890,7 @@ msgstr ""
 
 #: ../ui/mainwindow.ui:1594
 msgid "Wiki of project"
-msgstr ""
+msgstr "项目维基"
 
 #: ../ui/settingsdialog.ui:5055
 msgid "Windows"
@@ -4227,6 +4227,3 @@ msgstr ""
 #: ../src/searchspy.cc:296 ../src/searchspy.cc:364
 msgid "waiting..."
 msgstr ""
-
-#~ msgid "https://github.com/eiskaltdcpp/eiskaltdcpp/raw/master/ChangeLog.txt"
-#~ msgstr "https://github.com/eiskaltdcpp/eiskaltdcpp/raw/master/ChangeLog.txt"

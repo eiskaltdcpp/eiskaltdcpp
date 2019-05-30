@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: https://github.com/eiskaltdcpp/eiskaltdcpp/issues\n"
-"POT-Creation-Date: 2019-05-07 01:10+0300\n"
-"PO-Revision-Date: 2018-10-12 22:18+0000\n"
+"POT-Creation-Date: 2019-05-31 00:45+0300\n"
+"PO-Revision-Date: 2019-05-30 21:42+0000\n"
 "Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
 "Language-Team: Turkish (http://www.transifex.com/tehnick/eiskaltdcpp/"
 "language/tr/)\n"
@@ -3699,6 +3699,29 @@ msgstr "Gönderme:"
 msgid "Uploading"
 msgstr "Gönderiliyor"
 
+#: ../src/wulfor.cc:45
+#, c-format
+msgid ""
+"Usage:\n"
+"  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n"
+"  eiskaltdcpp-gtk <Key>\n"
+"EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC "
+"protocols.\n"
+"\n"
+"Keys:\n"
+"  -h, --help\t Show this message\n"
+"  -V, --version\t Show version string\n"
+msgstr ""
+"Kullanılan:\n"
+"eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n"
+"eiskaltdcpp-gtk <Anahtar>\n"
+"EiskaltDC++, Direct Connect ve ADC protokollerini kullanan bir çapraz "
+"platform programıdır.\n"
+"\n"
+"Anahtarlar:\n"
+"-h, --help\t\tBu mesajı göster\n"
+"-V, --version\t\tSürümü göster\n"
+
 #: ../src/settingsdialog.cc:362 ../src/settingsdialog.cc:400
 #: ../src/settingsdialog.cc:434 ../src/settingsdialog.cc:688
 #: ../src/settingsdialog.cc:701 ../src/settingsdialog.cc:717
@@ -3851,29 +3874,6 @@ msgstr "Kullanıcılar"
 #: ../src/publichubs.cc:179
 msgid "Users: "
 msgstr "Kullanıcılar:"
-
-#: ../src/wulfor.cc:45
-#, c-format
-msgid ""
-"Usage:\n"
-"  eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n"
-"  eiskaltdcpp-gtk <Key>\n"
-"EiskaltDC++ is a cross-platform program that uses the Direct Connect and ADC "
-"protocols.\n"
-"\n"
-"Keys:\n"
-"  -h, --help\t Show this message\n"
-"  -V, --version\t Show version string\n"
-msgstr ""
-"Kullanılan:\n"
-"eiskaltdcpp-gtk <magnet link> <dchub://link> <adc(s)://link>\n"
-"eiskaltdcpp-gtk <Anahtar>\n"
-"EiskaltDC++, Direct Connect ve ADC protokollerini kullanan bir çapraz "
-"platform programıdır.\n"
-"\n"
-"Anahtarlar:\n"
-"-h, --help\t\tBu mesajı göster\n"
-"-V, --version\t\tSürümü göster\n"
 
 #: ../src/sharebrowser.cc:90 ../src/sharebrowser.cc:361
 msgid "Video"
@@ -4285,6 +4285,3 @@ msgstr "üst/bekliyor/dördül:"
 #: ../src/searchspy.cc:296 ../src/searchspy.cc:364
 msgid "waiting..."
 msgstr "bekliyor..."
-
-#~ msgid "from Coral"
-#~ msgstr "Coral'den"
