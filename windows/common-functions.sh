@@ -3,15 +3,13 @@
 # Author:  Boris Pek <tehnick-8@yandex.ru>
 # License: MIT (Expat)
 # Created: 2019-04-01
-# Updated: 2019-05-26
+# Updated: 2019-06-01
 # Version: N/A
 #
 # Dependencies:
 # git, wget, curl, rsync, find, sed, p7zip, nsis
 
 set -e
-
-PROJECT_DIR_NAME="eiskaltdcpp"
 
 P7ZIP_ARCHIVER_OPTIONS="a -t7z -m0=lzma -mx=9 -mfb=64 -md=32m -ms=on"
 TAR_ARCHIVER_OPTIONS="-cJf"
@@ -52,6 +50,7 @@ PrepareMainDir()
 GetProgramVersion()
 {
     [ -z "${MAIN_DIR}" ] && return 1
+    [ -z "${PROJECT_DIR_NAME}" ] && return 1
 
     cd "${MAIN_DIR}/${PROJECT_DIR_NAME}"
     if [ "${1}" = "release" ]; then
@@ -70,6 +69,7 @@ GetProgramVersion()
 CleanBuildDir()
 {
     [ -z "${MAIN_DIR}" ] && return 1
+    [ -z "${PROJECT_DIR_NAME}" ] && return 1
 
     cd "${MAIN_DIR}"
     rm -rf "${MAIN_DIR}/build-${PROJECT_DIR_NAME}"
@@ -79,6 +79,7 @@ CleanBuildDir()
 PrepareToBuildForWindows()
 {
     [ -z "${MAIN_DIR}" ] && return 1
+    [ -z "${PROJECT_DIR_NAME}" ] && return 1
 
     cd "${MAIN_DIR}/${PROJECT_DIR_NAME}"
     sed -i "s|option (USE_JS .*$|option (USE_JS \"\" OFF)|g" CMakeLists.txt
@@ -94,6 +95,7 @@ PrepareToBuildForWindows()
 PrepareToBuildForLinux()
 {
     [ -z "${MAIN_DIR}" ] && return 1
+    [ -z "${PROJECT_DIR_NAME}" ] && return 1
 
     cd "${MAIN_DIR}/${PROJECT_DIR_NAME}"
     sed -i "s|option (WITH_EXAMPLES .*$|option (WITH_EXAMPLES \"\" ON)|g" CMakeLists.txt
@@ -106,48 +108,34 @@ BuildProject()
 {
     [ -z "${MAIN_DIR}" ] && return 1
     [ -z "${BUILD_TARGETS}" ] && return 1
+    [ -z "${PROJECT_DIR_NAME}" ] && return 1
+    [ -z "${WEB_UI_DIR_NAME}" ] && return 1
 
     cd "${MAIN_DIR}/${PROJECT_DIR_NAME}"
     build-project ${BUILD_TARGETS}
+
+    cd "${MAIN_DIR}/${WEB_UI_DIR_NAME}"
+    build-project ${BUILD_TARGETS}
 }
 
-InstallAllToTempDirForWindows()
+InstallAllToTempDir()
 {
     [ -z "${MAIN_DIR}" ] && return 1
     [ -z "${BUILD_TARGETS}" ] && return 1
+    [ -z "${PROJECT_DIR_NAME}" ] && return 1
     [ -z "${WEB_UI_DIR_NAME}" ] && return 1
 
     cd "${MAIN_DIR}/${PROJECT_DIR_NAME}"
     build-project install ${BUILD_TARGETS}
 
+    cd "${MAIN_DIR}/${WEB_UI_DIR_NAME}"
+    build-project install ${BUILD_TARGETS}
+
     for TARGET in ${BUILD_TARGETS} ; do
+        DIR_SRC="${MAIN_DIR}/build-${WEB_UI_DIR_NAME}/${TARGET}-out/usr"
         DIR_OUT="${MAIN_DIR}/build-${PROJECT_DIR_NAME}/${TARGET}-out/usr"
 
-        mkdir -p "${DIR_OUT}/web-ui"
-        cd "${MAIN_DIR}/${WEB_UI_DIR_NAME}"
-        cp -af images js config.js favicon.ico style.css \
-               index.html README.html windows/help.html \
-               "${DIR_OUT}/web-ui/"
-    done
-}
-
-InstallAllToTempDirForLinux()
-{
-    [ -z "${MAIN_DIR}" ] && return 1
-    [ -z "${BUILD_TARGETS}" ] && return 1
-    [ -z "${WEB_UI_DIR_NAME}" ] && return 1
-
-    cd "${MAIN_DIR}/${PROJECT_DIR_NAME}"
-    build-project install ${BUILD_TARGETS}
-
-    for TARGET in ${BUILD_TARGETS} ; do
-        TEMP_DIR="${MAIN_DIR}/build-${PROJECT_DIR_NAME}/${TARGET}-out/usr"
-        DIR_OUT="${TEMP_DIR}/share/eiskaltdcpp"
-
-        mkdir -p "${DIR_OUT}/web-ui"
-        cd "${MAIN_DIR}/${WEB_UI_DIR_NAME}"
-        cp -af images js config.js favicon.ico style.css index.html \
-               "${DIR_OUT}/web-ui/"
+        cp -af "${DIR_SRC}"/* "${DIR_OUT}/"
     done
 }
 
@@ -155,6 +143,7 @@ CopyFinalResultsForWindows()
 {
     [ -z "${MAIN_DIR}" ] && return 1
     [ -z "${BUILD_TARGETS}" ] && return 1
+    [ -z "${PROJECT_DIR_NAME}" ] && return 1
     [ -z "${ARCHIVE_DIR_NAME}" ] && return 1
 
     cd "${MAIN_DIR}"
@@ -198,20 +187,27 @@ CompressDirsForWindows()
 CompressDirsForLinux()
 {
     [ -z "${MAIN_DIR}" ] && return 1
+    [ -z "${PROJECT_DIR_NAME}" ] && return 1
     [ -z "${ARCHIVE_DIR_NAME}" ] && return 1
     [ -z "${TAR_ARCHIVER_OPTIONS}" ] && return 1
 
     cd "${MAIN_DIR}"
     for TARGET in ${BUILD_TARGETS} ; do
         WORK_DIR="${MAIN_DIR}/build-${PROJECT_DIR_NAME}/${TARGET}-out"
+
+        TARBALL_DIR_NAME="${ARCHIVE_DIR_NAME}_${TARGET}"
+        TARBALL_DIR_NAME="$(echo ${TARBALL_DIR_NAME} | sed 's|Debian-9|linux|')"
+        TARBALL_DIR_NAME="$(echo ${TARBALL_DIR_NAME} | sed 's|Ubuntu-14.04|linux|')"
+        TARBALL_DIR_NAME="$(echo ${TARBALL_DIR_NAME} | sed 's|_shared||')"
+        TARBALL_DIR_NAME="$(echo ${TARBALL_DIR_NAME} | sed 's|_static||')"
+
         cd "${WORK_DIR}"
-        rm -rf *.tar.xz
+        rm -rf "${TARBALL_DIR_NAME}"*
 
-        TARBALL_DIR_NAME="${ARCHIVE_DIR_NAME}_${TARGET}.tar.xz"
-        TARBALL_DIR_NAME="$(echo ${TARBALL_DIR_NAME} | sed 's|Debian-|debian|')"
-        TARBALL_DIR_NAME="$(echo ${TARBALL_DIR_NAME} | sed 's|Ubuntu-|ubuntu|')"
+        mkdir "${TARBALL_DIR_NAME}"
+        cp -af "usr" "${TARBALL_DIR_NAME}/"
 
-        tar ${TAR_ARCHIVER_OPTIONS} "${TARBALL_DIR_NAME}" "usr"
+        tar ${TAR_ARCHIVER_OPTIONS} "${TARBALL_DIR_NAME}.tar.xz" "${TARBALL_DIR_NAME}"
     done
 }
 
@@ -219,6 +215,7 @@ MakeInstallers()
 {
     [ -z "${MAIN_DIR}" ] && return 1
     [ -z "${BUILD_TARGETS}" ] && return 1
+    [ -z "${PROJECT_DIR_NAME}" ] && return 1
     [ -z "${VERSION}" ] && return 1
 
     cd "${MAIN_DIR}"
@@ -261,6 +258,7 @@ MakeInstallers()
 MoveInstallers()
 {
     [ -z "${MAIN_DIR}" ] && return 1
+    [ -z "${PROJECT_DIR_NAME}" ] && return 1
     [ -z "${ARCHIVE_DIR_NAME}" ] && return 1
 
     cd "${MAIN_DIR}"
@@ -273,6 +271,7 @@ MoveInstallers()
 MoveTarballs()
 {
     [ -z "${MAIN_DIR}" ] && return 1
+    [ -z "${PROJECT_DIR_NAME}" ] && return 1
     [ -z "${ARCHIVE_DIR_NAME}" ] && return 1
 
     cd "${MAIN_DIR}"

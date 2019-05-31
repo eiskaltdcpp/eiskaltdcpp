@@ -3,7 +3,7 @@
 # Author:  Boris Pek <tehnick-8@yandex.ru>
 # License: MIT (Expat)
 # Created: 2019-04-01
-# Updated: 2019-04-28
+# Updated: 2019-06-01
 # Version: N/A
 #
 # Dependencies:
@@ -11,7 +11,7 @@
 
 set -e
 
-EISKALTDCPP_DIR_NAME="eiskaltdcpp"
+PROJECT_DIR_NAME="eiskaltdcpp"
 WEB_UI_DIR_NAME="eiskaltdcpp-web"
 
 EISKALTDCPP_URL="https://github.com/eiskaltdcpp/eiskaltdcpp.git"
@@ -30,7 +30,7 @@ GetProgramSources()
     [ -z "${MAIN_DIR}" ] && return 1
     cd "${MAIN_DIR}"
 
-    MOD="${EISKALTDCPP_DIR_NAME}"
+    MOD="${PROJECT_DIR_NAME}"
     URL="${EISKALTDCPP_URL}"
     if [ -d "${MAIN_DIR}/${MOD}" ]; then
         echo "Updating ${MAIN_DIR}/${MOD}"

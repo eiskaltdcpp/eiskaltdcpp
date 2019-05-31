@@ -3,7 +3,7 @@
 # Author:  Boris Pek <tehnick-8@yandex.ru>
 # License: MIT (Expat)
 # Created: 2019-04-01
-# Updated: 2019-05-26
+# Updated: 2019-06-01
 # Version: N/A
 #
 # Dependencies:
@@ -48,7 +48,7 @@ BuildProject
 echo;
 
 echo "Copying programs, libraries, resources and documentation to..."
-InstallAllToTempDirForLinux
+InstallAllToTempDir
 echo;
 
 echo "Compressing directories into *.tar.xz archives..."
