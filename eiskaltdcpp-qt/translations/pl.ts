@@ -2701,27 +2701,27 @@ Pobrano: %3 Wysłano: %4</translation>
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../src/main.cpp" line="76"/>
+        <location filename="../src/main.cpp" line="82"/>
         <source>Loading: </source>
         <translation>Ładowanie:</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="174"/>
+        <location filename="../src/main.cpp" line="180"/>
         <source>UserList icons has been loaded</source>
         <translation>Ikony listy użytkowników zostały załadowane</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="177"/>
+        <location filename="../src/main.cpp" line="183"/>
         <source>Application icons has been loaded</source>
         <translation>Ikony aplikacji zostały załadowane</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="230"/>
+        <location filename="../src/main.cpp" line="236"/>
         <source>Shutting down libeiskaltdcpp...</source>
         <translation>Wyłączanie libeiskaltdcpp...</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="265"/>
+        <location filename="../src/main.cpp" line="271"/>
         <source>Quit...</source>
         <translation>Zamknij...</translation>
     </message>
@@ -3017,38 +3017,38 @@ Pobrano: %3 Wysłano: %4</translation>
         <translation>Przegladaj</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="477"/>
+        <location filename="../src/SearchFrame.cpp" line="482"/>
         <source>Close</source>
         <translation>Zamknij</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="1080"/>
+        <location filename="../src/SearchFrame.cpp" line="1085"/>
         <source>Search - %1</source>
         <translation>Wyszukiwanie - %1</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="1188"/>
-        <location filename="../src/SearchFrame.cpp" line="1246"/>
+        <location filename="../src/SearchFrame.cpp" line="1193"/>
+        <location filename="../src/SearchFrame.cpp" line="1251"/>
         <source>Select directory</source>
         <translation>Wybierz katalog</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="1554"/>
+        <location filename="../src/SearchFrame.cpp" line="1559"/>
         <source>Searching for %1 ...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="1558"/>
+        <location filename="../src/SearchFrame.cpp" line="1563"/>
         <source>Search progress of &quot;%1&quot; is %2%</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="1581"/>
+        <location filename="../src/SearchFrame.cpp" line="1586"/>
         <source>&lt;b&gt;No results&lt;/b&gt;</source>
         <translation>&lt;b&gt;Brak wyników&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/SearchFrame.cpp" line="1590"/>
+        <location filename="../src/SearchFrame.cpp" line="1595"/>
         <source>Found: &lt;b&gt;%1&lt;/b&gt;  Dropped: &lt;b&gt;%2&lt;/b&gt;</source>
         <translation>Znaleziono: &lt;b&gt;%1&lt;/b&gt;  Odrzucono: &lt;b&gt;%2&lt;/b&gt;</translation>
     </message>
@@ -6979,17 +6979,17 @@ jeżeli użytkownik powróci na hub w ciągu 10 minut, EiskaltDC++ przyzna mu ex
 <context>
     <name>WulforUtil</name>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="747"/>
+        <location filename="../src/WulforUtil.cpp" line="749"/>
         <source>System default</source>
         <translation>Systemowe / domyślne</translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="1054"/>
+        <location filename="../src/WulforUtil.cpp" line="1056"/>
         <source>Offline</source>
         <translation>Offline</translation>
     </message>
     <message>
-        <location filename="../src/WulforUtil.cpp" line="1157"/>
+        <location filename="../src/WulforUtil.cpp" line="1159"/>
         <source>User commands</source>
         <translation>Komendy użytkownika</translation>
     </message>

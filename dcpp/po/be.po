@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://github.com/eiskaltdcpp/eiskaltdcpp/issues\n"
-"POT-Creation-Date: 2019-05-07 01:10+0300\n"
+"POT-Creation-Date: 2019-06-01 02:20+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Zmicer <m_d@mail.by>, 2018\n"
 "Language-Team: Belarusian (https://www.transifex.com/tehnick/teams/11818/"
@@ -408,7 +408,7 @@ msgstr "ҐіБ"
 msgid "Denied to send file"
 msgstr ""
 
-#: ../PerFolderLimit.cpp:90 ../SettingsManager.cpp:618
+#: ../PerFolderLimit.cpp:90 ../SettingsManager.cpp:620
 msgid " to "
 msgstr " да "
 
@@ -557,31 +557,31 @@ msgstr "Зноўку можна шукаць"
 msgid "Search disabled: %1%"
 msgstr "Пошук не працуе: %1%"
 
-#: ../SettingsManager.cpp:187
+#: ../SettingsManager.cpp:189
 msgid "downloaded from"
 msgstr "сьцягнулі з"
 
-#: ../SettingsManager.cpp:527
+#: ../SettingsManager.cpp:529
 msgid "Invalid search type name"
 msgstr "Хібная назва віду пошуку"
 
-#: ../SettingsManager.cpp:531 ../SettingsManager.cpp:553
+#: ../SettingsManager.cpp:533 ../SettingsManager.cpp:555
 msgid "This search type already exists"
 msgstr "Гэты від пошуку ўжо існуе"
 
-#: ../SettingsManager.cpp:585
+#: ../SettingsManager.cpp:587
 msgid "No such search type"
 msgstr "Такі від пошуку не існуе"
 
-#: ../SettingsManager.cpp:613 ../SettingsManager.cpp:618
+#: ../SettingsManager.cpp:615 ../SettingsManager.cpp:620
 msgid "Error: setting not found!"
 msgstr "Памылка: не знайшлі налады!"
 
-#: ../SettingsManager.cpp:613
+#: ../SettingsManager.cpp:615
 msgid "Core setting "
 msgstr "Наладкі ядра"
 
-#: ../SettingsManager.cpp:618
+#: ../SettingsManager.cpp:620
 msgid "Change core setting "
 msgstr "Зьмяніць наладу асновы "
 
@@ -698,67 +698,67 @@ msgstr "Хібныя зьвесткі"
 msgid "Non-UTF-8 data in an ADC connection"
 msgstr "Зьвесткі злучэньня ADC не ў кадоўцы UTF-8"
 
-#: ../Util.cpp:715
+#: ../Util.cpp:733
 #, c-format
 msgid "%d B"
 msgstr "%d Б"
 
-#: ../Util.cpp:717
+#: ../Util.cpp:735
 #, c-format
 msgid "%.02f KiB"
 msgstr "%.02f КіБ"
 
-#: ../Util.cpp:717
+#: ../Util.cpp:735
 #, c-format
 msgid "%.02f KB"
 msgstr "%.02f КБ"
 
-#: ../Util.cpp:719
+#: ../Util.cpp:737
 #, c-format
 msgid "%.02f MiB"
 msgstr "%.02f МіБ"
 
-#: ../Util.cpp:719
+#: ../Util.cpp:737
 #, c-format
 msgid "%.02f MB"
 msgstr "%.02f МБ"
 
-#: ../Util.cpp:721
+#: ../Util.cpp:739
 #, c-format
 msgid "%.02f GiB"
 msgstr "%.02f ҐіБ"
 
-#: ../Util.cpp:721
+#: ../Util.cpp:739
 #, c-format
 msgid "%.02f GB"
 msgstr "%.02f ГБ"
 
-#: ../Util.cpp:723
+#: ../Util.cpp:741
 #, c-format
 msgid "%.02f TiB"
 msgstr "%.02f ТіБ"
 
-#: ../Util.cpp:723
+#: ../Util.cpp:741
 #, c-format
 msgid "%.02f TB"
 msgstr "%.02f ТБ"
 
-#: ../Util.cpp:725
+#: ../Util.cpp:743
 #, c-format
 msgid "%.02f PiB"
 msgstr "%.02f ПіБ"
 
-#: ../Util.cpp:725
+#: ../Util.cpp:743
 #, c-format
 msgid "%.02f PB"
 msgstr "%.02f ПБ"
 
-#: ../Util.cpp:759
+#: ../Util.cpp:777
 #, c-format
 msgid "%s B"
 msgstr "%s Б"
 
-#: ../Util.cpp:763
+#: ../Util.cpp:781
 #, c-format
 msgid "%'lld B"
 msgstr "%'lld Б"

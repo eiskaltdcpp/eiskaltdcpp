@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://github.com/eiskaltdcpp/eiskaltdcpp/issues\n"
-"POT-Creation-Date: 2019-05-15 12:45+0300\n"
+"POT-Creation-Date: 2019-06-01 02:20+0300\n"
 "PO-Revision-Date: 2017-06-18 13:35+0000\n"
 "Last-Translator: Sopor, 2019\n"
 "Language-Team: Swedish (Sweden) (https://www.transifex.com/tehnick/"
@@ -417,7 +417,7 @@ msgstr "GiB"
 msgid "Denied to send file"
 msgstr "Nekad till att skicka fil"
 
-#: ../PerFolderLimit.cpp:90 ../SettingsManager.cpp:619
+#: ../PerFolderLimit.cpp:90 ../SettingsManager.cpp:620
 msgid " to "
 msgstr "till"
 
@@ -566,31 +566,31 @@ msgstr "Sök är aktivt igen"
 msgid "Search disabled: %1%"
 msgstr "Sökning inaktiverad: %1%"
 
-#: ../SettingsManager.cpp:188
+#: ../SettingsManager.cpp:189
 msgid "downloaded from"
 msgstr "nedladdat från"
 
-#: ../SettingsManager.cpp:528
+#: ../SettingsManager.cpp:529
 msgid "Invalid search type name"
 msgstr "Ogiltig söktyp"
 
-#: ../SettingsManager.cpp:532 ../SettingsManager.cpp:554
+#: ../SettingsManager.cpp:533 ../SettingsManager.cpp:555
 msgid "This search type already exists"
 msgstr "Denna söktyp finns redan"
 
-#: ../SettingsManager.cpp:586
+#: ../SettingsManager.cpp:587
 msgid "No such search type"
 msgstr "Söktypen finns inte"
 
-#: ../SettingsManager.cpp:614 ../SettingsManager.cpp:619
+#: ../SettingsManager.cpp:615 ../SettingsManager.cpp:620
 msgid "Error: setting not found!"
 msgstr "Fel: inställning finns inte!"
 
-#: ../SettingsManager.cpp:614
+#: ../SettingsManager.cpp:615
 msgid "Core setting "
 msgstr "Inställning"
 
-#: ../SettingsManager.cpp:619
+#: ../SettingsManager.cpp:620
 msgid "Change core setting "
 msgstr "Ändra huvudinställning"
 
@@ -709,67 +709,67 @@ msgstr "Ogiltig data"
 msgid "Non-UTF-8 data in an ADC connection"
 msgstr "Non-UTF-8 data i ADC-anslutningen"
 
-#: ../Util.cpp:715
+#: ../Util.cpp:733
 #, c-format
 msgid "%d B"
 msgstr "%d B"
 
-#: ../Util.cpp:717
+#: ../Util.cpp:735
 #, c-format
 msgid "%.02f KiB"
 msgstr "%.02f KiB"
 
-#: ../Util.cpp:717
+#: ../Util.cpp:735
 #, c-format
 msgid "%.02f KB"
 msgstr "%.02f KB"
 
-#: ../Util.cpp:719
+#: ../Util.cpp:737
 #, c-format
 msgid "%.02f MiB"
 msgstr "%.02f MiB"
 
-#: ../Util.cpp:719
+#: ../Util.cpp:737
 #, c-format
 msgid "%.02f MB"
 msgstr "%.02f MB"
 
-#: ../Util.cpp:721
+#: ../Util.cpp:739
 #, c-format
 msgid "%.02f GiB"
 msgstr "%.02f GiB"
 
-#: ../Util.cpp:721
+#: ../Util.cpp:739
 #, c-format
 msgid "%.02f GB"
 msgstr "%.02f GB"
 
-#: ../Util.cpp:723
+#: ../Util.cpp:741
 #, c-format
 msgid "%.02f TiB"
 msgstr "%.02f TiB"
 
-#: ../Util.cpp:723
+#: ../Util.cpp:741
 #, c-format
 msgid "%.02f TB"
 msgstr "%.02f TB"
 
-#: ../Util.cpp:725
+#: ../Util.cpp:743
 #, c-format
 msgid "%.02f PiB"
 msgstr "%.02f PiB"
 
-#: ../Util.cpp:725
+#: ../Util.cpp:743
 #, c-format
 msgid "%.02f PB"
 msgstr "%.02f PB"
 
-#: ../Util.cpp:759
+#: ../Util.cpp:777
 #, c-format
 msgid "%s B"
 msgstr "%s B"
 
-#: ../Util.cpp:763
+#: ../Util.cpp:781
 #, c-format
 msgid "%'lld B"
 msgstr "%'lld B"
