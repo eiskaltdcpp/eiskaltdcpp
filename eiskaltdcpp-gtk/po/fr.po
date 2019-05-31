@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
-# Alexandre Wallimann <adressalacon@gmail.com>, 2013,2015,2017
+# Alexandre Wallimann <adressalacon@gmail.com>, 2013,2015,2017,2019
 msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: https://github.com/eiskaltdcpp/eiskaltdcpp/issues\n"
-"POT-Creation-Date: 2019-05-31 00:45+0300\n"
-"PO-Revision-Date: 2019-05-30 21:42+0000\n"
-"Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
+"POT-Creation-Date: 2019-06-01 02:18+0300\n"
+"PO-Revision-Date: 2019-05-31 07:18+0000\n"
+"Last-Translator: Alexandre Wallimann <adressalacon@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/tehnick/eiskaltdcpp/language/"
 "fr/)\n"
 "Language: fr\n"
@@ -3723,15 +3723,15 @@ msgstr ""
 "\n"
 "  eiskaltdcpp-gtk <Key>\n"
 "\n"
-"EiskaltDC++ est un programme multi-plateformes qui utilisent les protocoles "
+"EiskaltDC++ est un programme multi-plateforme qui utilise les protocoles "
 "Direct Connect et ADC.\n"
 "\n"
 "\n"
 "Keys:\n"
 "\n"
-"  -h, --help⇥ Montre ce message\n"
+"  -h, --help\t Montrer ce message\n"
 "\n"
-"  -V, --version⇥ Montre la version\n"
+"  -V, --version\t Montrer la version\n"
 
 #: ../src/settingsdialog.cc:362 ../src/settingsdialog.cc:400
 #: ../src/settingsdialog.cc:434 ../src/settingsdialog.cc:688
