@@ -44,7 +44,8 @@
 * Update list of fake client tags in Favorite Hub settings.
 * Improve support of nmdcs:// hubs.
 *** eiskaltdcpp-gtk ***
-* Fixed few bugs.
+* Fixed few minor bugs.
+* Fixed build with Pango >= 1.44.
 * Improved support of nmdcs:// hubs.
 * GTK+ 3.x based builds have long standing problem with segfault in search
   widget. Everything else works more or less fine, but GTK+ based GUI always
