@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://github.com/eiskaltdcpp/eiskaltdcpp/issues\n"
-"POT-Creation-Date: 2019-06-01 02:20+0300\n"
+"POT-Creation-Date: 2019-09-16 21:58+0300\n"
 "PO-Revision-Date: 2017-06-18 13:35+0000\n"
 "Last-Translator: mauron, 2019\n"
 "Language-Team: Turkish (https://www.transifex.com/tehnick/teams/11818/tr/)\n"
@@ -315,9 +315,8 @@ msgid "Error hashing %1%: %2%"
 msgstr "%1% karma değeri hesaplanmasında hata: %2%"
 
 #: ../HttpConnection.cpp:218
-#, fuzzy
 msgid "Transfer-encoding error (%1%)"
-msgstr " Aktarım Portu (%1% TCP)"
+msgstr "Aktarım kodlama hatası (%1%)"
 
 #: ../HttpConnection.cpp:257
 msgid "Endless redirection loop (%1%)"
@@ -325,7 +324,7 @@ msgstr "Sonsuz yeniden yönlendirme döngüsü (%1%)"
 
 #: ../HttpConnection.cpp:301
 msgid "Too much data in response body (%1%)"
-msgstr ""
+msgstr "Cevap gövdesinde çok fazla veri (%1%)"
 
 #: ../MappingManager.cpp:44
 msgid "No UPnP implementation available"
@@ -787,15 +786,12 @@ msgstr "Talep edilenden çok bayt yazıldı"
 
 #: ../../dht/BootstrapManager.cpp:50
 msgid "DHT bootstrapping started"
-msgstr ""
+msgstr "DHT önyüklemesi başladı"
 
 #: ../../dht/BootstrapManager.cpp:113
 msgid "DHT bootstrapping is finished successfully."
-msgstr ""
+msgstr "DHT önyüklemesi başarıyla tamamlandı."
 
 #: ../../dht/BootstrapManager.cpp:117 ../../dht/BootstrapManager.cpp:124
 msgid "DHT bootstrap error: "
-msgstr ""
-
-#~ msgid "%1% (%2%)"
-#~ msgstr "%1% (%2%)"
+msgstr "DHT önyükleme hatası:"
