@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://github.com/eiskaltdcpp/eiskaltdcpp/issues\n"
-"POT-Creation-Date: 2019-09-16 21:58+0300\n"
+"POT-Creation-Date: 2019-09-21 22:09+0300\n"
 "PO-Revision-Date: 2017-06-18 13:35+0000\n"
 "Last-Translator: mauron, 2019\n"
 "Language-Team: Turkish (https://www.transifex.com/tehnick/teams/11818/tr/)\n"
@@ -94,7 +94,7 @@ msgstr "Çevrimdışı"
 
 #: ../ChatMessage.cpp:35
 msgid "Sent "
-msgstr "Gönderildi"
+msgstr "Gönderildi "
 
 #: ../ClientManager.cpp:186 ../QueueManager.cpp:2159 ../QueueManager.cpp:2165
 #: ../QueueManager.cpp:2171 ../SearchManager.cpp:279 ../SearchManager.cpp:366
@@ -169,7 +169,7 @@ msgstr "DHT (UDP)"
 
 #: ../ConnectivityManager.cpp:172
 msgid "Connectivity: "
-msgstr "Bağlantı:"
+msgstr "Bağlantı: "
 
 #: ../CryptoManager.cpp:166
 msgid "No private key file chosen"
@@ -231,7 +231,7 @@ msgstr "Klasörde eksik isim özniteliği"
 
 #: ../DownloadManager.cpp:133
 msgid "IPFilter: Blocked outgoing connection to "
-msgstr "IPFiltresi: şuraya giden bağlantı engellendi:"
+msgstr "IPFiltresi: şuraya giden bağlantı engellendi: "
 
 #: ../DownloadManager.cpp:233
 msgid "Invalid size"
@@ -336,7 +336,7 @@ msgstr "Başka bir UPnP haritalama teşebbüsü sürmektedir..."
 
 #: ../MappingManager.cpp:81
 msgid "Failed to initialize the %1% interface"
-msgstr "%1% arayüzü başlatılamadı."
+msgstr "%1% arayüzü başlatılamadı"
 
 #: ../MappingManager.cpp:85
 msgid " Transfer Port (%1% TCP)"
@@ -349,15 +349,15 @@ msgstr "%1% arayüzü %2% %3% portunu haritalamayı başaramadı"
 
 #: ../MappingManager.cpp:90
 msgid " Encrypted Transfer Port (%1% TCP)"
-msgstr "Şifrelenmiş Aktarım Portu (%1% TCP)"
+msgstr " Şifrelenmiş Aktarım Portu (%1% TCP)"
 
 #: ../MappingManager.cpp:95
 msgid " Search Port (%1% UDP)"
-msgstr "Arama Portu (%1% UDP)"
+msgstr " Arama Portu (%1% UDP)"
 
 #: ../MappingManager.cpp:100
 msgid " DHT Port (%1% UDP)"
-msgstr "DHT Portu (%1% UDP)"
+msgstr " DHT Portu (%1% UDP)"
 
 #: ../MappingManager.cpp:110
 msgid ""
@@ -405,7 +405,7 @@ msgstr "Hub konusu:"
 
 #: ../PerFolderLimit.cpp:87
 msgid "Too small share to download from "
-msgstr "Şundan indirmek için çok düşük paylaşım:"
+msgstr "Şundan indirmek için çok düşük paylaşım: "
 
 #: ../PerFolderLimit.cpp:87
 msgid "GiB"
@@ -417,7 +417,7 @@ msgstr "Dosya gönderimi reddedildi"
 
 #: ../PerFolderLimit.cpp:90 ../SettingsManager.cpp:620
 msgid " to "
-msgstr " şuna"
+msgstr " şuna "
 
 #: ../QueueManager.cpp:231
 msgid "No needed part"
@@ -536,7 +536,7 @@ msgstr "Belge"
 
 #: ../SearchManager.cpp:41
 msgid "Executable"
-msgstr "Çalıştırılabilir "
+msgstr "Çalıştırılabilir"
 
 #: ../SearchManager.cpp:42
 msgid "Picture"
@@ -588,11 +588,11 @@ msgstr "Hata: ayar bulunamadı!"
 
 #: ../SettingsManager.cpp:615
 msgid "Core setting "
-msgstr "Çekirdek ayarı"
+msgstr "Çekirdek ayarı "
 
 #: ../SettingsManager.cpp:620
 msgid "Change core setting "
-msgstr "Çekirdek ayarını değiştir"
+msgstr "Çekirdek ayarını değiştir "
 
 #: ../ShareManager.cpp:452
 msgid "No directory specified"
@@ -697,7 +697,7 @@ msgstr "%1% dosyası gönderilemedi: %2%"
 
 #: ../UploadManager.cpp:549
 msgid "IPFilter: Blocked incoming connection to "
-msgstr "IPFiltresi: şuraya gelen bağlantı engellendi:"
+msgstr "IPFiltresi: şuraya gelen bağlantı engellendi: "
 
 #: ../UploadManager.cpp:617
 msgid "Disconnected user leaving the hub: %1%"
@@ -794,4 +794,4 @@ msgstr "DHT önyüklemesi başarıyla tamamlandı."
 
 #: ../../dht/BootstrapManager.cpp:117 ../../dht/BootstrapManager.cpp:124
 msgid "DHT bootstrap error: "
-msgstr "DHT önyükleme hatası:"
+msgstr "DHT önyükleme hatası: "

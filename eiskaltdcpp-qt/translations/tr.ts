@@ -117,8 +117,7 @@ EiskaltDC++, Direct Connect ve ADC protokollerini kullanan bir çapraz platform 
 
 Anahtarlar:
 -h, --help		Bu mesajı göster
--V, --version		Sürümü göster
-</translation>
+-V, --version		Sürümü göster</translation>
     </message>
 </context>
 <context>
@@ -503,7 +502,8 @@ Anahtarlar:
 </source>
         <translation>&lt;b&gt;Eklendi: &lt;/b&gt; %1
 &lt;b&gt;Yol: &lt;/b&gt; %2
-&lt;b&gt;Hatalar: &lt;/b&gt; %3</translation>
+&lt;b&gt;Hatalar: &lt;/b&gt; %3
+</translation>
     </message>
 </context>
 <context>
@@ -1171,7 +1171,7 @@ Favori kullanıcı</translation>
         <location filename="../src/HubFrame.cpp" line="1584"/>
         <location filename="../src/HubFrame.cpp" line="1586"/>
         <source>Away mode on: </source>
-        <translation>Uzakta kipi açık:</translation>
+        <translation>Uzakta kipi açık: </translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1604"/>
@@ -1211,7 +1211,8 @@ Favori kullanıcı</translation>
         <location filename="../src/HubFrame.cpp" line="1703"/>
         <source>List of keywords:
 </source>
-        <translation>Anahtar kelime listesi:</translation>
+        <translation>Anahtar kelime listesi:
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1750"/>
@@ -1246,25 +1247,29 @@ Favori kullanıcı</translation>
         <location filename="../src/HubFrame.cpp" line="1853"/>
         <source>/aspell on/off - enable/disable spell checking
 </source>
-        <translation>/aspell on/off - imla denetimini etkinleştir/devre dışı bırak</translation>
+        <translation>/aspell on/off - imla denetimini etkinleştir/devre dışı bırak
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1855"/>
         <source>/alias &lt;ALIAS_NAME&gt;::&lt;COMMAND&gt; - make alias /ALIAS_NAME to /COMMAND
 </source>
-        <translation>/alias &lt;ALIAS_İSMİ&gt;::&lt;KOMUT&gt; - alias oluştur /ALIAS_İSMİ şuna /KOMUT</translation>
+        <translation>/alias &lt;ALIAS_İSMİ&gt;::&lt;KOMUT&gt; - alias oluştur /ALIAS_İSMİ şuna /KOMUT
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1856"/>
         <source>/alias purge &lt;ALIAS_NAME&gt; - remove alias
 </source>
-        <translation>/alias purge &lt;ALIAS_İSMİ&gt; - aliası kaldır</translation>
+        <translation>/alias purge &lt;ALIAS_İSMİ&gt; - aliası kaldır
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1857"/>
         <source>/alias list - list all aliases
 </source>
-        <translation>/alias list - bütün alisasları listele</translation>
+        <translation>/alias list - bütün alisasları listele
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1858"/>
@@ -1277,37 +1282,43 @@ Favori kullanıcı</translation>
         <location filename="../src/HubFrame.cpp" line="1859"/>
         <source>/back - set away-mode off
 </source>
-        <translation>/back - uzakta kipini kapat</translation>
+        <translation>/back - uzakta kipini kapat
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1860"/>
         <source>/browse &lt;nick&gt; - browse user files
 </source>
-        <translation>/browse &lt;rumuz&gt; - kullanıcı dosyalarını tara</translation>
+        <translation>/browse &lt;rumuz&gt; - kullanıcı dosyalarını tara
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1861"/>
         <source>/clear - clear chat window
 </source>
-        <translation>/clear - sohbet penceresini temizle</translation>
+        <translation>/clear - sohbet penceresini temizle
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1862"/>
         <source>/kword add &lt;keyword&gt; - add user-defined keyword which will be highlighted in the chat
 </source>
-        <translation>/kword add &lt;anahtar_kelime&gt; - sohbette vurgulanacak kullanıcı tarafından belirlenen anahtar kelime ekle</translation>
+        <translation>/kword add &lt;anahtar_kelime&gt; - sohbette vurgulanacak kullanıcı tarafından belirlenen anahtar kelime ekle
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1863"/>
         <source>/kword purge &lt;keyword&gt; - remove user-defined keyword
 </source>
-        <translation>/kword purge &lt;anahtar_kelime&gt; - kullanıcı tarafından belirlenen anahtar kelimeyi kaldır</translation>
+        <translation>/kword purge &lt;anahtar_kelime&gt; - kullanıcı tarafından belirlenen anahtar kelimeyi kaldır
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1864"/>
         <source>/kword list - full list of keywords which will be highlighted in the chat
 </source>
-        <translation>/kword list - sohbette vurgulanacak anahtar kelimelerin tam listesi</translation>
+        <translation>/kword list - sohbette vurgulanacak anahtar kelimelerin tam listesi
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1865"/>
@@ -1320,85 +1331,99 @@ Favori kullanıcı</translation>
         <location filename="../src/HubFrame.cpp" line="1866"/>
         <source>/close - close this hub
 </source>
-        <translation>/close - bu hub&apos;ı kapat</translation>
+        <translation>/close - bu hub&apos;ı kapat
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1867"/>
         <source>/fav - add this hub to favorites
 </source>
-        <translation>/fav - bu hub&apos;ı favorilere ekle</translation>
+        <translation>/fav - bu hub&apos;ı favorilere ekle
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1868"/>
         <source>/grant &lt;nick&gt; - grant extra slot to user
 </source>
-        <translation>/grant &lt;rumuz&gt; - kullanıcıya ekstra oluk ver</translation>
+        <translation>/grant &lt;rumuz&gt; - kullanıcıya ekstra oluk ver
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1869"/>
         <source>/help, /?, /h - show this help
 </source>
-        <translation>/help, /?, /h - bu yardımı göster</translation>
+        <translation>/help, /?, /h - bu yardımı göster
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1870"/>
         <source>/info &lt;nick&gt; - show info about user
 </source>
-        <translation>/info &lt;rumuz&gt; - kullanıcı hakkında bilgi göster</translation>
+        <translation>/info &lt;rumuz&gt; - kullanıcı hakkında bilgi göster
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1871"/>
         <source>/ratio [show] - show ratio [send in chat]
 </source>
-        <translation>/ratio [show] - oranı göster [sohbete gönder]</translation>
+        <translation>/ratio [show] - oranı göster [sohbete gönder]
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1872"/>
         <source>/rebuild - rebuild hash
 </source>
-        <translation>/rebuild - karma değerini yeniden hesapla</translation>
+        <translation>/rebuild - karma değerini yeniden hesapla
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1873"/>
         <source>/refresh - update own file list
 </source>
-        <translation>/refresh - kendi dosya listenizi güncelle</translation>
+        <translation>/refresh - kendi dosya listenizi güncelle
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1874"/>
         <source>/me - say a third person
 </source>
-        <translation>/me - üçüncü kişi olarak söyle</translation>
+        <translation>/me - üçüncü kişi olarak söyle
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1875"/>
         <source>/pm &lt;nick&gt; - begin private chat with user
 </source>
-        <translation>/pm &lt;nick&gt; - kullanıcı ile özel sohbet başlat</translation>
+        <translation>/pm &lt;nick&gt; - kullanıcı ile özel sohbet başlat
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1876"/>
         <source>/ws param value - set gui option param in value (without value return current value of option)
 </source>
-        <translation>/ws param değeri - değerde grafik arayüz seçeneğini ayarla (değer yoksa seçeneğin güncel değerini göster)</translation>
+        <translation>/ws param değeri - değerde grafik arayüz seçeneğini ayarla (değer yoksa seçeneğin güncel değerini göster)
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1877"/>
         <source>/dcpps param value - set core option param in value (without value return current value of option)
 </source>
-        <translation>/dcpps param değer - değerde çekirdek seçeneğini ayarla (değer yoksa seçeneğin güncel değerini göster)</translation>
+        <translation>/dcpps param değer - değerde çekirdek seçeneğini ayarla (değer yoksa seçeneğin güncel değerini göster)
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1879"/>
         <source>/luafile &lt;file&gt; - load Lua file
 </source>
-        <translation>/luafile &lt;dosya&gt; - Lua dosyası yükle</translation>
+        <translation>/luafile &lt;dosya&gt; - Lua dosyası yükle
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1880"/>
         <source>/lua &lt;chunk&gt; - execute Lua chunk
 </source>
-        <translation>/lua &lt;parça&gt; Lua parçası çalıştır</translation>
+        <translation>/lua &lt;parça&gt; Lua parçası çalıştır
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="2130"/>
@@ -1440,7 +1465,7 @@ Favori kullanıcı</translation>
     <message>
         <location filename="../src/HubFrame.cpp" line="2253"/>
         <source>Slot granted to </source>
-        <translation>Oluk şuna verildi:</translation>
+        <translation>Oluk şuna verildi: </translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="2312"/>
@@ -2683,7 +2708,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/main.cpp" line="82"/>
         <source>Loading: </source>
-        <translation>Yükleniyor:</translation>
+        <translation>Yükleniyor: </translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="180"/>
@@ -3573,7 +3598,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="224"/>
         <source>Listing: </source>
-        <translation>Döküm:</translation>
+        <translation>Döküm: </translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="326"/>
@@ -3857,7 +3882,8 @@ Do you want to stop it?
 </source>
         <translation>Arama casusu artık çalışıyor.
 Widget saklı olduğunda da çalışmaya devam edecek.
-Onu durdurmak istiyor musunuz?</translation>
+Onu durdurmak istiyor musunuz?
+</translation>
     </message>
     <message>
         <location filename="../src/SpyFrame.cpp" line="82"/>
@@ -4070,7 +4096,7 @@ Onu durdurmak istiyor musunuz?</translation>
     <message>
         <location filename="../src/TransferView.cpp" line="821"/>
         <source>Uploaded %1 (%2%) </source>
-        <translation>%1 Gönderildi (%2%)</translation>
+        <translation>%1 Gönderildi (%2%) </translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="838"/>
@@ -4150,12 +4176,12 @@ Onu durdurmak istiyor musunuz?</translation>
     <message>
         <location filename="../src/TransferViewModel.cpp" line="575"/>
         <source>Downloaded </source>
-        <translation>İndirildi</translation>
+        <translation>İndirildi </translation>
     </message>
     <message>
         <location filename="../src/TransferViewModel.cpp" line="577"/>
         <source>Waiting for slot </source>
-        <translation>Oluk bekleniyor</translation>
+        <translation>Oluk bekleniyor </translation>
     </message>
     <message>
         <location filename="../src/TransferViewModel.cpp" line="631"/>
@@ -4492,7 +4518,7 @@ Onu durdurmak istiyor musunuz?</translation>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="85"/>
         <source>This description will be shown in the list of favorite hubs.</source>
-        <translation>Bu tanımlama favori hub listesinde gösterilecektir. </translation>
+        <translation>Bu tanımlama favori hub listesinde gösterilecektir.</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="92"/>
@@ -4547,7 +4573,7 @@ Onu durdurmak istiyor musunuz?</translation>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="223"/>
         <source>This nickname, or handle, will identify you when you join a hub.</source>
-        <translation>Bu rumuz, ya da takma ad, bir hub&apos;a bağlandığınızda sizin kimliğiniz olacaktır. </translation>
+        <translation>Bu rumuz, ya da takma ad, bir hub&apos;a bağlandığınızda sizin kimliğiniz olacaktır.</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="230"/>
@@ -4690,7 +4716,7 @@ Onu durdurmak istiyor musunuz?</translation>
     <message>
         <location filename="../ui/HubFrame.ui" line="97"/>
         <source>Find: </source>
-        <translation>Bul:</translation>
+        <translation>Bul: </translation>
     </message>
     <message>
         <location filename="../ui/HubFrame.ui" line="111"/>
@@ -5250,7 +5276,7 @@ DC++&apos;nın SOCKS5 desteği GSSAPI içermez.</translation>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="646"/>
         <source>Alternate speed limit at time from </source>
-        <translation>Şu saatten itibaren alternatif hız sınırı</translation>
+        <translation>Şu saatten itibaren alternatif hız sınırı </translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="672"/>
@@ -5554,8 +5580,7 @@ kaynakla bağlantı kesilecektir (varsayılan: 1024 B/s)</translation>
         <source>Amount of time (in seconds) that has to pass since the download
 started before a source can be dropped. (default: 15 s)</source>
         <translation>Herhangi bir kaynakla bağlantının kesilmebilmesi için saniye olarak 
-indirmenin başlamasından sonra geçmesi gereken süre (varsayılan: 15 s)
-</translation>
+indirmenin başlamasından sonra geçmesi gereken süre (varsayılan: 15 s)</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="506"/>
@@ -5812,7 +5837,7 @@ dosyaların indirildiklerinin indirmeler kuyruğunda görüntülenmesini
 sağlar. İndirilen dosyaları hedef konumlarından siler ya da taşırsanız, ilişkili 
 tamamlanmış unsurların kuyruktan otomatik olarak silinmeyeceklerini 
 unutmayın. Bu şıkkı devre dışı bırakırsanız, mevcut tamamlanmış 
-unsurlar kuyruktan kaldırılmayacaktır, bunu elle yapmanız gerekir. </translation>
+unsurlar kuyruktan kaldırılmayacaktır, bunu elle yapmanız gerekir.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="883"/>
@@ -6538,7 +6563,7 @@ of how fast a source you are likely to be for other users.</source>
         <translation>Bu menü, sık rastlanılan gönderme hızları içerir (MiB/s olarak), kendi hızınıza
 en yakın olanı seçiniz.
 İndirme hızınızı girmeyiniz, bu ayar başkaları için ne kadar hızlı bir kaynak 
-olacağınızı gösterir. </translation>
+olacağınızı gösterir.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsPersonal.ui" line="204"/>
@@ -6596,7 +6621,7 @@ olacağınızı gösterir. </translation>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="129"/>
         <source>Here you can specify templates for files you don&apos;t want to share. </source>
-        <translation>Burada paylaşmak istemediğiniz dosyalar için şablonlar oluşturabilirsiniz.</translation>
+        <translation>Burada paylaşmak istemediğiniz dosyalar için şablonlar oluşturabilirsiniz. </translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="138"/>
