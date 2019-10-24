@@ -1,6 +1,7 @@
 language: cpp
 
 sudo: required
+cache: ccache
 dist: xenial
 
 if: tag IS blank

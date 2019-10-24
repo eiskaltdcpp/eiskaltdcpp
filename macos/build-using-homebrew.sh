@@ -3,7 +3,7 @@
 # Authors: Boris Pek
 # License: Public Domain
 # Created: 2018-08-21
-# Updated: 2019-02-17
+# Updated: 2019-10-25
 # Version: N/A
 #
 # Description: script for building of app bundles for macOS
@@ -18,7 +18,10 @@
 
 set -e
 
+[ -z "${HOMEBREW}" ] && HOMEBREW="/usr/local"
+
 PATH="${HOMEBREW}/bin:${PATH}"
+PATH="${HOMEBREW}/opt/ccache/libexec:${PATH}"
 CUR_DIR="$(dirname $(realpath -s ${0}))"
 MAIN_DIR="$(realpath -s ${CUR_DIR}/..)"
 TOOLCHAIN_FILE="${CUR_DIR}/homebrew-toolchain.cmake"
@@ -42,8 +45,10 @@ BUILD_OPTIONS="-DCMAKE_BUILD_TYPE=Release \
 mkdir -p "${MAIN_DIR}/builddir"
 cd "${MAIN_DIR}/builddir"
 
+which nproc > /dev/null && JOBS=$(nproc) || JOBS=4
+
 cmake .. -DCMAKE_TOOLCHAIN_FILE="${TOOLCHAIN_FILE}" ${BUILD_OPTIONS} ${@}
-cmake --build . --target all -- -j4
+cmake --build . --target all -- -j ${JOBS}
 
 cpack -G DragNDrop
 cp -a EiskaltDC++*.dmg "${MAIN_DIR}/../"

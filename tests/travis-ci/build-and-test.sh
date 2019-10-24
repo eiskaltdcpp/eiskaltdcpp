@@ -51,7 +51,6 @@ then
     ls -alp $(brew --repository)/*
     ls -alp /usr/local/*
 
-    export HOMEBREW="/usr/local"
     ./macos/build-using-homebrew.sh
 
     ls -alp ../EiskaltDC++*.dmg
