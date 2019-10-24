@@ -2,52 +2,41 @@ language: cpp
 
 sudo: required
 dist: xenial
-osx_image: xcode10.3
-
-os:
-  - linux
-  - osx
 
 if: tag IS blank
 
-compiler:
-  - gcc
-  - clang
-
-env:
-  - TARGET=linux64 USE_QT=qt4
-  - TARGET=linux64 USE_QT=qt5
-  - TARGET=linux64 USE_GTK=gtk2
-  - TARGET=linux64 USE_GTK=gtk3
-  - TARGET=linux64 USE_DAEMON=jsonrpc
-  - TARGET=windows32
-  - TARGET=windows64
-  - TARGET=macos64
-
-matrix:
-  exclude:
-    - env: TARGET=linux64 USE_QT=qt4
-      os: osx
+jobs:
+  include:
     - env: TARGET=linux64 USE_QT=qt5
-      os: osx
-    - env: TARGET=linux64 USE_GTK=gtk2
-      os: osx
-    - env: TARGET=linux64 USE_GTK=gtk3
-      os: osx
-    - env: TARGET=linux64 USE_DAEMON=jsonrpc
-      os: osx
-    - env: TARGET=windows32
-      os: osx
-    - env: TARGET=windows32
-      compiler: clang
-    - env: TARGET=windows64
-      os: osx
-    - env: TARGET=windows64
-      compiler: clang
-    - env: TARGET=macos64
-      os: osx
+      os: linux
       compiler: gcc
+    - env: TARGET=linux64 USE_QT=qt5
+      os: linux
+      compiler: clang
+    - env: TARGET=linux64 USE_QT=qt4
+      os: linux
+    - env: TARGET=linux64 USE_GTK=gtk3
+      os: linux
+    - env: TARGET=linux64 USE_GTK=gtk2
+      os: linux
+    - env: TARGET=linux64 USE_DAEMON=jsonrpc
+      os: linux
+      compiler: gcc
+    - env: TARGET=linux64 USE_DAEMON=jsonrpc
+      os: linux
+      compiler: clang
     - env: TARGET=macos64
+      os: osx
+      osx_image: xcode9.4
+    - env: TARGET=macos64
+      os: osx
+      osx_image: xcode10.3
+    - env: TARGET=macos64
+      os: osx
+      osx_image: xcode11.1
+    - env: TARGET=windows32
+      os: linux
+    - env: TARGET=windows64
       os: linux
 
 install:
