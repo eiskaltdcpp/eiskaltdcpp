@@ -32,9 +32,6 @@ jobs:
     - env: TARGET=macos64
       os: osx
       osx_image: xcode10.3
-    - env: TARGET=macos64
-      os: osx
-      osx_image: xcode11.1
     - env: TARGET=windows32
       os: linux
     - env: TARGET=windows64
