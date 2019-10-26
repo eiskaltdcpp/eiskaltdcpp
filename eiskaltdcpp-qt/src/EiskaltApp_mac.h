@@ -131,13 +131,16 @@ private:
     EiskaltEventFilter ef;
 
     void installMacHandlers(){
+        typedef objc_object* (*object_type)(struct objc_object *self, SEL _cmd);
+        object_type objc_msgSendObject = (object_type)objc_msgSend;
+
         objc_object* cls = (objc_object*)objc_getClass("NSApplication");
         SEL sharedApplication = sel_registerName("sharedApplication");
-        objc_object* appInst = objc_msgSend(cls, sharedApplication);
+        objc_object* appInst = objc_msgSendObject(cls, sharedApplication);
 
         if (appInst){
-            objc_object* delegate = objc_msgSend(appInst,  sel_registerName("delegate"));
-            objc_object* delClass = objc_msgSend(delegate, sel_registerName("class"));
+            objc_object* delegate = objc_msgSendObject(appInst,  sel_registerName("delegate"));
+            objc_object* delClass = objc_msgSendObject(delegate, sel_registerName("class"));
             bool test = class_addMethod((objc_class*)delClass,
                                         sel_registerName("applicationShouldHandleReopen:hasVisibleWindows:"),
                                         (IMP)dockClickHandler,"B@:");
