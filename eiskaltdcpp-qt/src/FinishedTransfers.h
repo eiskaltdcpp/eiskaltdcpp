@@ -396,12 +396,7 @@ private:
                 file = path + QDir::separator() + files.first();
         }
 
-        if (file.startsWith(QChar('/')))
-            file.prepend("file://");
-        else
-            file.prepend("file:///");
-
-        QDesktopServices::openUrl(QUrl(file));
+        QDesktopServices::openUrl(QUrl::fromLocalFile(file));
     }
 
     void slotItemDoubleClicked(const QModelIndex &proxyIndex){
