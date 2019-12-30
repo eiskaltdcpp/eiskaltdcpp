@@ -50,6 +50,16 @@ using namespace dcpp;
 
 const string Hub::tagPrefix = "#";
 
+auto isEmptyString = [](gchar *c) -> bool {
+    if (c == NULL)
+        return true;
+
+    if (c[0] == '\0')
+        return true;
+
+    return false;
+};
+
 Hub::Hub(const string &address, const string &encoding):
     BookEntry(Entry::HUB, address, "hub.ui", address),
     client(NULL),

@@ -25,16 +25,6 @@
 #include <dcpp/CID.h>
 #include <dcpp/HintedUser.h>
 
-auto isEmptyString = [](gchar *c) -> bool {
-    if (c == NULL)
-        return true;
-
-    if (c[0] == '\0')
-        return true;
-
-    return false;
-};
-
 class WulforUtil
 {
 public:
