@@ -1,4 +1,4 @@
---- 2.4.0 2019-xx-xx ---
+--- 2.4.0 2020-xx-xx ---
 *** common changes ***
 * Added support of OpenSSL >= 1.1.
 * Stop support of boost < 1.48.0.
@@ -28,32 +28,31 @@
   — improved program stability and performance
   — decreased usage of boost: all possible is rewritten in C++14
   — use C++14 features where it is possible
-  — fixed static code analyzers (cppcheck, clang) notes
+  — fixed notes from static code analyzers (cppcheck, clang)
 *** libeiskaltdcpp ***
 * Partially sync with DC++ 0.868 core in non-critical sections. The diff is
   still huge, but it was noticeably reduced.
 * Add support of protocol negotiation via ALPN.
   https://forum.dcbase.org/viewtopic.php?f=55&p=4021
 *** eiskaltdcpp-qt ***
-* Fixed Quit action in builds with Qt 5.x. With Qt 4.x all worked fine.
-* Added configuration option: USE_PROGRESS_BARS. This option is especially
-  important for macOS where progress bars do not allow to show text on them so
-  a lot of information was hidden from users.
-* Support relative paths for resources on Linux. This is necessary for correct
-  work of program packaged in snap, flatpak, AppImage, etc..
+* Fixed "Quit" action in builds with Qt 5.x. With Qt 4.x all worked fine.
+* Added configuration option USE_PROGRESS_BARS which allow to use usual text
+  labels instead of progressbars. This option is especially important for macOS
+  where progressbars are unable to show any text, so a lot of information was
+  hidden from users in the past.
+* Added support relative paths for resources on Linux. This is necessary for
+  correct work of program packaged in snap, flatpak, AppImage, etc..
 * Update list of fake client tags in Favorite Hub settings.
 * Improve support of nmdcs:// hubs.
 *** eiskaltdcpp-gtk ***
 * Fixed few minor bugs.
 * Fixed build with Pango >= 1.44.
 * Improved support of nmdcs:// hubs.
-* GTK+ 3.x based builds have long standing problem with segfault in search
-  widget. Everything else works more or less fine, but GTK+ based GUI always
-  had less functions when Qt based GUI and this situation will not be changed
-  in the future.
-* GTK+ based UI is still supported but with extremely low priority and we are
-  going to stop its support in one of future versions. Consider using of Qt UI
-  even in GTK+ based Desktop Environments.
+* GTK+ UI has long standing problem with segfault in search widget. It was not
+  fixed in this release and it looks that never will be fixed at all.
+* This is the last release with support of GTK+ UI. It will be removed
+  completely in one of the next versions of program. Consider switching to
+  Qt UI now.
 
 --- 2.3.0 2018-xx-xx ---
 * This release was skipped due to problems with versions scheme.
