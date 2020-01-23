@@ -761,12 +761,12 @@ Keys:
 <context>
     <name>FinishedTransfers</name>
     <message>
-        <location filename="../src/FinishedTransfers.h" line="484"/>
+        <location filename="../src/FinishedTransfers.h" line="479"/>
         <source>Open file</source>
         <translation>打开文件</translation>
     </message>
     <message>
-        <location filename="../src/FinishedTransfers.h" line="485"/>
+        <location filename="../src/FinishedTransfers.h" line="480"/>
         <source>Open directory</source>
         <translation>打开目录</translation>
     </message>

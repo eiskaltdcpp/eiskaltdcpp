@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: https://github.com/eiskaltdcpp/eiskaltdcpp/issues\n"
-"POT-Creation-Date: 2019-09-21 22:09+0300\n"
+"POT-Creation-Date: 2020-01-24 17:54+0300\n"
 "PO-Revision-Date: 2019-09-21 17:52+0000\n"
 "Last-Translator: mauron\n"
 "Language-Team: Turkish (http://www.transifex.com/tehnick/eiskaltdcpp/"
@@ -21,16 +21,16 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: ../src/hub.cc:1076 ../src/hub.cc:1155 ../src/privatemessage.cc:571
+#: ../src/hub.cc:1086 ../src/hub.cc:1165 ../src/privatemessage.cc:571
 #: ../src/privatemessage.cc:650
 msgid " *** Emoticons limit"
 msgstr " *** Gülümseme ikonları sınırı"
 
-#: ../src/hub.cc:1071 ../src/privatemessage.cc:566
+#: ../src/hub.cc:1081 ../src/privatemessage.cc:566
 msgid " *** Emoticons mode off"
 msgstr " *** Gülümseme ikonları kipi kapalı"
 
-#: ../src/hub.cc:1066 ../src/privatemessage.cc:561
+#: ../src/hub.cc:1076 ../src/privatemessage.cc:561
 msgid " *** Emoticons not loaded"
 msgstr " *** Gülümseme ikonları yüklenmedi"
 
@@ -38,15 +38,15 @@ msgstr " *** Gülümseme ikonları yüklenmedi"
 msgid " + system icons"
 msgstr " + sistem ikonları"
 
-#: ../src/hub.cc:460 ../src/hub.cc:479
+#: ../src/hub.cc:470 ../src/hub.cc:489
 msgid " Users"
 msgstr " Kullanıcı"
 
-#: ../src/hub.cc:2869
+#: ../src/hub.cc:2879
 msgid " added to favorites list"
 msgstr " favoriler listesine ilave edildi"
 
-#: ../src/hub.cc:1997
+#: ../src/hub.cc:2007
 msgid " empty..."
 msgstr " boş..."
 
@@ -54,27 +54,27 @@ msgstr " boş..."
 msgid " files"
 msgstr " dosya"
 
-#: ../src/hub.cc:443 ../src/hub.cc:454
+#: ../src/hub.cc:453 ../src/hub.cc:464
 msgid " has joined"
 msgstr " katıldı"
 
-#: ../src/hub.cc:444 ../src/hub.cc:453
+#: ../src/hub.cc:454 ../src/hub.cc:463
 msgid " has joined hub "
 msgstr " hub'a katıldı "
 
-#: ../src/hub.cc:486 ../src/hub.cc:496
+#: ../src/hub.cc:496 ../src/hub.cc:506
 msgid " has quit"
 msgstr " ayrıldı"
 
-#: ../src/hub.cc:485 ../src/hub.cc:495
+#: ../src/hub.cc:495 ../src/hub.cc:505
 msgid " has quit hub "
 msgstr " hub'dan ayrıldı "
 
-#: ../src/hub.cc:1970 ../src/hub.cc:2799 ../src/privatemessage.cc:1425
+#: ../src/hub.cc:1980 ../src/hub.cc:2809 ../src/privatemessage.cc:1425
 msgid " is favorite user"
 msgstr " favori kullanıcı"
 
-#: ../src/hub.cc:1988 ../src/hub.cc:2840 ../src/privatemessage.cc:1446
+#: ../src/hub.cc:1998 ../src/hub.cc:2850 ../src/privatemessage.cc:1446
 msgid " is not favorite user"
 msgstr " favori kullanıcı değil"
 
@@ -86,7 +86,7 @@ msgstr " çıktı"
 msgid " of "
 msgstr " şundan "
 
-#: ../src/hub.cc:2896
+#: ../src/hub.cc:2906
 msgid " removed from favorites list"
 msgstr " favoriler listesinden kaldırıldı"
 
@@ -126,11 +126,11 @@ msgstr ""
 "\n"
 "Ayrıntılar için man strftime sayfasına bakınız."
 
-#: ../src/hub.cc:2426
+#: ../src/hub.cc:2436
 msgid "': type /help for a list of available commands"
 msgstr "': mevcut komutların listesi için /help yazın"
 
-#: ../src/hub.cc:2095 ../src/privatemessage.cc:1034
+#: ../src/hub.cc:2105 ../src/privatemessage.cc:1034
 msgid "*** Available commands:"
 msgstr "*** Mevcut komutlar:"
 
@@ -160,7 +160,7 @@ msgstr "... boş olmamalı"
 msgid "0 B (0.00%)"
 msgstr "0 B (0.00%)"
 
-#: ../src/hub.cc:524
+#: ../src/hub.cc:534
 msgid "0 Users"
 msgstr "0 Kullanıcı"
 
@@ -360,7 +360,7 @@ msgstr "<b>Klasörler</b>"
 msgid "<b>Do not share files and folders containing:</b>"
 msgstr "<b>Şunları içeren dosya ve klasörleri paylaşma:</b>"
 
-#: ../src/hub.cc:604
+#: ../src/hub.cc:614
 msgid "<b>Enter your password</b>"
 msgstr "<b>Parolanızı girin</b>"
 
@@ -626,7 +626,7 @@ msgstr "Ekle"
 msgid "Add / Remove"
 msgstr "Ekle / Kaldır"
 
-#: ../src/hub.cc:2100 ../ui/hub.ui:39
+#: ../src/hub.cc:2110 ../ui/hub.ui:39
 msgid "Add a hub to favorites"
 msgstr "Favorilere bir hub ekle"
 
@@ -634,7 +634,7 @@ msgstr "Favorilere bir hub ekle"
 msgid "Add finished files to share instantly (if shared)"
 msgstr "Tamamlanan dosyaları hemen paylaşıma ekle (paylaşılıyorsa)"
 
-#: ../src/hub.cc:2132
+#: ../src/hub.cc:2142
 msgid ""
 "Add rule 192.168.1.0/23 where direction incoming and action is allow and "
 "192.168.6.0/24 where direction is incoming or outcoming and action is drop"
@@ -655,7 +655,7 @@ msgstr "Favori Kullanıcılara Ekle"
 msgid "Add to favorites"
 msgstr "Favorilere ekle"
 
-#: ../src/hub.cc:2101 ../src/privatemessage.cc:1039 ../ui/privatemessage.ui:48
+#: ../src/hub.cc:2111 ../src/privatemessage.cc:1039 ../ui/privatemessage.ui:48
 msgid "Add user to favorites list"
 msgstr "Kullanıcıyı favoriler listesine ekle"
 
@@ -687,23 +687,23 @@ msgstr "Adres"
 msgid "Advanced"
 msgstr "Gelişmiş"
 
-#: ../src/hub.cc:2127
+#: ../src/hub.cc:2137
 msgid "Alias A executing"
 msgstr "A aliası çalışıyor"
 
-#: ../src/hub.cc:2124
+#: ../src/hub.cc:2134
 msgid "Alias List"
 msgstr "Alias Listesi"
 
-#: ../src/hub.cc:2125
+#: ../src/hub.cc:2135
 msgid "Alias Remove A"
 msgstr "Alias A'yı Kaldır"
 
-#: ../src/hub.cc:2126
+#: ../src/hub.cc:2136
 msgid "Alias add uname -a as A"
 msgstr "Alias uname -a'yı A olarak ekle"
 
-#: ../src/hub.cc:2326
+#: ../src/hub.cc:2336
 msgid "Aliases not found."
 msgstr "Aliaslar bulunamadı."
 
@@ -838,18 +838,18 @@ msgstr "Otomatik olarak alternatif indirme konumları ara"
 msgid "Automatically update external IP (restart required)"
 msgstr "Harici IP adresini otomatik güncelle (tekrar başlatma gerektirir)"
 
-#: ../src/hub.cc:2096 ../src/privatemessage.cc:1035 ../ui/hub.ui:12
+#: ../src/hub.cc:2106 ../src/privatemessage.cc:1035 ../ui/hub.ui:12
 #: ../ui/privatemessage.ui:12
 msgid "Away mode message on/off"
 msgstr "Uzakta kipi mesajı açık/kapalı"
 
-#: ../src/hub.cc:1913 ../src/hub.cc:1926 ../src/hub.cc:2097
+#: ../src/hub.cc:1923 ../src/hub.cc:1936 ../src/hub.cc:2107
 #: ../src/privatemessage.cc:917 ../src/privatemessage.cc:931
 #: ../src/privatemessage.cc:1036 ../ui/hub.ui:21 ../ui/privatemessage.ui:21
 msgid "Away mode off"
 msgstr "Uzakta kipi kapalı"
 
-#: ../src/hub.cc:1920 ../src/privatemessage.cc:925
+#: ../src/hub.cc:1930 ../src/privatemessage.cc:925
 msgid "Away mode on: "
 msgstr "Uzakta kipi açık: "
 
@@ -1037,11 +1037,11 @@ msgstr "Sohbet Komutları"
 msgid "Chat Menu"
 msgstr "Sohbet Menüsü"
 
-#: ../src/hub.cc:1940
+#: ../src/hub.cc:1950
 msgid "Chat disabled"
 msgstr "Sohbet devre dışı"
 
-#: ../src/hub.cc:1945
+#: ../src/hub.cc:1955
 msgid "Chat enabled"
 msgstr "Sohbet etkin"
 
@@ -1061,7 +1061,7 @@ msgstr "Çince (Çin) tercüme\n"
 msgid "Choose a File"
 msgstr "Bir Dosya Seç"
 
-#: ../src/hub.cc:2724 ../src/mainwindow.cc:1336 ../src/mainwindow.cc:1408
+#: ../src/hub.cc:2734 ../src/mainwindow.cc:1336 ../src/mainwindow.cc:1408
 #: ../src/privatemessage.cc:1328 ../ui/search.ui:7 ../ui/settingsdialog.ui:8510
 #: ../ui/sharebrowser.ui:7
 msgid "Choose a directory"
@@ -1079,7 +1079,7 @@ msgstr "Temizle"
 msgid "Clear PM"
 msgstr "Özel mesajı temizle"
 
-#: ../src/hub.cc:2098 ../ui/hub.ui:30
+#: ../src/hub.cc:2108 ../ui/hub.ui:30
 msgid "Clear chat"
 msgstr "Sohbeti temizle"
 
@@ -1107,7 +1107,7 @@ msgstr "Tüm hub'ları kapat"
 msgid "Close all search"
 msgstr "Tüm aramaları kapat"
 
-#: ../src/hub.cc:2099
+#: ../src/hub.cc:2109
 msgid "Close chat"
 msgstr "Sohbeti kapat"
 
@@ -1162,7 +1162,7 @@ msgstr "Favori hub'un kaldırılmasını teyit et"
 msgid "Connect"
 msgstr "Bağlan"
 
-#: ../src/hub.cc:3586
+#: ../src/hub.cc:3596
 msgid "Connect failed: "
 msgstr "Bağlantı başarısız: "
 
@@ -1174,11 +1174,11 @@ msgstr "Bir hub'a bağlan"
 msgid "Connect to hub"
 msgstr "Hub'a bağlan"
 
-#: ../src/hub.cc:2107 ../ui/hub.ui:57
+#: ../src/hub.cc:2117 ../ui/hub.ui:57
 msgid "Connect to the hub"
 msgstr "Hub'a bağlan"
 
-#: ../src/hub.cc:3530 ../src/transfers.cc:1032
+#: ../src/hub.cc:3540 ../src/transfers.cc:1032
 msgid "Connected"
 msgstr "Bağlandı"
 
@@ -1190,7 +1190,7 @@ msgstr "Bağlanıyor"
 msgid "Connecting (forced)..."
 msgstr "Bağlanıyor (zorla)..."
 
-#: ../src/hub.cc:3523
+#: ../src/hub.cc:3533
 msgid "Connecting to "
 msgstr "Şuna bağlanıyor: "
 
@@ -1198,7 +1198,7 @@ msgstr "Şuna bağlanıyor: "
 msgid "Connecting..."
 msgstr "Bağlanıyor..."
 
-#: ../src/hub.cc:89 ../src/hub.cc:408 ../src/hub.cc:428 ../src/search.cc:105
+#: ../src/hub.cc:99 ../src/hub.cc:418 ../src/hub.cc:438 ../src/search.cc:105
 #: ../src/search.cc:666 ../src/search.cc:751 ../src/search.cc:886
 #: ../ui/search.ui:141 ../ui/settingsdialog.ui:1883
 #: ../ui/settingsdialog.ui:2585
@@ -1281,8 +1281,8 @@ msgstr "Unsuru sil"
 #: ../src/favoritehubs.cc:52 ../src/favoritehubs.cc:131
 #: ../src/favoritehubs.cc:314 ../src/favoriteusers.cc:50
 #: ../src/favoriteusers.cc:113 ../src/favoriteusers.cc:391
-#: ../src/favoriteusers.cc:416 ../src/favoriteusers.cc:607 ../src/hub.cc:87
-#: ../src/hub.cc:406 ../src/hub.cc:426 ../src/publichubs.cc:47
+#: ../src/favoriteusers.cc:416 ../src/favoriteusers.cc:607 ../src/hub.cc:97
+#: ../src/hub.cc:416 ../src/hub.cc:436 ../src/publichubs.cc:47
 #: ../src/publichubs.cc:159 ../src/publichubs.cc:304 ../ui/favoriteusers.ui:212
 #: ../ui/settingsdialog.ui:1171
 msgid "Description"
@@ -1413,19 +1413,19 @@ msgstr "İndirme tamamlandı: "
 msgid "Download image"
 msgstr "Resim indir"
 
-#: ../src/hub.cc:2040
+#: ../src/hub.cc:2050
 msgid "Download image: disable"
 msgstr "Resim indir: devre dışı bırak"
 
-#: ../src/hub.cc:2042
+#: ../src/hub.cc:2052
 msgid "Download image: unlimit"
 msgstr "Resim indir: sınırsız"
 
-#: ../src/hub.cc:2044
+#: ../src/hub.cc:2054
 msgid "Download limit image: "
 msgstr "Resim indirme sınırı: "
 
-#: ../src/hub.cc:2113
+#: ../src/hub.cc:2123
 msgid "Download limit image: 0 - disable, n < 0 - unlimit, empty - info"
 msgstr "Resim indirme sınırı: 0 - devre dışı, n < 0 - sınırsız, boş - bilgi"
 
@@ -1503,15 +1503,15 @@ msgstr "Tercihleri düzenle"
 msgid "Emoticons"
 msgstr "Gülümseme ikonları"
 
-#: ../src/hub.cc:2024 ../src/privatemessage.cc:973
+#: ../src/hub.cc:2034 ../src/privatemessage.cc:973
 msgid "Emoticons mode off"
 msgstr "Gülümseme ikonları kipi kapalı"
 
-#: ../src/hub.cc:2029 ../src/privatemessage.cc:978
+#: ../src/hub.cc:2039 ../src/privatemessage.cc:978
 msgid "Emoticons mode on"
 msgstr "Gülümseme ikonları kipi açık"
 
-#: ../src/hub.cc:2116 ../src/privatemessage.cc:1043
+#: ../src/hub.cc:2126 ../src/privatemessage.cc:1043
 msgid "Emoticons on/off"
 msgstr "Gülümseme ikonları açık/kapalı"
 
@@ -1601,11 +1601,11 @@ msgstr "Tam boyut"
 msgid "Exceptions"
 msgstr "İstisnalar"
 
-#: ../src/hub.cc:2119
+#: ../src/hub.cc:2129
 msgid "Execute Lua Chunk"
 msgstr "Lua Parçası Çalıştır"
 
-#: ../src/hub.cc:2121
+#: ../src/hub.cc:2131
 msgid "Execute code (bash)"
 msgstr "Kod çalıştır (bash)"
 
@@ -1670,11 +1670,11 @@ msgstr "Favori Kullanıcı"
 msgid "Favorite Users"
 msgstr "Favori Kullanıcılar"
 
-#: ../src/hub.cc:3119
+#: ../src/hub.cc:3129
 msgid "Favorite hub added"
 msgstr "Favori hub eklendi"
 
-#: ../src/hub.cc:3124
+#: ../src/hub.cc:3134
 msgid "Favorite hub already exists"
 msgstr "Favori hub zaten mevcut"
 
@@ -1888,7 +1888,7 @@ msgstr "Almanca"
 msgid "German translation\n"
 msgstr "Almanca tercüme\n"
 
-#: ../src/hub.cc:2104 ../src/privatemessage.cc:1041 ../ui/privatemessage.ui:66
+#: ../src/hub.cc:2114 ../src/privatemessage.cc:1041 ../ui/privatemessage.ui:66
 msgid "Get file list"
 msgstr "Dosya listesi al"
 
@@ -1896,7 +1896,7 @@ msgstr "Dosya listesi al"
 msgid "GiB"
 msgstr "GiB"
 
-#: ../src/favoritehubs.cc:368 ../src/hub.cc:2936
+#: ../src/favoritehubs.cc:368 ../src/hub.cc:2946
 msgid "Global hub default"
 msgstr "Genel hub varsayılanı"
 
@@ -1904,7 +1904,7 @@ msgstr "Genel hub varsayılanı"
 msgid "Grant Slot"
 msgstr "Oluk ver"
 
-#: ../src/hub.cc:2105 ../src/privatemessage.cc:1042 ../ui/privatemessage.ui:75
+#: ../src/hub.cc:2115 ../src/privatemessage.cc:1042 ../ui/privatemessage.ui:75
 msgid "Grant extra slot"
 msgstr "Ekstra oluk ver"
 
@@ -2105,11 +2105,11 @@ msgstr "Robotlardan özel mesajları görmezden gel"
 msgid "Ignore private messages from the hub"
 msgstr "Hub'dan özel mesajları görmezden gel"
 
-#: ../src/hub.cc:3656
+#: ../src/hub.cc:3666
 msgid "Ignored private message from bot "
 msgstr "Robottan özel mesaj görmezden gelindi "
 
-#: ../src/hub.cc:3649
+#: ../src/hub.cc:3659
 msgid "Ignored private message from hub"
 msgstr "Hub'dan özel mesaj görmezden gelindi"
 
@@ -2133,15 +2133,15 @@ msgstr "Şunun için yönetici kuruluyor: "
 msgid "Invalid extension: "
 msgstr "Geçersiz uzantı: "
 
-#: ../src/hub.cc:2270
+#: ../src/hub.cc:2280
 msgid "Ipfilter is disable"
 msgstr "IP filtresi devre dışı"
 
-#: ../src/hub.cc:2263
+#: ../src/hub.cc:2273
 msgid "Ipfilter is enable"
 msgstr "IP filtresi faal"
 
-#: ../src/hub.cc:2128
+#: ../src/hub.cc:2138
 msgid "Ipfilter on/off"
 msgstr "Ip filtresi açık/kapalı"
 
@@ -2221,7 +2221,7 @@ msgstr "Liste"
 msgid "List: "
 msgstr "Liste: "
 
-#: ../src/hub.cc:2118
+#: ../src/hub.cc:2128
 msgid "Load Lua file"
 msgstr "Lua dosyası yükle"
 
@@ -2431,7 +2431,7 @@ msgstr "Aşağı Taşı"
 msgid "Move Up"
 msgstr "Yukarı Taşı"
 
-#: ../src/hub.cc:2130
+#: ../src/hub.cc:2140
 msgid "Move rule up/down"
 msgstr "Kuralı aşağı/yukarı taşı"
 
@@ -2514,16 +2514,16 @@ msgstr "Sonraki"
 #: ../src/favoriteusers.cc:110 ../src/favoriteusers.cc:392
 #: ../src/favoriteusers.cc:446 ../src/favoriteusers.cc:604
 #: ../src/finishedtransfers.cc:83 ../src/finishedtransfers.cc:192
-#: ../src/hub.cc:85 ../src/hub.cc:105 ../src/hub.cc:107 ../src/hub.cc:389
-#: ../src/hub.cc:404 ../src/hub.cc:424 ../src/hub.cc:473 ../src/hub.cc:1296
-#: ../src/hub.cc:1603 ../src/hub.cc:1670 ../src/hub.cc:2453 ../src/hub.cc:2485
-#: ../src/hub.cc:2788 ../src/hub.cc:2829 ../src/search.cc:100
+#: ../src/hub.cc:95 ../src/hub.cc:115 ../src/hub.cc:117 ../src/hub.cc:399
+#: ../src/hub.cc:414 ../src/hub.cc:434 ../src/hub.cc:483 ../src/hub.cc:1306
+#: ../src/hub.cc:1613 ../src/hub.cc:1680 ../src/hub.cc:2463 ../src/hub.cc:2495
+#: ../src/hub.cc:2798 ../src/hub.cc:2839 ../src/search.cc:100
 #: ../src/search.cc:660 ../src/search.cc:726 ../src/search.cc:760
 #: ../src/search.cc:892 ../ui/search.ui:147 ../ui/settingsdialog.ui:1199
 msgid "Nick"
 msgstr "Rumuz"
 
-#: ../src/hub.cc:3753
+#: ../src/hub.cc:3763
 msgid "Nick already taken"
 msgstr "Rumuz zaten kullanımda"
 
@@ -2575,7 +2575,7 @@ msgstr "Normal"
 msgid "Normal priority max size"
 msgstr "Normal öncelik azami boyut"
 
-#: ../src/hub.cc:1972 ../src/hub.cc:2007 ../src/hub.cc:2017 ../src/hub.cc:2169
+#: ../src/hub.cc:1982 ../src/hub.cc:2017 ../src/hub.cc:2027 ../src/hub.cc:2179
 msgid "Not found user: "
 msgstr "Kullanıcı bulunamadı: "
 
@@ -2790,7 +2790,7 @@ msgstr "Özel Mesaj (aynı zamanda aciliyet ipucunu ayarlar)"
 msgid "Private key file"
 msgstr "Özel anahtar dosyası"
 
-#: ../src/hub.cc:2109 ../src/settingsdialog.cc:1177
+#: ../src/hub.cc:2119 ../src/settingsdialog.cc:1177
 #: ../src/settingsdialog.cc:1230 ../src/settingsdialog.cc:1364
 #: ../src/settingsmanager.cc:239
 msgid "Private message"
@@ -2853,7 +2853,7 @@ msgstr "Tekr_ar kaynak ekle"
 msgid "Re_connect"
 msgstr "Tekrar ba_ğlan"
 
-#: ../src/hub.cc:2110 ../ui/hub.ui:75
+#: ../src/hub.cc:2120 ../ui/hub.ui:75
 msgid "Rebuild hash"
 msgstr "Karma değeri tekrar oluştur"
 
@@ -2915,7 +2915,7 @@ msgstr "Kaynağ_ı kaldır"
 msgid "Remove image"
 msgstr "Resmi kaldır"
 
-#: ../src/hub.cc:2131
+#: ../src/hub.cc:2141
 msgid "Remove rules from list"
 msgstr "Kuralları listeden kaldır"
 
@@ -2923,7 +2923,7 @@ msgstr "Kuralları listeden kaldır"
 msgid "Remove slow filelists"
 msgstr "Yavaş dosya listelerini kaldır"
 
-#: ../src/hub.cc:2102 ../src/privatemessage.cc:1040 ../ui/privatemessage.ui:57
+#: ../src/hub.cc:2112 ../src/privatemessage.cc:1040 ../ui/privatemessage.ui:57
 msgid "Remove user favorite"
 msgstr "Kullanıcı favorisini kaldır"
 
@@ -2979,7 +2979,7 @@ msgstr "Rusça tercüme\n"
 msgid "SJIS"
 msgstr "SJIS"
 
-#: ../src/hub.cc:2108 ../ui/hub.ui:66
+#: ../src/hub.cc:2118 ../ui/hub.ui:66
 msgid "Say a third person"
 msgstr "Üçüncü bir kişi olarak söyle"
 
@@ -3033,7 +3033,7 @@ msgstr "Tarihçede ara"
 msgid "Search options"
 msgstr "Arama seçenekleri"
 
-#: ../src/hub.cc:3760
+#: ../src/hub.cc:3770
 msgid "Search spam detected from "
 msgstr "Şundan arama spamı tespit edildi: "
 
@@ -3121,14 +3121,14 @@ msgstr "Sırpça (Latin)"
 msgid "Serbian (Latin) translation\n"
 msgstr "Sırpça (Latin) tercüme\n"
 
-#: ../src/hub.cc:2123
+#: ../src/hub.cc:2133
 msgid ""
 "Set Core option param in value (without value return current value of option)"
 msgstr ""
 "Çekirdek seçenek parametresini değerde ayarla (değersiz olursa seçeneğin "
 "güncel değerini verir)"
 
-#: ../src/hub.cc:2122
+#: ../src/hub.cc:2132
 msgid ""
 "Set GUI option param in value (without value return current value of option)"
 msgstr ""
@@ -3143,7 +3143,7 @@ msgstr "Önceli_ği Ayarla"
 msgid "Set download limit image"
 msgstr "İndirme sınırı resmini seç"
 
-#: ../src/hub.cc:2050
+#: ../src/hub.cc:2060
 msgid "Set download limit image: "
 msgstr "İndirme sınırı resmini seç: "
 
@@ -3157,8 +3157,8 @@ msgstr ""
 msgid "Share hidden files"
 msgstr "Gizli dosyaları paylaş"
 
-#: ../src/hub.cc:86 ../src/hub.cc:388 ../src/hub.cc:405 ../src/hub.cc:425
-#: ../src/hub.cc:474 ../src/publichubs.cc:51 ../src/publichubs.cc:163
+#: ../src/hub.cc:96 ../src/hub.cc:398 ../src/hub.cc:415 ../src/hub.cc:435
+#: ../src/hub.cc:484 ../src/publichubs.cc:51 ../src/publichubs.cc:163
 #: ../src/sharebrowser.cc:93 ../src/sharebrowser.cc:111
 #: ../src/sharebrowser.cc:364
 msgid "Shared"
@@ -3176,7 +3176,7 @@ msgstr "IP adreslerini sohbetlerde göster"
 msgid "Show Interface"
 msgstr "Arayüzü Göster"
 
-#: ../src/hub.cc:2103 ../ui/hub.ui:48
+#: ../src/hub.cc:2113 ../ui/hub.ui:48
 msgid "Show favorites list"
 msgstr "Favoriler listesini göster"
 
@@ -3184,12 +3184,12 @@ msgstr "Favoriler listesini göster"
 msgid "Show free space bar"
 msgstr "Boş alan çubuğunu göster"
 
-#: ../src/hub.cc:2106 ../src/privatemessage.cc:1046 ../ui/hub.ui:111
+#: ../src/hub.cc:2116 ../src/privatemessage.cc:1046 ../ui/hub.ui:111
 #: ../ui/privatemessage.ui:102
 msgid "Show help"
 msgstr "Yardımı göster"
 
-#: ../src/hub.cc:2129
+#: ../src/hub.cc:2139
 msgid "Show ipfilter rules list"
 msgstr "Ipfiltresi kuralları listesini göster"
 
@@ -3213,7 +3213,7 @@ msgstr "Sadece tamamlanmış indirimleri göster"
 msgid "Show only when the application is not active."
 msgstr "Sadece uygulama etkin olmadığında göster."
 
-#: ../src/hub.cc:2115 ../src/privatemessage.cc:1045 ../ui/hub.ui:102
+#: ../src/hub.cc:2125 ../src/privatemessage.cc:1045 ../ui/hub.ui:102
 #: ../ui/privatemessage.ui:93
 msgid "Show ratio [send in chat]"
 msgstr "Oranı göster [sohbette gönder]"
@@ -3234,7 +3234,7 @@ msgstr "En çok kullanılan aramayı göster"
 msgid "Show user country in chat"
 msgstr "Sohbette kullanıcı ülkesini göster"
 
-#: ../src/hub.cc:2114 ../src/privatemessage.cc:1044 ../ui/hub.ui:93
+#: ../src/hub.cc:2124 ../src/privatemessage.cc:1044 ../ui/hub.ui:93
 #: ../ui/privatemessage.ui:84
 msgid "Show version"
 msgstr "Sürümü göster"
@@ -3290,7 +3290,7 @@ msgstr "Sıfır boyutlu dosyaları atla"
 msgid "Slot granted"
 msgstr "Oluk verildi"
 
-#: ../src/favoriteusers.cc:531 ../src/hub.cc:3040
+#: ../src/favoriteusers.cc:531 ../src/hub.cc:3050
 msgid "Slot granted to "
 msgstr "Oluk şuna verildi: "
 
@@ -3432,7 +3432,7 @@ msgstr "TTH: "
 msgid "Tabs"
 msgstr "Sekmeler"
 
-#: ../src/hub.cc:88 ../src/hub.cc:407 ../src/hub.cc:427
+#: ../src/hub.cc:98 ../src/hub.cc:417 ../src/hub.cc:437
 msgid "Tag"
 msgstr "Etiket"
 
@@ -3604,7 +3604,7 @@ msgstr "Ukraynaca"
 msgid "Ukrainian translation\n"
 msgstr "Ukraynaca tercüme\n"
 
-#: ../src/hub.cc:3065
+#: ../src/hub.cc:3075
 msgid "Unable to connect: already connected to the requested hub"
 msgstr "Bağlanılamadı: istenilen hub ile zaten bağlantı var"
 
@@ -3640,7 +3640,7 @@ msgstr "Bilinmeyen"
 msgid "Unknown command "
 msgstr "Bilinmeyen komut "
 
-#: ../src/hub.cc:2426
+#: ../src/hub.cc:2436
 msgid "Unknown command '"
 msgstr "Bilinmeyen komut '"
 
@@ -3652,7 +3652,7 @@ msgstr "Güncelle"
 msgid "Update frame search"
 msgstr "Arama dördülünü güncelle"
 
-#: ../src/hub.cc:2111
+#: ../src/hub.cc:2121
 msgid "Update own file list"
 msgstr "Kendi dosya listenizi güncelle"
 
@@ -3744,7 +3744,7 @@ msgstr "Yanıp Sönen İkon Kullan"
 msgid "Use DHT"
 msgstr "DHT'yi Kullan"
 
-#: ../src/hub.cc:1816 ../src/privatemessage.cc:1239
+#: ../src/hub.cc:1826 ../src/privatemessage.cc:1239
 msgid "Use Emoticons"
 msgstr "Gülümseme İkonları Kullan"
 
@@ -3821,7 +3821,7 @@ msgstr "Kullanıcı Tanımlaması"
 msgid "User commands"
 msgstr "Kullanıcı komutları"
 
-#: ../src/hub.cc:1997
+#: ../src/hub.cc:2007
 msgid "User favorite list:"
 msgstr "Kullanıcı favori listesi:"
 
@@ -3833,11 +3833,11 @@ msgstr "Kullanıcı güvenlik duvarı (dc)"
 msgid "User firewall (normal)"
 msgstr "Kullanıcı güvenlik duvarı (normal)"
 
-#: ../src/hub.cc:2112
+#: ../src/hub.cc:2122
 msgid "User list show/hide"
 msgstr "Kullanıcı listesini göster/sakla"
 
-#: ../src/hub.cc:3011 ../src/hub.cc:3031
+#: ../src/hub.cc:3021 ../src/hub.cc:3041
 msgid "User not found"
 msgstr "Kullanıcı bulunamadı"
 
@@ -3921,7 +3921,7 @@ msgstr "Sanal isim"
 msgid "Waiting (seconds)"
 msgstr "Bekliyor (saniye)"
 
-#: ../src/hub.cc:562
+#: ../src/hub.cc:572
 msgid ""
 "Waiting for input password (don't remove /password before your password)"
 msgstr ""
@@ -4200,7 +4200,7 @@ msgstr "_Kullanıcı komutları"
 msgid "_Widgets"
 msgstr "_Widgetler"
 
-#: ../src/hub.cc:3248
+#: ../src/hub.cc:3258
 msgid "bad image"
 msgstr "kötü resim"
 
@@ -4216,7 +4216,7 @@ msgstr "varsayılan ikonlar"
 msgid "default theme"
 msgstr "varsayılan tema"
 
-#: ../src/hub.cc:91 ../src/hub.cc:410 ../src/hub.cc:430
+#: ../src/hub.cc:101 ../src/hub.cc:420 ../src/hub.cc:440
 msgid "eMail"
 msgstr "e-posta"
 
@@ -4237,7 +4237,7 @@ msgstr "şundan"
 msgid "in program"
 msgstr "programda"
 
-#: ../src/hub.cc:3239
+#: ../src/hub.cc:3249
 msgid "loading error"
 msgstr "yükleme hatası"
 
@@ -4245,11 +4245,11 @@ msgstr "yükleme hatası"
 msgid "none"
 msgstr "boş"
 
-#: ../src/hub.cc:2057 ../src/privatemessage.cc:985
+#: ../src/hub.cc:2067 ../src/privatemessage.cc:985
 msgid "project home: "
 msgstr "proje sayfası: "
 
-#: ../src/hub.cc:2078 ../src/privatemessage.cc:1006
+#: ../src/hub.cc:2088 ../src/privatemessage.cc:1006
 msgid "ratio: %1% (uploads: %2%, downloads: %3% )"
 msgstr "oran:  %1% (göndermeler: %2%, indirmeler: %3% )"
 

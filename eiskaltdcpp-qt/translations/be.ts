@@ -768,12 +768,12 @@ EiskaltDC++ — гэта міжплятформавая праґрама, яка
 <context>
     <name>FinishedTransfers</name>
     <message>
-        <location filename="../src/FinishedTransfers.h" line="484"/>
+        <location filename="../src/FinishedTransfers.h" line="479"/>
         <source>Open file</source>
         <translation>Адчыніць файл</translation>
     </message>
     <message>
-        <location filename="../src/FinishedTransfers.h" line="485"/>
+        <location filename="../src/FinishedTransfers.h" line="480"/>
         <source>Open directory</source>
         <translation>Адчыніць каталёґ</translation>
     </message>
@@ -1552,25 +1552,6 @@ Favorite user</source>
         <location filename="../src/HubFrame.cpp" line="3993"/>
         <source>Search flood detected: %1</source>
         <translation>Выявілі назолу ў пошуку: %1</translation>
-    </message>
-</context>
-<context>
-    <name>IPFilter</name>
-    <message>
-        <source>Nothing to export.</source>
-        <translation type="obsolete">Няма што вымаць.</translation>
-    </message>
-    <message>
-        <source>Unable to export settings.</source>
-        <translation type="obsolete">Немагчыма выняць налады.</translation>
-    </message>
-    <message>
-        <source>Nothing to import.</source>
-        <translation type="obsolete">Няма што браць з файла.</translation>
-    </message>
-    <message>
-        <source>Invalid signature.</source>
-        <translation type="obsolete">Хібны подпіс.</translation>
     </message>
 </context>
 <context>
@@ -2444,7 +2425,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="2748"/>
         <source>translations coordinator</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2757"/>
@@ -2676,7 +2657,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/PublicHubs.cpp" line="290"/>
         <source>Hub list downloaded... (%1)</source>
-        <translation type="unfinished"></translation>
+        <translation>Сьцягнулі сьпіс асяродкаў… (%1) </translation>
     </message>
     <message>
         <source>Hub list downloaded... (%1 %2) </source>
@@ -6370,7 +6351,7 @@ them is usually available only to operators</source>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="294"/>
         <source>Debug Console</source>
-        <translation type="unfinished">Кансоль наладкі</translation>
+        <translation>Кансоль наладкі</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="346"/>

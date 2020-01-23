@@ -3,14 +3,18 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
+# Translators:
+# Zmicer <m_d@mail.by>, 2018
+# Boris Pek <tehnick-8@yandex.ru>, 2020
+#
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://github.com/eiskaltdcpp/eiskaltdcpp/issues\n"
-"POT-Creation-Date: 2019-06-01 02:20+0300\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Zmicer <m_d@mail.by>, 2018\n"
+"POT-Creation-Date: 2020-01-24 17:54+0300\n"
+"PO-Revision-Date: 2017-06-18 13:35+0000\n"
+"Last-Translator: Boris Pek <tehnick-8@yandex.ru>, 2020\n"
 "Language-Team: Belarusian (https://www.transifex.com/tehnick/teams/11818/"
 "be/)\n"
 "Language: be\n"
@@ -310,9 +314,8 @@ msgid "Error hashing %1%: %2%"
 msgstr "Не ўдалося стварыць скарот да %1%: %2%"
 
 #: ../HttpConnection.cpp:218
-#, fuzzy
 msgid "Transfer-encoding error (%1%)"
-msgstr " Порт перадаваньня (%1% TCP)"
+msgstr ""
 
 #: ../HttpConnection.cpp:257
 msgid "Endless redirection loop (%1%)"
@@ -406,7 +409,7 @@ msgstr "ҐіБ"
 
 #: ../PerFolderLimit.cpp:89
 msgid "Denied to send file"
-msgstr ""
+msgstr "Не ўдаецца даслаць файл"
 
 #: ../PerFolderLimit.cpp:90 ../SettingsManager.cpp:620
 msgid " to "

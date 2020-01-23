@@ -768,12 +768,12 @@ Opciones:
 <context>
     <name>FinishedTransfers</name>
     <message>
-        <location filename="../src/FinishedTransfers.h" line="484"/>
+        <location filename="../src/FinishedTransfers.h" line="479"/>
         <source>Open file</source>
         <translation>Abrir archivo</translation>
     </message>
     <message>
-        <location filename="../src/FinishedTransfers.h" line="485"/>
+        <location filename="../src/FinishedTransfers.h" line="480"/>
         <source>Open directory</source>
         <translation>Abrir directorio</translation>
     </message>

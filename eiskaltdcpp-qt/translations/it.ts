@@ -768,12 +768,12 @@ Chiavi:
 <context>
     <name>FinishedTransfers</name>
     <message>
-        <location filename="../src/FinishedTransfers.h" line="484"/>
+        <location filename="../src/FinishedTransfers.h" line="479"/>
         <source>Open file</source>
         <translation>Apri file</translation>
     </message>
     <message>
-        <location filename="../src/FinishedTransfers.h" line="485"/>
+        <location filename="../src/FinishedTransfers.h" line="480"/>
         <source>Open directory</source>
         <translation>Apri directory</translation>
     </message>
