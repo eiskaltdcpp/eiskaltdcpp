@@ -23,8 +23,8 @@
  */
 
 #include "upnpc.h"
-#include <dcpp/Util.h>
-#include <dcpp/SettingsManager.h>
+#include "dcpp/Util.h"
+#include "dcpp/SettingsManager.h"
 #ifndef STATICLIB
 #define STATICLIB
 #endif

@@ -1,7 +1,6 @@
 project (dcpp)
 
 cmake_minimum_required (VERSION 2.6)
-include_directories(${PROJECT_BINARY_DIR})
 
 aux_source_directory(${PROJECT_SOURCE_DIR} dcpp_srcs)
 file (GLOB dcpp_hdrs ${PROJECT_SOURCE_DIR}/*.h)
@@ -16,7 +15,8 @@ if (NOT LUA_SCRIPT)
     list (REMOVE_ITEM dcpp_srcs ${PROJECT_SOURCE_DIR}/ScriptManager.cpp)
 endif (NOT LUA_SCRIPT)
 
-include_directories (${Boost_INCLUDE_DIR}
+include_directories (${PROJECT_BINARY_DIR}
+                     ${Boost_INCLUDE_DIR}
                      ${BZIP2_INCLUDE_DIR}
                      ${ZLIB_INCLUDE_DIR}
                      ${OPENSSL_INCLUDE_DIR}
@@ -59,34 +59,42 @@ if (WITH_DHT)
 endif (WITH_DHT)
 
 if (PERL_REGEX)
-    set_property(SOURCE ${PROJECT_SOURCE_DIR}/ADLSearch.cpp PROPERTY COMPILE_DEFINITIONS USE_PCRE )
+    set_property(SOURCE ${PROJECT_SOURCE_DIR}/ADLSearch.cpp
+                 PROPERTY COMPILE_DEFINITIONS USE_PCRE )
     set(PCRE ${PCRE_LIBRARIES})
 endif (PERL_REGEX)
 
 if (USE_IDNA)
-    set_property(SOURCE ${PROJECT_SOURCE_DIR}/Util.cpp PROPERTY COMPILE_DEFINITIONS USE_IDNA APPEND)
+    set_property(SOURCE ${PROJECT_SOURCE_DIR}/Util.cpp
+                 PROPERTY COMPILE_DEFINITIONS USE_IDNA APPEND)
 endif(USE_IDNA)
 
 if (XATTR_FOUND)
-    set_property(SOURCE ${PROJECT_SOURCE_DIR}/HashManager.h PROPERTY COMPILE_DEFINITIONS USE_XATTR APPEND)
-    set_property(SOURCE ${PROJECT_SOURCE_DIR}/HashManager.cpp PROPERTY COMPILE_DEFINITIONS USE_XATTR APPEND)
+    set_property(SOURCE ${PROJECT_SOURCE_DIR}/HashManager.h
+                 PROPERTY COMPILE_DEFINITIONS USE_XATTR APPEND)
+    set_property(SOURCE ${PROJECT_SOURCE_DIR}/HashManager.cpp
+                 PROPERTY COMPILE_DEFINITIONS USE_XATTR APPEND)
 endif (XATTR_FOUND)
 
 if (USE_MINIUPNP)
-    set_property(SOURCE ${PROJECT_SOURCE_DIR}/DCPlusPlus.cpp ${PROJECT_SOURCE_DIR}/MappingManager.cpp
+    set_property(SOURCE ${PROJECT_SOURCE_DIR}/DCPlusPlus.cpp
+                        ${PROJECT_SOURCE_DIR}/MappingManager.cpp
                  PROPERTY COMPILE_DEFINITIONS USE_MINIUPNP )
 endif()
 
 if (ICONV_SECOND_ARGUMENT_IS_CONST)
-    set_property(SOURCE ${PROJECT_SOURCE_DIR}/Text.cpp PROPERTY COMPILE_DEFINITIONS ICONV_CONST=const)
+    set_property(SOURCE ${PROJECT_SOURCE_DIR}/Text.cpp
+                 PROPERTY COMPILE_DEFINITIONS ICONV_CONST=const)
 endif (ICONV_SECOND_ARGUMENT_IS_CONST)
 
 if (FORCE_XDG)
-    set_property(SOURCE ${PROJECT_SOURCE_DIR}/Util.cpp PROPERTY COMPILE_DEFINITIONS FORCE_XDG APPEND)
+    set_property(SOURCE ${PROJECT_SOURCE_DIR}/Util.cpp
+                 PROPERTY COMPILE_DEFINITIONS FORCE_XDG APPEND)
 endif (FORCE_XDG)
 
 if (HAVE_IFADDRS_H)
-    set_property(SOURCE ${PROJECT_SOURCE_DIR}/Util.cpp PROPERTY COMPILE_DEFINITIONS HAVE_IFADDRS_H APPEND)
+    set_property(SOURCE ${PROJECT_SOURCE_DIR}/Util.cpp
+                 PROPERTY COMPILE_DEFINITIONS HAVE_IFADDRS_H APPEND)
 endif (HAVE_IFADDRS_H)
 
 if (WIN32)

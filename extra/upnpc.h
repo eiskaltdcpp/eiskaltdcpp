@@ -24,8 +24,8 @@
 
 #pragma once
 
-#include <dcpp/stdinc.h>
-#include <dcpp/UPnP.h>
+#include "dcpp/stdinc.h"
+#include "dcpp/UPnP.h"
 
 class UPnPc :
     public dcpp::UPnP

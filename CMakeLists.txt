@@ -316,10 +316,6 @@ if (CMAKE_CXX_COMPILER_ID STREQUAL GNU OR CMAKE_CXX_COMPILER_ID STREQUAL Clang)
     endif ()
 endif ()
 
-include_directories(${eiskaltdcpp_BINARY_DIR}
-                    ${eiskaltdcpp_SOURCE_DIR}
-                    ${GMP_INCLUDE_DIR})
-
 option (LANGUAGES "Using translations")
 list (APPEND AllLanguages
             be
@@ -369,8 +365,12 @@ elseif (UNIX)
     endif (APPLE)
 endif (WIN32 OR HAIKU)
 
-add_subdirectory (extra)
+include_directories(${eiskaltdcpp_BINARY_DIR}
+                    ${eiskaltdcpp_SOURCE_DIR}
+                    ${GMP_INCLUDE_DIR})
+
 add_subdirectory (data)
+add_subdirectory (extra)
 
 if (WITH_DHT)
     add_definitions ( -DWITH_DHT )

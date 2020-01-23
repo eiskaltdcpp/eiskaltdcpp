@@ -54,7 +54,6 @@ include_directories (${GTK_INCLUDE_DIRS}
                      ${LIBGNOME2_INCLUDE_DIRS}
                      ${CANBERRA_INCLUDE_DIR}
                      ${PROJECT_SOURCE_DIR}
-                     ${PROJECT_SOURCE_DIR}/..
                      ${Boost_INCLUDE_DIRS})
 list (APPEND LIBS
       ${X11_LIBRARIES}
