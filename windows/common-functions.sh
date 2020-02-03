@@ -3,7 +3,7 @@
 # Author:  Boris Pek <tehnick-8@yandex.ru>
 # License: MIT (Expat)
 # Created: 2019-04-01
-# Updated: 2019-06-01
+# Updated: 2020-02-03
 # Version: N/A
 #
 # Dependencies:
@@ -70,9 +70,11 @@ CleanBuildDir()
 {
     [ -z "${MAIN_DIR}" ] && return 1
     [ -z "${PROJECT_DIR_NAME}" ] && return 1
+    [ -z "${WEB_UI_DIR_NAME}" ] && return 1
 
     cd "${MAIN_DIR}"
     rm -rf "${MAIN_DIR}/build-${PROJECT_DIR_NAME}"
+    rm -rf "${MAIN_DIR}/build-${WEB_UI_DIR_NAME}"
     rm -rf "${MAIN_DIR}/${PROJECT_DIR_NAME}/builddir"
 }
 
