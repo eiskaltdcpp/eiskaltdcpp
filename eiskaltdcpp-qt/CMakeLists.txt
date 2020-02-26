@@ -423,8 +423,8 @@ if (ENABLE_STACKTRACE)
 endif (ENABLE_STACKTRACE)
 
 if (APPLE)
-    set (MACOSICON "${PROJECT_SOURCE_DIR}/../data/icons/icon_128x128.icns")
-    set (MACOSICONINBUNDLE "icon_128x128.icns")
+    set (MACOSICON "${PROJECT_SOURCE_DIR}/../data/icons/icon_1024x1024.icns")
+    set (MACOSICONINBUNDLE "icon_1024x1024.icns")
     # Set how it shows up in the Info.plist file
     set (MACOSX_BUNDLE_ICON_FILE ${MACOSICONINBUNDLE})
     # Set where in the bundle to put the icns file
@@ -515,7 +515,7 @@ if (APPLE)
     set (MACOSX_BUNDLE_BUNDLE_NAME ${PROJECT_NAME_GLOBAL})
     set (MACOSX_BUNDLE_SHORT_VERSION_STRING ${VERSION})
     set (MACOSX_BUNDLE_BUNDLE_VERSION ${VERSION})
-    set (MACOSX_BUNDLE_COPYRIGHT "Copyright 2009-2019 EiskaltDC++ developers")
+    set (MACOSX_BUNDLE_COPYRIGHT "Copyright 2009-2020 EiskaltDC++ developers")
 endif (APPLE)
 
 if (USE_JS)
