@@ -52,7 +52,7 @@
 #elif defined(__GNU__)
 // Fix for GNU/Hurd, see:
 // https://www.gnu.org/software/hurd/community/gsoc/project_ideas/maxpath.html
-// http://insanecoding.blogspot.com/2007/11/pathmax-simply-isnt.html
+// https://insanecoding.blogspot.com/2007/11/pathmax-simply-isnt.html
 // The same limitation as in Linux is used here (see <linux/limits.h>):
 #define PATH_MAX 4096
 #endif

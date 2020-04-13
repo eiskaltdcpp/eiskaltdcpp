@@ -1,5 +1,5 @@
 /*
-* Copyright (C) 2010 ggrundik (http://code.google.com/u/ggrundik/)
+* Copyright (C) 2010 ggrundik
 * for EiskaltDC++ Project (https://github.com/eiskaltdcpp/eiskaltdcpp/)
 *
 * This program is free software; you can redistribute it and/or modify

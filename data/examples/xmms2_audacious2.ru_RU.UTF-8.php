@@ -3,7 +3,7 @@
 /**
 *
 * @copyright (c) 2010 nE0sIghT
-* @license http://opensource.org/licenses/gpl-2.0.php GNU Public License
+* @license https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html GNU Public License
 * @version 14.03.2010
 *
 * Depends: php5, xmms2 | audacious2

@@ -22,7 +22,7 @@
 # For deadbeef: Plugin: https://github.com/Serranya/deadbeef-mpris2-plugin
 #
 # See also:
-# http://xmms2.org/wiki/MPRIS
+# https://github.com/xmms2/wiki/wiki/MPRIS
 # http://incise.org/mpris-remote.html
 
 

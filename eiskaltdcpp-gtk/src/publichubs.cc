@@ -322,7 +322,7 @@ void PublicHubs::onConfigure_gui(GtkWidget*, gpointer data)
     PublicHubs *ph = (PublicHubs *)data;
 
     // Have to get active here since temp could be NULL after dialog is closed
-    // http://developer.gnome.org/gtk/2.24/GtkComboBox.html#gtk-combo-box-get-active-text
+    // https://developer.gnome.org/gtk2/2.24/GtkComboBox.html#gtk-combo-box-get-active-text
     gchar *temp = g_strdup(gtk_entry_get_text(GTK_ENTRY(gtk_bin_get_child(GTK_BIN((GTK_COMBO_BOX(ph->getWidget("hubListBox"))))))));
     string active = string(temp);
     g_free(temp);
