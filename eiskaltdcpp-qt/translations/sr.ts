@@ -1555,25 +1555,6 @@ Favorite user</source>
     </message>
 </context>
 <context>
-    <name>IPFilter</name>
-    <message>
-        <source>Nothing to export.</source>
-        <translation type="obsolete">Ништа за извоз.</translation>
-    </message>
-    <message>
-        <source>Unable to export settings.</source>
-        <translation type="obsolete">Немогућ извоз подешавања.</translation>
-    </message>
-    <message>
-        <source>Nothing to import.</source>
-        <translation type="obsolete">Ништа за извоз.</translation>
-    </message>
-    <message>
-        <source>Invalid signature.</source>
-        <translation type="obsolete">Неважећи потпис.</translation>
-    </message>
-</context>
-<context>
     <name>IPFilterFrame</name>
     <message>
         <location filename="../src/IPFilterFrame.cpp" line="183"/>

@@ -711,32 +711,32 @@ Kapcsolók:
     <message>
         <location filename="../src/FileBrowserModel.cpp" line="313"/>
         <source>Bitrate</source>
-        <translation type="unfinished"></translation>
+        <translation>Bitráta</translation>
     </message>
     <message>
         <location filename="../src/FileBrowserModel.cpp" line="313"/>
         <source>Resolution</source>
-        <translation type="unfinished"></translation>
+        <translation>Felbontás</translation>
     </message>
     <message>
         <location filename="../src/FileBrowserModel.cpp" line="313"/>
         <source>Video</source>
-        <translation type="unfinished"></translation>
+        <translation>Videó</translation>
     </message>
     <message>
         <location filename="../src/FileBrowserModel.cpp" line="313"/>
         <source>Audio</source>
-        <translation type="unfinished"></translation>
+        <translation>Audió</translation>
     </message>
     <message>
         <location filename="../src/FileBrowserModel.cpp" line="314"/>
         <source>Downloaded</source>
-        <translation type="unfinished">Letöltve</translation>
+        <translation>Letöltve</translation>
     </message>
     <message>
         <location filename="../src/FileBrowserModel.cpp" line="314"/>
         <source>Shared</source>
-        <translation type="unfinished">Megosztva</translation>
+        <translation>Megosztva</translation>
     </message>
 </context>
 <context>
@@ -1548,25 +1548,6 @@ Kedvenc felhasználó</translation>
         <location filename="../src/HubFrame.cpp" line="3993"/>
         <source>Search flood detected: %1</source>
         <translation>Keresési flood érzékelve: %1</translation>
-    </message>
-</context>
-<context>
-    <name>IPFilter</name>
-    <message>
-        <source>Nothing to export.</source>
-        <translation type="obsolete">Nincs mit exportálni.</translation>
-    </message>
-    <message>
-        <source>Unable to export settings.</source>
-        <translation type="obsolete">A beállításokat nem lehet exportálni.</translation>
-    </message>
-    <message>
-        <source>Nothing to import.</source>
-        <translation type="obsolete">Nincs mit importálni.</translation>
-    </message>
-    <message>
-        <source>Invalid signature.</source>
-        <translation type="obsolete">Érvénytelen aláírás.</translation>
     </message>
 </context>
 <context>
@@ -3201,7 +3182,7 @@ Letöltve: %3 Feltöltve: %4</translation>
     <message>
         <location filename="../src/Settings.cpp" line="96"/>
         <source>Advanced</source>
-        <translation type="unfinished">Haladó</translation>
+        <translation>Haladó</translation>
     </message>
 </context>
 <context>
@@ -4015,7 +3996,7 @@ Biztosan le akarod állítani?
     <message>
         <location filename="../src/TransferView.cpp" line="77"/>
         <source>Hub</source>
-        <translation type="unfinished"></translation>
+        <translation>Hub</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="78"/>
@@ -4467,7 +4448,7 @@ Biztosan le akarod állítani?
     <message>
         <location filename="../ui/UICmdDebug.ui" line="52"/>
         <source>Filter by IP</source>
-        <translation type="unfinished"></translation>
+        <translation>Szűrés IP alapján</translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="100"/>
@@ -4920,7 +4901,7 @@ be van kapcsolva a beállításokban, a fájl automatikusan letötésre kerül a
     <message>
         <location filename="../ui/PrivateMessage.ui" line="94"/>
         <source>Shift+F3</source>
-        <translation type="unfinished">Shift+F3</translation>
+        <translation>Shift+F3</translation>
     </message>
     <message>
         <location filename="../ui/PrivateMessage.ui" line="101"/>
@@ -4930,7 +4911,7 @@ be van kapcsolva a beállításokban, a fájl automatikusan letötésre kerül a
     <message>
         <location filename="../ui/PrivateMessage.ui" line="107"/>
         <source>F3</source>
-        <translation type="unfinished">F3</translation>
+        <translation>F3</translation>
     </message>
     <message>
         <location filename="../ui/PrivateMessage.ui" line="114"/>
@@ -6852,7 +6833,7 @@ Mivel az eltellt idő alatt a megüresedett feltöltési slotot más is elfoglal
     <message>
         <location filename="../ui/UIShareBrowserSearch.ui" line="54"/>
         <source>Name</source>
-        <translation type="unfinished">Név</translation>
+        <translation>_Név:</translation>
     </message>
     <message>
         <location filename="../ui/UIShareBrowserSearch.ui" line="59"/>

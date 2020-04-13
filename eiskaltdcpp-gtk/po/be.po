@@ -5,6 +5,7 @@
 # Translators:
 # Boris Pek <tehnick-8@yandex.ru>, 2020
 # Paval Shalamitski <yehekim@gmail.com>, 2012
+# Paval Shalamitski <yehekim@gmail.com>, 2012
 # Zmicer <m_d@mail.by>, 2015
 # Paval Shalamitski <yehekim@gmail.com>, 2012
 # Paval Shalamitski <yehekim@gmail.com>, 2012
@@ -14,8 +15,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: https://github.com/eiskaltdcpp/eiskaltdcpp/issues\n"
-"POT-Creation-Date: 2020-01-24 17:54+0300\n"
-"PO-Revision-Date: 2020-01-24 14:00+0000\n"
+"POT-Creation-Date: 2020-04-14 20:26+0300\n"
+"PO-Revision-Date: 2020-04-14 17:01+0000\n"
 "Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
 "Language-Team: Belarusian (http://www.transifex.com/tehnick/eiskaltdcpp/"
 "language/be/)\n"

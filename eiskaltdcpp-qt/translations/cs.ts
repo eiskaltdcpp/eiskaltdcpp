@@ -721,22 +721,22 @@ Keys:
     <message>
         <location filename="../src/FileBrowserModel.cpp" line="313"/>
         <source>Video</source>
-        <translation type="unfinished"></translation>
+        <translation>Video</translation>
     </message>
     <message>
         <location filename="../src/FileBrowserModel.cpp" line="313"/>
         <source>Audio</source>
-        <translation type="unfinished"></translation>
+        <translation>Audio</translation>
     </message>
     <message>
         <location filename="../src/FileBrowserModel.cpp" line="314"/>
         <source>Downloaded</source>
-        <translation type="unfinished">Staženo</translation>
+        <translation>Staženo</translation>
     </message>
     <message>
         <location filename="../src/FileBrowserModel.cpp" line="314"/>
         <source>Shared</source>
-        <translation type="unfinished">Sdíleno</translation>
+        <translation>Sdíleno</translation>
     </message>
 </context>
 <context>
@@ -1010,7 +1010,7 @@ Keys:
     <message>
         <location filename="../src/HubFrame.cpp" line="202"/>
         <source>Comment</source>
-        <translation type="unfinished">Komentář</translation>
+        <translation>Komentář</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="203"/>
@@ -1030,7 +1030,7 @@ Keys:
     <message>
         <location filename="../src/HubFrame.cpp" line="206"/>
         <source>E-mail</source>
-        <translation type="unfinished">E-mail</translation>
+        <translation>E-mail</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="208"/>
@@ -1545,25 +1545,6 @@ Oblíbený uživatel</translation>
         <location filename="../src/HubFrame.cpp" line="3993"/>
         <source>Search flood detected: %1</source>
         <translation>Detekován flood hledání: %1</translation>
-    </message>
-</context>
-<context>
-    <name>IPFilter</name>
-    <message>
-        <source>Nothing to export.</source>
-        <translation type="obsolete">Není co exportovat.</translation>
-    </message>
-    <message>
-        <source>Unable to export settings.</source>
-        <translation type="obsolete">Nemohu exportovat nastavení.</translation>
-    </message>
-    <message>
-        <source>Nothing to import.</source>
-        <translation type="obsolete">Není co importovat.</translation>
-    </message>
-    <message>
-        <source>Invalid signature.</source>
-        <translation type="obsolete">Vadný podpis.</translation>
     </message>
 </context>
 <context>
@@ -3198,7 +3179,7 @@ Staženo: %3 Odesláno: %4</translation>
     <message>
         <location filename="../src/Settings.cpp" line="96"/>
         <source>Advanced</source>
-        <translation type="unfinished">Pokročilé</translation>
+        <translation>Pokročilé</translation>
     </message>
 </context>
 <context>
@@ -3987,12 +3968,12 @@ Chcete jej vypnout?
     <message>
         <location filename="../src/TransferView.cpp" line="72"/>
         <source>Status</source>
-        <translation type="unfinished">Stav</translation>
+        <translation>Stav</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="73"/>
         <source>Flags</source>
-        <translation type="unfinished">Flagy</translation>
+        <translation>Flagy</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="74"/>
@@ -4012,7 +3993,7 @@ Chcete jej vypnout?
     <message>
         <location filename="../src/TransferView.cpp" line="77"/>
         <source>Hub</source>
-        <translation type="unfinished">Hub</translation>
+        <translation>Hub</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="78"/>
@@ -4917,7 +4898,7 @@ hledáni alternativ, soubor se stáhne bez otevření dialogu pro hledání.</tr
     <message>
         <location filename="../ui/PrivateMessage.ui" line="94"/>
         <source>Shift+F3</source>
-        <translation type="unfinished">Shift+F3</translation>
+        <translation>Shift+F3</translation>
     </message>
     <message>
         <location filename="../ui/PrivateMessage.ui" line="101"/>
@@ -4927,7 +4908,7 @@ hledáni alternativ, soubor se stáhne bez otevření dialogu pro hledání.</tr
     <message>
         <location filename="../ui/PrivateMessage.ui" line="107"/>
         <source>F3</source>
-        <translation type="unfinished">F3</translation>
+        <translation>F3</translation>
     </message>
     <message>
         <location filename="../ui/PrivateMessage.ui" line="114"/>
@@ -6336,7 +6317,7 @@ jsou obvykle dostupné operátorům</translation>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="243"/>
         <source>Search Spy</source>
-        <translation type="unfinished">Hledací špión</translation>
+        <translation>Hledací špión</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="294"/>
@@ -6858,7 +6839,7 @@ pokud se uživatel vrátí do 10 minut, EiskaltDC++ mu tyto sloty navrátí.</tr
     <message>
         <location filename="../ui/UIShareBrowserSearch.ui" line="54"/>
         <source>Name</source>
-        <translation type="unfinished">Název</translation>
+        <translation>Název</translation>
     </message>
     <message>
         <location filename="../ui/UIShareBrowserSearch.ui" line="59"/>
