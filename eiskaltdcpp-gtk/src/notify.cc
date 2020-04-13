@@ -26,7 +26,7 @@
  * [08.11.09] исправлена ошибка, после выхода не закрывалось уведомление.
  * [08.11.09] исправлена ошибка, не обновлялась иконка.
  *
- * Copyright © 2009-2010, author patch: troll, freedcpp, http://code.google.com/p/freedcpp
+ * Copyright © 2009-2010, author patch: troll, freedcpp, https://github.com/eiskaltdcpp/freedcpp
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by

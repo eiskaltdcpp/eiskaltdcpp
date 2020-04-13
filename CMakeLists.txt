@@ -142,7 +142,7 @@ if (LOCAL_BOOST)
     file (GLOB BOOST_TAR_EXISTS ${PROJECT_SOURCE_DIR}/${boost_file_name})
     if (NOT BOOST_TAR_EXISTS)
         message (STATUS "Downloading...")
-        file(DOWNLOAD http://sf.net/projects/eiskaltdcpp/files/Other/${boost_file_name}
+        file(DOWNLOAD https://sf.net/projects/eiskaltdcpp/files/Other/${boost_file_name}
             ${PROJECT_SOURCE_DIR}/${boost_file_name} SHOW_PROGRESS)
     endif (NOT BOOST_TAR_EXISTS)
     file (GLOB BOOST_TAR_EXISTS ${PROJECT_SOURCE_DIR}/${boost_file_name})
@@ -171,7 +171,7 @@ if (USE_ASPELL AND LOCAL_ASPELL_DATA)
     file(GLOB ASPELL_DATA_TARBALL_EXISTS ${PROJECT_SOURCE_DIR}/data/${aspell_data_file_name})
     if (NOT ASPELL_DATA_TARBALL_EXISTS)
         message (STATUS "Downloading...")
-        file(DOWNLOAD http://sf.net/projects/eiskaltdcpp/files/Other/${aspell_data_file_name}
+        file(DOWNLOAD https://sf.net/projects/eiskaltdcpp/files/Other/${aspell_data_file_name}
             ${PROJECT_SOURCE_DIR}/data/${aspell_data_file_name} SHOW_PROGRESS)
     endif (NOT ASPELL_DATA_TARBALL_EXISTS)
     file(GLOB ASPELL_DATA_TARBALL_EXISTS ${PROJECT_SOURCE_DIR}/data/${aspell_data_file_name})

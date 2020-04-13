@@ -212,7 +212,7 @@ MainWindow::MainWindow():
         "  ",
         _("Contributors"),
         "  2001-2012 LinuxDC++ Team http://launchpad.net/linuxdcpp",
-        "  2009-2011 troll http://code.google.com/p/freedcpp/", // <troll.freedcpp@gmail.com>
+        "  2009-2011 troll https://github.com/eiskaltdcpp/freedcpp/", // <troll.freedcpp@gmail.com>
         "  2010-2012 Mank https://sourceforge.net/projects/freedcppmv/", // <mank@jabbim.cz>
         NULL
     };
