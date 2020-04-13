@@ -2010,7 +2010,7 @@ void Search::on(SearchManagerListener::SR, const SearchResultPtr& result) noexce
 }
 
 // Filtering causes Gtk-CRITICAL assertion failure, when last item is removed
-// see. http://bugzilla.gnome.org/show_bug.cgi?id=464173
+// see. https://bugzilla.gnome.org/show_bug.cgi?id=464173
 gboolean Search::searchFilterFunc_gui(GtkTreeModel *model, GtkTreeIter *iter, gpointer data)
 {
     Search *s = (Search *)data;

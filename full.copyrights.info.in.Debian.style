@@ -122,9 +122,9 @@ License: GPL-3
 
 Files: data/emoticons/*
        data/sounds/*.wav
-Copyright: 2010 ApexDC++ Project Team (http://www.apexdc.net/)
+Copyright: 2010 ApexDC++ Project Team (https://www.apexdc.net/)
            2010 FlylinkDC++ Project Team (https://github.com/pavel-pimenov/flylinkdc-r5xx)
-           1996-2010 The KDE SC project (http://www.kde.org)
+           1996-2010 The KDE SC project (https://kde.org/)
 License: GPL-2
 
 Files: data/emoticons/default/*
@@ -179,7 +179,7 @@ Copyright: 2004-2010 Jens Oknelid <paskharen@gmail.com>
            2009-2010 Leliksan Floyd <leliksan@Quadrafon2>
            2010-2019 Boris Pek <tehnick-8@yandex.ru>
            2010-2014 Eugene Petrov <dhamp@ya.ru>
-           2003 Bastien Nocera <hadess@hadess.net>
+           2003-2017 Bastien Nocera <hadess@hadess.net>
            2010 Mank <mank@besthub.eu>
 License: GPL-2+
 
@@ -191,11 +191,6 @@ License: GPL-2+
 Files: eiskaltdcpp-cli/*
 Copyright: 2011 Dmitry Kolosov <onyx@z-up.ru>
 License: BSD-2-clause
-
-Files: upnp/miniupnpc/*
-Copyright: 1991-1993 The Regents of the University of California
-           2005-2012 Thomas Bernard (http://miniupnp.free.fr/)
-License: BSD-3-clause
 
 Files: json/jsoncpp/*
 Copyright: 2007-2011 Baptiste Lepilleur

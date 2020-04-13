@@ -1252,7 +1252,7 @@ uint32_t Util::rand() {
 /*  getIpCountry
     This function returns the country(Abbreviation) of an ip
     for exemple: it returns "PT", whitch standards for "Portugal"
-    more info: http://www.maxmind.com/app/csv
+    more info: https://dev.maxmind.com/geoip/legacy/csv/
 */
 string Util::getIpCountry (string IP) {
     if (BOOLSETTING(GET_USER_COUNTRY)) {

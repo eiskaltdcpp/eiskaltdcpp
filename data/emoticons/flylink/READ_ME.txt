@@ -6,8 +6,8 @@ Introduction:
 	FlylinkDC++ is a free Open Source program licensed under GPL 2
 
 	FlylinkDC++ websites:
-		http://www.flylinkdc.ru/
-		http://code.google.com/p/flylinkdc/
+		https://www.flylinkdc.ru/
+		https://github.com/pavel-pimenov/flylinkdc-r5xx
 
 	All of these modifications will keep the basic names of emoticon pack
 

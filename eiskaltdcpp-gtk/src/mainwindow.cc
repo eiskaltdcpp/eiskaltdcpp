@@ -211,7 +211,7 @@ MainWindow::MainWindow():
         "  2010-2015 Eugene Petrov <dhamp@ya.ru>",
         "  ",
         _("Contributors"),
-        "  2001-2012 LinuxDC++ Team http://launchpad.net/linuxdcpp",
+        "  2001-2012 LinuxDC++ Team https://launchpad.net/linuxdcpp",
         "  2009-2011 troll https://github.com/eiskaltdcpp/freedcpp/", // <troll.freedcpp@gmail.com>
         "  2010-2012 Mank https://sourceforge.net/projects/freedcppmv/", // <mank@jabbim.cz>
         NULL
@@ -295,7 +295,7 @@ MainWindow::MainWindow():
                                             (const gchar *)translator_credits.c_str());
 
     // This has to be set in code in order to activate the link
-    gtk_about_dialog_set_website(GTK_ABOUT_DIALOG(getWidget("aboutDialog")), "http://eiskaltdc.googlecode.com/");
+    gtk_about_dialog_set_website(GTK_ABOUT_DIALOG(getWidget("aboutDialog")), "https://github.com/eiskaltdcpp/eiskaltdcpp");
     gtk_window_set_transient_for(GTK_WINDOW(getWidget("aboutDialog")), window);
 
     // Set all windows to the default icon

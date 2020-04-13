@@ -5,8 +5,8 @@ Introduction:
 	FlylinkDC++ is a free Open Source program licensed under GPL 2
 
 	FlylinkDC++ websites:
-		http://www.flylinkdc.ru/
-		http://code.google.com/p/flylinkdc/
+		https://www.flylinkdc.ru/
+		https://github.com/pavel-pimenov/flylinkdc-r5xx
 
 
 You can feel FREE to use, modify, redistribute and all that allowed by GPL 2 license

@@ -19,7 +19,7 @@
  * using OpenSSL with this program is allowed.
  *
  * This program uses the MiniUPnP client library by Thomas Bernard
- * http://miniupnp.free.fr http://miniupnp.tuxfamily.org
+ * http://miniupnp.free.fr https://miniupnp.tuxfamily.org/
  */
 
 #include "upnpc.h"

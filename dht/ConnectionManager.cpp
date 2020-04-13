@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2009-2010 Big Muscle, http://strongdc.sf.net
+ * Copyright (C) 2009-2010 Big Muscle, http://strongdc.sourceforge.net/
  * Copyright (C) 2019 Boris Pek <tehnick-8@yandex.ru>
  *
  * This program is free software; you can redistribute it and/or modify
