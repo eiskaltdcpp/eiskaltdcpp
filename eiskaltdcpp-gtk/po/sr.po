@@ -290,10 +290,10 @@ msgstr ": режим /помоћ за листу доступних команд
 
 #: ../ui/settingsdialog.ui:7259
 msgid ""
-"<a href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html"
+"<a href=\"https://dcplusplus.sourceforge.io/webhelp/settings_logs.html"
 "\">Help</a>"
 msgstr ""
-"<a href=\"http://dcplusplus.sourceforge.net/webhelp/settings_logs.html"
+"<a href=\"https://dcplusplus.sourceforge.io/webhelp/settings_logs.html"
 "\">Помоћ</a>"
 
 #: ../ui/settingsdialog.ui:3855
