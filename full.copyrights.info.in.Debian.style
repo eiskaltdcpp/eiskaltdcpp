@@ -75,7 +75,6 @@ Copyright: 2010 nE0sIghT
 License: GPL-2
 
 Files: update-translations.sh
-       data/update_geoip
        data/examples/amr.en_US.sh
        data/examples/mpris_now_playing.en_US.sh
        data/examples/audacious.en_US.sh
