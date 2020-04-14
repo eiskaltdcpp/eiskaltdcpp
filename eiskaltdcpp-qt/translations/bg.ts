@@ -666,7 +666,7 @@ EiskaltDC++ е мулти-платформена програма използв
     <message>
         <location filename="../src/FileBrowserModel.cpp" line="191"/>
         <source>&lt;b&gt;Media Info:&lt;/b&gt;&lt;br/&gt;</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/FileBrowserModel.cpp" line="193"/>
@@ -721,22 +721,22 @@ EiskaltDC++ е мулти-платформена програма използв
     <message>
         <location filename="../src/FileBrowserModel.cpp" line="313"/>
         <source>Video</source>
-        <translation type="unfinished"></translation>
+        <translation>Видео</translation>
     </message>
     <message>
         <location filename="../src/FileBrowserModel.cpp" line="313"/>
         <source>Audio</source>
-        <translation type="unfinished"></translation>
+        <translation>Аудио</translation>
     </message>
     <message>
         <location filename="../src/FileBrowserModel.cpp" line="314"/>
         <source>Downloaded</source>
-        <translation type="unfinished">Свалено</translation>
+        <translation>Свалено</translation>
     </message>
     <message>
         <location filename="../src/FileBrowserModel.cpp" line="314"/>
         <source>Shared</source>
-        <translation type="unfinished">Споделено</translation>
+        <translation>Споделено</translation>
     </message>
 </context>
 <context>
@@ -1010,7 +1010,7 @@ EiskaltDC++ е мулти-платформена програма използв
     <message>
         <location filename="../src/HubFrame.cpp" line="202"/>
         <source>Comment</source>
-        <translation type="unfinished">Описание</translation>
+        <translation>Описание</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="203"/>
@@ -1030,7 +1030,7 @@ EiskaltDC++ е мулти-платформена програма използв
     <message>
         <location filename="../src/HubFrame.cpp" line="206"/>
         <source>E-mail</source>
-        <translation type="unfinished">Е-поща</translation>
+        <translation>Е-поща</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="208"/>
@@ -1548,25 +1548,6 @@ Favorite user</source>
         <location filename="../src/HubFrame.cpp" line="3993"/>
         <source>Search flood detected: %1</source>
         <translation>Засечено е препълване (flood) на търсене: %1</translation>
-    </message>
-</context>
-<context>
-    <name>IPFilter</name>
-    <message>
-        <source>Nothing to export.</source>
-        <translation type="obsolete">Няма за изнасяне.</translation>
-    </message>
-    <message>
-        <source>Unable to export settings.</source>
-        <translation type="obsolete">Не може да изведе настройки.</translation>
-    </message>
-    <message>
-        <source>Nothing to import.</source>
-        <translation type="obsolete">Няма за внасяне.</translation>
-    </message>
-    <message>
-        <source>Invalid signature.</source>
-        <translation type="obsolete">Невалиден подпис.</translation>
     </message>
 </context>
 <context>
@@ -3202,7 +3183,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/Settings.cpp" line="96"/>
         <source>Advanced</source>
-        <translation type="unfinished">Разширени</translation>
+        <translation>Разширени</translation>
     </message>
 </context>
 <context>
@@ -3991,12 +3972,12 @@ Do you want to stop it?
     <message>
         <location filename="../src/TransferView.cpp" line="72"/>
         <source>Status</source>
-        <translation type="unfinished">Състояние</translation>
+        <translation>Състояние</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="73"/>
         <source>Flags</source>
-        <translation type="unfinished">Флагове</translation>
+        <translation>Флагове</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="74"/>
@@ -4016,7 +3997,7 @@ Do you want to stop it?
     <message>
         <location filename="../src/TransferView.cpp" line="77"/>
         <source>Hub</source>
-        <translation type="unfinished">Хъб</translation>
+        <translation>Хъб</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="78"/>
@@ -4922,7 +4903,7 @@ in options, file will be downloaded without opening search dialog.</source>
     <message>
         <location filename="../ui/PrivateMessage.ui" line="94"/>
         <source>Shift+F3</source>
-        <translation type="unfinished">Shift+F3</translation>
+        <translation>Shift+F3</translation>
     </message>
     <message>
         <location filename="../ui/PrivateMessage.ui" line="101"/>
@@ -4932,7 +4913,7 @@ in options, file will be downloaded without opening search dialog.</source>
     <message>
         <location filename="../ui/PrivateMessage.ui" line="107"/>
         <source>F3</source>
-        <translation type="unfinished">F3</translation>
+        <translation>F3</translation>
     </message>
     <message>
         <location filename="../ui/PrivateMessage.ui" line="114"/>
@@ -6351,7 +6332,7 @@ them is usually available only to operators</source>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="243"/>
         <source>Search Spy</source>
-        <translation type="unfinished">Шпионско търсене</translation>
+        <translation>Шпионско търсене</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="294"/>
@@ -6879,7 +6860,7 @@ EiskaltDC++ поддържа качване на файлове и списъц�
     <message>
         <location filename="../ui/UIShareBrowserSearch.ui" line="54"/>
         <source>Name</source>
-        <translation type="unfinished">Име</translation>
+        <translation>Име</translation>
     </message>
     <message>
         <location filename="../ui/UIShareBrowserSearch.ui" line="59"/>
