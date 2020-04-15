@@ -3,15 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
-# Alexandre Wallimann <adressalacon@gmail.com>, 2013,2015,2017,2019
+# Alexandre Wallimann <adressalacon@gmail.com>, 2013,2015,2017,2019-2020
 msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: https://github.com/eiskaltdcpp/eiskaltdcpp/issues\n"
-"POT-Creation-Date: 2020-04-14 20:26+0300\n"
-"PO-Revision-Date: 2020-04-14 17:00+0000\n"
-"Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
-"Language-Team: French (https://www.transifex.com/tehnick/eiskaltdcpp/languages/"
+"POT-Creation-Date: 2020-04-16 09:41+0300\n"
+"PO-Revision-Date: 2020-04-15 05:18+0000\n"
+"Last-Translator: Alexandre Wallimann <adressalacon@gmail.com>\n"
+"Language-Team: French (http://www.transifex.com/tehnick/eiskaltdcpp/language/"
 "fr/)\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -22,7 +22,7 @@ msgstr ""
 #: ../src/hub.cc:1086 ../src/hub.cc:1165 ../src/privatemessage.cc:571
 #: ../src/privatemessage.cc:650
 msgid " *** Emoticons limit"
-msgstr " *** Limite des smileys"
+msgstr " *** Limite de smileys"
 
 #: ../src/hub.cc:1081 ../src/privatemessage.cc:566
 msgid " *** Emoticons mode off"
