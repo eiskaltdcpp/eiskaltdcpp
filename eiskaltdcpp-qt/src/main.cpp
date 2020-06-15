@@ -51,7 +51,7 @@ using namespace std;
 #include "MainWindow.h"
 #include "GlobalTimer.h"
 
-#if defined(__HAIKU__)
+#if defined(Q_OS_HAIKU)
 #include "EiskaltApp_haiku.h"
 #elif defined(Q_OS_MAC)
 #include "EiskaltApp_mac.h"
@@ -87,7 +87,7 @@ void parseCmdLine(const QStringList &);
 #if !defined(Q_OS_WIN)
 #include <unistd.h>
 #include <signal.h>
-#if !defined (__HAIKU__)
+#if !defined (Q_OS_HAIKU)
 #include <execinfo.h>
 
 #ifdef ENABLE_STACKTRACE
@@ -136,13 +136,13 @@ int main(int argc, char *argv[])
     if (app.isRunning()){
         QStringList args = app.arguments();
         args.removeFirst();//remove path to executable
-#if !defined (__HAIKU__)
+#if !defined (Q_OS_HAIKU)
         app.sendMessage(args.join("\n"));
 #endif
         return 0;
     }
 
-#if !defined (Q_OS_WIN) && !defined (__HAIKU__)
+#if !defined (Q_OS_WIN) && !defined (Q_OS_HAIKU)
     installHandlers();
 #endif
 
@@ -288,7 +288,7 @@ void parseCmdLine(const QStringList &args){
     }
 }
 
-#if !defined (Q_OS_WIN) && !defined (__HAIKU__)
+#if !defined (Q_OS_WIN) && !defined (Q_OS_HAIKU)
 
 void catchSIG(int sigNum) {
     psignal(sigNum, "Catching signal ");

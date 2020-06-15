@@ -184,7 +184,7 @@ void SettingsGUI::init(){
         checkBox_HIDE_ICONS_IN_MENU->setChecked(WBGET("mainwindow/dont-show-icons-in-menus", false));
 
         // Hide options which do not work in Mac OS X, MS Windows or Haiku:
-#if defined (Q_OS_WIN) || defined(Q_OS_MAC) || defined (__HAIKU__)
+#if defined (Q_OS_WIN) || defined(Q_OS_MAC) || defined (Q_OS_HAIKU)
         checkBox_ICONTHEME->hide();
 #endif
 #if defined(Q_OS_MAC)

@@ -201,7 +201,7 @@ QString WulforUtil::getAppIconsPath() const
 
 QString WulforUtil::getEmoticonsPath() const
 {
-#if defined (Q_OS_WIN) || defined (__HAIKU__)
+#if defined (Q_OS_WIN) || defined (Q_OS_HAIKU)
     static const QString emoticonsPath = bin_path + "/" CLIENT_DATA_DIR "/emoticons/";
 #elif defined (Q_OS_MAC)
     static const QString emoticonsPath = bin_path + "/../Resources/emoticons/";
@@ -215,7 +215,7 @@ QString WulforUtil::getEmoticonsPath() const
 
 QString WulforUtil::getClientIconsPath() const
 {
-#if defined (Q_OS_WIN) || defined (__HAIKU__)
+#if defined (Q_OS_WIN) || defined (Q_OS_HAIKU)
     static const QString iconsPath = bin_path + "/" CLIENT_ICONS_DIR "/";
 #elif defined (Q_OS_MAC)
     static const QString iconsPath = bin_path + "/../Resources/" CLIENT_ICONS_DIR "/";
@@ -229,7 +229,7 @@ QString WulforUtil::getClientIconsPath() const
 
 QString WulforUtil::getTranslationsPath() const
 {
-#if defined (Q_OS_WIN) || defined (__HAIKU__)
+#if defined (Q_OS_WIN) || defined (Q_OS_HAIKU)
     static const QString translationsPath = bin_path + "/" CLIENT_TRANSLATIONS_DIR "/";
 #elif defined (Q_OS_MAC)
     static const QString translationsPath = bin_path + "/../Resources/translations/";
@@ -243,7 +243,7 @@ QString WulforUtil::getTranslationsPath() const
 
 QString WulforUtil::getAspellDataPath() const
 {
-#if defined (Q_OS_WIN) || defined (__HAIKU__)
+#if defined (Q_OS_WIN) || defined (Q_OS_HAIKU)
     static const QString aspellDataPath = bin_path + "/" CLIENT_DATA_DIR "/aspell/";
 #elif defined (Q_OS_MAC)
     static const QString aspellDataPath = bin_path + "/../Resources/aspell/";
@@ -261,7 +261,7 @@ QString WulforUtil::getClientResourcesPath() const
 {
     const QString icon_theme = WSGET(WS_APP_ICONTHEME);
 
-#if defined(Q_OS_WIN) || defined(__HAIKU__)
+#if defined(Q_OS_WIN) || defined(Q_OS_HAIKU)
     const QString client_res_path = bin_path + CLIENT_RES_DIR "/" + icon_theme + ".rcc";
 #elif defined(Q_OS_MAC)
     const QString client_res_path = bin_path + QString("/../Resources/" CLIENT_RES_DIR "/") + icon_theme + ".rcc";
@@ -942,9 +942,9 @@ bool WulforUtil::getUserCommandParams(const UserCommand& uc, StringMap& params) 
 QStringList WulforUtil::getLocalIfaces(){
     QStringList ifaces;
 
-#ifdef __HAIKU__
+#ifdef Q_OS_HAIKU
 #undef HAVE_IFADDRS_H
-#endif // __HAIKU__
+#endif // Q_OS_HAIKU
 
 #ifdef HAVE_IFADDRS_H
     struct ifaddrs *ifap;
