@@ -55,7 +55,7 @@ FlowLayout::FlowLayout(int margin, int hSpacing, int vSpacing)
 
 FlowLayout::~FlowLayout(){
     QLayoutItem *item;
-    while ((item = takeAt(0)))
+    while ((item = FlowLayout::takeAt(0)))
         delete item;
 }
 
@@ -87,7 +87,7 @@ QLayoutItem *FlowLayout::itemAt(int index) const {
     return itemList.value(index);
 }
 
-QLayoutItem *FlowLayout::takeAt(int index){
+QLayoutItem *FlowLayout::takeAt(int index) {
     if (index >= 0 && index < itemList.size())
         return itemList.takeAt(index);
     else

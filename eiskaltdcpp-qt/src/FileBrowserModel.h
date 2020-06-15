@@ -96,8 +96,6 @@ public:
     virtual void sort() { sort(sortColumn, sortOrder); }
 
     /** */
-    void setRootElem(FileBrowserItem *root, bool delete_old = true, bool controlNull = true);
-    /** */
     FileBrowserItem *getRootElem() const;
     /** */
     void setIconsScaled(bool, const QSize&);

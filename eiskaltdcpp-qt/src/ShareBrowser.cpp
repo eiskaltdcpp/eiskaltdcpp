@@ -67,9 +67,8 @@ void AsyncRunner::setRunFunction(const std::function<void()> &f){
     runFunc = f;
 }
 
-ShareBrowser::Menu::Menu(){
-    menu = new QMenu();
-
+ShareBrowser::Menu::Menu() : menu(new QMenu(nullptr))
+{
     WulforUtil *WU = WulforUtil::getInstance();
 
     rest_menu = new QMenu(tr("Restrictions"));
@@ -128,6 +127,10 @@ ShareBrowser::Menu::~Menu(){
     delete menu;
     delete rest_menu;
     delete down_to;
+
+    menu = nullptr;
+    rest_menu = nullptr;
+    down_to = nullptr;
 }
 
 ShareBrowser::Menu::Action ShareBrowser::Menu::exec(const dcpp::UserPtr &user){
@@ -191,13 +194,13 @@ ShareBrowser::Menu::Action ShareBrowser::Menu::exec(const dcpp::UserPtr &user){
     return None;
 }
 
-ShareBrowser::ShareBrowser(UserPtr user, QString file, QString jump_to):
+ShareBrowser::ShareBrowser(UserPtr _user, const QString &_file, const QString &_jump_to):
         QWidget(MainWindow::getInstance()),
         proxy(nullptr),
-        file(file),
-        jump_to(jump_to),
-        listing(HintedUser(user, "")),
-        user(user),
+        file(_file),
+        jump_to(_jump_to),
+        listing(HintedUser(_user, "")),
+        user(_user),
         share_size(0),
         current_size(0),
         itemsCount(0),
@@ -207,14 +210,12 @@ ShareBrowser::ShareBrowser(UserPtr user, QString file, QString jump_to):
         list_root(nullptr)
 
 {
-
-
     nick = WulforUtil::getInstance()->getNicks(user->getCID());
 
-    if (nick.indexOf(_q(user->getCID().toBase32()) >= nullptr)){//User offline
+    if (nick.indexOf(_q(user->getCID().toBase32()) >= nullptr)) { // User offline
         nick = _q(ClientManager::getInstance()->getNicks(HintedUser(user, ""))[0]);
 
-        QFileInfo info(file);
+        QFileInfo info(_file);
 
         nick = info.baseName().left(info.baseName().indexOf("."));
 

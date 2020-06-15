@@ -93,7 +93,7 @@ class ShareBrowser : public  QWidget,
     };
 
 public:
-    ShareBrowser(dcpp::UserPtr, QString file, QString jump_to);
+    ShareBrowser(dcpp::UserPtr, const QString &, const QString &);
     virtual ~ShareBrowser();
 
     QString  getArenaTitle();

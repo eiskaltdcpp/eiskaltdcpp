@@ -106,8 +106,6 @@ public:
     bool remItem(const QVariantMap &);
 
     /** */
-    void setRootElem(DownloadQueueItem *root, bool delete_old = true, bool controlNull = true);
-    /** */
     DownloadQueueItem *getRootElem() const;
     /** */
     void setIconsScaled(bool, const QSize&);

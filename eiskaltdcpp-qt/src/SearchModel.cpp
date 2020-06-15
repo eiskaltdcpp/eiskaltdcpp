@@ -497,8 +497,9 @@ bool SearchModel::okToFind(const SearchItem *item){
                 return true;
         }
     }
-    else
+    else {
         return true;
+    }
 
     return false;
 }

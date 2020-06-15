@@ -32,7 +32,7 @@ private Q_SLOTS:
     void moveUp();
     void moveToEnabled();
     void moveToAvailable();
-    void accepted();
+    void actionAccepted();
 
 private:
     QMap<QListWidgetItem*, QAction*> enabled_items;

@@ -283,7 +283,7 @@ void SettingsSharing::slotSimpleShareModeChanged(){
 
 void SettingsSharing::slotContextMenu(const QPoint &){
     QList<QTreeWidgetItem*> selected = treeWidget_SIMPLE_MODE->selectedItems();
-    QMenu *menu = new QMenu();
+    QMenu *menu = new QMenu(nullptr);
     QAction *add_new = nullptr, *rem = nullptr, *rename = nullptr;
     WulforUtil *WU = WulforUtil::getInstance();
 

@@ -28,7 +28,7 @@ ActionCustomizer::ActionCustomizer(const QList<QAction*> &available, const QList
         enabled_items.insert(item, act);
     }
 
-    for (const auto &act : available){
+    for (const auto &act : available) {
         if (!act || enabled.contains(act))
             continue;
 
@@ -44,19 +44,19 @@ ActionCustomizer::ActionCustomizer(const QList<QAction*> &available, const QList
     connect(pushButton_UP,      SIGNAL(clicked()), this, SLOT(moveUp()));
     connect(pushButton_REM,     SIGNAL(clicked()), this, SLOT(moveToAvailable()));
     connect(pushButton_ADD,     SIGNAL(clicked()), this, SLOT(moveToEnabled()));
-    connect(buttonBox,          SIGNAL(accepted()),this, SLOT(accepted()));
+    connect(buttonBox,          SIGNAL(accepted()),this, SLOT(actionAccepted()));
 }
 
-void ActionCustomizer::accepted() {
+void ActionCustomizer::actionAccepted() {
     QList<QAction*> enabled;
 
-    for (int i = 0; i < listWidget_ENABLED->count(); i++)
+    for (int i = 0; i < listWidget_ENABLED->count(); ++i)
         enabled.push_back(enabled_items[listWidget_ENABLED->item(i)]);
 
     emit done(enabled);
 }
 
-void ActionCustomizer::moveDown(){
+void ActionCustomizer::moveDown() {
     int currentRow = listWidget_ENABLED->currentRow();
 
     if (currentRow > listWidget_ENABLED->count()-1)

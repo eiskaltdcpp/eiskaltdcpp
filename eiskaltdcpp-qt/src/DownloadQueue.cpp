@@ -53,8 +53,8 @@ public:
     SourceMap badSources;
 };
 
-DownloadQueue::Menu::Menu(){
-    menu = new QMenu();
+DownloadQueue::Menu::Menu() : menu(new QMenu(nullptr))
+{
     QMenu *menu_magnet = new QMenu(tr("Magnet"), DownloadQueue::getInstance());
 
     QAction *search_alt  = new QAction(tr("Search for alternates"), menu);
@@ -128,6 +128,7 @@ DownloadQueue::Menu::Menu(){
 
 DownloadQueue::Menu::~Menu(){
     delete menu;
+    menu = nullptr;
 }
 
 void DownloadQueue::Menu::clearMenu(QMenu *m){

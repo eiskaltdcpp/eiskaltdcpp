@@ -167,8 +167,8 @@ HubFrame::Menu *HubFrame::Menu::getInstance(){
     return instance;
 }
 
-HubFrame::Menu::Menu(){
-    menu = new QMenu();
+HubFrame::Menu::Menu() : menu(new QMenu(nullptr))
+{
     WulforUtil *WU = WulforUtil::getInstance();
 
     last_user_cmd = "";
@@ -287,6 +287,7 @@ HubFrame::Menu::Menu(){
 
 HubFrame::Menu::~Menu(){
     delete menu;
+    menu = nullptr;
 
     qDeleteAll(chat_actions);
     qDeleteAll(actions);

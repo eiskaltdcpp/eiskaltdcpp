@@ -458,28 +458,7 @@ void FileBrowserModel::sort(int column, Qt::SortOrder order) {
     emit layoutChanged();
 }
 
-void FileBrowserModel::setRootElem(FileBrowserItem *root, bool del_old, bool controlNull){
-    if (controlNull && !root)
-        return;
-
-    FileBrowserItem *from = rootItem, *to = root;
-
-    if (del_old && root != rootItem){//prevent deleting own root element
-        delete rootItem;
-
-        rootItem = nullptr;
-    }
-
-    rootItem = root;
-
-    if (rootItem){
-        emit layoutChanged();
-    }
-
-    emit rootChanged(from, to);
-}
-
-FileBrowserItem *FileBrowserModel::getRootElem() const{
+FileBrowserItem *FileBrowserModel::getRootElem() const {
     return rootItem;
 }
 

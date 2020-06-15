@@ -148,7 +148,6 @@ void ScriptEngine::loadQMLScript(const QString &file){
 void ScriptEngine::stopScripts(){
     DEBUG_BLOCK
 
-    QMap<QString, ScriptObject*> s = scripts;
     for (const QString &key : scripts.keys()) {
         stopScript(key);
     }

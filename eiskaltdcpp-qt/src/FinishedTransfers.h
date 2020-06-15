@@ -153,8 +153,8 @@ private:
         QObject::connect(treeView->header(), SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotHeaderMenu()));
         QObject::connect(checkBox_FULL, SIGNAL(toggled(bool)), this, SLOT(slotSwitchOnlyFull(bool)));
 
-        slotSwitchOnlyFull(false);
-        slotTypeChanged(0);
+        FinishedTransfers::slotSwitchOnlyFull(false);
+        FinishedTransfers::slotTypeChanged(0);
 
         ArenaWidget::setState( ArenaWidget::Flags(ArenaWidget::state() | ArenaWidget::Singleton | ArenaWidget::Hidden) );
     }

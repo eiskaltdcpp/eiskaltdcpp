@@ -40,11 +40,9 @@
 #include <QDir>
 
 TransferView::Menu::Menu(bool showTransferredFilesOnly):
-        menu(nullptr),
-        selectedColumn(0)
+        menu(new QMenu(nullptr)), selectedColumn(0)
 {
     WulforUtil *WU = WulforUtil::getInstance();
-    menu = new QMenu();
 
     QAction *browse     = new QAction(tr("Browse files"), menu);
     browse->setIcon(WU->getPixmap(WulforUtil::eiFOLDER_BLUE));

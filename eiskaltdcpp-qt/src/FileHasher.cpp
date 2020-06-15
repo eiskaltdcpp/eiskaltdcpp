@@ -145,7 +145,7 @@ void HashThread::calculate_tth() {
             tth.update("", 0);
         }
         tth.finalize();
-        strcpy(&TTH[0], tth.getRoot().toBase32().c_str());
+        strncpy(&TTH[0], tth.getRoot().toBase32().c_str(), sizeof(TTH)-1);
         hash = _q(TTH);
         f.close();
     } catch (...) {}

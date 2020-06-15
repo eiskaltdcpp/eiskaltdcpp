@@ -477,7 +477,7 @@ bool DownloadQueueModel::remItem(const QVariantMap &map){
         DownloadQueueItem *p = item;
         DownloadQueueItem *_t = nullptr;
 
-        while (true){
+        while (true) {
             if ((p == d->rootItem) || (p->childCount() > 1) || !p->parent())
                 break;
 
@@ -501,22 +501,6 @@ bool DownloadQueueModel::remItem(const QVariantMap &map){
     emit updateStats(d->total_files, d->total_size);
 
     return true;
-}
-
-void DownloadQueueModel::setRootElem(DownloadQueueItem *root, bool del_old, bool controlNull){
-    if (controlNull && !root)
-        return;
-
-    Q_D(DownloadQueueModel);
-
-    if (del_old && root != d->rootItem){//prevent deleting own root element
-        delete d->rootItem;
-
-        d->rootItem = nullptr;
-    }
-
-    if (d->rootItem == root)
-        emit layoutChanged();
 }
 
 DownloadQueueItem *DownloadQueueModel::getRootElem() const{

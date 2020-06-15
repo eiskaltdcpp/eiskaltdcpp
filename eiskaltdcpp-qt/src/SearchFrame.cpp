@@ -113,10 +113,9 @@ bool SearchStringListModel::setData(const QModelIndex &index, const QVariant &va
     return true;
 }
 
-SearchFrame::Menu::Menu(){
+SearchFrame::Menu::Menu() : menu(new QMenu(nullptr))
+{
     WulforUtil *WU = WulforUtil::getInstance();
-
-    menu = new QMenu();
 
     magnet_menu = new QMenu(tr("Magnet"));
 
