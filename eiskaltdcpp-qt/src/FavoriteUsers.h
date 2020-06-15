@@ -38,7 +38,7 @@ Q_OBJECT
 Q_INTERFACES(ArenaWidget)
 
 friend class dcpp::Singleton<FavoriteUsers>;
-typedef QMap<QString, QVariant> VarMap;
+typedef QVariantMap VarMap;
 
 public:
 

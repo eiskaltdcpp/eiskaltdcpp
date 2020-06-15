@@ -859,7 +859,7 @@ bool SearchFrame::getWholeDirParams(SearchFrame::VarMap &params, SearchItem *ite
     return true;
 }
 
-void SearchFrame::addResult(const QMap<QString, QVariant> &map){
+void SearchFrame::addResult(const QVariantMap &map){
     Q_D(SearchFrame);
     static SearchBlacklist *SB = SearchBlacklist::getInstance();
 
@@ -1710,7 +1710,7 @@ void SearchFrame::on(SearchManagerListener::SR, const dcpp::SearchResultPtr& aRe
         return;
     }
 
-    QMap<QString, QVariant> map;
+    QVariantMap map;
     getParams(map, aResult);
 
     emit coreSR(map);

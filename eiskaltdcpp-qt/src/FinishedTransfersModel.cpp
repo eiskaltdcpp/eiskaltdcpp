@@ -371,7 +371,7 @@ void FinishedTransfersModel::clearModel(){
     endResetModel();
 }
 
-void FinishedTransfersModel::addFile(const QMap<QString, QVariant> &params){
+void FinishedTransfersModel::addFile(const QVariantMap &params){
     FinishedTransfersItem *item = findFile(params["TARGET"].toString());
 
     if (!item)
@@ -400,7 +400,7 @@ void FinishedTransfersModel::addFile(const QMap<QString, QVariant> &params){
     emit dataChanged(createIndex(item->row(), COLUMN_FINISHED_NAME, item), createIndex(item->row(), COLUMN_FINISHED_FULL, item));
 }
 
-void FinishedTransfersModel::addUser(const QMap<QString, QVariant> &params){
+void FinishedTransfersModel::addUser(const QVariantMap &params){
     FinishedTransfersItem *item = findUser(params["CID"].toString());
 
     if (!item)

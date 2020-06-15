@@ -39,7 +39,7 @@ class DownloadQueue :
     Q_OBJECT
     Q_INTERFACES(ArenaWidget)
 
-typedef QMap<QString, QVariant> VarMap;
+typedef QVariantMap VarMap;
 typedef QMap<QString, QMap<QString, QString> > SourceMap;
 
 friend class dcpp::Singleton<DownloadQueue>;

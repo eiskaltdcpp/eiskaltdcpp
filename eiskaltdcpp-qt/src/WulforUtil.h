@@ -39,7 +39,7 @@ using namespace dcpp;
 static const auto _q = [](const std::string &s) { return QString::fromStdString(s); };
 static const auto _tq = [](const QString &s) { return s.toStdString(); };
 
-typedef QMap<QString, QVariant> VarMap;
+typedef QVariantMap VarMap;
 
 class WulforUtil :
         public QObject,

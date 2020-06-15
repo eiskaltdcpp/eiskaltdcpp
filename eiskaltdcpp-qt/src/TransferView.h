@@ -43,7 +43,7 @@ class TransferView : public QWidget,
 
 friend class dcpp::Singleton<TransferView>;
 
-typedef QMap<QString, QVariant> VarMap;
+typedef QVariantMap VarMap;
 
 class Menu{
 

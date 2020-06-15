@@ -40,7 +40,7 @@ using namespace dcpp;
 
 class FinishedTransferProxy: public QWidget{
 Q_OBJECT
-typedef QMap<QString, QVariant> VarMap;
+typedef QVariantMap VarMap;
 public:
     FinishedTransferProxy(QWidget *parent):QWidget(parent){}
     ~FinishedTransferProxy(){}
@@ -76,7 +76,7 @@ class FinishedTransfers :
 {
 Q_INTERFACES(ArenaWidget)
 
-typedef QMap<QString, QVariant> VarMap;
+typedef QVariantMap VarMap;
 friend class dcpp::Singleton< FinishedTransfers<isUpload> >;
 
 public:

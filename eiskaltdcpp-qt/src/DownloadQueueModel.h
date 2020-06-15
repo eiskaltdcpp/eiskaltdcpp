@@ -99,11 +99,11 @@ public:
     virtual void sort() { sort(getSortColumn(), getSortOrder()); }
 
     /** */
-    DownloadQueueItem *addItem(const QMap<QString, QVariant> &);
+    DownloadQueueItem *addItem(const QVariantMap &);
     /** */
-    void updItem(const QMap<QString, QVariant> &);
+    void updItem(const QVariantMap &);
     /** */
-    bool remItem(const QMap<QString, QVariant> &);
+    bool remItem(const QVariantMap &);
 
     /** */
     void setRootElem(DownloadQueueItem *root, bool delete_old = true, bool controlNull = true);

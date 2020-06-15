@@ -37,7 +37,7 @@
 using namespace dcpp;
 
 class DownloadQueuePrivate {
-    typedef QMap<QString, QVariant> VarMap;
+    typedef QVariantMap VarMap;
     typedef QMap<QString, QMap<QString, QString> > SourceMap;
 
 public:

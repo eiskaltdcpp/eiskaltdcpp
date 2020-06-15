@@ -53,7 +53,7 @@ private:
 class QueuedUsersModel : public QAbstractItemModel
 {
     Q_OBJECT
-    typedef QMap<QString, QVariant> VarMap;
+    typedef QVariantMap VarMap;
 public:
 
     QueuedUsersModel(QObject *parent = nullptr);

@@ -134,7 +134,7 @@ public:
     };
 
     typedef QMap<QString, PMWindow*> PMMap;
-    typedef QMap<QString, QVariant> VarMap;
+    typedef QVariantMap VarMap;
     typedef QList<ShellCommandRunner*> ShellList;
 
     HubFrame(QWidget *parent, QString, QString);

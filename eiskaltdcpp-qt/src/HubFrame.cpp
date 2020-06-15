@@ -69,7 +69,7 @@
 
 class HubFramePrivate {
     typedef QMap<QString, PMWindow*> PMMap;
-    typedef QMap<QString, QVariant> VarMap;
+    typedef QVariantMap VarMap;
     typedef QList<ShellCommandRunner*> ShellList;
 public:
     QMenu *arenaMenu;

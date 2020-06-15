@@ -316,7 +316,7 @@ void SearchModel::sort(int column, Qt::SortOrder order) {
     emit layoutChanged();
 }
 
-bool SearchModel::addResultPtr(const QMap<QString, QVariant> &map){
+bool SearchModel::addResultPtr(const QVariantMap &map){
     try {
         return addResult(map["FILE"].toString(),
                   map["SIZE"].toULongLong(),

@@ -373,7 +373,7 @@ void DownloadQueueModel::sort(int column, Qt::SortOrder order) {
     emit layoutChanged();
 }
 
-DownloadQueueItem *DownloadQueueModel::addItem(const QMap<QString, QVariant> &map){
+DownloadQueueItem *DownloadQueueModel::addItem(const QVariantMap &map){
     static quint64 counter = 0;
 
     DownloadQueueItem *droot = createPath(map["PATH"].toString());
@@ -416,7 +416,7 @@ DownloadQueueItem *DownloadQueueModel::addItem(const QMap<QString, QVariant> &ma
     return child;
 }
 
-void DownloadQueueModel::updItem(const QMap<QString, QVariant> &map){
+void DownloadQueueModel::updItem(const QVariantMap &map){
     DownloadQueueItem *item = createPath(map["PATH"].toString());
     Q_D(static DownloadQueueModel);
 
@@ -444,7 +444,7 @@ void DownloadQueueModel::updItem(const QMap<QString, QVariant> &map){
     emit layoutChanged();
 }
 
-bool DownloadQueueModel::remItem(const QMap<QString, QVariant> &map){
+bool DownloadQueueModel::remItem(const QVariantMap &map){
     DownloadQueueItem *item = createPath(map["PATH"].toString());
 
     if (item->childItems.size() < 1)

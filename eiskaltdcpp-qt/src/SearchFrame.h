@@ -57,7 +57,7 @@ class SearchFrame : public QWidget,
     Q_OBJECT
     Q_INTERFACES(ArenaWidget)
 
-    typedef QMap<QString, QVariant> VarMap;
+    typedef QVariantMap VarMap;
 
     class Menu : public dcpp::Singleton<Menu> {
         friend class dcpp::Singleton<Menu>;

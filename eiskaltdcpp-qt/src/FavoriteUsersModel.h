@@ -47,7 +47,7 @@ class FavoriteUsersModel : public QAbstractItemModel
 {
 Q_OBJECT
 public:
-    typedef QMap<QString, QVariant> VarMap;
+    typedef QVariantMap VarMap;
 
     explicit FavoriteUsersModel(QObject *parent = nullptr);
     virtual ~FavoriteUsersModel();
