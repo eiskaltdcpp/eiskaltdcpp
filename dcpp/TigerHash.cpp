@@ -34,11 +34,10 @@
 
 #include <algorithm>
 #include <cstring>
-#include <boost/detail/endian.hpp>
 
 #include "debug.h"
 
-#ifdef BOOST_BIG_ENDIAN
+#ifdef CMAKE_BIG_ENDIAN
 #define TIGER_BIG_ENDIAN
 #endif
 

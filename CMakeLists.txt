@@ -11,11 +11,12 @@ else ()
     set (PROJECT_NAME_GLOBAL "eiskaltdcpp")
 endif ()
 
+include (CheckCXXSourceCompiles)
 include (CheckIncludeFile)
 include (CheckIncludeFiles)
 include (CheckFunctionExists)
 include (FindPkgConfig)
-include (CheckCXXSourceCompiles)
+include (TestBigEndian)
 
 CHECK_FUNCTION_EXISTS (mallinfo HAVE_MALLINFO)
 CHECK_FUNCTION_EXISTS (malloc_stats HAVE_MALLOC_STATS)
@@ -288,6 +289,12 @@ endif (DEBUG)
 if (BUILD_STATIC)
     add_definitions (-DBUILD_STATIC -DMINIUPNP_STATICLIB)
 endif ()
+
+TEST_BIG_ENDIAN(BIG_ENDIAN)
+if (BIG_ENDIAN)
+    add_definitions (-DCMAKE_BIG_ENDIAN)
+    message(STATUS "Build for BIG_ENDIAN system!")
+endif()
 
 if (USE_CCACHE)
     # Configure CCache if available
