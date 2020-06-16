@@ -273,7 +273,7 @@ string WulforUtil::colorToString(const GdkColor *color)
     g_snprintf(strcolor, sizeof(strcolor), "#%04X%04X%04X",
                color->red, color->green, color->blue);
     //printf("WulforUtil::colorToString{GdkColor} %s\n", strcolor);fflush(stdout);
-    return strcolor;
+    return string(strcolor);
 }
 
 #if GTK_CHECK_VERSION (3,0,0)
@@ -284,7 +284,7 @@ string WulforUtil::colorToString(const GdkRGBA *color)
     g_snprintf(strcolor, sizeof(strcolor), "#%04X%04X%04X",
                (uint16_t)(color->red*65535.0), (uint16_t)(color->green*65535.0), (uint16_t)(color->blue*65535.0));
     //printf("WulforUtil::colorToString{GdkRGBA} %s\n",strcolor);fflush(stdout);
-    return strcolor;
+    return string(strcolor);
 }
 #endif
 

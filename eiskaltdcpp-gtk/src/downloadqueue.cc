@@ -1181,7 +1181,7 @@ void DownloadQueue::reAddSource_client(string target, string nick)
 {
     try
     {
-        if (!target.empty() && !nick.empty() && badSources.find(target) != sources.end())
+        if (!target.empty() && !nick.empty() && badSources.find(target) != badSources.end())
         {
             SourceIter it = badSources[target].find(nick);
             if (it != badSources[target].end())
