@@ -143,11 +143,11 @@ namespace {
 template <Qt::SortOrder order>
 struct Compare {
     void static sort(int col, QList<SpyItem*>& items) {
-        qStableSort(items.begin(), items.end(), getAttrComp(col));
+        std::stable_sort(items.begin(), items.end(), getAttrComp(col));
     }
 
     void static insertSorted(int col, QList<SpyItem*>& items, SpyItem* item) {
-        auto it = qLowerBound(items.begin(), items.end(), item, getAttrComp(col));
+        auto it = std::lower_bound(items.begin(), items.end(), item, getAttrComp(col));
         items.insert(it, item);
 #ifdef _DEBUG_QT_UI
         qDebug() << "Item inserted at " << items.indexOf(*it) << " position";

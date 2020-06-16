@@ -230,14 +230,14 @@ struct Compare {
         if (column > COLUMN_SF_HOST)
             return;
 
-        qStableSort(items.begin(), items.end(), attrs[column]);
+        std::stable_sort(items.begin(), items.end(), attrs[column]);
     }
 
     QList<SearchItem*>::iterator static insertSorted(unsigned column, QList<SearchItem*>& items, SearchItem* item) {
         if (column > COLUMN_SF_HOST)
             return items.end();
 
-        return qLowerBound(items.begin(),
+        return std::lower_bound(items.begin(),
                            items.end(),
                            item,
                            attrs[column]

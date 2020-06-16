@@ -225,11 +225,11 @@ struct Compare {
                  << " column and " << WulforUtil::getInstance()->sortOrderToInt(order)
                  << " order.";
 #endif
-        qStableSort(items.begin(), items.end(), getAttrComp(col));
+        std::stable_sort(items.begin(), items.end(), getAttrComp(col));
     }
 
     QList<QueuedUserItem*>::iterator static insertSorted(int col, QList<QueuedUserItem*>& items, QueuedUserItem* item) {
-        return qLowerBound(items.begin(), items.end(), item, getAttrComp(col));
+        return std::lower_bound(items.begin(), items.end(), item, getAttrComp(col));
     }
 
     private:

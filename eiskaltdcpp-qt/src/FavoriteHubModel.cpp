@@ -194,11 +194,11 @@ namespace {
 template <Qt::SortOrder order>
 struct Compare {
     void static sort(int col, QList<FavoriteHubItem*>& items) {
-        qStableSort(items.begin(), items.end(), getAttrComp(col));
+        std::stable_sort(items.begin(), items.end(), getAttrComp(col));
     }
 
     void static insertSorted(int col, QList<FavoriteHubItem*>& items, FavoriteHubItem* item) {
-        auto it = qLowerBound(items.begin(), items.end(), item, getAttrComp(col));
+        auto it = std::lower_bound(items.begin(), items.end(), item, getAttrComp(col));
         items.insert(it, item);
     }
 

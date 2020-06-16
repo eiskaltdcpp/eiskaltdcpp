@@ -190,14 +190,14 @@ struct Compare {
         if (column > COLUMN_EMAIL)
             return;
 
-        qStableSort(items.begin(), items.end(), attrs[column]);
+        std::stable_sort(items.begin(), items.end(), attrs[column]);
     }
 
     QList<UserListItem*>::iterator static insertSorted(unsigned column, QList<UserListItem*>& items, UserListItem* item) {
         if (column > COLUMN_EMAIL)
             return items.end();
 
-        return qLowerBound(items.begin(), items.end(), item, attrs[column] );
+        return std::lower_bound(items.begin(), items.end(), item, attrs[column] );
     }
 
     private:

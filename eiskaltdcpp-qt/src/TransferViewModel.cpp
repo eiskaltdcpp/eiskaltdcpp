@@ -152,11 +152,11 @@ namespace {
 template <Qt::SortOrder order>
 struct Compare {
     void static sort(unsigned col, QList<TransferViewItem*>& items) {
-        qStableSort(items.begin(), items.end(), attrs[col]);
+        std::stable_sort(items.begin(), items.end(), attrs[col]);
     }
 
     void static insertSorted(unsigned col, QList<TransferViewItem*>& items, TransferViewItem* item) {
-        auto it = qLowerBound(items.begin(), items.end(), item, attrs[col]);
+        auto it = std::lower_bound(items.begin(), items.end(), item, attrs[col]);
         items.insert(it, item);
     }
 

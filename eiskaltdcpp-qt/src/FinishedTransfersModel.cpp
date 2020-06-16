@@ -211,11 +211,11 @@ namespace {
 template <Qt::SortOrder order>
 struct FileCompare {
     void static sort(int col, QList<FinishedTransfersItem*>& items) {
-        qStableSort(items.begin(), items.end(), getAttrComp(col));
+        std::stable_sort(items.begin(), items.end(), getAttrComp(col));
     }
 
     void static insertSorted(int col, QList<FinishedTransfersItem*>& items, FinishedTransfersItem* item) {
-        auto it = qLowerBound(items.begin(), items.end(), item, getAttrComp(col));
+        auto it = std::lower_bound(items.begin(), items.end(), item, getAttrComp(col));
         items.insert(it, item);
     }
 
@@ -276,11 +276,11 @@ bool inline FileCompare<Qt::DescendingOrder>::Cmp(const T& l, const T& r) {
 template <Qt::SortOrder order>
 struct UserCompare {
     void static sort(int col, QList<FinishedTransfersItem*>& items) {
-        qStableSort(items.begin(), items.end(), getAttrComp(col));
+        std::stable_sort(items.begin(), items.end(), getAttrComp(col));
     }
 
     void static insertSorted(int col, QList<FinishedTransfersItem*>& items, FinishedTransfersItem* item) {
-        auto it = qLowerBound(items.begin(), items.end(), item, getAttrComp(col));
+        auto it = std::lower_bound(items.begin(), items.end(), item, getAttrComp(col));
         items.insert(it, item);
     }
 
