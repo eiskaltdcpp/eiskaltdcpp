@@ -32,7 +32,7 @@ class ShareBrowser:
         public BookEntry
 {
 public:
-    ShareBrowser(dcpp::UserPtr user, const std::string &file, const std::string &initialDirectory, bool full);
+    ShareBrowser(dcpp::UserPtr _user, const std::string &_file, const std::string &_initialDirectory, const bool _full);
     virtual ~ShareBrowser();
     virtual void show();
     void loadXML(std::string txt);

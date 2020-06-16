@@ -33,19 +33,19 @@
 using namespace std;
 using namespace dcpp;
 
-ShareBrowser::ShareBrowser(UserPtr user, const string &file, const string &initialDirectory, bool full):
-    BookEntry(Entry::SHARE_BROWSER, _("List: ") + WulforUtil::getNicks(user, ""), "sharebrowser.ui", user->getCID().toBase32()),
-    user(user),
-    file(file),
-    initialDirectory(initialDirectory),
-    listing(HintedUser(user, "")),
+ShareBrowser::ShareBrowser(UserPtr _user, const string &_file, const string &_initialDirectory, const bool _full):
+    BookEntry(Entry::SHARE_BROWSER, _("List: ") + WulforUtil::getNicks(_user, ""), "sharebrowser.ui", _user->getCID().toBase32()),
+    user(_user),
+    file(_file),
+    initialDirectory(_initialDirectory),
+    listing(HintedUser(_user, "")),
     shareSize(0),
     currentSize(0),
     shareItems(0),
     currentItems(0),
     updateFileView(true),
     skipHits(0),
-    full(full)
+    full(_full)
 {
 #if !GTK_CHECK_VERSION(3,0,0)
     gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("mainStatus")),false);
