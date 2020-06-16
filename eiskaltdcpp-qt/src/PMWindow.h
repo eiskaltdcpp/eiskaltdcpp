@@ -33,6 +33,9 @@ public:
     explicit PMWindow(const QString &cid_, const QString &hubUrl_);
     virtual ~PMWindow();
 
+    PMWindow(const PMWindow&) = delete;
+    PMWindow& operator=(const PMWindow&) = delete;
+
     QString  getArenaTitle();
     QString  getArenaShortTitle();
     QWidget *getWidget();

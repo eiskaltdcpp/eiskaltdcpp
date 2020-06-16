@@ -64,6 +64,9 @@ public:
     Menu();
     virtual ~Menu();
 
+    Menu(const Menu&) = delete;
+    Menu& operator=(const Menu&) = delete;
+
     Action exec(const SourceMap&, const QString&, bool multiselect);
     QVariant getArg();
 

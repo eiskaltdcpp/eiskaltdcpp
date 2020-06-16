@@ -148,6 +148,9 @@ public:
     DeclarativeWidget(const QString &file);
     virtual ~DeclarativeWidget();
 
+    DeclarativeWidget(const DeclarativeWidget&) = delete;
+    DeclarativeWidget& operator=(const DeclarativeWidget&) = delete;
+
     virtual QWidget *getWidget();
     virtual QString getArenaTitle();
     virtual QString getArenaShortTitle();

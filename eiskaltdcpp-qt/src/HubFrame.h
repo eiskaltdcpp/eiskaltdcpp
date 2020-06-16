@@ -104,6 +104,9 @@ class HubFrame :
         Menu();
         virtual ~Menu();
 
+        Menu(const Menu&) = delete;
+        Menu& operator=(const Menu&) = delete;
+
         static void newInstance();
         static void deleteInstance();
         static Menu *getInstance();
@@ -139,6 +142,9 @@ public:
 
     HubFrame(QWidget *parent, QString, QString);
     ~HubFrame();
+
+    HubFrame(const HubFrame&) = delete;
+    HubFrame& operator=(const HubFrame&) = delete;
 
     bool parseForCmd(QString, QWidget *);
 

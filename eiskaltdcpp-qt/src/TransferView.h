@@ -66,6 +66,9 @@ public:
     Menu(bool);
     virtual ~Menu();
 
+    Menu(const Menu&) = delete;
+    Menu& operator=(const Menu&) = delete;
+
     Action exec();
     int copyColumn() const {return selectedColumn; }
 
