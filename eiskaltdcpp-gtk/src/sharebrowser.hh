@@ -37,6 +37,9 @@ public:
     virtual void show();
     void loadXML(std::string txt);
 
+    ShareBrowser(const ShareBrowser&) = delete;
+    ShareBrowser& operator=(const ShareBrowser&) = delete;
+
 private:
     // GUI functions
     bool buildList_gui();

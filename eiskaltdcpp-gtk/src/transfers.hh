@@ -48,6 +48,9 @@ public:
     GtkWidget *getContainer() { return getWidget("mainBox"); }
     virtual void show();
 
+    Transfers(const Transfers&) = delete;
+    Transfers& operator=(const Transfers&) = delete;
+
 private:
     // GUI functions
     void addConnection_gui(dcpp::StringMap params, bool download);

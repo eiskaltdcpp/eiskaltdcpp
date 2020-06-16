@@ -37,6 +37,9 @@ public:
     WulforManager();
     ~WulforManager();
 
+    WulforManager(const WulforManager&) = delete;
+    WulforManager& operator=(const WulforManager&) = delete;
+
     std::string getURL();
     std::string getPath() const;
     MainWindow *getMainWindow();
