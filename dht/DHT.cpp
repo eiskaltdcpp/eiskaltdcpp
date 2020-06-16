@@ -218,8 +218,8 @@ namespace dht
             {
                 if(firewalledWanted.count(ip) == 0) // only when not requested from this node yet
                 {
-                    firewalledWanted.insert(ip);
                     cmd.addParam("FW", getPort());
+                    firewalledWanted.insert(ip);
                 }
             }
         }
