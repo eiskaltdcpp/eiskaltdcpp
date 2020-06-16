@@ -1355,31 +1355,31 @@ void Settings::initAppearance_gui()
 
         addOption_gui(notifyStore, wsm, _("Download finished"),
                       "notify-download-finished-use", "notify-download-finished-title",
-                      "notify-download-finished-icon", NOTIFY_URGENCY_NORMAL);
+                      "notify-download-finished-icon", int(NOTIFY_URGENCY_NORMAL));
 
         addOption_gui(notifyStore, wsm, _("Download finished file list"),
                       "notify-download-finished-ul-use", "notify-download-finished-ul-title",
-                      "notify-download-finished-ul-icon", NOTIFY_URGENCY_LOW);
+                      "notify-download-finished-ul-icon", int(NOTIFY_URGENCY_LOW));
 
         addOption_gui(notifyStore, wsm, _("Private message"),
                       "notify-private-message-use", "notify-private-message-title",
-                      "notify-private-message-icon", NOTIFY_URGENCY_NORMAL);
+                      "notify-private-message-icon", int(NOTIFY_URGENCY_NORMAL));
 
         addOption_gui(notifyStore, wsm, _("Hub connected"),
                       "notify-hub-connect-use", "notify-hub-connect-title",
-                      "notify-hub-connect-icon", NOTIFY_URGENCY_NORMAL);
+                      "notify-hub-connect-icon", int(NOTIFY_URGENCY_NORMAL));
 
         addOption_gui(notifyStore, wsm, _("Hub disconnected"),
                       "notify-hub-disconnect-use", "notify-hub-disconnect-title",
-                      "notify-hub-disconnect-icon", NOTIFY_URGENCY_CRITICAL);
+                      "notify-hub-disconnect-icon", int(NOTIFY_URGENCY_CRITICAL));
 
         addOption_gui(notifyStore, wsm, _("Favorite user joined"),
                       "notify-fuser-join", "notify-fuser-join-title",
-                      "notify-fuser-join-icon", NOTIFY_URGENCY_NORMAL);
+                      "notify-fuser-join-icon", int(NOTIFY_URGENCY_NORMAL));
 
         addOption_gui(notifyStore, wsm, _("Favorite user quit"),
                       "notify-fuser-quit", "notify-fuser-quit-title",
-                      "notify-fuser-quit-icon", NOTIFY_URGENCY_NORMAL);
+                      "notify-fuser-quit-icon", int(NOTIFY_URGENCY_NORMAL));
 
         g_signal_connect(getWidget("notifyTestButton"), "clicked", G_CALLBACK(onNotifyTestButton_gui), (gpointer)this);
         g_signal_connect(getWidget("notifyIconFileBrowseButton"), "clicked", G_CALLBACK(onNotifyIconFileBrowseClicked_gui), (gpointer)this);
