@@ -99,7 +99,7 @@ public:
     static void ensureDirectory(const string& aFile) noexcept;
     static bool isAbsolute(const string& path) noexcept;
 
-    virtual ~File() { close(); }
+    virtual ~File() { File::close(); }
 
     string read(size_t len);
     string read();
