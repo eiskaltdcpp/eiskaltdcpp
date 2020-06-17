@@ -41,7 +41,6 @@ CMAKE_OPTIONS="-DCMAKE_INSTALL_PREFIX=../../EiskaltDC++ \
                -DUSE_ASPELL=ON \
                -DUSE_JS=OFF \
                -DUSE_CLI_JSONRPC=ON \
-               -DFORCE_XDG=OFF \
                -DDBUS_NOTIFY=OFF \
                -DNO_UI_DAEMON=ON \
                -DJSONRPC_DAEMON=ON \

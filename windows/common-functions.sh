@@ -3,7 +3,7 @@
 # Author:  Boris Pek <tehnick-8@yandex.ru>
 # License: MIT (Expat)
 # Created: 2019-04-01
-# Updated: 2020-02-03
+# Updated: 2020-06-17
 # Version: N/A
 #
 # Dependencies:
@@ -85,7 +85,6 @@ PrepareToBuildForWindows()
 
     cd "${MAIN_DIR}/${PROJECT_DIR_NAME}"
     sed -i "s|option (USE_JS .*$|option (USE_JS \"\" OFF)|g" CMakeLists.txt
-    sed -i "s|option (FORCE_XDG .*$|option (FORCE_XDG \"\" OFF)|g" CMakeLists.txt
     sed -i "s|option (DBUS_NOTIFY .*$|option (DBUS_NOTIFY \"\" OFF)|g" CMakeLists.txt
     sed -i "s|option (WITH_EXAMPLES .*$|option (WITH_EXAMPLES \"\" OFF)|g" CMakeLists.txt
     sed -i "s|option (NO_UI_DAEMON .*$|option (NO_UI_DAEMON \"\" ON)|g" CMakeLists.txt
