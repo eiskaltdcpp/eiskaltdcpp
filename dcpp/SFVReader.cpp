@@ -16,7 +16,6 @@
  */
 
 #include "stdinc.h"
-
 #include "SFVReader.h"
 
 #include "StringTokenizer.h"
@@ -30,7 +29,6 @@
 namespace dcpp {
 
 bool SFVReader::tryFile(const string& sfvFile, const string& fileName) {
-
     string sfv = File(sfvFile, File::READ, File::OPEN).read();
 
     string::size_type i = 0;
@@ -39,6 +37,11 @@ bool SFVReader::tryFile(const string& sfvFile, const string& fileName) {
         if( (i == 0) || (sfv[i-1] == '\n') ) {
             string::size_type j = i + fileName.length() + 1;
             if(j < sfv.length() - 8) {
+                // Check for at least one whitespace between filename and crc32 value...otherwise skip...
+                if(!isspace(sfv[j-1])) {
+                    i = j;
+                    continue;
+                }
                 sscanf(sfv.c_str() + j, "%x", &crc32);
                 crcFound = true;
                 return true;
@@ -55,7 +58,7 @@ void SFVReader::load(const string& fileName) noexcept {
     string fname = Util::getFileName(fileName);
     StringList files = File::findFiles(path, "*.sfv");
 
-    for(auto& i : files) {
+    for(auto& i: files) {
         try {
             if (tryFile(i, fname)) {
                 return;
