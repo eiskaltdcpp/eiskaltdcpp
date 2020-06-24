@@ -37,6 +37,7 @@ public:
 private:
     MagnetAction currentAction;
 private slots:
+    void saveWindowSize();
     void search();
     void download();
     void slotBrowse();

@@ -39,7 +39,9 @@ Magnet::Magnet(QWidget *parent) :
     connect(pushButton_CANCEL,  SIGNAL(clicked()), this, SLOT(accept()));
     connect(pushButton_SEARCH,  SIGNAL(clicked()), this, SLOT(search()));
     connect(pushButton_DOWNLOAD,SIGNAL(clicked()), this, SLOT(download()));
-    connect(pushButton_BROWSE, SIGNAL(clicked()), this, SLOT(slotBrowse()));
+    connect(pushButton_BROWSE,  SIGNAL(clicked()), this, SLOT(slotBrowse()));
+    connect(this, SIGNAL(finished(int)), this, SLOT(saveWindowSize()));
+
     if (!SETTING(AUTO_SEARCH)){
         pushButton_DOWNLOAD->setToolTip(tr("Run search alternatives manually."));
     }
@@ -47,6 +49,10 @@ Magnet::Magnet(QWidget *parent) :
         pushButton_DOWNLOAD->setToolTip(tr("Download file via auto search alternatives"));
     }
     currentAction = (MagnetAction)WIGET(WI_DEF_MAGNET_ACTION);
+
+    if (WVGET("ui/magnet-dialog-size").isValid()) {
+        resize(WVGET("ui/magnet-dialog-size").toSize());
+    }
 }
 
 Magnet::~Magnet() {}
@@ -119,6 +125,10 @@ int Magnet::exec() {
         return result();
     }
     return QDialog::exec();
+}
+
+void Magnet::saveWindowSize() {
+    WVSET("ui/magnet-dialog-size", size());
 }
 
 void Magnet::search(const QString &file, const qulonglong &size, const QString &tth){
