@@ -2,43 +2,49 @@ language: cpp
 
 sudo: required
 cache: ccache
-dist: xenial
 
 if: tag IS blank
 
 jobs:
   include:
-    - env: TARGET=linux64 USE_QT=qt5
+    - env: TARGET=linux64 USE_QT=qt5 DIST=xenial
       os: linux
-      compiler: gcc
-    - env: TARGET=linux64 USE_QT=qt5
-      os: linux
+      dist: xenial
       compiler: clang
+    - env: TARGET=linux64 USE_QT=qt5 DIST=xenial
+      os: linux
+      dist: xenial
+      compiler: gcc
+    - env: TARGET=linux64 USE_QT=qt5 DIST=focal
+      os: linux
+      dist: focal
     - env: TARGET=linux64 USE_QT=qt4
       os: linux
+      dist: xenial
     - env: TARGET=linux64 USE_GTK=gtk3
       os: linux
+      dist: xenial
     - env: TARGET=linux64 USE_GTK=gtk2
       os: linux
+      dist: xenial
     - env: TARGET=linux64 USE_DAEMON=jsonrpc
       os: linux
-      compiler: gcc
-    - env: TARGET=linux64 USE_DAEMON=jsonrpc
-      os: linux
-      compiler: clang
+      dist: xenial
     - env: TARGET=macos64
       os: osx
       osx_image: xcode9.4
     - env: TARGET=macos64
       os: osx
-      osx_image: xcode10.3
+      osx_image: xcode11.3
     - env: TARGET=macos64
       os: osx
-      osx_image: xcode11.3
+      osx_image: xcode12
     - env: TARGET=windows32
       os: linux
+      dist: xenial
     - env: TARGET=windows64
       os: linux
+      dist: xenial
 
 install:
   - ./tests/travis-ci/install-build-depends.sh
