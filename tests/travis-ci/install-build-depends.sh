@@ -32,7 +32,6 @@ then
         sudo apt-get install -qq qtbase5-dev \
                                  qttools5-dev \
                                  qtmultimedia5-dev \
-                                 qtquick1-5-dev \
                                  qtscript5-dev \
                                  qt5-default \
                                  libqt5xmlpatterns5-dev \
