@@ -29,12 +29,14 @@ if [ "${USE_QT}" = "qt4" ]
 then
     CMAKE_OPTIONS="${CMAKE_OPTIONS} \
         -DUSE_QT=ON \
+        -DUSE_QT_QML=ON \
         -DUSE_QT5=OFF \
         "
 elif [ "${USE_QT}" = "qt5" ]
 then
     CMAKE_OPTIONS="${CMAKE_OPTIONS} \
         -DUSE_QT=OFF \
+        -DUSE_QT_QML=OFF \
         -DUSE_QT5=ON \
         "
 fi
@@ -46,7 +48,6 @@ then
         -DWITH_EMOTICONS=ON \
         -DWITH_EXAMPLES=ON \
         -DUSE_JS=ON \
-        -DUSE_QT_QML=ON \
         -DUSE_ASPELL=ON \
         -DUSE_QT_SQLITE=ON \
         "
