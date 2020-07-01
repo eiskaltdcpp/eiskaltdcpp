@@ -331,6 +331,7 @@ PrepareAppDirs()
         # eiskaltdcpp-daemon dirs tree
         mkdir -p "${DIR_OUT_DAEMON}/bin"
         mkdir -p "${DIR_OUT_DAEMON}/share/applications"
+        mkdir -p "${DIR_OUT_DAEMON}/share/eiskaltdcpp"
         mkdir -p "${DIR_OUT_DAEMON}/share/man/man1"
         mkdir -p "${DIR_OUT_DAEMON}/share/metainfo"
         # basic files
@@ -346,6 +347,9 @@ PrepareAppDirs()
               "${DIR_OUT_DAEMON}/share/metainfo/eiskaltdcpp-daemon.appdata.xml"
         cp -a "${DIR_IN}/share/pixmaps" \
               "${DIR_OUT_DAEMON}/share/"
+        # additional files
+        cp -a "${DIR_IN}/share/eiskaltdcpp/luascripts" \
+              "${DIR_OUT_DAEMON}/share/eiskaltdcpp/"
         # AppDir files
         ln -s "usr/bin/eiskaltdcpp-daemon" \
               "${DIR_OUT_DAEMON}/../AppRun"
