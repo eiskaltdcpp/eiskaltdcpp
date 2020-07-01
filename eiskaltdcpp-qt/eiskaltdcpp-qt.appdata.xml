@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop">
+  <id>com.github.eiskaltdcpp</id>
+  <launchable type="desktop-id">eiskaltdcpp-qt.desktop</launchable>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0+</project_license>
+  <name>EiskaltDC++</name>
+  <summary>File sharing program using DC and ADC protocols.</summary>
+  <description>
+    <p>
+      EiskaltDC++ is a cross-platform program that uses the Direct Connect and Advanced Direct Connect protocols. It is compatible with DC++, AirDC++, FlylinkDC++ and other DC clients. EiskaltDC++ also interoperates with all common DC hub software.
+    </p>
+    <p>
+      Currently supported systems (in order of decreasing importance): GNU/Linux, macOS, MS Windows, FreeBSD, Haiku and GNU/Hurd.
+    </p>
+    <p>Features:</p>
+    <ul>
+      <li>Highly customizable user interface</li>
+      <li>User interface is translated to many languages</li>
+      <li>Encryption of traffic</li>
+      <li>Multi-threaded download of files</li>
+      <li>Support of binding to specific network interface or address</li>
+      <li>Support of UPnP (Universal Plug and Play)</li>
+      <li>Support of PFSR (partial file sharing)</li>
+      <li>Support of DHT (Distributed Hash Table)</li>
+      <li>Support of case-sensitive file lists</li>
+      <li>Lists of downloaded and uploaded files</li>
+      <li>Lists of public and favorite hubs</li>
+      <li>Lists of favorite users</li>
+      <li>List of active transfers</li>
+      <li>Flexible search with the ability to group results</li>
+      <li>Flexible settings for downloading files</li>
+      <li>Indicator of free space on disk</li>
+      <li>Support of IP filter and basic antispam</li>
+      <li>Search spy</li>
+      <li>ADL search</li>
+      <li>Full-featured chat</li>
+      <li>User commands on hub</li>
+      <li>Flexible keyboard shortcuts settings</li>
+      <li>Text and sound notifications for different events</li>
+      <li>Flexible settings for files hashing</li>
+      <li>Special tool for calculating of TTH for any file</li>
+      <li>Support of limitations of download/upload speed</li>
+      <li>Support of limitations by size of shared files</li>
+      <li>Support of handling of magnet links, web magnet links and hub links</li>
+      <li>Support of automatic replies to private messages when user is inactive</li>
+      <li>Support of IDNA (recognition of national domain names)</li>
+      <li>Support of URL encoded strings for hub addresses</li>
+    </ul>
+  </description>
+  <url type="homepage">https://github.com/eiskaltdcpp/eiskaltdcpp</url>
+  <url type="bugtracker">https://github.com/eiskaltdcpp/eiskaltdcpp/issues</url>
+  <screenshots>
+    <screenshot type="default">
+      <image>https://tehnick.github.io/eiskaltdcpp/eiskaltdcpp-qt-2.2.10-588_search_widget.png</image>
+    </screenshot>
+  </screenshots>
+</component>
