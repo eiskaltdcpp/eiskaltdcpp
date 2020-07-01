@@ -26,7 +26,7 @@ Currently supported features (not full list):
 * Support of binding to specific network interface or address (in case when user system has few network connections simultaneously).
 * Support of auto updating of external IPv4 address via DynDNS services.
 * Support of case-sensitive file lists. This feature is extremely important on all supported systems except MS Windows (in fact even NTFS supports case-sensitive file names, but MS Windows does not use this feature.).
-* GUI programs are localized to few languages.
+* User interface is translated to many languages.
 * GUI programs allow to place list of widgets on sidebar, on multiline tabbar panel or on single-line tabbar.
 * GUI program based on Qt has support of hiding the program menu (it will be available by special button to the toolbar).
 * Advanced search with the ability to group results; black list for search results.
@@ -56,6 +56,7 @@ Currently supported features (not full list):
 * Support of user extensions on QtScript (only in Qt based GUI in GNU/Linux) and on Lua (in all supported systems).
 * Support of IDNA (recognition of national domain names).
 * Support of URL encoded strings for hub addresses.
+* Support of traffic encryption.
 
 <a href="https://tehnick.github.io/eiskaltdcpp/eiskaltdcpp-qt-2.2.10-588_search_widget.png" title="Example of search results">
     <img src="https://tehnick.github.io/eiskaltdcpp/eiskaltdcpp-qt-2.2.10-588_search_widget.png" width="99%">
