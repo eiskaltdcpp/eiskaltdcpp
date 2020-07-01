@@ -3,11 +3,11 @@
 # Author:  Boris Pek <tehnick-8@yandex.ru>
 # License: MIT (Expat)
 # Created: 2019-04-01
-# Updated: 2019-06-01
+# Updated: 2020-07-01
 # Version: N/A
 #
 # Dependencies:
-# git, wget, curl, rsync, find, sed, tar
+# git, rsync, find, sed, appimagetool
 # MXE: https://github.com/sibuserv/lxe/tree/hobby
 # Sibuserv: https://github.com/sibuserv/sibuserv
 #
@@ -33,9 +33,8 @@ PrepareMainDir
 echo "Getting the sources..."
 echo;
 
-GetProgramSources
-GetWebUISources
-GetProgramVersion
+GetProgramSources ${@}
+GetProgramVersion ${@}
 
 echo "Preparing to build..."
 PrepareToBuildForLinux
@@ -44,20 +43,20 @@ echo "Done."
 echo;
 
 echo "Building EiskaltDC++..."
-BuildProject
+BuildProjectUsingSibuserv
 echo;
 
-echo "Copying programs, libraries, resources and documentation to..."
-InstallAllToTempDir
+echo "Installing..."
+InstallToTempDir
 echo;
 
-echo "Compressing directories into *.tar.xz archives..."
-CompressDirsForLinux
+echo "Preparing application directories..."
+PrepareAppDirs
 echo "Done."
 echo;
 
-echo "Moving tarballs to main directory..."
-MoveTarballs
+echo "Building AppImage files..."
+BuildAppImageFiles
 echo "Done."
 echo;
 

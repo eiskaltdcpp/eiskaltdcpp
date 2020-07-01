@@ -3,7 +3,7 @@
 # Author:  Boris Pek <tehnick-8@yandex.ru>
 # License: MIT (Expat)
 # Created: 2019-04-01
-# Updated: 2019-06-01
+# Updated: 2020-07-01
 # Version: N/A
 #
 # Dependencies:
@@ -46,6 +46,9 @@ GetProgramSources()
         cd "${MAIN_DIR}/${MOD}"
         git checkout master
         echo;
+    fi
+    if [ "${1}" = "release" ]; then
+        git checkout "${2}" || return 1
     fi
 }
 

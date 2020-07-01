@@ -3,11 +3,11 @@
 # Author:  Boris Pek <tehnick-8@yandex.ru>
 # License: MIT (Expat)
 # Created: 2019-04-01
-# Updated: 2019-06-01
+# Updated: 2020-07-01
 # Version: N/A
 #
 # Dependencies:
-# git, wget, curl, rsync, find, sed, p7zip, nsis
+# git, rsync, find, sed, p7zip, nsis
 # MXE: https://github.com/sibuserv/mxe/tree/hobby
 # Sibuserv: https://github.com/sibuserv/sibuserv
 #
@@ -33,9 +33,9 @@ PrepareMainDir
 echo "Getting the sources..."
 echo;
 
-GetProgramSources
+GetProgramSources ${@}
 GetWebUISources
-GetProgramVersion
+GetProgramVersion ${@}
 
 echo "Preparing to build..."
 PrepareToBuildForWindows
@@ -44,7 +44,8 @@ echo "Done."
 echo;
 
 echo "Building EiskaltDC++..."
-BuildProject
+BuildProjectUsingSibuserv
+PrepareWebUIToInstallation
 echo;
 
 echo "Copying programs, libraries, resources and documentation to..."

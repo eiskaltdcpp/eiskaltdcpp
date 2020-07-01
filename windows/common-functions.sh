@@ -3,18 +3,18 @@
 # Author:  Boris Pek <tehnick-8@yandex.ru>
 # License: MIT (Expat)
 # Created: 2019-04-01
-# Updated: 2020-06-17
+# Updated: 2020-07-01
 # Version: N/A
 #
 # Dependencies:
-# git, wget, curl, rsync, find, sed, p7zip, nsis
+# git, rsync, find, sed, p7zip, nsis
 
 set -e
 
 P7ZIP_ARCHIVER_OPTIONS="a -t7z -m0=lzma -mx=9 -mfb=64 -md=32m -ms=on"
-TAR_ARCHIVER_OPTIONS="-cJf"
 
-VERSION="x.y.z"
+PROGRAM_VERSION="x.y.z"
+WEB_UI_VERSION="x.y.z"
 
 ShowHelp()
 {
@@ -54,16 +54,27 @@ GetProgramVersion()
 
     cd "${MAIN_DIR}/${PROJECT_DIR_NAME}"
     if [ "${1}" = "release" ]; then
-        VERSION="${2}"
+        PROGRAM_VERSION="${2}"
     else
         GIT_TAG="$(git describe --tags | cut -d - -f1 | sed "s|v||g")"
         GIT_REV="$(git describe --tags | cut -d - -f2)"
-        VERSION="${GIT_TAG}-${GIT_REV}"
+        PROGRAM_VERSION="${GIT_TAG}-${GIT_REV}"
     fi
 
-    ARCHIVE_DIR_NAME="EiskaltDC++-${VERSION}"
-    echo "Current version of EiskaltDC++: ${VERSION}"
+    ARCHIVE_DIR_NAME="EiskaltDC++-${PROGRAM_VERSION}"
+    echo "Current version of EiskaltDC++: ${PROGRAM_VERSION}"
     echo;
+}
+
+GetWebUIVersion()
+{
+    [ -z "${MAIN_DIR}" ] && return 1
+    [ -z "${WEB_UI_DIR_NAME}" ] && return 1
+
+    cd "${MAIN_DIR}/${WEB_UI_DIR_NAME}"
+    GIT_TAG="$(git describe --tags | cut -d - -f1 | sed "s|v||g")"
+    GIT_REV="$(git describe --tags | cut -d - -f2)"
+    WEB_UI_VERSION="${GIT_TAG}-${GIT_REV}"
 }
 
 CleanBuildDir()
@@ -105,18 +116,33 @@ PrepareToBuildForLinux()
     sed -i "s|option (WITH_LUASCRIPTS .*$|option (WITH_LUASCRIPTS \"\" ON)|g" CMakeLists.txt
 }
 
-BuildProject()
+BuildProjectUsingSibuserv()
 {
     [ -z "${MAIN_DIR}" ] && return 1
     [ -z "${BUILD_TARGETS}" ] && return 1
     [ -z "${PROJECT_DIR_NAME}" ] && return 1
-    [ -z "${WEB_UI_DIR_NAME}" ] && return 1
 
     cd "${MAIN_DIR}/${PROJECT_DIR_NAME}"
     build-project ${BUILD_TARGETS}
+}
+
+PrepareWebUIToInstallation()
+{
+    [ -z "${MAIN_DIR}" ] && return 1
+    [ -z "${BUILD_TARGETS}" ] && return 1
+    [ -z "${WEB_UI_DIR_NAME}" ] && return 1
 
     cd "${MAIN_DIR}/${WEB_UI_DIR_NAME}"
     build-project ${BUILD_TARGETS}
+}
+
+InstallToTempDir()
+{
+    [ -z "${MAIN_DIR}" ] && return 1
+    [ -z "${PROJECT_DIR_NAME}" ] && return 1
+
+    cd "${MAIN_DIR}/${PROJECT_DIR_NAME}"
+    build-project install ${BUILD_TARGETS}
 }
 
 InstallAllToTempDir()
@@ -126,8 +152,7 @@ InstallAllToTempDir()
     [ -z "${PROJECT_DIR_NAME}" ] && return 1
     [ -z "${WEB_UI_DIR_NAME}" ] && return 1
 
-    cd "${MAIN_DIR}/${PROJECT_DIR_NAME}"
-    build-project install ${BUILD_TARGETS}
+    InstallToTempDir
 
     cd "${MAIN_DIR}/${WEB_UI_DIR_NAME}"
     build-project install ${BUILD_TARGETS}
@@ -185,39 +210,12 @@ CompressDirsForWindows()
     done
 }
 
-CompressDirsForLinux()
-{
-    [ -z "${MAIN_DIR}" ] && return 1
-    [ -z "${PROJECT_DIR_NAME}" ] && return 1
-    [ -z "${ARCHIVE_DIR_NAME}" ] && return 1
-    [ -z "${TAR_ARCHIVER_OPTIONS}" ] && return 1
-
-    cd "${MAIN_DIR}"
-    for TARGET in ${BUILD_TARGETS} ; do
-        WORK_DIR="${MAIN_DIR}/build-${PROJECT_DIR_NAME}/${TARGET}-out"
-
-        TARBALL_DIR_NAME="${ARCHIVE_DIR_NAME}_${TARGET}"
-        TARBALL_DIR_NAME="$(echo ${TARBALL_DIR_NAME} | sed 's|Debian-9|linux|')"
-        TARBALL_DIR_NAME="$(echo ${TARBALL_DIR_NAME} | sed 's|Ubuntu-14.04|linux|')"
-        TARBALL_DIR_NAME="$(echo ${TARBALL_DIR_NAME} | sed 's|_shared||')"
-        TARBALL_DIR_NAME="$(echo ${TARBALL_DIR_NAME} | sed 's|_static||')"
-
-        cd "${WORK_DIR}"
-        rm -rf "${TARBALL_DIR_NAME}"*
-
-        mkdir "${TARBALL_DIR_NAME}"
-        cp -af "usr" "${TARBALL_DIR_NAME}/"
-
-        tar ${TAR_ARCHIVER_OPTIONS} "${TARBALL_DIR_NAME}.tar.xz" "${TARBALL_DIR_NAME}"
-    done
-}
-
 MakeInstallers()
 {
     [ -z "${MAIN_DIR}" ] && return 1
     [ -z "${BUILD_TARGETS}" ] && return 1
     [ -z "${PROJECT_DIR_NAME}" ] && return 1
-    [ -z "${VERSION}" ] && return 1
+    [ -z "${PROGRAM_VERSION}" ] && return 1
 
     cd "${MAIN_DIR}"
     for TARGET in ${BUILD_TARGETS} ; do
@@ -239,16 +237,16 @@ MakeInstallers()
               "installer/"
 
         if [ "${TARGET}" = "i686-w64-mingw32.shared" ] ; then
-            makensis -Dversion=${VERSION} -Dshared=32 \
+            makensis -Dversion=${PROGRAM_VERSION} -Dshared=32 \
                      ./EiskaltDC++.nsi > /dev/null
         elif [ "${TARGET}" = "i686-w64-mingw32.static" ] ; then
-            makensis -Dversion=${VERSION} -Dstatic=32 \
+            makensis -Dversion=${PROGRAM_VERSION} -Dstatic=32 \
                      ./EiskaltDC++.nsi > /dev/null
         elif [ "${TARGET}" = "x86_64-w64-mingw32.shared" ] ; then
-            makensis -Dversion=${VERSION} -Dshared=64 \
+            makensis -Dversion=${PROGRAM_VERSION} -Dshared=64 \
                      ./EiskaltDC++.nsi > /dev/null
         elif [ "${TARGET}" = "x86_64-w64-mingw32.static" ] ; then
-            makensis -Dversion=${VERSION} -Dstatic=64 \
+            makensis -Dversion=${PROGRAM_VERSION} -Dstatic=64 \
                      ./EiskaltDC++.nsi > /dev/null
         else
             continue
@@ -269,16 +267,110 @@ MoveInstallers()
     mv */*-installer.exe "${MAIN_DIR}/"
 }
 
-MoveTarballs()
+PrepareAppDirs()
 {
     [ -z "${MAIN_DIR}" ] && return 1
+    [ -z "${BUILD_TARGETS}" ] && return 1
     [ -z "${PROJECT_DIR_NAME}" ] && return 1
-    [ -z "${ARCHIVE_DIR_NAME}" ] && return 1
+    [ -z "${PROGRAM_VERSION}" ] && return 1
 
     cd "${MAIN_DIR}"
-    rm -f ${ARCHIVE_DIR_NAME}*.tar.xz
+    rm -rf eiskaltdcpp-*-${PROGRAM_VERSION}*/
 
-    cd "${MAIN_DIR}/build-${PROJECT_DIR_NAME}"
-    mv */*.tar.xz "${MAIN_DIR}/"
+    for TARGET in ${BUILD_TARGETS} ; do
+        DIR_IN="${MAIN_DIR}/build-${PROJECT_DIR_NAME}/${TARGET}-out/usr"
+        if [ "${TARGET}" = "Ubuntu-14.04_i386_shared" ] ; then
+            DIR_OUT_QT_UI="eiskaltdcpp-qt-${PROGRAM_VERSION}-i686/usr"
+            DIR_OUT_DAEMON="eiskaltdcpp-daemon-${PROGRAM_VERSION}-i686/usr"
+        elif [ "${TARGET}" = "Ubuntu-14.04_i386_static" ] ; then
+            DIR_OUT_QT_UI="eiskaltdcpp-qt-${PROGRAM_VERSION}-i686/usr"
+            DIR_OUT_DAEMON="eiskaltdcpp-daemon-${PROGRAM_VERSION}-i686/usr"
+        elif [ "${TARGET}" = "Ubuntu-14.04_amd64_shared" ] ; then
+            DIR_OUT_QT_UI="eiskaltdcpp-qt-${PROGRAM_VERSION}-x86_64/usr"
+            DIR_OUT_DAEMON="eiskaltdcpp-daemon-${PROGRAM_VERSION}-x86_64/usr"
+        elif [ "${TARGET}" = "Ubuntu-14.04_amd64_static" ] ; then
+            DIR_OUT_QT_UI="eiskaltdcpp-qt-${PROGRAM_VERSION}-x86_64/usr"
+            DIR_OUT_DAEMON="eiskaltdcpp-daemon-${PROGRAM_VERSION}-x86_64/usr"
+        else
+            continue
+        fi
+
+        # eiskaltdcpp-qt dirs tree
+        mkdir -p "${DIR_OUT_QT_UI}/bin"
+        mkdir -p "${DIR_OUT_QT_UI}/share/applications"
+        mkdir -p "${DIR_OUT_QT_UI}/share/man/man1"
+        mkdir -p "${DIR_OUT_QT_UI}/share/metainfo"
+        # basic files
+        cp -a "${DIR_IN}/bin/eiskaltdcpp-qt" \
+              "${DIR_OUT_QT_UI}/bin/"
+        cp -a "${DIR_IN}/share/applications/eiskaltdcpp-qt.desktop" \
+              "${DIR_OUT_QT_UI}/share/applications/"
+        cp -a "${DIR_IN}/share/locale" \
+              "${DIR_OUT_QT_UI}/share/"
+        cp -a "${DIR_IN}/share/man/man1/eiskaltdcpp-qt.1.gz" \
+              "${DIR_OUT_QT_UI}/share/man/man1/"
+        cp -a "${MAIN_DIR}/${PROJECT_DIR_NAME}/eiskaltdcpp-qt/eiskaltdcpp-qt.appdata.xml" \
+              "${DIR_OUT_QT_UI}/share/metainfo/eiskaltdcpp-qt.appdata.xml"
+        cp -a "${DIR_IN}/share/pixmaps" \
+              "${DIR_OUT_QT_UI}/share/"
+        # additional files
+        cp -a "${DIR_IN}/share/eiskaltdcpp" \
+              "${DIR_OUT_QT_UI}/share/"
+        cp -a "${DIR_IN}/share/icons" \
+              "${DIR_OUT_QT_UI}/share/"
+        # AppDir files
+        ln -s "usr/bin/eiskaltdcpp-qt" \
+              "${DIR_OUT_QT_UI}/../AppRun"
+        ln -s "usr/share/applications/eiskaltdcpp-qt.desktop" \
+              "${DIR_OUT_QT_UI}/../eiskaltdcpp-qt.desktop"
+        ln -s "usr/share/pixmaps/eiskaltdcpp.png" \
+              "${DIR_OUT_QT_UI}/../eiskaltdcpp.png"
+        ln -s "usr/share/pixmaps/eiskaltdcpp.png" \
+              "${DIR_OUT_QT_UI}/../.DirIcon"
+
+        # eiskaltdcpp-daemon dirs tree
+        mkdir -p "${DIR_OUT_DAEMON}/bin"
+        mkdir -p "${DIR_OUT_DAEMON}/share/applications"
+        mkdir -p "${DIR_OUT_DAEMON}/share/man/man1"
+        mkdir -p "${DIR_OUT_DAEMON}/share/metainfo"
+        # basic files
+        cp -a "${DIR_IN}/bin/eiskaltdcpp-daemon" \
+              "${DIR_OUT_DAEMON}/bin/"
+        cp -a "${MAIN_DIR}/${PROJECT_DIR_NAME}/eiskaltdcpp-daemon/eiskaltdcpp-daemon.desktop" \
+              "${DIR_OUT_DAEMON}/share/applications/"
+        cp -a "${DIR_IN}/share/locale" \
+              "${DIR_OUT_DAEMON}/share/"
+        cp -a "${DIR_IN}/share/man/man1/eiskaltdcpp-daemon.1.gz" \
+              "${DIR_OUT_DAEMON}/share/man/man1/"
+        cp -a "${MAIN_DIR}/${PROJECT_DIR_NAME}/eiskaltdcpp-qt/eiskaltdcpp-qt.appdata.xml" \
+              "${DIR_OUT_DAEMON}/share/metainfo/eiskaltdcpp-daemon.appdata.xml"
+        cp -a "${DIR_IN}/share/pixmaps" \
+              "${DIR_OUT_DAEMON}/share/"
+        # AppDir files
+        ln -s "usr/bin/eiskaltdcpp-daemon" \
+              "${DIR_OUT_DAEMON}/../AppRun"
+        ln -s "usr/share/applications/eiskaltdcpp-daemon.desktop" \
+              "${DIR_OUT_DAEMON}/../eiskaltdcpp-daemon.desktop"
+        ln -s "usr/share/pixmaps/eiskaltdcpp.png" \
+              "${DIR_OUT_DAEMON}/../eiskaltdcpp.png"
+        ln -s "usr/share/pixmaps/eiskaltdcpp.png" \
+              "${DIR_OUT_DAEMON}/../.DirIcon"
+    done
+}
+
+BuildAppImageFiles()
+{
+    [ -z "${MAIN_DIR}" ] && return 1
+    [ -z "${PROGRAM_VERSION}" ] && return 1
+
+    cd "${MAIN_DIR}"
+    rm -f eiskaltdcpp-*-${PROGRAM_VERSION}*.AppImage
+
+    for DIR in eiskaltdcpp-*-${PROGRAM_VERSION}* ; do
+        [ ! -d "${DIR}" ] && continue
+
+        echo "Creating: ${DIR}.AppImage"
+        appimagetool "${DIR}" "${DIR}.AppImage" 2>&1 > appimagetool.log
+    done
 }
 
