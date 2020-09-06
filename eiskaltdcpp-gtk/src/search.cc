@@ -19,6 +19,7 @@
  */
 
 #include "search.hh"
+#include <glib.h>
 #include <dcpp/FavoriteManager.h>
 #include <dcpp/QueueManager.h>
 #include <dcpp/ShareManager.h>
@@ -1953,23 +1954,36 @@ void Search::on(ClientManagerListener::ClientDisconnected, Client *client) noexc
 }
 
 void Search::on(TimerManagerListener::Second, uint64_t aTick) noexcept {
-    if (waitingResults)
-    {
-        // use rounding below to workaround bug in gtk_progress_bar_set_fraction()
-        uint fract  = (1000 * (aTick - searchStartTime)) / (searchEndTime - searchStartTime);
-        float fraction  = 1.0f * fract / 1000;
-        if (fraction >= 1.0)
+    struct UpdateProgressArgs { Search *search; uint64_t aTick; };
+
+    auto updateProgress = [](gpointer data) noexcept -> gboolean {
+        auto args = static_cast<UpdateProgressArgs *>(data);
+        auto search = args->search;
+        if (search->waitingResults)
         {
-            fraction = 1.0;
-            waitingResults = false;
+            // use rounding below to workaround bug in gtk_progress_bar_set_fraction()
+            uint fract  = (1000 * (args->aTick - search->searchStartTime)) / (search->searchEndTime - search->searchStartTime);
+            float fraction  = 1.0f * fract / 1000;
+            if (fraction >= 1.0)
+            {
+                fraction = 1.0;
+                search->waitingResults = false;
+            }
+            search->setProgress_gui("progressbar1", _("Searching for ") + search->target + string(" ..."), fraction);
         }
-        setProgress_gui("progressbar1", _("Searching for ") + target + string(" ..."), fraction);
-    }
-    else
-    {
-        setProgress_gui("progressbar1", "", 0.0);
-        gtk_widget_set_sensitive(getWidget("comboboxentrySearch"), true);
-    }
+        else
+        {
+            search->setProgress_gui("progressbar1", "", 0.0);
+            gtk_widget_set_sensitive(search->getWidget("comboboxentrySearch"), true);
+        }
+        return G_SOURCE_REMOVE;
+    };
+
+    auto args = g_new0(UpdateProgressArgs, 1);
+    args->search = this;
+    args->aTick = aTick;
+    // Run updateProgress on the main thread
+    g_idle_add_full(G_PRIORITY_DEFAULT, updateProgress, args, g_free);
 }
 
 void Search::on(SearchManagerListener::SR, const SearchResultPtr& result) noexcept
