@@ -5,7 +5,7 @@ formatting = {}
 
 -- load pickle functions
 dofile( DC():GetScriptsPath() .. "libsimplepickle.lua" )
-formatting.settings_file = DC():GetConfigScriptsPath() .. "formatting_settings.txt"
+formatting.settings_file = DC():GetConfigScriptsPath() .. "formatting_settings.conf"
 
 -- every new line starts with the following, because of the multiline-URL-fix-hack
 formatting.input_start = ""
