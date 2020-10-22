@@ -533,8 +533,8 @@ SideBarView::~SideBarView() {
 bool SideBarView::eventFilter ( QObject *obj, QEvent *e) {
     if (obj == this && e->type() == QEvent::Resize) {
         if (WBGET(SIDEBAR_SHOW_CLOSEBUTTONS, true)){
-            header()->resizeSection(0, contentsRect().width() - 20);
-            header()->resizeSection(1, 18);
+            header()->resizeSection(0, contentsRect().width() - 32);
+            header()->resizeSection(1, 30);
         }
         else{
             header()->resizeSection(0, contentsRect().width());
