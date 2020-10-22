@@ -2916,11 +2916,8 @@ void MainWindow::slotSideBarDockMenu(){
     if (m->exec(QCursor::pos())){
         WBSET(SIDEBAR_SHOW_CLOSEBUTTONS, act->isChecked());
 
-        //repaint rows!
-        if (d->sideDock && act->isChecked())
-            d->sideDock->resize(d->sideDock->size()+QSize(18, 0));
-        else if(d->sideDock)
-            d->sideDock->resize(d->sideDock->size()+QSize(-18, 0));
+        // Tiny hack for repainting rows!
+        d->sideDock->resize(d->sideDock->size()+QSize(0, -2));
     }
 
     m->deleteLater();
