@@ -114,9 +114,9 @@ QVariant SideBarModel::data(const QModelIndex &index, int role) const
     case Qt::DecorationRole:
     {
         if (!item->getWidget())
-            return item->pixmap.scaled(18, 18);
+            return item->pixmap.scaled(18, 18, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
         else if (item->getWidget())
-            return item->getWidget()->getPixmap().scaled(18, 18);
+            return item->getWidget()->getPixmap().scaled(18, 18, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
     }
     case Qt::DisplayRole:
     {
