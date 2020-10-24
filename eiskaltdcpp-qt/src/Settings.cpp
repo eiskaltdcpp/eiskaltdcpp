@@ -98,6 +98,8 @@ void Settings::init(){
     connect(this, SIGNAL(timeToDie()), sadv, SLOT(ok()));
     widgets.insert(item, (int)Page::Advanced);
 
+    listWidget->setMinimumWidth(listWidget->sizeHintForColumn(0) + 6);
+
     stackedWidget->insertWidget((int)Page::Personal, personal);
     stackedWidget->insertWidget((int)Page::Connection, connection);
     stackedWidget->insertWidget((int)Page::Downloads, downloads);
