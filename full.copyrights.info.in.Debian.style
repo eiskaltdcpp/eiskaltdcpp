@@ -119,6 +119,11 @@ Files: eiskaltdcpp-qt/icons/appl/faenza/*
 Copyright: 2010-2011 Matthieu James (Tiheum) <matthieu.james@gmail.com>
 License: GPL-3
 
+Files: eiskaltdcpp-qt/icons/appl/haiku/*
+Copyright: 2020 Gerasim Troeglazov <3dEyes@gmail.com>
+           2020 Michele Frau afka zuMi (http://ta.me.ly/)
+License: Expat
+
 Files: data/emoticons/*
        data/sounds/*.wav
 Copyright: 2010 ApexDC++ Project Team (https://www.apexdc.net/)
