@@ -5,7 +5,7 @@
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-3.0+</project_license>
   <name>EiskaltDC++</name>
-  <summary>File sharing program using DC and ADC protocols.</summary>
+  <summary>File sharing program using DC and ADC protocols</summary>
   <description>
     <p>
       EiskaltDC++ is a cross-platform program that uses the Direct Connect and Advanced Direct Connect protocols. It is compatible with DC++, AirDC++, FlylinkDC++ and other DC clients. EiskaltDC++ also interoperates with all common DC hub software.

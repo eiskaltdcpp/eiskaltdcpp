@@ -345,6 +345,8 @@ PrepareAppDirs()
               "${DIR_OUT_DAEMON}/share/man/man1/"
         cp -a "${MAIN_DIR}/${PROJECT_DIR_NAME}/eiskaltdcpp-qt/eiskaltdcpp-qt.appdata.xml" \
               "${DIR_OUT_DAEMON}/share/metainfo/eiskaltdcpp-daemon.appdata.xml"
+        sed -i "s|eiskaltdcpp-qt.desktop|eiskaltdcpp-daemon.desktop|g" \
+              "${DIR_OUT_DAEMON}/share/metainfo/eiskaltdcpp-daemon.appdata.xml"
         cp -a "${DIR_IN}/share/pixmaps" \
               "${DIR_OUT_DAEMON}/share/"
         # additional files
