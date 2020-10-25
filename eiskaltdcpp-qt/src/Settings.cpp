@@ -22,6 +22,7 @@
 
 #include "WulforUtil.h"
 
+#include <QScroller>
 #include <QTableWidget>
 
 Settings::Settings(): is_dirty(false)
@@ -100,17 +101,17 @@ void Settings::init(){
 
     listWidget->setMinimumWidth(listWidget->sizeHintForColumn(0) + 6);
 
-    stackedWidget->insertWidget((int)Page::Personal, personal);
-    stackedWidget->insertWidget((int)Page::Connection, connection);
-    stackedWidget->insertWidget((int)Page::Downloads, downloads);
-    stackedWidget->insertWidget((int)Page::Sharing, sharing);
-    stackedWidget->insertWidget((int)Page::GUI, gui);
-    stackedWidget->insertWidget((int)Page::Notifications, notify);
-    stackedWidget->insertWidget((int)Page::Logs, logs);
-    stackedWidget->insertWidget((int)Page::UserCommands, ucs);
-    stackedWidget->insertWidget((int)Page::Shortcuts, sshs);
-    stackedWidget->insertWidget((int)Page::History, shist);
-    stackedWidget->insertWidget((int)Page::Advanced, sadv);
+    stackedWidget->insertWidget((int)Page::Personal, prepareScrollArea(personal));
+    stackedWidget->insertWidget((int)Page::Connection, prepareScrollArea(connection));
+    stackedWidget->insertWidget((int)Page::Downloads, prepareScrollArea(downloads));
+    stackedWidget->insertWidget((int)Page::Sharing, prepareScrollArea(sharing));
+    stackedWidget->insertWidget((int)Page::GUI, prepareScrollArea(gui));
+    stackedWidget->insertWidget((int)Page::Notifications, prepareScrollArea(notify));
+    stackedWidget->insertWidget((int)Page::Logs, prepareScrollArea(logs));
+    stackedWidget->insertWidget((int)Page::UserCommands, prepareScrollArea(ucs));
+    stackedWidget->insertWidget((int)Page::Shortcuts, prepareScrollArea(sshs));
+    stackedWidget->insertWidget((int)Page::History, prepareScrollArea(shist));
+    stackedWidget->insertWidget((int)Page::Advanced, prepareScrollArea(sadv));
 
     stackedWidget->setCurrentIndex(0);
 
@@ -123,6 +124,29 @@ void Settings::init(){
     connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
     connect(this, SIGNAL(accepted()), this, SIGNAL(timeToDie()));
     connect(this, SIGNAL(accepted()), this, SLOT(dirty()));
+}
+
+void Settings::setMouseScroller(QWidget *w){
+    QScroller::grabGesture(w, QScroller::LeftMouseButtonGesture);
+    QScroller *scroller = QScroller::scroller(w);
+    QScrollerProperties properties = scroller->scrollerProperties();
+    QVariant overshootPolicy = QVariant::fromValue<QScrollerProperties::OvershootPolicy>(QScrollerProperties::OvershootAlwaysOff);
+    properties.setScrollMetric(QScrollerProperties::VerticalOvershootPolicy, overshootPolicy);
+    properties.setScrollMetric(QScrollerProperties::HorizontalOvershootPolicy, overshootPolicy);
+    scroller->setScrollerProperties(properties);
+}
+
+QScrollArea *Settings::prepareScrollArea(QWidget *w)
+{
+    QScrollArea *scrollArea = new QScrollArea(this);
+    scrollArea->setWidget(w);
+    scrollArea->setWidgetResizable(true);
+    scrollArea->setFrameShape(QFrame::NoFrame);
+    scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    w->layout()->setMargin(0);
+    setMouseScroller(scrollArea);
+    return scrollArea;
 }
 
 void Settings::slotItemActivated(QListWidgetItem *item){

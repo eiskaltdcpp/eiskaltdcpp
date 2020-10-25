@@ -13,6 +13,7 @@
 #include <QListWidget>
 #include <QListWidgetItem>
 #include <QMap>
+#include <QScrollArea>
 
 #include "ui_UISettings.h"
 
@@ -51,6 +52,9 @@ private slots:
 
 private:
     void init();
+
+    inline void setMouseScroller(QWidget *w);
+    inline QScrollArea *prepareScrollArea(QWidget *w);
 
     WidgetMap widgets;
     bool is_dirty;

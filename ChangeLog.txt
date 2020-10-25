@@ -46,7 +46,8 @@
 * Added support relative paths for resources on Linux. This is necessary for
   correct work of program packaged in snap, flatpak, AppImage, etc..
 * Update list of fake client tags in Favorite Hub settings.
-* Improve support of nmdcs:// hubs.
+* Improved support of nmdcs:// hubs.
+* Improved setting dialog.
 * Added pretty icon theme "haiku". [Thanks to Gerasim Troeglazov]
 *** eiskaltdcpp-gtk ***
 * Fixed few minor bugs.
