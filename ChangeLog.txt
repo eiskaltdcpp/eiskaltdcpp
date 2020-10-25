@@ -47,6 +47,7 @@
   correct work of program packaged in snap, flatpak, AppImage, etc..
 * Update list of fake client tags in Favorite Hub settings.
 * Improve support of nmdcs:// hubs.
+* Added pretty icon theme "haiku". [Thanks to Gerasim Troeglazov]
 *** eiskaltdcpp-gtk ***
 * Fixed few minor bugs.
 * Fixed build with Pango >= 1.44.
