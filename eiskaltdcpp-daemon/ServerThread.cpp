@@ -49,7 +49,14 @@ bool isDebug = false;
 string xmlrpcLog = "/tmp/eiskaltdcpp-daemon.xmlrpc.log";
 string xmlrpcUriPath = "/eiskaltdcpp";
 
+struct ServerThread::SearchFilter {
+    string token;
+    TStringList currentSearch;
+    bool isHash = false;
+};
+
 ServerThread::ClientMap ServerThread::clientsMap;
+ServerThread::SearchFilter ServerThread::searchFilter;
 #ifdef JSONRPC_DAEMON
 Json::Rpc::HTTPServer * jsonserver;
 #endif
@@ -239,6 +246,29 @@ bool ServerThread::disconnectAll() {
             disconnectClient(client.first);
     }
     return true;
+}
+
+bool ServerThread::ignoreSearchResult(SearchResultPtr result)
+{
+    if (searchFilter.currentSearch.empty() || !result)
+        return true;
+
+    if (!result->getToken().empty() && searchFilter.token != result->getToken())
+        return true;
+
+    if(searchFilter.isHash) {
+        if(result->getType() != SearchResult::TYPE_FILE || TTHValue(Text::fromT(searchFilter.currentSearch[0])) != result->getTTH())
+            return true;
+    }
+    else {
+        for (const auto &j : searchFilter.currentSearch) {
+            if((*j.begin() != ('-') && Util::findSubString(result->getFile(), j) == string::npos) ||
+               (*j.begin() == ('-') && j.size() != 1 && Util::findSubString(result->getFile(), j.substr(1)) != string::npos))
+                return true;
+        }
+    }
+
+    return false;
 }
 
 void ServerThread::Close() {
@@ -461,9 +491,9 @@ void ServerThread::on(SearchFlood, Client*, const string& line) noexcept {
 }
 
 void ServerThread::on(SearchManagerListener::SR, const SearchResultPtr& result) noexcept {
-    if (!result) {
+    if (!result)
         return;
-    }
+
     for (const auto& client : clientsMap) {
         if (clientsMap[client.first].curclient && client.first == result->getHubURL()) {
             clientsMap[client.first].cursearchresult.push_back(result);
@@ -646,7 +676,7 @@ string ServerThread::revertSeparator(const string& ps) {
     return str;
 }
 
-bool ServerThread::sendSearchonHubs(const string& search, const int& searchtype, const int& sizemode, const int& sizetype, const double& lsize, const string& huburls) {
+bool ServerThread::sendSearchOnHubs(const string& search, const int& searchtype, const int& sizemode, const int& sizetype, const double& lsize, const string& huburls) {
     if (search.empty())
         return false;
     StringList clients;
@@ -708,7 +738,11 @@ bool ServerThread::sendSearchonHubs(const string& search, const int& searchtype,
         ftype = SearchManager::TYPE_ANY;
     }
 
-    SearchManager::getInstance()->search(clients, ssearch, lllsize, (SearchManager::TypeModes)ftype, mode, "manual", exts);
+    searchFilter.currentSearch = searchlist;
+    searchFilter.token = Util::toString(Util::rand());
+    searchFilter.isHash = (ftype == SearchManager::TYPE_TTH);
+
+    SearchManager::getInstance()->search(clients, ssearch, lllsize, SearchManager::TypeModes(ftype), mode, searchFilter.token, exts);
 
     return true;
 }
@@ -717,7 +751,11 @@ void ServerThread::returnSearchResults(vector<StringMap>& resultarray, const str
     for (const auto& client : clientsMap) {
         if (!huburl.empty() && client.first != huburl)
             continue;
+
         for (const auto& searchresult : clientsMap[client.first].cursearchresult) {
+            if (ignoreSearchResult(searchresult))
+                continue;
+
             StringMap resultMap;
             parseSearchResult(searchresult, resultMap);
             resultarray.push_back(resultMap);

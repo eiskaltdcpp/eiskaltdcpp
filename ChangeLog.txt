@@ -56,6 +56,10 @@
 * This is the last release with support of GTK+ UI. It will be removed
   completely in one of the next versions of program. Consider switching to
   Qt UI now.
+*** eiskaltdcpp-daemon ***
+* "search.getresults" method now returns filtered results for last "search.send"
+  request while all search results are stored by program. Use "search.clear" to
+  free the memory from unnecessary data.
 
 --- 2.3.0 2018-xx-xx ---
 * This release was skipped due to problems with versions scheme.

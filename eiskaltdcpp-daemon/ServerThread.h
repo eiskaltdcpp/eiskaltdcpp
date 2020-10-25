@@ -49,7 +49,7 @@ public:
     bool sendPrivateMessage(const string& hub, const string& nick, const string& message);
     bool getFileList(const string& hub, const string& nick, bool match);
     void getChatPubFromClient(string& chat, const string& hub, const string& separator);
-    bool sendSearchonHubs(const string& search, const int& mode, const int& sizemode, const int& sizetype, const double& size, const string& huburls);
+    bool sendSearchOnHubs(const string& search, const int& mode, const int& sizemode, const int& sizetype, const double& size, const string& huburls);
     void returnSearchResults(vector<StringMap>& resultarray, const string& huburl);
     bool clearSearchResults(const string& huburl);
     void listShare(string& listshare, const string& sseparator);
@@ -100,6 +100,7 @@ private:
     void autoConnect();
     void showPortsError(const std::string& port);
     bool disconnectAll();
+    bool ignoreSearchResult(SearchResultPtr result);
     void parseSearchResult(SearchResultPtr result, StringMap &resultMap);
     string revertSeparator(const string &ps);
     typedef struct {
@@ -116,6 +117,9 @@ private:
     typedef unordered_map <string, CurHub> ClientMap;
     typedef ClientMap::const_iterator ClientIter;
     static ClientMap clientsMap;
+
+    struct SearchFilter;
+    static SearchFilter searchFilter;
 
     typedef unordered_map <string, DirectoryListing*> FilelistMap;
     FilelistMap listsMap;

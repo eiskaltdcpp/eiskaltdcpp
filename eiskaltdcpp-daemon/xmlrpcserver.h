@@ -374,7 +374,7 @@ public:
 
         string const ssearch(paramList.getString(0));
         paramList.verifyEnd(1);
-        if (ServerThread::getInstance()->sendSearchonHubs(ssearch, 0, 0, 0, 0, ""))
+        if (ServerThread::getInstance()->sendSearchOnHubs(ssearch, 0, 0, 0, 0, ""))
             *retvalP = xmlrpc_c::value_int(0);
         else
             *retvalP = xmlrpc_c::value_int(1);

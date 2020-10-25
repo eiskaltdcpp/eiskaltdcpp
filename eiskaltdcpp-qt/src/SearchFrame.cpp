@@ -1004,7 +1004,7 @@ void SearchFrame::slotStartSearch(){
         d->currentSearch = StringTokenizer<string>(s.toStdString(), ' ').getTokens();
         s = "";
 
-        //strip out terms beginning with -
+        // strip out terms beginning with -
         for (auto si = d->currentSearch.begin(); si != d->currentSearch.end(); ) {
             if(si->empty()) {
                 si = d->currentSearch.erase(si);
@@ -1063,7 +1063,7 @@ void SearchFrame::slotStartSearch(){
     d->target = s;
     d->searchStartTime = GlobalTimer::getInstance()->getTicks()*1000;
 
-    uint64_t maxDelayBeforeSearch = SearchManager::getInstance()->search(clients, s.toStdString(), llsize, (SearchManager::TypeModes)ftype, searchMode, d->token.toStdString(), exts, (void*)this);
+    uint64_t maxDelayBeforeSearch = SearchManager::getInstance()->search(clients, s.toStdString(), llsize, SearchManager::TypeModes(ftype), searchMode, d->token.toStdString(), exts, (void*)this);
     uint64_t waitingResultsTime = 20000; // just assumption that user receives most of results in 20 seconds
 
     d->searchEndTime = d->searchStartTime + maxDelayBeforeSearch + waitingResultsTime;
