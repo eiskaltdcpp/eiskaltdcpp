@@ -19,7 +19,7 @@
 
 #include "CriticalSection.h"
 
-#include <boost/interprocess/detail/atomic.hpp>
+#include <atomic>
 
 namespace dcpp {
 
@@ -56,18 +56,18 @@ public:
 
     // type cast
     operator value_type() const {
-        return boost::interprocess::ipcdetail::atomic_read32(&m_value);
+        return m_value.load(std::memory_order_relaxed);
     }
 
     // increment
-    void inc() { boost::interprocess::ipcdetail::atomic_inc32(&m_value); }
+    void inc() { m_value.fetch_add(1, std::memory_order_relaxed); }
 
     // decrement
-    void dec() { boost::interprocess::ipcdetail::atomic_dec32(&m_value); }
+    void dec() { m_value.fetch_sub(1, std::memory_order_relaxed); }
 
 private:
-    mutable value_type m_value;
-    void assign(value_type val) { boost::interprocess::ipcdetail::atomic_write32(&m_value, val); }
+    mutable std::atomic<value_type> m_value;
+    void assign(value_type val) { m_value.store(val, std::memory_order_relaxed); }
 };
 
 // int32_t
