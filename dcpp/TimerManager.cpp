@@ -19,11 +19,11 @@
 
 #include "TimerManager.h"
 
-#include <boost/date_time/posix_time/ptime.hpp>
+#include <chrono>
 
 namespace dcpp {
 
-using namespace boost::posix_time;
+using namespace std::chrono;
 
 TimerManager::TimerManager() {
     // This mutex will be unlocked only upon shutdown
@@ -42,12 +42,12 @@ void TimerManager::shutdown() {
 int TimerManager::run() {
     int nextMin = 0;
 
-    ptime now = microsec_clock::universal_time();
-    ptime nextSecond = now + seconds(1);
+    auto now = steady_clock::now();
+    auto nextSecond = now + seconds(1);
 
-    while(!mtx.timed_lock(nextSecond)) {
+    while(!mtx.try_lock_until(nextSecond)) {
         uint64_t t = getTick();
-        now = microsec_clock::universal_time();
+        now = steady_clock::now();
         nextSecond += seconds(1);
         if(nextSecond < now) {
             nextSecond = now;
@@ -66,8 +66,8 @@ int TimerManager::run() {
 }
 
 uint64_t TimerManager::getTick() {
-    static ptime start = microsec_clock::universal_time();
-    return (microsec_clock::universal_time() - start).total_milliseconds();
+    static auto start = steady_clock::now();
+    return (duration_cast<milliseconds>(steady_clock::now() - start)).count();
 }
 
 } // namespace dcpp

@@ -21,7 +21,8 @@
 #include "Speaker.h"
 #include "Singleton.h"
 
-#include <boost/thread/mutex.hpp>
+#include <mutex>
+#include <climits>
 
 #ifndef _WIN32
 #include <ctime>
@@ -51,7 +52,7 @@ public:
 private:
     friend class Singleton<TimerManager>;
 
-    boost::timed_mutex mtx;
+    std::timed_mutex mtx;
 
     TimerManager();
     virtual ~TimerManager();
