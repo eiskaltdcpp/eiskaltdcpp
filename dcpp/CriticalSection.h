@@ -18,9 +18,9 @@
 
 #pragma once
 
-#if !defined(__APPLE__) && !defined(__MACH__)
-
 #include <mutex>
+
+#if !defined(__APPLE__) && !defined(__MACH__)
 
 namespace dcpp {
 
@@ -32,8 +32,6 @@ typedef std::lock_guard<std::mutex> FastLock;
 } // namespace dcpp
 
 #else // !defined(__APPLE__) && !defined(__MACH__)
-
-#include <boost/signals2/mutex.hpp>
 
 namespace dcpp {
 
@@ -72,7 +70,7 @@ public:
     void lock() { mtx.lock(); }
     void unlock() { mtx.unlock(); }
 private:
-    typedef boost::signals2::mutex mutex_t;
+    typedef std::mutex mutex_t;
     mutex_t mtx;
 };
 
