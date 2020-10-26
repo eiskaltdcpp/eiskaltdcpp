@@ -18,7 +18,7 @@
 #pragma once
 
 #include "CriticalSection.h"
-#include <boost/version.hpp>
+
 #include <boost/interprocess/detail/atomic.hpp>
 
 namespace dcpp {
