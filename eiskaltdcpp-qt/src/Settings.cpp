@@ -24,6 +24,7 @@
 
 #include <QScroller>
 #include <QTableWidget>
+#include <QTabWidget>
 
 Settings::Settings(): is_dirty(false)
 {
@@ -101,22 +102,31 @@ void Settings::init(){
 
     listWidget->setMinimumWidth(listWidget->sizeHintForColumn(0) + 6);
 
-    stackedWidget->insertWidget((int)Page::Personal, prepareScrollArea(personal));
-    stackedWidget->insertWidget((int)Page::Connection, prepareScrollArea(connection));
-    stackedWidget->insertWidget((int)Page::Downloads, prepareScrollArea(downloads));
-    stackedWidget->insertWidget((int)Page::Sharing, prepareScrollArea(sharing));
-    stackedWidget->insertWidget((int)Page::GUI, prepareScrollArea(gui));
-    stackedWidget->insertWidget((int)Page::Notifications, prepareScrollArea(notify));
-    stackedWidget->insertWidget((int)Page::Logs, prepareScrollArea(logs));
-    stackedWidget->insertWidget((int)Page::UserCommands, prepareScrollArea(ucs));
-    stackedWidget->insertWidget((int)Page::Shortcuts, prepareScrollArea(sshs));
-    stackedWidget->insertWidget((int)Page::History, prepareScrollArea(shist));
-    stackedWidget->insertWidget((int)Page::Advanced, prepareScrollArea(sadv));
+    stackedWidget->insertWidget((int)Page::Personal, prepareWidget(personal));
+    stackedWidget->insertWidget((int)Page::Connection, prepareWidget(connection));
+    stackedWidget->insertWidget((int)Page::Downloads, prepareWidget(downloads));
+    stackedWidget->insertWidget((int)Page::Sharing, prepareWidget(sharing));
+    stackedWidget->insertWidget((int)Page::GUI, prepareWidget(gui));
+    stackedWidget->insertWidget((int)Page::Notifications, prepareWidget(notify));
+    stackedWidget->insertWidget((int)Page::Logs, prepareWidget(logs));
+    stackedWidget->insertWidget((int)Page::UserCommands, prepareWidget(ucs));
+    stackedWidget->insertWidget((int)Page::Shortcuts, prepareWidget(sshs));
+    stackedWidget->insertWidget((int)Page::History, prepareWidget(shist));
+    stackedWidget->insertWidget((int)Page::Advanced, prepareWidget(sadv));
 
     stackedWidget->setCurrentIndex(0);
 
     if (WVGET("settings/dialog-size").isValid())
         resize(WVGET("settings/dialog-size").toSize());
+
+    // Convenient scrolling of widgets with the mouse, as well as from the touchpad and from the touchscreen:
+    for (auto &asa : stackedWidget->findChildren<QAbstractScrollArea*>()) {
+        setMouseScroller(asa->viewport());
+    }
+    // Smooth scrolling. See: http://stackoverflow.com/questions/19298486/qscroller-kinetic-scrolling-is-not-smooth)
+    for (auto &aiv : stackedWidget->findChildren<QAbstractItemView*>()) {
+        aiv->setVerticalScrollMode(QAbstractItemView::ScrollPerPixel);
+    }
 
     connect(listWidget, SIGNAL(itemClicked(QListWidgetItem*)), this, SLOT(slotItemActivated(QListWidgetItem*)));
     connect(listWidget, SIGNAL(itemActivated(QListWidgetItem*)), this, SLOT(slotItemActivated(QListWidgetItem*)));
@@ -136,17 +146,35 @@ void Settings::setMouseScroller(QWidget *w){
     scroller->setScrollerProperties(properties);
 }
 
-QScrollArea *Settings::prepareScrollArea(QWidget *w)
+QWidget *Settings::prepareWidget(QWidget *w)
 {
-    QScrollArea *scrollArea = new QScrollArea(this);
-    scrollArea->setWidget(w);
-    scrollArea->setWidgetResizable(true);
-    scrollArea->setFrameShape(QFrame::NoFrame);
-    scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    const bool containsTabs = !w->findChildren<QTabWidget*>().isEmpty();
+    if (containsTabs) {
+        for (auto *tw : w->findChildren<QTabWidget*>()) {
+            // Content of each page should placed to independent QScrollArea
+            for (int k = 0; k < tw->count(); ++k) {
+                const QString &&title = tw->tabText(k);
+                QWidget *page = tw->widget(k);
+                QScrollArea *scrollArea = new QScrollArea(this);
+                scrollArea->setWidget(page);
+                scrollArea->setWidgetResizable(true);
+                scrollArea->setFrameShape(QFrame::NoFrame);
+                tw->insertTab(k, scrollArea, title);
+            }
+            tw->setCurrentIndex(0);
+        }
+    }
+    else { // Single widget may be placed directly to QScrollArea
+        QScrollArea *scrollArea = new QScrollArea(this);
+        scrollArea->setWidget(w);
+        scrollArea->setWidgetResizable(true);
+        scrollArea->setFrameShape(QFrame::NoFrame);
+        w->layout()->setMargin(0);
+        return scrollArea;
+    }
+
     w->layout()->setMargin(0);
-    setMouseScroller(scrollArea);
-    return scrollArea;
+    return w;
 }
 
 void Settings::slotItemActivated(QListWidgetItem *item){

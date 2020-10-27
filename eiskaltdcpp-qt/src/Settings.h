@@ -54,7 +54,7 @@ private:
     void init();
 
     inline void setMouseScroller(QWidget *w);
-    inline QScrollArea *prepareScrollArea(QWidget *w);
+    inline QWidget *prepareWidget(QWidget *w);
 
     WidgetMap widgets;
     bool is_dirty;
