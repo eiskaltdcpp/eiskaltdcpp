@@ -85,7 +85,7 @@ public:
 
         ~PartialSource() { }
 
-        typedef boost::intrusive_ptr<PartialSource> Ptr;
+        typedef dcpp::intrusive_ptr<PartialSource> Ptr;
 
         GETSET(PartsInfo, partialInfo, PartialInfo);
         GETSET(string, myNick, MyNick);                 // for NMDC support only

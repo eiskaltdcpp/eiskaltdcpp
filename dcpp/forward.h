@@ -21,7 +21,7 @@
  * This file contains forward declarations for the various DC++ classes
  */
 
-#include <boost/intrusive_ptr.hpp>
+#include "intrusive_ptr.h"
 
 namespace dcpp {
 
@@ -32,7 +32,7 @@ class ADLSearch;
 class BufferedSocket;
 
 class Bundle;
-typedef boost::intrusive_ptr<Bundle> BundlePtr;
+typedef dcpp::intrusive_ptr<Bundle> BundlePtr;
 
 struct ChatMessage;
 
@@ -59,10 +59,10 @@ class FavoriteUser;
 class File;
 
 class FinishedFileItem;
-typedef boost::intrusive_ptr<FinishedFileItem> FinishedFileItemPtr;
+typedef dcpp::intrusive_ptr<FinishedFileItem> FinishedFileItemPtr;
 
 class FinishedUserItem;
-typedef boost::intrusive_ptr<FinishedUserItem> FinishedUserItemPtr;
+typedef dcpp::intrusive_ptr<FinishedUserItem> FinishedUserItemPtr;
 
 class FinishedManager;
 
@@ -90,7 +90,7 @@ class QueueItem;
 typedef QueueItem* QueueItemPtr;
 
 class SearchResult;
-typedef boost::intrusive_ptr<SearchResult> SearchResultPtr;
+typedef dcpp::intrusive_ptr<SearchResult> SearchResultPtr;
 
 class Socket;
 class SocketException;
@@ -114,7 +114,7 @@ class Upload;
 typedef Upload* UploadPtr;
 
 class User;
-typedef boost::intrusive_ptr<User> UserPtr;
+typedef dcpp::intrusive_ptr<User> UserPtr;
 
 class UserCommand;
 

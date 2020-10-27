@@ -37,7 +37,7 @@ namespace dht
     struct Node :
         public OnlineUser
     {
-        typedef boost::intrusive_ptr<Node> Ptr;
+        typedef dcpp::intrusive_ptr<Node> Ptr;
         typedef std::map<CID, Node::Ptr> Map;
 
         Node(const UserPtr& u);

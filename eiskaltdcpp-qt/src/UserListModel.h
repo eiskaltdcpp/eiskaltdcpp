@@ -34,7 +34,7 @@ using namespace dcpp;
 class WulforUtil;
 
 namespace dcpp{
-    inline uint qHash(const boost::intrusive_ptr<dcpp::User> &ptr){
+    inline uint qHash(const dcpp::intrusive_ptr<dcpp::User> &ptr){
         quint64 key = (quint64)(void*)ptr.get();
 
         return ::qHash(key);

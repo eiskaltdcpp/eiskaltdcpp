@@ -75,7 +75,7 @@ bool FavoriteManager::moveUserCommand(int cid, int pos) {
     Lock l(cs);
     for(auto i = userCommands.begin(); i != userCommands.end(); ++i) {
         if(i->getId() == cid) {
-            swap(*i, *(i + pos));
+            std::swap(*i, *(i + pos));
             return true;
         }
     }
