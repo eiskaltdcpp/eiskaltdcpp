@@ -1,5 +1,6 @@
 /*
 * Copyright (C) 2010 Gennady Proskurin (https://launchpad.net/~gpr)
+* Copyright (C) 2020 Boris Pek <tehnick-8@yandex.ru>
 *
 * This program is free software; you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
