@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2001-2019 Jacek Sieka, arnetheduck on gmail point com
+ * Copyright (C) 2020 Boris Pek <tehnick-8@yandex.ru>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,7 +19,7 @@
 #pragma once
 
 #include <libintl.h>
-#include <boost/format.hpp>
+#include <string>
 
 #ifdef BUILDING_DCPP
 
@@ -34,19 +35,52 @@
 
 namespace dcpp {
 
-template<typename T>
-boost::basic_format<T> dcpp_fmt(const std::basic_string<T>& t) {
-    boost::basic_format<T> fmt;
-    fmt.exceptions(boost::io::no_error_bits);
-    fmt.parse(t);
-    return fmt;
+using std::string;
+
+class formated_string : public std::string
+{
+public:
+    explicit formated_string(const string& s) noexcept : string(s) { }
+
+    formated_string& operator%(const string& x) {
+        const string &&counter_string = "%" + std::to_string(++counter_) + "%";
+        auto pos = this->find(counter_string);
+        while(pos != string::npos) {
+            this->replace(pos, counter_string.size(), x);
+            pos = this->find(counter_string, pos + x.size());
+        }
+        return *this;
+    }
+
+    formated_string& operator%(const char* x) {
+        return operator%(string(x));
+    }
+
+    formated_string& operator%(char* x) {
+        return operator%(string(x));
+    }
+
+    template<typename T>
+    formated_string& operator%(T x) {
+        return operator%(std::to_string(x));
+    }
+
+private:
+    uint8_t counter_ = 0;
+};
+
+inline formated_string dcpp_fmt(const std::string& t) {
+    return formated_string(t);
 }
 
-template<typename T>
-boost::basic_format<T> dcpp_fmt(const T* t) {
-    return dcpp_fmt(std::basic_string<T>(t));
+inline formated_string dcpp_fmt(const char* t) {
+    return dcpp_fmt(std::string(t));
 }
 
+inline std::string str(const formated_string& t) {
+    return std::string(t);
 }
 
-using boost::str;
+} // namespace dcpp
+
+using dcpp::str;
