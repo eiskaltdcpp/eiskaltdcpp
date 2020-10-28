@@ -244,7 +244,7 @@ namespace dht
                         socket->bind(port, SETTING(BIND_ADDRESS));
                         if(failed)
                         {
-                            LogManager::getInstance()->message("DHT enabled again"); // TODO: translate
+                            LogManager::getInstance()->message(_("DHT enabled again"));
                             failed = false;
                         }
                         break;
@@ -255,7 +255,7 @@ namespace dht
 
                         if(!failed)
                         {
-                            LogManager::getInstance()->message("DHT disabled: " + e.getError()); // TODO: translate
+                            LogManager::getInstance()->message(_("DHT disabled: ") + e.getError());
                             failed = true;
                         }
 

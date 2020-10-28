@@ -527,12 +527,12 @@ namespace dht
                 try
                 {
                     string fileName = Util::getFileName(ShareManager::getInstance()->toVirtual(TTHValue(tth)));
-                    LogManager::getInstance()->message("DHT (" + fromIP + "): File published: " + fileName);
+                    LogManager::getInstance()->message(str(F_("DHT (%1%): File published: %2%") % fromIP % fileName));
                 }
                 catch(ShareException&)
                 {
                     // published non-shared file??? Maybe partial file
-                    LogManager::getInstance()->message("DHT (" + fromIP + "): Partial file published: " + tth);
+                    LogManager::getInstance()->message(str(F_("DHT (%1%): Partial file published: %2%") % fromIP % tth));
 
                 }
 #endif
@@ -587,13 +587,13 @@ namespace dht
                     {
                         // we are probably firewalled, so our internal UDP port is unaccessible
                         if(externalIP != lastExternalIP || !firewalled)
-                            LogManager::getInstance()->message("DHT: Firewalled UDP status set (IP: " + externalIP + ")");
+                            LogManager::getInstance()->message(str(F_("DHT: Firewalled UDP status set (IP: %1%)") % externalIP));
                         firewalled = true;
                     }
                     else
                     {
                         if(externalIP != lastExternalIP || firewalled)
-                            LogManager::getInstance()->message("DHT: Our UDP port seems to be opened (IP: " + externalIP + ")");
+                            LogManager::getInstance()->message(str(F_("DHT: Our UDP port seems to be opened (IP: %1%)") % externalIP));
 
                         firewalled = false;
                     }
