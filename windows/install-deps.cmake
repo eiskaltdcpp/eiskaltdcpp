@@ -8,7 +8,6 @@ if (CMAKE_PREFIX_PATH MATCHES "mxe" AND NOT BUILD_STATIC)
 
     set (COMMON_LIBS
             libaspell-15.dll
-            libboost_system-mt.dll
             libbz2.dll
             libcrypto-1_1.dll
             libcrypto-1_1-x64.dll

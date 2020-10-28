@@ -5,7 +5,6 @@ The most important changes:
 * Remove embedded libraries where it is possible.
 
 *** libeiskaltdcpp ***
-* Rewrite code from Boost to C++14.
 * Add IPv6 support.
 * Improve Lua support.
 

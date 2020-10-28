@@ -7,7 +7,6 @@ aux_source_directory(${PROJECT_SOURCE_DIR} dht_srcs)
 set (DHT_SRCS ${dht_srcs} PARENT_SCOPE)
 
 include_directories (${PROJECT_BINARY_DIR}
-                     ${Boost_INCLUDE_DIR}
                      ${OPENSSL_INCLUDE_DIR}
                      ${GETTEXT_INCLUDE_DIR}
                      ${BZIP2_INCLUDE_DIR}

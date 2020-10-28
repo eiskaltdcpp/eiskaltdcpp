@@ -3,7 +3,7 @@
 # Authors: Boris Pek
 # License: Public Domain
 # Created: 2018-08-21
-# Updated: 2020-01-23
+# Updated: 2020-10-28
 # Version: N/A
 #
 # Description: script for building of app bundles for macOS
@@ -13,7 +13,7 @@
 # Build dependencies and useful tools:
 # export HOMEBREW_NO_BOTTLE_SOURCE_FALLBACK=1
 # brew install ccache coreutils cmake
-# brew install aspell boost lua miniupnpc openssl@1.1 pcre libidn jsoncpp qt
+# brew install aspell lua miniupnpc openssl@1.1 pcre libidn jsoncpp qt
 #
 # Additional tools:
 # brew install wget htop
@@ -41,7 +41,6 @@ BUILD_OPTIONS="-DCMAKE_BUILD_TYPE=Release \
                -DLUA_SCRIPT=ON \
                -DWITH_SOUNDS=ON \
                -DWITH_LUASCRIPTS=ON \
-               -DLOCAL_BOOST=OFF \
                -DLOCAL_ASPELL_DATA=OFF"
 
 mkdir -p "${MAIN_DIR}/builddir"

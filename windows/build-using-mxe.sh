@@ -3,14 +3,14 @@
 # Authors: Boris Pek
 # License: Public Domain
 # Created: 2018-09-16
-# Created: 2018-09-16
+# Created: 2020-10-28
 # Version: N/A
 #
 # Description: script for cross-compilation of program for MS Windows using MXE
 # project. Currently it is used for testing builds on Travis CI.
 #
 # Notes:
-# make aspell boost jsoncpp libidn lua miniupnpc qtbase qtmultimedia qttools
+# make aspell jsoncpp libidn lua miniupnpc qtbase qtmultimedia qttools
 
 set -e
 
@@ -49,7 +49,6 @@ CMAKE_OPTIONS="-DCMAKE_INSTALL_PREFIX=../../EiskaltDC++ \
                -DWITH_SOUNDS=ON \
                -DWITH_LUASCRIPTS=ON \
                -DWITH_EXAMPLES=OFF \
-               -DLOCAL_BOOST=OFF \
                -DLOCAL_ASPELL_DATA=OFF \
                -DLOCAL_JSONCPP=OFF"
 

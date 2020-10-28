@@ -26,11 +26,6 @@ then
     ls -alp /usr/lib/mxe/usr/bin/*
     ls -alp /usr/lib/mxe/usr/*/bin/*
 
-    # Workaround for fixind of build with Boost from MXE packages
-    # See: https://github.com/mxe/mxe/issues/1104
-    sudo sed -i 's/std::sprintf/sprintf/' /usr/lib/mxe/usr/*-w64-mingw32.shared/include/boost/interprocess/detail/win32_api.hpp
-    # End of workaround
-
     if [ "${TARGET}" = "windows64" ]
     then
         export MXE_TARGET="x86_64-w64-mingw32.shared"

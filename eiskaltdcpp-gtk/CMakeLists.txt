@@ -53,14 +53,12 @@ endif (USE_GTK)
 include_directories (${GTK_INCLUDE_DIRS}
                      ${LIBGNOME2_INCLUDE_DIRS}
                      ${CANBERRA_INCLUDE_DIR}
-                     ${PROJECT_SOURCE_DIR}
-                     ${Boost_INCLUDE_DIRS})
+                     ${PROJECT_SOURCE_DIR})
 list (APPEND LIBS
       ${X11_LIBRARIES}
       ${GTK_LIBRARIES}
       ${LIBGNOME2_LIBRARIES}
       ${CANBERRA_LIBRARY}
-      ${Boost_LIBRARIES}
       ${ICONV_LIBRARIES}
       ${LIBNOTIFY}
       ${GTHREAD})

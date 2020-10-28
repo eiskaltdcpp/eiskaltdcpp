@@ -16,7 +16,6 @@ if (NOT LUA_SCRIPT)
 endif (NOT LUA_SCRIPT)
 
 include_directories (${PROJECT_BINARY_DIR}
-                     ${Boost_INCLUDE_DIR}
                      ${BZIP2_INCLUDE_DIR}
                      ${ZLIB_INCLUDE_DIR}
                      ${OPENSSL_INCLUDE_DIR}
@@ -118,8 +117,7 @@ target_link_libraries (dcpp
                        ${PCRE}
                        ${IDNA_LIBRARIES}
                        ${XATTR_LIBRARIES}
-                       ${HAIKU_LIB}
-                       ${Boost_LIBRARIES})
+                       ${HAIKU_LIB})
 set_target_properties(dcpp PROPERTIES VERSION ${SOVERSION} OUTPUT_NAME "eiskaltdcpp")
 
 if (APPLE)

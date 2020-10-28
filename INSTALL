@@ -88,7 +88,6 @@ zlib
 :libeiskaltdcpp:
 ----------------
 gettext
-libboost-dev (>= 1.39.0) (optional, see cmake keys)
 liblua5.1-dev (optional, see cmake keys)
 libpcre3-dev (optional, see cmake keys)
 miniupnpc (optional, see cmake keys)
@@ -144,13 +143,6 @@ Keys for cmake
     Build static or shared library.
     This option is available only GNU/Linux and *BSD systems.
     For MS Windows, macOS and Haiku it is forcibly set to STATIC.
--DLOCAL_BOOST=ON/OFF (default: OFF)
-    Use local boost headers.
-    This script downloads archive with only necessary boost headers from:
-    https://sourceforge.net/projects/eiskaltdcpp/files/Other/boost.tar.gz
-    (This archive have much less size than official boost archive.)
-    If boost.tar.gz already available in source tree repeated download will
-    not happen.
 ----------------
 :eiskaltdcpp-qt:
 ----------------
@@ -333,7 +325,6 @@ Example of configuration options:
 cmake .. \
     -DCMAKE_INSTALL_PREFIX=/boot/apps/Eiskaltdcpp \
     -DSHARE_DIR=/boot/apps/Eiskaltdcpp \
-    -DLOCAL_BOOST=ON \
     -DHAIKU_PKG=ON
 
 Full build rules for Haiku you may see in recipe of official package:

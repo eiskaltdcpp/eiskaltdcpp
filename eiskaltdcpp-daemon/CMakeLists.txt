@@ -4,7 +4,6 @@ cmake_minimum_required(VERSION 2.6)
 # ######### General setup ##########
 include_directories(${PROJECT_SOURCE_DIR}
                     ${PROJECT_SOURCE_DIR}/..
-                    ${Boost_INCLUDE_DIRS}
                     ${GETTEXT_INCLUDE_DIR})
 
 aux_source_directory(${PROJECT_SOURCE_DIR} nasdc_SRCS)
@@ -67,7 +66,6 @@ add_executable (${PROJECT_NAME} MACOSX_BUNDLE WIN32
 list(APPEND LIBS
         ${XMLRPCLIBS}
         ${JSONRPCLIBS}
-        ${Boost_LIBRARIES}
         ${ICONV_LIBRARIES}
         )
 

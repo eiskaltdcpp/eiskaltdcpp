@@ -1,7 +1,6 @@
 --- 2.4.0 2020-xx-xx ---
 *** common changes ***
 * Added support of OpenSSL >= 1.1. OpenSSL 1.0.2 is still supported as well.
-* Stop support of boost < 1.48.0.
 * Huge amount of improvements for macOS.
 * Huge amount of improvements for Haiku.
 * Added official support of Debian GNU/Hurd.
@@ -27,11 +26,9 @@
 * Stop support of miniupnpc versions older than 1.7.
 * Serious code refactoring:
   — improved program stability and performance
-  — decreased usage of boost: all possible is rewritten in C++14
-  — use C++14 features where it is possible
+  — stop usage of Boost libraries: all code is rewritten to C++14
+  — use new C++14 features where it is possible
   — fixed notes from static code analyzers (cppcheck, clang)
-* Use special cmake function for detection of big-endian system at compilation
-  time instead of Boost macros BOOST_BIG_ENDIAN.
 *** libeiskaltdcpp ***
 * Partially sync with DC++ 0.868 core in non-critical sections. The diff is
   still huge, but it was noticeably reduced.

@@ -12,8 +12,6 @@ then
     sudo apt-get update  -qq
     sudo apt-get install -qq cmake \
                              libbz2-dev \
-                             libboost-dev \
-                             libboost-system-dev \
                              libssl-dev \
                              libattr1-dev \
                              zlib1g-dev \
@@ -75,7 +73,6 @@ then
 
     sudo apt-get update  -qq
     sudo apt-get install -qq ${PKG_PREFIX}-aspell \
-                             ${PKG_PREFIX}-boost \
                              ${PKG_PREFIX}-jsoncpp \
                              ${PKG_PREFIX}-libidn \
                              ${PKG_PREFIX}-lua \
@@ -87,7 +84,7 @@ fi
 if [ "${TARGET}" = "macos64" ]
 then
     export HOMEBREW_NO_AUTO_UPDATE=1
-    # brew install coreutils cmake gettext boost openssl pcre
+    # brew install coreutils cmake gettext openssl pcre
     brew install ccache libidn jsoncpp miniupnpc aspell lua qt
 fi
 
