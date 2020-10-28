@@ -26,9 +26,7 @@ SpyModel::SpyModel(QObject *parent):
 
 SpyModel::~SpyModel()
 {
-    for (const auto &i : rootItem->childItems)
-        pool.destroy(i);
-
+    qDeleteAll(rootItem->childItems.begin(), rootItem->childItems.end());
     rootItem->childItems.clear();
 
     delete rootItem;
@@ -238,7 +236,7 @@ void SpyModel::addResult(const QString &file, bool isTTH)
     QList<QVariant> item_data;
 
     item_data << "" << _file;
-    item = pool.construct(item_data, parent);
+    item = new SpyItem(item_data, parent);
 
     item->isTTH = isTTH;
 
@@ -268,11 +266,8 @@ void SpyModel::addResult(const QString &file, bool isTTH)
 }
 
 void SpyModel::clearModel(){
-    QList<SpyItem*> &childs = rootItem->childItems;
 
-    for (const auto &i : childs)
-        pool.destroy(i);
-
+    qDeleteAll(rootItem->childItems.begin(), rootItem->childItems.end());
     rootItem->childItems.clear();
 
     hashes.clear();

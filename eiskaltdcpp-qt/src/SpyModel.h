@@ -13,8 +13,6 @@
 #include <QList>
 #include <QHash>
 
-#include <boost/pool/object_pool.hpp>
-
 #define COLUMN_SPY_COUNT        0
 #define COLUMN_SPY_STRING       1
 
@@ -84,8 +82,6 @@ private Q_SLOTS:
     void addResult(const QString &file, bool isTTH);
 
 private:
-    /** */
-    boost::object_pool<SpyItem> pool;
     /** */
     SpyItem *rootItem;
     bool isSort;
