@@ -50,7 +50,8 @@ using namespace dcpp;
 
 const string Hub::tagPrefix = "#";
 
-auto isEmptyString = [](gchar *c) -> bool {
+inline bool isEmptyString(gchar *c)
+{
     if (c == NULL)
         return true;
 
@@ -58,7 +59,7 @@ auto isEmptyString = [](gchar *c) -> bool {
         return true;
 
     return false;
-};
+}
 
 Hub::Hub(const string &address, const string &encoding):
     BookEntry(Entry::HUB, address, "hub.ui", address),
