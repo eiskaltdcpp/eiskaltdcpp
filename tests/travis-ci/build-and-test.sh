@@ -10,6 +10,7 @@ set -x
 if [ "${TARGET}" = "linux64" ]
 then
     ./linux/build-in-ubuntu.sh
+    cd builddir && sudo make install -j 1
 
     ls -alp /usr/bin/eiskaltdcpp-*
     ls -alp /usr/lib*/libeiskaltdcpp.so*

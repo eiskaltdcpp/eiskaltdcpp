@@ -101,5 +101,5 @@ cmake ${CMAKE_OPTIONS} \
       -DCMAKE_SHARED_LINKER_FLAGS="${LDFLAGS}" \
       -DCMAKE_EXE_LINKER_FLAGS="${LDFLAGS}"
 make VERBOSE=1 -k -j $(nproc)
-sudo make install -j 1
+# sudo make install -j 1
 
