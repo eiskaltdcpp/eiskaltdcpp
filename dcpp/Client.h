@@ -26,6 +26,7 @@
 #include "forward.h"
 #include "OnlineUser.h"
 #include "SearchQueue.h"
+#include "Socket.h"
 #include "Speaker.h"
 #include "TimerManager.h"
 
