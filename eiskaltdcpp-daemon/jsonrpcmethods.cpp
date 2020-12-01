@@ -59,13 +59,18 @@ bool JsonRpcMethods::MagnetAdd(const Json::Value& root, Json::Value& response)
         return false;
     }
 
-    bool ok = splitMagnet(root["params"]["magnet"].asString(), name, size, tth);
-    if (isDebug) std::cout << "splitMagnet: \n tth: " << tth << "\n size: " << size << "\n name: " << name << std::endl;
+    const bool ok = splitMagnet(root["params"]["magnet"].asString(), name, size, tth);
+    if (isDebug) {
+        std::cout << "splitMagnet: \n tth: " << tth << "\n size: " << size << "\n name: " << name << std::endl;
+    }
     if (ok && ServerThread::getInstance()->addInQueue(root["params"]["directory"].asString(), name, size, tth))
         response["result"] = 0;
     else
         response["result"] = 1;
-    if (isDebug) std::cout << "MagnetAdd (response): " << response << std::endl;
+
+    if (isDebug) {
+        std::cout << "MagnetAdd (response): " << response << std::endl;
+    }
     return true;
 }
 

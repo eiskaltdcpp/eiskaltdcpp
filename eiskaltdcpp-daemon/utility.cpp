@@ -74,13 +74,19 @@ void Log(const string & sData) {
 bool splitMagnet(const string &magnet, string &name, int64_t &size, string &tth) {
     name = "Unknown";
     size = 0;
-    tth = "Unknown";
+    tth = string();
 
     StringMap params;
     if (magnet::parseUri(magnet,params)) {
+        // BitTorrent magnet links should be ignored by eiskaltdcpp-daemon!
+        if (magnet.find("urn:btih:") != string::npos || magnet.find("urn:btmh:") != string::npos) {
+            return false;
+        }
+
         tth=params["xt"];
         size = stoll(params["xl"]);
         name = params["dn"];
+
         return true;
     }
     return false;
