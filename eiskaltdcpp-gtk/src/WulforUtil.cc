@@ -330,13 +330,29 @@ bool WulforUtil::splitMagnet(const string &magnet, string &name, int64_t &size, 
 {
     name = _("Unknown");
     size = 0;
-    tth = _("Unknown");
+    tth = string();
 
     StringMap params;
     if (magnet::parseUri(magnet,params)) {
-        tth=params["xt"];
-        size = Util::toInt64(params["xl"]);
+        // Name of file or directory (or search keywords if name is not set)
         name = params["dn"];
+        if (name.empty() && !params["kt"].empty()) {
+            name = params["kt"];
+        }
+
+        // BitTorrent magnet links are quite popular nowadays...
+        if (magnet.find("urn:btih:") == string::npos && magnet.find("urn:btmh:") == string::npos) {
+            tth=params["xt"];
+        }
+
+        // Size of file or directory
+        if (!params["xl"].empty()) {
+            size = Util::toInt64(params["xl"]);
+        }
+        if (!params["dl"].empty()) { // this size is more valuable if it is set
+            size = Util::toInt64(params["dl"]);
+        }
+
         return true;
     }
     return false;
@@ -348,10 +364,17 @@ bool WulforUtil::splitMagnet(const string &magnet, string &line)
     string tth;
     int64_t size;
 
-    if (splitMagnet(magnet, name, size, tth))
-        line = name + " (" + Util::formatBytes(size) + ")";
-    else
+    if (splitMagnet(magnet, name, size, tth)) {
+        // BitTorrent magnet links are quite popular nowadays...
+        if (magnet.find("urn:btih:") != string::npos || magnet.find("urn:btmh:") != string::npos) {
+            line = name + " (BitTorrent)";
+        } else {
+            line = name + " (" + Util::formatBytes(size) + ")";
+        }
+    }
+    else {
         return false;
+    }
 
     return true;
 }

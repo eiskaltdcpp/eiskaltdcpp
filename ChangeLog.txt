@@ -51,6 +51,7 @@
 * Fixed few minor bugs.
 * Fixed build with Pango >= 1.44.
 * Improved support of nmdcs:// hubs.
+* Added support of BitTorrent magnet links in chats. (Only correct displaying of links, but not support of BitTorrent protocol.)
 * GTK+ UI has long standing problem with segfault in search widget. It was not
   fixed in this release and it looks that never will be fixed at all.
 * This is the last release with support of GTK+ UI. It will be removed
