@@ -557,7 +557,13 @@ QString HubFrame::LinkParser::parseForLinks(QString input, bool use_emot){
                         int64_t size;
 
                         WulforUtil::splitMagnet(link, size, tth, name);
-                        toshow = QString("%1 (%2)").arg(name).arg(WulforUtil::formatBytes(size));
+
+                        // BitTorrent magnet links are quite popular nowadays...
+                        if (link.contains("urn:btih:") || link.contains("urn:btmh:")) {
+                            toshow = QString("%1 (BitTorrent)").arg(name);
+                        } else {
+                            toshow = QString("%1 (%2)").arg(name).arg(WulforUtil::formatBytes(size));
+                        }
                     }
                 }
 

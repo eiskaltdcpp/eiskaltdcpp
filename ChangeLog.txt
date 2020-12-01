@@ -45,6 +45,7 @@
 * Update list of fake client tags in Favorite Hub settings.
 * Improved support of nmdcs:// hubs.
 * Improved setting dialog.
+* Added support of BitTorrent magnet links in chats. (Only correct displaying of links, but not support of BitTorrent protocol.)
 * Added pretty icon theme "haiku". [Thanks to Gerasim Troeglazov]
 *** eiskaltdcpp-gtk ***
 * Fixed few minor bugs.

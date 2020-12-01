@@ -1029,9 +1029,24 @@ void WulforUtil::splitMagnet(const QString &magnet, int64_t &size, QString &tth,
 
     StringMap params;
     if (magnet::parseUri(magnet.toStdString(),params)) {
-        tth = _q(params["xt"]);
-        size = Util::toInt64(params["xl"]);
+        // Name of file or directory (or search keywords if name is not set)
         name = _q(params["dn"]);
+        if (name.isEmpty() && !params["kt"].empty()) {
+            name = _q(params["kt"]);
+        }
+
+        // BitTorrent magnet links are quite popular nowadays...
+        if (!magnet.contains("urn:btih:") && !magnet.contains("urn:btmh:")) {
+            tth = _q(params["xt"]);
+        }
+
+        // Size of file or directory
+        if (!params["xl"].empty()) {
+            size = Util::toInt64(params["xl"]);
+        }
+        if (!params["dl"].empty()) { // this size is more valuable if it is set
+            size = Util::toInt64(params["dl"]);
+        }
     }
 }
 
