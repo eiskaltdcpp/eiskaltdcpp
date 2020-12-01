@@ -290,7 +290,11 @@ void Notification::slotShowHide(){
     }
     else{
         MW->show();
+#if !defined(Q_OS_WIN)
+        MW->activateWindow();
+#endif
         MW->raise();
+
 #if defined(Q_OS_MAC)
         MW->redrawToolPanel();
 #else // defined(Q_OS_MAC)
