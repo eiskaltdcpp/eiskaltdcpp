@@ -1928,6 +1928,9 @@ void MainWindow::redrawToolPanel(){
     auto end = d->menuWidgetsHash.end();
     for (auto it = d->menuWidgetsHash.begin(); it != end; ++it){
         awgt = it.value();
+        if (!awgt)
+            continue;
+
         it.key()->setText(awgt->getArenaShortTitle());
         it.key()->setIcon(awgt->getPixmap());
 
@@ -1935,7 +1938,7 @@ void MainWindow::redrawToolPanel(){
         if (pm && pm->hasNewMessages())
             has_unread = true;
 
-        if (awgt && d->arena->widget() && d->arena->widget() == awgt->getWidget())
+        if (d->arena->widget() && d->arena->widget() == awgt->getWidget())
             setWindowTitle(awgt->getArenaTitle() + " :: " + QString::fromStdString(eiskaltdcppAppNameString));
     }
 
