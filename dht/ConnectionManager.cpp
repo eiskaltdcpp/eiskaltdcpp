@@ -41,7 +41,7 @@ namespace dht
      */
     void ConnectionManager::connect(const Node::Ptr& node, const string& token)
     {
-        connect(node, token, CryptoManager::getInstance()->TLSOk() && node->getUser()->isSet(User::TLS));
+        ConnectionManager::connect(node, token, CryptoManager::getInstance()->TLSOk() && node->getUser()->isSet(User::TLS));
     }
 
     void ConnectionManager::connect(const Node::Ptr& node, const string& token, bool secure)
@@ -158,7 +158,7 @@ namespace dht
             return;
         }
 
-        connect(node, token, secure);
+        ConnectionManager::connect(node, token, secure);
     }
 
 }
