@@ -28,6 +28,7 @@
 #include <QDesktopServices>
 #include <QDir>
 #include <QUrl>
+#include <QScrollBar>
 
 #define CREATE_ROOT_EL(a, b, c, d, e) \
     do { \
@@ -506,7 +507,7 @@ SideBarView::SideBarView ( QWidget* parent ) : QTreeView(parent), _model(nullptr
     setContextMenuPolicy(Qt::CustomContextMenu);
     setItemDelegate(new SideBarDelegate(this));
     expandAll();
-    
+
     connect(ArenaWidgetManager::getInstance(), SIGNAL(activated(ArenaWidget*)), this,   SLOT(activated(ArenaWidget*)));
     connect(ArenaWidgetManager::getInstance(), SIGNAL(added(ArenaWidget*)),     this,   SLOT(added(ArenaWidget*)));
     connect(ArenaWidgetManager::getInstance(), SIGNAL(removed(ArenaWidget*)),   this,   SLOT(removed(ArenaWidget*)));
@@ -519,9 +520,11 @@ SideBarView::SideBarView ( QWidget* parent ) : QTreeView(parent), _model(nullptr
     connect(this, SIGNAL(clicked(QModelIndex)),                 this,   SLOT(slotSidebarHook(QModelIndex)));
     connect(this, SIGNAL(clicked(QModelIndex)),                 _model, SLOT(slotIndexClicked(QModelIndex)));
 
-    
     connect(GlobalTimer::getInstance(), SIGNAL(second()), _model, SLOT(redraw()));
-    
+
+    connect(horizontalScrollBar(), SIGNAL(rangeChanged(int,int)), this, SLOT(slotUpdateHeaderSize()));
+    connect(verticalScrollBar(), SIGNAL(rangeChanged(int,int)), this, SLOT(slotUpdateHeaderSize()));
+
     connect(_model,    SIGNAL(mapWidget(ArenaWidget*)),     ArenaWidgetManager::getInstance(),  SLOT(activate(ArenaWidget*)));
     connect(_model,    SIGNAL(selectIndex(QModelIndex)),    this,                               SLOT(slotWidgetActivated(QModelIndex)));
 }
@@ -532,15 +535,7 @@ SideBarView::~SideBarView() {
 
 bool SideBarView::eventFilter ( QObject *obj, QEvent *e) {
     if (obj == this && e->type() == QEvent::Resize) {
-        if (WBGET(SIDEBAR_SHOW_CLOSEBUTTONS, true)){
-            header()->showSection(1);
-            header()->resizeSection(1, 30);
-            header()->resizeSection(0, header()->width() - 32);
-        }
-        else{
-            header()->hideSection(1);
-            header()->resizeSection(0, header()->width());
-        }
+        slotUpdateHeaderSize();
     }
     
     return QObject::eventFilter (obj , e);
@@ -695,5 +690,18 @@ void SideBarView::slotSideBarDblClicked(const QModelIndex &index){
 void SideBarView::slotWidgetActivated ( QModelIndex i ) {
     selectionModel()->clearSelection();
     selectionModel()->select(i, QItemSelectionModel::SelectCurrent|QItemSelectionModel::Rows);
+}
+
+void SideBarView::slotUpdateHeaderSize()
+{
+    if (WBGET(SIDEBAR_SHOW_CLOSEBUTTONS, true)){
+        header()->showSection(1);
+        header()->resizeSection(1, 30);
+        header()->resizeSection(0, header()->width() - 32);
+    }
+    else{
+        header()->hideSection(1);
+        header()->resizeSection(0, header()->width());
+    }
 }
 
