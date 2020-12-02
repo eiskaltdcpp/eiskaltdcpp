@@ -808,14 +808,14 @@ bool WulforUtil::openUrl(const QString &url){
 #endif
         }
 
-        if (u.hasQueryItem("kt")) {
-            QString keywords = u.queryItemValue("kt");
-            QString hub = u.hasQueryItem("xs")? u.queryItemValue("xs") : "";
+        StringMap params;
+        magnet::parseUri(magnet.toStdString(), params);
 
-            if (!(hub.startsWith("dchub://", Qt::CaseInsensitive) ||
-                  hub.startsWith("nmdcs://", Qt::CaseInsensitive) ||
-                  hub.startsWith("adc://", Qt::CaseInsensitive) ||
-                  hub.startsWith("adcs://", Qt::CaseInsensitive)) && !hub.isEmpty())
+        if (!params["kt"].empty()) {
+            const QString keywords = _q(params["kt"]);
+            QString hub = _q(params["xs"]);
+
+            if (!hub.isEmpty() && !hub.contains("://"))
                 hub.prepend("dchub://");
 
             if (keywords.isEmpty())
