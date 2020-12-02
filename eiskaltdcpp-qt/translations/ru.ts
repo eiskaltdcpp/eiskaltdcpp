@@ -924,7 +924,7 @@ EiskaltDC++ - кроссплатформенная программа для р�
     <message>
         <location filename="../src/HubFrame.cpp" line="178"/>
         <source>Search text</source>
-        <translation>Текст для поиска</translation>
+        <translation>Искать текст</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="179"/>

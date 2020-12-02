@@ -3066,6 +3066,12 @@ void HubFrame::slotChatMenu(const QPoint &){
                     ret.remove(0, 1);//remove <
                     ret = ret.left(ret.lastIndexOf(">"));//remove >
                 }
+            } else if (ret.startsWith("magnet:?")) {
+                QString name, tth;
+                int64_t size;
+
+                WulforUtil::splitMagnet(ret, size, tth, name);
+                ret = name;
             }
 
             if (ret.isEmpty())
