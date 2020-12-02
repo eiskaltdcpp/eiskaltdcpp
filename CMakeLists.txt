@@ -92,7 +92,7 @@ if (USE_QT OR USE_QT5 OR USE_GTK OR USE_GTK3)
 endif()
 
 if (PERL_REGEX)
-    find_package(Pcre REQUIRED)
+    find_package(PCRE REQUIRED)
 endif (PERL_REGEX)
 
 if (USE_IDNA)
