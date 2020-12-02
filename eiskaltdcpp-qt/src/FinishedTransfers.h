@@ -126,6 +126,8 @@ private:
 
             q.exec("CREATE TABLE IF NOT EXISTS users (NICK TEXT PRIMARY KEY, "
                    "TIME TEXT, FILES TEXT, TR TEXT, SPEED TEXT, CID TEXT, ELAP TEXT, FULL INTEGER);");
+
+            q.exec("VACUUM;");
         }
 #endif
 
