@@ -1,6 +1,6 @@
 --- 2.4.0 2020-xx-xx ---
 *** common changes ***
-* Added support of OpenSSL >= 1.1. OpenSSL 1.0.2 is still supported as well.
+* Added support of OpenSSL >= 1.1. OpenSSL 1.0.2 is still supported too.
 * Huge amount of improvements for macOS.
 * Huge amount of improvements for Haiku.
 * Added official support of Debian GNU/Hurd.
@@ -8,9 +8,9 @@
   - cross-compilation using MXE project (https://mxe.cc/) is used now for
     preparing of official builds
   - official Web UI for eiskaltdcpp-daemon and some MS Windows specific
-    documentation are included into installers and portable builds now
+    documentation are included into installers and portable builds
 * Updated list of hub list servers (with most popular public hubs).
-* Removed Coral CDN support, since it's stopped running.
+* Removed Coral CDN support since it's stopped running.
 * Enable DHT by default. (Affects only new users.) In case you need you may
   change this option at any time in Preferences dialog:
   Connection --> Advanced --> Enable DHT.
@@ -22,8 +22,8 @@
 * Delete configuration option LOCAL_MINIUPNP.
 * Delete embedded copy of miniupnpc library: it was extremely outdated and in
   any case system library is used now in builds for all supported systems.
-* Delete update_geoip script: it does not work anymore.
 * Stop support of miniupnpc versions older than 1.7.
+* Delete update_geoip script: it does not work anymore.
 * Serious code refactoring:
   — improved program stability and performance
   — stop usage of Boost libraries: all code is rewritten to C++14
@@ -35,7 +35,7 @@
 * Add support of protocol negotiation via ALPN.
   https://forum.dcbase.org/viewtopic.php?f=55&p=4021
 *** eiskaltdcpp-qt ***
-* Fixed "Quit" action in builds with Qt 5.x. With Qt 4.x all worked fine.
+* Significant improvement of Qt 5.x support. Qt 4.x is still support too.
 * Added configuration option USE_PROGRESS_BARS which allow to use usual text
   labels instead of progressbars. This option is especially important for macOS
   where progressbars are unable to show any text, so a lot of information was
@@ -46,22 +46,23 @@
 * Improved support of nmdcs:// hubs.
 * Improved setting dialog.
 * Fixed reaction to left click on special search magnet links in chat.
-* Added support of BitTorrent magnet links in chats. (Only correct displaying of links, but not support of BitTorrent protocol.)
+* Added support of BitTorrent magnet links in chats. (Only correct displaying of
+  links, but not support of BitTorrent protocol.)
 * Added pretty icon theme "haiku". [Thanks to Gerasim Troeglazov]
 *** eiskaltdcpp-gtk ***
 * Fixed few minor bugs.
 * Fixed build with Pango >= 1.44.
 * Improved support of nmdcs:// hubs.
-* Added support of BitTorrent magnet links in chats. (Only correct displaying of links, but not support of BitTorrent protocol.)
-* GTK+ UI has long standing problem with segfault in search widget. It was not
-  fixed in this release and it looks that never will be fixed at all.
-* This is the last release with support of GTK+ UI. It will be removed
-  completely in one of the next versions of program. Consider switching to
-  Qt UI now.
+* Added support of BitTorrent magnet links in chats. (Only correct displaying of
+  links, but not support of BitTorrent protocol.)
+* This is the last release with support of GTK+ UI. It will be removed in one of
+  the next versions of program. Consider switching to Qt UI now.
 *** eiskaltdcpp-daemon ***
 * "search.getresults" method now returns filtered results for last "search.send"
   request while all search results are stored by program. Use "search.clear" to
   free the memory from unnecessary data.
+* Support of XML-RPC will be removed in one of the next releases. Consider
+  switching exterior clients to JSON-RPC.
 
 --- 2.3.0 2018-xx-xx ---
 * This release was skipped due to problems with versions scheme.
