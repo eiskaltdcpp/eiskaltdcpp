@@ -3,7 +3,7 @@
 # Author:  Boris Pek <tehnick-8@yandex.ru>
 # License: MIT (Expat)
 # Created: 2019-04-01
-# Updated: 2020-07-29
+# Updated: 2020-12-03
 # Version: N/A
 #
 # Dependencies:
@@ -54,9 +54,9 @@ GetProgramVersion()
 
     cd "${MAIN_DIR}/${PROJECT_DIR_NAME}"
     if [ "${1}" = "release" ]; then
-        PROGRAM_VERSION="${2}"
+        PROGRAM_VERSION="$(echo ${2} | sed 's|v||g')"
     else
-        GIT_TAG="$(git describe --tags | cut -d - -f1 | sed "s|v||g")"
+        GIT_TAG="$(git describe --tags | cut -d - -f1 | sed 's|v||g')"
         GIT_REV="$(git describe --tags | cut -d - -f2)"
         PROGRAM_VERSION="${GIT_TAG}-${GIT_REV}"
     fi
