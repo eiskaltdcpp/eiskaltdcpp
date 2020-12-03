@@ -2,7 +2,7 @@ project (eiskaltdcpp)
 cmake_minimum_required (VERSION 2.6.3)
 
 set (PROJECT_NAME "EiskaltDC++")
-set (VERSION "2.4.0-stable")
+set (VERSION "2.4.0+devel")
 set (SOVERSION "2.4" )
 
 if (WIN32 OR APPLE OR HAIKU)
