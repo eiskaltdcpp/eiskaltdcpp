@@ -111,6 +111,13 @@
          </property>
         </widget>
        </item>
+       <item>
+        <widget class="QToolButton" name="pushButton_ClearLog">
+         <property name="text">
+          <string>Clear now</string>
+         </property>
+        </widget>
+       </item>
       </layout>
      </item>
     </layout>
