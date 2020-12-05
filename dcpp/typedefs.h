@@ -104,5 +104,6 @@ typedef vector<UserPtr> UserList;
 typedef vector<UserConnectionPtr> UserConnectionList;
 
 typedef vector<uint16_t> PartsInfo;
+typedef StringMap ParamMap;
 
 }

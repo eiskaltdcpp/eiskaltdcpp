@@ -48,7 +48,7 @@ public:
 
     Download(UserConnection& conn, QueueItem& qi, const string& path, bool supportsTrees) noexcept;
 
-    virtual void getParams(const UserConnection& aSource, StringMap& params);
+    virtual void getParams(const UserConnection& aSource, ParamMap& params);
 
     virtual ~Download();
 

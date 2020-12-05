@@ -1102,7 +1102,7 @@ string Util::encodeURI(const string& aString, bool reverse) {
  * date/time and then finally written to the log file. If the parameter is not present at all,
  * it is removed from the string completely...
  */
-string Util::formatParams(const string& msg, const StringMap& params, bool filter) {
+string Util::formatParams(const string& msg, const ParamMap& params, FilterF filter) {
     string result = msg;
 
     string::size_type i, j, k;

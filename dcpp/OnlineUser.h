@@ -108,13 +108,27 @@ public:
 
     bool isClientType(ClientType ct) const;
 
-    void getParams(StringMap& map, const string& prefix, bool compatibility, bool dht = false) const;
+    void getParams(ParamMap& params, const string& prefix, bool compatibility, bool dht = false) const;
 
     const UserPtr& getUser() const { return user; }
     UserPtr& getUser() { return user; }
     uint32_t getSID() const { return sid; }
 
+    bool isSelf() const;
+    void setSelf();
+
+    bool noChat() const;
+    void setNoChat(bool ignoreChat);
+
 private:
+    enum {
+        // This identity corresponds to this client's user.
+        SELF_ID = 1 << 0,
+
+        // Chat messages from this identity shall be ignored.
+        IGNORE_CHAT = 1 << 1
+    };
+
     UserPtr user;
     uint32_t sid;
 
@@ -143,9 +157,13 @@ public:
     Identity& getIdentity() { return identity; }
     Client& getClient() { return (Client&)client; }
     const Client& getClient() const { return (const Client&)client; }
+
+    // For DHT support:
     ClientBase& getClientBase() { return client; }
     const ClientBase& getClientBase() const { return client; }
     bool isInList;
+    // end
+
     GETSET(Identity, identity, Identity);
 
 private:

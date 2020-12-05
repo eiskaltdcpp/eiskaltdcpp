@@ -736,7 +736,7 @@ void AdcHub::privateMessage(const OnlineUser& user, const string& aMessage, bool
     send(c);
 }
 
-void AdcHub::sendUserCmd(const UserCommand& command, const StringMap& params) {
+void AdcHub::sendUserCmd(const UserCommand& command, const ParamMap& params) {
     if(state != STATE_NORMAL)
         return;
     string cmd = Util::formatParams(command.getCommand(), params, false);

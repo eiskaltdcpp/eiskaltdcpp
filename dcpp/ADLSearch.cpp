@@ -49,7 +49,7 @@ ADLSearch::ADLSearch() :
     bUseRegexp(false)
 {}
 
-void ADLSearch::prepare(StringMap& params) {
+void ADLSearch::prepare(ParamMap& params) {
     // Prepare quick search of substrings
     stringSearchList.clear();
 #ifdef USE_PCRE
@@ -400,7 +400,7 @@ void ADLSearchManager::stepUpDirectory(DestDirList& destDirVector) {
     }
 }
 
-void ADLSearchManager::prepareDestinationDirectories(DestDirList& destDirs, DirectoryListing::Directory* root, StringMap &params) {
+void ADLSearchManager::prepareDestinationDirectories(DestDirList& destDirs, DirectoryListing::Directory* root, ParamMap& params) {
     // Load default destination directory (index = 0)
     destDirs.clear();
     DestDir dir = { "ADLSearch", new DirectoryListing::Directory(root, "<<<ADLSearch>>>", true, true), nullptr, false };

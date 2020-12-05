@@ -456,7 +456,7 @@ void FinishedTransfers::onShowOnlyFullFilesToggled_gui(GtkWidget *widget, gpoint
     StringMap params;
     gtk_list_store_clear(ft->fileStore);
 
-    auto lock = FinishedManager::getInstance()->lockLists();
+    auto lock = FinishedManager::getInstance()->lock();
 
     const FinishedManager::MapByFile &list = FinishedManager::getInstance()->getMapByFile(ft->isUpload);
 
@@ -643,7 +643,7 @@ void FinishedTransfers::onRemoveAll_gui(GtkMenuItem *item, gpointer data)
 void FinishedTransfers::initializeList_client()
 {
     StringMap params;
-    auto lock = FinishedManager::getInstance()->lockLists();
+    auto lock = FinishedManager::getInstance()->lock();
     const FinishedManager::MapByFile &list = FinishedManager::getInstance()->getMapByFile(isUpload);
     const FinishedManager::MapByUser &user = FinishedManager::getInstance()->getMapByUser(isUpload);
 

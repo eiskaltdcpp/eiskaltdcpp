@@ -69,7 +69,8 @@ public:
     typedef unordered_map<string, FinishedFileItemPtr> MapByFile;
     typedef unordered_map<HintedUser, FinishedUserItemPtr, User::Hash> MapByUser;
 
-    Lock lockLists();
+    void getParams(const string& target, ParamMap& params);
+    Lock lock();
     const MapByFile& getMapByFile(bool upload) const;
     const MapByUser& getMapByUser(bool upload) const;
 

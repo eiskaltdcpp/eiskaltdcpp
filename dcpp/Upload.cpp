@@ -33,7 +33,7 @@ Upload::~Upload() {
     delete stream;
 }
 
-void Upload::getParams(const UserConnection& aSource, StringMap& params) {
+void Upload::getParams(const UserConnection& aSource, ParamMap& params) {
     Transfer::getParams(aSource, params);
     params["source"] = getPath();
 }

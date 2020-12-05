@@ -219,7 +219,8 @@ public:
         return buf;
     }
 
-    static string formatParams(const string& msg, const StringMap& params, bool filter);
+    typedef bool FilterF;
+    static string formatParams(const string& msg, const ParamMap& params, FilterF filter = 0);
     static string formatTime(const string &msg, const time_t t);
 
     static inline int64_t roundDown(int64_t size, int64_t blockSize) {

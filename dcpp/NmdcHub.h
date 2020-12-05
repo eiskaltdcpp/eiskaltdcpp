@@ -59,7 +59,7 @@ public:
 
     virtual void hubMessage(const string& aMessage, bool /*thirdPerson*/ = false);
     virtual void privateMessage(const OnlineUser& aUser, const string& aMessage, bool /*thirdPerson*/ = false);
-    virtual void sendUserCmd(const UserCommand& command, const StringMap& params);
+    virtual void sendUserCmd(const UserCommand& command, const ParamMap& params);
     virtual void search(int aSizeType, int64_t aSize, int aFileType, const string& aString, const string& aToken, const StringList& aExtList);
     virtual void password(const string& aPass) { send("$MyPass " + fromUtf8(aPass) + "|"); }
     virtual void info(bool force) { myInfo(force); }

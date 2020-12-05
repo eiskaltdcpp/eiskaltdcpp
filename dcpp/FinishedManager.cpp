@@ -46,7 +46,7 @@ FinishedManager::~FinishedManager() {
     clearULs();
 }
 
-Lock FinishedManager::lockLists() {
+Lock FinishedManager::lock() {
     return Lock(cs);
 }
 
@@ -102,6 +102,64 @@ void FinishedManager::clearULs() {
     Lock l(cs);
     ULByFile.clear();
     ULByUser.clear();
+}
+
+void FinishedManager::getParams(const string & target, ParamMap& params) {
+    Lock l(cs);
+
+    auto it = DLByFile.find(target);
+    if(it == DLByFile.end()) {
+        return;
+    }
+
+    auto entry = it->second;
+    if (!entry->getUsers().empty()) {
+        StringList nicks, cids, ips, hubNames, hubUrls, temp;
+        string ip;
+        for(auto& i: entry->getUsers()) {
+
+            nicks.push_back(Util::toString(ClientManager::getInstance()->getNicks(i)));
+            cids.push_back(i.user->getCID().toBase32());
+
+            ip.clear();
+            if (i.user->isOnline()) {
+                OnlineUser* u = ClientManager::getInstance()->findOnlineUser(i, false);
+                if (u) {
+                    ip = u->getIdentity().getIp();
+                }
+            }
+            if (ip.empty()) {
+                ip = _("Offline");
+            }
+            ips.push_back(ip);
+
+            temp = ClientManager::getInstance()->getHubNames(i);
+            if(temp.empty()) {
+                temp.push_back(_("Offline"));
+            }
+            hubNames.push_back(Util::toString(temp));
+
+            temp = ClientManager::getInstance()->getHubUrls(i);
+            if(temp.empty()) {
+                temp.push_back(_("Offline"));
+            }
+            hubUrls.push_back(Util::toString(temp));
+        }
+
+        params["userNI"] = Util::toString(nicks);
+        params["userCID"] = Util::toString(cids);
+        params["userI4"] = Util::toString(ips);
+        params["hubNI"] = Util::toString(hubNames);
+        params["hubURL"] = Util::toString(hubUrls);
+    }
+
+    params["fileSIsession"] = Util::toString(entry->getTransferred());
+    params["fileSIsessionshort"] = Util::formatBytes(entry->getTransferred());
+    params["fileSIactual"] = Util::toString(entry->getActual());
+    params["fileSIactualshort"] = Util::formatBytes(entry->getActual());
+
+    params["speed"] = str(F_("%1%/s") % Util::formatBytes(entry->getAverageSpeed()));
+    params["time"] = Util::formatSeconds(entry->getMilliSeconds() / 1000);
 }
 
 void FinishedManager::onComplete(Transfer* t, bool upload, bool crc32Checked) {

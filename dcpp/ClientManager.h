@@ -43,13 +43,14 @@ public:
     size_t getUserCount() const;
     int64_t getAvailable() const;
 
+    StringList getNicks(const CID& cid, const string& hintUrl);
     StringList getHubs(const CID& cid, const string& hintUrl);
     StringList getHubNames(const CID& cid, const string& hintUrl);
-    StringList getNicks(const CID& cid, const string& hintUrl);
+    StringList getHubUrls(const CID& cid) const;
 
+    StringList getNicks(const CID& cid, const string& hintUrl, bool priv);
     StringList getHubs(const CID& cid, const string& hintUrl, bool priv);
     StringList getHubNames(const CID& cid, const string& hintUrl, bool priv);
-    StringList getNicks(const CID& cid, const string& hintUrl, bool priv);
 
     StringList getNicks(const HintedUser& user) { return getNicks(user.user->getCID(), user.hint); }
     StringList getHubNames(const HintedUser& user) { return getHubNames(user.user->getCID(), user.hint); }
@@ -137,7 +138,7 @@ public:
     void send(AdcCommand& c, const CID& to);
     void connect(const HintedUser& user, const string& token);
     void privateMessage(const HintedUser& user, const string& msg, bool thirdPerson);
-    void userCommand(const HintedUser& user, const UserCommand& uc, StringMap& params, bool compatibility);
+    void userCommand(const HintedUser& user, const UserCommand& uc, ParamMap& params, bool compatibility);
     int getMode(const string& aHubUrl) const;
     bool isActive(const string& aHubUrl = Util::emptyString) const { return getMode(aHubUrl) != SettingsManager::INCOMING_FIREWALL_PASSIVE; }
     static bool ucExecuteLua(const string& cmd, StringMap& params) noexcept;

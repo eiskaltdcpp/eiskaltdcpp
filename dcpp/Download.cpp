@@ -109,7 +109,7 @@ const string &Download::getDownloadTarget() const
     return (getTempTarget().empty() ? getPath() : getTempTarget());
 }
 
-void Download::getParams(const UserConnection& aSource, StringMap& params) {
+void Download::getParams(const UserConnection& aSource, ParamMap& params) {
     Transfer::getParams(aSource, params);
     params["target"] = getPath();
 }

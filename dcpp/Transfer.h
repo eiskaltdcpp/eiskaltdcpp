@@ -77,7 +77,7 @@ public:
         return getSize() - getPos();
     }
 
-    virtual void getParams(const UserConnection& aSource, StringMap& params);
+    virtual void getParams(const UserConnection& aSource, ParamMap& params);
 
     UserPtr getUser();
     const UserPtr getUser() const;

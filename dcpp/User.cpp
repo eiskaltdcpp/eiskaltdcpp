@@ -49,11 +49,11 @@ bool Identity::isUdpActive() const {
     return (!user->isSet(User::NMDC)) ? supports(AdcHub::UDP4_FEATURE) : !user->isSet(User::PASSIVE);
 }
 
-void Identity::getParams(StringMap& sm, const string& prefix, bool compatibility, bool dht) const {
+void Identity::getParams(ParamMap& params, const string& prefix, bool compatibility, bool dht) const {
     {
         FastLock l(cs);
         for(auto& i: info) {
-            sm[prefix + string((char*)(&i.first), 2)] = i.second;
+            params[prefix + string((char*)(&i.first), 2)] = i.second;
         }
     }
     if(
@@ -61,24 +61,24 @@ void Identity::getParams(StringMap& sm, const string& prefix, bool compatibility
             !dht &&
         #endif
             user) {
-        sm[prefix + "SID"] = getSIDString();
-        sm[prefix + "CID"] = user->getCID().toBase32();
-        sm[prefix + "TAG"] = getTag();
-        sm[prefix + "SSshort"] = Util::formatBytes(get("SS"));
+        params[prefix + "SID"] = getSIDString();
+        params[prefix + "CID"] = user->getCID().toBase32();
+        params[prefix + "TAG"] = getTag();
+        params[prefix + "SSshort"] = Util::formatBytes(get("SS"));
 
         if(compatibility) {
             if(prefix == "my") {
-                sm["mynick"] = getNick();
-                sm["mycid"] = user->getCID().toBase32();
+                params["mynick"] = getNick();
+                params["mycid"] = user->getCID().toBase32();
             } else {
-                sm["nick"] = getNick();
-                sm["cid"] = user->getCID().toBase32();
-                sm["ip"] = get("I4");
-                sm["tag"] = getTag();
-                sm["description"] = get("DE");
-                sm["email"] = get("EM");
-                sm["share"] = get("SS");
-                sm["shareshort"] = Util::formatBytes(get("SS"));
+                params["nick"] = getNick();
+                params["cid"] = user->getCID().toBase32();
+                params["ip"] = get("I4");
+                params["tag"] = getTag();
+                params["description"] = get("DE");
+                params["email"] = get("EM");
+                params["share"] = get("SS");
+                params["shareshort"] = Util::formatBytes(get("SS"));
             }
         }
     }
@@ -154,6 +154,33 @@ std::map<string, string> Identity::getInfo() const {
     }
 
     return ret;
+}
+
+bool Identity::isSelf() const {
+    FastLock l(cs);
+    return Flags::isSet(SELF_ID);
+}
+
+void Identity::setSelf() {
+    FastLock l(cs);
+    if(!Flags::isSet(SELF_ID))
+        Flags::setFlag(SELF_ID);
+}
+
+bool Identity::noChat() const {
+    FastLock l(cs);
+    return Flags::isSet(IGNORE_CHAT);
+}
+
+void Identity::setNoChat(bool ignoreChat) {
+    FastLock l(cs);
+    if(ignoreChat) {
+        if(!Flags::isSet(IGNORE_CHAT))
+            Flags::setFlag(IGNORE_CHAT);
+    } else {
+        if(Flags::isSet(IGNORE_CHAT))
+            Flags::unsetFlag(IGNORE_CHAT);
+    }
 }
 
 void FavoriteUser::update(const OnlineUser& info) {

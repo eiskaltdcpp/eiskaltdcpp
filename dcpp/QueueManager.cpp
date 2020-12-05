@@ -2135,7 +2135,7 @@ void QueueManager::logFinishedDownload(QueueItem* qi, Download*, bool crcChecked
     params["sfv"] = Util::toString(crcChecked ? 1 : 0);
 
     {
-        auto lock = FinishedManager::getInstance()->lockLists();
+        auto lock = FinishedManager::getInstance()->lock();
         const FinishedManager::MapByFile& map = FinishedManager::getInstance()->getMapByFile(false);
         FinishedManager::MapByFile::const_iterator it = map.find(qi->getTarget());
         if(it != map.end()) {

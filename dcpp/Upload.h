@@ -34,7 +34,7 @@ public:
     Upload(UserConnection& conn, const string& path, const TTHValue& tth);
     virtual ~Upload();
 
-    virtual void getParams(const UserConnection& aSource, StringMap& params);
+    virtual void getParams(const UserConnection& aSource, ParamMap& params);
 
     GETSET(InputStream*, stream, Stream);
 };

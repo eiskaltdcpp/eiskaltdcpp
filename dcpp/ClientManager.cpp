@@ -94,6 +94,16 @@ StringList ClientManager::getHubNames(const CID& cid, const string& hintUrl) {
     return getHubNames(cid, hintUrl, FavoriteManager::getInstance()->isPrivate(hintUrl));
 }
 
+StringList ClientManager::getHubUrls(const CID& cid) const {
+    Lock l(cs);
+    StringList lst;
+    OnlinePairC op = onlineUsers.equal_range(cid);
+    for(auto i = op.first; i != op.second; ++i) {
+        lst.push_back(i->second->getClient().getHubUrl());
+    }
+    return lst;
+}
+
 StringList ClientManager::getNicks(const CID& cid, const string& hintUrl) {
     return getNicks(cid, hintUrl, FavoriteManager::getInstance()->isPrivate(hintUrl));
 }
@@ -314,9 +324,10 @@ bool ClientManager::isOp(const UserPtr& user, const string& aHubUrl) const {
 }
 
 CID ClientManager::makeCid(const string& aNick, const string& aHubUrl) const noexcept {
+    string n = Text::toLower(aNick);
     TigerHash th;
-    th.update(aNick.c_str(), aNick.length());
-    th.update(aHubUrl.c_str(), aHubUrl.length());
+    th.update(n.c_str(), n.length());
+    th.update(Text::toLower(aHubUrl).c_str(), aHubUrl.length());
     // Construct hybrid CID from the bits of the tiger hash - should be
     // fairly random, and hopefully low-collision
     return CID(th.finalize());
@@ -421,7 +432,7 @@ void ClientManager::privateMessage(const HintedUser& user, const string& msg, bo
     }
 }
 
-void ClientManager::userCommand(const HintedUser& user, const UserCommand& uc, StringMap& params, bool compatibility) {
+void ClientManager::userCommand(const HintedUser& user, const UserCommand& uc, ParamMap& params, bool compatibility) {
     Lock l(cs);
     /** @todo we allow wrong hints for now ("false" param of findOnlineUser) because users
      * extracted from search results don't always have a correct hint; see
