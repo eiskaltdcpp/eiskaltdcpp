@@ -141,13 +141,13 @@ public:
     string getHubName() const { return getHubIdentity().getNick().empty() ? getHubUrl() : getHubIdentity().getNick(); }
     string getHubDescription() const { return getHubIdentity().getDescription(); }
 
-    Identity& getHubIdentity() { return hubIdentity; }
-
     const string& getHubUrl() const { return hubUrl; }
 
     GETSET(Identity, myIdentity, MyIdentity);
     GETSET(Identity, hubIdentity, HubIdentity);
+    Identity& getHubIdentity() { return hubIdentity; }
 
+    GETSET(uint32_t, uniqueId, UniqueId);
     GETSET(string, defpassword, Password);
     GETSET(uint32_t, reconnDelay, ReconnDelay);
     GETSET(uint64_t, lastActivity, LastActivity);

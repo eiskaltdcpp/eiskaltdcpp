@@ -32,8 +32,10 @@ namespace dcpp {
 
 Client::Counts Client::counts;
 
+uint32_t idCounter = 0;
+
 Client::Client(const string& hubURL, char separator_, bool secure_, Socket::Protocol proto_) :
-    myIdentity(ClientManager::getInstance()->getMe(), 0),
+    myIdentity(ClientManager::getInstance()->getMe(), 0), uniqueId(++idCounter),
     reconnDelay(120), lastActivity(GET_TICK()), registered(false), autoReconnect(false),
     encoding(Text::hubDefaultCharset), state(STATE_DISCONNECTED), sock(0),
     hubUrl(hubURL), separator(separator_), proto(proto_),
@@ -70,7 +72,7 @@ void Client::shutdown() {
 }
 
 void Client::reloadSettings(bool updateNick) {
-    const FavoriteHubEntry* hub = FavoriteManager::getInstance()->getFavoriteHubEntry(getHubUrl());
+    auto fav = FavoriteManager::getInstance()->getFavoriteHubEntry(getHubUrl());
 
     string ClientId;
     if (::strncmp(getHubUrl().c_str(),"adc://", 6) == 0 ||
@@ -79,31 +81,31 @@ void Client::reloadSettings(bool updateNick) {
     else
         ClientId = fullNMDCVersionString;
 
-    if(hub) {
+    if(fav) {
         if(updateNick) {
-            setCurrentNick(checkNick(hub->getNick(true)));
+            setCurrentNick(checkNick(fav->getNick(true)));
         }
 
-        if(!hub->getUserDescription().empty()) {
-            setCurrentDescription(hub->getUserDescription());
+        if(!fav->getUserDescription().empty()) {
+            setCurrentDescription(fav->getUserDescription());
         } else {
             setCurrentDescription(SETTING(DESCRIPTION));
         }
 
-        if(!hub->getPassword().empty())
-            setPassword(hub->getPassword());
-        if (hub->getOverrideId() && strlen(hub->getClientId().c_str()) > 1)
-            ClientId = hub->getClientId();
-        if (!hub->getExternalIP().empty())
-            externalIP = hub->getExternalIP();
-        if (!hub->getEncoding().empty()){
-            setEncoding(hub->getEncoding());
+        if(!fav->getPassword().empty())
+            setPassword(fav->getPassword());
+        if (fav->getOverrideId() && strlen(fav->getClientId().c_str()) > 1)
+            ClientId = fav->getClientId();
+        if (!fav->getExternalIP().empty())
+            externalIP = fav->getExternalIP();
+        if (!fav->getEncoding().empty()){
+            setEncoding(fav->getEncoding());
         }
-        if (hub->getUseInternetIP() && !SETTING(INTERNETIP).empty()){
+        if (fav->getUseInternetIP() && !SETTING(INTERNETIP).empty()){
             externalIP = SETTING(INTERNETIP);
         }
 
-        setSearchInterval(hub->getSearchInterval());
+        setSearchInterval(fav->getSearchInterval());
     } else {
         if(updateNick) {
             setCurrentNick(checkNick(SETTING(NICK)));
@@ -119,8 +121,10 @@ bool Client::isActive() const {
 }
 
 void Client::connect() {
-    if(sock)
+    if(sock) {
         BufferedSocket::putSocket(sock);
+        sock = 0;
+    }
 
     setAutoReconnect(true);
     setReconnDelay(SETTING(RECONNECT_DELAY));
