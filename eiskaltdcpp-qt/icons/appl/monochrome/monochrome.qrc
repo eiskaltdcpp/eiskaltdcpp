@@ -45,6 +45,7 @@
         <file alias="im-user-away.png">im-user-away.png</file>
         <file alias="list-add.png">list-add.png</file>
         <file alias="log_file.png">log_file.png</file>
+        <file alias="magnet.png">magnet.png</file>
         <file alias="message.png">message.png</file>
         <file alias="network-connect.png">network-connect.png</file>
         <file alias="network-disconnect.png">network-disconnect.png</file>

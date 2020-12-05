@@ -13,6 +13,7 @@
 #include <QMessageBox>
 #include <QDir>
 #include <QFileDialog>
+#include <QClipboard>
 
 #include "dcpp/stdinc.h"
 #include "dcpp/Util.h"
@@ -34,11 +35,13 @@ Magnet::Magnet(QWidget *parent) :
 {
     setupUi(this);
 
+    pushButton_COPY->setIcon(WICON(WulforUtil::eiMAGNET));
     pushButton_BROWSE->setIcon(WICON(WulforUtil::eiFOLDER_BLUE));
 
     connect(pushButton_CANCEL,  SIGNAL(clicked()), this, SLOT(accept()));
     connect(pushButton_SEARCH,  SIGNAL(clicked()), this, SLOT(search()));
     connect(pushButton_DOWNLOAD,SIGNAL(clicked()), this, SLOT(download()));
+    connect(pushButton_COPY,    SIGNAL(clicked()), this, SLOT(slotCopyMagnet()));
     connect(pushButton_BROWSE,  SIGNAL(clicked()), this, SLOT(slotBrowse()));
     connect(this, SIGNAL(finished(int)), this, SLOT(saveWindowSize()));
 
@@ -152,21 +155,44 @@ void Magnet::search(){
 }
 
 void Magnet::download() {
-    QString tth = lineEdit_TTH->text();
+    const QString &&tth = lineEdit_TTH->text();
 
     if (checkBox_Remember->isChecked() && WIGET(WI_DEF_MAGNET_ACTION) != 2)
         WISET(WI_DEF_MAGNET_ACTION,2);
     if (tth.isEmpty())
         return;
-    QString fname = lineEdit_FNAME->text();
-    QString path = lineEdit_FPATH->text();
-    QString size_str = lineEdit_SIZE->text();
 
-    QString name = path + (path.endsWith(QDir::separator())? QString("") : QDir::separator()) + fname.split(QDir::separator(), QString::SkipEmptyParts).last();
-    qulonglong size = size_str.left(size_str.indexOf(" (")).toULongLong();
+    const QString &&fname = lineEdit_FNAME->text();
+    const QString &&path = lineEdit_FPATH->text();
+    const QString &&size_str = lineEdit_SIZE->text();
+
+    const QString &&name = path + (path.endsWith(QDir::separator())? QString("") : QDir::separator()) + fname.split(QDir::separator(), QString::SkipEmptyParts).last();
+    const qulonglong size = size_str.left(size_str.indexOf(" (")).toULongLong();
+
     Magnet::download(name,size,tth);
 
     accept();
+}
+
+void Magnet::slotCopyMagnet(){
+    const QString &&tth = lineEdit_TTH->text();
+    const QString &&fname = lineEdit_FNAME->text();
+    const QString &&size_str = lineEdit_SIZE->text();
+
+    const QString name = fname.split(QDir::separator(), QString::SkipEmptyParts).last();
+    const qulonglong size = size_str.left(size_str.indexOf(" (")).toULongLong();
+
+    QString magnet;
+    if (tth.isEmpty()) {
+        // Special searching magnet link:
+        const QString &&encoded_name = _q(Util::encodeURI(name.toStdString()));
+        magnet = "magnet:?kt=" + encoded_name + "&dn=" + encoded_name;
+    } else {
+        magnet = WulforUtil::getInstance()->makeMagnet(name, size, tth);
+    }
+
+    if (!magnet.isEmpty())
+        qApp->clipboard()->setText(magnet, QClipboard::Clipboard);
 }
 
 void Magnet::slotBrowse(){

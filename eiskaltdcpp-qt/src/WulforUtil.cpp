@@ -423,6 +423,7 @@ bool WulforUtil::loadIcons(){
     m_PixmapMap[eiHASHING]      = FROMTHEME("hashing", resourceFound);
     m_PixmapMap[eiHUBMSG]       = FROMTHEME("hubmsg", resourceFound);
     m_PixmapMap[eiICON_APPL]    = FROMTHEME_SIDE("icon_appl_big", resourceFound, 128);
+    m_PixmapMap[eiMAGNET]       = FROMTHEME("magnet", resourceFound);
     m_PixmapMap[eiMESSAGE]      = FROMTHEME("message", resourceFound);
     m_PixmapMap[eiMESSAGE_TRAY_ICON] = FROMTHEME_SIDE("icon_msg_big", resourceFound, 128);
     m_PixmapMap[eiOWN_FILELIST] = FROMTHEME("own_filelist", resourceFound);
@@ -1017,7 +1018,7 @@ QString WulforUtil::formatBytes(int64_t aBytes){
 
 QString WulforUtil::makeMagnet(const QString &path, const int64_t size, const QString &tth){
     if (path.isEmpty() || tth.isEmpty())
-        return "";
+        return QString();
 
     return magnetSignature + tth + "&xl=" + _q(Util::toString(size)) + "&dn=" + _q(Util::encodeURI(path.toStdString()));
 }

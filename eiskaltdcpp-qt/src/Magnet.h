@@ -40,6 +40,7 @@ private slots:
     void saveWindowSize();
     void search();
     void download();
+    void slotCopyMagnet();
     void slotBrowse();
     void showUI(const QString &, const qulonglong &, const QString &);
     void search(const QString &, const qulonglong &, const QString &);

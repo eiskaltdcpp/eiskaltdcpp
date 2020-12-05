@@ -92,6 +92,7 @@ public:
         eiHIDEWINDOW,
         eiHUBMSG,
         eiICON_APPL,
+        eiMAGNET,
         eiMESSAGE,
         eiMESSAGE_TRAY_ICON,
         eiOPENLIST,
