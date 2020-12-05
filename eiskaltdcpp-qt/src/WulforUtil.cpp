@@ -1204,8 +1204,9 @@ QMenu *WulforUtil::buildUserCmdMenu(const StringList& hub_list, int ctx, QWidget
                         }
                     }
 
-                    if (!found)
+                    if (!found) {
                         menuPtr = menuPtr->addMenu(name);
+                    }
                 }
             }
         }

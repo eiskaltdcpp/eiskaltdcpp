@@ -58,12 +58,14 @@ public:
         NAT             = 0x20
     };
 
-    Identity() { }
-    Identity(const UserPtr& ptr, uint32_t aSID) : user(ptr) { setSID(aSID); }
-    Identity(const Identity& rhs) { *this = rhs; } // Use operator= since we have to lock before reading...
+    Identity() : sid(0) { }
+    Identity(const UserPtr& ptr, uint32_t aSID) : user(ptr), sid(aSID) { }
+    Identity(const Identity& rhs) : Flags(), sid(0) { *this = rhs; } // Use operator= since we have to lock before reading...
     Identity& operator=(const Identity& rhs) {
         FastLock l(cs);
+        *static_cast<Flags*>(this) = rhs;
         user = rhs.user;
+        sid = rhs.sid;
         info = rhs.info;
         return *this;
     }
@@ -107,11 +109,15 @@ public:
     bool isClientType(ClientType ct) const;
 
     void getParams(StringMap& map, const string& prefix, bool compatibility, bool dht = false) const;
+
+    const UserPtr& getUser() const { return user; }
     UserPtr& getUser() { return user; }
-    GETSET(UserPtr, user, User);
-    GETSET(uint32_t, sid, SID);
+    uint32_t getSID() const { return sid; }
 
 private:
+    UserPtr user;
+    uint32_t sid;
+
     typedef std::unordered_map<short, string> InfMap;
     typedef InfMap::iterator InfIter;
     typedef InfMap::const_iterator InfIterC;

@@ -1111,14 +1111,15 @@ string Util::formatParams(const string& msg, const StringMap& params, bool filte
         if( (result.size() < j + 2) || ((k = result.find(']', j + 2)) == string::npos) ) {
             break;
         }
-        string name = result.substr(j + 2, k - j - 2);
-        StringMap::const_iterator smi = params.find(name);
-        if(smi == params.end()) {
+
+        auto param = params.find(result.substr(j + 2, k - j - 2));
+
+        if(param == params.end()) {
             result.erase(j, k-j + 1);
             i = j;
         } else {
-            if(smi->second.find_first_of("%\\./") != string::npos) {
-                string tmp = smi->second;   // replace all % in params with %% for strftime
+            if(param->second.find_first_of("%\\./") != string::npos) {
+                string tmp = param->second;   // replace all % in params with %% for strftime
                 string::size_type m = 0;
                 while(( m = tmp.find('%', m)) != string::npos) {
                     tmp.replace(m, 1, "%%");
@@ -1135,8 +1136,8 @@ string Util::formatParams(const string& msg, const StringMap& params, bool filte
                 result.replace(j, k-j + 1, tmp);
                 i = j + tmp.size();
             } else {
-                result.replace(j, k-j + 1, smi->second);
-                i = j + smi->second.size();
+                result.replace(j, k-j + 1, param->second);
+                i = j + param->second.size();
             }
         }
     }
