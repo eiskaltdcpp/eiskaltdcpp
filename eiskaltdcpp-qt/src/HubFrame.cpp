@@ -1384,15 +1384,15 @@ QString HubFrame::getArenaTitle(){
     QString ret = tr("Not connected");
 
     if (d->client && d->client->isConnected()){
-        ret  = QString("%1 - %2 [%3]").arg(QString(d->client->getHubName().c_str()))
-                                      .arg(QString(d->client->getHubDescription().c_str()))
-                                      .arg(QString(d->client->getIp().c_str()));
+        ret  = QString("%1 - %2 [%3]").arg(_q(d->client->getHubName()))
+                                      .arg(_q(d->client->getHubDescription()))
+                                      .arg(_q(d->client->getIp()));
         QString prefix = QString("[+%1] ").arg(d->client->isSecure()? ("S") : (d->client->isTrusted()? ("T"): ("")));
 
         ret.prepend(prefix);
     }
     else if (d->client){
-        ret = QString("[-] %1").arg(d->client->getHubUrl().c_str());
+        ret = QString("[-] %1").arg(_q(d->client->getHubUrl()));
     }
 
     return ret;
@@ -1409,10 +1409,10 @@ QString HubFrame::getArenaShortTitle(){
     QString ret = tr("Not connected");
 
     if (d->client && d->client->isConnected()){
-        ret = QString("[+] %1").arg(QString(d->client->getHubName().c_str()));
+        ret = QString("[+] %1").arg(_q(d->client->getHubName()));
     }
     else if (d->client){
-        ret = QString("[-] %1").arg(d->client->getHubUrl().c_str());
+        ret = QString("[-] %1").arg(_q(d->client->getHubUrl()));
     }
 
     return ret;
@@ -1588,9 +1588,9 @@ bool HubFrame::parseForCmd(QString line, QWidget *wg){
             }
 
             if (fr == this)
-                addStatus(tr("Away mode on: ") + QString::fromStdString(Util::getAwayMessage()));
+                addStatus(tr("Away mode on: ") + _q(Util::getAwayMessage()));
             else if (pm)
-                pm->addStatus(tr("Away mode on: ") + QString::fromStdString(Util::getAwayMessage()));
+                pm->addStatus(tr("Away mode on: ") + _q(Util::getAwayMessage()));
         }
     }
     else if (cmd == "/alias" && !emptyParam){
@@ -2212,7 +2212,7 @@ void HubFrame::getParams(HubFrame::VarMap &map, const Identity &id){
     map["IP"] = _q(id.getIp());
     map["EMAIL"] = _q(id.getEmail());
     map["ISOP"] = id.isOp();
-    map["SPEED"] = QString::fromStdString(id.getConnection());
+    map["SPEED"] = _q(id.getConnection());
     map["AWAY"] = id.isAway();
     map["CID"] = _q(id.getUser()->getCID().toBase32());
 }
@@ -3625,7 +3625,7 @@ void HubFrame::slotStatusLinkOpen(const QString &url){
 
 void HubFrame::slotHubMenu(QAction *res) {
     if (res && res->data().canConvert(QVariant::Int)) {//User command
-        int id = res->data().toInt();
+        const int id = res->data().toInt();
 
         UserCommand uc;
         if (id == -1 || !FavoriteManager::getInstance()->getUserCommand(id, uc))
@@ -3751,7 +3751,7 @@ void HubFrame::on(ClientListener::Connecting, Client *c) noexcept{
     Q_UNUSED(c)
     Q_D(HubFrame);
 
-    QString status = tr("Connecting to %1").arg(QString::fromStdString(d->client->getHubUrl()));
+    QString status = tr("Connecting to %1").arg(_q(d->client->getHubUrl()));
 
     emit coreConnecting(status);
 }
@@ -3759,7 +3759,7 @@ void HubFrame::on(ClientListener::Connecting, Client *c) noexcept{
 void HubFrame::on(ClientListener::Connected, Client*) noexcept{
     Q_D(HubFrame);
 
-    QString status = tr("Connected to %1").arg(QString::fromStdString(d->client->getHubUrl()));
+    QString status = tr("Connected to %1").arg(_q(d->client->getHubUrl()));
 
     emit coreConnected(status);
 
@@ -3997,7 +3997,7 @@ void HubFrame::on(ClientListener::StatusMessage, Client*, const string &msg, int
 
 void HubFrame::on(ClientListener::NickTaken, Client*) noexcept{
     Q_D(HubFrame);
-    QString status = tr("Sorry, but nick \"%1\" is already taken by another user.").arg(d->client->getCurrentNick().c_str());
+    QString status = tr("Sorry, but nick \"%1\" is already taken by another user.").arg(_q(d->client->getCurrentNick()));
 
     emit coreStatusMsg(status);
 }
