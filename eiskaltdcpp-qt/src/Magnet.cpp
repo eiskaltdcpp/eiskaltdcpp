@@ -176,8 +176,11 @@ void Magnet::download() {
 
 void Magnet::slotCopyMagnet(){
     const QString &&tth = lineEdit_TTH->text();
-    const QString &&fname = lineEdit_FNAME->text();
+    const QString &&fname = lineEdit_FNAME->text().trimmed();
     const QString &&size_str = lineEdit_SIZE->text();
+
+    if (fname.isEmpty())
+        return;
 
     const QString name = fname.split(QDir::separator(), QString::SkipEmptyParts).last();
     const qulonglong size = size_str.left(size_str.indexOf(" (")).toULongLong();

@@ -1299,9 +1299,9 @@ void SearchFrame::slotContextMenu(const QPoint &){
                 SearchItem *item = reinterpret_cast<SearchItem*>(i.internalPointer());
 
                 if (!item->isDir){//only files
-                    qlonglong size = item->data(COLUMN_SF_ESIZE).toLongLong();
-                    QString tth = item->data(COLUMN_SF_TTH).toString();
-                    QString name = item->data(COLUMN_SF_FILENAME).toString();
+                    const qlonglong size = item->data(COLUMN_SF_ESIZE).toLongLong();
+                    const QString tth = item->data(COLUMN_SF_TTH).toString();
+                    const QString name = item->data(COLUMN_SF_FILENAME).toString().trimmed();
 
                     QString magnet = WU->makeMagnet(name, size, tth);
 
@@ -1326,9 +1326,9 @@ void SearchFrame::slotContextMenu(const QPoint &){
                 SearchItem *item = reinterpret_cast<SearchItem*>(i.internalPointer());
 
                 if (!item->isDir){//only files
-                    qlonglong size = item->data(COLUMN_SF_ESIZE).toLongLong();
-                    QString tth = item->data(COLUMN_SF_TTH).toString();
-                    QString name = item->data(COLUMN_SF_FILENAME).toString();
+                    const qlonglong size = item->data(COLUMN_SF_ESIZE).toLongLong();
+                    const QString tth = item->data(COLUMN_SF_TTH).toString();
+                    const QString name = item->data(COLUMN_SF_FILENAME).toString().trimmed();
 
                     QString magnet = "[magnet=\"" + WU->makeMagnet(name, size, tth) + "\"]"+name+"[/magnet]";
 
@@ -1352,11 +1352,11 @@ void SearchFrame::slotContextMenu(const QPoint &){
                 SearchItem *item = reinterpret_cast<SearchItem*>(i.internalPointer());
 
                 if (!item->isDir){//only files
-                    qlonglong size = item->data(COLUMN_SF_ESIZE).toLongLong();
-                    QString tth = item->data(COLUMN_SF_TTH).toString();
-                    QString name = item->data(COLUMN_SF_FILENAME).toString();
+                    const qlonglong size = item->data(COLUMN_SF_ESIZE).toLongLong();
+                    const QString tth = item->data(COLUMN_SF_TTH).toString();
+                    const QString name = item->data(COLUMN_SF_FILENAME).toString().trimmed();
 
-                    QString magnet = WU->makeMagnet(name, size, tth);
+                    const QString magnet = WU->makeMagnet(name, size, tth);
 
                     if (!magnet.isEmpty()){
                         Magnet m(this);

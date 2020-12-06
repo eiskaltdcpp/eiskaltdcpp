@@ -900,7 +900,7 @@ void ShareBrowser::slotCustomContextMenu(const QPoint &){
             for (const auto &index : list){
                 FileBrowserItem *item = reinterpret_cast<FileBrowserItem*>(index.internalPointer());
 
-                path = item->data(COLUMN_FILEBROWSER_NAME).toString();
+                path = item->data(COLUMN_FILEBROWSER_NAME).toString().trimmed();
                 tth  = item->data(COLUMN_FILEBROWSER_TTH).toString();
                 size = item->data(COLUMN_FILEBROWSER_ESIZE).toLongLong();
 
@@ -925,7 +925,7 @@ void ShareBrowser::slotCustomContextMenu(const QPoint &){
             for (const auto &index : list){
                 FileBrowserItem *item = reinterpret_cast<FileBrowserItem*>(index.internalPointer());
 
-                path = item->data(COLUMN_FILEBROWSER_NAME).toString();
+                path = item->data(COLUMN_FILEBROWSER_NAME).toString().trimmed();
                 tth  = item->data(COLUMN_FILEBROWSER_TTH).toString();
                 size = item->data(COLUMN_FILEBROWSER_ESIZE).toLongLong();
 
@@ -949,7 +949,7 @@ void ShareBrowser::slotCustomContextMenu(const QPoint &){
             for (const auto &index : list){
                 FileBrowserItem *item = reinterpret_cast<FileBrowserItem*>(index.internalPointer());
 
-                path = item->data(COLUMN_FILEBROWSER_NAME).toString();
+                path = item->data(COLUMN_FILEBROWSER_NAME).toString().trimmed();
                 tth  = item->data(COLUMN_FILEBROWSER_TTH).toString();
                 size = item->data(COLUMN_FILEBROWSER_ESIZE).toLongLong();
 

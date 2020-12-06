@@ -591,7 +591,7 @@ void DownloadQueue::slotContextMenu(const QPoint &){
 
             for (const auto &i : items)
                 magnet += WulforUtil::getInstance()->makeMagnet(
-                        i->data(COLUMN_DOWNLOADQUEUE_NAME).toString(),
+                        i->data(COLUMN_DOWNLOADQUEUE_NAME).toString().trimmed(),
                         i->data(COLUMN_DOWNLOADQUEUE_ESIZE).toLongLong(),
                         i->data(COLUMN_DOWNLOADQUEUE_TTH).toString()) + "\n";
 
@@ -607,10 +607,10 @@ void DownloadQueue::slotContextMenu(const QPoint &){
             for (const auto &i : items){
                 magnet += "[magnet=\"" +
                     WulforUtil::getInstance()->makeMagnet(
-                        i->data(COLUMN_DOWNLOADQUEUE_NAME).toString(),
+                        i->data(COLUMN_DOWNLOADQUEUE_NAME).toString().trimmed(),
                         i->data(COLUMN_DOWNLOADQUEUE_ESIZE).toLongLong(),
                         i->data(COLUMN_DOWNLOADQUEUE_TTH).toString()) +
-                    "\"]"+i->data(COLUMN_DOWNLOADQUEUE_NAME).toString()+"[/magnet]\n";
+                    "\"]"+i->data(COLUMN_DOWNLOADQUEUE_NAME).toString().trimmed()+"[/magnet]\n";
             }
 
             if (!magnet.isEmpty())
@@ -624,7 +624,7 @@ void DownloadQueue::slotContextMenu(const QPoint &){
 
             for (const auto &i : items){
                 magnet = WulforUtil::getInstance()->makeMagnet(
-                    i->data(COLUMN_DOWNLOADQUEUE_NAME).toString(),
+                    i->data(COLUMN_DOWNLOADQUEUE_NAME).toString().trimmed(),
                     i->data(COLUMN_DOWNLOADQUEUE_ESIZE).toLongLong(),
                     i->data(COLUMN_DOWNLOADQUEUE_TTH).toString()) + "\n";
 

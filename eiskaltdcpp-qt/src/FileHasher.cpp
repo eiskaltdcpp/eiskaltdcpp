@@ -91,7 +91,7 @@ void FileHasher::slotMagnet(){
     qlonglong filesize = QFile(file).size();
     QStringList list = file.split("/");
 
-    file = list.last();
+    file = list.last().trimmed();
 
     QString urlStr = WulforUtil::getInstance()->makeMagnet(file, filesize, tthstring);
     qApp->clipboard()->setText(urlStr);
