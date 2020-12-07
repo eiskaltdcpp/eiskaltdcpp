@@ -14,11 +14,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EiskaltDC++\n"
 "Report-Msgid-Bugs-To: https://github.com/eiskaltdcpp/eiskaltdcpp/issues\n"
-"POT-Creation-Date: 2020-04-14 20:26+0300\n"
+"POT-Creation-Date: 2020-12-08 01:31+0300\n"
 "PO-Revision-Date: 2020-04-14 16:59+0000\n"
 "Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
-"Language-Team: Serbian (https://www.transifex.com/tehnick/eiskaltdcpp/languages/"
-"language/sr/)\n"
+"Language-Team: Serbian (https://www.transifex.com/tehnick/eiskaltdcpp/"
+"languages/language/sr/)\n"
 "Language: sr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,16 +26,16 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: ../src/hub.cc:1086 ../src/hub.cc:1165 ../src/privatemessage.cc:571
+#: ../src/hub.cc:1087 ../src/hub.cc:1166 ../src/privatemessage.cc:571
 #: ../src/privatemessage.cc:650
 msgid " *** Emoticons limit"
 msgstr " *** Ограничење емотикона"
 
-#: ../src/hub.cc:1081 ../src/privatemessage.cc:566
+#: ../src/hub.cc:1082 ../src/privatemessage.cc:566
 msgid " *** Emoticons mode off"
 msgstr " *** Емотикон режим искљ"
 
-#: ../src/hub.cc:1076 ../src/privatemessage.cc:561
+#: ../src/hub.cc:1077 ../src/privatemessage.cc:561
 msgid " *** Emoticons not loaded"
 msgstr " *** Емотикони нису учитани"
 
@@ -43,15 +43,15 @@ msgstr " *** Емотикони нису учитани"
 msgid " + system icons"
 msgstr "+ системске иконе"
 
-#: ../src/hub.cc:470 ../src/hub.cc:489
+#: ../src/hub.cc:471 ../src/hub.cc:490
 msgid " Users"
 msgstr "Корисници"
 
-#: ../src/hub.cc:2879
+#: ../src/hub.cc:2880
 msgid " added to favorites list"
 msgstr "додат на листу омиљеног"
 
-#: ../src/hub.cc:2007
+#: ../src/hub.cc:2008
 msgid " empty..."
 msgstr "празан..."
 
@@ -59,27 +59,27 @@ msgstr "празан..."
 msgid " files"
 msgstr "фајлови"
 
-#: ../src/hub.cc:453 ../src/hub.cc:464
+#: ../src/hub.cc:454 ../src/hub.cc:465
 msgid " has joined"
 msgstr "се прикључио"
 
-#: ../src/hub.cc:454 ../src/hub.cc:463
+#: ../src/hub.cc:455 ../src/hub.cc:464
 msgid " has joined hub "
 msgstr "се прикључио на хаб"
 
-#: ../src/hub.cc:496 ../src/hub.cc:506
+#: ../src/hub.cc:497 ../src/hub.cc:507
 msgid " has quit"
 msgstr "је напустио"
 
-#: ../src/hub.cc:495 ../src/hub.cc:505
+#: ../src/hub.cc:496 ../src/hub.cc:506
 msgid " has quit hub "
 msgstr "је напустио хаб"
 
-#: ../src/hub.cc:1980 ../src/hub.cc:2809 ../src/privatemessage.cc:1425
+#: ../src/hub.cc:1981 ../src/hub.cc:2810 ../src/privatemessage.cc:1425
 msgid " is favorite user"
 msgstr "је омиљени корисник"
 
-#: ../src/hub.cc:1998 ../src/hub.cc:2850 ../src/privatemessage.cc:1446
+#: ../src/hub.cc:1999 ../src/hub.cc:2851 ../src/privatemessage.cc:1446
 msgid " is not favorite user"
 msgstr "није омиљени корисник"
 
@@ -91,7 +91,7 @@ msgstr "остало"
 msgid " of "
 msgstr "од"
 
-#: ../src/hub.cc:2906
+#: ../src/hub.cc:2907
 msgid " removed from favorites list"
 msgstr "уклоњен из листе омиљених"
 
@@ -99,7 +99,7 @@ msgstr "уклоњен из листе омиљених"
 msgid " to "
 msgstr "за"
 
-#: ../src/search.cc:725
+#: ../src/search.cc:726
 msgid " user(s)"
 msgstr "корисник(ци)"
 
@@ -131,11 +131,11 @@ msgstr ""
 "\n"
 "see man strftime for details."
 
-#: ../src/hub.cc:2436
+#: ../src/hub.cc:2437
 msgid "': type /help for a list of available commands"
 msgstr "': режим /помоћ за листу доступних команди"
 
-#: ../src/hub.cc:2105 ../src/privatemessage.cc:1034
+#: ../src/hub.cc:2106 ../src/privatemessage.cc:1034
 msgid "*** Available commands:"
 msgstr "*** Доступне команде:"
 
@@ -165,7 +165,7 @@ msgstr "...не сме бити празно"
 msgid "0 B (0.00%)"
 msgstr "0 B (0.00%)"
 
-#: ../src/hub.cc:534
+#: ../src/hub.cc:535
 msgid "0 Users"
 msgstr "0 Корисника"
 
@@ -365,7 +365,7 @@ msgstr "<b>Фасцикле</b>"
 msgid "<b>Do not share files and folders containing:</b>"
 msgstr "<b>Не дели фајлове и фасцикле који садрже:</b>"
 
-#: ../src/hub.cc:614
+#: ../src/hub.cc:615
 msgid "<b>Enter your password</b>"
 msgstr "<b>Унеси лозинку</b>"
 
@@ -593,7 +593,7 @@ msgstr "<b>фајл:</b> "
 msgid "<small>Note: Leave unchecked for default values</small>"
 msgstr "<small>Напомена: Остави неозначено за подразумеване вредности</small>"
 
-#: ../src/sharebrowser.hh:148 ../src/sharebrowser.hh:151
+#: ../src/sharebrowser.hh:151 ../src/sharebrowser.hh:154
 msgid "?"
 msgstr "?"
 
@@ -629,7 +629,7 @@ msgstr "Додај"
 msgid "Add / Remove"
 msgstr "Додај / Уклони"
 
-#: ../src/hub.cc:2110 ../ui/hub.ui:39
+#: ../src/hub.cc:2111 ../ui/hub.ui:39
 msgid "Add a hub to favorites"
 msgstr "Додај хаб у омиљено"
 
@@ -637,7 +637,7 @@ msgstr "Додај хаб у омиљено"
 msgid "Add finished files to share instantly (if shared)"
 msgstr "Додај завршене фајлове одмах за дељење (ако је дељено)"
 
-#: ../src/hub.cc:2142
+#: ../src/hub.cc:2143
 msgid ""
 "Add rule 192.168.1.0/23 where direction incoming and action is allow and "
 "192.168.6.0/24 where direction is incoming or outcoming and action is drop"
@@ -657,7 +657,7 @@ msgstr "Додај у омиљене кориснике"
 msgid "Add to favorites"
 msgstr "Додај у омиљене"
 
-#: ../src/hub.cc:2111 ../src/privatemessage.cc:1039 ../ui/privatemessage.ui:48
+#: ../src/hub.cc:2112 ../src/privatemessage.cc:1039 ../ui/privatemessage.ui:48
 msgid "Add user to favorites list"
 msgstr "Додај корисника у листу омиљеног"
 
@@ -689,23 +689,23 @@ msgstr "Адреса"
 msgid "Advanced"
 msgstr "Напредно"
 
-#: ../src/hub.cc:2137
+#: ../src/hub.cc:2138
 msgid "Alias A executing"
 msgstr "Пресуодим А се извршава"
 
-#: ../src/hub.cc:2134
+#: ../src/hub.cc:2135
 msgid "Alias List"
 msgstr "Листе псеудонима"
 
-#: ../src/hub.cc:2135
+#: ../src/hub.cc:2136
 msgid "Alias Remove A"
 msgstr "Псеудоним уклања А"
 
-#: ../src/hub.cc:2136
+#: ../src/hub.cc:2137
 msgid "Alias add uname -a as A"
 msgstr "Псеудоним додаје  uname -a као А"
 
-#: ../src/hub.cc:2336
+#: ../src/hub.cc:2337
 msgid "Aliases not found."
 msgstr "Псеудоними нису пронађени."
 
@@ -836,18 +836,18 @@ msgstr "Аутоматски тражи алтернативне локациј�
 msgid "Automatically update external IP (restart required)"
 msgstr "Аутоматски ажурирај спољашње ИП (захтева рестарт)"
 
-#: ../src/hub.cc:2106 ../src/privatemessage.cc:1035 ../ui/hub.ui:12
+#: ../src/hub.cc:2107 ../src/privatemessage.cc:1035 ../ui/hub.ui:12
 #: ../ui/privatemessage.ui:12
 msgid "Away mode message on/off"
 msgstr "Порука за режим у одсуству укљ/иск"
 
-#: ../src/hub.cc:1923 ../src/hub.cc:1936 ../src/hub.cc:2107
+#: ../src/hub.cc:1924 ../src/hub.cc:1937 ../src/hub.cc:2108
 #: ../src/privatemessage.cc:917 ../src/privatemessage.cc:931
 #: ../src/privatemessage.cc:1036 ../ui/hub.ui:21 ../ui/privatemessage.ui:21
 msgid "Away mode off"
 msgstr "Режим отсутности искљ"
 
-#: ../src/hub.cc:1930 ../src/privatemessage.cc:925
+#: ../src/hub.cc:1931 ../src/privatemessage.cc:925
 msgid "Away mode on: "
 msgstr "Режим отсутности укљ:"
 
@@ -920,7 +920,7 @@ msgstr "Прегледај фајл..."
 msgid "Browse the list of public hubs"
 msgstr "Прегледај листу јавних хабова"
 
-#: ../src/search.cc:348 ../src/search.cc:418 ../src/sharebrowser.cc:531
+#: ../src/search.cc:349 ../src/search.cc:419 ../src/sharebrowser.cc:531
 #: ../src/sharebrowser.cc:603 ../ui/hub.ui:231 ../ui/mainwindow.ui:319
 #: ../ui/privatemessage.ui:188 ../ui/settingsdialog.ui:2646
 #: ../ui/settingsdialog.ui:2716 ../ui/settingsdialog.ui:6749
@@ -1035,11 +1035,11 @@ msgstr "Команде ћаскања"
 msgid "Chat Menu"
 msgstr "Мени ћаскања"
 
-#: ../src/hub.cc:1950
+#: ../src/hub.cc:1951
 msgid "Chat disabled"
 msgstr "Ћаскање онемогућено"
 
-#: ../src/hub.cc:1955
+#: ../src/hub.cc:1956
 msgid "Chat enabled"
 msgstr "Ћаскање омогућено"
 
@@ -1059,7 +1059,7 @@ msgstr "Кинески (Кина) превод\n"
 msgid "Choose a File"
 msgstr "Одабери фајл"
 
-#: ../src/hub.cc:2734 ../src/mainwindow.cc:1336 ../src/mainwindow.cc:1408
+#: ../src/hub.cc:2735 ../src/mainwindow.cc:1336 ../src/mainwindow.cc:1408
 #: ../src/privatemessage.cc:1328 ../ui/search.ui:7 ../ui/settingsdialog.ui:8510
 #: ../ui/sharebrowser.ui:7
 msgid "Choose a directory"
@@ -1077,7 +1077,7 @@ msgstr "Очисти"
 msgid "Clear PM"
 msgstr "Очисти ПП"
 
-#: ../src/hub.cc:2108 ../ui/hub.ui:30
+#: ../src/hub.cc:2109 ../ui/hub.ui:30
 msgid "Clear chat"
 msgstr "Очисти ћаскање"
 
@@ -1105,7 +1105,7 @@ msgstr "Затвори све хабове"
 msgid "Close all search"
 msgstr "Затвори све претраге"
 
-#: ../src/hub.cc:2109
+#: ../src/hub.cc:2110
 msgid "Close chat"
 msgstr "Затвори ћаскање"
 
@@ -1160,7 +1160,7 @@ msgstr "Потврди брисање омиљеног хаба"
 msgid "Connect"
 msgstr "Повежи"
 
-#: ../src/hub.cc:3596
+#: ../src/hub.cc:3597
 msgid "Connect failed: "
 msgstr "Повезивање неуспело:"
 
@@ -1172,11 +1172,11 @@ msgstr "Повежи на хаб"
 msgid "Connect to hub"
 msgstr "Повежи на хаб"
 
-#: ../src/hub.cc:2117 ../ui/hub.ui:57
+#: ../src/hub.cc:2118 ../ui/hub.ui:57
 msgid "Connect to the hub"
 msgstr "Повежи на хаб"
 
-#: ../src/hub.cc:3540 ../src/transfers.cc:1032
+#: ../src/hub.cc:3541 ../src/transfers.cc:1032
 msgid "Connected"
 msgstr "Повезано"
 
@@ -1188,7 +1188,7 @@ msgstr "Повезивање"
 msgid "Connecting (forced)..."
 msgstr "Повезивање (присилно)..."
 
-#: ../src/hub.cc:3533
+#: ../src/hub.cc:3534
 msgid "Connecting to "
 msgstr "Повезивање на"
 
@@ -1196,8 +1196,8 @@ msgstr "Повезивање на"
 msgid "Connecting..."
 msgstr "Повезивање..."
 
-#: ../src/hub.cc:99 ../src/hub.cc:418 ../src/hub.cc:438 ../src/search.cc:105
-#: ../src/search.cc:666 ../src/search.cc:751 ../src/search.cc:886
+#: ../src/hub.cc:100 ../src/hub.cc:419 ../src/hub.cc:439 ../src/search.cc:106
+#: ../src/search.cc:667 ../src/search.cc:752 ../src/search.cc:887
 #: ../ui/search.ui:141 ../ui/settingsdialog.ui:1883
 #: ../ui/settingsdialog.ui:2585
 msgid "Connection"
@@ -1280,8 +1280,8 @@ msgstr "Обриши ставку"
 #: ../src/favoritehubs.cc:52 ../src/favoritehubs.cc:131
 #: ../src/favoritehubs.cc:314 ../src/favoriteusers.cc:50
 #: ../src/favoriteusers.cc:113 ../src/favoriteusers.cc:391
-#: ../src/favoriteusers.cc:416 ../src/favoriteusers.cc:607 ../src/hub.cc:97
-#: ../src/hub.cc:416 ../src/hub.cc:436 ../src/publichubs.cc:47
+#: ../src/favoriteusers.cc:416 ../src/favoriteusers.cc:607 ../src/hub.cc:98
+#: ../src/hub.cc:417 ../src/hub.cc:437 ../src/publichubs.cc:47
 #: ../src/publichubs.cc:159 ../src/publichubs.cc:304 ../ui/favoriteusers.ui:212
 #: ../ui/settingsdialog.ui:1171
 msgid "Description"
@@ -1306,7 +1306,7 @@ msgstr "Дир"
 msgid "Direct connection"
 msgstr "Директно повезивање"
 
-#: ../src/UserCommandMenu.cc:66 ../src/search.cc:932 ../src/search.cc:1772
+#: ../src/UserCommandMenu.cc:66 ../src/search.cc:933 ../src/search.cc:1773
 #: ../src/settingsdialog.cc:902 ../src/settingsdialog.cc:915
 #: ../src/settingsdialog.cc:1029 ../src/settingsdialog.cc:1438
 #: ../src/settingsdialog.cc:3770 ../src/settingsdialog.cc:3790
@@ -1412,19 +1412,19 @@ msgstr "Преузимање завршено:"
 msgid "Download image"
 msgstr "Преузми слику"
 
-#: ../src/hub.cc:2050
+#: ../src/hub.cc:2051
 msgid "Download image: disable"
 msgstr "Преузми слику: искључено"
 
-#: ../src/hub.cc:2052
+#: ../src/hub.cc:2053
 msgid "Download image: unlimit"
 msgstr "Преузми слике: без ограничења"
 
-#: ../src/hub.cc:2054
+#: ../src/hub.cc:2055
 msgid "Download limit image: "
 msgstr "Ограничење преузимања за слику:"
 
-#: ../src/hub.cc:2123
+#: ../src/hub.cc:2124
 msgid "Download limit image: 0 - disable, n < 0 - unlimit, empty - info"
 msgstr "Ограничење преузимања:0 - disable, n < 0 - unlimit, empty - info"
 
@@ -1482,7 +1482,7 @@ msgstr "Преузимања"
 msgid "Drop sources below"
 msgstr "Пад извора испод"
 
-#: ../src/search.cc:2000
+#: ../src/search.cc:2014
 msgid "Dropped: "
 msgstr "Прекинуто:"
 
@@ -1502,15 +1502,15 @@ msgstr "Измени подешавања"
 msgid "Emoticons"
 msgstr "Емотикони"
 
-#: ../src/hub.cc:2034 ../src/privatemessage.cc:973
+#: ../src/hub.cc:2035 ../src/privatemessage.cc:973
 msgid "Emoticons mode off"
 msgstr "Емотикон режим иск"
 
-#: ../src/hub.cc:2039 ../src/privatemessage.cc:978
+#: ../src/hub.cc:2040 ../src/privatemessage.cc:978
 msgid "Emoticons mode on"
 msgstr "Емотикон режим укљ"
 
-#: ../src/hub.cc:2126 ../src/privatemessage.cc:1043
+#: ../src/hub.cc:2127 ../src/privatemessage.cc:1043
 msgid "Emoticons on/off"
 msgstr "Емотикони укљ/иск"
 
@@ -1585,9 +1585,9 @@ msgid "Every time a private message is received"
 msgstr "Сваки пут када је приватна порука примљена"
 
 #: ../src/downloadqueue.cc:78 ../src/downloadqueue.cc:93
-#: ../src/downloadqueue.cc:285 ../src/downloadqueue.cc:392 ../src/search.cc:107
-#: ../src/search.cc:130 ../src/search.cc:668 ../src/search.cc:745
-#: ../src/search.cc:754 ../src/sharebrowser.cc:87 ../src/sharebrowser.cc:110
+#: ../src/downloadqueue.cc:285 ../src/downloadqueue.cc:392 ../src/search.cc:108
+#: ../src/search.cc:131 ../src/search.cc:669 ../src/search.cc:746
+#: ../src/search.cc:755 ../src/sharebrowser.cc:87 ../src/sharebrowser.cc:110
 #: ../src/sharebrowser.cc:324 ../src/sharebrowser.cc:355
 msgid "Exact Size"
 msgstr "Тачна величина"
@@ -1600,11 +1600,11 @@ msgstr "Тачна величина"
 msgid "Exceptions"
 msgstr "Изузеци"
 
-#: ../src/hub.cc:2129
+#: ../src/hub.cc:2130
 msgid "Execute Lua Chunk"
 msgstr "Изврши Lua комад"
 
-#: ../src/hub.cc:2131
+#: ../src/hub.cc:2132
 msgid "Execute code (bash)"
 msgstr "Изврши код (bash)"
 
@@ -1669,11 +1669,11 @@ msgstr "Омиљени корисник"
 msgid "Favorite Users"
 msgstr "Омиљени корисници"
 
-#: ../src/hub.cc:3129
+#: ../src/hub.cc:3130
 msgid "Favorite hub added"
 msgstr "Додат омиљени хаб"
 
-#: ../src/hub.cc:3134
+#: ../src/hub.cc:3135
 msgid "Favorite hub already exists"
 msgstr "Омиљени хаб већ постоји"
 
@@ -1729,11 +1729,11 @@ msgstr "Мени фајл листе"
 #: ../src/downloadqueue.cc:388 ../src/downloadqueue.cc:777
 #: ../src/downloadqueue.cc:820 ../src/downloadqueue.cc:871
 #: ../src/finishedtransfers.cc:62 ../src/finishedtransfers.cc:236
-#: ../src/search.cc:99 ../src/search.cc:132 ../src/search.cc:363
-#: ../src/search.cc:661 ../src/search.cc:702 ../src/search.cc:707
-#: ../src/search.cc:877 ../src/search.cc:925 ../src/search.cc:935
-#: ../src/search.cc:1268 ../src/search.cc:1308 ../src/search.cc:1366
-#: ../src/search.cc:1717 ../src/search.cc:2056 ../src/sharebrowser.cc:83
+#: ../src/search.cc:100 ../src/search.cc:133 ../src/search.cc:364
+#: ../src/search.cc:662 ../src/search.cc:703 ../src/search.cc:708
+#: ../src/search.cc:878 ../src/search.cc:926 ../src/search.cc:936
+#: ../src/search.cc:1269 ../src/search.cc:1309 ../src/search.cc:1367
+#: ../src/search.cc:1718 ../src/search.cc:2070 ../src/sharebrowser.cc:83
 #: ../src/sharebrowser.cc:106 ../src/sharebrowser.cc:108
 #: ../src/sharebrowser.cc:316 ../src/sharebrowser.cc:346
 #: ../src/sharebrowser.cc:563 ../src/sharebrowser.cc:664
@@ -1763,11 +1763,11 @@ msgstr "Филтер фајлови су већ у дељеном"
 msgid "Filter kick and NMDC debug messages"
 msgstr "Filter kick and NMDC debug messages"
 
-#: ../src/search.cc:1987
+#: ../src/search.cc:2001
 msgid "Filtered: "
 msgstr "Филтрирано:"
 
-#: ../src/search.cc:572
+#: ../src/search.cc:573
 msgid "Filtered: 0"
 msgstr "Филтрирано: 0"
 
@@ -1823,11 +1823,11 @@ msgstr "Формат"
 msgid "Found a match"
 msgstr "Пронађено подударање"
 
-#: ../src/search.cc:685
+#: ../src/search.cc:686
 msgid "Found: "
 msgstr "Пронађено:"
 
-#: ../src/search.cc:571
+#: ../src/search.cc:572
 msgid "Found: 0"
 msgstr "Пронађено: 0"
 
@@ -1886,7 +1886,7 @@ msgstr "Немачки"
 msgid "German translation\n"
 msgstr "Немачки превод\n"
 
-#: ../src/hub.cc:2114 ../src/privatemessage.cc:1041 ../ui/privatemessage.ui:66
+#: ../src/hub.cc:2115 ../src/privatemessage.cc:1041 ../ui/privatemessage.ui:66
 msgid "Get file list"
 msgstr "Добави фајл листу"
 
@@ -1894,7 +1894,7 @@ msgstr "Добави фајл листу"
 msgid "GiB"
 msgstr "GiB"
 
-#: ../src/favoritehubs.cc:368 ../src/hub.cc:2946
+#: ../src/favoritehubs.cc:368 ../src/hub.cc:2947
 msgid "Global hub default"
 msgstr "Подразумевани глобални хаб"
 
@@ -1902,7 +1902,7 @@ msgstr "Подразумевани глобални хаб"
 msgid "Grant Slot"
 msgstr "Одобри слот"
 
-#: ../src/hub.cc:2115 ../src/privatemessage.cc:1042 ../ui/privatemessage.ui:75
+#: ../src/hub.cc:2116 ../src/privatemessage.cc:1042 ../ui/privatemessage.ui:75
 msgid "Grant extra slot"
 msgstr "Одобри додатни слот"
 
@@ -1984,8 +1984,8 @@ msgid "Homepage"
 msgstr "Матична страна"
 
 #: ../src/finishedtransfers.cc:84 ../src/finishedtransfers.cc:193
-#: ../src/search.cc:106 ../src/search.cc:667 ../src/search.cc:764
-#: ../src/search.cc:895 ../src/settingsdialog.cc:1674
+#: ../src/search.cc:107 ../src/search.cc:668 ../src/search.cc:765
+#: ../src/search.cc:896 ../src/settingsdialog.cc:1674
 #: ../src/settingsdialog.cc:1684 ../src/settingsdialog.cc:3363
 #: ../src/settingsdialog.cc:3437 ../src/settingsdialog.cc:4009
 #: ../src/settingsdialog.cc:4100 ../src/settingsdialog.cc:4123
@@ -2045,7 +2045,7 @@ msgstr "Мађарски"
 msgid "Hungarian translation\n"
 msgstr "Мађарски превод\n"
 
-#: ../src/search.cc:108 ../src/search.cc:669 ../src/transfers.cc:68
+#: ../src/search.cc:109 ../src/search.cc:670 ../src/transfers.cc:68
 msgid "IP"
 msgstr "ИП"
 
@@ -2103,11 +2103,11 @@ msgstr "Игнориши приватну поруку од ботова"
 msgid "Ignore private messages from the hub"
 msgstr "Игнориши приватне поруке са хаба"
 
-#: ../src/hub.cc:3666
+#: ../src/hub.cc:3667
 msgid "Ignored private message from bot "
 msgstr "Игнориши приватне поруке од бота"
 
-#: ../src/hub.cc:3659
+#: ../src/hub.cc:3660
 msgid "Ignored private message from hub"
 msgstr "Игнориши приватне поруке од хаба"
 
@@ -2131,15 +2131,15 @@ msgstr "Инсталирање за"
 msgid "Invalid extension: "
 msgstr "Неважећа проширења:"
 
-#: ../src/hub.cc:2280
+#: ../src/hub.cc:2281
 msgid "Ipfilter is disable"
 msgstr "Ип филтер је онемогућен"
 
-#: ../src/hub.cc:2273
+#: ../src/hub.cc:2274
 msgid "Ipfilter is enable"
 msgstr "Ип филтер је омогућен"
 
-#: ../src/hub.cc:2138
+#: ../src/hub.cc:2139
 msgid "Ipfilter on/off"
 msgstr "Ип филтер укљ/иск"
 
@@ -2219,7 +2219,7 @@ msgstr "Листа"
 msgid "List: "
 msgstr "Листа:"
 
-#: ../src/hub.cc:2128
+#: ../src/hub.cc:2129
 msgid "Load Lua file"
 msgstr "Учитавање Lua фајла"
 
@@ -2429,7 +2429,7 @@ msgstr "Помери доле"
 msgid "Move Up"
 msgstr "Помери горе"
 
-#: ../src/hub.cc:2140
+#: ../src/hub.cc:2141
 msgid "Move rule up/down"
 msgstr "Помери правила горе/доле"
 
@@ -2461,7 +2461,7 @@ msgstr "Н_адимак:"
 #: ../src/favoritehubs.cc:76 ../src/favoritehubs.cc:130
 #: ../src/favoritehubs.cc:312 ../src/favoritehubs.cc:457
 #: ../src/publichubs.cc:46 ../src/publichubs.cc:158 ../src/publichubs.cc:303
-#: ../src/search.cc:86 ../src/search.cc:251 ../src/search.cc:267
+#: ../src/search.cc:87 ../src/search.cc:252 ../src/search.cc:268
 #: ../src/settingsdialog.cc:689 ../src/settingsdialog.cc:698
 #: ../src/settingsdialog.cc:922 ../src/settingsdialog.cc:957
 #: ../src/settingsdialog.cc:1399 ../src/settingsdialog.cc:1453
@@ -2512,16 +2512,16 @@ msgstr "Следећи"
 #: ../src/favoriteusers.cc:110 ../src/favoriteusers.cc:392
 #: ../src/favoriteusers.cc:446 ../src/favoriteusers.cc:604
 #: ../src/finishedtransfers.cc:83 ../src/finishedtransfers.cc:192
-#: ../src/hub.cc:95 ../src/hub.cc:115 ../src/hub.cc:117 ../src/hub.cc:399
-#: ../src/hub.cc:414 ../src/hub.cc:434 ../src/hub.cc:483 ../src/hub.cc:1306
-#: ../src/hub.cc:1613 ../src/hub.cc:1680 ../src/hub.cc:2463 ../src/hub.cc:2495
-#: ../src/hub.cc:2798 ../src/hub.cc:2839 ../src/search.cc:100
-#: ../src/search.cc:660 ../src/search.cc:726 ../src/search.cc:760
-#: ../src/search.cc:892 ../ui/search.ui:147 ../ui/settingsdialog.ui:1199
+#: ../src/hub.cc:96 ../src/hub.cc:116 ../src/hub.cc:118 ../src/hub.cc:400
+#: ../src/hub.cc:415 ../src/hub.cc:435 ../src/hub.cc:484 ../src/hub.cc:1307
+#: ../src/hub.cc:1614 ../src/hub.cc:1681 ../src/hub.cc:2464 ../src/hub.cc:2496
+#: ../src/hub.cc:2799 ../src/hub.cc:2840 ../src/search.cc:101
+#: ../src/search.cc:661 ../src/search.cc:727 ../src/search.cc:761
+#: ../src/search.cc:893 ../ui/search.ui:147 ../ui/settingsdialog.ui:1199
 msgid "Nick"
 msgstr "Надимак"
 
-#: ../src/hub.cc:3763
+#: ../src/hub.cc:3764
 msgid "Nick already taken"
 msgstr "Надимак је већ заузет"
 
@@ -2573,7 +2573,7 @@ msgstr "Нормалан"
 msgid "Normal priority max size"
 msgstr "Нормалан приоритет макс величине"
 
-#: ../src/hub.cc:1982 ../src/hub.cc:2017 ../src/hub.cc:2027 ../src/hub.cc:2179
+#: ../src/hub.cc:1983 ../src/hub.cc:2018 ../src/hub.cc:2028 ../src/hub.cc:2180
 msgid "Not found user: "
 msgstr "Није нађен корисник:"
 
@@ -2699,10 +2699,10 @@ msgstr "Лозинка"
 #: ../src/downloadqueue.cc:77 ../src/downloadqueue.cc:290
 #: ../src/downloadqueue.cc:397 ../src/finishedtransfers.cc:63
 #: ../src/finishedtransfers.cc:237 ../src/finishedtransfers.cc:521
-#: ../src/search.cc:103 ../src/search.cc:364 ../src/search.cc:664
-#: ../src/search.cc:741 ../src/search.cc:880 ../src/search.cc:934
-#: ../src/search.cc:1267 ../src/search.cc:1307 ../src/search.cc:1365
-#: ../src/search.cc:1432 ../src/search.cc:1467 ../src/search.cc:2057
+#: ../src/search.cc:104 ../src/search.cc:365 ../src/search.cc:665
+#: ../src/search.cc:742 ../src/search.cc:881 ../src/search.cc:935
+#: ../src/search.cc:1268 ../src/search.cc:1308 ../src/search.cc:1366
+#: ../src/search.cc:1433 ../src/search.cc:1468 ../src/search.cc:2071
 #: ../src/transfers.cc:67 ../src/transfers.cc:719 ../ui/search.ui:135
 msgid "Path"
 msgstr "Путања"
@@ -2787,7 +2787,7 @@ msgstr "Приватна порука (такође поставља хитно�
 msgid "Private key file"
 msgstr "Фајл приватног кључа"
 
-#: ../src/hub.cc:2119 ../src/settingsdialog.cc:1177
+#: ../src/hub.cc:2120 ../src/settingsdialog.cc:1177
 #: ../src/settingsdialog.cc:1230 ../src/settingsdialog.cc:1364
 #: ../src/settingsmanager.cc:239
 msgid "Private message"
@@ -2850,7 +2850,7 @@ msgstr "Поново-_додај извор"
 msgid "Re_connect"
 msgstr "По_ново повежи"
 
-#: ../src/hub.cc:2120 ../ui/hub.ui:75
+#: ../src/hub.cc:2121 ../ui/hub.ui:75
 msgid "Rebuild hash"
 msgstr "Понови хеш"
 
@@ -2909,7 +2909,7 @@ msgstr "Обриши из_вор"
 msgid "Remove image"
 msgstr "Обриши слику"
 
-#: ../src/hub.cc:2141
+#: ../src/hub.cc:2142
 msgid "Remove rules from list"
 msgstr "Обриши правила са листе"
 
@@ -2917,7 +2917,7 @@ msgstr "Обриши правила са листе"
 msgid "Remove slow filelists"
 msgstr "Обриши споре фајл листе"
 
-#: ../src/hub.cc:2112 ../src/privatemessage.cc:1040 ../ui/privatemessage.ui:57
+#: ../src/hub.cc:2113 ../src/privatemessage.cc:1040 ../ui/privatemessage.ui:57
 msgid "Remove user favorite"
 msgstr "Обриши омиљеног корисника"
 
@@ -2973,13 +2973,13 @@ msgstr "Руски превок\n"
 msgid "SJIS"
 msgstr "SJIS"
 
-#: ../src/hub.cc:2118 ../ui/hub.ui:66
+#: ../src/hub.cc:2119 ../ui/hub.ui:66
 msgid "Say a third person"
 msgstr "Кажи трећој особи"
 
-#: ../src/search.cc:39 ../src/search.cc:85 ../src/search.cc:92
-#: ../src/search.cc:250 ../src/search.cc:452 ../src/search.cc:466
-#: ../src/search.cc:1143 ../src/search.cc:1144 ../src/search.cc:2035
+#: ../src/search.cc:40 ../src/search.cc:86 ../src/search.cc:93
+#: ../src/search.cc:251 ../src/search.cc:453 ../src/search.cc:467
+#: ../src/search.cc:1144 ../src/search.cc:1145 ../src/search.cc:2049
 #: ../src/settingsdialog.cc:1147 ../src/settingsdialog.cc:1432
 #: ../src/settingsdialog.cc:1490 ../ui/mainwindow.ui:1230
 #: ../ui/mainwindow.ui:2203 ../ui/mainwindow.ui:2481 ../ui/search.ui:227
@@ -3027,7 +3027,7 @@ msgstr "Претражи историју"
 msgid "Search options"
 msgstr "Опције претраге"
 
-#: ../src/hub.cc:3770
+#: ../src/hub.cc:3771
 msgid "Search spam detected from "
 msgstr "Претражи спам детектован од"
 
@@ -3041,7 +3041,7 @@ msgstr "Тип претраге"
 msgid "Search within local results"
 msgstr "Претражи са локалним резултатима"
 
-#: ../src/search.cc:1966
+#: ../src/search.cc:1972
 msgid "Searching for "
 msgstr "Претрага за"
 
@@ -3085,7 +3085,7 @@ msgstr "Шаљи једном по надимку"
 msgid "Send unknown /commands to the hub"
 msgstr "Пошаљи непознато /команде на хаб"
 
-#: ../src/search.cc:578
+#: ../src/search.cc:579
 #, c-format
 msgid "Sent ADC extensions : %s\n"
 msgstr "Пошаљи АДЦ проширења : %s\n"
@@ -3115,13 +3115,13 @@ msgstr "Српски (Латиница)"
 msgid "Serbian (Latin) translation\n"
 msgstr "Српски (Латиница) превод\n"
 
-#: ../src/hub.cc:2133
+#: ../src/hub.cc:2134
 msgid ""
 "Set Core option param in value (without value return current value of option)"
 msgstr ""
 "Подеси основне опције у вредности (без опције повратка на тренутне вредности)"
 
-#: ../src/hub.cc:2132
+#: ../src/hub.cc:2133
 msgid ""
 "Set GUI option param in value (without value return current value of option)"
 msgstr ""
@@ -3135,7 +3135,7 @@ msgstr "Подеси приори_тет"
 msgid "Set download limit image"
 msgstr "Подеси лимит преузимања"
 
-#: ../src/hub.cc:2060
+#: ../src/hub.cc:2061
 msgid "Set download limit image: "
 msgstr "Подеси лимит преузимања:"
 
@@ -3149,8 +3149,8 @@ msgstr ""
 msgid "Share hidden files"
 msgstr "Дели сакривене фајлове"
 
-#: ../src/hub.cc:96 ../src/hub.cc:398 ../src/hub.cc:415 ../src/hub.cc:435
-#: ../src/hub.cc:484 ../src/publichubs.cc:51 ../src/publichubs.cc:163
+#: ../src/hub.cc:97 ../src/hub.cc:399 ../src/hub.cc:416 ../src/hub.cc:436
+#: ../src/hub.cc:485 ../src/publichubs.cc:51 ../src/publichubs.cc:163
 #: ../src/sharebrowser.cc:93 ../src/sharebrowser.cc:111
 #: ../src/sharebrowser.cc:364
 msgid "Shared"
@@ -3168,7 +3168,7 @@ msgstr "Прикажи ИП'ове' у ћаскању"
 msgid "Show Interface"
 msgstr "Прикажи сучеље"
 
-#: ../src/hub.cc:2113 ../ui/hub.ui:48
+#: ../src/hub.cc:2114 ../ui/hub.ui:48
 msgid "Show favorites list"
 msgstr "Прикажи листу омиљеног"
 
@@ -3176,12 +3176,12 @@ msgstr "Прикажи листу омиљеног"
 msgid "Show free space bar"
 msgstr "Прикажи бар слободног простора"
 
-#: ../src/hub.cc:2116 ../src/privatemessage.cc:1046 ../ui/hub.ui:111
+#: ../src/hub.cc:2117 ../src/privatemessage.cc:1046 ../ui/hub.ui:111
 #: ../ui/privatemessage.ui:102
 msgid "Show help"
 msgstr "Прикажи помоћ"
 
-#: ../src/hub.cc:2139
+#: ../src/hub.cc:2140
 msgid "Show ipfilter rules list"
 msgstr "Прикажи ип филтер листу"
 
@@ -3205,7 +3205,7 @@ msgstr "Прикажи само комплетно завршене трансф
 msgid "Show only when the application is not active."
 msgstr "Прикажи само када апликација није активна."
 
-#: ../src/hub.cc:2125 ../src/privatemessage.cc:1045 ../ui/hub.ui:102
+#: ../src/hub.cc:2126 ../src/privatemessage.cc:1045 ../ui/hub.ui:102
 #: ../ui/privatemessage.ui:93
 msgid "Show ratio [send in chat]"
 msgstr "Прикажи однос [пошаљи у ћаскање]"
@@ -3226,7 +3226,7 @@ msgstr "Прикажи топ претрагу"
 msgid "Show user country in chat"
 msgstr "Прикажи земљу корисника у ћаскању"
 
-#: ../src/hub.cc:2124 ../src/privatemessage.cc:1044 ../ui/hub.ui:93
+#: ../src/hub.cc:2125 ../src/privatemessage.cc:1044 ../ui/hub.ui:93
 #: ../ui/privatemessage.ui:84
 msgid "Show version"
 msgstr "Прикажи верзију"
@@ -3249,9 +3249,9 @@ msgid "Signal handlers installed.\n"
 msgstr "Сигнал руковалаца инсталиран.\n"
 
 #: ../src/downloadqueue.cc:73 ../src/downloadqueue.cc:92
-#: ../src/downloadqueue.cc:284 ../src/downloadqueue.cc:391 ../src/search.cc:102
-#: ../src/search.cc:129 ../src/search.cc:663 ../src/search.cc:746
-#: ../src/search.cc:755 ../src/search.cc:883 ../src/settingsdialog.cc:1030
+#: ../src/downloadqueue.cc:284 ../src/downloadqueue.cc:391 ../src/search.cc:103
+#: ../src/search.cc:130 ../src/search.cc:664 ../src/search.cc:747
+#: ../src/search.cc:756 ../src/search.cc:884 ../src/settingsdialog.cc:1030
 #: ../src/settingsdialog.cc:1036 ../src/settingsdialog.cc:3820
 #: ../src/settingsdialog.cc:3888 ../src/sharebrowser.cc:84
 #: ../src/sharebrowser.cc:109 ../src/sharebrowser.cc:323
@@ -3282,11 +3282,11 @@ msgstr "Прескочи нула-бајтне фајлове"
 msgid "Slot granted"
 msgstr "Слот је одобрен"
 
-#: ../src/favoriteusers.cc:531 ../src/hub.cc:3050
+#: ../src/favoriteusers.cc:531 ../src/hub.cc:3051
 msgid "Slot granted to "
 msgstr "Слот је одобрен за"
 
-#: ../src/search.cc:104 ../src/search.cc:131 ../src/search.cc:662
+#: ../src/search.cc:105 ../src/search.cc:132 ../src/search.cc:663
 msgid "Slots"
 msgstr "Слотови"
 
@@ -3374,7 +3374,7 @@ msgstr "Статус"
 msgid "Status message"
 msgstr "Статусна порука"
 
-#: ../src/search.cc:594
+#: ../src/search.cc:595
 msgid "Stop"
 msgstr "Стоп"
 
@@ -3405,10 +3405,10 @@ msgstr "TIS-620"
 
 #: ../src/downloadqueue.cc:81 ../src/downloadqueue.cc:293
 #: ../src/downloadqueue.cc:400 ../src/downloadqueue.cc:751
-#: ../src/downloadqueue.cc:779 ../src/search.cc:109 ../src/search.cc:366
-#: ../src/search.cc:370 ../src/search.cc:376 ../src/search.cc:670
-#: ../src/search.cc:757 ../src/search.cc:889 ../src/search.cc:940
-#: ../src/search.cc:1228 ../src/search.cc:1397 ../src/search.cc:1719
+#: ../src/downloadqueue.cc:779 ../src/search.cc:110 ../src/search.cc:367
+#: ../src/search.cc:371 ../src/search.cc:377 ../src/search.cc:671
+#: ../src/search.cc:758 ../src/search.cc:890 ../src/search.cc:941
+#: ../src/search.cc:1229 ../src/search.cc:1398 ../src/search.cc:1720
 #: ../src/sharebrowser.cc:86 ../src/sharebrowser.cc:328
 #: ../src/sharebrowser.cc:358 ../src/sharebrowser.cc:566
 #: ../src/sharebrowser.cc:1054 ../src/sharebrowser.cc:1090
@@ -3424,7 +3424,7 @@ msgstr "TTH: "
 msgid "Tabs"
 msgstr "Картице"
 
-#: ../src/hub.cc:98 ../src/hub.cc:417 ../src/hub.cc:437
+#: ../src/hub.cc:99 ../src/hub.cc:418 ../src/hub.cc:438
 msgid "Tag"
 msgstr "Ознаке"
 
@@ -3574,8 +3574,8 @@ msgstr "Турски"
 msgid "Turkish translation\n"
 msgstr "Турски превод\n"
 
-#: ../src/search.cc:101 ../src/search.cc:665 ../src/search.cc:769
-#: ../src/search.cc:898 ../src/search.cc:932 ../src/sharebrowser.cc:85
+#: ../src/search.cc:102 ../src/search.cc:666 ../src/search.cc:770
+#: ../src/search.cc:899 ../src/search.cc:933 ../src/sharebrowser.cc:85
 #: ../src/sharebrowser.cc:326 ../src/sharebrowser.cc:347
 msgid "Type"
 msgstr "Режим"
@@ -3596,7 +3596,7 @@ msgstr "Украјински"
 msgid "Ukrainian translation\n"
 msgstr "Украјински превод\n"
 
-#: ../src/hub.cc:3075
+#: ../src/hub.cc:3076
 msgid "Unable to connect: already connected to the requested hub"
 msgstr "Немогуће повезати: већ повезан на тражени хаб"
 
@@ -3622,9 +3622,9 @@ msgstr ""
 msgid "Unfinished downloads directory"
 msgstr "Фацикла за недовршена преузимања"
 
-#: ../src/WulforUtil.cc:331 ../src/WulforUtil.cc:333
-#: ../src/downloadqueue.cc:1320 ../src/downloadqueue.cc:1321
-#: ../src/mainwindow.cc:1096 ../src/mainwindow.cc:1490
+#: ../src/WulforUtil.cc:331 ../src/downloadqueue.cc:1320
+#: ../src/downloadqueue.cc:1321 ../src/mainwindow.cc:1096
+#: ../src/mainwindow.cc:1490
 msgid "Unknown"
 msgstr "Непознат"
 
@@ -3632,7 +3632,7 @@ msgstr "Непознат"
 msgid "Unknown command "
 msgstr "Непозната команда"
 
-#: ../src/hub.cc:2436
+#: ../src/hub.cc:2437
 msgid "Unknown command '"
 msgstr "Непозната команда '"
 
@@ -3644,7 +3644,7 @@ msgstr "Ажурирање"
 msgid "Update frame search"
 msgstr "Ажурирање оквира претраге"
 
-#: ../src/hub.cc:2121
+#: ../src/hub.cc:2122
 msgid "Update own file list"
 msgstr "Ажурирање сопствене фајл листе"
 
@@ -3735,7 +3735,7 @@ msgstr "Користи блинкајућу икону"
 msgid "Use DHT"
 msgstr "Користи ДХТ"
 
-#: ../src/hub.cc:1826 ../src/privatemessage.cc:1239
+#: ../src/hub.cc:1827 ../src/privatemessage.cc:1239
 msgid "Use Emoticons"
 msgstr "Користи емотиконе"
 
@@ -3809,7 +3809,7 @@ msgstr "Кориснички опис"
 msgid "User commands"
 msgstr "Корисничке команде"
 
-#: ../src/hub.cc:2007
+#: ../src/hub.cc:2008
 msgid "User favorite list:"
 msgstr "Омиљена корисничка листа:"
 
@@ -3821,11 +3821,11 @@ msgstr "Кориснички заштитни зид (дц)"
 msgid "User firewall (normal)"
 msgstr "Кориснички заштитни зид (нормалан)"
 
-#: ../src/hub.cc:2122
+#: ../src/hub.cc:2123
 msgid "User list show/hide"
 msgstr "Корисничка листа прикажи/сакриј"
 
-#: ../src/hub.cc:3021 ../src/hub.cc:3041
+#: ../src/hub.cc:3022 ../src/hub.cc:3042
 msgid "User not found"
 msgstr "Корисник није нађен"
 
@@ -3909,7 +3909,7 @@ msgstr "Виртуелно име"
 msgid "Waiting (seconds)"
 msgstr "На чекању (секунди)"
 
-#: ../src/hub.cc:572
+#: ../src/hub.cc:573
 msgid ""
 "Waiting for input password (don't remove /password before your password)"
 msgstr "Чекање на унос лозинке (не уклањај /лозинку пре твоје лозинке)"
@@ -4187,7 +4187,7 @@ msgstr "_Корисничке команде"
 msgid "_Widgets"
 msgstr "_Виџети"
 
-#: ../src/hub.cc:3258
+#: ../src/hub.cc:3259
 msgid "bad image"
 msgstr "лоша слика"
 
@@ -4203,7 +4203,7 @@ msgstr "подразумеване иконе"
 msgid "default theme"
 msgstr "подразумевана тема"
 
-#: ../src/hub.cc:101 ../src/hub.cc:420 ../src/hub.cc:440
+#: ../src/hub.cc:102 ../src/hub.cc:421 ../src/hub.cc:441
 msgid "eMail"
 msgstr "Е-пошта"
 
@@ -4224,7 +4224,7 @@ msgstr "од"
 msgid "in program"
 msgstr "у програму"
 
-#: ../src/hub.cc:3249
+#: ../src/hub.cc:3250
 msgid "loading error"
 msgstr "грешка учитавања"
 
@@ -4232,11 +4232,11 @@ msgstr "грешка учитавања"
 msgid "none"
 msgstr "ниједан"
 
-#: ../src/hub.cc:2067 ../src/privatemessage.cc:985
+#: ../src/hub.cc:2068 ../src/privatemessage.cc:985
 msgid "project home: "
 msgstr "матична страна пројекта:"
 
-#: ../src/hub.cc:2088 ../src/privatemessage.cc:1006
+#: ../src/hub.cc:2089 ../src/privatemessage.cc:1006
 msgid "ratio: %1% (uploads: %2%, downloads: %3% )"
 msgstr "однос: %1% (отпремања: %2%, преузимања: %3% )"
 

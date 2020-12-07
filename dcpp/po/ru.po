@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://github.com/eiskaltdcpp/eiskaltdcpp/issues\n"
-"POT-Creation-Date: 2019-06-01 02:20+0300\n"
+"POT-Creation-Date: 2020-12-08 01:31+0300\n"
 "PO-Revision-Date: 2017-06-18 13:35+0000\n"
 "Last-Translator: Boris Pek <tehnick-8@yandex.ru>, 2019\n"
 "Language-Team: Russian (https://www.transifex.com/tehnick/teams/11818/ru/)\n"
@@ -36,7 +36,8 @@ msgstr "Отклонить"
 msgid "%1% (%2%) has same CID {%3%} as %4% (%5%), ignoring"
 msgstr "%1% (%2%) имеет такой же CID {%3%} как %4% (%5%), игнорирован"
 
-#: ../AdcHub.cpp:192 ../QueueManager.cpp:2188 ../Transfer.cpp:91
+#: ../AdcHub.cpp:192 ../FinishedManager.cpp:161 ../QueueManager.cpp:2188
+#: ../Transfer.cpp:91
 msgid "%1%/s"
 msgstr "%1%/c"
 
@@ -96,9 +97,11 @@ msgstr "Отключен"
 msgid "Sent "
 msgstr "Отправлено "
 
-#: ../ClientManager.cpp:186 ../QueueManager.cpp:2159 ../QueueManager.cpp:2165
-#: ../QueueManager.cpp:2171 ../SearchManager.cpp:279 ../SearchManager.cpp:366
-#: ../SearchManager.cpp:368 ../Transfer.cpp:81 ../Transfer.cpp:85
+#: ../ClientManager.cpp:196 ../FinishedManager.cpp:132
+#: ../FinishedManager.cpp:138 ../FinishedManager.cpp:144
+#: ../QueueManager.cpp:2159 ../QueueManager.cpp:2165 ../QueueManager.cpp:2171
+#: ../SearchManager.cpp:279 ../SearchManager.cpp:366 ../SearchManager.cpp:368
+#: ../Transfer.cpp:81 ../Transfer.cpp:85
 msgid "Offline"
 msgstr "Не в сети"
 
@@ -415,7 +418,7 @@ msgstr "ГиБ"
 msgid "Denied to send file"
 msgstr "Невозможно передать файл"
 
-#: ../PerFolderLimit.cpp:90 ../SettingsManager.cpp:620
+#: ../PerFolderLimit.cpp:90 ../SettingsManager.cpp:619
 msgid " to "
 msgstr " в "
 
@@ -566,31 +569,31 @@ msgstr "Поиск снова включен"
 msgid "Search disabled: %1%"
 msgstr "Поиск отключен: %1%"
 
-#: ../SettingsManager.cpp:189
+#: ../SettingsManager.cpp:188
 msgid "downloaded from"
 msgstr "загружено из"
 
-#: ../SettingsManager.cpp:529
+#: ../SettingsManager.cpp:528
 msgid "Invalid search type name"
 msgstr "Неверное имя поискового типа"
 
-#: ../SettingsManager.cpp:533 ../SettingsManager.cpp:555
+#: ../SettingsManager.cpp:532 ../SettingsManager.cpp:554
 msgid "This search type already exists"
 msgstr "Этот поисковый тип уже существует"
 
-#: ../SettingsManager.cpp:587
+#: ../SettingsManager.cpp:586
 msgid "No such search type"
 msgstr "Нет такого поискового типа"
 
-#: ../SettingsManager.cpp:615 ../SettingsManager.cpp:620
+#: ../SettingsManager.cpp:614 ../SettingsManager.cpp:619
 msgid "Error: setting not found!"
 msgstr "Ошибка: опция не обнаружена!"
 
-#: ../SettingsManager.cpp:615
+#: ../SettingsManager.cpp:614
 msgid "Core setting "
 msgstr "Опция ядра "
 
-#: ../SettingsManager.cpp:620
+#: ../SettingsManager.cpp:619
 msgid "Change core setting "
 msgstr "Изменить опцию ядра "
 
@@ -791,3 +794,29 @@ msgstr "Начальная загрузка DHT успешно завершен�
 #: ../../dht/BootstrapManager.cpp:117 ../../dht/BootstrapManager.cpp:124
 msgid "DHT bootstrap error: "
 msgstr "Ошибка начальной загрузки DHT: "
+
+#: ../../dht/DHT.cpp:530
+msgid "DHT (%1%): File published: %2%"
+msgstr ""
+
+#: ../../dht/DHT.cpp:535
+msgid "DHT (%1%): Partial file published: %2%"
+msgstr ""
+
+#: ../../dht/DHT.cpp:590
+msgid "DHT: Firewalled UDP status set (IP: %1%)"
+msgstr ""
+
+#: ../../dht/DHT.cpp:596
+msgid "DHT: Our UDP port seems to be opened (IP: %1%)"
+msgstr ""
+
+#: ../../dht/UDPSocket.cpp:247
+#, fuzzy
+msgid "DHT enabled again"
+msgstr "Поиск снова включен"
+
+#: ../../dht/UDPSocket.cpp:258
+#, fuzzy
+msgid "DHT disabled: "
+msgstr "Поиск отключен: %1%"

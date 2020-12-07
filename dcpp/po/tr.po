@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://github.com/eiskaltdcpp/eiskaltdcpp/issues\n"
-"POT-Creation-Date: 2019-09-21 22:09+0300\n"
+"POT-Creation-Date: 2020-12-08 01:31+0300\n"
 "PO-Revision-Date: 2017-06-18 13:35+0000\n"
 "Last-Translator: mauron, 2019\n"
 "Language-Team: Turkish (https://www.transifex.com/tehnick/teams/11818/tr/)\n"
@@ -36,7 +36,8 @@ msgstr ""
 "%1% (%2%) unsurunun {%3%} CID değeri %4% (%5%) unsuruyla aynı, görmezden "
 "geliniyor"
 
-#: ../AdcHub.cpp:192 ../QueueManager.cpp:2188 ../Transfer.cpp:91
+#: ../AdcHub.cpp:192 ../FinishedManager.cpp:161 ../QueueManager.cpp:2188
+#: ../Transfer.cpp:91
 msgid "%1%/s"
 msgstr "%1%/s"
 
@@ -96,9 +97,11 @@ msgstr "Çevrimdışı"
 msgid "Sent "
 msgstr "Gönderildi "
 
-#: ../ClientManager.cpp:186 ../QueueManager.cpp:2159 ../QueueManager.cpp:2165
-#: ../QueueManager.cpp:2171 ../SearchManager.cpp:279 ../SearchManager.cpp:366
-#: ../SearchManager.cpp:368 ../Transfer.cpp:81 ../Transfer.cpp:85
+#: ../ClientManager.cpp:196 ../FinishedManager.cpp:132
+#: ../FinishedManager.cpp:138 ../FinishedManager.cpp:144
+#: ../QueueManager.cpp:2159 ../QueueManager.cpp:2165 ../QueueManager.cpp:2171
+#: ../SearchManager.cpp:279 ../SearchManager.cpp:366 ../SearchManager.cpp:368
+#: ../Transfer.cpp:81 ../Transfer.cpp:85
 msgid "Offline"
 msgstr "Çevrimdışı"
 
@@ -415,7 +418,7 @@ msgstr "GiB"
 msgid "Denied to send file"
 msgstr "Dosya gönderimi reddedildi"
 
-#: ../PerFolderLimit.cpp:90 ../SettingsManager.cpp:620
+#: ../PerFolderLimit.cpp:90 ../SettingsManager.cpp:619
 msgid " to "
 msgstr " şuna "
 
@@ -566,31 +569,31 @@ msgstr "Arama tekrar etkinleştirildi"
 msgid "Search disabled: %1%"
 msgstr "Arama devre dışı bırakıldı: %1%"
 
-#: ../SettingsManager.cpp:189
+#: ../SettingsManager.cpp:188
 msgid "downloaded from"
 msgstr "şundan indirildi"
 
-#: ../SettingsManager.cpp:529
+#: ../SettingsManager.cpp:528
 msgid "Invalid search type name"
 msgstr "Geçersiz arama türü ismi"
 
-#: ../SettingsManager.cpp:533 ../SettingsManager.cpp:555
+#: ../SettingsManager.cpp:532 ../SettingsManager.cpp:554
 msgid "This search type already exists"
 msgstr "Bu arama türü zaten mevcuttur"
 
-#: ../SettingsManager.cpp:587
+#: ../SettingsManager.cpp:586
 msgid "No such search type"
 msgstr "Böyle bir arama türü yoktur"
 
-#: ../SettingsManager.cpp:615 ../SettingsManager.cpp:620
+#: ../SettingsManager.cpp:614 ../SettingsManager.cpp:619
 msgid "Error: setting not found!"
 msgstr "Hata: ayar bulunamadı!"
 
-#: ../SettingsManager.cpp:615
+#: ../SettingsManager.cpp:614
 msgid "Core setting "
 msgstr "Çekirdek ayarı "
 
-#: ../SettingsManager.cpp:620
+#: ../SettingsManager.cpp:619
 msgid "Change core setting "
 msgstr "Çekirdek ayarını değiştir "
 
@@ -795,3 +798,29 @@ msgstr "DHT önyüklemesi başarıyla tamamlandı."
 #: ../../dht/BootstrapManager.cpp:117 ../../dht/BootstrapManager.cpp:124
 msgid "DHT bootstrap error: "
 msgstr "DHT önyükleme hatası: "
+
+#: ../../dht/DHT.cpp:530
+msgid "DHT (%1%): File published: %2%"
+msgstr ""
+
+#: ../../dht/DHT.cpp:535
+msgid "DHT (%1%): Partial file published: %2%"
+msgstr ""
+
+#: ../../dht/DHT.cpp:590
+msgid "DHT: Firewalled UDP status set (IP: %1%)"
+msgstr ""
+
+#: ../../dht/DHT.cpp:596
+msgid "DHT: Our UDP port seems to be opened (IP: %1%)"
+msgstr ""
+
+#: ../../dht/UDPSocket.cpp:247
+#, fuzzy
+msgid "DHT enabled again"
+msgstr "Arama tekrar etkinleştirildi"
+
+#: ../../dht/UDPSocket.cpp:258
+#, fuzzy
+msgid "DHT disabled: "
+msgstr "Arama devre dışı bırakıldı: %1%"
