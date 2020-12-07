@@ -1,28 +1,26 @@
-# SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR EiskaltDC++ team
 # This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Andrei Stepanov <adem4ik@gmail.com>, 2018
-# Boris Pek <tehnick-8@yandex.ru>, 2019
 #
-#, fuzzy
+# Andrei Stepanov <adem4ik@gmail.com>, 2018.
+# Boris Pek <tehnick-8@yandex.ru>, 2019, 2020.
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://github.com/eiskaltdcpp/eiskaltdcpp/issues\n"
 "POT-Creation-Date: 2020-12-08 01:31+0300\n"
-"PO-Revision-Date: 2017-06-18 13:35+0000\n"
-"Last-Translator: Boris Pek <tehnick-8@yandex.ru>, 2019\n"
-"Language-Team: Russian (https://www.transifex.com/tehnick/teams/11818/ru/)\n"
+"PO-Revision-Date: 2020-12-08 01:41+0300\n"
+"Last-Translator: Boris Pek <tehnick-8@yandex.ru>\n"
+"Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<"
+"=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
+"X-Generator: Lokalize 20.08.2\n"
 
 #: ../ADLSearch.cpp:40
 msgid "<Enter string>"
@@ -797,26 +795,24 @@ msgstr "Ошибка начальной загрузки DHT: "
 
 #: ../../dht/DHT.cpp:530
 msgid "DHT (%1%): File published: %2%"
-msgstr ""
+msgstr "DHT (%1%): опубликован файл: %2%"
 
 #: ../../dht/DHT.cpp:535
 msgid "DHT (%1%): Partial file published: %2%"
-msgstr ""
+msgstr "DHT (%1%): опубликован частичный файл: %2%"
 
 #: ../../dht/DHT.cpp:590
 msgid "DHT: Firewalled UDP status set (IP: %1%)"
-msgstr ""
+msgstr "DHT: файрвол установил статус UDP (IP: %1%)"
 
 #: ../../dht/DHT.cpp:596
 msgid "DHT: Our UDP port seems to be opened (IP: %1%)"
-msgstr ""
+msgstr "DHT: UDP-порт уже занят (IP: %1%)"
 
 #: ../../dht/UDPSocket.cpp:247
-#, fuzzy
 msgid "DHT enabled again"
-msgstr "Поиск снова включен"
+msgstr "DHT снова включен"
 
 #: ../../dht/UDPSocket.cpp:258
-#, fuzzy
 msgid "DHT disabled: "
-msgstr "Поиск отключен: %1%"
+msgstr "DHT отключен: "

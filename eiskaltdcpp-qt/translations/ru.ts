@@ -4463,7 +4463,7 @@ Do you want to stop it?
     <message>
         <location filename="../ui/UICmdDebug.ui" line="117"/>
         <source>Clear now</source>
-        <translation type="unfinished">Очистить сейчас</translation>
+        <translation>Очистить сейчас</translation>
     </message>
 </context>
 <context>
@@ -4648,17 +4648,17 @@ Do you want to stop it?
     <message>
         <location filename="../ui/UIFileHasher.ui" line="65"/>
         <source>Filepath</source>
-        <translation type="unfinished">Путь к файлу</translation>
+        <translation>Путь к файлу</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="86"/>
         <source>Filename</source>
-        <translation type="unfinished">Имя файла</translation>
+        <translation>Имя файла</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="100"/>
         <source>Size</source>
-        <translation type="unfinished">Размер</translation>
+        <translation>Размер</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="146"/>
@@ -4668,7 +4668,7 @@ Do you want to stop it?
     <message>
         <location filename="../ui/UIFileHasher.ui" line="153"/>
         <source>Get magnet</source>
-        <translation>Взять магнет</translation>
+        <translation>Копировать магнет</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="173"/>
@@ -4881,7 +4881,7 @@ Do you want to stop it?
     <message>
         <location filename="../ui/UIMagnet.ui" line="127"/>
         <source>Copy magnet link to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Скопировать магнет ссылку в буфер обмена</translation>
     </message>
     <message>
         <location filename="../ui/UIMagnet.ui" line="155"/>
