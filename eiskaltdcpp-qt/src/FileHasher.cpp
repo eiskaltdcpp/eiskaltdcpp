@@ -10,6 +10,7 @@
 #include "FileHasher.h"
 
 #include <QFile>
+#include <QFileInfo>
 #include <QFileDialog>
 #include <QUrl>
 #include <QClipboard>
@@ -29,6 +30,7 @@ using namespace dcpp;
 
 static const quint64 MIN_BLOCK_SIZE = 64 * 1024;
 static const size_t BUF_SIZE = 64*1024;
+static const QString DIALOG_SIZE = "ui/file-hasher-dialog-size";
 
 FileHasher::FileHasher(QWidget *parent) :
     QDialog(parent)
@@ -36,20 +38,28 @@ FileHasher::FileHasher(QWidget *parent) :
     setupUi(this);
     hasher = new HashThread();
 
-    connect(hasher, SIGNAL(finished()), this, SLOT(slotDone()));
-    pushButton_BROWSE->setIcon(WICON(WulforUtil::eiFOLDER_BLUE));
+    toolButton_BROWSE->setIcon(WICON(WulforUtil::eiFOLDER_BLUE));
 
+    connect(hasher, SIGNAL(finished()), this, SLOT(slotDone()));
     connect(pushButton_RUN,    SIGNAL(clicked()), this, SLOT(slotStart()));
-    connect(pushButton_BROWSE, SIGNAL(clicked()), this, SLOT(slotBrowse()));
+    connect(toolButton_BROWSE, SIGNAL(clicked()), this, SLOT(slotBrowse()));
     connect(pushButton_MAGNET, SIGNAL(clicked()), this, SLOT(slotMagnet()));
+    connect(this, SIGNAL(finished(int)), this, SLOT(saveWindowSize()));
+
+    if (WVGET(DIALOG_SIZE).isValid()) {
+        resize(WVGET(DIALOG_SIZE).toSize());
+    }
 }
 
 FileHasher::~FileHasher() {
     if (hasher)
         hasher->terminate();
 
-
     delete hasher;
+}
+
+void FileHasher::saveWindowSize(){
+    WVSET(DIALOG_SIZE, size());
 }
 
 void FileHasher::slotStart(){
@@ -63,7 +73,7 @@ void FileHasher::slotStart(){
     HashManager *HM = HashManager::getInstance();
     const TTHValue *tth= HM->getFileTTHif(_tq(file));
     if (tth) {
-        lineEdit_HASH->setText(_q(tth->toBase32()));
+        lineEdit_TTH->setText(_q(tth->toBase32()));
         pushButton_RUN->setEnabled(true);
     } else {
         if (hasher){
@@ -75,36 +85,44 @@ void FileHasher::slotStart(){
 }
 
 void FileHasher::slotDone(){
-    lineEdit_HASH->setText(hasher->getHash());
+    lineEdit_TTH->setText(hasher->getHash());
 
     pushButton_RUN->setEnabled(true);
 }
 
 void FileHasher::slotMagnet(){
-    QString tthstring = lineEdit_HASH->text(), file = lineEdit_FILE->text();
+    const QString &&tthString = lineEdit_TTH->text();
+    const QString &&fileName = lineEdit_FNAME->text().trimmed();
+    const QString &&sizeStr = lineEdit_SIZE->text();
 
-    if (tthstring.isEmpty()){
+    if (tthString.isEmpty()){
         slotStart();
         return;
     }
 
-    qlonglong filesize = QFile(file).size();
-    QStringList list = file.split("/");
+    if (fileName.isEmpty())
+        return;
 
-    file = list.last().trimmed();
-
-    QString urlStr = WulforUtil::getInstance()->makeMagnet(file, filesize, tthstring);
+    const qulonglong fileSize = sizeStr.left(sizeStr.indexOf(" (")).toULongLong();
+    const QString &&urlStr = WulforUtil::getInstance()->makeMagnet(fileName, fileSize, tthString);
     qApp->clipboard()->setText(urlStr);
 }
 
 void FileHasher::slotBrowse(){
 
-    QString file = QFileDialog::getOpenFileName(this, tr("Select file"), QDir::homePath(), tr("All files (*.*)"));
+    const QString &&file = QFileDialog::getOpenFileName(this, tr("Select file"), QDir::homePath(), tr("All files (*.*)"));
 
     if (!file.isEmpty()){
-        file = QDir::toNativeSeparators(file);
-        lineEdit_FILE->setText(file);
-        lineEdit_HASH->setText("");
+        lineEdit_FILE->setText(QDir::toNativeSeparators(file));
+        lineEdit_FNAME->setText(file.split("/").last().trimmed());
+
+        const qint64 fileSize = QFileInfo(file).size();
+        if (fileSize > 0)
+            lineEdit_SIZE->setText(QString("%1 (%2)").arg(fileSize).arg(WulforUtil::formatBytes(fileSize)));
+        else
+            lineEdit_SIZE->setText("0 (0 MiB)");
+
+        lineEdit_TTH->clear();
     }
 }
 

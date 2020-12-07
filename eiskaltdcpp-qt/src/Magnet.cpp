@@ -30,19 +30,21 @@
 
 using namespace dcpp;
 
+static const QString DIALOG_SIZE = "ui/magnet-dialog-size";
+
 Magnet::Magnet(QWidget *parent) :
     QDialog(parent)
 {
     setupUi(this);
 
-    pushButton_COPY->setIcon(WICON(WulforUtil::eiMAGNET));
-    pushButton_BROWSE->setIcon(WICON(WulforUtil::eiFOLDER_BLUE));
+    toolButton_COPY->setIcon(WICON(WulforUtil::eiMAGNET));
+    toolButton_BROWSE->setIcon(WICON(WulforUtil::eiFOLDER_BLUE));
 
     connect(pushButton_CANCEL,  SIGNAL(clicked()), this, SLOT(accept()));
     connect(pushButton_SEARCH,  SIGNAL(clicked()), this, SLOT(search()));
     connect(pushButton_DOWNLOAD,SIGNAL(clicked()), this, SLOT(download()));
-    connect(pushButton_COPY,    SIGNAL(clicked()), this, SLOT(slotCopyMagnet()));
-    connect(pushButton_BROWSE,  SIGNAL(clicked()), this, SLOT(slotBrowse()));
+    connect(toolButton_COPY,    SIGNAL(clicked()), this, SLOT(slotCopyMagnet()));
+    connect(toolButton_BROWSE,  SIGNAL(clicked()), this, SLOT(slotBrowse()));
     connect(this, SIGNAL(finished(int)), this, SLOT(saveWindowSize()));
 
     if (!SETTING(AUTO_SEARCH)){
@@ -53,8 +55,8 @@ Magnet::Magnet(QWidget *parent) :
     }
     currentAction = (MagnetAction)WIGET(WI_DEF_MAGNET_ACTION);
 
-    if (WVGET("ui/magnet-dialog-size").isValid()) {
-        resize(WVGET("ui/magnet-dialog-size").toSize());
+    if (WVGET(DIALOG_SIZE).isValid()) {
+        resize(WVGET(DIALOG_SIZE).toSize());
     }
 }
 
@@ -76,8 +78,6 @@ void Magnet::showUI(const QString &name, const qulonglong &size, const QString &
 
     lineEdit_TTH->setText(tth);
     lineEdit_FPATH->setText(_q(SETTING(DOWNLOAD_DIRECTORY)));
-
-    setWindowTitle(lineEdit_FNAME->text());
 
     if (!MainWindow::getInstance()->isVisible()){
         MainWindow::getInstance()->show();
@@ -108,8 +108,11 @@ void Magnet::setLink(const QString &link, MagnetAction action){
                 target = tth;
             else
                 target = name;
+
             QString path=_q(SETTING(DOWNLOAD_DIRECTORY));
-            target = path + (path.endsWith(QDir::separator())? QString("") : QDir::separator()) + target.split(QDir::separator(), QString::SkipEmptyParts).last();
+            target = path + (path.endsWith(QDir::separator())?
+                                 QString("") :
+                                 QDir::separator()) + target.split(QDir::separator(), QString::SkipEmptyParts).last();
                 download(target, size, tth);
             break;
         }
@@ -131,7 +134,7 @@ int Magnet::exec() {
 }
 
 void Magnet::saveWindowSize() {
-    WVSET("ui/magnet-dialog-size", size());
+    WVSET(DIALOG_SIZE, size());
 }
 
 void Magnet::search(const QString &file, const qulonglong &size, const QString &tth){
@@ -162,12 +165,14 @@ void Magnet::download() {
     if (tth.isEmpty())
         return;
 
-    const QString &&fname = lineEdit_FNAME->text();
+    const QString &&fileName = lineEdit_FNAME->text().trimmed();
     const QString &&path = lineEdit_FPATH->text();
-    const QString &&size_str = lineEdit_SIZE->text();
+    const QString &&sizeStr = lineEdit_SIZE->text();
 
-    const QString &&name = path + (path.endsWith(QDir::separator())? QString("") : QDir::separator()) + fname.split(QDir::separator(), QString::SkipEmptyParts).last();
-    const qulonglong size = size_str.left(size_str.indexOf(" (")).toULongLong();
+    const QString &&name = path + (path.endsWith(QDir::separator()) ?
+                                       QString("") :
+                                       QDir::separator()) + fileName.split(QDir::separator(), QString::SkipEmptyParts).last();
+    const qulonglong size = sizeStr.left(sizeStr.indexOf(" (")).toULongLong();
 
     Magnet::download(name,size,tth);
 
@@ -227,7 +232,7 @@ void Magnet::slotBrowse(){
     }
 
     if (down_to){
-        QAction *act = down_to->exec(frame->mapToGlobal(pushButton_BROWSE->pos())+QPoint(0, pushButton_BROWSE->height()));
+        QAction *act = down_to->exec(frame->mapToGlobal(toolButton_BROWSE->pos())+QPoint(0, toolButton_BROWSE->height()));
 
         down_to->deleteLater();
 

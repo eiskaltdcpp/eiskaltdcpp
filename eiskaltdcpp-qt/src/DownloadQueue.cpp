@@ -620,13 +620,11 @@ void DownloadQueue::slotContextMenu(const QPoint &){
         }
         case Menu::MagnetInfo:
         {
-            QString magnet = "";
-
             for (const auto &i : items){
-                magnet = WulforUtil::getInstance()->makeMagnet(
-                    i->data(COLUMN_DOWNLOADQUEUE_NAME).toString().trimmed(),
-                    i->data(COLUMN_DOWNLOADQUEUE_ESIZE).toLongLong(),
-                    i->data(COLUMN_DOWNLOADQUEUE_TTH).toString()) + "\n";
+                const QString &&magnet = WulforUtil::getInstance()->makeMagnet(
+                            i->data(COLUMN_DOWNLOADQUEUE_NAME).toString().trimmed(),
+                            i->data(COLUMN_DOWNLOADQUEUE_ESIZE).toLongLong(),
+                            i->data(COLUMN_DOWNLOADQUEUE_TTH).toString());
 
                 if (!magnet.isEmpty()){
                     Magnet m(this);

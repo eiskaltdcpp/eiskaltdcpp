@@ -101,11 +101,11 @@ void SettingsDownloads::init(){
         spinBox_MAXDL->setValue(SETTING(DOWNLOAD_SLOTS));
         spinBox_NONEWDL->setValue(SETTING(MAX_DOWNLOAD_SPEED));
 
-        pushButton_BROWSE->setIcon(WICON(WulforUtil::eiFOLDER_BLUE));
-        pushButton_BROWSE1->setIcon(WICON(WulforUtil::eiFOLDER_BLUE));
+        toolButton_BROWSE->setIcon(WICON(WulforUtil::eiFOLDER_BLUE));
+        toolButton_BROWSE1->setIcon(WICON(WulforUtil::eiFOLDER_BLUE));
 
-        connect(pushButton_BROWSE, SIGNAL(clicked()), SLOT(slotBrowse()));
-        connect(pushButton_BROWSE1, SIGNAL(clicked()), SLOT(slotBrowse()));
+        connect(toolButton_BROWSE, SIGNAL(clicked()), SLOT(slotBrowse()));
+        connect(toolButton_BROWSE1, SIGNAL(clicked()), SLOT(slotBrowse()));
         connect(pushButton_CFGLISTS, SIGNAL(clicked()), SLOT(slotCfgPublic()));
     }
     {//Download to
@@ -162,9 +162,9 @@ void SettingsDownloads::slotBrowse(){
 
     dir = QDir::toNativeSeparators(dir);
 
-    if (sender() == pushButton_BROWSE)
+    if (sender() == toolButton_BROWSE)
         lineEdit_DLDIR->setText(dir);
-    else if (sender() == pushButton_BROWSE1)
+    else if (sender() == toolButton_BROWSE1)
         lineEdit_UNF_DL_DIR->setText(dir);
 }
 

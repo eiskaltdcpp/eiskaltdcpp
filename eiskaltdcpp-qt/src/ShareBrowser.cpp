@@ -957,7 +957,7 @@ void ShareBrowser::slotCustomContextMenu(const QPoint &){
 
                 if (!magnet.isEmpty()){
                     Magnet m(this);
-                    m.setLink(magnet + "\n", Magnet::MAGNET_ACTION_SHOW_UI);
+                    m.setLink(magnet, Magnet::MAGNET_ACTION_SHOW_UI);
                     m.exec();
                 }
             }

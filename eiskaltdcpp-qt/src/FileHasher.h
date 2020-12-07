@@ -45,6 +45,7 @@ public:
     virtual ~FileHasher();
 
     private slots:
+        void saveWindowSize();
         void slotStart();
         void slotBrowse();
         void slotMagnet();

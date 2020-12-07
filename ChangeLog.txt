@@ -3,7 +3,10 @@
 * Fixed sending of hub commands containing %[mySID] parameter.
 * Decrease diff with DC++ 0.868 core.
 *** eiskaltdcpp-qt ***
-* Added button for copying magnet link to clipboard into Magnet viewer dialog.
+* Added button for copying magnet link to clipboard into Magnet link viewer
+  dialog.
+* Improved dialog for calculating TTH of arbitrary file from file system.
+* Fixed size of choosing files and directories buttons in all dialog windows.
 
 --- 2.4.0 2020-12-03 ---
 *** common changes ***

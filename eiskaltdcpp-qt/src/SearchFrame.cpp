@@ -1353,14 +1353,13 @@ void SearchFrame::slotContextMenu(const QPoint &){
 
                 if (!item->isDir){//only files
                     const qlonglong size = item->data(COLUMN_SF_ESIZE).toLongLong();
-                    const QString tth = item->data(COLUMN_SF_TTH).toString();
-                    const QString name = item->data(COLUMN_SF_FILENAME).toString().trimmed();
-
-                    const QString magnet = WU->makeMagnet(name, size, tth);
+                    const QString &&tth = item->data(COLUMN_SF_TTH).toString();
+                    const QString &&name = item->data(COLUMN_SF_FILENAME).toString().trimmed();
+                    const QString &&magnet = WU->makeMagnet(name, size, tth);
 
                     if (!magnet.isEmpty()){
                         Magnet m(this);
-                        m.setLink(magnet + "\n", Magnet::MAGNET_ACTION_SHOW_UI);
+                        m.setLink(magnet, Magnet::MAGNET_ACTION_SHOW_UI);
                         m.exec();
                     }
                 }

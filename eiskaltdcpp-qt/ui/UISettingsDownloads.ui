@@ -61,8 +61,18 @@
             </property>
            </widget>
           </item>
+          <item row="2" column="0">
+           <widget class="QCheckBox" name="checkBox_NO_USE_TEMP_DIR">
+            <property name="text">
+             <string>Use unfinished downloads directory</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
           <item row="1" column="1">
-           <widget class="QPushButton" name="pushButton_BROWSE">
+           <widget class="QToolButton" name="toolButton_BROWSE">
             <property name="maximumSize">
              <size>
               <width>24</width>
@@ -75,7 +85,7 @@
            </widget>
           </item>
           <item row="3" column="1">
-           <widget class="QPushButton" name="pushButton_BROWSE1">
+           <widget class="QToolButton" name="toolButton_BROWSE1">
             <property name="maximumSize">
              <size>
               <width>24</width>
@@ -84,16 +94,6 @@
             </property>
             <property name="text">
              <string/>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="0">
-           <widget class="QCheckBox" name="checkBox_NO_USE_TEMP_DIR">
-            <property name="text">
-             <string>Use unfinished downloads directory</string>
-            </property>
-            <property name="checked">
-             <bool>true</bool>
             </property>
            </widget>
           </item>
@@ -280,11 +280,11 @@ It's not used for uploads, downloads, or connecting to a hub.</string>
          <attribute name="headerCascadingSectionResizes">
           <bool>true</bool>
          </attribute>
-         <attribute name="headerDefaultSectionSize">
-          <number>200</number>
-         </attribute>
          <attribute name="headerMinimumSectionSize">
           <number>50</number>
+         </attribute>
+         <attribute name="headerDefaultSectionSize">
+          <number>200</number>
          </attribute>
          <column>
           <property name="text">
@@ -1018,22 +1018,6 @@ from the queue either, you must do that manually.</string>
     </hint>
     <hint type="destinationlabel">
      <x>255</x>
-     <y>141</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>checkBox_NO_USE_TEMP_DIR</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>pushButton_BROWSE1</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>255</x>
-     <y>168</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>507</x>
      <y>141</y>
     </hint>
    </hints>
