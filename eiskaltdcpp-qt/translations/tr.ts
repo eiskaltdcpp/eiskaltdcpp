@@ -4863,6 +4863,11 @@ Onu durdurmak istiyor musunuz?
 <context>
     <name>UIMagnet</name>
     <message>
+        <location filename="../ui/UIMagnet.ui" line="20"/>
+        <source>Magnet link viewer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../ui/UIMagnet.ui" line="56"/>
         <source>Filename</source>
         <translation>Dosya adı</translation>

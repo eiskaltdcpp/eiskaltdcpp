@@ -17,7 +17,7 @@
    </sizepolicy>
   </property>
   <property name="windowTitle">
-   <string notr="true">Magnet link viewer</string>
+   <string>Magnet link viewer</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
