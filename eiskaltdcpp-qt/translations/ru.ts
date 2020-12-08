@@ -4866,7 +4866,7 @@ Do you want to stop it?
     <message>
         <location filename="../ui/UIMagnet.ui" line="20"/>
         <source>Magnet link viewer</source>
-        <translation>Просмотр магнет ссылки</translation>
+        <translation>Просмотр магнет-ссылки</translation>
     </message>
     <message>
         <location filename="../ui/UIMagnet.ui" line="56"/>

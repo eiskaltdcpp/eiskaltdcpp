@@ -4442,7 +4442,7 @@ Voulez-vous l&apos;arrêter?</translation>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="117"/>
         <source>Clear now</source>
-        <translation type="unfinished">Vider maintenant</translation>
+        <translation>Vider maintenant</translation>
     </message>
 </context>
 <context>
@@ -4627,17 +4627,17 @@ Voulez-vous l&apos;arrêter?</translation>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="65"/>
         <source>Filepath</source>
-        <translation type="unfinished">Chemin du fichier</translation>
+        <translation>Chemin du fichier</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="86"/>
         <source>Filename</source>
-        <translation type="unfinished"></translation>
+        <translation>Nom de fichier</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="100"/>
         <source>Size</source>
-        <translation type="unfinished">Taille</translation>
+        <translation>Taille</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="146"/>
@@ -4845,7 +4845,7 @@ Voulez-vous l&apos;arrêter?</translation>
     <message>
         <location filename="../ui/UIMagnet.ui" line="20"/>
         <source>Magnet link viewer</source>
-        <translation type="unfinished"></translation>
+        <translation>Visionneur de lien magnet</translation>
     </message>
     <message>
         <location filename="../ui/UIMagnet.ui" line="56"/>
@@ -4865,7 +4865,7 @@ Voulez-vous l&apos;arrêter?</translation>
     <message>
         <location filename="../ui/UIMagnet.ui" line="127"/>
         <source>Copy magnet link to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Copier le lien magnet dans le press-papiers</translation>
     </message>
     <message>
         <location filename="../ui/UIMagnet.ui" line="155"/>

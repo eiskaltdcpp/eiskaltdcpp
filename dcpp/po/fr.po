@@ -5,16 +5,16 @@
 #
 # Translators:
 # Boris Pek <tehnick-8@yandex.ru>, 2017
-# Alexandre Wallimann <adressalacon@gmail.com>, 2019
+# Alexandre Wallimann <adressalacon@gmail.com>, 2020
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://github.com/eiskaltdcpp/eiskaltdcpp/issues\n"
-"POT-Creation-Date: 2020-12-08 01:31+0300\n"
+"POT-Creation-Date: 2020-12-08 13:41+0300\n"
 "PO-Revision-Date: 2017-06-18 13:35+0000\n"
-"Last-Translator: Alexandre Wallimann <adressalacon@gmail.com>, 2019\n"
+"Last-Translator: Alexandre Wallimann <adressalacon@gmail.com>, 2020\n"
 "Language-Team: French (https://www.transifex.com/tehnick/teams/11818/fr/)\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -801,26 +801,24 @@ msgstr "Erreur d'amorçage DHT:"
 
 #: ../../dht/DHT.cpp:530
 msgid "DHT (%1%): File published: %2%"
-msgstr ""
+msgstr "DHT (%1%): Fichiers publiés: %2%"
 
 #: ../../dht/DHT.cpp:535
 msgid "DHT (%1%): Partial file published: %2%"
-msgstr ""
+msgstr "DHT (%1%): Fichiers publiés partiellement: %2%"
 
 #: ../../dht/DHT.cpp:590
 msgid "DHT: Firewalled UDP status set (IP: %1%)"
-msgstr ""
+msgstr "DHT: Statut UDP du pare-feu définit (IP: %1%)"
 
 #: ../../dht/DHT.cpp:596
 msgid "DHT: Our UDP port seems to be opened (IP: %1%)"
-msgstr ""
+msgstr "DHT: Notre port UDP semble ouvert (IP: %1%)"
 
 #: ../../dht/UDPSocket.cpp:247
-#, fuzzy
 msgid "DHT enabled again"
-msgstr "Recherche à nouveau activée"
+msgstr "DHT de nouveau établi"
 
 #: ../../dht/UDPSocket.cpp:258
-#, fuzzy
 msgid "DHT disabled: "
-msgstr "Recherche désactivée : %1%"
+msgstr "DHT désactivé: "
