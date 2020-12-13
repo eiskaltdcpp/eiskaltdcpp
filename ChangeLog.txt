@@ -93,7 +93,7 @@
   [Thanks to Pavel Pimenov]
 * Added options: LogFileSpy, LogFormatSpy (issue 1403)
 * [NMDC] Prevent crashes when receiving malicious search requests
-    https://sourceforge.net/p/dcplusplus/code/ci/1d751b2467b5af9b921e694bca29ee47f5311608/
+  https://sourceforge.net/p/dcplusplus/code/ci/1d751b24/
   [Thanks to Pavel Pimenov]
 * Add parse tags TS and HIT in filelists
 * [NMDC] Add support CTM2HUB
@@ -101,11 +101,11 @@
 * [ADC] Set correct p2p error msg for adc
 * Optimize all png images in repo (pull-request 292)
   [Thanks to Nikoli]
-* Fix high cpu load on ssl connections after disconnect remote client on begin send file
-  [Thanks to loooser]
+* Fix high cpu load on ssl connections after disconnect remote client on begin
+  send file [Thanks to loooser]
 *** eiskaltdcpp-qt ***
-* Added some options in settings dialog: SHARE_SKIP_ZERO_BYTE, LOG_FILE_SPY, LOG_FORMAT_SPY,
-  APP_UNIT_BASE, MIME_HANDLER
+* Added some options in settings dialog: SHARE_SKIP_ZERO_BYTE, LOG_FILE_SPY,
+  LOG_FORMAT_SPY, APP_UNIT_BASE, MIME_HANDLER
 * Emit signal about each new message in chat (issue 1369)
 * Add workaround for loading icons in Mac OS X 10.9 (issue 1442)
 * Fixed build in Mac OS X 10.9 using clang
@@ -113,9 +113,11 @@
 * Add very simple Cmd Debug Frame
 * Fix crash in settings dialog (issue 1498)
 * F3, Shitf+F3, Find All button in PMWindow now work
-* Fix unable selection text in chat after find don't exist substring in HubFrame and PMWindow
+* Fix unable selection text in chat after find don't exist substring in HubFrame
+  and PMWindow
 * Add /rebuild and /refresh chat commands (Github issue 288)
-* Rework find user for Context Menu in Hub Chat (use QTextBlockUserData instead QRegExp)
+* Rework find user for Context Menu in Hub Chat (use QTextBlockUserData instead
+  QRegExp)
 *** eiskaltdcpp-gtk ***
 * Added some options in settings dialog: SHARE_SKIP_ZERO_BYTE
 *** eiskaltdcpp-daemon ***
@@ -452,7 +454,7 @@
   starts searching.
 *** eiskaltdcpp-daemon ***
 * Added new XML-RPC methods: search.send, search.getresults, show.version,
-  show.ratio (more detail: https://github.com/eiskaltdcpp/eiskaltdcpp/wiki/XMLRPC)
+  show.ratio (details: https://github.com/eiskaltdcpp/eiskaltdcpp/wiki/XMLRPC)
 *** eiskaltdcpp-cli ***
 * Added a simple console interface to control the daemon via XML-RPC.
 
@@ -541,7 +543,8 @@
 * Allowed searching alternates for uploads.
 * Fixed small memory leaks and produced code cleanup.
 * Added MimeType section in .desktop file.
-* Now EiskaltDC++ Qt is available as a plugin for the LeechCraft (https://github.com/0xd34df00d/leechcraft) project.
+* Now EiskaltDC++ Qt is available as a plugin for the LeechCraft
+  (https://github.com/0xd34df00d/leechcraft) project.
 *** eiskaltdcpp-gtk ***
 * Fixed initialization of the toolbar.
 * "Emoticons not loaded" messages is now disabled, when emoticons is
@@ -577,7 +580,8 @@
 * Algorithm for adding separator (horizontal line) for unread messages
   in the chat was updated. Now it works fine.
 * Added item view 'properties of magnet links' to all related menu.
-* Added support for search links (magnets with kt-keyword). (See also: https://bugs.launchpad.net/dcplusplus/+bug/674545)
+* Added support for search links (magnets with kt-keyword).
+  (See also: https://bugs.launchpad.net/dcplusplus/+bug/674545)
 * Fixed keyboard shortcut Ctrl+C in a personal chat.
   (Bug was added in version 2.2.0)
 * Added option to show only completely finished transfers in finished transfers
