@@ -70,7 +70,7 @@ See [ChangeLog.txt](https://github.com/eiskaltdcpp/eiskaltdcpp/blob/master/Chang
 
 For build from sources see [INSTALL](https://github.com/eiskaltdcpp/eiskaltdcpp/blob/master/INSTALL) file.
 
-GNU/Linux and FreeBSD users may install packages from official and unofficial repositories, ports, etc.
+GNU/Linux and FreeBSD users may install [packages](https://github.com/eiskaltdcpp/eiskaltdcpp#packages-and-installers) from official and unofficial repositories, ports, etc.
 
 macOS users may install and update official builds using [Homebrew](https://brew.sh/) cask:
 
