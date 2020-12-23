@@ -78,8 +78,7 @@ macOS users may install and update official builds using [Homebrew](https://brew
 brew cask install eiskaltdcpp
 ```
 
-or download app bundles from SourceForge (see links below) and install them manually. Program doesn't have embedded mechanism of updates, so in this case users should monitor updates themselves.
-
+or download app bundles from [SourceForge](https://github.com/eiskaltdcpp/eiskaltdcpp#packages-and-installers) and install them manually. Program doesn't have embedded mechanism of updates, so in this case users should monitor updates themselves.
 
 Haiku users may install official package from HaikuPorts:
 
@@ -87,7 +86,7 @@ Haiku users may install official package from HaikuPorts:
 pkgman install eiskaltdcpp
 ```
 
-MS Windows users may download official installers and portable builds from SourceForge (see links below). Program doesn't have embedded mechanism of updates, so users should monitor updates themselves.
+MS Windows users may download official installers and portable builds from [SourceForge](https://github.com/eiskaltdcpp/eiskaltdcpp#packages-and-installers). Program doesn't have embedded mechanism of updates, so users should monitor updates themselves.
 
 ## Usage
 
