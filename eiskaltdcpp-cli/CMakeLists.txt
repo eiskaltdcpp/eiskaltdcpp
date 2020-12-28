@@ -10,12 +10,16 @@ if (USE_CLI_XMLRPC)
         PERMISSIONS OWNER_READ OWNER_WRITE GROUP_READ WORLD_READ)
 
     if (UNIX)
-        execute_process (
-                OUTPUT_FILE ${PROJECT_BINARY_DIR}/${PROJECT_NAME}-xmlrpc.1.gz
-                COMMAND "${GZIP_CMD}" -9
-                INPUT_FILE ${PROJECT_NAME}-xmlrpc.1
-                WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/)
-        install (FILES ${PROJECT_BINARY_DIR}/${PROJECT_NAME}-xmlrpc.1.gz DESTINATION ${MAN_DIR})
+        if(COMPRESS_MANPAGES)
+            execute_process (
+                    OUTPUT_FILE ${PROJECT_BINARY_DIR}/${PROJECT_NAME}-xmlrpc.1.gz
+                    COMMAND "${GZIP_CMD}" -9
+                    INPUT_FILE ${PROJECT_NAME}-xmlrpc.1
+                    WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/)
+            install (FILES ${PROJECT_BINARY_DIR}/${PROJECT_NAME}-xmlrpc.1.gz DESTINATION ${MAN_DIR})
+        else(COMPRESS_MANPAGES)
+            install (FILES ${PROJECT_NAME}-xmlrpc.1 DESTINATION ${MAN_DIR})
+        endif(COMPRESS_MANPAGES)
     endif (UNIX)
 endif ()
 
@@ -27,12 +31,16 @@ if (USE_CLI_JSONRPC)
         PERMISSIONS OWNER_READ OWNER_WRITE GROUP_READ WORLD_READ)
 
     if (UNIX)
-        execute_process (
-                OUTPUT_FILE ${PROJECT_BINARY_DIR}/${PROJECT_NAME}-jsonrpc.1.gz
-                COMMAND "${GZIP_CMD}" -9
-                INPUT_FILE ${PROJECT_NAME}-jsonrpc.1
-                WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/)
-        install (FILES ${PROJECT_BINARY_DIR}/${PROJECT_NAME}-jsonrpc.1.gz DESTINATION ${MAN_DIR})
+        if(COMPRESS_MANPAGES)
+            execute_process (
+                    OUTPUT_FILE ${PROJECT_BINARY_DIR}/${PROJECT_NAME}-jsonrpc.1.gz
+                    COMMAND "${GZIP_CMD}" -9
+                    INPUT_FILE ${PROJECT_NAME}-jsonrpc.1
+                    WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/)
+            install (FILES ${PROJECT_BINARY_DIR}/${PROJECT_NAME}-jsonrpc.1.gz DESTINATION ${MAN_DIR})
+        else(COMPRESS_MANPAGES)
+            install (FILES ${PROJECT_NAME}-jsonrpc.1 DESTINATION ${MAN_DIR})
+        endif(COMPRESS_MANPAGES)
     endif (UNIX)
 endif ()
 
