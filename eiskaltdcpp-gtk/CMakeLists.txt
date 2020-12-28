@@ -118,11 +118,15 @@ else (APPLE)
 endif (APPLE)
 
 if (UNIX)
-    execute_process (OUTPUT_FILE ${PROJECT_BINARY_DIR}/${PROJECT_NAME}.1.gz
-                     COMMAND "${GZIP_CMD}" -9
-                     INPUT_FILE ${PROJECT_NAME}.1
-                     WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/)
-    install (FILES ${PROJECT_BINARY_DIR}/${PROJECT_NAME}.1.gz DESTINATION ${MAN_DIR})
+    if(COMPRESS_MANPAGES)
+        execute_process (OUTPUT_FILE ${PROJECT_BINARY_DIR}/${PROJECT_NAME}.1.gz
+                         COMMAND "${GZIP_CMD}" -9
+                         INPUT_FILE ${PROJECT_NAME}.1
+                         WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/)
+        install (FILES ${PROJECT_BINARY_DIR}/${PROJECT_NAME}.1.gz DESTINATION ${MAN_DIR})
+    else(COMPRESS_MANPAGES)
+        install (FILES ${PROJECT_NAME}.1 DESTINATION ${MAN_DIR})
+    endif(COMPRESS_MANPAGES)
 endif (UNIX)
 
 set_property (TARGET ${PROJECT_NAME} PROPERTY OUTPUT_NAME "${PROJECT_NAME}")

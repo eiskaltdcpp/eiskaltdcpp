@@ -87,12 +87,16 @@ install (TARGETS ${PROJECT_NAME}
     BUNDLE DESTINATION ${BUNDLEDIR})
 
 if (UNIX AND NOT APPLE AND NOT HAIKU)
-    execute_process (
-                OUTPUT_FILE ${PROJECT_BINARY_DIR}/${PROJECT_NAME}.1.gz
-                COMMAND "${GZIP_CMD}" -9
-                INPUT_FILE ${PROJECT_NAME}.1
-                WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/)
-    install (FILES ${PROJECT_BINARY_DIR}/${PROJECT_NAME}.1.gz DESTINATION ${MAN_DIR})
+    if(COMPRESS_MANPAGES)
+        execute_process (
+                    OUTPUT_FILE ${PROJECT_BINARY_DIR}/${PROJECT_NAME}.1.gz
+                    COMMAND "${GZIP_CMD}" -9
+                    INPUT_FILE ${PROJECT_NAME}.1
+                    WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/)
+        install (FILES ${PROJECT_BINARY_DIR}/${PROJECT_NAME}.1.gz DESTINATION ${MAN_DIR})
+    else(COMPRESS_MANPAGES)
+        install (FILES ${PROJECT_NAME}.1 DESTINATION ${MAN_DIR})
+    endif(COMPRESS_MANPAGES)
 endif ()
 
 if (WIN32 OR APPLE)
