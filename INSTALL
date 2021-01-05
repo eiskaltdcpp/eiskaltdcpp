@@ -230,6 +230,9 @@ Keys for cmake
     Use or not use $XDG_CONFIG_HOME and $XDG_CONFIG_DOWNLOADS variables.
     See https://specifications.freedesktop.org/basedir-spec/latest/ar01s03.html
     This option is available only on Unix-like systems (GNU/Linux, macOS, *BSD).
+-DCOMPRESS_MANPAGES=ON/OFF (default: ON)
+    Compress installed man pages
+    This option is available only on Unix-like systems (GNU/Linux, *BSD).
 -DCMAKE_INSTALL_PREFIX=<common prefix> (default: /usr/local)
     common prefix.
     In case of using of `make install DESTDIR=<path>` all will bre installed to:

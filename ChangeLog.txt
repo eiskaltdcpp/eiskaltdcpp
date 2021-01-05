@@ -1,7 +1,10 @@
 --- 2.4.1 2020-xx-xx ---
+*** common changes ***
+* Added configuration option COMPRESS_MANPAGES (default is ON) for unix-like
+  systems.
 *** libeiskaltdcpp ***
 * Fixed sending of hub commands containing %[mySID] parameter.
-* Decrease diff with DC++ 0.868 core.
+* Decreased diff with DC++ 0.868 core.
 *** eiskaltdcpp-qt ***
 * Added button for copying magnet link to clipboard into Magnet link viewer
   dialog.
@@ -26,23 +29,23 @@
   Connection --> Advanced --> Enable DHT.
 * Added dht.fly-server.ru server to list of servers for bootstrapping of
   initial list of available DHT nodes.
-* Delete configuration option DO_NOT_USE_MUTEX: this workaround is not required
+* Deleted configuration option DO_NOT_USE_MUTEX: this workaround is not required
   anymore with modern versions of compilers for MS Windows and Haiku. But part
   of this code is still used for macOS.
-* Delete configuration option LOCAL_MINIUPNP.
-* Delete embedded copy of miniupnpc library: it was extremely outdated and in
+* Deleted configuration option LOCAL_MINIUPNP.
+* Deleted embedded copy of miniupnpc library: it was extremely outdated and in
   any case system library is used now in builds for all supported systems.
-* Stop support of miniupnpc versions older than 1.7.
-* Delete update_geoip script: it does not work anymore.
+* Stopped support of miniupnpc versions older than 1.7.
+* Deletef update_geoip script: it does not work anymore.
 * Serious code refactoring:
   — improved program stability and performance
-  — stop usage of Boost libraries: all code is rewritten to C++14
-  — use new C++14 features where it is possible
+  — stopped usage of Boost libraries: all code is rewritten to C++14
+  — used new C++14 features where it is possible
   — fixed notes from static code analyzers (cppcheck, clang)
 *** libeiskaltdcpp ***
 * Partially sync with DC++ 0.868 core in non-critical sections. The diff is
   still huge, but it was noticeably reduced.
-* Add support of protocol negotiation via ALPN.
+* Added support of protocol negotiation via ALPN.
   https://forum.dcbase.org/viewtopic.php?f=55&p=4021
 *** eiskaltdcpp-qt ***
 * Significant improvement of Qt 5.x support. Qt 4.x is still support too.
@@ -52,7 +55,7 @@
   hidden from users in the past.
 * Added support relative paths for resources on Linux. This is necessary for
   correct work of program packaged in snap, flatpak, AppImage, etc..
-* Update list of fake client tags in Favorite Hub settings.
+* Updated list of fake client tags in Favorite Hub settings.
 * Improved support of nmdcs:// hubs.
 * Improved setting dialog.
 * Fixed reaction to left click on special search magnet links in chat.
