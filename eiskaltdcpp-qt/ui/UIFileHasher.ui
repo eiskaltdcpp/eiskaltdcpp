@@ -59,38 +59,38 @@
       <property name="bottomMargin">
        <number>0</number>
       </property>
+      <item row="0" column="1">
+       <widget class="LineEdit" name="lineEdit_FILE">
+        <property name="readOnly">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QLineEdit" name="lineEdit_SIZE">
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1">
+       <widget class="LineEdit" name="lineEdit_TTH">
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="LineEdit" name="lineEdit_FNAME">
+        <property name="readOnly">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
       <item row="0" column="0">
        <widget class="QLabel" name="label_1">
         <property name="text">
          <string>Filepath</string>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="1">
-       <widget class="QLineEdit" name="lineEdit_FILE">
-        <property name="readOnly">
-         <bool>false</bool>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="2">
-       <widget class="QToolButton" name="toolButton_BROWSE">
-        <property name="text">
-         <string notr="true">...</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="0">
-       <widget class="QLabel" name="label_3">
-        <property name="text">
-         <string>Filename</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="1" colspan="2">
-       <widget class="LineEdit" name="lineEdit_FNAME">
-        <property name="readOnly">
-         <bool>false</bool>
         </property>
        </widget>
       </item>
@@ -101,10 +101,49 @@
         </property>
        </widget>
       </item>
-      <item row="2" column="1" colspan="2">
-       <widget class="QLineEdit" name="lineEdit_SIZE">
-        <property name="readOnly">
-         <bool>true</bool>
+      <item row="3" column="2">
+       <widget class="QToolButton" name="toolButton_COPY_MAGNET">
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="toolTip">
+         <string>Copy magnet link to clipboard</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="2">
+       <widget class="QToolButton" name="toolButton_BROWSE">
+        <property name="text">
+         <string notr="true"/>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="2">
+       <widget class="QToolButton" name="toolButton_COPY_SEARCH_LINK">
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="toolTip">
+         <string>Copy search link to clipboard</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_3">
+        <property name="text">
+         <string>Filename</string>
         </property>
        </widget>
       </item>
@@ -112,13 +151,6 @@
        <widget class="QLabel" name="label_2">
         <property name="text">
          <string notr="true">TTH</string>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="1" colspan="2">
-       <widget class="QLineEdit" name="lineEdit_TTH">
-        <property name="readOnly">
-         <bool>true</bool>
         </property>
        </widget>
       </item>
@@ -148,9 +180,12 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton_MAGNET">
+      <widget class="QPushButton" name="pushButton_SEARCH">
+       <property name="toolTip">
+        <string>Opens search dialog and searches file.</string>
+       </property>
        <property name="text">
-        <string>Get magnet</string>
+        <string>Search</string>
        </property>
       </widget>
      </item>
@@ -170,7 +205,7 @@
      <item>
       <widget class="QPushButton" name="pushButton_CLOSE">
        <property name="text">
-        <string>Close</string>
+        <string>Cancel</string>
        </property>
       </widget>
      </item>

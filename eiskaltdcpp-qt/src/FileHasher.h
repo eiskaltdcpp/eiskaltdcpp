@@ -48,8 +48,13 @@ public:
         void saveWindowSize();
         void slotStart();
         void slotBrowse();
-        void slotMagnet();
+        void slotCopyMagnet();
+        void slotCopySearchString();
         void slotDone();
+        void search();
+        void search(const QString &, const qulonglong &, const QString &);
+        void searchTTH(const QString &);
+        void searchFile(const QString &);
     private:
         HashThread *hasher;
 };

@@ -24,6 +24,8 @@
 #include "dcpp/CID.h"
 #include "dcpp/File.h"
 
+#include "ArenaWidgetFactory.h"
+#include "SearchFrame.h"
 #include "WulforUtil.h"
 
 using namespace dcpp;
@@ -38,12 +40,16 @@ FileHasher::FileHasher(QWidget *parent) :
     setupUi(this);
     hasher = new HashThread();
 
+    toolButton_COPY_MAGNET->setIcon(WICON(WulforUtil::eiMAGNET));
+    toolButton_COPY_SEARCH_LINK->setIcon(WICON(WulforUtil::eiMAGNET));
     toolButton_BROWSE->setIcon(WICON(WulforUtil::eiFOLDER_BLUE));
 
     connect(hasher, SIGNAL(finished()), this, SLOT(slotDone()));
+    connect(pushButton_SEARCH, SIGNAL(clicked()), this, SLOT(search()));
     connect(pushButton_RUN,    SIGNAL(clicked()), this, SLOT(slotStart()));
     connect(toolButton_BROWSE, SIGNAL(clicked()), this, SLOT(slotBrowse()));
-    connect(pushButton_MAGNET, SIGNAL(clicked()), this, SLOT(slotMagnet()));
+    connect(toolButton_COPY_MAGNET,      SIGNAL(clicked()), this, SLOT(slotCopyMagnet()));
+    connect(toolButton_COPY_SEARCH_LINK, SIGNAL(clicked()), this, SLOT(slotCopySearchString()));
     connect(this, SIGNAL(finished(int)), this, SLOT(saveWindowSize()));
 
     if (WVGET(DIALOG_SIZE).isValid()) {
@@ -52,8 +58,10 @@ FileHasher::FileHasher(QWidget *parent) :
 }
 
 FileHasher::~FileHasher() {
-    if (hasher)
-        hasher->terminate();
+    if (hasher) {
+        hasher->quit();
+        hasher->wait(2000);
+    }
 
     delete hasher;
 }
@@ -63,24 +71,25 @@ void FileHasher::saveWindowSize(){
 }
 
 void FileHasher::slotStart(){
+    const QString &&tth = lineEdit_TTH->text();
+    if (tth.size() == 39)
+        return;
 
     QString file = lineEdit_FILE->text();
-
     if (!QFile::exists(file))
         return;
 
     pushButton_RUN->setEnabled(false);
     HashManager *HM = HashManager::getInstance();
-    const TTHValue *tth= HM->getFileTTHif(_tq(file));
-    if (tth) {
-        lineEdit_TTH->setText(_q(tth->toBase32()));
+    const TTHValue *tth_val= HM->getFileTTHif(_tq(file));
+    if (tth_val) {
+        lineEdit_TTH->setText(_q(tth_val->toBase32()));
         pushButton_RUN->setEnabled(true);
-    } else {
-        if (hasher){
-            hasher-> terminate();
-            hasher->setFile(file);
-            hasher->start();
-        }
+    } else if (hasher) {
+        hasher->quit();
+        hasher->wait(2000);
+        hasher->setFile(file);
+        hasher->start();
     }
 }
 
@@ -90,22 +99,65 @@ void FileHasher::slotDone(){
     pushButton_RUN->setEnabled(true);
 }
 
-void FileHasher::slotMagnet(){
-    const QString &&tthString = lineEdit_TTH->text();
-    const QString &&fileName = lineEdit_FNAME->text().trimmed();
+void FileHasher::search(){
+    QString size_str = lineEdit_SIZE->text();
+    qulonglong size = size_str.left(size_str.indexOf(" (")).toULongLong();
+    search(lineEdit_FNAME->text(), size, lineEdit_TTH->text());
+}
+
+void FileHasher::search(const QString &file, const qulonglong &, const QString &tth){
+    if (!tth.isEmpty())
+        FileHasher::searchTTH(tth);
+    else if (!file.isEmpty())
+        FileHasher::searchFile(file);
+}
+
+void FileHasher::searchTTH(const QString &tth) {
+    SearchFrame *fr = ArenaWidgetFactory().create<SearchFrame>();
+    fr->setAttribute(Qt::WA_DeleteOnClose);
+
+    fr->searchAlternates(tth);
+}
+
+void FileHasher::searchFile(const QString &file) {
+    SearchFrame *fr = ArenaWidgetFactory().create<SearchFrame>();
+    fr->setAttribute(Qt::WA_DeleteOnClose);
+
+    fr->searchFile(file);
+}
+
+void FileHasher::slotCopyMagnet(){
+    const QString &&tth = lineEdit_TTH->text();
+    const QString &&fname = lineEdit_FNAME->text().trimmed();
     const QString &&sizeStr = lineEdit_SIZE->text();
 
-    if (tthString.isEmpty()){
+    if (fname.isEmpty())
+        return;
+
+    if (tth.isEmpty()) {
         slotStart();
         return;
     }
 
-    if (fileName.isEmpty())
+    const qulonglong &&fileSize = sizeStr.left(sizeStr.indexOf(" (")).toULongLong();
+    const QString &&urlStr = WulforUtil::getInstance()->makeMagnet(fname, fileSize, tth);
+    qApp->clipboard()->setText(urlStr);
+}
+
+void FileHasher::slotCopySearchString(){
+    const QString &&fname = lineEdit_FNAME->text().trimmed();
+
+    if (fname.isEmpty())
         return;
 
-    const qulonglong fileSize = sizeStr.left(sizeStr.indexOf(" (")).toULongLong();
-    const QString &&urlStr = WulforUtil::getInstance()->makeMagnet(fileName, fileSize, tthString);
-    qApp->clipboard()->setText(urlStr);
+    const QString name = fname.split(QDir::separator(), QString::SkipEmptyParts).last();
+
+    // Special searching magnet link:
+    const QString &&encoded_name = _q(Util::encodeURI(name.toStdString()));
+    const QString &&magnet = "magnet:?kt=" + encoded_name + "&dn=" + encoded_name;
+
+    if (!magnet.isEmpty())
+        qApp->clipboard()->setText(magnet, QClipboard::Clipboard);
 }
 
 void FileHasher::slotBrowse(){

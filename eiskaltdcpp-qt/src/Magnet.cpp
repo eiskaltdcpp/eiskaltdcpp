@@ -23,10 +23,10 @@
 #include "dcpp/SettingsManager.h"
 #include "dcpp/QueueManager.h"
 
-#include "WulforUtil.h"
+#include "ArenaWidgetFactory.h"
 #include "SearchFrame.h"
 #include "MainWindow.h"
-#include "ArenaWidgetFactory.h"
+#include "WulforUtil.h"
 
 using namespace dcpp;
 
