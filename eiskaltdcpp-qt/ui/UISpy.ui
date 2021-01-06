@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>483</width>
+    <width>487</width>
     <height>233</height>
    </rect>
   </property>
@@ -33,6 +33,9 @@
       <widget class="QCheckBox" name="checkBox_IGNORETTH">
        <property name="text">
         <string>Ignore TTH search</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
        </property>
       </widget>
      </item>

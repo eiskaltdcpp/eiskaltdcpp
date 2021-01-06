@@ -11,6 +11,7 @@
 * Improved dialog for calculating TTH of arbitrary file from file system.
 * Fixed size of choosing files and directories buttons in all dialog windows.
 * Added search panel into Cmd Debug widget.
+* Ignore TTH search in Search Spy widget by default.
 
 --- 2.4.0 2020-12-03 ---
 *** common changes ***
