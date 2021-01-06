@@ -37,13 +37,15 @@ Magnet::Magnet(QWidget *parent) :
 {
     setupUi(this);
 
-    toolButton_COPY->setIcon(WICON(WulforUtil::eiMAGNET));
+    toolButton_COPY_MAGNET->setIcon(WICON(WulforUtil::eiMAGNET));
+    toolButton_COPY_SEARCH_LINK->setIcon(WICON(WulforUtil::eiMAGNET));
     toolButton_BROWSE->setIcon(WICON(WulforUtil::eiFOLDER_BLUE));
 
     connect(pushButton_CANCEL,  SIGNAL(clicked()), this, SLOT(accept()));
     connect(pushButton_SEARCH,  SIGNAL(clicked()), this, SLOT(search()));
     connect(pushButton_DOWNLOAD,SIGNAL(clicked()), this, SLOT(download()));
-    connect(toolButton_COPY,    SIGNAL(clicked()), this, SLOT(slotCopyMagnet()));
+    connect(toolButton_COPY_MAGNET,      SIGNAL(clicked()), this, SLOT(slotCopyMagnet()));
+    connect(toolButton_COPY_SEARCH_LINK, SIGNAL(clicked()), this, SLOT(slotCopySearchString()));
     connect(toolButton_BROWSE,  SIGNAL(clicked()), this, SLOT(slotBrowse()));
     connect(this, SIGNAL(finished(int)), this, SLOT(saveWindowSize()));
 
@@ -77,6 +79,9 @@ void Magnet::showUI(const QString &name, const qulonglong &size, const QString &
         lineEdit_FNAME->setText(tth);
 
     lineEdit_TTH->setText(tth);
+    if (tth.isEmpty())
+        pushButton_DOWNLOAD->setEnabled(false);
+
     lineEdit_FPATH->setText(_q(SETTING(DOWNLOAD_DIRECTORY)));
 
     if (!MainWindow::getInstance()->isVisible()){
@@ -184,20 +189,28 @@ void Magnet::slotCopyMagnet(){
     const QString &&fname = lineEdit_FNAME->text().trimmed();
     const QString &&size_str = lineEdit_SIZE->text();
 
-    if (fname.isEmpty())
+    if (fname.isEmpty() || tth.isEmpty())
         return;
 
     const QString name = fname.split(QDir::separator(), QString::SkipEmptyParts).last();
     const qulonglong size = size_str.left(size_str.indexOf(" (")).toULongLong();
+    const QString &&magnet = WulforUtil::getInstance()->makeMagnet(name, size, tth);
 
-    QString magnet;
-    if (tth.isEmpty()) {
-        // Special searching magnet link:
-        const QString &&encoded_name = _q(Util::encodeURI(name.toStdString()));
-        magnet = "magnet:?kt=" + encoded_name + "&dn=" + encoded_name;
-    } else {
-        magnet = WulforUtil::getInstance()->makeMagnet(name, size, tth);
-    }
+    if (!magnet.isEmpty())
+        qApp->clipboard()->setText(magnet, QClipboard::Clipboard);
+}
+
+void Magnet::slotCopySearchString(){
+    const QString &&fname = lineEdit_FNAME->text().trimmed();
+
+    if (fname.isEmpty())
+        return;
+
+    const QString name = fname.split(QDir::separator(), QString::SkipEmptyParts).last();
+
+    // Special searching magnet link:
+    const QString &&encoded_name = _q(Util::encodeURI(name.toStdString()));
+    const QString &&magnet = "magnet:?kt=" + encoded_name + "&dn=" + encoded_name;
 
     if (!magnet.isEmpty())
         qApp->clipboard()->setText(magnet, QClipboard::Clipboard);
