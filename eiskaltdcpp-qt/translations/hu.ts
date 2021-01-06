@@ -742,12 +742,12 @@ Kapcsolók:
 <context>
     <name>FileHasher</name>
     <message>
-        <location filename="../src/FileHasher.cpp" line="113"/>
+        <location filename="../src/FileHasher.cpp" line="165"/>
         <source>Select file</source>
         <translation>Fájl kiválasztása</translation>
     </message>
     <message>
-        <location filename="../src/FileHasher.cpp" line="113"/>
+        <location filename="../src/FileHasher.cpp" line="165"/>
         <source>All files (*.*)</source>
         <translation>Minden fájl (*.*)</translation>
     </message>
@@ -917,7 +917,7 @@ Kapcsolók:
     <name>HubFrame</name>
     <message>
         <location filename="../src/HubFrame.cpp" line="177"/>
-        <location filename="../src/HubFrame.cpp" line="1285"/>
+        <location filename="../src/HubFrame.cpp" line="1288"/>
         <source>Copy</source>
         <translation>Másolás</translation>
     </message>
@@ -953,7 +953,7 @@ Kapcsolók:
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="184"/>
-        <location filename="../src/HubFrame.cpp" line="1284"/>
+        <location filename="../src/HubFrame.cpp" line="1287"/>
         <source>Add to Favorites</source>
         <translation>Hozzáadás a kedvencekhez</translation>
     </message>
@@ -1072,480 +1072,485 @@ Kapcsolók:
         <translation>Érvénytelen kulcsszó</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="756"/>
+        <location filename="../src/HubFrame.cpp" line="566"/>
+        <source>search</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/HubFrame.cpp" line="759"/>
         <source>%1 (%2)</source>
         <translation>%1 (%2)</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="795"/>
+        <location filename="../src/HubFrame.cpp" line="798"/>
         <source>not shared</source>
         <translation>nincs megosztva</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1280"/>
+        <location filename="../src/HubFrame.cpp" line="1283"/>
         <source>Hub menu</source>
         <translation>Hub menü</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1282"/>
+        <location filename="../src/HubFrame.cpp" line="1285"/>
         <source>Reconnect</source>
         <translation>Újracsatlakozás</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1283"/>
+        <location filename="../src/HubFrame.cpp" line="1286"/>
         <source>Show widget</source>
         <translation>Ablak mutatása</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1286"/>
+        <location filename="../src/HubFrame.cpp" line="1289"/>
         <source>Hub IP</source>
         <translation>Hub IP</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1287"/>
+        <location filename="../src/HubFrame.cpp" line="1290"/>
         <source>Hub URL</source>
         <translation>Hub URL</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1288"/>
+        <location filename="../src/HubFrame.cpp" line="1291"/>
         <source>Hub Title</source>
         <translation>Hub Címsor</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1292"/>
+        <location filename="../src/HubFrame.cpp" line="1295"/>
         <source>Close</source>
         <translation>Bezárás</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1306"/>
+        <location filename="../src/HubFrame.cpp" line="1309"/>
         <source>Hub Menu</source>
         <translation>Hub Menü</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1384"/>
-        <location filename="../src/HubFrame.cpp" line="1409"/>
+        <location filename="../src/HubFrame.cpp" line="1387"/>
+        <location filename="../src/HubFrame.cpp" line="1412"/>
         <source>Not connected</source>
         <translation>Nem kapcsolódott</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1442"/>
+        <location filename="../src/HubFrame.cpp" line="1445"/>
         <source>Chat cleared.</source>
         <translation>Chat törölve.</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1454"/>
+        <location filename="../src/HubFrame.cpp" line="1457"/>
         <source>Chat disabled.</source>
         <translation>Chat letiltva.</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1461"/>
+        <location filename="../src/HubFrame.cpp" line="1464"/>
         <source>Chat enabled.</source>
         <translation>Chat engedélyezve.</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1497"/>
+        <location filename="../src/HubFrame.cpp" line="1500"/>
         <source>Hub role: Operator</source>
         <translation>Szerepkör: Operátor</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1499"/>
+        <location filename="../src/HubFrame.cpp" line="1502"/>
         <source>Hub role: User</source>
         <translation>Szerepkör: Felhasználó</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1502"/>
+        <location filename="../src/HubFrame.cpp" line="1505"/>
         <source>
 Favorite user</source>
         <translation>
 Kedvenc felhasználó</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1577"/>
-        <location filename="../src/HubFrame.cpp" line="1579"/>
-        <location filename="../src/HubFrame.cpp" line="1800"/>
-        <location filename="../src/HubFrame.cpp" line="1802"/>
+        <location filename="../src/HubFrame.cpp" line="1580"/>
+        <location filename="../src/HubFrame.cpp" line="1582"/>
+        <location filename="../src/HubFrame.cpp" line="1803"/>
+        <location filename="../src/HubFrame.cpp" line="1805"/>
         <source>Away mode off</source>
         <translation>Away-mód kikapcsolva</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1591"/>
-        <location filename="../src/HubFrame.cpp" line="1593"/>
+        <location filename="../src/HubFrame.cpp" line="1594"/>
+        <location filename="../src/HubFrame.cpp" line="1596"/>
         <source>Away mode on: </source>
         <translation>Away-mód bekapcsolva: </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1611"/>
-        <location filename="../src/HubFrame.cpp" line="1613"/>
+        <location filename="../src/HubFrame.cpp" line="1614"/>
+        <location filename="../src/HubFrame.cpp" line="1616"/>
         <source>Aliases not found.</source>
         <translation>Álnév nem található.</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1633"/>
-        <location filename="../src/HubFrame.cpp" line="1635"/>
+        <location filename="../src/HubFrame.cpp" line="1636"/>
+        <location filename="../src/HubFrame.cpp" line="1638"/>
         <source>Alias removed.</source>
         <translation>Álnév eltávolítva.</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1646"/>
-        <location filename="../src/HubFrame.cpp" line="1648"/>
-        <location filename="../src/HubFrame.cpp" line="1655"/>
-        <location filename="../src/HubFrame.cpp" line="1657"/>
+        <location filename="../src/HubFrame.cpp" line="1649"/>
+        <location filename="../src/HubFrame.cpp" line="1651"/>
+        <location filename="../src/HubFrame.cpp" line="1658"/>
+        <location filename="../src/HubFrame.cpp" line="1660"/>
         <source>Invalid alias syntax.</source>
         <translation>Nem megfelelő álnév formátum.</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1665"/>
-        <location filename="../src/HubFrame.cpp" line="1667"/>
+        <location filename="../src/HubFrame.cpp" line="1668"/>
+        <location filename="../src/HubFrame.cpp" line="1670"/>
         <source>Alias %1 =&gt; %2 has been added</source>
         <translation>Álnév %1 =&gt; %2 hozzáadva</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1689"/>
-        <location filename="../src/HubFrame.cpp" line="1691"/>
-        <location filename="../src/HubFrame.cpp" line="1698"/>
-        <location filename="../src/HubFrame.cpp" line="1700"/>
+        <location filename="../src/HubFrame.cpp" line="1692"/>
+        <location filename="../src/HubFrame.cpp" line="1694"/>
+        <location filename="../src/HubFrame.cpp" line="1701"/>
+        <location filename="../src/HubFrame.cpp" line="1703"/>
         <source>Invalid command syntax.</source>
         <translation>Érvénytelen parancs szintaxis.</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1710"/>
+        <location filename="../src/HubFrame.cpp" line="1713"/>
         <source>List of keywords:
 </source>
         <translation>Kiemelt szavak listája:
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1757"/>
+        <location filename="../src/HubFrame.cpp" line="1760"/>
         <source>ratio: %1 (uploads: %2, downloads: %3)</source>
         <translation>aránya: %1 (feltöltés: %2, letöltés: %3)</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1791"/>
-        <location filename="../src/HubFrame.cpp" line="1793"/>
+        <location filename="../src/HubFrame.cpp" line="1794"/>
+        <location filename="../src/HubFrame.cpp" line="1796"/>
         <source>Aspell switched %1</source>
         <translation>Az aspell %1 lett kapcsolva</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1791"/>
-        <location filename="../src/HubFrame.cpp" line="1793"/>
+        <location filename="../src/HubFrame.cpp" line="1794"/>
+        <location filename="../src/HubFrame.cpp" line="1796"/>
         <source>on</source>
         <translation>be</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1791"/>
-        <location filename="../src/HubFrame.cpp" line="1793"/>
+        <location filename="../src/HubFrame.cpp" line="1794"/>
+        <location filename="../src/HubFrame.cpp" line="1796"/>
         <source>off</source>
         <translation>ki</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1808"/>
-        <location filename="../src/HubFrame.cpp" line="1810"/>
+        <location filename="../src/HubFrame.cpp" line="1811"/>
+        <location filename="../src/HubFrame.cpp" line="1813"/>
         <source>Chat has been cleared</source>
         <translation>A chat törölve lett</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1860"/>
+        <location filename="../src/HubFrame.cpp" line="1863"/>
         <source>/aspell on/off - enable/disable spell checking
 </source>
         <translation>/aspell on/off - nyelvhelyesség ellenőrző ki/be kapcsolása
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1862"/>
+        <location filename="../src/HubFrame.cpp" line="1865"/>
         <source>/alias &lt;ALIAS_NAME&gt;::&lt;COMMAND&gt; - make alias /ALIAS_NAME to /COMMAND
 </source>
         <translation>/alias &lt;ÁLNÉV&gt;::&lt;PARANCS&gt; - álnév létrehozása /ÁLNÉV a /PARANCSRA
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1863"/>
+        <location filename="../src/HubFrame.cpp" line="1866"/>
         <source>/alias purge &lt;ALIAS_NAME&gt; - remove alias
 </source>
         <translation>/alias purge &lt;ÁLNÉV&gt; - álnév eltávolítása
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1864"/>
+        <location filename="../src/HubFrame.cpp" line="1867"/>
         <source>/alias list - list all aliases
 </source>
         <translation>/alias list - álnevek listázása
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1865"/>
+        <location filename="../src/HubFrame.cpp" line="1868"/>
         <source>/away &lt;message&gt; - set away-mode on/off
 </source>
         <translation>/away &lt;üzenet&gt; - away-mód ki/be kapcsolása
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1866"/>
+        <location filename="../src/HubFrame.cpp" line="1869"/>
         <source>/back - set away-mode off
 </source>
         <translation>/back - away-mód kikapcsolása
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1867"/>
+        <location filename="../src/HubFrame.cpp" line="1870"/>
         <source>/browse &lt;nick&gt; - browse user files
 </source>
         <translation>/browse &lt;nick&gt; - felhaszáló fájlistájának böngészése
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1868"/>
+        <location filename="../src/HubFrame.cpp" line="1871"/>
         <source>/clear - clear chat window
 </source>
         <translation>/clear - chat ablak törlése
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1869"/>
+        <location filename="../src/HubFrame.cpp" line="1872"/>
         <source>/kword add &lt;keyword&gt; - add user-defined keyword which will be highlighted in the chat
 </source>
         <translation>/kword add &lt;kulcsszó&gt; - felhasználó által megadott szó, ami kiemelést kap a cseten 
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1870"/>
+        <location filename="../src/HubFrame.cpp" line="1873"/>
         <source>/kword purge &lt;keyword&gt; - remove user-defined keyword
 </source>
         <translation>/kword purge &lt;kulcsszó&gt; - kiemelt szó eltávolítása
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1871"/>
+        <location filename="../src/HubFrame.cpp" line="1874"/>
         <source>/kword list - full list of keywords which will be highlighted in the chat
 </source>
         <translation>/kowrd list - teljes lista a cseten kiemelendő kulcsszavakról 
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1872"/>
+        <location filename="../src/HubFrame.cpp" line="1875"/>
         <source>/magnet - default action with magnet (0-ask, 1-search, 2-download)
 </source>
         <translation>/magnet - alapértelmezett magnetlink akció (0-kérdés, 1-keresés, 2-letöltés)
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1873"/>
+        <location filename="../src/HubFrame.cpp" line="1876"/>
         <source>/close - close this hub
 </source>
         <translation>/close - hub bezárása
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1874"/>
+        <location filename="../src/HubFrame.cpp" line="1877"/>
         <source>/fav - add this hub to favorites
 </source>
         <translation>/fav - hub hozzáadása a kedvencekhez
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1875"/>
+        <location filename="../src/HubFrame.cpp" line="1878"/>
         <source>/grant &lt;nick&gt; - grant extra slot to user
 </source>
         <translation>/grant &lt;nick&gt; - extra slot biztosítása a felhasználónak
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1876"/>
+        <location filename="../src/HubFrame.cpp" line="1879"/>
         <source>/help, /?, /h - show this help
 </source>
         <translation>/help, /?, /h - segítség mutatása
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1877"/>
+        <location filename="../src/HubFrame.cpp" line="1880"/>
         <source>/info &lt;nick&gt; - show info about user
 </source>
         <translation>/info &lt;nick&gt; - információ mutatása a felhasználóról
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1878"/>
+        <location filename="../src/HubFrame.cpp" line="1881"/>
         <source>/ratio [show] - show ratio [send in chat]
 </source>
         <translation>/ratio [show] - átviteli ráta mutatása [küldés a chatre]
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1879"/>
+        <location filename="../src/HubFrame.cpp" line="1882"/>
         <source>/rebuild - rebuild hash
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1880"/>
+        <location filename="../src/HubFrame.cpp" line="1883"/>
         <source>/refresh - update own file list
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1881"/>
+        <location filename="../src/HubFrame.cpp" line="1884"/>
         <source>/me - say a third person
 </source>
         <translation>/me - üzenet küldése harmadik személyben
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1882"/>
+        <location filename="../src/HubFrame.cpp" line="1885"/>
         <source>/pm &lt;nick&gt; - begin private chat with user
 </source>
         <translation>/pm &lt;nick&gt; - privát beszélgetés indítása a felhasználóval
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1883"/>
+        <location filename="../src/HubFrame.cpp" line="1886"/>
         <source>/ws param value - set gui option param in value (without value return current value of option)
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1884"/>
+        <location filename="../src/HubFrame.cpp" line="1887"/>
         <source>/dcpps param value - set core option param in value (without value return current value of option)
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1886"/>
+        <location filename="../src/HubFrame.cpp" line="1889"/>
         <source>/luafile &lt;file&gt; - load Lua file
 </source>
         <translation>/luafile &lt;file&gt; - Lua fájl betöltése
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1887"/>
+        <location filename="../src/HubFrame.cpp" line="1890"/>
         <source>/lua &lt;chunk&gt; - execute Lua chunk
 </source>
         <translation>/lua &lt;chunk&gt; - Lua kódrészlet futtatása
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2137"/>
+        <location filename="../src/HubFrame.cpp" line="2140"/>
         <source> joins the chat</source>
         <translation> belépett a hubra</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2142"/>
-        <location filename="../src/HubFrame.cpp" line="2200"/>
+        <location filename="../src/HubFrame.cpp" line="2145"/>
+        <location filename="../src/HubFrame.cpp" line="2203"/>
         <source>Favorites</source>
         <translation>Kedvencek</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2142"/>
+        <location filename="../src/HubFrame.cpp" line="2145"/>
         <source>%1 is now online</source>
         <translation>%1 online</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2155"/>
+        <location filename="../src/HubFrame.cpp" line="2158"/>
         <source>User online.</source>
         <translation>Felhasználó online.</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2195"/>
+        <location filename="../src/HubFrame.cpp" line="2198"/>
         <source> left the chat</source>
         <translation> kilépett a hubról</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2200"/>
+        <location filename="../src/HubFrame.cpp" line="2203"/>
         <source>%1 is now offline</source>
         <translation>%1 offline</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2239"/>
-        <location filename="../src/HubFrame.cpp" line="2253"/>
+        <location filename="../src/HubFrame.cpp" line="2242"/>
+        <location filename="../src/HubFrame.cpp" line="2256"/>
         <source>User not found</source>
         <translation>Felhasználó nem található</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2260"/>
+        <location filename="../src/HubFrame.cpp" line="2263"/>
         <source>Slot granted to </source>
         <translation>Slot biztosítva </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2319"/>
+        <location filename="../src/HubFrame.cpp" line="2322"/>
         <source> has been added to favorites.</source>
         <translation> hozzáadva a kedvencekhez.</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2319"/>
+        <location filename="../src/HubFrame.cpp" line="2322"/>
         <source> has been removed from favorites.</source>
         <translation> eltávolítva a kedvencekből.</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2351"/>
+        <location filename="../src/HubFrame.cpp" line="2354"/>
         <source>Favorite hub added.</source>
         <translation>Kedvenc hub hozzáadva.</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2354"/>
+        <location filename="../src/HubFrame.cpp" line="2357"/>
         <source>Favorite hub already exists.</source>
         <translation>A kedvenc hub már létezik.</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2589"/>
+        <location filename="../src/HubFrame.cpp" line="2592"/>
         <source>User offline.</source>
         <translation>Felhasználó offline.</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2628"/>
+        <location filename="../src/HubFrame.cpp" line="2631"/>
         <source>Stored password sent...</source>
         <translation>Tárolt jelszó elküldve...</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2631"/>
+        <location filename="../src/HubFrame.cpp" line="2634"/>
         <source>Password</source>
         <translation>Jelszó</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2645"/>
-        <location filename="../src/HubFrame.cpp" line="3796"/>
+        <location filename="../src/HubFrame.cpp" line="2648"/>
+        <location filename="../src/HubFrame.cpp" line="3799"/>
         <source>Redirect request received to a hub that&apos;s already connected</source>
         <translation>Átirányítási kérelem fogadva egy már csatlakozott hubtól</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2717"/>
+        <location filename="../src/HubFrame.cpp" line="2720"/>
         <source>Users count: %3/%1 | Total share: %2</source>
         <translation>Felhasználók száma: %3/%1 | Összes megosztás: %2</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2723"/>
+        <location filename="../src/HubFrame.cpp" line="2726"/>
         <source>Users count: %1 | Total share: %2</source>
         <translation>Felhasználók száma: %1 | Összes megosztás: %2</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="3582"/>
+        <location filename="../src/HubFrame.cpp" line="3585"/>
         <source>Add to dictionary</source>
         <translation>Hozzáadás a szótárhoz</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="3588"/>
+        <location filename="../src/HubFrame.cpp" line="3591"/>
         <source>Suggestions</source>
         <translation>Javaslatok</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="3754"/>
+        <location filename="../src/HubFrame.cpp" line="3757"/>
         <source>Connecting to %1</source>
         <translation>Kapcsolódás: %1</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="3762"/>
+        <location filename="../src/HubFrame.cpp" line="3765"/>
         <source>Connected to %1</source>
         <translation>Kapcsolódva: %1</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="3806"/>
+        <location filename="../src/HubFrame.cpp" line="3809"/>
         <source>Fail: %1...</source>
         <translation>Sikertelen: %1...</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="4000"/>
+        <location filename="../src/HubFrame.cpp" line="4003"/>
         <source>Sorry, but nick &quot;%1&quot; is already taken by another user.</source>
         <translation>Bocs, de a &quot;%1&quot; nicket már más használja.</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="4006"/>
+        <location filename="../src/HubFrame.cpp" line="4009"/>
         <source>Search flood detected: %1</source>
         <translation>Keresési flood érzékelve: %1</translation>
     </message>
@@ -1609,32 +1614,32 @@ Kedvenc felhasználó</translation>
 <context>
     <name>Magnet</name>
     <message>
-        <location filename="../src/Magnet.cpp" line="51"/>
+        <location filename="../src/Magnet.cpp" line="53"/>
         <source>Run search alternatives manually.</source>
         <translation>Alternatívák keresése most.</translation>
     </message>
     <message>
-        <location filename="../src/Magnet.cpp" line="54"/>
+        <location filename="../src/Magnet.cpp" line="56"/>
         <source>Download file via auto search alternatives</source>
         <translation>Fájlok letöltése automatikus alternatívák keresése közben</translation>
     </message>
     <message>
-        <location filename="../src/Magnet.cpp" line="228"/>
+        <location filename="../src/Magnet.cpp" line="241"/>
         <source>Browse</source>
         <translation>Böngészés</translation>
     </message>
     <message>
-        <location filename="../src/Magnet.cpp" line="248"/>
+        <location filename="../src/Magnet.cpp" line="261"/>
         <source>Select directory</source>
         <translation>Könyvtár kiválasztása</translation>
     </message>
     <message>
-        <location filename="../src/Magnet.cpp" line="265"/>
+        <location filename="../src/Magnet.cpp" line="278"/>
         <source>Error</source>
         <translation>Hiba</translation>
     </message>
     <message>
-        <location filename="../src/Magnet.cpp" line="265"/>
+        <location filename="../src/Magnet.cpp" line="278"/>
         <source>Some error ocurred when starting download:
  %1</source>
         <translation>Probléma lépett fel a letöltés megkezdésekor:
@@ -4641,14 +4646,39 @@ Biztosan le akarod állítani?
         <translation>TTH Kalkulátor</translation>
     </message>
     <message>
-        <location filename="../ui/UIFileHasher.ui" line="65"/>
+        <location filename="../ui/UIFileHasher.ui" line="93"/>
         <source>Filepath</source>
         <translation type="unfinished">Útvonal</translation>
     </message>
     <message>
-        <location filename="../ui/UIFileHasher.ui" line="86"/>
+        <location filename="../ui/UIFileHasher.ui" line="113"/>
+        <source>Copy magnet link to clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UIFileHasher.ui" line="136"/>
+        <source>Copy search link to clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UIFileHasher.ui" line="146"/>
         <source>Filename</source>
         <translation type="unfinished">Fájlnév</translation>
+    </message>
+    <message>
+        <location filename="../ui/UIFileHasher.ui" line="185"/>
+        <source>Opens search dialog and searches file.</source>
+        <translation type="unfinished">Keresési ablak megnyitása és fájlok keresése.</translation>
+    </message>
+    <message>
+        <location filename="../ui/UIFileHasher.ui" line="188"/>
+        <source>Search</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UIFileHasher.ui" line="208"/>
+        <source>Cancel</source>
+        <translation type="unfinished">Mégsem</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="100"/>
@@ -4656,19 +4686,17 @@ Biztosan le akarod állítani?
         <translation type="unfinished">Méret</translation>
     </message>
     <message>
-        <location filename="../ui/UIFileHasher.ui" line="146"/>
+        <location filename="../ui/UIFileHasher.ui" line="178"/>
         <source>Compute</source>
         <translation>Számítás</translation>
     </message>
     <message>
-        <location filename="../ui/UIFileHasher.ui" line="153"/>
         <source>Get magnet</source>
-        <translation>Magnetlink másolása</translation>
+        <translation type="vanished">Magnetlink másolása</translation>
     </message>
     <message>
-        <location filename="../ui/UIFileHasher.ui" line="173"/>
         <source>Close</source>
-        <translation>Bezárás</translation>
+        <translation type="vanished">Bezárás</translation>
     </message>
 </context>
 <context>
@@ -4879,39 +4907,44 @@ Biztosan le akarod állítani?
         <translation>Méret</translation>
     </message>
     <message>
-        <location filename="../ui/UIMagnet.ui" line="127"/>
+        <location filename="../ui/UIMagnet.ui" line="113"/>
         <source>Copy magnet link to clipboard</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UIMagnet.ui" line="155"/>
+        <location filename="../ui/UIMagnet.ui" line="136"/>
+        <source>Copy search link to clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UIMagnet.ui" line="171"/>
         <source>Opens search dialog and searches file.</source>
         <translation>Keresési ablak megnyitása és fájlok keresése.</translation>
     </message>
     <message>
-        <location filename="../ui/UIMagnet.ui" line="158"/>
+        <location filename="../ui/UIMagnet.ui" line="174"/>
         <source>Search</source>
         <translation>Keresés</translation>
     </message>
     <message>
-        <location filename="../ui/UIMagnet.ui" line="165"/>
+        <location filename="../ui/UIMagnet.ui" line="181"/>
         <source>Adds magnet to download queue. If autosearch for alternatives is enabled
 in options, file will be downloaded without opening search dialog.</source>
         <translation>Magnetlink hozzáadása a letöltési sorhoz. Ha az alternatívák automatikus keresése
 be van kapcsolva a beállításokban, a fájl automatikusan letötésre kerül a keresési ablak megnyitása nélkül.</translation>
     </message>
     <message>
-        <location filename="../ui/UIMagnet.ui" line="169"/>
+        <location filename="../ui/UIMagnet.ui" line="185"/>
         <source>Add to queue</source>
         <translation>Hozzáadás a letöltési sorhoz</translation>
     </message>
     <message>
-        <location filename="../ui/UIMagnet.ui" line="189"/>
+        <location filename="../ui/UIMagnet.ui" line="205"/>
         <source>Cancel</source>
         <translation>Mégsem</translation>
     </message>
     <message>
-        <location filename="../ui/UIMagnet.ui" line="198"/>
+        <location filename="../ui/UIMagnet.ui" line="214"/>
         <source>Remember my choice</source>
         <translation>Emlékezz a választásomra</translation>
     </message>
