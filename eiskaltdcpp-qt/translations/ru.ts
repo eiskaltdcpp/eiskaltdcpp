@@ -1074,7 +1074,7 @@ EiskaltDC++ - кроссплатформенная программа для р�
     <message>
         <location filename="../src/HubFrame.cpp" line="566"/>
         <source>search</source>
-        <translation type="unfinished"></translation>
+        <translation>поиск</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="759"/>
@@ -4658,12 +4658,12 @@ Do you want to stop it?
     <message>
         <location filename="../ui/UIFileHasher.ui" line="113"/>
         <source>Copy magnet link to clipboard</source>
-        <translation type="unfinished">Скопировать магнет ссылку в буфер обмена</translation>
+        <translation>Скопировать магнет ссылку в буфер обмена</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="136"/>
         <source>Copy search link to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Скопировать поисковую ссылку в буфер обмена</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="146"/>
@@ -4673,17 +4673,17 @@ Do you want to stop it?
     <message>
         <location filename="../ui/UIFileHasher.ui" line="185"/>
         <source>Opens search dialog and searches file.</source>
-        <translation type="unfinished">Открывает диалог поиска и начинает поиск файла.</translation>
+        <translation>Открывает виджет поиска и начинает поиск файла.</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="188"/>
         <source>Search</source>
-        <translation type="unfinished"></translation>
+        <translation>Поиск</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="208"/>
         <source>Cancel</source>
-        <translation type="unfinished">Отмена</translation>
+        <translation>Отмена</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="100"/>
@@ -4919,7 +4919,7 @@ Do you want to stop it?
     <message>
         <location filename="../ui/UIMagnet.ui" line="136"/>
         <source>Copy search link to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Скопировать поисковую ссылку в буфер обмена</translation>
     </message>
     <message>
         <location filename="../ui/UIMagnet.ui" line="171"/>
