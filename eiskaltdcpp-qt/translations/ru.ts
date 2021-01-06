@@ -4458,37 +4458,37 @@ Do you want to stop it?
     <message>
         <location filename="../ui/UICmdDebug.ui" line="57"/>
         <source>Find: </source>
-        <translation type="unfinished">Поиск: </translation>
+        <translation>Поиск: </translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="71"/>
         <source>Previous (Shift+F3)</source>
-        <translation type="unfinished">Предыдущее (Shift+F3)</translation>
+        <translation>Предыдущее (Shift+F3)</translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="77"/>
         <source>Shift+F3</source>
-        <translation type="unfinished">Shift+F3</translation>
+        <translation>Shift+F3</translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="84"/>
         <source>Next (F3)</source>
-        <translation type="unfinished">Следующее (F3)</translation>
+        <translation>Следующее (F3)</translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="90"/>
         <source>F3</source>
-        <translation type="unfinished">F3</translation>
+        <translation>F3</translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="97"/>
         <source>Highlight all</source>
-        <translation type="unfinished">Подсветить все</translation>
+        <translation>Подсветить все</translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="113"/>
         <source>Hide search panel (Ctrl+F)</source>
-        <translation type="unfinished">Спрятать поисковый фрейм (Ctrl+F)</translation>
+        <translation>Спрятать поисковый фрейм (Ctrl+F)</translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="151"/>
