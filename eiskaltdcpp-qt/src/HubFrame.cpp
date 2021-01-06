@@ -562,7 +562,10 @@ QString HubFrame::LinkParser::parseForLinks(QString input, bool use_emot){
                         if (link.contains("urn:btih:") || link.contains("urn:btmh:")) {
                             toshow = QString("%1 (BitTorrent)").arg(name);
                         } else {
-                            toshow = QString("%1 (%2)").arg(name).arg(WulforUtil::formatBytes(size));
+                            if (size == 0 && tth.isEmpty())
+                                toshow = QString("%1 (%2)").arg(name).arg(tr("search"));
+                            else
+                                toshow = QString("%1 (%2)").arg(name).arg(WulforUtil::formatBytes(size));
                         }
                     }
                 }
