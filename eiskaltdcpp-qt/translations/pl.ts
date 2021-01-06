@@ -4788,7 +4788,7 @@ Chcesz go zatrzymać?
     </message>
     <message>
         <location filename="../ui/HubFrame.ui" line="153"/>
-        <source>Hide find frame (Ctrl+F)</source>
+        <source>Hide search panel (Ctrl+F)</source>
         <translation>Ukryj ramkę wyszukiwania (Ctrl+F)</translation>
     </message>
     <message>
@@ -4977,7 +4977,7 @@ w opcjach, plik zostanie pobrany bez otwierania okna wyszukiwania.</translation>
     </message>
     <message>
         <location filename="../ui/PrivateMessage.ui" line="114"/>
-        <source>Hide find frame (Ctrl+F)</source>
+        <source>Hide search panel (Ctrl+F)</source>
         <translation>Ukryj ramkę wyszukiwania (Ctrl+F)</translation>
     </message>
     <message>

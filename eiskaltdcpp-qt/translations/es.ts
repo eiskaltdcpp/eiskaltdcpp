@@ -4792,7 +4792,7 @@ Y continuará trabajando aunque el widget esté oculto.
     </message>
     <message>
         <location filename="../ui/HubFrame.ui" line="153"/>
-        <source>Hide find frame (Ctrl+F)</source>
+        <source>Hide search panel (Ctrl+F)</source>
         <translation>Ocultar barra de búsqueda (Ctrl+F)</translation>
     </message>
     <message>
@@ -4983,7 +4983,7 @@ diálogo de búsqueda.</translation>
     </message>
     <message>
         <location filename="../ui/PrivateMessage.ui" line="114"/>
-        <source>Hide find frame (Ctrl+F)</source>
+        <source>Hide search panel (Ctrl+F)</source>
         <translation>Ocultar barra de búsqueda (Ctrl+F)</translation>
     </message>
     <message>

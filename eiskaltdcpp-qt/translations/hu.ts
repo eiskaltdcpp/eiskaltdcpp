@@ -4789,7 +4789,7 @@ Biztosan le akarod állítani?
     </message>
     <message>
         <location filename="../ui/HubFrame.ui" line="153"/>
-        <source>Hide find frame (Ctrl+F)</source>
+        <source>Hide search panel (Ctrl+F)</source>
         <translation>Kereső ablak elrejtése (Ctrl+F)</translation>
     </message>
     <message>
@@ -4978,7 +4978,7 @@ be van kapcsolva a beállításokban, a fájl automatikusan letötésre kerül a
     </message>
     <message>
         <location filename="../ui/PrivateMessage.ui" line="114"/>
-        <source>Hide find frame (Ctrl+F)</source>
+        <source>Hide search panel (Ctrl+F)</source>
         <translation>Keresőmező elrejtése (Ctrl+F)</translation>
     </message>
     <message>

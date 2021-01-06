@@ -4773,7 +4773,7 @@ Voulez-vous l&apos;arrêter?</translation>
     </message>
     <message>
         <location filename="../ui/HubFrame.ui" line="153"/>
-        <source>Hide find frame (Ctrl+F)</source>
+        <source>Hide search panel (Ctrl+F)</source>
         <translation>Cacher fenêtre de recherche (Ctrl+F)</translation>
     </message>
     <message>
@@ -4962,7 +4962,7 @@ de sources alternatives est activée, le fichier sera téléchargé sans ouvrir 
     </message>
     <message>
         <location filename="../ui/PrivateMessage.ui" line="114"/>
-        <source>Hide find frame (Ctrl+F)</source>
+        <source>Hide search panel (Ctrl+F)</source>
         <translation>Cacher fenêtre de recherche (Ctrl+F)</translation>
     </message>
     <message>

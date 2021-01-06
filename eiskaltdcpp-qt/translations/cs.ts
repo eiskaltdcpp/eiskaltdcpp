@@ -4786,7 +4786,7 @@ Chcete jej vypnout?
     </message>
     <message>
         <location filename="../ui/HubFrame.ui" line="153"/>
-        <source>Hide find frame (Ctrl+F)</source>
+        <source>Hide search panel (Ctrl+F)</source>
         <translation>Skrýt hledání (Ctrl+F)</translation>
     </message>
     <message>
@@ -4975,7 +4975,7 @@ hledáni alternativ, soubor se stáhne bez otevření dialogu pro hledání.</tr
     </message>
     <message>
         <location filename="../ui/PrivateMessage.ui" line="114"/>
-        <source>Hide find frame (Ctrl+F)</source>
+        <source>Hide search panel (Ctrl+F)</source>
         <translation>Skrýt hledání (Ctrl+F)</translation>
     </message>
     <message>

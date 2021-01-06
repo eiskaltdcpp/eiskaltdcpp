@@ -150,7 +150,7 @@ p, li { white-space: pre-wrap; }
             <item>
              <widget class="QToolButton" name="toolButton_HIDE">
               <property name="toolTip">
-               <string>Hide find frame (Ctrl+F)</string>
+               <string>Hide search panel (Ctrl+F)</string>
               </property>
               <property name="text">
                <string notr="true"/>

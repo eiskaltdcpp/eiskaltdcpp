@@ -4806,7 +4806,7 @@ Vuoi arrestarla?</translation>
     </message>
     <message>
         <location filename="../ui/HubFrame.ui" line="153"/>
-        <source>Hide find frame (Ctrl+F)</source>
+        <source>Hide search panel (Ctrl+F)</source>
         <translation>Nacondi il riquadro di ricerca (Ctrl+F)</translation>
     </message>
     <message>
@@ -4995,7 +4995,7 @@ nelle opzioni, il file sarà scaricato senza aprire una finestra di ricerca.</tr
     </message>
     <message>
         <location filename="../ui/PrivateMessage.ui" line="114"/>
-        <source>Hide find frame (Ctrl+F)</source>
+        <source>Hide search panel (Ctrl+F)</source>
         <translation>Nacondi il riquadro di ricerca (Ctrl+F)</translation>
     </message>
     <message>

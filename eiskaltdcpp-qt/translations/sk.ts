@@ -4789,7 +4789,7 @@ Prajete si hľadanie zastaviť?
     </message>
     <message>
         <location filename="../ui/HubFrame.ui" line="153"/>
-        <source>Hide find frame (Ctrl+F)</source>
+        <source>Hide search panel (Ctrl+F)</source>
         <translation>Skryť políčko pre hľadanie (Ctrl+F)</translation>
     </message>
     <message>
@@ -4977,7 +4977,7 @@ in options, file will be downloaded without opening search dialog.</source>
     </message>
     <message>
         <location filename="../ui/PrivateMessage.ui" line="114"/>
-        <source>Hide find frame (Ctrl+F)</source>
+        <source>Hide search panel (Ctrl+F)</source>
         <translation type="unfinished">Skryť políčko pre hľadanie (Ctrl+F)</translation>
     </message>
     <message>

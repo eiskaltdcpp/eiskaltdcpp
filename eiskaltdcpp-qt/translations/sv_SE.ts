@@ -4793,7 +4793,7 @@ Vill du stoppa den?
     </message>
     <message>
         <location filename="../ui/HubFrame.ui" line="153"/>
-        <source>Hide find frame (Ctrl+F)</source>
+        <source>Hide search panel (Ctrl+F)</source>
         <translation>Göm sökpanelen (CTRL+F)</translation>
     </message>
     <message>
@@ -4983,7 +4983,7 @@ aktiverad i inställningarna, kommer filen att laddas ned utan att sökfönstret
     </message>
     <message>
         <location filename="../ui/PrivateMessage.ui" line="114"/>
-        <source>Hide find frame (Ctrl+F)</source>
+        <source>Hide search panel (Ctrl+F)</source>
         <translation>Göm sökpanelen (CTRL+F)</translation>
     </message>
     <message>

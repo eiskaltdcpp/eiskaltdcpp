@@ -4790,7 +4790,7 @@ Do you want to stop it?
     </message>
     <message>
         <location filename="../ui/HubFrame.ui" line="153"/>
-        <source>Hide find frame (Ctrl+F)</source>
+        <source>Hide search panel (Ctrl+F)</source>
         <translation>Скриване рамката за търсене (Ctrl+F)</translation>
     </message>
     <message>
@@ -4980,7 +4980,7 @@ in options, file will be downloaded without opening search dialog.</source>
     </message>
     <message>
         <location filename="../ui/PrivateMessage.ui" line="114"/>
-        <source>Hide find frame (Ctrl+F)</source>
+        <source>Hide search panel (Ctrl+F)</source>
         <translation>Скриване рамката за търсене (Ctrl+F)</translation>
     </message>
     <message>

@@ -4810,8 +4810,8 @@ Do you want to stop it?
     </message>
     <message>
         <location filename="../ui/HubFrame.ui" line="153"/>
-        <source>Hide find frame (Ctrl+F)</source>
-        <translation>Hide find frame (Ctrl+F)</translation>
+        <source>Hide search panel (Ctrl+F)</source>
+        <translation>Hide search panel (Ctrl+F)</translation>
     </message>
     <message>
         <location filename="../ui/HubFrame.ui" line="306"/>
@@ -4999,8 +4999,8 @@ in options, file will be downloaded without opening search dialog.</translation>
     </message>
     <message>
         <location filename="../ui/PrivateMessage.ui" line="114"/>
-        <source>Hide find frame (Ctrl+F)</source>
-        <translation>Hide find frame (Ctrl+F)</translation>
+        <source>Hide search panel (Ctrl+F)</source>
+        <translation>Hide search panel (Ctrl+F)</translation>
     </message>
     <message>
         <location filename="../ui/PrivateMessage.ui" line="124"/>

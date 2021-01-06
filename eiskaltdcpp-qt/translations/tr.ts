@@ -4793,7 +4793,7 @@ Onu durdurmak istiyor musunuz?
     </message>
     <message>
         <location filename="../ui/HubFrame.ui" line="153"/>
-        <source>Hide find frame (Ctrl+F)</source>
+        <source>Hide search panel (Ctrl+F)</source>
         <translation>Bulma çerçevesini sakla (Ctrl+F)</translation>
     </message>
     <message>
@@ -4982,7 +4982,7 @@ etkinleştirildiyse, dosya arama diyaloğu açılmadan indirilecektir.</translat
     </message>
     <message>
         <location filename="../ui/PrivateMessage.ui" line="114"/>
-        <source>Hide find frame (Ctrl+F)</source>
+        <source>Hide search panel (Ctrl+F)</source>
         <translation>Bulma çerçevesini sakla (Ctrl+F)</translation>
     </message>
     <message>
