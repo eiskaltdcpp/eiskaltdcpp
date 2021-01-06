@@ -9,7 +9,9 @@
 
 #pragma once
 
+#include <QEvent>
 #include <QWidget>
+
 #include "ui_UICmdDebug.h"
 #include "ArenaWidget.h"
 #include "WulforUtil.h"
@@ -35,6 +37,8 @@ public:
     QString getArenaShortTitle();
     QMenu *getMenu();
     const QPixmap &getPixmap(){ return WICON(WulforUtil::eiCONSOLE); }
+    void requestFilter() { slotHideFindFrame(); }
+    void requestFocus() { pushButton_ClearLog->setFocus(); }
     ArenaWidget::Role role() const { return ArenaWidget::CmdDebug; }
 
 Q_SIGNALS:
@@ -43,10 +47,20 @@ Q_SIGNALS:
 private Q_SLOTS:
     void addOutput(const QString&, const QString&);
     void maxLinesChanged(int);
+    void slotFindForward() { findText(nullptr); }
+    void slotFindBackward(){ findText(QTextDocument::FindBackward); }
+    void slotFindTextEdited(const QString &text);
+    void slotFindAll();
+    void slotHideFindFrame();
+
+protected:
+    virtual bool eventFilter(QObject *obj, QEvent *e);
+
 private:
-    int maxLines;
     void on(dcpp::DebugManagerListener::DebugDetection, const std::string& com) noexcept;
     void on(dcpp::DebugManagerListener::DebugCommand, const std::string& mess, int typedir, const std::string& ip) noexcept;
-
     void addOutput(QString msg);
+    void findText(QTextDocument::FindFlags );
+
+    int maxLines;
 };

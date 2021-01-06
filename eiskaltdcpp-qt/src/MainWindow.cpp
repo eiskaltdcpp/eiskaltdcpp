@@ -812,6 +812,7 @@ void MainWindow::initActions(){
 
         d->toolsCmdDebug = new QAction("", this);
         d->toolsCmdDebug->setObjectName("toolsCmdDebug");
+        d->toolsCmdDebug->setIcon(WU->getPixmap(WulforUtil::eiCONSOLE));
         connect(d->toolsCmdDebug, SIGNAL(triggered()), this, SLOT(slotToolsCmdDebug()));
 
         d->toolsTransfers = new QAction("", this);
@@ -1975,11 +1976,14 @@ void MainWindow::mapWidgetOnArena(ArenaWidget *awgt){
 
     ArenaWidget::Role role = awgt->role();
 
-    bool widgetWithFilter = role == ArenaWidget::Hub ||
-                            role == ArenaWidget::ShareBrowser ||
-                            role == ArenaWidget::PublicHubs ||
-                            role == ArenaWidget::Search ||
-                            role == ArenaWidget::PrivateMessage;
+    const bool widgetWithFilter = (
+                role == ArenaWidget::CmdDebug ||
+                role == ArenaWidget::Hub ||
+                role == ArenaWidget::PrivateMessage ||
+                role == ArenaWidget::PublicHubs ||
+                role == ArenaWidget::Search ||
+                role == ArenaWidget::ShareBrowser
+                );
 
     d->chatClear->setEnabled(role == ArenaWidget::Hub || role == ArenaWidget::PrivateMessage);
     d->findInWidget->setEnabled(widgetWithFilter);

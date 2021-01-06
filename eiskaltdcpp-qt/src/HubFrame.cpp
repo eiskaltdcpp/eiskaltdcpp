@@ -1195,7 +1195,7 @@ void HubFrame::init(){
     if (WBGET(WB_APP_ENABLE_EMOTICON) && EmoticonFactory::getInstance())
         EmoticonFactory::getInstance()->addEmoticons(textEdit_CHAT->document());
 
-    frame->setVisible(false);
+    searchFrame->setVisible(false);
 
     for (int i = 0; i < d->model->columnCount(); i++)
         comboBox_COLUMNS->addItem(d->model->headerData(i, Qt::Horizontal, Qt::DisplayRole).toString());
@@ -2672,7 +2672,7 @@ void HubFrame::findText(QTextDocument::FindFlags flag){
 
     QTextCursor c = textEdit_CHAT->textCursor();
 
-    bool ok = textEdit_CHAT->find(lineEdit_FIND->text(), flag);
+    const bool ok = textEdit_CHAT->find(lineEdit_FIND->text(), flag);
 
     if (flag == QTextDocument::FindBackward && !ok)
         c.movePosition(QTextCursor::End,QTextCursor::MoveAnchor,1);
@@ -3313,9 +3313,9 @@ void HubFrame::prevMsg(){
 }
 
 void HubFrame::slotHideFindFrame(){
-    frame->setVisible(!frame->isVisible());
+    searchFrame->setVisible(!searchFrame->isVisible());
 
-    if (frame->isVisible()){
+    if (searchFrame->isVisible()){
         QString stext = textEdit_CHAT->textCursor().selectedText();
 
         if (!stext.isEmpty()){
