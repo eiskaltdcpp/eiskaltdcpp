@@ -258,7 +258,7 @@ void CmdDebug::on(DebugManagerListener::DebugCommand, const string &mess, int ty
             if(checkBoxHUB_IN->isChecked())
             {
                 QString qip = _q(ip);
-                QString msg = "Hub: [Incoming][" + qip + "] "+ qmess;
+                QString msg = "Hub: [Incoming] [" + qip + "] "+ qmess;
                 emit coreDebugCommand(msg, qip);
             }
             break;
@@ -266,7 +266,7 @@ void CmdDebug::on(DebugManagerListener::DebugCommand, const string &mess, int ty
             if(checkBoxHUB_OUT->isChecked())
             {
                 QString qip = _q(ip);
-                QString msg = "Hub: [Outgoing][" + qip + "] "+ qmess;
+                QString msg = "Hub: [Outgoing] [" + qip + "] "+ qmess;
                 emit coreDebugCommand(msg, qip);
             }
             break;
@@ -274,7 +274,7 @@ void CmdDebug::on(DebugManagerListener::DebugCommand, const string &mess, int ty
             if(checkBoxCL_IN->isChecked())
             {
                 QString qip = _q(ip);
-                QString msg = "Client: [Incoming]["  + qip + "] "+ qmess;
+                QString msg = "Client: [Incoming] ["  + qip + "] "+ qmess;
                 emit coreDebugCommand(msg, qip);
             }
             break;
@@ -282,7 +282,7 @@ void CmdDebug::on(DebugManagerListener::DebugCommand, const string &mess, int ty
             if(checkBoxCL_OUT->isChecked())
             {
                 QString qip = _q(ip);
-                QString msg = "Client: [Outgoing][" + qip + "] "+ qmess;
+                QString msg = "Client: [Outgoing] [" + qip + "] "+ qmess;
                 emit coreDebugCommand(msg, qip);
             }
             break;
@@ -291,7 +291,7 @@ void CmdDebug::on(DebugManagerListener::DebugCommand, const string &mess, int ty
             if(checkBoxDHT_IN->isChecked())
             {
                 QString qip = _q(ip);
-                QString msg = "DHT: [Incoming]["  + qip + "] "+ qmess;
+                QString msg = "DHT: [Incoming] ["  + qip + "] "+ qmess;
                 emit coreDebugCommand(msg, qip);
             }
             break;
@@ -299,7 +299,7 @@ void CmdDebug::on(DebugManagerListener::DebugCommand, const string &mess, int ty
             if(checkBoxDHT_OUT->isChecked())
             {
                 QString qip = _q(ip);
-                QString msg = "DHT: [Outgoing][" + qip + "] "+ qmess;
+                QString msg = "DHT: [Outgoing] [" + qip + "] "+ qmess;
                 emit coreDebugCommand(msg, qip);
             }
             break;
