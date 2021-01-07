@@ -13,8 +13,6 @@
 #include <QTextEdit>
 #include <QTextDocument>
 
-#include "dcpp/Text.h"
-
 #include "WulforUtil.h"
 #include "CmdDebug.h"
 
@@ -22,6 +20,7 @@ CmdDebug::CmdDebug(QWidget *parent) :
     QWidget(parent)
 {
     setupUi(this);
+    Q_D(CmdDebug);
 
     toolButton_HIDE->setIcon(WICON(WulforUtil::eiEDITDELETE));
     searchFrame->hide();
@@ -29,8 +28,8 @@ CmdDebug::CmdDebug(QWidget *parent) :
     installEventFilter(this);
     lineEdit_FIND->installEventFilter(this);
 
-    maxLines = spinBoxLines->value();
-    plainTextEdit_DEBUG->document()->setMaximumBlockCount(maxLines);
+    d->maxLines = spinBoxLines->value();
+    plainTextEdit_DEBUG->document()->setMaximumBlockCount(d->maxLines);
     plainTextEdit_DEBUG->setReadOnly(true);
     plainTextEdit_DEBUG->setMouseTracking(true);
     connect(this, SIGNAL(coreDebugCommand(const QString&, const QString&)), this, SLOT(addOutput(const QString&, const QString&)), Qt::QueuedConnection);
@@ -68,7 +67,7 @@ QMenu *CmdDebug::getMenu() {
 }
 
 bool CmdDebug::eventFilter(QObject *obj, QEvent *e){
-    // Q_D(CmdDebug);
+    Q_D(CmdDebug);
 
     if (e->type() == QEvent::KeyRelease){
         QKeyEvent *k_e = reinterpret_cast<QKeyEvent*>(e);

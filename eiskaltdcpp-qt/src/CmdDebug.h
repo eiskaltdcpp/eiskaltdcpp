@@ -15,9 +15,16 @@
 #include "ui_UICmdDebug.h"
 #include "ArenaWidget.h"
 #include "WulforUtil.h"
+
 #include <dcpp/stdinc.h>
 #include <dcpp/Singleton.h>
 #include <dcpp/DebugManager.h>
+#include <dcpp/Text.h>
+
+class CmdDebugPrivate {
+public:
+    int maxLines;
+};
 
 class CmdDebug : public QWidget,
         private Ui::UICmdDebug,
@@ -62,5 +69,6 @@ private:
     void addOutput(QString msg);
     void findText(QTextDocument::FindFlags );
 
-    int maxLines;
+    Q_DECLARE_PRIVATE(CmdDebug)
+    CmdDebugPrivate *d_ptr;
 };
