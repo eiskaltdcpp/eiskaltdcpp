@@ -6871,17 +6871,17 @@ avšak ak sa vráti do 10 min, EiskaltDC++ mu udelí spät jeho slot.</translati
         <translation>Ignorovať TTH hľadanie </translation>
     </message>
     <message>
-        <location filename="../ui/UISpy.ui" line="42"/>
+        <location filename="../ui/UISpy.ui" line="45"/>
         <source>Autoscrolling</source>
         <translation>automatické rolovanie</translation>
     </message>
     <message>
-        <location filename="../ui/UISpy.ui" line="62"/>
+        <location filename="../ui/UISpy.ui" line="65"/>
         <source>Start</source>
         <translation>Štart</translation>
     </message>
     <message>
-        <location filename="../ui/UISpy.ui" line="69"/>
+        <location filename="../ui/UISpy.ui" line="72"/>
         <source>Clear</source>
         <translation>Vyčistiť</translation>
     </message>

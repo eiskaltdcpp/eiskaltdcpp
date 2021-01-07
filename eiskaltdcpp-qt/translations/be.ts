@@ -6988,17 +6988,17 @@ EiskaltDC++ дазваляе зацягваць сьпісы файлаў і ф�
         <translation>Не зважаць, калі шукаюць скароты</translation>
     </message>
     <message>
-        <location filename="../ui/UISpy.ui" line="42"/>
+        <location filename="../ui/UISpy.ui" line="45"/>
         <source>Autoscrolling</source>
         <translation>Гартаць</translation>
     </message>
     <message>
-        <location filename="../ui/UISpy.ui" line="62"/>
+        <location filename="../ui/UISpy.ui" line="65"/>
         <source>Start</source>
         <translation>Пачаць</translation>
     </message>
     <message>
-        <location filename="../ui/UISpy.ui" line="69"/>
+        <location filename="../ui/UISpy.ui" line="72"/>
         <source>Clear</source>
         <translation>Ачысьціць</translation>
     </message>

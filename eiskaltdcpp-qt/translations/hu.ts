@@ -6947,17 +6947,17 @@ Mivel az eltellt idő alatt a megüresedett feltöltési slotot más is elfoglal
         <translation>TTH keresések figyelmen kívül hagyása</translation>
     </message>
     <message>
-        <location filename="../ui/UISpy.ui" line="42"/>
+        <location filename="../ui/UISpy.ui" line="45"/>
         <source>Autoscrolling</source>
         <translation>Automatikus görgetés</translation>
     </message>
     <message>
-        <location filename="../ui/UISpy.ui" line="62"/>
+        <location filename="../ui/UISpy.ui" line="65"/>
         <source>Start</source>
         <translation>Indítás</translation>
     </message>
     <message>
-        <location filename="../ui/UISpy.ui" line="69"/>
+        <location filename="../ui/UISpy.ui" line="72"/>
         <source>Clear</source>
         <translation>Töröl</translation>
     </message>

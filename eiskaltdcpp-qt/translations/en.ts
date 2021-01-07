@@ -6987,17 +6987,17 @@ if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</trans
         <translation>Ignore TTH search</translation>
     </message>
     <message>
-        <location filename="../ui/UISpy.ui" line="42"/>
+        <location filename="../ui/UISpy.ui" line="45"/>
         <source>Autoscrolling</source>
         <translation>Autoscrolling</translation>
     </message>
     <message>
-        <location filename="../ui/UISpy.ui" line="62"/>
+        <location filename="../ui/UISpy.ui" line="65"/>
         <source>Start</source>
         <translation>Start</translation>
     </message>
     <message>
-        <location filename="../ui/UISpy.ui" line="69"/>
+        <location filename="../ui/UISpy.ui" line="72"/>
         <source>Clear</source>
         <translation>Clear</translation>
     </message>

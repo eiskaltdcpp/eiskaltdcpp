@@ -7002,17 +7002,17 @@ volverá a conceder un slot a dicho usuario.</translation>
         <translation>Ignorar búsquedas por TTH</translation>
     </message>
     <message>
-        <location filename="../ui/UISpy.ui" line="42"/>
+        <location filename="../ui/UISpy.ui" line="45"/>
         <source>Autoscrolling</source>
         <translation>Desplazamiento automático</translation>
     </message>
     <message>
-        <location filename="../ui/UISpy.ui" line="62"/>
+        <location filename="../ui/UISpy.ui" line="65"/>
         <source>Start</source>
         <translation>Iniciar</translation>
     </message>
     <message>
-        <location filename="../ui/UISpy.ui" line="69"/>
+        <location filename="../ui/UISpy.ui" line="72"/>
         <source>Clear</source>
         <translation>Limpiar</translation>
     </message>
