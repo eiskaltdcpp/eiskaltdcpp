@@ -100,6 +100,7 @@ bool CmdDebug::eventFilter(QObject *obj, QEvent *e){
             return true;
         }
 
+#if QT_VERSION >= 0x050000
         if (controlModifier) {
             if (k_e->key() == Qt::Key_Equal || k_e->key() == Qt::Key_Plus){
                 plainTextEdit_DEBUG->zoomIn();
@@ -112,6 +113,7 @@ bool CmdDebug::eventFilter(QObject *obj, QEvent *e){
                 return true;
             }
         }
+#endif
     }
     else if (e->type() == QEvent::MouseButtonPress){
         QMouseEvent *m_e = reinterpret_cast<QMouseEvent*>(e);
