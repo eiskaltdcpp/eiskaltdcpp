@@ -4697,7 +4697,7 @@ Vill du stoppa den?
     <message>
         <location filename="../ui/UIFileHasher.ui" line="136"/>
         <source>Copy search link to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopiera söklänken till urklippet</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="146"/>
@@ -4928,7 +4928,7 @@ Vill du stoppa den?
     <message>
         <location filename="../ui/UIMagnet.ui" line="20"/>
         <source>Magnet link viewer</source>
-        <translation type="unfinished"></translation>
+        <translation>Magnetlänkvisare</translation>
     </message>
     <message>
         <location filename="../ui/UIMagnet.ui" line="56"/>
@@ -4953,7 +4953,7 @@ Vill du stoppa den?
     <message>
         <location filename="../ui/UIMagnet.ui" line="136"/>
         <source>Copy search link to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopiera söklänken till urklippet</translation>
     </message>
     <message>
         <location filename="../ui/UIMagnet.ui" line="171"/>

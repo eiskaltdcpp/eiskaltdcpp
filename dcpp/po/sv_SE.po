@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://github.com/eiskaltdcpp/eiskaltdcpp/issues\n"
-"POT-Creation-Date: 2021-01-08 18:52+0300\n"
+"POT-Creation-Date: 2021-01-08 18:56+0300\n"
 "PO-Revision-Date: 2017-06-18 13:35+0000\n"
 "Last-Translator: Sopor, 2021\n"
 "Language-Team: Swedish (Sweden) (https://www.transifex.com/tehnick/"
@@ -799,7 +799,7 @@ msgstr "DHT bootstrap-fel: "
 
 #: ../../dht/DHT.cpp:530
 msgid "DHT (%1%): File published: %2%"
-msgstr ""
+msgstr "DHT (%1%): Fil publicerad: %2%"
 
 #: ../../dht/DHT.cpp:535
 msgid "DHT (%1%): Partial file published: %2%"
@@ -815,7 +815,7 @@ msgstr ""
 
 #: ../../dht/UDPSocket.cpp:247
 msgid "DHT enabled again"
-msgstr ""
+msgstr "DHT aktiverad igen"
 
 #: ../../dht/UDPSocket.cpp:258
 msgid "DHT disabled: "
