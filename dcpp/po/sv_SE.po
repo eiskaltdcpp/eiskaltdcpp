@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://github.com/eiskaltdcpp/eiskaltdcpp/issues\n"
-"POT-Creation-Date: 2021-01-08 18:56+0300\n"
+"POT-Creation-Date: 2021-01-08 19:17+0300\n"
 "PO-Revision-Date: 2017-06-18 13:35+0000\n"
 "Last-Translator: Sopor, 2021\n"
 "Language-Team: Swedish (Sweden) (https://www.transifex.com/tehnick/"
@@ -803,15 +803,15 @@ msgstr "DHT (%1%): Fil publicerad: %2%"
 
 #: ../../dht/DHT.cpp:535
 msgid "DHT (%1%): Partial file published: %2%"
-msgstr ""
+msgstr "DHT (%1%): Delvis publicerad fil: %2%"
 
 #: ../../dht/DHT.cpp:590
 msgid "DHT: Firewalled UDP status set (IP: %1%)"
-msgstr ""
+msgstr "DHT: UDP-brandväggstatus inställd (IP: %1%)"
 
 #: ../../dht/DHT.cpp:596
 msgid "DHT: Our UDP port seems to be opened (IP: %1%)"
-msgstr ""
+msgstr "DHT: Vår UDP-port verkar ha öppnats (IP: %1%)"
 
 #: ../../dht/UDPSocket.cpp:247
 msgid "DHT enabled again"
