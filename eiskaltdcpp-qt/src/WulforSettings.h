@@ -55,7 +55,6 @@ static const QString & WS_FTRANSFERS_FILES_STATE  = "finished-f-state";
 static const QString & WS_FAV_HUBS_STATE          = "fav-hubs-state";
 static const QString & WS_ADLS_STATE              = "adls-state";
 static const QString & WS_APP_THEME               = "app-theme-name";
-static const QString & WS_APP_FONT                = "app-font-name";
 static const QString & WS_APP_ENABLED_SCRIPTS     = "app-enabled-scripts";
 static const QString & WS_NOTIFY_SOUNDS           = "notify-sound-files";
 static const QString & WS_NOTIFY_SND_CMD          = "notify-sound-cmd";
@@ -193,9 +192,6 @@ Q_SIGNALS:
     void intValueChanged(const QString &key, int value);
     void strValueChanged(const QString &key, const QString &value);
     void varValueChanged(const QString &key, const QVariant &value);
-
-private Q_SLOTS:
-    void slotFontChanged(const QString &key, const QString &value);
 
 private:
     WulforSettings();

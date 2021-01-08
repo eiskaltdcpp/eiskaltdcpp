@@ -276,11 +276,6 @@ MainWindow::MainWindow (QWidget *parent):
     d->transfer_dock->setWidget(TransferView::getInstance());
     d->toolsTransfers->setChecked(d->transfer_dock->isVisible());
 
-    QFont f;
-
-    if (!WSGET(WS_APP_FONT).isEmpty() && f.fromString(WSGET(WS_APP_FONT)))
-        qApp->setFont(f);
-
     if (!WSGET(WS_APP_THEME).isEmpty())
         qApp->setStyle(WSGET(WS_APP_THEME));
 

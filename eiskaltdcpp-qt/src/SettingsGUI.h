@@ -28,7 +28,6 @@ private Q_SLOTS:
     void slotChatColorItemClicked(QListWidgetItem *);
     void slotTestAppTheme();
     void slotThemeChanged();
-    void slotBrowseFont();
     void slotBrowseLng();
     void slotLngIndexChanged(int);
     void slotUsersChanged();

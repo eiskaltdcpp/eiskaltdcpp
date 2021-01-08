@@ -35,7 +35,6 @@ CustomFontModel::CustomFontModel(QObject *parent)
 
     rootItem = new CustomFontItem(rootData, nullptr);
 
-    addNewFont(WS_APP_FONT,         tr("Application"));
     addNewFont(WS_CHAT_FONT,        tr("Public Chat: Chat"));
     addNewFont(WS_CHAT_ULIST_FONT,  tr("Public Chat: Userlist"));
     addNewFont(WS_CHAT_PM_FONT,     tr("Private Chat"));

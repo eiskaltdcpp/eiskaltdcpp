@@ -57,14 +57,6 @@ void SettingsGUI::init(){
 
         comboBox_THEMES->setCurrentIndex(styles.indexOf(WSGET(WS_APP_THEME)) >= 0? (styles.indexOf(WSGET(WS_APP_THEME))+1) : 0);
 
-
-        if (WSGET(WS_APP_FONT).isEmpty()){
-            lineEdit_APPFONT->setText(qApp->font().toString());
-            WSSET(WS_APP_FONT, qApp->font().toString());
-        }
-        else
-            lineEdit_APPFONT->setText(WSGET(WS_APP_FONT));
-
         int i = 0;
         int k = -1;
 
@@ -327,7 +319,6 @@ void SettingsGUI::init(){
     connect(pushButton_TEST, SIGNAL(clicked()), this, SLOT(slotTestAppTheme()));
     connect(comboBox_THEMES, SIGNAL(activated(int)), this, SLOT(slotThemeChanged()));
     connect(listWidget_CHATCOLOR, SIGNAL(itemDoubleClicked(QListWidgetItem*)), this, SLOT(slotChatColorItemClicked(QListWidgetItem*)));
-    connect(toolButton_APPFONTBROWSE, SIGNAL(clicked()), this, SLOT(slotBrowseFont()));
     connect(toolButton_LANGBROWSE, SIGNAL(clicked()), this, SLOT(slotBrowseLng()));
     connect(comboBox_LANGS, SIGNAL(activated(int)), this, SLOT(slotLngIndexChanged(int)));
     connect(comboBox_USERS, SIGNAL(activated(int)), this, SLOT(slotUsersChanged()));
@@ -349,9 +340,6 @@ void SettingsGUI::ok(){
             WSSET(WS_APP_THEME, comboBox_THEMES->currentText());
         else if (!comboBox_THEMES->currentIndex())
             WSSET(WS_APP_THEME, "");
-
-        if (!lineEdit_APPFONT->text().isEmpty())
-            WSSET(WS_APP_FONT, lineEdit_APPFONT->text());
 
         WSSET(WS_TRANSLATION_FILE, lineEdit_LANGFILE->text());
 
@@ -570,19 +558,6 @@ void SettingsGUI::slotTestAppTheme(){
 
 void SettingsGUI::slotThemeChanged(){
     custom_style = true;
-}
-
-void SettingsGUI::slotBrowseFont(){
-    bool ok = false;
-
-    QFont f = QFontDialog::getFont(&ok, this);
-
-    if (ok){
-        qApp->setFont(f);
-        lineEdit_APPFONT->setText(f.toString());
-
-        WSSET(WS_APP_FONT, f.toString());
-    }
 }
 
 void SettingsGUI::slotBrowseLng(){

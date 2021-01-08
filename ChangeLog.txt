@@ -12,6 +12,9 @@
 * Fixed size of choosing files and directories buttons in all dialog windows.
 * Added search panel into Cmd Debug widget.
 * Ignore TTH search in Search Spy widget by default.
+* Removed option of changing font for whole application from settings. System
+  fonts for menus, text labels, progress bars and other indicators are always
+  used now. Fonts for chat messages are still configurable.
 
 --- 2.4.0 2020-12-03 ---
 *** common changes ***

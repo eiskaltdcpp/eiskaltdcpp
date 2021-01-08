@@ -52,8 +52,6 @@ WulforSettings::WulforSettings()
     QUrl::setIdnWhitelist(idns);
 
     connect(this, SIGNAL(fontChanged(QString,QString)),
-            this, SLOT(slotFontChanged(QString,QString)));
-    connect(this, SIGNAL(fontChanged(QString,QString)),
             this, SIGNAL(strValueChanged(QString,QString)));
 }
 
@@ -129,7 +127,6 @@ void WulforSettings::load(){
             settings.setValue(WS_FAV_HUBS_STATE,        "");
             settings.setValue(WS_ADLS_STATE,            "");
             settings.setValue(WS_APP_THEME,             "");
-            settings.setValue(WS_APP_FONT,              "");
             settings.setValue(WS_APP_ICONTHEME,         "default");
             settings.setValue(WS_APP_USERTHEME,         "default");
             settings.setValue(WS_APP_SHARED_FILES_COLOR,"#1f8f1f");
@@ -267,7 +264,6 @@ void WulforSettings::loadOldConfig(){
         strmap.insert(WS_FAV_HUBS_STATE,        "");
         strmap.insert(WS_ADLS_STATE,            "");
         strmap.insert(WS_APP_THEME,             "");
-        strmap.insert(WS_APP_FONT,              "");
         strmap.insert(WS_APP_ICONTHEME,         "default");
         strmap.insert(WS_APP_USERTHEME,         "default");
         strmap.insert(WS_APP_SHARED_FILES_COLOR,"#1f8f1f");
@@ -494,9 +490,6 @@ void WulforSettings::installTranslator(QTranslator &translator,
 void WulforSettings::loadTheme(){
     if (!getStr(WS_APP_THEME).isEmpty())
         qApp->setStyle(getStr(WS_APP_THEME));
-
-    if (!getStr(WS_APP_FONT).isEmpty() && f.fromString(getStr(WS_APP_FONT)))
-        qApp->setFont(f);
 }
 
 QString WulforSettings::getStr(const QString & key, const QString &default_value) {
@@ -535,13 +528,4 @@ void WulforSettings::setVar(const QString &key, const QVariant &value){
     settings.setValue(key, value);
 
     emit varValueChanged(key, value);
-}
-
-void WulforSettings::slotFontChanged(const QString &key, const QString &value){
-    if (key == WS_APP_FONT){
-        QFont f;
-
-        if (f.fromString(value))
-            qApp->setFont(f);
-    }
 }
