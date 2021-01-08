@@ -150,13 +150,16 @@
       <layout class="QHBoxLayout" name="horizontalLayout">
        <item>
         <widget class="QCheckBox" name="checkBoxFilterIP">
+         <property name="toolTip">
+          <string>Use comma as separator</string>
+         </property>
          <property name="text">
           <string>Filter by IP</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="lineEditIP"/>
+        <widget class="LineEdit" name="lineEditIP"/>
        </item>
       </layout>
      </item>

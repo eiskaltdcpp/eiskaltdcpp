@@ -137,12 +137,26 @@ bool CmdDebug::eventFilter(QObject *obj, QEvent *e){
     return QWidget::eventFilter(obj, e);
 }
 
-void CmdDebug::addOutput(const QString& msg, const QString& ip) {
+void CmdDebug::addOutput(const QString& msg, const QString& url) {
     if (checkBoxFilterIP->isChecked()) {
-        QStringList list = ip.split(":");
-        if (list.isEmpty()) return;
-        if (list.at(0).compare(lineEditIP->text().trimmed()) != 0 ) return;
+        const QStringList &&urlList = url.split(":");
+        const QStringList &&addresses = lineEditIP->text().split(",", QString::SkipEmptyParts);
+        if (urlList.isEmpty() || addresses.isEmpty())
+            return;
+
+        const QString &ipAddress = urlList.at(0);
+        bool found = false;
+        for (const auto &a : addresses) {
+            if (a.trimmed() == ipAddress) {
+                found = true;
+                break;
+            }
+        }
+
+        if (!found)
+            return;
     }
+
     QString tmp = msg;
     tmp.replace("\r", "");
     plainTextEdit_DEBUG->appendPlainText(tmp);
@@ -249,7 +263,7 @@ void CmdDebug::findText(QTextDocument::FindFlags flag){
 
 void CmdDebug::on(DebugManagerListener::DebugDetection, const string &com) noexcept {
     Q_UNUSED(com)
-    // NOTE: we no use this in core
+    // NOTE: we do not use this function in core
 }
 
 void CmdDebug::on(DebugManagerListener::DebugCommand, const string &mess, int typedir, const string &ip) noexcept {
