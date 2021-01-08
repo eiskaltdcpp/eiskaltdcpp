@@ -134,6 +134,9 @@
        <property name="text">
         <string notr="true">HUB_IN</string>
        </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
       </widget>
      </item>
      <item row="0" column="2">
@@ -168,6 +171,9 @@
       <widget class="QCheckBox" name="checkBoxHUB_OUT">
        <property name="text">
         <string notr="true">HUB_OUT</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
        </property>
       </widget>
      </item>
