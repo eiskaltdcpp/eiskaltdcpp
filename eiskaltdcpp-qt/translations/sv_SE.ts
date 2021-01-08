@@ -1074,7 +1074,7 @@ Nycklar:
     <message>
         <location filename="../src/HubFrame.cpp" line="566"/>
         <source>search</source>
-        <translation type="unfinished"></translation>
+        <translation>sök</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="759"/>
@@ -4457,37 +4457,37 @@ Vill du stoppa den?
     <message>
         <location filename="../ui/UICmdDebug.ui" line="57"/>
         <source>Find: </source>
-        <translation type="unfinished">Sök: </translation>
+        <translation>Sök: </translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="71"/>
         <source>Previous (Shift+F3)</source>
-        <translation type="unfinished"></translation>
+        <translation>Föregående (Skift+F3)</translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="77"/>
         <source>Shift+F3</source>
-        <translation type="unfinished">Skift+F3</translation>
+        <translation>Skift+F3</translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="84"/>
         <source>Next (F3)</source>
-        <translation type="unfinished">Nästa (F3)</translation>
+        <translation>Nästa (F3)</translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="90"/>
         <source>F3</source>
-        <translation type="unfinished">F3</translation>
+        <translation>F3</translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="97"/>
         <source>Highlight all</source>
-        <translation type="unfinished">Markera alla</translation>
+        <translation>Markera alla</translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="113"/>
         <source>Hide search panel (Ctrl+F)</source>
-        <translation type="unfinished">Göm sökpanelen (CTRL+F)</translation>
+        <translation>Göm sökpanelen (CTRL+F)</translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="151"/>
@@ -4502,7 +4502,7 @@ Vill du stoppa den?
     <message>
         <location filename="../ui/UICmdDebug.ui" line="216"/>
         <source>Clear now</source>
-        <translation type="unfinished">Rensa nu</translation>
+        <translation>Rensa nu</translation>
     </message>
 </context>
 <context>
@@ -4687,12 +4687,12 @@ Vill du stoppa den?
     <message>
         <location filename="../ui/UIFileHasher.ui" line="93"/>
         <source>Filepath</source>
-        <translation type="unfinished">Filsökvög</translation>
+        <translation>Filsökvög</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="113"/>
         <source>Copy magnet link to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopiera magnetlänken till urklippet</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="136"/>
@@ -4702,27 +4702,27 @@ Vill du stoppa den?
     <message>
         <location filename="../ui/UIFileHasher.ui" line="146"/>
         <source>Filename</source>
-        <translation type="unfinished">Filnamn</translation>
+        <translation>Filnamn</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="185"/>
         <source>Opens search dialog and searches file.</source>
-        <translation type="unfinished">Öppnar sökfönster och söker efter fil.</translation>
+        <translation>Öppnar sökfönster och söker efter fil.</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="188"/>
         <source>Search</source>
-        <translation type="unfinished">Sök</translation>
+        <translation>Sök</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="208"/>
         <source>Cancel</source>
-        <translation type="unfinished">Avbryt</translation>
+        <translation>Avbryt</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="100"/>
         <source>Size</source>
-        <translation type="unfinished">Storlek</translation>
+        <translation>Storlek</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="178"/>
@@ -4948,7 +4948,7 @@ Vill du stoppa den?
     <message>
         <location filename="../ui/UIMagnet.ui" line="113"/>
         <source>Copy magnet link to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopiera magnetlänken till urklippet</translation>
     </message>
     <message>
         <location filename="../ui/UIMagnet.ui" line="136"/>
