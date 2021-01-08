@@ -16,8 +16,9 @@
 #include "WulforUtil.h"
 #include "CmdDebug.h"
 
-CmdDebug::CmdDebug(QWidget *parent) :
-    QWidget(parent)
+CmdDebug::CmdDebug(QWidget *parent)
+    : QWidget(parent)
+    , d_ptr(new CmdDebugPrivate())
 {
     setupUi(this);
     Q_D(CmdDebug);
