@@ -165,7 +165,7 @@ EiskaltDC++ е мулти-платформена програма използв
 <context>
     <name>CmdDebug</name>
     <message>
-        <location filename="../src/CmdDebug.cpp" line="59"/>
+        <location filename="../src/CmdDebug.cpp" line="58"/>
         <source>Debug Console</source>
         <translation type="unfinished"></translation>
     </message>
