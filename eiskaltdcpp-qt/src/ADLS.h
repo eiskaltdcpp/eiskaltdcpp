@@ -53,15 +53,15 @@ class ADLS :
 
     typedef QMap<QString,QVariant> StrMap;
 public:
-    QWidget *getWidget() override;
-    QString getArenaTitle() override;
-    QString getArenaShortTitle() override;
-    QMenu *getMenu() override;
-    const QPixmap &getPixmap() override { return WICON(WulforUtil::eiADLS); }
-    ArenaWidget::Role role() const override { return ArenaWidget::ADLS; }
+    QWidget *getWidget();
+    QString getArenaTitle();
+    QString getArenaShortTitle();
+    QMenu *getMenu();
+    const QPixmap &getPixmap(){ return WICON(WulforUtil::eiADLS); }
+    ArenaWidget::Role role() const { return ArenaWidget::ADLS; }
 
 protected:
-    void closeEvent(QCloseEvent *) override;
+    virtual void closeEvent(QCloseEvent *);
 
 private Q_SLOTS:
     void slotContexMenu(const QPoint&);
@@ -80,7 +80,7 @@ private Q_SLOTS:
 private:
     typedef ADLSearchManager::SearchCollection::size_type VectorSize;
     ADLS(QWidget* = nullptr);
-    ~ADLS() override;
+    virtual ~ADLS();
 
     void load();
     void save();

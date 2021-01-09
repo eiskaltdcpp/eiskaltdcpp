@@ -22,7 +22,7 @@ class AntiSpamFrame : public QDialog, private Ui::UIAntiSpam {
 public:
 
     AntiSpamFrame(QWidget *parent = nullptr);
-    ~AntiSpamFrame() override;
+    virtual ~AntiSpamFrame();
 
 private:
     void InitDocument();

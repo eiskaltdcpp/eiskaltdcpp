@@ -44,20 +44,20 @@ class CustomFontModel : public QAbstractItemModel
 Q_OBJECT
 public:
     explicit CustomFontModel(QObject *parent = nullptr);
-    ~CustomFontModel() override;
+    virtual ~CustomFontModel();
 
     /** */
-    QVariant data(const QModelIndex &, int) const override;
+    QVariant data(const QModelIndex &, int) const;
     /** */
-    QVariant headerData(int section, Qt::Orientation, int role = Qt::DisplayRole) const override;
+    QVariant headerData(int section, Qt::Orientation, int role = Qt::DisplayRole) const;
     /** */
-    QModelIndex index(int, int, const QModelIndex &parent = QModelIndex()) const override;
+    QModelIndex index(int, int, const QModelIndex &parent = QModelIndex()) const;
     /** */
-    QModelIndex parent(const QModelIndex &index) const override;
+    QModelIndex parent(const QModelIndex &index) const;
     /** */
-    int rowCount(const QModelIndex &parent = QModelIndex()) const override;
+    int rowCount(const QModelIndex &parent = QModelIndex()) const;
     /** */
-    int columnCount(const QModelIndex &parent = QModelIndex()) const override;
+    int columnCount(const QModelIndex &parent = QModelIndex()) const;
 
 signals:
     void fontChanged(const QString &key, const QString &value);

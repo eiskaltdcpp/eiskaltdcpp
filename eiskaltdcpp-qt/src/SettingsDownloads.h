@@ -23,7 +23,7 @@ class SettingsDownloads :
     Q_OBJECT
 public:
     SettingsDownloads(QWidget* = nullptr);
-    ~SettingsDownloads() override;
+    virtual ~SettingsDownloads();
 
 public slots:
     void  ok();

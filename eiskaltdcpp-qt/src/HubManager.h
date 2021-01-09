@@ -46,7 +46,7 @@ public Q_SLOTS:
 
 private:
     explicit HubManager();
-    ~HubManager() override;
+    virtual ~HubManager();
 
     void registerHubUrl(const QString &, HubFrame *);
     void unregisterHubUrl(const QString &);

@@ -36,15 +36,15 @@ friend class dcpp::Singleton<SpyFrame>;
 
 public:
 
-    QString getArenaShortTitle() override { return tr("Search Spy"); }
-    QString getArenaTitle() override {return getArenaShortTitle(); }
-    QMenu *getMenu() override {return nullptr; }
-    QWidget *getWidget() override { return this; }
-    const QPixmap &getPixmap() override { return WICON(WulforUtil::eiSPY); }
-    ArenaWidget::Role role() const override { return ArenaWidget::Spy; }
+    QString getArenaShortTitle() { return tr("Search Spy"); }
+    QString getArenaTitle() {return getArenaShortTitle(); }
+    QMenu *getMenu() {return nullptr; }
+    QWidget *getWidget() { return this; }
+    const QPixmap &getPixmap(){ return WICON(WulforUtil::eiSPY); }
+    ArenaWidget::Role role() const { return ArenaWidget::Spy; }
 
 protected:
-    void closeEvent(QCloseEvent *) override;
+    virtual void closeEvent(QCloseEvent *);
 
 private Q_SLOTS:
     void slotStartStop();
@@ -57,9 +57,9 @@ Q_SIGNALS:
 
 private:
     explicit SpyFrame(QWidget *parent = nullptr);
-    ~SpyFrame() override;
+    ~SpyFrame();
 
     SpyModel *model;
 
-    void on(dcpp::ClientManagerListener::IncomingSearch, const std::string& s) noexcept override;
+    virtual void on(dcpp::ClientManagerListener::IncomingSearch, const std::string& s) noexcept;
 };

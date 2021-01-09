@@ -159,10 +159,10 @@ friend class dcpp::Singleton<MainWindow>;
         void parseInstanceLine(QString);
 
     protected:
-        void closeEvent(QCloseEvent*) override;
-        void showEvent(QShowEvent *) override;
-        void hideEvent(QHideEvent *) override;
-        bool eventFilter(QObject *, QEvent *) override;
+        virtual void closeEvent(QCloseEvent*);
+        virtual void showEvent(QShowEvent *);
+        virtual void hideEvent(QHideEvent *);
+        virtual bool eventFilter(QObject *, QEvent *);
 
     private Q_SLOTS:
         /** Show widget on arena */
@@ -253,14 +253,14 @@ friend class dcpp::Singleton<MainWindow>;
 
     private:
         MainWindow (QWidget *parent=nullptr);
-        ~MainWindow() override;
+        virtual ~MainWindow();
 
         /** LogManagerListener */
-        void on(dcpp::LogManagerListener::Message, time_t t, const std::string&) noexcept override;
+        virtual void on(dcpp::LogManagerListener::Message, time_t t, const std::string&) noexcept;
         /** TimerManagerListener */
-        void on(dcpp::TimerManagerListener::Second, uint64_t) noexcept override;
+        virtual void on(dcpp::TimerManagerListener::Second, uint64_t) noexcept;
         /** QueueManagerListener */
-        void on(dcpp::QueueManagerListener::Finished, dcpp::QueueItem*, const std::string&, int64_t) noexcept override;
+        virtual void on(dcpp::QueueManagerListener::Finished, dcpp::QueueItem*, const std::string&, int64_t) noexcept;
 
         // Interface setup functions
         void init();

@@ -38,7 +38,7 @@ public:
 
 private:
     SearchBlacklist();
-    ~SearchBlacklist() override;
+    virtual ~SearchBlacklist();
 
     void loadLists();
     void saveLists();

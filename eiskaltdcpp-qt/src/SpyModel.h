@@ -52,24 +52,24 @@ class SpyModel : public QAbstractItemModel
 public:
 
     SpyModel(QObject *parent = nullptr);
-    ~SpyModel() override;
+    virtual ~SpyModel();
 
     /** */
-    QVariant data(const QModelIndex &, int) const override;
+    QVariant data(const QModelIndex &, int) const;
     /** */
-    Qt::ItemFlags flags(const QModelIndex &) const override;
+    Qt::ItemFlags flags(const QModelIndex &) const;
     /** */
-    QVariant headerData(int section, Qt::Orientation, int role = Qt::DisplayRole) const override;
+    QVariant headerData(int section, Qt::Orientation, int role = Qt::DisplayRole) const;
     /** */
-    QModelIndex index(int, int, const QModelIndex &parent = QModelIndex()) const override;
+    QModelIndex index(int, int, const QModelIndex &parent = QModelIndex()) const;
     /** */
-    QModelIndex parent(const QModelIndex &index) const override;
+    QModelIndex parent(const QModelIndex &index) const;
     /** */
-    int rowCount(const QModelIndex &parent = QModelIndex()) const override;
+    int rowCount(const QModelIndex &parent = QModelIndex()) const;
     /** */
-    int columnCount(const QModelIndex &parent = QModelIndex()) const override;
+    int columnCount(const QModelIndex &parent = QModelIndex()) const;
     /** sort list */
-    void sort(int column, Qt::SortOrder order = Qt::AscendingOrder) override;
+    virtual void sort(int column, Qt::SortOrder order = Qt::AscendingOrder);
     virtual void sort();
     /** set autosort list */
     void setSort(bool sort);

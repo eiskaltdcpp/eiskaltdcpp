@@ -26,9 +26,9 @@ class SearchProxyModel: public QSortFilterProxyModel {
 Q_OBJECT
 public:
     SearchProxyModel(QObject *parent = nullptr): QSortFilterProxyModel(parent){}
-    ~SearchProxyModel() override {}
+    virtual ~SearchProxyModel(){}
 
-    void sort(int column, Qt::SortOrder order) override;
+    virtual void sort(int column, Qt::SortOrder order);
 };
 
 static const unsigned COLUMN_SF_COUNT          = 0;
@@ -102,26 +102,26 @@ class SearchModel : public QAbstractItemModel
 public:
 
     SearchModel(QObject *parent = nullptr);
-    ~SearchModel() override;
+    ~SearchModel();
 
     /** */
-    QVariant data(const QModelIndex &, int) const override;
+    QVariant data(const QModelIndex &, int) const;
     /** */
-    Qt::ItemFlags flags(const QModelIndex &) const override;
+    Qt::ItemFlags flags(const QModelIndex &) const;
     /** */
-    QVariant headerData(int section, Qt::Orientation, int role = Qt::DisplayRole) const override;
+    QVariant headerData(int section, Qt::Orientation, int role = Qt::DisplayRole) const;
     /** */
-    QModelIndex index(int, int, const QModelIndex &parent = QModelIndex()) const override;
+    QModelIndex index(int, int, const QModelIndex &parent = QModelIndex()) const;
     /** */
-    QModelIndex parent(const QModelIndex &index) const override;
+    QModelIndex parent(const QModelIndex &index) const;
     /** */
-    int rowCount(const QModelIndex &parent = QModelIndex()) const override;
+    int rowCount(const QModelIndex &parent = QModelIndex()) const;
     /** */
-    int columnCount(const QModelIndex &parent = QModelIndex()) const override;
+    int columnCount(const QModelIndex &parent = QModelIndex()) const;
     /** */
-    bool hasChildren(const QModelIndex &parent) const override;
+    bool hasChildren(const QModelIndex &parent) const;
     /** sort list */
-    void sort(int column, Qt::SortOrder order = Qt::AscendingOrder) override;
+    virtual void sort(int column, Qt::SortOrder order = Qt::AscendingOrder);
 
     /** */
     QModelIndex createIndexForItem(SearchItem*);

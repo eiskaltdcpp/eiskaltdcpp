@@ -40,9 +40,9 @@ class AsyncRunner: public QThread{
 Q_OBJECT
 public:
     AsyncRunner(QObject * = nullptr);
-    ~AsyncRunner() override;
+    virtual ~AsyncRunner();
 
-    void run() override;
+    virtual void run();
 
     void setRunFunction(const std::function<void()> &f);
 
@@ -94,19 +94,19 @@ class ShareBrowser : public  QWidget,
 
 public:
     ShareBrowser(dcpp::UserPtr, const QString &, const QString &);
-    ~ShareBrowser() override;
+    virtual ~ShareBrowser();
 
-    QString  getArenaTitle() override;
-    QString  getArenaShortTitle() override;
-    QWidget *getWidget() override;
-    QMenu   *getMenu() override;
-    const QPixmap &getPixmap() override { return WICON(WulforUtil::eiOWN_FILELIST); }
-    void requestFilter() override { slotFilter(); }
-    ArenaWidget::Role role() const override { return ArenaWidget::ShareBrowser; }
+    QString  getArenaTitle();
+    QString  getArenaShortTitle();
+    QWidget *getWidget();
+    QMenu   *getMenu();
+    const QPixmap &getPixmap(){ return WICON(WulforUtil::eiOWN_FILELIST); }
+    void requestFilter() { slotFilter(); }
+    ArenaWidget::Role role() const { return ArenaWidget::ShareBrowser; }
 
 protected:
-    void closeEvent(QCloseEvent *) override;
-    bool eventFilter(QObject *, QEvent *) override;
+    virtual void closeEvent(QCloseEvent *);
+    virtual bool eventFilter(QObject *, QEvent *);
 
 Q_SIGNALS:
     void die(const QString &msg);

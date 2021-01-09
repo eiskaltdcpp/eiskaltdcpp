@@ -45,7 +45,7 @@ class UserListProxyModel: public QSortFilterProxyModel {
     Q_OBJECT
 
 public:
-    void sort(int column, Qt::SortOrder order) override;
+    virtual void sort(int column, Qt::SortOrder order);
 };
 
 static const unsigned COLUMN_NICK       = 0;
@@ -64,7 +64,7 @@ class UserListItem: public PoolItem<UserListItem> {
 public:
     UserListItem();
     UserListItem(UserListItem*, dcpp::UserPtr, const Identity&, const QString&, bool);
-    ~UserListItem() override;
+    virtual ~UserListItem();
 
     void appendChild(UserListItem *child);
 
@@ -106,17 +106,17 @@ class UserListModel : public QAbstractItemModel {
 
 public:
     UserListModel(QObject * parent = nullptr);
-    ~UserListModel() override;
+    virtual ~UserListModel();
 
-    int rowCount(const QModelIndex & index = QModelIndex()) const override;
-    int columnCount(const QModelIndex & index = QModelIndex()) const override;
-    QVariant data(const QModelIndex & index, int role = Qt::DisplayRole) const override;
-    QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const override;
-    void sort(int column, Qt::SortOrder order = Qt::AscendingOrder) override;
-    QModelIndex index(int row, int column, const QModelIndex & parent = QModelIndex()) const override;
-    QModelIndex parent(const QModelIndex & parent) const override;
-    bool hasChildren(const QModelIndex &parent) const override;
-    bool canFetchMore(const QModelIndex &parent) const override;
+    virtual int rowCount(const QModelIndex & index = QModelIndex()) const;
+    virtual int columnCount(const QModelIndex & index = QModelIndex()) const;
+    virtual QVariant data(const QModelIndex & index, int role = Qt::DisplayRole) const;
+    virtual QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const;
+    virtual void sort(int column, Qt::SortOrder order = Qt::AscendingOrder);
+    virtual QModelIndex index(int row, int column, const QModelIndex & parent = QModelIndex()) const;
+    virtual QModelIndex parent(const QModelIndex & parent) const;
+    virtual bool hasChildren(const QModelIndex &parent) const;
+    virtual bool canFetchMore(const QModelIndex &parent) const;
 
     void clear();
 

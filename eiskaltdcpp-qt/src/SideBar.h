@@ -27,10 +27,10 @@ class SideBarDelegate:
 
 public:
     SideBarDelegate(QObject* = nullptr);
-    ~SideBarDelegate() override;
+    virtual ~SideBarDelegate();
 
-    void paint(QPainter*, const QStyleOptionViewItem&, const QModelIndex&) const override;
-    QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const override;
+    virtual void paint(QPainter*, const QStyleOptionViewItem&, const QModelIndex&) const;
+    QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const;
 
 protected:
 };
@@ -87,22 +87,22 @@ Q_OBJECT
 
 public:
     explicit SideBarModel(QObject *parent = nullptr);
-    ~SideBarModel() override;
+    virtual ~SideBarModel();
 
     /** */
-    QVariant data(const QModelIndex &, int) const override;
+    QVariant data(const QModelIndex &, int) const;
     /** */
-    QVariant headerData(int section, Qt::Orientation, int role = Qt::DisplayRole) const override;
+    QVariant headerData(int section, Qt::Orientation, int role = Qt::DisplayRole) const;
     /** */
-    QModelIndex index(int, int, const QModelIndex &parent = QModelIndex()) const override;
+    QModelIndex index(int, int, const QModelIndex &parent = QModelIndex()) const;
     /** */
-    QModelIndex parent(const QModelIndex &index) const override;
+    QModelIndex parent(const QModelIndex &index) const;
     /** */
-    int rowCount(const QModelIndex &parent = QModelIndex()) const override;
+    int rowCount(const QModelIndex &parent = QModelIndex()) const;
     /** */
-    int columnCount(const QModelIndex &parent = QModelIndex()) const override;
+    int columnCount(const QModelIndex &parent = QModelIndex()) const;
     /** sort list */
-    void sort(int column, Qt::SortOrder order = Qt::AscendingOrder) override;
+    virtual void sort(int column, Qt::SortOrder order = Qt::AscendingOrder);
 
     void removeWidget(ArenaWidget *awgt);
     void insertWidget(ArenaWidget *awgt);
@@ -142,7 +142,7 @@ Q_OBJECT
 
 public:
     SideBarView(QWidget *parent=nullptr);
-    ~SideBarView() override;
+    virtual ~SideBarView();
 
 private Q_SLOTS:
     void added(ArenaWidget*);
@@ -156,7 +156,7 @@ private Q_SLOTS:
     void slotUpdateHeaderSize();
 
 protected:
-    bool eventFilter(QObject *, QEvent *) override;
+    virtual bool eventFilter(QObject *, QEvent *);
 
 private:
     SideBarModel *_model;

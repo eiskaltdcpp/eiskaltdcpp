@@ -20,7 +20,7 @@ class MainWindowScript : public QObject
 Q_OBJECT
 public:
     explicit MainWindowScript(QScriptEngine *engine, QObject *parent = nullptr);
-    ~MainWindowScript() override;
+    virtual ~MainWindowScript();
 
 public slots:
     bool addToolButton(const QString &name, const QString &title, const QIcon &icon);

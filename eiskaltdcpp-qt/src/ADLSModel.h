@@ -49,31 +49,31 @@ class ADLSModel : public QAbstractItemModel
     Q_OBJECT
 public:
     ADLSModel(QObject *parent = nullptr);
-    ~ADLSModel() override;
+    virtual ~ADLSModel();
 
     /** */
-    QVariant data(const QModelIndex &, int) const override;
+    QVariant data(const QModelIndex &, int) const;
     /** */
-    Qt::ItemFlags flags(const QModelIndex &) const override;
+    Qt::ItemFlags flags(const QModelIndex &) const;
     /** */
-    QVariant headerData(int section, Qt::Orientation, int role = Qt::DisplayRole) const override;
+    QVariant headerData(int section, Qt::Orientation, int role = Qt::DisplayRole) const;
     /** */
-    QModelIndex index(int, int, const QModelIndex &parent = QModelIndex()) const override;
+    QModelIndex index(int, int, const QModelIndex &parent = QModelIndex()) const;
     /** */
-    QModelIndex parent(const QModelIndex &index) const override;
+    QModelIndex parent(const QModelIndex &index) const;
     /** */
-    int rowCount(const QModelIndex &parent = QModelIndex()) const override;
+    int rowCount(const QModelIndex &parent = QModelIndex()) const;
     /** */
-    int columnCount(const QModelIndex &parent = QModelIndex()) const override;
+    int columnCount(const QModelIndex &parent = QModelIndex()) const;
     /** sort list */
-    void sort(int column, Qt::SortOrder order = Qt::AscendingOrder) override;
+    virtual void sort(int column, Qt::SortOrder order = Qt::AscendingOrder);
 
-    Qt::DropActions supportedDragActions() const override { return Qt::MoveAction; }
+    virtual Qt::DropActions supportedDragActions() const { return Qt::MoveAction; }
 
     virtual bool removeRow(int row, const QModelIndex &parent);
     virtual bool insertRow(int row, const QModelIndex &parent);
-    bool insertRows(int position, int rows, const QModelIndex &index = QModelIndex()) override;
-    bool removeRows(int position, int rows, const QModelIndex &index = QModelIndex()) override;
+    virtual bool insertRows(int position, int rows, const QModelIndex &index = QModelIndex());
+    virtual bool removeRows(int position, int rows, const QModelIndex &index = QModelIndex());
 
     /** */
     void addResult(QList<QVariant> &data);
@@ -95,7 +95,7 @@ public:
     void repaint();
 
 private:
-    Qt::DropActions supportedDropActions() const override;
+    Qt::DropActions supportedDropActions() const;
 
     ADLSItem *rootItem;
 

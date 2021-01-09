@@ -19,7 +19,7 @@ class SettingsGUI :
 Q_OBJECT
 public:
     explicit SettingsGUI(QWidget *parent = nullptr);
-    ~SettingsGUI() override;
+    virtual ~SettingsGUI();
 
 private:
     void init();

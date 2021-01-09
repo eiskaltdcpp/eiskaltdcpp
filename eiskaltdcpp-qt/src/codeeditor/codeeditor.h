@@ -65,7 +65,7 @@ public:
     int lineNumberAreaWidth();
 
 protected:
-    void resizeEvent(QResizeEvent *event) override;
+    void resizeEvent(QResizeEvent *event);
 
 private slots:
     void updateLineNumberAreaWidth(int newBlockCount);
@@ -86,12 +86,12 @@ public:
         codeEditor = editor;
     }
 
-    QSize sizeHint() const override {
+    QSize sizeHint() const {
         return QSize(codeEditor->lineNumberAreaWidth(), 0);
     }
 
 protected:
-    void paintEvent(QPaintEvent *event) override {
+    void paintEvent(QPaintEvent *event) {
         codeEditor->lineNumberAreaPaintEvent(event);
     }
 

@@ -29,7 +29,7 @@ class ToolBar : public QToolBar
 
 public:
     ToolBar(QWidget* = nullptr);
-    ~ToolBar() override;
+    virtual ~ToolBar();
 
     virtual bool hasWidget(ArenaWidget*) const;
     void mapWidget(ArenaWidget*);
@@ -38,8 +38,8 @@ signals:
     void widgetInserted(ArenaWidget*);
 
 protected:
-    bool eventFilter(QObject *, QEvent *) override;
-    void showEvent(QShowEvent *) override;
+    virtual bool eventFilter(QObject *, QEvent *);
+    virtual void showEvent(QShowEvent *);
 
 public Q_SLOTS:
     void nextTab();

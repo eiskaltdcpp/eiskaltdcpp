@@ -22,10 +22,10 @@ class SettingsPersonal :
     Q_OBJECT
 public:
     SettingsPersonal(QWidget* = nullptr);
-    ~SettingsPersonal() override;
+    ~SettingsPersonal();
 
 public slots:
-    void ok() override;
+    void ok();
 
 private:
     void init();

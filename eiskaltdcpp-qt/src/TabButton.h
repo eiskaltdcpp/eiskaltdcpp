@@ -26,22 +26,22 @@ Q_OBJECT
 public:
     explicit TabButton(QWidget *parent = nullptr);
 
-    QSize sizeHint() const override;
+    QSize sizeHint() const;
     void setWidgetIcon(const QPixmap &px);
     void resetGeometry() { updateGeometry(); }
     int normalWidth() const;
     int normalHeight() const;
 
 protected:
-    void resizeEvent(QResizeEvent *) override;
-    bool eventFilter(QObject *, QEvent *) override;
-    void dragEnterEvent(QDragEnterEvent *) override;
-    void dragMoveEvent(QDragMoveEvent *) override;
-    void dropEvent(QDropEvent *) override;
-    void mousePressEvent(QMouseEvent *e) override;
-    void mouseReleaseEvent(QMouseEvent *e) override;
-    void mouseMoveEvent(QMouseEvent *e) override;
-    void paintEvent(QPaintEvent *e) override;
+    virtual void resizeEvent(QResizeEvent *);
+    virtual bool eventFilter(QObject *, QEvent *);
+    virtual void dragEnterEvent(QDragEnterEvent *);
+    virtual void dragMoveEvent(QDragMoveEvent *);
+    virtual void dropEvent(QDropEvent *);
+    virtual void mousePressEvent(QMouseEvent *e);
+    virtual void mouseReleaseEvent(QMouseEvent *e);
+    virtual void mouseMoveEvent(QMouseEvent *e);
+    virtual void paintEvent(QPaintEvent *e);
 
 signals:
     void closeRequest();

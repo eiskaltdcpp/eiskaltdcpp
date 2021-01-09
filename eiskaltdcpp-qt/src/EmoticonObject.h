@@ -21,13 +21,13 @@ class EmoticonLabel: public QLabel{
 Q_OBJECT
 public:
     EmoticonLabel(QWidget *parent = nullptr) : QLabel(parent){}
-    ~EmoticonLabel() override {}
+    virtual ~EmoticonLabel(){}
 
 Q_SIGNALS:
     void clicked();
 
 protected:
-    void mousePressEvent(QMouseEvent *ev) override {
+    virtual void mousePressEvent(QMouseEvent *ev){
         QLabel::mousePressEvent(ev);
 
         emit clicked();

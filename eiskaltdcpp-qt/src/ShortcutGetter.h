@@ -28,8 +28,8 @@ protected slots:
 protected:
         bool captureKeyboard() { return capture; }
 
-    bool event(QEvent *e) override;
-    bool eventFilter(QObject *o, QEvent *e) override;
+    bool event(QEvent *e);
+    bool eventFilter(QObject *o, QEvent *e);
     void setText();
 
 private:

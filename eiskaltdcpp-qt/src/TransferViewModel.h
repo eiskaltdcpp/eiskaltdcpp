@@ -34,9 +34,9 @@ class TransferViewDelegate:
 
 public:
     TransferViewDelegate(QObject* = nullptr);
-    ~TransferViewDelegate() override;
+    virtual ~TransferViewDelegate();
 
-    void paint(QPainter*, const QStyleOptionViewItem&, const QModelIndex&) const override;
+    virtual void paint(QPainter*, const QStyleOptionViewItem&, const QModelIndex&) const;
 
 private Q_SLOTS:
     void wsVarValueChanged(const QString&, const QVariant &);
@@ -90,24 +90,24 @@ class TransferViewModel: public QAbstractItemModel
 
 public:
     TransferViewModel(QObject* = nullptr);
-    ~TransferViewModel() override;
+    virtual ~TransferViewModel();
 
     /** */
-    QVariant data(const QModelIndex &, int) const override;
+    QVariant data(const QModelIndex &, int) const;
     /** */
-    QVariant headerData(int section, Qt::Orientation, int role = Qt::DisplayRole) const override;
+    QVariant headerData(int section, Qt::Orientation, int role = Qt::DisplayRole) const;
     /** */
-    QModelIndex index(int, int, const QModelIndex &parent = QModelIndex()) const override;
+    QModelIndex index(int, int, const QModelIndex &parent = QModelIndex()) const;
     /** */
-    QModelIndex parent(const QModelIndex &index) const override;
+    QModelIndex parent(const QModelIndex &index) const;
     /** */
-    bool hasChildren(const QModelIndex &parent) const override;
+    bool hasChildren(const QModelIndex &parent) const;
     /** */
-    int rowCount(const QModelIndex &parent = QModelIndex()) const override;
+    int rowCount(const QModelIndex &parent = QModelIndex()) const;
     /** */
-    int columnCount(const QModelIndex &parent = QModelIndex()) const override;
+    int columnCount(const QModelIndex &parent = QModelIndex()) const;
     /** sort list */
-    void sort(int column, Qt::SortOrder order = Qt::AscendingOrder) override;
+    virtual void sort(int column, Qt::SortOrder order = Qt::AscendingOrder);
 
     /** */
     bool findTransfer(const QString &, bool, TransferViewItem**);

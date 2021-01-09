@@ -23,12 +23,12 @@ class SearchBlackListDelegate:
 
 public:
     SearchBlackListDelegate(QObject* = nullptr);
-    ~SearchBlackListDelegate() override;
+    virtual ~SearchBlackListDelegate();
 
-    QWidget *createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
-    void updateEditorGeometry(QWidget *editor, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
-    void setEditorData(QWidget *editor, const QModelIndex &index) const override;
-    void setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const override;
+    QWidget *createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const;
+    void updateEditorGeometry(QWidget *editor, const QStyleOptionViewItem &option, const QModelIndex &index) const;
+    void setEditorData(QWidget *editor, const QModelIndex &index) const;
+    void setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const;
 
 private:
 };
@@ -64,16 +64,16 @@ class SearchBlackListModel : public QAbstractItemModel {
 
 public:
     SearchBlackListModel(QObject * parent = nullptr);
-    ~SearchBlackListModel() override;
+    virtual ~SearchBlackListModel();
 
-    int rowCount(const QModelIndex & index = QModelIndex()) const override;
-    int columnCount(const QModelIndex & index = QModelIndex()) const override;
-    QVariant data(const QModelIndex & index, int role = Qt::DisplayRole) const override;
-    QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const override;
-    void sort(int column, Qt::SortOrder order = Qt::AscendingOrder) override;
-    QModelIndex index(int row, int column, const QModelIndex & parent = QModelIndex()) const override;
-    QModelIndex parent(const QModelIndex & parent) const override;
-    Qt::ItemFlags flags(const QModelIndex &index) const override;
+    virtual int rowCount(const QModelIndex & index = QModelIndex()) const;
+    virtual int columnCount(const QModelIndex & index = QModelIndex()) const;
+    virtual QVariant data(const QModelIndex & index, int role = Qt::DisplayRole) const;
+    virtual QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const;
+    virtual void sort(int column, Qt::SortOrder order = Qt::AscendingOrder);
+    virtual QModelIndex index(int row, int column, const QModelIndex & parent = QModelIndex()) const;
+    virtual QModelIndex parent(const QModelIndex & parent) const;
+    Qt::ItemFlags flags(const QModelIndex &index) const;
 
     QModelIndex addEmptyItem();
 
@@ -96,10 +96,10 @@ class SearchBlackListDialog:
     Q_OBJECT
 public:
     SearchBlackListDialog(QWidget* = nullptr);
-    ~SearchBlackListDialog() override;
+    virtual ~SearchBlackListDialog();
 
 protected:
-    void resizeEvent(QResizeEvent *) override;
+    virtual void resizeEvent(QResizeEvent *);
 
 private Q_SLOTS:
     void ok();

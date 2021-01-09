@@ -33,7 +33,7 @@ public:
 private:
     ShortcutManager();
     ShortcutManager(const ShortcutManager&){}
-    ~ShortcutManager() override;
+    virtual ~ShortcutManager();
 
     void load();
 

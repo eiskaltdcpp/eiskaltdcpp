@@ -28,12 +28,12 @@ public:
 
 class QtNotifyModule: public NotifyModule {
 public:
-    void showMessage(const QString &title, const QString &msg, QObject *obj) override;
+    void showMessage(const QString &title, const QString &msg, QObject *obj);
 };
 #ifdef DBUS_NOTIFY
 class DBusNotifyModule: public NotifyModule {
 public:
-    void showMessage(const QString &title, const QString &msg, QObject *) override;
+    void showMessage(const QString &title, const QString &msg, QObject *);
 };
 #endif
 class Notification :
@@ -84,7 +84,7 @@ private Q_SLOTS:
 
 private:
     explicit Notification(QObject *parent = nullptr);
-    ~Notification() override;
+    virtual ~Notification();
 
     QStringList sounds;
 

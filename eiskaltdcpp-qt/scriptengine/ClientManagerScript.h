@@ -50,14 +50,14 @@ Q_SIGNALS:
     void disconnected(const QString &url);
 
 protected:
-    void on(ClientConnected, dcpp::Client*) throw() override;
-    void on(ClientUpdated, dcpp::Client*) throw() override;
-    void on(ClientDisconnected, dcpp::Client*) throw() override;
+    virtual void on(ClientConnected, dcpp::Client*) throw();
+    virtual void on(ClientUpdated, dcpp::Client*) throw();
+    virtual void on(ClientDisconnected, dcpp::Client*) throw();
 
 private:
     ClientManagerScript(QObject *parent = nullptr);
     ClientManagerScript(const ClientManagerScript&);
-    ~ClientManagerScript() override;
+    ~ClientManagerScript();
     ClientManagerScript &operator=(const ClientManagerScript&);
 
     dcpp::ClientManager *CM;

@@ -27,20 +27,20 @@ public:
     };
 
     explicit LineEdit(QWidget *parent = nullptr);
-    ~LineEdit() override;
+    virtual ~LineEdit();
 
     virtual void setPixmap(const QPixmap&);
     virtual void setMenu(QMenu*);
     virtual void setMenuRole(LineEdit::MenuRole);
 
-    QSize sizeHint() const override;
+    virtual QSize sizeHint() const;
     virtual QSizePolicy sizePolicy() const;
 
 protected:
-    void resizeEvent(QResizeEvent *) override;
-    void focusInEvent(QFocusEvent *) override;
-    void focusOutEvent(QFocusEvent *) override;
-    bool eventFilter(QObject *, QEvent *) override;
+    virtual void resizeEvent(QResizeEvent *);
+    virtual void focusInEvent(QFocusEvent *);
+    virtual void focusOutEvent(QFocusEvent *);
+    virtual bool eventFilter(QObject *, QEvent *);
 
 signals:
     void clearEdit();

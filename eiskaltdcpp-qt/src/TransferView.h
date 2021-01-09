@@ -80,7 +80,7 @@ private:
 };
 
 public:
-    QSize sizeHint() const override;
+    QSize sizeHint() const;
 
 Q_SIGNALS:
     /** DownloadManger signals */
@@ -113,9 +113,9 @@ Q_SIGNALS:
     void coreDownloadComplete(QString);
 
 protected:
-    void resizeEvent(QResizeEvent *) override;
-    void closeEvent(QCloseEvent *) override;
-    void hideEvent(QHideEvent *) override;
+    virtual void resizeEvent(QResizeEvent *);
+    virtual void closeEvent(QCloseEvent *);
+    virtual void hideEvent(QHideEvent *);
 
     void getFileList(const QString &, const QString &);
     void matchQueue(const QString &, const QString &);
@@ -127,26 +127,26 @@ protected:
     void searchAlternates(const QString &tth);
     void onFailed(dcpp::Download* dl, const std::string& reason);
     // DownloadManager
-    void on(dcpp::DownloadManagerListener::Requesting, dcpp::Download* dl) noexcept override;
-    void on(dcpp::DownloadManagerListener::Starting, dcpp::Download* dl) noexcept override;
-    void on(dcpp::DownloadManagerListener::Tick, const dcpp::DownloadList& dls) noexcept override;
-    void on(dcpp::DownloadManagerListener::Complete, dcpp::Download* dl) noexcept override;
-    void on(dcpp::DownloadManagerListener::Failed, dcpp::Download* dl, const std::string& reason) noexcept override;
+    virtual void on(dcpp::DownloadManagerListener::Requesting, dcpp::Download* dl) noexcept;
+    virtual void on(dcpp::DownloadManagerListener::Starting, dcpp::Download* dl) noexcept;
+    virtual void on(dcpp::DownloadManagerListener::Tick, const dcpp::DownloadList& dls) noexcept;
+    virtual void on(dcpp::DownloadManagerListener::Complete, dcpp::Download* dl) noexcept;
+    virtual void on(dcpp::DownloadManagerListener::Failed, dcpp::Download* dl, const std::string& reason) noexcept;
     // ConnectionManager
-    void on(dcpp::ConnectionManagerListener::Added, dcpp::ConnectionQueueItem* cqi) noexcept override;
-    void on(dcpp::ConnectionManagerListener::Connected, dcpp::ConnectionQueueItem* cqi) noexcept override;
-    void on(dcpp::ConnectionManagerListener::Removed, dcpp::ConnectionQueueItem* cqi) noexcept override;
-    void on(dcpp::ConnectionManagerListener::Failed, dcpp::ConnectionQueueItem* cqi, const std::string&) noexcept override;
-    void on(dcpp::ConnectionManagerListener::StatusChanged, dcpp::ConnectionQueueItem* cqi) noexcept override;
+    virtual void on(dcpp::ConnectionManagerListener::Added, dcpp::ConnectionQueueItem* cqi) noexcept;
+    virtual void on(dcpp::ConnectionManagerListener::Connected, dcpp::ConnectionQueueItem* cqi) noexcept;
+    virtual void on(dcpp::ConnectionManagerListener::Removed, dcpp::ConnectionQueueItem* cqi) noexcept;
+    virtual void on(dcpp::ConnectionManagerListener::Failed, dcpp::ConnectionQueueItem* cqi, const std::string&) noexcept;
+    virtual void on(dcpp::ConnectionManagerListener::StatusChanged, dcpp::ConnectionQueueItem* cqi) noexcept;
     // QueueManager
-    void on(dcpp::QueueManagerListener::Finished, dcpp::QueueItem*, const std::string&, int64_t size) noexcept override;
-    void on(dcpp::QueueManagerListener::Removed, dcpp::QueueItem*) noexcept override;
-    void on(dcpp::QueueManagerListener::CRCFailed, dcpp::Download* aDownload, const std::string& reason) noexcept override;
+    virtual void on(dcpp::QueueManagerListener::Finished, dcpp::QueueItem*, const std::string&, int64_t size) noexcept;
+    virtual void on(dcpp::QueueManagerListener::Removed, dcpp::QueueItem*) noexcept;
+    virtual void on(dcpp::QueueManagerListener::CRCFailed, dcpp::Download* aDownload, const std::string& reason) noexcept;
     // UploadManager
-    void on(dcpp::UploadManagerListener::Starting, dcpp::Upload* ul) noexcept override;
-    void on(dcpp::UploadManagerListener::Tick, const dcpp::UploadList& uls) noexcept override;
-    void on(dcpp::UploadManagerListener::Complete, dcpp::Upload* ul) noexcept override;
-    void on(dcpp::UploadManagerListener::Failed, dcpp::Upload* ul, const std::string& reason) noexcept override;
+    virtual void on(dcpp::UploadManagerListener::Starting, dcpp::Upload* ul) noexcept;
+    virtual void on(dcpp::UploadManagerListener::Tick, const dcpp::UploadList& uls) noexcept;
+    virtual void on(dcpp::UploadManagerListener::Complete, dcpp::Upload* ul) noexcept;
+    virtual void on(dcpp::UploadManagerListener::Failed, dcpp::Upload* ul, const std::string& reason) noexcept;
 
 private Q_SLOTS:
     void slotContextMenu(const QPoint&);
@@ -155,7 +155,7 @@ private Q_SLOTS:
 
 private:
     TransferView(QWidget* = nullptr);
-    ~TransferView() override;
+    virtual ~TransferView();
 
     void load();
     void save();

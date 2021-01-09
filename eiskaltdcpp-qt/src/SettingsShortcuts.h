@@ -44,16 +44,16 @@ class ShortcutsModel : public QAbstractItemModel {
 
 public:
     ShortcutsModel(QObject * parent = nullptr);
-    ~ShortcutsModel() override;
+    virtual ~ShortcutsModel();
 
-    int rowCount(const QModelIndex & index = QModelIndex()) const override;
-    int columnCount(const QModelIndex & index = QModelIndex()) const override;
-    QVariant data(const QModelIndex & index, int role = Qt::DisplayRole) const override;
-    QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const override;
-    void sort(int column, Qt::SortOrder order = Qt::AscendingOrder) override;
-    QModelIndex index(int row, int column, const QModelIndex & parent = QModelIndex()) const override;
-    QModelIndex parent(const QModelIndex & parent) const override;
-    Qt::ItemFlags flags(const QModelIndex &index) const override;
+    virtual int rowCount(const QModelIndex & index = QModelIndex()) const;
+    virtual int columnCount(const QModelIndex & index = QModelIndex()) const;
+    virtual QVariant data(const QModelIndex & index, int role = Qt::DisplayRole) const;
+    virtual QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const;
+    virtual void sort(int column, Qt::SortOrder order = Qt::AscendingOrder);
+    virtual QModelIndex index(int row, int column, const QModelIndex & parent = QModelIndex()) const;
+    virtual QModelIndex parent(const QModelIndex & parent) const;
+    Qt::ItemFlags flags(const QModelIndex &index) const;
 
     void repaint() { emit layoutChanged(); }
     void save();
@@ -68,7 +68,7 @@ class SettingsShortcuts : public QWidget, private Ui::UISettingsShortcuts
     Q_OBJECT
 public:
     explicit SettingsShortcuts(QWidget *parent = nullptr);
-    ~SettingsShortcuts() override;
+    virtual ~SettingsShortcuts();
 
 public Q_SLOTS:
     void ok();

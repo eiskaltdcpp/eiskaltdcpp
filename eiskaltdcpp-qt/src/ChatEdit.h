@@ -28,10 +28,10 @@ public:
     {}
     NickCompletionModel(const QStringList &strings, QObject *parent = nullptr) : QStringListModel(strings, parent)
     {}
-    ~NickCompletionModel() override
+    virtual ~NickCompletionModel()
     { }
 
-    QVariant data(const QModelIndex & index, int role = Qt::DisplayRole) const override
+    QVariant data(const QModelIndex & index, int role = Qt::DisplayRole) const
     {
         QVariant result = QStringListModel::data(index, role);
 
@@ -54,20 +54,20 @@ class ChatEdit : public QTextEdit
 
 public:
     ChatEdit(QWidget *parent = nullptr);
-    ~ChatEdit() override;
+    virtual ~ChatEdit();
 
     void setCompleter(QCompleter *, UserListModel *);
 
-    QSize minimumSizeHint() const override;
-    QSize sizeHint() const override;
+    QSize minimumSizeHint() const;
+    QSize sizeHint() const;
 
 protected:
-    void keyPressEvent(QKeyEvent *) override;
-    void keyReleaseEvent(QKeyEvent *) override;
-    void focusInEvent(QFocusEvent *) override;
-    void dropEvent(QDropEvent *) override;
-    void dragEnterEvent(QDragEnterEvent *e) override;
-    void dragMoveEvent(QDragMoveEvent *event) override; // Required to accept drops on win32
+    void keyPressEvent(QKeyEvent *);
+    void keyReleaseEvent(QKeyEvent *);
+    void focusInEvent(QFocusEvent *);
+    void dropEvent(QDropEvent *);
+    void dragEnterEvent(QDragEnterEvent *e);
+    void dragMoveEvent(QDragMoveEvent *event); // Required to accept drops on win32
 
 private Q_SLOTS:
     void insertCompletion(const QModelIndex &);

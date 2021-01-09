@@ -101,7 +101,7 @@ public:
 //    Q_ENUMS (ArenaWidget::Flags);
 
     ScriptWidget();
-    ~ScriptWidget() override;
+    virtual ~ScriptWidget();
 
     Q_PROPERTY(QString  title READ getArenaTitle WRITE setArenaTitle)
     Q_PROPERTY(QString  shortTitle READ getArenaShortTitle WRITE setArenaShortTitle)
@@ -111,12 +111,12 @@ public:
     Q_PROPERTY(Flags    flags READ state WRITE setState)
 
 public Q_SLOTS:
-    QWidget *getWidget() override;
-    QString getArenaTitle() override;
-    QString getArenaShortTitle() override;
-    QMenu *getMenu() override;
-    const QPixmap &getPixmap() override;
-    ArenaWidget::Flags state() const override { return ArenaWidget::state(); }
+    virtual QWidget *getWidget();
+    virtual QString getArenaTitle();
+    virtual QString getArenaShortTitle();
+    virtual QMenu *getMenu();
+    virtual const QPixmap &getPixmap();
+    virtual ArenaWidget::Flags state() const { return ArenaWidget::state(); }
 
     virtual void  setWidget(QWidget*);
     virtual void  setArenaTitle(QString);
@@ -124,8 +124,8 @@ public Q_SLOTS:
     virtual void  setMenu(QMenu*);
     virtual void  setPixmap(const QPixmap&);
 
-    Role role() const override { return ArenaWidget::CustomWidget; }
-    void setState(ArenaWidget::Flags f) override { ArenaWidget::setState(f); }
+    virtual Role role() const { return ArenaWidget::CustomWidget; }
+    virtual void setState(ArenaWidget::Flags f) { ArenaWidget::setState(f); }
 private:
     QWidget *_wgt;
     QString _arenaTitle;

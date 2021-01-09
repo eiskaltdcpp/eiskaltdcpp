@@ -85,22 +85,22 @@ private:
 };
 
 public:
-    QString  getArenaTitle() override { return tr("Download Queue"); }
-    QString  getArenaShortTitle() override { return getArenaTitle(); }
-    QWidget *getWidget() override { return this; }
-    QMenu   *getMenu() override { return nullptr; }
-    const QPixmap &getPixmap() override { return WICON(WulforUtil::eiDOWNLOAD); }
+    QString  getArenaTitle(){ return tr("Download Queue"); }
+    QString  getArenaShortTitle(){ return getArenaTitle(); }
+    QWidget *getWidget(){ return this; }
+    QMenu   *getMenu(){ return nullptr; }
+    const QPixmap &getPixmap(){ return WICON(WulforUtil::eiDOWNLOAD); }
 
-    ArenaWidget::Role role() const override { return ArenaWidget::Downloads; }
+    ArenaWidget::Role role() const { return ArenaWidget::Downloads; }
 
 protected:
-    void closeEvent(QCloseEvent*) override;
+    virtual void closeEvent(QCloseEvent*);
     // Client callbacks
-    void on(dcpp::QueueManagerListener::Added, dcpp::QueueItem *item) noexcept override;
-    void on(dcpp::QueueManagerListener::Moved, dcpp::QueueItem *item, const std::string &oldTarget) noexcept override;
-    void on(dcpp::QueueManagerListener::Removed, dcpp::QueueItem *item) noexcept override;
-    void on(dcpp::QueueManagerListener::SourcesUpdated, dcpp::QueueItem *item) noexcept override;
-    void on(dcpp::QueueManagerListener::StatusUpdated, dcpp::QueueItem *item) noexcept override;
+    virtual void on(dcpp::QueueManagerListener::Added, dcpp::QueueItem *item) noexcept;
+    virtual void on(dcpp::QueueManagerListener::Moved, dcpp::QueueItem *item, const std::string &oldTarget) noexcept;
+    virtual void on(dcpp::QueueManagerListener::Removed, dcpp::QueueItem *item) noexcept;
+    virtual void on(dcpp::QueueManagerListener::SourcesUpdated, dcpp::QueueItem *item) noexcept;
+    virtual void on(dcpp::QueueManagerListener::StatusUpdated, dcpp::QueueItem *item) noexcept;
 
 public Q_SLOTS:
     QStringList getSources();
@@ -135,7 +135,7 @@ Q_SIGNALS:
 
 private:
     DownloadQueue(QWidget* = nullptr);
-    ~DownloadQueue() override;
+    virtual ~DownloadQueue();
 
     void init();
     void load();

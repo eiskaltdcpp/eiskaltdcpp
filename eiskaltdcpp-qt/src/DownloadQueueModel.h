@@ -38,9 +38,9 @@ class DownloadQueueDelegate:
 
 public:
     DownloadQueueDelegate(QObject* = nullptr);
-    ~DownloadQueueDelegate() override;
+    virtual ~DownloadQueueDelegate();
 
-    void paint(QPainter*, const QStyleOptionViewItem&, const QModelIndex&) const override;
+    virtual void paint(QPainter*, const QStyleOptionViewItem&, const QModelIndex&) const;
 };
 
 class DownloadQueueItem
@@ -80,22 +80,22 @@ class DownloadQueueModel: public QAbstractItemModel
     Q_OBJECT
 public:
     DownloadQueueModel(QObject* = nullptr);
-    ~DownloadQueueModel() override;
+    virtual ~DownloadQueueModel();
 
     /** */
-    QVariant data(const QModelIndex &, int) const override;
+    QVariant data(const QModelIndex &, int) const;
     /** */
-    QVariant headerData(int section, Qt::Orientation, int role = Qt::DisplayRole) const override;
+    QVariant headerData(int section, Qt::Orientation, int role = Qt::DisplayRole) const;
     /** */
-    QModelIndex index(int, int, const QModelIndex &parent = QModelIndex()) const override;
+    QModelIndex index(int, int, const QModelIndex &parent = QModelIndex()) const;
     /** */
-    QModelIndex parent(const QModelIndex &index) const override;
+    QModelIndex parent(const QModelIndex &index) const;
     /** */
-    int rowCount(const QModelIndex &parent = QModelIndex()) const override;
+    int rowCount(const QModelIndex &parent = QModelIndex()) const;
     /** */
-    int columnCount(const QModelIndex &parent = QModelIndex()) const override;
+    int columnCount(const QModelIndex &parent = QModelIndex()) const;
     /** sort list */
-    void sort(int column, Qt::SortOrder order = Qt::AscendingOrder) override;
+    virtual void sort(int column, Qt::SortOrder order = Qt::AscendingOrder);
     virtual void sort() { sort(getSortColumn(), getSortOrder()); }
 
     /** */

@@ -71,28 +71,28 @@ class FileBrowserModel: public QAbstractItemModel
     Q_OBJECT
 public:
     FileBrowserModel(QObject* = nullptr);
-    ~FileBrowserModel() override;
+    virtual ~FileBrowserModel();
 
     /** */
-    QVariant data(const QModelIndex &, int) const override;
+    QVariant data(const QModelIndex &, int) const;
     /** */
-    QVariant headerData(int section, Qt::Orientation, int role = Qt::DisplayRole) const override;
+    QVariant headerData(int section, Qt::Orientation, int role = Qt::DisplayRole) const;
     /** */
-    QModelIndex index(int, int, const QModelIndex &parent = QModelIndex()) const override;
+    QModelIndex index(int, int, const QModelIndex &parent = QModelIndex()) const;
     /** */
-    QModelIndex parent(const QModelIndex &index) const override;
+    QModelIndex parent(const QModelIndex &index) const;
     /** */
-    int rowCount(const QModelIndex &parent = QModelIndex()) const override;
+    int rowCount(const QModelIndex &parent = QModelIndex()) const;
     /** */
-    int columnCount(const QModelIndex &parent = QModelIndex()) const override;
+    int columnCount(const QModelIndex &parent = QModelIndex()) const;
     /** */
-    bool canFetchMore(const QModelIndex &parent) const override;
+    bool canFetchMore(const QModelIndex &parent) const;
     /** */
-    void fetchMore(const QModelIndex &parent) override;
+    void fetchMore(const QModelIndex &parent);
     /** */
-    bool hasChildren(const QModelIndex &parent) const override;
+    bool hasChildren(const QModelIndex &parent) const;
     /** sort list */
-    void sort(int column, Qt::SortOrder order = Qt::AscendingOrder) override;
+    virtual void sort(int column, Qt::SortOrder order = Qt::AscendingOrder);
     virtual void sort() { sort(sortColumn, sortOrder); }
 
     /** */

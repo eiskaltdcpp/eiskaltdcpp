@@ -29,11 +29,11 @@ public:
     ShellCommandRunner(const QString &args, QObject * parent = nullptr);
     ShellCommandRunner(const QString &cmd_, const QStringList &argList_, QObject * parent = nullptr);
     /** destructor */
-    ~ShellCommandRunner() override;
+    virtual ~ShellCommandRunner();
 
 public Q_SLOTS:
     /** the method that runs in the thread */
-    void run() override;
+    virtual void run();
     /** Cancel the shell command e.g. if the chat is closed */
     void cancel();
     /** Return exit code*/

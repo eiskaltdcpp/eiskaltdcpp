@@ -18,7 +18,7 @@ class QtSingleCoreApplication : public QApplication
 public:
     QtSingleCoreApplication(int &argc, char **argv, const QString &key);
     QtSingleCoreApplication(const QString &id, int &argc, char **argv);
-    ~QtSingleCoreApplication() override;
+    virtual ~QtSingleCoreApplication();
 
     bool isRunning();
     QSharedMemory& getSharedMemory(){ return sharedMemory; }

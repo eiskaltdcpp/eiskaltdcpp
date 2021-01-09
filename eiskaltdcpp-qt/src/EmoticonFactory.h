@@ -46,7 +46,7 @@ private slots:
 
 private:
     EmoticonFactory();
-    ~EmoticonFactory() override;
+    ~EmoticonFactory();
 
     void clear();
     void createEmoticonMap(const QDomNode &root);

@@ -39,7 +39,7 @@ Q_SIGNALS:
 private:
     ArenaWidgetManager();
     ArenaWidgetManager(const ArenaWidgetManager &m);
-    ~ArenaWidgetManager() override;
+    virtual ~ArenaWidgetManager();
     ArenaWidgetManager &operator=(const ArenaWidgetManager &);
 
     void add(ArenaWidget*);
