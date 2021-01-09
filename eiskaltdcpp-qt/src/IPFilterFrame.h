@@ -27,7 +27,7 @@ public:
     /** */
     IPFilterFrame(QWidget *parent = nullptr);
     /** */
-    virtual ~IPFilterFrame();
+    ~IPFilterFrame() override;
 
 private:
     /** */
@@ -38,7 +38,7 @@ private:
     /** */
     IPFilterModel *model;
 protected:
-    virtual void closeEvent(QCloseEvent *e);
+    void closeEvent(QCloseEvent *e) override;
 
 private slots:
     /** */

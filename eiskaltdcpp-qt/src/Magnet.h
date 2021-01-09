@@ -24,7 +24,7 @@ class Magnet :
 Q_OBJECT
 public:
     explicit Magnet(QWidget *parent = nullptr);
-    virtual ~Magnet();
+    ~Magnet() override;
 
     void setLink(const QString &);
     enum MagnetAction {
@@ -33,7 +33,7 @@ public:
       MAGNET_ACTION_DOWNLOAD = 2
     };
     void setLink(const QString &, MagnetAction action);
-    virtual int exec();
+    int exec() override;
 private:
     MagnetAction currentAction;
 private slots:

@@ -28,10 +28,10 @@ public:
         timer.start();
     }
 
-    virtual ~EiskaltEventFilter() {}
+    ~EiskaltEventFilter() override {}
 
 protected:
-    virtual bool eventFilter(QObject *obj, QEvent *event){
+    bool eventFilter(QObject *obj, QEvent *event) override {
         switch (event->type()){
             case QEvent::MouseButtonPress:
             case QEvent::MouseButtonRelease:

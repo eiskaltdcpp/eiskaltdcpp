@@ -33,7 +33,7 @@ public:
 
 private:
     SpellCheck(QObject *parent = nullptr);
-    ~SpellCheck();
+    ~SpellCheck() override;
 
     void deleteSpeller();
     void loadAspellConfig(AspellConfig * const config);

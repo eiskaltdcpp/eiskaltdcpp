@@ -31,19 +31,19 @@ public:
     friend class HubFrame;
 
     explicit PMWindow(const QString &cid_, const QString &hubUrl_);
-    virtual ~PMWindow();
+    ~PMWindow() override;
 
     PMWindow(const PMWindow&) = delete;
     PMWindow& operator=(const PMWindow&) = delete;
 
-    QString  getArenaTitle();
-    QString  getArenaShortTitle();
-    QWidget *getWidget();
-    QMenu   *getMenu();
-    const QPixmap &getPixmap();
-    ArenaWidget::Role role() const;
-    void requestFilter();
-    void requestFocus();
+    QString  getArenaTitle() override;
+    QString  getArenaShortTitle() override;
+    QWidget *getWidget() override;
+    QMenu   *getMenu() override;
+    const QPixmap &getPixmap() override;
+    ArenaWidget::Role role() const override;
+    void requestFilter() override;
+    void requestFocus() override;
     void setCompleter(QCompleter *, UserListModel *);
 
     void addStatus(QString);
@@ -79,9 +79,9 @@ Q_SIGNALS:
     void inputTextMenu();
 
 protected:
-    virtual bool eventFilter(QObject*, QEvent*);
-    virtual void closeEvent(QCloseEvent *);
-    virtual void showEvent(QShowEvent *);
+    bool eventFilter(QObject*, QEvent*) override;
+    void closeEvent(QCloseEvent *) override;
+    void showEvent(QShowEvent *) override;
 
 private:
     void addStatusMessage(const QString &);

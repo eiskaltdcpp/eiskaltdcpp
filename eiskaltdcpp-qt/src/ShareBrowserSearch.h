@@ -25,12 +25,12 @@ class ShareBrowserSearch: public QDialog, protected Ui::UIShareBrowserSearch{
 
 public:
     ShareBrowserSearch(FileBrowserModel *model, QWidget *parent = nullptr);
-    virtual ~ShareBrowserSearch();
+    ~ShareBrowserSearch() override;
 
     void setSearchRoot(FileBrowserItem *);
 
 protected:
-    void closeEvent(QCloseEvent *);
+    void closeEvent(QCloseEvent *) override;
 
 Q_SIGNALS:
     void indexClicked(FileBrowserItem*);

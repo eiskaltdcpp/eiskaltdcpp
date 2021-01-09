@@ -38,11 +38,11 @@ class SearchFramePrivate;
 class SearchStringListModel: public QStringListModel{
 public:
     SearchStringListModel(QObject *parent = nullptr): QStringListModel(parent){}
-    virtual ~SearchStringListModel(){}
+    ~SearchStringListModel() override {}
 
-    QVariant data(const QModelIndex &index, int role) const;
-    bool setData(const QModelIndex &index, const QVariant &value, int role);
-    Qt::ItemFlags flags(const QModelIndex &) const { return (Qt::ItemIsEnabled | Qt::ItemIsSelectable | Qt::ItemIsUserCheckable); }
+    QVariant data(const QModelIndex &index, int role) const override;
+    bool setData(const QModelIndex &index, const QVariant &value, int role) override;
+    Qt::ItemFlags flags(const QModelIndex &) const override { return (Qt::ItemIsEnabled | Qt::ItemIsSelectable | Qt::ItemIsUserCheckable); }
 
 private:
    QList<QString> checked;
@@ -116,17 +116,17 @@ public:
     };
 
     SearchFrame(QWidget* = nullptr);
-    virtual ~SearchFrame();
+    ~SearchFrame() override;
 
-    QWidget *getWidget();
-    QString  getArenaTitle();
-    QString  getArenaShortTitle();
-    QMenu   *getMenu();
-    const QPixmap &getPixmap();
-    ArenaWidget::Role role() const { return ArenaWidget::Search; }
+    QWidget *getWidget() override;
+    QString  getArenaTitle() override;
+    QString  getArenaShortTitle() override;
+    QMenu   *getMenu() override;
+    const QPixmap &getPixmap() override;
+    ArenaWidget::Role role() const override { return ArenaWidget::Search; }
 
-    void requestFilter() { slotFilter(); }
-    void requestFocus() { lineEdit_SEARCHSTR->setFocus(); }
+    void requestFilter() override { slotFilter(); }
+    void requestFocus() override { lineEdit_SEARCHSTR->setFocus(); }
 
 public Q_SLOTS:
     void searchAlternates(const QString &);
@@ -134,8 +134,8 @@ public Q_SLOTS:
     void fastSearch(const QString &, bool);
 
 protected:
-    virtual void closeEvent(QCloseEvent*);
-    virtual bool eventFilter(QObject *, QEvent *);
+    void closeEvent(QCloseEvent*) override;
+    bool eventFilter(QObject *, QEvent *) override;
 
 Q_SIGNALS:
     /** SearchManager signals */
@@ -186,12 +186,12 @@ private:
     void removeSource(const VarMap&);
 
     // SearchManagerListener
-    virtual void on(SearchManagerListener::SR, const SearchResultPtr& aResult) noexcept;
+    void on(SearchManagerListener::SR, const SearchResultPtr& aResult) noexcept override;
 
     // ClientManagerListener
-    virtual void on(ClientConnected, Client* c) noexcept;
-    virtual void on(ClientUpdated, Client* c) noexcept;
-    virtual void on(ClientDisconnected, Client* c) noexcept;
+    void on(ClientConnected, Client* c) noexcept override;
+    void on(ClientUpdated, Client* c) noexcept override;
+    void on(ClientDisconnected, Client* c) noexcept override;
 
     Q_DECLARE_PRIVATE (SearchFrame)
     SearchFramePrivate* d_ptr;

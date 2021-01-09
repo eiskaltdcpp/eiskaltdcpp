@@ -22,8 +22,8 @@ class AutoToolTipDelegate : public QStyledItemDelegate
     Q_OBJECT
 public:
     AutoToolTipDelegate(QObject* parent);
-    ~AutoToolTipDelegate();
+    ~AutoToolTipDelegate() override;
 
 public slots:
-    bool helpEvent(QHelpEvent* e, QAbstractItemView* view, const QStyleOptionViewItem& option, const QModelIndex& index);
+    bool helpEvent(QHelpEvent* e, QAbstractItemView* view, const QStyleOptionViewItem& option, const QModelIndex& index) override;
 };

@@ -21,7 +21,7 @@ class QuickConnect : public QDialog,
 
 public:
     QuickConnect(QWidget *parent = nullptr);
-    ~QuickConnect();
+    ~QuickConnect() override;
 
 public slots:
     void slotAccept();

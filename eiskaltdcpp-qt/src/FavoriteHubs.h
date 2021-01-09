@@ -57,15 +57,15 @@ class FavoriteHubs :
 
     typedef QMap<QString,QVariant> StrMap;
 public:
-    QWidget *getWidget();
-    QString getArenaTitle();
-    QString getArenaShortTitle();
-    QMenu *getMenu();
-    const QPixmap &getPixmap(){ return WICON(WulforUtil::eiFAVSERVER); }
-    ArenaWidget::Role role() const { return ArenaWidget::FavoriteHubs; }
+    QWidget *getWidget() override;
+    QString getArenaTitle() override;
+    QString getArenaShortTitle() override;
+    QMenu *getMenu() override;
+    const QPixmap &getPixmap() override { return WICON(WulforUtil::eiFAVSERVER); }
+    ArenaWidget::Role role() const override { return ArenaWidget::FavoriteHubs; }
 
 protected:
-    virtual void closeEvent(QCloseEvent *);
+    void closeEvent(QCloseEvent *) override;
 
 private Q_SLOTS:
     void slotContexMenu(const QPoint&);
@@ -83,7 +83,7 @@ private Q_SLOTS:
 
 private:
     FavoriteHubs(QWidget* = nullptr);
-    virtual ~FavoriteHubs();
+    ~FavoriteHubs() override;
 
     void load();
     void save();
@@ -105,8 +105,8 @@ private:
     QStringList fakeNMDCTags;
     QStringList fakeADCTags;
 
-    virtual void on(FavoriteAdded, const FavoriteHubEntryPtr) noexcept;
-    virtual void on(FavoriteRemoved, const FavoriteHubEntryPtr) noexcept;
+    void on(FavoriteAdded, const FavoriteHubEntryPtr) noexcept override;
+    void on(FavoriteRemoved, const FavoriteHubEntryPtr) noexcept override;
 };
 
 Q_DECLARE_METATYPE (FavoriteHubs*)

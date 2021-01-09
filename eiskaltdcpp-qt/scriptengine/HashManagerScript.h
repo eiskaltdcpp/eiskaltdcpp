@@ -41,12 +41,12 @@ Q_SIGNALS:
     void done(const QString &file, const QString &tth);
 
 protected:
-    virtual void on(TTHDone, const dcpp::string& , const dcpp::TTHValue&) throw();
+    void on(TTHDone, const dcpp::string& , const dcpp::TTHValue&) throw() override;
 
 private:
     HashManagerScript(QObject *parent = nullptr);
     HashManagerScript(const HashManagerScript&);
-    ~HashManagerScript();
+    ~HashManagerScript() override;
     HashManagerScript &operator=(const HashManagerScript&);
 
     dcpp::HashManager *HM;

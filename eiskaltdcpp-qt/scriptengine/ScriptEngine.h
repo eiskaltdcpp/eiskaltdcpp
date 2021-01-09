@@ -55,7 +55,7 @@ private Q_SLOTS:
 
 private:
     ScriptEngine();
-    virtual ~ScriptEngine();
+    ~ScriptEngine() override;
 
     void loadJSScript(const QString&);
 #ifdef USE_QML

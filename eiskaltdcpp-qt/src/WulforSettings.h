@@ -195,7 +195,7 @@ Q_SIGNALS:
 
 private:
     WulforSettings();
-    virtual ~WulforSettings();
+    ~WulforSettings() override;
 
     void loadOldConfig(); //load old version of config
     void loadQtTranslation(const QString &lcName);

@@ -29,7 +29,7 @@ public slots:
     void ok();
 
 protected:
-    virtual bool eventFilter(QObject*, QEvent*);
+    bool eventFilter(QObject*, QEvent*) override;
 
 private slots:
     void slotToggleIncomming();

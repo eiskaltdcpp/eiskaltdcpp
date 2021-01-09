@@ -22,7 +22,7 @@ public:
     explicit ShortcutEdit(QWidget *parent = nullptr);
 
 protected:
-    virtual bool eventFilter(QObject *, QEvent *);
+    bool eventFilter(QObject *, QEvent *) override;
 
 private:
     int keyNumber;

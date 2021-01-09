@@ -40,7 +40,7 @@ public:
     };
 
     Settings();
-    virtual ~Settings();
+    ~Settings() override;
 
     void navigate(enum Page, int tab = -1);
 signals:

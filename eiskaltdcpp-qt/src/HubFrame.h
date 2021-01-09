@@ -141,7 +141,7 @@ public:
     typedef QList<ShellCommandRunner*> ShellList;
 
     HubFrame(QWidget *parent, QString, QString);
-    ~HubFrame();
+    ~HubFrame() override;
 
     HubFrame(const HubFrame&) = delete;
     HubFrame& operator=(const HubFrame&) = delete;
@@ -159,14 +159,14 @@ public:
     void addPM(QString, QString, bool keepfocus = true);
 
     // Arena Widget interface
-    QWidget *getWidget();
-    QString getArenaTitle();
-    QString getArenaShortTitle();
-    QMenu *getMenu();
-    const QPixmap &getPixmap();
-    void requestFilter() { slotHideFindFrame(); }
-    void requestFocus() { plainTextEdit_INPUT->setFocus(); }
-    ArenaWidget::Role role() const { return ArenaWidget::Hub; }
+    QWidget *getWidget() override;
+    QString getArenaTitle() override;
+    QString getArenaShortTitle() override;
+    QMenu *getMenu() override;
+    const QPixmap &getPixmap() override;
+    void requestFilter() override { slotHideFindFrame(); }
+    void requestFocus() override { plainTextEdit_INPUT->setFocus(); }
+    ArenaWidget::Role role() const override { return ArenaWidget::Hub; }
 
     QString getCIDforNick(QString nick);
 
@@ -211,10 +211,10 @@ public Q_SLOTS:
     void browseUserFiles(const QString&, bool=false);
 
 protected:
-    virtual bool eventFilter(QObject *, QEvent *);
-    virtual void closeEvent(QCloseEvent*);
-    virtual void showEvent(QShowEvent *);
-    virtual void hideEvent(QHideEvent *);
+    bool eventFilter(QObject *, QEvent *) override;
+    void closeEvent(QCloseEvent*) override;
+    void showEvent(QShowEvent *) override;
+    void hideEvent(QHideEvent *) override;
 
     void sendChat(QString, bool, bool);
     void save();
@@ -285,23 +285,23 @@ private:
     void getParams(VarMap &, const Identity &);
 
     // FavoriteManagerListener
-    virtual void on(FavoriteManagerListener::UserAdded, const FavoriteUser& /*aUser*/) noexcept;
-    virtual void on(FavoriteManagerListener::UserRemoved, const FavoriteUser& /*aUser*/) noexcept;
+    void on(FavoriteManagerListener::UserAdded, const FavoriteUser& /*aUser*/) noexcept override;
+    void on(FavoriteManagerListener::UserRemoved, const FavoriteUser& /*aUser*/) noexcept override;
 
     // ClientListener interface
-    virtual void on(ClientListener::Connecting, Client*) noexcept;
-    virtual void on(ClientListener::Connected, Client*) noexcept;
-    virtual void on(ClientListener::UserUpdated, Client*, const OnlineUser&) noexcept;
-    virtual void on(ClientListener::UsersUpdated, Client*, const OnlineUserList&) noexcept;
-    virtual void on(ClientListener::UserRemoved, Client*, const OnlineUser&) noexcept;
-    virtual void on(ClientListener::Redirect, Client*, const string&) noexcept;
-    virtual void on(ClientListener::Failed, Client*, const string&) noexcept;
-    virtual void on(ClientListener::GetPassword, Client*) noexcept;
-    virtual void on(ClientListener::HubUpdated, Client*) noexcept;
-    virtual void on(ClientListener::Message, Client*, const ChatMessage&) noexcept;
-    virtual void on(ClientListener::StatusMessage, Client*, const string&, int = ClientListener::FLAG_NORMAL) noexcept;
-    virtual void on(ClientListener::NickTaken, Client*) noexcept;
-    virtual void on(ClientListener::SearchFlood, Client*, const string&) noexcept;
+    void on(ClientListener::Connecting, Client*) noexcept override;
+    void on(ClientListener::Connected, Client*) noexcept override;
+    void on(ClientListener::UserUpdated, Client*, const OnlineUser&) noexcept override;
+    void on(ClientListener::UsersUpdated, Client*, const OnlineUserList&) noexcept override;
+    void on(ClientListener::UserRemoved, Client*, const OnlineUser&) noexcept override;
+    void on(ClientListener::Redirect, Client*, const string&) noexcept override;
+    void on(ClientListener::Failed, Client*, const string&) noexcept override;
+    void on(ClientListener::GetPassword, Client*) noexcept override;
+    void on(ClientListener::HubUpdated, Client*) noexcept override;
+    void on(ClientListener::Message, Client*, const ChatMessage&) noexcept override;
+    void on(ClientListener::StatusMessage, Client*, const string&, int = ClientListener::FLAG_NORMAL) noexcept override;
+    void on(ClientListener::NickTaken, Client*) noexcept override;
+    void on(ClientListener::SearchFlood, Client*, const string&) noexcept override;
 
     Q_DECLARE_PRIVATE(HubFrame)
     HubFramePrivate *d_ptr;

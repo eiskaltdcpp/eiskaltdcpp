@@ -22,9 +22,9 @@ class HashThread: public QThread{
 
     public:
         HashThread();
-        virtual ~HashThread();
+        ~HashThread() override;
 
-        void run();
+        void run() override;
 
         void setFile(const QString &);
         QString getHash();
@@ -42,7 +42,7 @@ class FileHasher :
 Q_OBJECT
 public:
     explicit FileHasher(QWidget *parent = nullptr);
-    virtual ~FileHasher();
+    ~FileHasher() override;
 
     private slots:
         void saveWindowSize();

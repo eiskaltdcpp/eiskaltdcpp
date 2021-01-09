@@ -21,11 +21,11 @@ class ShareDirModel: public QDirModel{
 public:
 
     ShareDirModel(QObject* = nullptr);
-    virtual ~ShareDirModel();
+    ~ShareDirModel() override;
 
-    Qt::ItemFlags flags(const QModelIndex& index) const;
-    QVariant data(const QModelIndex& index, int role) const;
-    bool setData(const QModelIndex& index, const QVariant& value, int role);
+    Qt::ItemFlags flags(const QModelIndex& index) const override;
+    QVariant data(const QModelIndex& index, int role) const override;
+    bool setData(const QModelIndex& index, const QVariant& value, int role) override;
 
     void setAlias(const QModelIndex&, const QString &);
     void beginExpanding();
@@ -45,9 +45,9 @@ class SettingsSharing :
     Q_OBJECT
 public:
     SettingsSharing(QWidget* = nullptr);
-    virtual ~SettingsSharing();
+    ~SettingsSharing() override;
 protected:
-    virtual void showEvent(QShowEvent *);
+    void showEvent(QShowEvent *) override;
 
 public Q_SLOTS:
     void ok();

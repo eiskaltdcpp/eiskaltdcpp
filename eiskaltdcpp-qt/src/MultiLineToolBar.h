@@ -22,10 +22,10 @@ class MultiLineToolBar : public QToolBar
 Q_OBJECT
 public:
     explicit MultiLineToolBar(QWidget *parent = nullptr);
-    virtual ~MultiLineToolBar();
+    ~MultiLineToolBar() override;
 
 protected:
-    virtual void wheelEvent(QWheelEvent *);
+    void wheelEvent(QWheelEvent *) override;
 
 signals:
     void nextTab();

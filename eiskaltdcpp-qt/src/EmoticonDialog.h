@@ -24,7 +24,7 @@ public:
     /** construtor */
     EmoticonDialog(QWidget * parent = nullptr, Qt::WindowFlags f = nullptr);
     /** destructor */
-    virtual ~EmoticonDialog();
+    ~EmoticonDialog() override;
 
     QString getEmoticonText() const { return selectedSmile; }
 

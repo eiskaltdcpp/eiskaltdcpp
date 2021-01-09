@@ -50,24 +50,24 @@ public:
     typedef QVariantMap VarMap;
 
     explicit FavoriteUsersModel(QObject *parent = nullptr);
-    virtual ~FavoriteUsersModel();
+    ~FavoriteUsersModel() override;
 
     /** */
-    QVariant data(const QModelIndex &, int) const;
+    QVariant data(const QModelIndex &, int) const override;
     /** */
-    Qt::ItemFlags flags(const QModelIndex &) const;
+    Qt::ItemFlags flags(const QModelIndex &) const override;
     /** */
-    QVariant headerData(int section, Qt::Orientation, int role = Qt::DisplayRole) const;
+    QVariant headerData(int section, Qt::Orientation, int role = Qt::DisplayRole) const override;
     /** */
-    QModelIndex index(int, int, const QModelIndex &parent = QModelIndex()) const;
+    QModelIndex index(int, int, const QModelIndex &parent = QModelIndex()) const override;
     /** */
-    QModelIndex parent(const QModelIndex &index) const;
+    QModelIndex parent(const QModelIndex &index) const override;
     /** */
-    int rowCount(const QModelIndex &parent = QModelIndex()) const;
+    int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     /** */
-    int columnCount(const QModelIndex &parent = QModelIndex()) const;
+    int columnCount(const QModelIndex &parent = QModelIndex()) const override;
     /** sort list */
-    virtual void sort(int column, Qt::SortOrder order = Qt::AscendingOrder);
+    void sort(int column, Qt::SortOrder order = Qt::AscendingOrder) override;
 
     void addUser(const VarMap&);
     void updateUserStatus(const QString &, const QString &, const QString &);

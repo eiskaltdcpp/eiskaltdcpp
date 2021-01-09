@@ -37,23 +37,23 @@ Q_INTERFACES(ArenaWidget)
 friend class dcpp::Singleton<PublicHubs>;
 
 public:
-    QString  getArenaTitle(){ return tr("Public Hubs"); }
-    QString  getArenaShortTitle(){ return getArenaTitle(); }
-    QWidget *getWidget(){ return this; }
-    QMenu   *getMenu(){ return nullptr; }
-    const QPixmap &getPixmap(){ return WICON(WulforUtil::eiSERVER); }
-    void requestFilter() { slotFilter(); }
-    ArenaWidget::Role role() const { return ArenaWidget::PublicHubs; }
+    QString  getArenaTitle() override { return tr("Public Hubs"); }
+    QString  getArenaShortTitle() override { return getArenaTitle(); }
+    QWidget *getWidget() override { return this; }
+    QMenu   *getMenu() override { return nullptr; }
+    const QPixmap &getPixmap() override { return WICON(WulforUtil::eiSERVER); }
+    void requestFilter() override { slotFilter(); }
+    ArenaWidget::Role role() const override { return ArenaWidget::PublicHubs; }
 
 protected:
-    virtual void closeEvent(QCloseEvent *);
-    virtual bool eventFilter(QObject *, QEvent *);
+    void closeEvent(QCloseEvent *) override;
+    bool eventFilter(QObject *, QEvent *) override;
 
-    virtual void on(DownloadStarting, const std::string& l) noexcept;
-    virtual void on(DownloadFailed, const std::string& l) noexcept;
-    virtual void on(DownloadFinished, const std::string& l) noexcept;
-    virtual void on(LoadedFromCache, const std::string& l, const std::string& d) noexcept;
-    virtual void on(Corrupted, const std::string& l) noexcept;
+    void on(DownloadStarting, const std::string& l) noexcept override;
+    void on(DownloadFailed, const std::string& l) noexcept override;
+    void on(DownloadFinished, const std::string& l) noexcept override;
+    void on(LoadedFromCache, const std::string& l, const std::string& d) noexcept override;
+    void on(Corrupted, const std::string& l) noexcept override;
 
 private Q_SLOTS:
     void slotFilter();
@@ -75,7 +75,7 @@ Q_SIGNALS:
 
 private:
     PublicHubs(QWidget *parent = nullptr);
-    ~PublicHubs();
+    ~PublicHubs() override;
 
     void updateList();
 

@@ -43,7 +43,7 @@ Q_OBJECT
 typedef QVariantMap VarMap;
 public:
     FinishedTransferProxy(QWidget *parent):QWidget(parent){}
-    ~FinishedTransferProxy(){}
+    ~FinishedTransferProxy() override {}
 
     QString uploadTitle();
     QString downloadTitle();
@@ -80,13 +80,13 @@ typedef QVariantMap VarMap;
 friend class dcpp::Singleton< FinishedTransfers<isUpload> >;
 
 public:
-    QWidget *getWidget() { return this;}
-    QString getArenaTitle(){ return (isUpload? uploadTitle() : downloadTitle()); }
-    QString getArenaShortTitle(){ return getArenaTitle(); }
-    QMenu *getMenu() { return nullptr; }
-    ArenaWidget::Role role() const;
+    QWidget *getWidget() override { return this;}
+    QString getArenaTitle() override { return (isUpload? uploadTitle() : downloadTitle()); }
+    QString getArenaShortTitle() override { return getArenaTitle(); }
+    QMenu *getMenu() override { return nullptr; }
+    ArenaWidget::Role role() const override;
 
-    const QPixmap &getPixmap(){
+    const QPixmap &getPixmap() override {
         if (isUpload)
             return WICON(WulforUtil::eiUPLIST);
         else
@@ -94,7 +94,7 @@ public:
     }
 
 protected:
-    virtual void closeEvent(QCloseEvent *e){
+    void closeEvent(QCloseEvent *e) override {
         isUnload()? e->accept() : e->ignore();
     }
 
@@ -161,7 +161,7 @@ private:
         ArenaWidget::setState( ArenaWidget::Flags(ArenaWidget::state() | ArenaWidget::Singleton | ArenaWidget::Hidden) );
     }
 
-    ~FinishedTransfers(){
+    ~FinishedTransfers() override {
         QString key = (comboBox->currentIndex() == 0)? WS_FTRANSFERS_FILES_STATE : WS_FTRANSFERS_USERS_STATE;
         WVSET(key, treeView->header()->saveState());
 
@@ -345,7 +345,7 @@ private:
 #endif
     }
 
-    void slotTypeChanged(int index){
+    void slotTypeChanged(int index) override {
         QString from_key = (index == 0)? WS_FTRANSFERS_USERS_STATE : WS_FTRANSFERS_FILES_STATE;
         QString to_key = (index == 0)? WS_FTRANSFERS_FILES_STATE : WS_FTRANSFERS_USERS_STATE;
         QByteArray old_state = treeView->header()->saveState();
@@ -364,7 +364,7 @@ private:
             proxy->setFilterKeyColumn(COLUMN_FINISHED_CRC32);
     }
 
-    void slotClear(){
+    void slotClear() override {
         model->clearModel();
 
         try {
@@ -401,7 +401,7 @@ private:
         QDesktopServices::openUrl(QUrl::fromLocalFile(file));
     }
 
-    void slotItemDoubleClicked(const QModelIndex &proxyIndex){
+    void slotItemDoubleClicked(const QModelIndex &proxyIndex) override {
         Q_UNUSED(proxyIndex);
 
         if (comboBox->currentIndex())
@@ -435,7 +435,7 @@ private:
             openFile(f);
     }
 
-    void slotContextMenu(){
+    void slotContextMenu() override {
         static WulforUtil *WU = WulforUtil::getInstance();
 
         QItemSelectionModel *s_model = treeView->selectionModel();
@@ -507,20 +507,20 @@ private:
 
     }
 
-    void slotHeaderMenu(){
+    void slotHeaderMenu() override {
         WulforUtil::headerMenu(treeView);
     }
 
-    void slotSwitchOnlyFull(bool checked){
+    void slotSwitchOnlyFull(bool checked) override {
         proxy->setFilterFixedString((checked? "1" : ""));
     }
 
-    void slotSettingsChanged(const QString &key, const QString &){
+    void slotSettingsChanged(const QString &key, const QString &) override {
         if (key == WS_TRANSLATION_FILE)
             retranslateUi(this);
     }
 
-    void on(FinishedManagerListener::AddedFile, bool upload, const std::string &file, const FinishedFileItemPtr &item) noexcept{
+    void on(FinishedManagerListener::AddedFile, bool upload, const std::string &file, const FinishedFileItemPtr &item) noexcept override {
         if (isUpload == upload){
             VarMap params;
 
@@ -530,7 +530,7 @@ private:
         }
     }
 
-    void on(FinishedManagerListener::AddedUser, bool upload, const dcpp::HintedUser &user, const FinishedUserItemPtr &item) noexcept{
+    void on(FinishedManagerListener::AddedUser, bool upload, const dcpp::HintedUser &user, const FinishedUserItemPtr &item) noexcept override {
         if (isUpload == upload){
             VarMap params;
 
@@ -540,7 +540,7 @@ private:
         }
     }
 
-    void on(FinishedManagerListener::UpdatedFile, bool upload, const std::string &file, const FinishedFileItemPtr &item) noexcept{
+    void on(FinishedManagerListener::UpdatedFile, bool upload, const std::string &file, const FinishedFileItemPtr &item) noexcept override {
         if (isUpload == upload){
             VarMap params;
 
@@ -550,13 +550,13 @@ private:
         }
     }
 
-    void on(FinishedManagerListener::RemovedFile, bool upload, const std::string &file) noexcept{
+    void on(FinishedManagerListener::RemovedFile, bool upload, const std::string &file) noexcept override {
         if (isUpload == upload){
             emit coreRemovedFile(_q(file));
         }
     }
 
-    void on(FinishedManagerListener::UpdatedUser, bool upload, const dcpp::HintedUser &user) noexcept{
+    void on(FinishedManagerListener::UpdatedUser, bool upload, const dcpp::HintedUser &user) noexcept override {
         if (isUpload == upload){
             const FinishedManager::MapByUser &umap = FinishedManager::getInstance()->getMapByUser(isUpload);
             auto userit = umap.find(user);
@@ -573,7 +573,7 @@ private:
         }
     }
 
-    void on(FinishedManagerListener::RemovedUser, bool upload, const dcpp::HintedUser &user) noexcept{
+    void on(FinishedManagerListener::RemovedUser, bool upload, const dcpp::HintedUser &user) noexcept override {
         if (isUpload == upload){
             emit coreRemovedUser(_q(user.user->getCID().toBase32()));
         }

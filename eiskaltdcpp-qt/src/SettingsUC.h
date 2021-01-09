@@ -21,7 +21,7 @@ class SettingsUC :
 Q_OBJECT
 public:
     explicit SettingsUC(QWidget *parent = nullptr);
-    virtual ~SettingsUC();
+    ~SettingsUC() override;
 
 signals:
     void remUC(const QModelIndex&);

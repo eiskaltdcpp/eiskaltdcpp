@@ -19,7 +19,7 @@ Q_OBJECT
 
 public:
     explicit SettingsHistory(QWidget* = nullptr);
-    virtual ~SettingsHistory();
+    ~SettingsHistory() override;
 
 public Q_SLOTS:
     void ok();

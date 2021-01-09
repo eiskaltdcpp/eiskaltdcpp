@@ -32,7 +32,7 @@ private Q_SLOTS:
 private:
     GlobalTimer();
     GlobalTimer(const GlobalTimer &);
-    virtual ~GlobalTimer();
+    ~GlobalTimer() override;
     GlobalTimer &operator=(const GlobalTimer&);
 
     std::unique_ptr<QTimer> timer;

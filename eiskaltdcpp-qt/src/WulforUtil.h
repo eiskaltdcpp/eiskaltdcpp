@@ -192,7 +192,7 @@ public Q_SLOTS:
 private:
 
     WulforUtil();
-    virtual ~WulforUtil();
+    ~WulforUtil() override;
 
     bool loadUserIconsFromFile(QString);
     void clearUserIconCache();

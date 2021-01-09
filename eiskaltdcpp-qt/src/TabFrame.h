@@ -25,10 +25,10 @@ class TabFrame : public QFrame
 Q_OBJECT
 public:
     explicit TabFrame(QWidget *parent = nullptr);
-    ~TabFrame();
+    ~TabFrame() override;
 
-    virtual QSize sizeHint() const;
-    virtual QSize minimumSizeHint() const;
+    QSize sizeHint() const override;
+    QSize minimumSizeHint() const override;
 
 public Q_SLOTS:
     virtual void removeWidget(ArenaWidget *awgt);
@@ -51,8 +51,8 @@ private Q_SLOTS:
     void slotDropped(TabButton*);
 
 protected:
-    virtual void resizeEvent(QResizeEvent *e);
-    virtual bool eventFilter(QObject *, QEvent *);
+    void resizeEvent(QResizeEvent *e) override;
+    bool eventFilter(QObject *, QEvent *) override;
 
 private:
     void historyPush(ArenaWidget*);

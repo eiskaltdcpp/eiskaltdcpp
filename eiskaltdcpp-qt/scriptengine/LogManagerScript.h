@@ -29,11 +29,11 @@ Q_SIGNALS:
     void message(const QString &tstamp, const QString &msg);
 
 protected:
-    virtual void on(Message, time_t, const dcpp::string&) throw();
+    void on(Message, time_t, const dcpp::string&) throw() override;
 
 private:
     LogManagerScript(QObject *parent = nullptr);
     LogManagerScript(const LogManagerScript&){}
-    ~LogManagerScript();
+    ~LogManagerScript() override;
     LogManagerScript &operator=(const LogManagerScript&){ return *this; }
 };

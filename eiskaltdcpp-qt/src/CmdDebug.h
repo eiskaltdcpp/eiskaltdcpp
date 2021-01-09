@@ -38,15 +38,15 @@ class CmdDebug : public QWidget,
     friend class dcpp::Singleton<CmdDebug>;
 public:
     explicit CmdDebug(QWidget *parent = nullptr);
-    virtual ~CmdDebug();
-    QWidget *getWidget();
-    QString getArenaTitle();
-    QString getArenaShortTitle();
-    QMenu *getMenu();
-    const QPixmap &getPixmap(){ return WICON(WulforUtil::eiCONSOLE); }
-    void requestFilter() { slotHideFindFrame(); }
-    void requestFocus() { pushButton_ClearLog->setFocus(); }
-    ArenaWidget::Role role() const { return ArenaWidget::CmdDebug; }
+    ~CmdDebug() override;
+    QWidget *getWidget() override;
+    QString getArenaTitle() override;
+    QString getArenaShortTitle() override;
+    QMenu *getMenu() override;
+    const QPixmap &getPixmap() override { return WICON(WulforUtil::eiCONSOLE); }
+    void requestFilter() override { slotHideFindFrame(); }
+    void requestFocus() override { pushButton_ClearLog->setFocus(); }
+    ArenaWidget::Role role() const override { return ArenaWidget::CmdDebug; }
 
 Q_SIGNALS:
     void coreDebugCommand(const QString&, const QString&);
@@ -61,11 +61,11 @@ private Q_SLOTS:
     void slotHideFindFrame();
 
 protected:
-    virtual bool eventFilter(QObject *obj, QEvent *e);
+    bool eventFilter(QObject *obj, QEvent *e) override;
 
 private:
-    void on(dcpp::DebugManagerListener::DebugDetection, const std::string& com) noexcept;
-    void on(dcpp::DebugManagerListener::DebugCommand, const std::string& mess, int typedir, const std::string& ip) noexcept;
+    void on(dcpp::DebugManagerListener::DebugDetection, const std::string& com) noexcept override;
+    void on(dcpp::DebugManagerListener::DebugCommand, const std::string& mess, int typedir, const std::string& ip) noexcept override;
     void addOutput(QString msg);
     void findText(QTextDocument::FindFlags );
 

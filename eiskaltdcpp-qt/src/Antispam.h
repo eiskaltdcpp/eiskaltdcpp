@@ -80,7 +80,7 @@ public slots:
 private:
 
     AntiSpam();
-    virtual ~AntiSpam();
+    ~AntiSpam() override;
 
     inline void addToList(QList<QString>&, const QList<QString>&);
     inline void remFromList(QList<QString>&, const QList<QString>&);
