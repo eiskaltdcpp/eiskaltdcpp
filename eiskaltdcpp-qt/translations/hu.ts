@@ -165,7 +165,7 @@ Kapcsolók:
 <context>
     <name>CmdDebug</name>
     <message>
-        <location filename="../src/CmdDebug.cpp" line="58"/>
+        <location filename="../src/CmdDebug.cpp" line="59"/>
         <source>Debug Console</source>
         <translation type="unfinished"></translation>
     </message>
@@ -174,33 +174,32 @@ Kapcsolók:
     <name>CustomFontModel</name>
     <message>
         <location filename="../src/CustomFontModel.cpp" line="34"/>
-        <location filename="../src/CustomFontModel.cpp" line="99"/>
+        <location filename="../src/CustomFontModel.cpp" line="98"/>
         <source>Description</source>
         <translation>Leírás</translation>
     </message>
     <message>
         <location filename="../src/CustomFontModel.cpp" line="34"/>
-        <location filename="../src/CustomFontModel.cpp" line="99"/>
+        <location filename="../src/CustomFontModel.cpp" line="98"/>
         <source>Font</source>
         <translation>Betűtípus</translation>
     </message>
     <message>
-        <location filename="../src/CustomFontModel.cpp" line="38"/>
         <source>Application</source>
-        <translation>Alkalmazás</translation>
+        <translation type="vanished">Alkalmazás</translation>
     </message>
     <message>
-        <location filename="../src/CustomFontModel.cpp" line="39"/>
+        <location filename="../src/CustomFontModel.cpp" line="38"/>
         <source>Public Chat: Chat</source>
         <translation>Publikus Chat: Chat</translation>
     </message>
     <message>
-        <location filename="../src/CustomFontModel.cpp" line="40"/>
+        <location filename="../src/CustomFontModel.cpp" line="39"/>
         <source>Public Chat: Userlist</source>
         <translation>Publikus Chat: Felhasználói lista</translation>
     </message>
     <message>
-        <location filename="../src/CustomFontModel.cpp" line="41"/>
+        <location filename="../src/CustomFontModel.cpp" line="40"/>
         <source>Private Chat</source>
         <translation>Privát Chat</translation>
     </message>
@@ -1558,42 +1557,42 @@ Kedvenc felhasználó</translation>
 <context>
     <name>IPFilterFrame</name>
     <message>
-        <location filename="../src/IPFilterFrame.cpp" line="183"/>
+        <location filename="../src/IPFilterFrame.cpp" line="177"/>
         <source>Change rule direction</source>
         <translation>Szabály irányának megváltoztatása</translation>
     </message>
     <message>
-        <location filename="../src/IPFilterFrame.cpp" line="191"/>
+        <location filename="../src/IPFilterFrame.cpp" line="185"/>
         <source>Change IP/Mask</source>
         <translation>IP/Mask megváltoztatása</translation>
     </message>
     <message>
-        <location filename="../src/IPFilterFrame.cpp" line="192"/>
+        <location filename="../src/IPFilterFrame.cpp" line="186"/>
         <source>Delete rule</source>
         <translation>Szabály törlése</translation>
     </message>
     <message>
-        <location filename="../src/IPFilterFrame.cpp" line="224"/>
+        <location filename="../src/IPFilterFrame.cpp" line="218"/>
         <source>Enter new rule</source>
         <translation>Új szabály bevitele</translation>
     </message>
     <message>
-        <location filename="../src/IPFilterFrame.cpp" line="224"/>
+        <location filename="../src/IPFilterFrame.cpp" line="218"/>
         <source>Rule:</source>
         <translation>Szabály:</translation>
     </message>
     <message>
-        <location filename="../src/IPFilterFrame.cpp" line="317"/>
+        <location filename="../src/IPFilterFrame.cpp" line="321"/>
         <source>Import list</source>
         <translation>Lista importálása</translation>
     </message>
     <message>
-        <location filename="../src/IPFilterFrame.cpp" line="371"/>
+        <location filename="../src/IPFilterFrame.cpp" line="376"/>
         <source>Export list</source>
         <translation>Lista exportálása</translation>
     </message>
     <message>
-        <location filename="../src/IPFilterFrame.cpp" line="372"/>
+        <location filename="../src/IPFilterFrame.cpp" line="377"/>
         <source>All Files (*)</source>
         <translation>Minden fájl (*.*)</translation>
     </message>
@@ -1649,7 +1648,7 @@ Kedvenc felhasználó</translation>
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../src/MainWindow.cpp" line="272"/>
+        <location filename="../src/MainWindow.cpp" line="266"/>
         <source>Ready</source>
         <translation>Kész</translation>
     </message>
@@ -1658,819 +1657,828 @@ Kedvenc felhasználó</translation>
         <translation type="vanished">Kilépés megerősítése</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="358"/>
+        <location filename="../src/MainWindow.cpp" line="347"/>
         <source>Exit program?</source>
         <translation>Biztosan kilépsz a programból?</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="360"/>
+        <location filename="../src/MainWindow.cpp" line="349"/>
         <source>Kill all humans?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="362"/>
+        <location filename="../src/MainWindow.cpp" line="351"/>
         <source>Action confirm</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="471"/>
+        <location filename="../src/MainWindow.cpp" line="460"/>
         <source>Enter user nick</source>
         <translation>Felhasználónév megadása</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="471"/>
+        <location filename="../src/MainWindow.cpp" line="460"/>
         <source>Nick</source>
         <translation>Nick</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="471"/>
+        <location filename="../src/MainWindow.cpp" line="460"/>
         <source>User</source>
         <translation>Felhasználó</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="476"/>
+        <location filename="../src/MainWindow.cpp" line="465"/>
         <source>Would you like to change other settings?</source>
         <translation>Szeretnél megváltoztatni más beállításokat is?</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1090"/>
+        <location filename="../src/MainWindow.cpp" line="1079"/>
         <source>Next widget</source>
         <translation>Következő ablak</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1091"/>
+        <location filename="../src/MainWindow.cpp" line="1080"/>
         <source>Previous widget</source>
         <translation>Előző ablak</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1092"/>
+        <location filename="../src/MainWindow.cpp" line="1081"/>
         <source>Next message</source>
         <translation>Következő üzenet</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1093"/>
+        <location filename="../src/MainWindow.cpp" line="1082"/>
         <source>Previous message</source>
         <translation>Előző üzenet</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1094"/>
+        <location filename="../src/MainWindow.cpp" line="1083"/>
         <source>Close current widget</source>
         <translation>Jelenlegi ablak bezárása</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1095"/>
+        <location filename="../src/MainWindow.cpp" line="1084"/>
         <source>Toggle main menu</source>
         <translation>Főmenü váltása</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1237"/>
+        <location filename="../src/MainWindow.cpp" line="1230"/>
         <source>Counts</source>
         <translation>Counts</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1243"/>
+        <location filename="../src/MainWindow.cpp" line="1236"/>
         <source>Download/Upload speed</source>
         <translation>Letöltési/Feltöltési sebesség</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1249"/>
+        <location filename="../src/MainWindow.cpp" line="1242"/>
         <source>Downloaded/Uploaded</source>
         <translation>Letöltve/Feltöltve</translation>
     </message>
     <message>
+        <location filename="../src/MainWindow.cpp" line="1261"/>
         <location filename="../src/MainWindow.cpp" line="1268"/>
-        <location filename="../src/MainWindow.cpp" line="1275"/>
         <source>Space free</source>
         <translation>Szabad hely</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1289"/>
+        <location filename="../src/MainWindow.cpp" line="1282"/>
         <source>Hashing progress</source>
         <translation>Indexelés folyamata</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1316"/>
+        <location filename="../src/MainWindow.cpp" line="1309"/>
         <source>&amp;File</source>
         <translation>&amp;Fájl</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1318"/>
-        <location filename="../src/MainWindow.cpp" line="2212"/>
+        <location filename="../src/MainWindow.cpp" line="1311"/>
+        <location filename="../src/MainWindow.cpp" line="2207"/>
         <source>Open magnet link</source>
         <translation>Magnetlink megnyitása</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1320"/>
-        <location filename="../src/MainWindow.cpp" line="2141"/>
+        <location filename="../src/MainWindow.cpp" line="1313"/>
+        <location filename="../src/MainWindow.cpp" line="2136"/>
         <source>Open log file</source>
         <translation>Naplófájl megnyitása</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1322"/>
+        <location filename="../src/MainWindow.cpp" line="1315"/>
         <source>Open download directory</source>
         <translation>Letöltési könyvtár megnyitása</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1324"/>
+        <location filename="../src/MainWindow.cpp" line="1317"/>
         <source>Open filelist...</source>
         <translation>Fájllista megnyitása...</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1326"/>
+        <location filename="../src/MainWindow.cpp" line="1319"/>
         <source>Calculate file TTH</source>
         <translation>Fájl TTH kiszámítása</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1328"/>
+        <location filename="../src/MainWindow.cpp" line="1321"/>
         <source>Open own filelist</source>
         <translation>Saját fájllista megnyitása</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1330"/>
+        <location filename="../src/MainWindow.cpp" line="1323"/>
         <source>Match all listings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1332"/>
-        <location filename="../src/MainWindow.cpp" line="1756"/>
+        <location filename="../src/MainWindow.cpp" line="1325"/>
+        <location filename="../src/MainWindow.cpp" line="1751"/>
         <source>Refresh share</source>
         <translation>Megosztás frissítése</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1334"/>
-        <location filename="../src/MainWindow.cpp" line="2428"/>
+        <location filename="../src/MainWindow.cpp" line="1327"/>
+        <location filename="../src/MainWindow.cpp" line="2423"/>
         <source>Hide window</source>
         <translation>Ablak elrejtése</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1337"/>
-        <location filename="../src/MainWindow.cpp" line="2426"/>
+        <location filename="../src/MainWindow.cpp" line="1330"/>
+        <location filename="../src/MainWindow.cpp" line="2421"/>
         <source>Show/hide find frame</source>
         <translation>Kereső panel mutatása/elrejtése</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1339"/>
+        <location filename="../src/MainWindow.cpp" line="1332"/>
         <source>Quit</source>
         <translation>Kilépés</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1341"/>
+        <location filename="../src/MainWindow.cpp" line="1334"/>
         <source>&amp;Hubs</source>
         <translation>&amp;Hubok</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1343"/>
+        <location filename="../src/MainWindow.cpp" line="1336"/>
         <source>Reconnect to hub</source>
         <translation>Újracsatlakozás a hubhoz</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1345"/>
+        <location filename="../src/MainWindow.cpp" line="1338"/>
         <source>Favourite hubs</source>
         <translation>Kedvenc hubok</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1347"/>
+        <location filename="../src/MainWindow.cpp" line="1340"/>
         <source>Public hubs</source>
         <translation>Publikus hubok</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1349"/>
+        <location filename="../src/MainWindow.cpp" line="1342"/>
         <source>Favourite users</source>
         <translation>Kedvenc felhasználók</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1351"/>
+        <location filename="../src/MainWindow.cpp" line="1344"/>
         <source>Quick connect</source>
         <translation>Gyors csatlakozás</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1353"/>
+        <location filename="../src/MainWindow.cpp" line="1346"/>
         <source>&amp;Tools</source>
         <translation>&amp;Eszközök</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1355"/>
+        <location filename="../src/MainWindow.cpp" line="1348"/>
         <source>Transfers</source>
         <translation>Átvitelek</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1357"/>
+        <location filename="../src/MainWindow.cpp" line="1350"/>
         <source>Download queue</source>
         <translation>Letöltési sor</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1359"/>
+        <location filename="../src/MainWindow.cpp" line="1352"/>
         <source>Queued Users</source>
         <translation>Sorban álló felhasználók</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1361"/>
+        <location filename="../src/MainWindow.cpp" line="1354"/>
         <source>Hub Manager</source>
         <translation>Hub kezelő</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1363"/>
+        <location filename="../src/MainWindow.cpp" line="1356"/>
         <source>Finished downloads</source>
         <translation>Befejezett letöltések</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1365"/>
+        <location filename="../src/MainWindow.cpp" line="1358"/>
         <source>Finished uploads</source>
         <translation>Befejezett feltöltések</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1367"/>
+        <location filename="../src/MainWindow.cpp" line="1360"/>
         <source>Search Spy</source>
         <translation>Keresések megfigyelése</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1369"/>
+        <location filename="../src/MainWindow.cpp" line="1362"/>
         <source>AntiSpam module</source>
         <translation>AntiSpam modul</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1371"/>
+        <location filename="../src/MainWindow.cpp" line="1364"/>
         <source>IPFilter module</source>
         <translation>IPFilter modul</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1373"/>
-        <location filename="../src/MainWindow.cpp" line="2560"/>
+        <location filename="../src/MainWindow.cpp" line="1366"/>
+        <location filename="../src/MainWindow.cpp" line="2555"/>
         <source>Hide free space bar</source>
         <translation>Szabad hely elrejtése</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1376"/>
-        <location filename="../src/MainWindow.cpp" line="2555"/>
+        <location filename="../src/MainWindow.cpp" line="1369"/>
+        <location filename="../src/MainWindow.cpp" line="2550"/>
         <source>Show free space bar</source>
         <translation>Szabad hely mutatása</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1378"/>
-        <location filename="../src/MainWindow.cpp" line="2576"/>
+        <location filename="../src/MainWindow.cpp" line="1371"/>
+        <location filename="../src/MainWindow.cpp" line="2571"/>
         <source>Hide last status message</source>
         <translation>Utolsó állapotüzenet elrejtése</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1381"/>
-        <location filename="../src/MainWindow.cpp" line="2574"/>
+        <location filename="../src/MainWindow.cpp" line="1374"/>
+        <location filename="../src/MainWindow.cpp" line="2569"/>
         <source>Show last status message</source>
         <translation>Utolsó állapotüzenetek megjelenítése</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1383"/>
-        <location filename="../src/MainWindow.cpp" line="2593"/>
+        <location filename="../src/MainWindow.cpp" line="1376"/>
+        <location filename="../src/MainWindow.cpp" line="2588"/>
         <source>Hide users statistics</source>
         <translation>Felhasználói statisztika elrejtése</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1386"/>
-        <location filename="../src/MainWindow.cpp" line="2591"/>
+        <location filename="../src/MainWindow.cpp" line="1379"/>
+        <location filename="../src/MainWindow.cpp" line="2586"/>
         <source>Show users statistics</source>
         <translation>Felhasználói statisztika mutatása</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1388"/>
+        <location filename="../src/MainWindow.cpp" line="1381"/>
         <source>Away message</source>
         <translation>Away üzenet</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1390"/>
+        <location filename="../src/MainWindow.cpp" line="1383"/>
         <source>On</source>
         <translation>Be</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1392"/>
+        <location filename="../src/MainWindow.cpp" line="1385"/>
         <source>Off</source>
         <translation>Ki</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1394"/>
+        <location filename="../src/MainWindow.cpp" line="1387"/>
         <source>Away when not visible</source>
         <translation>Away-mód bekapcsolása, mikor nem látható</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1396"/>
+        <location filename="../src/MainWindow.cpp" line="1389"/>
         <source>Copy window title</source>
         <translation>Címsor másolása</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1398"/>
+        <location filename="../src/MainWindow.cpp" line="1391"/>
         <source>Preferences</source>
         <translation>Beállítások</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1400"/>
+        <location filename="../src/MainWindow.cpp" line="1393"/>
         <source>Search</source>
         <translation>Keresés</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1402"/>
+        <location filename="../src/MainWindow.cpp" line="1395"/>
         <source>ADLSearch</source>
         <translation>ADL Keresés</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1404"/>
+        <location filename="../src/MainWindow.cpp" line="1397"/>
         <source>Debug Console</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1406"/>
+        <location filename="../src/MainWindow.cpp" line="1399"/>
         <source>Speed limit On/Off</source>
         <translation>Sebességkorlátozás ki/be</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1409"/>
+        <location filename="../src/MainWindow.cpp" line="1402"/>
         <source>Scripts Manager</source>
         <translation>Szkript kezelő</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1411"/>
+        <location filename="../src/MainWindow.cpp" line="1404"/>
         <source>Script Console</source>
         <translation>Szkript konzol</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1414"/>
+        <location filename="../src/MainWindow.cpp" line="1407"/>
         <source>Clear chat</source>
         <translation>Chat törlése</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1416"/>
+        <location filename="../src/MainWindow.cpp" line="1409"/>
         <source>Find/Filter</source>
         <translation>Keresés/Szűrés</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1418"/>
+        <location filename="../src/MainWindow.cpp" line="1411"/>
         <source>Disable/enable chat</source>
         <translation>Chat tiltása/engedélyezése</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1420"/>
+        <location filename="../src/MainWindow.cpp" line="1413"/>
         <source>&amp;Widgets</source>
         <translation>&amp;Ablakok</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1422"/>
+        <location filename="../src/MainWindow.cpp" line="1415"/>
         <source>&amp;Panels</source>
         <translation>&amp;Eszköztárak</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1425"/>
+        <location filename="../src/MainWindow.cpp" line="1418"/>
         <source>Widgets panel</source>
         <translation>Ablak eszköztár</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1427"/>
+        <location filename="../src/MainWindow.cpp" line="1420"/>
         <source>Widgets side dock</source>
         <translation>Navigációs oldalsáv</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1429"/>
+        <location filename="../src/MainWindow.cpp" line="1422"/>
         <source>Tools panel</source>
         <translation>Alap eszköztár</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1431"/>
+        <location filename="../src/MainWindow.cpp" line="1424"/>
         <source>Fast search panel</source>
         <translation>Gyorskereső panel</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1433"/>
+        <location filename="../src/MainWindow.cpp" line="1426"/>
         <source>&amp;Help</source>
         <translation>&amp;Segítség</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1435"/>
+        <location filename="../src/MainWindow.cpp" line="1428"/>
         <source>Homepage</source>
         <translation>Weboldal</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1437"/>
         <source>Source (git)</source>
-        <translation>Forrás (git)</translation>
+        <translation type="vanished">Forrás (git)</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1439"/>
+        <location filename="../src/MainWindow.cpp" line="1432"/>
         <source>Report a Bug</source>
         <translation>Hiba jelentése</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1441"/>
+        <location filename="../src/MainWindow.cpp" line="1434"/>
         <source>Wiki of project</source>
         <translation>A projekt Wiki oldala</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1443"/>
+        <location filename="../src/MainWindow.cpp" line="1436"/>
         <source>Changelog (git)</source>
         <translation>Változások (git)</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1445"/>
+        <location filename="../src/MainWindow.cpp" line="1438"/>
+        <source>Source code (git)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="1440"/>
         <source>About EiskaltDC++</source>
         <translation>Névjegy: EiskaltDC++</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1447"/>
+        <location filename="../src/MainWindow.cpp" line="1442"/>
         <source>About Qt</source>
         <translation>Névjegy: Qt</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1450"/>
-        <location filename="../src/MainWindow.cpp" line="1482"/>
+        <location filename="../src/MainWindow.cpp" line="1445"/>
+        <location filename="../src/MainWindow.cpp" line="1477"/>
         <source>Actions</source>
         <translation>Lehetőségek</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1453"/>
+        <location filename="../src/MainWindow.cpp" line="1448"/>
         <source>Main layout</source>
         <translation>Fő elrendezés</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1687"/>
+        <location filename="../src/MainWindow.cpp" line="1682"/>
         <source>%1/s / %2/s</source>
         <translation>%1/s / %2/s</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1688"/>
+        <location filename="../src/MainWindow.cpp" line="1683"/>
         <source>%1 / %2</source>
         <translation>%1 / %2</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1695"/>
+        <location filename="../src/MainWindow.cpp" line="1690"/>
         <source>/s</source>
         <translation>/s</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1715"/>
+        <location filename="../src/MainWindow.cpp" line="1710"/>
         <source>Free %1</source>
         <translation>Szabad %1</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1718"/>
+        <location filename="../src/MainWindow.cpp" line="1713"/>
         <source>Free %1 of %2</source>
         <translation>Szabad %1 a %2 -ból/ből</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1765"/>
-        <location filename="../src/MainWindow.cpp" line="1775"/>
-        <location filename="../src/MainWindow.cpp" line="1791"/>
-        <location filename="../src/MainWindow.cpp" line="1806"/>
+        <location filename="../src/MainWindow.cpp" line="1760"/>
+        <location filename="../src/MainWindow.cpp" line="1770"/>
+        <location filename="../src/MainWindow.cpp" line="1786"/>
+        <location filename="../src/MainWindow.cpp" line="1801"/>
         <source>Hash progress</source>
         <translation>Indexelés folyamata</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1768"/>
+        <location filename="../src/MainWindow.cpp" line="1763"/>
         <source>List update</source>
         <translation>Fájl-lista frissítés</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1780"/>
+        <location filename="../src/MainWindow.cpp" line="1775"/>
         <source>Delayed</source>
         <translation>Késleltetett</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1795"/>
+        <location filename="../src/MainWindow.cpp" line="1790"/>
         <source>Paused</source>
         <translation>Megállítva</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1809"/>
+        <location filename="../src/MainWindow.cpp" line="1804"/>
         <source>%p%</source>
         <translation>%p%</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1898"/>
+        <location filename="../src/MainWindow.cpp" line="1893"/>
         <source>Choose file to open</source>
         <translation>Fájl megnyitása</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1900"/>
+        <location filename="../src/MainWindow.cpp" line="1895"/>
         <source>Modern XML Filelists</source>
         <translation>Modern XML fájllista</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1901"/>
+        <location filename="../src/MainWindow.cpp" line="1896"/>
         <source>Modern XML Filelists uncompressed</source>
         <translation>Modern, nem tömörített XML fájllista</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1902"/>
+        <location filename="../src/MainWindow.cpp" line="1897"/>
         <source>All files</source>
         <translation>Minden fájl</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="1913"/>
+        <location filename="../src/MainWindow.cpp" line="1908"/>
         <source>Unable to load file list: Invalid file list name</source>
         <translation>A fájllista nem megnyitható: Érvénytelen fájllista név</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2083"/>
+        <location filename="../src/MainWindow.cpp" line="2078"/>
         <source>Menu</source>
         <translation>Menü</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2120"/>
+        <location filename="../src/MainWindow.cpp" line="2115"/>
         <source>Unable to open %1 port. Searching or file transfers will not work correctly until you change settings or turn off any application that might be using that port.</source>
         <translation>A %1 port megnyitása nem sikerült. A keresés, vagy a fájl átvitel nem fog megfelelően működni addig, amíg nem változtatsz a beállításokon, vagy a kívánt portot használó alkalmazást be nem zárod.</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2121"/>
+        <location filename="../src/MainWindow.cpp" line="2116"/>
         <source>Connectivity Manager: Warning</source>
         <translation>Kapcsolat kezelő: Figyelmeztetés</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2141"/>
+        <location filename="../src/MainWindow.cpp" line="2136"/>
         <source>Log files (*.log);;All files (*.*)</source>
         <translation>Naplófájlok (*.log);;Minden fájl (*.*)</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2212"/>
+        <location filename="../src/MainWindow.cpp" line="2207"/>
         <source>Enter magnet link:</source>
         <translation>Magnetlink megadása:</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2366"/>
+        <location filename="../src/MainWindow.cpp" line="2361"/>
         <source>Script Engine</source>
         <translation>Szkript motor</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2611"/>
+        <location filename="../src/MainWindow.cpp" line="2606"/>
         <source>Button style</source>
         <translation>Ikon stílus</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2612"/>
+        <location filename="../src/MainWindow.cpp" line="2607"/>
         <source>Icons only</source>
         <translation>Csak ikonok</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2613"/>
+        <location filename="../src/MainWindow.cpp" line="2608"/>
         <source>Text only</source>
         <translation>Csak szöveg</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2614"/>
+        <location filename="../src/MainWindow.cpp" line="2609"/>
         <source>Text beside icons</source>
         <translation>Szöveg az ikonok mellett</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2615"/>
+        <location filename="../src/MainWindow.cpp" line="2610"/>
         <source>Text under icons</source>
         <translation>Szöveg az ikonok alatt</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2625"/>
+        <location filename="../src/MainWindow.cpp" line="2620"/>
         <source>Customize</source>
         <translation>Tesztreszabás</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2704"/>
+        <location filename="../src/MainWindow.cpp" line="2697"/>
         <source>EiskaltDC++ is a graphical client for Direct Connect and ADC protocols.</source>
         <translation>Az EiskaltDC++ egy grafikus kliens a Direct Connect és az ADC protokollokhoz.</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2707"/>
+        <location filename="../src/MainWindow.cpp" line="2700"/>
         <source>DC++ core version: %1 (modified)</source>
         <translation>DC++ verzió: %1 (módosított)</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2710"/>
+        <location filename="../src/MainWindow.cpp" line="2703"/>
         <source>Home page: </source>
         <translation>Weboldal: </translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2715"/>
+        <location filename="../src/MainWindow.cpp" line="2708"/>
         <source>Total up: &lt;b&gt;%1&lt;/b&gt;</source>
         <translation>Öszes feltöltés: &lt;b&gt;%1&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2717"/>
+        <location filename="../src/MainWindow.cpp" line="2710"/>
         <source>Total down: &lt;b&gt;%1&lt;/b&gt;</source>
         <translation>Összes letöltés: &lt;b&gt;%1&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2719"/>
+        <location filename="../src/MainWindow.cpp" line="2712"/>
         <source>Ratio: &lt;b&gt;%1&lt;/b&gt;</source>
         <translation>Arány: &lt;b&gt;%1&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2729"/>
+        <location filename="../src/MainWindow.cpp" line="2722"/>
         <source>&lt;b&gt;Developers&lt;/b&gt;&lt;br/&gt;</source>
         <translation>&lt;b&gt;Fejlesztők&lt;/b&gt;&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2783"/>
+        <location filename="../src/MainWindow.cpp" line="2776"/>
         <source>&lt;b&gt;Graphic files&lt;/b&gt;&lt;br/&gt;</source>
         <translation>&lt;b&gt;Grafikai fájlok&lt;/b&gt;&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2804"/>
+        <location filename="../src/MainWindow.cpp" line="2797"/>
         <source>Russian translation&lt;br/&gt;</source>
         <translation>Orosz fordítás&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2810"/>
+        <location filename="../src/MainWindow.cpp" line="2803"/>
         <source>Belarusian translation&lt;br/&gt;</source>
         <translation>Fehérorosz fordítás&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2814"/>
+        <location filename="../src/MainWindow.cpp" line="2807"/>
         <source>Hungarian translation&lt;br/&gt;</source>
         <translation>Magyar fordítás&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2818"/>
+        <location filename="../src/MainWindow.cpp" line="2811"/>
         <source>French translation&lt;br/&gt;</source>
         <translation>Francia fordítás&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2821"/>
+        <location filename="../src/MainWindow.cpp" line="2814"/>
         <source>Polish translation&lt;br/&gt;</source>
         <translation>Lengyel fordítás&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2824"/>
+        <location filename="../src/MainWindow.cpp" line="2817"/>
         <source>Ukrainian translation&lt;br/&gt;</source>
         <translation>Ukrán fordítás&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2828"/>
+        <location filename="../src/MainWindow.cpp" line="2821"/>
         <source>Serbian (Cyrillic) translation&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2832"/>
+        <location filename="../src/MainWindow.cpp" line="2825"/>
         <source>Serbian (Latin) translation&lt;br/&gt;</source>
         <translation>Szerb (latin) fordítás&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2836"/>
+        <location filename="../src/MainWindow.cpp" line="2829"/>
         <source>Spanish translation&lt;br/&gt;</source>
         <translation>Spanyol fordítás&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2840"/>
+        <location filename="../src/MainWindow.cpp" line="2833"/>
         <source>Basque translation&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2843"/>
+        <location filename="../src/MainWindow.cpp" line="2836"/>
         <source>Bulgarian translation&lt;br/&gt;</source>
         <translation>Bolgár fordítás&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2846"/>
+        <location filename="../src/MainWindow.cpp" line="2839"/>
         <source>Slovak translation&lt;br/&gt;</source>
         <translation>Szlovák fordítás&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2849"/>
+        <location filename="../src/MainWindow.cpp" line="2842"/>
         <source>Czech translation&lt;br/&gt;</source>
         <translation>Cseh fordítás&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2852"/>
+        <location filename="../src/MainWindow.cpp" line="2845"/>
         <source>German translation&lt;br/&gt;</source>
         <translation>Német fordítás&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2857"/>
+        <location filename="../src/MainWindow.cpp" line="2850"/>
         <source>Greek translation&lt;br/&gt;</source>
         <translation>Görög fordítás&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2860"/>
+        <location filename="../src/MainWindow.cpp" line="2853"/>
         <source>Italian translation&lt;br/&gt;</source>
         <translation>Olasz fordítás&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2864"/>
+        <location filename="../src/MainWindow.cpp" line="2857"/>
         <source>Portuguese (Brazil) translation&lt;br/&gt;</source>
         <translation>Portugál (Brazil) fordítás&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2867"/>
+        <location filename="../src/MainWindow.cpp" line="2860"/>
         <source>Vietnamese translation&lt;br/&gt;</source>
         <translation>Vietnami fordítás&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2870"/>
+        <location filename="../src/MainWindow.cpp" line="2863"/>
         <source>Chinese (China) translation&lt;br/&gt;</source>
         <translation>Kínai (Kína) fordítás&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2873"/>
+        <location filename="../src/MainWindow.cpp" line="2866"/>
         <source>Swedish (Sweden) translation&lt;br/&gt;</source>
         <translation>Svéd (Svédország) fordítás&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2876"/>
+        <location filename="../src/MainWindow.cpp" line="2869"/>
         <source>Turkish translation&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="3107"/>
+        <location filename="../src/MainWindow.cpp" line="3100"/>
         <source>Additional</source>
         <translation>Egyéb</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="3108"/>
+        <location filename="../src/MainWindow.cpp" line="3101"/>
         <source>Suppress sound notifications</source>
         <translation>Hangértesítések felfüggesztése</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="3109"/>
+        <location filename="../src/MainWindow.cpp" line="3102"/>
         <source>Suppress text notifications</source>
         <translation>Szöveges értesítések felfüggesztése</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="3103"/>
+        <location filename="../src/MainWindow.cpp" line="3096"/>
         <source>Setup speed limits</source>
         <translation>Sebességkorlátok beállítása</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2726"/>
+        <location filename="../src/MainWindow.cpp" line="1430"/>
+        <source>Download program</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="2719"/>
         <source>Please use &lt;a href=&quot;https://github.com/eiskaltdcpp/eiskaltdcpp/issues&quot;&gt;https://github.com/eiskaltdcpp/eiskaltdcpp/issues&lt;/a&gt; to report bugs.&lt;br/&gt;</source>
         <translation>Kérlek használd a &lt;a href=&quot;https://github.com/eiskaltdcpp/eiskaltdcpp/issues&quot;&gt;https://github.com/eiskaltdcpp/eiskaltdcpp/issues&lt;/a&gt; címet a hibák jelentéséhez.&lt;br/&gt;&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2733"/>
-        <location filename="../src/MainWindow.cpp" line="2761"/>
+        <location filename="../src/MainWindow.cpp" line="2726"/>
+        <location filename="../src/MainWindow.cpp" line="2754"/>
         <source>lead developer</source>
         <translation>főfejlesztő</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2736"/>
-        <location filename="../src/MainWindow.cpp" line="2758"/>
+        <location filename="../src/MainWindow.cpp" line="2729"/>
+        <location filename="../src/MainWindow.cpp" line="2751"/>
         <source>release manager</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2741"/>
+        <location filename="../src/MainWindow.cpp" line="2734"/>
         <source>Arch Linux maintainer</source>
         <translation>Arch Linux karbantartó</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2744"/>
-        <location filename="../src/MainWindow.cpp" line="2752"/>
-        <location filename="../src/MainWindow.cpp" line="2775"/>
-        <location filename="../src/MainWindow.cpp" line="2780"/>
+        <location filename="../src/MainWindow.cpp" line="2737"/>
+        <location filename="../src/MainWindow.cpp" line="2745"/>
+        <location filename="../src/MainWindow.cpp" line="2768"/>
+        <location filename="../src/MainWindow.cpp" line="2773"/>
         <source>developer</source>
         <translation>fejlesztő</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2749"/>
+        <location filename="../src/MainWindow.cpp" line="2742"/>
         <source>Debian/Ubuntu maintainer</source>
         <translation>Debian/Ubuntu karbantartó</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2755"/>
+        <location filename="../src/MainWindow.cpp" line="2748"/>
         <source>translations coordinator</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2764"/>
+        <location filename="../src/MainWindow.cpp" line="2757"/>
         <source>macOS maintainer</source>
         <translation>macOS karbantartó</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2767"/>
-        <location filename="../src/MainWindow.cpp" line="2772"/>
+        <location filename="../src/MainWindow.cpp" line="2760"/>
+        <location filename="../src/MainWindow.cpp" line="2765"/>
         <source>MS Windows maintainer</source>
         <translation>MS Windows karbantartó</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2787"/>
+        <location filename="../src/MainWindow.cpp" line="2780"/>
         <source>creator of the logo of the project</source>
         <translation>a projekt logójának készítője</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2792"/>
+        <location filename="../src/MainWindow.cpp" line="2785"/>
         <source>tiny updates of the logo</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2800"/>
+        <location filename="../src/MainWindow.cpp" line="2793"/>
         <source>Participate in the translation. It is easy:</source>
         <translation>Vegyen részt a fordításban, könnyű:</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2916"/>
+        <location filename="../src/MainWindow.cpp" line="2909"/>
         <source>Show close buttons</source>
         <translation>Bezárási gombok mutatása</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2948"/>
+        <location filename="../src/MainWindow.cpp" line="2941"/>
         <source>[No name]</source>
         <translation>[Névtelen]</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="3037"/>
+        <location filename="../src/MainWindow.cpp" line="3030"/>
         <source>Download Queue</source>
         <translation>Letöltési sor</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="3037"/>
+        <location filename="../src/MainWindow.cpp" line="3030"/>
         <source>All downloads complete</source>
         <translation>Minden letöltés kész</translation>
     </message>
@@ -2516,12 +2524,11 @@ Kedvenc felhasználó</translation>
         <translation>Kilépés</translation>
     </message>
     <message>
-        <location filename="../src/Notification.cpp" line="229"/>
         <source>&lt;b&gt;Speed&lt;/b&gt;&lt;br/&gt;Download: &lt;font_color=&quot;green&quot;&gt;%1&lt;/font&gt; Upload: &lt;font_color=&quot;red&quot;&gt;%2&lt;/font&gt;&lt;br/&gt;&lt;b&gt;Statistics&lt;/b&gt;&lt;br/&gt;Downloaded: &lt;font_color=&quot;green&quot;&gt;%3&lt;/font&gt; Uploaded: &lt;font_color=&quot;red&quot;&gt;%4&lt;/font&gt;</source>
-        <translation>&lt;b&gt;Sebesség&lt;/b&gt;&lt;br/&gt;Letöltés: &lt;font_color=&quot;green&quot;&gt;%1&lt;/font&gt; Feltöltés: &lt;font_color=&quot;red&quot;&gt;%2&lt;/font&gt;&lt;br/&gt;&lt;b&gt;Statisztika&lt;/b&gt;&lt;br/&gt;Letöltve: &lt;font_color=&quot;green&quot;&gt;%3&lt;/font&gt; Feltöltve: &lt;font_color=&quot;red&quot;&gt;%4&lt;/font&gt;</translation>
+        <translation type="vanished">&lt;b&gt;Sebesség&lt;/b&gt;&lt;br/&gt;Letöltés: &lt;font_color=&quot;green&quot;&gt;%1&lt;/font&gt; Feltöltés: &lt;font_color=&quot;red&quot;&gt;%2&lt;/font&gt;&lt;br/&gt;&lt;b&gt;Statisztika&lt;/b&gt;&lt;br/&gt;Letöltve: &lt;font_color=&quot;green&quot;&gt;%3&lt;/font&gt; Feltöltve: &lt;font_color=&quot;red&quot;&gt;%4&lt;/font&gt;</translation>
     </message>
     <message>
-        <location filename="../src/Notification.cpp" line="240"/>
+        <location filename="../src/Notification.cpp" line="228"/>
         <source>Speed
 Download: %1 Upload: %2
 Statistics
@@ -2707,27 +2714,27 @@ Letöltve: %3 Feltöltve: %4</translation>
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../src/main.cpp" line="82"/>
+        <location filename="../src/main.cpp" line="81"/>
         <source>Loading: </source>
         <translation>Betöltés: </translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="180"/>
+        <location filename="../src/main.cpp" line="179"/>
         <source>UserList icons has been loaded</source>
         <translation>Felhasználói lista ikonjai betöltve</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="183"/>
+        <location filename="../src/main.cpp" line="182"/>
         <source>Application icons has been loaded</source>
         <translation>Az alkalmazás ikonjai betöltve</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="236"/>
+        <location filename="../src/main.cpp" line="235"/>
         <source>Shutting down libeiskaltdcpp...</source>
         <translation>libeiskaltdcpp leállítása...</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="271"/>
+        <location filename="../src/main.cpp" line="265"/>
         <source>Quit...</source>
         <translation>Kilépés...</translation>
     </message>
@@ -3254,177 +3261,177 @@ Letöltve: %3 Feltöltve: %4</translation>
         <translation>Alapértelmezett (újraindítás szükséges)</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="74"/>
+        <location filename="../src/SettingsGUI.cpp" line="66"/>
         <source>English</source>
         <translation>Angol</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="75"/>
+        <location filename="../src/SettingsGUI.cpp" line="67"/>
         <source>Russian</source>
         <translation>Orosz</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="76"/>
+        <location filename="../src/SettingsGUI.cpp" line="68"/>
         <source>Belarusian</source>
         <translation>Belorusz</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="77"/>
+        <location filename="../src/SettingsGUI.cpp" line="69"/>
         <source>Hungarian</source>
         <translation>Magyar</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="78"/>
+        <location filename="../src/SettingsGUI.cpp" line="70"/>
         <source>French</source>
         <translation>Francia</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="79"/>
+        <location filename="../src/SettingsGUI.cpp" line="71"/>
         <source>Polish</source>
         <translation>Lengyel</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="80"/>
+        <location filename="../src/SettingsGUI.cpp" line="72"/>
         <source>Portuguese (Brazil)</source>
         <translation>Portugál (Brazil)</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="81"/>
+        <location filename="../src/SettingsGUI.cpp" line="73"/>
         <source>Serbian (Cyrillic)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="82"/>
+        <location filename="../src/SettingsGUI.cpp" line="74"/>
         <source>Serbian (Latin)</source>
         <translation>Szerb (Latin)</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="83"/>
+        <location filename="../src/SettingsGUI.cpp" line="75"/>
         <source>Ukrainian</source>
         <translation>Ukrán</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="84"/>
+        <location filename="../src/SettingsGUI.cpp" line="76"/>
         <source>Spanish</source>
         <translation>Spanyol</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="85"/>
+        <location filename="../src/SettingsGUI.cpp" line="77"/>
         <source>Basque</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="86"/>
+        <location filename="../src/SettingsGUI.cpp" line="78"/>
         <source>Bulgarian</source>
         <translation>Bolgár</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="87"/>
+        <location filename="../src/SettingsGUI.cpp" line="79"/>
         <source>Slovak</source>
         <translation>Szlovák</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="88"/>
+        <location filename="../src/SettingsGUI.cpp" line="80"/>
         <source>Czech</source>
         <translation>Cseh</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="89"/>
+        <location filename="../src/SettingsGUI.cpp" line="81"/>
         <source>German</source>
         <translation>Német</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="90"/>
+        <location filename="../src/SettingsGUI.cpp" line="82"/>
         <source>Greek</source>
         <translation>Görög</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="91"/>
+        <location filename="../src/SettingsGUI.cpp" line="83"/>
         <source>Italian</source>
         <translation>Olasz</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="92"/>
+        <location filename="../src/SettingsGUI.cpp" line="84"/>
         <source>Vietnamese</source>
         <translation>Vietnami</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="93"/>
+        <location filename="../src/SettingsGUI.cpp" line="85"/>
         <source>Chinese (China)</source>
         <translation>Kínai (Kína)</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="94"/>
+        <location filename="../src/SettingsGUI.cpp" line="86"/>
         <source>Swedish (Sweden)</source>
         <translation>Svéd (Svédország)</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="95"/>
+        <location filename="../src/SettingsGUI.cpp" line="87"/>
         <source>Turkish</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="233"/>
+        <location filename="../src/SettingsGUI.cpp" line="225"/>
         <source>Local user</source>
         <translation>Saját felhasználó</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="237"/>
+        <location filename="../src/SettingsGUI.cpp" line="229"/>
         <source>Operator</source>
         <translation>Operátor</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="241"/>
+        <location filename="../src/SettingsGUI.cpp" line="233"/>
         <source>Bot</source>
         <translation>Bot</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="245"/>
+        <location filename="../src/SettingsGUI.cpp" line="237"/>
         <source>Private: local user</source>
         <translation>Privát: Saját felhasználó</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="249"/>
+        <location filename="../src/SettingsGUI.cpp" line="241"/>
         <source>Private: user</source>
         <translation>Privát: Chat partner</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="253"/>
+        <location filename="../src/SettingsGUI.cpp" line="245"/>
         <source>Chat: Say nick</source>
         <translation>Chat: Saját nicknév a chatszövegben</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="257"/>
+        <location filename="../src/SettingsGUI.cpp" line="249"/>
         <source>Status</source>
         <translation>Állapot</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="261"/>
+        <location filename="../src/SettingsGUI.cpp" line="253"/>
         <source>User</source>
         <translation>Felhasználó</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="265"/>
+        <location filename="../src/SettingsGUI.cpp" line="257"/>
         <source>Favorite User</source>
         <translation>Kedvenc felhasználó</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="269"/>
+        <location filename="../src/SettingsGUI.cpp" line="261"/>
         <source>Time stamp</source>
         <translation>Idő bélyeg</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="273"/>
+        <location filename="../src/SettingsGUI.cpp" line="265"/>
         <source>Message</source>
         <translation>Üzenet</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="590"/>
+        <location filename="../src/SettingsGUI.cpp" line="565"/>
         <source>Select translation</source>
         <translation>Fordítás kiválasztása</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="592"/>
+        <location filename="../src/SettingsGUI.cpp" line="567"/>
         <source>Translation (*.qm)</source>
         <translation>Fordítás (*.qm)</translation>
     </message>
@@ -4486,17 +4493,22 @@ Biztosan le akarod állítani?
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UICmdDebug.ui" line="151"/>
+        <location filename="../ui/UICmdDebug.ui" line="154"/>
+        <source>Use comma as separator</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UICmdDebug.ui" line="157"/>
         <source>Filter by IP</source>
         <translation>Szűrés IP alapján</translation>
     </message>
     <message>
-        <location filename="../ui/UICmdDebug.ui" line="199"/>
+        <location filename="../ui/UICmdDebug.ui" line="208"/>
         <source>Lines:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UICmdDebug.ui" line="216"/>
+        <location filename="../ui/UICmdDebug.ui" line="225"/>
         <source>Clear now</source>
         <translation type="unfinished">Törlés most</translation>
     </message>
@@ -5978,148 +5990,146 @@ Ezen kívül a funkció kikapcsolása nem törli a már meglévő befejezett ele
         <translation>Beállít</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="83"/>
         <source>Application font</source>
-        <translation>Betűkészlet</translation>
+        <translation type="vanished">Betűkészlet</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="95"/>
         <source>Change</source>
-        <translation>Csere</translation>
+        <translation type="vanished">Csere</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="105"/>
+        <location filename="../ui/UISettingsGUI.ui" line="83"/>
         <source>Show icon in system tray</source>
         <translation>Ikon mutatása a rendszer-tálcán</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="114"/>
+        <location filename="../ui/UISettingsGUI.ui" line="92"/>
         <source>Remember window position on exit</source>
         <translation>Ablak pozíció megjegyzése kilépéskor</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="124"/>
+        <location filename="../ui/UISettingsGUI.ui" line="102"/>
         <source>Always hide window to system tray at startup</source>
         <translation>A program induláskor automatikusan a tálcára kerüljön</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="131"/>
+        <location filename="../ui/UISettingsGUI.ui" line="109"/>
         <source>Always show window at startup</source>
         <translation>Induláskor az ablak automatikusan látható legyen</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="143"/>
-        <location filename="../ui/UISettingsGUI.ui" line="159"/>
+        <location filename="../ui/UISettingsGUI.ui" line="121"/>
+        <location filename="../ui/UISettingsGUI.ui" line="137"/>
         <source>(need restart)</source>
         <translation>(újraindítás szükséges)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="146"/>
+        <location filename="../ui/UISettingsGUI.ui" line="124"/>
         <source>User theme</source>
         <translation>Saját téma</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="166"/>
+        <location filename="../ui/UISettingsGUI.ui" line="144"/>
         <source>Icon theme</source>
         <translation>Ikonok</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="182"/>
+        <location filename="../ui/UISettingsGUI.ui" line="160"/>
         <source>Emoticon theme</source>
         <translation>Hangulatjelek</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="200"/>
+        <location filename="../ui/UISettingsGUI.ui" line="178"/>
         <source>Try to use system icons (need restart)</source>
         <translation>Próbálja használni a rendszerikonokat (újraindítás szükséges) </translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="207"/>
+        <location filename="../ui/UISettingsGUI.ui" line="185"/>
         <source>Don&apos;t show icons in menus (need restart)</source>
         <translation>Ikonok elrejtése a menükben (újraindítás szükséges)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="215"/>
+        <location filename="../ui/UISettingsGUI.ui" line="193"/>
         <source>Use default ToolBar (need restart)</source>
         <translation>Alapértelmezett ToolBar használata (újraindítás szükséges)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="220"/>
+        <location filename="../ui/UISettingsGUI.ui" line="198"/>
         <source>Use multi-line ToolBar (need restart)</source>
         <translation>Többsoros ToolBar használata (újraindítás szükséges)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="225"/>
+        <location filename="../ui/UISettingsGUI.ui" line="203"/>
         <source>Use SideBar instead of ToolBar (need restart)</source>
         <translation>SideBar használata ToolBar helyett (újraindítást igényel)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="247"/>
+        <location filename="../ui/UISettingsGUI.ui" line="225"/>
         <source>Chat</source>
         <translation>Chat</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="253"/>
+        <location filename="../ui/UISettingsGUI.ui" line="231"/>
         <source>Show joins</source>
         <translation>Belépések mutatása</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="263"/>
+        <location filename="../ui/UISettingsGUI.ui" line="241"/>
         <source>Show joins only for favorite users</source>
         <translation>Csak a kedvenc felhasználók belépéseinek a mutatása</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="270"/>
+        <location filename="../ui/UISettingsGUI.ui" line="248"/>
         <source>Show hidden users</source>
         <translation>Rejtett felhasználók mutatása</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="277"/>
+        <location filename="../ui/UISettingsGUI.ui" line="255"/>
         <source>Ignore private messages from Hub</source>
         <translation>A hubtól érkező privát üzenetek figyelmen kívül hagyása</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="284"/>
+        <location filename="../ui/UISettingsGUI.ui" line="262"/>
         <source>Ignore private messages from Bot</source>
         <translation>A botoktól érkező privát üzenetek figyelmen kívül hagyása</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="291"/>
+        <location filename="../ui/UISettingsGUI.ui" line="269"/>
         <source>Redirect messages from Bot to the main chat</source>
         <translation>A botoktól érkező üzenetek main chatre irányítása</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="298"/>
+        <location filename="../ui/UISettingsGUI.ui" line="276"/>
         <source>Redirect new personal messages to the main chat</source>
         <translation>Új privát üzenet átirányítása a main chatre</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="305"/>
+        <location filename="../ui/UISettingsGUI.ui" line="283"/>
         <source>Do not change focus on new incoming private messages</source>
         <translation>Ne változzon a fókusz új bejövö privát üzenetnél</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="315"/>
+        <location filename="../ui/UISettingsGUI.ui" line="293"/>
         <source>Use separator for unread messages in the chat</source>
         <translation>Elválasztó használata a chaten, a nem olvasott üzenetek kiemeléséhez</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="322"/>
+        <location filename="../ui/UISettingsGUI.ui" line="300"/>
         <source>Filter kick-messages from the chat</source>
         <translation>Kick üzenetek szűrése a chaten</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="329"/>
+        <location filename="../ui/UISettingsGUI.ui" line="307"/>
         <source>Use Ctrl+Enter to send messages</source>
         <translation>Ctrl+Enter használata az üzenet küldéséhez</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="339"/>
+        <location filename="../ui/UISettingsGUI.ui" line="317"/>
         <source>Enable emoticons</source>
         <translation>Hangulatjelek engedélyezése</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="346"/>
+        <location filename="../ui/UISettingsGUI.ui" line="324"/>
         <source>If checked, you&apos;ll see emoticons even in the middle of words.
 If unchecked, you&apos;ll see emoticons only if they are isolated
 from other words by spaces.</source>
@@ -6128,195 +6138,195 @@ Ha nincs bejelölve, a hangulatjelek csak akkor láthatóak,
 ha azok egy szóközzel el vannak választva a szavaktól.</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="351"/>
+        <location filename="../ui/UISettingsGUI.ui" line="329"/>
         <source>Force emoticon parsing</source>
         <translation>Hangulatjelek kényszerítése</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="358"/>
+        <location filename="../ui/UISettingsGUI.ui" line="336"/>
         <source>Use emoticons panel</source>
         <translation>Hangulatjel panel használata</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="365"/>
+        <location filename="../ui/UISettingsGUI.ui" line="343"/>
         <source>Autohide emoticons panel</source>
         <translation>Hangulatjel panel automatikus elrejtése</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="386"/>
+        <location filename="../ui/UISettingsGUI.ui" line="364"/>
         <source>Chat (extended)</source>
         <translation>Chat (kibővített)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="400"/>
+        <location filename="../ui/UISettingsGUI.ui" line="378"/>
         <source>Double click action</source>
         <translation>Művelet dupla kattintásra</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="414"/>
-        <location filename="../ui/UISettingsGUI.ui" line="433"/>
+        <location filename="../ui/UISettingsGUI.ui" line="392"/>
+        <location filename="../ui/UISettingsGUI.ui" line="411"/>
         <source>Insert nick into input widget</source>
         <translation>Nick beillesztése a beviteli mezőbe</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="419"/>
-        <location filename="../ui/UISettingsGUI.ui" line="438"/>
+        <location filename="../ui/UISettingsGUI.ui" line="397"/>
+        <location filename="../ui/UISettingsGUI.ui" line="416"/>
         <source>Get file list</source>
         <translation>Fájllista letöltése</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="424"/>
-        <location filename="../ui/UISettingsGUI.ui" line="443"/>
+        <location filename="../ui/UISettingsGUI.ui" line="402"/>
+        <location filename="../ui/UISettingsGUI.ui" line="421"/>
         <source>Private message</source>
         <translation>Privát üzenet</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="460"/>
+        <location filename="../ui/UISettingsGUI.ui" line="438"/>
         <source>Application unit base</source>
         <translation>Alapértemezett mértékegység</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="504"/>
+        <location filename="../ui/UISettingsGUI.ui" line="482"/>
         <source>Timestamp</source>
         <translation>Időbélyeg</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="523"/>
+        <location filename="../ui/UISettingsGUI.ui" line="501"/>
         <source>Middle click action</source>
         <translation>Művelet középső kattintásra (egérgörgő)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="457"/>
+        <location filename="../ui/UISettingsGUI.ui" line="435"/>
         <source>Show kibibyte (KiB) or kilobyte (KB), etc.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="487"/>
+        <location filename="../ui/UISettingsGUI.ui" line="465"/>
         <source>Metric</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="501"/>
+        <location filename="../ui/UISettingsGUI.ui" line="479"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;These expressions may be used for the time:&lt;/p&gt;&lt;table border=&quot;0&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px;&quot; cellspacing=&quot;2&quot; cellpadding=&quot;0&quot;&gt;&lt;thead&gt;&lt;tr&gt;&lt;td&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Expression&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Output&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;h&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;the hour without a leading zero (0 to 23 or 1 to 12 if AM/PM display)&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;hh&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;the hour with a leading zero (00 to 23 or 01 to 12 if AM/PM display)&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;H&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;the hour without a leading zero (0 to 23, even with AM/PM display)&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;HH&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;the hour with a leading zero (00 to 23, even with AM/PM display)&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;m&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;the minute without a leading zero (0 to 59)&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;mm&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;the minute with a leading zero (00 to 59)&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;s&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;the second without a leading zero (0 to 59)&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;ss&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;the second with a leading zero (00 to 59)&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;z&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;the milliseconds without leading zeroes (0 to 999)&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;zzz&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;the milliseconds with leading zeroes (000 to 999)&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;AP or A&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;use AM/PM display. &lt;span style=&quot; font-style:italic;&quot;&gt;A/AP&lt;/span&gt; will be replaced by either &amp;quot;AM&amp;quot; or &amp;quot;PM&amp;quot;.&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;ap or a&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;use am/pm display. &lt;span style=&quot; font-style:italic;&quot;&gt;a/ap&lt;/span&gt; will be replaced by either &amp;quot;am&amp;quot; or &amp;quot;pm&amp;quot;.&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;t&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;the timezone (for example &amp;quot;CEST&amp;quot;)&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="542"/>
+        <location filename="../ui/UISettingsGUI.ui" line="520"/>
         <source>Default action with magnet</source>
         <translation>Alapértelmezett művelet magnet linkekkel</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="556"/>
+        <location filename="../ui/UISettingsGUI.ui" line="534"/>
         <source>Ask</source>
         <translation>Rákérdez</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="561"/>
+        <location filename="../ui/UISettingsGUI.ui" line="539"/>
         <source>Search</source>
         <translation>Keresés</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="566"/>
-        <location filename="../ui/UISettingsGUI.ui" line="878"/>
+        <location filename="../ui/UISettingsGUI.ui" line="544"/>
+        <location filename="../ui/UISettingsGUI.ui" line="856"/>
         <source>Download</source>
         <translation>Letöltés</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="591"/>
+        <location filename="../ui/UISettingsGUI.ui" line="569"/>
         <source>Remember outgoing messages (0 = don&apos;t remember)</source>
         <translation>Kimenő üzenetek megjegyzése (0 = tiltás)</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="620"/>
+        <location filename="../ui/UISettingsGUI.ui" line="598"/>
         <source>Maximum paragraphs</source>
         <translation>Maximum sorok a chaten</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="646"/>
+        <location filename="../ui/UISettingsGUI.ui" line="624"/>
         <source>Separator in chat</source>
         <translation>Elválasztó a chaten</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="675"/>
+        <location filename="../ui/UISettingsGUI.ui" line="653"/>
         <source>Highlight favorite users in user list</source>
         <translation>Kedvenc felhasználók kiemelése a felhasználói listában</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="682"/>
+        <location filename="../ui/UISettingsGUI.ui" line="660"/>
         <source>Depending on hub configuration: information about
 them is usually available only to operators</source>
         <translation>Az adott hub konfigurációjától függhet: erről használható információt
 a hub operátoraitól kaphatsz</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="686"/>
+        <location filename="../ui/UISettingsGUI.ui" line="664"/>
         <source>Show ip-addresses of users in chat</source>
         <translation>Felhasználók IP címének mutatása a chaten</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="693"/>
+        <location filename="../ui/UISettingsGUI.ui" line="671"/>
         <source>Show country of users in chat</source>
         <translation>Felhasználók országkódjainak mutatása a chaten</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="700"/>
+        <location filename="../ui/UISettingsGUI.ui" line="678"/>
         <source>Parse BBCode</source>
         <translation>BBCode feldolgozása</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="721"/>
+        <location filename="../ui/UISettingsGUI.ui" line="699"/>
         <source>Colors</source>
         <translation>Színek</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="727"/>
+        <location filename="../ui/UISettingsGUI.ui" line="705"/>
         <source>Text colors in chat</source>
         <translation>Szövegek színei a chaten</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="749"/>
+        <location filename="../ui/UISettingsGUI.ui" line="727"/>
         <source>Highlighting of search results in the chat</source>
         <translation>Keresési találatok kiemelése a chaten</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="758"/>
-        <location filename="../ui/UISettingsGUI.ui" line="816"/>
+        <location filename="../ui/UISettingsGUI.ui" line="736"/>
+        <location filename="../ui/UISettingsGUI.ui" line="794"/>
         <source>Color</source>
         <translation>Szín</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="778"/>
-        <location filename="../ui/UISettingsGUI.ui" line="833"/>
+        <location filename="../ui/UISettingsGUI.ui" line="756"/>
+        <location filename="../ui/UISettingsGUI.ui" line="811"/>
         <source>Transparency</source>
         <translation>Áttetszőség</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="807"/>
+        <location filename="../ui/UISettingsGUI.ui" line="785"/>
         <source>Highlighting of already shared files</source>
         <translation>A már megosztásban lévő fájlok kiemelése</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="862"/>
+        <location filename="../ui/UISettingsGUI.ui" line="840"/>
         <source>Transfer colors</source>
         <translation>Átvitelek színei</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="885"/>
+        <location filename="../ui/UISettingsGUI.ui" line="863"/>
         <source>Upload</source>
         <translation>Feltöltés</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="912"/>
+        <location filename="../ui/UISettingsGUI.ui" line="890"/>
         <source>Reset</source>
         <translation>Visszaállítás</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="924"/>
+        <location filename="../ui/UISettingsGUI.ui" line="902"/>
         <source>Change background color in the chat</source>
         <translation>A chat háttérszinének megváltoztatása</translation>
     </message>
     <message>
-        <location filename="../ui/UISettingsGUI.ui" line="967"/>
+        <location filename="../ui/UISettingsGUI.ui" line="945"/>
         <source>Fonts</source>
         <translation>Betűtípusok</translation>
     </message>
@@ -7116,12 +7126,12 @@ Mivel az eltellt idő alatt a megüresedett feltöltési slotot más is elfoglal
 <context>
     <name>WulforSettings</name>
     <message>
-        <location filename="../src/WulforSettings.cpp" line="404"/>
+        <location filename="../src/WulforSettings.cpp" line="398"/>
         <source>GUI setting %1: %2</source>
         <translation>Grafikusfelület beállítások %1: %2</translation>
     </message>
     <message>
-        <location filename="../src/WulforSettings.cpp" line="413"/>
+        <location filename="../src/WulforSettings.cpp" line="407"/>
         <source>Change GUI setting %1 to %2</source>
         <translation>Grafikusfelület beállítások módosítása erről: %1, erre: %2</translation>
     </message>
