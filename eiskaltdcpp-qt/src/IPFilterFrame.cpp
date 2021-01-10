@@ -38,10 +38,7 @@ IPFilterFrame::~IPFilterFrame() {
 }
 
 void IPFilterFrame::InitDocument() {
-    if (WBGET(WB_IPFILTER_ENABLED)) {
-        checkBox_ENABLE->setChecked(true);
-    } else
-        checkBox_ENABLE->setChecked(false);
+    checkBox_ENABLE->setChecked(BOOLSETTING(SettingsManager::IPFILTER));
 
     if (!model)
         model = new IPFilterModel(this);
@@ -65,7 +62,7 @@ void IPFilterFrame::InitDocument() {
 }
 
 void IPFilterFrame::slotCheckBoxClick() {
-    bool b = checkBox_ENABLE->isChecked();
+    const bool b = checkBox_ENABLE->isChecked();
 
     pushButton_EXPORT->setEnabled(b);
     pushButton_IMPORT->setEnabled(b);
@@ -77,27 +74,26 @@ void IPFilterFrame::slotCheckBoxClick() {
     pushButton_UP->setEnabled(b);
 
     if (b) {
-        if (!IPFilter::getInstance()){
-            IPFilter::newInstance();
-
-            IPFilter::getInstance()->loadList();
+        if (!IPFilter::getInstance()) {
+            IPFilter::getInstance()->load();
         }
 
         loadItems();
 
-        //connect(ipfilter::getInstance(), SIGNAL(ruleAdded(QString,eDIRECTION)), this, SLOT(slotRuleAdded(QString,eDIRECTION)));
+        //connect(ipfilter::getInstance(), SIGNAL(ruleAdded(QString,eDIRECTION)),
+        //        this, SLOT(slotRuleAdded(QString,eDIRECTION)));
 
     } else {
         if (IPFilter::getInstance()) {
-            IPFilter::getInstance()->saveList();
-
-            IPFilter::deleteInstance();
-
-            model->clearModel();
+            IPFilter::getInstance()->shutdown();
         }
+
+        model->clearModel();
+
     }
 
-    WBSET(WB_IPFILTER_ENABLED, b);
+    SettingsManager *SM = SettingsManager::getInstance();
+    SM->set(SettingsManager::IPFILTER, b);
 }
 
 void IPFilterFrame::slotRuleAdded(QString exp, eDIRECTION direction) {

@@ -86,7 +86,6 @@
 #include "dcpp/SettingsManager.h"
 #include "WulforSettings.h"
 #include "WulforUtil.h"
-#include "extra/ipfilter.h"
 
 using namespace std;
 
@@ -249,12 +248,6 @@ MainWindow::MainWindow (QWidget *parent):
 
         AntiSpam::getInstance()->loadLists();
         AntiSpam::getInstance()->loadSettings();
-    }
-
-    if (WBGET(WB_IPFILTER_ENABLED)){
-        IPFilter::newInstance();
-
-        IPFilter::getInstance()->loadList();
     }
 
     ShortcutManager::newInstance();
@@ -858,7 +851,7 @@ void MainWindow::initActions(){
         d->toolsIPFilter->setObjectName("toolsIPFilter");
         d->toolsIPFilter->setIcon(WU->getPixmap(WulforUtil::eiFILTER));
         d->toolsIPFilter->setCheckable(true);
-        d->toolsIPFilter->setChecked(IPFilter::getInstance() != nullptr);
+        d->toolsIPFilter->setChecked(BOOLSETTING(SettingsManager::IPFILTER));
         connect(d->toolsIPFilter, SIGNAL(triggered()), this, SLOT(slotToolsIPFilter()));
 
         d->toolsAwayOn = new QAction("", this);
@@ -2299,7 +2292,7 @@ void MainWindow::slotToolsIPFilter(){
 
     Q_D(MainWindow);
 
-    d->toolsIPFilter->setChecked(IPFilter::getInstance() != nullptr);
+    d->toolsIPFilter->setChecked(BOOLSETTING(SettingsManager::IPFILTER));
 }
 
 void MainWindow::slotToolsAutoAway(){

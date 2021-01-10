@@ -241,7 +241,7 @@ void IPFilter::remFromRules(string exp, eTableAction act) {
 #endif
         }
 #ifdef _DEBUG_IPFILTER
-        printf("delete *el\n");
+        printf("delete *el\n");fflush(stdout);
 #endif
         delete el;
     }
@@ -251,7 +251,7 @@ void IPFilter::changeRuleDirection(string exp, eDIRECTION direction, eTableActio
     string str_ip;
     size_t pos = exp.find("/");
 #ifdef _DEBUG_IPFILTER
-    printf("pos / - %u\n", (uint32_t)pos);
+    printf("pos / - %u\n", (uint32_t)pos);fflush(stdout);
 #endif
     if (pos != string::npos)
         str_ip = exp.erase(pos);
@@ -409,18 +409,24 @@ void IPFilter::moveRuleDown(uint32_t ip, eTableAction act){
 }
 
 void IPFilter::loadList() {
-    if (!Util::fileExists(Util::getPath(Util::PATH_USER_CONFIG) + "ipfilter"))
+    const string &&fileNameFull = Util::getPath(Util::PATH_USER_CONFIG) + "ipfilter";
+
+    if (!Util::fileExists(fileNameFull))
         return;
-    File file(Util::getPath(Util::PATH_USER_CONFIG) + "ipfilter", File::READ, File::OPEN);
-    string f = file.read();
+
+    File file(fileNameFull, File::READ, File::OPEN);
+    string fileData = file.read();
     file.close();
 #ifdef _DEBUG_IPFILTER
     fprintf(stdout,"full string: %s\n",f.c_str());fflush(stdout);
 #endif
-    if (!list_ip.empty())
-        clearRules();
 
-    StringTokenizer<string> st(f, "\n");
+    clearRules();
+
+    if (fileData.empty())
+        return;
+
+    StringTokenizer<string> st(fileData, "\n");
     for (string str_ip : st.getTokens()) {
         eDIRECTION direction = eDIRECTION_IN;
 #ifdef _DEBUG_IPFILTER
@@ -445,7 +451,6 @@ void IPFilter::loadList() {
 
         addToRules(str_ip, direction);
     }
-
 }
 
 void IPFilter::saveList(){
@@ -529,16 +534,16 @@ void IPFilter::clearRules() {
 
 void IPFilter::load() {
     if (IPFilter::getInstance())
-        IPFilter::loadList();
+        IPFilter::getInstance()->loadList();
     else {
         IPFilter::newInstance();
-        IPFilter::loadList();
+        IPFilter::getInstance()->loadList();
     }
 }
 
 void IPFilter::shutdown() {
     if (IPFilter::getInstance()) {
-        IPFilter::saveList();
+        IPFilter::getInstance()->saveList();
         IPFilter::deleteInstance();
     }
 }

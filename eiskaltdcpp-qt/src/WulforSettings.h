@@ -90,7 +90,6 @@ static const QString & WB_SEARCH_DONTHIDEPANEL    = "search-panel-dont-hide";
 static const QString & WB_ANTISPAM_ENABLED        = "antispam-enabled";
 static const QString & WB_ANTISPAM_AS_FILTER      = "antispam-as-filter";
 static const QString & WB_ANTISPAM_FILTER_OPS     = "antispam-filter-ops";
-static const QString & WB_IPFILTER_ENABLED        = "ipfilter-enabled";
 static const QString & WB_TRAY_ENABLED            = "systemtray-enabled";
 static const QString & WB_EXIT_CONFIRM            = "exit-confirm";
 static const QString & WB_SHOW_IP_IN_CHAT         = "show-ip-in-chat";

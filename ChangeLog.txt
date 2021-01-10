@@ -15,6 +15,7 @@
 * Removed option of changing font for whole application from settings. System
   fonts for menus, text labels, progress bars and other indicators are always
   used now. Fonts for chat messages are still configurable.
+* Fix IP filter work.
 
 --- 2.4.0 2020-12-03 ---
 *** common changes ***
