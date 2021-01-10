@@ -205,6 +205,7 @@ public:
 
         QMenu   *menuAbout = nullptr;
         QAction *aboutHomepage = nullptr;
+        QAction *aboutBuilds = nullptr;
         QAction *aboutSource = nullptr;
         QAction *aboutIssues = nullptr;
         QAction *aboutWiki = nullptr;
@@ -1127,6 +1128,9 @@ void MainWindow::initActions(){
         d->aboutHomepage = new QAction("", this);
         connect(d->aboutHomepage, SIGNAL(triggered()), this, SLOT(slotAboutOpenUrl()));
 
+        d->aboutBuilds = new QAction("", this);
+        connect(d->aboutBuilds, SIGNAL(triggered()), this, SLOT(slotAboutOpenUrl()));
+
         d->aboutSource = new QAction("", this);
         connect(d->aboutSource, SIGNAL(triggered()), this, SLOT(slotAboutOpenUrl()));
 
@@ -1197,11 +1201,12 @@ void MainWindow::initMenuBar(){
         d->menuAbout = new QMenu("", this);
 
         d->menuAbout->addAction(d->aboutHomepage);
-        d->menuAbout->addAction(d->aboutSource);
+        d->menuAbout->addAction(d->aboutBuilds);
         d->menuAbout->addAction(d->aboutIssues);
         d->menuAbout->addAction(d->aboutWiki);
         d->menuAbout->addAction(sep0);
         d->menuAbout->addAction(d->aboutChangelog);
+        d->menuAbout->addAction(d->aboutSource);
         d->menuAbout->addAction(sep1);
         d->menuAbout->addAction(d->aboutClient);
         d->menuAbout->addAction(d->aboutQt);
@@ -1422,13 +1427,15 @@ void MainWindow::retranslateUi(){
 
         d->aboutHomepage->setText(tr("Homepage"));
 
-        d->aboutSource->setText(tr("Source (git)"));
+        d->aboutBuilds->setText(tr("Download program"));
 
         d->aboutIssues->setText(tr("Report a Bug"));
 
         d->aboutWiki->setText(tr("Wiki of project"));
 
         d->aboutChangelog->setText(tr("Changelog (git)"));
+
+        d->aboutSource->setText(tr("Source code (git)"));
 
         d->aboutClient->setText(tr("About EiskaltDC++"));
 
@@ -2653,20 +2660,18 @@ void MainWindow::slotAboutOpenUrl(){
     Q_D(MainWindow);
 
     QAction *act = qobject_cast<QAction *>(sender());
-    if (act == d->aboutHomepage){
-        QDesktopServices::openUrl(QUrl("https://github.com/eiskaltdcpp/eiskaltdcpp/"));
-    }
-    else if (act == d->aboutSource){
-        QDesktopServices::openUrl(QUrl("https://github.com/eiskaltdcpp/eiskaltdcpp/"));
-    }
-    else if (act == d->aboutIssues){
-        QDesktopServices::openUrl(QUrl("https://github.com/eiskaltdcpp/eiskaltdcpp/issues"));
-    }
-    else if (act == d->aboutWiki){
-        QDesktopServices::openUrl(QUrl("https://github.com/eiskaltdcpp/eiskaltdcpp/wiki"));
-    }
-    else if (act == d->aboutChangelog){
-        QDesktopServices::openUrl(QUrl("https://github.com/eiskaltdcpp/eiskaltdcpp/blob/master/ChangeLog.txt"));
+
+    QHash<QAction*, QUrl> urlsTable = {
+        { d->aboutHomepage,     QUrl("https://github.com/eiskaltdcpp/eiskaltdcpp/#description") },
+        { d->aboutBuilds,       QUrl("https://github.com/eiskaltdcpp/eiskaltdcpp/#packages-and-installers") },
+        { d->aboutSource,       QUrl("https://github.com/eiskaltdcpp/eiskaltdcpp/") },
+        { d->aboutIssues,       QUrl("https://github.com/eiskaltdcpp/eiskaltdcpp/issues") },
+        { d->aboutWiki,         QUrl("https://github.com/eiskaltdcpp/eiskaltdcpp/wiki") },
+        { d->aboutChangelog,    QUrl("https://github.com/eiskaltdcpp/eiskaltdcpp/blob/master/ChangeLog.txt") },
+    };
+
+    if (urlsTable.contains(act)) {
+        QDesktopServices::openUrl(urlsTable[act]);
     }
 }
 
