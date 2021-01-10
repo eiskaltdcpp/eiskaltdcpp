@@ -2069,7 +2069,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="1438"/>
         <source>Source code (git)</source>
-        <translation type="unfinished"></translation>
+        <translation>Исходный код (git)</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1440"/>
@@ -2398,7 +2398,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="1430"/>
         <source>Download program</source>
-        <translation type="unfinished"></translation>
+        <translation>Скачать программу</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2719"/>
@@ -4500,7 +4500,7 @@ Do you want to stop it?
     <message>
         <location filename="../ui/UICmdDebug.ui" line="154"/>
         <source>Use comma as separator</source>
-        <translation type="unfinished"></translation>
+        <translation>Используйте запятую в качестве разделителя</translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="157"/>
