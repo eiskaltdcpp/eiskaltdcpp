@@ -2071,7 +2071,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="1445"/>
         <source>About EiskaltDC++</source>
-        <translation>Об EiskaltDC++</translation>
+        <translation>О EiskaltDC++</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1447"/>
@@ -2492,7 +2492,7 @@ Favorite user</source>
     <message>
         <location filename="../src/Notification.cpp" line="101"/>
         <source>Additional</source>
-        <translation>Дополнительный</translation>
+        <translation>Дополнительные</translation>
     </message>
     <message>
         <location filename="../src/Notification.cpp" line="102"/>
