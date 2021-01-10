@@ -87,9 +87,6 @@ void IPFilterFrame::slotCheckBoxClick() {
         if (IPFilter::getInstance()) {
             IPFilter::getInstance()->shutdown();
         }
-
-        model->clearModel();
-
     }
 
     SettingsManager *SM = SettingsManager::getInstance();
@@ -136,7 +133,8 @@ void IPFilterFrame::loadItems() {
                 break;
         }
 
-        model->addResult(prefix + QString::fromStdString(IPFilter::Uint32ToString(el->ip)) + "/" + QString::number(IPFilter::MaskToCIDR(el->mask)), type);
+        model->addResult(prefix + QString::fromStdString(IPFilter::Uint32ToString(el->ip)) +
+                         "/" + QString::number(IPFilter::MaskToCIDR(el->mask)), type);
     }
 }
 
@@ -273,9 +271,9 @@ void IPFilterFrame::slotAddRule() {
     if (!IPFilter::getInstance())
         return;
 
-    QString rule = lineEdit_RULE->text();
+    const QString &&rule = lineEdit_RULE->text().trimmed();
 
-    if (!(rule.trimmed().isEmpty() || rule.trimmed().isNull())) {
+    if (!(rule.isEmpty() || rule.isNull())) {
         eDIRECTION direction = eDIRECTION_OUT;
 
         if (radioButton_BOTH->isChecked())
@@ -290,12 +288,22 @@ void IPFilterFrame::slotAddRule() {
         else
             rule_list << rule;
 
-        for (int i = 0; i < rule_list.size(); i++){
-            QString ip = rule_list.at(i);
+        for (int i = 0; i < rule_list.size(); ++i){
+            QString ip = rule_list.at(i).trimmed();
 
             ip.replace(" ", "");
+            if (!ip.contains("/")) {
+                if (ip.endsWith(".255.255.255"))
+                    ip.append("/8");
+                else if (ip.endsWith(".255.255"))
+                    ip.append("/16");
+                else if (ip.endsWith(".255"))
+                    ip.append("/24");
+                else
+                    ip.append("/32");
+            }
 
-            if(IPFilter::getInstance()->addToRules(ip.trimmed().toStdString(), direction)){
+            if(IPFilter::getInstance()->addToRules(ip.toStdString(), direction)){
                 slotRuleAdded(ip, direction);
             }
 
@@ -312,11 +320,11 @@ void IPFilterFrame::slotImport() {
 
     QString fname = QFileDialog::getOpenFileName(this, tr("Import list"), QDir::homePath());
 
-    if (fname != ""){
-        fname = QDir::toNativeSeparators(fname);
+    if (!fname.isEmpty()){
 
         model->clearModel();
 
+        fname = QDir::toNativeSeparators(fname);
         std::string error;
         IPFilter::getInstance()->importFrom(fname.toStdString(), error);
 
@@ -355,9 +363,10 @@ void IPFilterFrame::slotUpDownClick(){
     treeView_RULES->selectionModel()->setCurrentIndex(index,
                                                       QItemSelectionModel::Clear);
 
-    for (int i = COLUMN_RULE_NAME; i <= COLUMN_RULE_DIRECTION; i++)
+    for (int i = COLUMN_RULE_NAME; i <= COLUMN_RULE_DIRECTION; ++i) {
         treeView_RULES->selectionModel()->setCurrentIndex(model->index(elem->row(), i, QModelIndex()),
                                                           QItemSelectionModel::Select);
+    }
 }
 
 void IPFilterFrame::slotExport() {
@@ -367,7 +376,7 @@ void IPFilterFrame::slotExport() {
     QString fname = QFileDialog::getSaveFileName(this, tr("Export list"), QDir::homePath(),
             tr("All Files (*)"));
 
-    if (fname != ""){
+    if (!fname.isEmpty()){
         fname = QDir::toNativeSeparators(fname);
         std::string err;
         IPFilter::getInstance()->exportTo(fname.toStdString(), err);
