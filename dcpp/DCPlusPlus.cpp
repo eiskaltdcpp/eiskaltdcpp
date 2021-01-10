@@ -89,7 +89,6 @@ void startup(void (*f)(void*, const string&), void* p) {
     MappingManager::newInstance();
     DynDNS::newInstance();
     DebugManager::newInstance();
-    IPFilter::newInstance();
 #ifdef LUA_SCRIPT
     ScriptManager::newInstance();
 #endif
@@ -102,6 +101,7 @@ void startup(void (*f)(void*, const string&), void* p) {
 #endif
     DynDNS::getInstance()->load();
     if (BOOLSETTING(IPFILTER)){
+        IPFilter::newInstance();
         IPFilter::getInstance()->load();
     }
 
