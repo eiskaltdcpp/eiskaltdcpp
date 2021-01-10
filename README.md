@@ -94,10 +94,10 @@ EiskaltDC++ is designed mostly for experienced users who know how DC works, whic
 
 Here are small recommendations for initial configuration after first launch of program:
 
-1. Open Preferences dialog and set nickname (it is important), default encoding for DC hubs (for example, WINDOWS-1251 for Russian hubs), type of incoming connections (active mode, firewall with UPnP or passive mode) and downloads directory.
+1. Open Preferences dialog and set nickname (it is important!), default encoding for DC hubs (for example, WINDOWS-1251 for Russian hubs), type of incoming connections (active mode, firewall with UPnP or passive mode) and downloads directory.
 2. Open Public Hubs widget and connect to few popular public hubs (you may sort list by amount of users or by total amount of shared data).
 3. Open Search widget and try to search any popular file. (Do not forget to use spaces as words separator.)
-4. Add few hubs to list of Favourite hubs and enable auto connect on program startup for them.
+4. Add few hubs to list of Favourite hubs and enable auto connection to hubs during program startup.
 5. Program settings will be saved on program exit.
 
 All programs from EiskaltDC++ project (`eiskaltdcpp-qt`, `eiskaltdcpp-gtk` and `eiskaltdcpp-daemon`) use the same common settings. So once you have correctly configured connections in EiskaltDC++ Qt, for example, you may launch `eiskaltdcpp-daemon` and use Web UI for ruling it (search files, add them to downloads queue, etc.).
