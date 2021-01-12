@@ -21,7 +21,7 @@
   Plain text tooltip is used everywhere now.
 * Added new widget "Secretary" for searching magnet links and keywords in
   public chats and private messages. So you do not need to read all chats
-  anymore for searching of messages in your area of interest: "secretary" will
+  anymore to find of messages in your area of interest: "secretary" will
   do it for you.
 * Fixed context menu for messages in private chats.
 
