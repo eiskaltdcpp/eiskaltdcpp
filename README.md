@@ -42,7 +42,7 @@ Currently supported features (not full list):
 * Flexible filter (with regular expressions support) in users list, search results, public hubs lists, file lists, etc.. (Use ##&lt;regexp&gt; string and read about Qt QRegExp syntax.)
 * Full-featured chat (different fonts, nick coloring, parsing of magnet links and other links, emoticons, chat search, chat commands, BBCode support, disable/enable/clear chat, spell check (Aspell is used), keywords highlighting in the chat, separator for unread messages, saving of chat logs, the ability to display IP addresses and countries of users in the chat (depends on hub settings: some of them hide this data for usual users).
 * User commands on hub.
-* Secretary (allows you do not read tons of useless messages in many chats to find something interesting).
+* Secretary (allows you do not read tons of useless messages in many chats to find something interesting, for example, messages with magnet links or with keywords).
 * Flexible keyboard shortcuts settings.
 * Text and sound notifications for different events.
 * Highlighting of duplicates in shared files.
