@@ -60,6 +60,7 @@ private Q_SLOTS:
     void slotFindTextEdited(const QString &text);
     void slotFindAll();
     void slotHideFindFrame();
+    void slotSettingsChanged(const QString&, const QString&);
 
 protected:
     virtual bool eventFilter(QObject *obj, QEvent *e);

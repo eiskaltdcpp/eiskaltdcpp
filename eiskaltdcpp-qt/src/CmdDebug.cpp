@@ -33,6 +33,7 @@ CmdDebug::CmdDebug(QWidget *parent)
     plainTextEdit_DEBUG->document()->setMaximumBlockCount(d->maxLines);
     plainTextEdit_DEBUG->setReadOnly(true);
     plainTextEdit_DEBUG->setMouseTracking(true);
+
     connect(this, SIGNAL(coreDebugCommand(const QString&, const QString&)), this, SLOT(addOutput(const QString&, const QString&)), Qt::QueuedConnection);
     connect(spinBoxLines, SIGNAL(valueChanged(int)), this, SLOT(maxLinesChanged(int)));
     connect(pushButton_ClearLog, SIGNAL(clicked(bool)), plainTextEdit_DEBUG, SLOT(clear()));
@@ -42,6 +43,8 @@ CmdDebug::CmdDebug(QWidget *parent)
     connect(lineEdit_FIND, SIGNAL(textEdited(QString)), this, SLOT(slotFindTextEdited(QString)));
     connect(toolButton_ALL, SIGNAL(clicked()), this, SLOT(slotFindAll()));
     DebugManager::getInstance()->addListener(this);
+
+    connect(WulforSettings::getInstance(), SIGNAL(strValueChanged(QString,QString)), this, SLOT(slotSettingsChanged(QString,QString)));
 
     ArenaWidget::setState( ArenaWidget::Flags(ArenaWidget::state() | ArenaWidget::Singleton | ArenaWidget::Hidden) );
 }
@@ -264,6 +267,11 @@ void CmdDebug::findText(QTextDocument::FindFlags flag){
         plainTextEdit_DEBUG->setTextCursor(c);
         slotFindAll();
     }
+}
+
+void CmdDebug::slotSettingsChanged(const QString &key, const QString&){
+    if (key == WS_TRANSLATION_FILE)
+        retranslateUi(this);
 }
 
 void CmdDebug::on(DebugManagerListener::DebugDetection, const string &com) noexcept {

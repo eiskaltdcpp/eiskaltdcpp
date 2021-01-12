@@ -67,6 +67,7 @@ private Q_SLOTS:
     void slotFindTextEdited(const QString &text);
     void slotFindAll();
     void slotHideFindFrame();
+    void slotSettingsChanged(const QString&, const QString&);
     void addStatus(const QString &nick, const QString &htmlMsg, const QString &origMsg, const QString &url);
     void newChatMsg(const QString &nick, const QString &htmlMsg, const QString &origMsg, const QString &url);
     void newPrivMsg(const QString &nick, const QString &htmlMsg, const QString &origMsg, const QString &url);

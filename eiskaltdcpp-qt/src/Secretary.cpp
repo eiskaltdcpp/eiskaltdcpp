@@ -66,6 +66,8 @@ Secretary::Secretary(QWidget *parent)
     connect(lineEdit_FIND, SIGNAL(textEdited(QString)), this, SLOT(slotFindTextEdited(QString)));
     connect(toolButton_ALL, SIGNAL(clicked()), this, SLOT(slotFindAll()));
 
+    connect(WulforSettings::getInstance(), SIGNAL(strValueChanged(QString,QString)), this, SLOT(slotSettingsChanged(QString,QString)));
+
     ArenaWidget::setState( ArenaWidget::Flags(ArenaWidget::state() | ArenaWidget::Singleton | ArenaWidget::Hidden) );
     updateStyles();
 }
@@ -548,6 +550,11 @@ void Secretary::findText(QTextDocument::FindFlags flag){
         textEdit_MESSAGES->setTextCursor(c);
         slotFindAll();
     }
+}
+
+void Secretary::slotSettingsChanged(const QString &key, const QString&){
+    if (key == WS_TRANSLATION_FILE)
+        retranslateUi(this);
 }
 
 void Secretary::addStatus(const QString &nick, const QString &htmlMsg, const QString &origMsg, const QString &url){
