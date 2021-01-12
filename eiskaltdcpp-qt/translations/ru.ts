@@ -1884,7 +1884,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="1369"/>
         <source>Search Spy</source>
-        <translation>Поисковой шпион</translation>
+        <translation>Поисковый шпион</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1371"/>
@@ -1980,7 +1980,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="1408"/>
         <source>Secretary</source>
-        <translation type="unfinished"></translation>
+        <translation>Секретарь</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1410"/>
@@ -3148,47 +3148,47 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/Secretary.cpp" line="84"/>
         <source>Secretary</source>
-        <translation type="unfinished"></translation>
+        <translation>Секретарь</translation>
     </message>
     <message>
         <location filename="../src/Secretary.cpp" line="311"/>
         <source>Copy</source>
-        <translation type="unfinished">Копировать</translation>
+        <translation>Копировать</translation>
     </message>
     <message>
         <location filename="../src/Secretary.cpp" line="312"/>
         <source>Search text</source>
-        <translation type="unfinished">Искать текст</translation>
+        <translation>Искать текст</translation>
     </message>
     <message>
         <location filename="../src/Secretary.cpp" line="313"/>
         <source>Copy nick</source>
-        <translation type="unfinished">Копировать ник</translation>
+        <translation>Копировать ник</translation>
     </message>
     <message>
         <location filename="../src/Secretary.cpp" line="315"/>
         <source>Clear notes</source>
-        <translation type="unfinished"></translation>
+        <translation>Очистить заметки</translation>
     </message>
     <message>
         <location filename="../src/Secretary.cpp" line="316"/>
         <source>Find in notes</source>
-        <translation type="unfinished"></translation>
+        <translation>Найти в заметках</translation>
     </message>
     <message>
         <location filename="../src/Secretary.cpp" line="318"/>
         <source>Select all</source>
-        <translation type="unfinished">Выделить всё</translation>
+        <translation>Выделить всё</translation>
     </message>
     <message>
         <location filename="../src/Secretary.cpp" line="320"/>
         <source>Zoom In</source>
-        <translation type="unfinished">Увеличить</translation>
+        <translation>Увеличить</translation>
     </message>
     <message>
         <location filename="../src/Secretary.cpp" line="321"/>
         <source>Zoom Out</source>
-        <translation type="unfinished">Уменьшить</translation>
+        <translation>Уменьшить</translation>
     </message>
 </context>
 <context>
@@ -3864,13 +3864,13 @@ Downloaded: %3 Uploaded: %4</source>
         <location filename="../src/SideBar.cpp" line="435"/>
         <location filename="../src/SideBar.cpp" line="440"/>
         <source>Secretary</source>
-        <translation type="unfinished"></translation>
+        <translation>Секретарь</translation>
     </message>
     <message>
         <location filename="../src/SideBar.cpp" line="82"/>
         <location filename="../src/SideBar.cpp" line="436"/>
         <source>Search Spy</source>
-        <translation type="unfinished">Поисковой шпион</translation>
+        <translation>Поисковый шпион</translation>
     </message>
     <message>
         <source>Spy</source>
@@ -3949,7 +3949,7 @@ Downloaded: %3 Uploaded: %4</source>
         <location filename="../src/SpyFrame.cpp" line="56"/>
         <location filename="../src/SpyFrame.h" line="39"/>
         <source>Search Spy</source>
-        <translation>Поисковой шпион</translation>
+        <translation>Поисковый шпион</translation>
     </message>
     <message>
         <location filename="../src/SpyFrame.cpp" line="57"/>
@@ -5200,63 +5200,63 @@ in options, file will be downloaded without opening search dialog.</source>
     <message>
         <location filename="../ui/UISecretary.ui" line="76"/>
         <source>Find: </source>
-        <translation type="unfinished">Поиск: </translation>
+        <translation>Поиск: </translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="90"/>
         <source>Previous (Shift+F3)</source>
-        <translation type="unfinished">Предыдущее (Shift+F3)</translation>
+        <translation>Предыдущее (Shift+F3)</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="96"/>
         <source>Shift+F3</source>
-        <translation type="unfinished">Shift+F3</translation>
+        <translation>Shift+F3</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="103"/>
         <source>Next (F3)</source>
-        <translation type="unfinished">Следующее (F3)</translation>
+        <translation>Следующее (F3)</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="109"/>
         <source>F3</source>
-        <translation type="unfinished">F3</translation>
+        <translation>F3</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="116"/>
         <source>Highlight all</source>
-        <translation type="unfinished">Подсветить все</translation>
+        <translation>Подсветить все</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="132"/>
         <source>Hide search panel (Ctrl+F)</source>
-        <translation type="unfinished">Спрятать поисковый фрейм (Ctrl+F)</translation>
+        <translation>Спрятать поисковый фрейм (Ctrl+F)</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="236"/>
         <location filename="../ui/UISecretary.ui" line="246"/>
         <source>Use comma as separator</source>
-        <translation type="unfinished">Используйте запятую в качестве разделителя</translation>
+        <translation>Используйте запятую в качестве разделителя</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="239"/>
         <source>Additional keywords</source>
-        <translation type="unfinished"></translation>
+        <translation>Дополнительные ключевые слова</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="249"/>
         <source>Filter hubs by IP</source>
-        <translation type="unfinished"></translation>
+        <translation>Фильтровать хабы по IP</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="277"/>
         <source>Lines:</source>
-        <translation type="unfinished">Строк:</translation>
+        <translation>Строк:</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="297"/>
         <source>Clear now</source>
-        <translation type="unfinished">Очистить сейчас</translation>
+        <translation>Очистить сейчас</translation>
     </message>
 </context>
 <context>
@@ -6577,7 +6577,7 @@ them is usually available only to operators</source>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="243"/>
         <source>Search Spy</source>
-        <translation>Поисковой шпион</translation>
+        <translation>Поисковый шпион</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="294"/>
