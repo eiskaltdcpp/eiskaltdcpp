@@ -165,7 +165,7 @@ EiskaltDC++ - кросплатформенна програма для робо�
 <context>
     <name>CmdDebug</name>
     <message>
-        <location filename="../src/CmdDebug.cpp" line="62"/>
+        <location filename="../src/CmdDebug.cpp" line="65"/>
         <source>Debug Console</source>
         <translation>CmdDebug</translation>
     </message>
@@ -3165,47 +3165,47 @@ Downloaded: %3 Uploaded: %4</source>
 <context>
     <name>Secretary</name>
     <message>
-        <location filename="../src/Secretary.cpp" line="84"/>
+        <location filename="../src/Secretary.cpp" line="86"/>
         <source>Secretary</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/Secretary.cpp" line="311"/>
+        <location filename="../src/Secretary.cpp" line="313"/>
         <source>Copy</source>
         <translation type="unfinished">Копіювати</translation>
     </message>
     <message>
-        <location filename="../src/Secretary.cpp" line="312"/>
+        <location filename="../src/Secretary.cpp" line="314"/>
         <source>Search text</source>
         <translation type="unfinished">Текст для пошуку</translation>
     </message>
     <message>
-        <location filename="../src/Secretary.cpp" line="313"/>
+        <location filename="../src/Secretary.cpp" line="315"/>
         <source>Copy nick</source>
         <translation type="unfinished">Копіювати нік</translation>
     </message>
     <message>
-        <location filename="../src/Secretary.cpp" line="315"/>
+        <location filename="../src/Secretary.cpp" line="317"/>
         <source>Clear notes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/Secretary.cpp" line="316"/>
+        <location filename="../src/Secretary.cpp" line="318"/>
         <source>Find in notes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/Secretary.cpp" line="318"/>
+        <location filename="../src/Secretary.cpp" line="320"/>
         <source>Select all</source>
         <translation type="unfinished">Виділити все</translation>
     </message>
     <message>
-        <location filename="../src/Secretary.cpp" line="320"/>
+        <location filename="../src/Secretary.cpp" line="322"/>
         <source>Zoom In</source>
         <translation type="unfinished">Збільшити</translation>
     </message>
     <message>
-        <location filename="../src/Secretary.cpp" line="321"/>
+        <location filename="../src/Secretary.cpp" line="323"/>
         <source>Zoom Out</source>
         <translation type="unfinished">Зменшити</translation>
     </message>
@@ -5249,6 +5249,41 @@ in options, file will be downloaded without opening search dialog.</source>
         <location filename="../ui/UISecretary.ui" line="132"/>
         <source>Hide search panel (Ctrl+F)</source>
         <translation type="unfinished">Сховати пошуковий фрейм (Ctrl+F)</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISecretary.ui" line="162"/>
+        <source>Magnet links</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISecretary.ui" line="172"/>
+        <source>Search links</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISecretary.ui" line="182"/>
+        <source>Public chat</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISecretary.ui" line="192"/>
+        <source>Status messages</source>
+        <translation type="unfinished">Статусні повідомлення</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISecretary.ui" line="202"/>
+        <source>BitTorrent links</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISecretary.ui" line="212"/>
+        <source>Private messages</source>
+        <translation type="unfinished">Приватні повідомлення</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISecretary.ui" line="222"/>
+        <source>Filter duplicates</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="236"/>

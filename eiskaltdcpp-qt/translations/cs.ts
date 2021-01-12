@@ -165,7 +165,7 @@ Keys:
 <context>
     <name>CmdDebug</name>
     <message>
-        <location filename="../src/CmdDebug.cpp" line="62"/>
+        <location filename="../src/CmdDebug.cpp" line="65"/>
         <source>Debug Console</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3139,47 +3139,47 @@ Staženo: %3 Odesláno: %4</translation>
 <context>
     <name>Secretary</name>
     <message>
-        <location filename="../src/Secretary.cpp" line="84"/>
+        <location filename="../src/Secretary.cpp" line="86"/>
         <source>Secretary</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/Secretary.cpp" line="311"/>
+        <location filename="../src/Secretary.cpp" line="313"/>
         <source>Copy</source>
         <translation type="unfinished">Kopírovat</translation>
     </message>
     <message>
-        <location filename="../src/Secretary.cpp" line="312"/>
+        <location filename="../src/Secretary.cpp" line="314"/>
         <source>Search text</source>
         <translation type="unfinished">Hledat text</translation>
     </message>
     <message>
-        <location filename="../src/Secretary.cpp" line="313"/>
+        <location filename="../src/Secretary.cpp" line="315"/>
         <source>Copy nick</source>
         <translation type="unfinished">Kopírovat přezdívku</translation>
     </message>
     <message>
-        <location filename="../src/Secretary.cpp" line="315"/>
+        <location filename="../src/Secretary.cpp" line="317"/>
         <source>Clear notes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/Secretary.cpp" line="316"/>
+        <location filename="../src/Secretary.cpp" line="318"/>
         <source>Find in notes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/Secretary.cpp" line="318"/>
+        <location filename="../src/Secretary.cpp" line="320"/>
         <source>Select all</source>
         <translation type="unfinished">Vybrat vše</translation>
     </message>
     <message>
-        <location filename="../src/Secretary.cpp" line="320"/>
+        <location filename="../src/Secretary.cpp" line="322"/>
         <source>Zoom In</source>
         <translation type="unfinished">Přiblížit</translation>
     </message>
     <message>
-        <location filename="../src/Secretary.cpp" line="321"/>
+        <location filename="../src/Secretary.cpp" line="323"/>
         <source>Zoom Out</source>
         <translation type="unfinished">Oddálit</translation>
     </message>
@@ -5223,6 +5223,41 @@ hledáni alternativ, soubor se stáhne bez otevření dialogu pro hledání.</tr
         <location filename="../ui/UISecretary.ui" line="132"/>
         <source>Hide search panel (Ctrl+F)</source>
         <translation type="unfinished">Skrýt hledání (Ctrl+F)</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISecretary.ui" line="162"/>
+        <source>Magnet links</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISecretary.ui" line="172"/>
+        <source>Search links</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISecretary.ui" line="182"/>
+        <source>Public chat</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISecretary.ui" line="192"/>
+        <source>Status messages</source>
+        <translation type="unfinished">Stavové zprávy</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISecretary.ui" line="202"/>
+        <source>BitTorrent links</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISecretary.ui" line="212"/>
+        <source>Private messages</source>
+        <translation type="unfinished">Soukromé zprávy</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISecretary.ui" line="222"/>
+        <source>Filter duplicates</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="236"/>

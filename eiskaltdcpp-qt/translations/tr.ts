@@ -165,7 +165,7 @@ Anahtarlar:
 <context>
     <name>CmdDebug</name>
     <message>
-        <location filename="../src/CmdDebug.cpp" line="62"/>
+        <location filename="../src/CmdDebug.cpp" line="65"/>
         <source>Debug Console</source>
         <translation>Hata Ayıklama Komutu</translation>
     </message>
@@ -3146,47 +3146,47 @@ Downloaded: %3 Uploaded: %4</source>
 <context>
     <name>Secretary</name>
     <message>
-        <location filename="../src/Secretary.cpp" line="84"/>
+        <location filename="../src/Secretary.cpp" line="86"/>
         <source>Secretary</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/Secretary.cpp" line="311"/>
+        <location filename="../src/Secretary.cpp" line="313"/>
         <source>Copy</source>
         <translation type="unfinished">Kopyala</translation>
     </message>
     <message>
-        <location filename="../src/Secretary.cpp" line="312"/>
+        <location filename="../src/Secretary.cpp" line="314"/>
         <source>Search text</source>
         <translation type="unfinished">Metin ara</translation>
     </message>
     <message>
-        <location filename="../src/Secretary.cpp" line="313"/>
+        <location filename="../src/Secretary.cpp" line="315"/>
         <source>Copy nick</source>
         <translation type="unfinished">Rumuzu kopyala</translation>
     </message>
     <message>
-        <location filename="../src/Secretary.cpp" line="315"/>
+        <location filename="../src/Secretary.cpp" line="317"/>
         <source>Clear notes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/Secretary.cpp" line="316"/>
+        <location filename="../src/Secretary.cpp" line="318"/>
         <source>Find in notes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/Secretary.cpp" line="318"/>
+        <location filename="../src/Secretary.cpp" line="320"/>
         <source>Select all</source>
         <translation type="unfinished">Tümünü seç</translation>
     </message>
     <message>
-        <location filename="../src/Secretary.cpp" line="320"/>
+        <location filename="../src/Secretary.cpp" line="322"/>
         <source>Zoom In</source>
         <translation type="unfinished">Yakınlaştır</translation>
     </message>
     <message>
-        <location filename="../src/Secretary.cpp" line="321"/>
+        <location filename="../src/Secretary.cpp" line="323"/>
         <source>Zoom Out</source>
         <translation type="unfinished">Uzaklaştır</translation>
     </message>
@@ -5230,6 +5230,41 @@ etkinleştirildiyse, dosya arama diyaloğu açılmadan indirilecektir.</translat
         <location filename="../ui/UISecretary.ui" line="132"/>
         <source>Hide search panel (Ctrl+F)</source>
         <translation type="unfinished">Bulma çerçevesini sakla (Ctrl+F)</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISecretary.ui" line="162"/>
+        <source>Magnet links</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISecretary.ui" line="172"/>
+        <source>Search links</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISecretary.ui" line="182"/>
+        <source>Public chat</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISecretary.ui" line="192"/>
+        <source>Status messages</source>
+        <translation type="unfinished">Durum mesajları</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISecretary.ui" line="202"/>
+        <source>BitTorrent links</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/UISecretary.ui" line="212"/>
+        <source>Private messages</source>
+        <translation type="unfinished">Özel mesajlar</translation>
+    </message>
+    <message>
+        <location filename="../ui/UISecretary.ui" line="222"/>
+        <source>Filter duplicates</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="236"/>
