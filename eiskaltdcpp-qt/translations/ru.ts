@@ -4874,42 +4874,42 @@ Do you want to stop it?
 <context>
     <name>UIHubFrame</name>
     <message>
-        <location filename="../ui/HubFrame.ui" line="100"/>
+        <location filename="../ui/HubFrame.ui" line="97"/>
         <source>Find: </source>
         <translation>Поиск: </translation>
     </message>
     <message>
-        <location filename="../ui/HubFrame.ui" line="114"/>
+        <location filename="../ui/HubFrame.ui" line="111"/>
         <source>Previous (Shift+F3)</source>
         <translation>Предыдущее (Shift+F3)</translation>
     </message>
     <message>
-        <location filename="../ui/HubFrame.ui" line="120"/>
+        <location filename="../ui/HubFrame.ui" line="117"/>
         <source>Shift+F3</source>
         <translation>Shift+F3</translation>
     </message>
     <message>
-        <location filename="../ui/HubFrame.ui" line="127"/>
+        <location filename="../ui/HubFrame.ui" line="124"/>
         <source>Next (F3)</source>
         <translation>Следующее (F3)</translation>
     </message>
     <message>
-        <location filename="../ui/HubFrame.ui" line="133"/>
+        <location filename="../ui/HubFrame.ui" line="130"/>
         <source>F3</source>
         <translation>F3</translation>
     </message>
     <message>
-        <location filename="../ui/HubFrame.ui" line="140"/>
+        <location filename="../ui/HubFrame.ui" line="137"/>
         <source>Highlight all</source>
         <translation>Подсветить все</translation>
     </message>
     <message>
-        <location filename="../ui/HubFrame.ui" line="156"/>
+        <location filename="../ui/HubFrame.ui" line="153"/>
         <source>Hide search panel (Ctrl+F)</source>
         <translation>Спрятать поисковый фрейм (Ctrl+F)</translation>
     </message>
     <message>
-        <location filename="../ui/HubFrame.ui" line="309"/>
+        <location filename="../ui/HubFrame.ui" line="306"/>
         <source>Last status message on hub</source>
         <translation>Последнее статусное сообщение на хабе</translation>
     </message>
@@ -5198,83 +5198,83 @@ in options, file will be downloaded without opening search dialog.</source>
 <context>
     <name>UISecretary</name>
     <message>
-        <location filename="../ui/UISecretary.ui" line="76"/>
+        <location filename="../ui/UISecretary.ui" line="73"/>
         <source>Find: </source>
         <translation>Поиск: </translation>
     </message>
     <message>
-        <location filename="../ui/UISecretary.ui" line="90"/>
+        <location filename="../ui/UISecretary.ui" line="87"/>
         <source>Previous (Shift+F3)</source>
         <translation>Предыдущее (Shift+F3)</translation>
     </message>
     <message>
-        <location filename="../ui/UISecretary.ui" line="96"/>
+        <location filename="../ui/UISecretary.ui" line="93"/>
         <source>Shift+F3</source>
         <translation>Shift+F3</translation>
     </message>
     <message>
-        <location filename="../ui/UISecretary.ui" line="103"/>
+        <location filename="../ui/UISecretary.ui" line="100"/>
         <source>Next (F3)</source>
         <translation>Следующее (F3)</translation>
     </message>
     <message>
-        <location filename="../ui/UISecretary.ui" line="109"/>
+        <location filename="../ui/UISecretary.ui" line="106"/>
         <source>F3</source>
         <translation>F3</translation>
     </message>
     <message>
-        <location filename="../ui/UISecretary.ui" line="116"/>
+        <location filename="../ui/UISecretary.ui" line="113"/>
         <source>Highlight all</source>
         <translation>Подсветить все</translation>
     </message>
     <message>
-        <location filename="../ui/UISecretary.ui" line="132"/>
+        <location filename="../ui/UISecretary.ui" line="129"/>
         <source>Hide search panel (Ctrl+F)</source>
         <translation>Спрятать поисковый фрейм (Ctrl+F)</translation>
     </message>
     <message>
-        <location filename="../ui/UISecretary.ui" line="162"/>
+        <location filename="../ui/UISecretary.ui" line="219"/>
         <source>Magnet links</source>
         <translation>Магнет ссылки</translation>
     </message>
     <message>
-        <location filename="../ui/UISecretary.ui" line="172"/>
+        <location filename="../ui/UISecretary.ui" line="199"/>
         <source>Search links</source>
         <translation>Поисковые ссылки</translation>
     </message>
     <message>
-        <location filename="../ui/UISecretary.ui" line="182"/>
+        <location filename="../ui/UISecretary.ui" line="209"/>
         <source>Public chat</source>
         <translation>Общие чаты</translation>
     </message>
     <message>
-        <location filename="../ui/UISecretary.ui" line="192"/>
+        <location filename="../ui/UISecretary.ui" line="179"/>
         <source>Status messages</source>
         <translation>Статусные сообщения</translation>
     </message>
     <message>
-        <location filename="../ui/UISecretary.ui" line="202"/>
+        <location filename="../ui/UISecretary.ui" line="169"/>
         <source>BitTorrent links</source>
         <translation>BitTorrent ссылки</translation>
     </message>
     <message>
-        <location filename="../ui/UISecretary.ui" line="212"/>
+        <location filename="../ui/UISecretary.ui" line="189"/>
         <source>Private messages</source>
         <translation>Личные сообщения</translation>
     </message>
     <message>
-        <location filename="../ui/UISecretary.ui" line="222"/>
+        <location filename="../ui/UISecretary.ui" line="159"/>
         <source>Filter duplicates</source>
         <translation>Фильтровать дубликаты</translation>
     </message>
     <message>
-        <location filename="../ui/UISecretary.ui" line="236"/>
+        <location filename="../ui/UISecretary.ui" line="233"/>
         <location filename="../ui/UISecretary.ui" line="246"/>
         <source>Use comma as separator</source>
         <translation>Используйте запятую в качестве разделителя</translation>
     </message>
     <message>
-        <location filename="../ui/UISecretary.ui" line="239"/>
+        <location filename="../ui/UISecretary.ui" line="236"/>
         <source>Additional keywords</source>
         <translation>Дополнительные ключевые слова</translation>
     </message>
