@@ -211,11 +211,14 @@
        </item>
        <item>
         <widget class="QSpinBox" name="spinBoxLines">
+         <property name="minimum">
+          <number>100</number>
+         </property>
          <property name="maximum">
           <number>100000</number>
          </property>
          <property name="value">
-          <number>1000</number>
+          <number>2000</number>
          </property>
         </widget>
        </item>

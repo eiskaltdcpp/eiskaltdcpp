@@ -42,6 +42,7 @@ public:
     QMenu   *getMenu();
     const QPixmap &getPixmap();
     ArenaWidget::Role role() const;
+    void requestClear();
     void requestFilter();
     void requestFocus();
     void setCompleter(QCompleter *, UserListModel *);
@@ -86,6 +87,7 @@ protected:
 private:
     void addStatusMessage(const QString &);
     void addOutput(QString);
+    void addUserData(const QString &);
 
     void updateStyles();
 

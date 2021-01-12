@@ -78,9 +78,10 @@ SideBarModel::SideBarModel(QObject *parent) :
     CREATE_ROOT_EL(rootItem, eiFAVSERVER,   tr("Favorite Hubs"),    roots,  FavoriteHubs);
     CREATE_ROOT_EL(rootItem, eiFAVUSERS,    tr("Favorite Users"),   roots,  FavoriteUsers);
     CREATE_ROOT_EL(rootItem, eiSERVER,      tr("Public Hubs"),      roots,  PublicHubs);
-    CREATE_ROOT_EL(rootItem, eiSPY,         tr("Spy"),              roots,  Spy);
+    CREATE_ROOT_EL(rootItem, eiMAGNET,      tr("Secretary"),        roots,  Secretary);
+    CREATE_ROOT_EL(rootItem, eiSPY,         tr("Search Spy"),       roots,  SearchSpy);
     CREATE_ROOT_EL(rootItem, eiCONSOLE,     tr("Debug Console"),    roots,  CmdDebug);
-    //CREATE_ROOT_EL(rootItem, eiSERVER,      tr("Hub Manager"),      roots,  HubManager);
+    //CREATE_ROOT_EL(rootItem, eiSERVER,    tr("Hub Manager"),      roots,  HubManager);
     CREATE_ROOT_EL(rootItem, eiGUI,         tr("Other Widgets"),    roots,  CustomWidget);
 
     connect(WulforSettings::getInstance(), SIGNAL(strValueChanged(QString,QString)),
@@ -431,10 +432,12 @@ void SideBarModel::slotSettingsChanged(const QString &key, const QString &value)
         RETRANSLATE_ROOT_EL(tr("Favorite Hubs"),    roots,  FavoriteHubs);
         RETRANSLATE_ROOT_EL(tr("Favorite Users"),   roots,  FavoriteUsers);
         RETRANSLATE_ROOT_EL(tr("Public Hubs"),      roots,  PublicHubs);
-        RETRANSLATE_ROOT_EL(tr("Spy"),              roots,  Spy);
+        RETRANSLATE_ROOT_EL(tr("Secretary"),        roots,  Secretary);
+        RETRANSLATE_ROOT_EL(tr("Search Spy"),       roots,  SearchSpy);
         RETRANSLATE_ROOT_EL(tr("Other Widgets"),    roots,  CustomWidget);
         RETRANSLATE_ROOT_EL(tr("Queued Users"),     roots,  QueuedUsers);
         RETRANSLATE_ROOT_EL(tr("Debug Console"),    roots,  CmdDebug);
+        RETRANSLATE_ROOT_EL(tr("Secretary"),    roots,  Secretary);
     }
 }
 

@@ -1,4 +1,4 @@
---- 2.4.1 2020-xx-xx ---
+--- 2.4.1 2021-xx-xx ---
 *** common changes ***
 * Added configuration option COMPRESS_MANPAGES (default is ON) for unix-like
   systems.
@@ -19,6 +19,11 @@
 * Stopped usage of HTML formated text in tooltip for system tray icon in
   GNU/Linux and FreeBSD systems: its displaying was broken in KDE Plasma 5.
   Plain text tooltip is used everywhere now.
+* Added new widget "Secretary" for searching magnet links and keywords in
+  public chats and private messages. So you do not need to read all chats
+  anymore for searching of messages in your area of interest: "secretary" will
+  do it for you.
+* Fixed context menu for messages in private chats.
 
 --- 2.4.0 2020-12-03 ---
 *** common changes ***

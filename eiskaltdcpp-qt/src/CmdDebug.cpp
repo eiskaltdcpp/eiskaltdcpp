@@ -48,7 +48,10 @@ CmdDebug::CmdDebug(QWidget *parent)
 
 CmdDebug::~CmdDebug()
 {
+    Q_D(CmdDebug);
+
     DebugManager::getInstance()->removeListener(this);
+    delete d;
 }
 
 QWidget *CmdDebug::getWidget() {
@@ -163,6 +166,8 @@ void CmdDebug::addOutput(const QString& msg, const QString& url) {
 }
 
 void CmdDebug::maxLinesChanged(int value){
+    Q_D(CmdDebug);
+    d->maxLines = value;
     plainTextEdit_DEBUG->document()->setMaximumBlockCount(value);
 }
 

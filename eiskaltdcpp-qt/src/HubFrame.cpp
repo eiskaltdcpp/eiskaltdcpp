@@ -19,6 +19,7 @@
 #include "WulforSettings.h"
 #include "FlowLayout.h"
 #include "SearchFrame.h"
+#include "Secretary.h"
 #ifdef USE_ASPELL
 #include "SpellCheck.h"
 #endif
@@ -373,7 +374,7 @@ QString HubFrame::Menu::getLastUserCmd() const{
     return last_user_cmd;
 }
 
-HubFrame::Menu::Action HubFrame::Menu::execChatMenu(Client *client, const QString &cid = QString(), bool pmw = false){
+HubFrame::Menu::Action HubFrame::Menu::execChatMenu(Client *client, const QString &cid, bool pmw){
     if (!client)
         return None;
 
@@ -937,8 +938,8 @@ bool HubFrame::eventFilter(QObject *obj, QEvent *e){
     else if (e->type() == QEvent::MouseButtonPress){
         QMouseEvent *m_e = reinterpret_cast<QMouseEvent*>(e);
 
-        bool isChat = (static_cast<QWidget*>(obj) == textEdit_CHAT->viewport());
-        bool isUserList = (static_cast<QWidget*>(obj) == treeView_USERS->viewport());
+        const bool isChat = (static_cast<QWidget*>(obj) == textEdit_CHAT->viewport());
+        const bool isUserList = (static_cast<QWidget*>(obj) == treeView_USERS->viewport());
 
         if (isChat)
             textEdit_CHAT->setExtraSelections(QList<QTextEdit::ExtraSelection>());
@@ -954,14 +955,14 @@ bool HubFrame::eventFilter(QObject *obj, QEvent *e){
         }
         else if ((isChat || isUserList) && m_e->button() == Qt::MidButton)
         {
-            QString nick = "";
-            QString cid = "";
+            QString nick;
+            QString cid;
             bool cursoratnick = false;
 
             if (isChat){
                 QTextCursor cursor = textEdit_CHAT->textCursor();
-                QString pressedParagraph = cursor.block().text();
-                int positionCursor = cursor.columnNumber();
+                const QString pressedParagraph = cursor.block().text();
+                const int positionCursor = cursor.columnNumber();
 
                 int l = pressedParagraph.indexOf(" <");
                 int r = pressedParagraph.indexOf("> ");
@@ -1189,7 +1190,7 @@ void HubFrame::init(){
     textEdit_CHAT->setContextMenuPolicy(Qt::CustomContextMenu);
     textEdit_CHAT->setReadOnly(true);
     textEdit_CHAT->setAutoFormatting(QTextEdit::AutoNone);
-    textEdit_CHAT->viewport()->installEventFilter(this);//QTextEdit don't receive all mouse events
+    textEdit_CHAT->viewport()->installEventFilter(this); // QTextEdit don't receive all mouse events
     textEdit_CHAT->setMouseTracking(true);
 
     if (WBGET(WB_APP_ENABLE_EMOTICON) && EmoticonFactory::getInstance())
@@ -1855,7 +1856,7 @@ bool HubFrame::parseForCmd(QString line, QWidget *wg){
             pm->sendMessage(line, true, false);
     }
     else if (cmd == "/pm" && !emptyParam){
-        addPM(d->model->CIDforNick(param, _q(d->client->getHubUrl())), "", false);
+        addPM(d->model->CIDforNick(param, _q(d->client->getHubUrl())), "", false, param);
     }
     else if (cmd == "/help" || cmd == "/?" || cmd == "/h"){
         QString out = "\n";
@@ -1992,10 +1993,13 @@ void HubFrame::addStatus(QString msg){
     if (d->chatDisabled)
         return;
 
+    const QString orig_msg = msg;
+
     QString pure_msg;
-    QString short_msg = "";
-    QString status = "";
-    QString nick    = " * ";
+    QString short_msg;
+    QString status;
+
+    QString nick = " * ";
 
     QStringList lines = msg.split(QRegExp("[\\n\\r\\f]+"), QString::SkipEmptyParts);
     for (int i = 0; i < lines.size(); ++i) {
@@ -2028,6 +2032,9 @@ void HubFrame::addStatus(QString msg){
     if (!(isRotating && WBGET(WB_CHAT_ROTATING_MSGS)))
         addOutput(status + msg);
 
+    if (Secretary::getInstance())
+        Secretary::getInstance()->coreStatusMsg("", status + msg, orig_msg, _q(d->client->getIp()));
+
     label_LAST_STATUS->setText(status + short_msg);
 
     status += pure_msg;
@@ -2051,7 +2058,17 @@ void HubFrame::addOutput(QString msg){
     textEdit_CHAT->append(msg);
 }
 
-void HubFrame::addPM(QString cid, QString output, bool keepfocus){
+void HubFrame::addUserData(const QString &nick){
+    QTextDocument *chatDoc = textEdit_CHAT->document();
+    for (QTextBlock itu = chatDoc->lastBlock(); itu.isValid(); itu = itu.previous()){
+        if (!itu.userData())
+            itu.setUserData(new UserListUserData(nick));
+        else
+            break;
+    }
+}
+
+void HubFrame::addPM(QString cid, QString output, bool keepfocus, QString nick){
     Q_D(HubFrame);
     bool redirectToMainChat = WBGET("hubframe/redirect-pm-to-main-chat", true);
 
@@ -2065,8 +2082,10 @@ void HubFrame::addPM(QString cid, QString output, bool keepfocus){
         connect(p->textEdit_CHAT, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotChatMenu(QPoint)));
 
         p->setCompleter(d->completer, d->model);
-        p->addOutput(output);
         p->setAttribute(Qt::WA_DeleteOnClose);
+        p->addOutput(output);
+        if (!nick.isEmpty())
+            p->addUserData(nick);
 
         if (!(keepfocus && WBGET(WB_CHAT_KEEPFOCUS))){
             ArenaWidgetManager::getInstance()->activate(p);
@@ -2076,8 +2095,11 @@ void HubFrame::addPM(QString cid, QString output, bool keepfocus){
 
         d->pm.insert(cid, p);
 
-        if (!p->isVisible() && redirectToMainChat)
+        if (!p->isVisible() && redirectToMainChat){
             addOutput("<b>PM: </b>" + output);
+            if (!nick.isEmpty())
+                addUserData(nick);
+        }
     }
     else{
         auto it = d->pm.find(cid);
@@ -2086,6 +2108,8 @@ void HubFrame::addPM(QString cid, QString output, bool keepfocus){
             it.value()->setHasHighlightMessages(true);
 
         it.value()->addOutput(output);
+        if (!nick.isEmpty())
+            it.value()->addUserData(nick);
 
         if (!(keepfocus && WBGET(WB_CHAT_KEEPFOCUS))){
             ArenaWidgetManager::getInstance()->activate(it.value());
@@ -2093,8 +2117,11 @@ void HubFrame::addPM(QString cid, QString output, bool keepfocus){
             it.value()->requestFocus();
         }
 
-        if (! it.value()->isVisible() && redirectToMainChat)
+        if (! it.value()->isVisible() && redirectToMainChat){
             addOutput("<b>PM: </b>" + output);
+            if (!nick.isEmpty())
+                addUserData(nick);
+        }
     }
 }
 
@@ -2368,14 +2395,14 @@ void HubFrame::disablePrivateMessages(bool disable) {
 
 void HubFrame::newMsg(const VarMap &map){
     Q_D(HubFrame);
-    QString output = "";
+    QString output;
 
     QString nick = map["NICK"].toString();
     QString message = map["MSG"].toString();
     QString time = "<font color=\"" + WSGET(WS_CHAT_TIME_COLOR)+ "\">[" + map["TIME"].toString() + "]</font>";;
     QString color = map["CLR"].toString();
     QString msg_color = WS_CHAT_MSG_COLOR;
-    QString trigger = "";
+    QString trigger;
 
     const QStringList &kwords = WVGET("hubframe/chat-keywords", QStringList()).toStringList();
 
@@ -2461,16 +2488,11 @@ void HubFrame::newMsg(const VarMap &map){
 
         chatDoc->lastBlock().setUserState(0); // add label for the last of the old messages
 
-        output.prepend(hr);
+        addOutput(hr + output);
+        addUserData(nick);
 
-        addOutput(output);
-
-        for (QTextBlock itu = chatDoc->lastBlock(); itu != chatDoc->begin(); itu = itu.previous()){
-            if (!itu.userData())
-                itu.setUserData(new UserListUserData(nick));
-            else
-                break;
-        }
+        if (Secretary::getInstance())
+            Secretary::getInstance()->coreChatMessage(nick, output, map["MSG"].toString(), _q(d->client->getIp()));
 
         for (QTextBlock it = chatDoc->begin(); it != chatDoc->end(); it = it.next()){
             if(!it.userState()){
@@ -2496,14 +2518,10 @@ void HubFrame::newMsg(const VarMap &map){
     }
 
     addOutput(output);
+    addUserData(nick);
 
-    for (QTextBlock itu = chatDoc->lastBlock(); itu != chatDoc->begin(); itu = itu.previous()){
-        if (!itu.userData())
-            itu.setUserData(new UserListUserData(nick));
-        else
-            break;
-    }
-
+    if (Secretary::getInstance())
+        Secretary::getInstance()->coreChatMessage(nick, output, map["MSG"].toString(), _q(d->client->getIp()));
 }
 
 void HubFrame::newPm(const VarMap &map){
@@ -2512,7 +2530,7 @@ void HubFrame::newPm(const VarMap &map){
     QString message = map["MSG"].toString();
     QString time    = "<font color=\"" + WSGET(WS_CHAT_TIME_COLOR)+ "\">[" + map["TIME"].toString() + "]</font>";
     QString color = map["CLR"].toString();
-    QString full_message = "";
+    QString full_message;
 
     if (nick != _q(d->client->getMyNick())){
         bool show_msg = false;
@@ -2552,7 +2570,10 @@ void HubFrame::newPm(const VarMap &map){
 
     WulforUtil::getInstance()->textToHtml(full_message, false);
 
-    addPM(map["CID"].toString(), full_message);
+    addPM(map["CID"].toString(), full_message, true, map["NICK"].toString());
+
+    if (Secretary::getInstance())
+        Secretary::getInstance()->corePrivateMsg(map["NICK"].toString(), full_message, map["MSG"].toString(), _q(d->client->getIp()));
 }
 
 void HubFrame::createPMWindow(const QString &nick){
@@ -3000,11 +3021,11 @@ void HubFrame::slotUserListMenu(const QPoint&){
 
 void HubFrame::slotChatMenu(const QPoint &){
     QTextEdit *editor = qobject_cast<QTextEdit*>(sender());
-
     if (!editor)
         return;
+
     QTextCursor cursor = editor->cursorForPosition(editor->mapFromGlobal(QCursor::pos()));
-    QString nick = "";
+    QString nick;
     if(cursor.block().userData())
         nick = static_cast<UserListUserData*>(cursor.block().userData())->data;
 

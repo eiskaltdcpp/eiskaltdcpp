@@ -36,10 +36,11 @@ public:
         Downloads,
         FinishedUploads,
         FinishedDownloads,
-        Spy,
+        SearchSpy,
         CustomWidget,
         QueuedUsers,
         CmdDebug,
+        Secretary,
         NoRole  //Not valid for widgets
     };
 
@@ -68,6 +69,7 @@ public:
     virtual Flags state() const { return flags; }
     virtual void  setState(Flags f) { flags = f; }
 
+    virtual void requestClear() {}
     virtual void requestFilter() {}
     virtual void requestFocus() {}
 

@@ -24,6 +24,7 @@
 #include "dcpp/User.h"
 
 #include <QTextBlock>
+#include <QTextDocument>
 #include <QKeyEvent>
 #include <QMouseEvent>
 #include <QEvent>
@@ -343,6 +344,10 @@ ArenaWidget::Role PMWindow::role() const {
     return ArenaWidget::PrivateMessage;
 }
 
+void PMWindow::requestClear(){
+    clearChat();
+}
+
 void PMWindow::requestFilter() {
     slotHideFindFrame();
 }
@@ -424,6 +429,16 @@ void PMWindow::addOutput(QString msg){
     if (!isVisible()) {
         hasMessages = true;
         MainWindow::getInstance()->redrawToolPanel();
+    }
+}
+
+void PMWindow::addUserData(const QString &nick){
+    QTextDocument *chatDoc = textEdit_CHAT->document();
+    for (QTextBlock itu = chatDoc->lastBlock(); itu.isValid(); itu = itu.previous()){
+        if (!itu.userData())
+            itu.setUserData(new UserListUserData(nick));
+        else
+            break;
     }
 }
 

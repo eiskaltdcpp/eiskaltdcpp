@@ -44,6 +44,7 @@ public:
     QString getArenaShortTitle();
     QMenu *getMenu();
     const QPixmap &getPixmap(){ return WICON(WulforUtil::eiCONSOLE); }
+    void requestClear() { plainTextEdit_DEBUG->clear(); }
     void requestFilter() { slotHideFindFrame(); }
     void requestFocus() { pushButton_ClearLog->setFocus(); }
     ArenaWidget::Role role() const { return ArenaWidget::CmdDebug; }
@@ -66,7 +67,6 @@ protected:
 private:
     void on(dcpp::DebugManagerListener::DebugDetection, const std::string& com) noexcept;
     void on(dcpp::DebugManagerListener::DebugCommand, const std::string& mess, int typedir, const std::string& ip) noexcept;
-    void addOutput(QString msg);
     void findText(QTextDocument::FindFlags );
 
     Q_DECLARE_PRIVATE(CmdDebug)

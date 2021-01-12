@@ -54,6 +54,7 @@
 #include "SearchFrame.h"
 #include "ADLS.h"
 #include "CmdDebug.h"
+#include "Secretary.h"
 #include "Settings.h"
 #include "FavoriteHubs.h"
 #include "PublicHubs.h"
@@ -156,7 +157,8 @@ public:
         QAction *toolsQueuedUsers = nullptr;
         QAction *toolsFinishedDownloads = nullptr;
         QAction *toolsFinishedUploads = nullptr;
-        QAction *toolsSpy = nullptr;
+        QAction *toolsSecretary = nullptr;
+        QAction *toolsSearchSpy = nullptr;
         QAction *toolsAntiSpam = nullptr;
         QAction *toolsIPFilter = nullptr;
         QAction *menuAwayAction = nullptr;
@@ -804,6 +806,11 @@ void MainWindow::initActions(){
         d->toolsCmdDebug->setIcon(WU->getPixmap(WulforUtil::eiCONSOLE));
         connect(d->toolsCmdDebug, SIGNAL(triggered()), this, SLOT(slotToolsCmdDebug()));
 
+        d->toolsSecretary = new QAction("", this);
+        d->toolsSecretary->setObjectName("toolsSecretary");
+        d->toolsSecretary->setIcon(WU->getPixmap(WulforUtil::eiMAGNET));
+        connect(d->toolsSecretary, SIGNAL(triggered()), this, SLOT(slotToolsSecretary()));
+
         d->toolsTransfers = new QAction("", this);
         d->toolsTransfers->setObjectName("toolsTransfers");
         SM->registerShortcut(d->toolsTransfers, QString("Ctrl+T"));
@@ -836,10 +843,10 @@ void MainWindow::initActions(){
         d->toolsFinishedUploads->setIcon(WU->getPixmap(WulforUtil::eiUPLIST));
         connect(d->toolsFinishedUploads, SIGNAL(triggered()), this, SLOT(slotToolsFinishedUploads()));
 
-        d->toolsSpy = new QAction("", this);
-        d->toolsSpy->setObjectName("toolsSpy");
-        d->toolsSpy->setIcon(WU->getPixmap(WulforUtil::eiSPY));
-        connect(d->toolsSpy, SIGNAL(triggered()), this, SLOT(slotToolsSpy()));
+        d->toolsSearchSpy = new QAction("", this);
+        d->toolsSearchSpy->setObjectName("toolsSpy");
+        d->toolsSearchSpy->setIcon(WU->getPixmap(WulforUtil::eiSPY));
+        connect(d->toolsSearchSpy, SIGNAL(triggered()), this, SLOT(slotToolsSpy()));
 
         d->toolsAntiSpam = new QAction("", this);
         d->toolsAntiSpam->setObjectName("toolsAntiSpam");
@@ -997,7 +1004,7 @@ void MainWindow::initActions(){
 
         d->toolsMenuActions << d->toolsSearch
                 << d->toolsADLS
-                << d->toolsCmdDebug
+                << d->toolsSecretary
                 << separator0
                 << d->toolsTransfers
                 << d->toolsDownloadQueue
@@ -1007,9 +1014,10 @@ void MainWindow::initActions(){
                 << d->toolsSwitchSpeedLimit
                 //<< toolsHubManager
                 << separator1
-                << d->toolsSpy
+                << d->toolsSearchSpy
                 << d->toolsAntiSpam
                 << d->toolsIPFilter
+                << d->toolsCmdDebug
                 << separator2
                 << d->menuAwayAction
                 << separator3
@@ -1051,7 +1059,8 @@ void MainWindow::initActions(){
                 << d->chatDisable
                 << separator5
                 << d->toolsADLS
-                << d->toolsSpy
+                << d->toolsSecretary
+                << d->toolsSearchSpy
                 << d->toolsAntiSpam
                 << d->toolsIPFilter
                 << separator6
@@ -1357,7 +1366,7 @@ void MainWindow::retranslateUi(){
 
         d->toolsFinishedUploads->setText(tr("Finished uploads"));
 
-        d->toolsSpy->setText(tr("Search Spy"));
+        d->toolsSearchSpy->setText(tr("Search Spy"));
 
         d->toolsAntiSpam->setText(tr("AntiSpam module"));
 
@@ -1395,6 +1404,8 @@ void MainWindow::retranslateUi(){
         d->toolsADLS->setText(tr("ADLSearch"));
 
         d->toolsCmdDebug->setText(tr("Debug Console"));
+
+        d->toolsSecretary->setText(tr("Secretary"));
 
         d->toolsSwitchSpeedLimit->setText(tr("Speed limit On/Off"));
 
@@ -1614,10 +1625,10 @@ ArenaWidget *MainWindow::widgetForRole(ArenaWidget::Role r) const{
 
             break;
         }
-    case ArenaWidget::Spy:
+    case ArenaWidget::SearchSpy:
         {
             awgt = ArenaWidgetFactory().create<dcpp::Singleton, SpyFrame>();
-            awgt->setToolButton(d->toolsSpy);
+            awgt->setToolButton(d->toolsSearchSpy);
 
             break;
         }
@@ -1632,6 +1643,13 @@ ArenaWidget *MainWindow::widgetForRole(ArenaWidget::Role r) const{
     {
         awgt = ArenaWidgetFactory().create<dcpp::Singleton, CmdDebug>();
         awgt->setToolButton(d->toolsCmdDebug);
+
+        break;
+    }
+    case ArenaWidget::Secretary:
+    {
+        awgt = ArenaWidgetFactory().create<dcpp::Singleton, Secretary>();
+        awgt->setToolButton(d->toolsSecretary);
 
         break;
     }
@@ -1977,10 +1995,19 @@ void MainWindow::mapWidgetOnArena(ArenaWidget *awgt){
                 role == ArenaWidget::PrivateMessage ||
                 role == ArenaWidget::PublicHubs ||
                 role == ArenaWidget::Search ||
+                role == ArenaWidget::Secretary ||
                 role == ArenaWidget::ShareBrowser
                 );
 
-    d->chatClear->setEnabled(role == ArenaWidget::Hub || role == ArenaWidget::PrivateMessage);
+    const bool widgetWithCleanup = (
+                role == ArenaWidget::CmdDebug ||
+                role == ArenaWidget::Hub ||
+                role == ArenaWidget::PrivateMessage ||
+                role == ArenaWidget::SearchSpy ||
+                role == ArenaWidget::Secretary
+                );
+
+    d->chatClear->setEnabled(widgetWithCleanup);
     d->findInWidget->setEnabled(widgetWithFilter);
     d->chatDisable->setEnabled(role == ArenaWidget::Hub);
 
@@ -2232,6 +2259,11 @@ void MainWindow::slotToolsCmdDebug()
     toggleSingletonWidget(widgetForRole(ArenaWidget::CmdDebug));
 }
 
+void MainWindow::slotToolsSecretary()
+{
+    toggleSingletonWidget(widgetForRole(ArenaWidget::Secretary));
+}
+
 void MainWindow::slotToolsSearch() {
     SearchFrame *sf = ArenaWidgetFactory().create<SearchFrame>();
 
@@ -2279,7 +2311,7 @@ void MainWindow::slotToolsFinishedUploads(){
 }
 
 void MainWindow::slotToolsSpy(){
-    toggleSingletonWidget(widgetForRole(ArenaWidget::Spy));
+    toggleSingletonWidget(widgetForRole(ArenaWidget::SearchSpy));
 }
 
 void MainWindow::slotToolsAntiSpam(){
@@ -2477,13 +2509,11 @@ void MainWindow::slotPanelMenuActionClicked(){
 void MainWindow::slotChatClear(){
     Q_D(MainWindow);
 
-    HubFrame *fr = qobject_cast<HubFrame *>(d->arena->widget());
-    PMWindow *pm = qobject_cast<PMWindow *>(d->arena->widget());
+    if (!d->arena->widget() || !qobject_cast<ArenaWidget*>(d->arena->widget()))
+        return;
 
-    if (fr)
-        fr->clearChat();
-    else if (pm)
-        pm->clearChat();
+    ArenaWidget *awgt = qobject_cast<ArenaWidget*>(d->arena->widget());
+    awgt->requestClear();
 }
 
 void MainWindow::slotFind(){

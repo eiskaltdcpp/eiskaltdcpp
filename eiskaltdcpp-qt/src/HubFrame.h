@@ -156,7 +156,7 @@ public:
     inline void reconnect() { slotReconnect(); }
 
     // PM functions
-    void addPM(QString, QString, bool keepfocus = true);
+    void addPM(QString, QString, bool keepfocus = true, QString nick = QString());
 
     // Arena Widget interface
     QWidget *getWidget();
@@ -164,6 +164,7 @@ public:
     QString getArenaShortTitle();
     QMenu *getMenu();
     const QPixmap &getPixmap();
+    void requestClear() { clearChat(); }
     void requestFilter() { slotHideFindFrame(); }
     void requestFocus() { plainTextEdit_INPUT->setFocus(); }
     ArenaWidget::Role role() const { return ArenaWidget::Hub; }
@@ -267,6 +268,7 @@ private Q_SLOTS:
 private:
     // Chat functions
     void addOutput(QString);
+    void addUserData(const QString&);
 
     // GUI setup functions
     void init();
