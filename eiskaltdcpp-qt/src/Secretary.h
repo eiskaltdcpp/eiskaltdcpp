@@ -22,6 +22,8 @@
 #include <dcpp/Singleton.h>
 #include <dcpp/Text.h>
 
+class HubFrame;
+
 class SecretaryPrivate {
 public:
     int maxLines = 0;
@@ -39,6 +41,8 @@ class Secretary :
     Q_INTERFACES(ArenaWidget)
 
     friend class dcpp::Singleton<Secretary>;
+    friend class HubFrame;
+
 public:
     explicit Secretary(QWidget *parent = nullptr);
     virtual ~Secretary();
