@@ -5235,37 +5235,37 @@ in options, file will be downloaded without opening search dialog.</source>
     <message>
         <location filename="../ui/UISecretary.ui" line="162"/>
         <source>Magnet links</source>
-        <translation type="unfinished"></translation>
+        <translation>Магнет ссылки</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="172"/>
         <source>Search links</source>
-        <translation type="unfinished"></translation>
+        <translation>Поисковые ссылки</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="182"/>
         <source>Public chat</source>
-        <translation type="unfinished"></translation>
+        <translation>Общие чаты</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="192"/>
         <source>Status messages</source>
-        <translation type="unfinished">Статусные сообщения</translation>
+        <translation>Статусные сообщения</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="202"/>
         <source>BitTorrent links</source>
-        <translation type="unfinished"></translation>
+        <translation>BitTorrent ссылки</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="212"/>
         <source>Private messages</source>
-        <translation type="unfinished">Личные сообщения</translation>
+        <translation>Личные сообщения</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="222"/>
         <source>Filter duplicates</source>
-        <translation type="unfinished"></translation>
+        <translation>Фильтровать дубликаты</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="236"/>
