@@ -3,7 +3,7 @@
 # Author:  Boris Pek <tehnick-8@yandex.ru>
 # License: Public Domain
 # Created: 2011-11-26
-# Updated: 2019-04-09
+# Updated: 2021-01-14
 # Version: N/A
 
 set -e
@@ -35,7 +35,7 @@ case "${1}" in
         make eiskaltdcpp-qt_tr mo-update
     else
         mkdir -p builddir && cd builddir
-        cmake -DUSE_QT5=ON -DUSE_GTK=ON ..
+        cmake -DUSE_QT5=ON ..
         make eiskaltdcpp-qt_tr mo-update
     fi
 
@@ -57,9 +57,6 @@ case "${1}" in
 
     cd "${LANG_DIR}/translations/eiskaltdcpp.libeiskaltdcpp"
     cp *.po "${CUR_DIR}/dcpp/po/"
-
-    cd "${LANG_DIR}/translations/eiskaltdcpp.eiskaltdcpp-gtk"
-    cp *.po "${CUR_DIR}/eiskaltdcpp-gtk/po/"
 
     cd "${LANG_DIR}/translations/eiskaltdcpp.eiskaltdcpp-qt"
     cp *.ts "${CUR_DIR}/eiskaltdcpp-qt/translations/"
@@ -83,7 +80,6 @@ case "${1}" in
 
     cd "${CUR_DIR}"
     mv -f dcpp/po/libeiskaltdcpp.pot dcpp/po/en.po
-    mv -f eiskaltdcpp-gtk/po/eiskaltdcpp-gtk.pot eiskaltdcpp-gtk/po/en.po
 
     cd "${CUR_DIR}"
     git status
@@ -101,7 +97,6 @@ case "${1}" in
 
     cd "${CUR_DIR}"
     mv -f dcpp/po/libeiskaltdcpp.pot dcpp/po/en.po
-    mv -f eiskaltdcpp-gtk/po/eiskaltdcpp-gtk.pot eiskaltdcpp-gtk/po/en.po
 
     cd "${CUR_DIR}"
     git status
@@ -113,7 +108,6 @@ case "${1}" in
     cd "${LANG_DIR}/translations"
 
     cp "${CUR_DIR}"/dcpp/po/*.po eiskaltdcpp.libeiskaltdcpp/
-    cp "${CUR_DIR}"/eiskaltdcpp-gtk/po/*.po eiskaltdcpp.eiskaltdcpp-gtk/
     cp "${CUR_DIR}"/eiskaltdcpp-qt/translations/*.ts eiskaltdcpp.eiskaltdcpp-qt/
     cp "${CUR_DIR}"/eiskaltdcpp-qt/desktop-file/*.desktop eiskaltdcpp.desktop-file/
 
@@ -139,7 +133,7 @@ case "${1}" in
     else
         echo "Creating ${LANG_DIR}"
         mkdir -p "${LANG_DIR}/.tx"
-        cp "transifex.config" "${LANG_DIR}/.tx/config"
+        cp ".transifex.conf" "${LANG_DIR}/.tx/config"
         cd "${LANG_DIR}"
         tx pull -a -s
     fi
@@ -169,7 +163,7 @@ case "${1}" in
     COMMENT_FILTERED_DATA=$(echo "${COMMENT_FULL_DATA}" | sed -ne 's|^.*/.*.desktop:\(.*\)$|\1|p')
     COMMENT_SORTED_DATA=$(echo "${COMMENT_FILTERED_DATA}" | sort -uV)
 
-    DESKTOP_FILE="${CUR_DIR}/eiskaltdcpp-gtk/eiskaltdcpp-gtk.desktop"
+    DESKTOP_FILE="${CUR_DIR}/eiskaltdcpp-daemon/eiskaltdcpp-daemon.desktop"
     grep -v "GenericName\[" "${DESKTOP_FILE}" > "${DESKTOP_FILE}.tmp"
     mv -f "${DESKTOP_FILE}.tmp" "${DESKTOP_FILE}"
     grep -v "Comment\[" "${DESKTOP_FILE}" > "${DESKTOP_FILE}.tmp"
