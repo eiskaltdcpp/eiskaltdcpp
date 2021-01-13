@@ -1073,7 +1073,7 @@ Opciones:
     <message>
         <location filename="../src/HubFrame.cpp" line="567"/>
         <source>search</source>
-        <translation type="unfinished"></translation>
+        <translation>búsqueda</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="760"/>
@@ -1979,7 +1979,7 @@ Usuario favorito</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="1408"/>
         <source>Secretary</source>
-        <translation type="unfinished"></translation>
+        <translation>Secretaria</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1410"/>
@@ -2073,7 +2073,7 @@ Usuario favorito</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="1449"/>
         <source>Source code (git)</source>
-        <translation type="unfinished"></translation>
+        <translation>Código fuente (git)</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1451"/>
@@ -2402,7 +2402,7 @@ Usuario favorito</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="1441"/>
         <source>Download program</source>
-        <translation type="unfinished"></translation>
+        <translation>Descargar programa</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2759"/>
@@ -3147,47 +3147,47 @@ Descargas: %3 Subidas: %4</translation>
     <message>
         <location filename="../src/Secretary.cpp" line="86"/>
         <source>Secretary</source>
-        <translation type="unfinished"></translation>
+        <translation>Secretaria</translation>
     </message>
     <message>
         <location filename="../src/Secretary.cpp" line="313"/>
         <source>Copy</source>
-        <translation type="unfinished">Copiar</translation>
+        <translation>Copiar</translation>
     </message>
     <message>
         <location filename="../src/Secretary.cpp" line="314"/>
         <source>Search text</source>
-        <translation type="unfinished">Buscar texto</translation>
+        <translation>Buscar texto</translation>
     </message>
     <message>
         <location filename="../src/Secretary.cpp" line="315"/>
         <source>Copy nick</source>
-        <translation type="unfinished">Copiar nick</translation>
+        <translation>Copiar nick</translation>
     </message>
     <message>
         <location filename="../src/Secretary.cpp" line="317"/>
         <source>Clear notes</source>
-        <translation type="unfinished"></translation>
+        <translation>Limpiar notas</translation>
     </message>
     <message>
         <location filename="../src/Secretary.cpp" line="318"/>
         <source>Find in notes</source>
-        <translation type="unfinished"></translation>
+        <translation>Buscar en notas</translation>
     </message>
     <message>
         <location filename="../src/Secretary.cpp" line="320"/>
         <source>Select all</source>
-        <translation type="unfinished">Seleccionar todo</translation>
+        <translation>Seleccionar todo</translation>
     </message>
     <message>
         <location filename="../src/Secretary.cpp" line="322"/>
         <source>Zoom In</source>
-        <translation type="unfinished">Acercar</translation>
+        <translation>Acercar</translation>
     </message>
     <message>
         <location filename="../src/Secretary.cpp" line="323"/>
         <source>Zoom Out</source>
-        <translation type="unfinished">Alejar</translation>
+        <translation>Alejar</translation>
     </message>
 </context>
 <context>
@@ -3862,13 +3862,13 @@ Descargas: %3 Subidas: %4</translation>
         <location filename="../src/SideBar.cpp" line="435"/>
         <location filename="../src/SideBar.cpp" line="440"/>
         <source>Secretary</source>
-        <translation type="unfinished"></translation>
+        <translation>Secretaria</translation>
     </message>
     <message>
         <location filename="../src/SideBar.cpp" line="82"/>
         <location filename="../src/SideBar.cpp" line="436"/>
         <source>Search Spy</source>
-        <translation type="unfinished"></translation>
+        <translation>Espía de Búsquedas</translation>
     </message>
     <message>
         <source>Spy</source>
@@ -4527,42 +4527,42 @@ Y continuará trabajando aunque el widget esté oculto.
     <message>
         <location filename="../ui/UICmdDebug.ui" line="57"/>
         <source>Find: </source>
-        <translation type="unfinished">Buscar: </translation>
+        <translation>Buscar: </translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="71"/>
         <source>Previous (Shift+F3)</source>
-        <translation type="unfinished">Anterior (Shift+F3)</translation>
+        <translation>Anterior (Shift+F3)</translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="77"/>
         <source>Shift+F3</source>
-        <translation type="unfinished">Shift+F3</translation>
+        <translation>Shift+F3</translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="84"/>
         <source>Next (F3)</source>
-        <translation type="unfinished">Siguiente (F3)</translation>
+        <translation>Siguiente (F3)</translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="90"/>
         <source>F3</source>
-        <translation type="unfinished">F3</translation>
+        <translation>F3</translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="97"/>
         <source>Highlight all</source>
-        <translation type="unfinished">Marcar todos</translation>
+        <translation>Marcar todos</translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="113"/>
         <source>Hide search panel (Ctrl+F)</source>
-        <translation type="unfinished">Ocultar barra de búsqueda (Ctrl+F)</translation>
+        <translation>Ocultar barra de búsqueda (Ctrl+F)</translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="154"/>
         <source>Use comma as separator</source>
-        <translation type="unfinished"></translation>
+        <translation>Usar coma como separador</translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="157"/>
@@ -4577,7 +4577,7 @@ Y continuará trabajando aunque el widget esté oculto.
     <message>
         <location filename="../ui/UICmdDebug.ui" line="228"/>
         <source>Clear now</source>
-        <translation type="unfinished">Limpiar ahora</translation>
+        <translation>Limpiar ahora</translation>
     </message>
 </context>
 <context>
@@ -4762,42 +4762,42 @@ Y continuará trabajando aunque el widget esté oculto.
     <message>
         <location filename="../ui/UIFileHasher.ui" line="93"/>
         <source>Filepath</source>
-        <translation type="unfinished">Ruta de los archivos</translation>
+        <translation>Ruta de los archivos</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="113"/>
         <source>Copy magnet link to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Copiar enlace magnet al portapapeles</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="136"/>
         <source>Copy search link to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Copiar enlace de búsqueda al portapapeles</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="146"/>
         <source>Filename</source>
-        <translation type="unfinished"></translation>
+        <translation>Nombre de archivo</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="185"/>
         <source>Opens search dialog and searches file.</source>
-        <translation type="unfinished">Abre el diálogo de búsqueda y busca archivos.</translation>
+        <translation>Abre el diálogo de búsqueda y busca archivos.</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="188"/>
         <source>Search</source>
-        <translation type="unfinished"></translation>
+        <translation>Búsqueda</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="208"/>
         <source>Cancel</source>
-        <translation type="unfinished">Cancelar</translation>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="100"/>
         <source>Size</source>
-        <translation type="unfinished">Tamaño</translation>
+        <translation>Tamaño</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="178"/>
@@ -5003,7 +5003,7 @@ Y continuará trabajando aunque el widget esté oculto.
     <message>
         <location filename="../ui/UIMagnet.ui" line="20"/>
         <source>Magnet link viewer</source>
-        <translation type="unfinished"></translation>
+        <translation>Visor de enlaces magnet</translation>
     </message>
     <message>
         <location filename="../ui/UIMagnet.ui" line="56"/>
@@ -5023,12 +5023,12 @@ Y continuará trabajando aunque el widget esté oculto.
     <message>
         <location filename="../ui/UIMagnet.ui" line="113"/>
         <source>Copy magnet link to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Copiar enlace magnet al portapapeles</translation>
     </message>
     <message>
         <location filename="../ui/UIMagnet.ui" line="136"/>
         <source>Copy search link to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Copiar enlace de búsqueda al portapapeles</translation>
     </message>
     <message>
         <location filename="../ui/UIMagnet.ui" line="171"/>
@@ -5200,98 +5200,98 @@ diálogo de búsqueda.</translation>
     <message>
         <location filename="../ui/UISecretary.ui" line="73"/>
         <source>Find: </source>
-        <translation type="unfinished">Buscar: </translation>
+        <translation>Buscar: </translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="87"/>
         <source>Previous (Shift+F3)</source>
-        <translation type="unfinished">Anterior (Shift+F3)</translation>
+        <translation>Anterior (Shift+F3)</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="93"/>
         <source>Shift+F3</source>
-        <translation type="unfinished">Shift+F3</translation>
+        <translation>Shift+F3</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="100"/>
         <source>Next (F3)</source>
-        <translation type="unfinished">Siguiente (F3)</translation>
+        <translation>Siguiente (F3)</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="106"/>
         <source>F3</source>
-        <translation type="unfinished">F3</translation>
+        <translation>F3</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="113"/>
         <source>Highlight all</source>
-        <translation type="unfinished">Marcar todos</translation>
+        <translation>Marcar todos</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="129"/>
         <source>Hide search panel (Ctrl+F)</source>
-        <translation type="unfinished">Ocultar barra de búsqueda (Ctrl+F)</translation>
+        <translation>Ocultar barra de búsqueda (Ctrl+F)</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="219"/>
         <source>Magnet links</source>
-        <translation type="unfinished"></translation>
+        <translation>Enlaces magnet</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="199"/>
         <source>Search links</source>
-        <translation type="unfinished"></translation>
+        <translation>Enlaces de búsqueda</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="209"/>
         <source>Public chat</source>
-        <translation type="unfinished"></translation>
+        <translation>Chat público</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="179"/>
         <source>Status messages</source>
-        <translation type="unfinished">Mensajes de estado</translation>
+        <translation>Mensajes de estado</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="169"/>
         <source>BitTorrent links</source>
-        <translation type="unfinished"></translation>
+        <translation>Enlaces BitTorrent</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="189"/>
         <source>Private messages</source>
-        <translation type="unfinished">Mensajes privados</translation>
+        <translation>Mensajes privados</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="159"/>
         <source>Filter duplicates</source>
-        <translation type="unfinished"></translation>
+        <translation>Filtrar duplicados</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="233"/>
         <location filename="../ui/UISecretary.ui" line="246"/>
         <source>Use comma as separator</source>
-        <translation type="unfinished"></translation>
+        <translation>Usar coma como separador</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="236"/>
         <source>Additional keywords</source>
-        <translation type="unfinished"></translation>
+        <translation>Palabras clave adicionales</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="249"/>
         <source>Filter hubs by IP</source>
-        <translation type="unfinished"></translation>
+        <translation>Filtrar hubs por IP</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="277"/>
         <source>Lines:</source>
-        <translation type="unfinished">Lineas:</translation>
+        <translation>Líneas:</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="297"/>
         <source>Clear now</source>
-        <translation type="unfinished">Limpiar ahora</translation>
+        <translation>Limpiar ahora</translation>
     </message>
 </context>
 <context>
