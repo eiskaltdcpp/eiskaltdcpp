@@ -84,75 +84,7 @@ if(UPDATE_PO)
 			WORKING_DIRECTORY ${dcpp_SOURCE_DIR}/po
 			COMMENT "pot-update {ibeiskaltdcpp}: Generated source pot file."
 		)
-		if (USE_GTK OR USE_GTK3)
-		add_custom_command(
-			OUTPUT ${eiskaltdcpp-gtk_SOURCE_DIR}/po/eiskaltdcpp-gtk.cpp.pot
-			COMMAND ${GETTEXT_XGETTEXT_EXECUTABLE}
-				--add-comments=TRANSLATORS
-				--files-from="${gtk_cpp_files_from}"
-				--copyright-holder=\"EiskaltDC++ team\"
-				--msgid-bugs-address=\"https://github.com/eiskaltdcpp/eiskaltdcpp/issues\"
-				--from-code=UTF-8
-				--keyword=_
-				--keyword=N_
-				--keyword=F_
-				--keyword=F_:2 --flag=F_:2:pass-c-format
-				--keyword=FN_
-				--output="${eiskaltdcpp-gtk_SOURCE_DIR}/po/eiskaltdcpp-gtk.cpp.pot"
-			# replace the chartype
-			COMMAND sed -i
-				s/charset=CHARSET/charset=UTF-8/
-				${eiskaltdcpp-gtk_SOURCE_DIR}/po/eiskaltdcpp-gtk.cpp.pot
-			DEPENDS "${gtk_cpp_files_from}"
-			WORKING_DIRECTORY ${eiskaltdcpp-gtk_SOURCE_DIR}/po
-			COMMENT "pot-update {eiskaltdcpp-gtk.cpp}: Generated source pot file."
-		)
 
-		# Generate pot file for ui files.
-		    add_custom_command(
-			OUTPUT ${eiskaltdcpp-gtk_SOURCE_DIR}/po/eiskaltdcpp-gtk.ui.pot
-			COMMAND ${GETTEXT_XGETTEXT_EXECUTABLE}
-				--add-comments=TRANSLATORS
-				--files-from="${gtk_ui_files_from}"
-				--copyright-holder=\"EiskaltDC++ team\"
-				--msgid-bugs-address=\"https://github.com/eiskaltdcpp/eiskaltdcpp/issues\"
-				--from-code=UTF-8
-				--sort-output
-				--language=Glade
-				--keyword=translatable="yes"
-				--output="${eiskaltdcpp-gtk_SOURCE_DIR}/po/eiskaltdcpp-gtk.ui.pot"
-			# replace the chartype
-			COMMAND sed -i
-				s/charset=CHARSET/charset=UTF-8/
-				${eiskaltdcpp-gtk_SOURCE_DIR}/po/eiskaltdcpp-gtk.ui.pot
-			DEPENDS "${gtk_ui_files_from}"
-			WORKING_DIRECTORY ${eiskaltdcpp-gtk_SOURCE_DIR}/po
-			COMMENT "pot-update {eiskaltdcpp-gtk.ui}: Generated source pot file."
-		    )
-
-		# Merge both pot files
-		add_custom_command(
-			# The old function checked for differences in the time in the header see
-			# what we need to do with it.
-			OUTPUT ${eiskaltdcpp-gtk_SOURCE_DIR}/po/eiskaltdcpp-gtk.pot
-
-			COMMAND ${GETTEXT_MSGCAT_EXECUTABLE}
-				--sort-output
-					${eiskaltdcpp-gtk_SOURCE_DIR}/po/eiskaltdcpp-gtk.cpp.pot
-					${eiskaltdcpp-gtk_SOURCE_DIR}/po/eiskaltdcpp-gtk.ui.pot
-				--output ${eiskaltdcpp-gtk_SOURCE_DIR}/po/eiskaltdcpp-gtk.pot
-
-			COMMAND ${CMAKE_COMMAND} -E remove
-					${eiskaltdcpp-gtk_SOURCE_DIR}/po/eiskaltdcpp-gtk.cpp.pot
-					${eiskaltdcpp-gtk_SOURCE_DIR}/po/eiskaltdcpp-gtk.ui.pot
-
-			WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}
-			DEPENDS
-					${eiskaltdcpp-gtk_SOURCE_DIR}/po/eiskaltdcpp-gtk.cpp.pot
-					${eiskaltdcpp-gtk_SOURCE_DIR}/po/eiskaltdcpp-gtk.ui.pot
-			COMMENT "pot-update {eiskaltdcpp-gtk}: Generated pot file."
-		)
-		endif (USE_GTK OR USE_GTK3)
 		# Update / generate the po files for all languages
 		foreach(LANG ${LANGUAGES})
 
@@ -195,42 +127,6 @@ if(UPDATE_PO)
 				COMMENT "pot-update {dcpp-${LANG}}: Updated po file."
 			)
 
-			if (USE_GTK OR USE_GTK3)
-			if(NOT EXISTS ${eiskaltdcpp-gtk_SOURCE_DIR}/po/${LANG}.po)
-				add_custom_command(
-					OUTPUT ${eiskaltdcpp-gtk_SOURCE_DIR}/po/${LANG}.po
-					COMMAND ${GETTEXT_MSGINIT_EXECUTABLE}
-							--no-translator
-							--input=eiskaltdcpp-gtk.pot
-							--output-file=${LANG}.po
-							--locale=${LANG}
-					WORKING_DIRECTORY ${eiskaltdcpp-gtk_SOURCE_DIR}/po
-					DEPENDS
-						${eiskaltdcpp-gtk_SOURCE_DIR}/po/eiskaltdcpp-gtk.pot
-					COMMENT
-						"pot-update {eiskaltdcpp-gtk-${LANG}}: Initialized po file."
-				)
-			endif(NOT EXISTS ${eiskaltdcpp-gtk_SOURCE_DIR}/po/${LANG}.po)
-
-			### Update existing po file.
-			add_custom_command(
-				# The pot-update depends on a dummy file which we promise to
-				# make. We don't make this dummy file but the pot-update
-				# still works.
-				OUTPUT ${eiskaltdcpp-gtk_SOURCE_DIR}/po/${LANG}.po.dummy
-				COMMAND ${GETTEXT_MSGMERGE_EXECUTABLE}
-						--backup=none
-						-U ${LANG}.po
-						${eiskaltdcpp-gtk_SOURCE_DIR}/po/eiskaltdcpp-gtk.pot
-				DEPENDS
-					${eiskaltdcpp-gtk_SOURCE_DIR}/po/eiskaltdcpp-gtk.pot
-					${eiskaltdcpp-gtk_SOURCE_DIR}/po/${LANG}.po
-				WORKING_DIRECTORY ${eiskaltdcpp-gtk_SOURCE_DIR}/po
-				COMMENT "pot-update {eiskaltdcpp-gtk-${LANG}}: Updated po file."
-			)
-			SET(pot-update-SRC ${pot-update-SRC} ${eiskaltdcpp-gtk_SOURCE_DIR}/po/${LANG}.po.dummy )
-			endif (USE_GTK OR USE_GTK3)
-
 			SET(pot-update-SRC ${pot-update-SRC} ${dcpp_SOURCE_DIR}/po/${LANG}.po.dummy)
 		endforeach(LANG ${LANGUAGES})
 
@@ -240,12 +136,6 @@ if(UPDATE_PO)
 			${dcpp_SOURCE_DIR}/po/libeiskaltdcpp.pot # should depend on languages
 
 		)
-		if (USE_GTK OR USE_GTK3)
-		SET(pot-update-SRC
-			${pot-update-SRC}
-			${eiskaltdcpp-gtk_SOURCE_DIR}/po/eiskaltdcpp-gtk.pot
-		)
-		endif (USE_GTK OR USE_GTK3)
 
 	# The target to call
 	add_custom_target(pot-update
@@ -279,35 +169,6 @@ if(UPDATE_PO)
 				WORKING_DIRECTORY ${dcpp_SOURCE_DIR}/po
 				COMMENT "po-update {libeiskaltdcpp-${LANG}}: Updated po file."
 			)
-			if (USE_GTK OR USE_GTK3)
-			add_custom_command(
-				# The pot-update depends on a dummy file which we promise to
-				# make. We don't make this dummy file but the pot-update
-				# still works.
-				OUTPUT ${eiskaltdcpp-gtk_SOURCE_DIR}/po/${LANG}.po.lang.dummy
-				# After the po file is updated it might look not entirely as
-				# wanted, for example poedit reorders the file. Use msgattrib
-				# to reformat the file, use a helper file to do so.
-				COMMAND ${GETTEXT_MSGATTRIB_EXECUTABLE}
-						--output ${LANG}.po.tmp
-						${LANG}.po
-				COMMAND ${CMAKE_COMMAND} -E copy
-						${LANG}.po.tmp
-						${LANG}.po
-				COMMAND ${CMAKE_COMMAND} -E remove
-						${LANG}.po.tmp
-				# Now merge with the pot file.
-				COMMAND ${GETTEXT_MSGMERGE_EXECUTABLE}
-						--backup=none
-						-U ${LANG}.po
-						eiskaltdcpp-gtk.pot
-				WORKING_DIRECTORY ${eiskaltdcpp-gtk_SOURCE_DIR}/po
-				COMMENT "po-update {eiskaltdcpp-gtk-${LANG}}: Updated po file."
-			)
-			set(po-update-LANG-SRC ${po-update-LANG-SRC}
-				${eiskaltdcpp-gtk_SOURCE_DIR}/po/${LANG}.po.lang.dummy
-			)
-			endif (USE_GTK OR USE_GTK3)
 			set(po-update-LANG-SRC ${po-update-LANG-SRC}
 				${dcpp_SOURCE_DIR}/po/${LANG}.po.lang.dummy
 			)
