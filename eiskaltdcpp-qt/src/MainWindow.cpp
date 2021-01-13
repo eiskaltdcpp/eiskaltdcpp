@@ -2868,7 +2868,7 @@ void MainWindow::slotAboutClient() {
         QString("<br/>")+
         tr("Spanish translation<br/>")+
         QString("&nbsp;&nbsp;&nbsp; 2010-2019 <a href=\"mailto:sl1pkn07@gmail.com\">Gustavo Alvarez</a> aka sL1pKn07<br/>")+
-        QString("&nbsp;&nbsp;&nbsp; 2012-2015 <a href=\"mailto:klondike at klondike.es\">Francisco Blas Izquierdo Riera</a> aka klondike<br/>")+
+        QString("&nbsp;&nbsp;&nbsp; 2012-2021 <a href=\"mailto:klondike@klondike.es\">Francisco Blas Izquierdo Riera</a> aka klondike<br/>")+
         QString("<br/>")+
         tr("Basque translation<br/>")+
         QString("&nbsp;&nbsp;&nbsp; 2014-2015 <a href=\"mailto:egoitzro2@hotmail.com\">Egoitz Rodriguez</a><br/>")+
