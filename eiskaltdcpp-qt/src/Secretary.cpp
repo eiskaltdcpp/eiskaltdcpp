@@ -575,7 +575,10 @@ void Secretary::newChatMsg(const QString &nick, const QString &htmlMsg, const QS
         return;
 
     addOutput(htmlMsg, origMsg, url);
-    addUserData(nick);
+
+    Q_D(Secretary);
+    if (!d->origMessages.isEmpty())
+        addUserData(nick);
 }
 
 void Secretary::newPrivMsg(const QString &nick, const QString &htmlMsg, const QString &origMsg, const QString &url){
@@ -586,7 +589,10 @@ void Secretary::newPrivMsg(const QString &nick, const QString &htmlMsg, const QS
         return;
 
     addOutput("<b>PM: </b>" + htmlMsg, origMsg, url);
-    addUserData(nick);
+
+    Q_D(Secretary);
+    if (!d->origMessages.isEmpty())
+        addUserData(nick);
 }
 
 void Secretary::addOutput(const QString& htmlMsg, const QString& origMsg, const QString &url) {
