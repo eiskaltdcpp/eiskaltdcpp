@@ -15,7 +15,8 @@
 * Removed option of changing font for whole application from settings. System
   fonts for menus, text labels, progress bars and other indicators are always
   used now. Fonts for chat messages are still configurable.
-* Fix IP filter work.
+* Fixed IP filter work.
+* Changed reaction to Ctrl+F shortcut in chats: now it works as in web browsers.
 * Stopped usage of HTML formated text in tooltip for system tray icon in
   GNU/Linux and FreeBSD systems: its displaying was broken in KDE Plasma 5.
   Plain text tooltip is used everywhere now.

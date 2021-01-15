@@ -127,7 +127,7 @@ PMWindow::PMWindow(const QString &cid_, const QString &hubUrl_):
     connect(plainTextEdit_INPUT, SIGNAL(customContextMenuRequested(QPoint)), this, SIGNAL(inputTextMenu()));
     connect(WulforSettings::getInstance(), SIGNAL(strValueChanged(QString,QString)), this, SLOT(slotSettingChanged(QString,QString)));
     connect(lineEdit_FIND, SIGNAL(textChanged(QString)), this, SLOT(slotFindTextEdited(QString)));
-    connect(toolButton_HIDE, SIGNAL(clicked()), this, SLOT(slotHideFindFrame()));
+    connect(toolButton_HIDE, SIGNAL(clicked()), this, SLOT(slotHideSearchBar()));
     connect(toolButton_BACK, SIGNAL(clicked()), this, SLOT(slotFindBackward()));
     connect(toolButton_FORWARD, SIGNAL(clicked()), this, SLOT(slotFindForward()));
     connect(toolButton_ALL, SIGNAL(clicked()), this, SLOT(slotFindAll()));
@@ -162,9 +162,7 @@ bool PMWindow::eventFilter(QObject *obj, QEvent *e){
         }
         else if (static_cast<LineEdit*>(obj) == lineEdit_FIND && k_e->key() == Qt::Key_Escape){
             lineEdit_FIND->clear();
-
-            requestFilter();
-
+            slotHideSearchBar();
             return true;
         }
     }
@@ -349,7 +347,7 @@ void PMWindow::requestClear(){
 }
 
 void PMWindow::requestFilter() {
-    slotHideFindFrame();
+    slotShowSearchBar();
 }
 
 void PMWindow::requestFocus() {
@@ -678,28 +676,21 @@ void PMWindow::slotSettingChanged(const QString &key, const QString &value){
         retranslateUi(this);
 }
 
-void PMWindow::slotHideFindFrame(){
-    frame_2->setVisible(!frame_2->isVisible());
+void PMWindow::slotShowSearchBar(){
+    frame_2->setVisible(true);
+    QString stext = textEdit_CHAT->textCursor().selectedText();
+    if (!stext.isEmpty())
+        lineEdit_FIND->setText(stext);
+    lineEdit_FIND->selectAll();
+    lineEdit_FIND->setFocus();
+}
 
-    if (frame_2->isVisible()){
-        QString stext = textEdit_CHAT->textCursor().selectedText();
-
-        if (!stext.isEmpty()){
-            lineEdit_FIND->setText(stext);
-            lineEdit_FIND->selectAll();
-        }
-
-        lineEdit_FIND->setFocus();
-    }
-    else{
-        QTextCursor c = textEdit_CHAT->textCursor();
-
-        c.movePosition(QTextCursor::StartOfLine,QTextCursor::MoveAnchor,1);
-
-        textEdit_CHAT->setExtraSelections(QList<QTextEdit::ExtraSelection>());
-
-        textEdit_CHAT->setTextCursor(c);
-    }
+void PMWindow::slotHideSearchBar(){
+    frame_2->setVisible(false);
+    QTextCursor c = textEdit_CHAT->textCursor();
+    c.movePosition(QTextCursor::StartOfLine,QTextCursor::MoveAnchor,1);
+    textEdit_CHAT->setExtraSelections(QList<QTextEdit::ExtraSelection>());
+    textEdit_CHAT->setTextCursor(c);
 }
 
 void PMWindow::slotFindTextEdited(const QString & text){

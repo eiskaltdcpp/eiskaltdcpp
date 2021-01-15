@@ -52,7 +52,7 @@ public:
     QMenu *getMenu();
     const QPixmap &getPixmap(){ return WICON(WulforUtil::eiMAGNET); }
     void requestClear() { clearNotes(); }
-    void requestFilter() { slotHideFindFrame(); }
+    void requestFilter() { slotShowSearchBar(); }
     void requestFocus() { pushButton_ClearLog->setFocus(); }
     ArenaWidget::Role role() const { return ArenaWidget::Secretary; }
 
@@ -70,7 +70,8 @@ private Q_SLOTS:
     void slotFindBackward(){ findText(QTextDocument::FindBackward); }
     void slotFindTextEdited(const QString &text);
     void slotFindAll();
-    void slotHideFindFrame();
+    void slotShowSearchBar();
+    void slotHideSearchBar();
     void slotSettingsChanged(const QString&, const QString&);
     void addStatus(const QString &nick, const QString &htmlMsg, const QString &origMsg, const QString &url);
     void newChatMsg(const QString &nick, const QString &htmlMsg, const QString &origMsg, const QString &url);

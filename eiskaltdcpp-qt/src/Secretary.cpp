@@ -62,7 +62,7 @@ Secretary::Secretary(QWidget *parent)
     connect(pushButton_ClearLog, SIGNAL(clicked(bool)), this, SLOT(clearNotes()));
     connect(toolButton_BACK, SIGNAL(clicked()), this, SLOT(slotFindBackward()));
     connect(toolButton_FORWARD, SIGNAL(clicked()), this, SLOT(slotFindForward()));
-    connect(toolButton_HIDE, SIGNAL(clicked()), this, SLOT(slotHideFindFrame()));
+    connect(toolButton_HIDE, SIGNAL(clicked()), this, SLOT(slotHideSearchBar()));
     connect(lineEdit_FIND, SIGNAL(textEdited(QString)), this, SLOT(slotFindTextEdited(QString)));
     connect(toolButton_ALL, SIGNAL(clicked()), this, SLOT(slotFindAll()));
 
@@ -121,9 +121,7 @@ bool Secretary::eventFilter(QObject *obj, QEvent *e){
 
         if (qobject_cast<LineEdit*>(obj) == lineEdit_FIND && k_e->key() == Qt::Key_Escape){
             lineEdit_FIND->clear();
-
-            requestFilter();
-
+            slotHideSearchBar();
             return true;
         }
 
@@ -426,7 +424,7 @@ void Secretary::slotChatMenu(const QPoint &){
         }
         case FindInNotes:
         {
-            slotHideFindFrame();
+            slotShowSearchBar();
 
             break;
         }
@@ -506,28 +504,21 @@ void Secretary::slotFindAll(){
     textEdit_MESSAGES->setExtraSelections(extraSelections);
 }
 
-void Secretary::slotHideFindFrame(){
-    searchFrame->setVisible(!searchFrame->isVisible());
+void Secretary::slotShowSearchBar(){
+    searchFrame->setVisible(true);
+    QString stext = textEdit_MESSAGES->textCursor().selectedText();
+    if (!stext.isEmpty())
+        lineEdit_FIND->setText(stext);
+    lineEdit_FIND->selectAll();
+    lineEdit_FIND->setFocus();
+}
 
-    if (searchFrame->isVisible()){
-        QString stext = textEdit_MESSAGES->textCursor().selectedText();
-
-        if (!stext.isEmpty()){
-            lineEdit_FIND->setText(stext);
-            lineEdit_FIND->selectAll();
-        }
-
-        lineEdit_FIND->setFocus();
-    }
-    else{
-        QTextCursor c = textEdit_MESSAGES->textCursor();
-
-        c.movePosition(QTextCursor::StartOfLine,QTextCursor::MoveAnchor,1);
-
-        textEdit_MESSAGES->setExtraSelections(QList<QTextEdit::ExtraSelection>());
-
-        textEdit_MESSAGES->setTextCursor(c);
-    }
+void Secretary::slotHideSearchBar(){
+    searchFrame->setVisible(false);
+    QTextCursor c = textEdit_MESSAGES->textCursor();
+    c.movePosition(QTextCursor::StartOfLine,QTextCursor::MoveAnchor,1);
+    textEdit_MESSAGES->setExtraSelections(QList<QTextEdit::ExtraSelection>());
+    textEdit_MESSAGES->setTextCursor(c);
 }
 
 void Secretary::findText(QTextDocument::FindFlags flag){

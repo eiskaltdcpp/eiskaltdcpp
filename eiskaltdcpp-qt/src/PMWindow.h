@@ -67,7 +67,8 @@ private Q_SLOTS:
     void slotSettingChanged(const QString&, const QString&);
     void slotSmileContextMenu();
     void slotSmileClicked();
-    void slotHideFindFrame();
+    void slotShowSearchBar();
+    void slotHideSearchBar();
     void slotFindTextEdited(const QString &);
     void slotFindAll();
     void slotFindForward() { findText(nullptr); }

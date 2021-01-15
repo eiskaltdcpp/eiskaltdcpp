@@ -39,7 +39,7 @@ CmdDebug::CmdDebug(QWidget *parent)
     connect(pushButton_ClearLog, SIGNAL(clicked(bool)), plainTextEdit_DEBUG, SLOT(clear()));
     connect(toolButton_BACK, SIGNAL(clicked()), this, SLOT(slotFindBackward()));
     connect(toolButton_FORWARD, SIGNAL(clicked()), this, SLOT(slotFindForward()));
-    connect(toolButton_HIDE, SIGNAL(clicked()), this, SLOT(slotHideFindFrame()));
+    connect(toolButton_HIDE, SIGNAL(clicked()), this, SLOT(slotHideSearchBar()));
     connect(lineEdit_FIND, SIGNAL(textEdited(QString)), this, SLOT(slotFindTextEdited(QString)));
     connect(toolButton_ALL, SIGNAL(clicked()), this, SLOT(slotFindAll()));
     DebugManager::getInstance()->addListener(this);
@@ -100,9 +100,7 @@ bool CmdDebug::eventFilter(QObject *obj, QEvent *e){
 
         if (qobject_cast<LineEdit*>(obj) == lineEdit_FIND && k_e->key() == Qt::Key_Escape){
             lineEdit_FIND->clear();
-
-            requestFilter();
-
+            slotHideSearchBar();
             return true;
         }
 
@@ -223,28 +221,21 @@ void CmdDebug::slotFindAll(){
     plainTextEdit_DEBUG->setExtraSelections(extraSelections);
 }
 
-void CmdDebug::slotHideFindFrame(){
-    searchFrame->setVisible(!searchFrame->isVisible());
+void CmdDebug::slotShowSearchBar(){
+    searchFrame->setVisible(true);
+    QString stext = plainTextEdit_DEBUG->textCursor().selectedText();
+    if (!stext.isEmpty())
+        lineEdit_FIND->setText(stext);
+    lineEdit_FIND->selectAll();
+    lineEdit_FIND->setFocus();
+}
 
-    if (searchFrame->isVisible()){
-        QString stext = plainTextEdit_DEBUG->textCursor().selectedText();
-
-        if (!stext.isEmpty()){
-            lineEdit_FIND->setText(stext);
-            lineEdit_FIND->selectAll();
-        }
-
-        lineEdit_FIND->setFocus();
-    }
-    else{
-        QTextCursor c = plainTextEdit_DEBUG->textCursor();
-
-        c.movePosition(QTextCursor::StartOfLine,QTextCursor::MoveAnchor,1);
-
-        plainTextEdit_DEBUG->setExtraSelections(QList<QTextEdit::ExtraSelection>());
-
-        plainTextEdit_DEBUG->setTextCursor(c);
-    }
+void CmdDebug::slotHideSearchBar(){
+    searchFrame->setVisible(false);
+    QTextCursor c = plainTextEdit_DEBUG->textCursor();
+    c.movePosition(QTextCursor::StartOfLine,QTextCursor::MoveAnchor,1);
+    plainTextEdit_DEBUG->setExtraSelections(QList<QTextEdit::ExtraSelection>());
+    plainTextEdit_DEBUG->setTextCursor(c);
 }
 
 void CmdDebug::findText(QTextDocument::FindFlags flag){

@@ -916,9 +916,7 @@ bool HubFrame::eventFilter(QObject *obj, QEvent *e){
 
         if (qobject_cast<LineEdit*>(obj) == lineEdit_FIND && k_e->key() == Qt::Key_Escape){
             lineEdit_FIND->clear();
-
-            requestFilter();
-
+            slotHideSearchBar();
             return true;
         }
 
@@ -1240,7 +1238,7 @@ void HubFrame::init(){
     connect(textEdit_CHAT, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotChatMenu(QPoint)));
     connect(toolButton_BACK, SIGNAL(clicked()), this, SLOT(slotFindBackward()));
     connect(toolButton_FORWARD, SIGNAL(clicked()), this, SLOT(slotFindForward()));
-    connect(toolButton_HIDE, SIGNAL(clicked()), this, SLOT(slotHideFindFrame()));
+    connect(toolButton_HIDE, SIGNAL(clicked()), this, SLOT(slotHideSearchBar()));
     connect(lineEdit_FIND, SIGNAL(textEdited(QString)), this, SLOT(slotFindTextEdited(QString)));
     connect(lineEdit_FILTER, SIGNAL(textChanged(QString)), this, SLOT(slotFilterTextChanged()));
     connect(comboBox_COLUMNS, SIGNAL(activated(int)), this, SLOT(slotFilterTextChanged()));
@@ -3187,7 +3185,7 @@ void HubFrame::slotChatMenu(const QPoint &){
         }
         case Menu::FindInChat:
         {
-            slotHideFindFrame();
+            slotShowSearchBar();
 
             break;
         }
@@ -3333,28 +3331,21 @@ void HubFrame::prevMsg(){
     plainTextEdit_INPUT->setPlainText(d->out_messages.at(d->out_messages_index));
 }
 
-void HubFrame::slotHideFindFrame(){
-    searchFrame->setVisible(!searchFrame->isVisible());
+void HubFrame::slotShowSearchBar(){
+    searchFrame->setVisible(true);
+    QString stext = textEdit_CHAT->textCursor().selectedText();
+    if (!stext.isEmpty())
+        lineEdit_FIND->setText(stext);
+    lineEdit_FIND->selectAll();
+    lineEdit_FIND->setFocus();
+}
 
-    if (searchFrame->isVisible()){
-        QString stext = textEdit_CHAT->textCursor().selectedText();
-
-        if (!stext.isEmpty()){
-            lineEdit_FIND->setText(stext);
-            lineEdit_FIND->selectAll();
-        }
-
-        lineEdit_FIND->setFocus();
-    }
-    else{
-        QTextCursor c = textEdit_CHAT->textCursor();
-
-        c.movePosition(QTextCursor::StartOfLine,QTextCursor::MoveAnchor,1);
-
-        textEdit_CHAT->setExtraSelections(QList<QTextEdit::ExtraSelection>());
-
-        textEdit_CHAT->setTextCursor(c);
-    }
+void HubFrame::slotHideSearchBar(){
+    searchFrame->setVisible(false);
+    QTextCursor c = textEdit_CHAT->textCursor();
+    c.movePosition(QTextCursor::StartOfLine,QTextCursor::MoveAnchor,1);
+    textEdit_CHAT->setExtraSelections(QList<QTextEdit::ExtraSelection>());
+    textEdit_CHAT->setTextCursor(c);
 }
 
 void HubFrame::slotFilterTextChanged(){

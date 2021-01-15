@@ -45,7 +45,7 @@ public:
     QMenu *getMenu();
     const QPixmap &getPixmap(){ return WICON(WulforUtil::eiCONSOLE); }
     void requestClear() { plainTextEdit_DEBUG->clear(); }
-    void requestFilter() { slotHideFindFrame(); }
+    void requestFilter() { slotShowSearchBar(); }
     void requestFocus() { pushButton_ClearLog->setFocus(); }
     ArenaWidget::Role role() const { return ArenaWidget::CmdDebug; }
 
@@ -59,7 +59,8 @@ private Q_SLOTS:
     void slotFindBackward(){ findText(QTextDocument::FindBackward); }
     void slotFindTextEdited(const QString &text);
     void slotFindAll();
-    void slotHideFindFrame();
+    void slotShowSearchBar();
+    void slotHideSearchBar();
     void slotSettingsChanged(const QString&, const QString&);
 
 protected:

@@ -165,7 +165,7 @@ public:
     QMenu *getMenu();
     const QPixmap &getPixmap();
     void requestClear() { clearChat(); }
-    void requestFilter() { slotHideFindFrame(); }
+    void requestFilter() { slotShowSearchBar(); }
     void requestFocus() { plainTextEdit_INPUT->setFocus(); }
     ArenaWidget::Role role() const { return ArenaWidget::Hub; }
 
@@ -200,7 +200,8 @@ public Q_SLOTS:
     void disablePrivateMessages(bool disable);//disconnect corePrivateMsg from this
 
     void reloadSomeSettings();
-    void slotHideFindFrame();
+    void slotShowSearchBar();
+    void slotHideSearchBar();
     void slotActivate();
     void nextMsg();
     void prevMsg();
