@@ -2,13 +2,13 @@ project (eiskaltdcpp)
 cmake_minimum_required (VERSION 2.6.3)
 
 set (PROJECT_NAME "EiskaltDC++")
-set (VERSION "2.4.0+devel")
-set (SOVERSION "2.4" )
+set (VERSION "2.4.0+devel") # Main program version (displayed in UI)
+set (SOVERSION "2.4") # Library version (incremented after changes in API or ABI)
 
 if (WIN32 OR APPLE OR HAIKU)
-    set (PROJECT_NAME_GLOBAL "EiskaltDC++")
+    set (PROJECT_NAME_GLOBAL "${PROJECT_NAME}") # Package name is the same as project name
 else ()
-    set (PROJECT_NAME_GLOBAL "eiskaltdcpp")
+    set (PROJECT_NAME_GLOBAL "eiskaltdcpp") # Simplifies packaging in GNU/Linux distros
 endif ()
 
 include (CheckCXXSourceCompiles)
@@ -173,12 +173,12 @@ endif (INSTALL_RUNTIME_PATH)
 if (NOT CMAKE_BUILD_TYPE)
     set (CMAKE_BUILD_TYPE "RelWithDebInfo")
 elseif (CMAKE_BUILD_TYPE STREQUAL "Debug" AND (USE_QT OR USE_QT5))
-    message(STATUS "EiskaltDC++ Qt with CMAKE_BUILD_TYPE=Debug is very unstable now!\n"
+    message(STATUS "${PROJECT_NAME} Qt with CMAKE_BUILD_TYPE=Debug is very unstable now!\n"
                    "\tYou can build it for your own risk.\n"
                    "\tBut do not even try to write bug reports in this case.\n"
                    "\tPlease use RelWithDebInfo instead it.")
 elseif (CMAKE_BUILD_TYPE STREQUAL "Gentoo" AND (USE_QT OR USE_QT5))
-    message(STATUS "EiskaltDC++ Qt with CMAKE_BUILD_TYPE=Gentoo may be unstable now.\n"
+    message(STATUS "${PROJECT_NAME} Qt with CMAKE_BUILD_TYPE=Gentoo may be unstable now.\n"
                    "\tPlease try to use RelWithDebInfo instead it if some troubles happend.")
 endif (NOT CMAKE_BUILD_TYPE)
 
