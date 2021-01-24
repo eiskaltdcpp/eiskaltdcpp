@@ -3411,7 +3411,7 @@ Téléchargé: %3 Envoyé: %4</translation>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="88"/>
         <source>Danish</source>
-        <translation type="unfinished"></translation>
+        <translation>Danois</translation>
     </message>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="226"/>
