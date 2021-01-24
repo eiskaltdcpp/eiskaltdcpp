@@ -305,6 +305,7 @@ list (APPEND AllLanguages
             be
             bg
             cs
+            da
             de
             el
             en
