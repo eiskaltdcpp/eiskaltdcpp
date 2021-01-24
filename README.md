@@ -186,7 +186,7 @@ But you may send donations to project contributors (developers, maintainers, tra
 * [Official packages in Ubuntu](https://launchpad.net/ubuntu/+source/eiskaltdcpp)
 * [Official packages in Fedora](https://src.fedoraproject.org/rpms/eiskaltdcpp)
 * [Official packages in Gentoo Linux](https://packages.gentoo.org/packages/net-p2p/eiskaltdcpp)
-* [Official packages in ALT Linux](http://www.sisyphus.ru/ru/srpm/eiskaltdcpp)
+* [Official packages in ALT Linux](https://packages.altlinux.org/en/sisyphus/srpms/eiskaltdcpp)
 * [Official packages in Haiku](https://depot.haiku-os.org/eiskaltdcpp)
 * [Official packages in FreeBSD](https://www.freshports.org/search.php?query=eiskaltdcpp)
 * [Packages for openSUSE](https://software.opensuse.org/package/eiskaltdcpp) (official and unofficial)
