@@ -3,7 +3,7 @@
 # Author:  Boris Pek <tehnick-8@yandex.ru>
 # License: MIT (Expat)
 # Created: 2019-04-01
-# Updated: 2020-07-01
+# Updated: 2021-01-24
 # Version: N/A
 #
 # Dependencies:
@@ -26,6 +26,9 @@ CUR_DIR="$(dirname $(realpath -s ${0}))"
 BUILD_TARGETS="Ubuntu-14.04_amd64_static Ubuntu-14.04_i386_static"
 
 # Script body
+
+SCRIPT_NAME="$(basename ${0})"
+ShowHelp ${@}
 
 TestInternetConnection
 PrepareMainDir

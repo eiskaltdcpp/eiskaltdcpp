@@ -48,7 +48,7 @@ GetProgramSources()
         echo;
     fi
     if [ "${1}" = "release" ]; then
-        git checkout "${2}" || return 1
+        git checkout "v${2}" || return 1
     fi
 }
 

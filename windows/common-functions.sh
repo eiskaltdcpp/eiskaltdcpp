@@ -26,10 +26,10 @@ ShowHelp()
         echo ;
         echo "Examples:"
         echo "  ./${SCRIPT_NAME}"
-        echo "  ./${SCRIPT_NAME} release 2.4.0"
+        echo "  ./${SCRIPT_NAME} release 2.4.1"
         echo "  ./${SCRIPT_NAME} --help"
         echo;
-        exit 0;
+        exit 1;
     elif [ "${1}" = "release" ]; then
         if [ -z "${2}" ]; then
             echo "Error: release version is not specified!"
