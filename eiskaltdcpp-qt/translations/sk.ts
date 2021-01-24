@@ -915,7 +915,7 @@ Kľúčové skratky:
     <name>HubFrame</name>
     <message>
         <location filename="../src/HubFrame.cpp" line="178"/>
-        <location filename="../src/HubFrame.cpp" line="1289"/>
+        <location filename="../src/HubFrame.cpp" line="1287"/>
         <source>Copy</source>
         <translation>kopírovať</translation>
     </message>
@@ -951,7 +951,7 @@ Kľúčové skratky:
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="185"/>
-        <location filename="../src/HubFrame.cpp" line="1288"/>
+        <location filename="../src/HubFrame.cpp" line="1286"/>
         <source>Add to Favorites</source>
         <translation>Pridať do obľúbených</translation>
     </message>
@@ -1085,464 +1085,464 @@ Kľúčové skratky:
         <translation>nezdieľané</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1284"/>
+        <location filename="../src/HubFrame.cpp" line="1282"/>
         <source>Hub menu</source>
         <translation>Hub menu</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1286"/>
+        <location filename="../src/HubFrame.cpp" line="1284"/>
         <source>Reconnect</source>
         <translation>Znova pripojiť</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1287"/>
+        <location filename="../src/HubFrame.cpp" line="1285"/>
         <source>Show widget</source>
         <translation>ukázať widget</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1290"/>
+        <location filename="../src/HubFrame.cpp" line="1288"/>
         <source>Hub IP</source>
         <translation>Hub IP</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1291"/>
+        <location filename="../src/HubFrame.cpp" line="1289"/>
         <source>Hub URL</source>
         <translation>Hub URL</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1292"/>
+        <location filename="../src/HubFrame.cpp" line="1290"/>
         <source>Hub Title</source>
         <translation>Hub Title</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1296"/>
+        <location filename="../src/HubFrame.cpp" line="1294"/>
         <source>Close</source>
         <translation>Zatvoriť</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1310"/>
+        <location filename="../src/HubFrame.cpp" line="1308"/>
         <source>Hub Menu</source>
         <translation>Hub menu</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1388"/>
-        <location filename="../src/HubFrame.cpp" line="1413"/>
+        <location filename="../src/HubFrame.cpp" line="1386"/>
+        <location filename="../src/HubFrame.cpp" line="1411"/>
         <source>Not connected</source>
         <translation>Nepripojený</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1446"/>
+        <location filename="../src/HubFrame.cpp" line="1444"/>
         <source>Chat cleared.</source>
         <translation>chat bol zmazaný.</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1458"/>
+        <location filename="../src/HubFrame.cpp" line="1456"/>
         <source>Chat disabled.</source>
         <translation>chatovanie je vypnut.</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1465"/>
+        <location filename="../src/HubFrame.cpp" line="1463"/>
         <source>Chat enabled.</source>
         <translation>chatovanie je zapnuté.</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1501"/>
+        <location filename="../src/HubFrame.cpp" line="1499"/>
         <source>Hub role: Operator</source>
         <translation>Hub role:operator</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1503"/>
+        <location filename="../src/HubFrame.cpp" line="1501"/>
         <source>Hub role: User</source>
         <translation>Hub role: užívateľ</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1506"/>
+        <location filename="../src/HubFrame.cpp" line="1504"/>
         <source>
 Favorite user</source>
         <translation>obľúbený užívateľ</translation>
     </message>
     <message>
+        <location filename="../src/HubFrame.cpp" line="1579"/>
         <location filename="../src/HubFrame.cpp" line="1581"/>
-        <location filename="../src/HubFrame.cpp" line="1583"/>
+        <location filename="../src/HubFrame.cpp" line="1802"/>
         <location filename="../src/HubFrame.cpp" line="1804"/>
-        <location filename="../src/HubFrame.cpp" line="1806"/>
         <source>Away mode off</source>
         <translation>Režim preč vypnutý</translation>
     </message>
     <message>
+        <location filename="../src/HubFrame.cpp" line="1593"/>
         <location filename="../src/HubFrame.cpp" line="1595"/>
-        <location filename="../src/HubFrame.cpp" line="1597"/>
         <source>Away mode on: </source>
         <translation>režim preč zapnutý:</translation>
     </message>
     <message>
+        <location filename="../src/HubFrame.cpp" line="1613"/>
         <location filename="../src/HubFrame.cpp" line="1615"/>
-        <location filename="../src/HubFrame.cpp" line="1617"/>
         <source>Aliases not found.</source>
         <translation>Aliasy nenájdené.</translation>
     </message>
     <message>
+        <location filename="../src/HubFrame.cpp" line="1635"/>
         <location filename="../src/HubFrame.cpp" line="1637"/>
-        <location filename="../src/HubFrame.cpp" line="1639"/>
         <source>Alias removed.</source>
         <translation>Alias odstránený.</translation>
     </message>
     <message>
+        <location filename="../src/HubFrame.cpp" line="1648"/>
         <location filename="../src/HubFrame.cpp" line="1650"/>
-        <location filename="../src/HubFrame.cpp" line="1652"/>
+        <location filename="../src/HubFrame.cpp" line="1657"/>
         <location filename="../src/HubFrame.cpp" line="1659"/>
-        <location filename="../src/HubFrame.cpp" line="1661"/>
         <source>Invalid alias syntax.</source>
         <translation>Neplatný syntax aliasu.</translation>
     </message>
     <message>
+        <location filename="../src/HubFrame.cpp" line="1667"/>
         <location filename="../src/HubFrame.cpp" line="1669"/>
-        <location filename="../src/HubFrame.cpp" line="1671"/>
         <source>Alias %1 =&gt; %2 has been added</source>
         <translation>Alias %1 =&gt; %2 bol pridaný</translation>
     </message>
     <message>
+        <location filename="../src/HubFrame.cpp" line="1691"/>
         <location filename="../src/HubFrame.cpp" line="1693"/>
-        <location filename="../src/HubFrame.cpp" line="1695"/>
+        <location filename="../src/HubFrame.cpp" line="1700"/>
         <location filename="../src/HubFrame.cpp" line="1702"/>
-        <location filename="../src/HubFrame.cpp" line="1704"/>
         <source>Invalid command syntax.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1714"/>
+        <location filename="../src/HubFrame.cpp" line="1712"/>
         <source>List of keywords:
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1761"/>
+        <location filename="../src/HubFrame.cpp" line="1759"/>
         <source>ratio: %1 (uploads: %2, downloads: %3)</source>
         <translation>pomer: %1 (uploads: %2, downloads: %3)</translation>
     </message>
     <message>
+        <location filename="../src/HubFrame.cpp" line="1793"/>
         <location filename="../src/HubFrame.cpp" line="1795"/>
-        <location filename="../src/HubFrame.cpp" line="1797"/>
         <source>Aspell switched %1</source>
         <translation>Aspell switched %1</translation>
     </message>
     <message>
+        <location filename="../src/HubFrame.cpp" line="1793"/>
         <location filename="../src/HubFrame.cpp" line="1795"/>
-        <location filename="../src/HubFrame.cpp" line="1797"/>
         <source>on</source>
         <translation>zapnutý</translation>
     </message>
     <message>
+        <location filename="../src/HubFrame.cpp" line="1793"/>
         <location filename="../src/HubFrame.cpp" line="1795"/>
-        <location filename="../src/HubFrame.cpp" line="1797"/>
         <source>off</source>
         <translation>vypnutý</translation>
     </message>
     <message>
+        <location filename="../src/HubFrame.cpp" line="1810"/>
         <location filename="../src/HubFrame.cpp" line="1812"/>
-        <location filename="../src/HubFrame.cpp" line="1814"/>
         <source>Chat has been cleared</source>
         <translation>chat bol zmazaný</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1864"/>
+        <location filename="../src/HubFrame.cpp" line="1862"/>
         <source>/aspell on/off - enable/disable spell checking
 </source>
         <translation>/aspell on/off - enable/disable spell checking
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1866"/>
+        <location filename="../src/HubFrame.cpp" line="1864"/>
         <source>/alias &lt;ALIAS_NAME&gt;::&lt;COMMAND&gt; - make alias /ALIAS_NAME to /COMMAND
 </source>
         <translation>/alias &lt;ALIAS_NAME&gt;::&lt;COMMAND&gt; - make alias /ALIAS_NAME to /COMMAND
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1867"/>
+        <location filename="../src/HubFrame.cpp" line="1865"/>
         <source>/alias purge &lt;ALIAS_NAME&gt; - remove alias
 </source>
         <translation>/alias purge &lt;ALIAS_NAME&gt; - remove alias</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1868"/>
+        <location filename="../src/HubFrame.cpp" line="1866"/>
         <source>/alias list - list all aliases
 </source>
         <translation>/alias list - list all aliases
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1869"/>
+        <location filename="../src/HubFrame.cpp" line="1867"/>
         <source>/away &lt;message&gt; - set away-mode on/off
 </source>
         <translation>/away &lt;message&gt; - set away-mode on/off
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1870"/>
+        <location filename="../src/HubFrame.cpp" line="1868"/>
         <source>/back - set away-mode off
 </source>
         <translation>/back - set away-mode off
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1871"/>
+        <location filename="../src/HubFrame.cpp" line="1869"/>
         <source>/browse &lt;nick&gt; - browse user files
 </source>
         <translation>/browse &lt;nick&gt; - browse user files
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1872"/>
+        <location filename="../src/HubFrame.cpp" line="1870"/>
         <source>/clear - clear chat window
 </source>
         <translation>/clear - clear chat window
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1873"/>
+        <location filename="../src/HubFrame.cpp" line="1871"/>
         <source>/kword add &lt;keyword&gt; - add user-defined keyword which will be highlighted in the chat
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1874"/>
+        <location filename="../src/HubFrame.cpp" line="1872"/>
         <source>/kword purge &lt;keyword&gt; - remove user-defined keyword
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1875"/>
+        <location filename="../src/HubFrame.cpp" line="1873"/>
         <source>/kword list - full list of keywords which will be highlighted in the chat
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1876"/>
+        <location filename="../src/HubFrame.cpp" line="1874"/>
         <source>/magnet - default action with magnet (0-ask, 1-search, 2-download)
 </source>
         <translation>/magnet - default action with magnet (0-ask, 1-search, 2-download)
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1877"/>
+        <location filename="../src/HubFrame.cpp" line="1875"/>
         <source>/close - close this hub
 </source>
         <translation>/close - close this hub
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1878"/>
+        <location filename="../src/HubFrame.cpp" line="1876"/>
         <source>/fav - add this hub to favorites
 </source>
         <translation>/fav - add this hub to favorites
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1879"/>
+        <location filename="../src/HubFrame.cpp" line="1877"/>
         <source>/grant &lt;nick&gt; - grant extra slot to user
 </source>
         <translation>/grant &lt;nick&gt; - grant extra slot to user
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1880"/>
+        <location filename="../src/HubFrame.cpp" line="1878"/>
         <source>/help, /?, /h - show this help
 </source>
         <translation>/help, /?, /h - show this help
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1881"/>
+        <location filename="../src/HubFrame.cpp" line="1879"/>
         <source>/info &lt;nick&gt; - show info about user
 </source>
         <translation>/info &lt;nick&gt; - show info about user
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1882"/>
+        <location filename="../src/HubFrame.cpp" line="1880"/>
         <source>/ratio [show] - show ratio [send in chat]
 </source>
         <translation>/ratio [show] - show ratio [send in chat]
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1883"/>
+        <location filename="../src/HubFrame.cpp" line="1881"/>
         <source>/rebuild - rebuild hash
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1884"/>
+        <location filename="../src/HubFrame.cpp" line="1882"/>
         <source>/refresh - update own file list
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1885"/>
+        <location filename="../src/HubFrame.cpp" line="1883"/>
         <source>/me - say a third person
 </source>
         <translation>/me - say a third person
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1886"/>
+        <location filename="../src/HubFrame.cpp" line="1884"/>
         <source>/pm &lt;nick&gt; - begin private chat with user
 </source>
         <translation>/pm &lt;nick&gt; - begin private chat with user
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1887"/>
+        <location filename="../src/HubFrame.cpp" line="1885"/>
         <source>/ws param value - set gui option param in value (without value return current value of option)
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1888"/>
+        <location filename="../src/HubFrame.cpp" line="1886"/>
         <source>/dcpps param value - set core option param in value (without value return current value of option)
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1890"/>
+        <location filename="../src/HubFrame.cpp" line="1888"/>
         <source>/luafile &lt;file&gt; - load Lua file
 </source>
         <translation>/luafile &lt;file&gt; - load Lua file
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1891"/>
+        <location filename="../src/HubFrame.cpp" line="1889"/>
         <source>/lua &lt;chunk&gt; - execute Lua chunk
 </source>
         <translation>/lua &lt;chunk&gt; - execute Lua chunk
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2167"/>
+        <location filename="../src/HubFrame.cpp" line="2165"/>
         <source> joins the chat</source>
         <translation> sa pripojil ku chatu</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2172"/>
-        <location filename="../src/HubFrame.cpp" line="2230"/>
+        <location filename="../src/HubFrame.cpp" line="2170"/>
+        <location filename="../src/HubFrame.cpp" line="2228"/>
         <source>Favorites</source>
         <translation>Obľúbené</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2172"/>
+        <location filename="../src/HubFrame.cpp" line="2170"/>
         <source>%1 is now online</source>
         <translation>%1 je online</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2185"/>
+        <location filename="../src/HubFrame.cpp" line="2183"/>
         <source>User online.</source>
         <translation>užívateľ je online.</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2225"/>
+        <location filename="../src/HubFrame.cpp" line="2223"/>
         <source> left the chat</source>
         <translation>opustiť chat</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2230"/>
+        <location filename="../src/HubFrame.cpp" line="2228"/>
         <source>%1 is now offline</source>
         <translation>%1 je offline</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2269"/>
-        <location filename="../src/HubFrame.cpp" line="2283"/>
+        <location filename="../src/HubFrame.cpp" line="2267"/>
+        <location filename="../src/HubFrame.cpp" line="2281"/>
         <source>User not found</source>
         <translation>užívateľ nenájdený</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2290"/>
+        <location filename="../src/HubFrame.cpp" line="2288"/>
         <source>Slot granted to </source>
         <translation>slot udelený</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2349"/>
+        <location filename="../src/HubFrame.cpp" line="2347"/>
         <source> has been added to favorites.</source>
         <translation> bol pridany k obľúbeným.</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2349"/>
+        <location filename="../src/HubFrame.cpp" line="2347"/>
         <source> has been removed from favorites.</source>
         <translation> bol odstránený z obľubených.</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2381"/>
+        <location filename="../src/HubFrame.cpp" line="2379"/>
         <source>Favorite hub added.</source>
         <translation>obľúbený hub pridaný.</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2384"/>
+        <location filename="../src/HubFrame.cpp" line="2382"/>
         <source>Favorite hub already exists.</source>
         <translation>obľúbený hub existuje.</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2613"/>
+        <location filename="../src/HubFrame.cpp" line="2611"/>
         <source>User offline.</source>
         <translation>užívateľ je offline.</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2652"/>
+        <location filename="../src/HubFrame.cpp" line="2650"/>
         <source>Stored password sent...</source>
         <translation>uložené heslo bolo zaslané...</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2655"/>
+        <location filename="../src/HubFrame.cpp" line="2653"/>
         <source>Password</source>
         <translation>heslo</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2669"/>
-        <location filename="../src/HubFrame.cpp" line="3820"/>
+        <location filename="../src/HubFrame.cpp" line="2667"/>
+        <location filename="../src/HubFrame.cpp" line="3811"/>
         <source>Redirect request received to a hub that&apos;s already connected</source>
         <translation>Požiadavka bola prijatá a presmerovaná na hub na ,ktorý ste sa práve pripojili</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2741"/>
+        <location filename="../src/HubFrame.cpp" line="2739"/>
         <source>Users count: %3/%1 | Total share: %2</source>
         <translation>Počet pripojených užívateľov: %3/%1 | Celkovo zdieľané: %2</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2747"/>
+        <location filename="../src/HubFrame.cpp" line="2745"/>
         <source>Users count: %1 | Total share: %2</source>
         <translation>Počet pripojených užívateľov: %1 | Celkovo zdieľané: %2</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="3606"/>
+        <location filename="../src/HubFrame.cpp" line="3597"/>
         <source>Add to dictionary</source>
         <translation>pridať do slovníka</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="3612"/>
+        <location filename="../src/HubFrame.cpp" line="3603"/>
         <source>Suggestions</source>
         <translation>návrhy</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="3778"/>
+        <location filename="../src/HubFrame.cpp" line="3769"/>
         <source>Connecting to %1</source>
         <translation>pripájať sa k %1</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="3786"/>
+        <location filename="../src/HubFrame.cpp" line="3777"/>
         <source>Connected to %1</source>
         <translation>pripojený k %1</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="3830"/>
+        <location filename="../src/HubFrame.cpp" line="3821"/>
         <source>Fail: %1...</source>
         <translation>zlyhanie:%1...</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="4024"/>
+        <location filename="../src/HubFrame.cpp" line="4015"/>
         <source>Sorry, but nick &quot;%1&quot; is already taken by another user.</source>
         <translation>Prepáč ale užívateľ s prezývkou &quot;%1&quot; je práve obsadeny iným užívateľom.</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="4030"/>
+        <location filename="../src/HubFrame.cpp" line="4021"/>
         <source>Search flood detected: %1</source>
         <translation>Search flood detected: %1</translation>
     </message>
@@ -2565,17 +2565,17 @@ Stiahnuté: %3 Uploadované: %4</translation>
         <translation>Zatvoriť</translation>
     </message>
     <message>
-        <location filename="../src/PMWindow.cpp" line="315"/>
+        <location filename="../src/PMWindow.cpp" line="313"/>
         <source>%1 on hub %2</source>
         <translation>%1 on hube %2</translation>
     </message>
     <message>
-        <location filename="../src/PMWindow.cpp" line="361"/>
+        <location filename="../src/PMWindow.cpp" line="359"/>
         <source>Chat cleared.</source>
         <translation>Chat bol zmazaný.</translation>
     </message>
     <message>
-        <location filename="../src/PMWindow.cpp" line="459"/>
+        <location filename="../src/PMWindow.cpp" line="457"/>
         <source>User went offline</source>
         <translation>Užívateľ sa odhlásil</translation>
     </message>
@@ -3147,42 +3147,42 @@ Stiahnuté: %3 Uploadované: %4</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/Secretary.cpp" line="313"/>
+        <location filename="../src/Secretary.cpp" line="311"/>
         <source>Copy</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/Secretary.cpp" line="314"/>
+        <location filename="../src/Secretary.cpp" line="312"/>
         <source>Search text</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/Secretary.cpp" line="315"/>
+        <location filename="../src/Secretary.cpp" line="313"/>
         <source>Copy nick</source>
         <translation type="unfinished">skopírovať prezývku</translation>
     </message>
     <message>
-        <location filename="../src/Secretary.cpp" line="317"/>
+        <location filename="../src/Secretary.cpp" line="315"/>
         <source>Clear notes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/Secretary.cpp" line="318"/>
+        <location filename="../src/Secretary.cpp" line="316"/>
         <source>Find in notes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/Secretary.cpp" line="320"/>
+        <location filename="../src/Secretary.cpp" line="318"/>
         <source>Select all</source>
         <translation type="unfinished">Označiť všetko</translation>
     </message>
     <message>
-        <location filename="../src/Secretary.cpp" line="322"/>
+        <location filename="../src/Secretary.cpp" line="320"/>
         <source>Zoom In</source>
         <translation type="unfinished">Priblížiť</translation>
     </message>
     <message>
-        <location filename="../src/Secretary.cpp" line="323"/>
+        <location filename="../src/Secretary.cpp" line="321"/>
         <source>Zoom Out</source>
         <translation type="unfinished">Oddialiť</translation>
     </message>
@@ -3424,67 +3424,72 @@ Stiahnuté: %3 Uploadované: %4</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="225"/>
+        <location filename="../src/SettingsGUI.cpp" line="88"/>
+        <source>Danish</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/SettingsGUI.cpp" line="226"/>
         <source>Local user</source>
         <translation>Lokálny užívateľ</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="229"/>
+        <location filename="../src/SettingsGUI.cpp" line="230"/>
         <source>Operator</source>
         <translation>Operátor</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="233"/>
+        <location filename="../src/SettingsGUI.cpp" line="234"/>
         <source>Bot</source>
         <translation>Bot</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="237"/>
+        <location filename="../src/SettingsGUI.cpp" line="238"/>
         <source>Private: local user</source>
         <translation>Súkromné: lokálny užívateľ</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="241"/>
+        <location filename="../src/SettingsGUI.cpp" line="242"/>
         <source>Private: user</source>
         <translation>Súkromné:užívateľ</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="245"/>
+        <location filename="../src/SettingsGUI.cpp" line="246"/>
         <source>Chat: Say nick</source>
         <translation>Chat: Povedz prezývku</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="249"/>
+        <location filename="../src/SettingsGUI.cpp" line="250"/>
         <source>Status</source>
         <translation>Status</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="253"/>
+        <location filename="../src/SettingsGUI.cpp" line="254"/>
         <source>User</source>
         <translation>Užívateľ</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="257"/>
+        <location filename="../src/SettingsGUI.cpp" line="258"/>
         <source>Favorite User</source>
         <translation>Obľúbený Užívateľ</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="261"/>
+        <location filename="../src/SettingsGUI.cpp" line="262"/>
         <source>Time stamp</source>
         <translation>Časová značka</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="265"/>
+        <location filename="../src/SettingsGUI.cpp" line="266"/>
         <source>Message</source>
         <translation>Správa</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="565"/>
+        <location filename="../src/SettingsGUI.cpp" line="566"/>
         <source>Select translation</source>
         <translation>Vybrať preklad</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="567"/>
+        <location filename="../src/SettingsGUI.cpp" line="568"/>
         <source>Translation (*.qm)</source>
         <translation>Preklad (*.qm)</translation>
     </message>

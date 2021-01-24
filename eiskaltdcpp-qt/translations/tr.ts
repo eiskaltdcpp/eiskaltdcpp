@@ -916,7 +916,7 @@ Anahtarlar:
     <name>HubFrame</name>
     <message>
         <location filename="../src/HubFrame.cpp" line="178"/>
-        <location filename="../src/HubFrame.cpp" line="1289"/>
+        <location filename="../src/HubFrame.cpp" line="1287"/>
         <source>Copy</source>
         <translation>Kopyala</translation>
     </message>
@@ -952,7 +952,7 @@ Anahtarlar:
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="185"/>
-        <location filename="../src/HubFrame.cpp" line="1288"/>
+        <location filename="../src/HubFrame.cpp" line="1286"/>
         <source>Add to Favorites</source>
         <translation>Favorilere Ekle</translation>
     </message>
@@ -1086,474 +1086,474 @@ Anahtarlar:
         <translation>paylaşılmayan</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1284"/>
+        <location filename="../src/HubFrame.cpp" line="1282"/>
         <source>Hub menu</source>
         <translation>Hub menüsü</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1286"/>
+        <location filename="../src/HubFrame.cpp" line="1284"/>
         <source>Reconnect</source>
         <translation>Tekrar bağlan</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1287"/>
+        <location filename="../src/HubFrame.cpp" line="1285"/>
         <source>Show widget</source>
         <translation>Widget&apos;i göster</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1290"/>
+        <location filename="../src/HubFrame.cpp" line="1288"/>
         <source>Hub IP</source>
         <translation>Hub IP adresi</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1291"/>
+        <location filename="../src/HubFrame.cpp" line="1289"/>
         <source>Hub URL</source>
         <translation>Hub URL&apos;i</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1292"/>
+        <location filename="../src/HubFrame.cpp" line="1290"/>
         <source>Hub Title</source>
         <translation>Hub başlığı</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1296"/>
+        <location filename="../src/HubFrame.cpp" line="1294"/>
         <source>Close</source>
         <translation>Kapat</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1310"/>
+        <location filename="../src/HubFrame.cpp" line="1308"/>
         <source>Hub Menu</source>
         <translation>Hub Menüsü</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1388"/>
-        <location filename="../src/HubFrame.cpp" line="1413"/>
+        <location filename="../src/HubFrame.cpp" line="1386"/>
+        <location filename="../src/HubFrame.cpp" line="1411"/>
         <source>Not connected</source>
         <translation>Bağlantıda değil</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1446"/>
+        <location filename="../src/HubFrame.cpp" line="1444"/>
         <source>Chat cleared.</source>
         <translation>Sohbet temizlendi.</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1458"/>
+        <location filename="../src/HubFrame.cpp" line="1456"/>
         <source>Chat disabled.</source>
         <translation>Sohbet devre dışı bırakıldı.</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1465"/>
+        <location filename="../src/HubFrame.cpp" line="1463"/>
         <source>Chat enabled.</source>
         <translation>Sohbet etkinleştirildi.</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1501"/>
+        <location filename="../src/HubFrame.cpp" line="1499"/>
         <source>Hub role: Operator</source>
         <translation>Hub rolü: Operatör</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1503"/>
+        <location filename="../src/HubFrame.cpp" line="1501"/>
         <source>Hub role: User</source>
         <translation>Hub rolü: Kullanıcı</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1506"/>
+        <location filename="../src/HubFrame.cpp" line="1504"/>
         <source>
 Favorite user</source>
         <translation>
 Favori kullanıcı</translation>
     </message>
     <message>
+        <location filename="../src/HubFrame.cpp" line="1579"/>
         <location filename="../src/HubFrame.cpp" line="1581"/>
-        <location filename="../src/HubFrame.cpp" line="1583"/>
+        <location filename="../src/HubFrame.cpp" line="1802"/>
         <location filename="../src/HubFrame.cpp" line="1804"/>
-        <location filename="../src/HubFrame.cpp" line="1806"/>
         <source>Away mode off</source>
         <translation>Uzakta kipi kapalı</translation>
     </message>
     <message>
+        <location filename="../src/HubFrame.cpp" line="1593"/>
         <location filename="../src/HubFrame.cpp" line="1595"/>
-        <location filename="../src/HubFrame.cpp" line="1597"/>
         <source>Away mode on: </source>
         <translation>Uzakta kipi açık: </translation>
     </message>
     <message>
+        <location filename="../src/HubFrame.cpp" line="1613"/>
         <location filename="../src/HubFrame.cpp" line="1615"/>
-        <location filename="../src/HubFrame.cpp" line="1617"/>
         <source>Aliases not found.</source>
         <translation>Aliaslar bulunamadı.</translation>
     </message>
     <message>
+        <location filename="../src/HubFrame.cpp" line="1635"/>
         <location filename="../src/HubFrame.cpp" line="1637"/>
-        <location filename="../src/HubFrame.cpp" line="1639"/>
         <source>Alias removed.</source>
         <translation>Alias kaldırıldı.</translation>
     </message>
     <message>
+        <location filename="../src/HubFrame.cpp" line="1648"/>
         <location filename="../src/HubFrame.cpp" line="1650"/>
-        <location filename="../src/HubFrame.cpp" line="1652"/>
+        <location filename="../src/HubFrame.cpp" line="1657"/>
         <location filename="../src/HubFrame.cpp" line="1659"/>
-        <location filename="../src/HubFrame.cpp" line="1661"/>
         <source>Invalid alias syntax.</source>
         <translation>Geçersiz alias sözdizimi.</translation>
     </message>
     <message>
+        <location filename="../src/HubFrame.cpp" line="1667"/>
         <location filename="../src/HubFrame.cpp" line="1669"/>
-        <location filename="../src/HubFrame.cpp" line="1671"/>
         <source>Alias %1 =&gt; %2 has been added</source>
         <translation>Alias %1 =&gt; %2 eklendi</translation>
     </message>
     <message>
+        <location filename="../src/HubFrame.cpp" line="1691"/>
         <location filename="../src/HubFrame.cpp" line="1693"/>
-        <location filename="../src/HubFrame.cpp" line="1695"/>
+        <location filename="../src/HubFrame.cpp" line="1700"/>
         <location filename="../src/HubFrame.cpp" line="1702"/>
-        <location filename="../src/HubFrame.cpp" line="1704"/>
         <source>Invalid command syntax.</source>
         <translation>Geçersiz komut sözdizimi.</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1714"/>
+        <location filename="../src/HubFrame.cpp" line="1712"/>
         <source>List of keywords:
 </source>
         <translation>Anahtar kelime listesi:
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1761"/>
+        <location filename="../src/HubFrame.cpp" line="1759"/>
         <source>ratio: %1 (uploads: %2, downloads: %3)</source>
         <translation>oran:%1 (göndermeler: %2, indirmeler: %3)</translation>
     </message>
     <message>
+        <location filename="../src/HubFrame.cpp" line="1793"/>
         <location filename="../src/HubFrame.cpp" line="1795"/>
-        <location filename="../src/HubFrame.cpp" line="1797"/>
         <source>Aspell switched %1</source>
         <translation>Aspell şuna geçiş yaptı: %1</translation>
     </message>
     <message>
+        <location filename="../src/HubFrame.cpp" line="1793"/>
         <location filename="../src/HubFrame.cpp" line="1795"/>
-        <location filename="../src/HubFrame.cpp" line="1797"/>
         <source>on</source>
         <translation>açık</translation>
     </message>
     <message>
+        <location filename="../src/HubFrame.cpp" line="1793"/>
         <location filename="../src/HubFrame.cpp" line="1795"/>
-        <location filename="../src/HubFrame.cpp" line="1797"/>
         <source>off</source>
         <translation>kapalı</translation>
     </message>
     <message>
+        <location filename="../src/HubFrame.cpp" line="1810"/>
         <location filename="../src/HubFrame.cpp" line="1812"/>
-        <location filename="../src/HubFrame.cpp" line="1814"/>
         <source>Chat has been cleared</source>
         <translation>Sohbet temizlendi</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1864"/>
+        <location filename="../src/HubFrame.cpp" line="1862"/>
         <source>/aspell on/off - enable/disable spell checking
 </source>
         <translation>/aspell on/off - imla denetimini etkinleştir/devre dışı bırak
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1866"/>
+        <location filename="../src/HubFrame.cpp" line="1864"/>
         <source>/alias &lt;ALIAS_NAME&gt;::&lt;COMMAND&gt; - make alias /ALIAS_NAME to /COMMAND
 </source>
         <translation>/alias &lt;ALIAS_İSMİ&gt;::&lt;KOMUT&gt; - alias oluştur /ALIAS_İSMİ şuna /KOMUT
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1867"/>
+        <location filename="../src/HubFrame.cpp" line="1865"/>
         <source>/alias purge &lt;ALIAS_NAME&gt; - remove alias
 </source>
         <translation>/alias purge &lt;ALIAS_İSMİ&gt; - aliası kaldır
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1868"/>
+        <location filename="../src/HubFrame.cpp" line="1866"/>
         <source>/alias list - list all aliases
 </source>
         <translation>/alias list - bütün alisasları listele
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1869"/>
+        <location filename="../src/HubFrame.cpp" line="1867"/>
         <source>/away &lt;message&gt; - set away-mode on/off
 </source>
         <translation>/away &lt;mesaj&gt; - uzakta kipini aç/kapat
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1870"/>
+        <location filename="../src/HubFrame.cpp" line="1868"/>
         <source>/back - set away-mode off
 </source>
         <translation>/back - uzakta kipini kapat
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1871"/>
+        <location filename="../src/HubFrame.cpp" line="1869"/>
         <source>/browse &lt;nick&gt; - browse user files
 </source>
         <translation>/browse &lt;rumuz&gt; - kullanıcı dosyalarını tara
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1872"/>
+        <location filename="../src/HubFrame.cpp" line="1870"/>
         <source>/clear - clear chat window
 </source>
         <translation>/clear - sohbet penceresini temizle
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1873"/>
+        <location filename="../src/HubFrame.cpp" line="1871"/>
         <source>/kword add &lt;keyword&gt; - add user-defined keyword which will be highlighted in the chat
 </source>
         <translation>/kword add &lt;anahtar_kelime&gt; - sohbette vurgulanacak kullanıcı tarafından belirlenen anahtar kelime ekle
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1874"/>
+        <location filename="../src/HubFrame.cpp" line="1872"/>
         <source>/kword purge &lt;keyword&gt; - remove user-defined keyword
 </source>
         <translation>/kword purge &lt;anahtar_kelime&gt; - kullanıcı tarafından belirlenen anahtar kelimeyi kaldır
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1875"/>
+        <location filename="../src/HubFrame.cpp" line="1873"/>
         <source>/kword list - full list of keywords which will be highlighted in the chat
 </source>
         <translation>/kword list - sohbette vurgulanacak anahtar kelimelerin tam listesi
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1876"/>
+        <location filename="../src/HubFrame.cpp" line="1874"/>
         <source>/magnet - default action with magnet (0-ask, 1-search, 2-download)
 </source>
         <translation>/magnet - magnet ile varsayılan eylem (0-sor, 1-ara, 2-indir)
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1877"/>
+        <location filename="../src/HubFrame.cpp" line="1875"/>
         <source>/close - close this hub
 </source>
         <translation>/close - bu hub&apos;ı kapat
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1878"/>
+        <location filename="../src/HubFrame.cpp" line="1876"/>
         <source>/fav - add this hub to favorites
 </source>
         <translation>/fav - bu hub&apos;ı favorilere ekle
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1879"/>
+        <location filename="../src/HubFrame.cpp" line="1877"/>
         <source>/grant &lt;nick&gt; - grant extra slot to user
 </source>
         <translation>/grant &lt;rumuz&gt; - kullanıcıya ekstra oluk ver
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1880"/>
+        <location filename="../src/HubFrame.cpp" line="1878"/>
         <source>/help, /?, /h - show this help
 </source>
         <translation>/help, /?, /h - bu yardımı göster
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1881"/>
+        <location filename="../src/HubFrame.cpp" line="1879"/>
         <source>/info &lt;nick&gt; - show info about user
 </source>
         <translation>/info &lt;rumuz&gt; - kullanıcı hakkında bilgi göster
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1882"/>
+        <location filename="../src/HubFrame.cpp" line="1880"/>
         <source>/ratio [show] - show ratio [send in chat]
 </source>
         <translation>/ratio [show] - oranı göster [sohbete gönder]
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1883"/>
+        <location filename="../src/HubFrame.cpp" line="1881"/>
         <source>/rebuild - rebuild hash
 </source>
         <translation>/rebuild - karma değerini yeniden hesapla
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1884"/>
+        <location filename="../src/HubFrame.cpp" line="1882"/>
         <source>/refresh - update own file list
 </source>
         <translation>/refresh - kendi dosya listenizi güncelle
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1885"/>
+        <location filename="../src/HubFrame.cpp" line="1883"/>
         <source>/me - say a third person
 </source>
         <translation>/me - üçüncü kişi olarak söyle
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1886"/>
+        <location filename="../src/HubFrame.cpp" line="1884"/>
         <source>/pm &lt;nick&gt; - begin private chat with user
 </source>
         <translation>/pm &lt;nick&gt; - kullanıcı ile özel sohbet başlat
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1887"/>
+        <location filename="../src/HubFrame.cpp" line="1885"/>
         <source>/ws param value - set gui option param in value (without value return current value of option)
 </source>
         <translation>/ws param değeri - değerde grafik arayüz seçeneğini ayarla (değer yoksa seçeneğin güncel değerini göster)
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1888"/>
+        <location filename="../src/HubFrame.cpp" line="1886"/>
         <source>/dcpps param value - set core option param in value (without value return current value of option)
 </source>
         <translation>/dcpps param değer - değerde çekirdek seçeneğini ayarla (değer yoksa seçeneğin güncel değerini göster)
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1890"/>
+        <location filename="../src/HubFrame.cpp" line="1888"/>
         <source>/luafile &lt;file&gt; - load Lua file
 </source>
         <translation>/luafile &lt;dosya&gt; - Lua dosyası yükle
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="1891"/>
+        <location filename="../src/HubFrame.cpp" line="1889"/>
         <source>/lua &lt;chunk&gt; - execute Lua chunk
 </source>
         <translation>/lua &lt;parça&gt; Lua parçası çalıştır
 </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2167"/>
+        <location filename="../src/HubFrame.cpp" line="2165"/>
         <source> joins the chat</source>
         <translation> sohbete katıldı</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2172"/>
-        <location filename="../src/HubFrame.cpp" line="2230"/>
+        <location filename="../src/HubFrame.cpp" line="2170"/>
+        <location filename="../src/HubFrame.cpp" line="2228"/>
         <source>Favorites</source>
         <translation>Favoriler</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2172"/>
+        <location filename="../src/HubFrame.cpp" line="2170"/>
         <source>%1 is now online</source>
         <translation>%1 artık çevrimiçinde</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2185"/>
+        <location filename="../src/HubFrame.cpp" line="2183"/>
         <source>User online.</source>
         <translation>Kullanıcı çevrimiçinde.</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2225"/>
+        <location filename="../src/HubFrame.cpp" line="2223"/>
         <source> left the chat</source>
         <translation> sohbetten ayrıldı</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2230"/>
+        <location filename="../src/HubFrame.cpp" line="2228"/>
         <source>%1 is now offline</source>
         <translation>%1 artık çevrimdışında</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2269"/>
-        <location filename="../src/HubFrame.cpp" line="2283"/>
+        <location filename="../src/HubFrame.cpp" line="2267"/>
+        <location filename="../src/HubFrame.cpp" line="2281"/>
         <source>User not found</source>
         <translation>Kullanıcı bulunamadı</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2290"/>
+        <location filename="../src/HubFrame.cpp" line="2288"/>
         <source>Slot granted to </source>
         <translation>Oluk şuna verildi: </translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2349"/>
+        <location filename="../src/HubFrame.cpp" line="2347"/>
         <source> has been added to favorites.</source>
         <translation> favorilere eklendi.</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2349"/>
+        <location filename="../src/HubFrame.cpp" line="2347"/>
         <source> has been removed from favorites.</source>
         <translation> favorilerden kaldırıldı.</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2381"/>
+        <location filename="../src/HubFrame.cpp" line="2379"/>
         <source>Favorite hub added.</source>
         <translation>Favori hub eklendi.</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2384"/>
+        <location filename="../src/HubFrame.cpp" line="2382"/>
         <source>Favorite hub already exists.</source>
         <translation>Favori hub zaten mevcut.</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2613"/>
+        <location filename="../src/HubFrame.cpp" line="2611"/>
         <source>User offline.</source>
         <translation>Kullanıcı çevrimdışında.</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2652"/>
+        <location filename="../src/HubFrame.cpp" line="2650"/>
         <source>Stored password sent...</source>
         <translation>Saklanan parola gönderildi...</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2655"/>
+        <location filename="../src/HubFrame.cpp" line="2653"/>
         <source>Password</source>
         <translation>Parola</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2669"/>
-        <location filename="../src/HubFrame.cpp" line="3820"/>
+        <location filename="../src/HubFrame.cpp" line="2667"/>
+        <location filename="../src/HubFrame.cpp" line="3811"/>
         <source>Redirect request received to a hub that&apos;s already connected</source>
         <translation>Zaten bağlantıda olan bir hub&apos;a yeniden yönlendirme isteği alındı</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2741"/>
+        <location filename="../src/HubFrame.cpp" line="2739"/>
         <source>Users count: %3/%1 | Total share: %2</source>
         <translation>Kullanıcı sayısı %3/%1 | Toplam paylaşım: %2</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="2747"/>
+        <location filename="../src/HubFrame.cpp" line="2745"/>
         <source>Users count: %1 | Total share: %2</source>
         <translation>Kullanıcı sayısı: %1 | Toplam paylaşım: %2</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="3606"/>
+        <location filename="../src/HubFrame.cpp" line="3597"/>
         <source>Add to dictionary</source>
         <translation>Sözlüğe ekle</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="3612"/>
+        <location filename="../src/HubFrame.cpp" line="3603"/>
         <source>Suggestions</source>
         <translation>Öneriler</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="3778"/>
+        <location filename="../src/HubFrame.cpp" line="3769"/>
         <source>Connecting to %1</source>
         <translation>%1 unsuruna bağlanılıyor</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="3786"/>
+        <location filename="../src/HubFrame.cpp" line="3777"/>
         <source>Connected to %1</source>
         <translation>%1 unsuruna bağlanıldı</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="3830"/>
+        <location filename="../src/HubFrame.cpp" line="3821"/>
         <source>Fail: %1...</source>
         <translation>Başarısız: %1...</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="4024"/>
+        <location filename="../src/HubFrame.cpp" line="4015"/>
         <source>Sorry, but nick &quot;%1&quot; is already taken by another user.</source>
         <translation>Özür dileriz ancak &quot;%1&quot; rumuzu zaten başka bir kullanıcı tarafından alınmıştır.</translation>
     </message>
     <message>
-        <location filename="../src/HubFrame.cpp" line="4030"/>
+        <location filename="../src/HubFrame.cpp" line="4021"/>
         <source>Search flood detected: %1</source>
         <translation>Aşırı arama tekrarı (flood) tespit edildi: %1</translation>
     </message>
@@ -2561,17 +2561,17 @@ Downloaded: %3 Uploaded: %4</source>
         <translation>Kapat</translation>
     </message>
     <message>
-        <location filename="../src/PMWindow.cpp" line="315"/>
+        <location filename="../src/PMWindow.cpp" line="313"/>
         <source>%1 on hub %2</source>
         <translation>%1, %2 hub&apos;ında</translation>
     </message>
     <message>
-        <location filename="../src/PMWindow.cpp" line="361"/>
+        <location filename="../src/PMWindow.cpp" line="359"/>
         <source>Chat cleared.</source>
         <translation>Sohbet temizlendi.</translation>
     </message>
     <message>
-        <location filename="../src/PMWindow.cpp" line="459"/>
+        <location filename="../src/PMWindow.cpp" line="457"/>
         <source>User went offline</source>
         <translation>Kullanıcı çevrimdışına gitti</translation>
     </message>
@@ -3151,42 +3151,42 @@ Downloaded: %3 Uploaded: %4</source>
         <translation>Sekreter</translation>
     </message>
     <message>
-        <location filename="../src/Secretary.cpp" line="313"/>
+        <location filename="../src/Secretary.cpp" line="311"/>
         <source>Copy</source>
         <translation>Kopyala</translation>
     </message>
     <message>
-        <location filename="../src/Secretary.cpp" line="314"/>
+        <location filename="../src/Secretary.cpp" line="312"/>
         <source>Search text</source>
         <translation>Metin ara</translation>
     </message>
     <message>
-        <location filename="../src/Secretary.cpp" line="315"/>
+        <location filename="../src/Secretary.cpp" line="313"/>
         <source>Copy nick</source>
         <translation>Rumuzu kopyala</translation>
     </message>
     <message>
-        <location filename="../src/Secretary.cpp" line="317"/>
+        <location filename="../src/Secretary.cpp" line="315"/>
         <source>Clear notes</source>
         <translation>Notları sil</translation>
     </message>
     <message>
-        <location filename="../src/Secretary.cpp" line="318"/>
+        <location filename="../src/Secretary.cpp" line="316"/>
         <source>Find in notes</source>
         <translation>Notlarda bul</translation>
     </message>
     <message>
-        <location filename="../src/Secretary.cpp" line="320"/>
+        <location filename="../src/Secretary.cpp" line="318"/>
         <source>Select all</source>
         <translation>Tümünü seç</translation>
     </message>
     <message>
-        <location filename="../src/Secretary.cpp" line="322"/>
+        <location filename="../src/Secretary.cpp" line="320"/>
         <source>Zoom In</source>
         <translation>Yakınlaştır</translation>
     </message>
     <message>
-        <location filename="../src/Secretary.cpp" line="323"/>
+        <location filename="../src/Secretary.cpp" line="321"/>
         <source>Zoom Out</source>
         <translation>Uzaklaştır</translation>
     </message>
@@ -3428,67 +3428,72 @@ Downloaded: %3 Uploaded: %4</source>
         <translation>Türkçe</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="225"/>
+        <location filename="../src/SettingsGUI.cpp" line="88"/>
+        <source>Danish</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/SettingsGUI.cpp" line="226"/>
         <source>Local user</source>
         <translation>Yerel kullanıcı</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="229"/>
+        <location filename="../src/SettingsGUI.cpp" line="230"/>
         <source>Operator</source>
         <translation>Operatör</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="233"/>
+        <location filename="../src/SettingsGUI.cpp" line="234"/>
         <source>Bot</source>
         <translation>Robot</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="237"/>
+        <location filename="../src/SettingsGUI.cpp" line="238"/>
         <source>Private: local user</source>
         <translation>Özel: yerel kullanıcı</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="241"/>
+        <location filename="../src/SettingsGUI.cpp" line="242"/>
         <source>Private: user</source>
         <translation>Özel: kullanıcı</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="245"/>
+        <location filename="../src/SettingsGUI.cpp" line="246"/>
         <source>Chat: Say nick</source>
         <translation>Sohbet: rumuz</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="249"/>
+        <location filename="../src/SettingsGUI.cpp" line="250"/>
         <source>Status</source>
         <translation>Durum</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="253"/>
+        <location filename="../src/SettingsGUI.cpp" line="254"/>
         <source>User</source>
         <translation>Kullanıcı</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="257"/>
+        <location filename="../src/SettingsGUI.cpp" line="258"/>
         <source>Favorite User</source>
         <translation>Favori kullanıcı</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="261"/>
+        <location filename="../src/SettingsGUI.cpp" line="262"/>
         <source>Time stamp</source>
         <translation>Zaman etiketi</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="265"/>
+        <location filename="../src/SettingsGUI.cpp" line="266"/>
         <source>Message</source>
         <translation>Mesaj</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="565"/>
+        <location filename="../src/SettingsGUI.cpp" line="566"/>
         <source>Select translation</source>
         <translation>Tercüme seç</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="567"/>
+        <location filename="../src/SettingsGUI.cpp" line="568"/>
         <source>Translation (*.qm)</source>
         <translation>Tercüme (*.qm)</translation>
     </message>
