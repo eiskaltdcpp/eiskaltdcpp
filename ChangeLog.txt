@@ -1,4 +1,4 @@
---- 2.4.1 2021-xx-xx ---
+--- 2.4.1 2021-01-24 ---
 *** common changes ***
 * Added configuration option COMPRESS_MANPAGES (default is ON) for unix-like
   systems.
