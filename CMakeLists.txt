@@ -2,7 +2,7 @@ project (eiskaltdcpp)
 cmake_minimum_required (VERSION 2.6.3)
 
 set (PROJECT_NAME "EiskaltDC++")
-set (VERSION "2.4.1-stable") # Main program version (displayed in UI)
+set (VERSION "2.4.1+devel") # Main program version (displayed in UI)
 set (SOVERSION "2.4") # Library version (incremented after changes in API or ABI)
 
 if (WIN32 OR APPLE OR HAIKU)
