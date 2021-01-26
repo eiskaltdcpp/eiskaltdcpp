@@ -1,6 +1,6 @@
 # EiskaltDC++ &ndash; file sharing using DC and ADC protocols
 
-Website: [https://sourceforge.net/projects/eiskaltdcpp](https://sourceforge.net/projects/eiskaltdcpp/) <br>
+Website: [https://github.com/eiskaltdcpp/eiskaltdcpp](https://github.com/eiskaltdcpp/eiskaltdcpp) <br>
 Sources: [https://github.com/eiskaltdcpp/eiskaltdcpp](https://github.com/eiskaltdcpp/eiskaltdcpp)
 
 Public chat room: https://gitter.im/eiskaltdcpp/eiskaltdcpp <br>
