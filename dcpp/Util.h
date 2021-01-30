@@ -243,7 +243,7 @@ public:
     static int64_t toInt64(const string& aString) {
 #ifdef _WIN32
         return _atoi64(aString.c_str());
-#elif defined(__HAIKU__)
+#elif defined(__HAIKU__) || !defined(__GLIBC__)
         return strtoll(aString.c_str(), (char **)NULL, 10);
 #else
         return strtoq(aString.c_str(), (char **)NULL, 10);

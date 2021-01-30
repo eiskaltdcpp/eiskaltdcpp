@@ -86,7 +86,7 @@ void parseCmdLine(const QStringList &);
 #if !defined(Q_OS_WIN)
 #include <unistd.h>
 #include <signal.h>
-#if !defined (Q_OS_HAIKU)
+#if !defined (Q_OS_HAIKU) && defined (__GLIBC__)
 #include <execinfo.h>
 
 #ifdef ENABLE_STACKTRACE
@@ -141,7 +141,7 @@ int main(int argc, char *argv[])
         return 0;
     }
 
-#if !defined (Q_OS_WIN) && !defined (Q_OS_HAIKU)
+#if !defined (Q_OS_WIN) && !defined (Q_OS_HAIKU) && defined (__GLIBC__)
     installHandlers();
 #endif
 
