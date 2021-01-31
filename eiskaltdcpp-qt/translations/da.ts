@@ -132,7 +132,7 @@ Keys:
     <message>
         <location filename="../src/Antispam.cpp" line="141"/>
         <source>Checking user %1 (message: %2, cid: %3)...</source>
-        <translation type="unfinished"></translation>
+        <translation>Kontrollerer bruger %1 (besked: %2, cid: %3)...</translation>
     </message>
     <message>
         <location filename="../src/Antispam.cpp" line="152"/>
@@ -147,12 +147,12 @@ Keys:
     <message>
         <location filename="../src/Antispam.cpp" line="170"/>
         <source>%1: Sending &quot;Try again&quot; message.</source>
-        <translation type="unfinished"></translation>
+        <translation>%1: Afsender meddelelsen &quot;Prøv igen&quot;.</translation>
     </message>
     <message>
         <location filename="../src/Antispam.cpp" line="177"/>
         <source>Hi, this is AntiSpam bot. So question is &quot;%1&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>Hej, dette er AntiSpam-bot. Så spørgsmålet er &quot;%1&quot;</translation>
     </message>
 </context>
 <context>
@@ -169,13 +169,17 @@ Keys:
         <location filename="../src/CustomFontModel.cpp" line="34"/>
         <location filename="../src/CustomFontModel.cpp" line="98"/>
         <source>Description</source>
-        <translation type="unfinished"></translation>
+        <translation>Beskrivelse</translation>
     </message>
     <message>
         <location filename="../src/CustomFontModel.cpp" line="34"/>
         <location filename="../src/CustomFontModel.cpp" line="98"/>
         <source>Font</source>
-        <translation type="unfinished"></translation>
+        <translation>Skrifttype</translation>
+    </message>
+    <message>
+        <source>Application</source>
+        <translation type="vanished">Ansøgning</translation>
     </message>
     <message>
         <location filename="../src/CustomFontModel.cpp" line="38"/>
@@ -203,22 +207,22 @@ Keys:
     <message>
         <location filename="../ui/UIDialogScriptConsole.ui" line="65"/>
         <source>Code</source>
-        <translation type="unfinished"></translation>
+        <translation>Kode</translation>
     </message>
     <message>
         <location filename="../ui/UIDialogScriptConsole.ui" line="89"/>
         <source>Clear</source>
-        <translation type="unfinished"></translation>
+        <translation>Ryd</translation>
     </message>
     <message>
         <location filename="../ui/UIDialogScriptConsole.ui" line="109"/>
         <source>Start</source>
-        <translation type="unfinished"></translation>
+        <translation>Start</translation>
     </message>
     <message>
         <location filename="../ui/UIDialogScriptConsole.ui" line="116"/>
         <source>Stop</source>
-        <translation type="unfinished"></translation>
+        <translation>Stop</translation>
     </message>
 </context>
 <context>
@@ -226,7 +230,7 @@ Keys:
     <message>
         <location filename="../src/DownloadQueue.cpp" line="58"/>
         <source>Magnet</source>
-        <translation type="unfinished"></translation>
+        <translation>Magnet</translation>
     </message>
     <message>
         <location filename="../src/DownloadQueue.cpp" line="60"/>
@@ -514,7 +518,7 @@ Keys:
     <message>
         <location filename="../src/FavoriteHubModel.cpp" line="19"/>
         <source>Description</source>
-        <translation type="unfinished"></translation>
+        <translation>Beskrivelse</translation>
     </message>
     <message>
         <location filename="../src/FavoriteHubModel.cpp" line="20"/>
@@ -590,7 +594,7 @@ Keys:
         <location filename="../src/FavoriteUsers.cpp" line="196"/>
         <location filename="../src/FavoriteUsers.cpp" line="272"/>
         <source>Description</source>
-        <translation type="unfinished"></translation>
+        <translation>Beskrivelse</translation>
     </message>
     <message>
         <location filename="../src/FavoriteUsers.cpp" line="269"/>
@@ -633,7 +637,7 @@ Keys:
     <message>
         <location filename="../src/FavoriteUsersModel.cpp" line="27"/>
         <source>Description</source>
-        <translation type="unfinished"></translation>
+        <translation>Beskrivelse</translation>
     </message>
 </context>
 <context>
@@ -885,7 +889,7 @@ Keys:
     <message>
         <location filename="../src/HashProgress.cpp" line="241"/>
         <source>Start</source>
-        <translation type="unfinished"></translation>
+        <translation>Start</translation>
     </message>
     <message>
         <location filename="../src/HashProgress.cpp" line="245"/>
@@ -2330,22 +2334,27 @@ Favorite user</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="3140"/>
+        <location filename="../src/MainWindow.cpp" line="2912"/>
+        <source>Danish translation&lt;br/&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="3143"/>
         <source>Additional</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="3141"/>
+        <location filename="../src/MainWindow.cpp" line="3144"/>
         <source>Suppress sound notifications</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="3142"/>
+        <location filename="../src/MainWindow.cpp" line="3145"/>
         <source>Suppress text notifications</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="3136"/>
+        <location filename="../src/MainWindow.cpp" line="3139"/>
         <source>Setup speed limits</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2421,22 +2430,22 @@ Favorite user</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2949"/>
+        <location filename="../src/MainWindow.cpp" line="2952"/>
         <source>Show close buttons</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2981"/>
+        <location filename="../src/MainWindow.cpp" line="2984"/>
         <source>[No name]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="3070"/>
+        <location filename="../src/MainWindow.cpp" line="3073"/>
         <source>Download Queue</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="3070"/>
+        <location filename="../src/MainWindow.cpp" line="3073"/>
         <source>All downloads complete</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2528,7 +2537,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/PublicHubModel.cpp" line="27"/>
         <source>Description</source>
-        <translation type="unfinished"></translation>
+        <translation>Beskrivelse</translation>
     </message>
     <message>
         <location filename="../src/PublicHubModel.cpp" line="27"/>
@@ -2784,7 +2793,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="58"/>
         <source>Clear</source>
-        <translation type="unfinished"></translation>
+        <translation>Ryd</translation>
     </message>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="65"/>
@@ -2794,7 +2803,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="82"/>
         <source>Stop</source>
-        <translation type="unfinished"></translation>
+        <translation>Stop</translation>
     </message>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="132"/>
@@ -2874,7 +2883,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SearchFrame.cpp" line="120"/>
         <source>Magnet</source>
-        <translation type="unfinished"></translation>
+        <translation>Magnet</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="122"/>
@@ -3537,7 +3546,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="75"/>
         <source>Magnet</source>
-        <translation type="unfinished"></translation>
+        <translation>Magnet</translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="77"/>
@@ -3697,7 +3706,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/ShortcutGetter.cpp" line="237"/>
         <source>Clear</source>
-        <translation type="unfinished"></translation>
+        <translation>Ryd</translation>
     </message>
     <message>
         <location filename="../src/ShortcutGetter.cpp" line="239"/>
@@ -3877,7 +3886,7 @@ Downloaded: %3 Uploaded: %4</source>
         <location filename="../src/SpyFrame.cpp" line="55"/>
         <location filename="../src/SpyFrame.cpp" line="77"/>
         <source>Stop</source>
-        <translation type="unfinished"></translation>
+        <translation>Stop</translation>
     </message>
     <message>
         <location filename="../src/SpyFrame.cpp" line="56"/>
@@ -3896,7 +3905,7 @@ Do you want to stop it?
     <message>
         <location filename="../src/SpyFrame.cpp" line="82"/>
         <source>Start</source>
-        <translation type="unfinished"></translation>
+        <translation>Start</translation>
     </message>
     <message>
         <location filename="../src/SpyFrame.cpp" line="99"/>
@@ -4023,7 +4032,7 @@ Do you want to stop it?
     <message>
         <location filename="../src/TransferView.cpp" line="78"/>
         <source>Magnet</source>
-        <translation type="unfinished"></translation>
+        <translation>Magnet</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="83"/>
@@ -4566,7 +4575,7 @@ Do you want to stop it?
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="78"/>
         <source>Description</source>
-        <translation type="unfinished"></translation>
+        <translation>Beskrivelse</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="85"/>
@@ -4768,7 +4777,7 @@ Do you want to stop it?
     <message>
         <location filename="../ui/UIFinishedTransfers.ui" line="66"/>
         <source>Clear</source>
-        <translation type="unfinished"></translation>
+        <translation>Ryd</translation>
     </message>
 </context>
 <context>
@@ -4786,7 +4795,7 @@ Do you want to stop it?
     <message>
         <location filename="../ui/UIHashProgressDialog.ui" line="145"/>
         <source>Start</source>
-        <translation type="unfinished"></translation>
+        <translation>Start</translation>
     </message>
     <message>
         <location filename="../ui/UIHashProgressDialog.ui" line="152"/>
@@ -6618,7 +6627,7 @@ It can be overridden on a per-hub basis in the Favorite Hub Properties.</source>
     <message>
         <location filename="../ui/UISettingsPersonal.ui" line="85"/>
         <source>Description</source>
-        <translation type="unfinished"></translation>
+        <translation>Beskrivelse</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsPersonal.ui" line="92"/>
@@ -6942,12 +6951,12 @@ if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</sourc
     <message>
         <location filename="../ui/UISpy.ui" line="65"/>
         <source>Start</source>
-        <translation type="unfinished"></translation>
+        <translation>Start</translation>
     </message>
     <message>
         <location filename="../ui/UISpy.ui" line="72"/>
         <source>Clear</source>
-        <translation type="unfinished"></translation>
+        <translation>Ryd</translation>
     </message>
 </context>
 <context>
