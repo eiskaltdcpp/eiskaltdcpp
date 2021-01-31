@@ -482,11 +482,11 @@ else ()
 endif ()
 
 if (APPLE)
-    target_link_libraries (${PROJECT_NAME} ${LIBS} dcpp iconv)
+    target_link_libraries (${PROJECT_NAME} ${LIBS} extra dcpp iconv)
 elseif (HAIKU)
-    target_link_libraries (${PROJECT_NAME} ${LIBS} dcpp be)
+    target_link_libraries (${PROJECT_NAME} ${LIBS} extra dcpp be)
 else (APPLE)
-    target_link_libraries (${PROJECT_NAME} ${LIBS} dcpp)
+    target_link_libraries (${PROJECT_NAME} ${LIBS} extra dcpp)
 endif (APPLE)
 
 if (WIN32 OR APPLE OR HAIKU)
@@ -495,7 +495,9 @@ else ()
     set_property (TARGET ${PROJECT_NAME} PROPERTY OUTPUT_NAME "${PROJECT_NAME}")
 endif ()
 
-install (TARGETS ${PROJECT_NAME} RUNTIME DESTINATION ${BINDIR} BUNDLE DESTINATION ${BUNDLEDIR})
+install (TARGETS ${PROJECT_NAME}
+    RUNTIME DESTINATION ${BINDIR}
+    BUNDLE DESTINATION ${BUNDLEDIR})
 
 if (APPLE)
     set (plugin_dest_dir ${PROJECT_NAME_GLOBAL}.app/Contents/MacOS)

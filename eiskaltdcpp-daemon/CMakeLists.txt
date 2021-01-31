@@ -75,7 +75,7 @@ if (BUILD_STATIC)
     endif (UNIX AND NOT APPLE AND NOT HAIKU)
 endif (BUILD_STATIC)
 
-target_link_libraries (${PROJECT_NAME} dcpp ${LIBS})
+target_link_libraries (${PROJECT_NAME} extra dcpp ${LIBS})
 
 if (DEBUG_DAEMON)
     add_definitions(-D_DEBUG_DAEMON)

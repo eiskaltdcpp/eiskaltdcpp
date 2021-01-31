@@ -29,11 +29,11 @@ if (DEBUG_IPFILTER)
     message (STATUS "Enabled debug output from filter of IP addresses!")
 endif (DEBUG_IPFILTER)
 
-if (WIN32)
+if (WIN32 OR CYGWIN)
     set_property(TARGET extra PROPERTY COMPILE_FLAGS)
-else (WIN32)
+else ()
     set_property(TARGET extra PROPERTY COMPILE_FLAGS -fPIC)
-endif (WIN32)
+endif ()
 
 target_link_libraries (extra
                        ${MINIUPNP_LIBRARY}

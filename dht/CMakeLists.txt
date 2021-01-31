@@ -17,9 +17,9 @@ set (LINK STATIC)
 
 add_library (dht ${LINK} ${dht_srcs})
 
-if (WIN32)
+if (WIN32 OR CYGWIN)
     set_property(TARGET dht PROPERTY COMPILE_FLAGS)
-else(WIN32)
+else ()
     set_property(TARGET dht PROPERTY COMPILE_FLAGS -fPIC)
-endif (WIN32)
+endif ()
 

@@ -96,11 +96,11 @@ if (HAVE_IFADDRS_H)
                  PROPERTY COMPILE_DEFINITIONS HAVE_IFADDRS_H APPEND)
 endif (HAVE_IFADDRS_H)
 
-if (WIN32)
+if (WIN32 OR CYGWIN)
     set_property(TARGET dcpp PROPERTY COMPILE_FLAGS)
-else(WIN32)
+else ()
     set_property(TARGET dcpp PROPERTY COMPILE_FLAGS -fPIC)
-endif (WIN32)
+endif ()
 
 target_link_libraries (dcpp
                        ${DHT_LIB}
@@ -118,7 +118,10 @@ target_link_libraries (dcpp
                        ${IDNA_LIBRARIES}
                        ${XATTR_LIBRARIES}
                        ${HAIKU_LIB})
-set_target_properties(dcpp PROPERTIES VERSION ${SOVERSION} OUTPUT_NAME "eiskaltdcpp")
+set_target_properties(dcpp PROPERTIES
+                      VERSION ${SOVERSION}
+                      SOVERSION ${SOVERSION}
+                      OUTPUT_NAME "eiskaltdcpp")
 
 if (APPLE)
     set (LIBDIR ${PROJECT_NAME_GLOBAL}.app/Contents/Frameworks)
