@@ -2374,22 +2374,27 @@ Oblíbený uživatel</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="3140"/>
+        <location filename="../src/MainWindow.cpp" line="2912"/>
+        <source>Danish translation&lt;br/&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="3143"/>
         <source>Additional</source>
         <translation>Doplňkové</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="3141"/>
+        <location filename="../src/MainWindow.cpp" line="3144"/>
         <source>Suppress sound notifications</source>
         <translation>Potlačit zvukové upozornění</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="3142"/>
+        <location filename="../src/MainWindow.cpp" line="3145"/>
         <source>Suppress text notifications</source>
         <translation>Potlačit textové upozornění</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="3136"/>
+        <location filename="../src/MainWindow.cpp" line="3139"/>
         <source>Setup speed limits</source>
         <translation>Nastavení limitování rychlostí</translation>
     </message>
@@ -2465,22 +2470,22 @@ Oblíbený uživatel</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2949"/>
+        <location filename="../src/MainWindow.cpp" line="2952"/>
         <source>Show close buttons</source>
         <translation>Ukázat tlačítka pro zavření</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2981"/>
+        <location filename="../src/MainWindow.cpp" line="2984"/>
         <source>[No name]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="3070"/>
+        <location filename="../src/MainWindow.cpp" line="3073"/>
         <source>Download Queue</source>
         <translation>Fronta stahování</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="3070"/>
+        <location filename="../src/MainWindow.cpp" line="3073"/>
         <source>All downloads complete</source>
         <translation>Všechna stahování jsou dokončena</translation>
     </message>

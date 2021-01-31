@@ -2381,22 +2381,27 @@ Favorite user</source>
         <translation>Турэцкі пераклад&lt;br/&gt;</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="3140"/>
+        <location filename="../src/MainWindow.cpp" line="2912"/>
+        <source>Danish translation&lt;br/&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="3143"/>
         <source>Additional</source>
         <translation>Дадатковы</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="3141"/>
+        <location filename="../src/MainWindow.cpp" line="3144"/>
         <source>Suppress sound notifications</source>
         <translation>Душыць гукавыя паведамленні</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="3142"/>
+        <location filename="../src/MainWindow.cpp" line="3145"/>
         <source>Suppress text notifications</source>
         <translation>Душыць тэкставыя паведамленні</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="3136"/>
+        <location filename="../src/MainWindow.cpp" line="3139"/>
         <source>Setup speed limits</source>
         <translation>Вызначыць абмежаванні хуткасці</translation>
     </message>
@@ -2472,22 +2477,22 @@ Favorite user</source>
         <translation>Далучайцеся да перакладу. Гэта проста:</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2949"/>
+        <location filename="../src/MainWindow.cpp" line="2952"/>
         <source>Show close buttons</source>
         <translation>Паказваць кнопкі «зачыніць»</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2981"/>
+        <location filename="../src/MainWindow.cpp" line="2984"/>
         <source>[No name]</source>
         <translation>[Без имени]</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="3070"/>
+        <location filename="../src/MainWindow.cpp" line="3073"/>
         <source>Download Queue</source>
         <translation>Чарга сьцягванага</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="3070"/>
+        <location filename="../src/MainWindow.cpp" line="3073"/>
         <source>All downloads complete</source>
         <translation>Сьцягнулі ўсё</translation>
     </message>

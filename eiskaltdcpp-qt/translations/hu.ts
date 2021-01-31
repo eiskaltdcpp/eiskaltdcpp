@@ -2377,22 +2377,27 @@ Kedvenc felhasználó</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="3140"/>
+        <location filename="../src/MainWindow.cpp" line="2912"/>
+        <source>Danish translation&lt;br/&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="3143"/>
         <source>Additional</source>
         <translation>Egyéb</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="3141"/>
+        <location filename="../src/MainWindow.cpp" line="3144"/>
         <source>Suppress sound notifications</source>
         <translation>Hangértesítések felfüggesztése</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="3142"/>
+        <location filename="../src/MainWindow.cpp" line="3145"/>
         <source>Suppress text notifications</source>
         <translation>Szöveges értesítések felfüggesztése</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="3136"/>
+        <location filename="../src/MainWindow.cpp" line="3139"/>
         <source>Setup speed limits</source>
         <translation>Sebességkorlátok beállítása</translation>
     </message>
@@ -2468,22 +2473,22 @@ Kedvenc felhasználó</translation>
         <translation>Vegyen részt a fordításban, könnyű:</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2949"/>
+        <location filename="../src/MainWindow.cpp" line="2952"/>
         <source>Show close buttons</source>
         <translation>Bezárási gombok mutatása</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2981"/>
+        <location filename="../src/MainWindow.cpp" line="2984"/>
         <source>[No name]</source>
         <translation>[Névtelen]</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="3070"/>
+        <location filename="../src/MainWindow.cpp" line="3073"/>
         <source>Download Queue</source>
         <translation>Letöltési sor</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="3070"/>
+        <location filename="../src/MainWindow.cpp" line="3073"/>
         <source>All downloads complete</source>
         <translation>Minden letöltés kész</translation>
     </message>
