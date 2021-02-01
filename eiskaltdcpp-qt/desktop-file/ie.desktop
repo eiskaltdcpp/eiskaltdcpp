@@ -12,7 +12,7 @@ Keywords=FileSharing;Chat;p2p;DirectConnect;ADC;DHT;
 
 
 # Translations
-Icon[uk]=eiskaltdcpp
-Name[uk]=EiskaltDC++ Qt
-Comment[uk]=Діліться файлами за допомогою мереж DC++
-GenericName[uk]=Клієнт DC++
+Icon[ie]=eiskaltdcpp
+Name[ie]=EiskaltDC++ Qt
+Comment[ie]=Partir files trans li rete DC++
+GenericName[ie]=Cliente DC++
