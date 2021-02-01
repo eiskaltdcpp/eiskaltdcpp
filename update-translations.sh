@@ -3,7 +3,7 @@
 # Author:  Boris Pek <tehnick-8@yandex.ru>
 # License: Public Domain
 # Created: 2011-11-26
-# Updated: 2021-01-14
+# Updated: 2021-02-02
 # Version: N/A
 
 set -e
@@ -69,7 +69,7 @@ case "${1}" in
 
 ;;
 "tr_up")
-    # Full update of localization files.
+    # Regular update of localization files.
 
     cd "${CUR_DIR}"
 
@@ -86,7 +86,7 @@ case "${1}" in
 
 ;;
 "tr_cl")
-    # Cleaning update of localization files.
+    # Cleaning update of localization files. (Removes obsolete strings.)
 
     cd "${CUR_DIR}"
 
@@ -124,7 +124,7 @@ case "${1}" in
     fi
 
 ;;
-"tr_co")
+"tr_clone")
     # Cloning Transifex repo.
 
     if [ -d "${LANG_DIR}" ]; then
@@ -137,19 +137,6 @@ case "${1}" in
         cd "${LANG_DIR}"
         tx pull -a -s
     fi
-
-;;
-"tr_sync")
-    # Syncing Transifex and GitHub repos.
-
-    "${0}" up > /dev/null
-    "${0}" tr > /dev/null
-
-    if [ "$(git status | grep 'l10n/' | wc -l)" -gt 0 ]; then
-        "${0}" cm
-        "${0}" push
-    fi
-    echo ;
 
 ;;
 "desktop_up")
@@ -188,13 +175,16 @@ case "${1}" in
 
     echo "Usage:"
     echo "  up cm make"
-    echo "  tr tr_up tr_cl tr_co tr_sync desktop_up"
+    echo "  tr tr_up tr_cl tr_clone desktop_up"
     echo "  tr_push <arg> (arg: src, all or language code)"
     echo ;
     echo "Examples:"
-    echo "  ./update-translations.sh tr_push src"
-    echo "  ./update-translations.sh tr_push all"
-    echo "  ./update-translations.sh tr_push ru"
+    echo "  ${0} tr_clone"
+    echo "  ${0} tr"
+    echo "  ${0} tr_up"
+    echo "  ${0} cm"
+    echo "  ${0} tr_push src"
+    echo "  ${0} tr_push ru"
 
 ;;
 esac
