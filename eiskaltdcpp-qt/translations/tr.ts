@@ -2383,7 +2383,7 @@ Favori kullanıcı</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="2912"/>
         <source>Danish translation&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Danca tercüme&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="3143"/>
@@ -3435,7 +3435,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="88"/>
         <source>Danish</source>
-        <translation type="unfinished"></translation>
+        <translation>Danca</translation>
     </message>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="226"/>

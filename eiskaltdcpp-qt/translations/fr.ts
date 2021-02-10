@@ -2364,7 +2364,7 @@ Utilisateur favoris</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="2912"/>
         <source>Danish translation&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Traduction en danois&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="3143"/>
