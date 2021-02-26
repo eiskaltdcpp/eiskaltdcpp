@@ -22,6 +22,7 @@
 #include "ConnectionManager.h"
 #include "SearchManager.h"
 #include "LogManager.h"
+#include "format.h"
 #include "version.h"
 #include "ConnectivityManager.h"
 #ifdef USE_MINIUPNP
