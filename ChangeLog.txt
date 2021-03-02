@@ -2,6 +2,8 @@
 *** common changes ***
 * Added support of build using musl instead of glibc.
 * Add support of build in Cygwin environment.
+* Added configuration option LUA_VERSION (unset by default) for choosing
+  specific version of Lua library in the systems if necessary.
 *** libeiskaltdcpp ***
 * Fix search on ADC hubs. (It was accidentally broken in 2.4.1 release.)
 
