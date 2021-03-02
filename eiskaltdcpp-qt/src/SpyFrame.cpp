@@ -19,14 +19,13 @@
 
 using namespace dcpp;
 
-SpyFrame::SpyFrame(QWidget *parent) :
-    QWidget(parent)
+SpyFrame::SpyFrame(QWidget *parent)
+    : QWidget(parent)
+    , model(new SpyModel())
 {
     setupUi(this);
 
     setUnload(false);
-
-    model = new SpyModel();
 
     treeView->setModel(model);
     treeView->setContextMenuPolicy(Qt::CustomContextMenu);

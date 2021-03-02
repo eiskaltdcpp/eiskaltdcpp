@@ -44,8 +44,6 @@ class Secretary :
     friend class HubFrame;
 
 public:
-    explicit Secretary(QWidget *parent = nullptr);
-    virtual ~Secretary();
     QWidget *getWidget();
     QString getArenaTitle();
     QString getArenaShortTitle();
@@ -81,6 +79,12 @@ protected:
     virtual bool eventFilter(QObject *obj, QEvent *e);
 
 private:
+    explicit Secretary(QWidget *parent = nullptr);
+    virtual ~Secretary();
+
+    Secretary(const Secretary&) = delete;
+    const Secretary& operator=(const Secretary&) = delete;
+
     void updateStyles();
     void findText(QTextDocument::FindFlags );
     void addOutput(const QString &htmlMsg, const QString &origMsg, const QString &url);

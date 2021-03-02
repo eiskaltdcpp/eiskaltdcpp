@@ -35,7 +35,6 @@ Q_INTERFACES(ArenaWidget)
 friend class dcpp::Singleton<SpyFrame>;
 
 public:
-
     QString getArenaShortTitle() { return tr("Search Spy"); }
     QString getArenaTitle() {return getArenaShortTitle(); }
     QMenu *getMenu() {return nullptr; }
