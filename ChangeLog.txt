@@ -1,4 +1,4 @@
---- 2.4.2 2021-02-03 ---
+--- 2.4.2 2021-03-03 ---
 *** common changes ***
 * Added support of build using musl instead of glibc.
 * Add support of build in Cygwin environment.
