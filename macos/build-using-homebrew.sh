@@ -3,7 +3,7 @@
 # Authors: Boris Pek
 # License: Public Domain
 # Created: 2018-08-21
-# Updated: 2020-10-28
+# Updated: 2021-03-18
 # Version: N/A
 #
 # Description: script for building of app bundles for macOS

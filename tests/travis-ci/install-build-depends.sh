@@ -84,7 +84,7 @@ fi
 if [ "${TARGET}" = "macos64" ]
 then
     export HOMEBREW_NO_AUTO_UPDATE=1
-    # brew install coreutils cmake gettext openssl pcre
+    # brew install coreutils cmake gettext openssl pcre qt@5
     brew install ccache libidn jsoncpp miniupnpc aspell lua qt
 fi
 
