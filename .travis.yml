@@ -7,29 +7,29 @@ if: tag IS blank
 
 jobs:
   include:
-    - env: TARGET=linux64 USE_QT=qt5 DIST=xenial
+    - env: TARGET=linux64 USE_QT=qt5 DIST=bionic
       os: linux
-      dist: xenial
+      dist: bionic
       compiler: clang
-    - env: TARGET=linux64 USE_QT=qt5 DIST=xenial
+    - env: TARGET=linux64 USE_QT=qt5 DIST=bionic
       os: linux
-      dist: xenial
+      dist: bionic
       compiler: gcc
     - env: TARGET=linux64 USE_QT=qt5 DIST=focal
       os: linux
       dist: focal
     - env: TARGET=linux64 USE_QT=qt4
       os: linux
-      dist: xenial
+      dist: bionic
     - env: TARGET=linux64 USE_GTK=gtk3
       os: linux
-      dist: xenial
+      dist: bionic
     - env: TARGET=linux64 USE_GTK=gtk2
       os: linux
-      dist: xenial
+      dist: bionic
     - env: TARGET=linux64 USE_DAEMON=jsonrpc
       os: linux
-      dist: xenial
+      dist: bionic
     - env: TARGET=macos64
       os: osx
       osx_image: xcode9.4
@@ -41,10 +41,10 @@ jobs:
       osx_image: xcode12.2
     - env: TARGET=windows32
       os: linux
-      dist: xenial
+      dist: bionic
     - env: TARGET=windows64
       os: linux
-      dist: xenial
+      dist: bionic
 
 install:
   - ./tests/travis-ci/install-build-depends.sh
