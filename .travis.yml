@@ -41,10 +41,10 @@ jobs:
       osx_image: xcode12.2
     - env: TARGET=windows32
       os: linux
-      dist: bionic
+      dist: focal
     - env: TARGET=windows64
       os: linux
-      dist: bionic
+      dist: focal
 
 install:
   - ./tests/travis-ci/install-build-depends.sh
