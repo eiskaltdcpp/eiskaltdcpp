@@ -118,7 +118,7 @@ During the development EiskaltDC++ in past years we have used different CVS (Sub
 * In case when where are very few changes since last stable release, but they are important and should be quickly delivered to users the `<patch>` part of program version should be changed.
 * There are no limits for changes suitable for a new `<patch>` releases if they do not affect Core of program: they may contain new features and noticeable changes in any part of GUI.
 
-During development all changes are tested on Continuous Integration services [Travis CI](https://travis-ci.org/eiskaltdcpp/eiskaltdcpp) and [Sibuserv CI](https://sibuserv-ci.org/projects/eiskaltdcpp).
+During development all changes are tested on Continuous Integration services [Travis CI](https://travis-ci.com/github/eiskaltdcpp/eiskaltdcpp) and [Sibuserv CI](https://sibuserv-ci.org/projects/eiskaltdcpp).
 
 ## Developers
 
