@@ -7,8 +7,12 @@ Terminal=false
 GenericName=DC++ client
 Comment=Share files over the DC++ network
 Categories=Network;FileTransfer;P2P;Qt;
-MimeType=x-scheme-handler/magnet;x-scheme-handler/dchub;x-scheme-handler/adc;x-scheme-handler/adcs;
+MimeType=x-scheme-handler/magnet;x-scheme-handler/dchub;x-scheme-handler/nmdcs;x-scheme-handler/adc;x-scheme-handler/adcs;
 Keywords=FileSharing;Chat;p2p;DirectConnect;ADC;DHT;
 
 
 # Translations
+Icon[pt_BR]=eiskaltdcpp
+Name[pt_BR]=EiskaltDC++ Qt
+Comment[pt_BR]=Compartilhe arquivos usando a rede DC++
+GenericName[pt_BR]=Cliente DC++

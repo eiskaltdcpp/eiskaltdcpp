@@ -2,21 +2,24 @@
 # Copyright (C) YEAR EiskaltDC++ team
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
+# Translators:
+# Boris Pek <tehnick-8@yandex.ru>, 2017
+# Helder Oliveira <heldercro@gmail.com>, 2021
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://github.com/eiskaltdcpp/eiskaltdcpp/issues\n"
-"POT-Creation-Date: 2020-12-08 01:31+0300\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Helder <heldercro@gmail.com>, 2018\n"
-"Language-Team: Portuguese (Brazil) (https://www.transifex.com/tehnick/"
-"teams/11818/pt_BR/)\n"
-"Language: pt_BR\n"
+"POT-Creation-Date: 2021-01-25 01:50+0300\n"
+"PO-Revision-Date: 2017-06-18 13:35+0000\n"
+"Last-Translator: Helder Oliveira <heldercro@gmail.com>, 2021\n"
+"Language-Team: Portuguese (Brazil) (https://www.transifex.com/tehnick/teams/11818/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: pt_BR\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: ../ADLSearch.cpp:40
@@ -29,7 +32,7 @@ msgstr "Cancelar"
 
 #: ../AdcHub.cpp:155
 msgid "%1% (%2%) has same CID {%3%} as %4% (%5%), ignoring"
-msgstr "%1% (%2%) tem os mesmo CID {%3%} que %4% (%5%), ignorando"
+msgstr "%1% (%2%) tem o mesmo CID {%3%} que %4% (%5%), ignorando"
 
 #: ../AdcHub.cpp:192 ../FinishedManager.cpp:161 ../QueueManager.cpp:2188
 #: ../Transfer.cpp:91
@@ -115,10 +118,11 @@ msgstr "Erro de conexão: %1%"
 #: ../ConnectionManager.cpp:817
 msgid "Blocked a C-C connection to a hub ('%1%:%2%'; request from '%3%')"
 msgstr ""
+"Bloqueada uma conexão C-C com o hub ('%1%:%2%'; requisitada por '%3%')"
 
 #: ../ConnectionManager.cpp:835
 msgid "Blocking '%1%', potential DDoS detected (originating hub '%2%')"
-msgstr ""
+msgstr "Bloqueando '%1%', possível DDoS detectado (hub de origem '%2%')"
 
 #: ../ConnectivityManager.cpp:83
 msgid "Determining the best connectivity settings..."
@@ -126,7 +130,8 @@ msgstr "Determinar a melhor configuração..."
 
 #: ../ConnectivityManager.cpp:88
 msgid ""
-"Unable to open %1% port(s); connectivity settings must be configured manually"
+"Unable to open %1% port(s); connectivity settings must be configured "
+"manually"
 msgstr ""
 "Não foi possível abrir %1% porta(s); as configurações de conexão devem ser "
 "definidas manualmente"
@@ -220,7 +225,7 @@ msgstr "Usuários"
 
 #: ../DirectoryListing.cpp:95
 msgid "Invalid file list extension (must be .xml or .bz2)"
-msgstr ""
+msgstr "Extensão de arquivo inválida (deveria ser .xml ou .bz2)"
 
 #: ../DirectoryListing.cpp:214
 msgid "Directory missing name attribute"
@@ -268,7 +273,7 @@ msgstr "Auto-conectar grupo (convertido)"
 
 #: ../FavoriteManager.cpp:667
 msgid "Invalid URL: %1%"
-msgstr ""
+msgstr "URL inválido: %1%"
 
 #: ../HashManager.cpp:230 ../HashManager.cpp:428
 msgid "Hashing failed: %1%"
@@ -314,9 +319,8 @@ msgid "Error hashing %1%: %2%"
 msgstr "Erro do hash: %1%: %2%"
 
 #: ../HttpConnection.cpp:218
-#, fuzzy
 msgid "Transfer-encoding error (%1%)"
-msgstr " Transferência na Porta (%1% TCP)"
+msgstr "Erro de transferência codificada (%1%)"
 
 #: ../HttpConnection.cpp:257
 msgid "Endless redirection loop (%1%)"
@@ -324,7 +328,7 @@ msgstr "Loop de redirecionamento terminado (%1%)"
 
 #: ../HttpConnection.cpp:301
 msgid "Too much data in response body (%1%)"
-msgstr ""
+msgstr "Muita informação no corpo da resposta (%1%)"
 
 #: ../MappingManager.cpp:44
 msgid "No UPnP implementation available"
@@ -361,9 +365,11 @@ msgstr " Porta DHT (%1% UDP)"
 
 #: ../MappingManager.cpp:110
 msgid ""
-"Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%, DHT: %4%), "
-"mapped using the %5% interface"
+"Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%, DHT: %4%),"
+" mapped using the %5% interface"
 msgstr ""
+"Mapeamento de portas criado com sucesso (TCP: %1%, UDP: %2%, TLS: %3%, DHT: "
+"%4%), mapeado usando a interface %5% "
 
 #: ../MappingManager.cpp:112 ../MappingManager.cpp:114
 msgid ""
@@ -403,7 +409,7 @@ msgstr "Tópico do hub:"
 
 #: ../PerFolderLimit.cpp:87
 msgid "Too small share to download from "
-msgstr ""
+msgstr "Share muito pequeno "
 
 #: ../PerFolderLimit.cpp:87
 msgid "GiB"
@@ -411,7 +417,7 @@ msgstr "GiB"
 
 #: ../PerFolderLimit.cpp:89
 msgid "Denied to send file"
-msgstr ""
+msgstr "Envio de arquivo negado"
 
 #: ../PerFolderLimit.cpp:90 ../SettingsManager.cpp:619
 msgid " to "
@@ -498,7 +504,8 @@ msgid "%1%: Matched %2% file"
 msgstr "%1% : possui %2% arquivo"
 
 #: ../QueueManager.cpp:1794
-msgid "Target path for this item is not available: %1%; pause this queue item."
+msgid ""
+"Target path for this item is not available: %1%; pause this queue item."
 msgstr "O local de destino não está disponível: %1%; item pausado."
 
 #: ../QueueManager.cpp:2027 ../QueueManager.cpp:2036
@@ -618,12 +625,13 @@ msgid ""
 "Duplicate file will not be shared: %1% (Size: %2% B) Dupe matched against: "
 "%3%"
 msgstr ""
-"Arquivo duplicado não será compartilhado: %1% (Tamanho: %2% B) Duplicata: %3%"
+"Arquivo duplicado não será compartilhado: %1% (Tamanho: %2% B) Duplicata: "
+"%3%"
 
 #: ../ShareManager.cpp:803
 msgid ""
-"File list refresh in progress, please wait for it to finish before trying to "
-"refresh again"
+"File list refresh in progress, please wait for it to finish before trying to"
+" refresh again"
 msgstr "Atualizando a lista, espere até terminar para atualizar novamente"
 
 #: ../ShareManager.cpp:824
@@ -775,38 +783,36 @@ msgstr "Foram escritos mais bytes do que o requisitado"
 
 #: ../../dht/BootstrapManager.cpp:50
 msgid "DHT bootstrapping started"
-msgstr ""
+msgstr "Iniciado DHT bootstrapping"
 
 #: ../../dht/BootstrapManager.cpp:113
 msgid "DHT bootstrapping is finished successfully."
-msgstr ""
+msgstr "DHT bootstrapping terminou com sucesso."
 
 #: ../../dht/BootstrapManager.cpp:117 ../../dht/BootstrapManager.cpp:124
 msgid "DHT bootstrap error: "
-msgstr ""
+msgstr "DHT bootstrap erro: "
 
 #: ../../dht/DHT.cpp:530
 msgid "DHT (%1%): File published: %2%"
-msgstr ""
+msgstr "DHT (%1%): Arquivo compartilhado: %2%"
 
 #: ../../dht/DHT.cpp:535
 msgid "DHT (%1%): Partial file published: %2%"
-msgstr ""
+msgstr "DHT (%1%): Arquivo parcial compartilhado: %2%"
 
 #: ../../dht/DHT.cpp:590
 msgid "DHT: Firewalled UDP status set (IP: %1%)"
-msgstr ""
+msgstr "DHT: Status do UDP sob firewall definido (IP: %1%)"
 
 #: ../../dht/DHT.cpp:596
 msgid "DHT: Our UDP port seems to be opened (IP: %1%)"
-msgstr ""
+msgstr "DHT: Nossa porta UDP parece estar aberta (IP: %1%)"
 
 #: ../../dht/UDPSocket.cpp:247
-#, fuzzy
 msgid "DHT enabled again"
-msgstr "Busca habilitada"
+msgstr "DHT novamente habilitado"
 
 #: ../../dht/UDPSocket.cpp:258
-#, fuzzy
 msgid "DHT disabled: "
-msgstr "Busca desabilitada: %1%"
+msgstr "DHT desabilitado: "
