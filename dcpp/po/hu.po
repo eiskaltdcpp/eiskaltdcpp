@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://github.com/eiskaltdcpp/eiskaltdcpp/issues\n"
-"POT-Creation-Date: 2020-12-08 01:31+0300\n"
+"POT-Creation-Date: 2021-07-29 13:27+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Márk Lutring <marcus@elitemail.hu>, 2018\n"
 "Language-Team: Hungarian (https://www.transifex.com/tehnick/teams/11818/"
@@ -326,46 +326,46 @@ msgstr "Végtelen átirányítási kör (%1%)"
 msgid "Too much data in response body (%1%)"
 msgstr ""
 
-#: ../MappingManager.cpp:44
+#: ../MappingManager.cpp:45
 msgid "No UPnP implementation available"
 msgstr "UPnP implementáció nem elérhető"
 
-#: ../MappingManager.cpp:49
+#: ../MappingManager.cpp:50
 msgid "Another UPnP port mapping attempt is in progress..."
 msgstr "Egy másik UPnP port feltérképezés folyamatban van ..."
 
-#: ../MappingManager.cpp:81
+#: ../MappingManager.cpp:82
 msgid "Failed to initialize the %1% interface"
 msgstr "%1% interfész inicializálása nem sikerült"
 
-#: ../MappingManager.cpp:85
+#: ../MappingManager.cpp:86
 msgid " Transfer Port (%1% TCP)"
 msgstr " Átviteli port (%1% TCP)"
 
-#: ../MappingManager.cpp:86 ../MappingManager.cpp:91 ../MappingManager.cpp:96
-#: ../MappingManager.cpp:101
+#: ../MappingManager.cpp:87 ../MappingManager.cpp:92 ../MappingManager.cpp:97
+#: ../MappingManager.cpp:102
 msgid "The %1% interface has failed to map the %2% %3% port"
 msgstr "A(z) %1% interfésznek nem sikerült a(z) %2% %3% portok felderítése"
 
-#: ../MappingManager.cpp:90
+#: ../MappingManager.cpp:91
 msgid " Encrypted Transfer Port (%1% TCP)"
 msgstr " Titkosított átviteli port (%1% TCP)"
 
-#: ../MappingManager.cpp:95
+#: ../MappingManager.cpp:96
 msgid " Search Port (%1% UDP)"
 msgstr " Keresési port (%1% UDP)"
 
-#: ../MappingManager.cpp:100
+#: ../MappingManager.cpp:101
 msgid " DHT Port (%1% UDP)"
 msgstr " DHT port (%1% UDP)"
 
-#: ../MappingManager.cpp:110
+#: ../MappingManager.cpp:111
 msgid ""
 "Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%, DHT: %4%), "
 "mapped using the %5% interface"
 msgstr ""
 
-#: ../MappingManager.cpp:112 ../MappingManager.cpp:114
+#: ../MappingManager.cpp:113 ../MappingManager.cpp:115
 msgid ""
 "Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%), mapped "
 "using the %4% interface"
@@ -373,25 +373,25 @@ msgstr ""
 "A port-hozzárendelés sikeresen létrehozva (TCP: %1%, UDP: %2%, TLS: %3%), a "
 "használt interfész: %4%"
 
-#: ../MappingManager.cpp:126
+#: ../MappingManager.cpp:127
 msgid "Failed to get external IP"
 msgstr "Külső IP lekérdezése sikertelen"
 
-#: ../MappingManager.cpp:136
+#: ../MappingManager.cpp:137
 msgid "Failed to create port mappings"
 msgstr "Nem sikerült létrehozni a port-hozzárendeléseket."
 
-#: ../MappingManager.cpp:145
+#: ../MappingManager.cpp:146
 msgid "Successfully removed port mappings with the %1% interface"
 msgstr "A port-hozzárendelés sikeresen törölve a következő interfésszel: %1%"
 
-#: ../MappingManager.cpp:146
+#: ../MappingManager.cpp:147
 msgid "Failed to remove port mappings with the %1% interface"
 msgstr ""
 "Nem sikerült megszüntetni a port-hozzárendeléseket a következő interfészen: "
 "%1%"
 
-#: ../MappingManager.cpp:151
+#: ../MappingManager.cpp:152
 msgid "UPnP: %1%"
 msgstr "UPnP: %1%"
 

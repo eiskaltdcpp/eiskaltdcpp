@@ -3949,19 +3949,19 @@ Nedladdat: %3 Uppladdat: %4</translation>
 <context>
     <name>SpyFrame</name>
     <message>
-        <location filename="../src/SpyFrame.cpp" line="55"/>
-        <location filename="../src/SpyFrame.cpp" line="77"/>
+        <location filename="../src/SpyFrame.cpp" line="54"/>
+        <location filename="../src/SpyFrame.cpp" line="76"/>
         <source>Stop</source>
         <translation>Stopp</translation>
     </message>
     <message>
-        <location filename="../src/SpyFrame.cpp" line="56"/>
-        <location filename="../src/SpyFrame.h" line="39"/>
+        <location filename="../src/SpyFrame.cpp" line="55"/>
+        <location filename="../src/SpyFrame.h" line="38"/>
         <source>Search Spy</source>
         <translation>Sökspion</translation>
     </message>
     <message>
-        <location filename="../src/SpyFrame.cpp" line="57"/>
+        <location filename="../src/SpyFrame.cpp" line="56"/>
         <source>Search Spy is now running.
 It will continue to work when the widget is hidden.
 Do you want to stop it?
@@ -3972,12 +3972,12 @@ Vill du stoppa den?
 </translation>
     </message>
     <message>
-        <location filename="../src/SpyFrame.cpp" line="82"/>
+        <location filename="../src/SpyFrame.cpp" line="81"/>
         <source>Start</source>
         <translation>Starta</translation>
     </message>
     <message>
-        <location filename="../src/SpyFrame.cpp" line="99"/>
+        <location filename="../src/SpyFrame.cpp" line="98"/>
         <source>Search</source>
         <translation>Sök</translation>
     </message>

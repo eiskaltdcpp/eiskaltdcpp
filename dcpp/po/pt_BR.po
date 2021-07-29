@@ -2,24 +2,25 @@
 # Copyright (C) YEAR EiskaltDC++ team
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 # Translators:
 # Boris Pek <tehnick-8@yandex.ru>, 2017
 # Helder Oliveira <heldercro@gmail.com>, 2021
-# 
+#
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://github.com/eiskaltdcpp/eiskaltdcpp/issues\n"
-"POT-Creation-Date: 2021-01-25 01:50+0300\n"
+"POT-Creation-Date: 2021-07-29 13:27+0300\n"
 "PO-Revision-Date: 2017-06-18 13:35+0000\n"
 "Last-Translator: Helder Oliveira <heldercro@gmail.com>, 2021\n"
-"Language-Team: Portuguese (Brazil) (https://www.transifex.com/tehnick/teams/11818/pt_BR/)\n"
+"Language-Team: Portuguese (Brazil) (https://www.transifex.com/tehnick/"
+"teams/11818/pt_BR/)\n"
+"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: pt_BR\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: ../ADLSearch.cpp:40
@@ -117,8 +118,7 @@ msgstr "Erro de conexão: %1%"
 
 #: ../ConnectionManager.cpp:817
 msgid "Blocked a C-C connection to a hub ('%1%:%2%'; request from '%3%')"
-msgstr ""
-"Bloqueada uma conexão C-C com o hub ('%1%:%2%'; requisitada por '%3%')"
+msgstr "Bloqueada uma conexão C-C com o hub ('%1%:%2%'; requisitada por '%3%')"
 
 #: ../ConnectionManager.cpp:835
 msgid "Blocking '%1%', potential DDoS detected (originating hub '%2%')"
@@ -130,8 +130,7 @@ msgstr "Determinar a melhor configuração..."
 
 #: ../ConnectivityManager.cpp:88
 msgid ""
-"Unable to open %1% port(s); connectivity settings must be configured "
-"manually"
+"Unable to open %1% port(s); connectivity settings must be configured manually"
 msgstr ""
 "Não foi possível abrir %1% porta(s); as configurações de conexão devem ser "
 "definidas manualmente"
@@ -330,48 +329,48 @@ msgstr "Loop de redirecionamento terminado (%1%)"
 msgid "Too much data in response body (%1%)"
 msgstr "Muita informação no corpo da resposta (%1%)"
 
-#: ../MappingManager.cpp:44
+#: ../MappingManager.cpp:45
 msgid "No UPnP implementation available"
 msgstr "Não há implementação UPnP disponível"
 
-#: ../MappingManager.cpp:49
+#: ../MappingManager.cpp:50
 msgid "Another UPnP port mapping attempt is in progress..."
 msgstr "Outra tentativa de mapeamento de portas UPnP está em execução..."
 
-#: ../MappingManager.cpp:81
+#: ../MappingManager.cpp:82
 msgid "Failed to initialize the %1% interface"
 msgstr "Falha ao iniciar a interface %1%"
 
-#: ../MappingManager.cpp:85
+#: ../MappingManager.cpp:86
 msgid " Transfer Port (%1% TCP)"
 msgstr " Transferência na Porta (%1% TCP)"
 
-#: ../MappingManager.cpp:86 ../MappingManager.cpp:91 ../MappingManager.cpp:96
-#: ../MappingManager.cpp:101
+#: ../MappingManager.cpp:87 ../MappingManager.cpp:92 ../MappingManager.cpp:97
+#: ../MappingManager.cpp:102
 msgid "The %1% interface has failed to map the %2% %3% port"
 msgstr "A %1% interface falhou ao mapear a porta %2% %3%"
 
-#: ../MappingManager.cpp:90
+#: ../MappingManager.cpp:91
 msgid " Encrypted Transfer Port (%1% TCP)"
 msgstr "Transferência codificada na porta (%1% TCP)"
 
-#: ../MappingManager.cpp:95
+#: ../MappingManager.cpp:96
 msgid " Search Port (%1% UDP)"
 msgstr "Porta para buscas (%1% UDP)"
 
-#: ../MappingManager.cpp:100
+#: ../MappingManager.cpp:101
 msgid " DHT Port (%1% UDP)"
 msgstr " Porta DHT (%1% UDP)"
 
-#: ../MappingManager.cpp:110
+#: ../MappingManager.cpp:111
 msgid ""
-"Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%, DHT: %4%),"
-" mapped using the %5% interface"
+"Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%, DHT: %4%), "
+"mapped using the %5% interface"
 msgstr ""
 "Mapeamento de portas criado com sucesso (TCP: %1%, UDP: %2%, TLS: %3%, DHT: "
 "%4%), mapeado usando a interface %5% "
 
-#: ../MappingManager.cpp:112 ../MappingManager.cpp:114
+#: ../MappingManager.cpp:113 ../MappingManager.cpp:115
 msgid ""
 "Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%), mapped "
 "using the %4% interface"
@@ -379,23 +378,23 @@ msgstr ""
 "Mapeamento feito com sucesso (TCP: %1%, UDP: %2%, TLS: %3%), mapeado "
 "utilizando a interface %4%"
 
-#: ../MappingManager.cpp:126
+#: ../MappingManager.cpp:127
 msgid "Failed to get external IP"
 msgstr "Falha ao buscar IP externo"
 
-#: ../MappingManager.cpp:136
+#: ../MappingManager.cpp:137
 msgid "Failed to create port mappings"
 msgstr "Falha ao mapear portas"
 
-#: ../MappingManager.cpp:145
+#: ../MappingManager.cpp:146
 msgid "Successfully removed port mappings with the %1% interface"
 msgstr "Mapeamento removido com sucesso da interface %1%"
 
-#: ../MappingManager.cpp:146
+#: ../MappingManager.cpp:147
 msgid "Failed to remove port mappings with the %1% interface"
 msgstr "Falha ao remover o mapeamento da interface %1%"
 
-#: ../MappingManager.cpp:151
+#: ../MappingManager.cpp:152
 msgid "UPnP: %1%"
 msgstr "UPnP: %1%"
 
@@ -504,8 +503,7 @@ msgid "%1%: Matched %2% file"
 msgstr "%1% : possui %2% arquivo"
 
 #: ../QueueManager.cpp:1794
-msgid ""
-"Target path for this item is not available: %1%; pause this queue item."
+msgid "Target path for this item is not available: %1%; pause this queue item."
 msgstr "O local de destino não está disponível: %1%; item pausado."
 
 #: ../QueueManager.cpp:2027 ../QueueManager.cpp:2036
@@ -625,13 +623,12 @@ msgid ""
 "Duplicate file will not be shared: %1% (Size: %2% B) Dupe matched against: "
 "%3%"
 msgstr ""
-"Arquivo duplicado não será compartilhado: %1% (Tamanho: %2% B) Duplicata: "
-"%3%"
+"Arquivo duplicado não será compartilhado: %1% (Tamanho: %2% B) Duplicata: %3%"
 
 #: ../ShareManager.cpp:803
 msgid ""
-"File list refresh in progress, please wait for it to finish before trying to"
-" refresh again"
+"File list refresh in progress, please wait for it to finish before trying to "
+"refresh again"
 msgstr "Atualizando a lista, espere até terminar para atualizar novamente"
 
 #: ../ShareManager.cpp:824

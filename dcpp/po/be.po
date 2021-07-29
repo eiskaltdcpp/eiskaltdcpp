@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://github.com/eiskaltdcpp/eiskaltdcpp/issues\n"
-"POT-Creation-Date: 2020-12-08 01:31+0300\n"
+"POT-Creation-Date: 2021-07-29 13:27+0300\n"
 "PO-Revision-Date: 2017-06-18 13:35+0000\n"
 "Last-Translator: Boris Pek <tehnick-8@yandex.ru>, 2020\n"
 "Language-Team: Belarusian (https://www.transifex.com/tehnick/teams/11818/"
@@ -328,69 +328,69 @@ msgstr "Бясконцая пятля перанакіроўваньня (%1%)"
 msgid "Too much data in response body (%1%)"
 msgstr ""
 
-#: ../MappingManager.cpp:44
+#: ../MappingManager.cpp:45
 msgid "No UPnP implementation available"
 msgstr "Няма даступнага выкананьня UPnP"
 
-#: ../MappingManager.cpp:49
+#: ../MappingManager.cpp:50
 msgid "Another UPnP port mapping attempt is in progress..."
 msgstr "Спрабуем стварыць іншае люстра портаў UPnP…"
 
-#: ../MappingManager.cpp:81
+#: ../MappingManager.cpp:82
 msgid "Failed to initialize the %1% interface"
 msgstr "Не ўдалося задзейнічаць інтэрфэйс %1%"
 
-#: ../MappingManager.cpp:85
+#: ../MappingManager.cpp:86
 msgid " Transfer Port (%1% TCP)"
 msgstr " Порт перадаваньня (%1% TCP)"
 
-#: ../MappingManager.cpp:86 ../MappingManager.cpp:91 ../MappingManager.cpp:96
-#: ../MappingManager.cpp:101
+#: ../MappingManager.cpp:87 ../MappingManager.cpp:92 ../MappingManager.cpp:97
+#: ../MappingManager.cpp:102
 msgid "The %1% interface has failed to map the %2% %3% port"
 msgstr "Інтэрфэйсу %1% не ўдалося адлюстраваць порт %2% на %3%"
 
-#: ../MappingManager.cpp:90
+#: ../MappingManager.cpp:91
 msgid " Encrypted Transfer Port (%1% TCP)"
 msgstr " Шыфраваны порт перадаваньня (%1% TCP)"
 
-#: ../MappingManager.cpp:95
+#: ../MappingManager.cpp:96
 msgid " Search Port (%1% UDP)"
 msgstr " Порт пошуку (%1% UDP)"
 
-#: ../MappingManager.cpp:100
+#: ../MappingManager.cpp:101
 msgid " DHT Port (%1% UDP)"
 msgstr " Порт DHT (%1% UDP)"
 
-#: ../MappingManager.cpp:110
+#: ../MappingManager.cpp:111
 msgid ""
 "Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%, DHT: %4%), "
 "mapped using the %5% interface"
 msgstr ""
 
-#: ../MappingManager.cpp:112 ../MappingManager.cpp:114
+#: ../MappingManager.cpp:113 ../MappingManager.cpp:115
 msgid ""
 "Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%), mapped "
 "using the %4% interface"
 msgstr ""
 "Адлюстравалі порты (TCP: %1%, UDP: %2%, TLS: %3%) з дапамогаю інтэрфэйсу %4%"
 
-#: ../MappingManager.cpp:126
+#: ../MappingManager.cpp:127
 msgid "Failed to get external IP"
 msgstr "Не ўдалося атрымаць вонкавы адрас IP"
 
-#: ../MappingManager.cpp:136
+#: ../MappingManager.cpp:137
 msgid "Failed to create port mappings"
 msgstr "Не ўдалося адлюстраваць порты"
 
-#: ../MappingManager.cpp:145
+#: ../MappingManager.cpp:146
 msgid "Successfully removed port mappings with the %1% interface"
 msgstr "Зьнішчылі люстры портаў на інтэрфэйсе %1%"
 
-#: ../MappingManager.cpp:146
+#: ../MappingManager.cpp:147
 msgid "Failed to remove port mappings with the %1% interface"
 msgstr "Не ўдалося зьнішчыць люстры портаў на інтэрфэйсе %1%"
 
-#: ../MappingManager.cpp:151
+#: ../MappingManager.cpp:152
 msgid "UPnP: %1%"
 msgstr "UPnP: %1%"
 

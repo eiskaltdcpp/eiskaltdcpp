@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://github.com/eiskaltdcpp/eiskaltdcpp/issues\n"
-"POT-Creation-Date: 2020-12-08 01:31+0300\n"
+"POT-Creation-Date: 2021-07-29 13:27+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: miroslav <inactive+miroslav@transifex.com>, 2018\n"
 "Language-Team: Serbian (Latin) (https://www.transifex.com/tehnick/"
@@ -326,40 +326,40 @@ msgstr "Beskrajna preusmerenja (%1%)"
 msgid "Too much data in response body (%1%)"
 msgstr ""
 
-#: ../MappingManager.cpp:44
+#: ../MappingManager.cpp:45
 msgid "No UPnP implementation available"
 msgstr "Nije dostupna UPnP implementacija"
 
-#: ../MappingManager.cpp:49
+#: ../MappingManager.cpp:50
 msgid "Another UPnP port mapping attempt is in progress..."
 msgstr "Još jedan UPnP port mapiranje u progresu"
 
-#: ../MappingManager.cpp:81
+#: ../MappingManager.cpp:82
 msgid "Failed to initialize the %1% interface"
 msgstr "Neuspelo pokretanje %1% sučelja"
 
-#: ../MappingManager.cpp:85
+#: ../MappingManager.cpp:86
 msgid " Transfer Port (%1% TCP)"
 msgstr "Port transfer (%1% TCP)"
 
-#: ../MappingManager.cpp:86 ../MappingManager.cpp:91 ../MappingManager.cpp:96
-#: ../MappingManager.cpp:101
+#: ../MappingManager.cpp:87 ../MappingManager.cpp:92 ../MappingManager.cpp:97
+#: ../MappingManager.cpp:102
 msgid "The %1% interface has failed to map the %2% %3% port"
 msgstr " %1% interfejs greška mapiranja the %2% %3% port"
 
-#: ../MappingManager.cpp:90
+#: ../MappingManager.cpp:91
 msgid " Encrypted Transfer Port (%1% TCP)"
 msgstr "Šifrovani Transfer Port (%1% TCP)"
 
-#: ../MappingManager.cpp:95
+#: ../MappingManager.cpp:96
 msgid " Search Port (%1% UDP)"
 msgstr "Pretraga porta (%1% UDP)"
 
-#: ../MappingManager.cpp:100
+#: ../MappingManager.cpp:101
 msgid " DHT Port (%1% UDP)"
 msgstr "Port DHT  (%1% UDP)"
 
-#: ../MappingManager.cpp:110
+#: ../MappingManager.cpp:111
 msgid ""
 "Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%, DHT: %4%), "
 "mapped using the %5% interface"
@@ -367,7 +367,7 @@ msgstr ""
 "Uspešno kreiran port maping(TCP: %1%, UDP: %2%, TLS: %3%, DHT: %4%) "
 "mapiranje koristi  %5% interfejsa"
 
-#: ../MappingManager.cpp:112 ../MappingManager.cpp:114
+#: ../MappingManager.cpp:113 ../MappingManager.cpp:115
 msgid ""
 "Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%), mapped "
 "using the %4% interface"
@@ -375,23 +375,23 @@ msgstr ""
 "Uspešno kreiran port maping(TCP: %1%, UDP: %2%, TLS: %3%) mapiranje koristi  "
 "%4% interfejsa"
 
-#: ../MappingManager.cpp:126
+#: ../MappingManager.cpp:127
 msgid "Failed to get external IP"
 msgstr "Neuspelo dobijanje spoljašnje IP"
 
-#: ../MappingManager.cpp:136
+#: ../MappingManager.cpp:137
 msgid "Failed to create port mappings"
 msgstr "Ne mogu kreirati nit"
 
-#: ../MappingManager.cpp:145
+#: ../MappingManager.cpp:146
 msgid "Successfully removed port mappings with the %1% interface"
 msgstr "Pokrenuto osvežavanje liste deljenih datoteka"
 
-#: ../MappingManager.cpp:146
+#: ../MappingManager.cpp:147
 msgid "Failed to remove port mappings with the %1% interface"
 msgstr "Pokrenuto osvežavanje liste deljenih datoteka"
 
-#: ../MappingManager.cpp:151
+#: ../MappingManager.cpp:152
 msgid "UPnP: %1%"
 msgstr "UpnP: %1%"
 
