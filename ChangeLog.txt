@@ -1,3 +1,8 @@
+--- 2.4.3 2021-xx-xx ---
+*** libeiskaltdcpp ***
+* Replace build dependency from libidn to libidn2. cmake option USE_IDNA is
+  renamed to USE_IDN2 accordingly.
+
 --- 2.4.2 2021-03-03 ---
 *** common changes ***
 * Added support of build using musl instead of glibc.

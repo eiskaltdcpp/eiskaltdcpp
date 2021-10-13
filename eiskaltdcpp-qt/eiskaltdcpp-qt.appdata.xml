@@ -44,7 +44,7 @@
       <li>Support of limitations by size of shared files</li>
       <li>Support of handling of magnet links, web magnet links and hub links</li>
       <li>Support of automatic replies to private messages when user is inactive</li>
-      <li>Support of IDNA (recognition of national domain names)</li>
+      <li>Support of IDN2 (recognition of national domain names)</li>
       <li>Support of URL encoded strings for hub addresses</li>
     </ul>
   </description>

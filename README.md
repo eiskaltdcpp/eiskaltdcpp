@@ -55,7 +55,7 @@ Currently supported features (not full list):
 * Support of files drag-and-drop into field for entering messages (if file is present in user file list, magnet link to it will be added).
 * Support of automatic replies to private messages in case of user absent.
 * Support of user extensions on QtScript (only in Qt based GUI in GNU/Linux) and on Lua (in all supported systems).
-* Support of IDNA (recognition of national domain names).
+* Support of IDN2 (recognition of national domain names).
 * Support of URL encoded strings for hub addresses.
 * Support of traffic encryption.
 

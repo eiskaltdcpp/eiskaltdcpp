@@ -21,7 +21,7 @@ include_directories (${PROJECT_BINARY_DIR}
                      ${OPENSSL_INCLUDE_DIR}
                      ${GETTEXT_INCLUDE_DIR}
                      ${LUA_INCLUDE_DIR}
-                     ${IDNA_INCLUDE_DIR})
+                     ${IDN2_INCLUDE_DIR})
 
 if (WIN32)
     set (LINK STATIC)
@@ -63,10 +63,10 @@ if (PERL_REGEX)
     set(PCRE ${PCRE_LIBRARIES})
 endif (PERL_REGEX)
 
-if (USE_IDNA)
+if (USE_IDN2)
     set_property(SOURCE ${PROJECT_SOURCE_DIR}/Util.cpp
-                 PROPERTY COMPILE_DEFINITIONS USE_IDNA APPEND)
-endif(USE_IDNA)
+                 PROPERTY COMPILE_DEFINITIONS USE_IDN2 APPEND)
+endif(USE_IDN2)
 
 if (XATTR_FOUND)
     set_property(SOURCE ${PROJECT_SOURCE_DIR}/HashManager.h
@@ -115,7 +115,7 @@ target_link_libraries (dcpp
                        ${LUA_LIBRARIES}
                        ${UPNP}
                        ${PCRE}
-                       ${IDNA_LIBRARIES}
+                       ${IDN2_LIBRARIES}
                        ${XATTR_LIBRARIES}
                        ${HAIKU_LIB})
 set_target_properties(dcpp PROPERTIES

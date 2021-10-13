@@ -68,8 +68,8 @@
 
 #include "FastAlloc.h"
 
-#ifdef USE_IDNA
-#include <idna.h>
+#ifdef USE_IDN2
+#include <idn2.h>
 #endif
 
 #if defined(__APPLE__) && defined(__MACH__)
@@ -671,10 +671,10 @@ void Util::decodeUrl(const string& url, string& protocol, string& host, string& 
     query = url.substr(queryStart, queryEnd - queryStart);
     fragment = url.substr(fragmentStart, fragmentEnd - fragmentStart);
 
-#ifdef USE_IDNA
+#ifdef USE_IDN2
     //printf("%s\n",host.c_str());
     char *p;
-    if (idna_to_ascii_8z(host.c_str(), &p, 0) == IDNA_SUCCESS) {
+    if (idn2_to_ascii_8z(host.c_str(), &p, IDN2_NONTRANSITIONAL) == IDN2_OK) {
         host = string(p);
     }
     free(p);
