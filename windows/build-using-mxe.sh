@@ -10,7 +10,7 @@
 # project. Currently it is used for testing builds on Travis CI.
 #
 # Notes:
-# make aspell jsoncpp libidn lua miniupnpc qtbase qtmultimedia qttools
+# make aspell jsoncpp libidn2 lua miniupnpc qtbase qtmultimedia qttools
 
 set -e
 

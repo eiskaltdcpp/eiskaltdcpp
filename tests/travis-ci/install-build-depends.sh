@@ -15,7 +15,7 @@ then
                              libssl-dev \
                              libattr1-dev \
                              zlib1g-dev \
-                             libidn11-dev \
+                             libidn2-dev \
                              liblua5.1-0-dev \
                              libpcre3-dev \
                              libminiupnpc-dev
@@ -74,7 +74,7 @@ then
     sudo apt-get update  -qq
     sudo apt-get install -qq ${PKG_PREFIX}-aspell \
                              ${PKG_PREFIX}-jsoncpp \
-                             ${PKG_PREFIX}-libidn \
+                             ${PKG_PREFIX}-libidn2 \
                              ${PKG_PREFIX}-lua \
                              ${PKG_PREFIX}-miniupnpc \
                              ${PKG_PREFIX}-qtmultimedia \
@@ -85,6 +85,6 @@ if [ "${TARGET}" = "macos64" ]
 then
     export HOMEBREW_NO_AUTO_UPDATE=1
     # brew install coreutils cmake gettext openssl pcre qt@5
-    brew install ccache libidn jsoncpp miniupnpc aspell lua qt
+    brew install ccache libidn2 jsoncpp miniupnpc aspell lua qt
 fi
 

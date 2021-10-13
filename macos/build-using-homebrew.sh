@@ -13,7 +13,7 @@
 # Build dependencies and useful tools:
 # export HOMEBREW_NO_BOTTLE_SOURCE_FALLBACK=1
 # brew install ccache coreutils cmake
-# brew install aspell lua miniupnpc openssl@1.1 pcre libidn jsoncpp qt@5
+# brew install aspell lua miniupnpc openssl@1.1 pcre libidn2 jsoncpp qt@5
 #
 # Additional tools:
 # brew install wget htop
