@@ -143,16 +143,16 @@ main() {
 			
 		# Prevents linking libeiskalt .so because some dependency isn't doing this as well
 		sed -i 's/-static-libstdc++//' ./build.ninja
-			
-		cmake --build .
-
-		cmake --build . -t apk || (
+		
+		cmake --build . --config Release
+		
+		cmake --build . --config Release -t apk || (
 			
 			# The wrong build-tools version is loaded from somewhere
 			# But it needs to be generated first
 			sed -i 's/28.0.3/29.0.3/' ./android-build/build.gradle
 			
-			cmake --build . -t apk
+			cmake --build . --config Release -t apk
 		)
 
 	else
