@@ -304,6 +304,12 @@ if (CMAKE_CXX_COMPILER_ID STREQUAL GNU OR CMAKE_CXX_COMPILER_ID STREQUAL Clang)
     endif ()
 endif ()
 
+# Binaries are too big for the Android NDK linker - force strip and no debug info
+# The -g flag is being added somehow despite doing a Release build(?)
+set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Os -g0")
+
+set (CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -Wl,--gc-sections -Wl,--strip-all ")
+
 option (LANGUAGES "Using translations")
 list (APPEND AllLanguages
             be

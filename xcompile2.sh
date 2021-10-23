@@ -144,6 +144,9 @@ main() {
 		# Prevents linking libeiskalt .so because some dependency isn't doing this as well
 		sed -i 's/-static-libstdc++//' ./build.ninja
 		
+		# Disable debug info
+		sed -i 's/ -g / -g0 /' ./build.ninja
+		sed -i 's/ -O2 / -Os /' ./build.ninja
 		cmake --build . --config Release
 		
 		cmake --build . --config Release -t apk || (
