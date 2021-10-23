@@ -445,7 +445,9 @@ if (APPLE)
     list (APPEND SRCS ${MACOSICON})
 endif (APPLE)
 
-add_executable (${PROJECT_NAME} MACOSX_BUNDLE WIN32 src/main.cpp
+
+if(ANDROID)
+    add_library (${PROJECT_NAME} SHARED src/main.cpp
                 ${M_SRCS}
                 ${U_SRCS}
                 ${SRCS}
@@ -454,6 +456,18 @@ add_executable (${PROJECT_NAME} MACOSX_BUNDLE WIN32 src/main.cpp
                 ${TRANSLATIONS}
                 ${WIN_RESOURCES}
                 translations)
+else()
+    add_executable (${PROJECT_NAME} MACOSX_BUNDLE WIN32 src/main.cpp
+                    ${M_SRCS}
+                    ${U_SRCS}
+                    ${SRCS}
+                    ${HDRS}
+                    ${MOC_HDRS}
+                    ${TRANSLATIONS}
+                    ${WIN_RESOURCES}
+                    translations)
+
+endif()
 
 add_definitions (-DCLIENT_DATA_DIR="${CLIENT_DATA_DIR}")
 add_definitions (-DCLIENT_SOUNDS_DIR="${CLIENT_SOUNDS_DEST}")
