@@ -17,7 +17,7 @@ elseif (USE_QT5)
     find_package (Qt5Xml           5.0.2 REQUIRED)
     find_package (Qt5Network       5.0.2 REQUIRED)
     # This is temporary workaround which fixes build with Qt5 on Travis CI:
-    find_package (Qt5LinguistTools       REQUIRED)
+    #find_package (Qt5LinguistTools       REQUIRED)
     find_package (Qt5Multimedia    5.0.2 REQUIRED)
     find_package (Qt5Concurrent    5.0.2 REQUIRED)
 endif ()
