@@ -40,6 +40,11 @@ else (WIN32)
     endif(HAIKU)
 endif (WIN32)
 
+if (ANDROID)
+    set (LINK STATIC)
+    #add_library (extra STATIC ${extra_SRCS})
+endif()
+
 if (NOT LINK)
     set (LINK SHARED)
 endif (NOT LINK)
