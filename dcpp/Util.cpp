@@ -1293,7 +1293,7 @@ void Util::setLang(const string &lang)
     }
     /* Make change known. */
     {
-        ++_nl_msg_cat_cntr;
+    //    ++_nl_msg_cat_cntr;
     }
 }
 

@@ -274,7 +274,7 @@ include_directories (${PROJECT_SOURCE_DIR}
                      ${PROJECT_SOURCE_DIR}/src
                      ${PROJECT_SOURCE_DIR}/scriptengine
                      ${PROJECT_SOURCE_DIR}/..
-                     ${GETTEXT_INCLUDE_DIR})
+                     )
 list (APPEND LIBS ${ICONV_LIBRARIES})
 
 if (BUILD_STATIC AND USE_QT5)

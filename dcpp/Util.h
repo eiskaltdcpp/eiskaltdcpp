@@ -47,7 +47,7 @@
 
 #include "Text.h"
 
-extern "C" int  _nl_msg_cat_cntr;
+//extern "C" int  _nl_msg_cat_cntr;
 
 namespace dcpp {
 

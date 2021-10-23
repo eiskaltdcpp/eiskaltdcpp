@@ -8,7 +8,6 @@ set (DHT_SRCS ${dht_srcs} PARENT_SCOPE)
 
 include_directories (${PROJECT_BINARY_DIR}
                      ${OPENSSL_INCLUDE_DIR}
-                     ${GETTEXT_INCLUDE_DIR}
                      ${BZIP2_INCLUDE_DIR}
                      ${ZLIB_INCLUDE_DIR}
                      ${LUA_INCLUDE_DIR})

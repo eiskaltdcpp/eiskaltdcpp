@@ -19,7 +19,6 @@ include_directories (${PROJECT_BINARY_DIR}
                      ${BZIP2_INCLUDE_DIR}
                      ${ZLIB_INCLUDE_DIR}
                      ${OPENSSL_INCLUDE_DIR}
-                     ${GETTEXT_INCLUDE_DIR}
                      ${LUA_INCLUDE_DIR}
                      ${IDN2_INCLUDE_DIR})
 
@@ -108,7 +107,6 @@ target_link_libraries (dcpp
                        ${BZIP2_LIBRARIES}
                        ${ZLIB_LIBRARIES}
                        ${OPENSSL_LIBRARIES}
-                       ${GETTEXT_LIBRARIES}
                        ${ICONV_LIBRARIES}
                        ${WIN32_LIBS}
                        ${APPLE_LIBS}
