@@ -103,7 +103,7 @@ endif ()
 
 target_link_libraries (dcpp
                        ${DHT_LIB}
-                       ${PTHREADS}
+                       # ${PTHREADS} # implicit on android
                        ${BZIP2_LIBRARIES}
                        ${ZLIB_LIBRARIES}
                        ${OPENSSL_LIBRARIES}
