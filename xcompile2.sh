@@ -40,7 +40,7 @@ main() {
 		# @ref https://developer.android.com/ndk/guides/other_build_systems
 		export LDFLAGS='-static-libstdc++'
 		make \
-			CC=$ANDROID_NDK_ROOT/toolchains/llvm/prebuilt/linux-x86_64/bin/aarch64-linux-android21-clang \
+			CC=$ANDROID_NDK_ROOT/toolchains/llvm/prebuilt/linux-x86_64/bin/armv7a-linux-androideabi29-clang \
 			AR=$ANDROID_NDK_ROOT/toolchains/llvm/prebuilt/linux-x86_64/bin/llvm-ar \
 			RANLIB=$ANDROID_NDK_ROOT/toolchains/llvm/prebuilt/linux-x86_64/bin/llvm-ranlib \
 			bzip2
@@ -52,9 +52,9 @@ main() {
 		cd openssl
 		
 		# @ref https://proandroiddev.com/tutorial-compile-openssl-to-1-1-1-for-android-application-87137968fee
-		export PATH=$ANDROID_NDK_ROOT/toolchains/llvm/prebuilt/linux-x86_64/bin:$ANDROID_NDK_ROOT/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin:$PATH
+		export PATH=$ANDROID_NDK_ROOT/toolchains/llvm/prebuilt/linux-x86_64/bin:$ANDROID_NDK_ROOT/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin:$PATH
 		export LDFLAGS='-static-libstdc++'
-		./Configure android-arm64 -D__ANDROID_API__=29
+		./Configure android-arm -D__ANDROID_API__=29
 		make
 		
 	elif [[ $1 == "make-gettext" ]] ; then
@@ -66,7 +66,7 @@ main() {
 		
 		# @ref https://github.com/alexa/avs-device-sdk/issues/825#issuecomment-407002856 
 		mkdir output-prefix
-		export PATH=$ANDROID_NDK_ROOT/toolchains/llvm/prebuilt/linux-x86_64/bin:$ANDROID_NDK_ROOT/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin:$PATH
+		export PATH=$ANDROID_NDK_ROOT/toolchains/llvm/prebuilt/linux-x86_64/bin:$ANDROID_NDK_ROOT/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin:$PATH
 		export SYSROOT=$ANDROID_NDK_ROOT/sysroot
 		export LDFLAGS='-static-libstdc++'
 		#autoreconf -i
@@ -81,8 +81,8 @@ main() {
 		
 		mkdir build
 		cd build
-		export PATH=$ANDROID_NDK_ROOT/toolchains/llvm/prebuilt/linux-x86_64/bin:$ANDROID_NDK_ROOT/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin:$PATH
-		export CC=$ANDROID_NDK_ROOT/toolchains/llvm/prebuilt/linux-x86_64/bin/aarch64-linux-android21-clang
+		export PATH=$ANDROID_NDK_ROOT/toolchains/llvm/prebuilt/linux-x86_64/bin:$ANDROID_NDK_ROOT/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin:$PATH
+		export CC=$ANDROID_NDK_ROOT/toolchains/llvm/prebuilt/linux-x86_64/bin/armv7a-linux-androideabi29-clang
 		export LD=$ANDROID_NDK_ROOT/toolchains/llvm/prebuilt/linux-x86_64/bin/ld
 		export LDFLAGS='-static-libstdc++'
 		cmake .. 
@@ -97,8 +97,8 @@ main() {
 		cd libidn2-latest
 		
 		# @ref https://developer.android.com/ndk/guides/other_build_systems
-		export PATH=$ANDROID_NDK_ROOT/toolchains/llvm/prebuilt/linux-x86_64/bin:$ANDROID_NDK_ROOT/toolchains/aarch64-linux-android-4.9/prebuilt/linux-x86_64/bin:$PATH
-		export CC=$ANDROID_NDK_ROOT/toolchains/llvm/prebuilt/linux-x86_64/bin/aarch64-linux-android21-clang
+		export PATH=$ANDROID_NDK_ROOT/toolchains/llvm/prebuilt/linux-x86_64/bin:$ANDROID_NDK_ROOT/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin:$PATH
+		export CC=$ANDROID_NDK_ROOT/toolchains/llvm/prebuilt/linux-x86_64/bin/armv7a-linux-androideabi29-clang
 		export LD=$ANDROID_NDK_ROOT/toolchains/llvm/prebuilt/linux-x86_64/bin/ld
 		export AR=$ANDROID_NDK_ROOT/toolchains/llvm/prebuilt/linux-x86_64/bin/llvm-ar
 		export RANLIB=$ANDROID_NDK_ROOT/toolchains/llvm/prebuilt/linux-x86_64/bin/llvm-ranlib
@@ -119,9 +119,9 @@ main() {
 
 		cmake .. -G Ninja \
 			-DCMAKE_BUILD_TYPE:STRING=Release \
-			-DANDROID_ABI:STRING=arm64-v8a \
-			-DANDROID_BUILD_ABI_armeabi-v7a=OFF \
-			-DANDROID_BUILD_ABI_arm64-v8a:BOOL=ON \
+			-DANDROID_ABI:STRING=armeabi-v7a \
+			-DANDROID_BUILD_ABI_armeabi-v7a:BOOL=ON \
+			-DANDROID_BUILD_ABI_arm64-v8a:BOOL=OFF \
 			-DANDROID_BUILD_ABI_x86:BOOL=OFF \
 			-DANDROID_BUILD_ABI_x86_64:BOOL=OFF \
 			"-DANDROID_NATIVE_API_LEVEL:STRING=${ANDROID_NATIVE_API_LEVEL}" \
