@@ -29,6 +29,11 @@ main() {
 		#./xcompile2.sh make-gettext
 		./xcompile2.sh make-pcre
 		./xcompile2.sh make-idn
+		
+	elif [[ $1 == "make-apt-deps" ]] ; then
+		# this container is overall quite good but is missing patch
+		sudo apt update
+		sudo apt install patch
 
 	elif [[ $1 == "make-bzip2" ]] ; then
 		# n.b. should run under docker
@@ -50,6 +55,9 @@ main() {
 		cd build-openssl
 		git clone https://github.com/openssl/openssl.git
 		cd openssl
+		
+		# Bionic libc does not allow atexit()
+		patch -p1 < ../../openssl-no-atexit.patch
 		
 		# @ref https://proandroiddev.com/tutorial-compile-openssl-to-1-1-1-for-android-application-87137968fee
 		export PATH=$ANDROID_NDK_ROOT/toolchains/llvm/prebuilt/linux-x86_64/bin:$ANDROID_NDK_ROOT/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin:$PATH

@@ -1,0 +1,26 @@
+diff --git a/apps/openssl.c b/apps/openssl.c
+index e20661277e..7054db1dbc 100644
+--- a/apps/openssl.c
++++ b/apps/openssl.c
+@@ -202,7 +202,6 @@ static void setup_trace(const char *str)
+      * as late as possible, i.e. after the TRACE code has done its cleanup
+      * (which happens last in OPENSSL_cleanup).
+      */
+-    atexit(cleanup_trace);
+ 
+     trace_data_stack = sk_tracedata_new_null();
+     val = OPENSSL_strdup(str);
+diff --git a/crypto/init.c b/crypto/init.c
+index 6a27d1a8e4..bdee5fe5c8 100644
+--- a/crypto/init.c
++++ b/crypto/init.c
+@@ -98,8 +98,7 @@ DEFINE_RUN_ONCE_STATIC(ossl_init_register_atexit)
+     if (_onexit(win32atexit) == NULL)
+         return 0;
+ # else
+-    if (atexit(OPENSSL_cleanup) != 0)
+-        return 0;
++    return 0;
+ # endif
+ #endif
+ 
