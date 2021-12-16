@@ -119,8 +119,8 @@ target_link_libraries (dcpp
                        ${XATTR_LIBRARIES}
                        ${HAIKU_LIB})
 set_target_properties(dcpp PROPERTIES
-                      VERSION ${SOVERSION}
-                      SOVERSION ${SOVERSION}
+                      VERSION ${SO_VERSION}
+                      SOVERSION ${SO_VERSION}
                       OUTPUT_NAME "eiskaltdcpp")
 
 if (APPLE)

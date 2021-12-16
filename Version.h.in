@@ -12,6 +12,7 @@
 #include <string>
 
 #define VERSIONSTRING "@VERSION_BASE@"
+#define VERSIONFLOAT "@CONF_VERSION@"
 #define APPNAME "@PROJECT_NAME@"
 #define DCPP_VERSION "0.785"
 

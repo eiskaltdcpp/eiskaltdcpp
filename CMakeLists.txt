@@ -2,8 +2,9 @@ project (eiskaltdcpp)
 cmake_minimum_required (VERSION 2.6.3)
 
 set (PROJECT_NAME "EiskaltDC++")
-set (VERSION "2.4.2+devel") # Main program version (displayed in UI)
-set (SOVERSION "2.4") # Library version (incremented after changes in API or ABI)
+set (APP_VERSION "2.4.2+devel") # Main program version (displayed in UI)
+set (CONF_VERSION "2.0402") # Config version (for updating of DCPlusPlus.xml)
+set (SO_VERSION "2.4") # Library version (incremented after changes in API or ABI)
 
 if (WIN32 OR APPLE OR HAIKU)
     set (PROJECT_NAME_GLOBAL "${PROJECT_NAME}") # Package name is the same as project name
@@ -225,19 +226,19 @@ endif (UNIX)
 message (STATUS "Data directory: ${CLIENT_DATA_DIR}")
 
 if (REPLACE_VERSION)
-    set (VERSION "${REPLACE_VERSION}")
+    set (APP_VERSION "${REPLACE_VERSION}")
 elseif (GIT_FOUND)
     if (EXISTS "${PROJECT_SOURCE_DIR}/.git/config")
         execute_process (COMMAND ${GIT_EXECUTABLE} describe --tags
                          WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}
                          OUTPUT_VARIABLE VERSION
                          OUTPUT_STRIP_TRAILING_WHITESPACE)
-        string (REGEX REPLACE "^v" "" VERSION "${VERSION}")
+        string (REGEX REPLACE "^v" "" VERSION "${APP_VERSION}")
     endif()
 endif (REPLACE_VERSION)
 
-string (REGEX REPLACE "^([0-9]+\\.[0-9]+\\.[0-9]+).*" "\\1" VERSION_BASE "${VERSION}")
-message (STATUS "${PROJECT_NAME} full version: ${VERSION}")
+string (REGEX REPLACE "^([0-9]+\\.[0-9]+\\.[0-9]+).*" "\\1" VERSION_BASE "${APP_VERSION}")
+message (STATUS "${PROJECT_NAME} full version: ${APP_VERSION}")
 message (STATUS "${PROJECT_NAME} base version: ${VERSION_BASE}")
 
 configure_file (${PROJECT_SOURCE_DIR}/Version.h.in ${PROJECT_BINARY_DIR}/VersionGlobal.h)

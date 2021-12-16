@@ -193,6 +193,10 @@ public:
         isSet[key] = true;
     }
 
+    void set(IntSetting key, bool value) {
+        set(key, (int)value);
+    }
+
     void set(Int64Setting key, const string& value) {
         if(value.empty()) {
             int64Settings[key - INT64_FIRST] = 0;
@@ -202,8 +206,6 @@ public:
             isSet[key] = true;
         }
     }
-
-    void set(IntSetting key, bool value) { set(key, (int)value); }
 
     void set(FloatSetting key, float value) {
         floatSettings[key - FLOAT_FIRST] = value;
@@ -215,6 +217,22 @@ public:
         isSet[key] = true;
     }
 
+    const string& getDefault(StrSetting key) const {
+        return strDefaults[key - STR_FIRST];
+    }
+
+    int getDefault(IntSetting key) const {
+        return intDefaults[key - INT_FIRST];
+    }
+
+    int64_t getDefault(Int64Setting key) const {
+        return int64Defaults[key - INT64_FIRST];
+    }
+
+    float getDefault(FloatSetting key) const {
+        return floatDefaults[key - FLOAT_FIRST];
+    }
+
     void setDefault(StrSetting key, string const& value) {
         strDefaults[key - STR_FIRST] = value;
     }
@@ -222,6 +240,7 @@ public:
     void setDefault(IntSetting key, int value) {
         intDefaults[key - INT_FIRST] = value;
     }
+
     void setDefault(Int64Setting key, int64_t value) {
         int64Defaults[key - INT64_FIRST] = value;
     }

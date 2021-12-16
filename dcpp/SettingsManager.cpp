@@ -418,6 +418,19 @@ void SettingsManager::load(string const& aFileName)
             unset(LOG_FILE_SYSTEM);
         }
 
+        if(v <= 0.867) {
+            // add all the newly introduced default hublist servers automatically.
+            // change this to the version number of the previous release each time a new default hublist server entry added.
+            string lists = get(HUBLIST_SERVERS);
+            StringTokenizer<string> t(getDefault(HUBLIST_SERVERS), ';');
+
+            for(auto& i: t.getTokens()) {
+                if(lists.find(i) == string::npos)
+                    lists += ";" + i;
+            }
+            set(HUBLIST_SERVERS, lists);
+        }
+
         if(SETTING(SET_MINISLOT_SIZE) < 64)
             set(SET_MINISLOT_SIZE, 64);
         if(SETTING(AUTODROP_INTERVAL) < 1)
@@ -464,7 +477,7 @@ void SettingsManager::save(string const& aFileName) {
     for(i=STR_FIRST; i<STR_LAST; i++)
     {
         if(i == CONFIG_VERSION) {
-            xml.addTag(settingTags[i], VERSIONSTRING);
+            xml.addTag(settingTags[i], VERSIONFLOAT);
             xml.addChildAttrib(type, curType);
         } else if(isSet[i]) {
             xml.addTag(settingTags[i], get(StrSetting(i), false));
