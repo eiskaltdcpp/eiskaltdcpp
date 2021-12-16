@@ -418,7 +418,7 @@ void SettingsManager::load(string const& aFileName)
             unset(LOG_FILE_SYSTEM);
         }
 
-        if(v <= 0.867) {
+        if(v <= 2.0402) {
             // add all the newly introduced default hublist servers automatically.
             // change this to the version number of the previous release each time a new default hublist server entry added.
             string lists = get(HUBLIST_SERVERS);
