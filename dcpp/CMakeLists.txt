@@ -19,7 +19,6 @@ include_directories (${PROJECT_BINARY_DIR}
                      ${BZIP2_INCLUDE_DIR}
                      ${ZLIB_INCLUDE_DIR}
                      ${OPENSSL_INCLUDE_DIR}
-                     ${GETTEXT_INCLUDE_DIR}
                      ${LUA_INCLUDE_DIR}
                      ${IDN2_INCLUDE_DIR})
 
@@ -40,6 +39,11 @@ else (WIN32)
         endif(APPLE)
     endif(HAIKU)
 endif (WIN32)
+
+if (ANDROID)
+    set (LINK STATIC)
+    #add_library (extra STATIC ${extra_SRCS})
+endif()
 
 if (NOT LINK)
     set (LINK SHARED)
@@ -104,11 +108,10 @@ endif ()
 
 target_link_libraries (dcpp
                        ${DHT_LIB}
-                       ${PTHREADS}
+                       # ${PTHREADS} # implicit on android
                        ${BZIP2_LIBRARIES}
                        ${ZLIB_LIBRARIES}
                        ${OPENSSL_LIBRARIES}
-                       ${GETTEXT_LIBRARIES}
                        ${ICONV_LIBRARIES}
                        ${WIN32_LIBS}
                        ${APPLE_LIBS}

@@ -1,7 +1,6 @@
 project (extra)
 cmake_minimum_required (VERSION 2.6)
 include_directories (${PROJECT_SOURCE_DIR}
-                     ${GETTEXT_INCLUDE_DIR}
                      ${MINIUPNP_INCLUDE_DIR}
                      ${LUA_INCLUDE_DIR})
 aux_source_directory (${PROJECT_SOURCE_DIR} extra_SRCS)
@@ -38,5 +37,4 @@ endif ()
 target_link_libraries (extra
                        ${MINIUPNP_LIBRARY}
                        ${WIN32_LIBS}
-                       ${GETTEXT_LIBRARIES}
                        ${ICONV_LIBRARIES})

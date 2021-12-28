@@ -17,7 +17,7 @@ elseif (USE_QT5)
     find_package (Qt5Xml           5.0.2 REQUIRED)
     find_package (Qt5Network       5.0.2 REQUIRED)
     # This is temporary workaround which fixes build with Qt5 on Travis CI:
-    find_package (Qt5LinguistTools       REQUIRED)
+    #find_package (Qt5LinguistTools       REQUIRED)
     find_package (Qt5Multimedia    5.0.2 REQUIRED)
     find_package (Qt5Concurrent    5.0.2 REQUIRED)
 endif ()
@@ -274,8 +274,17 @@ include_directories (${PROJECT_SOURCE_DIR}
                      ${PROJECT_SOURCE_DIR}/src
                      ${PROJECT_SOURCE_DIR}/scriptengine
                      ${PROJECT_SOURCE_DIR}/..
-                     ${GETTEXT_INCLUDE_DIR})
+                     )
 list (APPEND LIBS ${ICONV_LIBRARIES})
+
+if(ANDROID)
+    set(ANDROID_PACKAGE_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/android")
+#    if (ANDROID_ABI STREQUAL "armeabi-v7a")
+#        set(ANDROID_EXTRA_LIBS
+#            ${CMAKE_CURRENT_SOURCE_DIR}/path/to/libcrypto.so
+#            ${CMAKE_CURRENT_SOURCE_DIR}/path/to/libssl.so)
+#    endif()
+endif()
 
 if (BUILD_STATIC AND USE_QT5)
     if (WIN32)
@@ -436,7 +445,9 @@ if (APPLE)
     list (APPEND SRCS ${MACOSICON})
 endif (APPLE)
 
-add_executable (${PROJECT_NAME} MACOSX_BUNDLE WIN32 src/main.cpp
+
+if(ANDROID)
+    add_library (${PROJECT_NAME} SHARED src/main.cpp
                 ${M_SRCS}
                 ${U_SRCS}
                 ${SRCS}
@@ -445,6 +456,18 @@ add_executable (${PROJECT_NAME} MACOSX_BUNDLE WIN32 src/main.cpp
                 ${TRANSLATIONS}
                 ${WIN_RESOURCES}
                 translations)
+else()
+    add_executable (${PROJECT_NAME} MACOSX_BUNDLE WIN32 src/main.cpp
+                    ${M_SRCS}
+                    ${U_SRCS}
+                    ${SRCS}
+                    ${HDRS}
+                    ${MOC_HDRS}
+                    ${TRANSLATIONS}
+                    ${WIN_RESOURCES}
+                    translations)
+
+endif()
 
 add_definitions (-DCLIENT_DATA_DIR="${CLIENT_DATA_DIR}")
 add_definitions (-DCLIENT_SOUNDS_DIR="${CLIENT_SOUNDS_DEST}")

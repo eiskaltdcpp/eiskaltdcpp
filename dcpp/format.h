@@ -18,14 +18,16 @@
 
 #pragma once
 
-#include <libintl.h>
 #include <string>
 
 #ifdef BUILDING_DCPP
 
+#define dgettext(x, String) String
+#define dngettext(x, String1, String2, N) String1
+
 #define PACKAGE "libeiskaltdcpp"
 #define LOCALEDIR dcpp::Util::getPath(Util::PATH_LOCALE).c_str()
-#define _(String) dgettext(PACKAGE, String)
+#define _(String) String
 #define gettext_noop(String) String
 #define N_(String) gettext_noop (String)
 #define F_(String) dcpp::dcpp_fmt(dgettext(PACKAGE, String))

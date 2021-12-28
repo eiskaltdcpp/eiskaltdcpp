@@ -46,8 +46,8 @@
 #include <functional>
 #include <list>
 #include <limits>
-#include <libintl.h>
 #include <map>
+#include <locale.h>
 #include <memory>
 #include <numeric>
 #include <set>

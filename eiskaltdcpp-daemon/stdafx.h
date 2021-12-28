@@ -15,7 +15,7 @@
 
 #include "dcpp/stdinc.h"
 
-#include <libintl.h>
 #include <iostream>
+#include <locale.h>
 
 using namespace dcpp;
