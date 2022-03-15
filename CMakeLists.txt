@@ -1,5 +1,5 @@
 project (eiskaltdcpp)
-cmake_minimum_required (VERSION 2.6.3)
+cmake_minimum_required (VERSION 3.2.0)
 
 set (PROJECT_NAME "EiskaltDC++")
 set (APP_VERSION "2.4.2+devel") # Main program version (displayed in UI)

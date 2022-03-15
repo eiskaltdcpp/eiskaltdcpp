@@ -1,4 +1,6 @@
 --- 2.4.3 2021-xx-xx ---
+*** common changes ***
+* Stop support of cmake versions less than 3.7.2.
 *** libeiskaltdcpp ***
 * Replace build dependency from libidn to libidn2. cmake option USE_IDNA is
   renamed to USE_IDN2 accordingly.

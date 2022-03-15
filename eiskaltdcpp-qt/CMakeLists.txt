@@ -1,10 +1,6 @@
 project (eiskaltdcpp-qt)
 
-if (USE_QT)
-    cmake_minimum_required (VERSION 2.6)
-elseif (USE_QT5)
-    cmake_minimum_required (VERSION 2.8.11)
-endif ()
+cmake_minimum_required (VERSION 3.2.0)
 
 include_directories(${PROJECT_BINARY_DIR})
 

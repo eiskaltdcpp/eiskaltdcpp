@@ -1,6 +1,6 @@
 project (dht)
 
-cmake_minimum_required (VERSION 2.6)
+cmake_minimum_required (VERSION 3.2.0)
 
 aux_source_directory(${PROJECT_SOURCE_DIR} dht_srcs)
 

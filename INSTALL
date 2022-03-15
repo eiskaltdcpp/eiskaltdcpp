@@ -79,8 +79,8 @@ Build Depends
 --------
 :common:
 --------
-gcc (>= 5.3) or clang (>= 3.8)
-cmake (>= 2.6.3) or cmake (>= 2.8.11) [for build with Qt5]
+gcc (>= 6.3.0) or clang (>= 3.8)
+cmake (>= 3.2.0)
 pkg-config
 bzip2
 zlib
@@ -96,7 +96,7 @@ libattr-dev (optional)
 ----------------
 :eiskaltdcpp-qt:
 ----------------
-Qt4 (>= 4.6.0) or Qt5 (>= 5.0.2)
+Qt4 (>= 4.6.0) or Qt5 (>= 5.4.2)
 libaspell-dev (optional, see cmake keys)
 -----------------
 :eiskaltdcpp-gtk:

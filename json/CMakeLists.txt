@@ -1,5 +1,5 @@
 project (jsonrpcpp)
-cmake_minimum_required (VERSION 2.6)
+cmake_minimum_required (VERSION 3.2.0)
 
 # ######### General setup ##########
 

@@ -1,4 +1,4 @@
-cmake_minimum_required (VERSION 2.6.3)
+cmake_minimum_required (VERSION 3.2.0)
 
 if (CMAKE_PREFIX_PATH MATCHES "mxe" AND NOT BUILD_STATIC)
     set (LIBS_TARGET install-dependencies)
