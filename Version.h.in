@@ -16,6 +16,6 @@
 #define APPNAME "@PROJECT_NAME@"
 #define DCPP_VERSION "0.785"
 
-const std::string eiskaltdcppVersionString("@VERSION@");
+const std::string eiskaltdcppVersionString("@APP_VERSION@");
 const std::string eiskaltdcppAppNameString("@PROJECT_NAME@");
 
