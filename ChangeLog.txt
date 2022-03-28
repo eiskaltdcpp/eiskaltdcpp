@@ -1,14 +1,17 @@
---- 2.4.3 2021-xx-xx ---
+--- 2.4.3 2022-xx-xx ---
 *** common changes ***
-* Stop support of cmake versions less than 3.7.2.
+* Stopped support of cmake versions less than 3.7.2.
 *** libeiskaltdcpp ***
-* Replace build dependency from libidn to libidn2. cmake option USE_IDNA is
+* Fixed UTF-8 validator for messages on ADC(S) hubs. Now messages with special
+  symbols like emoji will not be missed in messages history.
+* Fixed UTF-8 conversion in CTM NAT traversal reverse reply on NNDC hubs.
+* Replaced build dependency from libidn to libidn2. cmake option USE_IDNA is
   renamed to USE_IDN2 accordingly.
 
 --- 2.4.2 2021-03-03 ---
 *** common changes ***
 * Added support of build using musl instead of glibc.
-* Add support of build in Cygwin environment.
+* Added support of build in Cygwin environment.
 * Added configuration option LUA_VERSION (unset by default) for choosing
   specific version of Lua library in the systems if necessary.
 *** libeiskaltdcpp ***

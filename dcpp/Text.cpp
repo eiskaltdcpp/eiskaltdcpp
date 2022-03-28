@@ -70,73 +70,56 @@ bool isAscii(const char* str) noexcept {
 }
 
 int utf8ToWc(const char* str, wchar_t& c) {
-    uint8_t c0 = (uint8_t)str[0];
-    if(c0 & 0x80) {                                 // 1xxx xxxx
-        if(c0 & 0x40) {                             // 11xx xxxx
-            if(c0 & 0x20) {                         // 111x xxxx
-                if(c0 & 0x10) {                     // 1111 xxxx
-                    int n = -4;
-                    if(c0 & 0x08) {                 // 1111 1xxx
-                        n = -5;
-                        if(c0 & 0x04) {             // 1111 11xx
-                            if(c0 & 0x02) {         // 1111 111x
-                                return -1;
-                            }
-                            n = -6;
-                        }
-                    }
-                    int i = -1;
-                    while(i > n && (str[abs(i)] & 0x80) == 0x80)
-                        --i;
-                    return i;
-                } else {        // 1110xxxx
-                    uint8_t c1 = (uint8_t)str[1];
-                    if((c1 & (0x80 | 0x40)) != 0x80)
-                        return -1;
+    const auto c0 = static_cast<uint8_t>(str[0]);
+    const auto bytes = 2 + !!(c0 & 0x20) + ((c0 & 0x30) == 0x30);
 
-                    uint8_t c2 = (uint8_t)str[2];
-                    if((c2 & (0x80 | 0x40)) != 0x80)
-                        return -2;
-
-                    // Ugly utf-16 surrogate catch
-                    if((c0 & 0x0f) == 0x0d && (c1 & 0x3c) >= (0x08 << 2))
-                        return -3;
-
-                    // Overlong encoding
-                    if(c0 == (0x80 | 0x40 | 0x20) && (c1 & (0x80 | 0x40 | 0x20)) == 0x80)
-                        return -3;
-
-                    c = (((wchar_t)c0 & 0x0f) << 12) |
-                            (((wchar_t)c1 & 0x3f) << 6) |
-                            ((wchar_t)c2 & 0x3f);
-
-                    return 3;
-                }
-            } else {                // 110xxxxx
-                uint8_t c1 = (uint8_t)str[1];
-                if((c1 & (0x80 | 0x40)) != 0x80)
-                    return -1;
-
-                // Overlong encoding
-                if((c0 & ~1) == (0x80 | 0x40))
-                    return -2;
-
-                c = (((wchar_t)c0 & 0x1f) << 6) |
-                        ((wchar_t)c1 & 0x3f);
-                return 2;
-            }
-        } else {                    // 10xxxxxx
+    if((c0 & 0xc0) == 0xc0) {                  // 11xx xxxx
+        // # bytes of leading 1's; check for 0 next
+        const auto check_bit = 1 << (7 - bytes);
+        if (c0 & check_bit)
             return -1;
+
+        c = (check_bit - 1) & c0;
+
+        // 2-4 total, or 1-3 additional, bytes
+        // Can't run off end of str so long as has sub-0x80-terminator
+        for (auto i = 1; i < bytes; ++i) {
+            const auto ci = static_cast<uint8_t>(str[i]);
+            if ((ci & 0xc0) != 0x80)
+                return -i;
+            c = (c << 6) | (ci & 0x3f);
         }
-    } else {                        // 0xxxxxxx
-        c = (unsigned char)str[0];
+
+        // Invalid UTF-8 code points
+        if (c > 0x10ffff || (c >= 0xd800 && c <= 0xdfff)) {
+            // "REPLACEMENT CHARACTER": used to replace an incoming character
+            // whose value is unknown or unrepresentable in Unicode
+            c = 0xfffd;
+            return -bytes;
+        }
+
+        return bytes;
+    } else if ((c0 & 0x80) == 0) {             // 0xxx xxxx
+        c = static_cast<unsigned char>(str[0]);
         return 1;
+    } else {                                   // 10xx xxxx
+        return -1;
     }
     dcassert(0);
 }
 
 void wcToUtf8(wchar_t c, string& str) {
-    if(c >= 0x0800) {
+    // https://tools.ietf.org/html/rfc3629#section-3
+    if(c > 0x10ffff || (c >= 0xd800 && c <= 0xdfff)) {
+        // Invalid UTF-8 code point
+        // REPLACEMENT CHARACTER: https://www.fileformat.info/info/unicode/char/0fffd/index.htm
+        wcToUtf8(0xfffd, str);
+    } else if(c >= 0x10000) {
+        str += (char)(0x80 | 0x40 | 0x20 | 0x10 | (c >> 18));
+        str += (char)(0x80 | ((c >> 12) & 0x3f));
+        str += (char)(0x80 | ((c >> 6) & 0x3f));
+        str += (char)(0x80 | (c & 0x3f));
+    } else if(c >= 0x0800) {
         str += (char)(0x80 | 0x40 | 0x20 | (c >> 12));
         str += (char)(0x80 | ((c >> 6) & 0x3f));
         str += (char)(0x80 | (c & 0x3f));
