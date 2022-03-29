@@ -138,6 +138,10 @@ if (LINK STREQUAL SHARED)
         install (TARGETS dcpp
                 LIBRARY DESTINATION ${LIBDIR})
     endif (NOT WITH_DEV_FILES)
+    message (STATUS "Build libeiskaltdcpp as shared library")
+elseif (LINK STREQUAL STATIC)
+    install (TARGETS dcpp LIBRARY DESTINATION ${LIBDIR})
+    message (STATUS "Build libeiskaltdcpp as static library")
 endif (LINK STREQUAL SHARED)
 
 if (WITH_DEV_FILES)
@@ -153,10 +157,6 @@ if (WITH_DEV_FILES)
     configure_file (${CMAKE_SOURCE_DIR}/eiskaltdcpp.pc.in ${CMAKE_BINARY_DIR}/eiskaltdcpp.pc @ONLY)
     install (FILES ${CMAKE_BINARY_DIR}/eiskaltdcpp.pc
              DESTINATION ${CMAKE_INSTALL_PREFIX}/${LIBDIR}/pkgconfig)
-
-    if (LINK STREQUAL STATIC)
-        install (TARGETS dcpp LIBRARY DESTINATION ${LIBDIR})
-    endif (LINK STREQUAL STATIC)
 endif (WITH_DEV_FILES)
 
 foreach(LANG ${LANGUAGES})

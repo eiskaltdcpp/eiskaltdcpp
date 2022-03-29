@@ -110,6 +110,7 @@ PrepareToBuildForLinux()
     [ -z "${PROJECT_DIR_NAME}" ] && return 1
 
     cd "${MAIN_DIR}/${PROJECT_DIR_NAME}"
+    sed -i "s|option (USE_XATTR .*$|option (USE_XATTR \"\" ON)|g" CMakeLists.txt
     sed -i "s|option (WITH_EXAMPLES .*$|option (WITH_EXAMPLES \"\" ON)|g" CMakeLists.txt
     sed -i "s|option (NO_UI_DAEMON .*$|option (NO_UI_DAEMON \"\" ON)|g" CMakeLists.txt
     sed -i "s|option (JSONRPC_DAEMON .*$|option (JSONRPC_DAEMON \"\" ON)|g" CMakeLists.txt

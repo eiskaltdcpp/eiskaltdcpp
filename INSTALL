@@ -16,7 +16,7 @@ liblua5.1 (optional, see cmake keys)
 libpcrecpp0 (optional, see cmake keys)
 miniupnpc (optional, see cmake keys)
 libidn2 (optional, see cmake keys)
-libattr (optional)
+libattr (optional, see cmake keys)
 ----------------
 :eiskaltdcpp-qt:
 ----------------
@@ -92,7 +92,7 @@ liblua5.1-dev (optional, see cmake keys)
 libpcre3-dev (optional, see cmake keys)
 miniupnpc (optional, see cmake keys)
 libidn2 (optional, see cmake keys)
-libattr-dev (optional)
+libattr-dev (optional, see cmake keys)
 ----------------
 :eiskaltdcpp-qt:
 ----------------
@@ -140,11 +140,15 @@ Keys for cmake
     Use pcre library for regexps in perl style (now it is used only in ADL Search)
 -DUSE_IDN2=ON/OFF (default: ON)
     Use libidn2 for rfc3490 (resolving Internationalized Domain Names)
+-DUSE_XATTR=ON/OFF (default: OFF)
+    Xattr library allows program to store file hash in file attributes in all
+    file systems with extended attributes support.
+    Currently this library is available only in GNU/Linux and *BSD systems.
 -DWITH_DHT=ON/OFF (default: ON)
     DHT support (http://strongdc.sourceforge.net/download/StrongDC_DHT.pdf)
 -DLINK=STATIC/SHARED (default: SHARED)
-    Build static or shared library.
-    This option is available only GNU/Linux and *BSD systems.
+    Build libeiskaltdcpp as static or as shared library.
+    This option is available only in GNU/Linux and *BSD systems.
     For MS Windows, macOS and Haiku it is forcibly set to STATIC.
 ----------------
 :eiskaltdcpp-qt:
