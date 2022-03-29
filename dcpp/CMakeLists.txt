@@ -130,9 +130,14 @@ if (APPLE)
 endif(APPLE)
 
 if (LINK STREQUAL SHARED)
-    install (TARGETS dcpp
-             LIBRARY DESTINATION ${LIBDIR} NAMELINK_SKIP
-             BUNDLE DESTINATION ${LIBDIR})
+    if (NOT WITH_DEV_FILES)
+        install (TARGETS dcpp
+                LIBRARY DESTINATION ${LIBDIR} NAMELINK_SKIP
+                BUNDLE DESTINATION ${LIBDIR})
+    else (NOT WITH_DEV_FILES)
+        install (TARGETS dcpp
+                LIBRARY DESTINATION ${LIBDIR})
+    endif (NOT WITH_DEV_FILES)
 endif (LINK STREQUAL SHARED)
 
 if (WITH_DEV_FILES)
@@ -146,7 +151,8 @@ if (WITH_DEV_FILES)
     set (libdir ${LIBDIR})
     set (includedir ${EISKALTDCPP_INCLUDE_DIR})
     configure_file (${CMAKE_SOURCE_DIR}/eiskaltdcpp.pc.in ${CMAKE_BINARY_DIR}/eiskaltdcpp.pc @ONLY)
-    install (FILES ${CMAKE_BINARY_DIR}/eiskaltdcpp.pc DESTINATION ${CMAKE_INSTALL_PREFIX}/lib/pkgconfig)
+    install (FILES ${CMAKE_BINARY_DIR}/eiskaltdcpp.pc
+             DESTINATION ${CMAKE_INSTALL_PREFIX}/${LIBDIR}/pkgconfig)
 
     if (LINK STREQUAL STATIC)
         install (TARGETS dcpp LIBRARY DESTINATION ${LIBDIR})
