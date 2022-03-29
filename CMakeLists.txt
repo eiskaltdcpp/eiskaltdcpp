@@ -242,7 +242,7 @@ string (REGEX REPLACE "^([0-9]+\\.[0-9]+\\.[0-9]+).*" "\\1" VERSION_BASE "${APP_
 message (STATUS "${PROJECT_NAME} full version: ${APP_VERSION}")
 message (STATUS "${PROJECT_NAME} base version: ${VERSION_BASE}")
 
-configure_file (${PROJECT_SOURCE_DIR}/Version.h.in ${PROJECT_BINARY_DIR}/VersionGlobal.h)
+configure_file (${CMAKE_SOURCE_DIR}/Version.h.in ${CMAKE_BINARY_DIR}/VersionGlobal.h)
 
 if (UNIX)
     add_definitions (-D_GNU_SOURCE)
@@ -428,8 +428,8 @@ message(STATUS "CMAKE will use these libraries (and headers) during build:
     idn2 (headers): ${IDN2_LIBRARIES} (${IDN2_INCLUDE_DIR})
     ")
 
-configure_file("${PROJECT_SOURCE_DIR}/cmake/cmake_uninstall.cmake.in"
-    "${PROJECT_BINARY_DIR}/cmake_uninstall.cmake"
+configure_file("${CMAKE_SOURCE_DIR}/cmake/cmake_uninstall.cmake.in"
+    "${CMAKE_BINARY_DIR}/cmake_uninstall.cmake"
     IMMEDIATE @ONLY)
 add_custom_target(uninstall
-    "${CMAKE_COMMAND}" -P "${PROJECT_BINARY_DIR}/cmake_uninstall.cmake")
+    "${CMAKE_COMMAND}" -P "${CMAKE_BINARY_DIR}/cmake_uninstall.cmake")

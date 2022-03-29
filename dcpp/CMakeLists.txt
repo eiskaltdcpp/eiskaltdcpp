@@ -141,6 +141,16 @@ if (WITH_DEV_FILES)
     endif (NOT EISKALTDCPP_INCLUDE_DIR)
     message (STATUS "Headers of libeiskaltdcpp will be installed to: ${EISKALTDCPP_INCLUDE_DIR}")
     install (FILES ${dcpp_hdrs} DESTINATION ${EISKALTDCPP_INCLUDE_DIR}/dcpp/)
+
+    set (prefix ${CMAKE_INSTALL_PREFIX})
+    set (libdir ${LIBDIR})
+    set (includedir ${EISKALTDCPP_INCLUDE_DIR})
+    configure_file (${CMAKE_SOURCE_DIR}/eiskaltdcpp.pc.in ${CMAKE_BINARY_DIR}/eiskaltdcpp.pc @ONLY)
+    install (FILES ${CMAKE_BINARY_DIR}/eiskaltdcpp.pc DESTINATION ${CMAKE_INSTALL_PREFIX}/lib/pkgconfig)
+
+    if (LINK STREQUAL STATIC)
+        install (TARGETS dcpp LIBRARY DESTINATION ${LIBDIR})
+    endif (LINK STREQUAL STATIC)
 endif (WITH_DEV_FILES)
 
 foreach(LANG ${LANGUAGES})

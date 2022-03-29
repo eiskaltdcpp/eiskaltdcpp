@@ -1,0 +1,11 @@
+prefix=@CMAKE_INSTALL_PREFIX@
+exec_prefix=${prefix}
+libdir=${prefix}/@LIBDIR@
+includedir=@EISKALTDCPP_INCLUDE_DIR@
+
+Name: eiskaltdcpp
+Description: library for file sharing programs using Direct Connect protocols
+URL: https://github.com/eiskaltdcpp/eiskaltdcpp
+Version: @VERSION_BASE@
+Cflags: -I${includedir}
+Libs: -L${libdir} -leiskaltdcpp
