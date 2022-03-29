@@ -4,7 +4,7 @@
 *** libeiskaltdcpp ***
 * Fixed UTF-8 validator for messages on ADC(S) hubs. Now messages with special
   symbols like emoji will not be missed in messages history.
-* Fixed UTF-8 conversion in CTM NAT traversal reverse reply on NNDC hubs.
+* Fixed UTF-8 conversion in CTM NAT traversal reverse reply on NMDC hubs.
 * Replaced build dependency from libidn to libidn2. cmake option USE_IDNA is
   renamed to USE_IDN2 accordingly.
 

@@ -25,12 +25,12 @@ include_directories (${PROJECT_BINARY_DIR}
 
 if (WIN32)
     set (LINK STATIC)
-    set (WIN32_LIBS "ws2_32")
+    set (WIN32_LIBS "unistring" "ws2_32")
 else (WIN32)
     if (HAIKU)
         set (LINK STATIC)
         set (PTHREADS "root")
-        set (HAIKU_LIB "network" "textencoding")
+        set (HAIKU_LIBS "network" "textencoding")
     else (HAIKU)
         set (PTHREADS "pthread")
         if (APPLE)
@@ -105,6 +105,7 @@ endif ()
 target_link_libraries (dcpp
                        ${DHT_LIB}
                        ${PTHREADS}
+                       ${IDN2_LIBRARIES}
                        ${BZIP2_LIBRARIES}
                        ${ZLIB_LIBRARIES}
                        ${OPENSSL_LIBRARIES}
@@ -112,12 +113,11 @@ target_link_libraries (dcpp
                        ${ICONV_LIBRARIES}
                        ${WIN32_LIBS}
                        ${APPLE_LIBS}
+                       ${HAIKU_LIBS}
                        ${LUA_LIBRARIES}
                        ${UPNP}
                        ${PCRE}
-                       ${IDN2_LIBRARIES}
-                       ${XATTR_LIBRARIES}
-                       ${HAIKU_LIB})
+                       ${XATTR_LIBRARIES})
 set_target_properties(dcpp PROPERTIES
                       VERSION ${SO_VERSION}
                       SOVERSION ${SO_VERSION}
