@@ -240,13 +240,11 @@ Keys for cmake
     common prefix.
     In case of using of `make install DESTDIR=<path>` all will bre installed to:
     <path>/<common prefix>
--DLIBDIR=<lib prefix> (default: lib)
+-DCMAKE_INSTALL_LIBDIR=<lib prefix> (default: lib)
     Installation path for libraries (subdirectory).
     Libraries will be installed to: <common prefix>/<lib prefix>
     Examples:
-    -DLIBDIR=lib64 - install lib to <common prefix>/lib64
--DLIB_INSTALL_DIR=<lib prefix> (default: lib)
-    see -DLIBDIR
+    -DCMAKE_INSTALL_LIBDIR=lib64 - install lib to <common prefix>/lib64
 -DINSTALL_RUNTIME_PATH=ON/OFF (default: OFF)
     Set RPATH in library. About possible troubles see:
     https://fedoraproject.org/wiki/RPath_Packaging_Draft

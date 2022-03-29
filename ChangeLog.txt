@@ -8,6 +8,8 @@
 * Replaced build dependency from libidn to libidn2. cmake option USE_IDNA is
   renamed to USE_IDN2 accordingly.
 * Install pkgconfig file when configured with WITH_DEV_FILES=ON.
+* Use standard variable CMAKE_INSTALL_LIBDIR for setting up library
+  installation prefix.
 
 --- 2.4.2 2021-03-03 ---
 *** common changes ***
