@@ -130,16 +130,13 @@ if (APPLE)
 endif(APPLE)
 
 if (LINK STREQUAL SHARED)
-    if (NOT WITH_DEV_FILES)
-        install (TARGETS dcpp
-                LIBRARY DESTINATION ${LIBDIR} NAMELINK_SKIP
-                BUNDLE DESTINATION ${LIBDIR})
-    else (NOT WITH_DEV_FILES)
-        install (TARGETS dcpp
-                LIBRARY DESTINATION ${LIBDIR})
-    endif (NOT WITH_DEV_FILES)
+    if (WITH_DEV_FILES)
+        install (TARGETS dcpp LIBRARY DESTINATION ${LIBDIR})
+    else (WITH_DEV_FILES)
+        install (TARGETS dcpp LIBRARY DESTINATION ${LIBDIR} NAMELINK_SKIP)
+    endif (WITH_DEV_FILES)
     message (STATUS "Build libeiskaltdcpp as shared library")
-elseif (LINK STREQUAL STATIC)
+elseif (LINK STREQUAL STATIC AND WITH_DEV_FILES)
     install (TARGETS dcpp LIBRARY DESTINATION ${LIBDIR})
     message (STATUS "Build libeiskaltdcpp as static library")
 endif (LINK STREQUAL SHARED)
