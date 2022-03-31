@@ -4,6 +4,8 @@ cmake_minimum_required (VERSION 3.2.0)
 
 set (GTK2_DIR "${PROJECT_SOURCE_DIR}/cmake/")
 
+find_package (X11 QUIET)
+
 if (USE_GTK)
     find_package (GTK2 REQUIRED gtk)
 elseif (USE_GTK3)
@@ -12,6 +14,8 @@ endif (USE_GTK)
 
 if (USE_LIBGNOME2)
     message (STATUS "Building with LibGnome2 support")
+    include (FindPkgConfig)
+    find_package (PkgConfig REQUIRED)
     find_package (LibGnome2 REQUIRED)
     set_property(SOURCE ${PROJECT_SOURCE_DIR}/src/sound.cc ${PROJECT_SOURCE_DIR}/src/settingsdialog.cc PROPERTY COMPILE_DEFINITIONS USE_MINIUPNP APPEND)
     message (STATUS "Building without LibCanberra support")

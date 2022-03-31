@@ -81,7 +81,6 @@ Build Depends
 --------
 gcc (>= 6.3.0) or clang (>= 3.8)
 cmake (>= 3.2.0)
-pkg-config
 bzip2
 zlib
 ----------------
