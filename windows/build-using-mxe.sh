@@ -3,14 +3,14 @@
 # Authors: Boris Pek
 # License: Public Domain
 # Created: 2018-09-16
-# Created: 2020-10-28
+# Created: 2022-04-04
 # Version: N/A
 #
 # Description: script for cross-compilation of program for MS Windows using MXE
 # project. Currently it is used for testing builds on Travis CI.
 #
 # Notes:
-# make aspell jsoncpp libidn2 lua miniupnpc qtbase qtmultimedia qttools
+# make aspell libidn2 lua miniupnpc qtbase qttools qttranslations qtmultimedia
 
 set -e
 

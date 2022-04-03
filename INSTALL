@@ -136,7 +136,7 @@ Keys for cmake
     Choose a specific version of the lua library. When not set (the default) CMake
     will try to find the right version itself.
 -DPERL_REGEX=ON/OFF (default: ON)
-    Use pcre library for regexps in perl style (now it is used only in ADL Search)
+    Use pcrecpp library for regexps in perl style (now it is used only in ADL Search)
 -DUSE_IDN2=ON/OFF (default: ON)
     Use libidn2 for rfc3490 (resolving Internationalized Domain Names)
 -DUSE_XATTR=ON/OFF (default: OFF)

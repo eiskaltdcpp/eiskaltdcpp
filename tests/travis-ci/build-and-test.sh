@@ -13,11 +13,11 @@ then
     cd builddir && sudo make install -j 1
 
     ls -alp /usr/bin/eiskaltdcpp-*
-    ls -alp /usr/lib*/libeiskaltdcpp.so*
+    ls -alp /usr/lib/*/libeiskaltdcpp.so*
     ls -alp /usr/share/eiskaltdcpp/*
 
     du -shc /usr/bin/eiskaltdcpp-*
-    du -shc /usr/lib*/libeiskaltdcpp.so*
+    du -shc /usr/lib/*/libeiskaltdcpp.so*
     du -shc /usr/share/eiskaltdcpp/*
 fi
 

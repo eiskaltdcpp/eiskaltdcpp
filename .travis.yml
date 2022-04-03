@@ -7,44 +7,43 @@ if: tag IS blank
 
 jobs:
   include:
-    - env: TARGET=linux64 USE_QT=qt5 DIST=bionic
-      os: linux
+    - os: linux
       dist: bionic
       compiler: clang
-    - env: TARGET=linux64 USE_QT=qt5 DIST=bionic
-      os: linux
+      env: TARGET=linux64 USE_QT=qt5 DIST=bionic
+      
+    - os: linux
       dist: bionic
       compiler: gcc
-    - env: TARGET=linux64 USE_QT=qt5 DIST=focal
-      os: linux
+      env: TARGET=linux64 USE_QT=qt5 DIST=bionic
+      
+    - os: linux
+      dist: bionic
+      env: TARGET=linux64 USE_QT=qt4
+      
+    - os: linux
+      dist: bionic
+      env: TARGET=linux64 USE_GTK=gtk3
+      
+    - os: linux
+      dist: bionic
+      env: TARGET=linux64 USE_GTK=gtk2
+      
+    - os: linux
+      dist: bionic
+      env: TARGET=linux64 USE_DAEMON=jsonrpc
+      
+    - os: osx
+      osx_image: xcode12.3
+      env: TARGET=macos64 macOS=11.1
+      
+    - os: linux
       dist: focal
-    - env: TARGET=linux64 USE_QT=qt4
-      os: linux
-      dist: bionic
-    - env: TARGET=linux64 USE_GTK=gtk3
-      os: linux
-      dist: bionic
-    - env: TARGET=linux64 USE_GTK=gtk2
-      os: linux
-      dist: bionic
-    - env: TARGET=linux64 USE_DAEMON=jsonrpc
-      os: linux
-      dist: bionic
-    - env: TARGET=macos64
-      os: osx
-      osx_image: xcode9.4
-    - env: TARGET=macos64
-      os: osx
-      osx_image: xcode11.3
-    - env: TARGET=macos64
-      os: osx
-      osx_image: xcode12.2
-    - env: TARGET=windows32
-      os: linux
+      env: TARGET=windows32
+      
+    - os: linux
       dist: focal
-    - env: TARGET=windows64
-      os: linux
-      dist: focal
+      env: TARGET=windows64
 
 install:
   - ./tests/travis-ci/install-build-depends.sh

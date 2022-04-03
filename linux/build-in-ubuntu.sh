@@ -91,6 +91,7 @@ then
         -DJSONRPC_DAEMON=ON \
         -DUSE_CLI_JSONRPC=ON \
         -DUSE_CLI_XMLRPC=OFF \
+        -DLOCAL_JSONCPP=ON \
         "
 fi
 

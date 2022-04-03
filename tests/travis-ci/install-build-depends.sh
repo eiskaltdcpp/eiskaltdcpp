@@ -77,14 +77,16 @@ then
                              ${PKG_PREFIX}-libidn2 \
                              ${PKG_PREFIX}-lua \
                              ${PKG_PREFIX}-miniupnpc \
-                             ${PKG_PREFIX}-qtmultimedia \
-                             ${PKG_PREFIX}-qttools
+                             ${PKG_PREFIX}-qtbase \
+                             ${PKG_PREFIX}-qttools \
+                             ${PKG_PREFIX}-qttranslations \
+                             ${PKG_PREFIX}-qtmultimedia
 fi
 
 if [ "${TARGET}" = "macos64" ]
 then
-    export HOMEBREW_NO_AUTO_UPDATE=1
-    # brew install coreutils cmake gettext openssl pcre qt@5
-    brew install ccache libidn2 jsoncpp miniupnpc aspell lua qt
+    # export HOMEBREW_NO_AUTO_UPDATE=1
+    export HOMEBREW_NO_BOTTLE_SOURCE_FALLBACK=1
+    # brew install cmake gettext jsoncpp qt qt@5
+    brew install ccache coreutils aspell libidn2 lua miniupnpc
 fi
-

@@ -13,7 +13,7 @@
 # Build dependencies and useful tools:
 # export HOMEBREW_NO_BOTTLE_SOURCE_FALLBACK=1
 # brew install ccache coreutils cmake
-# brew install aspell lua miniupnpc openssl@1.1 pcre libidn2 jsoncpp qt@5
+# brew install aspell libidn2 lua miniupnpc qt@5
 #
 # Additional tools:
 # brew install wget htop
@@ -41,7 +41,8 @@ BUILD_OPTIONS="-DCMAKE_BUILD_TYPE=Release \
                -DLUA_SCRIPT=ON \
                -DWITH_SOUNDS=ON \
                -DWITH_LUASCRIPTS=ON \
-               -DLOCAL_ASPELL_DATA=OFF"
+               -DLOCAL_ASPELL_DATA=OFF \
+               -DLOCAL_JSONCPP=ON"
 
 mkdir -p "${MAIN_DIR}/builddir"
 cd "${MAIN_DIR}/builddir"
