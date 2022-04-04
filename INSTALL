@@ -43,6 +43,7 @@ libcanberra-gtk3-0 (optional, see cmake keys)
 :eiskaltdcpp-daemon:
 --------------------
 libxmlrpc-c++4 (>= 1.19.0) (optional, see cmake keys)
+libjsoncpp (optional, see cmake keys)
 -----------------
 :eiskaltdcpp-cli:
 -----------------
@@ -67,10 +68,6 @@ php5-cli (or other version, check the compatibility by yourself)
     see eiskaltdcpp-qt/examples/ and eiskaltdcpp-qt/qtscripts/
 libqtscript4-core, libqtscript4-gui, libqtscript4-network, libqtscript4-xml
     see eiskaltdcpp-qt/qtscripts/
------------------
-:eiskaltdcpp-gtk:
------------------
-...
 
 
 *******************************************************************************
@@ -109,6 +106,7 @@ libcanberra-gtk3-dev (optional, see cmake keys)
 :eiskaltdcpp-daemon:
 --------------------
 libxmlrpc-c++4-dev (>=1.19.0) (optional, see cmake keys)
+libjsoncpp-dev (optional, see cmake keys)
 
 
 *******************************************************************************

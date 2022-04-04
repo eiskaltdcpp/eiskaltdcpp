@@ -51,7 +51,8 @@ then
 
     if [ "${USE_DAEMON}" = "jsonrpc" ]
     then
-        sudo apt-get install -qq libdata-dump-perl \
+        sudo apt-get install -qq libjsoncpp-dev \
+                                 libdata-dump-perl \
                                  libgetopt-long-descriptive-perl \
                                  libjson-rpc-perl \
                                  libterm-shellui-perl
@@ -87,6 +88,6 @@ if [ "${TARGET}" = "macos64" ]
 then
     # export HOMEBREW_NO_AUTO_UPDATE=1
     export HOMEBREW_NO_BOTTLE_SOURCE_FALLBACK=1
-    # brew install cmake gettext jsoncpp qt qt@5
-    brew install ccache coreutils aspell libidn2 lua miniupnpc
+    # brew install cmake gettext qt qt@5
+    brew install ccache coreutils aspell jsoncpp libidn2 lua miniupnpc
 fi
