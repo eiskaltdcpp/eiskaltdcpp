@@ -1,4 +1,4 @@
-# EiskaltDC++ &ndash; file sharing using DC and ADC protocols
+# EiskaltDC++ &ndash; file sharing program using Direct Connect protocols
 
 Website: [https://github.com/eiskaltdcpp/eiskaltdcpp](https://github.com/eiskaltdcpp/eiskaltdcpp) <br>
 Sources: [https://github.com/eiskaltdcpp/eiskaltdcpp](https://github.com/eiskaltdcpp/eiskaltdcpp)
