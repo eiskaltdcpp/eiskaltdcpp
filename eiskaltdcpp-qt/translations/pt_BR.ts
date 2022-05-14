@@ -1251,7 +1251,8 @@ Usuário favorito</translation>
         <location filename="../src/HubFrame.cpp" line="1862"/>
         <source>/aspell on/off - enable/disable spell checking
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/aspell on/off - ativa/desativa checagem gramatical
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1864"/>
@@ -1353,13 +1354,15 @@ Usuário favorito</translation>
         <location filename="../src/HubFrame.cpp" line="1878"/>
         <source>/help, /?, /h - show this help
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/help, /?, /h - mostra a ajuda
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1879"/>
         <source>/info &lt;nick&gt; - show info about user
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/info &lt;nick&gt; - mostra informações sobre o usuário
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1880"/>
@@ -1371,25 +1374,29 @@ Usuário favorito</translation>
         <location filename="../src/HubFrame.cpp" line="1881"/>
         <source>/rebuild - rebuild hash
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/rebuild - reconstrói of hash
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1882"/>
         <source>/refresh - update own file list
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/refresh - atualiza sua list the arquivos
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1883"/>
         <source>/me - say a third person
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/me - menciona como terceira pessoa
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1884"/>
         <source>/pm &lt;nick&gt; - begin private chat with user
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/pm &lt;nick&gt; - inicia chat privado
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1885"/>
@@ -1536,7 +1543,7 @@ Usuário favorito</translation>
     <message>
         <location filename="../src/HubFrame.cpp" line="4015"/>
         <source>Sorry, but nick &quot;%1&quot; is already taken by another user.</source>
-        <translation type="unfinished"></translation>
+        <translation>Desculpe, mas o nick &quot;%1&quot; já está sendo usado por outro usuário.</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="4021"/>
