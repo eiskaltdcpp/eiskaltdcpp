@@ -44,9 +44,8 @@
 #include <cwctype>
 #include <deque>
 #include <functional>
-#include <list>
 #include <limits>
-#include <libintl.h>
+#include <list>
 #include <map>
 #include <memory>
 #include <numeric>
@@ -56,6 +55,7 @@
 #include <unordered_set>
 #include <utility>
 #include <vector>
+#include <libintl.h>
 
 namespace dcpp {
 using namespace std;
