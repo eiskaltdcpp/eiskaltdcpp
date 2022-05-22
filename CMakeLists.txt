@@ -27,7 +27,7 @@ CHECK_INCLUDE_FILES ("malloc.h;dlfcn.h;inttypes.h;memory.h;stdlib.h;strings.h;sy
 CHECK_INCLUDE_FILES ("sys/socket.h;net/if.h;ifaddrs.h;sys/types.h" HAVE_IFADDRS_H)
 CHECK_INCLUDE_FILES ("sys/types.h;sys/statvfs.h;limits.h;stdbool.h;stdint.h" FS_USAGE_C)
 
-string (JOIN " " CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake")
+string (JOIN ";" CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake")
 
 find_package (BZip2 REQUIRED)
 find_package (ZLIB REQUIRED)
@@ -90,6 +90,12 @@ if (WIN32)
     option (OPENSSL_MSVC "Use MSVC build openssl (only for MS Windows)" OFF)
     option (INSTALL_DEPENDENCIES "Install all necessary libraries and plugins (only for MS Windows)" OFF)
 endif ()
+
+if (GETTEXT_FOUND)
+    option (UPDATE_PO "Update po files" OFF)
+    option (CREATE_MO "Create mo files" ON)
+    add_subdirectory (cmake)
+endif (GETTEXT_FOUND)
 
 if (PERL_REGEX)
     find_package (PCRE REQUIRED)
@@ -398,12 +404,6 @@ endif ()
 if (WIN32 AND INSTALL_DEPENDENCIES)
     include(${PROJECT_SOURCE_DIR}/windows/install-deps.cmake)
 endif ()
-
-if (GETTEXT_FOUND)
-    option (UPDATE_PO "Update po files" OFF)
-    option (CREATE_MO "Create mo files" ON)
-    add_subdirectory (cmake)
-endif (GETTEXT_FOUND)
 
 message(STATUS "CMAKE_SYSTEM: ${CMAKE_SYSTEM}")
 message(STATUS "CMAKE_SYSTEM_PROCESSOR: ${CMAKE_SYSTEM_PROCESSOR}")
