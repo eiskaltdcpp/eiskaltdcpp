@@ -190,7 +190,7 @@ But you may send donations to project contributors (developers, maintainers, tra
 * [Official packages in Haiku](https://depot.haiku-os.org/eiskaltdcpp)
 * [Official packages in FreeBSD](https://www.freshports.org/search.php?query=eiskaltdcpp)
 * [Packages for openSUSE](https://software.opensuse.org/package/eiskaltdcpp) (official and unofficial)
-* [Packages for Arch Linux](https://aur.archlinux.org/packages.php?K=eiskaltdcpp) (in AUR)
+* [Packages for Arch Linux](https://aur.archlinux.org/packages?K=eiskaltdcpp) (in AUR)
 * [Packages for different Linux distros](https://repology.org/metapackage/eiskaltdcpp/versions) (the best aggregator of links)
 * [Packages for different Linux distros](https://pkgs.org/download/eiskaltdcpp) (alternative aggregator of links)
 * [Unofficial PPA for Debian and Ubuntu](https://notesalexp.org/index-old.html) (maintained by Alex_P)
