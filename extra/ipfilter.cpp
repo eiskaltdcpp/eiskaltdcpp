@@ -362,7 +362,7 @@ void IPFilter::step(uint32_t ip, eTableAction act, bool down){
 #ifdef _DEBUG_IPFILTER
     fprintf(stdout,"\tat place this element:\n");
     fprintf(stdout,"\t\tMASK: 0x%x\n"
-           "\t\tIP  : %i\n"
+           "\t\tIP  : %u\n"
            "\t\tD   : %i\n"
            "\t\tA   : %i\n",
            rules.at(index+inc)->mask, rules.at(index+inc)->ip,
@@ -381,7 +381,7 @@ void IPFilter::step(uint32_t ip, eTableAction act, bool down){
 #ifdef _DEBUG_IPFILTER
     fprintf(stdout,"\tElement has been moved at new_index:\n");
     fprintf(stdout,"\t\tMASK: 0x%x\n"
-           "\t\tIP  : %i\n"
+           "\t\tIP  : %u\n"
            "\t\tD   : %i\n"
            "\t\tA   : %i\n",
            rules.at(new_index)->mask, rules.at(new_index)->ip,
@@ -389,7 +389,7 @@ void IPFilter::step(uint32_t ip, eTableAction act, bool down){
           );fflush(stdout);
     fprintf(stdout,"\tElement at index moved from new_index:\n");
     fprintf(stdout,"\t\tMASK: 0x%x\n"
-           "\t\tIP  : %i\n"
+           "\t\tIP  : %x\n"
            "\t\tD   : %i\n"
            "\t\tA   : %i\n",
            rules.at(index)->mask, rules.at(index)->ip,
