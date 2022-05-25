@@ -3,14 +3,17 @@ The most important changes:
 *** common ***
 * Change structure of sources tree.
 * Remove embedded libraries where it is possible.
+* Use new features from C++17.
 
 *** libeiskaltdcpp ***
 * Add IPv6 support.
 * Improve Lua support.
+* Use new API from OpenSSL 3.0.
 
 *** eiskaltdcpp-qt ***
-* Stop support of build with Qt 4.x.
-* Actively usage new features from Qt 5.x and C++14.
+* Stop support of Qt 4.x.
+* Use new features from Qt >= 5.12 and C++17.
+* Add support of Qt 6.x.
 * Rewrite spell checker from Aspell to Hunspell.
 * Full code refactoring using strong QA rules!
 * Add dialog widget for debugging Lua scripts.
@@ -20,10 +23,7 @@ The most important changes:
   * Search spy
 
 *** eiskaltdcpp-gtk ***
-* Confirugation dialog for IP filter.
-* Get rid of deprecated GTK+ 3.x elements?
-* Stop support of GTK+ 3.x? (Support only GTK+ 2.x.)
-* Stop support of GTK+ UI completelly?
+* Remove GTK+ UI completelly.
 
 *** eiskaltdcpp-daemon ***
 * See: eiskaltdcpp-cli/TODO
