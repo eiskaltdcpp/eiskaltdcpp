@@ -57,6 +57,26 @@ if (WITH_DHT)
     set (DHT_LIB "dht")
 endif (WITH_DHT)
 
+if (GETTEXT_FOUND)
+    # Using GNU gettext does not guarantee that GNU libintl will be used. This
+    # assumption breaks the build when using musl libc (which does implement
+    # libintl, but does so without using internal GNU symbols).
+    check_cxx_source_compiles("
+        extern \"C\" int _nl_msg_cat_cntr;
+        int main(void) {
+            ++_nl_msg_cat_cntr;
+            return 0;
+        }"
+        HAVE_NL_MSG_CAT_CNTR)
+    set_property(SOURCE ${PROJECT_SOURCE_DIR}/Util.h
+                 PROPERTY COMPILE_DEFINITIONS HAVE_NL_MSG_CAT_CNTR APPEND)
+    set_property(SOURCE ${PROJECT_SOURCE_DIR}/Util.cpp
+                 PROPERTY COMPILE_DEFINITIONS HAVE_NL_MSG_CAT_CNTR APPEND)
+    if (NOT HAVE_NL_MSG_CAT_CNTR)
+        message (STATUS "Build without GNU libintl library")
+    endif ()
+endif (GETTEXT_FOUND)
+
 if (PERL_REGEX)
     set_property(SOURCE ${PROJECT_SOURCE_DIR}/ADLSearch.cpp
                  PROPERTY COMPILE_DEFINITIONS USE_PCRE )

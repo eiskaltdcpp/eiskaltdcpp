@@ -1293,7 +1293,9 @@ void Util::setLang(const string &lang)
     }
     /* Make change known. */
     {
+#if defined(HAVE_NL_MSG_CAT_CNTR)
         ++_nl_msg_cat_cntr;
+#endif
     }
 }
 
