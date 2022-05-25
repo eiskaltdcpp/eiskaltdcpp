@@ -92,7 +92,7 @@ static QString getPath(FileBrowserItem *path){
     return p;
 }
 
-void ShareBrowserSearch::slotGotItem(QString item, FileBrowserItem *path){
+void ShareBrowserSearch::slotGotItem(const QString &item, FileBrowserItem *path){
     if (!path || item.isEmpty())
         return;
 

@@ -38,7 +38,7 @@ Q_SIGNALS:
 
 private Q_SLOTS:
     void slotStartSearch();
-    void slotGotItem(QString,FileBrowserItem*);
+    void slotGotItem(const QString &, FileBrowserItem*);
     void slotItemActivated(QTreeWidgetItem*,int);
 
 private:

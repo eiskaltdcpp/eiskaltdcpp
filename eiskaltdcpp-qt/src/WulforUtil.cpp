@@ -754,7 +754,7 @@ QStringList WulforUtil::encodings(){
     return QtEnc2DCEnc.keys();
 }
 
-QTextCodec *WulforUtil::codecForEncoding(QString name){
+QTextCodec *WulforUtil::codecForEncoding(const QString &name){
     if (!QtEnc2DCEnc.contains(name))
         return QTextCodec::codecForLocale();
 

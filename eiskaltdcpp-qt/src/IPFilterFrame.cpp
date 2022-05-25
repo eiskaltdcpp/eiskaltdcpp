@@ -93,7 +93,7 @@ void IPFilterFrame::slotCheckBoxClick() {
     SM->set(SettingsManager::IPFILTER, b);
 }
 
-void IPFilterFrame::slotRuleAdded(QString exp, eDIRECTION direction) {
+void IPFilterFrame::slotRuleAdded(const QString &exp, eDIRECTION direction) {
     QString type = "OUT";
 
     switch (direction) {

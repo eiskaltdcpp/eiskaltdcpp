@@ -149,7 +149,7 @@ public:
 
     void textToHtml(QString&,bool=true);
 
-    QTextCodec *codecForEncoding(QString);
+    QTextCodec *codecForEncoding(const QString&);
     //Convert Qt encoding name to internal DC++ representation
     QString qtEnc2DcEnc(QString);
     QString dcEnc2QtEnc(QString);

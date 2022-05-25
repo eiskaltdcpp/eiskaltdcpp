@@ -1891,7 +1891,7 @@ void MainWindow::parseCmdLine(const QStringList &args){
     }
 }
 
-void MainWindow::parseInstanceLine(QString data){
+void MainWindow::parseInstanceLine(const QString &data){
     if (!isVisible()){
         show();
         raise();
@@ -1899,7 +1899,7 @@ void MainWindow::parseInstanceLine(QString data){
         redrawToolPanel();
     }
 
-    QStringList args = data.split("\n", QString::SkipEmptyParts);
+    const QStringList args = data.split("\n", QString::SkipEmptyParts);
     parseCmdLine(args);
 }
 

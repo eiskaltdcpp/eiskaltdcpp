@@ -156,7 +156,7 @@ friend class dcpp::Singleton<MainWindow>;
         /** */
         void parseCmdLine(const QStringList &);
         /** */
-        void parseInstanceLine(QString);
+        void parseInstanceLine(const QString &);
 
     protected:
         virtual void closeEvent(QCloseEvent*);
