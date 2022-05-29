@@ -704,7 +704,7 @@ void Transfers::initTransfer_gui(StringMap params)
                                        -1);
                 }
 
-                oldParentValid = false; // Don't update the parentRow twice, since old and new are the same (and definately don't remove twice)
+                oldParentValid = false; // Don't update the parentRow twice, since old and new are the same (and definitely don't remove twice)
             }
         }
         else

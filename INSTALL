@@ -159,7 +159,7 @@ Keys for cmake
 -DUSE_PROGRESS_BARS=ON/OFF (default: ON)
     Use progress bars or widgets with plain text for indication of progress.
     This option is especially important for macOS where progress bars do not
-    allow to show text on them so a lot of information is hidden from user.
+    allow one to show text on them so a lot of information is hidden from user.
 -DLOCAL_ASPELL_DATA=ON/OFF (default: OFF)
     Use local aspell data files
     Script downloads archive with aspell data files:
@@ -263,7 +263,7 @@ Keys for cmake
     Make Haiku package
 -DCMAKE_BUILD_TYPE={Release, RelWithDebInfo, Debug, MinRelSize}
     build type (please use RelWithDebInfo for debug mode, not Debug)
-And other standart cmake keys...
+And other standard cmake keys...
 
 ---------
 # Example of the full build:

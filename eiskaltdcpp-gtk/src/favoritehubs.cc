@@ -364,7 +364,7 @@ bool FavoriteHubs::showFavoriteHubDialog_gui(StringMap &params, FavoriteHubs *fh
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(fh->getWidget("checkInternetIP")), internetIP);
 
     // Set the override default encoding checkbox. Check for "Global hub default"
-    // for backwards compatability w/ 1.0.3. Should be removed at some point.
+    // for backwards compatibility w/ 1.0.3. Should be removed at some point.
     gboolean overrideEncoding = !(params["Encoding"].empty() || params["Encoding"] == _("Global hub default"));
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(fh->getWidget("checkbuttonEncoding")), overrideEncoding);
 

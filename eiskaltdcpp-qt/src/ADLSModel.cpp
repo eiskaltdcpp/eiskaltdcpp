@@ -261,10 +261,10 @@ void ADLSModel::sort(int column, Qt::SortOrder order) {
 }
 
 void ADLSModel::clearModel(){
-    QList<ADLSItem*> childs = rootItem->childItems;   //Copying list in another place
+    QList<ADLSItem*> children = rootItem->childItems;   //Copying list in another place
     rootItem->childItems.clear();                             //Cleaning root of the model. Do not delete items directly from the root item
 
-    qDeleteAll(childs);
+    qDeleteAll(children);
 
     rootItem->childItems.clear();
 

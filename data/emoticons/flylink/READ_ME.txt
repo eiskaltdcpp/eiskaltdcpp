@@ -1,7 +1,7 @@
 Introduction:
 
 	This package contains modified versions of SmilesMegaPack emoticon pack
-	SmilesMegaPack is included in standart instalation of FlylinkDC++
+	SmilesMegaPack is included in standard installation of FlylinkDC++
 
 	FlylinkDC++ is a free Open Source program licensed under GPL 2
 

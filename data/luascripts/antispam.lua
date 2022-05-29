@@ -168,7 +168,7 @@ function( hub, message, ret )
 	if params[1] == "/antispam" then
 		hub:addLine(" ")
 		hub:addLine("       ------------------------------------------------------------------------------------------------------------------------------------------------------", true)
-		hub:addLine("       Contorl Commands                                        Anti-spam filter v1.2", true)
+		hub:addLine("       Control Commands                                        Anti-spam filter v1.2", true)
 		hub:addLine("       ------------------------------------------------------------------------------------------------------------------------------------------------------", true)
 		hub:addLine("       /antispam or				Displays this help", true)
 		hub:addLine("       /as wlist				Lists the words currently added to the Filter.txt", true)
@@ -286,7 +286,7 @@ function( hub, message, ret )
 			if spamfilter == 1 then
 				hub:addLine("       Antispam filtering OFFLINE", true)
 				spamfilter = 0
-				PrintDebug( "  Anti-spam filter temporaly offline")
+				PrintDebug( "  Anti-spam filter temporary offline")
 				return 1
 			else
 				hub:addLine("       Antispam filtering already OFFLINE", true)
@@ -298,9 +298,9 @@ function( hub, message, ret )
 				hub:addLine("       Spam text to main chat function already ONLINE", true)
 				return 1
 			else
-				hub:addLine("       Spam text to main chat function temporaly ONLINE", true)
+				hub:addLine("       Spam text to main chat function temporary ONLINE", true)
 				copytext = 1
-				PrintDebug( "  Spam text to main chat function temporaly online")
+				PrintDebug( "  Spam text to main chat function temporary online")
 				return 1
 			end
 		end
@@ -330,7 +330,7 @@ function( hub, message, ret )
 							start = 1
 							if string.find(line, "END") then
 								start = 0
-								PrintDebug("Spam " .. spamnumber .. " readed")
+								PrintDebug("Spam " .. spamnumber .. " read")
 								return 1
 							end
 						end
@@ -409,7 +409,7 @@ function antispam.spamsfilewrite()
 	end
 end
 
-function antispam.lenght()
+function antispam.length()
 	newline = 0
 	len = string.len(text1)
 	if not len == nil then
@@ -508,10 +508,10 @@ if not pmTable[nick] then
 		end
 		f:close()
 		if string.find(text1,'\n') then
-			antispam.lenght()
+			antispam.length()
 		end
 	else
-		PrintDebug( "  ** Filter.txt is not present in /acripts folder or not acessible!!! **" )
+		PrintDebug( "  ** Filter.txt is not present in /acripts folder or not accessible!!! **" )
 	end
 else
 	totalpmcount = totalpmcount + 1

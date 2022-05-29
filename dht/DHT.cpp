@@ -576,7 +576,7 @@ namespace dht
 
                         //If the last check matches this one, reset our current IP.
                         //If the last check does not match, wait for our next incoming IP.
-                        //This happens for one reason.. a client responsed with a bad IP.
+                        //This happens for one reason.. a client responded with a bad IP.
                         if(ip == lastIP)
                             externalIP = ip;
                         else

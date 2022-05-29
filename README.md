@@ -21,7 +21,7 @@ Currently supported features (not full list):
 * Programs with graphical user interface (UI) on Qt (main) and GTK+ (alternative), plus daemon which may be controlled from command line or from Web UI (connected via JSON-RPC).
 * Multi-threaded download (download fragments of a single file from several sources at once).
 * Support of PFSR (partial file sharing): users may download parts of file from each other during file download even when no one of them do not have fully downloaded file.
-* Support of DHT (allows to search file by TTH and exchange these files without connection to any hub). Implementation of this feature is based on StrongDC++ code and compatible with all versions of StrongDC++, ApexDC++, RSX++, FlylinkDC++ and Pulse++K where this feature exists. (Some DC clients have dropped the support of this function in lastest versions.)
+* Support of DHT (allows one to search file by TTH and exchange these files without connection to any hub). Implementation of this feature is based on StrongDC++ code and compatible with all versions of StrongDC++, ApexDC++, RSX++, FlylinkDC++ and Pulse++K where this feature exists. (Some DC clients have dropped the support of this function in latest versions.)
 * Support of UPnP (simplifies network connection configuration when user Wi-Fi router supports this feature).
 * Support of binding to specific network interface or address (in case when user system has few network connections simultaneously).
 * Support of auto updating of external IPv4 address via DynDNS services.
@@ -37,7 +37,7 @@ Currently supported features (not full list):
 * Flexible settings for downloading files (lists of destination directories, directory for incomplete downloads, limitation of number of simultaneous downloads, compressed transfers, check of check sums, etc.).
 * Indicator of free space on disk where main downloads directory is located.
 * Support of IP filter and basic antispam.
-* Search spy (allows to see search phrases which send other users, but without identifying users of course).
+* Search spy (allows one to see search phrases which send other users, but without identifying users of course).
 * ADL search with support for Perl-style regular expressions (using PCRE library).
 * Flexible filter (with regular expressions support) in users list, search results, public hubs lists, file lists, etc.. (Use ##&lt;regexp&gt; string and read about Qt QRegExp syntax.)
 * Full-featured chat (different fonts, nick coloring, parsing of magnet links and other links, emoticons, chat search, chat commands, BBCode support, disable/enable/clear chat, spell check (Aspell is used), keywords highlighting in the chat, separator for unread messages, saving of chat logs, the ability to display IP addresses and countries of users in the chat (depends on hub settings: some of them hide this data for usual users).
@@ -164,7 +164,7 @@ Patches are welcome! Contact to EiskaltDC++ developers if you are working on the
 
 Currently we have active package maintainers for Debian and Ubuntu distros, for macOS and MS Windows. If you have suggestions about improving of packaging, just contact with them.
 
-If you want to prepare personal builds of EiskaltDC++ for MS Windows and macOS systems, it is very welcome! We may add links to them into our documentation. Becoming an official maintaner for these systems is more complicated, but also possible.
+If you want to prepare personal builds of EiskaltDC++ for MS Windows and macOS systems, it is very welcome! We may add links to them into our documentation. Becoming an official maintainer for these systems is more complicated, but also possible.
 
 For other GNU/Linux and *BSD systems the situation is quite clear: just update packages (pkgbuilds, ebuild, etc.) in official repositories of your favorite distributions or make a Personal Package Archive (PPA) with them. We will add links to them into our documentation.
 

@@ -17,7 +17,7 @@ if not ignoretable then
 	ignoretable.settingsfile = DC():GetConfigScriptsPath() .. "ignoretable.txt"
 	-- in UTF8
 	ignoretable.users = {}
-	ignoretable.permament = 1
+	ignoretable.permanent = 1
 	ignoretable.private = 1
 end
 
@@ -50,8 +50,8 @@ function ignorefunctions.LoadSettings()
 		dofile( ignoretable.settingsfile )
 		o:close()
 	end
-	-- "ignoretable.permament" decides whether to store the ignored messages after restarting the program
-	if (ignoretable.permament == 0) then
+	-- "ignoretable.permanent" decides whether to store the ignored messages after restarting the program
+	if (ignoretable.permanent == 0) then
 		ignorefunctions.ClearUsers()
 	end
 end
@@ -150,7 +150,7 @@ dcpp:setListener("ownChatOut", "entered_ignore", function(hub, message, ret)
 	end
 	local params = ignorefunctions.tokenize( message )
 	if params[1] == "/help" then
-		hub:injectChat( "*** (ignore.lua) /ignore <nick>, /unignore <nick>, /listignore, /ignorepm <on/off> (curr: ".. ignorefunctions.OnOff(ignoretable.private).."), /permament <on/off> (curr: ".. ignorefunctions.OnOff(ignoretable.permament) .."), /ignorebots <on/off> (curr: " .. ignorefunctions.OnOff(ignoretable.ignorebots) .. "), /purgelist" )
+		hub:injectChat( "*** (ignore.lua) /ignore <nick>, /unignore <nick>, /listignore, /ignorepm <on/off> (curr: ".. ignorefunctions.OnOff(ignoretable.private).."), /permanent <on/off> (curr: ".. ignorefunctions.OnOff(ignoretable.permanent) .."), /ignorebots <on/off> (curr: " .. ignorefunctions.OnOff(ignoretable.ignorebots) .. "), /purgelist" )
 		return nil
 	elseif params[1] == "/ignore" then
 		if params[2] then
@@ -203,17 +203,17 @@ dcpp:setListener("ownChatOut", "entered_ignore", function(hub, message, ret)
 			hub:injectChat("*** Usage: /ignorebots <on/off>. Currently Chat room/bot ignoring is turned "..ignorefunctions.OnOff(ignoretable.ignorebots)..".")
 		end
 		return 1
-	elseif params[1] == "/permament" then
+	elseif params[1] == "/permanent" then
 		if params[2] == "on" then
-			ignoretable.permament = 1
+			ignoretable.permanent = 1
 			hub:injectChat("*** Ignored users' list will be keeped after program restart")
 			ignorefunctions.SaveSettings()
 		elseif params[2] == "off" then
-			ignoretable.permament = 0
+			ignoretable.permanent = 0
 			hub:injectChat("*** Ignored users' list will be cleared after program restart")
 			ignorefunctions.SaveSettings()
 		else
-			hub:injectChat("*** Usage: /permament <on/off>. Currently ignorelist saving is turned "..ignorefunctions.OnOff(ignoretable.permament)..".")
+			hub:injectChat("*** Usage: /permanent <on/off>. Currently ignorelist saving is turned "..ignorefunctions.OnOff(ignoretable.permanent)..".")
 		end
 		return 1
 	elseif params[1] == "/purgelist" then

@@ -1,9 +1,9 @@
 Introduction:
 
-	Originaly created for EiskaltDC++
+	Originally created for EiskaltDC++
 
 	This package contains modified versions of Nerdcore (Transparent) emoticon pack
-	Nerdcore is included in standart instalation of ApexDC++
+	Nerdcore is included in standard installation of ApexDC++
 
 	ApexDC++ is a free Open Source program licensed under GPL 2
 

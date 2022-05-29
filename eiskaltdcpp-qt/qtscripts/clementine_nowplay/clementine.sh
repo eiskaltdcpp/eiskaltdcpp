@@ -35,7 +35,7 @@ then
                     sec="${secv}"
             fi
 
-            #The lengt min part
+            #The length min part
             minv=$(($length/60))
             if [ ${minv} -lt 10 ]
             then

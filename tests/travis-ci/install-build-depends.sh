@@ -61,7 +61,7 @@ fi
 
 if [ "${TARGET}" = "windows32" ] || [ "${TARGET}" = "windows64" ]
 then
-    # Add debian packages built from MXE packages
+    # Add Debian packages built from MXE packages
     sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys C6BF758A33A3A276
     sudo add-apt-repository 'deb [arch=amd64] https://mirror.mxe.cc/repos/apt focal main'
 

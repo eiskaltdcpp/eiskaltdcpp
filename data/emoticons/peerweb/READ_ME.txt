@@ -3,7 +3,7 @@ Introduction:
 	Originaly created for EiskaltDC++
 
 	This package contains modified versions of PeerWeb emoticon pack
-	PeerWeb is included in standart instalation of ApexDC++
+	PeerWeb is included in standard installation of ApexDC++
 
 	ApexDC++ is a free Open Source program licensed under GPL 2
 

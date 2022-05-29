@@ -141,11 +141,11 @@ void IPFilterModel::addResult(const QString &ip_mask, const QString &direction){
 }
 
 void IPFilterModel::clearModel(){
-    QList<IPFilterModelItem*> childs = rootItem->childItems;
+    QList<IPFilterModelItem*> children = rootItem->childItems;
 
     rootItem->childItems.clear();
 
-    qDeleteAll(childs);
+    qDeleteAll(children);
 
     reset();
 

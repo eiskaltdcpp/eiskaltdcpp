@@ -23,7 +23,7 @@ The most important changes:
   * Search spy
 
 *** eiskaltdcpp-gtk ***
-* Remove GTK+ UI completelly.
+* Remove GTK+ UI completely.
 
 *** eiskaltdcpp-daemon ***
 * See: eiskaltdcpp-cli/TODO

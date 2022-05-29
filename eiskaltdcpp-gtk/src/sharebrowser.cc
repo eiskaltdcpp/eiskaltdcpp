@@ -1274,4 +1274,4 @@ void ShareBrowser::downloadChangedDir(DirectoryListing::Directory* d) {
         }
     }
 }
-/*Many code from orginal DC++*/
+/*Many code from original DC++*/

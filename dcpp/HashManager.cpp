@@ -79,7 +79,7 @@ static const uint64_t NTFS_TIME_OFFSET  = ((uint64_t)(369 * 365 + 89) * 24 * 360
 static uint64_t getTimeStamp(const string &fname){
     struct stat st;
 
-    /* WARNING: this is not completly portable conversion!
+    /* WARNING: this is not completely portable conversion!
        For more information about portable conversion of linux time to windows filetime see
        ntfs-3g_ntfsprogs/include/ntfs-3g/ntfstime.h from NTFS-3G sources. */
     if (::stat(fname.c_str(), &st) == 0)

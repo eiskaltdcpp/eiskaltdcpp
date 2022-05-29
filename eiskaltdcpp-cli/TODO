@@ -82,14 +82,14 @@ API Layers:
                 Comment:
                         For argument target directory separator should be "\\".
                         If downloadto is empty, it's set to SETTING(DOWNLOAD_DIRECTORY) on server.
-                        Now works for latin encoded targets only. l10n is wip for now
+                        Now works for Latin encoded targets only. l10n is wip for now
         (+) Постановка директории в очередь с указанием директории назначения (list.downloaddir)
                 Args: target(string), downloadto(string), filelist (string)
                 Return: 0 | 1 (integer)
                 Comment:
                         In args target should finished by "\\".
                         If downloadto is empty, it's set to SETTING(DOWNLOAD_DIRECTORY) on server.
-                        Now works for latin encoded targets only. l10n is wip for now
+                        Now works for Latin encoded targets only. l10n is wip for now
 
 УПРАВЛЕНИЕ ШАРОЙ
         (+) Добавление (share.add)
@@ -113,7 +113,7 @@ API Layers:
         (+) Приостановить хеширование (hash.pause)
                 Args: none
                 Return: 0 | 1 (int)
-        (wip) perfolderlimits api (?)
+        (wip) perfolderlimits API (?)
 -----------------------
 УПРАВЛЕНИЕ ХАБАМИ
         (+) Добавление (hub.add)

@@ -181,7 +181,7 @@ elseif (CMAKE_BUILD_TYPE STREQUAL "Debug" AND (USE_QT OR USE_QT5))
                    "\tPlease use RelWithDebInfo instead it.")
 elseif (CMAKE_BUILD_TYPE STREQUAL "Gentoo" AND (USE_QT OR USE_QT5))
     message (STATUS "${PROJECT_NAME} Qt with CMAKE_BUILD_TYPE=Gentoo may be unstable now.\n"
-                   "\tPlease try to use RelWithDebInfo instead it if some troubles happend.")
+                   "\tPlease try to use RelWithDebInfo instead it if some troubles happened.")
 endif (NOT CMAKE_BUILD_TYPE)
 
 if (NOT SHARE_DIR)

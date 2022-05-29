@@ -641,7 +641,7 @@ ShareManager::Directory::Ptr ShareManager::buildTree(const string& aName, const 
 #ifdef _WIN32
     for(FileFindIter i(aName + "*"); i != end; ++i) {
 #else
-    //the fileiter just searches directorys for now, not sure if more
+    //the fileiter just searches directories for now, not sure if more
     //will be needed later
     //for(FileFindIter i(aName + "*"); i != end; ++i) {
     for(FileFindIter i(aName); i != end; ++i) {

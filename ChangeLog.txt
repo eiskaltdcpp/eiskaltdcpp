@@ -44,7 +44,7 @@
   used now. Fonts for chat messages are still configurable.
 * Fixed IP filter work.
 * Changed reaction to Ctrl+F shortcut in chats: now it works as in web browsers.
-* Stopped usage of HTML formated text in tooltip for system tray icon in
+* Stopped usage of HTML formatted text in tooltip for system tray icon in
   GNU/Linux and FreeBSD systems: its displaying was broken in KDE Plasma 5.
   Plain text tooltip is used everywhere now.
 * Added new widget "Secretary" for searching magnet links and keywords in
@@ -91,7 +91,7 @@
   https://forum.dcbase.org/viewtopic.php?f=55&p=4021
 *** eiskaltdcpp-qt ***
 * Significant improvement of Qt 5.x support. Qt 4.x is still support too.
-* Added configuration option USE_PROGRESS_BARS which allow to use usual text
+* Added configuration option USE_PROGRESS_BARS which allow one to use usual text
   labels instead of progressbars. This option is especially important for macOS
   where progressbars are unable to show any text, so a lot of information was
   hidden from users in the past.
@@ -426,7 +426,7 @@
   bitrate audio, video and resolution. The information is displayed in a tooltip
   for a file.
 * Added ability to clear search history and download directories history on exit
-  or manualy.
+  or manually.
 * Added some options in settings dialog: ALLOW_SIM_UPLOADS (allow simultaneous
   uploads by user from different hubs), search-history-items-number,
   download-directory-history-items-number, memorize-tth-search-phrases
@@ -506,7 +506,7 @@
 --- 2.2.3 2011-06-25 ---
 *** common changes ***
 * Different search intervals for favorite hubs (default value: 60 s).
-* Fixed bug with connecting to ADC hubs on armel architechture.
+* Fixed bug with connecting to ADC hubs on armel architecture.
 * Thanks to Chris Leick the German translation is now available.
 * Common code for updating IP from DynDNS (moved from Qt GUI).
 * Summary statistics (downloaded/uploaded) moved into the core (current values
@@ -562,7 +562,7 @@
 *** eiskaltdcpp-qt ***
 * Added ability to build program on Haiku (see file INSTALL).
 * Fixed loading of emoticons from emoticon packs. It was support files only
-  in PNG format, but now it can load images in any standart format.
+  in PNG format, but now it can load images in any standard format.
 * Improvements in the dialog with black list of search results.
 * Fixed highlighting of status messages in a chat: the color is now applied to
   full message.
@@ -663,7 +663,7 @@
 *** eiskaltdcpp-daemon ***
 * Fixed sending a password when connecting to hubs with registration.
 * Rewrote the code that is responsible for using of threads. Now program
-  can be builded in MS Windows. Note: This binary can't be run as a service
+  can be built in MS Windows. Note: This binary can't be run as a service
   of Windows, because the process must be run on behalf of an existing user
   (for access to the settings).
 * XML-RPC access to the program is now in active development but not yet ready.
@@ -672,7 +672,7 @@
 *** common changes ***
 * Completed the transition to the 0.770 kernel. Version 0.770 is conditional,
   since it's used the patches from more recent revisions. However, full
-  synchronization with lastest DC++ kernel is not planned because of some
+  synchronization with latest DC++ kernel is not planned because of some
   of its shortcomings. For example: 1) a deeper connection to libboost;
   2) using of the code, which requires -std=c++0x and gcc >= 4.5.x;
   3) using settings of the graphical window in the kernel config.
@@ -917,7 +917,7 @@
 * Added widget with public hubs.
 * Filtering support in basic widgets (Ctrl+F hotkey).
 * Away mode support.
-* The File menu was splitted into several thematic menus.
+* The File menu was split into several thematic menus.
 * Added custom scripts examples.
 * Added status line with the last message on hub.
 * Added fast search panel.
@@ -928,7 +928,7 @@
 * Added option in preference dialog to limit hashing speed.
 * Added ability to pause hashing process.
 * Added ability to limit upload to users according their own share size.
-* Fixed problems during restoring program from system tray in Gnome
+* Fixed problems during restoring program from system tray in GNOME
   and in Mac OS X.
 * Added history of sent messages, their number can be configured.
 * Added search history, their number can be configured.
@@ -946,7 +946,7 @@
 * Separate download manager.
 * Download and upload lists.
 * Favourite users (autoslots and etc.); favourite hubs.
-* Text (using default Qt tray messages or using standart D-Bus system manager
+* Text (using default Qt tray messages or using standard D-Bus system manager
   notices) and sound notifications.
 * Support of themes, icons and emoticon-packs.
 * The ability to not share files by mask.

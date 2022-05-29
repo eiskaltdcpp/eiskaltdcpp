@@ -467,7 +467,7 @@ void TreeView::toggleColumnVisibility(GtkMenuItem *item, gpointer data)
 
 void TreeView::restoreSettings()
 {
-    if(name == "hub") return; // Do not load hub-based prop to main setttings
+    if(name == "hub") return; // Do not load hub-based prop to main settings
 
     vector<int> columnOrder, columnWidth, columnVisibility;
     columnOrder = WulforUtil::splitString(WGETS(name + "-order"), ",");
@@ -499,7 +499,7 @@ void TreeView::restoreSettings()
 
 void TreeView::saveSettings()
 {
-    if(name == "hub") return; //Do not save hub-based prop to main setttings
+    if(name == "hub") return; //Do not save hub-based prop to main settings
 
     string columnOrder, columnWidth, columnVisibility, title;
     GtkTreeViewColumn *col;

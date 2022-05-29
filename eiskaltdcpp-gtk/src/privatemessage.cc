@@ -46,7 +46,7 @@ PrivateMessage::PrivateMessage(const string &_cid, const string &_hubUrl):
     gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("status")),false);
 #endif
 
-    // Intialize the chat window
+    // Initialize the chat window
     if (WGETB("use-oem-monofont"))
     {
         PangoFontDescription *fontDesc = pango_font_description_new();

@@ -32,7 +32,7 @@
 #
 # This macro accepts parameters as arg/value pairs or as a single arg if
 # the arg is described as boolean (same as setting the arg to 1). The
-# args can be specificied in any order and most of them are optionals.
+# args can be specified in any order and most of them are optionals.
 #
 # Required arguments:
 # DOMAIN_NAME (string): the translation domain name, i.e. the name of the

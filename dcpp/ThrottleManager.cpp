@@ -91,7 +91,7 @@ int ThrottleManager::write(Socket* sock, void* buffer, size_t& len)
             len = min(slice, min(len, static_cast<size_t>(upTokens)));
             upTokens -= len;
 
-            gotToken = true; // token successfuly assigned
+            gotToken = true; // token successfully assigned
         }
     }
 

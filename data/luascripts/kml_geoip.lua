@@ -169,7 +169,7 @@ end
 -- Initialization
 
 -- Download http://geolite.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz
--- and gunzip it into the DC++ configuration diretory.
+-- and gunzip it into the DC++ configuration directory.
 kml_geoip._locations, kml_geoip._db_segments = kml_geoip.read_locations('GeoLiteCity.dat')
 
 -- Listeners

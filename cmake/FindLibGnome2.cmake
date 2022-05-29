@@ -3,7 +3,7 @@
 #
 #  LIBGNOME2_FOUND               True if libgnome2 got found
 #  LIBGNOME2_INCLUDEDIR          Location of libgnome2 headers 
-#  LIBGNOME2_LIBRARIES           List of libaries to use libgnome2
+#  LIBGNOME2_LIBRARIES           List of libraries to use libgnome2
 #  LIBGNOME2_DEFINITIONS         Definitions to compile libgnome2 
 #
 # Copyright (c) 2007 Juha Tuomala <tuju@iki.fi>
