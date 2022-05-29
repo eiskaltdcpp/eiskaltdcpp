@@ -1,6 +1,7 @@
 --- 2.4.3 2022-xx-xx ---
 *** common changes ***
 * Stopped support of cmake versions less than 3.7.2.
+* Added configuration option INSTALL_METAINFO. (Useful in GNU/Linux systems.)
 *** libeiskaltdcpp ***
 * Added configuration option USE_XATTR (default is OFF). Xattr library allows
   program to store file hash in file attributes in all file systems with

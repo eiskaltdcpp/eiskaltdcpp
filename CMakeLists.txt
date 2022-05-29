@@ -77,6 +77,7 @@ option (USE_CCACHE "Use ccache tool if found" ON)
 option (LOCAL_JSONCPP "Use local JsonCpp" ON)
 option (BUILD_STATIC "Static build (only for MS Windows and GNU/Linux)" OFF)
 option (INSTALL_QT_TRANSLATIONS "Install Qt internal translations" OFF)
+option (INSTALL_METAINFO "Install programs metainfo" OFF)
 
 if (UNIX)
     option (COMPRESS_MANPAGES "Compress the installed man pages" ON)

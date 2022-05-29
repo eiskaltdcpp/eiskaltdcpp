@@ -103,3 +103,7 @@ if (WIN32 OR APPLE)
     install (FILES manual.${PROJECT_NAME}.html DESTINATION "${CLIENT_DOCS_DIR}")
 endif ()
 
+if (INSTALL_METAINFO)
+    install (FILES ${PROJECT_NAME}.appdata.xml DESTINATION ${SHARE_DIR}/metainfo)
+endif ()
+

@@ -542,6 +542,10 @@ if (UNIX AND NOT APPLE AND NOT HAIKU)
     install (FILES ${PROJECT_NAME}.desktop DESTINATION ${SHARE_DIR}/applications)
 endif ()
 
+if (INSTALL_METAINFO)
+    install (FILES ${PROJECT_NAME}.appdata.xml DESTINATION ${SHARE_DIR}/metainfo)
+endif ()
+
 if (APPLE)
     if (USE_QT)
         install (DIRECTORY ${QT_LIBRARY_DIR}/QtGui.framework/Resources/qt_menu.nib
