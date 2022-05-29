@@ -175,12 +175,12 @@ endif (INSTALL_RUNTIME_PATH)
 if (NOT CMAKE_BUILD_TYPE)
     set (CMAKE_BUILD_TYPE "RelWithDebInfo")
 elseif (CMAKE_BUILD_TYPE STREQUAL "Debug" AND (USE_QT OR USE_QT5))
-    message(STATUS "${PROJECT_NAME} Qt with CMAKE_BUILD_TYPE=Debug is very unstable now!\n"
+    message (STATUS "${PROJECT_NAME} Qt with CMAKE_BUILD_TYPE=Debug is very unstable now!\n"
                    "\tYou can build it for your own risk.\n"
                    "\tBut do not even try to write bug reports in this case.\n"
                    "\tPlease use RelWithDebInfo instead it.")
 elseif (CMAKE_BUILD_TYPE STREQUAL "Gentoo" AND (USE_QT OR USE_QT5))
-    message(STATUS "${PROJECT_NAME} Qt with CMAKE_BUILD_TYPE=Gentoo may be unstable now.\n"
+    message (STATUS "${PROJECT_NAME} Qt with CMAKE_BUILD_TYPE=Gentoo may be unstable now.\n"
                    "\tPlease try to use RelWithDebInfo instead it if some troubles happend.")
 endif (NOT CMAKE_BUILD_TYPE)
 
@@ -274,7 +274,7 @@ endif ()
 TEST_BIG_ENDIAN(BIG_ENDIAN)
 if (BIG_ENDIAN)
     add_definitions (-DCMAKE_BIG_ENDIAN)
-    message(STATUS "Build for BIG_ENDIAN system!")
+    message (STATUS "Build for BIG_ENDIAN system!")
 endif()
 
 if (USE_CCACHE)
@@ -396,7 +396,7 @@ if (USE_CLI_XMLRPC OR USE_CLI_JSONRPC)
 endif ()
 
 if (WIN32 AND INSTALL_DEPENDENCIES)
-    include(${PROJECT_SOURCE_DIR}/windows/install-deps.cmake)
+    include (${PROJECT_SOURCE_DIR}/windows/install-deps.cmake)
 endif ()
 
 if (GETTEXT_FOUND)
@@ -405,17 +405,17 @@ if (GETTEXT_FOUND)
     add_subdirectory (cmake)
 endif (GETTEXT_FOUND)
 
-message(STATUS "CMAKE_SYSTEM: ${CMAKE_SYSTEM}")
-message(STATUS "CMAKE_SYSTEM_PROCESSOR: ${CMAKE_SYSTEM_PROCESSOR}")
-message(STATUS "CMAKE_CXX_COMPILER: ${CMAKE_CXX_COMPILER}")
-message(STATUS "CMAKE_CXX_COMPILER_ID: ${CMAKE_CXX_COMPILER_ID}")
+message (STATUS "CMAKE_SYSTEM: ${CMAKE_SYSTEM}")
+message (STATUS "CMAKE_SYSTEM_PROCESSOR: ${CMAKE_SYSTEM_PROCESSOR}")
+message (STATUS "CMAKE_CXX_COMPILER: ${CMAKE_CXX_COMPILER}")
+message (STATUS "CMAKE_CXX_COMPILER_ID: ${CMAKE_CXX_COMPILER_ID}")
 
 if (APPLE)
-    message(STATUS "CMAKE_OSX_ARCHITECTURES: ${CMAKE_OSX_ARCHITECTURES}")
-    message(STATUS "CMAKE_OSX_DEPLOYMENT_TARGET: ${CMAKE_OSX_DEPLOYMENT_TARGET}")
+    message (STATUS "CMAKE_OSX_ARCHITECTURES: ${CMAKE_OSX_ARCHITECTURES}")
+    message (STATUS "CMAKE_OSX_DEPLOYMENT_TARGET: ${CMAKE_OSX_DEPLOYMENT_TARGET}")
 endif (APPLE)
 
-message(STATUS "CMAKE will use these libraries (and headers) during build:
+message (STATUS "CMAKE will use these libraries (and headers) during build:
 
     miniupnpc \t: ${MINIUPNP_LIBRARY} (${MINIUPNP_INCLUDE_DIR})
     lua  \t: ${LUA_LIBRARIES} (${LUA_INCLUDE_DIR})
@@ -430,8 +430,8 @@ message(STATUS "CMAKE will use these libraries (and headers) during build:
     attr \t: ${XATTR_LIBRARIES} (${IDN2_INCLUDE_DIR})
     ")
 
-configure_file("${CMAKE_SOURCE_DIR}/cmake/cmake_uninstall.cmake.in"
+configure_file ("${CMAKE_SOURCE_DIR}/cmake/cmake_uninstall.cmake.in"
     "${CMAKE_BINARY_DIR}/cmake_uninstall.cmake"
     IMMEDIATE @ONLY)
-add_custom_target(uninstall
+add_custom_target (uninstall
     "${CMAKE_COMMAND}" -P "${CMAKE_BINARY_DIR}/cmake_uninstall.cmake")
