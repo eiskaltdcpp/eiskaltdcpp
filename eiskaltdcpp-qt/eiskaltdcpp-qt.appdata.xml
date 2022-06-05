@@ -55,4 +55,7 @@
       <image>https://tehnick.github.io/eiskaltdcpp/eiskaltdcpp-qt-2.2.10-588_search_widget.png</image>
     </screenshot>
   </screenshots>
+  <content_rating type="oars-1.0">
+    <content_attribute id="social-chat">intense</content_attribute>
+  </content_rating>
 </component>
