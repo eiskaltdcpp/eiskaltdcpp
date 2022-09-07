@@ -2382,7 +2382,7 @@ Usuario favorito</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="2912"/>
         <source>Danish translation&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Traducción al danés</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="3143"/>
@@ -3434,7 +3434,7 @@ Descargas: %3 Subidas: %4</translation>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="88"/>
         <source>Danish</source>
-        <translation type="unfinished"></translation>
+        <translation>Danés</translation>
     </message>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="226"/>
