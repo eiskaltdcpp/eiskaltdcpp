@@ -291,7 +291,7 @@ typename Compare<order>::AttrComp Compare<order>::attrs[NUM_OF_COLUMNS] = {  Att
                                                                 AttrCmp<COLUMN_FILEBROWSER_MVIDEO>,
                                                                 AttrCmp<COLUMN_FILEBROWSER_MAUDIO>,
                                                                 NumCmp<COLUMN_FILEBROWSER_HIT>,
-                                                                NumCmp<COLUMN_FILEBROWSER_TS>
+                                                                AttrCmp<COLUMN_FILEBROWSER_TS>
                                                              };
 
 template <> template <typename T>
