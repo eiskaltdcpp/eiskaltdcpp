@@ -6,15 +6,16 @@
 # Translators:
 # gray <grayich@ukr.net>, 2018
 # Boris Pek <tehnick-8@yandex.ru>, 2019
+# Андрій Глушко <andrew5555piton@gmail.com>, 2022
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://github.com/eiskaltdcpp/eiskaltdcpp/issues\n"
-"POT-Creation-Date: 2021-07-29 13:27+0300\n"
+"POT-Creation-Date: 2023-02-02 13:07+0300\n"
 "PO-Revision-Date: 2017-06-18 13:35+0000\n"
-"Last-Translator: Boris Pek <tehnick-8@yandex.ru>, 2019\n"
+"Last-Translator: Андрій Глушко <andrew5555piton@gmail.com>, 2022\n"
 "Language-Team: Ukrainian (https://www.transifex.com/tehnick/teams/11818/"
 "uk/)\n"
 "Language: uk\n"
@@ -277,7 +278,7 @@ msgstr "Автопідключення групи"
 
 #: ../FavoriteManager.cpp:667
 msgid "Invalid URL: %1%"
-msgstr ""
+msgstr "Недійсна URL-адреса%1%"
 
 #: ../HashManager.cpp:230 ../HashManager.cpp:428
 msgid "Hashing failed: %1%"
@@ -420,7 +421,7 @@ msgstr "ГіБ"
 msgid "Denied to send file"
 msgstr ""
 
-#: ../PerFolderLimit.cpp:90 ../SettingsManager.cpp:619
+#: ../PerFolderLimit.cpp:90 ../SettingsManager.cpp:631
 msgid " to "
 msgstr "в"
 
@@ -570,31 +571,31 @@ msgstr "Пошук знову увімкнено"
 msgid "Search disabled: %1%"
 msgstr "Пошук відключений: %1%"
 
-#: ../SettingsManager.cpp:188
+#: ../SettingsManager.cpp:187
 msgid "downloaded from"
 msgstr "завантажено з"
 
-#: ../SettingsManager.cpp:528
+#: ../SettingsManager.cpp:540
 msgid "Invalid search type name"
 msgstr "Неправильне ім'я типу пошуку"
 
-#: ../SettingsManager.cpp:532 ../SettingsManager.cpp:554
+#: ../SettingsManager.cpp:544 ../SettingsManager.cpp:566
 msgid "This search type already exists"
 msgstr "Цей тип пошуку вже використовується"
 
-#: ../SettingsManager.cpp:586
+#: ../SettingsManager.cpp:598
 msgid "No such search type"
 msgstr "Немає такого типу пошуку"
 
-#: ../SettingsManager.cpp:614 ../SettingsManager.cpp:619
+#: ../SettingsManager.cpp:626 ../SettingsManager.cpp:631
 msgid "Error: setting not found!"
 msgstr "Помилка: опцію не знайдено!"
 
-#: ../SettingsManager.cpp:614
+#: ../SettingsManager.cpp:626
 msgid "Core setting "
 msgstr "Опція ядра"
 
-#: ../SettingsManager.cpp:619
+#: ../SettingsManager.cpp:631
 msgid "Change core setting "
 msgstr "Змінити опцію ядра"
 
@@ -811,14 +812,12 @@ msgstr ""
 
 #: ../../dht/DHT.cpp:596
 msgid "DHT: Our UDP port seems to be opened (IP: %1%)"
-msgstr ""
+msgstr "DHT: Здається, наш UDP-порт відкрито (IP: %1%)"
 
 #: ../../dht/UDPSocket.cpp:247
-#, fuzzy
 msgid "DHT enabled again"
-msgstr "Пошук знову увімкнено"
+msgstr "DHT знову увімкнено"
 
 #: ../../dht/UDPSocket.cpp:258
-#, fuzzy
 msgid "DHT disabled: "
-msgstr "Пошук відключений: %1%"
+msgstr "DHT відключено:"

@@ -1073,7 +1073,7 @@ EiskaltDC++ - кросплатформенна програма для робо�
     <message>
         <location filename="../src/HubFrame.cpp" line="567"/>
         <source>search</source>
-        <translation type="unfinished"></translation>
+        <translation>Пошук</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="760"/>
@@ -1556,25 +1556,6 @@ Favorite user</source>
         <location filename="../src/HubFrame.cpp" line="4021"/>
         <source>Search flood detected: %1</source>
         <translation>Пошуковий флуд виявлено: %1</translation>
-    </message>
-</context>
-<context>
-    <name>IPFilter</name>
-    <message>
-        <source>Nothing to export.</source>
-        <translation type="obsolete">Експортувати нічого.</translation>
-    </message>
-    <message>
-        <source>Unable to export settings.</source>
-        <translation type="obsolete">Неможливо експортувати налаштування.</translation>
-    </message>
-    <message>
-        <source>Nothing to import.</source>
-        <translation type="obsolete">Імпортувати нічого.</translation>
-    </message>
-    <message>
-        <source>Invalid signature.</source>
-        <translation type="obsolete">Неправильний підпис.</translation>
     </message>
 </context>
 <context>
@@ -3177,17 +3158,17 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/Secretary.cpp" line="311"/>
         <source>Copy</source>
-        <translation type="unfinished">Копіювати</translation>
+        <translation>Копіювати</translation>
     </message>
     <message>
         <location filename="../src/Secretary.cpp" line="312"/>
         <source>Search text</source>
-        <translation type="unfinished">Текст для пошуку</translation>
+        <translation>Текст для пошуку</translation>
     </message>
     <message>
         <location filename="../src/Secretary.cpp" line="313"/>
         <source>Copy nick</source>
-        <translation type="unfinished">Копіювати нік</translation>
+        <translation>Копіювати нік</translation>
     </message>
     <message>
         <location filename="../src/Secretary.cpp" line="315"/>
@@ -3202,17 +3183,17 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/Secretary.cpp" line="318"/>
         <source>Select all</source>
-        <translation type="unfinished">Виділити все</translation>
+        <translation>Виділити все</translation>
     </message>
     <message>
         <location filename="../src/Secretary.cpp" line="320"/>
         <source>Zoom In</source>
-        <translation type="unfinished">Збільшити</translation>
+        <translation>Збільшити</translation>
     </message>
     <message>
         <location filename="../src/Secretary.cpp" line="321"/>
         <source>Zoom Out</source>
-        <translation type="unfinished">Зменшити</translation>
+        <translation>Зменшити</translation>
     </message>
 </context>
 <context>
@@ -3898,7 +3879,7 @@ Downloaded: %3 Uploaded: %4</source>
         <location filename="../src/SideBar.cpp" line="82"/>
         <location filename="../src/SideBar.cpp" line="436"/>
         <source>Search Spy</source>
-        <translation type="unfinished">Пошуковий шпигун</translation>
+        <translation>Пошуковий шпигун</translation>
     </message>
     <message>
         <source>Spy</source>
@@ -4557,37 +4538,37 @@ Do you want to stop it?
     <message>
         <location filename="../ui/UICmdDebug.ui" line="57"/>
         <source>Find: </source>
-        <translation type="unfinished">Знайти: </translation>
+        <translation>Знайти: </translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="71"/>
         <source>Previous (Shift+F3)</source>
-        <translation type="unfinished">Попереднє (Shift+F3)</translation>
+        <translation>Попереднє (Shift+F3)</translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="77"/>
         <source>Shift+F3</source>
-        <translation type="unfinished">Shift+F3</translation>
+        <translation>Shift+F3</translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="84"/>
         <source>Next (F3)</source>
-        <translation type="unfinished">Наступне (F3)</translation>
+        <translation>Наступне (F3)</translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="90"/>
         <source>F3</source>
-        <translation type="unfinished">F3</translation>
+        <translation>F3</translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="97"/>
         <source>Highlight all</source>
-        <translation type="unfinished">Підсвітити все</translation>
+        <translation>Підсвітити все</translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="113"/>
         <source>Hide search panel (Ctrl+F)</source>
-        <translation type="unfinished">Сховати пошуковий фрейм (Ctrl+F)</translation>
+        <translation>Сховати пошуковий фрейм (Ctrl+F)</translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="154"/>
@@ -4607,7 +4588,7 @@ Do you want to stop it?
     <message>
         <location filename="../ui/UICmdDebug.ui" line="228"/>
         <source>Clear now</source>
-        <translation type="unfinished">Очистити зараз</translation>
+        <translation>Очистити зараз</translation>
     </message>
 </context>
 <context>
@@ -4792,7 +4773,7 @@ Do you want to stop it?
     <message>
         <location filename="../ui/UIFileHasher.ui" line="93"/>
         <source>Filepath</source>
-        <translation type="unfinished">Шлях до файлу</translation>
+        <translation>Шлях до файлу</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="113"/>
@@ -4807,27 +4788,27 @@ Do you want to stop it?
     <message>
         <location filename="../ui/UIFileHasher.ui" line="146"/>
         <source>Filename</source>
-        <translation type="unfinished">Ім&apos;я файлу</translation>
+        <translation>Ім&apos;я файлу</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="185"/>
         <source>Opens search dialog and searches file.</source>
-        <translation type="unfinished">Відкриває діалог пошуку і починає пошук файлу.</translation>
+        <translation>Відкриває діалог пошуку і починає пошук файлу.</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="188"/>
         <source>Search</source>
-        <translation type="unfinished">Пошук</translation>
+        <translation>Пошук</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="208"/>
         <source>Cancel</source>
-        <translation type="unfinished">Скасувати</translation>
+        <translation>Скасувати</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="100"/>
         <source>Size</source>
-        <translation type="unfinished">Розмір</translation>
+        <translation>Розмір</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="178"/>
@@ -5228,37 +5209,37 @@ in options, file will be downloaded without opening search dialog.</source>
     <message>
         <location filename="../ui/UISecretary.ui" line="73"/>
         <source>Find: </source>
-        <translation type="unfinished">Знайти: </translation>
+        <translation>Знайти: </translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="87"/>
         <source>Previous (Shift+F3)</source>
-        <translation type="unfinished">Попереднє (Shift+F3)</translation>
+        <translation>Попереднє (Shift+F3)</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="93"/>
         <source>Shift+F3</source>
-        <translation type="unfinished">Shift+F3</translation>
+        <translation>Shift+F3</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="100"/>
         <source>Next (F3)</source>
-        <translation type="unfinished">Наступне (F3)</translation>
+        <translation>Наступне (F3)</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="106"/>
         <source>F3</source>
-        <translation type="unfinished">F3</translation>
+        <translation>F3</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="113"/>
         <source>Highlight all</source>
-        <translation type="unfinished">Підсвітити все</translation>
+        <translation>Підсвітити все</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="129"/>
         <source>Hide search panel (Ctrl+F)</source>
-        <translation type="unfinished">Сховати пошуковий фрейм (Ctrl+F)</translation>
+        <translation>Сховати пошуковий фрейм (Ctrl+F)</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="219"/>
@@ -5278,7 +5259,7 @@ in options, file will be downloaded without opening search dialog.</source>
     <message>
         <location filename="../ui/UISecretary.ui" line="179"/>
         <source>Status messages</source>
-        <translation type="unfinished">Статусні повідомлення</translation>
+        <translation>Статусні повідомлення</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="169"/>
@@ -5288,7 +5269,7 @@ in options, file will be downloaded without opening search dialog.</source>
     <message>
         <location filename="../ui/UISecretary.ui" line="189"/>
         <source>Private messages</source>
-        <translation type="unfinished">Приватні повідомлення</translation>
+        <translation>Приватні повідомлення</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="159"/>
@@ -5314,12 +5295,12 @@ in options, file will be downloaded without opening search dialog.</source>
     <message>
         <location filename="../ui/UISecretary.ui" line="277"/>
         <source>Lines:</source>
-        <translation type="unfinished">Кількість рядків:</translation>
+        <translation>Кількість рядків:</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="297"/>
         <source>Clear now</source>
-        <translation type="unfinished">Очистити зараз</translation>
+        <translation>Очистити зараз</translation>
     </message>
 </context>
 <context>
