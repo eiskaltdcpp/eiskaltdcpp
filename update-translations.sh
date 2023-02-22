@@ -3,7 +3,7 @@
 # Author:  Boris Pek <tehnick-8@yandex.ru>
 # License: Public Domain
 # Created: 2011-11-26
-# Updated: 2021-02-02
+# Updated: 2023-02-23
 # Version: N/A
 
 set -e
@@ -135,7 +135,8 @@ case "${1}" in
         mkdir -p "${LANG_DIR}/.tx"
         cp ".transifex.conf" "${LANG_DIR}/.tx/config"
         cd "${LANG_DIR}"
-        tx pull -a -s
+        tx pull -s
+        tx pull -a
     fi
 
 ;;
