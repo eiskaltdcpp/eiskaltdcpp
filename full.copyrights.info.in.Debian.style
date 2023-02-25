@@ -8,7 +8,7 @@ Source: https://github.com/eiskaltdcpp/eiskaltdcpp
 Files: *
 Copyright: 2009-2012 Andrey Karlov <dein.negativ@gmail.com>
            2009-2014 Eugene Petrov <dhamp@ya.ru>
-           2009-2022 Boris Pek aka Tehnick <tehnick-8@yandex.ru>
+           2009-2023 Boris Pek aka Tehnick <tehnick-8@yandex.ru>
            2010-2017 Pavel Vatagin <pavelvat@gmail.com>
            2010-2014 Alexandr Tkachev <tka4ev@gmail.com>
 License: GPL-3+ with OpenSSL exception
@@ -218,7 +218,7 @@ License: cc0-1.0
  in any jurisdiction.
 
 Files: debian/*
-Copyright: 2010-2022 Boris Pek <tehnick-8@yandex.ru>
+Copyright: 2010-2023 Boris Pek <tehnick-8@yandex.ru>
 License: GPL-2+
 
 License: GPL-2
