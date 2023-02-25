@@ -2386,22 +2386,27 @@ Favoritanvändare</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="3143"/>
+        <location filename="../src/MainWindow.cpp" line="2915"/>
+        <source>Georgian translation&lt;br/&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="3146"/>
         <source>Additional</source>
         <translation>Extra</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="3144"/>
+        <location filename="../src/MainWindow.cpp" line="3147"/>
         <source>Suppress sound notifications</source>
         <translation>Ignorera ljudmeddelanden</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="3145"/>
+        <location filename="../src/MainWindow.cpp" line="3148"/>
         <source>Suppress text notifications</source>
         <translation>Ignorera textmeddelande</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="3139"/>
+        <location filename="../src/MainWindow.cpp" line="3142"/>
         <source>Setup speed limits</source>
         <translation>Inställning för hastighetsbegränsning</translation>
     </message>
@@ -2477,22 +2482,22 @@ Favoritanvändare</translation>
         <translation>Medverka i översättningen. Det är enkelt:</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2952"/>
+        <location filename="../src/MainWindow.cpp" line="2955"/>
         <source>Show close buttons</source>
         <translation>Visa stäng-knapparna</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2984"/>
+        <location filename="../src/MainWindow.cpp" line="2987"/>
         <source>[No name]</source>
         <translation>[Namnlös]</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="3073"/>
+        <location filename="../src/MainWindow.cpp" line="3076"/>
         <source>Download Queue</source>
         <translation>Nedladdningskö</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="3073"/>
+        <location filename="../src/MainWindow.cpp" line="3076"/>
         <source>All downloads complete</source>
         <translation>Alla nedladdningar är klara</translation>
     </message>

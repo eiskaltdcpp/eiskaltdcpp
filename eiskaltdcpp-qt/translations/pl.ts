@@ -2362,22 +2362,27 @@ Ulubiony użytkownik</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="3143"/>
+        <location filename="../src/MainWindow.cpp" line="2915"/>
+        <source>Georgian translation&lt;br/&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="3146"/>
         <source>Additional</source>
         <translation>Dodatkowy</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="3144"/>
+        <location filename="../src/MainWindow.cpp" line="3147"/>
         <source>Suppress sound notifications</source>
         <translation>Wyłącz powiadomienia dźwiękowe</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="3145"/>
+        <location filename="../src/MainWindow.cpp" line="3148"/>
         <source>Suppress text notifications</source>
         <translation>Wyłącz powiadomienia tekstowe</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="3139"/>
+        <location filename="../src/MainWindow.cpp" line="3142"/>
         <source>Setup speed limits</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2453,22 +2458,22 @@ Ulubiony użytkownik</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2952"/>
+        <location filename="../src/MainWindow.cpp" line="2955"/>
         <source>Show close buttons</source>
         <translation>Pokaż przyciska zamykania</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2984"/>
+        <location filename="../src/MainWindow.cpp" line="2987"/>
         <source>[No name]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="3073"/>
+        <location filename="../src/MainWindow.cpp" line="3076"/>
         <source>Download Queue</source>
         <translation>Kolejka pobierania</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="3073"/>
+        <location filename="../src/MainWindow.cpp" line="3076"/>
         <source>All downloads complete</source>
         <translation>Wszystkie pobierania zakończone</translation>
     </message>

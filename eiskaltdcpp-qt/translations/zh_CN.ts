@@ -2376,22 +2376,27 @@ Favorite user</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="3143"/>
+        <location filename="../src/MainWindow.cpp" line="2915"/>
+        <source>Georgian translation&lt;br/&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="3146"/>
         <source>Additional</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="3144"/>
+        <location filename="../src/MainWindow.cpp" line="3147"/>
         <source>Suppress sound notifications</source>
         <translation>不使用声音提示</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="3145"/>
+        <location filename="../src/MainWindow.cpp" line="3148"/>
         <source>Suppress text notifications</source>
         <translation>不使用文本提示</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="3139"/>
+        <location filename="../src/MainWindow.cpp" line="3142"/>
         <source>Setup speed limits</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2467,22 +2472,22 @@ Favorite user</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2952"/>
+        <location filename="../src/MainWindow.cpp" line="2955"/>
         <source>Show close buttons</source>
         <translation>显示关闭按钮</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2984"/>
+        <location filename="../src/MainWindow.cpp" line="2987"/>
         <source>[No name]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="3073"/>
+        <location filename="../src/MainWindow.cpp" line="3076"/>
         <source>Download Queue</source>
         <translation>下载队列</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="3073"/>
+        <location filename="../src/MainWindow.cpp" line="3076"/>
         <source>All downloads complete</source>
         <translation>已完成所有下载</translation>
     </message>

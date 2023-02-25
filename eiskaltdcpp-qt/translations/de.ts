@@ -2382,22 +2382,27 @@ Bevorzugte Benutzer</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="3143"/>
+        <location filename="../src/MainWindow.cpp" line="2915"/>
+        <source>Georgian translation&lt;br/&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="3146"/>
         <source>Additional</source>
         <translation>Zusätzlich</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="3144"/>
+        <location filename="../src/MainWindow.cpp" line="3147"/>
         <source>Suppress sound notifications</source>
         <translation>Tonbenachrichtigungen unterdrücken</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="3145"/>
+        <location filename="../src/MainWindow.cpp" line="3148"/>
         <source>Suppress text notifications</source>
         <translation>Textbenachrichtigungen unterdrücken</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="3139"/>
+        <location filename="../src/MainWindow.cpp" line="3142"/>
         <source>Setup speed limits</source>
         <translation>Geschwindigkeitslimit einrichten</translation>
     </message>
@@ -2473,22 +2478,22 @@ Bevorzugte Benutzer</translation>
         <translation>Nehme an der Übersetzung teil. Es ist leicht:</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2952"/>
+        <location filename="../src/MainWindow.cpp" line="2955"/>
         <source>Show close buttons</source>
         <translation>Zeige schließen Schaltfläche</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2984"/>
+        <location filename="../src/MainWindow.cpp" line="2987"/>
         <source>[No name]</source>
         <translation>[Kein Name]</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="3073"/>
+        <location filename="../src/MainWindow.cpp" line="3076"/>
         <source>Download Queue</source>
         <translation>Download Warteschlange</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="3073"/>
+        <location filename="../src/MainWindow.cpp" line="3076"/>
         <source>All downloads complete</source>
         <translation>Alle Downloads abgeschlossen</translation>
     </message>

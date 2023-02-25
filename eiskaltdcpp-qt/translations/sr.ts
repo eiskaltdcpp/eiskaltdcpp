@@ -2386,22 +2386,27 @@ Favorite user</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="3143"/>
+        <location filename="../src/MainWindow.cpp" line="2915"/>
+        <source>Georgian translation&lt;br/&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="3146"/>
         <source>Additional</source>
         <translation>Додатни</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="3144"/>
+        <location filename="../src/MainWindow.cpp" line="3147"/>
         <source>Suppress sound notifications</source>
         <translation>Суспендуј звучна обавештења</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="3145"/>
+        <location filename="../src/MainWindow.cpp" line="3148"/>
         <source>Suppress text notifications</source>
         <translation>Суспендуј текстуална обавештења</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="3139"/>
+        <location filename="../src/MainWindow.cpp" line="3142"/>
         <source>Setup speed limits</source>
         <translation>Подеси лимит брзине</translation>
     </message>
@@ -2477,22 +2482,22 @@ Favorite user</source>
         <translation>Учествујте у превођењу. Лако је:</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2952"/>
+        <location filename="../src/MainWindow.cpp" line="2955"/>
         <source>Show close buttons</source>
         <translation>Прикажи затвори дугмад</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2984"/>
+        <location filename="../src/MainWindow.cpp" line="2987"/>
         <source>[No name]</source>
         <translation>[Без имена]</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="3073"/>
+        <location filename="../src/MainWindow.cpp" line="3076"/>
         <source>Download Queue</source>
         <translation>Ред за преузимање</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="3073"/>
+        <location filename="../src/MainWindow.cpp" line="3076"/>
         <source>All downloads complete</source>
         <translation>Сва преузимања су комплетна</translation>
     </message>
