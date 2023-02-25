@@ -2369,7 +2369,7 @@ Utilisateur favoris</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="2915"/>
         <source>Georgian translation&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Traduction en Georgien</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="3146"/>
@@ -3426,7 +3426,7 @@ Téléchargé: %3 Envoyé: %4</translation>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="89"/>
         <source>Georgian</source>
-        <translation type="unfinished"></translation>
+        <translation>Georgien</translation>
     </message>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="227"/>

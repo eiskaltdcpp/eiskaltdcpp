@@ -2388,7 +2388,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="2915"/>
         <source>Georgian translation&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Грузинский перевод&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="3146"/>
@@ -3446,7 +3446,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="89"/>
         <source>Georgian</source>
-        <translation type="unfinished"></translation>
+        <translation>Грузинский</translation>
     </message>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="227"/>

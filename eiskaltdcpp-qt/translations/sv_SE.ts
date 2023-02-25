@@ -1980,7 +1980,7 @@ Favoritanvändare</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="1408"/>
         <source>Secretary</source>
-        <translation type="unfinished"></translation>
+        <translation>Sekreterare</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1410"/>
@@ -2074,7 +2074,7 @@ Favoritanvändare</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="1449"/>
         <source>Source code (git)</source>
-        <translation type="unfinished"></translation>
+        <translation>Källkod (git)</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1451"/>
@@ -2383,12 +2383,12 @@ Favoritanvändare</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="2912"/>
         <source>Danish translation&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Dansk översättning&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2915"/>
         <source>Georgian translation&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Georgisk översättning</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="3146"/>
@@ -2413,7 +2413,7 @@ Favoritanvändare</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="1441"/>
         <source>Download program</source>
-        <translation type="unfinished"></translation>
+        <translation>Ladda ner program</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2759"/>
@@ -3158,7 +3158,7 @@ Nedladdat: %3 Uppladdat: %4</translation>
     <message>
         <location filename="../src/Secretary.cpp" line="86"/>
         <source>Secretary</source>
-        <translation type="unfinished"></translation>
+        <translation>Sekreterare</translation>
     </message>
     <message>
         <location filename="../src/Secretary.cpp" line="311"/>
@@ -3178,12 +3178,12 @@ Nedladdat: %3 Uppladdat: %4</translation>
     <message>
         <location filename="../src/Secretary.cpp" line="315"/>
         <source>Clear notes</source>
-        <translation type="unfinished"></translation>
+        <translation>Rensa anteckningar</translation>
     </message>
     <message>
         <location filename="../src/Secretary.cpp" line="316"/>
         <source>Find in notes</source>
-        <translation type="unfinished"></translation>
+        <translation>Sök i anteckningar</translation>
     </message>
     <message>
         <location filename="../src/Secretary.cpp" line="318"/>
@@ -3440,12 +3440,12 @@ Nedladdat: %3 Uppladdat: %4</translation>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="88"/>
         <source>Danish</source>
-        <translation type="unfinished"></translation>
+        <translation>Danska</translation>
     </message>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="89"/>
         <source>Georgian</source>
-        <translation type="unfinished"></translation>
+        <translation>Georgiska</translation>
     </message>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="227"/>
@@ -3883,7 +3883,7 @@ Nedladdat: %3 Uppladdat: %4</translation>
         <location filename="../src/SideBar.cpp" line="435"/>
         <location filename="../src/SideBar.cpp" line="440"/>
         <source>Secretary</source>
-        <translation type="unfinished"></translation>
+        <translation>Sekreterare</translation>
     </message>
     <message>
         <location filename="../src/SideBar.cpp" line="82"/>
@@ -4578,12 +4578,12 @@ Vill du stoppa den?
     <message>
         <location filename="../ui/UICmdDebug.ui" line="113"/>
         <source>Hide search panel (Ctrl+F)</source>
-        <translation>Göm sökpanelen (CTRL+F)</translation>
+        <translation>Dölj sökpanelen (CTRL+F)</translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="154"/>
         <source>Use comma as separator</source>
-        <translation type="unfinished"></translation>
+        <translation>Använd kommatecken som avgränsare</translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="157"/>
@@ -4925,7 +4925,7 @@ Vill du stoppa den?
     <message>
         <location filename="../ui/HubFrame.ui" line="153"/>
         <source>Hide search panel (Ctrl+F)</source>
-        <translation>Göm sökpanelen (CTRL+F)</translation>
+        <translation>Dölj sökpanelen (CTRL+F)</translation>
     </message>
     <message>
         <location filename="../ui/HubFrame.ui" line="306"/>
@@ -5115,7 +5115,7 @@ aktiverad i inställningarna, kommer filen att laddas ned utan att sökfönstret
     <message>
         <location filename="../ui/PrivateMessage.ui" line="114"/>
         <source>Hide search panel (Ctrl+F)</source>
-        <translation>Göm sökpanelen (CTRL+F)</translation>
+        <translation>Dölj sökpanelen (CTRL+F)</translation>
     </message>
     <message>
         <location filename="../ui/PrivateMessage.ui" line="124"/>
@@ -5250,22 +5250,22 @@ aktiverad i inställningarna, kommer filen att laddas ned utan att sökfönstret
     <message>
         <location filename="../ui/UISecretary.ui" line="129"/>
         <source>Hide search panel (Ctrl+F)</source>
-        <translation>Göm sökpanelen (CTRL+F)</translation>
+        <translation>Dölj sökpanelen (CTRL+F)</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="219"/>
         <source>Magnet links</source>
-        <translation type="unfinished"></translation>
+        <translation>Magnetlänkar</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="199"/>
         <source>Search links</source>
-        <translation type="unfinished"></translation>
+        <translation>Sök länkar</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="209"/>
         <source>Public chat</source>
-        <translation type="unfinished"></translation>
+        <translation>Publik chatt</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="179"/>
@@ -5275,7 +5275,7 @@ aktiverad i inställningarna, kommer filen att laddas ned utan att sökfönstret
     <message>
         <location filename="../ui/UISecretary.ui" line="169"/>
         <source>BitTorrent links</source>
-        <translation type="unfinished"></translation>
+        <translation>BitTorrent-länkar</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="189"/>
@@ -5285,23 +5285,23 @@ aktiverad i inställningarna, kommer filen att laddas ned utan att sökfönstret
     <message>
         <location filename="../ui/UISecretary.ui" line="159"/>
         <source>Filter duplicates</source>
-        <translation type="unfinished"></translation>
+        <translation>Filtrera dubbletter</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="233"/>
         <location filename="../ui/UISecretary.ui" line="246"/>
         <source>Use comma as separator</source>
-        <translation type="unfinished"></translation>
+        <translation>Använd kommatecken som avgränsare</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="236"/>
         <source>Additional keywords</source>
-        <translation type="unfinished"></translation>
+        <translation>Ytterligare nyckelord</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="249"/>
         <source>Filter hubs by IP</source>
-        <translation type="unfinished"></translation>
+        <translation>Filtrera hubbar efter IP-adress</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="277"/>
