@@ -322,6 +322,7 @@ list (APPEND AllLanguages
             fr
             hu
             it
+            ka
             pl
             pt_BR
             ru

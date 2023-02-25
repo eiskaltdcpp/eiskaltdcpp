@@ -86,6 +86,7 @@ void SettingsGUI::init(){
             { "sv_SE.qm",    tr("Swedish (Sweden)") },
             { "tr.qm",       tr("Turkish") },
             { "da.qm",       tr("Danish") },
+            { "ka.qm",       tr("Georgian") },
         });
 
         QString full_path;

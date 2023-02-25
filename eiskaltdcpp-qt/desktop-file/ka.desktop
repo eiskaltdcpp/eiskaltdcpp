@@ -1,0 +1,18 @@
+[Desktop Entry]
+Name=EiskaltDC++ Qt
+Type=Application
+Exec=eiskaltdcpp-qt %U
+Icon=eiskaltdcpp
+Terminal=false
+GenericName=DC++ client
+Comment=Share files over the DC++ network
+Categories=Network;FileTransfer;P2P;Qt;
+MimeType=x-scheme-handler/magnet;x-scheme-handler/dchub;x-scheme-handler/nmdcs;x-scheme-handler/adc;x-scheme-handler/adcs;
+Keywords=FileSharing;Chat;p2p;DirectConnect;ADC;DHT;
+
+
+# Translations
+Icon[ka]=eiskaltdcpp
+Name[ka]=EiskaltDC++ Qt
+Comment[ka]=გააზიარეთ ფაილები DC++ ქსელის საშუალებით
+GenericName[ka]=DC++-ის კლიენტი

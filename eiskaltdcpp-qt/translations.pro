@@ -14,6 +14,7 @@ TRANSLATIONS = \
     translations/fr.ts \
     translations/hu.ts \
     translations/it.ts \
+    translations/ka.ts \
     translations/pl.ts \
     translations/pt_BR.ts \
     translations/ru.ts \
