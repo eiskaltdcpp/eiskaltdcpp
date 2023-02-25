@@ -3434,67 +3434,72 @@ Heruntergeladen: %3 Hochgeladen: %4</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="226"/>
+        <location filename="../src/SettingsGUI.cpp" line="89"/>
+        <source>Georgian</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/SettingsGUI.cpp" line="227"/>
         <source>Local user</source>
         <translation>Lokaler Benutzer</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="230"/>
+        <location filename="../src/SettingsGUI.cpp" line="231"/>
         <source>Operator</source>
         <translation>Operator</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="234"/>
+        <location filename="../src/SettingsGUI.cpp" line="235"/>
         <source>Bot</source>
         <translation>Bot</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="238"/>
+        <location filename="../src/SettingsGUI.cpp" line="239"/>
         <source>Private: local user</source>
         <translation>Privat: lokaler Benutzer</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="242"/>
+        <location filename="../src/SettingsGUI.cpp" line="243"/>
         <source>Private: user</source>
         <translation>Privat: Benutzer</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="246"/>
+        <location filename="../src/SettingsGUI.cpp" line="247"/>
         <source>Chat: Say nick</source>
         <translation>Chat: Sage Nick</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="250"/>
+        <location filename="../src/SettingsGUI.cpp" line="251"/>
         <source>Status</source>
         <translation>Status</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="254"/>
+        <location filename="../src/SettingsGUI.cpp" line="255"/>
         <source>User</source>
         <translation>Benutzer</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="258"/>
+        <location filename="../src/SettingsGUI.cpp" line="259"/>
         <source>Favorite User</source>
         <translation>Bevorzugter Benutzer</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="262"/>
+        <location filename="../src/SettingsGUI.cpp" line="263"/>
         <source>Time stamp</source>
         <translation>Zeitstempel</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="266"/>
+        <location filename="../src/SettingsGUI.cpp" line="267"/>
         <source>Message</source>
         <translation>Nachricht</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="566"/>
+        <location filename="../src/SettingsGUI.cpp" line="567"/>
         <source>Select translation</source>
         <translation>Wähle Übersetzung</translation>
     </message>
     <message>
-        <location filename="../src/SettingsGUI.cpp" line="568"/>
+        <location filename="../src/SettingsGUI.cpp" line="569"/>
         <source>Translation (*.qm)</source>
         <translation>Übersetzung (*.qm)</translation>
     </message>
