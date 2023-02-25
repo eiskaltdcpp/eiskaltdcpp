@@ -3154,17 +3154,17 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/Secretary.cpp" line="311"/>
         <source>Copy</source>
-        <translation type="unfinished">Копиране</translation>
+        <translation>Копиране</translation>
     </message>
     <message>
         <location filename="../src/Secretary.cpp" line="312"/>
         <source>Search text</source>
-        <translation type="unfinished">Търсене на текст</translation>
+        <translation>Търсене на текст</translation>
     </message>
     <message>
         <location filename="../src/Secretary.cpp" line="313"/>
         <source>Copy nick</source>
-        <translation type="unfinished">Копиране на прякора</translation>
+        <translation>Копиране на прякора</translation>
     </message>
     <message>
         <location filename="../src/Secretary.cpp" line="315"/>
@@ -3179,17 +3179,17 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/Secretary.cpp" line="318"/>
         <source>Select all</source>
-        <translation type="unfinished">Избиране на всичко</translation>
+        <translation>Избиране на всичко</translation>
     </message>
     <message>
         <location filename="../src/Secretary.cpp" line="320"/>
         <source>Zoom In</source>
-        <translation type="unfinished">Увеличаване</translation>
+        <translation>Увеличаване</translation>
     </message>
     <message>
         <location filename="../src/Secretary.cpp" line="321"/>
         <source>Zoom Out</source>
-        <translation type="unfinished">Намаляване</translation>
+        <translation>Намаляване</translation>
     </message>
 </context>
 <context>
@@ -3876,7 +3876,7 @@ Downloaded: %3 Uploaded: %4</source>
         <location filename="../src/SideBar.cpp" line="82"/>
         <location filename="../src/SideBar.cpp" line="436"/>
         <source>Search Spy</source>
-        <translation type="unfinished">Шпионско търсене</translation>
+        <translation>Шпионско търсене</translation>
     </message>
     <message>
         <source>Spy</source>
@@ -4535,37 +4535,37 @@ Do you want to stop it?
     <message>
         <location filename="../ui/UICmdDebug.ui" line="57"/>
         <source>Find: </source>
-        <translation type="unfinished">Търсене: </translation>
+        <translation>Търсене: </translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="71"/>
         <source>Previous (Shift+F3)</source>
-        <translation type="unfinished">Предишно (Shift+F3)</translation>
+        <translation>Предишно (Shift+F3)</translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="77"/>
         <source>Shift+F3</source>
-        <translation type="unfinished">Shift+F3</translation>
+        <translation>Shift+F3</translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="84"/>
         <source>Next (F3)</source>
-        <translation type="unfinished">Следващо (F3)</translation>
+        <translation>Следващо (F3)</translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="90"/>
         <source>F3</source>
-        <translation type="unfinished">F3</translation>
+        <translation>F3</translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="97"/>
         <source>Highlight all</source>
-        <translation type="unfinished">Открояване на всички</translation>
+        <translation>Открояване на всички</translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="113"/>
         <source>Hide search panel (Ctrl+F)</source>
-        <translation type="unfinished">Скриване рамката за търсене (Ctrl+F)</translation>
+        <translation>Скриване рамката за търсене (Ctrl+F)</translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="154"/>
@@ -4585,7 +4585,7 @@ Do you want to stop it?
     <message>
         <location filename="../ui/UICmdDebug.ui" line="228"/>
         <source>Clear now</source>
-        <translation type="unfinished">Изчистване сега</translation>
+        <translation>Изчистване сега</translation>
     </message>
 </context>
 <context>
@@ -4770,7 +4770,7 @@ Do you want to stop it?
     <message>
         <location filename="../ui/UIFileHasher.ui" line="93"/>
         <source>Filepath</source>
-        <translation type="unfinished">Път до файл</translation>
+        <translation>Път до файл</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="113"/>
@@ -4785,27 +4785,27 @@ Do you want to stop it?
     <message>
         <location filename="../ui/UIFileHasher.ui" line="146"/>
         <source>Filename</source>
-        <translation type="unfinished">Име на файл</translation>
+        <translation>Име на файл</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="185"/>
         <source>Opens search dialog and searches file.</source>
-        <translation type="unfinished">Отваряне на прозорец и търсене на файла.</translation>
+        <translation>Отваряне на прозорец и търсене на файла.</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="188"/>
         <source>Search</source>
-        <translation type="unfinished">Търсене</translation>
+        <translation>Търсене</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="208"/>
         <source>Cancel</source>
-        <translation type="unfinished">Отказ</translation>
+        <translation>Отказ</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="100"/>
         <source>Size</source>
-        <translation type="unfinished">Размер</translation>
+        <translation>Размер</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="178"/>
@@ -5207,37 +5207,37 @@ in options, file will be downloaded without opening search dialog.</source>
     <message>
         <location filename="../ui/UISecretary.ui" line="73"/>
         <source>Find: </source>
-        <translation type="unfinished">Търсене: </translation>
+        <translation>Търсене: </translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="87"/>
         <source>Previous (Shift+F3)</source>
-        <translation type="unfinished">Предишно (Shift+F3)</translation>
+        <translation>Предишно (Shift+F3)</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="93"/>
         <source>Shift+F3</source>
-        <translation type="unfinished">Shift+F3</translation>
+        <translation>Shift+F3</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="100"/>
         <source>Next (F3)</source>
-        <translation type="unfinished">Следващо (F3)</translation>
+        <translation>Следващо (F3)</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="106"/>
         <source>F3</source>
-        <translation type="unfinished">F3</translation>
+        <translation>F3</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="113"/>
         <source>Highlight all</source>
-        <translation type="unfinished">Открояване на всички</translation>
+        <translation>Открояване на всички</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="129"/>
         <source>Hide search panel (Ctrl+F)</source>
-        <translation type="unfinished">Скриване рамката за търсене (Ctrl+F)</translation>
+        <translation>Скриване рамката за търсене (Ctrl+F)</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="219"/>
@@ -5257,7 +5257,7 @@ in options, file will be downloaded without opening search dialog.</source>
     <message>
         <location filename="../ui/UISecretary.ui" line="179"/>
         <source>Status messages</source>
-        <translation type="unfinished">Статус съобщения</translation>
+        <translation>Статус съобщения</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="169"/>
@@ -5267,7 +5267,7 @@ in options, file will be downloaded without opening search dialog.</source>
     <message>
         <location filename="../ui/UISecretary.ui" line="189"/>
         <source>Private messages</source>
-        <translation type="unfinished">Лични съобщения</translation>
+        <translation>Лични съобщения</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="159"/>
@@ -5298,7 +5298,7 @@ in options, file will be downloaded without opening search dialog.</source>
     <message>
         <location filename="../ui/UISecretary.ui" line="297"/>
         <source>Clear now</source>
-        <translation type="unfinished">Изчистване сега</translation>
+        <translation>Изчистване сега</translation>
     </message>
 </context>
 <context>

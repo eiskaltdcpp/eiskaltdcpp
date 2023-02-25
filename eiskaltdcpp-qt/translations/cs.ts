@@ -3151,17 +3151,17 @@ Staženo: %3 Odesláno: %4</translation>
     <message>
         <location filename="../src/Secretary.cpp" line="311"/>
         <source>Copy</source>
-        <translation type="unfinished">Kopírovat</translation>
+        <translation>Kopírovat</translation>
     </message>
     <message>
         <location filename="../src/Secretary.cpp" line="312"/>
         <source>Search text</source>
-        <translation type="unfinished">Hledat text</translation>
+        <translation>Hledat text</translation>
     </message>
     <message>
         <location filename="../src/Secretary.cpp" line="313"/>
         <source>Copy nick</source>
-        <translation type="unfinished">Kopírovat přezdívku</translation>
+        <translation>Kopírovat přezdívku</translation>
     </message>
     <message>
         <location filename="../src/Secretary.cpp" line="315"/>
@@ -3176,17 +3176,17 @@ Staženo: %3 Odesláno: %4</translation>
     <message>
         <location filename="../src/Secretary.cpp" line="318"/>
         <source>Select all</source>
-        <translation type="unfinished">Vybrat vše</translation>
+        <translation>Vybrat vše</translation>
     </message>
     <message>
         <location filename="../src/Secretary.cpp" line="320"/>
         <source>Zoom In</source>
-        <translation type="unfinished">Přiblížit</translation>
+        <translation>Přiblížit</translation>
     </message>
     <message>
         <location filename="../src/Secretary.cpp" line="321"/>
         <source>Zoom Out</source>
-        <translation type="unfinished">Oddálit</translation>
+        <translation>Oddálit</translation>
     </message>
 </context>
 <context>
@@ -3872,7 +3872,7 @@ Staženo: %3 Odesláno: %4</translation>
         <location filename="../src/SideBar.cpp" line="82"/>
         <location filename="../src/SideBar.cpp" line="436"/>
         <source>Search Spy</source>
-        <translation type="unfinished">Hledací špión</translation>
+        <translation>Hledací špión</translation>
     </message>
     <message>
         <source>Spy</source>
@@ -4531,37 +4531,37 @@ Chcete jej vypnout?
     <message>
         <location filename="../ui/UICmdDebug.ui" line="57"/>
         <source>Find: </source>
-        <translation type="unfinished">Najít: </translation>
+        <translation>Najít: </translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="71"/>
         <source>Previous (Shift+F3)</source>
-        <translation type="unfinished">Předchozí (Shift+F3)</translation>
+        <translation>Předchozí (Shift+F3)</translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="77"/>
         <source>Shift+F3</source>
-        <translation type="unfinished">Shift+F3</translation>
+        <translation>Shift+F3</translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="84"/>
         <source>Next (F3)</source>
-        <translation type="unfinished">Další (F3)</translation>
+        <translation>Další (F3)</translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="90"/>
         <source>F3</source>
-        <translation type="unfinished">F3</translation>
+        <translation>F3</translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="97"/>
         <source>Highlight all</source>
-        <translation type="unfinished">Zvýraznit vše</translation>
+        <translation>Zvýraznit vše</translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="113"/>
         <source>Hide search panel (Ctrl+F)</source>
-        <translation type="unfinished">Skrýt hledání (Ctrl+F)</translation>
+        <translation>Skrýt hledání (Ctrl+F)</translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="154"/>
@@ -4581,7 +4581,7 @@ Chcete jej vypnout?
     <message>
         <location filename="../ui/UICmdDebug.ui" line="228"/>
         <source>Clear now</source>
-        <translation type="unfinished">Vyčistit teď</translation>
+        <translation>Vyčistit teď</translation>
     </message>
 </context>
 <context>
@@ -4766,7 +4766,7 @@ Chcete jej vypnout?
     <message>
         <location filename="../ui/UIFileHasher.ui" line="93"/>
         <source>Filepath</source>
-        <translation type="unfinished">Cesta k souboru</translation>
+        <translation>Cesta k souboru</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="113"/>
@@ -4781,27 +4781,27 @@ Chcete jej vypnout?
     <message>
         <location filename="../ui/UIFileHasher.ui" line="146"/>
         <source>Filename</source>
-        <translation type="unfinished">Soubor</translation>
+        <translation>Soubor</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="185"/>
         <source>Opens search dialog and searches file.</source>
-        <translation type="unfinished">Otevře dialog hledání.</translation>
+        <translation>Otevře dialog hledání.</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="188"/>
         <source>Search</source>
-        <translation type="unfinished"></translation>
+        <translation>Hledání</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="208"/>
         <source>Cancel</source>
-        <translation type="unfinished">Zrušit</translation>
+        <translation>Zrušit</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="100"/>
         <source>Size</source>
-        <translation type="unfinished">Velikost</translation>
+        <translation>Velikost</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="178"/>
@@ -5202,37 +5202,37 @@ hledáni alternativ, soubor se stáhne bez otevření dialogu pro hledání.</tr
     <message>
         <location filename="../ui/UISecretary.ui" line="73"/>
         <source>Find: </source>
-        <translation type="unfinished">Najít: </translation>
+        <translation>Najít: </translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="87"/>
         <source>Previous (Shift+F3)</source>
-        <translation type="unfinished">Předchozí (Shift+F3)</translation>
+        <translation>Předchozí (Shift+F3)</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="93"/>
         <source>Shift+F3</source>
-        <translation type="unfinished">Shift+F3</translation>
+        <translation>Shift+F3</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="100"/>
         <source>Next (F3)</source>
-        <translation type="unfinished">Další (F3)</translation>
+        <translation>Další (F3)</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="106"/>
         <source>F3</source>
-        <translation type="unfinished">F3</translation>
+        <translation>F3</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="113"/>
         <source>Highlight all</source>
-        <translation type="unfinished">Zvýraznit vše</translation>
+        <translation>Zvýraznit vše</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="129"/>
         <source>Hide search panel (Ctrl+F)</source>
-        <translation type="unfinished">Skrýt hledání (Ctrl+F)</translation>
+        <translation>Skrýt hledání (Ctrl+F)</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="219"/>
@@ -5252,7 +5252,7 @@ hledáni alternativ, soubor se stáhne bez otevření dialogu pro hledání.</tr
     <message>
         <location filename="../ui/UISecretary.ui" line="179"/>
         <source>Status messages</source>
-        <translation type="unfinished">Stavové zprávy</translation>
+        <translation>Stavové zprávy</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="169"/>
@@ -5262,7 +5262,7 @@ hledáni alternativ, soubor se stáhne bez otevření dialogu pro hledání.</tr
     <message>
         <location filename="../ui/UISecretary.ui" line="189"/>
         <source>Private messages</source>
-        <translation type="unfinished">Soukromé zprávy</translation>
+        <translation>Soukromé zprávy</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="159"/>
@@ -5293,7 +5293,7 @@ hledáni alternativ, soubor se stáhne bez otevření dialogu pro hledání.</tr
     <message>
         <location filename="../ui/UISecretary.ui" line="297"/>
         <source>Clear now</source>
-        <translation type="unfinished">Vyčistit teď</translation>
+        <translation>Vyčistit teď</translation>
     </message>
 </context>
 <context>

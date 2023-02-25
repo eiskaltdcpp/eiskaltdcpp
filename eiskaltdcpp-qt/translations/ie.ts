@@ -1,4 +1,4 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="ie" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="ie">
 <context>
     <name>ADLS</name>
     <message>
@@ -3924,19 +3924,19 @@ Downloaded: %3 Uploaded: %4</source>
 <context>
     <name>SpyFrame</name>
     <message>
-        <location filename="../src/SpyFrame.cpp" line="55"/>
-        <location filename="../src/SpyFrame.cpp" line="77"/>
+        <location filename="../src/SpyFrame.cpp" line="54"/>
+        <location filename="../src/SpyFrame.cpp" line="76"/>
         <source>Stop</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/SpyFrame.cpp" line="56"/>
-        <location filename="../src/SpyFrame.h" line="39"/>
+        <location filename="../src/SpyFrame.cpp" line="55"/>
+        <location filename="../src/SpyFrame.h" line="38"/>
         <source>Search Spy</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/SpyFrame.cpp" line="57"/>
+        <location filename="../src/SpyFrame.cpp" line="56"/>
         <source>Search Spy is now running.
 It will continue to work when the widget is hidden.
 Do you want to stop it?
@@ -3944,12 +3944,12 @@ Do you want to stop it?
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/SpyFrame.cpp" line="82"/>
+        <location filename="../src/SpyFrame.cpp" line="81"/>
         <source>Start</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/SpyFrame.cpp" line="99"/>
+        <location filename="../src/SpyFrame.cpp" line="98"/>
         <source>Search</source>
         <translation type="unfinished"/>
     </message>

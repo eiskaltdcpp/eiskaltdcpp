@@ -3158,17 +3158,17 @@ Nedladdat: %3 Uppladdat: %4</translation>
     <message>
         <location filename="../src/Secretary.cpp" line="311"/>
         <source>Copy</source>
-        <translation type="unfinished">Kopiera</translation>
+        <translation>Kopiera</translation>
     </message>
     <message>
         <location filename="../src/Secretary.cpp" line="312"/>
         <source>Search text</source>
-        <translation type="unfinished">Söktext</translation>
+        <translation>Söktext</translation>
     </message>
     <message>
         <location filename="../src/Secretary.cpp" line="313"/>
         <source>Copy nick</source>
-        <translation type="unfinished">Kopiera användarnamn</translation>
+        <translation>Kopiera användarnamn</translation>
     </message>
     <message>
         <location filename="../src/Secretary.cpp" line="315"/>
@@ -3183,17 +3183,17 @@ Nedladdat: %3 Uppladdat: %4</translation>
     <message>
         <location filename="../src/Secretary.cpp" line="318"/>
         <source>Select all</source>
-        <translation type="unfinished">Välj alla</translation>
+        <translation>Välj alla</translation>
     </message>
     <message>
         <location filename="../src/Secretary.cpp" line="320"/>
         <source>Zoom In</source>
-        <translation type="unfinished">Zooma in</translation>
+        <translation>Zooma in</translation>
     </message>
     <message>
         <location filename="../src/Secretary.cpp" line="321"/>
         <source>Zoom Out</source>
-        <translation type="unfinished">Zooma ut</translation>
+        <translation>Zooma ut</translation>
     </message>
 </context>
 <context>
@@ -3879,7 +3879,7 @@ Nedladdat: %3 Uppladdat: %4</translation>
         <location filename="../src/SideBar.cpp" line="82"/>
         <location filename="../src/SideBar.cpp" line="436"/>
         <source>Search Spy</source>
-        <translation type="unfinished">Sökspion</translation>
+        <translation>Sökspion</translation>
     </message>
     <message>
         <source>Spy</source>
@@ -5210,37 +5210,37 @@ aktiverad i inställningarna, kommer filen att laddas ned utan att sökfönstret
     <message>
         <location filename="../ui/UISecretary.ui" line="73"/>
         <source>Find: </source>
-        <translation type="unfinished">Sök: </translation>
+        <translation>Sök: </translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="87"/>
         <source>Previous (Shift+F3)</source>
-        <translation type="unfinished"></translation>
+        <translation>Föregående (Skift+F3)</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="93"/>
         <source>Shift+F3</source>
-        <translation type="unfinished">Skift+F3</translation>
+        <translation>Skift+F3</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="100"/>
         <source>Next (F3)</source>
-        <translation type="unfinished">Nästa (F3)</translation>
+        <translation>Nästa (F3)</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="106"/>
         <source>F3</source>
-        <translation type="unfinished">F3</translation>
+        <translation>F3</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="113"/>
         <source>Highlight all</source>
-        <translation type="unfinished">Markera alla</translation>
+        <translation>Markera alla</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="129"/>
         <source>Hide search panel (Ctrl+F)</source>
-        <translation type="unfinished">Göm sökpanelen (CTRL+F)</translation>
+        <translation>Göm sökpanelen (CTRL+F)</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="219"/>
@@ -5260,7 +5260,7 @@ aktiverad i inställningarna, kommer filen att laddas ned utan att sökfönstret
     <message>
         <location filename="../ui/UISecretary.ui" line="179"/>
         <source>Status messages</source>
-        <translation type="unfinished">Statusmeddelanden</translation>
+        <translation>Statusmeddelanden</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="169"/>
@@ -5270,7 +5270,7 @@ aktiverad i inställningarna, kommer filen att laddas ned utan att sökfönstret
     <message>
         <location filename="../ui/UISecretary.ui" line="189"/>
         <source>Private messages</source>
-        <translation type="unfinished">Privata meddelande</translation>
+        <translation>Privata meddelande</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="159"/>
@@ -5296,12 +5296,12 @@ aktiverad i inställningarna, kommer filen att laddas ned utan att sökfönstret
     <message>
         <location filename="../ui/UISecretary.ui" line="277"/>
         <source>Lines:</source>
-        <translation type="unfinished">Rader:</translation>
+        <translation>Rader:</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="297"/>
         <source>Clear now</source>
-        <translation type="unfinished">Rensa nu</translation>
+        <translation>Rensa nu</translation>
     </message>
 </context>
 <context>

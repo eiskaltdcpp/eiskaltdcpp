@@ -218,7 +218,7 @@ Kľúčové skratky:
     <message>
         <location filename="../ui/UIDialogScriptConsole.ui" line="89"/>
         <source>Clear</source>
-        <translation type="unfinished">Vyčistiť</translation>
+        <translation>Vyčistiť</translation>
     </message>
     <message>
         <location filename="../ui/UIDialogScriptConsole.ui" line="109"/>
@@ -729,12 +729,12 @@ Kľúčové skratky:
     <message>
         <location filename="../src/FileBrowserModel.cpp" line="314"/>
         <source>Downloaded</source>
-        <translation type="unfinished">stiahnuté</translation>
+        <translation>Stiahnuté</translation>
     </message>
     <message>
         <location filename="../src/FileBrowserModel.cpp" line="314"/>
         <source>Shared</source>
-        <translation type="unfinished">Zdieľané</translation>
+        <translation>Zdieľané</translation>
     </message>
 </context>
 <context>
@@ -755,12 +755,12 @@ Kľúčové skratky:
     <message>
         <location filename="../src/FinishedTransfers.cpp" line="12"/>
         <source>Finished uploads</source>
-        <translation type="unfinished">Dokončené uploady</translation>
+        <translation>Dokončené uploady</translation>
     </message>
     <message>
         <location filename="../src/FinishedTransfers.cpp" line="13"/>
         <source>Finished downloads</source>
-        <translation type="unfinished">Ukončené sťahovania</translation>
+        <translation>Ukončené sťahovania</translation>
     </message>
 </context>
 <context>
@@ -768,7 +768,7 @@ Kľúčové skratky:
     <message>
         <location filename="../src/FinishedTransfers.h" line="481"/>
         <source>Open file</source>
-        <translation type="unfinished"></translation>
+        <translation>Otvoriť súbor</translation>
     </message>
     <message>
         <location filename="../src/FinishedTransfers.h" line="482"/>
@@ -1008,7 +1008,7 @@ Kľúčové skratky:
     <message>
         <location filename="../src/HubFrame.cpp" line="203"/>
         <source>Comment</source>
-        <translation type="unfinished">Komentár</translation>
+        <translation>Komentár</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="204"/>
@@ -1548,25 +1548,6 @@ Favorite user</source>
     </message>
 </context>
 <context>
-    <name>IPFilter</name>
-    <message>
-        <source>Nothing to export.</source>
-        <translation type="obsolete">Nič na export.</translation>
-    </message>
-    <message>
-        <source>Unable to export settings.</source>
-        <translation type="obsolete">Nie je možné exportovať nastavenia.</translation>
-    </message>
-    <message>
-        <source>Nothing to import.</source>
-        <translation type="obsolete">Nič na importovanie.</translation>
-    </message>
-    <message>
-        <source>Invalid signature.</source>
-        <translation type="obsolete">Neplatný podpis.</translation>
-    </message>
-</context>
-<context>
     <name>IPFilterFrame</name>
     <message>
         <location filename="../src/IPFilterFrame.cpp" line="177"/>
@@ -1637,7 +1618,7 @@ Favorite user</source>
     <message>
         <location filename="../src/Magnet.cpp" line="241"/>
         <source>Browse</source>
-        <translation type="unfinished">Prehliadať</translation>
+        <translation>Prehliadať</translation>
     </message>
     <message>
         <location filename="../src/Magnet.cpp" line="261"/>
@@ -1691,12 +1672,12 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="462"/>
         <source>Nick</source>
-        <translation type="unfinished"></translation>
+        <translation>Prezývka</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="462"/>
         <source>User</source>
-        <translation type="unfinished"></translation>
+        <translation>Užívateľ</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="467"/>
@@ -1968,7 +1949,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="1400"/>
         <source>Preferences</source>
-        <translation type="unfinished"></translation>
+        <translation>_Nastavenia</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1402"/>
@@ -2487,7 +2468,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="2952"/>
         <source>Show close buttons</source>
-        <translation type="unfinished">Zobraziť tlačidlá pre zatvorenie programu</translation>
+        <translation>Zobraziť tlačidlá pre zatvorenie programu</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2984"/>
@@ -2510,7 +2491,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MultiLineToolBar.cpp" line="56"/>
         <source>Show close buttons</source>
-        <translation type="unfinished">Zobraziť tlačidlá pre zatvorenie programu</translation>
+        <translation>Zobraziť tlačidlá pre zatvorenie programu</translation>
     </message>
 </context>
 <context>
@@ -2754,7 +2735,7 @@ Stiahnuté: %3 Uploadované: %4</translation>
     <message>
         <location filename="../src/QueuedUsers.cpp" line="72"/>
         <source>Grant slot</source>
-        <translation type="unfinished">Udeliť slot</translation>
+        <translation>Udeliť slot</translation>
     </message>
     <message>
         <location filename="../src/QueuedUsers.h" line="102"/>
@@ -2767,12 +2748,12 @@ Stiahnuté: %3 Uploadované: %4</translation>
     <message>
         <location filename="../src/QueuedUsers.cpp" line="120"/>
         <source>User</source>
-        <translation type="unfinished"></translation>
+        <translation>Užívateľ</translation>
     </message>
     <message>
         <location filename="../src/QueuedUsers.cpp" line="120"/>
         <source>File</source>
-        <translation type="unfinished">Súbor</translation>
+        <translation>_Súbor</translation>
     </message>
 </context>
 <context>
@@ -2796,7 +2777,7 @@ Stiahnuté: %3 Uploadované: %4</translation>
     <message>
         <location filename="../src/SearchBlacklistDialog.cpp" line="346"/>
         <source>Filename</source>
-        <translation type="unfinished"></translation>
+        <translation>Virtuálne meno</translation>
     </message>
 </context>
 <context>
@@ -2804,12 +2785,12 @@ Stiahnuté: %3 Uploadované: %4</translation>
     <message>
         <location filename="../src/SearchBlacklistDialog.cpp" line="58"/>
         <source>Add new</source>
-        <translation type="unfinished"></translation>
+        <translation>Pridať nové</translation>
     </message>
     <message>
         <location filename="../src/SearchBlacklistDialog.cpp" line="59"/>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Vymazať</translation>
     </message>
 </context>
 <context>
@@ -2817,17 +2798,17 @@ Stiahnuté: %3 Uploadované: %4</translation>
     <message>
         <location filename="../src/SearchBlacklistDialog.cpp" line="164"/>
         <source>Filename</source>
-        <translation type="unfinished"></translation>
+        <translation>Virtuálne meno</translation>
     </message>
     <message>
         <location filename="../src/SearchBlacklistDialog.cpp" line="179"/>
         <source>Key</source>
-        <translation type="unfinished">Kľúč</translation>
+        <translation>Kľúč</translation>
     </message>
     <message>
         <location filename="../src/SearchBlacklistDialog.cpp" line="180"/>
         <source>Type</source>
-        <translation type="unfinished">Typ</translation>
+        <translation>Typ</translation>
     </message>
     <message>
         <location filename="../src/SearchBlacklistDialog.cpp" line="279"/>
@@ -2861,7 +2842,7 @@ Stiahnuté: %3 Uploadované: %4</translation>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="82"/>
         <source>Stop</source>
-        <translation type="unfinished">Stop</translation>
+        <translation>Stop</translation>
     </message>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="132"/>
@@ -3131,7 +3112,7 @@ Stiahnuté: %3 Uploadované: %4</translation>
     <message>
         <location filename="../src/SearchModel.cpp" line="53"/>
         <source>Hub</source>
-        <translation type="unfinished"></translation>
+        <translation>Hub</translation>
     </message>
     <message>
         <location filename="../src/SearchModel.cpp" line="53"/>
@@ -3154,7 +3135,7 @@ Stiahnuté: %3 Uploadované: %4</translation>
     <message>
         <location filename="../src/Secretary.cpp" line="311"/>
         <source>Copy</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopírovať</translation>
     </message>
     <message>
         <location filename="../src/Secretary.cpp" line="312"/>
@@ -3164,7 +3145,7 @@ Stiahnuté: %3 Uploadované: %4</translation>
     <message>
         <location filename="../src/Secretary.cpp" line="313"/>
         <source>Copy nick</source>
-        <translation type="unfinished">skopírovať prezývku</translation>
+        <translation>skopírovať prezývku</translation>
     </message>
     <message>
         <location filename="../src/Secretary.cpp" line="315"/>
@@ -3179,17 +3160,17 @@ Stiahnuté: %3 Uploadované: %4</translation>
     <message>
         <location filename="../src/Secretary.cpp" line="318"/>
         <source>Select all</source>
-        <translation type="unfinished">Označiť všetko</translation>
+        <translation>Označiť všetko</translation>
     </message>
     <message>
         <location filename="../src/Secretary.cpp" line="320"/>
         <source>Zoom In</source>
-        <translation type="unfinished">Priblížiť</translation>
+        <translation>Priblížiť</translation>
     </message>
     <message>
         <location filename="../src/Secretary.cpp" line="321"/>
         <source>Zoom Out</source>
-        <translation type="unfinished">Oddialiť</translation>
+        <translation>Oddialiť</translation>
     </message>
 </context>
 <context>
@@ -3197,7 +3178,7 @@ Stiahnuté: %3 Uploadované: %4</translation>
     <message>
         <location filename="../src/Settings.cpp" line="38"/>
         <source>Preferences</source>
-        <translation type="unfinished"></translation>
+        <translation>_Nastavenia</translation>
     </message>
     <message>
         <location filename="../src/Settings.cpp" line="51"/>
@@ -3252,7 +3233,7 @@ Stiahnuté: %3 Uploadované: %4</translation>
     <message>
         <location filename="../src/Settings.cpp" line="101"/>
         <source>Advanced</source>
-        <translation type="unfinished">Rozšírené</translation>
+        <translation>Rozšírené</translation>
     </message>
 </context>
 <context>
@@ -3733,7 +3714,7 @@ Stiahnuté: %3 Uploadované: %4</translation>
     <message>
         <location filename="../src/ShareBrowserSearch.cpp" line="71"/>
         <source>Search - %1</source>
-        <translation type="unfinished">Hľadať - %1</translation>
+        <translation>Hľadať - %1</translation>
     </message>
     <message>
         <location filename="../src/ShareBrowserSearch.cpp" line="106"/>
@@ -3764,7 +3745,7 @@ Stiahnuté: %3 Uploadované: %4</translation>
     <message>
         <location filename="../src/ShortcutGetter.cpp" line="237"/>
         <source>Clear</source>
-        <translation type="unfinished">Vyčistiť</translation>
+        <translation>Vyčistiť</translation>
     </message>
     <message>
         <location filename="../src/ShortcutGetter.cpp" line="239"/>
@@ -3875,7 +3856,7 @@ Stiahnuté: %3 Uploadované: %4</translation>
         <location filename="../src/SideBar.cpp" line="82"/>
         <location filename="../src/SideBar.cpp" line="436"/>
         <source>Search Spy</source>
-        <translation type="unfinished">Hľadať</translation>
+        <translation>_Hľadať podľa TTH</translation>
     </message>
     <message>
         <source>Spy</source>
@@ -3904,42 +3885,42 @@ Stiahnuté: %3 Uploadované: %4</translation>
     <message>
         <location filename="../src/SideBar.cpp" line="572"/>
         <source>Close all</source>
-        <translation type="unfinished"></translation>
+        <translation>Zavrieť všetko</translation>
     </message>
     <message>
         <location filename="../src/SideBar.cpp" line="593"/>
         <source>Close</source>
-        <translation type="unfinished">Zatvoriť</translation>
+        <translation>Zatvoriť</translation>
     </message>
     <message>
         <location filename="../src/SideBar.cpp" line="652"/>
         <source>Choose file to open</source>
-        <translation type="unfinished">Vybrať súbor na otvorenie</translation>
+        <translation>Vybrať súbor na otvorenie</translation>
     </message>
     <message>
         <location filename="../src/SideBar.cpp" line="654"/>
         <source>Modern XML Filelists</source>
-        <translation type="unfinished">Modern XML Filelists</translation>
+        <translation>Modern XML Filelists</translation>
     </message>
     <message>
         <location filename="../src/SideBar.cpp" line="655"/>
         <source>Modern XML Filelists uncompressed</source>
-        <translation type="unfinished">Modern XML Filelists uncompressed</translation>
+        <translation>Modern XML Filelists uncompressed</translation>
     </message>
     <message>
         <location filename="../src/SideBar.cpp" line="656"/>
         <source>All files</source>
-        <translation type="unfinished">Všetky súbory</translation>
+        <translation>Všetky súbory</translation>
     </message>
     <message>
         <location filename="../src/SideBar.cpp" line="671"/>
         <source>Open log file</source>
-        <translation type="unfinished">Otvoriť záznam</translation>
+        <translation>Otvoriť záznam</translation>
     </message>
     <message>
         <location filename="../src/SideBar.cpp" line="671"/>
         <source>Log files (*.log);;All files (*.*)</source>
-        <translation type="unfinished">Log files (*.log);;All files (*.*)</translation>
+        <translation>Log files (*.log);;All files (*.*)</translation>
     </message>
 </context>
 <context>
@@ -3954,7 +3935,7 @@ Stiahnuté: %3 Uploadované: %4</translation>
         <location filename="../src/SpyFrame.cpp" line="55"/>
         <location filename="../src/SpyFrame.h" line="38"/>
         <source>Search Spy</source>
-        <translation type="unfinished">Hľadať</translation>
+        <translation>_Hľadať podľa TTH</translation>
     </message>
     <message>
         <location filename="../src/SpyFrame.cpp" line="56"/>
@@ -4057,7 +4038,7 @@ Prajete si hľadanie zastaviť?
     <message>
         <location filename="../src/TransferView.cpp" line="70"/>
         <source>Status</source>
-        <translation type="unfinished"></translation>
+        <translation>Stav</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="71"/>
@@ -4082,12 +4063,12 @@ Prajete si hľadanie zastaviť?
     <message>
         <location filename="../src/TransferView.cpp" line="75"/>
         <source>Hub</source>
-        <translation type="unfinished"></translation>
+        <translation>Hub</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="76"/>
         <source>IP</source>
-        <translation type="unfinished">IP</translation>
+        <translation>IP</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="77"/>
@@ -4236,7 +4217,7 @@ Prajete si hľadanie zastaviť?
     <message>
         <location filename="../src/TransferViewModel.cpp" line="51"/>
         <source>IP</source>
-        <translation type="unfinished">IP</translation>
+        <translation>IP</translation>
     </message>
     <message>
         <location filename="../src/TransferViewModel.cpp" line="52"/>
@@ -4246,7 +4227,7 @@ Prajete si hľadanie zastaviť?
     <message>
         <location filename="../src/TransferViewModel.cpp" line="111"/>
         <source>/s</source>
-        <translation type="unfinished">/s</translation>
+        <translation>/s</translation>
     </message>
     <message>
         <location filename="../src/TransferViewModel.cpp" line="304"/>
@@ -4287,7 +4268,7 @@ Prajete si hľadanie zastaviť?
     <message>
         <location filename="../src/UCModel.cpp" line="86"/>
         <source>Hub</source>
-        <translation type="unfinished"></translation>
+        <translation>Hub</translation>
     </message>
     <message>
         <location filename="../src/UCModel.cpp" line="152"/>
@@ -4365,22 +4346,22 @@ Prajete si hľadanie zastaviť?
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="193"/>
         <source>B</source>
-        <translation type="unfinished">B</translation>
+        <translation>B</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="198"/>
         <source>KiB</source>
-        <translation type="unfinished">KiB</translation>
+        <translation>KiB</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="203"/>
         <source>MiB</source>
-        <translation type="unfinished">MiB</translation>
+        <translation>MiB</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="208"/>
         <source>GiB</source>
-        <translation type="unfinished">GiB</translation>
+        <translation>GiB</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="265"/>
@@ -4444,7 +4425,7 @@ Prajete si hľadanie zastaviť?
     <message>
         <location filename="../ui/UIAntiSpam.ui" line="20"/>
         <source>AntiSpam</source>
-        <translation type="unfinished">AntiSpam</translation>
+        <translation>AntiSpam</translation>
     </message>
     <message>
         <location filename="../ui/UIAntiSpam.ui" line="46"/>
@@ -4534,12 +4515,12 @@ Prajete si hľadanie zastaviť?
     <message>
         <location filename="../ui/UICmdDebug.ui" line="57"/>
         <source>Find: </source>
-        <translation type="unfinished">Hľadať:</translation>
+        <translation>Hľadať:</translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="71"/>
         <source>Previous (Shift+F3)</source>
-        <translation type="unfinished">Predchádzajúci (Shift+F3)</translation>
+        <translation>Predchádzajúci (Shift+F3)</translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="77"/>
@@ -4549,7 +4530,7 @@ Prajete si hľadanie zastaviť?
     <message>
         <location filename="../ui/UICmdDebug.ui" line="84"/>
         <source>Next (F3)</source>
-        <translation type="unfinished">Nasledujúci (F3)</translation>
+        <translation>Nasledujúci (F3)</translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="90"/>
@@ -4559,12 +4540,12 @@ Prajete si hľadanie zastaviť?
     <message>
         <location filename="../ui/UICmdDebug.ui" line="97"/>
         <source>Highlight all</source>
-        <translation type="unfinished">Vyznačiť všetko</translation>
+        <translation>Vyznačiť všetko</translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="113"/>
         <source>Hide search panel (Ctrl+F)</source>
-        <translation type="unfinished">Skryť políčko pre hľadanie (Ctrl+F)</translation>
+        <translation>Skryť políčko pre hľadanie (Ctrl+F)</translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="154"/>
@@ -4660,7 +4641,7 @@ Prajete si hľadanie zastaviť?
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="110"/>
         <source>Default</source>
-        <translation type="unfinished"></translation>
+        <translation>Štandartne</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="115"/>
@@ -4769,7 +4750,7 @@ Prajete si hľadanie zastaviť?
     <message>
         <location filename="../ui/UIFileHasher.ui" line="93"/>
         <source>Filepath</source>
-        <translation type="unfinished">Cesta k súboru</translation>
+        <translation>Cesta k súboru</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="113"/>
@@ -4784,27 +4765,27 @@ Prajete si hľadanie zastaviť?
     <message>
         <location filename="../ui/UIFileHasher.ui" line="146"/>
         <source>Filename</source>
-        <translation type="unfinished"></translation>
+        <translation>Virtuálne meno</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="185"/>
         <source>Opens search dialog and searches file.</source>
-        <translation type="unfinished">Otvor okienko pre hľadanie a hľadaj súbor.</translation>
+        <translation>Otvor okienko pre hľadanie a hľadaj súbor.</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="188"/>
         <source>Search</source>
-        <translation type="unfinished">Hľadať</translation>
+        <translation>hľadanieADL</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="208"/>
         <source>Cancel</source>
-        <translation type="unfinished">Zrušiť</translation>
+        <translation>Zrušiť</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="100"/>
         <source>Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Veľkosť</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="178"/>
@@ -4925,7 +4906,7 @@ Prajete si hľadanie zastaviť?
     <message>
         <location filename="../ui/UIHubManager.ui" line="38"/>
         <source>URL</source>
-        <translation type="unfinished"></translation>
+        <translation>URL</translation>
     </message>
     <message>
         <location filename="../ui/UIHubManager.ui" line="43"/>
@@ -5075,7 +5056,7 @@ in options, file will be downloaded without opening search dialog.</source>
     <message>
         <location filename="../ui/PrivateMessage.ui" line="88"/>
         <source>Previous (Shift+F3)</source>
-        <translation type="unfinished">Predchádzajúci (Shift+F3)</translation>
+        <translation>Predchádzajúci (Shift+F3)</translation>
     </message>
     <message>
         <location filename="../ui/PrivateMessage.ui" line="94"/>
@@ -5085,7 +5066,7 @@ in options, file will be downloaded without opening search dialog.</source>
     <message>
         <location filename="../ui/PrivateMessage.ui" line="101"/>
         <source>Next (F3)</source>
-        <translation type="unfinished">Nasledujúci (F3)</translation>
+        <translation>Nasledujúci (F3)</translation>
     </message>
     <message>
         <location filename="../ui/PrivateMessage.ui" line="107"/>
@@ -5095,12 +5076,12 @@ in options, file will be downloaded without opening search dialog.</source>
     <message>
         <location filename="../ui/PrivateMessage.ui" line="114"/>
         <source>Hide search panel (Ctrl+F)</source>
-        <translation type="unfinished">Skryť políčko pre hľadanie (Ctrl+F)</translation>
+        <translation>Skryť políčko pre hľadanie (Ctrl+F)</translation>
     </message>
     <message>
         <location filename="../ui/PrivateMessage.ui" line="124"/>
         <source>Highlight all</source>
-        <translation type="unfinished">Vyznačiť všetko</translation>
+        <translation>Vyznačiť všetko</translation>
     </message>
     <message>
         <location filename="../ui/PrivateMessage.ui" line="229"/>
@@ -5159,7 +5140,7 @@ in options, file will be downloaded without opening search dialog.</source>
     <message>
         <location filename="../ui/UIScriptManager.ui" line="21"/>
         <source>Do nothing</source>
-        <translation type="unfinished">Nerobiť nič</translation>
+        <translation>Nerobiť nič</translation>
     </message>
     <message>
         <location filename="../ui/UIScriptManager.ui" line="26"/>
@@ -5187,7 +5168,7 @@ in options, file will be downloaded without opening search dialog.</source>
     <message>
         <location filename="../ui/UISearchBlacklist.ui" line="93"/>
         <source>Cancel</source>
-        <translation type="unfinished">Zrušiť</translation>
+        <translation>Zrušiť</translation>
     </message>
     <message>
         <location filename="../ui/UISearchBlacklist.ui" line="100"/>
@@ -5200,12 +5181,12 @@ in options, file will be downloaded without opening search dialog.</source>
     <message>
         <location filename="../ui/UISecretary.ui" line="73"/>
         <source>Find: </source>
-        <translation type="unfinished">Hľadať:</translation>
+        <translation>Hľadať:</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="87"/>
         <source>Previous (Shift+F3)</source>
-        <translation type="unfinished">Predchádzajúci (Shift+F3)</translation>
+        <translation>Predchádzajúci (Shift+F3)</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="93"/>
@@ -5215,7 +5196,7 @@ in options, file will be downloaded without opening search dialog.</source>
     <message>
         <location filename="../ui/UISecretary.ui" line="100"/>
         <source>Next (F3)</source>
-        <translation type="unfinished">Nasledujúci (F3)</translation>
+        <translation>Nasledujúci (F3)</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="106"/>
@@ -5225,12 +5206,12 @@ in options, file will be downloaded without opening search dialog.</source>
     <message>
         <location filename="../ui/UISecretary.ui" line="113"/>
         <source>Highlight all</source>
-        <translation type="unfinished">Vyznačiť všetko</translation>
+        <translation>Vyznačiť všetko</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="129"/>
         <source>Hide search panel (Ctrl+F)</source>
-        <translation type="unfinished">Skryť políčko pre hľadanie (Ctrl+F)</translation>
+        <translation>Skryť políčko pre hľadanie (Ctrl+F)</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="219"/>
@@ -5250,7 +5231,7 @@ in options, file will be downloaded without opening search dialog.</source>
     <message>
         <location filename="../ui/UISecretary.ui" line="179"/>
         <source>Status messages</source>
-        <translation type="unfinished">Správa o stave</translation>
+        <translation>Správa o stave</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="169"/>
@@ -5260,7 +5241,7 @@ in options, file will be downloaded without opening search dialog.</source>
     <message>
         <location filename="../ui/UISecretary.ui" line="189"/>
         <source>Private messages</source>
-        <translation type="unfinished">Súkromná správa</translation>
+        <translation>Súkromná správa</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="159"/>
@@ -5472,7 +5453,7 @@ DC++ SOCKS5 nepodporuje GSSAPI.</translation>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="386"/>
         <source>IP</source>
-        <translation type="unfinished">IP</translation>
+        <translation>IP</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="393"/>
@@ -5594,7 +5575,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="909"/>
         <source>No</source>
-        <translation type="unfinished"></translation>
+        <translation>Nie</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="914"/>
@@ -5609,7 +5590,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="924"/>
         <source>Reliability</source>
-        <translation type="unfinished">Spoľahlivos</translation>
+        <translation>Spoľahlivos</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="929"/>
@@ -5887,7 +5868,7 @@ will be dropped. (default: 1)</source>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="680"/>
         <source>Set lowest priority for newly added files larger than low priority size</source>
-        <translation type="unfinished"></translation>
+        <translation>Nastaviť najnižšiu prioritu pre novopridané súbory, ktoré sú väčšie než nastavená hodnota pre súbory s nízkou prioritou.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="683"/>
@@ -5935,7 +5916,7 @@ but not removed from the queue.</source>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="744"/>
         <source>Automatically search for alternative download locations</source>
-        <translation type="unfinished"></translation>
+        <translation>Automaticky hľadať alternatívy pre sťahovanie</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="747"/>
@@ -6178,7 +6159,7 @@ from the queue either, you must do that manually.</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="225"/>
         <source>Chat</source>
-        <translation type="unfinished">Chat</translation>
+        <translation>Chat</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="231"/>
@@ -6423,7 +6404,7 @@ them is usually available only to operators</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="863"/>
         <source>Upload</source>
-        <translation type="unfinished">Upload</translation>
+        <translation>Odovzdanie</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="890"/>
@@ -6532,7 +6513,7 @@ them is usually available only to operators</source>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="243"/>
         <source>Search Spy</source>
-        <translation type="unfinished">Hľadať</translation>
+        <translation>_Hľadať podľa TTH</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="294"/>
@@ -6562,7 +6543,7 @@ them is usually available only to operators</source>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="196"/>
         <source>Finished Downloads</source>
-        <translation type="unfinished">Ukončené sťahovania</translation>
+        <translation>Ukončené sťahovania</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="385"/>
@@ -7014,7 +6995,7 @@ avšak ak sa vráti do 10 min, EiskaltDC++ mu udelí spät jeho slot.</translati
         <location filename="../ui/UIShareBrowserSearch.ui" line="14"/>
         <location filename="../ui/UIShareBrowserSearch.ui" line="25"/>
         <source>Search</source>
-        <translation type="unfinished">Hľadať</translation>
+        <translation>hľadanieADL</translation>
     </message>
     <message>
         <location filename="../ui/UIShareBrowserSearch.ui" line="35"/>
@@ -7034,12 +7015,12 @@ avšak ak sa vráti do 10 min, EiskaltDC++ mu udelí spät jeho slot.</translati
     <message>
         <location filename="../ui/UIShareBrowserSearch.ui" line="54"/>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation>_Meno:</translation>
     </message>
     <message>
         <location filename="../ui/UIShareBrowserSearch.ui" line="59"/>
         <source>Directory</source>
-        <translation type="unfinished">Adresár</translation>
+        <translation>Priečinok</translation>
     </message>
 </context>
 <context>
@@ -7105,7 +7086,7 @@ avšak ak sa vráti do 10 min, EiskaltDC++ mu udelí spät jeho slot.</translati
     <message>
         <location filename="../ui/UIUserCommands.ui" line="75"/>
         <source>Hub</source>
-        <translation type="unfinished"></translation>
+        <translation>Hub</translation>
     </message>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="82"/>
@@ -7120,7 +7101,7 @@ avšak ak sa vráti do 10 min, EiskaltDC++ mu udelí spät jeho slot.</translati
     <message>
         <location filename="../ui/UIUserCommands.ui" line="96"/>
         <source>Filebrowser</source>
-        <translation type="unfinished">Prehliadač</translation>
+        <translation>Prehliadač</translation>
     </message>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="106"/>
@@ -7213,7 +7194,7 @@ avšak ak sa vráti do 10 min, EiskaltDC++ mu udelí spät jeho slot.</translati
     <message>
         <location filename="../src/UserListModel.cpp" line="176"/>
         <source>IP</source>
-        <translation type="unfinished">IP</translation>
+        <translation>IP</translation>
     </message>
 </context>
 <context>

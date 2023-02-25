@@ -167,7 +167,7 @@ Keys:
     <message>
         <location filename="../src/CmdDebug.cpp" line="65"/>
         <source>Debug Console</source>
-        <translation type="unfinished"></translation>
+        <translation>Debug Console</translation>
     </message>
 </context>
 <context>
@@ -874,7 +874,7 @@ Keys:
         <location filename="../src/HashProgress.cpp" line="139"/>
         <location filename="../src/HashProgress.cpp" line="165"/>
         <source>%1% %2 left</source>
-        <translation type="unfinished"></translation>
+        <translation>%1% %2 left</translation>
     </message>
     <message>
         <location filename="../src/HashProgress.cpp" line="148"/>
@@ -1009,7 +1009,7 @@ Keys:
     <message>
         <location filename="../src/HubFrame.cpp" line="203"/>
         <source>Comment</source>
-        <translation type="unfinished">Comment</translation>
+        <translation>Comment</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="204"/>
@@ -1029,7 +1029,7 @@ Keys:
     <message>
         <location filename="../src/HubFrame.cpp" line="207"/>
         <source>E-mail</source>
-        <translation type="unfinished">E-mail</translation>
+        <translation>E-mail</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="209"/>
@@ -1073,7 +1073,7 @@ Keys:
     <message>
         <location filename="../src/HubFrame.cpp" line="567"/>
         <source>search</source>
-        <translation type="unfinished"></translation>
+        <translation>search</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="760"/>
@@ -1377,13 +1377,15 @@ Favorite user</translation>
         <location filename="../src/HubFrame.cpp" line="1881"/>
         <source>/rebuild - rebuild hash
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/rebuild - rebuild hash
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1882"/>
         <source>/refresh - update own file list
 </source>
-        <translation type="unfinished"></translation>
+        <translation>/refresh - update own file list
+</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="1883"/>
@@ -1557,25 +1559,6 @@ Favorite user</translation>
     </message>
 </context>
 <context>
-    <name>IPFilter</name>
-    <message>
-        <source>Nothing to export.</source>
-        <translation type="obsolete">Nothing to export.</translation>
-    </message>
-    <message>
-        <source>Unable to export settings.</source>
-        <translation type="obsolete">Unable to export settings.</translation>
-    </message>
-    <message>
-        <source>Nothing to import.</source>
-        <translation type="obsolete">Nothing to import.</translation>
-    </message>
-    <message>
-        <source>Invalid signature.</source>
-        <translation type="obsolete">Invalid signature.</translation>
-    </message>
-</context>
-<context>
     <name>IPFilterFrame</name>
     <message>
         <location filename="../src/IPFilterFrame.cpp" line="177"/>
@@ -1685,12 +1668,12 @@ Favorite user</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="351"/>
         <source>Kill all humans?</source>
-        <translation type="unfinished"></translation>
+        <translation>Kill all humans?</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="353"/>
         <source>Action confirm</source>
-        <translation type="unfinished"></translation>
+        <translation>Action confirm</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="462"/>
@@ -1992,12 +1975,12 @@ Favorite user</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="1406"/>
         <source>Debug Console</source>
-        <translation type="unfinished"></translation>
+        <translation>Debug Console</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1408"/>
         <source>Secretary</source>
-        <translation type="unfinished"></translation>
+        <translation>Secretary</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1410"/>
@@ -2091,7 +2074,7 @@ Favorite user</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="1449"/>
         <source>Source code (git)</source>
-        <translation type="unfinished"></translation>
+        <translation>Source code (git)</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1451"/>
@@ -2255,32 +2238,32 @@ Favorite user</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="2737"/>
         <source>EiskaltDC++ is a graphical client for Direct Connect and ADC protocols.</source>
-        <translation type="unfinished"></translation>
+        <translation>EiskaltDC++ is a graphical client for Direct Connect and ADC protocols.</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2740"/>
         <source>DC++ core version: %1 (modified)</source>
-        <translation type="unfinished"></translation>
+        <translation>DC++ core version: %1 (modified)</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2743"/>
         <source>Home page: </source>
-        <translation type="unfinished"></translation>
+        <translation>Home page: </translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2748"/>
         <source>Total up: &lt;b&gt;%1&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Total up: &lt;b&gt;%1&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2750"/>
         <source>Total down: &lt;b&gt;%1&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Total down: &lt;b&gt;%1&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2752"/>
         <source>Ratio: &lt;b&gt;%1&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Ratio: &lt;b&gt;%1&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2762"/>
@@ -2325,7 +2308,7 @@ Favorite user</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="2861"/>
         <source>Serbian (Cyrillic) translation&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Serbian (Cyrillic) translation&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2865"/>
@@ -2340,7 +2323,7 @@ Favorite user</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="2873"/>
         <source>Basque translation&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Basque translation&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2876"/>
@@ -2395,12 +2378,12 @@ Favorite user</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="2909"/>
         <source>Turkish translation&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Turkish translation&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2912"/>
         <source>Danish translation&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Danish translation&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="3143"/>
@@ -2425,29 +2408,29 @@ Favorite user</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="1441"/>
         <source>Download program</source>
-        <translation type="unfinished"></translation>
+        <translation>Download program</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2759"/>
         <source>Please use &lt;a href=&quot;https://github.com/eiskaltdcpp/eiskaltdcpp/issues&quot;&gt;https://github.com/eiskaltdcpp/eiskaltdcpp/issues&lt;/a&gt; to report bugs.&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Please use &lt;a href=&quot;https://github.com/eiskaltdcpp/eiskaltdcpp/issues&quot;&gt;https://github.com/eiskaltdcpp/eiskaltdcpp/issues&lt;/a&gt; to report bugs.&lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2766"/>
         <location filename="../src/MainWindow.cpp" line="2794"/>
         <source>lead developer</source>
-        <translation type="unfinished"></translation>
+        <translation>lead developer</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2769"/>
         <location filename="../src/MainWindow.cpp" line="2791"/>
         <source>release manager</source>
-        <translation type="unfinished"></translation>
+        <translation>release manager</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2774"/>
         <source>Arch Linux maintainer</source>
-        <translation type="unfinished"></translation>
+        <translation>Arch Linux maintainer</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2777"/>
@@ -2455,43 +2438,43 @@ Favorite user</translation>
         <location filename="../src/MainWindow.cpp" line="2808"/>
         <location filename="../src/MainWindow.cpp" line="2813"/>
         <source>developer</source>
-        <translation type="unfinished"></translation>
+        <translation>developer</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2782"/>
         <source>Debian/Ubuntu maintainer</source>
-        <translation type="unfinished"></translation>
+        <translation>Debian/Ubuntu maintainer</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2788"/>
         <source>translations coordinator</source>
-        <translation type="unfinished"></translation>
+        <translation>translations coordinator</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2797"/>
         <source>macOS maintainer</source>
-        <translation type="unfinished"></translation>
+        <translation>macOS maintainer</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2800"/>
         <location filename="../src/MainWindow.cpp" line="2805"/>
         <source>MS Windows maintainer</source>
-        <translation type="unfinished"></translation>
+        <translation>MS Windows maintainer</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2820"/>
         <source>creator of the logo of the project</source>
-        <translation type="unfinished"></translation>
+        <translation>creator of the logo of the project</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2825"/>
         <source>tiny updates of the logo</source>
-        <translation type="unfinished"></translation>
+        <translation>tiny updates of the logo</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2833"/>
         <source>Participate in the translation. It is easy:</source>
-        <translation type="unfinished"></translation>
+        <translation>Participate in the translation. It is easy:</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2952"/>
@@ -2696,7 +2679,7 @@ Downloaded: %3 Uploaded: %4</translation>
     <message>
         <location filename="../src/PublicHubs.cpp" line="290"/>
         <source>Hub list downloaded... (%1)</source>
-        <translation type="unfinished"></translation>
+        <translation>Hub list downloaded... (%1)</translation>
     </message>
     <message>
         <source>Hub list downloaded... (%1 %2) </source>
@@ -3084,7 +3067,7 @@ Downloaded: %3 Uploaded: %4</translation>
     <message>
         <location filename="../src/SearchFrame.cpp" line="1561"/>
         <source>Search progress of &quot;%1&quot; is %2%</source>
-        <translation type="unfinished"></translation>
+        <translation>Search progress of &quot;%1&quot; is %2%</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="1584"/>
@@ -3170,47 +3153,47 @@ Downloaded: %3 Uploaded: %4</translation>
     <message>
         <location filename="../src/Secretary.cpp" line="86"/>
         <source>Secretary</source>
-        <translation type="unfinished"></translation>
+        <translation>Secretary</translation>
     </message>
     <message>
         <location filename="../src/Secretary.cpp" line="311"/>
         <source>Copy</source>
-        <translation type="unfinished">Copy</translation>
+        <translation>Copy</translation>
     </message>
     <message>
         <location filename="../src/Secretary.cpp" line="312"/>
         <source>Search text</source>
-        <translation type="unfinished">Search text</translation>
+        <translation>Search text</translation>
     </message>
     <message>
         <location filename="../src/Secretary.cpp" line="313"/>
         <source>Copy nick</source>
-        <translation type="unfinished">Copy nick</translation>
+        <translation>Copy nick</translation>
     </message>
     <message>
         <location filename="../src/Secretary.cpp" line="315"/>
         <source>Clear notes</source>
-        <translation type="unfinished"></translation>
+        <translation>Clear notes</translation>
     </message>
     <message>
         <location filename="../src/Secretary.cpp" line="316"/>
         <source>Find in notes</source>
-        <translation type="unfinished"></translation>
+        <translation>Find in notes</translation>
     </message>
     <message>
         <location filename="../src/Secretary.cpp" line="318"/>
         <source>Select all</source>
-        <translation type="unfinished">Select all</translation>
+        <translation>Select all</translation>
     </message>
     <message>
         <location filename="../src/Secretary.cpp" line="320"/>
         <source>Zoom In</source>
-        <translation type="unfinished">Zoom In</translation>
+        <translation>Zoom In</translation>
     </message>
     <message>
         <location filename="../src/Secretary.cpp" line="321"/>
         <source>Zoom Out</source>
-        <translation type="unfinished">Zoom Out</translation>
+        <translation>Zoom Out</translation>
     </message>
 </context>
 <context>
@@ -3273,7 +3256,7 @@ Downloaded: %3 Uploaded: %4</translation>
     <message>
         <location filename="../src/Settings.cpp" line="101"/>
         <source>Advanced</source>
-        <translation type="unfinished">Advanced</translation>
+        <translation>Advanced</translation>
     </message>
 </context>
 <context>
@@ -3281,7 +3264,7 @@ Downloaded: %3 Uploaded: %4</translation>
     <message>
         <location filename="../src/SettingsAdvanced.cpp" line="44"/>
         <source>Select mime handler binary</source>
-        <translation type="unfinished"></translation>
+        <translation>Select mime handler binary</translation>
     </message>
 </context>
 <context>
@@ -3377,7 +3360,7 @@ Downloaded: %3 Uploaded: %4</translation>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="73"/>
         <source>Serbian (Cyrillic)</source>
-        <translation type="unfinished"></translation>
+        <translation>Serbian (Cyrillic)</translation>
     </message>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="74"/>
@@ -3397,7 +3380,7 @@ Downloaded: %3 Uploaded: %4</translation>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="77"/>
         <source>Basque</source>
-        <translation type="unfinished"></translation>
+        <translation>Basque</translation>
     </message>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="78"/>
@@ -3447,12 +3430,12 @@ Downloaded: %3 Uploaded: %4</translation>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="87"/>
         <source>Turkish</source>
-        <translation type="unfinished"></translation>
+        <translation>Turkish</translation>
     </message>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="88"/>
         <source>Danish</source>
-        <translation type="unfinished"></translation>
+        <translation>Danish</translation>
     </message>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="226"/>
@@ -3890,13 +3873,13 @@ Downloaded: %3 Uploaded: %4</translation>
         <location filename="../src/SideBar.cpp" line="435"/>
         <location filename="../src/SideBar.cpp" line="440"/>
         <source>Secretary</source>
-        <translation type="unfinished"></translation>
+        <translation>Secretary</translation>
     </message>
     <message>
         <location filename="../src/SideBar.cpp" line="82"/>
         <location filename="../src/SideBar.cpp" line="436"/>
         <source>Search Spy</source>
-        <translation type="unfinished">Search Spy</translation>
+        <translation>Search Spy</translation>
     </message>
     <message>
         <source>Spy</source>
@@ -3906,7 +3889,7 @@ Downloaded: %3 Uploaded: %4</translation>
         <location filename="../src/SideBar.cpp" line="83"/>
         <location filename="../src/SideBar.cpp" line="439"/>
         <source>Debug Console</source>
-        <translation type="unfinished"></translation>
+        <translation>Debug Console</translation>
     </message>
     <message>
         <location filename="../src/SideBar.cpp" line="85"/>
@@ -4138,7 +4121,7 @@ Do you want to stop it?
     <message>
         <location filename="../src/TransferView.cpp" line="95"/>
         <source>Show only transferred files</source>
-        <translation type="unfinished"></translation>
+        <translation>Show only transferred files</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="348"/>
@@ -4555,57 +4538,57 @@ Do you want to stop it?
     <message>
         <location filename="../ui/UICmdDebug.ui" line="57"/>
         <source>Find: </source>
-        <translation type="unfinished">Find: </translation>
+        <translation>Find: </translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="71"/>
         <source>Previous (Shift+F3)</source>
-        <translation type="unfinished">Previous (Shift+F3)</translation>
+        <translation>Previous (Shift+F3)</translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="77"/>
         <source>Shift+F3</source>
-        <translation type="unfinished">Shift+F3</translation>
+        <translation>Shift+F3</translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="84"/>
         <source>Next (F3)</source>
-        <translation type="unfinished">Next (F3)</translation>
+        <translation>Next (F3)</translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="90"/>
         <source>F3</source>
-        <translation type="unfinished">F3</translation>
+        <translation>F3</translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="97"/>
         <source>Highlight all</source>
-        <translation type="unfinished">Highlight all</translation>
+        <translation>Highlight all</translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="113"/>
         <source>Hide search panel (Ctrl+F)</source>
-        <translation type="unfinished">Hide search panel (Ctrl+F)</translation>
+        <translation>Hide search panel (Ctrl+F)</translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="154"/>
         <source>Use comma as separator</source>
-        <translation type="unfinished"></translation>
+        <translation>Use comma as separator</translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="157"/>
         <source>Filter by IP</source>
-        <translation type="unfinished"></translation>
+        <translation>Filter by IP</translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="208"/>
         <source>Lines:</source>
-        <translation type="unfinished"></translation>
+        <translation>Lines:</translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="228"/>
         <source>Clear now</source>
-        <translation type="unfinished">Clear now</translation>
+        <translation>Clear now</translation>
     </message>
 </context>
 <context>
@@ -4666,7 +4649,7 @@ Do you want to stop it?
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="85"/>
         <source>This description will be shown in the list of favorite hubs.</source>
-        <translation type="unfinished"></translation>
+        <translation>This description will be shown in the list of favorite hubs.</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="92"/>
@@ -4731,7 +4714,7 @@ Do you want to stop it?
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="243"/>
         <source>This description will be shown in the user list.</source>
-        <translation type="unfinished"></translation>
+        <translation>This description will be shown in the user list.</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="250"/>
@@ -4790,42 +4773,42 @@ Do you want to stop it?
     <message>
         <location filename="../ui/UIFileHasher.ui" line="93"/>
         <source>Filepath</source>
-        <translation type="unfinished">Filepath</translation>
+        <translation>Filepath</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="113"/>
         <source>Copy magnet link to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Copy magnet link to clipboard</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="136"/>
         <source>Copy search link to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Copy search link to clipboard</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="146"/>
         <source>Filename</source>
-        <translation type="unfinished">Filename</translation>
+        <translation>Filename</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="185"/>
         <source>Opens search dialog and searches file.</source>
-        <translation type="unfinished">Opens search dialog and searches file.</translation>
+        <translation>Opens search dialog and searches file.</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="188"/>
         <source>Search</source>
-        <translation type="unfinished">Search</translation>
+        <translation>Search</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="208"/>
         <source>Cancel</source>
-        <translation type="unfinished">Cancel</translation>
+        <translation>Cancel</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="100"/>
         <source>Size</source>
-        <translation type="unfinished">Size</translation>
+        <translation>Size</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="178"/>
@@ -5031,7 +5014,7 @@ Do you want to stop it?
     <message>
         <location filename="../ui/UIMagnet.ui" line="20"/>
         <source>Magnet link viewer</source>
-        <translation type="unfinished"></translation>
+        <translation>Magnet link viewer</translation>
     </message>
     <message>
         <location filename="../ui/UIMagnet.ui" line="56"/>
@@ -5051,12 +5034,12 @@ Do you want to stop it?
     <message>
         <location filename="../ui/UIMagnet.ui" line="113"/>
         <source>Copy magnet link to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Copy magnet link to clipboard</translation>
     </message>
     <message>
         <location filename="../ui/UIMagnet.ui" line="136"/>
         <source>Copy search link to clipboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Copy search link to clipboard</translation>
     </message>
     <message>
         <location filename="../ui/UIMagnet.ui" line="171"/>
@@ -5106,7 +5089,7 @@ in options, file will be downloaded without opening search dialog.</translation>
     <message>
         <location filename="../ui/PrivateMessage.ui" line="94"/>
         <source>Shift+F3</source>
-        <translation type="unfinished">Shift+F3</translation>
+        <translation>Shift+F3</translation>
     </message>
     <message>
         <location filename="../ui/PrivateMessage.ui" line="101"/>
@@ -5116,7 +5099,7 @@ in options, file will be downloaded without opening search dialog.</translation>
     <message>
         <location filename="../ui/PrivateMessage.ui" line="107"/>
         <source>F3</source>
-        <translation type="unfinished">F3</translation>
+        <translation>F3</translation>
     </message>
     <message>
         <location filename="../ui/PrivateMessage.ui" line="114"/>
@@ -5226,98 +5209,98 @@ in options, file will be downloaded without opening search dialog.</translation>
     <message>
         <location filename="../ui/UISecretary.ui" line="73"/>
         <source>Find: </source>
-        <translation type="unfinished">Find: </translation>
+        <translation>Find: </translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="87"/>
         <source>Previous (Shift+F3)</source>
-        <translation type="unfinished">Previous (Shift+F3)</translation>
+        <translation>Previous (Shift+F3)</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="93"/>
         <source>Shift+F3</source>
-        <translation type="unfinished">Shift+F3</translation>
+        <translation>Shift+F3</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="100"/>
         <source>Next (F3)</source>
-        <translation type="unfinished">Next (F3)</translation>
+        <translation>Next (F3)</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="106"/>
         <source>F3</source>
-        <translation type="unfinished">F3</translation>
+        <translation>F3</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="113"/>
         <source>Highlight all</source>
-        <translation type="unfinished">Highlight all</translation>
+        <translation>Highlight all</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="129"/>
         <source>Hide search panel (Ctrl+F)</source>
-        <translation type="unfinished">Hide search panel (Ctrl+F)</translation>
+        <translation>Hide search panel (Ctrl+F)</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="219"/>
         <source>Magnet links</source>
-        <translation type="unfinished"></translation>
+        <translation>Magnet links</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="199"/>
         <source>Search links</source>
-        <translation type="unfinished"></translation>
+        <translation>Search links</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="209"/>
         <source>Public chat</source>
-        <translation type="unfinished"></translation>
+        <translation>Public chat</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="179"/>
         <source>Status messages</source>
-        <translation type="unfinished">Status messages</translation>
+        <translation>Status messages</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="169"/>
         <source>BitTorrent links</source>
-        <translation type="unfinished"></translation>
+        <translation>BitTorrent links</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="189"/>
         <source>Private messages</source>
-        <translation type="unfinished">Private messages</translation>
+        <translation>Private messages</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="159"/>
         <source>Filter duplicates</source>
-        <translation type="unfinished"></translation>
+        <translation>Filter duplicates</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="233"/>
         <location filename="../ui/UISecretary.ui" line="246"/>
         <source>Use comma as separator</source>
-        <translation type="unfinished"></translation>
+        <translation>Use comma as separator</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="236"/>
         <source>Additional keywords</source>
-        <translation type="unfinished"></translation>
+        <translation>Additional keywords</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="249"/>
         <source>Filter hubs by IP</source>
-        <translation type="unfinished"></translation>
+        <translation>Filter hubs by IP</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="277"/>
         <source>Lines:</source>
-        <translation type="unfinished"></translation>
+        <translation>Lines:</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="297"/>
         <source>Clear now</source>
-        <translation type="unfinished">Clear now</translation>
+        <translation>Clear now</translation>
     </message>
 </context>
 <context>
@@ -5333,7 +5316,7 @@ in options, file will be downloaded without opening search dialog.</translation>
     <message>
         <location filename="../ui/UISettingsAdvanced.ui" line="23"/>
         <source>Mime Handler</source>
-        <translation type="unfinished"></translation>
+        <translation>Mime Handler</translation>
     </message>
 </context>
 <context>
@@ -6409,17 +6392,17 @@ from other words by spaces.</translation>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="435"/>
         <source>Show kibibyte (KiB) or kilobyte (KB), etc.</source>
-        <translation type="unfinished"></translation>
+        <translation>Show kibibyte (KiB) or kilobyte (KB), etc.</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="465"/>
         <source>Metric</source>
-        <translation type="unfinished"></translation>
+        <translation>Metric</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="479"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;These expressions may be used for the time:&lt;/p&gt;&lt;table border=&quot;0&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px;&quot; cellspacing=&quot;2&quot; cellpadding=&quot;0&quot;&gt;&lt;thead&gt;&lt;tr&gt;&lt;td&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Expression&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Output&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;h&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;the hour without a leading zero (0 to 23 or 1 to 12 if AM/PM display)&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;hh&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;the hour with a leading zero (00 to 23 or 01 to 12 if AM/PM display)&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;H&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;the hour without a leading zero (0 to 23, even with AM/PM display)&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;HH&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;the hour with a leading zero (00 to 23, even with AM/PM display)&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;m&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;the minute without a leading zero (0 to 59)&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;mm&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;the minute with a leading zero (00 to 59)&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;s&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;the second without a leading zero (0 to 59)&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;ss&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;the second with a leading zero (00 to 59)&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;z&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;the milliseconds without leading zeroes (0 to 999)&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;zzz&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;the milliseconds with leading zeroes (000 to 999)&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;AP or A&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;use AM/PM display. &lt;span style=&quot; font-style:italic;&quot;&gt;A/AP&lt;/span&gt; will be replaced by either &amp;quot;AM&amp;quot; or &amp;quot;PM&amp;quot;.&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;ap or a&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;use am/pm display. &lt;span style=&quot; font-style:italic;&quot;&gt;a/ap&lt;/span&gt; will be replaced by either &amp;quot;am&amp;quot; or &amp;quot;pm&amp;quot;.&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;t&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;the timezone (for example &amp;quot;CEST&amp;quot;)&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;These expressions may be used for the time:&lt;/p&gt;&lt;table border=&quot;0&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px;&quot; cellspacing=&quot;2&quot; cellpadding=&quot;0&quot;&gt;&lt;thead&gt;&lt;tr&gt;&lt;td&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Expression&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Output&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;h&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;the hour without a leading zero (0 to 23 or 1 to 12 if AM/PM display)&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;hh&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;the hour with a leading zero (00 to 23 or 01 to 12 if AM/PM display)&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;H&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;the hour without a leading zero (0 to 23, even with AM/PM display)&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;HH&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;the hour with a leading zero (00 to 23, even with AM/PM display)&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;m&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;the minute without a leading zero (0 to 59)&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;mm&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;the minute with a leading zero (00 to 59)&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;s&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;the second without a leading zero (0 to 59)&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;ss&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;the second with a leading zero (00 to 59)&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;z&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;the milliseconds without leading zeroes (0 to 999)&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;zzz&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;the milliseconds with leading zeroes (000 to 999)&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;AP or A&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;use AM/PM display. &lt;span style=&quot; font-style:italic;&quot;&gt;A/AP&lt;/span&gt; will be replaced by either &amp;quot;AM&amp;quot; or &amp;quot;PM&amp;quot;.&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;ap or a&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;use am/pm display. &lt;span style=&quot; font-style:italic;&quot;&gt;a/ap&lt;/span&gt; will be replaced by either &amp;quot;am&amp;quot; or &amp;quot;pm&amp;quot;.&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;t&lt;/p&gt;&lt;/td&gt;&lt;td style=&quot; vertical-align:top;&quot;&gt;&lt;p&gt;the timezone (for example &amp;quot;CEST&amp;quot;)&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="520"/>
@@ -6638,7 +6621,7 @@ them is usually available only to operators</translation>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="294"/>
         <source>Debug Console</source>
-        <translation type="unfinished"></translation>
+        <translation>Debug Console</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="346"/>
@@ -7328,7 +7311,7 @@ if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</trans
     <message>
         <location filename="../src/UserListModel.cpp" line="175"/>
         <source>Exact share size</source>
-        <translation type="unfinished"></translation>
+        <translation>Exact share size</translation>
     </message>
     <message>
         <location filename="../src/UserListModel.cpp" line="176"/>

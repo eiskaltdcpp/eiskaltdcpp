@@ -723,7 +723,7 @@ Keys:
     <message>
         <location filename="../src/FileBrowserModel.cpp" line="314"/>
         <source>Downloaded</source>
-        <translation type="unfinished">Đã tải xuống</translation>
+        <translation>Đã tải xuống</translation>
     </message>
     <message>
         <location filename="../src/FileBrowserModel.cpp" line="314"/>
@@ -1471,7 +1471,7 @@ Favorite user</source>
     <message>
         <location filename="../src/HubFrame.cpp" line="2653"/>
         <source>Password</source>
-        <translation type="unfinished">Mật khẩu</translation>
+        <translation>Mật khẩu</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="2667"/>
@@ -1645,12 +1645,12 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="462"/>
         <source>Nick</source>
-        <translation type="unfinished">Nick</translation>
+        <translation>Nick</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="462"/>
         <source>User</source>
-        <translation type="unfinished">Người dùng</translation>
+        <translation>Người dùng</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="467"/>
@@ -1801,7 +1801,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="1351"/>
         <source>Favourite users</source>
-        <translation type="unfinished">Người dùng yêu thích</translation>
+        <translation>Người dùng yêu thích</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1353"/>
@@ -1836,12 +1836,12 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="1365"/>
         <source>Finished downloads</source>
-        <translation type="unfinished">Đã hoàn tất việc tải xuống</translation>
+        <translation>Đã hoàn tất việc tải xuống</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1367"/>
         <source>Finished uploads</source>
-        <translation type="unfinished">Đã hoàn tất việc tải lên</translation>
+        <translation>Đã hoàn tất việc tải lên</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1369"/>
@@ -1932,7 +1932,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="1404"/>
         <source>ADLSearch</source>
-        <translation type="unfinished">Tìm kiếm ADL</translation>
+        <translation>Tìm kiếm ADL</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1406"/>
@@ -1962,7 +1962,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="1418"/>
         <source>Clear chat</source>
-        <translation type="unfinished">Làm rỗng nội dung tán gẫu</translation>
+        <translation>Làm rỗng nội dung tán gẫu</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1420"/>
@@ -2101,7 +2101,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="1808"/>
         <source>Paused</source>
-        <translation type="unfinished">Tạm dừng</translation>
+        <translation>Tạm dừng</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="1822"/>
@@ -2194,6 +2194,36 @@ Favorite user</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../src/MainWindow.cpp" line="2737"/>
+        <source>EiskaltDC++ is a graphical client for Direct Connect and ADC protocols.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="2740"/>
+        <source>DC++ core version: %1 (modified)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="2743"/>
+        <source>Home page: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="2748"/>
+        <source>Total up: &lt;b&gt;%1&lt;/b&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="2750"/>
+        <source>Total down: &lt;b&gt;%1&lt;/b&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="2752"/>
+        <source>Ratio: &lt;b&gt;%1&lt;/b&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../src/MainWindow.cpp" line="2762"/>
         <source>&lt;b&gt;Developers&lt;/b&gt;&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
@@ -2234,6 +2264,11 @@ Favorite user</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../src/MainWindow.cpp" line="2861"/>
+        <source>Serbian (Cyrillic) translation&lt;br/&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../src/MainWindow.cpp" line="2865"/>
         <source>Serbian (Latin) translation&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
@@ -2241,6 +2276,11 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="2869"/>
         <source>Spanish translation&lt;br/&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="2873"/>
+        <source>Basque translation&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2294,6 +2334,11 @@ Favorite user</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../src/MainWindow.cpp" line="2909"/>
+        <source>Turkish translation&lt;br/&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../src/MainWindow.cpp" line="2912"/>
         <source>Danish translation&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
@@ -2321,36 +2366,6 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="1441"/>
         <source>Download program</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="2737"/>
-        <source>EiskaltDC++ is a graphical client for Direct Connect and ADC protocols.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="2740"/>
-        <source>DC++ core version: %1 (modified)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="2743"/>
-        <source>Home page: </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="2748"/>
-        <source>Total up: &lt;b&gt;%1&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="2750"/>
-        <source>Total down: &lt;b&gt;%1&lt;/b&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="2752"/>
-        <source>Ratio: &lt;b&gt;%1&lt;/b&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2420,21 +2435,6 @@ Favorite user</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="2861"/>
-        <source>Serbian (Cyrillic) translation&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="2873"/>
-        <source>Basque translation&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="2909"/>
-        <source>Turkish translation&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../src/MainWindow.cpp" line="2952"/>
         <source>Show close buttons</source>
         <translation type="unfinished"></translation>
@@ -2447,7 +2447,7 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="3073"/>
         <source>Download Queue</source>
-        <translation type="unfinished">Hàng đợi tải xuống</translation>
+        <translation>Hàng đợi tải xuống</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="3073"/>
@@ -2514,7 +2514,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/PMWindow.cpp" line="105"/>
         <source>Close</source>
-        <translation type="unfinished">Đóng lại</translation>
+        <translation>Đóng lại</translation>
     </message>
     <message>
         <location filename="../src/PMWindow.cpp" line="313"/>
@@ -2537,12 +2537,12 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/PublicHubModel.cpp" line="27"/>
         <source>Name</source>
-        <translation type="unfinished">Tên</translation>
+        <translation>Tên</translation>
     </message>
     <message>
         <location filename="../src/PublicHubModel.cpp" line="27"/>
         <source>Description</source>
-        <translation type="unfinished">Mô tả</translation>
+        <translation>Mô tả</translation>
     </message>
     <message>
         <location filename="../src/PublicHubModel.cpp" line="27"/>
@@ -2552,7 +2552,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/PublicHubModel.cpp" line="27"/>
         <source>Address</source>
-        <translation type="unfinished">Địa chỉ</translation>
+        <translation>Địa chỉ</translation>
     </message>
     <message>
         <location filename="../src/PublicHubModel.cpp" line="28"/>
@@ -2605,7 +2605,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/PublicHubs.cpp" line="158"/>
         <source>Connect</source>
-        <translation type="unfinished">Kết nối</translation>
+        <translation>Kết nối</translation>
     </message>
     <message>
         <location filename="../src/PublicHubs.cpp" line="159"/>
@@ -2701,7 +2701,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/QueuedUsers.cpp" line="72"/>
         <source>Grant slot</source>
-        <translation type="unfinished">Bảo đảm slot</translation>
+        <translation>Bảo đảm slot</translation>
     </message>
     <message>
         <location filename="../src/QueuedUsers.h" line="102"/>
@@ -2714,7 +2714,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/QueuedUsers.cpp" line="120"/>
         <source>User</source>
-        <translation type="unfinished">Người dùng</translation>
+        <translation>Người dùng</translation>
     </message>
     <message>
         <location filename="../src/QueuedUsers.cpp" line="120"/>
@@ -2743,7 +2743,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SearchBlacklistDialog.cpp" line="346"/>
         <source>Filename</source>
-        <translation type="unfinished">Tên tập tin</translation>
+        <translation>Tên tập tin</translation>
     </message>
 </context>
 <context>
@@ -2751,12 +2751,12 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SearchBlacklistDialog.cpp" line="58"/>
         <source>Add new</source>
-        <translation type="unfinished">Thêm mới</translation>
+        <translation>Thêm mới</translation>
     </message>
     <message>
         <location filename="../src/SearchBlacklistDialog.cpp" line="59"/>
         <source>Remove</source>
-        <translation type="unfinished">Loại bỏ</translation>
+        <translation>Loại bỏ</translation>
     </message>
 </context>
 <context>
@@ -2764,7 +2764,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SearchBlacklistDialog.cpp" line="164"/>
         <source>Filename</source>
-        <translation type="unfinished">Tên tập tin</translation>
+        <translation>Tên tập tin</translation>
     </message>
     <message>
         <location filename="../src/SearchBlacklistDialog.cpp" line="179"/>
@@ -2798,7 +2798,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="58"/>
         <source>Clear</source>
-        <translation type="unfinished">Dọn dẹp</translation>
+        <translation>Dọn dẹp</translation>
     </message>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="65"/>
@@ -2808,7 +2808,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="82"/>
         <source>Stop</source>
-        <translation type="unfinished">Dừng lại</translation>
+        <translation>Dừng lại</translation>
     </message>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="132"/>
@@ -2823,32 +2823,32 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="146"/>
         <source>Size</source>
-        <translation type="unfinished">Kích thước</translation>
+        <translation>Kích thước</translation>
     </message>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="157"/>
         <source>B</source>
-        <translation type="unfinished">B</translation>
+        <translation>B</translation>
     </message>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="162"/>
         <source>KiB</source>
-        <translation type="unfinished">KiB</translation>
+        <translation>KiB</translation>
     </message>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="167"/>
         <source>MiB</source>
-        <translation type="unfinished">MiB</translation>
+        <translation>MiB</translation>
     </message>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="172"/>
         <source>GiB</source>
-        <translation type="unfinished">GiB</translation>
+        <translation>GiB</translation>
     </message>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="184"/>
         <source>Normal</source>
-        <translation type="unfinished">Bình thường</translation>
+        <translation>Bình thường</translation>
     </message>
     <message>
         <location filename="../ui/UISearchFrame.ui" line="189"/>
@@ -2888,7 +2888,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SearchFrame.cpp" line="120"/>
         <source>Magnet</source>
-        <translation type="unfinished">Magnet</translation>
+        <translation>Magnet</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="122"/>
@@ -2918,27 +2918,27 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SearchFrame.cpp" line="140"/>
         <source>Copy magnet</source>
-        <translation type="unfinished">Sao chép magnet</translation>
+        <translation>Sao chép magnet</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="143"/>
         <source>Copy web-magnet</source>
-        <translation type="unfinished">Sao chép web-magnet</translation>
+        <translation>Sao chép web-magnet</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="146"/>
         <source>Properties of magnet</source>
-        <translation type="unfinished">Thuộc tính của magnet</translation>
+        <translation>Thuộc tính của magnet</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="149"/>
         <source>Browse files</source>
-        <translation type="unfinished">Duyệt tìm tập tin</translation>
+        <translation>Duyệt tìm tập tin</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="152"/>
         <source>Match Queue</source>
-        <translation type="unfinished">Khớp với hàng đợi</translation>
+        <translation>Khớp với hàng đợi</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="155"/>
@@ -2958,12 +2958,12 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SearchFrame.cpp" line="173"/>
         <source>Remove from Queue</source>
-        <translation type="unfinished">Loại bỏ khỏi hàng đợi</translation>
+        <translation>Loại bỏ khỏi hàng đợi</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="176"/>
         <source>Remove</source>
-        <translation type="unfinished">Loại bỏ</translation>
+        <translation>Loại bỏ</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="179"/>
@@ -2989,7 +2989,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SearchFrame.cpp" line="481"/>
         <source>Close</source>
-        <translation type="unfinished">Đóng lại</translation>
+        <translation>Đóng lại</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="1084"/>
@@ -3043,22 +3043,22 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SearchModel.cpp" line="50"/>
         <source>Size</source>
-        <translation type="unfinished">Kích thước</translation>
+        <translation>Kích thước</translation>
     </message>
     <message>
         <location filename="../src/SearchModel.cpp" line="51"/>
         <source>Exact size</source>
-        <translation type="unfinished">Kích thước chính xác</translation>
+        <translation>Kích thước chính xác</translation>
     </message>
     <message>
         <location filename="../src/SearchModel.cpp" line="51"/>
         <source>Path</source>
-        <translation type="unfinished">Đường dẫn</translation>
+        <translation>Đường dẫn</translation>
     </message>
     <message>
         <location filename="../src/SearchModel.cpp" line="51"/>
         <source>Nick</source>
-        <translation type="unfinished">Nick</translation>
+        <translation>Nick</translation>
     </message>
     <message>
         <location filename="../src/SearchModel.cpp" line="52"/>
@@ -3073,12 +3073,12 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SearchModel.cpp" line="53"/>
         <source>IP</source>
-        <translation type="unfinished">IP</translation>
+        <translation>IP</translation>
     </message>
     <message>
         <location filename="../src/SearchModel.cpp" line="53"/>
         <source>Hub</source>
-        <translation type="unfinished">Kết nối chung</translation>
+        <translation>Kết nối chung</translation>
     </message>
     <message>
         <location filename="../src/SearchModel.cpp" line="53"/>
@@ -3088,7 +3088,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SearchModel.cpp" line="132"/>
         <source>File already exists: %1</source>
-        <translation type="unfinished">Tập tin đã tồn tại: %1</translation>
+        <translation>Tập tin đã tồn tại: %1</translation>
     </message>
 </context>
 <context>
@@ -3111,7 +3111,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/Secretary.cpp" line="313"/>
         <source>Copy nick</source>
-        <translation type="unfinished">Sao chép nick</translation>
+        <translation>Sao chép nick</translation>
     </message>
     <message>
         <location filename="../src/Secretary.cpp" line="315"/>
@@ -3126,17 +3126,17 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/Secretary.cpp" line="318"/>
         <source>Select all</source>
-        <translation type="unfinished">Chọn tất cả</translation>
+        <translation>Chọn tất cả</translation>
     </message>
     <message>
         <location filename="../src/Secretary.cpp" line="320"/>
         <source>Zoom In</source>
-        <translation type="unfinished">Phóng to</translation>
+        <translation>Phóng to</translation>
     </message>
     <message>
         <location filename="../src/Secretary.cpp" line="321"/>
         <source>Zoom Out</source>
-        <translation type="unfinished">Thu nhỏ</translation>
+        <translation>Thu nhỏ</translation>
     </message>
 </context>
 <context>
@@ -3245,7 +3245,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SettingsDownloads.cpp" line="181"/>
         <source>Delete</source>
-        <translation type="unfinished">Xóa</translation>
+        <translation>Xóa</translation>
     </message>
     <message>
         <location filename="../src/SettingsDownloads.cpp" line="188"/>
@@ -3413,12 +3413,12 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="250"/>
         <source>Status</source>
-        <translation type="unfinished">Trạng thái</translation>
+        <translation>Trạng thái</translation>
     </message>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="254"/>
         <source>User</source>
-        <translation type="unfinished">Người dùng</translation>
+        <translation>Người dùng</translation>
     </message>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="258"/>
@@ -3459,12 +3459,12 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SettingsNotification.cpp" line="194"/>
         <source>Select file</source>
-        <translation type="unfinished">Chọn tập tin</translation>
+        <translation>Chọn tập tin</translation>
     </message>
     <message>
         <location filename="../src/SettingsNotification.cpp" line="194"/>
         <source>All files (*.*)</source>
-        <translation type="unfinished">Tất cả tập tin (*.*)</translation>
+        <translation>Tất cả tập tin (*.*)</translation>
     </message>
 </context>
 <context>
@@ -3472,7 +3472,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SettingsPersonal.cpp" line="78"/>
         <source>System default</source>
-        <translation type="unfinished">Mặc định theo hệ thống</translation>
+        <translation>Mặc định theo hệ thống</translation>
     </message>
 </context>
 <context>
@@ -3495,7 +3495,7 @@ Downloaded: %3 Uploaded: %4</source>
         <location filename="../src/SettingsSharing.cpp" line="322"/>
         <location filename="../src/SettingsSharing.cpp" line="363"/>
         <source>Name</source>
-        <translation type="unfinished">Tên</translation>
+        <translation>Tên</translation>
     </message>
     <message>
         <location filename="../src/SettingsSharing.cpp" line="209"/>
@@ -3527,7 +3527,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SettingsSharing.cpp" line="299"/>
         <source>Remove</source>
-        <translation type="unfinished">Loại bỏ</translation>
+        <translation>Loại bỏ</translation>
     </message>
     <message>
         <location filename="../src/SettingsSharing.cpp" line="337"/>
@@ -3551,7 +3551,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="75"/>
         <source>Magnet</source>
-        <translation type="unfinished">Magnet</translation>
+        <translation>Magnet</translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="77"/>
@@ -3566,22 +3566,22 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="82"/>
         <source>Search for alternates</source>
-        <translation type="unfinished">Tìm kiếm phần thay thế</translation>
+        <translation>Tìm kiếm phần thay thế</translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="84"/>
         <source>Copy magnet</source>
-        <translation type="unfinished">Sao chép magnet</translation>
+        <translation>Sao chép magnet</translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="86"/>
         <source>Copy web-magnet</source>
-        <translation type="unfinished">Sao chép web-magnet</translation>
+        <translation>Sao chép web-magnet</translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="88"/>
         <source>Properties of magnet</source>
-        <translation type="unfinished">Thuộc tính của magnet</translation>
+        <translation>Thuộc tính của magnet</translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="91"/>
@@ -3601,7 +3601,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="95"/>
         <source>Open directory</source>
-        <translation type="unfinished">Mở thư mục</translation>
+        <translation>Mở thư mục</translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="175"/>
@@ -3626,7 +3626,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="329"/>
         <source>Close</source>
-        <translation type="unfinished">Đóng lại</translation>
+        <translation>Đóng lại</translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="417"/>
@@ -3711,7 +3711,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/ShortcutGetter.cpp" line="237"/>
         <source>Clear</source>
-        <translation type="unfinished">Dọn dẹp</translation>
+        <translation>Dọn dẹp</translation>
     </message>
     <message>
         <location filename="../src/ShortcutGetter.cpp" line="239"/>
@@ -3767,13 +3767,13 @@ Downloaded: %3 Uploaded: %4</source>
         <location filename="../src/SideBar.cpp" line="73"/>
         <location filename="../src/SideBar.cpp" line="428"/>
         <source>ADLSearch</source>
-        <translation type="unfinished">Tìm kiếm ADL</translation>
+        <translation>Tìm kiếm ADL</translation>
     </message>
     <message>
         <location filename="../src/SideBar.cpp" line="74"/>
         <location filename="../src/SideBar.cpp" line="429"/>
         <source>Download Queue</source>
-        <translation type="unfinished">Hàng đợi tải xuống</translation>
+        <translation>Hàng đợi tải xuống</translation>
     </message>
     <message>
         <location filename="../src/SideBar.cpp" line="75"/>
@@ -3852,7 +3852,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SideBar.cpp" line="593"/>
         <source>Close</source>
-        <translation type="unfinished">Đóng lại</translation>
+        <translation>Đóng lại</translation>
     </message>
     <message>
         <location filename="../src/SideBar.cpp" line="652"/>
@@ -3891,7 +3891,7 @@ Downloaded: %3 Uploaded: %4</source>
         <location filename="../src/SpyFrame.cpp" line="54"/>
         <location filename="../src/SpyFrame.cpp" line="76"/>
         <source>Stop</source>
-        <translation type="unfinished">Dừng lại</translation>
+        <translation>Dừng lại</translation>
     </message>
     <message>
         <location filename="../src/SpyFrame.cpp" line="55"/>
@@ -3910,7 +3910,7 @@ Do you want to stop it?
     <message>
         <location filename="../src/SpyFrame.cpp" line="81"/>
         <source>Start</source>
-        <translation type="unfinished">Bắt đầu</translation>
+        <translation>Bắt đầu</translation>
     </message>
     <message>
         <location filename="../src/SpyFrame.cpp" line="98"/>
@@ -3936,7 +3936,7 @@ Do you want to stop it?
     <message>
         <location filename="../src/TabFrame.cpp" line="359"/>
         <source>Close</source>
-        <translation type="unfinished">Đóng lại</translation>
+        <translation>Đóng lại</translation>
     </message>
 </context>
 <context>
@@ -3952,7 +3952,7 @@ Do you want to stop it?
     <message>
         <location filename="../src/TransferView.cpp" line="47"/>
         <source>Browse files</source>
-        <translation type="unfinished">Duyệt tìm tập tin</translation>
+        <translation>Duyệt tìm tập tin</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="50"/>
@@ -3962,7 +3962,7 @@ Do you want to stop it?
     <message>
         <location filename="../src/TransferView.cpp" line="53"/>
         <source>Match Queue</source>
-        <translation type="unfinished">Khớp với hàng đợi</translation>
+        <translation>Khớp với hàng đợi</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="56"/>
@@ -3992,12 +3992,12 @@ Do you want to stop it?
     <message>
         <location filename="../src/TransferView.cpp" line="69"/>
         <source>Speed</source>
-        <translation type="unfinished">Tốc độ</translation>
+        <translation>Tốc độ</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="70"/>
         <source>Status</source>
-        <translation type="unfinished">Trạng thái</translation>
+        <translation>Trạng thái</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="71"/>
@@ -4007,7 +4007,7 @@ Do you want to stop it?
     <message>
         <location filename="../src/TransferView.cpp" line="72"/>
         <source>Size</source>
-        <translation type="unfinished">Kích thước</translation>
+        <translation>Kích thước</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="73"/>
@@ -4017,17 +4017,17 @@ Do you want to stop it?
     <message>
         <location filename="../src/TransferView.cpp" line="74"/>
         <source>Filename</source>
-        <translation type="unfinished">Tên tập tin</translation>
+        <translation>Tên tập tin</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="75"/>
         <source>Hub</source>
-        <translation type="unfinished">Kết nối chung</translation>
+        <translation>Kết nối chung</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="76"/>
         <source>IP</source>
-        <translation type="unfinished">IP</translation>
+        <translation>IP</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="77"/>
@@ -4037,7 +4037,7 @@ Do you want to stop it?
     <message>
         <location filename="../src/TransferView.cpp" line="78"/>
         <source>Magnet</source>
-        <translation type="unfinished">Magnet</translation>
+        <translation>Magnet</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="83"/>
@@ -4141,12 +4141,12 @@ Do you want to stop it?
     <message>
         <location filename="../src/TransferViewModel.cpp" line="50"/>
         <source>Speed</source>
-        <translation type="unfinished">Tốc độ</translation>
+        <translation>Tốc độ</translation>
     </message>
     <message>
         <location filename="../src/TransferViewModel.cpp" line="50"/>
         <source>Status</source>
-        <translation type="unfinished">Trạng thái</translation>
+        <translation>Trạng thái</translation>
     </message>
     <message>
         <location filename="../src/TransferViewModel.cpp" line="50"/>
@@ -4156,7 +4156,7 @@ Do you want to stop it?
     <message>
         <location filename="../src/TransferViewModel.cpp" line="50"/>
         <source>Size</source>
-        <translation type="unfinished">Kích thước</translation>
+        <translation>Kích thước</translation>
     </message>
     <message>
         <location filename="../src/TransferViewModel.cpp" line="51"/>
@@ -4176,7 +4176,7 @@ Do you want to stop it?
     <message>
         <location filename="../src/TransferViewModel.cpp" line="51"/>
         <source>IP</source>
-        <translation type="unfinished">IP</translation>
+        <translation>IP</translation>
     </message>
     <message>
         <location filename="../src/TransferViewModel.cpp" line="52"/>
@@ -4217,7 +4217,7 @@ Do you want to stop it?
     <message>
         <location filename="../src/UCModel.cpp" line="84"/>
         <source>Name</source>
-        <translation type="unfinished">Tên</translation>
+        <translation>Tên</translation>
     </message>
     <message>
         <location filename="../src/UCModel.cpp" line="85"/>
@@ -4227,7 +4227,7 @@ Do you want to stop it?
     <message>
         <location filename="../src/UCModel.cpp" line="86"/>
         <source>Hub</source>
-        <translation type="unfinished">Kết nối chung</translation>
+        <translation>Kết nối chung</translation>
     </message>
     <message>
         <location filename="../src/UCModel.cpp" line="152"/>
@@ -4241,17 +4241,17 @@ Do you want to stop it?
     <message>
         <location filename="../ui/UIADLSearch.ui" line="56"/>
         <source>Add new</source>
-        <translation type="unfinished">Thêm mới</translation>
+        <translation>Thêm mới</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearch.ui" line="73"/>
         <source>Change</source>
-        <translation type="unfinished">Thay đổi</translation>
+        <translation>Thay đổi</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearch.ui" line="83"/>
         <source>Delete</source>
-        <translation type="unfinished">Xóa</translation>
+        <translation>Xóa</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearch.ui" line="100"/>
@@ -4280,17 +4280,17 @@ Do you want to stop it?
         <location filename="../ui/UIADLSearchEditor.ui" line="74"/>
         <location filename="../ui/UIADLSearchEditor.ui" line="117"/>
         <source>Directory</source>
-        <translation type="unfinished">Thư mục</translation>
+        <translation>Thư mục</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="87"/>
         <source>Type source</source>
-        <translation type="unfinished">Loại nguồn</translation>
+        <translation>Loại nguồn</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="112"/>
         <source>Filename</source>
-        <translation type="unfinished">Tên tập tin</translation>
+        <translation>Tên tập tin</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="122"/>
@@ -4305,22 +4305,22 @@ Do you want to stop it?
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="193"/>
         <source>B</source>
-        <translation type="unfinished">B</translation>
+        <translation>B</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="198"/>
         <source>KiB</source>
-        <translation type="unfinished">KiB</translation>
+        <translation>KiB</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="203"/>
         <source>MiB</source>
-        <translation type="unfinished">MiB</translation>
+        <translation>MiB</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="208"/>
         <source>GiB</source>
-        <translation type="unfinished">GiB</translation>
+        <translation>GiB</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="265"/>
@@ -4384,7 +4384,7 @@ Do you want to stop it?
     <message>
         <location filename="../ui/UIAntiSpam.ui" line="20"/>
         <source>AntiSpam</source>
-        <translation type="unfinished">Chống spam</translation>
+        <translation>Chống spam</translation>
     </message>
     <message>
         <location filename="../ui/UIAntiSpam.ui" line="46"/>
@@ -4545,7 +4545,7 @@ Do you want to stop it?
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="20"/>
         <source>Hub</source>
-        <translation type="unfinished">Kết nối chung</translation>
+        <translation>Kết nối chung</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="31"/>
@@ -4560,7 +4560,7 @@ Do you want to stop it?
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="50"/>
         <source>Name</source>
-        <translation type="unfinished">Tên</translation>
+        <translation>Tên</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="57"/>
@@ -4570,7 +4570,7 @@ Do you want to stop it?
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="64"/>
         <source>Address</source>
-        <translation type="unfinished">Địa chỉ</translation>
+        <translation>Địa chỉ</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="71"/>
@@ -4580,7 +4580,7 @@ Do you want to stop it?
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="78"/>
         <source>Description</source>
-        <translation type="unfinished">Mô tả</translation>
+        <translation>Mô tả</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="85"/>
@@ -4655,17 +4655,17 @@ Do you want to stop it?
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="250"/>
         <source>Nick</source>
-        <translation type="unfinished">Nick</translation>
+        <translation>Nick</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="257"/>
         <source>User description</source>
-        <translation type="unfinished">Mô tả về người dùng</translation>
+        <translation>Mô tả về người dùng</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="264"/>
         <source>Password</source>
-        <translation type="unfinished">Mật khẩu</translation>
+        <translation>Mật khẩu</translation>
     </message>
 </context>
 <context>
@@ -4673,22 +4673,22 @@ Do you want to stop it?
     <message>
         <location filename="../ui/UIFavoriteHubs.ui" line="56"/>
         <source>Add new</source>
-        <translation type="unfinished">Thêm mới</translation>
+        <translation>Thêm mới</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubs.ui" line="73"/>
         <source>Change</source>
-        <translation type="unfinished">Thay đổi</translation>
+        <translation>Thay đổi</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubs.ui" line="83"/>
         <source>Delete</source>
-        <translation type="unfinished">Xóa</translation>
+        <translation>Xóa</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubs.ui" line="100"/>
         <source>Connect</source>
-        <translation type="unfinished">Kết nối</translation>
+        <translation>Kết nối</translation>
     </message>
 </context>
 <context>
@@ -4724,7 +4724,7 @@ Do you want to stop it?
     <message>
         <location filename="../ui/UIFileHasher.ui" line="146"/>
         <source>Filename</source>
-        <translation type="unfinished">Tên tập tin</translation>
+        <translation>Tên tập tin</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="185"/>
@@ -4744,7 +4744,7 @@ Do you want to stop it?
     <message>
         <location filename="../ui/UIFileHasher.ui" line="100"/>
         <source>Size</source>
-        <translation type="unfinished">Kích thước</translation>
+        <translation>Kích thước</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="178"/>
@@ -4753,7 +4753,7 @@ Do you want to stop it?
     </message>
     <message>
         <source>Close</source>
-        <translation type="obsolete">Đóng lại</translation>
+        <translation type="vanished">Đóng lại</translation>
     </message>
 </context>
 <context>
@@ -4766,7 +4766,7 @@ Do you want to stop it?
     <message>
         <location filename="../ui/UIFinishedTransfers.ui" line="30"/>
         <source>Files</source>
-        <translation type="unfinished">Các tập tin</translation>
+        <translation>Các tập tin</translation>
     </message>
     <message>
         <location filename="../ui/UIFinishedTransfers.ui" line="35"/>
@@ -4786,7 +4786,7 @@ Do you want to stop it?
     <message>
         <location filename="../ui/UIFinishedTransfers.ui" line="66"/>
         <source>Clear</source>
-        <translation type="unfinished">Dọn dẹp</translation>
+        <translation>Dọn dẹp</translation>
     </message>
 </context>
 <context>
@@ -4804,7 +4804,7 @@ Do you want to stop it?
     <message>
         <location filename="../ui/UIHashProgressDialog.ui" line="145"/>
         <source>Start</source>
-        <translation type="unfinished">Bắt đầu</translation>
+        <translation>Bắt đầu</translation>
     </message>
     <message>
         <location filename="../ui/UIHashProgressDialog.ui" line="152"/>
@@ -4860,7 +4860,7 @@ Do you want to stop it?
     <message>
         <location filename="../ui/UIHubManager.ui" line="33"/>
         <source>Hub</source>
-        <translation type="unfinished">Kết nối chung</translation>
+        <translation>Kết nối chung</translation>
     </message>
     <message>
         <location filename="../ui/UIHubManager.ui" line="38"/>
@@ -4875,7 +4875,7 @@ Do you want to stop it?
     <message>
         <location filename="../ui/UIHubManager.ui" line="48"/>
         <source>Share</source>
-        <translation type="unfinished">Chia sẻ</translation>
+        <translation>Chia sẻ</translation>
     </message>
 </context>
 <context>
@@ -4951,7 +4951,7 @@ Do you want to stop it?
     <message>
         <location filename="../ui/UIMagnet.ui" line="56"/>
         <source>Filename</source>
-        <translation type="unfinished">Tên tập tin</translation>
+        <translation>Tên tập tin</translation>
     </message>
     <message>
         <location filename="../ui/UIMagnet.ui" line="70"/>
@@ -4961,7 +4961,7 @@ Do you want to stop it?
     <message>
         <location filename="../ui/UIMagnet.ui" line="80"/>
         <source>Size</source>
-        <translation type="unfinished">Kích thước</translation>
+        <translation>Kích thước</translation>
     </message>
     <message>
         <location filename="../ui/UIMagnet.ui" line="113"/>
@@ -5073,7 +5073,7 @@ in options, file will be downloaded without opening search dialog.</source>
     <message>
         <location filename="../ui/UIPublicHubsList.ui" line="76"/>
         <source>Remove</source>
-        <translation type="unfinished">Loại bỏ</translation>
+        <translation>Loại bỏ</translation>
     </message>
     <message>
         <location filename="../ui/UIPublicHubsList.ui" line="83"/>
@@ -5394,17 +5394,17 @@ DC++&apos;s SOCKS5 support does not include GSSAPI.</source>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="386"/>
         <source>IP</source>
-        <translation type="unfinished">IP</translation>
+        <translation>IP</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="393"/>
         <source>User</source>
-        <translation type="unfinished">Người dùng</translation>
+        <translation>Người dùng</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="400"/>
         <source>Password</source>
-        <translation type="unfinished">Mật khẩu</translation>
+        <translation>Mật khẩu</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="407"/>
@@ -5665,7 +5665,7 @@ It&apos;s not used for uploads, downloads, or connecting to a hub.</source>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="291"/>
         <source>Path</source>
-        <translation type="unfinished">Đường dẫn</translation>
+        <translation>Đường dẫn</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="296"/>
@@ -6021,7 +6021,7 @@ from the queue either, you must do that manually.</source>
     </message>
     <message>
         <source>Change</source>
-        <translation type="obsolete">Thay đổi</translation>
+        <translation type="vanished">Thay đổi</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="83"/>
@@ -6620,7 +6620,7 @@ who sends private message to you.</source>
     <message>
         <location filename="../ui/UISettingsPersonal.ui" line="63"/>
         <source>Nick</source>
-        <translation type="unfinished">Nick</translation>
+        <translation>Nick</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsPersonal.ui" line="70"/>
@@ -6636,7 +6636,7 @@ It can be overridden on a per-hub basis in the Favorite Hub Properties.</source>
     <message>
         <location filename="../ui/UISettingsPersonal.ui" line="85"/>
         <source>Description</source>
-        <translation type="unfinished">Mô tả</translation>
+        <translation>Mô tả</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsPersonal.ui" line="92"/>
@@ -6692,17 +6692,17 @@ of how fast a source you are likely to be for other users.</source>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="65"/>
         <source>Path</source>
-        <translation type="unfinished">Đường dẫn</translation>
+        <translation>Đường dẫn</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="70"/>
         <source>Name</source>
-        <translation type="unfinished">Tên</translation>
+        <translation>Tên</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="75"/>
         <source>Size</source>
-        <translation type="unfinished">Kích thước</translation>
+        <translation>Kích thước</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="98"/>
@@ -6727,7 +6727,7 @@ of how fast a source you are likely to be for other users.</source>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="138"/>
         <source>Add new</source>
-        <translation type="unfinished">Thêm mới</translation>
+        <translation>Thêm mới</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="148"/>
@@ -6742,7 +6742,7 @@ of how fast a source you are likely to be for other users.</source>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="168"/>
         <source>Delete</source>
-        <translation type="unfinished">Xóa</translation>
+        <translation>Xóa</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="194"/>
@@ -6893,12 +6893,12 @@ if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</sourc
     <message>
         <location filename="../ui/UISettingsUC.ui" line="58"/>
         <source>Change</source>
-        <translation type="unfinished">Thay đổi</translation>
+        <translation>Thay đổi</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsUC.ui" line="65"/>
         <source>Remove</source>
-        <translation type="unfinished">Loại bỏ</translation>
+        <translation>Loại bỏ</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsUC.ui" line="72"/>
@@ -6937,12 +6937,12 @@ if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</sourc
     <message>
         <location filename="../ui/UIShareBrowserSearch.ui" line="54"/>
         <source>Name</source>
-        <translation type="unfinished">Tên</translation>
+        <translation>Tên</translation>
     </message>
     <message>
         <location filename="../ui/UIShareBrowserSearch.ui" line="59"/>
         <source>Directory</source>
-        <translation type="unfinished">Thư mục</translation>
+        <translation>Thư mục</translation>
     </message>
 </context>
 <context>
@@ -6960,12 +6960,12 @@ if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</sourc
     <message>
         <location filename="../ui/UISpy.ui" line="65"/>
         <source>Start</source>
-        <translation type="unfinished">Bắt đầu</translation>
+        <translation>Bắt đầu</translation>
     </message>
     <message>
         <location filename="../ui/UISpy.ui" line="72"/>
         <source>Clear</source>
-        <translation type="unfinished">Dọn dẹp</translation>
+        <translation>Dọn dẹp</translation>
     </message>
 </context>
 <context>
@@ -7008,7 +7008,7 @@ if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</sourc
     <message>
         <location filename="../ui/UIUserCommands.ui" line="75"/>
         <source>Hub</source>
-        <translation type="unfinished">Kết nối chung</translation>
+        <translation>Kết nối chung</translation>
     </message>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="82"/>
@@ -7018,7 +7018,7 @@ if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</sourc
     <message>
         <location filename="../ui/UIUserCommands.ui" line="89"/>
         <source>User</source>
-        <translation type="unfinished">Người dùng</translation>
+        <translation>Người dùng</translation>
     </message>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="96"/>
@@ -7033,7 +7033,7 @@ if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</sourc
     <message>
         <location filename="../ui/UIUserCommands.ui" line="139"/>
         <source>Name</source>
-        <translation type="unfinished">Tên</translation>
+        <translation>Tên</translation>
     </message>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="146"/>
@@ -7081,7 +7081,7 @@ if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</sourc
     <message>
         <location filename="../src/UserListModel.cpp" line="169"/>
         <source>Nick</source>
-        <translation type="unfinished">Nick</translation>
+        <translation>Nick</translation>
     </message>
     <message>
         <location filename="../src/UserListModel.cpp" line="170"/>
@@ -7091,7 +7091,7 @@ if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</sourc
     <message>
         <location filename="../src/UserListModel.cpp" line="171"/>
         <source>Tag</source>
-        <translation type="unfinished">Thẻ đánh dấu</translation>
+        <translation>Thẻ đánh dấu</translation>
     </message>
     <message>
         <location filename="../src/UserListModel.cpp" line="172"/>
@@ -7106,7 +7106,7 @@ if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</sourc
     <message>
         <location filename="../src/UserListModel.cpp" line="174"/>
         <source>Share</source>
-        <translation type="unfinished">Chia sẻ</translation>
+        <translation>Chia sẻ</translation>
     </message>
     <message>
         <location filename="../src/UserListModel.cpp" line="175"/>
@@ -7116,7 +7116,7 @@ if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</sourc
     <message>
         <location filename="../src/UserListModel.cpp" line="176"/>
         <source>IP</source>
-        <translation type="unfinished">IP</translation>
+        <translation>IP</translation>
     </message>
 </context>
 <context>
@@ -7137,7 +7137,7 @@ if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</sourc
     <message>
         <location filename="../src/WulforUtil.cpp" line="750"/>
         <source>System default</source>
-        <translation type="unfinished">Mặc định theo hệ thống</translation>
+        <translation>Mặc định theo hệ thống</translation>
     </message>
     <message>
         <location filename="../src/WulforUtil.cpp" line="1072"/>

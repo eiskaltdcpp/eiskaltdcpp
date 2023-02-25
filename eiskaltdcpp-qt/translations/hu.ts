@@ -3154,17 +3154,17 @@ Letöltve: %3 Feltöltve: %4</translation>
     <message>
         <location filename="../src/Secretary.cpp" line="311"/>
         <source>Copy</source>
-        <translation type="unfinished">Másolás</translation>
+        <translation>Másolás</translation>
     </message>
     <message>
         <location filename="../src/Secretary.cpp" line="312"/>
         <source>Search text</source>
-        <translation type="unfinished">Szöveg keresése</translation>
+        <translation>Szöveg keresése</translation>
     </message>
     <message>
         <location filename="../src/Secretary.cpp" line="313"/>
         <source>Copy nick</source>
-        <translation type="unfinished">Nick másolása</translation>
+        <translation>Nick másolása</translation>
     </message>
     <message>
         <location filename="../src/Secretary.cpp" line="315"/>
@@ -3179,17 +3179,17 @@ Letöltve: %3 Feltöltve: %4</translation>
     <message>
         <location filename="../src/Secretary.cpp" line="318"/>
         <source>Select all</source>
-        <translation type="unfinished">Minden kijelölése</translation>
+        <translation>Minden kijelölése</translation>
     </message>
     <message>
         <location filename="../src/Secretary.cpp" line="320"/>
         <source>Zoom In</source>
-        <translation type="unfinished">Nagyítás</translation>
+        <translation>Nagyítás</translation>
     </message>
     <message>
         <location filename="../src/Secretary.cpp" line="321"/>
         <source>Zoom Out</source>
-        <translation type="unfinished">Kicsinyítés</translation>
+        <translation>Kicsinyítés</translation>
     </message>
 </context>
 <context>
@@ -3875,7 +3875,7 @@ Letöltve: %3 Feltöltve: %4</translation>
         <location filename="../src/SideBar.cpp" line="82"/>
         <location filename="../src/SideBar.cpp" line="436"/>
         <source>Search Spy</source>
-        <translation type="unfinished">Keresések megfigyelése</translation>
+        <translation>Keresések megfigyelése</translation>
     </message>
     <message>
         <source>Spy</source>
@@ -4534,37 +4534,37 @@ Biztosan le akarod állítani?
     <message>
         <location filename="../ui/UICmdDebug.ui" line="57"/>
         <source>Find: </source>
-        <translation type="unfinished">Keresés:</translation>
+        <translation>Keresés:</translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="71"/>
         <source>Previous (Shift+F3)</source>
-        <translation type="unfinished">Előző (Shift+F3)</translation>
+        <translation>Előző (Shift+F3)</translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="77"/>
         <source>Shift+F3</source>
-        <translation type="unfinished">Shift+F3</translation>
+        <translation>Shift+F3</translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="84"/>
         <source>Next (F3)</source>
-        <translation type="unfinished">Következő (F3)</translation>
+        <translation>Következő (F3)</translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="90"/>
         <source>F3</source>
-        <translation type="unfinished">F3</translation>
+        <translation>F3</translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="97"/>
         <source>Highlight all</source>
-        <translation type="unfinished">Összes kiemelése</translation>
+        <translation>Összes kiemelése</translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="113"/>
         <source>Hide search panel (Ctrl+F)</source>
-        <translation type="unfinished"></translation>
+        <translation>Keresőmező elrejtése (Ctrl+F)</translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="154"/>
@@ -4584,7 +4584,7 @@ Biztosan le akarod állítani?
     <message>
         <location filename="../ui/UICmdDebug.ui" line="228"/>
         <source>Clear now</source>
-        <translation type="unfinished">Törlés most</translation>
+        <translation>Törlés most</translation>
     </message>
 </context>
 <context>
@@ -4769,7 +4769,7 @@ Biztosan le akarod állítani?
     <message>
         <location filename="../ui/UIFileHasher.ui" line="93"/>
         <source>Filepath</source>
-        <translation type="unfinished">Útvonal</translation>
+        <translation>Útvonal</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="113"/>
@@ -4784,27 +4784,27 @@ Biztosan le akarod állítani?
     <message>
         <location filename="../ui/UIFileHasher.ui" line="146"/>
         <source>Filename</source>
-        <translation type="unfinished">Fájlnév</translation>
+        <translation>Virtuális név</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="185"/>
         <source>Opens search dialog and searches file.</source>
-        <translation type="unfinished">Keresési ablak megnyitása és fájlok keresése.</translation>
+        <translation>Keresési ablak megnyitása és fájlok keresése.</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="188"/>
         <source>Search</source>
-        <translation type="unfinished"></translation>
+        <translation>ADLkeresés</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="208"/>
         <source>Cancel</source>
-        <translation type="unfinished">Mégsem</translation>
+        <translation>Mégsem</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="100"/>
         <source>Size</source>
-        <translation type="unfinished">Méret</translation>
+        <translation>Méret</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="178"/>
@@ -5205,37 +5205,37 @@ be van kapcsolva a beállításokban, a fájl automatikusan letötésre kerül a
     <message>
         <location filename="../ui/UISecretary.ui" line="73"/>
         <source>Find: </source>
-        <translation type="unfinished">Keresés:</translation>
+        <translation>Keresés:</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="87"/>
         <source>Previous (Shift+F3)</source>
-        <translation type="unfinished">Előző (Shift+F3)</translation>
+        <translation>Előző (Shift+F3)</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="93"/>
         <source>Shift+F3</source>
-        <translation type="unfinished">Shift+F3</translation>
+        <translation>Shift+F3</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="100"/>
         <source>Next (F3)</source>
-        <translation type="unfinished">Következő (F3)</translation>
+        <translation>Következő (F3)</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="106"/>
         <source>F3</source>
-        <translation type="unfinished">F3</translation>
+        <translation>F3</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="113"/>
         <source>Highlight all</source>
-        <translation type="unfinished">Összes kiemelése</translation>
+        <translation>Összes kiemelése</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="129"/>
         <source>Hide search panel (Ctrl+F)</source>
-        <translation type="unfinished"></translation>
+        <translation>Keresőmező elrejtése (Ctrl+F)</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="219"/>
@@ -5255,7 +5255,7 @@ be van kapcsolva a beállításokban, a fájl automatikusan letötésre kerül a
     <message>
         <location filename="../ui/UISecretary.ui" line="179"/>
         <source>Status messages</source>
-        <translation type="unfinished">Állapotüzenetek</translation>
+        <translation>Állapotüzenetek</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="169"/>
@@ -5265,7 +5265,7 @@ be van kapcsolva a beállításokban, a fájl automatikusan letötésre kerül a
     <message>
         <location filename="../ui/UISecretary.ui" line="189"/>
         <source>Private messages</source>
-        <translation type="unfinished">Privát üzenetek</translation>
+        <translation>Privát üzenetek</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="159"/>
@@ -5296,7 +5296,7 @@ be van kapcsolva a beállításokban, a fájl automatikusan letötésre kerül a
     <message>
         <location filename="../ui/UISecretary.ui" line="297"/>
         <source>Clear now</source>
-        <translation type="unfinished">Törlés most</translation>
+        <translation>Törlés most</translation>
     </message>
 </context>
 <context>

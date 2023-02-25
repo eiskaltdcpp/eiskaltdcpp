@@ -713,22 +713,22 @@ Keys:
     <message>
         <location filename="../src/FileBrowserModel.cpp" line="313"/>
         <source>Video</source>
-        <translation type="unfinished"></translation>
+        <translation>Βίντεο</translation>
     </message>
     <message>
         <location filename="../src/FileBrowserModel.cpp" line="313"/>
         <source>Audio</source>
-        <translation type="unfinished"></translation>
+        <translation>Ήχος</translation>
     </message>
     <message>
         <location filename="../src/FileBrowserModel.cpp" line="314"/>
         <source>Downloaded</source>
-        <translation type="unfinished">Λήφθηκαν</translation>
+        <translation>Λήφθηκαν</translation>
     </message>
     <message>
         <location filename="../src/FileBrowserModel.cpp" line="314"/>
         <source>Shared</source>
-        <translation type="unfinished">Κοινόχρηστο</translation>
+        <translation>Κοινόχρηστο</translation>
     </message>
 </context>
 <context>
@@ -1543,25 +1543,6 @@ Favorite user</source>
         <location filename="../src/HubFrame.cpp" line="4021"/>
         <source>Search flood detected: %1</source>
         <translation>Ανιχνεύτηκε πλημμύρα αναζήτησης: %1</translation>
-    </message>
-</context>
-<context>
-    <name>IPFilter</name>
-    <message>
-        <source>Nothing to export.</source>
-        <translation type="obsolete">Τίποτα για εξαγωγή.</translation>
-    </message>
-    <message>
-        <source>Unable to export settings.</source>
-        <translation type="obsolete">Αδυναμία εξαγωγής ρυθμίσεων.</translation>
-    </message>
-    <message>
-        <source>Nothing to import.</source>
-        <translation type="obsolete">Τίποτα για εισαγωγή.</translation>
-    </message>
-    <message>
-        <source>Invalid signature.</source>
-        <translation type="obsolete">Μη έγκυρη υπογραφή.</translation>
     </message>
 </context>
 <context>
@@ -3164,17 +3145,17 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/Secretary.cpp" line="311"/>
         <source>Copy</source>
-        <translation type="unfinished">Αντιγραφή</translation>
+        <translation>Αντιγραφή</translation>
     </message>
     <message>
         <location filename="../src/Secretary.cpp" line="312"/>
         <source>Search text</source>
-        <translation type="unfinished">Αναζήτηση κειμένου</translation>
+        <translation>Αναζήτηση κειμένου</translation>
     </message>
     <message>
         <location filename="../src/Secretary.cpp" line="313"/>
         <source>Copy nick</source>
-        <translation type="unfinished">Αντιγραφή ψευδώνυμου</translation>
+        <translation>Αντιγραφή ψευδώνυμου</translation>
     </message>
     <message>
         <location filename="../src/Secretary.cpp" line="315"/>
@@ -3189,17 +3170,17 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/Secretary.cpp" line="318"/>
         <source>Select all</source>
-        <translation type="unfinished">Επιλογή όλων</translation>
+        <translation>Επιλογή όλων</translation>
     </message>
     <message>
         <location filename="../src/Secretary.cpp" line="320"/>
         <source>Zoom In</source>
-        <translation type="unfinished">Μεγέθυνση</translation>
+        <translation>Μεγέθυνση</translation>
     </message>
     <message>
         <location filename="../src/Secretary.cpp" line="321"/>
         <source>Zoom Out</source>
-        <translation type="unfinished">Σμίκρυνση</translation>
+        <translation>Σμίκρυνση</translation>
     </message>
 </context>
 <context>
@@ -3262,7 +3243,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/Settings.cpp" line="101"/>
         <source>Advanced</source>
-        <translation type="unfinished">Για προχωρημένους</translation>
+        <translation>Για προχωρημένους</translation>
     </message>
 </context>
 <context>
@@ -3596,7 +3577,7 @@ Downloaded: %3 Uploaded: %4</source>
         <location filename="../src/SettingsSharing.cpp" line="337"/>
         <location filename="../src/SettingsSharing.cpp" line="373"/>
         <source>Error</source>
-        <translation type="unfinished">Σφάλμα</translation>
+        <translation>Σφάλμα</translation>
     </message>
     <message>
         <location filename="../src/SettingsSharing.cpp" line="362"/>
@@ -3885,7 +3866,7 @@ Downloaded: %3 Uploaded: %4</source>
         <location filename="../src/SideBar.cpp" line="82"/>
         <location filename="../src/SideBar.cpp" line="436"/>
         <source>Search Spy</source>
-        <translation type="unfinished"></translation>
+        <translation>Κατάσκοπος Αναζήτησης</translation>
     </message>
     <message>
         <source>Spy</source>
@@ -4066,7 +4047,7 @@ Do you want to stop it?
     <message>
         <location filename="../src/TransferView.cpp" line="70"/>
         <source>Status</source>
-        <translation type="unfinished">Κατάσταση</translation>
+        <translation>Κατάσταση</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="71"/>
@@ -4091,7 +4072,7 @@ Do you want to stop it?
     <message>
         <location filename="../src/TransferView.cpp" line="75"/>
         <source>Hub</source>
-        <translation type="unfinished">Κόμβος</translation>
+        <translation>Κόμβος</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="76"/>
@@ -4255,7 +4236,7 @@ Do you want to stop it?
     <message>
         <location filename="../src/TransferViewModel.cpp" line="111"/>
         <source>/s</source>
-        <translation type="unfinished">/δευτ</translation>
+        <translation>/δευτ</translation>
     </message>
     <message>
         <location filename="../src/TransferViewModel.cpp" line="304"/>
@@ -4543,37 +4524,37 @@ Do you want to stop it?
     <message>
         <location filename="../ui/UICmdDebug.ui" line="57"/>
         <source>Find: </source>
-        <translation type="unfinished">Εύρεση:</translation>
+        <translation>Εύρεση:</translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="71"/>
         <source>Previous (Shift+F3)</source>
-        <translation type="unfinished">Προηγούμενο (Shift+F3)</translation>
+        <translation>Προηγούμενο (Shift+F3)</translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="77"/>
         <source>Shift+F3</source>
-        <translation type="unfinished">Shift+F3</translation>
+        <translation>Shift+F3</translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="84"/>
         <source>Next (F3)</source>
-        <translation type="unfinished"></translation>
+        <translation>Επόμενο (F3)</translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="90"/>
         <source>F3</source>
-        <translation type="unfinished">F3</translation>
+        <translation>F3</translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="97"/>
         <source>Highlight all</source>
-        <translation type="unfinished">Τονισμός όλων</translation>
+        <translation>Τονισμός όλων</translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="113"/>
         <source>Hide search panel (Ctrl+F)</source>
-        <translation type="unfinished">Απόκρυψη πλαισίου αναζήτησης (Ctrl+F)</translation>
+        <translation>Απόκρυψη πλαισίου αναζήτησης (Ctrl+F)</translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="154"/>
@@ -4778,7 +4759,7 @@ Do you want to stop it?
     <message>
         <location filename="../ui/UIFileHasher.ui" line="93"/>
         <source>Filepath</source>
-        <translation type="unfinished">Διαδρομή αρχείου</translation>
+        <translation>Διαδρομή αρχείου</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="113"/>
@@ -4793,27 +4774,27 @@ Do you want to stop it?
     <message>
         <location filename="../ui/UIFileHasher.ui" line="146"/>
         <source>Filename</source>
-        <translation type="unfinished"></translation>
+        <translation>Όνομα Αρχείου</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="185"/>
         <source>Opens search dialog and searches file.</source>
-        <translation type="unfinished">Ανοίγει τον διάλογο αναζήτησης και αναζήτα το αρχείο.</translation>
+        <translation>Ανοίγει τον διάλογο αναζήτησης και αναζήτα το αρχείο.</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="188"/>
         <source>Search</source>
-        <translation type="unfinished">Αναζήτηση</translation>
+        <translation>Αναζήτηση</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="208"/>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>Άκυρο</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="100"/>
         <source>Size</source>
-        <translation type="unfinished">Μέγεθος</translation>
+        <translation>Μέγεθος</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="178"/>
@@ -5094,7 +5075,7 @@ in options, file will be downloaded without opening search dialog.</source>
     <message>
         <location filename="../ui/PrivateMessage.ui" line="94"/>
         <source>Shift+F3</source>
-        <translation type="unfinished">Shift+F3</translation>
+        <translation>Shift+F3</translation>
     </message>
     <message>
         <location filename="../ui/PrivateMessage.ui" line="101"/>
@@ -5104,7 +5085,7 @@ in options, file will be downloaded without opening search dialog.</source>
     <message>
         <location filename="../ui/PrivateMessage.ui" line="107"/>
         <source>F3</source>
-        <translation type="unfinished">F3</translation>
+        <translation>F3</translation>
     </message>
     <message>
         <location filename="../ui/PrivateMessage.ui" line="114"/>
@@ -5173,7 +5154,7 @@ in options, file will be downloaded without opening search dialog.</source>
     <message>
         <location filename="../ui/UIScriptManager.ui" line="21"/>
         <source>Do nothing</source>
-        <translation type="unfinished">Καμία ενέργεια</translation>
+        <translation>Καμία ενέργεια</translation>
     </message>
     <message>
         <location filename="../ui/UIScriptManager.ui" line="26"/>
@@ -5214,37 +5195,37 @@ in options, file will be downloaded without opening search dialog.</source>
     <message>
         <location filename="../ui/UISecretary.ui" line="73"/>
         <source>Find: </source>
-        <translation type="unfinished">Εύρεση:</translation>
+        <translation>Εύρεση:</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="87"/>
         <source>Previous (Shift+F3)</source>
-        <translation type="unfinished">Προηγούμενο (Shift+F3)</translation>
+        <translation>Προηγούμενο (Shift+F3)</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="93"/>
         <source>Shift+F3</source>
-        <translation type="unfinished">Shift+F3</translation>
+        <translation>Shift+F3</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="100"/>
         <source>Next (F3)</source>
-        <translation type="unfinished"></translation>
+        <translation>Επόμενο (F3)</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="106"/>
         <source>F3</source>
-        <translation type="unfinished">F3</translation>
+        <translation>F3</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="113"/>
         <source>Highlight all</source>
-        <translation type="unfinished">Τονισμός όλων</translation>
+        <translation>Τονισμός όλων</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="129"/>
         <source>Hide search panel (Ctrl+F)</source>
-        <translation type="unfinished">Απόκρυψη πλαισίου αναζήτησης (Ctrl+F)</translation>
+        <translation>Απόκρυψη πλαισίου αναζήτησης (Ctrl+F)</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="219"/>
@@ -6075,7 +6056,7 @@ from the queue either, you must do that manually.</source>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="909"/>
         <source>Advanced</source>
-        <translation type="unfinished">Για προχωρημένους</translation>
+        <translation>Για προχωρημένους</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="930"/>
@@ -6119,6 +6100,10 @@ from the queue either, you must do that manually.</source>
         <location filename="../ui/UISettingsGUI.ui" line="73"/>
         <source>Apply</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Change</source>
+        <translation type="vanished">Αλλαγή</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="83"/>
@@ -6299,7 +6284,7 @@ from other words by spaces.</source>
         <location filename="../ui/UISettingsGUI.ui" line="402"/>
         <location filename="../ui/UISettingsGUI.ui" line="421"/>
         <source>Private message</source>
-        <translation type="unfinished">Προσωπικό μήνυμα</translation>
+        <translation>Προσωπικό μήνυμα</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="438"/>
@@ -6309,7 +6294,7 @@ from other words by spaces.</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="482"/>
         <source>Timestamp</source>
-        <translation type="unfinished"></translation>
+        <translation>Χρονική σφραγίδα</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="501"/>
@@ -6344,13 +6329,13 @@ from other words by spaces.</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="539"/>
         <source>Search</source>
-        <translation type="unfinished">Αναζήτηση</translation>
+        <translation>Αναζήτηση</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="544"/>
         <location filename="../ui/UISettingsGUI.ui" line="856"/>
         <source>Download</source>
-        <translation type="unfinished">Λήψη</translation>
+        <translation>Λήψη</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="569"/>
@@ -6433,7 +6418,7 @@ them is usually available only to operators</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="863"/>
         <source>Upload</source>
-        <translation type="unfinished">Αποστολή</translation>
+        <translation>Αποστολή</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="890"/>
@@ -6511,7 +6496,7 @@ them is usually available only to operators</source>
         <location filename="../ui/UISettingsLog.ui" line="264"/>
         <location filename="../ui/UISettingsLog.ui" line="315"/>
         <source>File</source>
-        <translation type="unfinished">Αρχείο</translation>
+        <translation>Αρχείο</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="51"/>
@@ -6532,7 +6517,7 @@ them is usually available only to operators</source>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="108"/>
         <source>Downloads</source>
-        <translation type="unfinished">Λήψεις</translation>
+        <translation>Λήψεις</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="152"/>
@@ -6542,7 +6527,7 @@ them is usually available only to operators</source>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="243"/>
         <source>Search Spy</source>
-        <translation type="unfinished"></translation>
+        <translation>Κατάσκοπος Αναζήτησης</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="294"/>
@@ -6572,7 +6557,7 @@ them is usually available only to operators</source>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="196"/>
         <source>Finished Downloads</source>
-        <translation type="unfinished">Ολοκληρωμένες Λήψεις</translation>
+        <translation>Ολοκληρωμένες Λήψεις</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="385"/>
@@ -6611,7 +6596,7 @@ p, li { white-space: pre-wrap; }
         <location filename="../ui/UISettingsNotification.ui" line="56"/>
         <location filename="../ui/UISettingsNotification.ui" line="242"/>
         <source>Private message</source>
-        <translation type="unfinished">Προσωπικό μήνυμα</translation>
+        <translation>Προσωπικό μήνυμα</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="63"/>
@@ -6717,7 +6702,7 @@ who sends private message to you.</source>
     <message>
         <location filename="../ui/UISettingsPersonal.ui" line="63"/>
         <source>Nick</source>
-        <translation type="unfinished">Ψευδώνυμο</translation>
+        <translation>Ψευδώνυμο</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsPersonal.ui" line="70"/>
@@ -6733,12 +6718,12 @@ It can be overridden on a per-hub basis in the Favorite Hub Properties.</source>
     <message>
         <location filename="../ui/UISettingsPersonal.ui" line="85"/>
         <source>Description</source>
-        <translation type="unfinished">Περιγραφή</translation>
+        <translation>Περιγραφή</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsPersonal.ui" line="92"/>
         <source>Away message</source>
-        <translation type="unfinished">Μήνυμα απουσίας</translation>
+        <translation>Μήνυμα απουσίας</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsPersonal.ui" line="99"/>
@@ -6789,22 +6774,22 @@ of how fast a source you are likely to be for other users.</source>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="65"/>
         <source>Path</source>
-        <translation type="unfinished">Διαδρομή</translation>
+        <translation>Διαδρομή</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="70"/>
         <source>Name</source>
-        <translation type="unfinished">Όνομα</translation>
+        <translation>Όνομα</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="75"/>
         <source>Size</source>
-        <translation type="unfinished">Μέγεθος</translation>
+        <translation>Μέγεθος</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="98"/>
         <source>Total shared: %1</source>
-        <translation type="unfinished">Σύνολο κοινόχρηστων: %1</translation>
+        <translation>Σύνολο κοινόχρηστων: %1</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="116"/>
@@ -6824,7 +6809,7 @@ of how fast a source you are likely to be for other users.</source>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="138"/>
         <source>Add new</source>
-        <translation type="unfinished"></translation>
+        <translation>Προσθήκη νέου</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="148"/>
@@ -6834,17 +6819,17 @@ of how fast a source you are likely to be for other users.</source>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="158"/>
         <source>Edit</source>
-        <translation type="unfinished">Επεξεργασία</translation>
+        <translation>Επεξεργασία</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="168"/>
         <source>Delete</source>
-        <translation type="unfinished">Διαγραφή</translation>
+        <translation>Διαγραφή</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="194"/>
         <source>Advanced</source>
-        <translation type="unfinished">Για προχωρημένους</translation>
+        <translation>Για προχωρημένους</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="206"/>
@@ -6985,27 +6970,27 @@ if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</sourc
     <message>
         <location filename="../ui/UISettingsUC.ui" line="51"/>
         <source>Add</source>
-        <translation type="unfinished">Προσθήκη</translation>
+        <translation>Προσθήκη</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsUC.ui" line="58"/>
         <source>Change</source>
-        <translation type="unfinished"></translation>
+        <translation>Αλλαγή</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsUC.ui" line="65"/>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Αφαίρεση</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsUC.ui" line="72"/>
         <source>Up</source>
-        <translation type="unfinished">Πάνω</translation>
+        <translation>Πάνω</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsUC.ui" line="92"/>
         <source>Down</source>
-        <translation type="unfinished">Κάτω</translation>
+        <translation>Κάτω</translation>
     </message>
 </context>
 <context>
@@ -7014,7 +6999,7 @@ if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</sourc
         <location filename="../ui/UIShareBrowserSearch.ui" line="14"/>
         <location filename="../ui/UIShareBrowserSearch.ui" line="25"/>
         <source>Search</source>
-        <translation type="unfinished">Αναζήτηση</translation>
+        <translation>Αναζήτηση</translation>
     </message>
     <message>
         <location filename="../ui/UIShareBrowserSearch.ui" line="35"/>
@@ -7034,12 +7019,12 @@ if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</sourc
     <message>
         <location filename="../ui/UIShareBrowserSearch.ui" line="54"/>
         <source>Name</source>
-        <translation type="unfinished">Όνομα</translation>
+        <translation>Όνομα</translation>
     </message>
     <message>
         <location filename="../ui/UIShareBrowserSearch.ui" line="59"/>
         <source>Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Φάκελος</translation>
     </message>
 </context>
 <context>
@@ -7057,12 +7042,12 @@ if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</sourc
     <message>
         <location filename="../ui/UISpy.ui" line="65"/>
         <source>Start</source>
-        <translation type="unfinished">Έναρξη</translation>
+        <translation>Έναρξη</translation>
     </message>
     <message>
         <location filename="../ui/UISpy.ui" line="72"/>
         <source>Clear</source>
-        <translation type="unfinished"></translation>
+        <translation>Καθάρισμα</translation>
     </message>
 </context>
 <context>
@@ -7075,7 +7060,7 @@ if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</sourc
     <message>
         <location filename="../ui/UIUserCommands.ui" line="23"/>
         <source>Type</source>
-        <translation type="unfinished">Είδος</translation>
+        <translation>Είδος</translation>
     </message>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="32"/>
@@ -7105,22 +7090,22 @@ if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</sourc
     <message>
         <location filename="../ui/UIUserCommands.ui" line="75"/>
         <source>Hub</source>
-        <translation type="unfinished">Κόμβος</translation>
+        <translation>Κόμβος</translation>
     </message>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="82"/>
         <source>Search</source>
-        <translation type="unfinished">Αναζήτηση</translation>
+        <translation>Αναζήτηση</translation>
     </message>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="89"/>
         <source>User</source>
-        <translation type="unfinished">Χρήστης</translation>
+        <translation>Χρήστης</translation>
     </message>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="96"/>
         <source>Filebrowser</source>
-        <translation type="unfinished">Περιηγητής αρχείων</translation>
+        <translation>Περιηγητής αρχείων</translation>
     </message>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="106"/>
@@ -7130,12 +7115,12 @@ if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</sourc
     <message>
         <location filename="../ui/UIUserCommands.ui" line="139"/>
         <source>Name</source>
-        <translation type="unfinished">Όνομα</translation>
+        <translation>Όνομα</translation>
     </message>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="146"/>
         <source>Command</source>
-        <translation type="unfinished">Εντολή</translation>
+        <translation>Εντολή</translation>
     </message>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="153"/>
@@ -7178,7 +7163,7 @@ if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</sourc
     <message>
         <location filename="../src/UserListModel.cpp" line="169"/>
         <source>Nick</source>
-        <translation type="unfinished">Ψευδώνυμο</translation>
+        <translation>Ψευδώνυμο</translation>
     </message>
     <message>
         <location filename="../src/UserListModel.cpp" line="170"/>
@@ -7188,12 +7173,12 @@ if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</sourc
     <message>
         <location filename="../src/UserListModel.cpp" line="171"/>
         <source>Tag</source>
-        <translation type="unfinished">Ετικέτα</translation>
+        <translation>Ετικέτα</translation>
     </message>
     <message>
         <location filename="../src/UserListModel.cpp" line="172"/>
         <source>Connection</source>
-        <translation type="unfinished">Σύνδεση</translation>
+        <translation>Σύνδεση</translation>
     </message>
     <message>
         <location filename="../src/UserListModel.cpp" line="173"/>
@@ -7203,7 +7188,7 @@ if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</sourc
     <message>
         <location filename="../src/UserListModel.cpp" line="174"/>
         <source>Share</source>
-        <translation type="unfinished">Κοινή χρήση</translation>
+        <translation>Κοινή χρήση</translation>
     </message>
     <message>
         <location filename="../src/UserListModel.cpp" line="175"/>
@@ -7213,7 +7198,7 @@ if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</sourc
     <message>
         <location filename="../src/UserListModel.cpp" line="176"/>
         <source>IP</source>
-        <translation type="unfinished">IP</translation>
+        <translation>IP</translation>
     </message>
 </context>
 <context>
@@ -7234,12 +7219,12 @@ if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</sourc
     <message>
         <location filename="../src/WulforUtil.cpp" line="750"/>
         <source>System default</source>
-        <translation type="unfinished">Προεπιλογή συστήματος</translation>
+        <translation>Προεπιλογή συστήματος</translation>
     </message>
     <message>
         <location filename="../src/WulforUtil.cpp" line="1072"/>
         <source>Offline</source>
-        <translation type="unfinished"></translation>
+        <translation>Χωρίς σύνδεση</translation>
     </message>
     <message>
         <location filename="../src/WulforUtil.cpp" line="1175"/>

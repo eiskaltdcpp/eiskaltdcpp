@@ -4,7 +4,6 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 # Translators:
-# Boris Pek <tehnick-8@yandex.ru>, 2017
 # Helder Oliveira <heldercro@gmail.com>, 2021
 #
 #, fuzzy
@@ -12,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://github.com/eiskaltdcpp/eiskaltdcpp/issues\n"
-"POT-Creation-Date: 2021-07-29 13:27+0300\n"
+"POT-Creation-Date: 2023-02-25 14:19+0300\n"
 "PO-Revision-Date: 2017-06-18 13:35+0000\n"
 "Last-Translator: Helder Oliveira <heldercro@gmail.com>, 2021\n"
 "Language-Team: Portuguese (Brazil) (https://www.transifex.com/tehnick/"
@@ -21,7 +20,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % "
+"1000000 == 0 ? 1 : 2;\n"
 
 #: ../ADLSearch.cpp:40
 msgid "<Enter string>"
@@ -418,7 +418,7 @@ msgstr "GiB"
 msgid "Denied to send file"
 msgstr "Envio de arquivo negado"
 
-#: ../PerFolderLimit.cpp:90 ../SettingsManager.cpp:619
+#: ../PerFolderLimit.cpp:90 ../SettingsManager.cpp:631
 msgid " to "
 msgstr "para"
 
@@ -566,31 +566,31 @@ msgstr "Busca habilitada"
 msgid "Search disabled: %1%"
 msgstr "Busca desabilitada: %1%"
 
-#: ../SettingsManager.cpp:188
+#: ../SettingsManager.cpp:187
 msgid "downloaded from"
 msgstr "baixado de"
 
-#: ../SettingsManager.cpp:528
+#: ../SettingsManager.cpp:540
 msgid "Invalid search type name"
 msgstr "Busca inválida"
 
-#: ../SettingsManager.cpp:532 ../SettingsManager.cpp:554
+#: ../SettingsManager.cpp:544 ../SettingsManager.cpp:566
 msgid "This search type already exists"
 msgstr "O tipo de busca já existe"
 
-#: ../SettingsManager.cpp:586
+#: ../SettingsManager.cpp:598
 msgid "No such search type"
 msgstr "Busca não encontrada"
 
-#: ../SettingsManager.cpp:614 ../SettingsManager.cpp:619
+#: ../SettingsManager.cpp:626 ../SettingsManager.cpp:631
 msgid "Error: setting not found!"
 msgstr "Error: configuração não encontrada"
 
-#: ../SettingsManager.cpp:614
+#: ../SettingsManager.cpp:626
 msgid "Core setting "
 msgstr "Configuração"
 
-#: ../SettingsManager.cpp:619
+#: ../SettingsManager.cpp:631
 msgid "Change core setting "
 msgstr "Alterar configuração"
 

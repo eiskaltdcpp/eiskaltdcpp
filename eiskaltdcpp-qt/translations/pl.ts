@@ -219,7 +219,7 @@ Opcje:
     <message>
         <location filename="../ui/UIDialogScriptConsole.ui" line="89"/>
         <source>Clear</source>
-        <translation type="unfinished">Wyczyść</translation>
+        <translation>Wyczyść</translation>
     </message>
     <message>
         <location filename="../ui/UIDialogScriptConsole.ui" line="109"/>
@@ -730,12 +730,12 @@ Opcje:
     <message>
         <location filename="../src/FileBrowserModel.cpp" line="314"/>
         <source>Downloaded</source>
-        <translation type="unfinished">Pobrane</translation>
+        <translation>Pobrane</translation>
     </message>
     <message>
         <location filename="../src/FileBrowserModel.cpp" line="314"/>
         <source>Shared</source>
-        <translation type="unfinished">Udostępnione</translation>
+        <translation>Udostępnione</translation>
     </message>
 </context>
 <context>
@@ -1009,7 +1009,7 @@ Opcje:
     <message>
         <location filename="../src/HubFrame.cpp" line="203"/>
         <source>Comment</source>
-        <translation type="unfinished">Кomentarz</translation>
+        <translation>Кomentarz</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="204"/>
@@ -1029,7 +1029,7 @@ Opcje:
     <message>
         <location filename="../src/HubFrame.cpp" line="207"/>
         <source>E-mail</source>
-        <translation type="unfinished">E-mail</translation>
+        <translation>E-mail</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="209"/>
@@ -1532,25 +1532,6 @@ Ulubiony użytkownik</translation>
         <location filename="../src/HubFrame.cpp" line="4021"/>
         <source>Search flood detected: %1</source>
         <translation>Wykryty flood zapytań: %1</translation>
-    </message>
-</context>
-<context>
-    <name>IPFilter</name>
-    <message>
-        <source>Nothing to export.</source>
-        <translation type="obsolete">Nic do wyeksportowania.</translation>
-    </message>
-    <message>
-        <source>Unable to export settings.</source>
-        <translation type="obsolete">Nie można wyeksportować ustawień.</translation>
-    </message>
-    <message>
-        <source>Nothing to import.</source>
-        <translation type="obsolete">Nic do zaimportowania.</translation>
-    </message>
-    <message>
-        <source>Invalid signature.</source>
-        <translation type="obsolete">Nieoprawidłowy podpis.</translation>
     </message>
 </context>
 <context>
@@ -2795,7 +2776,7 @@ Pobrano: %3 Wysłano: %4</translation>
     <message>
         <location filename="../src/SearchBlacklistDialog.cpp" line="346"/>
         <source>Filename</source>
-        <translation type="unfinished">Nazwa pliku</translation>
+        <translation>Nazwa pliku</translation>
     </message>
 </context>
 <context>
@@ -2821,7 +2802,7 @@ Pobrano: %3 Wysłano: %4</translation>
     <message>
         <location filename="../src/SearchBlacklistDialog.cpp" line="179"/>
         <source>Key</source>
-        <translation type="unfinished">Odpowiedź</translation>
+        <translation>Odpowiedź</translation>
     </message>
     <message>
         <location filename="../src/SearchBlacklistDialog.cpp" line="180"/>
@@ -2975,12 +2956,12 @@ Pobrano: %3 Wysłano: %4</translation>
     <message>
         <location filename="../src/SearchFrame.cpp" line="143"/>
         <source>Copy web-magnet</source>
-        <translation type="unfinished">Kopiuj magnet-www</translation>
+        <translation>Kopiuj magnet-www</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="146"/>
         <source>Properties of magnet</source>
-        <translation type="unfinished">Właściwości magetu</translation>
+        <translation>Właściwości magetu</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="149"/>
@@ -3153,17 +3134,17 @@ Pobrano: %3 Wysłano: %4</translation>
     <message>
         <location filename="../src/Secretary.cpp" line="311"/>
         <source>Copy</source>
-        <translation type="unfinished">Kopiuj</translation>
+        <translation>Kopiuj</translation>
     </message>
     <message>
         <location filename="../src/Secretary.cpp" line="312"/>
         <source>Search text</source>
-        <translation type="unfinished">Wyszukaj tekst</translation>
+        <translation>Wyszukaj tekst</translation>
     </message>
     <message>
         <location filename="../src/Secretary.cpp" line="313"/>
         <source>Copy nick</source>
-        <translation type="unfinished">Kopiuj Nick</translation>
+        <translation>Kopiuj Nick</translation>
     </message>
     <message>
         <location filename="../src/Secretary.cpp" line="315"/>
@@ -3178,17 +3159,17 @@ Pobrano: %3 Wysłano: %4</translation>
     <message>
         <location filename="../src/Secretary.cpp" line="318"/>
         <source>Select all</source>
-        <translation type="unfinished">Zaznacz wszystko</translation>
+        <translation>Zaznacz wszystko</translation>
     </message>
     <message>
         <location filename="../src/Secretary.cpp" line="320"/>
         <source>Zoom In</source>
-        <translation type="unfinished">Powiększ</translation>
+        <translation>Powiększ</translation>
     </message>
     <message>
         <location filename="../src/Secretary.cpp" line="321"/>
         <source>Zoom Out</source>
-        <translation type="unfinished">Zmniejsz</translation>
+        <translation>Zmniejsz</translation>
     </message>
 </context>
 <context>
@@ -3251,7 +3232,7 @@ Pobrano: %3 Wysłano: %4</translation>
     <message>
         <location filename="../src/Settings.cpp" line="101"/>
         <source>Advanced</source>
-        <translation type="unfinished">Zaawansowane</translation>
+        <translation>Zaawansowane</translation>
     </message>
 </context>
 <context>
@@ -3603,7 +3584,7 @@ Pobrano: %3 Wysłano: %4</translation>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="75"/>
         <source>Magnet</source>
-        <translation type="unfinished">Magnet</translation>
+        <translation>Magnet</translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="77"/>
@@ -3628,12 +3609,12 @@ Pobrano: %3 Wysłano: %4</translation>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="86"/>
         <source>Copy web-magnet</source>
-        <translation type="unfinished">Kopiuj magnet-www</translation>
+        <translation>Kopiuj magnet-www</translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="88"/>
         <source>Properties of magnet</source>
-        <translation type="unfinished">Właściwości magetu</translation>
+        <translation>Właściwości magetu</translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="91"/>
@@ -3653,7 +3634,7 @@ Pobrano: %3 Wysłano: %4</translation>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="95"/>
         <source>Open directory</source>
-        <translation type="unfinished">Otwórz katalog</translation>
+        <translation>Otwórz katalog</translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="175"/>
@@ -3732,7 +3713,7 @@ Pobrano: %3 Wysłano: %4</translation>
     <message>
         <location filename="../src/ShareBrowserSearch.cpp" line="71"/>
         <source>Search - %1</source>
-        <translation type="unfinished">Wyszukiwanie - %1</translation>
+        <translation>Wyszukiwanie - %1</translation>
     </message>
     <message>
         <location filename="../src/ShareBrowserSearch.cpp" line="106"/>
@@ -3874,7 +3855,7 @@ Pobrano: %3 Wysłano: %4</translation>
         <location filename="../src/SideBar.cpp" line="82"/>
         <location filename="../src/SideBar.cpp" line="436"/>
         <source>Search Spy</source>
-        <translation type="unfinished">Szpieg wyszukiwań</translation>
+        <translation>Szpieg wyszukiwań</translation>
     </message>
     <message>
         <source>Spy</source>
@@ -3903,42 +3884,42 @@ Pobrano: %3 Wysłano: %4</translation>
     <message>
         <location filename="../src/SideBar.cpp" line="572"/>
         <source>Close all</source>
-        <translation type="unfinished"></translation>
+        <translation>Zamknij wszystkie</translation>
     </message>
     <message>
         <location filename="../src/SideBar.cpp" line="593"/>
         <source>Close</source>
-        <translation type="unfinished">Zamknij</translation>
+        <translation>Zamknij</translation>
     </message>
     <message>
         <location filename="../src/SideBar.cpp" line="652"/>
         <source>Choose file to open</source>
-        <translation type="unfinished">Wybierz plik do otwarcia</translation>
+        <translation>Wybierz plik do otwarcia</translation>
     </message>
     <message>
         <location filename="../src/SideBar.cpp" line="654"/>
         <source>Modern XML Filelists</source>
-        <translation type="unfinished">Nowoczesna lista plików XML</translation>
+        <translation>Nowoczesna lista plików XML</translation>
     </message>
     <message>
         <location filename="../src/SideBar.cpp" line="655"/>
         <source>Modern XML Filelists uncompressed</source>
-        <translation type="unfinished">Nowoczesna lista plików XML - nieskompresowana</translation>
+        <translation>Nowoczesna lista plików XML - nieskompresowana</translation>
     </message>
     <message>
         <location filename="../src/SideBar.cpp" line="656"/>
         <source>All files</source>
-        <translation type="unfinished">Wszystkie pliki</translation>
+        <translation>Wszystkie pliki</translation>
     </message>
     <message>
         <location filename="../src/SideBar.cpp" line="671"/>
         <source>Open log file</source>
-        <translation type="unfinished">Otwrórz plik logów</translation>
+        <translation>Otwrórz plik logów</translation>
     </message>
     <message>
         <location filename="../src/SideBar.cpp" line="671"/>
         <source>Log files (*.log);;All files (*.*)</source>
-        <translation type="unfinished">Pliki log (*.log);;Wszystkie pliki (*.*)</translation>
+        <translation>Pliki log (*.log);;Wszystkie pliki (*.*)</translation>
     </message>
 </context>
 <context>
@@ -4056,7 +4037,7 @@ Chcesz go zatrzymać?
     <message>
         <location filename="../src/TransferView.cpp" line="70"/>
         <source>Status</source>
-        <translation type="unfinished">Status</translation>
+        <translation>Status</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="71"/>
@@ -4081,7 +4062,7 @@ Chcesz go zatrzymać?
     <message>
         <location filename="../src/TransferView.cpp" line="75"/>
         <source>Hub</source>
-        <translation type="unfinished"></translation>
+        <translation>Menu huba</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="76"/>
@@ -4533,37 +4514,37 @@ Chcesz go zatrzymać?
     <message>
         <location filename="../ui/UICmdDebug.ui" line="57"/>
         <source>Find: </source>
-        <translation type="unfinished">Znajdź: </translation>
+        <translation>Znajdź: </translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="71"/>
         <source>Previous (Shift+F3)</source>
-        <translation type="unfinished">Poprzedni (Shift+F3)</translation>
+        <translation>Poprzedni (Shift+F3)</translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="77"/>
         <source>Shift+F3</source>
-        <translation type="unfinished">Shift+F3</translation>
+        <translation>Shift+F3</translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="84"/>
         <source>Next (F3)</source>
-        <translation type="unfinished">Następny (F3)</translation>
+        <translation>Następny (F3)</translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="90"/>
         <source>F3</source>
-        <translation type="unfinished">F3</translation>
+        <translation>F3</translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="97"/>
         <source>Highlight all</source>
-        <translation type="unfinished">Zaznacz wszystkie</translation>
+        <translation>Zaznacz wszystkie</translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="113"/>
         <source>Hide search panel (Ctrl+F)</source>
-        <translation type="unfinished">Ukryj ramkę wyszukiwania (Ctrl+F)</translation>
+        <translation>Ukryj ramkę wyszukiwania (Ctrl+F)</translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="154"/>
@@ -4768,7 +4749,7 @@ Chcesz go zatrzymać?
     <message>
         <location filename="../ui/UIFileHasher.ui" line="93"/>
         <source>Filepath</source>
-        <translation type="unfinished">Ścieżka pliku</translation>
+        <translation>Ścieżka pliku</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="113"/>
@@ -4783,27 +4764,27 @@ Chcesz go zatrzymać?
     <message>
         <location filename="../ui/UIFileHasher.ui" line="146"/>
         <source>Filename</source>
-        <translation type="unfinished">Nazwa pliku</translation>
+        <translation>Nazwa pliku</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="185"/>
         <source>Opens search dialog and searches file.</source>
-        <translation type="unfinished">Otwiera okno wyszukiwania i wyszukuje plików</translation>
+        <translation>Otwiera okno wyszukiwania i wyszukuje plików</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="188"/>
         <source>Search</source>
-        <translation type="unfinished"></translation>
+        <translation>Menu szukaj</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="208"/>
         <source>Cancel</source>
-        <translation type="unfinished">Anuluj</translation>
+        <translation>Anuluj</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="100"/>
         <source>Size</source>
-        <translation type="unfinished">Rozmiar</translation>
+        <translation>Rozmiar</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="178"/>
@@ -5084,7 +5065,7 @@ w opcjach, plik zostanie pobrany bez otwierania okna wyszukiwania.</translation>
     <message>
         <location filename="../ui/PrivateMessage.ui" line="94"/>
         <source>Shift+F3</source>
-        <translation type="unfinished">Shift+F3</translation>
+        <translation>Shift+F3</translation>
     </message>
     <message>
         <location filename="../ui/PrivateMessage.ui" line="101"/>
@@ -5094,7 +5075,7 @@ w opcjach, plik zostanie pobrany bez otwierania okna wyszukiwania.</translation>
     <message>
         <location filename="../ui/PrivateMessage.ui" line="107"/>
         <source>F3</source>
-        <translation type="unfinished">F3</translation>
+        <translation>F3</translation>
     </message>
     <message>
         <location filename="../ui/PrivateMessage.ui" line="114"/>
@@ -5163,7 +5144,7 @@ w opcjach, plik zostanie pobrany bez otwierania okna wyszukiwania.</translation>
     <message>
         <location filename="../ui/UIScriptManager.ui" line="21"/>
         <source>Do nothing</source>
-        <translation type="unfinished">Nic nierób</translation>
+        <translation>Nic nierób</translation>
     </message>
     <message>
         <location filename="../ui/UIScriptManager.ui" line="26"/>
@@ -5204,37 +5185,37 @@ w opcjach, plik zostanie pobrany bez otwierania okna wyszukiwania.</translation>
     <message>
         <location filename="../ui/UISecretary.ui" line="73"/>
         <source>Find: </source>
-        <translation type="unfinished">Znajdź: </translation>
+        <translation>Znajdź: </translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="87"/>
         <source>Previous (Shift+F3)</source>
-        <translation type="unfinished">Poprzedni (Shift+F3)</translation>
+        <translation>Poprzedni (Shift+F3)</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="93"/>
         <source>Shift+F3</source>
-        <translation type="unfinished">Shift+F3</translation>
+        <translation>Shift+F3</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="100"/>
         <source>Next (F3)</source>
-        <translation type="unfinished">Następny (F3)</translation>
+        <translation>Następny (F3)</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="106"/>
         <source>F3</source>
-        <translation type="unfinished">F3</translation>
+        <translation>F3</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="113"/>
         <source>Highlight all</source>
-        <translation type="unfinished">Zaznacz wszystkie</translation>
+        <translation>Zaznacz wszystkie</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="129"/>
         <source>Hide search panel (Ctrl+F)</source>
-        <translation type="unfinished">Ukryj ramkę wyszukiwania (Ctrl+F)</translation>
+        <translation>Ukryj ramkę wyszukiwania (Ctrl+F)</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="219"/>
@@ -5254,7 +5235,7 @@ w opcjach, plik zostanie pobrany bez otwierania okna wyszukiwania.</translation>
     <message>
         <location filename="../ui/UISecretary.ui" line="179"/>
         <source>Status messages</source>
-        <translation type="unfinished">Statusy</translation>
+        <translation>Statusy</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="169"/>
@@ -5264,7 +5245,7 @@ w opcjach, plik zostanie pobrany bez otwierania okna wyszukiwania.</translation>
     <message>
         <location filename="../ui/UISecretary.ui" line="189"/>
         <source>Private messages</source>
-        <translation type="unfinished">Wiadomości prywatne</translation>
+        <translation>Wiadomości prywatne</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="159"/>
@@ -6446,7 +6427,7 @@ them is usually available only to operators</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="863"/>
         <source>Upload</source>
-        <translation type="unfinished">Wysyłanie</translation>
+        <translation>Wysyłanie</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="890"/>
@@ -6555,7 +6536,7 @@ them is usually available only to operators</source>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="243"/>
         <source>Search Spy</source>
-        <translation type="unfinished">Szpieg wyszukiwań</translation>
+        <translation>Szpieg wyszukiwań</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="294"/>
@@ -6585,7 +6566,7 @@ them is usually available only to operators</source>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="196"/>
         <source>Finished Downloads</source>
-        <translation type="unfinished">Pliki pobrane</translation>
+        <translation>Pliki pobrane</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="385"/>
@@ -7062,7 +7043,7 @@ jeżeli użytkownik powróci na hub w ciągu 10 minut, EiskaltDC++ przyzna mu ex
     <message>
         <location filename="../ui/UIShareBrowserSearch.ui" line="54"/>
         <source>Name</source>
-        <translation type="unfinished">Nazwa</translation>
+        <translation>Nazwa</translation>
     </message>
     <message>
         <location filename="../ui/UIShareBrowserSearch.ui" line="59"/>

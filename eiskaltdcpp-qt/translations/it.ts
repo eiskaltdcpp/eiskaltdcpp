@@ -720,22 +720,22 @@ Chiavi:
     <message>
         <location filename="../src/FileBrowserModel.cpp" line="313"/>
         <source>Video</source>
-        <translation type="unfinished"></translation>
+        <translation>Video</translation>
     </message>
     <message>
         <location filename="../src/FileBrowserModel.cpp" line="313"/>
         <source>Audio</source>
-        <translation type="unfinished"></translation>
+        <translation>Audio</translation>
     </message>
     <message>
         <location filename="../src/FileBrowserModel.cpp" line="314"/>
         <source>Downloaded</source>
-        <translation type="unfinished">Scaricato</translation>
+        <translation>Scaricato</translation>
     </message>
     <message>
         <location filename="../src/FileBrowserModel.cpp" line="314"/>
         <source>Shared</source>
-        <translation type="unfinished">Condiviso</translation>
+        <translation>Condiviso</translation>
     </message>
 </context>
 <context>
@@ -1009,7 +1009,7 @@ Chiavi:
     <message>
         <location filename="../src/HubFrame.cpp" line="203"/>
         <source>Comment</source>
-        <translation type="unfinished">Commento</translation>
+        <translation>Commento</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="204"/>
@@ -1029,7 +1029,7 @@ Chiavi:
     <message>
         <location filename="../src/HubFrame.cpp" line="207"/>
         <source>E-mail</source>
-        <translation type="unfinished">E-mail</translation>
+        <translation>E-mail</translation>
     </message>
     <message>
         <location filename="../src/HubFrame.cpp" line="209"/>
@@ -1551,25 +1551,6 @@ Utente preferito</translation>
         <location filename="../src/HubFrame.cpp" line="4021"/>
         <source>Search flood detected: %1</source>
         <translation>Flood di ricerche rilevato: %1</translation>
-    </message>
-</context>
-<context>
-    <name>IPFilter</name>
-    <message>
-        <source>Nothing to export.</source>
-        <translation type="obsolete">Nulla da esportare.</translation>
-    </message>
-    <message>
-        <source>Unable to export settings.</source>
-        <translation type="obsolete">Impossibile esportare le impostazioni.</translation>
-    </message>
-    <message>
-        <source>Nothing to import.</source>
-        <translation type="obsolete">Nulla da importare.</translation>
-    </message>
-    <message>
-        <source>Invalid signature.</source>
-        <translation type="obsolete">Firma non valida.</translation>
     </message>
 </context>
 <context>
@@ -3172,17 +3153,17 @@ Scaricato: %3 Caricato: %4</translation>
     <message>
         <location filename="../src/Secretary.cpp" line="311"/>
         <source>Copy</source>
-        <translation type="unfinished">Copia</translation>
+        <translation>Copia</translation>
     </message>
     <message>
         <location filename="../src/Secretary.cpp" line="312"/>
         <source>Search text</source>
-        <translation type="unfinished">oCerca test</translation>
+        <translation>oCerca test</translation>
     </message>
     <message>
         <location filename="../src/Secretary.cpp" line="313"/>
         <source>Copy nick</source>
-        <translation type="unfinished">Copia nick</translation>
+        <translation>Copia nick</translation>
     </message>
     <message>
         <location filename="../src/Secretary.cpp" line="315"/>
@@ -3197,17 +3178,17 @@ Scaricato: %3 Caricato: %4</translation>
     <message>
         <location filename="../src/Secretary.cpp" line="318"/>
         <source>Select all</source>
-        <translation type="unfinished">Seleziona tutti</translation>
+        <translation>Seleziona tutti</translation>
     </message>
     <message>
         <location filename="../src/Secretary.cpp" line="320"/>
         <source>Zoom In</source>
-        <translation type="unfinished">Ingrandisci</translation>
+        <translation>Ingrandisci</translation>
     </message>
     <message>
         <location filename="../src/Secretary.cpp" line="321"/>
         <source>Zoom Out</source>
-        <translation type="unfinished">Riduci</translation>
+        <translation>Riduci</translation>
     </message>
 </context>
 <context>
@@ -3270,7 +3251,7 @@ Scaricato: %3 Caricato: %4</translation>
     <message>
         <location filename="../src/Settings.cpp" line="101"/>
         <source>Advanced</source>
-        <translation type="unfinished">Avanzato</translation>
+        <translation>Avanzato</translation>
     </message>
 </context>
 <context>
@@ -3893,7 +3874,7 @@ Scaricato: %3 Caricato: %4</translation>
         <location filename="../src/SideBar.cpp" line="82"/>
         <location filename="../src/SideBar.cpp" line="436"/>
         <source>Search Spy</source>
-        <translation type="unfinished">Spia ricerca</translation>
+        <translation>Spia ricerca</translation>
     </message>
     <message>
         <source>Spy</source>
@@ -4074,12 +4055,12 @@ Vuoi arrestarla?</translation>
     <message>
         <location filename="../src/TransferView.cpp" line="70"/>
         <source>Status</source>
-        <translation type="unfinished">Stato</translation>
+        <translation>Stato</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="71"/>
         <source>Flags</source>
-        <translation type="unfinished">Indicatori</translation>
+        <translation>Indicatori</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="72"/>
@@ -4099,7 +4080,7 @@ Vuoi arrestarla?</translation>
     <message>
         <location filename="../src/TransferView.cpp" line="75"/>
         <source>Hub</source>
-        <translation type="unfinished">Hub</translation>
+        <translation>Hub</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="76"/>
@@ -4551,37 +4532,37 @@ Vuoi arrestarla?</translation>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="57"/>
         <source>Find: </source>
-        <translation type="unfinished">Trova: </translation>
+        <translation>Trova: </translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="71"/>
         <source>Previous (Shift+F3)</source>
-        <translation type="unfinished">Precedente (Shift+F3)</translation>
+        <translation>Precedente (Shift+F3)</translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="77"/>
         <source>Shift+F3</source>
-        <translation type="unfinished">Shift+F3</translation>
+        <translation>Shift+F3</translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="84"/>
         <source>Next (F3)</source>
-        <translation type="unfinished">Successivo (F3)</translation>
+        <translation>Successivo (F3)</translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="90"/>
         <source>F3</source>
-        <translation type="unfinished">F3</translation>
+        <translation>F3</translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="97"/>
         <source>Highlight all</source>
-        <translation type="unfinished"></translation>
+        <translation>Evidenzia tutti</translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="113"/>
         <source>Hide search panel (Ctrl+F)</source>
-        <translation type="unfinished">Nacondi il riquadro di ricerca (Ctrl+F)</translation>
+        <translation>Nacondi il riquadro di ricerca (Ctrl+F)</translation>
     </message>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="154"/>
@@ -4601,7 +4582,7 @@ Vuoi arrestarla?</translation>
     <message>
         <location filename="../ui/UICmdDebug.ui" line="228"/>
         <source>Clear now</source>
-        <translation type="unfinished">Pulisci ora</translation>
+        <translation>Pulisci ora</translation>
     </message>
 </context>
 <context>
@@ -4786,7 +4767,7 @@ Vuoi arrestarla?</translation>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="93"/>
         <source>Filepath</source>
-        <translation type="unfinished">Percorso file</translation>
+        <translation>Percorso file</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="113"/>
@@ -4801,27 +4782,27 @@ Vuoi arrestarla?</translation>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="146"/>
         <source>Filename</source>
-        <translation type="unfinished">Nome file</translation>
+        <translation>Nome file</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="185"/>
         <source>Opens search dialog and searches file.</source>
-        <translation type="unfinished">Apri la finestra di ricerca e cerca il file.</translation>
+        <translation>Apri la finestra di ricerca e cerca il file.</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="188"/>
         <source>Search</source>
-        <translation type="unfinished"></translation>
+        <translation>Cerca</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="208"/>
         <source>Cancel</source>
-        <translation type="unfinished">Annulla</translation>
+        <translation>Annulla</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="100"/>
         <source>Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Dimensione</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="178"/>
@@ -5102,7 +5083,7 @@ nelle opzioni, il file sarà scaricato senza aprire una finestra di ricerca.</tr
     <message>
         <location filename="../ui/PrivateMessage.ui" line="94"/>
         <source>Shift+F3</source>
-        <translation type="unfinished">Shift+F3</translation>
+        <translation>Shift+F3</translation>
     </message>
     <message>
         <location filename="../ui/PrivateMessage.ui" line="101"/>
@@ -5112,7 +5093,7 @@ nelle opzioni, il file sarà scaricato senza aprire una finestra di ricerca.</tr
     <message>
         <location filename="../ui/PrivateMessage.ui" line="107"/>
         <source>F3</source>
-        <translation type="unfinished">F3</translation>
+        <translation>F3</translation>
     </message>
     <message>
         <location filename="../ui/PrivateMessage.ui" line="114"/>
@@ -5222,37 +5203,37 @@ nelle opzioni, il file sarà scaricato senza aprire una finestra di ricerca.</tr
     <message>
         <location filename="../ui/UISecretary.ui" line="73"/>
         <source>Find: </source>
-        <translation type="unfinished">Trova: </translation>
+        <translation>Trova: </translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="87"/>
         <source>Previous (Shift+F3)</source>
-        <translation type="unfinished">Precedente (Shift+F3)</translation>
+        <translation>Precedente (Shift+F3)</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="93"/>
         <source>Shift+F3</source>
-        <translation type="unfinished">Shift+F3</translation>
+        <translation>Shift+F3</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="100"/>
         <source>Next (F3)</source>
-        <translation type="unfinished">Successivo (F3)</translation>
+        <translation>Successivo (F3)</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="106"/>
         <source>F3</source>
-        <translation type="unfinished">F3</translation>
+        <translation>F3</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="113"/>
         <source>Highlight all</source>
-        <translation type="unfinished"></translation>
+        <translation>Evidenzia tutti</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="129"/>
         <source>Hide search panel (Ctrl+F)</source>
-        <translation type="unfinished">Nacondi il riquadro di ricerca (Ctrl+F)</translation>
+        <translation>Nacondi il riquadro di ricerca (Ctrl+F)</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="219"/>
@@ -5272,7 +5253,7 @@ nelle opzioni, il file sarà scaricato senza aprire una finestra di ricerca.</tr
     <message>
         <location filename="../ui/UISecretary.ui" line="179"/>
         <source>Status messages</source>
-        <translation type="unfinished">Messaggi di stato</translation>
+        <translation>Messaggi di stato</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="169"/>
@@ -5282,7 +5263,7 @@ nelle opzioni, il file sarà scaricato senza aprire una finestra di ricerca.</tr
     <message>
         <location filename="../ui/UISecretary.ui" line="189"/>
         <source>Private messages</source>
-        <translation type="unfinished">Messaggi privati</translation>
+        <translation>Messaggi privati</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="159"/>
@@ -5313,7 +5294,7 @@ nelle opzioni, il file sarà scaricato senza aprire una finestra di ricerca.</tr
     <message>
         <location filename="../ui/UISecretary.ui" line="297"/>
         <source>Clear now</source>
-        <translation type="unfinished">Pulisci ora</translation>
+        <translation>Pulisci ora</translation>
     </message>
 </context>
 <context>
@@ -6606,7 +6587,7 @@ them is usually available only to operators</source>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="243"/>
         <source>Search Spy</source>
-        <translation type="unfinished">Spia ricerca</translation>
+        <translation>Spia ricerca</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="294"/>
@@ -7115,7 +7096,7 @@ se l&apos;utente torna prima di 10 minuti EiskaltDC++ riassegna lo slot all&apos
     <message>
         <location filename="../ui/UIShareBrowserSearch.ui" line="54"/>
         <source>Name</source>
-        <translation type="unfinished">Nome</translation>
+        <translation>Nome</translation>
     </message>
     <message>
         <location filename="../ui/UIShareBrowserSearch.ui" line="59"/>

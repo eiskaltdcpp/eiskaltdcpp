@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://github.com/eiskaltdcpp/eiskaltdcpp/issues\n"
-"POT-Creation-Date: 2021-07-29 13:27+0300\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Boris Pek <tehnick-8@yandex.ru>, 2017\n"
+"POT-Creation-Date: 2023-02-25 14:19+0300\n"
+"PO-Revision-Date: 2017-06-18 13:35+0000\n"
+"Last-Translator: Boris Pek <tehnick-8@yandex.ru>, 2018\n"
 "Language-Team: Czech (https://www.transifex.com/tehnick/teams/11818/cs/)\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
@@ -312,9 +312,8 @@ msgid "Error hashing %1%: %2%"
 msgstr "Chyba hashování %1%: %2%"
 
 #: ../HttpConnection.cpp:218
-#, fuzzy
 msgid "Transfer-encoding error (%1%)"
-msgstr " Transfer Port (%1% TCP)"
+msgstr ""
 
 #: ../HttpConnection.cpp:257
 msgid "Endless redirection loop (%1%)"
@@ -409,7 +408,7 @@ msgstr "GiB"
 msgid "Denied to send file"
 msgstr ""
 
-#: ../PerFolderLimit.cpp:90 ../SettingsManager.cpp:619
+#: ../PerFolderLimit.cpp:90 ../SettingsManager.cpp:631
 msgid " to "
 msgstr " na "
 
@@ -557,31 +556,31 @@ msgstr "Hashování selhalo: %1%"
 msgid "Search disabled: %1%"
 msgstr ""
 
-#: ../SettingsManager.cpp:188
+#: ../SettingsManager.cpp:187
 msgid "downloaded from"
 msgstr "staženo z"
 
-#: ../SettingsManager.cpp:528
+#: ../SettingsManager.cpp:540
 msgid "Invalid search type name"
 msgstr "Nevhodný název typu hledání"
 
-#: ../SettingsManager.cpp:532 ../SettingsManager.cpp:554
+#: ../SettingsManager.cpp:544 ../SettingsManager.cpp:566
 msgid "This search type already exists"
 msgstr "Tento typ hledání již existuje"
 
-#: ../SettingsManager.cpp:586
+#: ../SettingsManager.cpp:598
 msgid "No such search type"
 msgstr "Takový typ hledávání není"
 
-#: ../SettingsManager.cpp:614 ../SettingsManager.cpp:619
+#: ../SettingsManager.cpp:626 ../SettingsManager.cpp:631
 msgid "Error: setting not found!"
 msgstr "Chyba: nastaveni nenalezeno!"
 
-#: ../SettingsManager.cpp:614
+#: ../SettingsManager.cpp:626
 msgid "Core setting "
 msgstr ""
 
-#: ../SettingsManager.cpp:619
+#: ../SettingsManager.cpp:631
 msgid "Change core setting "
 msgstr "Změna nastavení jádra "
 
@@ -797,9 +796,8 @@ msgid "DHT: Our UDP port seems to be opened (IP: %1%)"
 msgstr ""
 
 #: ../../dht/UDPSocket.cpp:247
-#, fuzzy
 msgid "DHT enabled again"
-msgstr "Hashování selhalo: %1%"
+msgstr ""
 
 #: ../../dht/UDPSocket.cpp:258
 msgid "DHT disabled: "

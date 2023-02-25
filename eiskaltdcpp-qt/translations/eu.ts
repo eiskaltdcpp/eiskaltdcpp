@@ -3096,17 +3096,17 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/Secretary.cpp" line="311"/>
         <source>Copy</source>
-        <translation type="unfinished">Kopiatu</translation>
+        <translation>Kopiatu</translation>
     </message>
     <message>
         <location filename="../src/Secretary.cpp" line="312"/>
         <source>Search text</source>
-        <translation type="unfinished">Bilaketa testua</translation>
+        <translation>Bilaketa testua</translation>
     </message>
     <message>
         <location filename="../src/Secretary.cpp" line="313"/>
         <source>Copy nick</source>
-        <translation type="unfinished">Kopiatu ezizena</translation>
+        <translation>Kopiatu ezizena</translation>
     </message>
     <message>
         <location filename="../src/Secretary.cpp" line="315"/>
@@ -4719,7 +4719,7 @@ Do you want to stop it?
     <message>
         <location filename="../ui/UIFileHasher.ui" line="146"/>
         <source>Filename</source>
-        <translation type="unfinished">Fitxategi izena</translation>
+        <translation>Fitxategi izena</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="185"/>
@@ -4729,17 +4729,17 @@ Do you want to stop it?
     <message>
         <location filename="../ui/UIFileHasher.ui" line="188"/>
         <source>Search</source>
-        <translation type="unfinished">Bilatu</translation>
+        <translation>Bilatu</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="208"/>
         <source>Cancel</source>
-        <translation type="unfinished">Utzi</translation>
+        <translation>Utzi</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="100"/>
         <source>Size</source>
-        <translation type="unfinished">Tamaina</translation>
+        <translation>Tamaina</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="178"/>
@@ -5195,7 +5195,7 @@ in options, file will be downloaded without opening search dialog.</source>
     <message>
         <location filename="../ui/UISecretary.ui" line="189"/>
         <source>Private messages</source>
-        <translation type="unfinished">Mezu pribatuak</translation>
+        <translation>Mezu pribatuak</translation>
     </message>
     <message>
         <location filename="../ui/UISecretary.ui" line="159"/>

@@ -723,12 +723,12 @@ Keys:
     <message>
         <location filename="../src/FileBrowserModel.cpp" line="314"/>
         <source>Downloaded</source>
-        <translation type="unfinished">已下载</translation>
+        <translation>已下载</translation>
     </message>
     <message>
         <location filename="../src/FileBrowserModel.cpp" line="314"/>
         <source>Shared</source>
-        <translation type="unfinished">已共享</translation>
+        <translation>已共享</translation>
     </message>
 </context>
 <context>
@@ -1549,25 +1549,6 @@ Favorite user</source>
     </message>
 </context>
 <context>
-    <name>IPFilter</name>
-    <message>
-        <source>Nothing to export.</source>
-        <translation type="obsolete">没有可以导出的。</translation>
-    </message>
-    <message>
-        <source>Unable to export settings.</source>
-        <translation type="obsolete">无法导出设置。</translation>
-    </message>
-    <message>
-        <source>Nothing to import.</source>
-        <translation type="obsolete">没有可以导入的。</translation>
-    </message>
-    <message>
-        <source>Invalid signature.</source>
-        <translation type="obsolete">无效的签名。</translation>
-    </message>
-</context>
-<context>
     <name>IPFilterFrame</name>
     <message>
         <location filename="../src/IPFilterFrame.cpp" line="177"/>
@@ -2245,6 +2226,36 @@ Favorite user</source>
         <translation>自定义</translation>
     </message>
     <message>
+        <location filename="../src/MainWindow.cpp" line="2737"/>
+        <source>EiskaltDC++ is a graphical client for Direct Connect and ADC protocols.</source>
+        <translation>EiskaltDC++ 是应用 Direct Connect 和 ADC 协议的一个图形化客户端。</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="2740"/>
+        <source>DC++ core version: %1 (modified)</source>
+        <translation>DC++ 内核版本: %1 (修改版)</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="2743"/>
+        <source>Home page: </source>
+        <translation>主页: </translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="2748"/>
+        <source>Total up: &lt;b&gt;%1&lt;/b&gt;</source>
+        <translation>总上传: &lt;b&gt;%1&lt;/b&gt;</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="2750"/>
+        <source>Total down: &lt;b&gt;%1&lt;/b&gt;</source>
+        <translation>总下载: &lt;b&gt;%1&lt;/b&gt;</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="2752"/>
+        <source>Ratio: &lt;b&gt;%1&lt;/b&gt;</source>
+        <translation>比率: &lt;b&gt;%1&lt;/b&gt;</translation>
+    </message>
+    <message>
         <location filename="../src/MainWindow.cpp" line="2762"/>
         <source>&lt;b&gt;Developers&lt;/b&gt;&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
@@ -2285,6 +2296,11 @@ Favorite user</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../src/MainWindow.cpp" line="2861"/>
+        <source>Serbian (Cyrillic) translation&lt;br/&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../src/MainWindow.cpp" line="2865"/>
         <source>Serbian (Latin) translation&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
@@ -2292,6 +2308,11 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="2869"/>
         <source>Spanish translation&lt;br/&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="2873"/>
+        <source>Basque translation&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2345,6 +2366,11 @@ Favorite user</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../src/MainWindow.cpp" line="2909"/>
+        <source>Turkish translation&lt;br/&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../src/MainWindow.cpp" line="2912"/>
         <source>Danish translation&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
@@ -2373,36 +2399,6 @@ Favorite user</source>
         <location filename="../src/MainWindow.cpp" line="1441"/>
         <source>Download program</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="2737"/>
-        <source>EiskaltDC++ is a graphical client for Direct Connect and ADC protocols.</source>
-        <translation>EiskaltDC++ 是应用 Direct Connect 和 ADC 协议的一个图形化客户端。</translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="2740"/>
-        <source>DC++ core version: %1 (modified)</source>
-        <translation>DC++ 内核版本: %1 (修改版)</translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="2743"/>
-        <source>Home page: </source>
-        <translation>主页: </translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="2748"/>
-        <source>Total up: &lt;b&gt;%1&lt;/b&gt;</source>
-        <translation>总上传: &lt;b&gt;%1&lt;/b&gt;</translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="2750"/>
-        <source>Total down: &lt;b&gt;%1&lt;/b&gt;</source>
-        <translation>总下载: &lt;b&gt;%1&lt;/b&gt;</translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="2752"/>
-        <source>Ratio: &lt;b&gt;%1&lt;/b&gt;</source>
-        <translation>比率: &lt;b&gt;%1&lt;/b&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="2759"/>
@@ -2468,21 +2464,6 @@ Favorite user</source>
     <message>
         <location filename="../src/MainWindow.cpp" line="2833"/>
         <source>Participate in the translation. It is easy:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="2861"/>
-        <source>Serbian (Cyrillic) translation&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="2873"/>
-        <source>Basque translation&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.cpp" line="2909"/>
-        <source>Turkish translation&lt;br/&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3024,12 +3005,12 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SearchFrame.cpp" line="173"/>
         <source>Remove from Queue</source>
-        <translation type="unfinished">从队列中移除</translation>
+        <translation>从队列中移除</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="176"/>
         <source>Remove</source>
-        <translation type="unfinished">移除</translation>
+        <translation>移除</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="179"/>
@@ -3050,12 +3031,12 @@ Downloaded: %3 Uploaded: %4</source>
         <location filename="../src/SearchFrame.cpp" line="291"/>
         <location filename="../src/SearchFrame.cpp" line="294"/>
         <source>Browse</source>
-        <translation type="unfinished">浏览</translation>
+        <translation>浏览</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="481"/>
         <source>Close</source>
-        <translation type="unfinished">关闭</translation>
+        <translation>关闭</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="1084"/>
@@ -3066,7 +3047,7 @@ Downloaded: %3 Uploaded: %4</source>
         <location filename="../src/SearchFrame.cpp" line="1192"/>
         <location filename="../src/SearchFrame.cpp" line="1250"/>
         <source>Select directory</source>
-        <translation type="unfinished">选择目录</translation>
+        <translation>选择目录</translation>
     </message>
     <message>
         <location filename="../src/SearchFrame.cpp" line="1557"/>
@@ -3099,7 +3080,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SearchModel.cpp" line="50"/>
         <source>File</source>
-        <translation type="unfinished">文件</translation>
+        <translation>文件</translation>
     </message>
     <message>
         <location filename="../src/SearchModel.cpp" line="50"/>
@@ -3109,22 +3090,22 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SearchModel.cpp" line="50"/>
         <source>Size</source>
-        <translation type="unfinished">大小</translation>
+        <translation>大小</translation>
     </message>
     <message>
         <location filename="../src/SearchModel.cpp" line="51"/>
         <source>Exact size</source>
-        <translation type="unfinished">实际大小</translation>
+        <translation>实际大小</translation>
     </message>
     <message>
         <location filename="../src/SearchModel.cpp" line="51"/>
         <source>Path</source>
-        <translation type="unfinished">路径</translation>
+        <translation>路径</translation>
     </message>
     <message>
         <location filename="../src/SearchModel.cpp" line="51"/>
         <source>Nick</source>
-        <translation type="unfinished">昵称</translation>
+        <translation>昵称</translation>
     </message>
     <message>
         <location filename="../src/SearchModel.cpp" line="52"/>
@@ -3139,12 +3120,12 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SearchModel.cpp" line="53"/>
         <source>IP</source>
-        <translation type="unfinished">IP</translation>
+        <translation>IP</translation>
     </message>
     <message>
         <location filename="../src/SearchModel.cpp" line="53"/>
         <source>Hub</source>
-        <translation type="unfinished">中枢</translation>
+        <translation>中枢</translation>
     </message>
     <message>
         <location filename="../src/SearchModel.cpp" line="53"/>
@@ -3154,7 +3135,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SearchModel.cpp" line="132"/>
         <source>File already exists: %1</source>
-        <translation type="unfinished">文件已存在: %1</translation>
+        <translation>文件已存在: %1</translation>
     </message>
 </context>
 <context>
@@ -3167,17 +3148,17 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/Secretary.cpp" line="311"/>
         <source>Copy</source>
-        <translation type="unfinished">复制</translation>
+        <translation>复制</translation>
     </message>
     <message>
         <location filename="../src/Secretary.cpp" line="312"/>
         <source>Search text</source>
-        <translation type="unfinished">搜索文本</translation>
+        <translation>搜索文本</translation>
     </message>
     <message>
         <location filename="../src/Secretary.cpp" line="313"/>
         <source>Copy nick</source>
-        <translation type="unfinished">复制昵称</translation>
+        <translation>复制昵称</translation>
     </message>
     <message>
         <location filename="../src/Secretary.cpp" line="315"/>
@@ -3192,17 +3173,17 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/Secretary.cpp" line="318"/>
         <source>Select all</source>
-        <translation type="unfinished">全选</translation>
+        <translation>全选</translation>
     </message>
     <message>
         <location filename="../src/Secretary.cpp" line="320"/>
         <source>Zoom In</source>
-        <translation type="unfinished">放大</translation>
+        <translation>放大</translation>
     </message>
     <message>
         <location filename="../src/Secretary.cpp" line="321"/>
         <source>Zoom Out</source>
-        <translation type="unfinished">缩小</translation>
+        <translation>缩小</translation>
     </message>
 </context>
 <context>
@@ -3210,7 +3191,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/Settings.cpp" line="38"/>
         <source>Preferences</source>
-        <translation type="unfinished">用户偏好</translation>
+        <translation>用户偏好</translation>
     </message>
     <message>
         <location filename="../src/Settings.cpp" line="51"/>
@@ -3301,7 +3282,7 @@ Downloaded: %3 Uploaded: %4</source>
         <location filename="../src/SettingsDownloads.cpp" line="158"/>
         <location filename="../src/SettingsDownloads.cpp" line="193"/>
         <source>Select directory</source>
-        <translation type="unfinished">选择目录</translation>
+        <translation>选择目录</translation>
     </message>
     <message>
         <location filename="../src/SettingsDownloads.cpp" line="175"/>
@@ -3311,7 +3292,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SettingsDownloads.cpp" line="181"/>
         <source>Delete</source>
-        <translation type="unfinished">删除</translation>
+        <translation>删除</translation>
     </message>
     <message>
         <location filename="../src/SettingsDownloads.cpp" line="188"/>
@@ -3479,12 +3460,12 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="250"/>
         <source>Status</source>
-        <translation type="unfinished">状态</translation>
+        <translation>状态</translation>
     </message>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="254"/>
         <source>User</source>
-        <translation type="unfinished">用户</translation>
+        <translation>用户</translation>
     </message>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="258"/>
@@ -3525,12 +3506,12 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SettingsNotification.cpp" line="194"/>
         <source>Select file</source>
-        <translation type="unfinished">选择文件</translation>
+        <translation>选择文件</translation>
     </message>
     <message>
         <location filename="../src/SettingsNotification.cpp" line="194"/>
         <source>All files (*.*)</source>
-        <translation type="unfinished">全部文件(*.*)</translation>
+        <translation>全部文件(*.*)</translation>
     </message>
 </context>
 <context>
@@ -3538,7 +3519,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SettingsPersonal.cpp" line="78"/>
         <source>System default</source>
-        <translation type="unfinished">系统默认</translation>
+        <translation>系统默认</translation>
     </message>
 </context>
 <context>
@@ -3554,14 +3535,14 @@ Downloaded: %3 Uploaded: %4</source>
         <location filename="../src/SettingsSharing.cpp" line="311"/>
         <location filename="../src/SettingsSharing.cpp" line="322"/>
         <source>Select directory</source>
-        <translation type="unfinished">选择目录</translation>
+        <translation>选择目录</translation>
     </message>
     <message>
         <location filename="../src/SettingsSharing.cpp" line="192"/>
         <location filename="../src/SettingsSharing.cpp" line="322"/>
         <location filename="../src/SettingsSharing.cpp" line="363"/>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation>名称</translation>
     </message>
     <message>
         <location filename="../src/SettingsSharing.cpp" line="209"/>
@@ -3593,13 +3574,13 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SettingsSharing.cpp" line="299"/>
         <source>Remove</source>
-        <translation type="unfinished">移除</translation>
+        <translation>移除</translation>
     </message>
     <message>
         <location filename="../src/SettingsSharing.cpp" line="337"/>
         <location filename="../src/SettingsSharing.cpp" line="373"/>
         <source>Error</source>
-        <translation type="unfinished">错误</translation>
+        <translation>错误</translation>
     </message>
     <message>
         <location filename="../src/SettingsSharing.cpp" line="362"/>
@@ -3617,42 +3598,42 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="75"/>
         <source>Magnet</source>
-        <translation type="unfinished">磁力链接</translation>
+        <translation>磁力链接</translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="77"/>
         <source>Download</source>
-        <translation type="unfinished">下载</translation>
+        <translation>下载</translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="79"/>
         <source>Download to...</source>
-        <translation type="unfinished">下载到……</translation>
+        <translation>下载到……</translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="82"/>
         <source>Search for alternates</source>
-        <translation type="unfinished">搜索替代者</translation>
+        <translation>搜索替代者</translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="84"/>
         <source>Copy magnet</source>
-        <translation type="unfinished">复制磁力链接</translation>
+        <translation>复制磁力链接</translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="86"/>
         <source>Copy web-magnet</source>
-        <translation type="unfinished">复制网页磁链</translation>
+        <translation>复制网页磁链</translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="88"/>
         <source>Properties of magnet</source>
-        <translation type="unfinished">磁力链接属性</translation>
+        <translation>磁力链接属性</translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="91"/>
         <source>Add to favorites</source>
-        <translation type="unfinished">添加至最爱</translation>
+        <translation>添加至最爱</translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="93"/>
@@ -3667,12 +3648,12 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="95"/>
         <source>Open directory</source>
-        <translation type="unfinished">打开目录</translation>
+        <translation>打开目录</translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="175"/>
         <source>Browse</source>
-        <translation type="unfinished">浏览</translation>
+        <translation>浏览</translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="223"/>
@@ -3692,7 +3673,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="329"/>
         <source>Close</source>
-        <translation type="unfinished">关闭</translation>
+        <translation>关闭</translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="417"/>
@@ -3723,7 +3704,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="847"/>
         <source>Select directory</source>
-        <translation type="unfinished">选择目录</translation>
+        <translation>选择目录</translation>
     </message>
     <message>
         <location filename="../src/ShareBrowser.cpp" line="977"/>
@@ -3759,7 +3740,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SettingsSharing.cpp" line="525"/>
         <source>Error</source>
-        <translation type="unfinished">错误</translation>
+        <translation>错误</translation>
     </message>
 </context>
 <context>
@@ -3777,7 +3758,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/ShortcutGetter.cpp" line="237"/>
         <source>Clear</source>
-        <translation type="unfinished">清除</translation>
+        <translation>清除</translation>
     </message>
     <message>
         <location filename="../src/ShortcutGetter.cpp" line="239"/>
@@ -3809,7 +3790,7 @@ Downloaded: %3 Uploaded: %4</source>
         <location filename="../src/SideBar.cpp" line="69"/>
         <location filename="../src/SideBar.cpp" line="424"/>
         <source>Hubs</source>
-        <translation type="unfinished">中枢</translation>
+        <translation>中枢</translation>
     </message>
     <message>
         <location filename="../src/SideBar.cpp" line="70"/>
@@ -3821,7 +3802,7 @@ Downloaded: %3 Uploaded: %4</source>
         <location filename="../src/SideBar.cpp" line="71"/>
         <location filename="../src/SideBar.cpp" line="426"/>
         <source>Search</source>
-        <translation type="unfinished">搜索</translation>
+        <translation>搜索</translation>
     </message>
     <message>
         <location filename="../src/SideBar.cpp" line="72"/>
@@ -3833,19 +3814,19 @@ Downloaded: %3 Uploaded: %4</source>
         <location filename="../src/SideBar.cpp" line="73"/>
         <location filename="../src/SideBar.cpp" line="428"/>
         <source>ADLSearch</source>
-        <translation type="unfinished">ADL搜索</translation>
+        <translation>ADL搜索</translation>
     </message>
     <message>
         <location filename="../src/SideBar.cpp" line="74"/>
         <location filename="../src/SideBar.cpp" line="429"/>
         <source>Download Queue</source>
-        <translation type="unfinished">下载队列</translation>
+        <translation>下载队列</translation>
     </message>
     <message>
         <location filename="../src/SideBar.cpp" line="75"/>
         <location filename="../src/SideBar.cpp" line="438"/>
         <source>Queued Users</source>
-        <translation type="unfinished">排队中的用户</translation>
+        <translation>排队中的用户</translation>
     </message>
     <message>
         <location filename="../src/SideBar.cpp" line="76"/>
@@ -3875,7 +3856,7 @@ Downloaded: %3 Uploaded: %4</source>
         <location filename="../src/SideBar.cpp" line="80"/>
         <location filename="../src/SideBar.cpp" line="434"/>
         <source>Public Hubs</source>
-        <translation type="unfinished">公共中枢</translation>
+        <translation>公共中枢</translation>
     </message>
     <message>
         <location filename="../src/SideBar.cpp" line="81"/>
@@ -3888,7 +3869,7 @@ Downloaded: %3 Uploaded: %4</source>
         <location filename="../src/SideBar.cpp" line="82"/>
         <location filename="../src/SideBar.cpp" line="436"/>
         <source>Search Spy</source>
-        <translation type="unfinished">搜索间谍</translation>
+        <translation>搜索间谍</translation>
     </message>
     <message>
         <location filename="../src/SideBar.cpp" line="83"/>
@@ -3918,37 +3899,37 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SideBar.cpp" line="593"/>
         <source>Close</source>
-        <translation type="unfinished">关闭</translation>
+        <translation>关闭</translation>
     </message>
     <message>
         <location filename="../src/SideBar.cpp" line="652"/>
         <source>Choose file to open</source>
-        <translation type="unfinished">选择打开文件</translation>
+        <translation>选择打开文件</translation>
     </message>
     <message>
         <location filename="../src/SideBar.cpp" line="654"/>
         <source>Modern XML Filelists</source>
-        <translation type="unfinished">现代 XML 文件列表</translation>
+        <translation>现代 XML 文件列表</translation>
     </message>
     <message>
         <location filename="../src/SideBar.cpp" line="655"/>
         <source>Modern XML Filelists uncompressed</source>
-        <translation type="unfinished">未压缩现代 XML 文件列表</translation>
+        <translation>未压缩现代 XML 文件列表</translation>
     </message>
     <message>
         <location filename="../src/SideBar.cpp" line="656"/>
         <source>All files</source>
-        <translation type="unfinished">所有文件</translation>
+        <translation>所有文件</translation>
     </message>
     <message>
         <location filename="../src/SideBar.cpp" line="671"/>
         <source>Open log file</source>
-        <translation type="unfinished">打开日志文件</translation>
+        <translation>打开日志文件</translation>
     </message>
     <message>
         <location filename="../src/SideBar.cpp" line="671"/>
         <source>Log files (*.log);;All files (*.*)</source>
-        <translation type="unfinished">日志文件 (*.log);;所有文件 (*.*)</translation>
+        <translation>日志文件 (*.log);;所有文件 (*.*)</translation>
     </message>
 </context>
 <context>
@@ -3957,13 +3938,13 @@ Downloaded: %3 Uploaded: %4</source>
         <location filename="../src/SpyFrame.cpp" line="54"/>
         <location filename="../src/SpyFrame.cpp" line="76"/>
         <source>Stop</source>
-        <translation type="unfinished">停止</translation>
+        <translation>停止</translation>
     </message>
     <message>
         <location filename="../src/SpyFrame.cpp" line="55"/>
         <location filename="../src/SpyFrame.h" line="38"/>
         <source>Search Spy</source>
-        <translation type="unfinished">搜索间谍</translation>
+        <translation>搜索间谍</translation>
     </message>
     <message>
         <location filename="../src/SpyFrame.cpp" line="56"/>
@@ -3976,12 +3957,12 @@ Do you want to stop it?
     <message>
         <location filename="../src/SpyFrame.cpp" line="81"/>
         <source>Start</source>
-        <translation type="unfinished">开始</translation>
+        <translation>开始</translation>
     </message>
     <message>
         <location filename="../src/SpyFrame.cpp" line="98"/>
         <source>Search</source>
-        <translation type="unfinished">搜索</translation>
+        <translation>搜索</translation>
     </message>
 </context>
 <context>
@@ -4002,7 +3983,7 @@ Do you want to stop it?
     <message>
         <location filename="../src/TabFrame.cpp" line="359"/>
         <source>Close</source>
-        <translation type="unfinished">关闭</translation>
+        <translation>关闭</translation>
     </message>
 </context>
 <context>
@@ -4010,7 +3991,7 @@ Do you want to stop it?
     <message>
         <location filename="../src/ToolBar.cpp" line="247"/>
         <source>Show close buttons</source>
-        <translation type="unfinished">显示关闭按钮</translation>
+        <translation>显示关闭按钮</translation>
     </message>
 </context>
 <context>
@@ -4018,7 +3999,7 @@ Do you want to stop it?
     <message>
         <location filename="../src/TransferView.cpp" line="47"/>
         <source>Browse files</source>
-        <translation type="unfinished">浏览文件</translation>
+        <translation>浏览文件</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="50"/>
@@ -4028,42 +4009,42 @@ Do you want to stop it?
     <message>
         <location filename="../src/TransferView.cpp" line="53"/>
         <source>Match Queue</source>
-        <translation type="unfinished"></translation>
+        <translation>匹配队列</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="56"/>
         <source>Send Private Message</source>
-        <translation type="unfinished">发送私信</translation>
+        <translation>发送私信</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="59"/>
         <source>Add to favorites</source>
-        <translation type="unfinished">添加至最爱</translation>
+        <translation>添加至最爱</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="62"/>
         <source>Grant extra slot</source>
-        <translation type="unfinished">添加额外空位</translation>
+        <translation>添加额外空位</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="65"/>
         <source>Copy</source>
-        <translation type="unfinished">复制</translation>
+        <translation>复制</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="68"/>
         <source>Users</source>
-        <translation type="unfinished">用户</translation>
+        <translation>用户</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="69"/>
         <source>Speed</source>
-        <translation type="unfinished">速度</translation>
+        <translation>速度</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="70"/>
         <source>Status</source>
-        <translation type="unfinished">状态</translation>
+        <translation>状态</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="71"/>
@@ -4073,7 +4054,7 @@ Do you want to stop it?
     <message>
         <location filename="../src/TransferView.cpp" line="72"/>
         <source>Size</source>
-        <translation type="unfinished">大小</translation>
+        <translation>大小</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="73"/>
@@ -4083,17 +4064,17 @@ Do you want to stop it?
     <message>
         <location filename="../src/TransferView.cpp" line="74"/>
         <source>Filename</source>
-        <translation type="unfinished">文件名</translation>
+        <translation>文件名</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="75"/>
         <source>Hub</source>
-        <translation type="unfinished">中枢</translation>
+        <translation>中枢</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="76"/>
         <source>IP</source>
-        <translation type="unfinished">IP</translation>
+        <translation>IP</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="77"/>
@@ -4103,7 +4084,7 @@ Do you want to stop it?
     <message>
         <location filename="../src/TransferView.cpp" line="78"/>
         <source>Magnet</source>
-        <translation type="unfinished">磁力链接</translation>
+        <translation>磁力链接</translation>
     </message>
     <message>
         <location filename="../src/TransferView.cpp" line="83"/>
@@ -4202,17 +4183,17 @@ Do you want to stop it?
     <message>
         <location filename="../src/TransferViewModel.cpp" line="50"/>
         <source>Users</source>
-        <translation type="unfinished">用户</translation>
+        <translation>用户</translation>
     </message>
     <message>
         <location filename="../src/TransferViewModel.cpp" line="50"/>
         <source>Speed</source>
-        <translation type="unfinished">速度</translation>
+        <translation>速度</translation>
     </message>
     <message>
         <location filename="../src/TransferViewModel.cpp" line="50"/>
         <source>Status</source>
-        <translation type="unfinished">状态</translation>
+        <translation>状态</translation>
     </message>
     <message>
         <location filename="../src/TransferViewModel.cpp" line="50"/>
@@ -4222,7 +4203,7 @@ Do you want to stop it?
     <message>
         <location filename="../src/TransferViewModel.cpp" line="50"/>
         <source>Size</source>
-        <translation type="unfinished">大小</translation>
+        <translation>大小</translation>
     </message>
     <message>
         <location filename="../src/TransferViewModel.cpp" line="51"/>
@@ -4242,7 +4223,7 @@ Do you want to stop it?
     <message>
         <location filename="../src/TransferViewModel.cpp" line="51"/>
         <source>IP</source>
-        <translation type="unfinished">IP</translation>
+        <translation>IP</translation>
     </message>
     <message>
         <location filename="../src/TransferViewModel.cpp" line="52"/>
@@ -4252,7 +4233,7 @@ Do you want to stop it?
     <message>
         <location filename="../src/TransferViewModel.cpp" line="111"/>
         <source>/s</source>
-        <translation type="unfinished">/s</translation>
+        <translation>/s</translation>
     </message>
     <message>
         <location filename="../src/TransferViewModel.cpp" line="304"/>
@@ -4283,7 +4264,7 @@ Do you want to stop it?
     <message>
         <location filename="../src/UCModel.cpp" line="84"/>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation>名称</translation>
     </message>
     <message>
         <location filename="../src/UCModel.cpp" line="85"/>
@@ -4293,7 +4274,7 @@ Do you want to stop it?
     <message>
         <location filename="../src/UCModel.cpp" line="86"/>
         <source>Hub</source>
-        <translation type="unfinished">中枢</translation>
+        <translation>中枢</translation>
     </message>
     <message>
         <location filename="../src/UCModel.cpp" line="152"/>
@@ -4307,17 +4288,17 @@ Do you want to stop it?
     <message>
         <location filename="../ui/UIADLSearch.ui" line="56"/>
         <source>Add new</source>
-        <translation type="unfinished">添加</translation>
+        <translation>添加</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearch.ui" line="73"/>
         <source>Change</source>
-        <translation type="unfinished">改变</translation>
+        <translation>改变</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearch.ui" line="83"/>
         <source>Delete</source>
-        <translation type="unfinished">删除</translation>
+        <translation>删除</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearch.ui" line="100"/>
@@ -4346,17 +4327,17 @@ Do you want to stop it?
         <location filename="../ui/UIADLSearchEditor.ui" line="74"/>
         <location filename="../ui/UIADLSearchEditor.ui" line="117"/>
         <source>Directory</source>
-        <translation type="unfinished">目录</translation>
+        <translation>目录</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="87"/>
         <source>Type source</source>
-        <translation type="unfinished">键入源</translation>
+        <translation>键入源</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="112"/>
         <source>Filename</source>
-        <translation type="unfinished">文件名</translation>
+        <translation>文件名</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="122"/>
@@ -4371,32 +4352,32 @@ Do you want to stop it?
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="193"/>
         <source>B</source>
-        <translation type="unfinished">B</translation>
+        <translation>B</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="198"/>
         <source>KiB</source>
-        <translation type="unfinished">KiB</translation>
+        <translation>KiB</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="203"/>
         <source>MiB</source>
-        <translation type="unfinished">MiB</translation>
+        <translation>MiB</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="208"/>
         <source>GiB</source>
-        <translation type="unfinished">GiB</translation>
+        <translation>GiB</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="265"/>
         <source>Download</source>
-        <translation type="unfinished">下载</translation>
+        <translation>下载</translation>
     </message>
     <message>
         <location filename="../ui/UIADLSearchEditor.ui" line="278"/>
         <source>On</source>
-        <translation type="unfinished">开</translation>
+        <translation>开</translation>
     </message>
 </context>
 <context>
@@ -4404,7 +4385,7 @@ Do you want to stop it?
     <message>
         <location filename="../ui/UIAbout.ui" line="14"/>
         <source>About EiskaltDC++</source>
-        <translation type="unfinished">关于 EiskaltDC++</translation>
+        <translation>关于 EiskaltDC++</translation>
     </message>
     <message>
         <location filename="../ui/UIAbout.ui" line="41"/>
@@ -4450,7 +4431,7 @@ Do you want to stop it?
     <message>
         <location filename="../ui/UIAntiSpam.ui" line="20"/>
         <source>AntiSpam</source>
-        <translation type="unfinished">反垃圾信息</translation>
+        <translation>反垃圾信息</translation>
     </message>
     <message>
         <location filename="../ui/UIAntiSpam.ui" line="46"/>
@@ -4499,7 +4480,7 @@ Do you want to stop it?
         <location filename="../ui/UIAntiSpam.ui" line="237"/>
         <location filename="../ui/UIAntiSpam.ui" line="303"/>
         <source>Users</source>
-        <translation type="unfinished">用户</translation>
+        <translation>用户</translation>
     </message>
     <message>
         <location filename="../ui/UIAntiSpam.ui" line="182"/>
@@ -4611,7 +4592,7 @@ Do you want to stop it?
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="20"/>
         <source>Hub</source>
-        <translation type="unfinished">中枢</translation>
+        <translation>中枢</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="31"/>
@@ -4626,7 +4607,7 @@ Do you want to stop it?
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="50"/>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation>名称</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="57"/>
@@ -4636,7 +4617,7 @@ Do you want to stop it?
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="64"/>
         <source>Address</source>
-        <translation type="unfinished">地址</translation>
+        <translation>地址</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="71"/>
@@ -4646,7 +4627,7 @@ Do you want to stop it?
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="78"/>
         <source>Description</source>
-        <translation type="unfinished">描述</translation>
+        <translation>描述</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="85"/>
@@ -4721,17 +4702,17 @@ Do you want to stop it?
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="250"/>
         <source>Nick</source>
-        <translation type="unfinished">昵称</translation>
+        <translation>昵称</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="257"/>
         <source>User description</source>
-        <translation type="unfinished">用户描述</translation>
+        <translation>用户描述</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubEditor.ui" line="264"/>
         <source>Password</source>
-        <translation type="unfinished">密码</translation>
+        <translation>密码</translation>
     </message>
 </context>
 <context>
@@ -4739,22 +4720,22 @@ Do you want to stop it?
     <message>
         <location filename="../ui/UIFavoriteHubs.ui" line="56"/>
         <source>Add new</source>
-        <translation type="unfinished">添加</translation>
+        <translation>添加</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubs.ui" line="73"/>
         <source>Change</source>
-        <translation type="unfinished">改变</translation>
+        <translation>改变</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubs.ui" line="83"/>
         <source>Delete</source>
-        <translation type="unfinished">删除</translation>
+        <translation>删除</translation>
     </message>
     <message>
         <location filename="../ui/UIFavoriteHubs.ui" line="100"/>
         <source>Connect</source>
-        <translation type="unfinished">连接</translation>
+        <translation>连接</translation>
     </message>
 </context>
 <context>
@@ -4790,7 +4771,7 @@ Do you want to stop it?
     <message>
         <location filename="../ui/UIFileHasher.ui" line="146"/>
         <source>Filename</source>
-        <translation type="unfinished">文件名</translation>
+        <translation>文件名</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="185"/>
@@ -4800,7 +4781,7 @@ Do you want to stop it?
     <message>
         <location filename="../ui/UIFileHasher.ui" line="188"/>
         <source>Search</source>
-        <translation type="unfinished">搜索</translation>
+        <translation>搜索</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="208"/>
@@ -4810,7 +4791,7 @@ Do you want to stop it?
     <message>
         <location filename="../ui/UIFileHasher.ui" line="100"/>
         <source>Size</source>
-        <translation type="unfinished">大小</translation>
+        <translation>大小</translation>
     </message>
     <message>
         <location filename="../ui/UIFileHasher.ui" line="178"/>
@@ -4819,7 +4800,7 @@ Do you want to stop it?
     </message>
     <message>
         <source>Close</source>
-        <translation type="obsolete">关闭</translation>
+        <translation type="vanished">关闭</translation>
     </message>
 </context>
 <context>
@@ -4832,12 +4813,12 @@ Do you want to stop it?
     <message>
         <location filename="../ui/UIFinishedTransfers.ui" line="30"/>
         <source>Files</source>
-        <translation type="unfinished">文件</translation>
+        <translation>文件</translation>
     </message>
     <message>
         <location filename="../ui/UIFinishedTransfers.ui" line="35"/>
         <source>Users</source>
-        <translation type="unfinished">用户</translation>
+        <translation>用户</translation>
     </message>
     <message>
         <location filename="../ui/UIFinishedTransfers.ui" line="43"/>
@@ -4852,7 +4833,7 @@ Do you want to stop it?
     <message>
         <location filename="../ui/UIFinishedTransfers.ui" line="66"/>
         <source>Clear</source>
-        <translation type="unfinished">清除</translation>
+        <translation>清除</translation>
     </message>
 </context>
 <context>
@@ -4860,7 +4841,7 @@ Do you want to stop it?
     <message>
         <location filename="../ui/UIHashProgressDialog.ui" line="20"/>
         <source>Hash progress</source>
-        <translation type="unfinished">哈希进度</translation>
+        <translation>哈希进度</translation>
     </message>
     <message>
         <location filename="../ui/UIHashProgressDialog.ui" line="125"/>
@@ -4870,12 +4851,12 @@ Do you want to stop it?
     <message>
         <location filename="../ui/UIHashProgressDialog.ui" line="145"/>
         <source>Start</source>
-        <translation type="unfinished">开始</translation>
+        <translation>开始</translation>
     </message>
     <message>
         <location filename="../ui/UIHashProgressDialog.ui" line="152"/>
         <source>Hide</source>
-        <translation type="unfinished">隐藏</translation>
+        <translation>隐藏</translation>
     </message>
 </context>
 <context>
@@ -4926,7 +4907,7 @@ Do you want to stop it?
     <message>
         <location filename="../ui/UIHubManager.ui" line="33"/>
         <source>Hub</source>
-        <translation type="unfinished">中枢</translation>
+        <translation>中枢</translation>
     </message>
     <message>
         <location filename="../ui/UIHubManager.ui" line="38"/>
@@ -4936,12 +4917,12 @@ Do you want to stop it?
     <message>
         <location filename="../ui/UIHubManager.ui" line="43"/>
         <source>Users</source>
-        <translation type="unfinished">用户</translation>
+        <translation>用户</translation>
     </message>
     <message>
         <location filename="../ui/UIHubManager.ui" line="48"/>
         <source>Share</source>
-        <translation type="unfinished">共享</translation>
+        <translation>共享</translation>
     </message>
 </context>
 <context>
@@ -4969,7 +4950,7 @@ Do you want to stop it?
     <message>
         <location filename="../ui/UIIPFilter.ui" line="99"/>
         <source>Direction</source>
-        <translation type="unfinished">方向</translation>
+        <translation>方向</translation>
     </message>
     <message>
         <location filename="../ui/UIIPFilter.ui" line="105"/>
@@ -5017,7 +4998,7 @@ Do you want to stop it?
     <message>
         <location filename="../ui/UIMagnet.ui" line="56"/>
         <source>Filename</source>
-        <translation type="unfinished">文件名</translation>
+        <translation>文件名</translation>
     </message>
     <message>
         <location filename="../ui/UIMagnet.ui" line="70"/>
@@ -5027,7 +5008,7 @@ Do you want to stop it?
     <message>
         <location filename="../ui/UIMagnet.ui" line="80"/>
         <source>Size</source>
-        <translation type="unfinished">大小</translation>
+        <translation>大小</translation>
     </message>
     <message>
         <location filename="../ui/UIMagnet.ui" line="113"/>
@@ -5047,7 +5028,7 @@ Do you want to stop it?
     <message>
         <location filename="../ui/UIMagnet.ui" line="174"/>
         <source>Search</source>
-        <translation type="unfinished">搜索</translation>
+        <translation>搜索</translation>
     </message>
     <message>
         <location filename="../ui/UIMagnet.ui" line="181"/>
@@ -5139,7 +5120,7 @@ in options, file will be downloaded without opening search dialog.</source>
     <message>
         <location filename="../ui/UIPublicHubsList.ui" line="76"/>
         <source>Remove</source>
-        <translation type="unfinished">移除</translation>
+        <translation>移除</translation>
     </message>
     <message>
         <location filename="../ui/UIPublicHubsList.ui" line="83"/>
@@ -5152,7 +5133,7 @@ in options, file will be downloaded without opening search dialog.</source>
     <message>
         <location filename="../ui/UIQuickConnect.ui" line="32"/>
         <source>Quick connect</source>
-        <translation type="unfinished">快速连接</translation>
+        <translation>快速连接</translation>
     </message>
     <message>
         <location filename="../ui/UIQuickConnect.ui" line="44"/>
@@ -5165,7 +5146,7 @@ in options, file will be downloaded without opening search dialog.</source>
     <message>
         <location filename="../ui/UIScriptManager.ui" line="21"/>
         <source>Do nothing</source>
-        <translation type="unfinished">什么也不做</translation>
+        <translation>什么也不做</translation>
     </message>
     <message>
         <location filename="../ui/UIScriptManager.ui" line="26"/>
@@ -5460,17 +5441,17 @@ DC++&apos;s SOCKS5 support does not include GSSAPI.</source>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="386"/>
         <source>IP</source>
-        <translation type="unfinished">IP</translation>
+        <translation>IP</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="393"/>
         <source>User</source>
-        <translation type="unfinished">用户</translation>
+        <translation>用户</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="400"/>
         <source>Password</source>
-        <translation type="unfinished">密码</translation>
+        <translation>密码</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="407"/>
@@ -5512,7 +5493,7 @@ DC++&apos;s SOCKS5 support does not include GSSAPI.</source>
         <location filename="../ui/UISettingsConnection.ui" line="569"/>
         <location filename="../ui/UISettingsConnection.ui" line="721"/>
         <source>Download</source>
-        <translation type="unfinished">下载</translation>
+        <translation>下载</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="583"/>
@@ -5597,7 +5578,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="924"/>
         <source>Reliability</source>
-        <translation type="unfinished">可靠性</translation>
+        <translation>可靠性</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsConnection.ui" line="929"/>
@@ -5731,7 +5712,7 @@ It&apos;s not used for uploads, downloads, or connecting to a hub.</source>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="291"/>
         <source>Path</source>
-        <translation type="unfinished">路径</translation>
+        <translation>路径</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsDownloads.ui" line="296"/>
@@ -6087,7 +6068,7 @@ from the queue either, you must do that manually.</source>
     </message>
     <message>
         <source>Change</source>
-        <translation type="obsolete">改变</translation>
+        <translation type="vanished">改变</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="83"/>
@@ -6268,7 +6249,7 @@ from other words by spaces.</source>
         <location filename="../ui/UISettingsGUI.ui" line="402"/>
         <location filename="../ui/UISettingsGUI.ui" line="421"/>
         <source>Private message</source>
-        <translation type="unfinished">私信</translation>
+        <translation>私信</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="438"/>
@@ -6313,13 +6294,13 @@ from other words by spaces.</source>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="539"/>
         <source>Search</source>
-        <translation type="unfinished">搜索</translation>
+        <translation>搜索</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="544"/>
         <location filename="../ui/UISettingsGUI.ui" line="856"/>
         <source>Download</source>
-        <translation type="unfinished">下载</translation>
+        <translation>下载</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsGUI.ui" line="569"/>
@@ -6480,7 +6461,7 @@ them is usually available only to operators</source>
         <location filename="../ui/UISettingsLog.ui" line="264"/>
         <location filename="../ui/UISettingsLog.ui" line="315"/>
         <source>File</source>
-        <translation type="unfinished">文件</translation>
+        <translation>文件</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="51"/>
@@ -6511,7 +6492,7 @@ them is usually available only to operators</source>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="243"/>
         <source>Search Spy</source>
-        <translation type="unfinished">搜索间谍</translation>
+        <translation>搜索间谍</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsLog.ui" line="294"/>
@@ -6580,7 +6561,7 @@ p, li { white-space: pre-wrap; }
         <location filename="../ui/UISettingsNotification.ui" line="56"/>
         <location filename="../ui/UISettingsNotification.ui" line="242"/>
         <source>Private message</source>
-        <translation type="unfinished">私信</translation>
+        <translation>私信</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsNotification.ui" line="63"/>
@@ -6686,7 +6667,7 @@ who sends private message to you.</source>
     <message>
         <location filename="../ui/UISettingsPersonal.ui" line="63"/>
         <source>Nick</source>
-        <translation type="unfinished">昵称</translation>
+        <translation>昵称</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsPersonal.ui" line="70"/>
@@ -6702,12 +6683,12 @@ It can be overridden on a per-hub basis in the Favorite Hub Properties.</source>
     <message>
         <location filename="../ui/UISettingsPersonal.ui" line="85"/>
         <source>Description</source>
-        <translation type="unfinished">描述</translation>
+        <translation>描述</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsPersonal.ui" line="92"/>
         <source>Away message</source>
-        <translation type="unfinished">离开信息</translation>
+        <translation>离开信息</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsPersonal.ui" line="99"/>
@@ -6758,17 +6739,17 @@ of how fast a source you are likely to be for other users.</source>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="65"/>
         <source>Path</source>
-        <translation type="unfinished">路径</translation>
+        <translation>路径</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="70"/>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation>名称</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="75"/>
         <source>Size</source>
-        <translation type="unfinished">大小</translation>
+        <translation>大小</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="98"/>
@@ -6793,7 +6774,7 @@ of how fast a source you are likely to be for other users.</source>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="138"/>
         <source>Add new</source>
-        <translation type="unfinished">添加</translation>
+        <translation>添加</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="148"/>
@@ -6808,7 +6789,7 @@ of how fast a source you are likely to be for other users.</source>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="168"/>
         <source>Delete</source>
-        <translation type="unfinished">删除</translation>
+        <translation>删除</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsSharing.ui" line="194"/>
@@ -6959,12 +6940,12 @@ if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</sourc
     <message>
         <location filename="../ui/UISettingsUC.ui" line="58"/>
         <source>Change</source>
-        <translation type="unfinished">改变</translation>
+        <translation>改变</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsUC.ui" line="65"/>
         <source>Remove</source>
-        <translation type="unfinished">移除</translation>
+        <translation>移除</translation>
     </message>
     <message>
         <location filename="../ui/UISettingsUC.ui" line="72"/>
@@ -6983,7 +6964,7 @@ if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</sourc
         <location filename="../ui/UIShareBrowserSearch.ui" line="14"/>
         <location filename="../ui/UIShareBrowserSearch.ui" line="25"/>
         <source>Search</source>
-        <translation type="unfinished">搜索</translation>
+        <translation>搜索</translation>
     </message>
     <message>
         <location filename="../ui/UIShareBrowserSearch.ui" line="35"/>
@@ -7003,12 +6984,12 @@ if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</sourc
     <message>
         <location filename="../ui/UIShareBrowserSearch.ui" line="54"/>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation>名称</translation>
     </message>
     <message>
         <location filename="../ui/UIShareBrowserSearch.ui" line="59"/>
         <source>Directory</source>
-        <translation type="unfinished">目录</translation>
+        <translation>目录</translation>
     </message>
 </context>
 <context>
@@ -7026,12 +7007,12 @@ if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</sourc
     <message>
         <location filename="../ui/UISpy.ui" line="65"/>
         <source>Start</source>
-        <translation type="unfinished">开始</translation>
+        <translation>开始</translation>
     </message>
     <message>
         <location filename="../ui/UISpy.ui" line="72"/>
         <source>Clear</source>
-        <translation type="unfinished">清除</translation>
+        <translation>清除</translation>
     </message>
 </context>
 <context>
@@ -7044,7 +7025,7 @@ if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</sourc
     <message>
         <location filename="../ui/UIUserCommands.ui" line="23"/>
         <source>Type</source>
-        <translation type="unfinished">类型</translation>
+        <translation>类型</translation>
     </message>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="32"/>
@@ -7074,17 +7055,17 @@ if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</sourc
     <message>
         <location filename="../ui/UIUserCommands.ui" line="75"/>
         <source>Hub</source>
-        <translation type="unfinished">中枢</translation>
+        <translation>中枢</translation>
     </message>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="82"/>
         <source>Search</source>
-        <translation type="unfinished">搜索</translation>
+        <translation>搜索</translation>
     </message>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="89"/>
         <source>User</source>
-        <translation type="unfinished">用户</translation>
+        <translation>用户</translation>
     </message>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="96"/>
@@ -7099,7 +7080,7 @@ if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</sourc
     <message>
         <location filename="../ui/UIUserCommands.ui" line="139"/>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation>名称</translation>
     </message>
     <message>
         <location filename="../ui/UIUserCommands.ui" line="146"/>
@@ -7147,7 +7128,7 @@ if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</sourc
     <message>
         <location filename="../src/UserListModel.cpp" line="169"/>
         <source>Nick</source>
-        <translation type="unfinished">昵称</translation>
+        <translation>昵称</translation>
     </message>
     <message>
         <location filename="../src/UserListModel.cpp" line="170"/>
@@ -7157,7 +7138,7 @@ if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</sourc
     <message>
         <location filename="../src/UserListModel.cpp" line="171"/>
         <source>Tag</source>
-        <translation type="unfinished">标签</translation>
+        <translation>标签</translation>
     </message>
     <message>
         <location filename="../src/UserListModel.cpp" line="172"/>
@@ -7172,7 +7153,7 @@ if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</sourc
     <message>
         <location filename="../src/UserListModel.cpp" line="174"/>
         <source>Share</source>
-        <translation type="unfinished">共享</translation>
+        <translation>共享</translation>
     </message>
     <message>
         <location filename="../src/UserListModel.cpp" line="175"/>
@@ -7182,7 +7163,7 @@ if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</sourc
     <message>
         <location filename="../src/UserListModel.cpp" line="176"/>
         <source>IP</source>
-        <translation type="unfinished">IP</translation>
+        <translation>IP</translation>
     </message>
 </context>
 <context>
@@ -7203,7 +7184,7 @@ if the user is back within 10 minutes, EiskaltDC++ will grant him a slot.</sourc
     <message>
         <location filename="../src/WulforUtil.cpp" line="750"/>
         <source>System default</source>
-        <translation type="unfinished">系统默认</translation>
+        <translation>系统默认</translation>
     </message>
     <message>
         <location filename="../src/WulforUtil.cpp" line="1072"/>

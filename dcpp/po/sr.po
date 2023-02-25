@@ -3,21 +3,24 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
+# Translators:
+# markosm <filipovic@tutanota.com>, 2018
+#
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://github.com/eiskaltdcpp/eiskaltdcpp/issues\n"
-"POT-Creation-Date: 2021-07-29 13:27+0300\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: markosm <chabro@zoho.com>, 2018\n"
+"POT-Creation-Date: 2023-02-25 14:19+0300\n"
+"PO-Revision-Date: 2017-06-18 13:35+0000\n"
+"Last-Translator: markosm <filipovic@tutanota.com>, 2018\n"
 "Language-Team: Serbian (https://www.transifex.com/tehnick/teams/11818/sr/)\n"
 "Language: sr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: ../ADLSearch.cpp:40
 msgid "<Enter string>"
@@ -312,9 +315,8 @@ msgid "Error hashing %1%: %2%"
 msgstr "Грешка хешовања %1%: %2%"
 
 #: ../HttpConnection.cpp:218
-#, fuzzy
 msgid "Transfer-encoding error (%1%)"
-msgstr " Трансфер порт (%1% TCP)"
+msgstr ""
 
 #: ../HttpConnection.cpp:257
 msgid "Endless redirection loop (%1%)"
@@ -413,7 +415,7 @@ msgstr "GiB"
 msgid "Denied to send file"
 msgstr ""
 
-#: ../PerFolderLimit.cpp:90 ../SettingsManager.cpp:619
+#: ../PerFolderLimit.cpp:90 ../SettingsManager.cpp:631
 msgid " to "
 msgstr "на"
 
@@ -562,31 +564,31 @@ msgstr "Претрага поново омогућена"
 msgid "Search disabled: %1%"
 msgstr "Претрага онемогућена: %1%"
 
-#: ../SettingsManager.cpp:188
+#: ../SettingsManager.cpp:187
 msgid "downloaded from"
 msgstr "преузето од"
 
-#: ../SettingsManager.cpp:528
+#: ../SettingsManager.cpp:540
 msgid "Invalid search type name"
 msgstr "Неважећи режим претраге"
 
-#: ../SettingsManager.cpp:532 ../SettingsManager.cpp:554
+#: ../SettingsManager.cpp:544 ../SettingsManager.cpp:566
 msgid "This search type already exists"
 msgstr "Тај режим претраге већ постоји"
 
-#: ../SettingsManager.cpp:586
+#: ../SettingsManager.cpp:598
 msgid "No such search type"
 msgstr "Нема таквих режима претраге"
 
-#: ../SettingsManager.cpp:614 ../SettingsManager.cpp:619
+#: ../SettingsManager.cpp:626 ../SettingsManager.cpp:631
 msgid "Error: setting not found!"
 msgstr "Грешка: подешавање није пронађено!"
 
-#: ../SettingsManager.cpp:614
+#: ../SettingsManager.cpp:626
 msgid "Core setting "
 msgstr "Основна подешавања"
 
-#: ../SettingsManager.cpp:619
+#: ../SettingsManager.cpp:631
 msgid "Change core setting "
 msgstr "Измени основна подешавања"
 
@@ -805,11 +807,9 @@ msgid "DHT: Our UDP port seems to be opened (IP: %1%)"
 msgstr ""
 
 #: ../../dht/UDPSocket.cpp:247
-#, fuzzy
 msgid "DHT enabled again"
-msgstr "Претрага поново омогућена"
+msgstr ""
 
 #: ../../dht/UDPSocket.cpp:258
-#, fuzzy
 msgid "DHT disabled: "
-msgstr "Претрага онемогућена: %1%"
+msgstr ""
