@@ -2388,7 +2388,7 @@ Favori kullanıcı</translation>
     <message>
         <location filename="../src/MainWindow.cpp" line="2915"/>
         <source>Georgian translation&lt;br/&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Gürcüce tercüme &lt;br/&gt;</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="3146"/>
@@ -3445,7 +3445,7 @@ Downloaded: %3 Uploaded: %4</source>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="89"/>
         <source>Georgian</source>
-        <translation type="unfinished"></translation>
+        <translation>Gürcüce</translation>
     </message>
     <message>
         <location filename="../src/SettingsGUI.cpp" line="227"/>
