@@ -12,3 +12,7 @@ Keywords=FileSharing;Chat;p2p;DirectConnect;ADC;DHT;
 
 
 # Translations
+Icon[pl]=eiskaltdcpp
+Name[pl]=EiskaltDC++ Qt
+Comment[pl]=Udostępniaj pliki za pośrednictwem sieci DC++
+GenericName[pl]=Klient DC++

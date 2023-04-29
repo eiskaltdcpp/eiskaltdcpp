@@ -5,16 +5,18 @@
 #
 # Translators:
 # Arahael <arahael@gmail.com>, 2017
+# Boris Pek <tehnick-8@yandex.ru>, 2018
+# Szymon Scholz <quomoow@gmail.com>, 2023
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: https://github.com/eiskaltdcpp/eiskaltdcpp/issues\n"
-"POT-Creation-Date: 2023-02-25 14:19+0300\n"
+"POT-Creation-Date: 2023-04-29 13:57+0300\n"
 "PO-Revision-Date: 2017-06-18 13:35+0000\n"
-"Last-Translator: Boris Pek <tehnick-8@yandex.ru>, 2018\n"
-"Language-Team: Polish (https://www.transifex.com/tehnick/teams/11818/pl/)\n"
+"Last-Translator: Szymon Scholz <quomoow@gmail.com>, 2023\n"
+"Language-Team: Polish (https://app.transifex.com/tehnick/teams/11818/pl/)\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -94,7 +96,7 @@ msgstr "Rozłączony"
 
 #: ../ChatMessage.cpp:35
 msgid "Sent "
-msgstr ""
+msgstr "Wysłano"
 
 #: ../ClientManager.cpp:196 ../FinishedManager.cpp:132
 #: ../FinishedManager.cpp:138 ../FinishedManager.cpp:144
@@ -126,7 +128,7 @@ msgstr ""
 
 #: ../ConnectivityManager.cpp:83
 msgid "Determining the best connectivity settings..."
-msgstr ""
+msgstr "Określanie najlepszych ustawień łączności..."
 
 #: ../ConnectivityManager.cpp:88
 msgid ""
@@ -152,19 +154,19 @@ msgstr ""
 
 #: ../ConnectivityManager.cpp:145
 msgid "Transfer (TCP)"
-msgstr ""
+msgstr "Transfer (TCP)"
 
 #: ../ConnectivityManager.cpp:151
 msgid "Search (UDP)"
-msgstr ""
+msgstr "Wyszukiwanie (UDP)"
 
 #: ../ConnectivityManager.cpp:157
 msgid "DHT (UDP)"
-msgstr ""
+msgstr "DHT (UDP)"
 
 #: ../ConnectivityManager.cpp:172
 msgid "Connectivity: "
-msgstr ""
+msgstr "Łączność:"
 
 #: ../CryptoManager.cpp:166
 msgid "No private key file chosen"
@@ -218,7 +220,7 @@ msgstr "Użytkownicy"
 
 #: ../DirectoryListing.cpp:95
 msgid "Invalid file list extension (must be .xml or .bz2)"
-msgstr ""
+msgstr "Nieprawidłowe rozszerzenie listy plików (musi to być .xml lub .bz2)"
 
 #: ../DirectoryListing.cpp:214
 msgid "Directory missing name attribute"
@@ -226,7 +228,7 @@ msgstr "Bąd nazwy przypisanego katalogu"
 
 #: ../DownloadManager.cpp:133
 msgid "IPFilter: Blocked outgoing connection to "
-msgstr ""
+msgstr "IPFilter: Zablokowano połączenie wychodzące do"
 
 #: ../DownloadManager.cpp:233
 msgid "Invalid size"
@@ -266,7 +268,7 @@ msgstr "Automatyczne łączenie grupy"
 
 #: ../FavoriteManager.cpp:667
 msgid "Invalid URL: %1%"
-msgstr ""
+msgstr "Nieprawidłowy URL: %1%"
 
 #: ../HashManager.cpp:230 ../HashManager.cpp:428
 msgid "Hashing failed: %1%"
@@ -274,11 +276,11 @@ msgstr "Hashowanie zakończone niepowodzeniem: %1%"
 
 #: ../HashManager.cpp:237
 msgid "Finished hashing: %1% (%2% at %3%/s)"
-msgstr ""
+msgstr "Zakończono haszowanie: %1% (%2% at %3%/s)"
 
 #: ../HashManager.cpp:240
 msgid "Finished hashing: %1% (%2%)"
-msgstr ""
+msgstr "Zakończono haszowanie: %1% (%2%)"
 
 #: ../HashManager.cpp:243
 msgid "Finished hashing: %1%"
@@ -313,48 +315,48 @@ msgstr "Błąd hashowania %1%: %2%"
 
 #: ../HttpConnection.cpp:218
 msgid "Transfer-encoding error (%1%)"
-msgstr ""
+msgstr "Błąd kodowania transferu (%1%)"
 
 #: ../HttpConnection.cpp:257
 msgid "Endless redirection loop (%1%)"
-msgstr ""
+msgstr "Nieskończona pętla przekierowań (%1%)"
 
 #: ../HttpConnection.cpp:301
 msgid "Too much data in response body (%1%)"
-msgstr ""
+msgstr "Za dużo danych w treści odpowiedzi (%1%)"
 
 #: ../MappingManager.cpp:45
 msgid "No UPnP implementation available"
-msgstr ""
+msgstr "Brak dostępnej implementacji UPnP"
 
 #: ../MappingManager.cpp:50
 msgid "Another UPnP port mapping attempt is in progress..."
-msgstr ""
+msgstr "Trwa kolejna próba mapowania portu UPnP..."
 
 #: ../MappingManager.cpp:82
 msgid "Failed to initialize the %1% interface"
-msgstr ""
+msgstr "Nie udało się zainicjować interfejsu %1%."
 
 #: ../MappingManager.cpp:86
 msgid " Transfer Port (%1% TCP)"
-msgstr ""
+msgstr " Port transferowy (%1% TCP)"
 
 #: ../MappingManager.cpp:87 ../MappingManager.cpp:92 ../MappingManager.cpp:97
 #: ../MappingManager.cpp:102
 msgid "The %1% interface has failed to map the %2% %3% port"
-msgstr ""
+msgstr "Nie udało się zmapować portu %2% %3% na interfejsie %1%"
 
 #: ../MappingManager.cpp:91
 msgid " Encrypted Transfer Port (%1% TCP)"
-msgstr ""
+msgstr " Port transferu zaszyfrowanego (%1% TCP)"
 
 #: ../MappingManager.cpp:96
 msgid " Search Port (%1% UDP)"
-msgstr ""
+msgstr "Port wyszukiwania (%1% UDP)"
 
 #: ../MappingManager.cpp:101
 msgid " DHT Port (%1% UDP)"
-msgstr ""
+msgstr "Port DHT (%1% UDP)"
 
 #: ../MappingManager.cpp:111
 msgid ""
@@ -370,11 +372,11 @@ msgstr ""
 
 #: ../MappingManager.cpp:127
 msgid "Failed to get external IP"
-msgstr ""
+msgstr "Nie udało się uzyskać zewnętrznego adresu IP"
 
 #: ../MappingManager.cpp:137
 msgid "Failed to create port mappings"
-msgstr ""
+msgstr "Nie udało się utworzyć mapowań portów"
 
 #: ../MappingManager.cpp:146
 msgid "Successfully removed port mappings with the %1% interface"
@@ -386,7 +388,7 @@ msgstr ""
 
 #: ../MappingManager.cpp:152
 msgid "UPnP: %1%"
-msgstr ""
+msgstr "UPnP: %1%"
 
 #: ../NmdcHub.cpp:299
 msgid "%1% (Nick unknown)"
