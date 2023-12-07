@@ -193,7 +193,7 @@ But you may send donations to project contributors (developers, maintainers, tra
 * [Packages for Arch Linux](https://aur.archlinux.org/packages?K=eiskaltdcpp) (in AUR)
 * [Packages for different Linux distros](https://repology.org/metapackage/eiskaltdcpp/versions) (the best aggregator of links)
 * [Packages for different Linux distros](https://pkgs.org/download/eiskaltdcpp) (alternative aggregator of links)
-* [Unofficial PPA for Debian and Ubuntu](https://notesalexp.org/index-old.html) (maintained by Alex_P)
+* [Unofficial PPA for Debian and Ubuntu](https://notesalexp.org/debian/index-old.html) (maintained by Alex_P)
 
 ## Extra links
 
