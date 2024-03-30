@@ -194,6 +194,7 @@ But you may send donations to project contributors (developers, maintainers, tra
 * [Packages for different Linux distros](https://repology.org/metapackage/eiskaltdcpp/versions) (the best aggregator of links)
 * [Packages for different Linux distros](https://pkgs.org/download/eiskaltdcpp) (alternative aggregator of links)
 * [Unofficial PPA for Debian and Ubuntu](https://notesalexp.org/debian/index-old.html) (maintained by Alex_P)
+* [MacPorts (macOS 10.5+)](https://ports.macports.org/port/eiskaltdcpp/details)
 
 ## Extra links
 
