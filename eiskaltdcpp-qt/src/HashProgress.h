@@ -9,6 +9,8 @@
 
 #pragma once
 
+#include <cstdint>
+
 #include <QDialog>
 #include <QTimer>
 #include <QLabel>
