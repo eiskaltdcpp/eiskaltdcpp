@@ -93,7 +93,7 @@ if (WIN32)
 endif ()
 
 if (PERL_REGEX)
-    find_package (PCRE REQUIRED)
+    find_package (PCRE2 REQUIRED)
 endif (PERL_REGEX)
 
 if (USE_IDN2)
