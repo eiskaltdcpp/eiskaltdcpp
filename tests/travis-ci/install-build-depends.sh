@@ -17,7 +17,7 @@ then
                              zlib1g-dev \
                              libidn2-dev \
                              liblua5.1-0-dev \
-                             libpcre3-dev \
+                             libpcre2-dev \
                              libminiupnpc-dev
 
     if [ "${USE_QT}" = "qt4" ]

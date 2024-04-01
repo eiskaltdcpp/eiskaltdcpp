@@ -25,9 +25,7 @@ if (CMAKE_PREFIX_PATH MATCHES "mxe" AND NOT BUILD_STATIC)
             libintl-8.dll
             libjpeg-9.dll
             libminiupnpc.dll
-            libpcre-1.dll
             libpcre2-16-0.dll
-            libpcrecpp-0.dll
             libpng16-16.dll
             libsqlite3-0.dll
             libssl-1_1.dll
