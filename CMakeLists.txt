@@ -426,7 +426,7 @@ message (STATUS "CMAKE will use these libraries (and headers) during build:
     openssl \t: ${OPENSSL_LIBRARIES} (${OPENSSL_INCLUDE_DIR})
     iconv \t: ${ICONV_LIBRARIES} (${ICONV_INCLUDE_DIR})
     gettext \t: ${GETTEXT_LIBRARIES} (${GETTEXT_INCLUDE_DIR})
-    pcre2 \t: ${PCRE_LIBRARIES} (${PCRE_INCLUDE_DIR})
+    pcre2 \t: ${PCRE2_LIBRARIES} (${PCRE2_INCLUDE_DIR})
     aspell \t: ${ASPELL_LIBRARIES} (${ASPELL_INCLUDE_DIR})
     idn2 \t: ${IDN2_LIBRARIES} (${IDN2_INCLUDE_DIR})
     attr \t: ${XATTR_LIBRARIES} (${IDN2_INCLUDE_DIR})

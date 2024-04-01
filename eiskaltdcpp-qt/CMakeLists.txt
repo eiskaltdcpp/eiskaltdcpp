@@ -273,8 +273,6 @@ include_directories (${PROJECT_SOURCE_DIR}
                      ${GETTEXT_INCLUDE_DIR})
 list (APPEND LIBS ${ICONV_LIBRARIES})
 
-set(PCRE2_LIBRARIES -lpcre2-16)
-
 if (BUILD_STATIC AND USE_QT5)
     if (WIN32)
         find_library (QT5FontDatabaseSupport Qt5FontDatabaseSupport)
@@ -296,7 +294,6 @@ if (BUILD_STATIC AND USE_QT5)
                           Qt5::Sql
                           Qt5::QWindowsAudioPlugin
                           Qt5::Multimedia
-                          ${PCRE_LIBRARIES}
                           ${PCRE2_LIBRARIES}
                           -lharfbuzz
                           -lwinmm

@@ -80,7 +80,7 @@ endif (GETTEXT_FOUND)
 if (PERL_REGEX)
     set_property(SOURCE ${PROJECT_SOURCE_DIR}/ADLSearch.cpp
                  PROPERTY COMPILE_DEFINITIONS USE_PCRE )
-    set(PCRE ${PCRE_LIBRARIES})
+    set(PCRE ${PCRE2_LIBRARIES})
 endif (PERL_REGEX)
 
 if (USE_IDN2)
