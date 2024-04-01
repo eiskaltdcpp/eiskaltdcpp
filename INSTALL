@@ -12,8 +12,8 @@ iconv (libc on GNU/Linux)
 ----------------
 gettext
 libssl (>= 0.9.8)
-liblua5.1 (optional, see cmake keys)
-libpcrecpp0 (optional, see cmake keys)
+liblua (optional, see cmake keys)
+libpcre2 (optional, see cmake keys)
 miniupnpc (optional, see cmake keys)
 libidn2 (optional, see cmake keys)
 libattr (optional, see cmake keys)
@@ -84,8 +84,8 @@ zlib
 :libeiskaltdcpp:
 ----------------
 gettext
-liblua5.1-dev (optional, see cmake keys)
-libpcre3-dev (optional, see cmake keys)
+liblua*-dev (optional, see cmake keys)
+libpcre2-dev (optional, see cmake keys)
 miniupnpc (optional, see cmake keys)
 libidn2 (optional, see cmake keys)
 libattr-dev (optional, see cmake keys)
@@ -134,7 +134,7 @@ Keys for cmake
     Choose a specific version of the lua library. When not set (the default) CMake
     will try to find the right version itself.
 -DPERL_REGEX=ON/OFF (default: ON)
-    Use pcrecpp library for regexps in perl style (now it is used only in ADL Search)
+    Use PCRE2 library for regexps in Perl style (now it is used only in ADL Search)
 -DUSE_IDN2=ON/OFF (default: ON)
     Use libidn2 for rfc3490 (resolving Internationalized Domain Names)
 -DUSE_XATTR=ON/OFF (default: OFF)

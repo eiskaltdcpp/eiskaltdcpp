@@ -32,7 +32,8 @@
 #include "StringTokenizer.h"
 
 #ifdef USE_PCRE
-#include "pcrecpp.h"
+#define PCRE2_CODE_UNIT_WIDTH 8
+#include <pcre2.h>
 #endif
 
 namespace dcpp {
@@ -172,11 +173,28 @@ bool ADLSearch::matchesDirectory(const string& d) {
 bool ADLSearch::searchAll(const string& s) {
 #ifdef USE_PCRE
     if(bUseRegexp){
-        pcrecpp::RE_Options options;
-        options.set_utf8(true);
-        options.set_caseless(true);
-        pcrecpp::RE regexp(regexpstring, options);
-        if(regexp.FullMatch(s))
+        pcre2_code *re;
+        pcre2_match_data *md;
+        PCRE2_SPTR pat, subj;
+        PCRE2_SIZE offset;
+        uint32_t utf = 0, options = 0;
+        int rc;
+
+        pcre2_config(PCRE2_CONFIG_UNICODE, &utf);
+        if(utf)
+            options |= PCRE2_UTF;
+        options |= PCRE2_CASELESS;
+        pat = reinterpret_cast<PCRE2_SPTR>(regexpstring.c_str());
+        subj = reinterpret_cast<PCRE2_SPTR>(s.c_str());
+        re = pcre2_compile(pat, PCRE2_ZERO_TERMINATED, options,
+                           &rc, &offset, nullptr);
+        if(offset != 0)
+            return false;
+        md = pcre2_match_data_create_from_pattern(re, nullptr);
+        rc = pcre2_match(re, subj, s.size(), 0, 0, md, nullptr);
+        pcre2_code_free(re);
+        pcre2_match_data_free(md);
+        if(rc >= 0)
             return true;
         else
             return false;
