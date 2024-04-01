@@ -25,7 +25,7 @@
 
 #elif defined(__clang__)
 #if (__clang_major__ < 3) || (__clang_major__ == 3 && __clang_minor__ < 5)
-#error Clang 3.5 is required
+#error Clang 3.5 is required // cppcheck-suppress preprocessorErrorDirective
 #endif
 
 #elif defined(_MSC_VER)
@@ -42,7 +42,7 @@
 
 #else
 
-#error No supported compiler found
+#error No supported compiler found // cppcheck-suppress preprocessorErrorDirective
 
 #endif
 

@@ -566,7 +566,8 @@ bool ServerThread::sendPrivateMessage(const string& hub, const string& nick, con
         }
     }
 
-    return "Huburl is invalid";
+    // TODO: somehow notify that Huburl is invalid
+    return false;
 }
 
 bool ServerThread::getFileList(const string& hub, const string& nick, bool match) {
