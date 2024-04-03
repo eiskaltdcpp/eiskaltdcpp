@@ -194,7 +194,7 @@ if (NOT SHARE_DIR)
 endif (NOT SHARE_DIR)
 
 if (APPLE)
-    set (CLIENT_DATA_DIR "${PROJECT_NAME_GLOBAL}.app/Contents/Resources/")
+    set (CLIENT_DATA_DIR "${PROJECT_NAME_GLOBAL}.app/Contents/Resources")
     set (CLIENT_DOCS_DIR "${CLIENT_DATA_DIR}/docs")
 elseif (WIN32)
     set (CLIENT_DATA_DIR "${SHARE_DIR}")
