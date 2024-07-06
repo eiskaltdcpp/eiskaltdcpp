@@ -53,7 +53,11 @@ bool UPnPc::init()
     if (!devices)
         return false;
 
+#if (MINIUPNPC_API_VERSION >= 18)
+    bool ret = UPNP_GetValidIGD(devices, &urls, &data, nullptr, 0, nullptr, 0);
+#else
     bool ret = UPNP_GetValidIGD(devices, &urls, &data, nullptr, 0);
+#endif
 
     freeUPNPDevlist(devices);
 
