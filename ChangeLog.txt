@@ -1,4 +1,4 @@
---- 2.4.3 2024-xx-xx ---
+--- 2.4.3 2024-07-xx ---
 *** common changes ***
 * Stopped support of cmake versions less than 3.7.2.
 * Added configuration option INSTALL_METAINFO. (Useful in GNU/Linux systems.)
@@ -17,6 +17,7 @@
   installation prefix.
 * Fix build against the musl libc without GNU libintl library. (Musl implements
   libintl but does so without using internal GNU symbols (see _nl_msg_cat_cntr).
+* Add support of MINIUPNPC_API_VERSION >= 18. [Thanks to ValdikSS]
 *** eiskaltdcpp-qt ***
 * Fix sort by "shared date" column in the share browser widget.
 
