@@ -756,7 +756,7 @@ void Socket::socksUpdated() {
             connStr[1] = 3;         // UDP Associate
             connStr[2] = 0;         // Reserved
             connStr[3] = 1;         // Address type: IPv4;
-            *((long*)(&connStr[4])) = 0;        // No specific outgoing UDP address
+            *((uint32_t*)(&connStr[4])) = 0;    // No specific outgoing UDP address
             *((uint16_t*)(&connStr[8])) = 0;    // No specific port...
 
             s.writeAll(connStr, 10, SOCKS_TIMEOUT);
