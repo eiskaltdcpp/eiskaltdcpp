@@ -16,6 +16,18 @@ elseif (USE_QT5)
     find_package (Qt5LinguistTools       REQUIRED)
     find_package (Qt5Multimedia    5.0.2 REQUIRED)
     find_package (Qt5Concurrent    5.0.2 REQUIRED)
+elseif (USE_QT6)
+    find_package (Qt6 6.2 REQUIRED COMPONENTS
+        Core
+        Gui
+        Widgets
+        Xml
+        Network
+        LinguistTools
+        Multimedia
+        Concurrent
+        Core5Compat
+    )
 endif ()
 
 set (QT_USE_QTNETWORK 1)
@@ -46,6 +58,8 @@ if (DBUS_NOTIFY)
         find_package (Qt4 4.6.0 COMPONENTS QtDBus REQUIRED)
     elseif (USE_QT5)
         find_package (Qt5DBus 5.0.2 REQUIRED)
+    elseif (USE_QT6)
+        find_package (Qt6 6.2 REQUIRED COMPONENTS DBus)
     endif (USE_QT)
     add_definitions (-DDBUS_NOTIFY)
     set (QT_USE_QTDBUS 1)
@@ -59,6 +73,8 @@ if (USE_JS)
         find_package (Qt4 4.6.0 COMPONENTS QtScript REQUIRED)
     elseif (USE_QT5)
         find_package (Qt5Script 5.0.2 REQUIRED)
+    elseif (USE_QT6)
+        #find_package (Qt6 REQUIRED COMPONENTS Script)
     endif ()
     add_definitions (-DUSE_JS)
     set (QT_USE_QTSCRIPT 1)
@@ -72,6 +88,8 @@ if (USE_QT_SQLITE)
         find_package (Qt4 4.6.0 COMPONENTS QtSql REQUIRED)
     elseif (USE_QT5)
         find_package (Qt5Sql 5.0.2 REQUIRED)
+    elseif (USE_QT6)
+        find_package (Qt6 REQUIRED COMPONENTS Sql)
     endif (USE_QT)
     add_definitions (-DUSE_QT_SQLITE)
     set (QT_USE_QTSQL 1)
@@ -167,6 +185,11 @@ elseif (USE_QT5)
     QT5_WRAP_CPP (M_SRCS ${MOC_HDRS} OPTIONS -nn)
     #Create .h files from ui files
     QT5_WRAP_UI (U_SRCS ${UI_FORMS})
+elseif (USE_QT6)
+    #Create moc files
+    QT6_WRAP_CPP (M_SRCS ${MOC_HDRS} OPTIONS -nn)
+    #Create .h files from ui files
+    QT6_WRAP_UI (U_SRCS ${UI_FORMS})
 endif()
 
 if (USE_QT5 AND NOT USE_QT)
@@ -181,10 +204,15 @@ foreach (LANGUAGE ${LANGUAGES})
         set (QM ${PROJECT_BINARY_DIR}/translations/${LANGUAGE}.qm)
         list (APPEND TRANSLATIONS ${TS})
         list (APPEND TRANSLATIONS_BINARY ${QM})
-        add_custom_command (OUTPUT "${QM}"
-                            DEPENDS "${TS}"
-                            COMMAND ${QT_LRELEASE_EXECUTABLE}
-                            ARGS "${TS}" -qm "${QM}")
+
+        if (USE_QT6)
+            qt_add_lrelease(${PROJECT_NAME}_tr ${TS})
+        else ()
+            add_custom_command (OUTPUT "${QM}"
+                                DEPENDS "${TS}"
+                                COMMAND ${QT_LRELEASE_EXECUTABLE}
+                                ARGS "${TS}" -qm "${QM}")
+        endif()
 endforeach ()
 
 if (WIN32 OR APPLE OR INSTALL_QT_TRANSLATIONS OR BUILD_STATIC)
@@ -211,7 +239,9 @@ if (WIN32 OR APPLE OR INSTALL_QT_TRANSLATIONS OR BUILD_STATIC)
     list (APPEND TRANSLATIONS_BINARY ${QT_TRANSLATIONS})
 endif ()
 
-add_custom_target(${PROJECT_NAME}_tr ALL DEPENDS ${TRANSLATIONS_BINARY})
+if (NOT USE_QT6)
+    add_custom_target(${PROJECT_NAME}_tr ALL DEPENDS ${TRANSLATIONS_BINARY})
+endif()
 
 set (DEFAULT_QRC_FILE ${PROJECT_SOURCE_DIR}/icons/appl/default/default.qrc)
 
@@ -440,6 +470,18 @@ add_executable (${PROJECT_NAME} MACOSX_BUNDLE WIN32 src/main.cpp
                 ${TRANSLATIONS}
                 ${WIN_RESOURCES}
                 translations)
+
+if (USE_QT6)
+    target_link_libraries(${PROJECT_NAME}
+            Qt::Core
+            Qt::Core5Compat
+            Qt::DBus
+            Qt::Multimedia
+            Qt::Sql
+            Qt::Widgets
+            Qt::Xml
+    )
+endif()
 
 add_definitions (-DCLIENT_DATA_DIR="${CLIENT_DATA_DIR}")
 add_definitions (-DCLIENT_SOUNDS_DIR="${CLIENT_SOUNDS_DEST}")
