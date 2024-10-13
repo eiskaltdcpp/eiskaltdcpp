@@ -52,7 +52,7 @@ namespace dht
         for_each(sendQueue.begin(), sendQueue.end(), DeleteFunction());
 
 #ifdef _DEBUG
-        dcdebug("DHT stats, received: %d bytes, sent: %d bytes\n", receivedBytes, sentBytes);
+        dcdebug("DHT stats, received: %ld bytes, sent: %ld bytes\n", receivedBytes, sentBytes);
 #endif
     }
 
