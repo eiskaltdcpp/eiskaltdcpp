@@ -415,10 +415,10 @@ void IPFilter::loadList() {
         return;
 
     File file(fileNameFull, File::READ, File::OPEN);
-    string fileData = file.read();
+    const string fileData = file.read();
     file.close();
 #ifdef _DEBUG_IPFILTER
-    fprintf(stdout,"full string: %s\n",f.c_str());fflush(stdout);
+    fprintf(stdout,"full string: %s\n",fileData.c_str());fflush(stdout);
 #endif
 
     clearRules();
