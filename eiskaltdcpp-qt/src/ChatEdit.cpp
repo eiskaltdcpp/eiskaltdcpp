@@ -110,7 +110,7 @@ QString ChatEdit::textUnderCursor() const
     int curpos = cursor.position();
     QString text = cursor.block().text().left(curpos);
 
-    QStringList wordList = text.split(QRegExp("\\s"));
+    QStringList wordList = text.split(QRegularExpression("\\s"));
 
     if (wordList.isEmpty())
         return QString();

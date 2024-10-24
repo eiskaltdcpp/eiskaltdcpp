@@ -35,7 +35,7 @@ QueuedUsers::QueuedUsers(){
     connect(treeView_USERS, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotContextMenu()));
 
     UploadManager::getInstance()->addListener(this);
-    
+
     ArenaWidget::setState( ArenaWidget::Flags(ArenaWidget::state() | ArenaWidget::Singleton | ArenaWidget::Hidden) );
 }
 
@@ -153,7 +153,7 @@ QVariant QueuedUsersModel::data(const QModelIndex &index, int role) const
 Qt::ItemFlags QueuedUsersModel::flags(const QModelIndex &index) const
 {
     if (!index.isValid())
-        return nullptr;
+        return {};
 
     return Qt::ItemIsEnabled | Qt::ItemIsSelectable;
 }

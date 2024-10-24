@@ -150,7 +150,7 @@ void FileHasher::slotCopySearchString(){
     if (fname.isEmpty())
         return;
 
-    const QString name = fname.split(QDir::separator(), QString::SkipEmptyParts).last();
+    const QString name = fname.split(QDir::separator(), Qt::SkipEmptyParts).last();
 
     // Special searching magnet link:
     const QString &&encoded_name = _q(Util::encodeURI(name.toStdString()));

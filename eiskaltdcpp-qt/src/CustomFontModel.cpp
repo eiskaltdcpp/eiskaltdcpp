@@ -81,7 +81,7 @@ QVariant CustomFontModel::data(const QModelIndex &index, int role) const
         }
         case Qt::TextAlignmentRole:
         case Qt::ForegroundRole:
-        case Qt::BackgroundColorRole:
+        case Qt::BackgroundRole:
         case Qt::ToolTipRole:
         case Qt::DecorationRole:
         default:

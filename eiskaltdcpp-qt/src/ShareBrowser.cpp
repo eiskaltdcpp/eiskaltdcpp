@@ -43,7 +43,8 @@
 #include <QDateTime>
 
 #if QT_VERSION >= 0x050000
-#include <QtConcurrent>
+//#include <QtConcurrent>
+#include <QThread>
 #else
 #include <QtConcurrentFilter>
 #include <QtConcurrentRun>
@@ -143,8 +144,8 @@ ShareBrowser::Menu::Action ShareBrowser::Menu::exec(const dcpp::UserPtr &user){
     aliases = QByteArray::fromBase64(WSGET(WS_DOWNLOADTO_ALIASES).toUtf8());
     paths   = QByteArray::fromBase64(WSGET(WS_DOWNLOADTO_PATHS).toUtf8());
 
-    QStringList a = aliases.split("\n", QString::SkipEmptyParts);
-    QStringList p = paths.split("\n", QString::SkipEmptyParts);
+    QStringList a = aliases.split("\n", Qt::SkipEmptyParts);
+    QStringList p = paths.split("\n", Qt::SkipEmptyParts);
 
     QStringList temp_pathes = DownloadToDirHistory::get();
 
@@ -492,7 +493,7 @@ void ShareBrowser::goUp(QTreeView *view){
     if (view != treeView_RPANE)
         return;
 
-    QStringList paths = lineEdit_PATH->text().split("\\", QString::SkipEmptyParts);
+    QStringList paths = lineEdit_PATH->text().split("\\", Qt::SkipEmptyParts);
 
     if (paths.empty())//is it possible?
         return;

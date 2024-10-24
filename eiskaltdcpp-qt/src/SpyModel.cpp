@@ -62,7 +62,7 @@ QVariant SpyModel::data(const QModelIndex &index, int role) const
         {
             break;
         }
-        case Qt::BackgroundColorRole:
+        case Qt::BackgroundRole:
             break;
         case Qt::ToolTipRole:
             break;
@@ -74,7 +74,7 @@ QVariant SpyModel::data(const QModelIndex &index, int role) const
 Qt::ItemFlags SpyModel::flags(const QModelIndex &index) const
 {
     if (!index.isValid())
-        return nullptr;
+        return {};
 
     return Qt::ItemIsEnabled | Qt::ItemIsSelectable;
 }

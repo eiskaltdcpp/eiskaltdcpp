@@ -234,7 +234,7 @@ private Q_SLOTS:
     void slotShowWnd();
     void slotShellFinished(bool, QString);
     void slotFilterTextChanged();
-    void slotFindForward() { findText(nullptr); }
+    void slotFindForward() { findText({}); }
     void slotFindBackward(){ findText(QTextDocument::FindBackward); }
     void slotFindTextEdited(const QString & text);
     void slotInputTextChanged();

@@ -11,7 +11,7 @@
 
 #include <QMenu>
 #include <QList>
-#include <QSound>
+//#include <QSound>
 #include <QFile>
 
 #include "WulforUtil.h"

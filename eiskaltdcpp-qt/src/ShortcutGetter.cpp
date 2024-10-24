@@ -26,7 +26,7 @@ static void initKeyMap()
 {
 	if ( !keyMap.isEmpty() )
 		return;
-	
+
 	/*
 		I'm a bit unsure about these one...
 	*/
@@ -46,7 +46,7 @@ static void initKeyMap()
 	keyMap[Qt::Key_CapsLock] = "CapsLock";
 	keyMap[Qt::Key_NumLock] = "NumLock";
 	keyMap[Qt::Key_ScrollLock] = "ScrollLock";
-	
+
 	/*
 		These one are quite sure...
 	*/
@@ -85,7 +85,7 @@ static void initKeyMap()
 	keyMap[Qt::Key_F33] = "F33";
 	keyMap[Qt::Key_F34] = "F34";
 	keyMap[Qt::Key_F35] = "F35";
-	
+
 	keyMap[Qt::Key_Exclam] = "!";
 	keyMap[Qt::Key_QuoteDbl] = "\"";
 	keyMap[Qt::Key_NumberSign] = "-";
@@ -101,7 +101,7 @@ static void initKeyMap()
 	keyMap[Qt::Key_Minus] = "-";
 	keyMap[Qt::Key_Period] = "Period";
 	keyMap[Qt::Key_Slash] = "/";
-	
+
 	keyMap[Qt::Key_0] = "0";
 	keyMap[Qt::Key_1] = "1";
 	keyMap[Qt::Key_2] = "2";
@@ -112,7 +112,7 @@ static void initKeyMap()
 	keyMap[Qt::Key_7] = "7";
 	keyMap[Qt::Key_8] = "8";
 	keyMap[Qt::Key_9] = "9";
-	
+
 	keyMap[Qt::Key_Colon] = ":";
 	keyMap[Qt::Key_Semicolon] = ";";
 	keyMap[Qt::Key_Less] = "<";
@@ -120,7 +120,7 @@ static void initKeyMap()
 	keyMap[Qt::Key_Greater] = ">";
 	keyMap[Qt::Key_Question] = "?";
 	keyMap[Qt::Key_At] = "@";
-	
+
 	keyMap[Qt::Key_A] = "A";
 	keyMap[Qt::Key_B] = "B";
 	keyMap[Qt::Key_C] = "C";
@@ -147,11 +147,11 @@ static void initKeyMap()
 	keyMap[Qt::Key_X] = "X";
 	keyMap[Qt::Key_Y] = "Y";
 	keyMap[Qt::Key_Z] = "Z";
-	
+
 	keyMap[Qt::Key_BracketLeft] = "[";
 	keyMap[Qt::Key_Backslash] = "\\";
 	keyMap[Qt::Key_BracketRight] = "]";
-	
+
 	keyMap[Qt::Key_Underscore] = "_";
 	keyMap[Qt::Key_BraceLeft] = "{";
 	keyMap[Qt::Key_Bar] = "|";
@@ -169,9 +169,9 @@ static void initKeyMap()
 	keyMap[Qt::Key_MediaLast] = "Media Last"; // doesn't work?
 	keyMap[Qt::Key_VolumeUp] = "Volume Up";
 	keyMap[Qt::Key_VolumeDown] = "Volume Down";
-	keyMap[Qt::Key_VolumeMute] = "Volume Mute";	
-	keyMap[Qt::Key_Back] = "Back";	
-	keyMap[Qt::Key_Forward] = "Forward";	
+	keyMap[Qt::Key_VolumeMute] = "Volume Mute";
+	keyMap[Qt::Key_Back] = "Back";
+	keyMap[Qt::Key_Forward] = "Forward";
 	keyMap[Qt::Key_Stop] = "Stop";
 }
 
@@ -179,10 +179,10 @@ static QString keyToString(int k)
 {
 	if (	k == Qt::Key_Shift || k == Qt::Key_Control || k == Qt::Key_Meta ||
 			k == Qt::Key_Alt || k == Qt::Key_AltGr )
-		return QString::null;
+		return {};
 
 	initKeyMap();
-	
+
 	return keyMap[k];
 }
 
@@ -191,7 +191,7 @@ static QStringList modToString(Qt::KeyboardModifiers k)
 	//qDebug("modToString: k: %x", (int) k);
 
 	QStringList l;
-	
+
 	if ( k & Qt::ShiftModifier )
 		l << "Shift";
 	if ( k & Qt::ControlModifier )
@@ -204,7 +204,7 @@ static QStringList modToString(Qt::KeyboardModifiers k)
 		;
 	if ( k & Qt::KeypadModifier )
 		;
-	
+
 	return l;
 }
 
@@ -213,15 +213,15 @@ ShortcutGetter::ShortcutGetter(QWidget *parent) : QDialog(parent)
 {
 	setWindowTitle(tr("Modify shortcut"));
 
-			
+
 	QVBoxLayout *vbox = new QVBoxLayout(this);
-	vbox->setMargin(2);
+	vbox->setContentsMargins(2, 2, 2, 2);
 	vbox->setSpacing(4);
-			
+
 	QLabel *l = new QLabel(this);
 	l->setText(tr("Press the key combination you want to assign"));
 	vbox->addWidget(l);
-			
+
 	leKey = new QLineEdit(this);
 
 	leKey->installEventFilter(this);
@@ -231,7 +231,7 @@ ShortcutGetter::ShortcutGetter(QWidget *parent) : QDialog(parent)
 	// and add a clear button
 	setCaptureKeyboard(true);
 	QDialogButtonBox * buttonbox = new QDialogButtonBox(QDialogButtonBox::Ok |
-                                                     QDialogButtonBox::Cancel | 
+                                                     QDialogButtonBox::Cancel |
                                                      QDialogButtonBox::Reset );
 	QPushButton * clearbutton = buttonbox->button(QDialogButtonBox::Reset);
 	clearbutton->setText( tr("Clear") );
@@ -240,7 +240,7 @@ ShortcutGetter::ShortcutGetter(QWidget *parent) : QDialog(parent)
 	captureButton->setToolTip( tr("Capture keystrokes") );
 	captureButton->setCheckable( captureKeyboard() );
 	captureButton->setChecked( captureKeyboard() );
-	connect(captureButton, SIGNAL(toggled(bool)), 
+	connect(captureButton, SIGNAL(toggled(bool)),
             this, SLOT(setCaptureKeyboard(bool)));
 
 
@@ -252,24 +252,24 @@ ShortcutGetter::ShortcutGetter(QWidget *parent) : QDialog(parent)
 	vbox->addWidget(buttonbox);
 }
 
-void ShortcutGetter::setCaptureKeyboard(bool b) { 
-	capture = b; 
+void ShortcutGetter::setCaptureKeyboard(bool b) {
+	capture = b;
 	leKey->setReadOnly(b);
 	leKey->setFocus();
 }
 
-		
+
 QString ShortcutGetter::exec(const QString& s)
 {
 	bStop = false;
 	leKey->setText(s);
-			
+
 	if ( QDialog::exec() == QDialog::Accepted )
 		return leKey->text();
-			
+
 	return QString();
 }
-		
+
 bool ShortcutGetter::event(QEvent *e)
 {
 	if (!capture) return QDialog::event(e);
@@ -278,11 +278,11 @@ bool ShortcutGetter::event(QEvent *e)
 	QString key;
 	QStringList mods;
 	QKeyEvent *k = static_cast<QKeyEvent*>(e);
-			
+
 	switch ( e->type() )
 	{
 		case QEvent::KeyPress :
-					
+
 		if ( bStop )
 		{
 			lKeys.clear();
@@ -306,33 +306,33 @@ bool ShortcutGetter::event(QEvent *e)
             }
 		} else {
 				key = k->text();
-						
+
 				if ( !lKeys.contains(key) )
 					lKeys << key;
 		}
 
 		setText();
 		break;
-					
+
 		case QEvent::KeyRelease :
-					
+
 			bStop = true;
 			break;
-					
+
 			/*
 		case QEvent::ShortcutOverride :
 			leKey->setText("Shortcut override");
 			break;
 			*/
-					
+
 		default:
 			return QDialog::event(e);
 			break;
 	}
-	
+
 	return true;
 }
-		
+
 bool ShortcutGetter::eventFilter(QObject *o, QEvent *e)
 {
 	if (!capture) return QDialog::eventFilter(o, e);
@@ -343,30 +343,30 @@ bool ShortcutGetter::eventFilter(QObject *o, QEvent *e)
 	else
 		return QDialog::eventFilter(o, e);
 }
-		
+
 void ShortcutGetter::setText()
 {
 	QStringList seq;
-			
+
 	if ( lKeys.contains("Shift") )
 		seq << "Shift";
-			
+
 	if ( lKeys.contains("Ctrl") )
 		seq << "Ctrl";
-				
+
 	if ( lKeys.contains("Alt") )
 		seq << "Alt";
-			
+
 	if ( lKeys.contains("Meta") )
 		seq << "Meta";
-			
+
 	for (const QString &s : lKeys ) {
 		//qDebug("setText: s: '%s'", s.toUtf8().data());
 		if ( s != "Shift" && s != "Ctrl"
 			&& s != "Alt" && s != "Meta" )
 			seq << s;
 	}
-			
+
 	leKey->setText(seq.join("+"));
 	//leKey->selectAll();
 }

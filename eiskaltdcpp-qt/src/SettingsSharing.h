@@ -10,13 +10,13 @@
 #pragma once
 
 #include <QWidget>
-#include <QDirModel>
+#include <QFileSystemModel>
 #include <QShowEvent>
 #include <QHeaderView>
 
 #include "ui_UISettingsSharing.h"
 
-class ShareDirModel: public QDirModel{
+class ShareDirModel: public QFileSystemModel {
     Q_OBJECT
 public:
 

@@ -1466,7 +1466,7 @@ void MainWindow::initToolbar(){
     d->fBar = new ToolBar(this);
     d->fBar->setObjectName("fBar");
 
-    QStringList enabled_actions = QString(QByteArray::fromBase64(WSGET(WS_MAINWINDOW_TOOLBAR_ACTS).toUtf8())).split(";", QString::SkipEmptyParts);
+    QStringList enabled_actions = QString(QByteArray::fromBase64(WSGET(WS_MAINWINDOW_TOOLBAR_ACTS).toUtf8())).split(";", Qt::SkipEmptyParts);
 
     if (enabled_actions.isEmpty())
         d->fBar->addActions(d->toolBarActions);
@@ -1711,8 +1711,8 @@ void MainWindow::updateStatus(const QMap<QString, QString> &map){
     d->statusSPLabel->getContentsMargins(&leftM, &topM, &rightM, &bottomM);
     int boundWidth = leftM + rightM;
 
-    d->statusSPLabel->setFixedWidth(metrics.width(speedText) > d->statusSPLabel->width()? metrics.width(speedText) + boundWidth : d->statusSPLabel->width());
-    d->statusDLabel->setFixedWidth(metrics.width(downText) > d->statusDLabel->width()? metrics.width(downText) + boundWidth : d->statusDLabel->width());
+    d->statusSPLabel->setFixedWidth(metrics.horizontalAdvance(speedText) > d->statusSPLabel->width()? metrics.horizontalAdvance(speedText) + boundWidth : d->statusSPLabel->width());
+    d->statusDLabel->setFixedWidth(metrics.horizontalAdvance(downText) > d->statusDLabel->width()? metrics.horizontalAdvance(downText) + boundWidth : d->statusDLabel->width());
 
     if (WBGET(WB_SHOW_FREE_SPACE)) {
 #ifdef FREE_SPACE_BAR_C
@@ -1741,8 +1741,8 @@ void MainWindow::updateStatus(const QMap<QString, QString> &map){
 #endif
         d->progressFreeSpace->setToolTip(tooltip);
 
-        if (metrics.width(text) > d->progressFreeSpace->width()) {
-            d->progressFreeSpace->setFixedWidth(metrics.width(d->progressFreeSpace->text()) + 40);
+        if (metrics.horizontalAdvance(text) > d->progressFreeSpace->width()) {
+            d->progressFreeSpace->setFixedWidth(metrics.horizontalAdvance(d->progressFreeSpace->text()) + 40);
         }
         else {
             d->progressFreeSpace->setFixedWidth(d->progressFreeSpace->width());
@@ -1837,7 +1837,7 @@ void MainWindow::setStatusMessage(QString msg){
     QFontMetrics m(d->msgLabel->font());
     QString pure_msg = msg;
 
-    if (m.width(msg) > d->msgLabel->width())
+    if (m.horizontalAdvance(msg) > d->msgLabel->width())
         pure_msg = m.elidedText(msg, Qt::ElideRight, d->msgLabel->width(), 0);
 
     WulforUtil::getInstance()->textToHtml(pure_msg, true);
@@ -1899,7 +1899,7 @@ void MainWindow::parseInstanceLine(const QString &data){
         redrawToolPanel();
     }
 
-    const QStringList args = data.split("\n", QString::SkipEmptyParts);
+    const QStringList args = data.split("\n", Qt::SkipEmptyParts);
     parseCmdLine(args);
 }
 

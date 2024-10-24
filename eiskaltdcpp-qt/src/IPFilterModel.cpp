@@ -64,7 +64,7 @@ QVariant IPFilterModel::data(const QModelIndex &index, int role) const
 Qt::ItemFlags IPFilterModel::flags(const QModelIndex &index) const
 {
     if (!index.isValid())
-        return nullptr;
+        return {};
 
     return Qt::ItemIsEnabled | Qt::ItemIsSelectable;
 }
