@@ -44,6 +44,8 @@ Magnet::Magnet(QWidget *parent) :
     connect(pushButton_CANCEL,  SIGNAL(clicked()), this, SLOT(accept()));
     connect(pushButton_SEARCH,  SIGNAL(clicked()), this, SLOT(search()));
     connect(pushButton_DOWNLOAD,SIGNAL(clicked()), this, SLOT(download()));
+    connect(lineEdit_FNAME,     SIGNAL(returnPressed()), this, SLOT(download()));
+    connect(lineEdit_FPATH,     SIGNAL(returnPressed()), this, SLOT(download()));
     connect(toolButton_COPY_MAGNET,      SIGNAL(clicked()), this, SLOT(slotCopyMagnet()));
     connect(toolButton_COPY_SEARCH_LINK, SIGNAL(clicked()), this, SLOT(slotCopySearchString()));
     connect(toolButton_BROWSE,  SIGNAL(clicked()), this, SLOT(slotBrowse()));
@@ -60,6 +62,8 @@ Magnet::Magnet(QWidget *parent) :
     if (WVGET(DIALOG_SIZE).isValid()) {
         resize(WVGET(DIALOG_SIZE).toSize());
     }
+
+    pushButton_DOWNLOAD->setFocus();
 }
 
 Magnet::~Magnet() {}
