@@ -15,7 +15,7 @@
 #include "ShellCommandRunner.h"
 
 #include <QFileDialog>
-#include <QSound>
+//#include <QSound>
 #include <QDir>
 
 SettingsNotification::SettingsNotification(QWidget *parent) :

@@ -84,7 +84,7 @@ QVariant PublicHubModel::data(const QModelIndex &index, int role) const
 Qt::ItemFlags PublicHubModel::flags(const QModelIndex &index) const
 {
     if (!index.isValid())
-        return nullptr;
+        return {};
 
     Qt::ItemFlags flags = Qt::ItemIsEnabled | Qt::ItemIsSelectable;
 

@@ -247,8 +247,8 @@ SearchFrame::Menu::Action SearchFrame::Menu::exec(const QStringList &list = QStr
     aliases = QByteArray::fromBase64(WSGET(WS_DOWNLOADTO_ALIASES).toUtf8());
     paths   = QByteArray::fromBase64(WSGET(WS_DOWNLOADTO_PATHS).toUtf8());
 
-    QStringList a = aliases.split("\n", QString::SkipEmptyParts);
-    QStringList p = paths.split("\n", QString::SkipEmptyParts);
+    QStringList a = aliases.split("\n", Qt::SkipEmptyParts);
+    QStringList p = paths.split("\n", Qt::SkipEmptyParts);
 
     QStringList temp_pathes = DownloadToDirHistory::get();
 
@@ -510,7 +510,7 @@ void SearchFrame::init(){
         comboBox_FILETYPES->setItemIcon(i, WICON(icons.at(i)));
 
     QString     raw  = QByteArray::fromBase64(WSGET(WS_SEARCH_HISTORY).toUtf8());
-    d->searchHistory = raw.replace("\r","").split('\n', QString::SkipEmptyParts);
+    d->searchHistory = raw.replace("\r","").split('\n', Qt::SkipEmptyParts);
 
     QMenu *m = new QMenu();
 
@@ -579,7 +579,7 @@ void SearchFrame::load(){
     treeView_RESULTS->sortByColumn(WIGET(WI_SEARCH_SORT_COLUMN), WulforUtil::getInstance()->intToSortOrder(WIGET(WI_SEARCH_SORT_ORDER)));
 
     QString raw = QByteArray::fromBase64(WSGET(WS_SEARCH_HISTORY).toUtf8());
-    QStringList list = raw.replace("\r","").split('\n', QString::SkipEmptyParts);
+    QStringList list = raw.replace("\r","").split('\n', Qt::SkipEmptyParts);
 
     d->completer = new QCompleter(list, lineEdit_SEARCHSTR);
     d->completer->setCaseSensitivity(Qt::CaseInsensitive);
@@ -658,7 +658,7 @@ void SearchFrame::download(const SearchFrame::VarMap &params){
             return;
         // Only files have a TTH
         if (!params["TTH"].toString().isEmpty()){
-            string subdir = params["FNAME"].toString().split("\\", QString::SkipEmptyParts).last().toStdString();
+            string subdir = params["FNAME"].toString().split("\\", Qt::SkipEmptyParts).last().toStdString();
             QueueManager::getInstance()->add(target + subdir, size, TTHValue(params["TTH"].toString().toStdString()), HintedUser(user, hubUrl));
         }
         else{
@@ -786,7 +786,7 @@ void SearchFrame::getParams(SearchFrame::VarMap &map, const dcpp::SearchResultPt
     map["SIZE"]    = qulonglong(ptr->getSize());
 
     QString fname = _q(ptr->getFile());
-    const QStringList &fname_parts = fname.split('\\', QString::SkipEmptyParts);
+    const QStringList &fname_parts = fname.split('\\', Qt::SkipEmptyParts);
 
     map["FILE"] = fname_parts.isEmpty()? fname : fname_parts.last();
 

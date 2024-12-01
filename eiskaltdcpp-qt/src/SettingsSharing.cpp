@@ -113,7 +113,7 @@ void SettingsSharing::init(){
     checkBox_FASTHASH->setChecked(BOOLSETTING(FAST_HASH));
     groupBox_FASTHASH->setEnabled(BOOLSETTING(FAST_HASH));
 
-    listWidget_SKIPLIST->addItems(_q(SETTING(SKIPLIST_SHARE)).split('|', QString::SkipEmptyParts));
+    listWidget_SKIPLIST->addItems(_q(SETTING(SKIPLIST_SHARE)).split('|', Qt::SkipEmptyParts));
 
     label_TOTALSHARED->setText(tr("Total shared: %1")
                                .arg(WulforUtil::formatBytes(ShareManager::getInstance()->getShareSize())));
@@ -384,12 +384,12 @@ void SettingsSharing::slotContextMenu(const QPoint &){
 }
 
 QString ShareDirModel::filePath( const QModelIndex & index ) const {
-    return QDir::toNativeSeparators( QDirModel::filePath(index) );
+    return QDir::toNativeSeparators( QFileSystemModel::filePath(index) );
 }
 
 ShareDirModel::ShareDirModel(QObject *parent){
-    QDirModel::setParent(parent);
-    QDirModel::setFilter((QDir::AllDirs | QDir::NoDotAndDotDot));
+    QFileSystemModel::setParent(parent);
+    QFileSystemModel::setFilter((QDir::AllDirs | QDir::NoDotAndDotDot));
 
     StringPairList directories = ShareManager::getInstance()->getDirectories();
     for (const auto &pair : directories){
@@ -409,7 +409,7 @@ ShareDirModel::~ShareDirModel(){
 }
 
 Qt::ItemFlags ShareDirModel::flags(const QModelIndex& index) const{
-    Qt::ItemFlags f = QDirModel::flags(index);
+    Qt::ItemFlags f = QFileSystemModel::flags(index);
 
     if (!index.column())
         f |= Qt::ItemIsUserCheckable;
@@ -475,7 +475,7 @@ QVariant ShareDirModel::data(const QModelIndex& index, int role = Qt::DisplayRol
         }
     }
 
-    return QDirModel::data(index, role);
+    return QFileSystemModel::data(index, role);
 }
 
 bool ShareDirModel::setData(const QModelIndex& index, const QVariant& value, int role = Qt::EditRole)
@@ -501,7 +501,7 @@ bool ShareDirModel::setData(const QModelIndex& index, const QVariant& value, int
         return true;
     }
 
-    return QDirModel::setData(index, value, role);
+    return QFileSystemModel::setData(index, value, role);
 }
 
 void ShareDirModel::setAlias(const QModelIndex &index, const QString &alias){
@@ -531,7 +531,7 @@ void ShareDirModel::setAlias(const QModelIndex &index, const QString &alias){
         return;
     }
 
-    QDirModel::setData(index, true, Qt::CheckStateRole);
+    QFileSystemModel::setData(index, true, Qt::CheckStateRole);
 
     emit layoutChanged();
 }

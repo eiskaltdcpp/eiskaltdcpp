@@ -1553,7 +1553,7 @@ bool HubFrame::parseForCmd(QString line, QWidget *wg){
     PMWindow *pm = qobject_cast<PMWindow *>(wg);
     Q_D(HubFrame);
 
-    QStringList list = line.split(" ", QString::SkipEmptyParts);
+    QStringList list = line.split(" ", Qt::SkipEmptyParts);
 
     if (list.isEmpty())
         return false;
@@ -1596,7 +1596,7 @@ bool HubFrame::parseForCmd(QString line, QWidget *wg){
         }
     }
     else if (cmd == "/alias" && !emptyParam){
-        QStringList lex = line.split(" ", QString::SkipEmptyParts);
+        QStringList lex = line.split(" ", Qt::SkipEmptyParts);
 
         if (lex.size() >= 2){
             QString aliases = QByteArray::fromBase64(WSGET(WS_CHAT_CMD_ALIASES).toUtf8());
@@ -1617,10 +1617,10 @@ bool HubFrame::parseForCmd(QString line, QWidget *wg){
             }
             else if (lex.at(1) == "purge" && lex.size() == 3){
                 QString alias = lex.at(2);
-                QStringList alias_list = aliases.split('\n', QString::SkipEmptyParts);
+                QStringList alias_list = aliases.split('\n', Qt::SkipEmptyParts);
 
                 for (const auto &line : alias_list){
-                    QStringList cmds = line.split('\t', QString::SkipEmptyParts);
+                    QStringList cmds = line.split('\t', Qt::SkipEmptyParts);
 
                     if (cmds.size() == 2 && alias == cmds.at(0)){
                         alias_list.removeAt(alias_list.indexOf(line));
@@ -1650,7 +1650,7 @@ bool HubFrame::parseForCmd(QString line, QWidget *wg){
                         pm->addStatus(tr("Invalid alias syntax."));
                 }
                 else {
-                    QStringList new_cmd = raw.split("::", QString::SkipEmptyParts);
+                    QStringList new_cmd = raw.split("::", Qt::SkipEmptyParts);
 
                     if (new_cmd.size() < 2 || new_cmd.at(1).isEmpty()){
                         if (fr == this)
@@ -1936,11 +1936,11 @@ bool HubFrame::parseForCmd(QString line, QWidget *wg){
     }
     else if (!WSGET(WS_CHAT_CMD_ALIASES).isEmpty()){
         QString aliases = QByteArray::fromBase64(WSGET(WS_CHAT_CMD_ALIASES).toUtf8());
-        QStringList alias_list = aliases.split('\n', QString::SkipEmptyParts);
+        QStringList alias_list = aliases.split('\n', Qt::SkipEmptyParts);
         bool ok = false;
 
         for (const auto &line : alias_list){
-            QStringList cmds = line.split('\t', QString::SkipEmptyParts);
+            QStringList cmds = line.split('\t', Qt::SkipEmptyParts);
 
             if (cmds.size() == 2 && cmd == ("/" + cmds.at(0))){
                 parseForCmd(cmds.at(1), wg);
@@ -1999,7 +1999,7 @@ void HubFrame::addStatus(QString msg){
 
     QString nick = " * ";
 
-    QStringList lines = msg.split(QRegExp("[\\n\\r\\f]+"), QString::SkipEmptyParts);
+    QStringList lines = msg.split(QRegExp("[\\n\\r\\f]+"), Qt::SkipEmptyParts);
     for (int i = 0; i < lines.size(); ++i) {
         if (lines.at(i).contains(QRegExp("\\w+"))) {
             short_msg = lines.at(i);
@@ -3399,7 +3399,7 @@ void HubFrame::slotFindTextEdited(const QString & text){
     QTextCursor c = textEdit_CHAT->textCursor();
 
     c.movePosition(QTextCursor::StartOfLine,QTextCursor::MoveAnchor,1);
-    c = textEdit_CHAT->document()->find(lineEdit_FIND->text(), c, nullptr);
+    c = textEdit_CHAT->document()->find(lineEdit_FIND->text(), c, {});
     if (!c.isNull()) {
         textEdit_CHAT->setExtraSelections(QList<QTextEdit::ExtraSelection>());
         textEdit_CHAT->setTextCursor(c);
@@ -3425,13 +3425,13 @@ void HubFrame::slotFindAll(){
 
         selection.format.setBackground(color);
 
-        QTextCursor c = textEdit_CHAT->document()->find(lineEdit_FIND->text(), 0, nullptr);
+        QTextCursor c = textEdit_CHAT->document()->find(lineEdit_FIND->text(), 0, {});
 
         while (!c.isNull()) {
             selection.cursor = c;
             extraSelections.append(selection);
 
-            c = textEdit_CHAT->document()->find(lineEdit_FIND->text(), c, nullptr);
+            c = textEdit_CHAT->document()->find(lineEdit_FIND->text(), c, {});
         }
     }
     textEdit_CHAT->setExtraSelections(extraSelections);
@@ -3533,7 +3533,7 @@ void HubFrame::slotInputTextChanged(){
         return;
 
     SpellCheck *sp = SpellCheck::getInstance();
-    QStringList words = line.split(QRegExp("\\W+"), QString::SkipEmptyParts);
+    QStringList words = line.split(QRegularExpression("\\W+"), Qt::SkipEmptyParts);
 
     if (words.isEmpty())
         return;

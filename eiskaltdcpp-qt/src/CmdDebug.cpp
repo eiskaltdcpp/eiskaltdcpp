@@ -144,7 +144,7 @@ bool CmdDebug::eventFilter(QObject *obj, QEvent *e){
 void CmdDebug::addOutput(const QString& msg, const QString& url) {
     if (checkBoxFilterIP->isChecked()) {
         const QStringList &&urlList = url.split(":");
-        const QStringList &&addresses = lineEditIP->text().split(",", QString::SkipEmptyParts);
+        const QStringList &&addresses = lineEditIP->text().split(",", Qt::SkipEmptyParts);
         if (urlList.isEmpty() || addresses.isEmpty())
             return;
 
@@ -183,7 +183,7 @@ void CmdDebug::slotFindTextEdited(const QString &text){
     QTextCursor c = plainTextEdit_DEBUG->textCursor();
 
     c.movePosition(QTextCursor::StartOfLine,QTextCursor::MoveAnchor,1);
-    c = plainTextEdit_DEBUG->document()->find(lineEdit_FIND->text(), c, nullptr);
+    c = plainTextEdit_DEBUG->document()->find(lineEdit_FIND->text(), c, {});
     if (!c.isNull()) {
         plainTextEdit_DEBUG->setExtraSelections(QList<QTextEdit::ExtraSelection>());
         plainTextEdit_DEBUG->setTextCursor(c);
@@ -209,13 +209,13 @@ void CmdDebug::slotFindAll(){
 
         selection.format.setBackground(color);
 
-        QTextCursor c = plainTextEdit_DEBUG->document()->find(lineEdit_FIND->text(), 0, nullptr);
+        QTextCursor c = plainTextEdit_DEBUG->document()->find(lineEdit_FIND->text(), 0, {});
 
         while (!c.isNull()) {
             selection.cursor = c;
             extraSelections.append(selection);
 
-            c = plainTextEdit_DEBUG->document()->find(lineEdit_FIND->text(), c, nullptr);
+            c = plainTextEdit_DEBUG->document()->find(lineEdit_FIND->text(), c, {});
         }
     }
     plainTextEdit_DEBUG->setExtraSelections(extraSelections);
