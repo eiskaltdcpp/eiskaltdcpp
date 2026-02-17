@@ -1,6 +1,5 @@
+cmake_minimum_required (VERSION 3.16)
 project (eiskaltdcpp-qt)
-
-cmake_minimum_required (VERSION 3.2.0)
 
 include_directories(${PROJECT_BINARY_DIR})
 

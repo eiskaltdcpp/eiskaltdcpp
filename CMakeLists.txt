@@ -1,5 +1,22 @@
+cmake_minimum_required (VERSION 3.16)
 project (eiskaltdcpp)
-cmake_minimum_required (VERSION 3.2.0)
+
+if (APPLE)
+    if (NOT DEFINED CMAKE_PREFIX_PATH)
+        set (CMAKE_PREFIX_PATH "")
+    endif ()
+    execute_process(COMMAND brew --prefix
+                    OUTPUT_VARIABLE BREW_PREFIX
+                    OUTPUT_STRIP_TRAILING_WHITESPACE
+                    ERROR_QUIET)
+    if (BREW_PREFIX)
+        list (APPEND CMAKE_PREFIX_PATH "${BREW_PREFIX}")
+        list (APPEND CMAKE_PREFIX_PATH "${BREW_PREFIX}/opt/qt@5")
+        list (APPEND CMAKE_PREFIX_PATH "${BREW_PREFIX}/opt/gettext")
+        list (APPEND CMAKE_PREFIX_PATH "${BREW_PREFIX}/opt/openssl@1.1")
+        list (APPEND CMAKE_PREFIX_PATH "${BREW_PREFIX}/opt/openssl")
+    endif ()
+endif ()
 
 set (PROJECT_NAME "EiskaltDC++")
 set (APP_VERSION "2.4.2+devel") # Main program version (displayed in UI)
