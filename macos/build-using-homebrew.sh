@@ -20,12 +20,14 @@
 
 set -e
 
-[ -z "${HOMEBREW}" ] && HOMEBREW="/usr/local"
+if [ -z "${HOMEBREW}" ]; then
+    HOMEBREW=$(brew --prefix 2>/dev/null) || HOMEBREW="/usr/local"
+fi
 
 PATH="${HOMEBREW}/bin:${PATH}"
 PATH="${HOMEBREW}/opt/ccache/libexec:${PATH}"
-CUR_DIR="$(dirname $(realpath -s ${0}))"
-MAIN_DIR="$(realpath -s ${CUR_DIR}/..)"
+CUR_DIR="$(dirname $(realpath ${0}))"
+MAIN_DIR="$(realpath ${CUR_DIR}/..)"
 TOOLCHAIN_FILE="${CUR_DIR}/homebrew-toolchain.cmake"
 
 BUILD_OPTIONS="-DCMAKE_BUILD_TYPE=Release \
@@ -57,5 +59,5 @@ cp -a EiskaltDC++*.dmg "${MAIN_DIR}/../"
 
 echo
 echo "App bundle is built successfully! See:"
-echo "$(realpath -s ${MAIN_DIR}/..)/$(ls EiskaltDC++*.dmg | sort -V | tail -n1)"
+echo "$(realpath ${MAIN_DIR}/..)/$(ls EiskaltDC++*.dmg | sort -V | tail -n1)"
 echo

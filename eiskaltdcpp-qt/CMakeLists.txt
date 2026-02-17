@@ -1,6 +1,5 @@
+cmake_minimum_required (VERSION 3.16)
 project (eiskaltdcpp-qt)
-
-cmake_minimum_required (VERSION 3.2.0)
 
 include_directories(${PROJECT_BINARY_DIR})
 
@@ -565,6 +564,8 @@ if (APPLE)
         endif (${_qt5Core_install_prefix} STREQUAL "")
         install (CODE "
                     execute_process(COMMAND ${MACDEPLOYQT} ${PROJECT_NAME_GLOBAL}.app -verbose=2
+                        WORKING_DIRECTORY \${CMAKE_INSTALL_PREFIX})
+                    execute_process(COMMAND codesign --force --deep --sign - ${PROJECT_NAME_GLOBAL}.app
                         WORKING_DIRECTORY \${CMAKE_INSTALL_PREFIX})")
     endif (USE_QT)
     set (CPACK_BINARY_DRAGNDROP ON)
