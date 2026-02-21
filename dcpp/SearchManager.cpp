@@ -59,9 +59,7 @@ SearchManager::~SearchManager() {
     if(socket.get()) {
         stop = true;
         socket->disconnect();
-#ifdef _WIN32
         join();
-#endif
     }
 }
 

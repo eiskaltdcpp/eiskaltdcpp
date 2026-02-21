@@ -175,6 +175,8 @@ void shutdown() {
     TimerManager::deleteInstance();
     ResourceManager::deleteInstance();
 
+    Util::uninitialize();
+
 #ifdef _WIN32
     ::WSACleanup();
 #endif

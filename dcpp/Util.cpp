@@ -164,9 +164,16 @@ static string getDownloadsPath(const string& def) {
 
 #endif // _WIN32
 
+static bool s_utilInitDone = false;
+
+void Util::uninitialize() {
+    for (auto& p : paths)
+        p.clear();
+    s_utilInitDone = false;
+}
+
 void Util::initialize(PathsMap pathOverrides) {
-    static bool initDone = false;
-    if (initDone)
+    if (s_utilInitDone)
         return;
 
     Text::initialize();
@@ -356,7 +363,7 @@ void Util::initialize(PathsMap pathOverrides) {
         }
     } catch(const FileException&) {
     }
-    initDone = true;
+    s_utilInitDone = true;
 }
 
 void Util::migrate(const string& file) {

@@ -115,6 +115,7 @@ public:
 
     typedef std::map<Util::Paths, std::string> PathsMap;
     static void initialize(PathsMap pathOverrides = PathsMap());
+    static void uninitialize();
 
     /** Path of temporary storage */
     static string getTempPath();

@@ -99,6 +99,7 @@ private:
         void shutdown() {
             stop = true;
             s.signal();
+            join();
         }
         void addResult(const string& buf, const string& ip) {
             {
