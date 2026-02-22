@@ -568,6 +568,8 @@ void NmdcHub::onLine(const string& aLine) noexcept {
                 supportFlags |= SUPPORTS_NOGETINFO;
             } else if(i == "UserIP2") {
                 supportFlags |= SUPPORTS_USERIP2;
+            } else if(i == "NMDCpb") {
+                supportFlags |= SUPPORTS_NMDCPB;
             }
         }
     } else if(cmd == "$UserCommand") {
@@ -631,6 +633,8 @@ void NmdcHub::onLine(const string& aLine) noexcept {
                     "TTHSearch",
                     "ZPipe0"
                 };
+
+                feat.push_back("NMDCpb");
 
                 if(ctx()->getCryptoManager()->TLSOk())
                     feat.push_back("TLS");
@@ -829,6 +833,19 @@ void NmdcHub::onLine(const string& aLine) noexcept {
             sock->setMode(BufferedSocket::MODE_ZPIPE);
         } catch (const Exception& e) {
             dcdebug("NmdcHub::onLine %s failed with error: %s\n", cmd.c_str(), e.getError().c_str());
+        }
+    } else if(cmd == "$PB" || cmd == "$PBB" || cmd == "$PBR") {
+        // NMDCpb protobuf message: <nick> <base64data> or <to> <from> <base64data>
+        if(!param.empty()) {
+            string nick, data;
+            string::size_type j = param.find(' ');
+            if(j != string::npos) {
+                nick = toUtf8(param.substr(0, j));
+                data = param.substr(j + 1);
+            } else {
+                nick = toUtf8(param);
+            }
+            fire(ClientListener::NmdcPbMessage(), this, cmd, nick, data);
         }
     } else {
         dcassert(cmd[0] == '$');
@@ -1066,6 +1083,28 @@ void NmdcHub::on(Second, uint64_t aTick) noexcept {
     if(state == STATE_NORMAL && (aTick > (getLastActivity() + 120*1000)) ) {
         send("|", 1);
     }
+}
+
+void NmdcHub::pbBroadcast(const string& base64data) {
+    checkstate();
+
+    if(!(supportFlags & SUPPORTS_NMDCPB)) {
+        dcdebug("NmdcHub::pbBroadcast hub does not support NMDCpb\n");
+        return;
+    }
+
+    send("$PB " + fromUtf8(getMyNick()) + " " + base64data + "|");
+}
+
+void NmdcHub::pbRouted(const string& toNick, const string& base64data) {
+    checkstate();
+
+    if(!(supportFlags & SUPPORTS_NMDCPB)) {
+        dcdebug("NmdcHub::pbRouted hub does not support NMDCpb\n");
+        return;
+    }
+
+    send("$PBR " + fromUtf8(toNick) + " " + fromUtf8(getMyNick()) + " " + base64data + "|");
 }
 
 #ifdef LUA_SCRIPT
