@@ -1,0 +1,75 @@
+#
+# CI — build + test on every PR and push
+#
+name: CI
+
+on:
+  push:
+    branches: [master, nmdcpb-extension, qt6-migration]
+  pull_request:
+    branches: [master]
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-and-test:
+    runs-on: [self-hosted, linux, x64]
+    timeout-minutes: 30
+
+    strategy:
+      fail-fast: false
+      matrix:
+        build-type: [Release]
+        daemon-only: [false]
+        include:
+          - build-type: Debug
+            daemon-only: true
+
+    steps:
+      - name: Clean workspace
+        run: sudo rm -rf "$GITHUB_WORKSPACE"/*
+
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends \
+            build-essential g++ cmake \
+            libssl-dev zlib1g-dev libbz2-dev \
+            gettext libidn2-dev \
+            liblua5.3-dev \
+            libminiupnpc-dev \
+            libpcre2-dev \
+            libaspell-dev \
+            libjsoncpp-dev
+
+      - name: Configure (daemon-only)
+        if: matrix.daemon-only
+        run: |
+          cmake -B build \
+            -DCMAKE_BUILD_TYPE=${{ matrix.build-type }} \
+            -DBUILD_TESTS=ON \
+            -DUSE_QT5=OFF \
+            -DUSE_GTK3=OFF \
+            -DNO_UI_DAEMON=ON
+
+      - name: Configure (full build)
+        if: "!matrix.daemon-only"
+        run: |
+          cmake -B build \
+            -DCMAKE_BUILD_TYPE=${{ matrix.build-type }} \
+            -DBUILD_TESTS=ON \
+            -DUSE_QT5=OFF \
+            -DUSE_GTK3=OFF \
+            -DNO_UI_DAEMON=ON
+
+      - name: Build
+        run: cmake --build build -j$(nproc)
+
+      - name: Run tests (CTest)
+        working-directory: build
+        run: ctest --output-on-failure -j$(nproc)
