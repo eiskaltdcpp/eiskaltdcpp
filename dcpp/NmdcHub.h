@@ -65,6 +65,7 @@ public:
     // NMDCpb protobuf messaging
     void pbBroadcast(const string& base64data);
     void pbRouted(const string& toNick, const string& base64data);
+    bool hasNmdcPbSupport() const { return (supportFlags & SUPPORTS_NMDCPB) != 0; }
 
     virtual void password(const string& aPass) { send("$MyPass " + fromUtf8(aPass) + "|"); }
     virtual void info(bool force) { myInfo(force); }
