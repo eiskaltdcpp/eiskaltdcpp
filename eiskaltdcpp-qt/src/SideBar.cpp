@@ -132,7 +132,7 @@ QVariant SideBarModel::data(const QModelIndex &index, int role) const
         return static_cast<uint>(Qt::AlignLeft | Qt::AlignVCenter);
     }
     case Qt::ForegroundRole:
-    case Qt::BackgroundColorRole:
+    case Qt::BackgroundRole:
     case Qt::ToolTipRole:
     {
         if (!item->getWidget())

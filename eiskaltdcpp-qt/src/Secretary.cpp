@@ -157,7 +157,7 @@ bool Secretary::eventFilter(QObject *obj, QEvent *e){
                 */
             }
         }
-        else if (isChat && m_e->button() == Qt::MidButton)
+        else if (isChat && m_e->button() == Qt::MiddleButton)
         {
             QString nick;
             bool cursoratnick = false;
@@ -466,7 +466,7 @@ void Secretary::slotFindTextEdited(const QString &text){
     QTextCursor c = textEdit_MESSAGES->textCursor();
 
     c.movePosition(QTextCursor::StartOfLine,QTextCursor::MoveAnchor,1);
-    c = textEdit_MESSAGES->document()->find(lineEdit_FIND->text(), c, nullptr);
+    c = textEdit_MESSAGES->document()->find(lineEdit_FIND->text(), c, {});
     if (!c.isNull()) {
         textEdit_MESSAGES->setExtraSelections(QList<QTextEdit::ExtraSelection>());
         textEdit_MESSAGES->setTextCursor(c);
@@ -492,13 +492,13 @@ void Secretary::slotFindAll(){
 
         selection.format.setBackground(color);
 
-        QTextCursor c = textEdit_MESSAGES->document()->find(lineEdit_FIND->text(), 0, nullptr);
+        QTextCursor c = textEdit_MESSAGES->document()->find(lineEdit_FIND->text(), 0, {});
 
         while (!c.isNull()) {
             selection.cursor = c;
             extraSelections.append(selection);
 
-            c = textEdit_MESSAGES->document()->find(lineEdit_FIND->text(), c, nullptr);
+            c = textEdit_MESSAGES->document()->find(lineEdit_FIND->text(), c, {});
         }
     }
     textEdit_MESSAGES->setExtraSelections(extraSelections);
@@ -591,7 +591,7 @@ void Secretary::addOutput(const QString& htmlMsg, const QString& origMsg, const 
 
     if (checkBox_HUBS_FILTER->isChecked()) {
         const QStringList &&urlParts = url.split(":");
-        const QStringList &&addresses = lineEdit_HUBS_FILTER->text().split(",", QString::SkipEmptyParts);
+        const QStringList &&addresses = lineEdit_HUBS_FILTER->text().split(",", Qt::SkipEmptyParts);
         if (urlParts.isEmpty() || addresses.isEmpty())
             return;
 
@@ -629,7 +629,7 @@ void Secretary::addOutput(const QString& htmlMsg, const QString& origMsg, const 
     }
 
     if (checkBox_KEYWORDS->isChecked()) {
-        const QStringList &&keywords = lineEdit_KEYWORDS->text().split(",", QString::SkipEmptyParts);
+        const QStringList &&keywords = lineEdit_KEYWORDS->text().split(",", Qt::SkipEmptyParts);
         for (const auto &k : keywords) {
             if (origMsg.contains(k, Qt::CaseInsensitive)) {
                 storeMessage = true;

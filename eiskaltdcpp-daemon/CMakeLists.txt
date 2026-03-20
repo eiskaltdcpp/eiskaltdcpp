@@ -1,6 +1,6 @@
 project(eiskaltdcpp-daemon)
 
-cmake_minimum_required(VERSION 3.2.0)
+cmake_minimum_required (VERSION 3.16)
 # ######### General setup ##########
 include_directories(${PROJECT_SOURCE_DIR}
                     ${PROJECT_SOURCE_DIR}/..

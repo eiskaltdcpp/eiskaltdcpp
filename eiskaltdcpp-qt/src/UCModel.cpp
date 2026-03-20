@@ -69,7 +69,7 @@ QVariant UCModel::data(const QModelIndex &index, int role) const
 Qt::ItemFlags UCModel::flags(const QModelIndex &index) const
 {
     if (!index.isValid())
-        return nullptr;
+        return {};
 
     Qt::ItemFlags flags = Qt::ItemIsEnabled | Qt::ItemIsSelectable;
 
@@ -221,7 +221,7 @@ void UCModel::remUC(const QModelIndex &i){
 
     if (!rootItem->childItems.contains(item))
         return;
-    
+
     FavoriteManager::getInstance()->removeUserCommand(item->id);
 
     beginRemoveRows(QModelIndex(), item->row(), item->row());

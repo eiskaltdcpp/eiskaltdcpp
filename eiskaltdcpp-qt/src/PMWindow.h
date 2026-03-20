@@ -71,7 +71,7 @@ private Q_SLOTS:
     void slotHideSearchBar();
     void slotFindTextEdited(const QString &);
     void slotFindAll();
-    void slotFindForward() { findText(nullptr); }
+    void slotFindForward() { findText({}); }
     void slotFindBackward(){ findText(QTextDocument::FindBackward); }
     void slotClose();
 

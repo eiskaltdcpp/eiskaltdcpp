@@ -159,7 +159,7 @@ int main(int argc, char *argv[])
     app.setOrganizationName("EiskaltDC++ Team");
     app.setApplicationName("EiskaltDC++ Qt");
     app.setApplicationVersion(QString::fromStdString(eiskaltdcppVersionString));
-    
+
     GlobalTimer::newInstance();
 
     WulforSettings::newInstance();
@@ -182,7 +182,7 @@ int main(int argc, char *argv[])
         std::cout << QObject::tr("Application icons has been loaded").toStdString() << std::endl;
 
     app.setWindowIcon(WICON(WulforUtil::eiICON_APPL));
-#if (QT_VERSION >= QT_VERSION_CHECK(5, 10, 1))
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0) && QT_VERSION >= QT_VERSION_CHECK(5, 10, 1)
     app.setAttribute(Qt::AA_DisableWindowContextHelpButton);
 #endif
 
@@ -249,9 +249,9 @@ int main(int argc, char *argv[])
 #endif
 
     GlobalTimer::deleteInstance();
-    
+
     ArenaWidgetManager::deleteInstance();
-    
+
     HubManager::getInstance()->release();
 
     MainWindow::deleteInstance();
@@ -290,16 +290,16 @@ void catchSIG(int sigNum) {
 #ifdef ENABLE_STACKTRACE
     printBacktrace(sigNum);
 #endif // ENABLE_STACKTRACE
-    
+
     EiskaltApp *eapp = dynamic_cast<EiskaltApp*>(qApp);
-    
+
     if (eapp) {
         eapp->getSharedMemory().unlock();
         eapp->getSharedMemory().detach();
     }
-    
+
     raise(SIGINT);
-    
+
     std::abort();
 }
 
@@ -412,7 +412,7 @@ void migrateConfig(){
         QTextStream rstream(&orig);
         QTextStream wstream(&new_file);
 
-        QRegExp replace_str("/(\\S+)/\\.eiskaltdc\\+\\+/");
+        QRegularExpression replace_str("/(\\S+)/\\.eiskaltdc\\+\\+/");
         QString line = "";
 
         while (!rstream.atEnd()){

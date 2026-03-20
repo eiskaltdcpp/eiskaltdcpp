@@ -11,7 +11,8 @@
 
 #include <QMenu>
 #include <QList>
-#include <QSound>
+//#include <QSound>
+#include <QSoundEffect>
 #include <QFile>
 
 #include "WulforUtil.h"
@@ -20,13 +21,22 @@
 #include "ShellCommandRunner.h"
 #include "Settings.h"
 
-static int getBitPos(unsigned eventId){
-    for (unsigned i = 0; i < (sizeof(unsigned)*8); i++){
-        if ((eventId >> i) == 1U)
-            return static_cast<int>(i);
+namespace {
+
+    int getBitPos(unsigned eventId){
+        for (unsigned i = 0; i < (sizeof(unsigned)*8); i++){
+            if ((eventId >> i) == 1U)
+                return static_cast<int>(i);
+        }
+
+        return -1;
     }
 
-    return -1;
+    void playSound(const QString& path){
+        QSoundEffect soundEffect;
+        soundEffect.setSource(QUrl::fromLocalFile(path));
+        soundEffect.play();
+    }
 }
 
 Notification::Notification(QObject *parent) :
@@ -204,7 +214,7 @@ void Notification::showMessage(int t, const QString &title, const QString &msg){
                     break;
 
                 if (!WBGET(WB_NOTIFY_SND_EXTERNAL))
-                    QSound::play(sound);
+                    playSound(sound);
                 else {
                     QString cmd = WSGET(WS_NOTIFY_SND_CMD);
 

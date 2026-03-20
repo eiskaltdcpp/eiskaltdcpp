@@ -64,7 +64,7 @@ private Q_SLOTS:
     void searchMagnetLinks(bool);
     void maxLinesChanged(int);
     void slotChatMenu(const QPoint&);
-    void slotFindForward() { findText(nullptr); }
+    void slotFindForward() { findText({}); }
     void slotFindBackward(){ findText(QTextDocument::FindBackward); }
     void slotFindTextEdited(const QString &text);
     void slotFindAll();

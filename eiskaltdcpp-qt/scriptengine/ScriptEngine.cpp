@@ -283,7 +283,7 @@ void ScriptEngine::slotWSKeyChanged(const QString &key, const QString &value){
     DEBUG_BLOCK
 
     if (key == WS_APP_ENABLED_SCRIPTS){
-        QStringList enabled = QString(QByteArray::fromBase64(value.toLatin1())).split("\n", QString::SkipEmptyParts);
+        QStringList enabled = QString(QByteArray::fromBase64(value.toLatin1())).split("\n", Qt::SkipEmptyParts);
         QMap<QString, ScriptObject*>::iterator it;
 
         for (const auto &script : enabled){
@@ -353,7 +353,7 @@ static QScriptValue getMagnets(QScriptContext *ctx, QScriptEngine *engine){
         const dcpp::TTHValue *tth = dcpp::HashManager::getInstance()->getFileTTHif(_tq(f));
 
         if (tth)
-            magnets.push_back(WulforUtil::getInstance()->makeMagnet(f.split(QDir::separator(), QString::SkipEmptyParts).last(),
+            magnets.push_back(WulforUtil::getInstance()->makeMagnet(f.split(QDir::separator(), Qt::SkipEmptyParts).last(),
                                                                     file.size(),
                                                                     _q(tth->toBase32())
                                                                     ));

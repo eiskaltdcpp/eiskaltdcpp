@@ -42,7 +42,7 @@ void SettingsHistory::ok(){
     
     if (!checkBox_TTHSearchHistory->isChecked()){
         QString     raw  = QByteArray::fromBase64(WSGET(WS_SEARCH_HISTORY).toUtf8());
-        QStringList searchHistory = raw.replace("\r","").split('\n', QString::SkipEmptyParts);
+        QStringList searchHistory = raw.replace("\r","").split('\n', Qt::SkipEmptyParts);
         
         QString text = "";
         for (int k = searchHistory.count()-1; k >= 0; k--){
@@ -59,7 +59,7 @@ void SettingsHistory::ok(){
     
     { // search-history-items-number
     QString     raw  = QByteArray::fromBase64(WSGET(WS_SEARCH_HISTORY).toUtf8());
-    QStringList searchHistory = raw.replace("\r","").split('\n', QString::SkipEmptyParts);
+    QStringList searchHistory = raw.replace("\r","").split('\n', Qt::SkipEmptyParts);
     int maxItemsNumber = WIGET("search-history-items-number", 10);
     
     if (spinBox_SearchHistory->value() != maxItemsNumber){

@@ -187,7 +187,7 @@ static bool isValidIP(const QString &ip){
     if (ip.isEmpty())
         return false;
 
-    QStringList l = ip.split(".", QString::SkipEmptyParts);
+    QStringList l = ip.split(".", Qt::SkipEmptyParts);
     QIntValidator v(0, 255, nullptr);
 
     bool valid = true;

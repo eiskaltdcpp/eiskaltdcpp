@@ -141,7 +141,7 @@ int SearchBlackListModel::columnCount(const QModelIndex & ) const {
 
 Qt::ItemFlags SearchBlackListModel::flags(const QModelIndex &index) const {
     if (!index.isValid())
-        return nullptr;
+        return {};
 
     return Qt::ItemIsEditable | Qt::ItemIsEnabled | Qt::ItemIsSelectable;
 }

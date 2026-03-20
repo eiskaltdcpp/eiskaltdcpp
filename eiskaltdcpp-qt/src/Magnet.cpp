@@ -121,7 +121,7 @@ void Magnet::setLink(const QString &link, MagnetAction action){
             QString path=_q(SETTING(DOWNLOAD_DIRECTORY));
             target = path + (path.endsWith(QDir::separator())?
                                  QString("") :
-                                 QDir::separator()) + target.split(QDir::separator(), QString::SkipEmptyParts).last();
+                                 QDir::separator()) + target.split(QDir::separator(), Qt::SkipEmptyParts).last();
                 download(target, size, tth);
             break;
         }
@@ -180,7 +180,7 @@ void Magnet::download() {
 
     const QString &&name = path + (path.endsWith(QDir::separator()) ?
                                        QString("") :
-                                       QDir::separator()) + fileName.split(QDir::separator(), QString::SkipEmptyParts).last();
+                                       QDir::separator()) + fileName.split(QDir::separator(), Qt::SkipEmptyParts).last();
     const qulonglong size = sizeStr.left(sizeStr.indexOf(" (")).toULongLong();
 
     Magnet::download(name,size,tth);
@@ -196,7 +196,7 @@ void Magnet::slotCopyMagnet(){
     if (fname.isEmpty() || tth.isEmpty())
         return;
 
-    const QString name = fname.split(QDir::separator(), QString::SkipEmptyParts).last();
+    const QString name = fname.split(QDir::separator(), Qt::SkipEmptyParts).last();
     const qulonglong size = size_str.left(size_str.indexOf(" (")).toULongLong();
     const QString &&magnet = WulforUtil::getInstance()->makeMagnet(name, size, tth);
 
@@ -210,7 +210,7 @@ void Magnet::slotCopySearchString(){
     if (fname.isEmpty())
         return;
 
-    const QString name = fname.split(QDir::separator(), QString::SkipEmptyParts).last();
+    const QString name = fname.split(QDir::separator(), Qt::SkipEmptyParts).last();
 
     // Special searching magnet link:
     const QString &&encoded_name = _q(Util::encodeURI(name.toStdString()));
@@ -227,8 +227,8 @@ void Magnet::slotBrowse(){
     aliases = QByteArray::fromBase64(WSGET(WS_DOWNLOADTO_ALIASES).toUtf8());
     paths   = QByteArray::fromBase64(WSGET(WS_DOWNLOADTO_PATHS).toUtf8());
 
-    QStringList a = aliases.split("\n", QString::SkipEmptyParts);
-    QStringList p = paths.split("\n", QString::SkipEmptyParts);
+    QStringList a = aliases.split("\n", Qt::SkipEmptyParts);
+    QStringList p = paths.split("\n", Qt::SkipEmptyParts);
 
     if (a.size() == p.size() && !a.isEmpty()){
         down_to = new QMenu();

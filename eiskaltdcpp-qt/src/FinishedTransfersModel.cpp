@@ -140,7 +140,7 @@ QVariant FinishedTransfersModel::data(const QModelIndex &index, int role) const
         {
             break;
         }
-        case Qt::BackgroundColorRole:
+        case Qt::BackgroundRole:
             break;
         case Qt::ToolTipRole:
             break;
@@ -152,7 +152,7 @@ QVariant FinishedTransfersModel::data(const QModelIndex &index, int role) const
 Qt::ItemFlags FinishedTransfersModel::flags(const QModelIndex &index) const
 {
     if (!index.isValid())
-        return nullptr;
+        return {};
 
     return Qt::ItemIsEnabled | Qt::ItemIsSelectable;
 }

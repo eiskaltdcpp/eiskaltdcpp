@@ -45,9 +45,9 @@ MultiLineToolBar::~MultiLineToolBar(){
 void MultiLineToolBar::wheelEvent(QWheelEvent *e){
     e->ignore();
 
-    if (e->delta() > 0)
+    if (e->angleDelta().y() > 0)
         emit nextTab();
-    else if (e->delta() < 0)
+    else if (e->angleDelta().y() < 0)
         emit prevTab();
 }
 

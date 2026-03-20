@@ -42,12 +42,7 @@
 #include <QDesktopServices>
 #include <QDateTime>
 
-#if QT_VERSION >= 0x050000
 #include <QtConcurrent>
-#else
-#include <QtConcurrentFilter>
-#include <QtConcurrentRun>
-#endif
 
 using namespace dcpp;
 
@@ -143,8 +138,8 @@ ShareBrowser::Menu::Action ShareBrowser::Menu::exec(const dcpp::UserPtr &user){
     aliases = QByteArray::fromBase64(WSGET(WS_DOWNLOADTO_ALIASES).toUtf8());
     paths   = QByteArray::fromBase64(WSGET(WS_DOWNLOADTO_PATHS).toUtf8());
 
-    QStringList a = aliases.split("\n", QString::SkipEmptyParts);
-    QStringList p = paths.split("\n", QString::SkipEmptyParts);
+    QStringList a = aliases.split("\n", Qt::SkipEmptyParts);
+    QStringList p = paths.split("\n", Qt::SkipEmptyParts);
 
     QStringList temp_pathes = DownloadToDirHistory::get();
 
@@ -212,7 +207,7 @@ ShareBrowser::ShareBrowser(UserPtr _user, const QString &_file, const QString &_
 {
     nick = WulforUtil::getInstance()->getNicks(user->getCID());
 
-    if (nick.indexOf(_q(user->getCID().toBase32()) >= nullptr)) { // User offline
+    if (nick.indexOf(_q(user->getCID().toBase32())) >= 0) { // User offline
         nick = _q(ClientManager::getInstance()->getNicks(HintedUser(user, ""))[0]);
 
         QFileInfo info(_file);
@@ -492,7 +487,7 @@ void ShareBrowser::goUp(QTreeView *view){
     if (view != treeView_RPANE)
         return;
 
-    QStringList paths = lineEdit_PATH->text().split("\\", QString::SkipEmptyParts);
+    QStringList paths = lineEdit_PATH->text().split("\\", Qt::SkipEmptyParts);
 
     if (paths.empty())//is it possible?
         return;
@@ -610,7 +605,7 @@ void ShareBrowser::changeRoot(dcpp::DirectoryListing::Directory *root){
              << _q(file->mediaInfo.video_info)
              << _q(file->mediaInfo.audio_info)
              << (quint64)file->getHit()
-             << QDateTime::fromTime_t(file->getTS()).toString("yyyy-MM-dd hh:mm");
+             << QDateTime::fromSecsSinceEpoch(file->getTS()).toString("yyyy-MM-dd hh:mm");
 
         child = new FileBrowserItem(data, list_root);
         child->file = file;
@@ -677,7 +672,7 @@ void ShareBrowser::slotLeftPaneSelChanged(const QItemSelection &sel, const QItem
         p.path_tesxt = tree_model->createRemotePath(item);
 
         pathHistory.append(p);
-        pathHistory_iter = pathHistory.end();
+        pathHistory_index = pathHistory.size();
 
         QModelIndexList deselected_idx = des.indexes();
         QFuture<QModelIndex> dsel_filter    = QtConcurrent::filtered(deselected_idx, onlyFirstColumn);
@@ -747,7 +742,7 @@ void ShareBrowser::slotButtonUp(){
             slotRightPaneClicked(index.parent());
 
             pathHistory.append(sparent);
-            pathHistory_iter = pathHistory.end();
+            pathHistory_index = pathHistory.size();
 
             connect(treeView_LPANE->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)),
                     this, SLOT(slotLeftPaneSelChanged(QItemSelection,QItemSelection)));
@@ -756,15 +751,15 @@ void ShareBrowser::slotButtonUp(){
 }
 
 void ShareBrowser::slotButtonBack(){
-    if (pathHistory_iter && !pathHistory.isEmpty()){
+    if (!pathHistory.isEmpty() && pathHistory_index > 0){
 
         disconnect(treeView_LPANE->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)),
                 this, SLOT(slotLeftPaneSelChanged(QItemSelection,QItemSelection)));
 
-        if(pathHistory.end() == pathHistory_iter || pathHistory.begin() != pathHistory_iter)
-            --pathHistory_iter;
+        if (pathHistory_index >= pathHistory.size() || pathHistory_index > 0)
+            --pathHistory_index;
 
-        SelPair sp= *pathHistory_iter;
+        SelPair sp= pathHistory.at(pathHistory_index);
         changeRoot(sp.dir);
         lineEdit_PATH->setText(sp.path_tesxt);
 
@@ -776,17 +771,17 @@ void ShareBrowser::slotButtonBack(){
 }
 
 void ShareBrowser::slotButtonForward(){
-    if (pathHistory_iter && !pathHistory.isEmpty()){
+    if (!pathHistory.isEmpty() && pathHistory_index < pathHistory.size()){
 
         disconnect(treeView_LPANE->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)),
                 this, SLOT(slotLeftPaneSelChanged(QItemSelection,QItemSelection)));
 
-        if (pathHistory.end() == pathHistory_iter)
-            --pathHistory_iter;
-        else if (pathHistory_iter != &pathHistory.last())
-            ++pathHistory_iter;
+        if (pathHistory_index >= pathHistory.size())
+            --pathHistory_index;
+        else if (pathHistory_index < pathHistory.size() - 1)
+            ++pathHistory_index;
 
-        SelPair sp= *pathHistory_iter;
+        SelPair sp= pathHistory.at(pathHistory_index);
         changeRoot(sp.dir);
         lineEdit_PATH->setText(sp.path_tesxt);
 

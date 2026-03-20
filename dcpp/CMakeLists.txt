@@ -1,6 +1,6 @@
 project (dcpp)
 
-cmake_minimum_required (VERSION 3.2.0)
+cmake_minimum_required (VERSION 3.16)
 
 aux_source_directory(${PROJECT_SOURCE_DIR} dcpp_srcs)
 file (GLOB dcpp_hdrs ${PROJECT_SOURCE_DIR}/*.h)

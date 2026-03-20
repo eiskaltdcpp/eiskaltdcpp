@@ -158,7 +158,7 @@ private:
 
     QSortFilterProxyModel *proxy;
 
-    QVector <SelPair>::iterator pathHistory_iter;
+    int pathHistory_index;
     QVector <SelPair> pathHistory;
 
     QString nick;

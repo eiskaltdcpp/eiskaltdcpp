@@ -1,6 +1,6 @@
 project (eiskaltdcpp-qt)
 
-cmake_minimum_required (VERSION 3.2.0)
+cmake_minimum_required (VERSION 3.16)
 
 include_directories(${PROJECT_BINARY_DIR})
 
@@ -16,6 +16,18 @@ elseif (USE_QT5)
     find_package (Qt5LinguistTools       REQUIRED)
     find_package (Qt5Multimedia    5.0.2 REQUIRED)
     find_package (Qt5Concurrent    5.0.2 REQUIRED)
+elseif (USE_QT6)
+    find_package (Qt6 6.2 REQUIRED COMPONENTS
+        Core
+        Gui
+        Widgets
+        Xml
+        Network
+        LinguistTools
+        Multimedia
+        Concurrent
+        Core5Compat
+    )
 endif ()
 
 set (QT_USE_QTNETWORK 1)
@@ -46,6 +58,8 @@ if (DBUS_NOTIFY)
         find_package (Qt4 4.6.0 COMPONENTS QtDBus REQUIRED)
     elseif (USE_QT5)
         find_package (Qt5DBus 5.0.2 REQUIRED)
+    elseif (USE_QT6)
+        find_package (Qt6 6.2 REQUIRED COMPONENTS DBus)
     endif (USE_QT)
     add_definitions (-DDBUS_NOTIFY)
     set (QT_USE_QTDBUS 1)
@@ -53,6 +67,11 @@ if (DBUS_NOTIFY)
 else (DBUS_NOTIFY)
     message (STATUS "Building without Qt DBus support")
 endif (DBUS_NOTIFY)
+
+if (USE_QT6)
+    set (USE_JS OFF)
+    message (STATUS "QtScript is not available in Qt6, disabling USE_JS")
+endif ()
 
 if (USE_JS)
     if (USE_QT)
@@ -72,6 +91,8 @@ if (USE_QT_SQLITE)
         find_package (Qt4 4.6.0 COMPONENTS QtSql REQUIRED)
     elseif (USE_QT5)
         find_package (Qt5Sql 5.0.2 REQUIRED)
+    elseif (USE_QT6)
+        find_package (Qt6 REQUIRED COMPONENTS Sql)
     endif (USE_QT)
     add_definitions (-DUSE_QT_SQLITE)
     set (QT_USE_QTSQL 1)
@@ -167,9 +188,17 @@ elseif (USE_QT5)
     QT5_WRAP_CPP (M_SRCS ${MOC_HDRS} OPTIONS -nn)
     #Create .h files from ui files
     QT5_WRAP_UI (U_SRCS ${UI_FORMS})
+elseif (USE_QT6)
+    #Create moc files
+    QT6_WRAP_CPP (M_SRCS ${MOC_HDRS} OPTIONS -nn)
+    #Create .h files from ui files
+    QT6_WRAP_UI (U_SRCS ${UI_FORMS})
 endif()
 
-if (USE_QT5 AND NOT USE_QT)
+if (USE_QT6)
+    set (QT_LRELEASE_EXECUTABLE Qt6::lrelease)
+    get_target_property(QT_RCC_EXECUTABLE Qt6::rcc IMPORTED_LOCATION)
+elseif (USE_QT5 AND NOT USE_QT)
     set (QT_LRELEASE_EXECUTABLE ${Qt5_LRELEASE_EXECUTABLE})
     get_target_property(QT_RCC_EXECUTABLE Qt5::rcc LOCATION)
 endif()
@@ -181,6 +210,7 @@ foreach (LANGUAGE ${LANGUAGES})
         set (QM ${PROJECT_BINARY_DIR}/translations/${LANGUAGE}.qm)
         list (APPEND TRANSLATIONS ${TS})
         list (APPEND TRANSLATIONS_BINARY ${QM})
+
         add_custom_command (OUTPUT "${QM}"
                             DEPENDS "${TS}"
                             COMMAND ${QT_LRELEASE_EXECUTABLE}
@@ -189,7 +219,11 @@ endforeach ()
 
 if (WIN32 OR APPLE OR INSTALL_QT_TRANSLATIONS OR BUILD_STATIC)
     # Qt translations
-    get_target_property (QtCore_location Qt5::Core LOCATION)
+    if (USE_QT6)
+        get_target_property (QtCore_location Qt6::Core LOCATION)
+    else ()
+        get_target_property (QtCore_location Qt5::Core LOCATION)
+    endif ()
     get_filename_component (QtCore_DIR "${QtCore_location}" PATH)
     if (WIN32)
         set (QT_ROOT_DIR "${QtCore_DIR}/..")
@@ -198,7 +232,11 @@ if (WIN32 OR APPLE OR INSTALL_QT_TRANSLATIONS OR BUILD_STATIC)
     elseif (BUILD_STATIC)
         set (QT_ROOT_DIR "${QtCore_DIR}/..")
     elseif (INSTALL_QT_TRANSLATIONS AND NOT BUILD_STATIC)
-        set (QT_ROOT_DIR "/usr/share/qt5")
+        if (USE_QT6)
+            set (QT_ROOT_DIR "/usr/share/qt6")
+        else ()
+            set (QT_ROOT_DIR "/usr/share/qt5")
+        endif ()
     endif ()
     set (QT_TRANSLATIONS_DIR "${QT_ROOT_DIR}/translations/")
     file (GLOB QT_TRANSLATIONS "${QT_TRANSLATIONS_DIR}/qt_*.qm")
@@ -440,6 +478,21 @@ add_executable (${PROJECT_NAME} MACOSX_BUNDLE WIN32 src/main.cpp
                 ${TRANSLATIONS}
                 ${WIN_RESOURCES}
                 translations)
+
+if (USE_QT6)
+    target_link_libraries(${PROJECT_NAME}
+            Qt6::Core
+            Qt6::Core5Compat
+            Qt6::Concurrent
+            Qt6::DBus
+            Qt6::Gui
+            Qt6::Multimedia
+            Qt6::Network
+            Qt6::Sql
+            Qt6::Widgets
+            Qt6::Xml
+    )
+endif()
 
 add_definitions (-DCLIENT_DATA_DIR="${CLIENT_DATA_DIR}")
 add_definitions (-DCLIENT_SOUNDS_DIR="${CLIENT_SOUNDS_DEST}")

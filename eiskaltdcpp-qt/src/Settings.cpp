@@ -92,7 +92,7 @@ void Settings::init(){
     SettingsShortcuts *sshs = new SettingsShortcuts(this);
     connect(this, SIGNAL(timeToDie()), sshs, SLOT(ok()));
     widgets.insert(item, (int)Page::Shortcuts);
-    
+
     item = new QListWidgetItem(WU->getPixmap(WulforUtil::eiEDIT), tr("History"), listWidget);
     SettingsHistory *shist = new SettingsHistory(this);
     connect(this, SIGNAL(timeToDie()), shist, SLOT(ok()));
@@ -174,11 +174,11 @@ QWidget *Settings::prepareWidget(QWidget *w)
         scrollArea->setWidget(w);
         scrollArea->setWidgetResizable(true);
         scrollArea->setFrameShape(QFrame::NoFrame);
-        w->layout()->setMargin(0);
+        w->layout()->setContentsMargins(0, 0, 0, 0);
         return scrollArea;
     }
 
-    w->layout()->setMargin(0);
+    w->layout()->setContentsMargins(0, 0, 0, 0);
     return w;
 }
 

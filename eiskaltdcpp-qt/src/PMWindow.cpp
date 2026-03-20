@@ -84,7 +84,7 @@ PMWindow::PMWindow(const QString &cid_, const QString &hubUrl_):
     textEdit_CHAT->viewport()->setMouseTracking(true);
     textEdit_CHAT->document()->setMaximumBlockCount(WIGET(WI_CHAT_MAXPARAGRAPHS));
     textEdit_CHAT->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    textEdit_CHAT->setTabStopWidth(40);
+    textEdit_CHAT->setTabStopDistance(40);
 
     frame_2->setVisible(false);
 
@@ -134,7 +134,7 @@ PMWindow::PMWindow(const QString &cid_, const QString &hubUrl_):
 
     out_messages_index = 0;
     out_messages_unsent = false;
-    
+
     setState(state() & ~ArenaWidget::RaiseOnStart);// Do not allow PMWindow to be automatically showed by default
 }
 
@@ -704,7 +704,7 @@ void PMWindow::slotFindTextEdited(const QString & text){
     QTextCursor c = textEdit_CHAT->textCursor();
 
     c.movePosition(QTextCursor::StartOfLine,QTextCursor::MoveAnchor,1);
-    c = textEdit_CHAT->document()->find(lineEdit_FIND->text(), c, nullptr);
+    c = textEdit_CHAT->document()->find(lineEdit_FIND->text(), c, {});
     if (!c.isNull()) {
         textEdit_CHAT->setExtraSelections(QList<QTextEdit::ExtraSelection>());
         textEdit_CHAT->setTextCursor(c);
@@ -730,13 +730,13 @@ void PMWindow::slotFindAll(){
 
         selection.format.setBackground(color);
 
-        QTextCursor c = textEdit_CHAT->document()->find(lineEdit_FIND->text(), 0, nullptr);
+        QTextCursor c = textEdit_CHAT->document()->find(lineEdit_FIND->text(), 0, {});
 
         while (!c.isNull()){
             selection.cursor = c;
             extraSelections.append(selection);
 
-            c = textEdit_CHAT->document()->find(lineEdit_FIND->text(), c, nullptr);
+            c = textEdit_CHAT->document()->find(lineEdit_FIND->text(), c, {});
         }
     }
 

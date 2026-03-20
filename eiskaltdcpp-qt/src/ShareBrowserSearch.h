@@ -10,7 +10,7 @@
 #pragma once
 
 #include <QDialog>
-#include <QRegExp>
+#include <QRegularExpression>
 #include <QHash>
 #include <QList>
 
@@ -45,7 +45,7 @@ private:
     void findMatches(FileBrowserItem *);
 
     FileBrowserItem *searchRoot;
-    QRegExp regexp;
+    QRegularExpression regexp;
     QList<QTreeWidgetItem*> items;
     QHash<QTreeWidgetItem*,FileBrowserItem*> hash;
     FileBrowserModel *model;

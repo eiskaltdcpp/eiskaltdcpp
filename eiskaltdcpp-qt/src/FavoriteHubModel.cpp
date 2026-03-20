@@ -76,7 +76,7 @@ QVariant FavoriteHubModel::data(const QModelIndex &index, int role) const
 Qt::ItemFlags FavoriteHubModel::flags(const QModelIndex &index) const
 {
     if (!index.isValid())
-        return nullptr;
+        return {};
 
     Qt::ItemFlags flags = Qt::ItemIsEnabled | Qt::ItemIsSelectable | Qt::ItemIsEditable;
 

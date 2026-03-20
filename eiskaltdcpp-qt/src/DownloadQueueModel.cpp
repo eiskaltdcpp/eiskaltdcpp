@@ -175,7 +175,7 @@ QVariant DownloadQueueModel::data(const QModelIndex &index, int role) const
 
             break;
         }
-        case Qt::BackgroundColorRole:
+        case Qt::BackgroundRole:
             break;
         case Qt::ToolTipRole:
         {
@@ -558,7 +558,7 @@ DownloadQueueItem *DownloadQueueModel::createPath(const QString & path){
     QString _path = path;
     _path.replace("\\", "/");
 
-    QStringList list = _path.split("/", QString::SkipEmptyParts);
+    QStringList list = _path.split("/", Qt::SkipEmptyParts);
 
     DownloadQueueItem *root = d->rootItem;
 

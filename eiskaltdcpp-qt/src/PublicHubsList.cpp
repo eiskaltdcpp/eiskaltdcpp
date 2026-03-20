@@ -24,7 +24,7 @@ PublicHubsList::PublicHubsList(QWidget *parent): QDialog(parent)
     setupUi(this);
 
     listWidget->addItems(_q(SettingsManager::getInstance()->get(SettingsManager::HUBLIST_SERVERS))
-                         .split(";", QString::SkipEmptyParts));
+                         .split(";", Qt::SkipEmptyParts));
 
     connect(pushButton_DOWN, SIGNAL(clicked()), this, SLOT(slotDown()));
     connect(pushButton_UP,   SIGNAL(clicked()), this, SLOT(slotUp()));

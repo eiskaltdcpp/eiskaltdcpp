@@ -143,7 +143,7 @@ QVariant FileBrowserModel::data(const QModelIndex &index, int role) const
 
             break;
         }
-        case Qt::BackgroundColorRole:
+        case Qt::BackgroundRole:
         {
             if (item->isDuplicate){
                 QPalette pal = qApp->palette();
@@ -175,16 +175,16 @@ QVariant FileBrowserModel::data(const QModelIndex &index, int role) const
 
                 return tr("File marked as a duplicate of another file: %1").arg(path+_q(file->getName()));
             }
-            
+
             QString tooltip = "";
-            
+
             if (item->dir){
                 tooltip = item->data(COLUMN_FILEBROWSER_NAME).toString();
             }
-            
+
             if (item->file){
                 DirectoryListing::File *f = item->file;
-                
+
                 if (!f->mediaInfo.video_info.empty() || !f->mediaInfo.audio_info.empty()){
                     MediaInfo &mi = f->mediaInfo;
 
@@ -213,7 +213,7 @@ QVariant FileBrowserModel::data(const QModelIndex &index, int role) const
 
             if (!tooltip.isEmpty())
                 return tooltip;
-            
+
             break;
         }
         case Qt::FontRole:
@@ -239,28 +239,28 @@ namespace {
 template <Qt::SortOrder order>
 struct Compare {
     typedef bool (*AttrComp)(const FileBrowserItem * l, const FileBrowserItem * r);
-    
+
     void static sort(unsigned  column, QList<FileBrowserItem*>& items) {
         if (column > NUM_OF_COLUMNS-1)
             return;
-        
+
         std::stable_sort(items.begin(), items.end(), attrs[column] );
     }
 
     void static insertSorted(unsigned column, QList<FileBrowserItem*>& items, FileBrowserItem* item) {
         if (column > NUM_OF_COLUMNS-1)
             return;
-        
-        auto it = std::lower_bound(items.begin(), 
-                                                           items.end(), 
-                                                           item, 
+
+        auto it = std::lower_bound(items.begin(),
+                                                           items.end(),
+                                                           item,
                                                            attrs[column]
                                                           );
         items.insert(it, item);
     }
 
     private:
-        
+
         template <int i>
         bool static AttrCmp(const FileBrowserItem * l, const FileBrowserItem * r) {
             if ((l->dir && !r->dir) || (!l->dir && r->dir)){
@@ -277,7 +277,7 @@ struct Compare {
        }
         template <typename T>
         bool static Cmp(const T& l, const T& r);
-        
+
         static AttrComp attrs[NUM_OF_COLUMNS];
 };
 
@@ -511,7 +511,7 @@ FileBrowserItem *FileBrowserModel::createRootForPath(const QString &path, FileBr
     QString _path = path;
     _path.replace("\\", "/");
 
-    QStringList list = _path.split("/", QString::SkipEmptyParts);
+    QStringList list = _path.split("/", Qt::SkipEmptyParts);
     FileBrowserItem *root = pathRoot?pathRoot:rootItem;
 
     if (list.empty() || !root)

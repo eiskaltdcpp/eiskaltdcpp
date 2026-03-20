@@ -36,7 +36,7 @@ bool ToolBar::eventFilter(QObject *obj, QEvent *e){
     if (e->type() == QEvent::MouseButtonRelease){
         QMouseEvent *m_e = reinterpret_cast<QMouseEvent*>(e);
 
-        if (reinterpret_cast<QTabBar*>(obj) == tabbar && m_e->button() == Qt::MidButton){
+        if (reinterpret_cast<QTabBar*>(obj) == tabbar && m_e->button() == Qt::MiddleButton){
             QPoint p = tabbar->mapFromGlobal(QCursor::pos());
             int index = tabbar->tabAt(p);
 
@@ -115,13 +115,13 @@ void ToolBar::initTabs(){
     connect(tabbar, SIGNAL(tabMoved(int,int)), this, SLOT(slotTabMoved(int,int)));
     connect(tabbar, SIGNAL(tabCloseRequested(int)), this, SLOT(slotClose(int)));
     connect(tabbar, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotContextMenu(QPoint)));
-    
+
     connect(ArenaWidgetManager::getInstance(), SIGNAL(added(ArenaWidget*)),     this, SLOT(insertWidget(ArenaWidget*)));
     connect(ArenaWidgetManager::getInstance(), SIGNAL(removed(ArenaWidget*)),   this, SLOT(removeWidget(ArenaWidget*)));
     connect(ArenaWidgetManager::getInstance(), SIGNAL(activated(ArenaWidget*)), this, SLOT(mapped(ArenaWidget*)));
     connect(ArenaWidgetManager::getInstance(), SIGNAL(updated(ArenaWidget*)),   this, SLOT(updated(ArenaWidget*)));
     connect(ArenaWidgetManager::getInstance(), SIGNAL(toggled(ArenaWidget*)),   this, SLOT(toggled(ArenaWidget*)));
-       
+
     connect(GlobalTimer::getInstance(), SIGNAL(second()), this, SLOT(redraw()));
 
     addWidget(tabbar);
@@ -171,7 +171,7 @@ void ToolBar::removeWidget(ArenaWidget *awgt){
 void ToolBar::updated ( ArenaWidget *awgt ) {
     if (!awgt)
         return;
-    
+
     if ( awgt->state() & ArenaWidget::Hidden ) {
         removeWidget ( awgt );
     } else if ( !map.contains(awgt)) {
@@ -194,10 +194,10 @@ void ToolBar::slotIndexChanged(int index){
 void ToolBar::toggled ( ArenaWidget *awgt) {
     if (!awgt)
         return;
-        
+
     if (!(awgt->state() & ArenaWidget::Singleton))
         return;
-    
+
     if (awgt->state() & ArenaWidget::Hidden)
         ArenaWidgetManager::getInstance()->activate(awgt);
     else

@@ -55,7 +55,7 @@ Q_SIGNALS:
 private Q_SLOTS:
     void addOutput(const QString&, const QString&);
     void maxLinesChanged(int);
-    void slotFindForward() { findText(nullptr); }
+    void slotFindForward() { findText({}); }
     void slotFindBackward(){ findText(QTextDocument::FindBackward); }
     void slotFindTextEdited(const QString &text);
     void slotFindAll();
