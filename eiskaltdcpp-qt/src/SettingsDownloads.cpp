@@ -6,13 +6,19 @@
 *   (at your option) any later version.                                   *
 *                                                                         *
 ***************************************************************************/
+/*
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
+ */
 
 #include "SettingsDownloads.h"
+#include "QtContextAware.h"
+#include "QtContext.h"
 #include "WulforUtil.h"
 #include "PublicHubsList.h"
 
 #include "dcpp/stdinc.h"
 #include "dcpp/SettingsManager.h"
+#include "dcpp/DCPlusPlus.h"
 
 #include <QFileDialog>
 #include <QInputDialog>
@@ -48,7 +54,7 @@ SettingsDownloads::~SettingsDownloads(){
 }
 
 void SettingsDownloads::ok(){
-    SettingsManager *SM = SettingsManager::getInstance();
+    SettingsManager *SM = qtCtx()->dcCtx().getSettingsManager();
 
     QString dl_dir = lineEdit_DLDIR->text(), udl_dir = lineEdit_UNF_DL_DIR->text();
 
@@ -91,31 +97,31 @@ void SettingsDownloads::ok(){
 
 void SettingsDownloads::init(){
     {//Downloads
-        lineEdit_DLDIR->setText(_q(SETTING(DOWNLOAD_DIRECTORY)));
-        lineEdit_UNF_DL_DIR->setText(_q(SETTING(TEMP_DOWNLOAD_DIRECTORY)));
-        lineEdit_PROXY->setText(_q(SETTING(HTTP_PROXY)));
+        lineEdit_DLDIR->setText(_q(qtCtx()->dcCtx().getSettingsManager()->get(SettingsManager::DOWNLOAD_DIRECTORY, true)));
+        lineEdit_UNF_DL_DIR->setText(_q(qtCtx()->dcCtx().getSettingsManager()->get(SettingsManager::TEMP_DOWNLOAD_DIRECTORY, true)));
+        lineEdit_PROXY->setText(_q(qtCtx()->dcCtx().getSettingsManager()->get(SettingsManager::HTTP_PROXY, true)));
 
-        checkBox_NO_USE_TEMP_DIR->setChecked(!SETTING(NO_USE_TEMP_DIR));
-        spinBox_AUTO_SEARCH_TIME->setValue(SETTING(AUTO_SEARCH_TIME));
-        spinBox_SEGMENT_SIZE->setValue(SETTING(SEGMENT_SIZE));
-        spinBox_MAXDL->setValue(SETTING(DOWNLOAD_SLOTS));
-        spinBox_NONEWDL->setValue(SETTING(MAX_DOWNLOAD_SPEED));
+        checkBox_NO_USE_TEMP_DIR->setChecked(!qtCtx()->dcCtx().getSettingsManager()->get(SettingsManager::NO_USE_TEMP_DIR, true));
+        spinBox_AUTO_SEARCH_TIME->setValue(qtCtx()->dcCtx().getSettingsManager()->get(SettingsManager::AUTO_SEARCH_TIME, true));
+        spinBox_SEGMENT_SIZE->setValue(qtCtx()->dcCtx().getSettingsManager()->get(SettingsManager::SEGMENT_SIZE, true));
+        spinBox_MAXDL->setValue(qtCtx()->dcCtx().getSettingsManager()->get(SettingsManager::DOWNLOAD_SLOTS, true));
+        spinBox_NONEWDL->setValue(qtCtx()->dcCtx().getSettingsManager()->get(SettingsManager::MAX_DOWNLOAD_SPEED, true));
 
-        toolButton_BROWSE->setIcon(WICON(WulforUtil::eiFOLDER_BLUE));
-        toolButton_BROWSE1->setIcon(WICON(WulforUtil::eiFOLDER_BLUE));
+        toolButton_BROWSE->setIcon(qtCtx()->wulforUtil()->getPixmap(WulforUtil::eiFOLDER_BLUE));
+        toolButton_BROWSE1->setIcon(qtCtx()->wulforUtil()->getPixmap(WulforUtil::eiFOLDER_BLUE));
 
-        connect(toolButton_BROWSE, SIGNAL(clicked()), SLOT(slotBrowse()));
-        connect(toolButton_BROWSE1, SIGNAL(clicked()), SLOT(slotBrowse()));
-        connect(pushButton_CFGLISTS, SIGNAL(clicked()), SLOT(slotCfgPublic()));
+        connect(toolButton_BROWSE, &QToolButton::clicked, this, &SettingsDownloads::slotBrowse);
+        connect(toolButton_BROWSE1, &QToolButton::clicked, this, &SettingsDownloads::slotBrowse);
+        connect(pushButton_CFGLISTS, &QPushButton::clicked, this, &SettingsDownloads::slotCfgPublic);
     }
     {//Download to
         QString aliases, paths;
 
-        aliases = QByteArray::fromBase64(WSGET(WS_DOWNLOADTO_ALIASES).toUtf8());
-        paths   = QByteArray::fromBase64(WSGET(WS_DOWNLOADTO_PATHS).toUtf8());
+        aliases = QByteArray::fromBase64(qtCtx()->settings()->getStr(WS_DOWNLOADTO_ALIASES).toUtf8());
+        paths   = QByteArray::fromBase64(qtCtx()->settings()->getStr(WS_DOWNLOADTO_PATHS).toUtf8());
 
-        QStringList a = aliases.split("\n", QString::SkipEmptyParts);
-        QStringList p = paths.split("\n", QString::SkipEmptyParts);
+        QStringList a = aliases.split("\n", Qt::SkipEmptyParts);
+        QStringList p = paths.split("\n", Qt::SkipEmptyParts);
 
         if (a.size() == p.size() && !a.isEmpty()){
             for (int i = 0; i < a.size(); i++){
@@ -127,30 +133,30 @@ void SettingsDownloads::init(){
         }
 
         treeWidget->setContextMenuPolicy(Qt::CustomContextMenu);
-        connect(treeWidget, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotDownloadTo()));
+        connect(treeWidget, &QWidget::customContextMenuRequested, this, &SettingsDownloads::slotDownloadTo);
     }
     {//Queue
         //Auto-priority
-        spinBox_HTPMAX->setValue(SETTING(PRIO_HIGHEST_SIZE));
-        spinBox_HPMAX->setValue(SETTING(PRIO_HIGH_SIZE));
-        spinBox_NPMAX->setValue(SETTING(PRIO_NORMAL_SIZE));
-        spinBox_LPMAX->setValue(SETTING(PRIO_LOW_SIZE));
+        spinBox_HTPMAX->setValue(qtCtx()->dcCtx().getSettingsManager()->get(SettingsManager::PRIO_HIGHEST_SIZE, true));
+        spinBox_HPMAX->setValue(qtCtx()->dcCtx().getSettingsManager()->get(SettingsManager::PRIO_HIGH_SIZE, true));
+        spinBox_NPMAX->setValue(qtCtx()->dcCtx().getSettingsManager()->get(SettingsManager::PRIO_NORMAL_SIZE, true));
+        spinBox_LPMAX->setValue(qtCtx()->dcCtx().getSettingsManager()->get(SettingsManager::PRIO_LOW_SIZE, true));
 
         //Auto-drop
-        spinBox_DROPSB->setValue(SETTING(AUTODROP_SPEED));
-        spinBox_MINELAPSED->setValue(SETTING(AUTODROP_ELAPSED));
-        spinBox_MINSRCONLINE->setValue(SETTING(AUTODROP_MINSOURCES));
-        spinBox_CHECKEVERY->setValue(SETTING(AUTODROP_INTERVAL));
-        spinBox_MAXINACT->setValue(SETTING(AUTODROP_INACTIVITY));
-        spinBox_MINFSZ->setValue(SETTING(AUTODROP_FILESIZE));
+        spinBox_DROPSB->setValue(qtCtx()->dcCtx().getSettingsManager()->get(SettingsManager::AUTODROP_SPEED, true));
+        spinBox_MINELAPSED->setValue(qtCtx()->dcCtx().getSettingsManager()->get(SettingsManager::AUTODROP_ELAPSED, true));
+        spinBox_MINSRCONLINE->setValue(qtCtx()->dcCtx().getSettingsManager()->get(SettingsManager::AUTODROP_MINSOURCES, true));
+        spinBox_CHECKEVERY->setValue(qtCtx()->dcCtx().getSettingsManager()->get(SettingsManager::AUTODROP_INTERVAL, true));
+        spinBox_MAXINACT->setValue(qtCtx()->dcCtx().getSettingsManager()->get(SettingsManager::AUTODROP_INACTIVITY, true));
+        spinBox_MINFSZ->setValue(qtCtx()->dcCtx().getSettingsManager()->get(SettingsManager::AUTODROP_FILESIZE, true));
 
         for (auto it = other_settings.constBegin(); it != other_settings.constEnd(); ++it) {
-            listWidget->item(it.value())->setCheckState(((bool)SettingsManager::getInstance()->get(it.key()))? Qt::Checked : Qt::Unchecked);
+            listWidget->item(it.value())->setCheckState(((bool)qtCtx()->dcCtx().getSettingsManager()->get(it.key()))? Qt::Checked : Qt::Unchecked);
         }
     }
     {
-        checkBox_ALLOW_SIM_UPLOADS->setCheckState(SETTING(ALLOW_SIM_UPLOADS)? Qt::Checked : Qt::Unchecked);
-        checkBox_ALLOW_UPLOAD_MULTI_HUB->setCheckState(SETTING(ALLOW_UPLOAD_MULTI_HUB)? Qt::Checked : Qt::Unchecked);
+        checkBox_ALLOW_SIM_UPLOADS->setCheckState(qtCtx()->dcCtx().getSettingsManager()->get(SettingsManager::ALLOW_SIM_UPLOADS, true)? Qt::Checked : Qt::Unchecked);
+        checkBox_ALLOW_UPLOAD_MULTI_HUB->setCheckState(qtCtx()->dcCtx().getSettingsManager()->get(SettingsManager::ALLOW_UPLOAD_MULTI_HUB, true)? Qt::Checked : Qt::Unchecked);
     }
 }
 
@@ -173,12 +179,12 @@ void SettingsDownloads::slotDownloadTo(){
 
     QMenu *m = new QMenu(this);
     QAction *new_alias = new QAction(tr("New"), m);
-    new_alias->setIcon(WICON(WulforUtil::eiEDITADD));
+    new_alias->setIcon(qtCtx()->wulforUtil()->getPixmap(WulforUtil::eiEDITADD));
 
     m->addAction(new_alias);
 
     if (!selected.isEmpty())
-        m->addAction(WICON(WulforUtil::eiEDITDELETE), tr("Delete"));
+        m->addAction(qtCtx()->wulforUtil()->getPixmap(WulforUtil::eiEDITDELETE), tr("Delete"));
 
     QAction *ret = m->exec(QCursor::pos());
 
@@ -199,14 +205,14 @@ void SettingsDownloads::slotDownloadTo(){
 
         QString aliases, paths;
 
-        aliases = QByteArray::fromBase64(WSGET(WS_DOWNLOADTO_ALIASES).toUtf8());
-        paths   = QByteArray::fromBase64(WSGET(WS_DOWNLOADTO_PATHS).toUtf8());
+        aliases = QByteArray::fromBase64(qtCtx()->settings()->getStr(WS_DOWNLOADTO_ALIASES).toUtf8());
+        paths   = QByteArray::fromBase64(qtCtx()->settings()->getStr(WS_DOWNLOADTO_PATHS).toUtf8());
 
         aliases += alias + "\n";
         paths   += dir + "\n";
 
-        WSSET(WS_DOWNLOADTO_ALIASES, aliases.toUtf8().toBase64());
-        WSSET(WS_DOWNLOADTO_PATHS, paths.toUtf8().toBase64());
+        qtCtx()->settings()->setStr(WS_DOWNLOADTO_ALIASES, aliases.toUtf8().toBase64());
+        qtCtx()->settings()->setStr(WS_DOWNLOADTO_PATHS, paths.toUtf8().toBase64());
 
         QTreeWidgetItem *item = new QTreeWidgetItem(treeWidget);
 
@@ -215,8 +221,8 @@ void SettingsDownloads::slotDownloadTo(){
     }
     else if (ret){
         QString aliases, paths;
-        aliases = QByteArray::fromBase64(WSGET(WS_DOWNLOADTO_ALIASES).toUtf8());
-        paths   = QByteArray::fromBase64(WSGET(WS_DOWNLOADTO_PATHS).toUtf8());
+        aliases = QByteArray::fromBase64(qtCtx()->settings()->getStr(WS_DOWNLOADTO_ALIASES).toUtf8());
+        paths   = QByteArray::fromBase64(qtCtx()->settings()->getStr(WS_DOWNLOADTO_PATHS).toUtf8());
 
         for (const auto &i : selected){
             QString alias = i->text(1);
@@ -228,8 +234,8 @@ void SettingsDownloads::slotDownloadTo(){
             delete i;
         }
 
-        WSSET(WS_DOWNLOADTO_ALIASES, aliases.toUtf8().toBase64());
-        WSSET(WS_DOWNLOADTO_PATHS, paths.toUtf8().toBase64());
+        qtCtx()->settings()->setStr(WS_DOWNLOADTO_ALIASES, aliases.toUtf8().toBase64());
+        qtCtx()->settings()->setStr(WS_DOWNLOADTO_PATHS, paths.toUtf8().toBase64());
     }
 }
 

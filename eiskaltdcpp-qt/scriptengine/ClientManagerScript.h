@@ -14,18 +14,19 @@
 
 #include "dcpp/stdinc.h"
 #include "dcpp/DCPlusPlus.h"
-#include "dcpp/Singleton.h"
 #include "dcpp/ClientManager.h"
 #include "dcpp/Client.h"
 #include "dcpp/ClientManagerListener.h"
 
+#include "QtContextAware.h"
+
 class ClientManagerScript :
         public QObject,
-        public dcpp::Singleton<ClientManagerScript>,
-        public dcpp::ClientManagerListener
+        public dcpp::ClientManagerListener,
+        public QtContextAware
 {
 Q_OBJECT
-friend class dcpp::Singleton<ClientManagerScript>;
+friend class QtContext;
 
 public Q_SLOTS:
     quint64 getUserCount() const;
@@ -54,11 +55,13 @@ protected:
     virtual void on(ClientUpdated, dcpp::Client*) throw();
     virtual void on(ClientDisconnected, dcpp::Client*) throw();
 
-private:
-    ClientManagerScript(QObject *parent = nullptr);
-    ClientManagerScript(const ClientManagerScript&);
+public:
+    ClientManagerScript(dcpp::DCContext& ctx, QObject *parent = nullptr);
     ~ClientManagerScript();
-    ClientManagerScript &operator=(const ClientManagerScript&);
+
+private:
+    ClientManagerScript(const ClientManagerScript&) = delete;
+    ClientManagerScript& operator=(const ClientManagerScript&) = delete;
 
     dcpp::ClientManager *CM;
 };

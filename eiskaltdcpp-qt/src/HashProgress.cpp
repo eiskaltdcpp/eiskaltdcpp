@@ -6,8 +6,12 @@
 *   (at your option) any later version.                                   *
 *                                                                         *
 ***************************************************************************/
+/*
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
+ */
 
 #include "HashProgress.h"
+#include "QtContext.h"
 #include "WulforUtil.h"
 
 #include <QDir>
@@ -16,17 +20,21 @@
 #include "dcpp/HashManager.h"
 #include "dcpp/ShareManager.h"
 #include "dcpp/TimerManager.h"
+#include "dcpp/DCPlusPlus.h"
 
 using namespace dcpp;
 
 unsigned HashProgress::getHashStatus() {
-    ShareManager *SM = ShareManager::getInstance();
-    HashManager  *HM = HashManager::getInstance();
+    auto& ctx = qtCtx()->dcCtx();
+    if (!ctx.isRunning()) return IDLE;
+    ShareManager *SM = ctx.getShareManager();
+    HashManager  *HM = ctx.getHashManager();
+    if (!SM || !HM) return IDLE;
     if( SM->isRefreshing() )
         return LISTUPDATE;
 
     if( HM->isHashingPaused() ) {
-        return (Util::getUpTime() < SETTING(HASHING_START_DELAY)) ? DELAYED : PAUSED;
+        return (Util::getUpTime() < qtCtx()->dcCtx().getSettingsManager()->get(SettingsManager::HASHING_START_DELAY, true)) ? DELAYED : PAUSED;
     }
 
     string path;
@@ -59,14 +67,14 @@ HashProgress::HashProgress(QWidget *parent):
     progress->setFormat(QString());
 #endif
 
-    HashManager::getInstance()->setPriority(Thread::NORMAL);
+    qtCtx()->dcCtx().getHashManager()->setPriority(Thread::NORMAL);
 
     timer = new QTimer();
     timer->setInterval(250);
 
-    connect(timer, SIGNAL(timeout()), this, SLOT(timerTick()));
-    connect(pushButton_START, SIGNAL(clicked()), this, SLOT(slotStart()));
-    connect(checkBox, SIGNAL(toggled(bool)), this, SLOT(slotAutoClose(bool)));
+    connect(timer, &QTimer::timeout, this, &HashProgress::timerTick);
+    connect(pushButton_START, &QPushButton::clicked, this, &HashProgress::slotStart);
+    connect(checkBox, &QCheckBox::toggled, this, &HashProgress::slotAutoClose);
 
     timer->start();
 }
@@ -78,11 +86,13 @@ void HashProgress::resetProgress() {
 }
 
 HashProgress::~HashProgress(){
-    timer->stop();//really need?
+    timer->stop();
 
     delete timer;
 
-    HashManager::getInstance()->setPriority(Thread::LOW);
+    auto& ctx = qtCtx()->dcCtx();
+    if (ctx.isRunning() && ctx.getHashManager())
+        ctx.getHashManager()->setPriority(Thread::LOW);
 }
 
 float HashProgress::getProgress() {
@@ -90,6 +100,12 @@ float HashProgress::getProgress() {
 }
 
 void HashProgress::timerTick(){
+    auto& ctx = qtCtx()->dcCtx();
+    if (!ctx.isRunning()) return;
+    auto* HM = ctx.getHashManager();
+    auto* SM = ctx.getShareManager();
+    if (!HM || !SM) return;
+
     string path;
     uint64_t bytes = 0;
     size_t files = 0;
@@ -97,8 +113,8 @@ void HashProgress::timerTick(){
 
     stateButton();
 
-    HashManager::getInstance()->getStats(path, bytes, files);
-    if(ShareManager::getInstance()->isRefreshing()) {
+    HM->getStats(path, bytes, files);
+    if(SM->isRefreshing()) {
         file->setText(tr("Refreshing file list"));
         return;
     }
@@ -115,11 +131,11 @@ void HashProgress::timerTick(){
     if(autoClose && !files) {
         accept();
 
-        return;;
+        return;
     }
 
     const double diff = tick - startTime;
-    const bool paused = HashManager::getInstance()->isHashingPaused();
+    const bool paused = HM->isHashingPaused();
 
     QString eta;
 
@@ -148,7 +164,7 @@ void HashProgress::timerTick(){
         status->setText(tr("%1 files/h, %2 files left").arg(filestat).arg((uint32_t)files));
         speed->setText(tr("%1/s, %2 left, %3 shared").arg(WulforUtil::formatBytes((int64_t)speedStat))
                                                      .arg(WulforUtil::formatBytes(bytes))
-                                                     .arg(WulforUtil::formatBytes(ShareManager::getInstance()->getShareSize())));
+                                                     .arg(WulforUtil::formatBytes(SM->getShareSize())));
 
         if(/*filestat == 0 ||*/ speedStat == 0) {
             eta = tr("-:--:--");
@@ -156,7 +172,7 @@ void HashProgress::timerTick(){
         else {
             double ss = bytes / speedStat;
 
-            eta = _q(Text::toT(Util::formatSeconds((int64_t)(ss))));
+            eta = _q(Util::formatSeconds((int64_t)(ss)));
         }
 
 #if defined(USE_PROGRESS_BARS)
@@ -177,14 +193,14 @@ void HashProgress::timerTick(){
 
         file->setToolTip(fname);
 
-        if (metrics.width(fname) > file->width()*3/4){
-            QStringList parts = fname.split(QDir::separator(), QString::SkipEmptyParts);
+        if (metrics.horizontalAdvance(fname) > file->width()*3/4){
+            QStringList parts = fname.split(QDir::separator(), Qt::SkipEmptyParts);
 
             if (parts.size() > 1){
                 QString out = "";
 
                 for (int i = (parts.size()-1); i >= 0; i--){
-                    if (metrics.width(out+parts.at(i)+QDir::separator()) < file->width()*3/4){
+                    if (metrics.horizontalAdvance(out+parts.at(i)+QDir::separator()) < file->width()*3/4){
                         out = parts.at(i) + (out.isEmpty()? out : (QDir::separator() + out));
                     }
                     else{
@@ -206,8 +222,11 @@ void HashProgress::timerTick(){
 }
 
 void HashProgress::slotStart(){
-    ShareManager *SM = ShareManager::getInstance();
-    HashManager  *HM = HashManager::getInstance();
+    auto& ctx = qtCtx()->dcCtx();
+    if (!ctx.isRunning()) return;
+    ShareManager *SM = ctx.getShareManager();
+    HashManager  *HM = ctx.getHashManager();
+    if (!SM || !HM) return;
     switch( getHashStatus() ) {
     case IDLE:
             SM->setDirty();

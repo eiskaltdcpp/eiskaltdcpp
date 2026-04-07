@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2001-2019 Jacek Sieka, arnetheduck on gmail point com
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,22 +18,20 @@
 
 #pragma once
 
-#include "Singleton.h"
+#include "DCContext.h"
 
 namespace dcpp {
 
-class ResourceManager : public Singleton<ResourceManager> {
+class ResourceManager : public ContextAware {
 public:
 
     bool isRTL() { return rtl; }
 
-private:
-    friend class Singleton<ResourceManager>;
-
-    ResourceManager() : rtl(false) {
-    }
-
+public:
+    explicit ResourceManager(DCContext& ctx) : ContextAware(ctx), rtl(false) { }
     virtual ~ResourceManager() { }
+
+private:
 
     bool rtl;
 };

@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2001-2012 Jacek Sieka, arnetheduck on gmail point com
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -19,7 +20,7 @@
 
 #include "CriticalSection.h"
 #include "SettingsManager.h"
-#include "Singleton.h"
+#include "DCContext.h"
 #include "Speaker.h"
 #include "Util.h"
 
@@ -39,11 +40,11 @@ public:
     typedef X<0> Message;
     typedef X<1> Finished;
 
-    virtual void on(Message, const string&) noexcept { }
-    virtual void on(Finished) noexcept { }
+    virtual void on(Message, const string&) { }
+    virtual void on(Finished) { }
 };
 
-class ConnectivityManager : public Singleton<ConnectivityManager>, public Speaker<ConnectivityManagerListener>
+class ConnectivityManager : public Speaker<ConnectivityManagerListener>, public ContextAware
 {
 public:
     void detectConnection();
@@ -51,12 +52,12 @@ public:
     bool isRunning() const { return running; }
     void updateLast();
 
-private:
-    friend class Singleton<ConnectivityManager>;
-    friend class MappingManager;
-
-    ConnectivityManager();
+public:
+    explicit ConnectivityManager(DCContext& ctx);
     virtual ~ConnectivityManager() { }
+
+private:
+    friend class MappingManager;
 
     void mappingFinished(bool success);
     void log(const string& msg);

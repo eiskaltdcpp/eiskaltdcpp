@@ -53,7 +53,7 @@ bool SFVReader::tryFile(const string& sfvFile, const string& fileName) {
     return false;
 }
 
-void SFVReader::load(const string& fileName) noexcept {
+void SFVReader::load(const string& fileName) {
     string path = Util::getFilePath(fileName);
     string fname = Util::getFileName(fileName);
     StringList files = File::findFiles(path, "*.sfv");

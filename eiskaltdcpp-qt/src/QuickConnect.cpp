@@ -6,8 +6,14 @@
 *   (at your option) any later version.                                   *
 *                                                                         *
 ***************************************************************************/
+/*
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
+ */
 
 #include <QList>
+#include "dcpp/DCPlusPlus.h"
+#include "QtContextAware.h"
+#include "QtContext.h"
 
 #include "QuickConnect.h"
 #include "HubFrame.h"
@@ -17,10 +23,10 @@
 QuickConnect::QuickConnect(QWidget *parent) : QDialog(parent) {
     setupUi(this);
 
-    comboBox_HUB->addItems(WulforSettings::getInstance()->getStr(WS_QCONNECT_HISTORY).split(" ", QString::SkipEmptyParts));
+    comboBox_HUB->addItems(qtCtx()->settings()->getStr(WS_QCONNECT_HISTORY).split(" ", Qt::SkipEmptyParts));
 
-    connect(buttonBox, SIGNAL(accepted()), this, SLOT(slotAccept()));
-    connect(comboBox_HUB, SIGNAL(activated(int)), this, SLOT(slotAccept()));
+    connect(buttonBox, &QDialogButtonBox::accepted, this, &QuickConnect::slotAccept);
+    connect(comboBox_HUB, qOverload<int>(&QComboBox::activated), this, &QuickConnect::slotAccept);
 
     comboBox_HUB->setFocus();
 }
@@ -45,15 +51,15 @@ void QuickConnect::slotAccept() {
         encoding = "UTF-8";
     if (!hub.isEmpty()) {
         if (encoding.isEmpty()){//Has favorite entry for hub?
-            FavoriteHubEntry* entry = FavoriteManager::getInstance()->getFavoriteHubEntry(_tq(hub));
+            FavoriteHubEntry* entry = qtCtx()->dcCtx().getFavoriteManager()->getFavoriteHubEntry(_tq(hub));
 
             if (entry)
-                encoding = WulforUtil::getInstance()->dcEnc2QtEnc(_q(entry->getEncoding()));
+                encoding = qtCtx()->wulforUtil()->dcEnc2QtEnc(_q(entry->getEncoding()));
         }
 
-        MainWindow::getInstance()->newHubFrame(hub, (encoding.isEmpty())? (WSGET(WS_DEFAULT_LOCALE)) : (encoding));
+        qtCtx()->mainWindow()->newHubFrame(hub, (encoding.isEmpty())? (qtCtx()->settings()->getStr(WS_DEFAULT_LOCALE)) : (encoding));
 
-        QStringList list = WulforSettings::getInstance()->getStr(WS_QCONNECT_HISTORY).split(" ", QString::SkipEmptyParts);
+        QStringList list = qtCtx()->settings()->getStr(WS_QCONNECT_HISTORY).split(" ", Qt::SkipEmptyParts);
 
         if (!list.contains(hub))
             list.push_back(hub);
@@ -67,7 +73,7 @@ void QuickConnect::slotAccept() {
         for (const auto &i : list)
             hist += (i + " ");
 
-        WulforSettings::getInstance()->setStr(WS_QCONNECT_HISTORY, hist);
+        qtCtx()->settings()->setStr(WS_QCONNECT_HISTORY, hist);
     }
 
     accept();

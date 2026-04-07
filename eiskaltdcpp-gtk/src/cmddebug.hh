@@ -26,13 +26,15 @@
 #include "treeview.hh"
 #include "wulformanager.hh"
 
+namespace dcpp { class DCContext; }
+
 
 class cmddebug:
         public BookEntry,
         private dcpp::DebugManagerListener, public dcpp::Thread
 {
 public:
-    cmddebug();
+    explicit cmddebug(dcpp::DCContext& dcCtx);
     virtual ~cmddebug();
     virtual void show();
 
@@ -62,7 +64,7 @@ private:
             }
             typedef Func1<cmddebug,std::string> F1;
             F1 *func = new F1(this, &cmddebug::add_gui, x);
-            WulforManager::get()->dispatchGuiFunc(func);
+            wulforManagerInstance()->dispatchGuiFunc(func);
         }
 
         return 0;
@@ -80,4 +82,5 @@ private:
     bool scrollToBottom;
     GtkTextMark *cmdMark;
 
+    dcpp::DCContext& dcCtx_;
 };

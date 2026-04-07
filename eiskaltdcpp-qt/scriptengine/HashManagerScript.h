@@ -13,18 +13,19 @@
 
 #include "dcpp/stdinc.h"
 #include "dcpp/DCPlusPlus.h"
-#include "dcpp/Singleton.h"
 #include "dcpp/HashManager.h"
 #include "dcpp/HashManagerListener.h"
 #include "dcpp/HashValue.h"
 
+#include "QtContextAware.h"
+
 class HashManagerScript :
         public QObject,
-        public dcpp::Singleton<HashManagerScript>,
-        public dcpp::HashManagerListener
+        public dcpp::HashManagerListener,
+        public QtContextAware
 {
 Q_OBJECT
-friend class dcpp::Singleton<HashManagerScript>;
+friend class QtContext;
 
 public Q_SLOTS:
     void stopHashing(const QString &baseDir);
@@ -43,11 +44,13 @@ Q_SIGNALS:
 protected:
     virtual void on(TTHDone, const dcpp::string& , const dcpp::TTHValue&) throw();
 
-private:
-    HashManagerScript(QObject *parent = nullptr);
-    HashManagerScript(const HashManagerScript&);
+public:
+    HashManagerScript(dcpp::DCContext& ctx, QObject *parent = nullptr);
     ~HashManagerScript();
-    HashManagerScript &operator=(const HashManagerScript&);
+
+private:
+    HashManagerScript(const HashManagerScript&) = delete;
+    HashManagerScript& operator=(const HashManagerScript&) = delete;
 
     dcpp::HashManager *HM;
 };

@@ -48,7 +48,7 @@ File::File(const string& aFileName, int access, int mode) {
     }
 }
 
-uint32_t File::getLastModified() noexcept {
+uint32_t File::getLastModified() {
     FILETIME f = {0};
     ::GetFileTime(h, NULL, NULL, &f);
     return convertTime(&f);
@@ -68,18 +68,18 @@ uint32_t File::convertTime(FILETIME* f) {
     return 0;
 }
 
-bool File::isOpen() noexcept {
+bool File::isOpen() {
     return h != INVALID_HANDLE_VALUE;
 }
 
-void File::close() noexcept {
+void File::close() {
     if(isOpen()) {
         CloseHandle(h);
         h = INVALID_HANDLE_VALUE;
     }
 }
 
-int64_t File::getSize() noexcept {
+int64_t File::getSize() {
     DWORD x;
     DWORD l = ::GetFileSize(h, &x);
 
@@ -88,7 +88,7 @@ int64_t File::getSize() noexcept {
 
     return (int64_t)l | ((int64_t)x)<<32;
 }
-int64_t File::getPos() noexcept {
+int64_t File::getPos() {
     LONG x = 0;
     DWORD l = ::SetFilePointer(h, 0, &x, FILE_CURRENT);
 
@@ -101,16 +101,16 @@ void File::setSize(int64_t newSize) {
     setEOF();
     setPos(pos);
 }
-void File::setPos(int64_t pos) noexcept {
+void File::setPos(int64_t pos) {
     LONG x = (LONG) (pos>>32);
     ::SetFilePointer(h, (DWORD)(pos & 0xffffffff), &x, FILE_BEGIN);
 }
-void File::setEndPos(int64_t pos) noexcept {
+void File::setEndPos(int64_t pos) {
     LONG x = (LONG) (pos>>32);
     ::SetFilePointer(h, (DWORD)(pos & 0xffffffff), &x, FILE_END);
 }
 
-void File::movePos(int64_t pos) noexcept {
+void File::movePos(int64_t pos) {
     LONG x = (LONG) (pos>>32);
     ::SetFilePointer(h, (DWORD)(pos & 0xffffffff), &x, FILE_CURRENT);
 }
@@ -159,12 +159,12 @@ void File::copyFile(const string& src, const string& target) {
     }
 }
 
-void File::deleteFile(const string& aFileName) noexcept
+void File::deleteFile(const string& aFileName)
 {
     ::DeleteFileW(Text::utf8ToWide(aFileName).c_str());
 }
 
-int64_t File::getSize(const string& aFileName) noexcept {
+int64_t File::getSize(const string& aFileName) {
     WIN32_FIND_DATAW fd;
     auto hFind = FindFirstFileW(Text::utf8ToWide(aFileName).c_str(), &fd);
 
@@ -176,7 +176,7 @@ int64_t File::getSize(const string& aFileName) noexcept {
     }
 }
 
-void File::ensureDirectory(const string& aFile) noexcept {
+void File::ensureDirectory(const string& aFile) {
     // Skip the first dir...
     tstring file;
     Text::toT(aFile, file);
@@ -190,7 +190,7 @@ void File::ensureDirectory(const string& aFile) noexcept {
     }
 }
 
-bool File::isAbsolute(const string& path) noexcept {
+bool File::isAbsolute(const string& path) {
     return path.size() > 2 && (path[1] == ':' || path[0] == '/' || path[0] == '\\');
 }
 
@@ -227,7 +227,7 @@ File::File(const string& aFileName, int access, int mode) {
         throw FileException(Util::translateError(errno));
 }
 
-uint32_t File::getLastModified() noexcept {
+uint32_t File::getLastModified() {
     struct stat s;
     if (::fstat(h, &s) == -1)
         return 0;
@@ -235,18 +235,18 @@ uint32_t File::getLastModified() noexcept {
     return (uint32_t)s.st_mtime;
 }
 
-bool File::isOpen() noexcept {
+bool File::isOpen() {
     return h != -1;
 }
 
-void File::close() noexcept {
+void File::close() {
     if(h != -1) {
         ::close(h);
         h = -1;
     }
 }
 
-int64_t File::getSize() noexcept {
+int64_t File::getSize() {
     struct stat s;
     if(::fstat(h, &s) == -1)
         return -1;
@@ -254,19 +254,19 @@ int64_t File::getSize() noexcept {
     return (int64_t)s.st_size;
 }
 
-int64_t File::getPos() noexcept {
+int64_t File::getPos() {
     return (int64_t)lseek(h, 0, SEEK_CUR);
 }
 
-void File::setPos(int64_t pos) noexcept {
+void File::setPos(int64_t pos) {
     lseek(h, (off_t)pos, SEEK_SET);
 }
 
-void File::setEndPos(int64_t pos) noexcept {
+void File::setEndPos(int64_t pos) {
     lseek(h, (off_t)pos, SEEK_END);
 }
 
-void File::movePos(int64_t pos) noexcept {
+void File::movePos(int64_t pos) {
     lseek(h, (off_t)pos, SEEK_CUR);
 }
 
@@ -300,7 +300,7 @@ size_t File::write(const void* buf, size_t len) {
 
 // some ftruncate implementations can't extend files like SetEndOfFile,
 // not sure if the client code needs this...
-int File::extendFile(int64_t len) noexcept {
+int File::extendFile(int64_t len) {
     char zero;
 
     if( (lseek(h, (off_t)len, SEEK_SET) != -1) && (::write(h, &zero,1) != -1) ) {
@@ -375,11 +375,11 @@ void File::copyFile(const string& source, const string& target) {
     }
 }
 
-void File::deleteFile(const string& aFileName) noexcept {
+void File::deleteFile(const string& aFileName) {
     ::unlink(Text::fromUtf8(aFileName).c_str());
 }
 
-int64_t File::getSize(const string& aFileName) noexcept {
+int64_t File::getSize(const string& aFileName) {
     struct stat s;
     if(stat(Text::fromUtf8(aFileName).c_str(), &s) == -1)
         return -1;
@@ -387,7 +387,7 @@ int64_t File::getSize(const string& aFileName) noexcept {
     return s.st_size;
 }
 
-void File::ensureDirectory(const string& aFile) noexcept {
+void File::ensureDirectory(const string& aFile) {
     string file = Text::fromUtf8(aFile);
     string::size_type start = 0;
     while( (start = file.find_first_of('/', start)) != string::npos) {
@@ -396,7 +396,7 @@ void File::ensureDirectory(const string& aFile) noexcept {
     }
 }
 
-bool File::isAbsolute(const string& path) noexcept {
+bool File::isAbsolute(const string& path) {
     return path.size() > 1 && path[0] == '/';
 }
 

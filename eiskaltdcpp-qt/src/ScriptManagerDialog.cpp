@@ -6,8 +6,13 @@
 *   (at your option) any later version.                                   *
 *                                                                         *
 ***************************************************************************/
+/*
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
+ */
 
 #include "ScriptManagerDialog.h"
+#include "QtContextAware.h"
+#include "QtContext.h"
 #include "WulforSettings.h"
 #include "WulforUtil.h"
 
@@ -31,12 +36,12 @@ ScriptManagerDialog::ScriptManagerDialog(QWidget *parent) :
     setupUi(this);
 
     model = new ScriptManagerModel(nullptr);
-    connect(this, SIGNAL(accepted()), model, SLOT(save()));
-    connect(comboBox, SIGNAL(activated(int)), this, SLOT(slotSetChangedAction(int)));
+    connect(this, &QDialog::accepted, model, &ScriptManagerModel::save);
+    connect(comboBox, qOverload<int>(&QComboBox::activated), this, &ScriptManagerDialog::slotSetChangedAction);
 
     treeView->setModel(model);
 
-    comboBox->setCurrentIndex(WIGET("scriptmanager/script-changed-action", 0));
+    comboBox->setCurrentIndex(qtCtx()->settings()->getInt("scriptmanager/script-changed-action", 0));
 
     setWindowTitle(tr("Script Manager"));
 }
@@ -46,7 +51,7 @@ ScriptManagerDialog::~ScriptManagerDialog(){
 }
 
 void ScriptManagerDialog::slotSetChangedAction(int index){
-    WISET("scriptmanager/script-changed-action", index);
+    qtCtx()->settings()->setInt("scriptmanager/script-changed-action", index);
 }
 
 ScriptManagerModel::ScriptManagerModel(QObject * parent) : QAbstractItemModel(parent) {
@@ -155,7 +160,7 @@ QModelIndex ScriptManagerModel::parent(const QModelIndex & ) const {
 }
 
 void ScriptManagerModel::load(){
-    enabled = QString(QByteArray::fromBase64(WSGET(WS_APP_ENABLED_SCRIPTS).toUtf8())).split("\n");
+    enabled = QString(QByteArray::fromBase64(qtCtx()->settings()->getStr(WS_APP_ENABLED_SCRIPTS).toUtf8())).split("\n");
 
 #if !defined(Q_OS_WIN)
     QDir dir(CLIENT_SCRIPTS_DIR);
@@ -237,7 +242,7 @@ void ScriptManagerModel::save(){
             all += i->path + "\n";
     }
 
-    WSSET(WS_APP_ENABLED_SCRIPTS, all.toUtf8().toBase64());
+    qtCtx()->settings()->setStr(WS_APP_ENABLED_SCRIPTS, all.toUtf8().toBase64());
 }
 
 ScriptManagerItem::ScriptManagerItem(ScriptManagerItem *parent) :

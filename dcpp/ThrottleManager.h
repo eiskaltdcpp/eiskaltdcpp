@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2009-2012 Jacek Sieka, arnetheduck on gmail point com
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,10 +18,11 @@
 
 #pragma once
 
-#include "Singleton.h"
+#include "DCContext.h"
 #include "Socket.h"
 #include "TimerManager.h"
 #include "SettingsManager.h"
+#include "DCPlusPlus.h"
 
 namespace dcpp
 {
@@ -29,7 +31,7 @@ namespace dcpp
  * Inspired by Token Bucket algorithm: https://en.wikipedia.org/wiki/Token_bucket
  */
 class ThrottleManager :
-        public Singleton<ThrottleManager>, private TimerManagerListener
+        private TimerManagerListener, public ContextAware
 {
 public:
 
@@ -46,12 +48,12 @@ public:
 
     void shutdown();
 
-    static SettingsManager::IntSetting getCurSetting(SettingsManager::IntSetting setting);
+    SettingsManager::IntSetting getCurSetting(SettingsManager::IntSetting setting);
 
-    static int getUpLimit();
-    static int getDownLimit();
+    int getUpLimit();
+    int getDownLimit();
 
-    static void setSetting(SettingsManager::IntSetting setting, int value);
+    void setSetting(SettingsManager::IntSetting setting, int value);
 
 private:
     // stack up throttled read & write threads
@@ -59,11 +61,12 @@ private:
     CriticalSection waitCS[2];
     long activeWaiter;
 
-#ifndef _WIN32
-    // shutdown wait
+    // shutdown synchronization — the timer callback thread owns the
+    // waitCS locks, so shutdown() must cooperatively ask it to release
+    // them rather than calling unlock() from a non-owning thread (which
+    // is undefined behavior with std::recursive_mutex).
     CriticalSection shutdownCS;
     long n_lock, halt;
-#endif
 
     // download limiter
     CriticalSection downCS;
@@ -73,23 +76,21 @@ private:
     CriticalSection upCS;
     int64_t         upTokens;
 
-    friend class Singleton<ThrottleManager>;
-
-    ThrottleManager() : activeWaiter(-1), downTokens(0), upTokens(0)
+public:
+    explicit ThrottleManager(DCContext& ctx) : ContextAware(ctx), activeWaiter(-1), n_lock(0), halt(0), downTokens(0), upTokens(0)
     {
-#ifndef _WIN32
-        n_lock = halt = 0;
-#endif
-        TimerManager::getInstance()->addListener(this);
+        this->ctx().getTimerManager()->addListener(this);
     }
 
     virtual ~ThrottleManager();
+
+private:
 
     bool getCurThrottling();
     void waitToken();
 
     // TimerManagerListener
-    void on(TimerManagerListener::Second, uint64_t /* aTick */) noexcept;
+    void on(TimerManagerListener::Second, uint64_t /* aTick */);
 };
 
 }   // namespace dcpp

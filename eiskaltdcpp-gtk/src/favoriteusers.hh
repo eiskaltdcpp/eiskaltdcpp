@@ -25,12 +25,14 @@
 #include "bookentry.hh"
 #include "treeview.hh"
 
+namespace dcpp { class DCContext; }
+
 class FavoriteUsers:
         public BookEntry,
         public dcpp::FavoriteManagerListener
 {
 public:
-    FavoriteUsers();
+    explicit FavoriteUsers(dcpp::DCContext& dcCtx);
     virtual ~FavoriteUsers();
     virtual void show();
 
@@ -76,4 +78,5 @@ private:
     TreeView favoriteUserView;
     GtkListStore *favoriteUserStore;
     GtkTreeSelection *favoriteUserSelection;
+    dcpp::DCContext& dcCtx_;
 };

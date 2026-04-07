@@ -6,13 +6,16 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
+/*
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
+ */
 
 #pragma once
 
 #include <string>
 
 #include "dcpp/stdinc.h"
-#include "dcpp/Singleton.h"
+#include "dcpp/DCContext.h"
 
 enum eDIRECTION {
     eDIRECTION_IN = 0,
@@ -36,12 +39,12 @@ typedef struct _IPFilterElem {
 typedef std::unordered_map<uint32_t, IPFilterElem*> IPHash;
 typedef std::vector<IPFilterElem*> IPList;
 
-class IPFilter :
-        public dcpp::Singleton<IPFilter>
+class IPFilter : public dcpp::ContextAware
 {
-    friend class dcpp::Singleton<IPFilter>;
-
 public:
+    explicit IPFilter(dcpp::DCContext& ctx);
+    virtual ~IPFilter();
+
     static uint32_t StringToUint32(const std::string&);
     static std::string Uint32ToString(uint32_t);
     static uint32_t MaskToCIDR(uint32_t);
@@ -72,10 +75,6 @@ public:
     void step(uint32_t, eTableAction, bool down = true);
 
 private:
-    IPFilter();
-    virtual ~IPFilter();
-
-
     IPHash list_ip;
     IPList rules;
 };

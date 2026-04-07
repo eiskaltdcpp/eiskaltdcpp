@@ -1,6 +1,7 @@
 /*
  * Copyright (C) 2001-2012 Jacek Sieka, arnetheduck on gmail point com
  * Copyright (C) 2009-2019 EiskaltDC++ developers
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -31,6 +32,7 @@
 #include "Transfer.h"
 #ifdef LUA_SCRIPT
 #include "ScriptManager.h"
+#include "DCPlusPlus.h"
 #endif
 
 namespace dcpp {
@@ -51,7 +53,7 @@ const string UserConnection::FILE_NOT_AVAILABLE = "File Not Available";
 const string UserConnection::UPLOAD = "Upload";
 const string UserConnection::DOWNLOAD = "Download";
 
-void UserConnection::on(BufferedSocketListener::Line, const string& aLine) noexcept {
+void UserConnection::on(BufferedSocketListener::Line, const string& aLine) {
     if(aLine.length() < 2) {
         fire(UserConnectionListener::ProtocolError(), this, _("Invalid data"));
         return;
@@ -62,7 +64,7 @@ void UserConnection::on(BufferedSocketListener::Line, const string& aLine) noexc
             fire(UserConnectionListener::ProtocolError(), this, _("Non-UTF-8 data in an ADC connection"));
             return;
         }
-        COMMAND_DEBUG(aLine, DebugManager::CLIENT_IN, getRemoteIp());
+        CTX_COMMAND_DEBUG(aLine, DebugManager::CLIENT_IN, getRemoteIp());
         dispatch(aLine);
         return;
     } else if(aLine[0] == '$') {
@@ -71,7 +73,7 @@ void UserConnection::on(BufferedSocketListener::Line, const string& aLine) noexc
         fire(UserConnectionListener::ProtocolError(), this, _("Invalid data"));
         return;
     }
-    COMMAND_DEBUG((Util::stricmp(getEncoding(), Text::utf8) != 0 ? Text::toUtf8(aLine, getEncoding()) : aLine), DebugManager::CLIENT_IN, getRemoteIp());
+    CTX_COMMAND_DEBUG((Util::stricmp(getEncoding(), Text::utf8) != 0 ? Text::toUtf8(aLine, getEncoding()) : aLine), DebugManager::CLIENT_IN, getRemoteIp());
     string cmd;
     string param;
 
@@ -164,21 +166,21 @@ void UserConnection::connect(const string& aServer, const string& aPort, const s
     dcassert(!socket);
 
     port = aPort;
-    socket = BufferedSocket::getSocket(0);
+    socket = BufferedSocket::getSocket(0, ctx());
     socket->addListener(this);
-    socket->connect(aServer, aPort, localPort, natRole, isSet(FLAG_SECURE), BOOLSETTING(ALLOW_UNTRUSTED_CLIENTS), true, Socket::PROTO_DEFAULT);
+    socket->connect(aServer, aPort, localPort, natRole, isSet(FLAG_SECURE), ctx().getSettingsManager()->getBool(SettingsManager::ALLOW_UNTRUSTED_CLIENTS), true, Socket::PROTO_DEFAULT);
 }
 
 void UserConnection::accept(const Socket& aServer) {
     dcassert(!socket);
-    socket = BufferedSocket::getSocket(0);
+    socket = BufferedSocket::getSocket(0, ctx());
     socket->addListener(this);
-    socket->accept(aServer, isSet(FLAG_SECURE), BOOLSETTING(ALLOW_UNTRUSTED_CLIENTS));
+    socket->accept(aServer, isSet(FLAG_SECURE), ctx().getSettingsManager()->getBool(SettingsManager::ALLOW_UNTRUSTED_CLIENTS));
 }
 
 void UserConnection::inf(bool withToken) {
     AdcCommand c(AdcCommand::CMD_INF);
-    c.addParam("ID", ClientManager::getInstance()->getMyCID().toBase32());
+    c.addParam("ID", ctx().getClientManager()->getMyCID().toBase32());
     if(withToken) {
         c.addParam("TO", getToken());
     }
@@ -220,35 +222,35 @@ void UserConnection::handle(AdcCommand::STA t, const AdcCommand& c) {
     fire(t, this, c);
 }
 
-void UserConnection::on(Connected) noexcept {
+void UserConnection::on(Connected) {
     lastActivity = GET_TICK();
     fire(UserConnectionListener::Connected(), this);
 }
 
-void UserConnection::on(Data, uint8_t* data, size_t len) noexcept {
+void UserConnection::on(Data, uint8_t* data, size_t len) {
     lastActivity = GET_TICK();
     fire(UserConnectionListener::Data(), this, data, len);
 }
 
-void UserConnection::on(BytesSent, size_t bytes, size_t actual) noexcept {
+void UserConnection::on(BytesSent, size_t bytes, size_t actual) {
     lastActivity = GET_TICK();
     fire(UserConnectionListener::BytesSent(), this, bytes, actual);
 }
 
-void UserConnection::on(ModeChange) noexcept {
+void UserConnection::on(ModeChange) {
     lastActivity = GET_TICK();
     fire(UserConnectionListener::ModeChange(), this);
 }
 
-void UserConnection::on(TransmitDone) noexcept {
+void UserConnection::on(TransmitDone) {
     fire(UserConnectionListener::TransmitDone(), this);
 }
 
-void UserConnection::on(Updated) noexcept {
+void UserConnection::on(Updated) {
     fire(UserConnectionListener::Updated(), this);
 }
 
-void UserConnection::on(Failed, const string& aLine) noexcept {
+void UserConnection::on(Failed, const string& aLine) {
     setState(STATE_UNCONNECTED);
     fire(UserConnectionListener::Failed(), this, aLine);
 
@@ -296,7 +298,7 @@ void UserConnection::updateChunkSize(int64_t leafSize, int64_t lastChunk, uint64
 
 void UserConnection::send(const string &aString) {
     lastActivity = GET_TICK();
-    COMMAND_DEBUG((Util::stricmp(getEncoding(), Text::utf8) != 0 ? Text::toUtf8(aString, getEncoding()) : aString), DebugManager::CLIENT_OUT, getRemoteIp());
+    CTX_COMMAND_DEBUG((Util::stricmp(getEncoding(), Text::utf8) != 0 ? Text::toUtf8(aString, getEncoding()) : aString), DebugManager::CLIENT_OUT, getRemoteIp());
 #ifdef LUA_SCRIPT
     if(onUserConnectionMessageOut(this, aString)) {
         disconnect(true);

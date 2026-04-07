@@ -1,5 +1,6 @@
 /*
  * Copyright © 2004-2010 Jens Oknelid, paskharen@gmail.com
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -22,6 +23,7 @@
 #include "previewmenu.hh"
 #include <dcpp/Text.h>
 #include <dcpp/ClientManager.h>
+#include "dcpp/DCPlusPlus.h"
 #include "wulformanager.hh"
 #include "settingsmanager.hh"
 #include "WulforUtil.hh"
@@ -29,23 +31,24 @@
 using namespace std;
 using namespace dcpp;
 
-FinishedTransfers* FinishedTransfers::createFinishedDownloads()
+FinishedTransfers* FinishedTransfers::createFinishedDownloads(dcpp::DCContext& dcCtx)
 {
-    return new FinishedTransfers(Entry::FINISHED_DOWNLOADS, _("Finished Downloads"), false);
+    return new FinishedTransfers(dcCtx, Entry::FINISHED_DOWNLOADS, _("Finished Downloads"), false);
 }
 
-FinishedTransfers* FinishedTransfers::createFinishedUploads()
+FinishedTransfers* FinishedTransfers::createFinishedUploads(dcpp::DCContext& dcCtx)
 {
-    return new FinishedTransfers(Entry::FINISHED_UPLOADS, _("Finished Uploads"), true);
+    return new FinishedTransfers(dcCtx, Entry::FINISHED_UPLOADS, _("Finished Uploads"), true);
 }
 
-FinishedTransfers::FinishedTransfers(const EntryType type, const string &title, bool isUpload):
+FinishedTransfers::FinishedTransfers(dcpp::DCContext& dcCtx, const EntryType type, const string &title, bool isUpload):
     BookEntry(type, title, "finishedtransfers.ui"),
     isUpload(isUpload),
     totalFiles(0),
     totalUsers(0),
     totalBytes(0),
-    totalTime(0)
+    totalTime(0),
+    dcCtx_(dcCtx)
 {
 #if !GTK_CHECK_VERSION(3,0,0)
     gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("averageSpeed")),false);
@@ -112,7 +115,7 @@ FinishedTransfers::FinishedTransfers(const EntryType type, const string &title, 
     g_signal_connect(userView.get(), "key-release-event", G_CALLBACK(onKeyReleased_gui), (gpointer)this);
     g_signal_connect_after(getWidget("finishedbook"), "switch-page", G_CALLBACK(onPageSwitched_gui), (gpointer)this);
 
-    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("showOnlyFullFilesCheckButton")), BOOLSETTING(FINISHED_DL_ONLY_FULL));
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("showOnlyFullFilesCheckButton")), dcCtx_.getSettingsManager()->getBool(SettingsManager::FINISHED_DL_ONLY_FULL, true));
 
     if (type == Entry::FINISHED_DOWNLOADS)
         g_signal_connect(getWidget("showOnlyFullFilesCheckButton"), "toggled", G_CALLBACK(onShowOnlyFullFilesToggled_gui), (gpointer)this);
@@ -122,19 +125,19 @@ FinishedTransfers::FinishedTransfers(const EntryType type, const string &title, 
 
 FinishedTransfers::~FinishedTransfers()
 {
-    FinishedManager::getInstance()->removeListener(this);
+    dcCtx_.getFinishedManager()->removeListener(this);
     g_object_unref(getWidget("menu"));
     delete appsPreviewMenu;
     int active = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(getWidget("showOnlyFullFilesCheckButton")));
-    SettingsManager::getInstance()->set(SettingsManager::FINISHED_DL_ONLY_FULL, active);
+    dcCtx_.getSettingsManager()->set(SettingsManager::FINISHED_DL_ONLY_FULL, active);
 }
 
 void FinishedTransfers::show()
 {
     initializeList_client();
     //Func0<FinishedTransfers> *func = new Func0<FinishedTransfers>(this, &FinishedTransfers::initializeList_client);
-    //WulforManager::get()->dispatchClientFunc(func);
-    FinishedManager::getInstance()->addListener(this);
+    //wulforManagerInstance()->dispatchClientFunc(func);
+    dcCtx_.getFinishedManager()->addListener(this);
 }
 
 bool FinishedTransfers::findUser_gui(GtkTreeIter* iter, const string& cid)
@@ -456,9 +459,9 @@ void FinishedTransfers::onShowOnlyFullFilesToggled_gui(GtkWidget *widget, gpoint
     StringMap params;
     gtk_list_store_clear(ft->fileStore);
 
-    auto lock = FinishedManager::getInstance()->lock();
+    auto lock = ft->dcCtx_.getFinishedManager()->lock();
 
-    const FinishedManager::MapByFile &list = FinishedManager::getInstance()->getMapByFile(ft->isUpload);
+    const FinishedManager::MapByFile &list = ft->dcCtx_.getFinishedManager()->getMapByFile(ft->isUpload);
 
     for (auto it = list.begin(); it != list.end(); ++it)
     {
@@ -487,7 +490,7 @@ void FinishedTransfers::onOpen_gui(GtkMenuItem *item, gpointer data)
         {
             string target = ft->fileView.getString(&iter, "Target");
             if (!target.empty())
-                WulforUtil::openURI(target);
+                WulforUtil::openURI(ft->dcCtx_, target);
         }
         gtk_tree_path_free(path);
     }
@@ -520,7 +523,7 @@ void FinishedTransfers::onOpenFolder_gui(GtkMenuItem *item, gpointer data)
         {
             string target = ft->fileView.getString(&iter, _("Path"));
             if (!target.empty())
-                WulforUtil::openURI(target);
+                WulforUtil::openURI(ft->dcCtx_, target);
         }
         gtk_tree_path_free(path);
     }
@@ -573,7 +576,7 @@ void FinishedTransfers::onRemoveItems_gui(GtkMenuItem *item, gpointer data)
             }
 
 
-            WulforManager::get()->dispatchClientFunc(func);
+            wulforManagerInstance()->dispatchClientFunc(func);
         }
         gtk_tree_path_free(path);
     }
@@ -637,15 +640,15 @@ void FinishedTransfers::onRemoveAll_gui(GtkMenuItem *item, gpointer data)
 
     typedef Func0<FinishedTransfers> F0;
     F0 *func = new F0(ft, &FinishedTransfers::removeAll_client);
-    WulforManager::get()->dispatchClientFunc(func);
+    wulforManagerInstance()->dispatchClientFunc(func);
 }
 
 void FinishedTransfers::initializeList_client()
 {
     StringMap params;
-    auto lock = FinishedManager::getInstance()->lock();
-    const FinishedManager::MapByFile &list = FinishedManager::getInstance()->getMapByFile(isUpload);
-    const FinishedManager::MapByUser &user = FinishedManager::getInstance()->getMapByUser(isUpload);
+    auto lock = dcCtx_.getFinishedManager()->lock();
+    const FinishedManager::MapByFile &list = dcCtx_.getFinishedManager()->getMapByFile(isUpload);
+    const FinishedManager::MapByUser &user = dcCtx_.getFinishedManager()->getMapByUser(isUpload);
 
     for (auto it = list.begin(); it != list.end(); ++it)
     {
@@ -672,7 +675,7 @@ void FinishedTransfers::getFinishedParams_client(const FinishedFileItemPtr& item
     params["Path"] = Util::getFilePath(file);
     for (auto &user : item->getUsers())
     {
-        nicks += WulforUtil::getNicks(user.user->getCID(), user.hint) + ", ";
+        nicks += WulforUtil::getNicks(dcCtx_, user.user->getCID(), user.hint) + ", ";
     }
     params["Nicks"] = nicks.substr(0, nicks.length() - 2);
     // item->getFileSize() seems to return crap. I guess there's no way to get
@@ -694,8 +697,8 @@ void FinishedTransfers::getFinishedParams_client(const FinishedUserItemPtr &item
 {
     string files;
     params["Time"] = Util::formatTime("%Y-%m-%d %H:%M:%S", item->getTime());
-    params["Nick"] = WulforUtil::getNicks(user);
-    params["Hub"] = WulforUtil::getHubNames(user);
+    params["Nick"] = WulforUtil::getNicks(dcCtx_, user);
+    params["Hub"] = WulforUtil::getHubNames(dcCtx_, user);
     for (auto &file : item->getFiles())
     {
         files += file + ", ";
@@ -709,11 +712,11 @@ void FinishedTransfers::getFinishedParams_client(const FinishedUserItemPtr &item
 
 void FinishedTransfers::removeUser_client(string cid)
 {
-    UserPtr user = ClientManager::getInstance()->findUser(CID(cid));
+    UserPtr user = dcCtx_.getClientManager()->findUser(CID(cid));
 
     if (user)
         // ignore the hint url user...
-        FinishedManager::getInstance()->remove(isUpload, HintedUser(user, ""));
+        dcCtx_.getFinishedManager()->remove(isUpload, HintedUser(user, ""));
 
 }
 
@@ -721,13 +724,13 @@ void FinishedTransfers::removeFile_client(string target)
 {
 
     if (!target.empty())
-        FinishedManager::getInstance()->remove(isUpload, target);
+        dcCtx_.getFinishedManager()->remove(isUpload, target);
 
 }
 
 void FinishedTransfers::removeAll_client()
 {
-    FinishedManager::getInstance()->removeAll(isUpload);
+    dcCtx_.getFinishedManager()->removeAll(isUpload);
 }
 
 void FinishedTransfers::on(FinishedManagerListener::AddedFile, bool upload, const string& file, const FinishedFileItemPtr& item) noexcept
@@ -739,7 +742,7 @@ void FinishedTransfers::on(FinishedManagerListener::AddedFile, bool upload, cons
 
         typedef Func2<FinishedTransfers, StringMap, bool> F2;
         F2* func = new F2(this, &FinishedTransfers::addFile_gui, params, true);
-        WulforManager::get()->dispatchGuiFunc(func);
+        wulforManagerInstance()->dispatchGuiFunc(func);
     }
 }
 
@@ -753,7 +756,7 @@ void FinishedTransfers::on(FinishedManagerListener::AddedUser, bool upload, cons
 
         typedef Func2<FinishedTransfers, StringMap, bool> F2;
         F2 *func = new F2(this, &FinishedTransfers::addUser_gui, params, true);
-        WulforManager::get()->dispatchGuiFunc(func);
+        wulforManagerInstance()->dispatchGuiFunc(func);
     }
 }
 
@@ -766,7 +769,7 @@ void FinishedTransfers::on(FinishedManagerListener::UpdatedFile, bool upload, co
 
         typedef Func2<FinishedTransfers, StringMap, bool> F2;
         F2 *func = new F2(this, &FinishedTransfers::addFile_gui, params, true);
-        WulforManager::get()->dispatchGuiFunc(func);
+        wulforManagerInstance()->dispatchGuiFunc(func);
     }
 }
 
@@ -774,7 +777,7 @@ void FinishedTransfers::on(FinishedManagerListener::UpdatedUser, bool upload, co
 {
     if (isUpload == upload)
     {
-        const FinishedManager::MapByUser &umap = FinishedManager::getInstance()->getMapByUser(isUpload);
+        const FinishedManager::MapByUser &umap = dcCtx_.getFinishedManager()->getMapByUser(isUpload);
         auto userit = umap.find(user);
         if (userit == umap.end())
             return;
@@ -786,7 +789,7 @@ void FinishedTransfers::on(FinishedManagerListener::UpdatedUser, bool upload, co
 
         typedef Func2<FinishedTransfers, StringMap, bool> F2;
         F2 *func = new F2(this, &FinishedTransfers::addUser_gui, params, true);
-        WulforManager::get()->dispatchGuiFunc(func);
+        wulforManagerInstance()->dispatchGuiFunc(func);
     }
 }
 
@@ -796,7 +799,7 @@ void FinishedTransfers::on(FinishedManagerListener::RemovedFile, bool upload, co
     {
         typedef Func1<FinishedTransfers, string> F1;
         F1 *func = new F1(this, &FinishedTransfers::removeFile_gui, item);
-        WulforManager::get()->dispatchGuiFunc(func);
+        wulforManagerInstance()->dispatchGuiFunc(func);
     }
 }
 
@@ -806,6 +809,6 @@ void FinishedTransfers::on(FinishedManagerListener::RemovedUser, bool upload, co
     {
         typedef Func1<FinishedTransfers, string> F1;
         F1 *func = new F1(this, &FinishedTransfers::removeUser_gui, user.user->getCID().toBase32());
-        WulforManager::get()->dispatchGuiFunc(func);
+        wulforManagerInstance()->dispatchGuiFunc(func);
     }
 }

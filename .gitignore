@@ -3,5 +3,13 @@ CMakeLists.txt.user*
 .gitignore
 .DS_Store
 build*/
+dist-*/
+windows/installer/
+windows/EiskaltDC++*installer.exe
+CMakeFiles/
 boost*
 tags
+EISKALTDCPP_PLAN.md
+PR_DESCRIPTION.md
+GETCONTEXT_REMOVAL_PLAN.md
+MEDIA_CHAT_IMPLEMENTATION_REPORT.md

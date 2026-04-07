@@ -1,6 +1,7 @@
 /*
  * Copyright (C) 2001-2012 Jacek Sieka, arnetheduck on gmail point com
  * Copyright (C) 2009-2019 EiskaltDC++ developers
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -41,6 +42,7 @@
 #include <sys/stat.h>
 #include <unistd.h>
 #include <sys/xattr.h>
+#include "DCPlusPlus.h"
 #endif
 
 namespace dcpp {
@@ -227,20 +229,20 @@ void HashManager::hashDone(const string& aFileName, uint32_t aTimeStamp, const T
         store.addFile(aFileName, aTimeStamp, tth, true);
         m_streamstore.saveTree(aFileName, tth);
     } catch (const Exception& e) {
-        LogManager::getInstance()->message(str(F_("Hashing failed: %1%") % e.getError()));
+        ctx().getLogManager()->message(str(F_("Hashing failed: %1%") % e.getError()));
         return;
     }
 
     fire(HashManagerListener::TTHDone(), aFileName, tth.getRoot());
 
     if (speed > 0) {
-        LogManager::getInstance()->message(str(F_("Finished hashing: %1% (%2% at %3%/s)") % Util::addBrackets(aFileName) %
+        ctx().getLogManager()->message(str(F_("Finished hashing: %1% (%2% at %3%/s)") % Util::addBrackets(aFileName) %
                                                Util::formatBytes(size) % Util::formatBytes(speed)));
     } else if(size >= 0) {
-        LogManager::getInstance()->message(str(F_("Finished hashing: %1% (%2%)") % Util::addBrackets(aFileName) %
+        ctx().getLogManager()->message(str(F_("Finished hashing: %1% (%2%)") % Util::addBrackets(aFileName) %
                                                Util::formatBytes(size)));
     } else {
-        LogManager::getInstance()->message(str(F_("Finished hashing: %1%") % Util::addBrackets(aFileName)));
+        ctx().getLogManager()->message(str(F_("Finished hashing: %1%") % Util::addBrackets(aFileName)));
     }
 }
 
@@ -260,7 +262,7 @@ void HashManager::HashStore::addFile(const string& aFileName, uint32_t aTimeStam
     dirty = true;
 }
 
-void HashManager::HashStore::addTree(const TigerTree& tt) noexcept {
+void HashManager::HashStore::addTree(const TigerTree& tt) {
     if (treeIndex.find(tt.getRoot()) == treeIndex.end()) {
         try {
             File f(getDataFile(), File::READ | File::WRITE, File::OPEN);
@@ -268,7 +270,7 @@ void HashManager::HashStore::addTree(const TigerTree& tt) noexcept {
             treeIndex.emplace(tt.getRoot(), TreeInfo(tt.getFileSize(), index, tt.getBlockSize()));
             dirty = true;
         } catch (const FileException& e) {
-            LogManager::getInstance()->message(str(F_("Error saving hash data: %1%") % e.getError()));
+            ctx().getLogManager()->message(str(F_("Error saving hash data: %1%") % e.getError()));
         }
     }
 }
@@ -425,7 +427,7 @@ void HashManager::HashStore::rebuild() {
         dirty = true;
         save();
     } catch (const Exception& e) {
-        LogManager::getInstance()->message(str(F_("Hashing failed: %1%") % e.getError()));
+        ctx().getLogManager()->message(str(F_("Hashing failed: %1%") % e.getError()));
     }
 }
 
@@ -480,7 +482,7 @@ void HashManager::HashStore::save() {
 
             dirty = false;
         } catch (const FileException& e) {
-            LogManager::getInstance()->message(str(F_("Error saving hash data: %1%") % e.getError()));
+            ctx().getLogManager()->message(str(F_("Error saving hash data: %1%") % e.getError()));
         }
     }
 }
@@ -579,8 +581,8 @@ void HashLoader::startTag(const string& name, StringPairList& attribs, bool simp
     }
 }
 
-HashManager::HashStore::HashStore() :
-    dirty(false) {
+HashManager::HashStore::HashStore(DCContext& ctx) :
+    dirty(false), ctx_(ctx) {
 
     Util::migrate(getDataFile());
 
@@ -613,11 +615,11 @@ void HashManager::HashStore::createDataFile(const string& name) {
         dat.write(&start, sizeof(start));
 
     } catch (const FileException& e) {
-        LogManager::getInstance()->message(str(F_("Error creating hash data file: %1%") % e.getError()));
+        ctx().getLogManager()->message(str(F_("Error creating hash data file: %1%") % e.getError()));
     }
 }
 
-void HashManager::Hasher::hashFile(const string& fileName, int64_t size) noexcept {
+void HashManager::Hasher::hashFile(const string& fileName, int64_t size) {
     Lock l(cs);
     if(w.emplace(fileName, size).second) {
         if(paused > 0)
@@ -627,14 +629,14 @@ void HashManager::Hasher::hashFile(const string& fileName, int64_t size) noexcep
     }
 }
 
-bool HashManager::Hasher::pause() noexcept {
+bool HashManager::Hasher::pause() {
     Lock l(cs);
     paused = 1;
     //    printf("pause::paused: %d\n", paused);fflush(stdout);
     return true;
 }
 
-void HashManager::Hasher::resume() noexcept {
+void HashManager::Hasher::resume() {
     Lock l(cs);
     while(paused > 0) {
         paused = 0;
@@ -643,7 +645,7 @@ void HashManager::Hasher::resume() noexcept {
     }
 }
 
-bool HashManager::Hasher::isPaused() const noexcept {
+bool HashManager::Hasher::isPaused() const {
     Lock l(cs);
     return paused > 0;
 }
@@ -736,9 +738,9 @@ bool HashManager::Hasher::fastHash(const string& fname, uint8_t* buf, TigerTree&
         if (size > 0) {
             // Start a new overlapped read
             ResetEvent(over.hEvent);
-            if (SETTING(MAX_HASH_SPEED) > 0) {
+            if (CTX_SETTING(MAX_HASH_SPEED) > 0) {
                 uint64_t now = GET_TICK();
-                uint64_t minTime = hn * 1000LL / (SETTING(MAX_HASH_SPEED) * 1024LL * 1024LL);
+                uint64_t minTime = hn * 1000LL / (CTX_SETTING(MAX_HASH_SPEED) * 1024LL * 1024LL);
                 if (lastRead + minTime > now) {
                     uint64_t diff = now - lastRead;
                     Thread::sleep(minTime - diff);
@@ -825,7 +827,7 @@ bool HashManager::Hasher::fastHash(const string& filename, uint8_t* , TigerTree&
         return true;
     }
 
-    static const int64_t BUF_BYTES = (SETTING(HASH_BUFFER_SIZE_MB) >= 1)? SETTING(HASH_BUFFER_SIZE_MB)*1024*1024 : 0x800000;
+    static const int64_t BUF_BYTES = (CTX_SETTING(HASH_BUFFER_SIZE_MB) >= 1)? CTX_SETTING(HASH_BUFFER_SIZE_MB)*1024*1024 : 0x800000;
     static const int64_t BUF_SIZE = BUF_BYTES - (BUF_BYTES % getpagesize());
 
     int fd = open(Text::fromUtf8(filename).c_str(), O_RDONLY);
@@ -834,7 +836,7 @@ bool HashManager::Hasher::fastHash(const string& filename, uint8_t* , TigerTree&
         return false;
     }
 
-    const int maxHashSpeed = SETTING(MAX_HASH_SPEED);
+    const int maxHashSpeed = CTX_SETTING(MAX_HASH_SPEED);
     int64_t pos = 0;
     int64_t size_read = 0;
     void *buf = NULL;
@@ -864,13 +866,13 @@ bool HashManager::Hasher::fastHash(const string& filename, uint8_t* , TigerTree&
     }
 
     uint64_t lastRead = GET_TICK();
-    unsigned long mmap_flags = static_cast<bool>(SETTING(HASH_BUFFER_PRIVATE))? MAP_PRIVATE : MAP_SHARED;
+    unsigned long mmap_flags = static_cast<bool>(CTX_SETTING(HASH_BUFFER_PRIVATE))? MAP_PRIVATE : MAP_SHARED;
 #ifdef MAP_POPULATE
-    if (static_cast<bool>(SETTING(HASH_BUFFER_POPULATE)))
+    if (static_cast<bool>(CTX_SETTING(HASH_BUFFER_POPULATE)))
         mmap_flags |= MAP_POPULATE;
 #endif
 #ifdef MAP_NORESERVE
-    if (static_cast<bool>(SETTING(HASH_BUFFER_NORESERVE)))
+    if (static_cast<bool>(CTX_SETTING(HASH_BUFFER_NORESERVE)))
         mmap_flags |= MAP_NORESERVE;
 #endif
     while (pos < size && !stop) {
@@ -962,9 +964,9 @@ int HashManager::Hasher::run() {
         if(stop)
             break;
         if(rebuild) {
-            HashManager::getInstance()->doRebuild();
+            ctx().getHashManager()->doRebuild();
             rebuild = false;
-            LogManager::getInstance()->message(_("Hash database rebuilt"));
+            ctx().getLogManager()->message(_("Hash database rebuilt"));
             continue;
         }
         {
@@ -990,7 +992,7 @@ int HashManager::Hasher::run() {
                 buf = (uint8_t*)VirtualAlloc(NULL, 2*BUF_SIZE, MEM_COMMIT, PAGE_READWRITE);
             }
 #else
-            static const int64_t BUF_BYTES = (SETTING(HASH_BUFFER_SIZE_MB) >= 1)? SETTING(HASH_BUFFER_SIZE_MB)*1024*1024 : 0x800000;
+            static const int64_t BUF_BYTES = (CTX_SETTING(HASH_BUFFER_SIZE_MB) >= 1)? CTX_SETTING(HASH_BUFFER_SIZE_MB)*1024*1024 : 0x800000;
             static const int64_t BUF_SIZE = BUF_BYTES - (BUF_BYTES % getpagesize());
 #endif
 
@@ -1016,9 +1018,9 @@ int HashManager::Hasher::run() {
                 tth = &fastTTH;
 
 #ifdef _WIN32
-                if(!virtualBuf || !BOOLSETTING(FAST_HASH) || !fastHash(fname, buf, fastTTH, size, xcrc32)) {
+                if(!virtualBuf || !CTX_BOOLSETTING(FAST_HASH) || !fastHash(fname, buf, fastTTH, size, xcrc32)) {
 #else
-                if(!BOOLSETTING(FAST_HASH) || !fastHash(fname, 0, fastTTH, size, xcrc32)) {
+                if(!CTX_BOOLSETTING(FAST_HASH) || !fastHash(fname, 0, fastTTH, size, xcrc32)) {
 #endif
                     tth = &slowTTH;
                     crc32 = CRC32Filter();
@@ -1026,9 +1028,9 @@ int HashManager::Hasher::run() {
                     size_t n = 0;
                     do {
                         size_t bufSize = BUF_SIZE;
-                        if(SETTING(MAX_HASH_SPEED)> 0) {
+                        if(CTX_SETTING(MAX_HASH_SPEED)> 0) {
                             uint64_t now = GET_TICK();
-                            uint64_t minTime = n * 1000LL / (SETTING(MAX_HASH_SPEED) * 1024LL * 1024LL);
+                            uint64_t minTime = n * 1000LL / (CTX_SETTING(MAX_HASH_SPEED) * 1024LL * 1024LL);
                             if(lastRead + minTime> now) {
                                 Thread::sleep(minTime - (now - lastRead));
                             }
@@ -1058,12 +1060,12 @@ int HashManager::Hasher::run() {
                     speed = size * _LL(1000) / (end - start);
                 }
                 if(xcrc32 && xcrc32->getValue() != sfv.getCRC()) {
-                    LogManager::getInstance()->message(str(F_("%1% not shared; calculated CRC32 does not match the one found in SFV file.") % Util::addBrackets(fname)));
+                    ctx().getLogManager()->message(str(F_("%1% not shared; calculated CRC32 does not match the one found in SFV file.") % Util::addBrackets(fname)));
                 } else {
-                    HashManager::getInstance()->hashDone(fname, timestamp, *tth, speed, size);
+                    ctx().getHashManager()->hashDone(fname, timestamp, *tth, speed, size);
                 }
             } catch(const FileException& e) {
-                LogManager::getInstance()->message(str(F_("Error hashing %1%: %2%") % Util::addBrackets(fname) % e.getError()));
+                ctx().getLogManager()->message(str(F_("Error hashing %1%: %2%") % Util::addBrackets(fname) % e.getError()));
             }
         }
         {
@@ -1086,43 +1088,43 @@ int HashManager::Hasher::run() {
     return 0;
 }
 
-HashManager::HashPauser::HashPauser() {
-    resume = !HashManager::getInstance()->isHashingPaused();
+HashManager::HashPauser::HashPauser(DCContext& ctx) : ctx_(ctx) {
+    resume = !ctx_.getHashManager()->isHashingPaused();
 }
 
 HashManager::HashPauser::~HashPauser() {
     if(resume)
-        HashManager::getInstance()->resumeHashing();
+        ctx().getHashManager()->resumeHashing();
 }
 
-bool HashManager::pauseHashing() noexcept {
+bool HashManager::pauseHashing() {
     Lock l(cs);
     return hasher.pause();
 }
 
-void HashManager::resumeHashing() noexcept {
+void HashManager::resumeHashing() {
     Lock l(cs);
     hasher.resume();
 }
 
-bool HashManager::isHashingPaused() const noexcept {
+bool HashManager::isHashingPaused() const {
     Lock l(cs);
     return hasher.isPaused();
 }
 
-void HashManager::on(TimerManagerListener::Second, uint64_t tick) noexcept {
+void HashManager::on(TimerManagerListener::Second, uint64_t tick) {
     (void)tick;
     //fprintf(stdout,"%lld\n", tick); fflush(stdout);
     static bool firstcycle = true;
     if (firstcycle){
-        int delay = SETTING(HASHING_START_DELAY);
-        SettingsManager *SM = SettingsManager::getInstance();
+        int delay = CTX_SETTING(HASHING_START_DELAY);
+        SettingsManager *SM = ctx().getSettingsManager();
         if (delay > 1800){
             delay = 1800;
             SM->set(SettingsManager::HASHING_START_DELAY, delay);
         }
 
-        if (!ShareManager::getInstance()->isRefreshing()){
+        if (!ctx().getShareManager()->isRefreshing()){
             string  curFile;
             uint64_t bytesLeft;
             size_t  filesLeft = -1;

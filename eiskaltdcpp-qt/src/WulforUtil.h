@@ -6,6 +6,9 @@
 *   (at your option) any later version.                                   *
 *                                                                         *
 ***************************************************************************/
+/*
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
+ */
 
 #pragma once
 
@@ -14,7 +17,6 @@
 #include <QImage>
 #include <QMap>
 #include <QHash>
-#include <QTextCodec>
 #include <QTreeView>
 #include <QAbstractItemModel>
 //#include <QHttp>
@@ -32,8 +34,6 @@
 #define USERLIST_XPM_COLUMNS    9
 #define USERLIST_XPM_ROWS       32
 
-#define WICON(x)(WulforUtil::getInstance()->getPixmap((x)))
-
 using namespace dcpp;
 
 static const auto _q = [](const std::string &s) { return QString::fromStdString(s); };
@@ -41,16 +41,20 @@ static const auto _tq = [](const QString &s) { return s.toStdString(); };
 
 typedef QVariantMap VarMap;
 
+#include "QtContextAware.h"
+
 class WulforUtil :
         public QObject,
-        public dcpp::Singleton<WulforUtil>
+        public QtContextAware
 {
     Q_OBJECT
 
-friend class dcpp::Singleton<WulforUtil>;
+friend class QtContext;
 
 public:
-    Q_ENUMS (Icons)
+    explicit WulforUtil(dcpp::DCContext& ctx);
+    ~WulforUtil() override;
+
 
     enum Icons {
         eiADLS = 0,
@@ -129,6 +133,7 @@ public:
         eiFILETYPE_UNKNOWN,
         eiFILETYPE_VIDEO
     };
+    Q_ENUM(Icons)
 
     typedef QHash<qulonglong, QPixmap> PixmapMap;
 
@@ -149,7 +154,6 @@ public:
 
     void textToHtml(QString&,bool=true);
 
-    QTextCodec *codecForEncoding(const QString&);
     //Convert Qt encoding name to internal DC++ representation
     QString qtEnc2DcEnc(QString);
     QString dcEnc2QtEnc(QString);
@@ -190,9 +194,6 @@ public Q_SLOTS:
     bool openUrl(const QString&);
 
 private:
-
-    WulforUtil();
-    virtual ~WulforUtil();
 
     bool loadUserIconsFromFile(QString);
     void clearUserIconCache();

@@ -6,16 +6,17 @@
 *   (at your option) any later version.                                   *
 *                                                                         *
 ***************************************************************************/
+/*
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
+ */
 
 #include "TransferViewModel.h"
+#include "QtContextAware.h"
+#include "QtContext.h"
 
 #include "WulforUtil.h"
 
-#if QT_VERSION >= 0x050000
 #include <QtWidgets>
-#else
-#include <QtGui>
-#endif
 
 #include <QFileInfo>
 #include <QList>
@@ -96,11 +97,12 @@ QVariant TransferViewModel::data(const QModelIndex &index, int role) const
                 break;
 
             if (item->download && index.column() == COLUMN_TRANSFER_USERS)
-                return WICON(WulforUtil::eiDOWN).scaled(18, 18, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
+                return qtCtx()->wulforUtil()->getPixmap(WulforUtil::eiDOWN).scaled(18, 18, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
             else if (index.column() != COLUMN_TRANSFER_FNAME)
-                return WICON(WulforUtil::eiUP).scaled(18, 18, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
+                return qtCtx()->wulforUtil()->getPixmap(WulforUtil::eiUP).scaled(18, 18, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
             else
-                return WulforUtil::getInstance()->getPixmapForFile(item->data(COLUMN_TRANSFER_FNAME).toString()).scaled(16, 16);
+                return qtCtx()->wulforUtil()->getPixmapForFile(item->data(COLUMN_TRANSFER_FNAME).toString()).scaled(16, 16);
+            break;
         }
         case Qt::DisplayRole:
         {
@@ -133,7 +135,7 @@ QVariant TransferViewModel::data(const QModelIndex &index, int role) const
         {
             break;
         }
-        case Qt::BackgroundColorRole:
+        case Qt::BackgroundRole:
             break;
         case Qt::ToolTipRole:
         {
@@ -356,7 +358,7 @@ void TransferViewModel::addConnection(const VarMap &params){
     if (item->download && bGroup)
         item->target = vstr(params["TARGET"]);
 
-    transfer_hash.insertMulti(item->cid, item);
+    transfer_hash.insert(item->cid, item);
 
     if (showTranferedFilesOnly){
         if (vstr(params["FNAME"]).isEmpty() || (tr("File list") == params["FNAME"]) ){
@@ -745,10 +747,10 @@ void TransferViewItem::updateColumn(int column, QVariant var){
 TransferViewDelegate::TransferViewDelegate(QObject *parent):
         QStyledItemDelegate(parent)
 {
-    download_bar_color = qvariant_cast<QColor>(WVGET("transferview/download-bar-color", QColor()));
-    upload_bar_color = qvariant_cast<QColor>(WVGET("transferview/upload-bar-color", QColor()));
+    download_bar_color = qvariant_cast<QColor>(qtCtx()->settings()->getVar("transferview/download-bar-color", QColor()));
+    upload_bar_color = qvariant_cast<QColor>(qtCtx()->settings()->getVar("transferview/upload-bar-color", QColor()));
 
-    connect(WulforSettings::getInstance(), SIGNAL(varValueChanged(QString,QVariant)), this, SLOT(wsVarValueChanged(QString,QVariant)));
+    connect(qtCtx()->settings(), &WulforSettings::varValueChanged, this, &TransferViewDelegate::wsVarValueChanged);
 }
 
 TransferViewDelegate::~TransferViewDelegate(){
@@ -774,22 +776,34 @@ void TransferViewDelegate::paint(QPainter *painter, const QStyleOptionViewItem &
     const QString status = item->data(COLUMN_TRANSFER_STATS).toString();
 
     QStyleOptionProgressBar progressBarOption;
+    if (option.widget)
+        progressBarOption.initFrom(option.widget);
     progressBarOption.state = QStyle::State_Enabled;
     progressBarOption.direction = QApplication::layoutDirection();
     progressBarOption.rect = option.rect;
-    progressBarOption.fontMetrics = QApplication::fontMetrics();
+    progressBarOption.fontMetrics = option.fontMetrics;
     progressBarOption.minimum = 0;
     progressBarOption.maximum = 100;
     progressBarOption.textAlignment = Qt::AlignCenter;
-    progressBarOption.textVisible = true;
+    progressBarOption.textVisible = false;
     progressBarOption.palette = pal;
-    progressBarOption.text = status;
     progressBarOption.progress = static_cast<int>(percent);
 
     if (option.state & QStyle::State_Selected)
         painter->fillRect(option.rect, option.palette.highlight());
 
-    QApplication::style()->drawControl(QStyle::CE_ProgressBar, &progressBarOption, painter);
+    // Draw groove and contents separately, then render text manually
+    // to avoid Qt6 style engines positioning text outside the bar.
+    QApplication::style()->drawControl(QStyle::CE_ProgressBarGroove, &progressBarOption, painter);
+    QApplication::style()->drawControl(QStyle::CE_ProgressBarContents, &progressBarOption, painter);
+
+    painter->save();
+    if (option.state & QStyle::State_Selected)
+        painter->setPen(option.palette.highlightedText().color());
+    else
+        painter->setPen(option.palette.text().color());
+    painter->drawText(option.rect, Qt::AlignCenter, status);
+    painter->restore();
 #else
     const QString status = item->data(COLUMN_TRANSFER_STATS).toString();
 
@@ -799,6 +813,12 @@ void TransferViewDelegate::paint(QPainter *painter, const QStyleOptionViewItem &
 
     QApplication::style()->drawControl(QStyle::CE_ItemViewItem, &plainTextOption, painter);
 #endif
+}
+
+QSize TransferViewDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const{
+    QSize sz = QStyledItemDelegate::sizeHint(option, index);
+    sz.setHeight(qMax(sz.height(), option.fontMetrics.height() + 8));
+    return sz;
 }
 
 void TransferViewDelegate::wsVarValueChanged(const QString &key, const QVariant &val){

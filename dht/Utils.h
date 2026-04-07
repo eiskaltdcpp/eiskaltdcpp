@@ -21,6 +21,8 @@
 #include "dcpp/CID.h"
 #include "dcpp/MerkleTree.h"
 
+namespace dcpp { class DCContext; }
+
 namespace dht
 {
 
@@ -50,7 +52,7 @@ namespace dht
         static void trackOutgoingPacket(const string& ip, const AdcCommand& cmd);
 
         /** Generates UDP key for specified IP address */
-        static CID getUdpKey(const string& targetIp);
+        static CID getUdpKey(dcpp::DCContext& ctx, const string& targetIp);
 
         static const string& compressXML(string& xml);
 

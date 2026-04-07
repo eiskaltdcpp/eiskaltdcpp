@@ -1,5 +1,6 @@
 /*
  * Copyright © 2004-2010 Jens Oknelid, paskharen@gmail.com
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -25,11 +26,12 @@
 #include <dcpp/Util.h>
 #include <dcpp/StringTokenizer.h>
 #include <iostream>
-#include <arpa/inet.h>
 #include <fcntl.h>
 #include "settingsmanager.hh"
 #include "dcpp/StringTokenizer.h"
+#include "dcpp/DCPlusPlus.h"
 #ifdef HAVE_IFADDRS_H
+#include <arpa/inet.h>
 #include <ifaddrs.h>
 #include <net/if.h>
 #endif
@@ -131,48 +133,48 @@ vector<string> WulforUtil::getLocalIPs()
 }
 
 
-string WulforUtil::getNicks(const string &cid, const string& hintUrl)
+string WulforUtil::getNicks(dcpp::DCContext& ctx, const string &cid, const string& hintUrl)
 {
-    return getNicks(CID(cid), hintUrl);
+    return getNicks(ctx, CID(cid), hintUrl);
 }
 
-string WulforUtil::getNicks(const CID& cid, const string& hintUrl)
+string WulforUtil::getNicks(dcpp::DCContext& ctx, const CID& cid, const string& hintUrl)
 {
-    return Util::toString(ClientManager::getInstance()->getNicks(cid, hintUrl));
+    return Util::toString(ctx.getClientManager()->getNicks(cid, hintUrl));
 }
 
-string WulforUtil::getNicks(const UserPtr& user, const string& hintUrl)
+string WulforUtil::getNicks(dcpp::DCContext& ctx, const UserPtr& user, const string& hintUrl)
 {
-    return getNicks(user->getCID(), hintUrl);
+    return getNicks(ctx, user->getCID(), hintUrl);
 }
 
-string WulforUtil::getHubNames(const string &cid, const string& hintUrl)
+string WulforUtil::getHubNames(dcpp::DCContext& ctx, const string &cid, const string& hintUrl)
 {
-    return getHubNames(CID(cid), hintUrl);
+    return getHubNames(ctx, CID(cid), hintUrl);
 }
 
-string WulforUtil::getHubNames(const CID& cid, const string& hintUrl)
+string WulforUtil::getHubNames(dcpp::DCContext& ctx, const CID& cid, const string& hintUrl)
 {
-    StringList hubs = ClientManager::getInstance()->getHubNames(cid, hintUrl);
+    StringList hubs = ctx.getClientManager()->getHubNames(cid, hintUrl);
     if (hubs.empty())
         return _("Offline");
     else
         return Util::toString(hubs);
 }
 
-string WulforUtil::getHubNames(const UserPtr& user, const string& hintUrl)
+string WulforUtil::getHubNames(dcpp::DCContext& ctx, const UserPtr& user, const string& hintUrl)
 {
-    return getHubNames(user->getCID(), hintUrl);
+    return getHubNames(ctx, user->getCID(), hintUrl);
 }
 
-StringList WulforUtil::getHubAddress(const CID& cid, const string& hintUrl)
+StringList WulforUtil::getHubAddress(dcpp::DCContext& ctx, const CID& cid, const string& hintUrl)
 {
-    return ClientManager::getInstance()->getHubs(cid, hintUrl);
+    return ctx.getClientManager()->getHubs(cid, hintUrl);
 }
 
-StringList WulforUtil::getHubAddress(const UserPtr& user, const string& hintUrl)
+StringList WulforUtil::getHubAddress(dcpp::DCContext& ctx, const UserPtr& user, const string& hintUrl)
 {
-    return getHubAddress(user->getCID(), hintUrl);
+    return getHubAddress(ctx, user->getCID(), hintUrl);
 }
 
 string WulforUtil::getTextFromMenu(GtkMenuItem *item)
@@ -227,12 +229,13 @@ vector<string>& WulforUtil::getCharsets()
     return charsets;
 }
 
-void WulforUtil::openURI(const string &uri)
+void WulforUtil::openURI(dcpp::DCContext& ctx, const string &uri)
 {
     GError* error = NULL;
     gchar *argv[3];
-    if (!SETTING(MIME_HANDLER).empty())
-        argv[0] = (gchar *)(SETTING(MIME_HANDLER)).c_str();
+    auto* sm = ctx.getSettingsManager();
+    if (!sm->get(SettingsManager::MIME_HANDLER, true).empty())
+        argv[0] = (gchar *)(sm->get(SettingsManager::MIME_HANDLER, true)).c_str();
     else
 #if defined(__APPLE__) && defined(__MACH__)
         argv[0] = (gchar *)"open";
@@ -413,6 +416,11 @@ bool WulforUtil::profileIsLocked()
     if (profileIsLocked)
         return true;
 
+#ifdef _WIN32
+    // POSIX advisory file locking (fcntl/flock) is not available on Windows.
+    // On Windows, always report the profile as not locked.
+    return false;
+#else
     // We can't use Util::getConfigPath() since the core has not been started yet.
     // Also, Util::getConfigPath() is utf8 and we need system encoding for g_open().
     string configPath;
@@ -447,6 +455,7 @@ bool WulforUtil::profileIsLocked()
     }
 
     return profileIsLocked;
+#endif /* !_WIN32 */
 }
 
 
@@ -530,7 +539,7 @@ void WulforUtil::registerIcons()
 {
     // Holds a mapping of custom icon names -> stock icon names.
     // Not all icons have stock representations.
-    WulforSettingsManager *wsm = WulforSettingsManager::getInstance();
+    WulforSettingsManager *wsm = wulforSettingsInstance();
     map<string, string> icons;
     icons["eiskaltdcpp"] = "eiskaltdcpp";
     icons["icon_msg"] = wsm->getString("icon_msg");

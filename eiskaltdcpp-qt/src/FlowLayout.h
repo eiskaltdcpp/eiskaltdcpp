@@ -1,6 +1,7 @@
 /****************************************************************************
 **
 ** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -47,11 +48,7 @@
 #include <QWidgetItem>
 #include <QStyle>
 
-#if QT_VERSION >= 0x050000
 #include <QtWidgets>
-#else
-#include <QtGui>
-#endif
 
 class FlowLayout : public QLayout
 {

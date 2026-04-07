@@ -45,10 +45,32 @@ macro(GETTEXT_FIND_POTENTIAL_DIRS)
       "${GETTEXT_INCLUDE_DIR}"
       "${GETTEXT_SEARCH_PATH}"
       )
-    set(potential_bin_dirs ${potential_bin_dirs} "${path}/../bin")
-    set(potential_lib_dirs ${potential_lib_dirs} "${path}/../lib")
-    set(potential_include_dirs ${potential_include_dirs} "${path}/../include")
+    set(potential_bin_dirs ${potential_bin_dirs} "${path}/../bin" "${path}/bin")
+    set(potential_lib_dirs ${potential_lib_dirs} "${path}/../lib" "${path}/lib")
+    set(potential_include_dirs ${potential_include_dirs} "${path}/../include" "${path}/include")
   endforeach(path)
+
+  # Also search vcpkg-style tool directories and CMAKE_PREFIX_PATH
+  foreach(prefix ${CMAKE_PREFIX_PATH})
+    set(potential_bin_dirs ${potential_bin_dirs}
+      "${prefix}/bin"
+      "${prefix}/tools/gettext/bin"
+      "${prefix}/tools/gettext")
+    set(potential_lib_dirs ${potential_lib_dirs} "${prefix}/lib")
+    set(potential_include_dirs ${potential_include_dirs} "${prefix}/include")
+  endforeach()
+  if(GETTEXT_SEARCH_PATH)
+    set(potential_bin_dirs ${potential_bin_dirs}
+      "${GETTEXT_SEARCH_PATH}/tools/gettext/bin"
+      "${GETTEXT_SEARCH_PATH}/tools/gettext")
+  endif()
+
+  # On Windows, also search MSYS2 and Git-for-Windows which bundle gettext tools
+  if(WIN32)
+    set(potential_bin_dirs ${potential_bin_dirs}
+      "C:/msys64/usr/bin"
+      "$ENV{ProgramFiles}/Git/usr/bin")
+  endif()
 
 endmacro(GETTEXT_FIND_POTENTIAL_DIRS)
 
@@ -68,6 +90,9 @@ macro(GETTEXT_FIND_RUNTIME_LIBRARY)
   mark_as_advanced(GETTEXT_INCLUDE_DIR)
   if(NOT GETTEXT_INCLUDE_DIR)
     set(GETTEXT_RUNTIME_FOUND 0)
+    message(STATUS "[FindGettext] libintl.h NOT found. Searched: ${potential_include_dirs}")
+  else()
+    message(STATUS "[FindGettext] libintl.h found at: ${GETTEXT_INCLUDE_DIR}")
   endif(NOT GETTEXT_INCLUDE_DIR)
 
   set(GETTEXT_LIBRARIES)
@@ -89,11 +114,14 @@ macro(GETTEXT_FIND_RUNTIME_LIBRARY)
       "Path to gettext intl library (leave it empty to use the system one)")
   else(HAVE_GETTEXT)
     find_library(GETTEXT_INTL_LIBRARY
-      NAMES intl
+      NAMES intl libintl
       PATHS ${potential_lib_dirs}
       DOC "Path to gettext intl library")
     if(NOT GETTEXT_INTL_LIBRARY)
       set(GETTEXT_RUNTIME_FOUND 0)
+      message(STATUS "[FindGettext] intl library NOT found. Searched names: intl libintl. Searched paths: ${potential_lib_dirs}")
+    else()
+      message(STATUS "[FindGettext] intl library found at: ${GETTEXT_INTL_LIBRARY}")
     endif(NOT GETTEXT_INTL_LIBRARY)
   endif(HAVE_GETTEXT)
 
@@ -151,6 +179,9 @@ macro(GETTEXT_FIND_TOOLS)
     mark_as_advanced(GETTEXT_${tool_upper}_EXECUTABLE)
     if(NOT GETTEXT_${tool_upper}_EXECUTABLE)
       set(GETTEXT_TOOLS_FOUND 0)
+      message(STATUS "[FindGettext] ${tool} NOT found. Searched paths: ${potential_bin_dirs}")
+    else()
+      message(STATUS "[FindGettext] ${tool} found at: ${GETTEXT_${tool_upper}_EXECUTABLE}")
     endif(NOT GETTEXT_${tool_upper}_EXECUTABLE)
   endforeach(tool)
 endmacro(GETTEXT_FIND_TOOLS)
@@ -186,6 +217,12 @@ if(GETTEXT_RUNTIME_FOUND AND GETTEXT_TOOLS_FOUND)
 else(GETTEXT_RUNTIME_FOUND AND GETTEXT_TOOLS_FOUND)
   set(GETTEXT_FOUND 0)
 endif(GETTEXT_RUNTIME_FOUND AND GETTEXT_TOOLS_FOUND)
+
+message(STATUS "[FindGettext] Summary: RUNTIME_FOUND=${GETTEXT_RUNTIME_FOUND} TOOLS_FOUND=${GETTEXT_TOOLS_FOUND}")
+message(STATUS "[FindGettext] GETTEXT_INCLUDE_DIR=${GETTEXT_INCLUDE_DIR}")
+message(STATUS "[FindGettext] GETTEXT_INTL_LIBRARY=${GETTEXT_INTL_LIBRARY}")
+message(STATUS "[FindGettext] GETTEXT_SEARCH_PATH=${GETTEXT_SEARCH_PATH}")
+message(STATUS "[FindGettext] CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}")
 
 if(NOT GETTEXT_FOUND AND NOT Gettext_FIND_QUIETLY AND Gettext_FIND_REQUIRED)
   message(FATAL_ERROR "Could not find gettext runtime library and tools for internationalization purposes.\n\n${GETTEXT_INFO_MSG}")

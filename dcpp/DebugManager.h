@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2009-2019 EiskaltDC++ developers
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,10 +18,11 @@
 
 #pragma once
 
-#include "Singleton.h"
+#include "DCContext.h"
 #include "TimerManager.h"
 #include "LogManager.h"
 #include "SettingsManager.h"
+#include "DCPlusPlus.h"
 
 namespace dcpp {
 
@@ -31,20 +33,20 @@ public:
     typedef X<0> DebugCommand;
     typedef X<1> DebugDetection;
 
-    virtual void on(DebugDetection, const string&) noexcept { }
-    virtual void on(DebugCommand, const string&, int, const string&) noexcept { }
+    virtual void on(DebugDetection, const string&) { }
+    virtual void on(DebugCommand, const string&, int, const string&) { }
 };
 
-class DebugManager : public Singleton<DebugManager>, public Speaker<DebugManagerListener> {
+class DebugManager : public Speaker<DebugManagerListener>, public ContextAware {
 public:
     void SendCommandMessage(const string& mess, int typeDir, const string& ip) {
         fire(DebugManagerListener::DebugCommand(), mess, typeDir, ip);
-        if (BOOLSETTING(LOG_CMD_DEBUG)) {
+        if (CTX_BOOLSETTING(LOG_CMD_DEBUG)) {
             dcpp::StringMap params;
             params["cmd"] = mess;
             params["ip"] = ip;
             params["type"] = typeDirToString(typeDir);
-            LOG(LogManager::CMD_DEBUG, params);
+            CTX_LOG(LogManager::CMD_DEBUG, params);
         }
     }
     void SendDetectionMessage(const string& mess) {
@@ -57,13 +59,15 @@ public:
 #endif
     };
 
+public:
+    explicit DebugManager(DCContext& ctx) : ContextAware(ctx) { };
+    virtual ~DebugManager() { };
+
 private:
-    friend class Singleton<DebugManager>;
-    DebugManager() noexcept { };
-    ~DebugManager() noexcept { };
     static string typeDirToString(int typeDir);
 };
-#define COMMAND_DEBUG(a,b,c) if (DebugManager::getInstance()) DebugManager::getInstance()->SendCommandMessage(a,b,c);
-#define DETECTION_DEBUG(m) if (DebugManager::getInstance()) DebugManager::getInstance()->SendDetectionMessage(m);
+// Context-aware versions — for use inside ContextAware member functions
+#define CTX_COMMAND_DEBUG(a,b,c) if (this->ctx().getDebugManager()) this->ctx().getDebugManager()->SendCommandMessage(a,b,c);
+#define CTX_DETECTION_DEBUG(m) if (this->ctx().getDebugManager()) this->ctx().getDebugManager()->SendDetectionMessage(m);
 
 } // namespace dcpp

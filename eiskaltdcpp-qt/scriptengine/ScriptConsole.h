@@ -6,11 +6,15 @@
 *   (at your option) any later version.                                   *
 *                                                                         *
 ***************************************************************************/
+/*
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
+ */
 
 #pragma once
 
-#include <QtScript/QScriptEngine>
-#include <QtScript/QScriptValue>
+#include <QJSEngine>
+#include <QJSValue>
+#include "ConsolePrinter.h"
 #include <QDialog>
 
 #include "ui_UIDialogScriptConsole.h"
@@ -27,5 +31,6 @@ private Q_SLOTS:
     void stopEvaluation();
 
 private:
-    QScriptEngine engine;
+    QJSEngine engine;
+    ConsolePrinter *printer = nullptr;
 };

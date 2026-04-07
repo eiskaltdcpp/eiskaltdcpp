@@ -6,8 +6,13 @@
 *   (at your option) any later version.                                   *
 *                                                                         *
 ***************************************************************************/
+/*
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
+ */
 
 #include "PMWindow.h"
+#include "QtContextAware.h"
+#include "QtContext.h"
 #include "WulforSettings.h"
 #include "WulforUtil.h"
 #include "HubManager.h"
@@ -22,6 +27,7 @@
 #include "dcpp/ClientManager.h"
 #include "dcpp/QueueManager.h"
 #include "dcpp/User.h"
+#include "dcpp/DCPlusPlus.h"
 
 #include <QTextBlock>
 #include <QTextDocument>
@@ -64,11 +70,11 @@ PMWindow::PMWindow(const QString &cid_, const QString &hubUrl_):
     QSize sz;
     Q_UNUSED(sz);
 
-    if (EmoticonFactory::getInstance())
-        EmoticonFactory::getInstance()->fillLayout(frame_SMILES->layout(), sz);
+    if (qtCtx()->emoticonFactory())
+        qtCtx()->emoticonFactory()->fillLayout(frame_SMILES->layout(), sz);
 
     for (const auto &l : frame_SMILES->findChildren<EmoticonLabel*>())
-        connect(l, SIGNAL(clicked()), this, SLOT(slotSmileClicked()));
+        connect(l, &EmoticonLabel::clicked, this, &PMWindow::slotSmileClicked);
 
     setAttribute(Qt::WA_DeleteOnClose);
 
@@ -82,34 +88,34 @@ PMWindow::PMWindow(const QString &cid_, const QString &hubUrl_):
 
     textEdit_CHAT->viewport()->installEventFilter(this);
     textEdit_CHAT->viewport()->setMouseTracking(true);
-    textEdit_CHAT->document()->setMaximumBlockCount(WIGET(WI_CHAT_MAXPARAGRAPHS));
+    textEdit_CHAT->document()->setMaximumBlockCount(qtCtx()->settings()->getInt(WI_CHAT_MAXPARAGRAPHS));
     textEdit_CHAT->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    textEdit_CHAT->setTabStopWidth(40);
+    textEdit_CHAT->setTabStopDistance(40);
 
     frame_2->setVisible(false);
 
     updateStyles();
 
-    if (WBGET(WB_APP_ENABLE_EMOTICON) && EmoticonFactory::getInstance())
-        EmoticonFactory::getInstance()->addEmoticons(textEdit_CHAT->document());
+    if (qtCtx()->settings()->getBool(WB_APP_ENABLE_EMOTICON) && qtCtx()->emoticonFactory())
+        qtCtx()->emoticonFactory()->addEmoticons(textEdit_CHAT->document());
 
-    toolButton_SMILE->setVisible(WBGET(WB_APP_ENABLE_EMOTICON) && EmoticonFactory::getInstance());
-    toolButton_SMILE->setIcon(WICON(WulforUtil::eiEMOTICON));
+    toolButton_SMILE->setVisible(qtCtx()->settings()->getBool(WB_APP_ENABLE_EMOTICON) && qtCtx()->emoticonFactory());
+    toolButton_SMILE->setIcon(qtCtx()->wulforUtil()->getPixmap(WulforUtil::eiEMOTICON));
     toolButton_SMILE->setContextMenuPolicy(Qt::CustomContextMenu);
 
     toolButton_ALL->setCheckable(true);
 
-    toolButton_HIDE->setIcon(WICON(WulforUtil::eiEDITDELETE));
+    toolButton_HIDE->setIcon(qtCtx()->wulforUtil()->getPixmap(WulforUtil::eiEDITDELETE));
 
     arena_menu = new QMenu(tr("Private message"));
-    QAction *close_wnd = new QAction(WICON(WulforUtil::eiFILECLOSE), tr("Close"), arena_menu);
+    QAction *close_wnd = new QAction(qtCtx()->wulforUtil()->getPixmap(WulforUtil::eiFILECLOSE), tr("Close"), arena_menu);
     arena_menu->addAction(close_wnd);
 
-    if (!WSGET("hubframe/chat-background-color", "").isEmpty()){
+    if (!qtCtx()->settings()->getStr("hubframe/chat-background-color", "").isEmpty()){
         QPalette p = textEdit_CHAT->palette();
         QColor clr = p.color(QPalette::Active, QPalette::Base);
 
-        clr.setNamedColor(WSGET("hubframe/chat-background-color"));
+        clr.setNamedColor(qtCtx()->settings()->getStr("hubframe/chat-background-color"));
 
         if (clr.isValid()){
             p.setColor(QPalette::Base, clr);
@@ -118,19 +124,19 @@ PMWindow::PMWindow(const QString &cid_, const QString &hubUrl_):
         }
     }
 
-    connect(close_wnd, SIGNAL(triggered()), this, SLOT(slotClose()));
-    connect(pushButton_HUB, SIGNAL(clicked()), this, SLOT(slotHub()));
-    connect(pushButton_SHARE, SIGNAL(clicked()), this, SLOT(slotShare()));
-    connect(toolButton_SMILE, SIGNAL(clicked()), this, SLOT(slotSmile()));
-    connect(toolButton_SMILE, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotSmileContextMenu()));
-    connect(plainTextEdit_INPUT, SIGNAL(textChanged()), this, SIGNAL(inputTextChanged()));
-    connect(plainTextEdit_INPUT, SIGNAL(customContextMenuRequested(QPoint)), this, SIGNAL(inputTextMenu()));
-    connect(WulforSettings::getInstance(), SIGNAL(strValueChanged(QString,QString)), this, SLOT(slotSettingChanged(QString,QString)));
-    connect(lineEdit_FIND, SIGNAL(textChanged(QString)), this, SLOT(slotFindTextEdited(QString)));
-    connect(toolButton_HIDE, SIGNAL(clicked()), this, SLOT(slotHideSearchBar()));
-    connect(toolButton_BACK, SIGNAL(clicked()), this, SLOT(slotFindBackward()));
-    connect(toolButton_FORWARD, SIGNAL(clicked()), this, SLOT(slotFindForward()));
-    connect(toolButton_ALL, SIGNAL(clicked()), this, SLOT(slotFindAll()));
+    connect(close_wnd, &QAction::triggered, this, &PMWindow::slotClose);
+    connect(pushButton_HUB, &QPushButton::clicked, this, &PMWindow::slotHub);
+    connect(pushButton_SHARE, &QPushButton::clicked, this, &PMWindow::slotShare);
+    connect(toolButton_SMILE, &QToolButton::clicked, this, &PMWindow::slotSmile);
+    connect(toolButton_SMILE, &QToolButton::customContextMenuRequested, this, &PMWindow::slotSmileContextMenu);
+    connect(plainTextEdit_INPUT, &QTextEdit::textChanged, this, &PMWindow::inputTextChanged);
+    connect(plainTextEdit_INPUT, &QWidget::customContextMenuRequested, this, &PMWindow::inputTextMenu);
+    connect(qtCtx()->settings(), &WulforSettings::strValueChanged, this, &PMWindow::slotSettingChanged);
+    connect(lineEdit_FIND, &QLineEdit::textChanged, this, &PMWindow::slotFindTextEdited);
+    connect(toolButton_HIDE, &QToolButton::clicked, this, &PMWindow::slotHideSearchBar);
+    connect(toolButton_BACK, &QToolButton::clicked, this, &PMWindow::slotFindBackward);
+    connect(toolButton_FORWARD, &QToolButton::clicked, this, &PMWindow::slotFindForward);
+    connect(toolButton_ALL, &QToolButton::clicked, this, &PMWindow::slotFindAll);
 
     out_messages_index = 0;
     out_messages_unsent = false;
@@ -147,7 +153,7 @@ PMWindow::~PMWindow(){
 }
 
 void PMWindow::slotClose() {
-    ArenaWidgetManager::getInstance()->rem(this);
+    qtCtx()->arenaWidgetManager()->rem(this);
 }
 
 bool PMWindow::eventFilter(QObject *obj, QEvent *e){
@@ -173,7 +179,7 @@ bool PMWindow::eventFilter(QObject *obj, QEvent *e){
 
         if (static_cast<QTextEdit*>(obj) == plainTextEdit_INPUT)
         {
-            const bool useCtrlEnter = WBGET(WB_USE_CTRL_ENTER);
+            const bool useCtrlEnter = qtCtx()->settings()->getBool(WB_USE_CTRL_ENTER);
             const bool keyEnter = (k_e->key() == Qt::Key_Enter || k_e->key() == Qt::Key_Return);
             const bool shiftModifier = (k_e->modifiers() == Qt::ShiftModifier);
 
@@ -182,7 +188,7 @@ bool PMWindow::eventFilter(QObject *obj, QEvent *e){
             {
                 const QString msg = plainTextEdit_INPUT->toPlainText();
 
-                HubFrame *fr = qobject_cast<HubFrame*>(HubManager::getInstance()->getHub(hubUrl));
+                HubFrame *fr = qobject_cast<HubFrame*>(qtCtx()->hubManager()->getHub(hubUrl));
 
                 if (fr) {
                     if (!fr->parseForCmd(msg, this))
@@ -217,7 +223,7 @@ bool PMWindow::eventFilter(QObject *obj, QEvent *e){
         if ((static_cast<QWidget*>(obj) == textEdit_CHAT->viewport()) && (m_e->button() == Qt::LeftButton)){
             QString pressedParagraph = textEdit_CHAT->anchorAt(textEdit_CHAT->mapFromGlobal(QCursor::pos()));
 
-            WulforUtil::getInstance()->openUrl(pressedParagraph);
+            qtCtx()->wulforUtil()->openUrl(pressedParagraph);
         }
     }
     else if (e->type() == QEvent::MouseMove && (static_cast<QWidget*>(obj) == textEdit_CHAT->viewport())){
@@ -229,7 +235,7 @@ bool PMWindow::eventFilter(QObject *obj, QEvent *e){
             textEdit_CHAT->viewport()->setCursor(Qt::IBeamCursor);
     }
     else if (e->type() == QEvent::MouseButtonDblClick){
-        HubFrame *fr = qobject_cast<HubFrame*>(HubManager::getInstance()->getHub(hubUrl));
+        HubFrame *fr = qobject_cast<HubFrame*>(qtCtx()->hubManager()->getHub(hubUrl));
         bool cursoratnick = false;
         QString nick = "",nickstatus="",nickmessage="";
         QString cid = "";
@@ -264,13 +270,13 @@ bool PMWindow::eventFilter(QObject *obj, QEvent *e){
             cursoratnick = true;
 
         if (!cid.isEmpty()){
-            if (WIGET(WI_CHAT_DBLCLICK_ACT) == 1 && fr && cursoratnick)
+            if (qtCtx()->settings()->getInt(WI_CHAT_DBLCLICK_ACT) == 1 && fr && cursoratnick)
                     fr->browseUserFiles(cid, false);
-            else if (WIGET(WI_CHAT_DBLCLICK_ACT) == 2 && fr && cursoratnick)
+            else if (qtCtx()->settings()->getInt(WI_CHAT_DBLCLICK_ACT) == 2 && fr && cursoratnick)
                     fr->addPM(cid, "");
             else if (textEdit_CHAT->anchorAt(textEdit_CHAT->mapFromGlobal(QCursor::pos())).startsWith("user://")){
                 if(!plainTextEdit_INPUT->textCursor().position())
-                    plainTextEdit_INPUT->textCursor().insertText(nick + WSGET(WS_CHAT_SEPARATOR) + " ");
+                    plainTextEdit_INPUT->textCursor().insertText(nick + qtCtx()->settings()->getStr(WS_CHAT_SEPARATOR) + " ");
                 else
                     plainTextEdit_INPUT->textCursor().insertText(nick + " ");
 
@@ -297,7 +303,7 @@ void PMWindow::showEvent(QShowEvent *e){
     if (isVisible()){
         hasMessages = false;
         hasHighlightMessages = false;
-        MainWindow::getInstance()->redrawToolPanel();
+        qtCtx()->mainWindow()->redrawToolPanel();
     }
 }
 
@@ -306,7 +312,7 @@ void PMWindow::slotActivate(){
 }
 
 QString PMWindow::getArenaTitle(){
-    QString nick = (cid.length() > 24)? WulforUtil::getInstance()->getNickViaOnlineUser(cid, hubUrl) : cid;
+    QString nick = (cid.length() > 24)? qtCtx()->wulforUtil()->getNickViaOnlineUser(cid, hubUrl) : cid;
 
     nick_ = nick.isEmpty()? nick_ : nick;
 
@@ -314,7 +320,7 @@ QString PMWindow::getArenaTitle(){
 }
 
 QString PMWindow::getArenaShortTitle(){
-    QString nick = (cid.length() > 24)? WulforUtil::getInstance()->getNickViaOnlineUser(cid, hubUrl) : cid;
+    QString nick = (cid.length() > 24)? qtCtx()->wulforUtil()->getNickViaOnlineUser(cid, hubUrl) : cid;
 
     nick_ = nick.isEmpty()? nick_ : nick;
 
@@ -331,11 +337,11 @@ QMenu *PMWindow::getMenu(){
 
 const QPixmap &PMWindow::getPixmap(){
     if (hasHighlightMessages)
-        return WICON(WulforUtil::eiMESSAGE);
+        return qtCtx()->wulforUtil()->getPixmap(WulforUtil::eiMESSAGE);
     else if (hasMessages)
-        return WICON(WulforUtil::eiPMMSG);
+        return qtCtx()->wulforUtil()->getPixmap(WulforUtil::eiPMMSG);
     else
-        return WICON(WulforUtil::eiUSERS);
+        return qtCtx()->wulforUtil()->getPixmap(WulforUtil::eiUSERS);
 }
 
 ArenaWidget::Role PMWindow::role() const {
@@ -360,12 +366,12 @@ void PMWindow::clearChat(){
 
     updateStyles();
 
-    if (WBGET(WB_APP_ENABLE_EMOTICON) && EmoticonFactory::getInstance())
-        EmoticonFactory::getInstance()->addEmoticons(textEdit_CHAT->document());
+    if (qtCtx()->settings()->getBool(WB_APP_ENABLE_EMOTICON) && qtCtx()->emoticonFactory())
+        qtCtx()->emoticonFactory()->addEmoticons(textEdit_CHAT->document());
 }
 
 void PMWindow::updateStyles(){
-    QString custom_font_desc = WSGET(WS_CHAT_PM_FONT);
+    QString custom_font_desc = qtCtx()->settings()->getStr(WS_CHAT_PM_FONT);
     QFont custom_font;
 
     if (!custom_font_desc.isEmpty() && custom_font.fromString(custom_font_desc)){
@@ -388,11 +394,11 @@ void PMWindow::addStatusMessage(const QString &msg){
     QString nick = "";
     QString time = "";
 
-    if (!WSGET(WS_CHAT_TIMESTAMP).isEmpty())
-        time = "[" + QDateTime::currentDateTime().toString(WSGET(WS_CHAT_TIMESTAMP)) + "]";
+    if (!qtCtx()->settings()->getStr(WS_CHAT_TIMESTAMP).isEmpty())
+        time = "[" + QDateTime::currentDateTime().toString(qtCtx()->settings()->getStr(WS_CHAT_TIMESTAMP)) + "]";
 
     status = time + status;
-    status += "<font color=\"" + WulforSettings::getInstance()->getStr(WS_CHAT_STAT_COLOR) + "\"><b>" + nick + "</b> </font>: ";
+    status += "<font color=\"" + qtCtx()->settings()->getStr(WS_CHAT_STAT_COLOR) + "\"><b>" + nick + "</b> </font>: ";
     status += msg;
 
     addOutput(status);
@@ -402,19 +408,19 @@ void PMWindow::addStatus(QString msg){
     QString status = "";
     QString nick    = " * ";
 
-    WulforUtil::getInstance()->textToHtml(msg, true);
-    WulforUtil::getInstance()->textToHtml(nick, true);
+    qtCtx()->wulforUtil()->textToHtml(msg, true);
+    qtCtx()->wulforUtil()->textToHtml(nick, true);
 
-    msg             = "<font color=\"" + WSGET(WS_CHAT_MSG_COLOR) + "\">" + msg + "</font>";
+    msg             = "<font color=\"" + qtCtx()->settings()->getStr(WS_CHAT_MSG_COLOR) + "\">" + msg + "</font>";
     QString time    = "";
 
-    if (!WSGET(WS_CHAT_TIMESTAMP).isEmpty())
-        time = "<font color=\""+WSGET(WS_CHAT_TIME_COLOR)+">["+QDateTime::currentDateTime().toString(WSGET(WS_CHAT_TIMESTAMP))+"]</font>";
+    if (!qtCtx()->settings()->getStr(WS_CHAT_TIMESTAMP).isEmpty())
+        time = "<font color=\""+qtCtx()->settings()->getStr(WS_CHAT_TIME_COLOR)+">["+QDateTime::currentDateTime().toString(qtCtx()->settings()->getStr(WS_CHAT_TIMESTAMP))+"]</font>";
 
-    status = time + "<font color=\"" + WSGET(WS_CHAT_STAT_COLOR) + "\"><b>" + nick + "</b> </font>";
+    status = time + "<font color=\"" + qtCtx()->settings()->getStr(WS_CHAT_STAT_COLOR) + "\"><b>" + nick + "</b> </font>";
     status += msg;
 
-    WulforUtil::getInstance()->textToHtml(status, false);
+    qtCtx()->wulforUtil()->textToHtml(status, false);
 
     addOutput(status);
 }
@@ -426,7 +432,7 @@ void PMWindow::addOutput(QString msg){
 
     if (!isVisible()) {
         hasMessages = true;
-        MainWindow::getInstance()->redrawToolPanel();
+        qtCtx()->mainWindow()->redrawToolPanel();
     }
 }
 
@@ -441,7 +447,7 @@ void PMWindow::addUserData(const QString &nick){
 }
 
 void PMWindow::sendMessage(QString msg, const bool thirdPerson, const bool stripNewLines){
-    UserPtr user = ClientManager::getInstance()->findUser(CID(cid.toStdString()));
+    UserPtr user = qtCtx()->dcCtx().getClientManager()->findUser(CID(cid.toStdString()));
 
     if (user && user->isOnline()){
 
@@ -451,7 +457,7 @@ void PMWindow::sendMessage(QString msg, const bool thirdPerson, const bool strip
         if (msg.isEmpty() || msg == "\n")
             return;
 
-        ClientManager::getInstance()->privateMessage(HintedUser(user, _tq(hubUrl)), _tq(msg), thirdPerson);
+        qtCtx()->dcCtx().getClientManager()->privateMessage(HintedUser(user, _tq(hubUrl)), _tq(msg), thirdPerson);
     }
     else {
         addStatusMessage(tr("User went offline"));
@@ -464,7 +470,7 @@ void PMWindow::sendMessage(QString msg, const bool thirdPerson, const bool strip
 
     out_messages << msg;
 
-    if (out_messages.size() > WIGET(WI_OUT_IN_HIST))
+    if (out_messages.size() > qtCtx()->settings()->getInt(WI_OUT_IN_HIST))
         out_messages.removeFirst();
 
     out_messages_index = out_messages.size()-1;
@@ -531,10 +537,10 @@ void PMWindow::prevMsg(){
 }
 
 void PMWindow::slotHub(){
-    HubFrame *fr = qobject_cast<HubFrame*>(HubManager::getInstance()->getHub(hubUrl));
+    HubFrame *fr = qobject_cast<HubFrame*>(qtCtx()->hubManager()->getHub(hubUrl));
 
     if (fr)
-        ArenaWidgetManager::getInstance()->activate(fr);
+        qtCtx()->arenaWidgetManager()->activate(fr);
 }
 
 void PMWindow::slotShare(){
@@ -542,13 +548,13 @@ void PMWindow::slotShare(){
 
     if (!cid.empty()){
         try{
-            UserPtr user = ClientManager::getInstance()->findUser(CID(cid));
+            UserPtr user = qtCtx()->dcCtx().getClientManager()->findUser(CID(cid));
 
             if (user){
-                if (user == ClientManager::getInstance()->getMe())
-                    MainWindow::getInstance()->browseOwnFiles();
+                if (user == qtCtx()->dcCtx().getClientManager()->getMe())
+                    qtCtx()->mainWindow()->browseOwnFiles();
                 else
-                    QueueManager::getInstance()->addList(HintedUser(user, _tq(hubUrl)), QueueItem::FLAG_CLIENT_VIEW, "");
+                    qtCtx()->dcCtx().getQueueManager()->addList(HintedUser(user, _tq(hubUrl)), QueueItem::FLAG_CLIENT_VIEW, "");
             }
         }
         catch (const Exception &e){}
@@ -556,10 +562,10 @@ void PMWindow::slotShare(){
 }
 
 void PMWindow::slotSmile(){
-    if (!(WBGET(WB_APP_ENABLE_EMOTICON) && EmoticonFactory::getInstance()))
+    if (!(qtCtx()->settings()->getBool(WB_APP_ENABLE_EMOTICON) && qtCtx()->emoticonFactory()))
         return;
 
-    if (WBGET(WB_CHAT_USE_SMILE_PANEL)){
+    if (qtCtx()->settings()->getBool(WB_CHAT_USE_SMILE_PANEL)){
         frame_SMILES->setVisible(!frame_SMILES->isVisible());
     }
     else {
@@ -610,7 +616,7 @@ void PMWindow::slotSmileClicked(){
         plainTextEdit_INPUT->setFocus();
     }
 
-    if (WBGET(WB_CHAT_HIDE_SMILE_PANEL))
+    if (qtCtx()->settings()->getBool(WB_CHAT_HIDE_SMILE_PANEL))
         frame_SMILES->setVisible(false);
 }
 
@@ -619,13 +625,13 @@ void PMWindow::slotSmileContextMenu(){
     QMenu *m = new QMenu(this);
     QAction * a = nullptr;
 
-    for (const auto &f : QDir(WulforUtil::getInstance()->getEmoticonsPath())
+    for (const auto &f : QDir(qtCtx()->wulforUtil()->getEmoticonsPath())
                               .entryList(QDir::Dirs | QDir::NoSymLinks | QDir::NoDotAndDotDot)){
         if (!f.isEmpty()){
             QAction * act = m->addAction(f);
             act->setCheckable(true);
 
-            if (f == WSGET(WS_APP_EMOTICON_THEME))
+            if (f == qtCtx()->settings()->getStr(WS_APP_EMOTICON_THEME))
                 act->setChecked(true);
         }
     }
@@ -633,7 +639,7 @@ void PMWindow::slotSmileContextMenu(){
     a = m->exec(QCursor::pos());
 
     if (a && a->isChecked())
-        WSSET(WS_APP_EMOTICON_THEME, a->text());
+        qtCtx()->settings()->setStr(WS_APP_EMOTICON_THEME, a->text());
 }
 
 void PMWindow::slotSettingChanged(const QString &key, const QString &value){
@@ -642,8 +648,8 @@ void PMWindow::slotSettingChanged(const QString &key, const QString &value){
     if (key == WS_CHAT_PM_FONT)
         updateStyles();
     else if (key == WS_APP_EMOTICON_THEME){
-        if (EmoticonFactory::getInstance()){
-            EmoticonFactory::getInstance()->load();
+        if (qtCtx()->emoticonFactory()){
+            qtCtx()->emoticonFactory()->load();
 
             frame_SMILES->setVisible(false);
 
@@ -652,13 +658,13 @@ void PMWindow::slotSettingChanged(const QString &key, const QString &value){
             QSize sz;
             Q_UNUSED(sz);
 
-            EmoticonFactory::getInstance()->fillLayout(frame_SMILES->layout(), sz);
+            qtCtx()->emoticonFactory()->fillLayout(frame_SMILES->layout(), sz);
 
             for (const auto &l : frame_SMILES->findChildren<EmoticonLabel*>())
-                connect(l, SIGNAL(clicked()), this, SLOT(slotSmileClicked()));
+                connect(l, &EmoticonLabel::clicked, this, &PMWindow::slotSmileClicked);
         }
 
-        toolButton_SMILE->setVisible(!value.isEmpty() && WBGET(WB_APP_ENABLE_EMOTICON) && EmoticonFactory::getInstance());
+        toolButton_SMILE->setVisible(!value.isEmpty() && qtCtx()->settings()->getBool(WB_APP_ENABLE_EMOTICON) && qtCtx()->emoticonFactory());
     }
     else if (key == "hubframe/chat-background-color"){
         QPalette p = textEdit_CHAT->palette();
@@ -704,7 +710,7 @@ void PMWindow::slotFindTextEdited(const QString & text){
     QTextCursor c = textEdit_CHAT->textCursor();
 
     c.movePosition(QTextCursor::StartOfLine,QTextCursor::MoveAnchor,1);
-    c = textEdit_CHAT->document()->find(lineEdit_FIND->text(), c, nullptr);
+    c = textEdit_CHAT->document()->find(lineEdit_FIND->text(), c, QTextDocument::FindFlags());
     if (!c.isNull()) {
         textEdit_CHAT->setExtraSelections(QList<QTextEdit::ExtraSelection>());
         textEdit_CHAT->setTextCursor(c);
@@ -725,18 +731,18 @@ void PMWindow::slotFindAll(){
         QTextEdit::ExtraSelection selection;
 
         QColor color;
-        color.setNamedColor(WSGET(WS_CHAT_FIND_COLOR));
-        color.setAlpha(WIGET(WI_CHAT_FIND_COLOR_ALPHA));
+        color.setNamedColor(qtCtx()->settings()->getStr(WS_CHAT_FIND_COLOR));
+        color.setAlpha(qtCtx()->settings()->getInt(WI_CHAT_FIND_COLOR_ALPHA));
 
         selection.format.setBackground(color);
 
-        QTextCursor c = textEdit_CHAT->document()->find(lineEdit_FIND->text(), 0, nullptr);
+        QTextCursor c = textEdit_CHAT->document()->find(lineEdit_FIND->text(), 0, QTextDocument::FindFlags());
 
         while (!c.isNull()){
             selection.cursor = c;
             extraSelections.append(selection);
 
-            c = textEdit_CHAT->document()->find(lineEdit_FIND->text(), c, nullptr);
+            c = textEdit_CHAT->document()->find(lineEdit_FIND->text(), c, QTextDocument::FindFlags());
         }
     }
 

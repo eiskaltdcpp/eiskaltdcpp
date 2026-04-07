@@ -6,16 +6,20 @@
 *   (at your option) any later version.                                   *
 *                                                                         *
 ***************************************************************************/
+/*
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
+ */
 
 #include "SearchBlacklist.h"
 #include "WulforUtil.h"
+#include "QtContext.h"
 
 #include <QFile>
 #include <QTextStream>
 
 #include "dcpp/Util.h"
 
-SearchBlacklist::SearchBlacklist(){
+SearchBlacklist::SearchBlacklist(dcpp::DCContext& ctx) : QtContextAware(ctx) {
     list[NAME] = {};
     list[TTH]  = {};
 
@@ -83,9 +87,11 @@ bool SearchBlacklist::ok(const QString &exp, Argument type){
     const QList<QString> &l = (type == NAME)? list[NAME] : list[TTH];
 
     for (const QString &str : l){
-        QRegExp reg_exp(str, Qt::CaseInsensitive, QRegExp::Wildcard);
+        QRegularExpression reg_exp(
+            QRegularExpression::wildcardToRegularExpression(str),
+            QRegularExpression::CaseInsensitiveOption);
 
-        if (reg_exp.exactMatch(exp))
+        if (reg_exp.match(exp).hasMatch())
             return false;
     }
 

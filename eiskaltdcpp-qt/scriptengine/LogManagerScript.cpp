@@ -6,22 +6,28 @@
 *   (at your option) any later version.                                   *
 *                                                                         *
 ***************************************************************************/
+/*
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
+ */
 
 #include "LogManagerScript.h"
+#include "QtContext.h"
 #include "WulforUtil.h"
 
 #include <QDateTime>
 
 #include "dcpp/Util.h"
+#include "dcpp/DCPlusPlus.h"
 
-LogManagerScript::LogManagerScript(QObject *parent) :
+LogManagerScript::LogManagerScript(dcpp::DCContext& ctx, QObject *parent) :
+    QtContextAware(ctx),
     QObject(parent)
 {
-    dcpp::LogManager::getInstance()->addListener(this);
+    dcCtx().getLogManager()->addListener(this);
 }
 
 LogManagerScript::~LogManagerScript(){
-    dcpp::LogManager::getInstance()->removeListener(this);
+    dcCtx().getLogManager()->removeListener(this);
 }
 
 void LogManagerScript::on(Message, time_t t, const dcpp::string &msg) throw(){

@@ -1,5 +1,6 @@
 /*
 * Copyright (C) 2010 ggrundik
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
 * for EiskaltDC++ Project (https://github.com/eiskaltdcpp/eiskaltdcpp/)
 *
 * This program is free software; you can redistribute it and/or modify
@@ -23,6 +24,7 @@
 #include "ClientManager.h"
 #include "LogManager.h"
 #include "FavoriteManager.h"
+#include "DCContext.h"
 
 namespace dcpp {
 
@@ -40,11 +42,11 @@ CPerfolderLimit::~CPerfolderLimit()
     }
 }
 
-bool CPerfolderLimit::IsUserAllowed(string const& request, const UserPtr user, string *message)
+bool CPerfolderLimit::IsUserAllowed(DCContext& ctx, string const& request, const UserPtr user, string *message)
 {
     bool found=false;
-    FavoriteManager *FM = FavoriteManager::getInstance();
-    Identity id=ClientManager::getInstance()->getOnlineUserIdentity(user);
+    FavoriteManager *FM = ctx.getFavoriteManager();
+    Identity id=ctx.getClientManager()->getOnlineUserIdentity(user);
     int64_t user_share=id.getBytesShared();
 
     if ( NULL != message )
@@ -86,7 +88,7 @@ bool CPerfolderLimit::IsUserAllowed(string const& request, const UserPtr user, s
             sprintf(buf_user, "%i", (int)(user_share/(1024*1024*1024)));
             *message=_("Too small share to download from ") + pos->m_folder + ": " + buf_user + "/" + buf_need + " " + _("GiB");
 
-            LogManager::getInstance()->message(_("Denied to send file") + string(" '") + request + string("' ") +
+            ctx.getLogManager()->message(_("Denied to send file") + string(" '") + request + string("' ") +
                                                _(" to ") + id.getNick() + string(" (") + id.getIp() + string("): ") +
                                                *message);
 

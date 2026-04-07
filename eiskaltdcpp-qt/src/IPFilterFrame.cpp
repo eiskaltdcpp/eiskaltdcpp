@@ -6,8 +6,14 @@
 *   (at your option) any later version.                                   *
 *                                                                         *
 ***************************************************************************/
+/*
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
+ */
 
 #include "IPFilterFrame.h"
+#include "QtContextAware.h"
+#include "QtContext.h"
+#include "dcpp/DCPlusPlus.h"
 
 #include <QTreeWidget>
 #include <QTreeWidgetItem>
@@ -38,7 +44,7 @@ IPFilterFrame::~IPFilterFrame() {
 }
 
 void IPFilterFrame::InitDocument() {
-    checkBox_ENABLE->setChecked(BOOLSETTING(SettingsManager::IPFILTER));
+    checkBox_ENABLE->setChecked(qtCtx()->dcCtx().getSettingsManager()->getBool(SettingsManager::IPFILTER, true));
 
     if (!model)
         model = new IPFilterModel(this);
@@ -49,16 +55,16 @@ void IPFilterFrame::InitDocument() {
 
     slotCheckBoxClick();
 
-    connect(checkBox_ENABLE, SIGNAL(clicked()), this, SLOT(slotCheckBoxClick()));
+    connect(checkBox_ENABLE, &QCheckBox::clicked, this, &IPFilterFrame::slotCheckBoxClick);
 
-    connect(pushButton_EXPORT, SIGNAL(clicked()), this, SLOT(slotExport()));
-    connect(pushButton_IMPORT, SIGNAL(clicked()), this, SLOT(slotImport()));
-    connect(pushButton_ADD, SIGNAL(clicked()), this, SLOT(slotAddRule()));
+    connect(pushButton_EXPORT, &QPushButton::clicked, this, &IPFilterFrame::slotExport);
+    connect(pushButton_IMPORT, &QPushButton::clicked, this, &IPFilterFrame::slotImport);
+    connect(pushButton_ADD, &QPushButton::clicked, this, &IPFilterFrame::slotAddRule);
 
-    connect(pushButton_UP, SIGNAL(clicked()), this, SLOT(slotUpDownClick()));
-    connect(pushButton_DOWN, SIGNAL(clicked()), this, SLOT(slotUpDownClick()));
+    connect(pushButton_UP, &QPushButton::clicked, this, &IPFilterFrame::slotUpDownClick);
+    connect(pushButton_DOWN, &QPushButton::clicked, this, &IPFilterFrame::slotUpDownClick);
 
-    connect(treeView_RULES, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotTreeViewContextMenu(QPoint)));
+    connect(treeView_RULES, &QWidget::customContextMenuRequested, this, &IPFilterFrame::slotTreeViewContextMenu);
 }
 
 void IPFilterFrame::slotCheckBoxClick() {
@@ -74,22 +80,14 @@ void IPFilterFrame::slotCheckBoxClick() {
     pushButton_UP->setEnabled(b);
 
     if (b) {
-        if (!IPFilter::getInstance()) {
-            IPFilter::getInstance()->load();
-        }
+        qtCtx()->dcCtx().getIPFilter()->load();
 
         loadItems();
-
-        //connect(ipfilter::getInstance(), SIGNAL(ruleAdded(QString,eDIRECTION)),
-        //        this, SLOT(slotRuleAdded(QString,eDIRECTION)));
-
     } else {
-        if (IPFilter::getInstance()) {
-            IPFilter::getInstance()->shutdown();
-        }
+        qtCtx()->dcCtx().getIPFilter()->shutdown();
     }
 
-    SettingsManager *SM = SettingsManager::getInstance();
+    SettingsManager *SM = qtCtx()->dcCtx().getSettingsManager();
     SM->set(SettingsManager::IPFILTER, b);
 }
 
@@ -111,12 +109,12 @@ void IPFilterFrame::slotRuleAdded(const QString &exp, eDIRECTION direction) {
 }
 
 void IPFilterFrame::loadItems() {
-    if (!IPFilter::getInstance() || !model)
+    if (!qtCtx()->dcCtx().getIPFilter() || !model)
         return;
 
     model->clearModel();
 
-    const IPList list = IPFilter::getInstance()->getRules();
+    const IPList list = qtCtx()->dcCtx().getIPFilter()->getRules();
 
     for (const IPFilterElem *el : list) {
         const QString prefix = (el->action == etaDROP ? "!" : "");
@@ -139,10 +137,10 @@ void IPFilterFrame::loadItems() {
 }
 
 void IPFilterFrame::slotTreeViewContextMenu(QPoint){
-    if (!IPFilter::getInstance() || !model)
+    if (!qtCtx()->dcCtx().getIPFilter() || !model)
         return;
 
-    WulforUtil *WU = WulforUtil::getInstance();
+    WulforUtil *WU = qtCtx()->wulforUtil();
 
     eTableAction act = etaACPT;
     eDIRECTION   direction = eDIRECTION_OUT;
@@ -200,13 +198,13 @@ void IPFilterFrame::slotTreeViewContextMenu(QPoint){
             d = eDIRECTION_IN;
 
         if (d != direction){
-            IPFilter::getInstance()->changeRuleDirection(str_ip.toStdString(), d, act);
+            qtCtx()->dcCtx().getIPFilter()->changeRuleDirection(str_ip.toStdString(), d, act);
 
             elem->updateColumn(COLUMN_RULE_DIRECTION, txt);
         }
     }
     else if (result == del){
-        IPFilter::getInstance()->remFromRules(str_ip.toStdString(), act);
+        qtCtx()->dcCtx().getIPFilter()->remFromRules(str_ip.toStdString(), act);
         model->removeItem(elem);
     }
     else if (result == ch){
@@ -223,7 +221,7 @@ void IPFilterFrame::slotTreeViewContextMenu(QPoint){
             IPFilter::ParseString(elem->data(COLUMN_RULE_NAME).toString().toStdString(), old_ip, old_mask, old_act))
         {
             if ((ip != old_ip) || (mask != old_mask) || (act != old_act)){
-                const IPHash &hash = IPFilter::getInstance()->getHash();
+                const IPHash &hash = qtCtx()->dcCtx().getIPFilter()->getHash();
                 auto it = hash.find(old_ip);
                 IPFilterElem *el = nullptr;
 
@@ -260,15 +258,15 @@ void IPFilterFrame::slotTreeViewContextMenu(QPoint){
 }
 
 void IPFilterFrame::closeEvent(QCloseEvent *e) {
-    if (IPFilter::getInstance()) {
-        IPFilter::getInstance()->saveList();
+    if (qtCtx()->dcCtx().getIPFilter()) {
+        qtCtx()->dcCtx().getIPFilter()->saveList();
     }
 
     e->accept();
 }
 
 void IPFilterFrame::slotAddRule() {
-    if (!IPFilter::getInstance())
+    if (!qtCtx()->dcCtx().getIPFilter())
         return;
 
     const QString &&rule = lineEdit_RULE->text().trimmed();
@@ -303,7 +301,7 @@ void IPFilterFrame::slotAddRule() {
                     ip.append("/32");
             }
 
-            if(IPFilter::getInstance()->addToRules(ip.toStdString(), direction)){
+            if(qtCtx()->dcCtx().getIPFilter()->addToRules(ip.toStdString(), direction)){
                 slotRuleAdded(ip, direction);
             }
 
@@ -315,7 +313,7 @@ void IPFilterFrame::slotAddRule() {
 }
 
 void IPFilterFrame::slotImport() {
-    if (!IPFilter::getInstance() || !model)
+    if (!qtCtx()->dcCtx().getIPFilter() || !model)
         return;
 
     QString fname = QFileDialog::getOpenFileName(this, tr("Import list"), QDir::homePath());
@@ -326,7 +324,7 @@ void IPFilterFrame::slotImport() {
 
         fname = QDir::toNativeSeparators(fname);
         std::string error;
-        IPFilter::getInstance()->importFrom(fname.toStdString(), error);
+        qtCtx()->dcCtx().getIPFilter()->importFrom(fname.toStdString(), error);
 
         loadItems();
     }
@@ -335,7 +333,7 @@ void IPFilterFrame::slotImport() {
 void IPFilterFrame::slotUpDownClick(){
     QModelIndexList mindexes = treeView_RULES->selectionModel()->selectedIndexes();
 
-    if (mindexes.isEmpty() || !IPFilter::getInstance()){
+    if (mindexes.isEmpty() || !qtCtx()->dcCtx().getIPFilter()){
         return;
     }
 
@@ -351,11 +349,11 @@ void IPFilterFrame::slotUpDownClick(){
 
     if (sender() == pushButton_UP){
         model->moveUp(index);
-        IPFilter::getInstance()->moveRuleUp(ip, act);
+        qtCtx()->dcCtx().getIPFilter()->moveRuleUp(ip, act);
     }
     else{
         model->moveDown(index);
-        IPFilter::getInstance()->moveRuleDown(ip, act);
+        qtCtx()->dcCtx().getIPFilter()->moveRuleDown(ip, act);
     }
 
     model->repaint();
@@ -370,7 +368,7 @@ void IPFilterFrame::slotUpDownClick(){
 }
 
 void IPFilterFrame::slotExport() {
-    if (!IPFilter::getInstance())
+    if (!qtCtx()->dcCtx().getIPFilter())
         return;
 
     QString fname = QFileDialog::getSaveFileName(this, tr("Export list"), QDir::homePath(),
@@ -379,7 +377,7 @@ void IPFilterFrame::slotExport() {
     if (!fname.isEmpty()){
         fname = QDir::toNativeSeparators(fname);
         std::string err;
-        IPFilter::getInstance()->exportTo(fname.toStdString(), err);
+        qtCtx()->dcCtx().getIPFilter()->exportTo(fname.toStdString(), err);
     }
 }
 

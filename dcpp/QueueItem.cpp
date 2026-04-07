@@ -73,7 +73,7 @@ void QueueItem::removeSource(const UserPtr& aUser, int reason) {
 
 const string& QueueItem::getTempTarget() {
     if(!isSet(QueueItem::FLAG_USER_LIST) && tempTarget.empty()) {
-        if(!SETTING(TEMP_DOWNLOAD_DIRECTORY).empty() && (File::getSize(getTarget()) == -1)) {
+        if(!CTX_SETTING(TEMP_DOWNLOAD_DIRECTORY).empty() && (File::getSize(getTarget()) == -1)) {
             string tmp;
 #ifdef _WIN32
             dcpp::StringMap sm;
@@ -81,15 +81,15 @@ const string& QueueItem::getTempTarget() {
                 sm["targetdrive"] = target.substr(0, 3);
             else
                 sm["targetdrive"] = Util::getPath(Util::PATH_USER_LOCAL).substr(0, 3);
-            if (SETTING(NO_USE_TEMP_DIR))
+            if (CTX_SETTING(NO_USE_TEMP_DIR))
                 tmp = Util::formatParams(target, sm, false) + getTempName("", getTTH());
             else
-                tmp = Util::formatParams(SETTING(TEMP_DOWNLOAD_DIRECTORY), sm, false) + getTempName(getTargetFileName(), getTTH());
+                tmp = Util::formatParams(CTX_SETTING(TEMP_DOWNLOAD_DIRECTORY), sm, false) + getTempName(getTargetFileName(), getTTH());
 #else //_WIN32
-            if (SETTING(NO_USE_TEMP_DIR))
+            if (CTX_SETTING(NO_USE_TEMP_DIR))
                 tmp = target + getTempName("", getTTH());
             else
-                tmp = SETTING(TEMP_DOWNLOAD_DIRECTORY) + getTempName(getTargetFileName(), getTTH());
+                tmp = CTX_SETTING(TEMP_DOWNLOAD_DIRECTORY) + getTempName(getTargetFileName(), getTTH());
 #endif //_WIN32
             int len = Util::getFileName(tmp).size()+1;
             if (len >= 255){
@@ -114,7 +114,7 @@ Segment QueueItem::getNextSegment(int64_t blockSize, int64_t wantedSize, int64_t
         return Segment(0, -1);
     }
 
-    if(!BOOLSETTING(SEGMENTED_DL)) {
+    if(!CTX_BOOLSETTING(SEGMENTED_DL)) {
         if(!downloads.empty()) {
             return Segment(0, 0);
         }
@@ -150,7 +150,7 @@ Segment QueueItem::getNextSegment(int64_t blockSize, int64_t wantedSize, int64_t
 
         // Convert block index to file position
         for(PartsInfo::const_iterator i = partialSource->getPartialInfo().begin(); i != partialSource->getPartialInfo().end(); ++i)
-            posArray.push_back(min(getSize(), (int64_t)(*i) * blockSize));
+            posArray.push_back(std::min(getSize(), (int64_t)(*i) * blockSize));
     }
 
     /***************************/
@@ -158,7 +158,7 @@ Segment QueueItem::getNextSegment(int64_t blockSize, int64_t wantedSize, int64_t
     double donePart = static_cast<double>(getDownloadedBytes()) / getSize();
 
     // We want smaller blocks at the end of the transfer, squaring gives a nice curve...
-    int64_t targetSize = SETTING(SEGMENT_SIZE) > 0 ? (int64_t)(SETTING(SEGMENT_SIZE)*1024*1024) : wantedSize * std::max(0.25, (1. - (donePart * donePart)));
+    int64_t targetSize = CTX_SETTING(SEGMENT_SIZE) > 0 ? (int64_t)(CTX_SETTING(SEGMENT_SIZE)*1024*1024) : wantedSize * std::max(0.25, (1. - (donePart * donePart)));
 
     if(targetSize > blockSize) {
         // Round off to nearest block size
@@ -237,7 +237,7 @@ Segment QueueItem::getNextSegment(int64_t blockSize, int64_t wantedSize, int64_t
         return selected;
     }
 
-    if(partialSource == NULL && BOOLSETTING(OVERLAP_CHUNKS) && lastSpeed > 0) {
+    if(partialSource == NULL && CTX_BOOLSETTING(OVERLAP_CHUNKS) && lastSpeed > 0) {
         // overlap slow running chunk
 
         for(auto d: downloads) {

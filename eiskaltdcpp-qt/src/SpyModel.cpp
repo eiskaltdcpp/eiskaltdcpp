@@ -6,9 +6,14 @@
 *   (at your option) any later version.                                   *
 *                                                                         *
 ***************************************************************************/
+/*
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
+ */
 
 #include "SpyModel.h"
 
+#include "QtContext.h"
+#include "QtContextAware.h"
 #include "WulforUtil.h"
 #include "dcpp/stdinc.h"
 #include "dcpp/LogManager.h"
@@ -62,7 +67,7 @@ QVariant SpyModel::data(const QModelIndex &index, int role) const
         {
             break;
         }
-        case Qt::BackgroundColorRole:
+        case Qt::BackgroundRole:
             break;
         case Qt::ToolTipRole:
             break;
@@ -74,7 +79,7 @@ QVariant SpyModel::data(const QModelIndex &index, int role) const
 Qt::ItemFlags SpyModel::flags(const QModelIndex &index) const
 {
     if (!index.isValid())
-        return nullptr;
+        return Qt::ItemFlags();
 
     return Qt::ItemIsEnabled | Qt::ItemIsSelectable;
 }
@@ -252,11 +257,11 @@ void SpyModel::addResult(const QString &file, bool isTTH)
 
     static const auto _zero_up = [](const uint &i) { return (i? i : (uint)1); };
 
-    if (BOOLSETTING(LOG_SPY)){
+    if (qtCtx() && qtCtx()->dcCtx().getSettingsManager()->getBool(SettingsManager::LOG_SPY, true)){
         dcpp::StringMap params;
         params["message"] = _tq(item->data(1).toString());
         params["count"] = _tq(QString::number(_zero_up(parent->data(0).toUInt())));
-        LOG(LogManager::SPY, params);
+        qtCtx()->dcCtx().getLogManager()->log(LogManager::SPY, params);
     }
 
     if(isSort)

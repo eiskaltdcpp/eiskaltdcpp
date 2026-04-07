@@ -41,6 +41,7 @@ public:
     virtual ~DownloadQueueDelegate();
 
     virtual void paint(QPainter*, const QStyleOptionViewItem&, const QModelIndex&) const;
+    virtual QSize sizeHint(const QStyleOptionViewItem&, const QModelIndex&) const;
 };
 
 class DownloadQueueItem

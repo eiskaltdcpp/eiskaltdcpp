@@ -6,8 +6,13 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
+/*
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
+ */
 
 #include "EmoticonDialog.h"
+#include "QtContextAware.h"
+#include "QtContext.h"
 
 #include <QLabel>
 #include <QLayout>
@@ -21,18 +26,19 @@ EmoticonDialog::EmoticonDialog(QWidget * parent, Qt::WindowFlags f)
 : QDialog(parent, f) {
     m_pLayout = new FlowLayout(this);
 
-    m_pLayout->setMargin(0);
+    m_pLayout->setContentsMargins(0, 0, 0, 0);
     m_pLayout->setSpacing(0);
 
     setWindowTitle(tr("Select emoticon"));
 
     QSize s;
-    EmoticonFactory::getInstance()->fillLayout(m_pLayout, s);
+    qtCtx()->emoticonFactory()->fillLayout(m_pLayout, s);
 
+    setMinimumSize(s);
     resize(s);
 
     for (const auto &l : findChildren<EmoticonLabel*>())
-        connect(l, SIGNAL(clicked()), this, SLOT(smileClicked()));
+        connect(l, &EmoticonLabel::clicked, this, &EmoticonDialog::smileClicked);
 }
 
 /** */

@@ -6,24 +6,33 @@
 *   (at your option) any later version.                                   *
 *                                                                         *
 ***************************************************************************/
+/*
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
+ */
 
 #include <QScrollBar>
+#include "dcpp/DCPlusPlus.h"
 #include <QStringList>
 #include <QTextCursor>
 #include <QTextEdit>
 #include <QTextDocument>
+#include <QPushButton>
+#include <QSpinBox>
 
 #include "WulforUtil.h"
 #include "CmdDebug.h"
+#include "QtContext.h"
+#include "QtContextAware.h"
 
-CmdDebug::CmdDebug(QWidget *parent)
-    : QWidget(parent)
+CmdDebug::CmdDebug(dcpp::DCContext& ctx, QWidget *parent)
+    : QtContextAware(ctx)
+    , QWidget(parent)
     , d_ptr(new CmdDebugPrivate())
 {
     setupUi(this);
     Q_D(CmdDebug);
 
-    toolButton_HIDE->setIcon(WICON(WulforUtil::eiEDITDELETE));
+    toolButton_HIDE->setIcon(qtCtx()->wulforUtil()->getPixmap(WulforUtil::eiEDITDELETE));
     searchFrame->hide();
 
     installEventFilter(this);
@@ -34,17 +43,17 @@ CmdDebug::CmdDebug(QWidget *parent)
     plainTextEdit_DEBUG->setReadOnly(true);
     plainTextEdit_DEBUG->setMouseTracking(true);
 
-    connect(this, SIGNAL(coreDebugCommand(const QString&, const QString&)), this, SLOT(addOutput(const QString&, const QString&)), Qt::QueuedConnection);
-    connect(spinBoxLines, SIGNAL(valueChanged(int)), this, SLOT(maxLinesChanged(int)));
-    connect(pushButton_ClearLog, SIGNAL(clicked(bool)), plainTextEdit_DEBUG, SLOT(clear()));
-    connect(toolButton_BACK, SIGNAL(clicked()), this, SLOT(slotFindBackward()));
-    connect(toolButton_FORWARD, SIGNAL(clicked()), this, SLOT(slotFindForward()));
-    connect(toolButton_HIDE, SIGNAL(clicked()), this, SLOT(slotHideSearchBar()));
-    connect(lineEdit_FIND, SIGNAL(textEdited(QString)), this, SLOT(slotFindTextEdited(QString)));
-    connect(toolButton_ALL, SIGNAL(clicked()), this, SLOT(slotFindAll()));
-    DebugManager::getInstance()->addListener(this);
+    connect(this, &CmdDebug::coreDebugCommand, this, &CmdDebug::addOutput, Qt::QueuedConnection);
+    connect(spinBoxLines, qOverload<int>(&QSpinBox::valueChanged), this, &CmdDebug::maxLinesChanged);
+    connect(pushButton_ClearLog, &QPushButton::clicked, plainTextEdit_DEBUG, &QPlainTextEdit::clear);
+    connect(toolButton_BACK, &QToolButton::clicked, this, &CmdDebug::slotFindBackward);
+    connect(toolButton_FORWARD, &QToolButton::clicked, this, &CmdDebug::slotFindForward);
+    connect(toolButton_HIDE, &QToolButton::clicked, this, &CmdDebug::slotHideSearchBar);
+    connect(lineEdit_FIND, &QLineEdit::textEdited, this, &CmdDebug::slotFindTextEdited);
+    connect(toolButton_ALL, &QToolButton::clicked, this, &CmdDebug::slotFindAll);
+    dcCtx().getDebugManager()->addListener(this);
 
-    connect(WulforSettings::getInstance(), SIGNAL(strValueChanged(QString,QString)), this, SLOT(slotSettingsChanged(QString,QString)));
+    connect(qtCtx()->settings(), &WulforSettings::strValueChanged, this, &CmdDebug::slotSettingsChanged);
 
     ArenaWidget::setState( ArenaWidget::Flags(ArenaWidget::state() | ArenaWidget::Singleton | ArenaWidget::Hidden) );
 }
@@ -53,7 +62,7 @@ CmdDebug::~CmdDebug()
 {
     Q_D(CmdDebug);
 
-    DebugManager::getInstance()->removeListener(this);
+    dcCtx().getDebugManager()->removeListener(this);
     delete d;
 }
 
@@ -104,7 +113,6 @@ bool CmdDebug::eventFilter(QObject *obj, QEvent *e){
             return true;
         }
 
-#if QT_VERSION >= 0x050000
         if (controlModifier) {
             if (k_e->key() == Qt::Key_Equal || k_e->key() == Qt::Key_Plus){
                 plainTextEdit_DEBUG->zoomIn();
@@ -117,7 +125,6 @@ bool CmdDebug::eventFilter(QObject *obj, QEvent *e){
                 return true;
             }
         }
-#endif
     }
     else if (e->type() == QEvent::MouseButtonPress){
         QMouseEvent *m_e = reinterpret_cast<QMouseEvent*>(e);
@@ -130,7 +137,7 @@ bool CmdDebug::eventFilter(QObject *obj, QEvent *e){
         if (isChat && (m_e->button() == Qt::LeftButton)){
             QString pressedParagraph = plainTextEdit_DEBUG->anchorAt(plainTextEdit_DEBUG->mapFromGlobal(QCursor::pos()));
 
-            if (!WulforUtil::getInstance()->openUrl(pressedParagraph)){
+            if (!qtCtx()->wulforUtil()->openUrl(pressedParagraph)){
                 /**
                   Do nothing
                 */
@@ -144,7 +151,7 @@ bool CmdDebug::eventFilter(QObject *obj, QEvent *e){
 void CmdDebug::addOutput(const QString& msg, const QString& url) {
     if (checkBoxFilterIP->isChecked()) {
         const QStringList &&urlList = url.split(":");
-        const QStringList &&addresses = lineEditIP->text().split(",", QString::SkipEmptyParts);
+        const QStringList &&addresses = lineEditIP->text().split(",", Qt::SkipEmptyParts);
         if (urlList.isEmpty() || addresses.isEmpty())
             return;
 
@@ -183,7 +190,7 @@ void CmdDebug::slotFindTextEdited(const QString &text){
     QTextCursor c = plainTextEdit_DEBUG->textCursor();
 
     c.movePosition(QTextCursor::StartOfLine,QTextCursor::MoveAnchor,1);
-    c = plainTextEdit_DEBUG->document()->find(lineEdit_FIND->text(), c, nullptr);
+    c = plainTextEdit_DEBUG->document()->find(lineEdit_FIND->text(), c, QTextDocument::FindFlags());
     if (!c.isNull()) {
         plainTextEdit_DEBUG->setExtraSelections(QList<QTextEdit::ExtraSelection>());
         plainTextEdit_DEBUG->setTextCursor(c);
@@ -204,18 +211,18 @@ void CmdDebug::slotFindAll(){
         QTextEdit::ExtraSelection selection;
 
         QColor color;
-        color.setNamedColor(WSGET(WS_CHAT_FIND_COLOR));
-        color.setAlpha(WIGET(WI_CHAT_FIND_COLOR_ALPHA));
+        color.setNamedColor(qtCtx()->settings()->getStr(WS_CHAT_FIND_COLOR));
+        color.setAlpha(qtCtx()->settings()->getInt(WI_CHAT_FIND_COLOR_ALPHA));
 
         selection.format.setBackground(color);
 
-        QTextCursor c = plainTextEdit_DEBUG->document()->find(lineEdit_FIND->text(), 0, nullptr);
+        QTextCursor c = plainTextEdit_DEBUG->document()->find(lineEdit_FIND->text(), 0, QTextDocument::FindFlags());
 
         while (!c.isNull()) {
             selection.cursor = c;
             extraSelections.append(selection);
 
-            c = plainTextEdit_DEBUG->document()->find(lineEdit_FIND->text(), c, nullptr);
+            c = plainTextEdit_DEBUG->document()->find(lineEdit_FIND->text(), c, QTextDocument::FindFlags());
         }
     }
     plainTextEdit_DEBUG->setExtraSelections(extraSelections);

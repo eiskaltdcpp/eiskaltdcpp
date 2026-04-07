@@ -85,16 +85,18 @@ public:
 class HashProgress;
 class MainWindowPrivate;
 
+#include "QtContextAware.h"
+
 class MainWindow:
         public QMainWindow,
-        public  dcpp::Singleton<MainWindow>,
         private dcpp::LogManagerListener,
         private dcpp::TimerManagerListener,
-        private dcpp::QueueManagerListener
+        private dcpp::QueueManagerListener,
+        public QtContextAware
 {
     Q_OBJECT
 
-friend class dcpp::Singleton<MainWindow>;
+friend class QtContext;
 
     public:
 
@@ -252,9 +254,12 @@ friend class dcpp::Singleton<MainWindow>;
         void coreUpdateStats(const QMap<QString, QString> &);
         void notifyMessage(int, const QString&, const QString&);
 
+    public:
+        MainWindow (dcpp::DCContext& ctx, QWidget *parent=nullptr);
+        ~MainWindow() override;
+
+
     private:
-        MainWindow (QWidget *parent=nullptr);
-        virtual ~MainWindow();
 
         /** LogManagerListener */
         virtual void on(dcpp::LogManagerListener::Message, time_t t, const std::string&) noexcept;

@@ -14,7 +14,6 @@
 
 #include "dcpp/stdinc.h"
 #include "dcpp/ClientManager.h"
-#include "dcpp/Singleton.h"
 
 #include "WulforUtil.h"
 #include "ArenaWidget.h"
@@ -22,24 +21,27 @@
 
 class SpyModel;
 
+#include "QtContextAware.h"
+#include "QtContext.h"
+
 class SpyFrame :
         public QWidget,
         public ArenaWidget,
-        public dcpp::Singleton<SpyFrame>,
         private dcpp::ClientManagerListener,
-        private Ui::UISpy
+        private Ui::UISpy,
+        public QtContextAware
 {
 Q_OBJECT
 Q_INTERFACES(ArenaWidget)
 
-friend class dcpp::Singleton<SpyFrame>;
+friend class QtContext;
 
 public:
     QString getArenaShortTitle() { return tr("Search Spy"); }
     QString getArenaTitle() {return getArenaShortTitle(); }
     QMenu *getMenu() {return nullptr; }
     QWidget *getWidget() { return this; }
-    const QPixmap &getPixmap(){ return WICON(WulforUtil::eiSPY); }
+    const QPixmap &getPixmap(){ return qtCtx()->wulforUtil()->getPixmap(WulforUtil::eiSPY); }
     ArenaWidget::Role role() const { return ArenaWidget::SearchSpy; }
     void requestClear() { slotClear(); }
 
@@ -55,9 +57,12 @@ private Q_SLOTS:
 Q_SIGNALS:
     void coreIncomingSearch(const QString&, bool);
 
-private:
-    explicit SpyFrame(QWidget *parent = nullptr);
+public:
+    explicit SpyFrame(dcpp::DCContext& ctx, QWidget *parent = nullptr);
     ~SpyFrame();
+
+
+private:
 
     SpyModel *model;
 

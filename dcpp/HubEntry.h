@@ -23,6 +23,9 @@
 
 namespace dcpp {
 
+class DCContext;
+class SettingsManager;
+
 class HubEntry {
 public:
     HubEntry(const string& aName, const string& aServer, const string& aDescription, const string& aUsers) :
@@ -57,21 +60,22 @@ const string DEF_FAKE_ID = "";
 
 class FavoriteHubEntry {
 public:
-    FavoriteHubEntry() : encoding(Text::systemCharset), connect(false),
+    explicit FavoriteHubEntry(DCContext& ctx) : ctx_(ctx), encoding(Text::systemCharset), connect(false),
         mode(0), overrideId(false), clientId(DEF_FAKE_ID),
         useInternetIp(false), disableChat(false),
-        searchInterval(SETTING(MINIMUM_SEARCH_INTERVAL))
+        searchInterval(0)  // caller should set via setSearchInterval
     { }
 
-    FavoriteHubEntry(const HubEntry& rhs) : name(rhs.getName()),
+    FavoriteHubEntry(DCContext& ctx, const HubEntry& rhs) : ctx_(ctx), name(rhs.getName()),
         server(rhs.getServer()),
         hubDescription(rhs.getDescription()), encoding(Text::systemCharset),
         connect(false), mode(0), overrideId(false),
         clientId(DEF_FAKE_ID), useInternetIp(false), disableChat(false),
-        searchInterval(SETTING(MINIMUM_SEARCH_INTERVAL))
+        searchInterval(0)
     { }
 
     FavoriteHubEntry(const FavoriteHubEntry& rhs) :
+        ctx_(rhs.ctx_),
         userDescription(rhs.userDescription), name(rhs.getName()),
         server(rhs.getServer()), hubDescription(rhs.getHubDescription()),
         password(rhs.getPassword()), encoding(rhs.getEncoding()),
@@ -81,9 +85,9 @@ public:
         searchInterval(rhs.searchInterval), nick(rhs.nick)
     { }
 
-    const string& getNick(bool useDefault = true) const {
-        return (!nick.empty() || !useDefault) ? nick : SETTING(NICK);
-    }
+    DCContext& ctx() const { return ctx_; }
+
+    const string& getNick(bool useDefault = true) const;
 
     void setNick(const string& aNick) { nick = aNick; }
 
@@ -104,6 +108,7 @@ public:
     GETSET(uint32_t, searchInterval, SearchInterval);
 
 private:
+    DCContext& ctx_;
     string nick;
 };
 

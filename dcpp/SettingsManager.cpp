@@ -98,17 +98,18 @@ const string SettingsManager::settingTags[] =
     "UseADLOnlyOnOwnList", "AllowSimUploads", "CheckTargetsPathsOnStart", "NmdcDebug",
     "ShareSkipZeroByte", "RequireTLS", "LogSpy", "AppUnitBase",
     "LogCmdDebug",
+    "NmdcGetinfoLimit",
     "SENTRY",
     // Int64
     "TotalUpload", "TotalDownload",
-    "SENTRY",
-    // Floats
     "SENTRY"
+    // Floats: none currently
 };
 
-SettingsManager::SettingsManager()
+SettingsManager::SettingsManager(DCContext& ctx) : ContextAware(ctx)
 {
 
+    connectionSpeeds.clear();
     connectionSpeeds.push_back("0.005");
     connectionSpeeds.push_back("0.01");
     connectionSpeeds.push_back("0.02");
@@ -311,6 +312,7 @@ SettingsManager::SettingsManager()
     setDefault(SHARE_SKIP_ZERO_BYTE, false);
     setDefault(APP_UNIT_BASE, 0);
     setDefault(REQUIRE_TLS, true); // True by default: We assume TLS is commonplace enough among ADC clients.
+    setDefault(NMDC_GETINFO_LIMIT, 0); // 0 = unlimited; positive = max $GetINFO requests per $NickList
 
     setSearchTypeDefaults();
 }
@@ -394,11 +396,11 @@ void SettingsManager::load(string const& aFileName)
             }
         }
 
-        if(SETTING(PRIVATE_ID).length() != 39 || !CID(SETTING(PRIVATE_ID))) {
+        if(CTX_SETTING(PRIVATE_ID).length() != 39 || !CID(CTX_SETTING(PRIVATE_ID))) {
             set(PRIVATE_ID, CID::generate().toBase32());
         }
 
-        double v = Util::toDouble(SETTING(CONFIG_VERSION));
+        double v = Util::toDouble(CTX_SETTING(CONFIG_VERSION));
         // if(v < 0.x) { // Fix old settings here }
 
         if(v <= 0.674) {
@@ -431,35 +433,35 @@ void SettingsManager::load(string const& aFileName)
             set(HUBLIST_SERVERS, lists);
         }
 
-        if(SETTING(SET_MINISLOT_SIZE) < 64)
+        if(CTX_SETTING(SET_MINISLOT_SIZE) < 64)
             set(SET_MINISLOT_SIZE, 64);
-        if(SETTING(AUTODROP_INTERVAL) < 1)
+        if(CTX_SETTING(AUTODROP_INTERVAL) < 1)
             set(AUTODROP_INTERVAL, 1);
-        if(SETTING(AUTODROP_ELAPSED) < 1)
+        if(CTX_SETTING(AUTODROP_ELAPSED) < 1)
             set(AUTODROP_ELAPSED, 1);
-        if(SETTING(AUTO_SEARCH_LIMIT) > 5)
+        if(CTX_SETTING(AUTO_SEARCH_LIMIT) > 5)
             set(AUTO_SEARCH_LIMIT, 5);
-        else if(SETTING(AUTO_SEARCH_LIMIT) < 1)
+        else if(CTX_SETTING(AUTO_SEARCH_LIMIT) < 1)
             set(AUTO_SEARCH_LIMIT, 1);
-        if(SETTING(MAX_FILELIST_SIZE) < 1024)
+        if(CTX_SETTING(MAX_FILELIST_SIZE) < 1024)
             set(MAX_FILELIST_SIZE, 1024);
 
 #ifdef _DEBUG
         set(PRIVATE_ID, CID::generate().toBase32());
 #endif
-        setDefault(UDP_PORT, SETTING(TCP_PORT));
+        setDefault(UDP_PORT, CTX_SETTING(TCP_PORT));
 
-        File::ensureDirectory(SETTING(TLS_TRUSTED_CERTIFICATES_PATH));
+        File::ensureDirectory(CTX_SETTING(TLS_TRUSTED_CERTIFICATES_PATH));
 
         fire(SettingsManagerListener::Load(), xml);
 
         xml.stepOut();
 
     } catch(const Exception&) {
-        if(!CID(SETTING(PRIVATE_ID)))
+        if(!CID(CTX_SETTING(PRIVATE_ID)))
             set(PRIVATE_ID, CID::generate().toBase32());
     }
-    if (SETTING(DHT_KEY).length() != 39 || !CID(SETTING(DHT_KEY)))
+    if (CTX_SETTING(DHT_KEY).length() != 39 || !CID(CTX_SETTING(DHT_KEY)))
         set(DHT_KEY, CID::generate().toBase32());
 }
 
@@ -638,8 +640,8 @@ bool SettingsManager::parseCoreCmd(string& ret, const string& key, const string&
         return false;
     }
 
-    int n;
-    SettingsManager::Types type;
+    int n = 0;
+    SettingsManager::Types type = SettingsManager::TYPE_INT;
     getType(key.c_str(), n, type);
     if (type == SettingsManager::TYPE_INT) {
         if (!value.empty()) {

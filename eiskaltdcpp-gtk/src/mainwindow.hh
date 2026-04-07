@@ -34,6 +34,7 @@
 #include "message.hh"
 #include "notify.hh"
 
+namespace dcpp { class DCContext; }
 class BookEntry;
 class Search;
 
@@ -44,7 +45,7 @@ class MainWindow:
         public dcpp::TimerManagerListener
 {
 public:
-    MainWindow();
+    explicit MainWindow(dcpp::DCContext& dcCtx);
     virtual ~MainWindow();
 
     // Inherited from Entry
@@ -201,6 +202,7 @@ private:
     virtual void on(dcpp::TimerManagerListener::Second, uint64_t ticks) noexcept;
     virtual void on(dcpp::QueueManagerListener::PartialList, const dcpp::HintedUser& aUser, const std::string& text) noexcept;
 
+    dcpp::DCContext& dcCtx_;
     GtkWindow *window;
     gint current_width, current_height;
     gboolean is_maximized;

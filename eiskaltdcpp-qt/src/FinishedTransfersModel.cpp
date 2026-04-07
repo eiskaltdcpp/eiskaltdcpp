@@ -6,14 +6,15 @@
 *   (at your option) any later version.                                   *
 *                                                                         *
 ***************************************************************************/
+/*
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
+ */
 
 #include "FinishedTransfersModel.h"
+#include "QtContextAware.h"
+#include "QtContext.h"
 
-#if QT_VERSION >= 0x050000
 #include <QtWidgets>
-#else
-#include <QtGui>
-#endif
 
 #include <QFileInfo>
 #include <QList>
@@ -102,7 +103,7 @@ QVariant FinishedTransfersModel::data(const QModelIndex &index, int role) const
         {
             if (rootItem == fileItem){
                 if (index.column() == COLUMN_FINISHED_NAME)
-                    return WulforUtil::getInstance()->getPixmapForFile(item->data(COLUMN_FINISHED_TARGET).toString()).scaled(16, 16);
+                    return qtCtx()->wulforUtil()->getPixmapForFile(item->data(COLUMN_FINISHED_TARGET).toString()).scaled(16, 16);
             }
 
             break;
@@ -140,7 +141,7 @@ QVariant FinishedTransfersModel::data(const QModelIndex &index, int role) const
         {
             break;
         }
-        case Qt::BackgroundColorRole:
+        case Qt::BackgroundRole:
             break;
         case Qt::ToolTipRole:
             break;
@@ -152,7 +153,7 @@ QVariant FinishedTransfersModel::data(const QModelIndex &index, int role) const
 Qt::ItemFlags FinishedTransfersModel::flags(const QModelIndex &index) const
 {
     if (!index.isValid())
-        return nullptr;
+        return Qt::ItemFlags();
 
     return Qt::ItemIsEnabled | Qt::ItemIsSelectable;
 }

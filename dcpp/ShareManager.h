@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2001-2012 Jacek Sieka, arnetheduck on gmail point com
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -36,7 +37,7 @@
 #include "CriticalSection.h"
 
 #include "StringSearch.h"
-#include "Singleton.h"
+#include "DCContext.h"
 #include "BloomFilter.h"
 #include "FastAlloc.h"
 #include "MerkleTree.h"
@@ -66,8 +67,8 @@ class OutputStream;
 class MemoryInputStream;
 
 struct ShareLoader;
-class ShareManager : public Singleton<ShareManager>, private SettingsManagerListener, private Thread, private TimerManagerListener,
-        private HashManagerListener, private QueueManagerListener
+class ShareManager : private SettingsManagerListener, private Thread, private TimerManagerListener,
+        private HashManagerListener, private QueueManagerListener, public ContextAware
 {
 public:
     /**
@@ -85,33 +86,33 @@ public:
     StringList getRealPaths(const string& virtualPath);
     TTHValue getTTH(const string& virtualFile) const;
 
-    void refresh(bool dirs = false, bool aUpdate = true, bool block = false) noexcept;
+    void refresh(bool dirs = false, bool aUpdate = true, bool block = false);
     void setDirty() { xmlDirty = true; }
 
-    void search(SearchResultList& l, const string& aString, int aSearchType, int64_t aSize, int aFileType, Client* aClient, StringList::size_type maxResults) noexcept;
-    void search(SearchResultList& l, const StringList& params, StringList::size_type maxResults) noexcept;
+    void search(SearchResultList& l, const string& aString, int aSearchType, int64_t aSize, int aFileType, Client* aClient, StringList::size_type maxResults);
+    void search(SearchResultList& l, const StringList& params, StringList::size_type maxResults);
 
-    StringPairList getDirectories() const noexcept;
+    StringPairList getDirectories() const;
 
     MemoryInputStream* generatePartialList(const string& dir, bool recurse) const;
     MemoryInputStream* getTree(const string& virtualFile) const;
 
     AdcCommand getFileInfo(const string& aFile);
 
-    int64_t getShareSize() const noexcept;
-    int64_t getShareSize(const string& realPath) const noexcept;
+    int64_t getShareSize() const;
+    int64_t getShareSize(const string& realPath) const;
 
-    size_t getSharedFiles() const noexcept;
+    size_t getSharedFiles() const;
 
     string getShareSizeString() const { return Util::toString(getShareSize()); }
     string getShareSizeString(const string& aDir) const { return Util::toString(getShareSize(aDir)); }
 
     void getBloom(ByteVector& v, size_t k, size_t m, size_t h) const;
 
-    SearchManager::TypeModes getType(const string& fileName) const noexcept;
+    SearchManager::TypeModes getType(const string& fileName) const;
 
-    string validateVirtual(const string& /*aVirt*/) const noexcept;
-    bool hasVirtual(const string& name) const noexcept;
+    string validateVirtual(const string& /*aVirt*/) const;
+    bool hasVirtual(const string& name) const;
 
     void addHits(uint32_t aHits) {
         hits += aHits;
@@ -152,7 +153,7 @@ private:
             }
 
             bool operator==(const File& rhs) const {
-                if (BOOLSETTING(CASESENSITIVE_FILELIST))
+                if (ShareManager::caseSensitiveFilelist_)
                     return getParent() == rhs.getParent() && (strcmp(getName().c_str(), rhs.getName().c_str()) == 0);
                 else
                     return getParent() == rhs.getParent() && (Util::stricmp(getName(), rhs.getName()) == 0);
@@ -161,7 +162,7 @@ private:
             struct StringComp {
                 StringComp(const string& s) : a(s) { }
                 bool operator()(const File& b) const {
-                    if (BOOLSETTING(CASESENSITIVE_FILELIST))
+                    if (ShareManager::caseSensitiveFilelist_)
                         return strcmp(a.c_str(), b.getName().c_str()) == 0;
                     else
                         return Util::stricmp(a, b.getName()) == 0;
@@ -175,7 +176,7 @@ private:
 
             struct FileLess {
                 bool operator()(const File& a, const File& b) const {
-                    if (BOOLSETTING(CASESENSITIVE_FILELIST))
+                    if (ShareManager::caseSensitiveFilelist_)
                         return (strcmp(a.getName().c_str(), b.getName().c_str()) < 0);
                     else
                         return (Util::stricmp(a.getName(), b.getName()) < 0);
@@ -200,19 +201,19 @@ private:
 
         static Ptr create(const string& aName, const Ptr& aParent = Ptr()) { return Ptr(new Directory(aName, aParent)); }
 
-        bool hasType(uint32_t type) const noexcept {
+        bool hasType(uint32_t type) const {
             return ( (type == SearchManager::TYPE_ANY) || (fileTypes & (1 << type)) );
         }
-        void addType(uint32_t type) noexcept;
+        void addType(uint32_t type);
 
-        string getADCPath() const noexcept;
-        string getFullName() const noexcept;
+        string getADCPath() const;
+        string getFullName() const;
         string getRealPath(const std::string& path) const;
 
-        int64_t getSize() const noexcept;
+        int64_t getSize() const;
 
-        void search(SearchResultList& aResults, StringSearch::List& aStrings, int aSearchType, int64_t aSize, int aFileType, Client* aClient, StringList::size_type maxResults) const noexcept;
-        void search(SearchResultList& aResults, AdcSearch& aStrings, StringList::size_type maxResults) const noexcept;
+        void search(SearchResultList& aResults, StringSearch::List& aStrings, int aSearchType, int64_t aSize, int aFileType, Client* aClient, StringList::size_type maxResults, ShareManager& sm) const;
+        void search(SearchResultList& aResults, AdcSearch& aStrings, StringList::size_type maxResults, ShareManager& sm) const;
 
         void toXml(OutputStream& xmlFile, string& indent, string& tmp2, bool fullList) const;
         void filesToXml(OutputStream& xmlFile, string& indent, string& tmp2) const;
@@ -237,11 +238,17 @@ private:
     friend class Directory;
     friend struct ShareLoader;
 
-    friend class Singleton<ShareManager>;
-    ShareManager();
+    /** Cached from CASESENSITIVE_FILELIST setting so inner structs can access
+     *  it without needing a DCContext reference. Updated in constructor and
+     *  on SettingsManagerListener::Load. */
+    static bool caseSensitiveFilelist_;
 
+
+public:
+    explicit ShareManager(DCContext& ctx);
     virtual ~ShareManager();
 
+private:
     struct AdcSearch {
         AdcSearch(const StringList& adcParams);
 
@@ -314,8 +321,8 @@ private:
     Directory::Ptr merge(const Directory::Ptr& directory);
 
     void generateXmlList();
-    bool loadCache() noexcept;
-    DirList::const_iterator getByVirtual(const string& virtualName) const noexcept;
+    bool loadCache();
+    DirList::const_iterator getByVirtual(const string& virtualName) const;
     pair<Directory::Ptr, string> splitVirtual(const string& virtualPath) const;
 
     string findRealRoot(const string& virtualRoot, const string& virtualLeaf) const;
@@ -325,20 +332,20 @@ private:
     virtual int run();
 
     // QueueManagerListener
-    virtual void on(QueueManagerListener::FileMoved, const string& realPath) noexcept;
+    virtual void on(QueueManagerListener::FileMoved, const string& realPath);
     // HashManagerListener
-    virtual void on(HashManagerListener::TTHDone, const string& realPath, const TTHValue& root) noexcept;
+    virtual void on(HashManagerListener::TTHDone, const string& realPath, const TTHValue& root);
 
     // SettingsManagerListener
-    virtual void on(SettingsManagerListener::Save, SimpleXML& xml) noexcept {
+    virtual void on(SettingsManagerListener::Save, SimpleXML& xml) {
         save(xml);
     }
-    virtual void on(SettingsManagerListener::Load, SimpleXML& xml) noexcept {
+    virtual void on(SettingsManagerListener::Load, SimpleXML& xml) {
         load(xml);
     }
 
     // TimerManagerListener
-    virtual void on(TimerManagerListener::Minute, uint64_t tick) noexcept;
+    virtual void on(TimerManagerListener::Minute, uint64_t tick);
     void load(SimpleXML& aXml);
     void save(SimpleXML& aXml);
 

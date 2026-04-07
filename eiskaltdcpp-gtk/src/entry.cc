@@ -33,7 +33,7 @@ Entry::Entry(const EntryType type, const string &ui, const string &id):
     // Load the GtkBuilder XML file, if applicable
     if (!ui.empty())
     {
-        string file = WulforManager::get()->getPath() + "/ui/" + ui;
+        string file = wulforManagerInstance()->getPath() + "/ui/" + ui;
         GError *error = NULL;
         xml = gtk_builder_new();
         gtk_builder_add_from_file(xml,file.c_str(),&error);
@@ -63,7 +63,7 @@ const string& Entry::getID()
 void Entry::remove()
 {
     removeChildren();
-    WulforManager::get()->deleteEntry_gui(this);
+    wulforManagerInstance()->deleteEntry_gui(this);
 }
 
 /*
@@ -85,7 +85,7 @@ GtkWidget *Entry::getWidget(const string &name)
 void Entry::addChild(Entry *entry)
 {
     children.insert(make_pair(entry->getID(), entry));
-    WulforManager::get()->insertEntry_gui(entry);
+    wulforManagerInstance()->insertEntry_gui(entry);
 }
 
 Entry *Entry::getChild(const EntryType childType, const string &childId)
@@ -111,7 +111,7 @@ void Entry::removeChild(Entry *entry)
     {
         entry->removeChildren();
         children.erase(entry->getID());
-        WulforManager::get()->deleteEntry_gui(entry);
+        wulforManagerInstance()->deleteEntry_gui(entry);
     }
 }
 

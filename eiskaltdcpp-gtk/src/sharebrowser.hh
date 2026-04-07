@@ -26,13 +26,15 @@
 #include "bookentry.hh"
 #include "treeview.hh"
 
+namespace dcpp { class DCContext; }
+
 class UserCommandMenu;
 
 class ShareBrowser:
         public BookEntry
 {
 public:
-    ShareBrowser(dcpp::UserPtr _user, const std::string &_file, const std::string &_initialDirectory, const bool _full);
+    ShareBrowser(dcpp::DCContext& dcCtx, dcpp::UserPtr _user, const std::string &_file, const std::string &_initialDirectory, const bool _full);
     virtual ~ShareBrowser();
     virtual void show();
     void loadXML(std::string txt);
@@ -181,4 +183,5 @@ private:
         typedef std::map<std::string, std::string> ParamMap;
         ParamMap columns;
     };
+    dcpp::DCContext& dcCtx_;
 };

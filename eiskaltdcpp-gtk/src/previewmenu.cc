@@ -1,5 +1,6 @@
 /*
  * Copyright © 2009-2010 freedcpp, https://github.com/eiskaltdcpp/freedcpp
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -22,6 +23,7 @@
 #include "WulforUtil.hh"
 #include <glib/gi18n.h>
 #include "previewmenu.hh"
+#include "dcpp/DCPlusPlus.h"
 
 using namespace std;
 using namespace dcpp;
@@ -60,7 +62,7 @@ bool PreviewMenu::buildMenu_gui(const string &target)
     string appExtensions = "";
     ext = Text::toLower(ext);
 
-    const PreviewApp::List &Apps = WulforSettingsManager::getInstance()->getPreviewApps();
+    const PreviewApp::List &Apps = wulforSettingsInstance()->getPreviewApps();
 
     for (PreviewApp::Iter item = Apps.begin(); item != Apps.end(); ++item)
     {
@@ -102,7 +104,7 @@ void PreviewMenu::onPreviewAppClicked_gui(GtkMenuItem *menuItem, gpointer data)
     string application = (gchar *) g_object_get_data(G_OBJECT(menuItem), "application");
     string target = (gchar *) g_object_get_data(G_OBJECT(menuItem), "target");
 
-    if(command == "default") WulforUtil::openURI(target);
+    if(command == "default") WulforUtil::openURI(*dcpp::getContext(), target);
     else
     {
         string cmd = application + " \"" + target + "\"";

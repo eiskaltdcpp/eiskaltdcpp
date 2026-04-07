@@ -6,11 +6,13 @@
 *   (at your option) any later version.                                   *
 *                                                                         *
 ***************************************************************************/
+/*
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
+ */
 
 #include <QComboBox>
 #include <QTreeView>
 #include <QAction>
-#include <QTextCodec>
 #include <QDir>
 #include <QItemSelectionModel>
 #include <QFileDialog>
@@ -35,6 +37,8 @@
 #include "SearchBlacklist.h"
 #include "SearchBlacklistDialog.h"
 #include "WulforUtil.h"
+#include "QtContext.h"
+#include "QtContextAware.h"
 #include "Magnet.h"
 #include "ArenaWidgetManager.h"
 #include "ArenaWidgetFactory.h"
@@ -48,6 +52,7 @@
 #include "dcpp/SettingsManager.h"
 #include "dcpp/Encoder.h"
 #include "dcpp/UserCommand.h"
+#include "dcpp/DCPlusPlus.h"
 
 #include <QtDebug>
 
@@ -58,7 +63,7 @@ public:
     QString arena_title;
     QString token;
 
-    TStringList currentSearch;
+    StringList currentSearch;
 
     qulonglong dropped;
     qulonglong results;
@@ -115,7 +120,7 @@ bool SearchStringListModel::setData(const QModelIndex &index, const QVariant &va
 
 SearchFrame::Menu::Menu() : menu(new QMenu(nullptr))
 {
-    WulforUtil *WU = WulforUtil::getInstance();
+    WulforUtil *WU = qtCtx()->wulforUtil();
 
     magnet_menu = new QMenu(tr("Magnet"));
 
@@ -244,23 +249,23 @@ SearchFrame::Menu::Action SearchFrame::Menu::exec(const QStringList &list = QStr
 
     QString aliases, paths;
 
-    aliases = QByteArray::fromBase64(WSGET(WS_DOWNLOADTO_ALIASES).toUtf8());
-    paths   = QByteArray::fromBase64(WSGET(WS_DOWNLOADTO_PATHS).toUtf8());
+    aliases = QByteArray::fromBase64(qtCtx()->settings()->getStr(WS_DOWNLOADTO_ALIASES).toUtf8());
+    paths   = QByteArray::fromBase64(qtCtx()->settings()->getStr(WS_DOWNLOADTO_PATHS).toUtf8());
 
-    QStringList a = aliases.split("\n", QString::SkipEmptyParts);
-    QStringList p = paths.split("\n", QString::SkipEmptyParts);
+    QStringList a = aliases.split("\n", Qt::SkipEmptyParts);
+    QStringList p = paths.split("\n", Qt::SkipEmptyParts);
 
     QStringList temp_pathes = DownloadToDirHistory::get();
 
     if (!temp_pathes.isEmpty()){
         for (const auto &t : temp_pathes){
-            QAction *act = new QAction(WICON(WulforUtil::eiFOLDER_BLUE), QDir(t).dirName(), down_to);
+            QAction *act = new QAction(qtCtx()->wulforUtil()->getPixmap(WulforUtil::eiFOLDER_BLUE), QDir(t).dirName(), down_to);
             act->setToolTip(t);
             act->setData(t);
 
             down_to->addAction(act);
 
-            QAction *act1 = new QAction(WICON(WulforUtil::eiFOLDER_BLUE), QDir(t).dirName(), down_to);
+            QAction *act1 = new QAction(qtCtx()->wulforUtil()->getPixmap(WulforUtil::eiFOLDER_BLUE), QDir(t).dirName(), down_to);
             act1->setToolTip(t);
             act1->setData(t);
 
@@ -273,12 +278,12 @@ SearchFrame::Menu::Action SearchFrame::Menu::exec(const QStringList &list = QStr
 
     if (a.size() == p.size() && !a.isEmpty()){
         for (int i = 0; i < a.size(); i++){
-            QAction *act = new QAction(WICON(WulforUtil::eiFOLDER_BLUE), a.at(i), down_to);
+            QAction *act = new QAction(qtCtx()->wulforUtil()->getPixmap(WulforUtil::eiFOLDER_BLUE), a.at(i), down_to);
             act->setData(p.at(i));
 
             down_to->addAction(act);
 
-            QAction *act1 = new QAction(WICON(WulforUtil::eiFOLDER_BLUE), a.at(i), down_to);
+            QAction *act1 = new QAction(qtCtx()->wulforUtil()->getPixmap(WulforUtil::eiFOLDER_BLUE), a.at(i), down_to);
             act1->setData(p.at(i));
 
             down_wh_to->addAction(act1);
@@ -288,10 +293,10 @@ SearchFrame::Menu::Action SearchFrame::Menu::exec(const QStringList &list = QStr
         down_wh_to->addSeparator();
     }
 
-    QAction *browse = new QAction(WICON(WulforUtil::eiFOLDER_BLUE), tr("Browse"), down_to);
+    QAction *browse = new QAction(qtCtx()->wulforUtil()->getPixmap(WulforUtil::eiFOLDER_BLUE), tr("Browse"), down_to);
     browse->setData("");
 
-    QAction *browse1 = new QAction(WICON(WulforUtil::eiFOLDER_BLUE), tr("Browse"), down_to);
+    QAction *browse1 = new QAction(qtCtx()->wulforUtil()->getPixmap(WulforUtil::eiFOLDER_BLUE), tr("Browse"), down_to);
     browse->setData("");
 
     down_to->addAction(browse);
@@ -331,7 +336,7 @@ QMenu *SearchFrame::Menu::buildUserCmdMenu(QList<QString> hub_list){
     if (hub_list.empty())
         return nullptr;
 
-    return WulforUtil::getInstance()->buildUserCmdMenu(hub_list, UserCommand::CONTEXT_SEARCH);
+    return qtCtx()->wulforUtil()->buildUserCmdMenu(hub_list, UserCommand::CONTEXT_SEARCH);
 }
 
 void SearchFrame::Menu::addTempPath(const QString &path){
@@ -343,8 +348,8 @@ void SearchFrame::Menu::addTempPath(const QString &path){
 
 SearchFrame::SearchFrame(QWidget *parent): QWidget(parent), d_ptr(new SearchFramePrivate())
 {
-    if (!SearchBlacklist::getInstance())
-        SearchBlacklist::newInstance();
+    if (!qtCtx()->searchBlacklist())
+        qtCtx()->createSearchBlacklist();
 
     Q_D(SearchFrame);
 
@@ -368,7 +373,7 @@ SearchFrame::SearchFrame(QWidget *parent): QWidget(parent), d_ptr(new SearchFram
 
     init();
 
-    ClientManager* clientMgr = ClientManager::getInstance();
+    ClientManager* clientMgr = qtCtx()->dcCtx().getClientManager();
 
     auto lock = clientMgr->lock();
     clientMgr->addListener(this);
@@ -396,11 +401,10 @@ SearchFrame::SearchFrame(QWidget *parent): QWidget(parent), d_ptr(new SearchFram
     for (int i = 0; i < d->str_model->rowCount(); i++)
        d-> str_model->setData(d->str_model->index(i, 0), Qt::Checked, Qt::CheckStateRole);
 
-    SearchManager::getInstance()->addListener(this);
+    qtCtx()->dcCtx().getSearchManager()->addListener(this);
 }
 
 SearchFrame::~SearchFrame(){
-    Menu::deleteInstance();
 
     Q_D(SearchFrame);
 
@@ -421,8 +425,8 @@ SearchFrame::~SearchFrame(){
 }
 
 void SearchFrame::closeEvent(QCloseEvent *e){
-    SearchManager::getInstance()->removeListener(this);
-    ClientManager::getInstance()->removeListener(this);
+    qtCtx()->dcCtx().getSearchManager()->removeListener(this);
+    qtCtx()->dcCtx().getClientManager()->removeListener(this);
 
     Q_D(SearchFrame);
 
@@ -469,7 +473,7 @@ void SearchFrame::init(){
 
     pushButton_STOP->hide();
 
-    toolButton_CLOSEFILTER->setIcon(WICON(WulforUtil::eiEDITDELETE));
+    toolButton_CLOSEFILTER->setIcon(qtCtx()->wulforUtil()->getPixmap(WulforUtil::eiEDITDELETE));
 
     treeView_RESULTS->setModel(d->model);
     treeView_RESULTS->setContextMenuPolicy(Qt::CustomContextMenu);
@@ -478,9 +482,9 @@ void SearchFrame::init(){
     treeView_HUBS->setModel(d->str_model);
 
     d->arena_menu = new QMenu(this->windowTitle());
-    QAction *close_wnd = new QAction(WICON(WulforUtil::eiFILECLOSE), tr("Close"), d->arena_menu);
+    QAction *close_wnd = new QAction(qtCtx()->wulforUtil()->getPixmap(WulforUtil::eiFILECLOSE), tr("Close"), d->arena_menu);
     d->arena_menu->addAction(close_wnd);
-    const SettingsManager::SearchTypes &searchTypes = SettingsManager::getInstance()->getSearchTypes();
+    const SettingsManager::SearchTypes &searchTypes = qtCtx()->dcCtx().getSettingsManager()->getSearchTypes();
     QStringList filetypes;
     // Predefined
     for (int i = SearchManager::TYPE_ANY; i < SearchManager::TYPE_LAST; i++)
@@ -507,10 +511,10 @@ void SearchFrame::init(){
             << WulforUtil::eiFILETYPE_ARCHIVE;
 
     for (int i = 0; i < icons.size(); i++)
-        comboBox_FILETYPES->setItemIcon(i, WICON(icons.at(i)));
+        comboBox_FILETYPES->setItemIcon(i, qtCtx()->wulforUtil()->getPixmap(icons.at(i)));
 
-    QString     raw  = QByteArray::fromBase64(WSGET(WS_SEARCH_HISTORY).toUtf8());
-    d->searchHistory = raw.replace("\r","").split('\n', QString::SkipEmptyParts);
+    QString     raw  = QByteArray::fromBase64(qtCtx()->settings()->getStr(WS_SEARCH_HISTORY).toUtf8());
+    d->searchHistory = raw.replace("\r","").split('\n', Qt::SkipEmptyParts);
 
     QMenu *m = new QMenu();
 
@@ -521,35 +525,35 @@ void SearchFrame::init(){
     d->focusShortcut->setContext(Qt::WidgetWithChildrenShortcut);
 
     lineEdit_SEARCHSTR->setMenu(m);
-    lineEdit_SEARCHSTR->setPixmap(WICON(WulforUtil::eiEDITADD).scaled(16, 16, Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
+    lineEdit_SEARCHSTR->setPixmap(qtCtx()->wulforUtil()->getPixmap(WulforUtil::eiEDITADD).scaled(16, 16, Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
 
     lineEdit_FILTER->installEventFilter(this);
 
-    connect(this, SIGNAL(coreClientConnected(QString)),    this, SLOT(onHubAdded(QString)), Qt::QueuedConnection);
-    connect(this, SIGNAL(coreClientDisconnected(QString)), this, SLOT(onHubRemoved(QString)),Qt::QueuedConnection);
-    connect(this, SIGNAL(coreClientUpdated(QString)),      this, SLOT(onHubChanged(QString)), Qt::QueuedConnection);
-    connect(this, SIGNAL(coreSR(VarMap)),                  this, SLOT(addResult(VarMap)), Qt::QueuedConnection);
+    connect(this, &SearchFrame::coreClientConnected,    this, &SearchFrame::onHubAdded, Qt::QueuedConnection);
+    connect(this, &SearchFrame::coreClientDisconnected, this, &SearchFrame::onHubRemoved, Qt::QueuedConnection);
+    connect(this, &SearchFrame::coreClientUpdated,      this, &SearchFrame::onHubChanged, Qt::QueuedConnection);
+    connect(this, &SearchFrame::coreSR,                 this, &SearchFrame::addResult, Qt::QueuedConnection);
 
-    connect(d->focusShortcut, SIGNAL(activated()), lineEdit_SEARCHSTR, SLOT(setFocus()));
-    connect(d->focusShortcut, SIGNAL(activated()), lineEdit_SEARCHSTR, SLOT(selectAll()));
-    connect(close_wnd, SIGNAL(triggered()), this, SLOT(slotClose()));
-    connect(pushButton_SEARCH, SIGNAL(clicked()), this, SLOT(slotStartSearch()));
-    connect(pushButton_STOP, SIGNAL(clicked()), this, SLOT(slotStopSearch()));
-    connect(pushButton_CLEAR, SIGNAL(clicked()), this, SLOT(slotClear()));
-    connect(treeView_RESULTS, SIGNAL(doubleClicked(QModelIndex)), this, SLOT(slotResultDoubleClicked(QModelIndex)));
-    connect(treeView_RESULTS, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotContextMenu(QPoint)));
-    connect(treeView_RESULTS->header(), SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotHeaderMenu(QPoint)));
-    connect(GlobalTimer::getInstance(), SIGNAL(second()), this, SLOT(slotTimer()));
-    connect(pushButton_SIDEPANEL, SIGNAL(clicked()), this, SLOT(slotToggleSidePanel()));
-    connect(lineEdit_SEARCHSTR, SIGNAL(returnPressed()), this, SLOT(slotStartSearch()));
-    connect(lineEdit_SIZE,      SIGNAL(returnPressed()), this, SLOT(slotStartSearch()));
-    connect(comboBox_FILETYPES, SIGNAL(currentIndexChanged(int)), lineEdit_SEARCHSTR, SLOT(setFocus()));
-    connect(comboBox_FILETYPES, SIGNAL(currentIndexChanged(int)), lineEdit_SEARCHSTR, SLOT(selectAll()));
-    connect(toolButton_CLOSEFILTER, SIGNAL(clicked()), this, SLOT(slotFilter()));
-    connect(comboBox_FILTERCOLUMNS, SIGNAL(currentIndexChanged(int)), lineEdit_FILTER, SLOT(selectAll()));
-    connect(comboBox_FILTERCOLUMNS, SIGNAL(currentIndexChanged(int)), this, SLOT(slotChangeProxyColumn(int)));
+    connect(d->focusShortcut, &QShortcut::activated, lineEdit_SEARCHSTR, qOverload<>(&QWidget::setFocus));
+    connect(d->focusShortcut, &QShortcut::activated, lineEdit_SEARCHSTR, &QLineEdit::selectAll);
+    connect(close_wnd, &QAction::triggered, this, &SearchFrame::slotClose);
+    connect(pushButton_SEARCH, &QPushButton::clicked, this, &SearchFrame::slotStartSearch);
+    connect(pushButton_STOP, &QPushButton::clicked, this, &SearchFrame::slotStopSearch);
+    connect(pushButton_CLEAR, &QPushButton::clicked, this, &SearchFrame::slotClear);
+    connect(treeView_RESULTS, &QTreeView::doubleClicked, this, &SearchFrame::slotResultDoubleClicked);
+    connect(treeView_RESULTS, &QTreeView::customContextMenuRequested, this, &SearchFrame::slotContextMenu);
+    connect(treeView_RESULTS->header(), &QHeaderView::customContextMenuRequested, this, &SearchFrame::slotHeaderMenu);
+    connect(qtCtx()->globalTimer(), &GlobalTimer::second, this, &SearchFrame::slotTimer);
+    connect(pushButton_SIDEPANEL, &QPushButton::clicked, this, &SearchFrame::slotToggleSidePanel);
+    connect(lineEdit_SEARCHSTR, &LineEdit::returnPressed, this, &SearchFrame::slotStartSearch);
+    connect(lineEdit_SIZE,      &LineEdit::returnPressed, this, &SearchFrame::slotStartSearch);
+    connect(comboBox_FILETYPES, qOverload<int>(&QComboBox::currentIndexChanged), lineEdit_SEARCHSTR, qOverload<>(&QWidget::setFocus));
+    connect(comboBox_FILETYPES, qOverload<int>(&QComboBox::currentIndexChanged), lineEdit_SEARCHSTR, &QLineEdit::selectAll);
+    connect(toolButton_CLOSEFILTER, &QToolButton::clicked, this, &SearchFrame::slotFilter);
+    connect(comboBox_FILTERCOLUMNS, qOverload<int>(&QComboBox::currentIndexChanged), lineEdit_FILTER, &QLineEdit::selectAll);
+    connect(comboBox_FILTERCOLUMNS, qOverload<int>(&QComboBox::currentIndexChanged), this, &SearchFrame::slotChangeProxyColumn);
 
-    connect(WulforSettings::getInstance(), SIGNAL(strValueChanged(QString,QString)), this, SLOT(slotSettingsChanged(QString,QString)));
+    connect(qtCtx()->settings(), &WulforSettings::strValueChanged, this, &SearchFrame::slotSettingsChanged);
 
     load();
 
@@ -564,22 +568,22 @@ void SearchFrame::init(){
 void SearchFrame::load(){
     Q_D(SearchFrame);
 
-    treeView_RESULTS->header()->restoreState(QByteArray::fromBase64(WSGET(WS_SEARCH_STATE).toUtf8()));
+    treeView_RESULTS->header()->restoreState(QByteArray::fromBase64(qtCtx()->settings()->getStr(WS_SEARCH_STATE).toUtf8()));
     treeView_RESULTS->setSortingEnabled(true);
 
-    d->filterShared = static_cast<SearchFrame::AlreadySharedAction>(WIGET(WI_SEARCH_SHARED_ACTION));
+    d->filterShared = static_cast<SearchFrame::AlreadySharedAction>(qtCtx()->settings()->getInt(WI_SEARCH_SHARED_ACTION));
 
     comboBox_SHARED->setCurrentIndex(static_cast<int>(d->filterShared));
 
-    checkBox_FILTERSLOTS->setChecked(WBGET(WB_SEARCHFILTER_NOFREE));
-    checkBox_HIDEPANEL->setChecked(WBGET(WB_SEARCH_DONTHIDEPANEL));
+    checkBox_FILTERSLOTS->setChecked(qtCtx()->settings()->getBool(WB_SEARCHFILTER_NOFREE));
+    checkBox_HIDEPANEL->setChecked(qtCtx()->settings()->getBool(WB_SEARCH_DONTHIDEPANEL));
 
-    comboBox_FILETYPES->setCurrentIndex(WIGET(WI_SEARCH_LAST_TYPE));
+    comboBox_FILETYPES->setCurrentIndex(qtCtx()->settings()->getInt(WI_SEARCH_LAST_TYPE));
 
-    treeView_RESULTS->sortByColumn(WIGET(WI_SEARCH_SORT_COLUMN), WulforUtil::getInstance()->intToSortOrder(WIGET(WI_SEARCH_SORT_ORDER)));
+    treeView_RESULTS->sortByColumn(qtCtx()->settings()->getInt(WI_SEARCH_SORT_COLUMN), qtCtx()->wulforUtil()->intToSortOrder(qtCtx()->settings()->getInt(WI_SEARCH_SORT_ORDER)));
 
-    QString raw = QByteArray::fromBase64(WSGET(WS_SEARCH_HISTORY).toUtf8());
-    QStringList list = raw.replace("\r","").split('\n', QString::SkipEmptyParts);
+    QString raw = QByteArray::fromBase64(qtCtx()->settings()->getStr(WS_SEARCH_HISTORY).toUtf8());
+    QStringList list = raw.replace("\r","").split('\n', Qt::SkipEmptyParts);
 
     d->completer = new QCompleter(list, lineEdit_SEARCHSTR);
     d->completer->setCaseSensitivity(Qt::CaseInsensitive);
@@ -591,16 +595,16 @@ void SearchFrame::load(){
 void SearchFrame::save(){
     Q_D(SearchFrame);
 
-    WSSET(WS_SEARCH_STATE, treeView_RESULTS->header()->saveState().toBase64());
-    WISET(WI_SEARCH_SORT_COLUMN, d->model->getSortColumn());
-    WISET(WI_SEARCH_SORT_ORDER, WulforUtil::getInstance()->sortOrderToInt(d->model->getSortOrder()));
-    WISET(WI_SEARCH_SHARED_ACTION, static_cast<int>(d->filterShared));
+    qtCtx()->settings()->setStr(WS_SEARCH_STATE, treeView_RESULTS->header()->saveState().toBase64());
+    qtCtx()->settings()->setInt(WI_SEARCH_SORT_COLUMN, d->model->getSortColumn());
+    qtCtx()->settings()->setInt(WI_SEARCH_SORT_ORDER, qtCtx()->wulforUtil()->sortOrderToInt(d->model->getSortOrder()));
+    qtCtx()->settings()->setInt(WI_SEARCH_SHARED_ACTION, static_cast<int>(d->filterShared));
 
     if (d->saveFileType)
-        WISET(WI_SEARCH_LAST_TYPE, comboBox_FILETYPES->currentIndex());
+        qtCtx()->settings()->setInt(WI_SEARCH_LAST_TYPE, comboBox_FILETYPES->currentIndex());
 
-    WBSET(WB_SEARCHFILTER_NOFREE, checkBox_FILTERSLOTS->isChecked());
-    WBSET(WB_SEARCH_DONTHIDEPANEL, checkBox_HIDEPANEL->isChecked());
+    qtCtx()->settings()->setBool(WB_SEARCHFILTER_NOFREE, checkBox_FILTERSLOTS->isChecked());
+    qtCtx()->settings()->setBool(WB_SEARCH_DONTHIDEPANEL, checkBox_HIDEPANEL->isChecked());
 }
 
 void SearchFrame::initSecond(){
@@ -611,7 +615,7 @@ void SearchFrame::initSecond(){
         d->timer->setInterval(1000);
         d->timer->setSingleShot(true);
 
-        connect(d->timer, SIGNAL(timeout()), this, SLOT(timerTick()));
+        connect(d->timer, &QTimer::timeout, this, &SearchFrame::timerTick);
     }
 
     d->timer->start();*/
@@ -638,7 +642,7 @@ QMenu *SearchFrame::getMenu(){
 }
 
 const QPixmap &SearchFrame::getPixmap(){
-    return WICON(WulforUtil::eiFILEFIND);
+    return qtCtx()->wulforUtil()->getPixmap(WulforUtil::eiFILEFIND);
 }
 
 void SearchFrame::download(const SearchFrame::VarMap &params){
@@ -652,17 +656,17 @@ void SearchFrame::download(const SearchFrame::VarMap &params){
     size        = (int64_t)params["ESIZE"].toLongLong();
 
     try{
-        UserPtr user = ClientManager::getInstance()->findUser(CID(cid));
+        UserPtr user = qtCtx()->dcCtx().getClientManager()->findUser(CID(cid));
 
         if (!user)
             return;
         // Only files have a TTH
         if (!params["TTH"].toString().isEmpty()){
-            string subdir = params["FNAME"].toString().split("\\", QString::SkipEmptyParts).last().toStdString();
-            QueueManager::getInstance()->add(target + subdir, size, TTHValue(params["TTH"].toString().toStdString()), HintedUser(user, hubUrl));
+            string subdir = params["FNAME"].toString().split("\\", Qt::SkipEmptyParts).last().toStdString();
+            qtCtx()->dcCtx().getQueueManager()->add(target + subdir, size, TTHValue(params["TTH"].toString().toStdString()), HintedUser(user, hubUrl));
         }
         else{
-            QueueManager::getInstance()->addDirectory(filename, HintedUser(user, hubUrl), target);
+            qtCtx()->dcCtx().getQueueManager()->addDirectory(filename, HintedUser(user, hubUrl), target);
         }
     }
     catch (const Exception&){}
@@ -677,12 +681,12 @@ void SearchFrame::getFileList(const VarMap &params, bool match){
         return;
 
     try {
-        UserPtr user = ClientManager::getInstance()->findUser(CID(cid));
+        UserPtr user = qtCtx()->dcCtx().getClientManager()->findUser(CID(cid));
 
         if (user){
             QueueItem::FileFlags flag = match? QueueItem::FLAG_MATCH_QUEUE : QueueItem::FLAG_CLIENT_VIEW;
 
-            QueueManager::getInstance()->addList(HintedUser(user, host), flag, dir);
+            qtCtx()->dcCtx().getQueueManager()->addList(HintedUser(user, host), flag, dir);
         }
     }
     catch (const Exception&){}
@@ -692,10 +696,10 @@ void SearchFrame::getFileList(const VarMap &params, bool match){
 void SearchFrame::addToFav(const QString &cid){
     if (!cid.isEmpty()){
         try {
-            UserPtr user = ClientManager::getInstance()->findUser(CID(cid.toStdString()));
+            UserPtr user = qtCtx()->dcCtx().getClientManager()->findUser(CID(cid.toStdString()));
 
             if (user)
-                FavoriteManager::getInstance()->addFavoriteUser(user);
+                qtCtx()->dcCtx().getFavoriteManager()->addFavoriteUser(user);
         }
         catch (const Exception&){}
     }
@@ -709,10 +713,10 @@ void SearchFrame::grant(const VarMap &params){
         return;
 
     try {
-        UserPtr user = ClientManager::getInstance()->findUser(CID(cid));
+        UserPtr user = qtCtx()->dcCtx().getClientManager()->findUser(CID(cid));
 
         if (user)
-            UploadManager::getInstance()->reserveSlot(HintedUser(user, host));
+            qtCtx()->dcCtx().getUploadManager()->reserveSlot(HintedUser(user, host));
     }
     catch (const Exception&){}
 }
@@ -724,10 +728,10 @@ void SearchFrame::removeSource(const VarMap &params){
         return;
 
     try {
-        UserPtr user = ClientManager::getInstance()->findUser(CID(cid));
+        UserPtr user = qtCtx()->dcCtx().getClientManager()->findUser(CID(cid));
 
         if (user)
-            QueueManager::getInstance()->removeSource(user, QueueItem::Source::FLAG_REMOVED);
+            qtCtx()->dcCtx().getQueueManager()->removeSource(user, QueueItem::Source::FLAG_REMOVED);
     }
     catch (const Exception&){}
 
@@ -744,7 +748,7 @@ void SearchFrame::onHubAdded(const QString &info){
         return;
 
     d->hubs.push_back(info);
-    d->client_list.push_back(ClientManager::getInstance()->getClient(_tq(info)));
+    d->client_list.push_back(qtCtx()->dcCtx().getClientManager()->getClient(_tq(info)));
 
     d->str_model->setStringList(d->hubs);
 }
@@ -755,7 +759,7 @@ void SearchFrame::onHubChanged(const QString &info){
     if (!d->hubs.contains(info) || info.isEmpty())
         return;
 
-    Client *cl = ClientManager::getInstance()->getClient(_tq(info));
+    Client *cl = qtCtx()->dcCtx().getClientManager()->getClient(_tq(info));
     if (!cl || d->client_list.indexOf(cl) < 0)
         return;
 
@@ -786,7 +790,7 @@ void SearchFrame::getParams(SearchFrame::VarMap &map, const dcpp::SearchResultPt
     map["SIZE"]    = qulonglong(ptr->getSize());
 
     QString fname = _q(ptr->getFile());
-    const QStringList &fname_parts = fname.split('\\', QString::SkipEmptyParts);
+    const QStringList &fname_parts = fname.split('\\', Qt::SkipEmptyParts);
 
     map["FILE"] = fname_parts.isEmpty()? fname : fname_parts.last();
 
@@ -807,7 +811,7 @@ void SearchFrame::getParams(SearchFrame::VarMap &map, const dcpp::SearchResultPt
         map["ISDIR"] = true;
     }
 
-    map["NICK"]    = WulforUtil::getInstance()->getNicks(ptr->getUser()->getCID());
+    map["NICK"]    = qtCtx()->wulforUtil()->getNicks(ptr->getUser()->getCID());
     map["FSLS"]    = ptr->getFreeSlots();
     map["ASLS"]    = ptr->getSlots();
     map["IP"]      = _q(ptr->getIP());
@@ -832,7 +836,7 @@ bool SearchFrame::getDownloadParams(SearchFrame::VarMap &params, SearchItem *ite
     params["ESIZE"] = item->data(COLUMN_SF_ESIZE);
     params["TTH"]   = item->data(COLUMN_SF_TTH);
     params["HOST"]  = item->data(COLUMN_SF_HOST);
-    params["TARGET"]= _q(SETTING(DOWNLOAD_DIRECTORY));
+    params["TARGET"]= _q(qtCtx()->dcCtx().getSettingsManager()->get(SettingsManager::DOWNLOAD_DIRECTORY, true));
 
     return true;
 }
@@ -853,14 +857,14 @@ bool SearchFrame::getWholeDirParams(SearchFrame::VarMap &params, SearchItem *ite
     params["ESIZE"] = 0;
     params["TTH"]   = "";
     params["HOST"]  = item->data(COLUMN_SF_HOST);
-    params["TARGET"]= _q(SETTING(DOWNLOAD_DIRECTORY));
+    params["TARGET"]= _q(qtCtx()->dcCtx().getSettingsManager()->get(SettingsManager::DOWNLOAD_DIRECTORY, true));
 
     return true;
 }
 
 void SearchFrame::addResult(const QVariantMap &map){
     Q_D(SearchFrame);
-    static SearchBlacklist *SB = SearchBlacklist::getInstance();
+    auto *SB = qtCtx()->searchBlacklist();
 
     try {
         if (SB->ok(map["FILE"].toString(), SearchBlacklist::NAME) && SB->ok(map["TTH"].toString(), SearchBlacklist::TTH)){
@@ -940,7 +944,7 @@ void SearchFrame::slotStartSearch(){
     if (lineEdit_SEARCHSTR->text().trimmed().isEmpty())
         return;
 
-    MainWindow *MW = MainWindow::getInstance();
+    MainWindow *MW = qtCtx()->mainWindow();
     QString s = lineEdit_SEARCHSTR->text().trimmed();
     StringList clients;
 
@@ -957,7 +961,7 @@ void SearchFrame::slotStartSearch(){
 #endif
 
     QString str_size = lineEdit_SIZE->text();
-    double lsize = Util::toDouble(Text::fromT(str_size.toStdString()));
+    double lsize = Util::toDouble(str_size.toStdString());
 
     switch (comboBox_SIZE->currentIndex()){
         case 1:
@@ -982,7 +986,7 @@ void SearchFrame::slotStartSearch(){
 
         bool isTTH = WulforUtil::isTTH(s);
 
-        if ((WBGET("memorize-tth-search-phrases", false) && isTTH) || !isTTH)
+        if ((qtCtx()->settings()->getBool("memorize-tth-search-phrases", false) && isTTH) || !isTTH)
             d->searchHistory.push_front(s);
 
         QMenu *m = new QMenu();
@@ -992,12 +996,12 @@ void SearchFrame::slotStartSearch(){
 
         lineEdit_SEARCHSTR->setMenu(m);
 
-        const int maxItemsNumber = WIGET("search-history-items-number", 10);
+        const int maxItemsNumber = qtCtx()->settings()->getInt("search-history-items-number", 10);
         while (d->searchHistory.count() > maxItemsNumber)
             d->searchHistory.removeLast();
 
         QString hist = d->searchHistory.join("\n");
-        WSSET(WS_SEARCH_HISTORY, hist.toUtf8().toBase64());
+        qtCtx()->settings()->setStr(WS_SEARCH_HISTORY, hist.toUtf8().toBase64());
     }
 
     {
@@ -1038,7 +1042,7 @@ void SearchFrame::slotStartSearch(){
 
     string ftypeStr;
     if (ftype > SearchManager::TYPE_ANY && ftype < SearchManager::TYPE_LAST)
-        ftypeStr = SearchManager::getInstance()->getTypeStr(ftype);
+        ftypeStr = qtCtx()->dcCtx().getSearchManager()->getTypeStr(ftype);
     else
     {
         ftypeStr = _tq(lineEdit_SEARCHSTR->text());
@@ -1049,11 +1053,11 @@ void SearchFrame::slotStartSearch(){
     try{
         if (ftype == SearchManager::TYPE_ANY){
             // Custom searchtype
-            exts = SettingsManager::getInstance()->getExtensions(ftypeStr);
+            exts = qtCtx()->dcCtx().getSettingsManager()->getExtensions(ftypeStr);
         }
         else if ((ftype > SearchManager::TYPE_ANY && ftype < SearchManager::TYPE_DIRECTORY) || ftype == SearchManager::TYPE_CD_IMAGE){
             // Predefined searchtype
-            exts = SettingsManager::getInstance()->getExtensions(string(1, '0' + ftype));
+            exts = qtCtx()->dcCtx().getSettingsManager()->getExtensions(string(1, '0' + ftype));
         }
     }
     catch (const SearchTypeException&){
@@ -1061,9 +1065,9 @@ void SearchFrame::slotStartSearch(){
     }
 
     d->target = s;
-    d->searchStartTime = GlobalTimer::getInstance()->getTicks()*1000;
+    d->searchStartTime = qtCtx()->globalTimer()->getTicks()*1000;
 
-    uint64_t maxDelayBeforeSearch = SearchManager::getInstance()->search(clients, s.toStdString(), llsize, SearchManager::TypeModes(ftype), searchMode, d->token.toStdString(), exts, (void*)this);
+    uint64_t maxDelayBeforeSearch = qtCtx()->dcCtx().getSearchManager()->search(clients, s.toStdString(), llsize, SearchManager::TypeModes(ftype), searchMode, d->token.toStdString(), exts, (void*)this);
     uint64_t waitingResultsTime = 20000; // just assumption that user receives most of results in 20 seconds
 
     d->searchEndTime = d->searchStartTime + maxDelayBeforeSearch + waitingResultsTime;
@@ -1113,7 +1117,7 @@ void SearchFrame::slotResultDoubleClicked(const QModelIndex &index){
     if (getDownloadParams(params, item)){
         download(params);
 
-        if (item->childCount() > 0 && !SETTING(DONT_DL_ALREADY_QUEUED)){//download all child items
+        if (item->childCount() > 0 && !qtCtx()->dcCtx().getSettingsManager()->get(SettingsManager::DONT_DL_ALREADY_QUEUED, true)){//download all child items
             QString fname = params["FNAME"].toString();
 
             for (const auto &i : item->childItems){
@@ -1138,8 +1142,8 @@ void SearchFrame::slotContextMenu(const QPoint &){
     if (d->proxy)
         std::transform(list.begin(), list.end(), list.begin(), [&d](QModelIndex i) { return d->proxy->mapToSource(i); } );
 
-    if (!Menu::getInstance())
-        Menu::newInstance();
+    if (!menu_)
+        menu_ = std::make_unique<Menu>();
 
     QStringList hubs;
 
@@ -1151,7 +1155,7 @@ void SearchFrame::slotContextMenu(const QPoint &){
             hubs.push_back(host);
     }
 
-    Menu::Action act = Menu::getInstance()->exec(hubs);
+    Menu::Action act = menu_->exec(hubs);
 
     switch (act){
         case Menu::None:
@@ -1167,7 +1171,7 @@ void SearchFrame::slotContextMenu(const QPoint &){
                 if (getDownloadParams(params, item)){
                     download(params);
 
-                    if (item->childCount() > 0 && !SETTING(DONT_DL_ALREADY_QUEUED)){//download all child items
+                    if (item->childCount() > 0 && !qtCtx()->dcCtx().getSettingsManager()->get(SettingsManager::DONT_DL_ALREADY_QUEUED, true)){//download all child items
                         QString fname = params["FNAME"].toString();
 
                         for (const auto &i : item->childItems){
@@ -1186,14 +1190,14 @@ void SearchFrame::slotContextMenu(const QPoint &){
         case Menu::DownloadTo:
         {
             static QString old_target = QDir::homePath();
-            QString target = Menu::getInstance()->getDownloadToPath();
+            QString target = menu_->getDownloadToPath();
 
             if (!QDir(target).exists() || target.isEmpty()){
                 target = QFileDialog::getExistingDirectory(this, tr("Select directory"), old_target);
 
                 target = QDir::toNativeSeparators(target);
 
-                Menu::getInstance()->addTempPath(target);
+                menu_->addTempPath(target);
             }
 
             if (target.isEmpty())
@@ -1212,7 +1216,7 @@ void SearchFrame::slotContextMenu(const QPoint &){
                     params["TARGET"] = target;
                     download(params);
 
-                    if (item->childCount() > 0 && !SETTING(DONT_DL_ALREADY_QUEUED)){//download all child items
+                    if (item->childCount() > 0 && !qtCtx()->dcCtx().getSettingsManager()->get(SettingsManager::DONT_DL_ALREADY_QUEUED, true)){//download all child items
                         QString fname = params["FNAME"].toString();
 
                         for (const auto  &i : item->childItems){
@@ -1244,14 +1248,14 @@ void SearchFrame::slotContextMenu(const QPoint &){
         case Menu::DownloadWholeDirTo:
         {
             static QString old_target = QDir::homePath();
-            QString target = Menu::getInstance()->getDownloadToPath();
+            QString target = menu_->getDownloadToPath();
 
             if (!QDir(target).exists() || target.isEmpty()){
                 target = QFileDialog::getExistingDirectory(this, tr("Select directory"), old_target);
 
                 target = QDir::toNativeSeparators(target);
 
-                Menu::getInstance()->addTempPath(target);
+                menu_->addTempPath(target);
             }
 
             if (target.isEmpty())
@@ -1293,7 +1297,7 @@ void SearchFrame::slotContextMenu(const QPoint &){
         case Menu::Magnet:
         {
             QString magnets = "";
-            WulforUtil *WU = WulforUtil::getInstance();
+            WulforUtil *WU = qtCtx()->wulforUtil();
 
             for (const auto &i : list){
                 SearchItem *item = reinterpret_cast<SearchItem*>(i.internalPointer());
@@ -1320,7 +1324,7 @@ void SearchFrame::slotContextMenu(const QPoint &){
         case Menu::MagnetWeb:
         {
             QString magnets = "";
-            WulforUtil *WU = WulforUtil::getInstance();
+            WulforUtil *WU = qtCtx()->wulforUtil();
 
             for (const auto &i : list){
                 SearchItem *item = reinterpret_cast<SearchItem*>(i.internalPointer());
@@ -1346,7 +1350,7 @@ void SearchFrame::slotContextMenu(const QPoint &){
         }
         case Menu::MagnetInfo:
         {
-            WulforUtil *WU = WulforUtil::getInstance();
+            WulforUtil *WU = qtCtx()->wulforUtil();
 
             for (const auto &i : list){
                 SearchItem *item = reinterpret_cast<SearchItem*>(i.internalPointer());
@@ -1403,7 +1407,7 @@ void SearchFrame::slotContextMenu(const QPoint &){
                 QString hubUrl = item->data(COLUMN_SF_HOST).toString();
                 dcpp::CID cid(_tq(item->cid));
 
-                fr = qobject_cast<HubFrame*>(HubManager::getInstance()->getHub(hubUrl));
+                fr = qobject_cast<HubFrame*>(qtCtx()->hubManager()->getHub(hubUrl));
 
                 if (fr)
                     fr->createPMWindow(cid);
@@ -1469,16 +1473,16 @@ void SearchFrame::slotContextMenu(const QPoint &){
             for (const auto &i : list){
                 SearchItem *item = reinterpret_cast<SearchItem*>(i.internalPointer());
 
-                int id = Menu::getInstance()->getCommandId();
+                int id = menu_->getCommandId();
 
                 UserCommand uc;
-                if (id == -1 || !FavoriteManager::getInstance()->getUserCommand(id, uc))
+                if (id == -1 || !qtCtx()->dcCtx().getFavoriteManager()->getUserCommand(id, uc))
                     break;
 
                 StringMap params;
 
-                if (WulforUtil::getInstance()->getUserCommandParams(uc, params)){
-                    UserPtr user = ClientManager::getInstance()->findUser(CID(item->cid.toStdString()));
+                if (qtCtx()->wulforUtil()->getUserCommandParams(uc, params)){
+                    UserPtr user = qtCtx()->dcCtx().getClientManager()->findUser(CID(item->cid.toStdString()));
 
                     if (user && user->isOnline()){
                         params["fileFN"]     = _tq(item->data(COLUMN_SF_PATH).toString() + item->data(COLUMN_SF_FILENAME).toString());
@@ -1496,7 +1500,7 @@ void SearchFrame::slotContextMenu(const QPoint &){
 
                         string hubUrl = _tq(i.data(COLUMN_SF_HOST).toString());
 
-                        ClientManager::getInstance()->userCommand(HintedUser(user, hubUrl), uc, params, true);
+                        qtCtx()->dcCtx().getClientManager()->userCommand(HintedUser(user, hubUrl), uc, params, true);
                     }
 
                 }
@@ -1524,7 +1528,7 @@ void SearchFrame::slotContextMenu(const QPoint &){
                     new_inst << item->data(COLUMN_SF_FILENAME).toString();
             }
             if (!new_inst.isEmpty()){
-                static SearchBlacklist *SB = SearchBlacklist::getInstance();
+                auto *SB = qtCtx()->searchBlacklist();
                 QList <QString> list = SB->getList(SearchBlacklist::NAME);
                 list.append(new_inst);
                 SB->setList(SearchBlacklist::NAME, list);
@@ -1547,7 +1551,7 @@ void SearchFrame::slotTimer(){
     Q_D(SearchFrame);
 
     if (d->waitingResults) {
-        uint64_t now = GlobalTimer::getInstance()->getTicks()*1000;
+        uint64_t now = qtCtx()->globalTimer()->getTicks()*1000;
         float fraction  = 100.0f*(now - d->searchStartTime)/(d->searchEndTime - d->searchStartTime);
         if (fraction >= 100.0) {
             fraction = 100.0;
@@ -1619,7 +1623,7 @@ void SearchFrame::slotFilter(){
     if (frame_FILTER->isVisible()){
         treeView_RESULTS->setModel(d->model);
 
-        disconnect(lineEdit_FILTER, SIGNAL(textChanged(QString)), d->proxy, SLOT(setFilterFixedString(QString)));
+        disconnect(lineEdit_FILTER, &LineEdit::textChanged, d->proxy, &SearchProxyModel::setFilterFixedString);
     }
     else {
         d->proxy = (d->proxy? d->proxy : (new SearchProxyModel(this)));
@@ -1631,7 +1635,7 @@ void SearchFrame::slotFilter(){
 
         treeView_RESULTS->setModel(d->proxy);
 
-        connect(lineEdit_FILTER, SIGNAL(textChanged(QString)), d->proxy, SLOT(setFilterFixedString(QString)));
+        connect(lineEdit_FILTER, &LineEdit::textChanged, d->proxy, &SearchProxyModel::setFilterFixedString);
 
         if (!lineEdit_SEARCHSTR->selectedText().isEmpty()){
             lineEdit_FILTER->setText(lineEdit_SEARCHSTR->selectedText());
@@ -1673,7 +1677,7 @@ void SearchFrame::on(SearchManagerListener::SR, const dcpp::SearchResultPtr& aRe
     }
 
     if(d->isHash) {
-        if(aResult->getType() != SearchResult::TYPE_FILE || TTHValue(Text::fromT(d->currentSearch[0])) != aResult->getTTH()) {
+        if(aResult->getType() != SearchResult::TYPE_FILE || TTHValue(d->currentSearch[0]) != aResult->getTTH()) {
             d->dropped++;
 
             return;
@@ -1695,7 +1699,7 @@ void SearchFrame::on(SearchManagerListener::SR, const dcpp::SearchResultPtr& aRe
     if (d->filterShared == Filter && aResult->getType() == SearchResult::TYPE_FILE){
         const TTHValue& t = aResult->getTTH();
 
-        if (ShareManager::getInstance()->isTTHShared(t)) {
+        if (qtCtx()->dcCtx().getShareManager()->isTTHShared(t)) {
             d->dropped++;
 
             return;
@@ -1715,7 +1719,7 @@ void SearchFrame::on(SearchManagerListener::SR, const dcpp::SearchResultPtr& aRe
 }
 
 void SearchFrame::slotClose() {
-    ArenaWidgetManager::getInstance()->rem(this);
+    qtCtx()->arenaWidgetManager()->rem(this);
 }
 
 void SearchFrame::on(ClientConnected, Client* c) noexcept{

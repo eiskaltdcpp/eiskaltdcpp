@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2001-2012 Jacek Sieka, arnetheduck on gmail point com
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -31,6 +32,87 @@
 
 namespace dcpp {
 
+// ── BIO-based helpers ────────────────────────────────────────────────────
+// On Windows, OpenSSL DLL's FILE*-based APIs (SSL_CTX_use_certificate_file,
+// PEM_read_X509, etc.) require OPENSSL_Applink exported from the main .exe.
+// This fails when the library is loaded as a plugin (e.g. Python .pyd)
+// because GetModuleHandle(NULL) returns python.exe, not the plugin DLL.
+// Using BIO with memory buffers avoids the issue entirely and works on
+// all platforms.
+
+/// Read a PEM X.509 certificate from a file path via BIO.
+static X509* readX509FromFile(const std::string& path) {
+    try {
+        string data = File(path, File::READ, File::OPEN).read();
+        if (data.empty()) return nullptr;
+        BIO* bio = BIO_new_mem_buf(data.data(), static_cast<int>(data.size()));
+        if (!bio) return nullptr;
+        X509* cert = PEM_read_bio_X509(bio, nullptr, nullptr, nullptr);
+        BIO_free(bio);
+        return cert;
+    } catch (...) {
+        return nullptr;
+    }
+}
+
+/// Load a PEM certificate file into an SSL_CTX via BIO.
+static int sslCtxUseCertFileBIO(SSL_CTX* ctx, const std::string& path) {
+    try {
+        string data = File(path, File::READ, File::OPEN).read();
+        if (data.empty()) return 0;
+        BIO* bio = BIO_new_mem_buf(data.data(), static_cast<int>(data.size()));
+        if (!bio) return 0;
+        X509* cert = PEM_read_bio_X509(bio, nullptr, nullptr, nullptr);
+        BIO_free(bio);
+        if (!cert) return 0;
+        int ret = SSL_CTX_use_certificate(ctx, cert);
+        X509_free(cert);
+        return ret;
+    } catch (...) {
+        return 0;
+    }
+}
+
+/// Load a PEM private key file into an SSL_CTX via BIO.
+static int sslCtxUseKeyFileBIO(SSL_CTX* ctx, const std::string& path) {
+    try {
+        string data = File(path, File::READ, File::OPEN).read();
+        if (data.empty()) return 0;
+        BIO* bio = BIO_new_mem_buf(data.data(), static_cast<int>(data.size()));
+        if (!bio) return 0;
+        EVP_PKEY* pkey = PEM_read_bio_PrivateKey(bio, nullptr, nullptr, nullptr);
+        BIO_free(bio);
+        if (!pkey) return 0;
+        int ret = SSL_CTX_use_PrivateKey(ctx, pkey);
+        EVP_PKEY_free(pkey);
+        return ret;
+    } catch (...) {
+        return 0;
+    }
+}
+
+/// Load trusted PEM certificates from a file into an SSL_CTX's cert store.
+static bool sslCtxLoadVerifyBIO(SSL_CTX* ctx, const std::string& path) {
+    try {
+        string data = File(path, File::READ, File::OPEN).read();
+        if (data.empty()) return false;
+        BIO* bio = BIO_new_mem_buf(data.data(), static_cast<int>(data.size()));
+        if (!bio) return false;
+        X509_STORE* store = SSL_CTX_get_cert_store(ctx);
+        int loaded = 0;
+        X509* cert;
+        while ((cert = PEM_read_bio_X509(bio, nullptr, nullptr, nullptr)) != nullptr) {
+            if (X509_STORE_add_cert(store, cert) == 1) loaded++;
+            X509_free(cert);
+        }
+        ERR_clear_error();  // clear the EOF "error"
+        BIO_free(bio);
+        return loaded > 0;
+    } catch (...) {
+        return false;
+    }
+}
+
 static const char ciphersuites[] =
         "ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES128-GCM-SHA256:"
         "ECDHE-ECDSA-AES256-SHA384:ECDHE-ECDSA-AES128-SHA256:"
@@ -41,8 +123,9 @@ static const char ciphersuites[] =
         "AES256-GCM-SHA384:AES256-SHA256:AES256-SHA:AES128-SHA"
         "!aNULL:!eNULL:!EXPORT:!DES:!RC4:!3DES:!MD5:!PSK";
 
-CryptoManager::CryptoManager()
+CryptoManager::CryptoManager(DCContext& ctx)
     :
+      ContextAware(ctx),
       certsLoaded(false),
       lock("EXTENDEDPROTOCOLABCABCABCABCABCABC"),
       pk("DCPLUSPLUS" VERSIONSTRING)
@@ -156,16 +239,16 @@ CryptoManager::CryptoManager()
 CryptoManager::~CryptoManager() {
 }
 
-bool CryptoManager::TLSOk() const noexcept {
-    return BOOLSETTING(USE_TLS) && certsLoaded && !keyprint.empty();
+bool CryptoManager::TLSOk() const {
+    return CTX_BOOLSETTING(USE_TLS) && certsLoaded && !keyprint.empty();
 }
 
 void CryptoManager::generateCertificate() {
     // Generate certificate using OpenSSL
-    if(SETTING(TLS_PRIVATE_KEY_FILE).empty()) {
+    if(CTX_SETTING(TLS_PRIVATE_KEY_FILE).empty()) {
         throw CryptoException(_("No private key file chosen"));
     }
-    if(SETTING(TLS_CERTIFICATE_FILE).empty()) {
+    if(CTX_SETTING(TLS_CERTIFICATE_FILE).empty()) {
         throw CryptoException(_("No certificate file chosen"));
     }
 
@@ -193,7 +276,7 @@ void CryptoManager::generateCertificate() {
 
             // Set CID
             CHECK((X509_NAME_add_entry_by_txt(nm, "CN", MBSTRING_ASC,
-                                              (const unsigned char*)ClientManager::getInstance()->getMyCID().toBase32().c_str(), -1, -1, 0)))
+                                              (const unsigned char*)ctx().getClientManager()->getMyCID().toBase32().c_str(), -1, -1, 0)))
 
             // Prepare self-signed cert
             ASN1_INTEGER_set(serial, (long)Util::rand());
@@ -208,40 +291,61 @@ void CryptoManager::generateCertificate() {
             CHECK((X509_sign(x509ss, pkey, digest)))
 
         #undef CHECK
-            // Write the key and cert
+            // Write the key and cert (via BIO to avoid FILE* across DLL boundaries)
     {
-        File::ensureDirectory(SETTING(TLS_PRIVATE_KEY_FILE));
-        FILE* f = fopen(SETTING(TLS_PRIVATE_KEY_FILE).c_str(), "w");
-        if(!f) {
+        File::ensureDirectory(CTX_SETTING(TLS_PRIVATE_KEY_FILE));
+        BIO* bio = BIO_new(BIO_s_mem());
+        if(!bio || !PEM_write_bio_RSAPrivateKey(bio, rsa, NULL, NULL, 0, NULL, NULL)) {
+            BIO_free(bio);
             return;
         }
-        PEM_write_RSAPrivateKey(f, rsa, NULL, NULL, 0, NULL, NULL);
-        fclose(f);
+        BUF_MEM* bptr;
+        BIO_get_mem_ptr(bio, &bptr);
+        try {
+            File(CTX_SETTING(TLS_PRIVATE_KEY_FILE), File::WRITE,
+                 File::OPEN | File::CREATE | File::TRUNCATE)
+                .write(string(bptr->data, bptr->length));
+        } catch (...) {
+            BIO_free(bio);
+            return;
+        }
+        BIO_free(bio);
     }
     {
-        File::ensureDirectory(SETTING(TLS_CERTIFICATE_FILE));
-        FILE* f = fopen(SETTING(TLS_CERTIFICATE_FILE).c_str(), "w");
-        if(!f) {
-            File::deleteFile(SETTING(TLS_PRIVATE_KEY_FILE));
+        File::ensureDirectory(CTX_SETTING(TLS_CERTIFICATE_FILE));
+        BIO* bio = BIO_new(BIO_s_mem());
+        if(!bio || !PEM_write_bio_X509(bio, x509ss)) {
+            BIO_free(bio);
+            File::deleteFile(CTX_SETTING(TLS_PRIVATE_KEY_FILE));
             return;
         }
-        PEM_write_X509(f, x509ss);
-        fclose(f);
+        BUF_MEM* bptr;
+        BIO_get_mem_ptr(bio, &bptr);
+        try {
+            File(CTX_SETTING(TLS_CERTIFICATE_FILE), File::WRITE,
+                 File::OPEN | File::CREATE | File::TRUNCATE)
+                .write(string(bptr->data, bptr->length));
+        } catch (...) {
+            BIO_free(bio);
+            File::deleteFile(CTX_SETTING(TLS_PRIVATE_KEY_FILE));
+            return;
+        }
+        BIO_free(bio);
     }
 }
 
-void CryptoManager::loadCertificates() noexcept {
-    if(!BOOLSETTING(USE_TLS) || !clientContext || !clientVerContext || !serverContext || !serverVerContext)
+void CryptoManager::loadCertificates() {
+    if(!CTX_BOOLSETTING(USE_TLS) || !clientContext || !clientVerContext || !serverContext || !serverVerContext)
         return;
 
     keyprint.clear();
     certsLoaded = false;
 
-    const string& cert = SETTING(TLS_CERTIFICATE_FILE);
-    const string& key = SETTING(TLS_PRIVATE_KEY_FILE);
+    const string& cert = CTX_SETTING(TLS_CERTIFICATE_FILE);
+    const string& key = CTX_SETTING(TLS_PRIVATE_KEY_FILE);
 
     if(cert.empty() || key.empty()) {
-        LogManager::getInstance()->message(_("TLS disabled, no certificate file set"));
+        ctx().getLogManager()->message(_("TLS disabled, no certificate file set"));
         return;
     }
 
@@ -249,60 +353,60 @@ void CryptoManager::loadCertificates() noexcept {
         // Try to generate them...
         try {
             generateCertificate();
-            LogManager::getInstance()->message(_("Generated new TLS certificate"));
+            ctx().getLogManager()->message(_("Generated new TLS certificate"));
         } catch(const CryptoException& e) {
-            LogManager::getInstance()->message(str(F_("TLS disabled, failed to generate certificate: %1%") % e.getError()));
+            ctx().getLogManager()->message(str(F_("TLS disabled, failed to generate certificate: %1%") % e.getError()));
         }
     }
 
-    if(SSL_CTX_use_certificate_file(serverContext, cert.c_str(), SSL_FILETYPE_PEM) != SSL_SUCCESS) {
-        LogManager::getInstance()->message(_("Failed to load certificate file"));
+    if(sslCtxUseCertFileBIO(serverContext, cert) != SSL_SUCCESS) {
+        ctx().getLogManager()->message(_("Failed to load certificate file"));
         return;
     }
-    if(SSL_CTX_use_certificate_file(clientContext, cert.c_str(), SSL_FILETYPE_PEM) != SSL_SUCCESS) {
-        LogManager::getInstance()->message(_("Failed to load certificate file"));
-        return;
-    }
-
-    if(SSL_CTX_use_certificate_file(serverVerContext, cert.c_str(), SSL_FILETYPE_PEM) != SSL_SUCCESS) {
-        LogManager::getInstance()->message(_("Failed to load certificate file"));
-        return;
-    }
-    if(SSL_CTX_use_certificate_file(clientVerContext, cert.c_str(), SSL_FILETYPE_PEM) != SSL_SUCCESS) {
-        LogManager::getInstance()->message(_("Failed to load certificate file"));
+    if(sslCtxUseCertFileBIO(clientContext, cert) != SSL_SUCCESS) {
+        ctx().getLogManager()->message(_("Failed to load certificate file"));
         return;
     }
 
-    if(SSL_CTX_use_PrivateKey_file(serverContext, key.c_str(), SSL_FILETYPE_PEM) != SSL_SUCCESS) {
-        LogManager::getInstance()->message(_("Failed to load private key"));
+    if(sslCtxUseCertFileBIO(serverVerContext, cert) != SSL_SUCCESS) {
+        ctx().getLogManager()->message(_("Failed to load certificate file"));
         return;
     }
-    if(SSL_CTX_use_PrivateKey_file(clientContext, key.c_str(), SSL_FILETYPE_PEM) != SSL_SUCCESS) {
-        LogManager::getInstance()->message(_("Failed to load private key"));
-        return;
-    }
-
-    if(SSL_CTX_use_PrivateKey_file(serverVerContext, key.c_str(), SSL_FILETYPE_PEM) != SSL_SUCCESS) {
-        LogManager::getInstance()->message(_("Failed to load private key"));
-        return;
-    }
-    if(SSL_CTX_use_PrivateKey_file(clientVerContext, key.c_str(), SSL_FILETYPE_PEM) != SSL_SUCCESS) {
-        LogManager::getInstance()->message(_("Failed to load private key"));
+    if(sslCtxUseCertFileBIO(clientVerContext, cert) != SSL_SUCCESS) {
+        ctx().getLogManager()->message(_("Failed to load certificate file"));
         return;
     }
 
-    StringList certs = File::findFiles(SETTING(TLS_TRUSTED_CERTIFICATES_PATH), "*.pem");
-    StringList certs2 = File::findFiles(SETTING(TLS_TRUSTED_CERTIFICATES_PATH), "*.crt");
+    if(sslCtxUseKeyFileBIO(serverContext, key) != SSL_SUCCESS) {
+        ctx().getLogManager()->message(_("Failed to load private key"));
+        return;
+    }
+    if(sslCtxUseKeyFileBIO(clientContext, key) != SSL_SUCCESS) {
+        ctx().getLogManager()->message(_("Failed to load private key"));
+        return;
+    }
+
+    if(sslCtxUseKeyFileBIO(serverVerContext, key) != SSL_SUCCESS) {
+        ctx().getLogManager()->message(_("Failed to load private key"));
+        return;
+    }
+    if(sslCtxUseKeyFileBIO(clientVerContext, key) != SSL_SUCCESS) {
+        ctx().getLogManager()->message(_("Failed to load private key"));
+        return;
+    }
+
+    StringList certs = File::findFiles(CTX_SETTING(TLS_TRUSTED_CERTIFICATES_PATH), "*.pem");
+    StringList certs2 = File::findFiles(CTX_SETTING(TLS_TRUSTED_CERTIFICATES_PATH), "*.crt");
     certs.insert(certs.end(), certs2.begin(), certs2.end());
 
     for(auto& i: certs) {
         if(
-                SSL_CTX_load_verify_locations(clientContext, i.c_str(), NULL) != SSL_SUCCESS ||
-                SSL_CTX_load_verify_locations(clientVerContext, i.c_str(), NULL) != SSL_SUCCESS ||
-                SSL_CTX_load_verify_locations(serverContext, i.c_str(), NULL) != SSL_SUCCESS ||
-                SSL_CTX_load_verify_locations(serverVerContext, i.c_str(), NULL) != SSL_SUCCESS
+                !sslCtxLoadVerifyBIO(clientContext, i) ||
+                !sslCtxLoadVerifyBIO(clientVerContext, i) ||
+                !sslCtxLoadVerifyBIO(serverContext, i) ||
+                !sslCtxLoadVerifyBIO(serverVerContext, i)
                 ) {
-            LogManager::getInstance()->message("Failed to load trusted certificate from " + i);
+            ctx().getLogManager()->message("Failed to load trusted certificate from " + i);
         }
     }
 
@@ -311,16 +415,8 @@ void CryptoManager::loadCertificates() noexcept {
     certsLoaded = true;
 }
 
-bool CryptoManager::checkCertificate() noexcept {
-    FILE* f = fopen(SETTING(TLS_CERTIFICATE_FILE).c_str(), "r");
-    if(!f) {
-        return false;
-    }
-
-    X509* tmpx509 = NULL;
-    PEM_read_X509(f, &tmpx509, NULL, NULL);
-    fclose(f);
-
+bool CryptoManager::checkCertificate() {
+    X509* tmpx509 = readX509FromFile(CTX_SETTING(TLS_CERTIFICATE_FILE));
     if(!tmpx509) {
         return false;
     }
@@ -353,7 +449,7 @@ bool CryptoManager::checkCertificate() noexcept {
     std::string cn((char*)buf, i);
     OPENSSL_free(buf);
 
-    if(cn != ClientManager::getInstance()->getMyCID().toBase32()) {
+    if(cn != ctx().getClientManager()->getMyCID().toBase32()) {
         return false;
     }
 
@@ -366,26 +462,17 @@ bool CryptoManager::checkCertificate() noexcept {
     return true;
 }
 
-const ByteVector &CryptoManager::getKeyprint() const noexcept {
+const ByteVector &CryptoManager::getKeyprint() const {
     return keyprint;
 }
 
-void CryptoManager::loadKeyprint(const string& file) noexcept {
+void CryptoManager::loadKeyprint(const string& file) {
     (void)file;
 
-    FILE* f = fopen(SETTING(TLS_CERTIFICATE_FILE).c_str(), "r");
-    if(!f) {
-        return;
-    }
-
-    X509* tmpx509 = NULL;
-    PEM_read_X509(f, &tmpx509, NULL, NULL);
-    fclose(f);
-
+    X509* tmpx509 = readX509FromFile(CTX_SETTING(TLS_CERTIFICATE_FILE));
     if(!tmpx509) {
         return;
     }
-
     ssl::X509 x509(tmpx509);
 
     keyprint = ssl::X509_digest(x509, EVP_sha256());
@@ -410,6 +497,9 @@ void CryptoManager::decodeBZ2(const uint8_t* is, size_t sz, string& os) {
     size_t bufsize = 2*sz;
     std::unique_ptr<char[]> buf(new char[bufsize]);
 
+    // Safety limit: cap decompressed output at 256 MB to prevent OOM / decompression bombs.
+    static constexpr size_t MAX_DECOMPRESS_SIZE = 256 * 1024 * 1024;
+
     bs.avail_in = sz;
     bs.avail_out = bufsize;
     bs.next_in = reinterpret_cast<char*>(const_cast<uint8_t*>(is));
@@ -425,6 +515,10 @@ void CryptoManager::decodeBZ2(const uint8_t* is, size_t sz, string& os) {
             throw CryptoException(_("Error during decompression"));
         }
         os.append(&buf[0], bufsize-bs.avail_out);
+        if(os.size() > MAX_DECOMPRESS_SIZE) {
+            BZ2_bzDecompressEnd(&bs);
+            throw CryptoException(_("Decompressed data exceeds size limit"));
+        }
         bs.avail_out = bufsize;
         bs.next_out = &buf[0];
     }

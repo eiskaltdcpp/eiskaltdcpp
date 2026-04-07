@@ -20,19 +20,24 @@
 #include "EmoticonObject.h"
 
 #include "dcpp/stdinc.h"
-#include "dcpp/Singleton.h"
+
+#include "QtContextAware.h"
 
 class EmoticonFactory :
         public QObject,
-        public dcpp::Singleton<EmoticonFactory>
+        public QtContextAware
 {
 Q_OBJECT
 typedef QList<QDomNode> DomNodeList;
 typedef QList<QTextDocument*> TextDocumentList;
 
-friend class dcpp::Singleton<EmoticonFactory>;
+friend class QtContext;
 
 public:
+    explicit EmoticonFactory(dcpp::DCContext& ctx);
+    ~EmoticonFactory() override;
+
+
     void load();
     void unload(){ this->clear(); }
 
@@ -45,9 +50,6 @@ private slots:
     void slotDocDeleted();
 
 private:
-    EmoticonFactory();
-    ~EmoticonFactory();
-
     void clear();
     void createEmoticonMap(const QDomNode &root);
 

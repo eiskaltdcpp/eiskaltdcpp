@@ -1,6 +1,7 @@
 /*
  * Copyright (C) 2001-2012 Jacek Sieka, arnetheduck on gmail point com
  * Copyright (C) 2009-2019 EiskaltDC++ developers
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,6 +19,7 @@
 
 #pragma once
 
+#include <clocale>
 #include <cstdlib>
 #include <ctime>
 
@@ -37,7 +39,9 @@
 
 #include <sys/stat.h>
 #include <sys/types.h>
+#ifndef _WIN32
 #include <unistd.h>
+#endif
 
 #ifdef _WIN32
 #include <winsock2.h>
@@ -52,6 +56,8 @@ extern "C" int  _nl_msg_cat_cntr;
 #endif
 
 namespace dcpp {
+
+class DCContext;
 
 #define LIT(x) x, (sizeof(x)-1)
 
@@ -115,6 +121,7 @@ public:
 
     typedef std::map<Util::Paths, std::string> PathsMap;
     static void initialize(PathsMap pathOverrides = PathsMap());
+    static void uninitialize();
 
     /** Path of temporary storage */
     static string getTempPath();
@@ -392,8 +399,8 @@ public:
      * Case insensitive substring search.
      * @return First position found or string::npos
      */
-    static string::size_type findSubString(const string& aString, const string& aSubString, string::size_type start = 0) noexcept;
-    static wstring::size_type findSubString(const wstring& aString, const wstring& aSubString, wstring::size_type start = 0) noexcept;
+    static string::size_type findSubString(const string& aString, const string& aSubString, string::size_type start = 0);
+    static wstring::size_type findSubString(const wstring& aString, const wstring& aSubString, wstring::size_type start = 0);
 
     /* Utf-8 versions of strnicmp and stricmp, unicode char code order (!) */
     static int stricmp(const char* a, const char* b);
@@ -423,11 +430,11 @@ public:
 
     static string getIpCountry (string IP);
 
-    static void setLang(const string& lang);
+    static void setLang(DCContext& ctx, const string& lang);
 
     static bool getAway();
-    static void setAway(bool b);
-    static void switchAway();
+    static void setAway(DCContext& ctx, bool b);
+    static void switchAway(DCContext& ctx);
 
     static bool getManualAway() { return manualAway; }
     static void setManualAway(bool aManualAway) { manualAway = aManualAway; }

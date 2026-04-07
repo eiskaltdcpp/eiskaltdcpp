@@ -21,6 +21,7 @@
 
 #include "forward.h"
 #include "typedefs.h"
+#include "HintedUser.h"
 
 #include "Pointer.h"
 #include "GetSet.h"

@@ -24,6 +24,7 @@
 
 namespace dcpp {
 
+class DCContext;
 class Identity;
 
 struct TFolderSetting
@@ -42,7 +43,7 @@ class CPerfolderLimit
 public:
     CPerfolderLimit(string const *config_name=NULL);
     ~CPerfolderLimit();
-    bool IsUserAllowed(string const& request, const UserPtr user, string *message=NULL);
+    bool IsUserAllowed(DCContext& ctx, string const& request, const UserPtr user, string *message=NULL);
     void RenewList(string const *config_name=NULL);
 };
 

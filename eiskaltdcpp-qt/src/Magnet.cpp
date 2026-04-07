@@ -6,8 +6,13 @@
 *   (at your option) any later version.                                   *
 *                                                                         *
 ***************************************************************************/
+/*
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
+ */
 
 #include "Magnet.h"
+#include "QtContextAware.h"
+#include "QtContext.h"
 
 #include <QUrl>
 #include <QMessageBox>
@@ -22,6 +27,7 @@
 #include "dcpp/ClientManager.h"
 #include "dcpp/SettingsManager.h"
 #include "dcpp/QueueManager.h"
+#include "dcpp/DCPlusPlus.h"
 
 #include "ArenaWidgetFactory.h"
 #include "SearchFrame.h"
@@ -37,30 +43,30 @@ Magnet::Magnet(QWidget *parent) :
 {
     setupUi(this);
 
-    toolButton_COPY_MAGNET->setIcon(WICON(WulforUtil::eiMAGNET));
-    toolButton_COPY_SEARCH_LINK->setIcon(WICON(WulforUtil::eiMAGNET));
-    toolButton_BROWSE->setIcon(WICON(WulforUtil::eiFOLDER_BLUE));
+    toolButton_COPY_MAGNET->setIcon(qtCtx()->wulforUtil()->getPixmap(WulforUtil::eiMAGNET));
+    toolButton_COPY_SEARCH_LINK->setIcon(qtCtx()->wulforUtil()->getPixmap(WulforUtil::eiMAGNET));
+    toolButton_BROWSE->setIcon(qtCtx()->wulforUtil()->getPixmap(WulforUtil::eiFOLDER_BLUE));
 
-    connect(pushButton_CANCEL,  SIGNAL(clicked()), this, SLOT(accept()));
-    connect(pushButton_SEARCH,  SIGNAL(clicked()), this, SLOT(search()));
-    connect(pushButton_DOWNLOAD,SIGNAL(clicked()), this, SLOT(download()));
-    connect(lineEdit_FNAME,     SIGNAL(returnPressed()), this, SLOT(download()));
-    connect(lineEdit_FPATH,     SIGNAL(returnPressed()), this, SLOT(download()));
-    connect(toolButton_COPY_MAGNET,      SIGNAL(clicked()), this, SLOT(slotCopyMagnet()));
-    connect(toolButton_COPY_SEARCH_LINK, SIGNAL(clicked()), this, SLOT(slotCopySearchString()));
-    connect(toolButton_BROWSE,  SIGNAL(clicked()), this, SLOT(slotBrowse()));
-    connect(this, SIGNAL(finished(int)), this, SLOT(saveWindowSize()));
+    connect(pushButton_CANCEL, &QPushButton::clicked, this, &QDialog::accept);
+    connect(pushButton_SEARCH, &QPushButton::clicked, this, qOverload<>(&Magnet::search));
+    connect(pushButton_DOWNLOAD, &QPushButton::clicked, this, qOverload<>(&Magnet::download));
+    connect(lineEdit_FNAME, &QLineEdit::returnPressed, this, qOverload<>(&Magnet::download));
+    connect(lineEdit_FPATH, &QLineEdit::returnPressed, this, qOverload<>(&Magnet::download));
+    connect(toolButton_COPY_MAGNET, &QToolButton::clicked, this, &Magnet::slotCopyMagnet);
+    connect(toolButton_COPY_SEARCH_LINK, &QToolButton::clicked, this, &Magnet::slotCopySearchString);
+    connect(toolButton_BROWSE, &QToolButton::clicked, this, &Magnet::slotBrowse);
+    connect(this, &QDialog::finished, this, &Magnet::saveWindowSize);
 
-    if (!SETTING(AUTO_SEARCH)){
+    if (!qtCtx()->dcCtx().getSettingsManager()->get(SettingsManager::AUTO_SEARCH, true)){
         pushButton_DOWNLOAD->setToolTip(tr("Run search alternatives manually."));
     }
     else {
         pushButton_DOWNLOAD->setToolTip(tr("Download file via auto search alternatives"));
     }
-    currentAction = (MagnetAction)WIGET(WI_DEF_MAGNET_ACTION);
+    currentAction = (MagnetAction)qtCtx()->settings()->getInt(WI_DEF_MAGNET_ACTION);
 
-    if (WVGET(DIALOG_SIZE).isValid()) {
-        resize(WVGET(DIALOG_SIZE).toSize());
+    if (qtCtx()->settings()->getVar(DIALOG_SIZE).isValid()) {
+        resize(qtCtx()->settings()->getVar(DIALOG_SIZE).toSize());
     }
 
     pushButton_DOWNLOAD->setFocus();
@@ -86,11 +92,11 @@ void Magnet::showUI(const QString &name, const qulonglong &size, const QString &
     if (tth.isEmpty())
         pushButton_DOWNLOAD->setEnabled(false);
 
-    lineEdit_FPATH->setText(_q(SETTING(DOWNLOAD_DIRECTORY)));
+    lineEdit_FPATH->setText(_q(qtCtx()->dcCtx().getSettingsManager()->get(SettingsManager::DOWNLOAD_DIRECTORY, true)));
 
-    if (!MainWindow::getInstance()->isVisible()){
-        MainWindow::getInstance()->show();
-        MainWindow::getInstance()->raise();
+    if (!qtCtx()->mainWindow()->isVisible()){
+        qtCtx()->mainWindow()->show();
+        qtCtx()->mainWindow()->raise();
     }
 }
 
@@ -118,10 +124,10 @@ void Magnet::setLink(const QString &link, MagnetAction action){
             else
                 target = name;
 
-            QString path=_q(SETTING(DOWNLOAD_DIRECTORY));
+            QString path=_q(qtCtx()->dcCtx().getSettingsManager()->get(SettingsManager::DOWNLOAD_DIRECTORY, true));
             target = path + (path.endsWith(QDir::separator())?
                                  QString("") :
-                                 QDir::separator()) + target.split(QDir::separator(), QString::SkipEmptyParts).last();
+                                 QDir::separator()) + target.split(QDir::separator(), Qt::SkipEmptyParts).last();
                 download(target, size, tth);
             break;
         }
@@ -143,7 +149,7 @@ int Magnet::exec() {
 }
 
 void Magnet::saveWindowSize() {
-    WVSET(DIALOG_SIZE, size());
+    qtCtx()->settings()->setVar(DIALOG_SIZE, size());
 }
 
 void Magnet::search(const QString &file, const qulonglong &size, const QString &tth){
@@ -156,8 +162,8 @@ void Magnet::search(const QString &file, const qulonglong &size, const QString &
 }
 
 void Magnet::search(){
-    if (checkBox_Remember->isChecked() && WIGET(WI_DEF_MAGNET_ACTION) != 1)
-        WISET(WI_DEF_MAGNET_ACTION,1);
+    if (checkBox_Remember->isChecked() && qtCtx()->settings()->getInt(WI_DEF_MAGNET_ACTION) != 1)
+        qtCtx()->settings()->setInt(WI_DEF_MAGNET_ACTION, 1);
 
     QString size_str = lineEdit_SIZE->text();
     qulonglong size = size_str.left(size_str.indexOf(" (")).toULongLong();
@@ -169,8 +175,8 @@ void Magnet::search(){
 void Magnet::download() {
     const QString &&tth = lineEdit_TTH->text();
 
-    if (checkBox_Remember->isChecked() && WIGET(WI_DEF_MAGNET_ACTION) != 2)
-        WISET(WI_DEF_MAGNET_ACTION,2);
+    if (checkBox_Remember->isChecked() && qtCtx()->settings()->getInt(WI_DEF_MAGNET_ACTION) != 2)
+        qtCtx()->settings()->setInt(WI_DEF_MAGNET_ACTION, 2);
     if (tth.isEmpty())
         return;
 
@@ -180,7 +186,7 @@ void Magnet::download() {
 
     const QString &&name = path + (path.endsWith(QDir::separator()) ?
                                        QString("") :
-                                       QDir::separator()) + fileName.split(QDir::separator(), QString::SkipEmptyParts).last();
+                                       QDir::separator()) + fileName.split(QDir::separator(), Qt::SkipEmptyParts).last();
     const qulonglong size = sizeStr.left(sizeStr.indexOf(" (")).toULongLong();
 
     Magnet::download(name,size,tth);
@@ -196,9 +202,9 @@ void Magnet::slotCopyMagnet(){
     if (fname.isEmpty() || tth.isEmpty())
         return;
 
-    const QString name = fname.split(QDir::separator(), QString::SkipEmptyParts).last();
+    const QString name = fname.split(QDir::separator(), Qt::SkipEmptyParts).last();
     const qulonglong size = size_str.left(size_str.indexOf(" (")).toULongLong();
-    const QString &&magnet = WulforUtil::getInstance()->makeMagnet(name, size, tth);
+    const QString &&magnet = qtCtx()->wulforUtil()->makeMagnet(name, size, tth);
 
     if (!magnet.isEmpty())
         qApp->clipboard()->setText(magnet, QClipboard::Clipboard);
@@ -210,7 +216,7 @@ void Magnet::slotCopySearchString(){
     if (fname.isEmpty())
         return;
 
-    const QString name = fname.split(QDir::separator(), QString::SkipEmptyParts).last();
+    const QString name = fname.split(QDir::separator(), Qt::SkipEmptyParts).last();
 
     // Special searching magnet link:
     const QString &&encoded_name = _q(Util::encodeURI(name.toStdString()));
@@ -224,17 +230,17 @@ void Magnet::slotBrowse(){
     QMenu *down_to = nullptr;
     QString aliases, paths;
 
-    aliases = QByteArray::fromBase64(WSGET(WS_DOWNLOADTO_ALIASES).toUtf8());
-    paths   = QByteArray::fromBase64(WSGET(WS_DOWNLOADTO_PATHS).toUtf8());
+    aliases = QByteArray::fromBase64(qtCtx()->settings()->getStr(WS_DOWNLOADTO_ALIASES).toUtf8());
+    paths   = QByteArray::fromBase64(qtCtx()->settings()->getStr(WS_DOWNLOADTO_PATHS).toUtf8());
 
-    QStringList a = aliases.split("\n", QString::SkipEmptyParts);
-    QStringList p = paths.split("\n", QString::SkipEmptyParts);
+    QStringList a = aliases.split("\n", Qt::SkipEmptyParts);
+    QStringList p = paths.split("\n", Qt::SkipEmptyParts);
 
     if (a.size() == p.size() && !a.isEmpty()){
         down_to = new QMenu();
 
         for (int i = 0; i < a.size(); i++){
-            QAction *act = new QAction(WICON(WulforUtil::eiFOLDER_BLUE), a.at(i), down_to);
+            QAction *act = new QAction(qtCtx()->wulforUtil()->getPixmap(WulforUtil::eiFOLDER_BLUE), a.at(i), down_to);
             act->setData(p.at(i));
 
             down_to->addAction(act);
@@ -242,7 +248,7 @@ void Magnet::slotBrowse(){
 
         down_to->addSeparator();
 
-        QAction *browse = new QAction(WICON(WulforUtil::eiFOLDER_BLUE), tr("Browse"), down_to);
+        QAction *browse = new QAction(qtCtx()->wulforUtil()->getPixmap(WulforUtil::eiFOLDER_BLUE), tr("Browse"), down_to);
         browse->setData("");
 
         down_to->addAction(browse);
@@ -276,7 +282,7 @@ void Magnet::download(const QString &name, const qulonglong &size, const QString
     if (tth.isEmpty())
         return;
     try {
-        QueueManager::getInstance()->add(_tq(name), size, TTHValue(_tq(tth)));
+        qtCtx()->dcCtx().getQueueManager()->add(_tq(name), size, TTHValue(_tq(tth)));
     }
     catch (const std::exception& e){
         QMessageBox::critical(this, tr("Error"), tr("Some error ocurred when starting download:\n %1").arg(e.what()));

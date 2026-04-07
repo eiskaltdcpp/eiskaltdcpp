@@ -6,12 +6,14 @@
 *   (at your option) any later version.                                   *
 *                                                                         *
 ***************************************************************************/
+/*
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
+ */
 
 #pragma once
 
 #include <QEvent>
 #include <QStringList>
-#include <QTextCodec>
 #include <QWidget>
 
 #include "ui_UISecretary.h"
@@ -19,7 +21,6 @@
 #include "WulforUtil.h"
 
 #include <dcpp/stdinc.h>
-#include <dcpp/Singleton.h>
 #include <dcpp/Text.h>
 
 class HubFrame;
@@ -31,16 +32,19 @@ public:
     QStringList origMessages;
 };
 
+#include "QtContextAware.h"
+#include "QtContext.h"
+
 class Secretary :
         public  QWidget,
         private Ui::UISecretary,
-        public  dcpp::Singleton<Secretary>,
-        public  ArenaWidget
+        public  ArenaWidget,
+        public QtContextAware
 {
     Q_OBJECT
     Q_INTERFACES(ArenaWidget)
 
-    friend class dcpp::Singleton<Secretary>;
+    friend class QtContext;
     friend class HubFrame;
 
 public:
@@ -48,7 +52,7 @@ public:
     QString getArenaTitle();
     QString getArenaShortTitle();
     QMenu *getMenu();
-    const QPixmap &getPixmap(){ return WICON(WulforUtil::eiMAGNET); }
+    const QPixmap &getPixmap(){ return qtCtx()->wulforUtil()->getPixmap(WulforUtil::eiMAGNET); }
     void requestClear() { clearNotes(); }
     void requestFilter() { slotShowSearchBar(); }
     void requestFocus() { pushButton_ClearLog->setFocus(); }
@@ -64,7 +68,7 @@ private Q_SLOTS:
     void searchMagnetLinks(bool);
     void maxLinesChanged(int);
     void slotChatMenu(const QPoint&);
-    void slotFindForward() { findText(nullptr); }
+    void slotFindForward() { findText(QTextDocument::FindFlags()); }
     void slotFindBackward(){ findText(QTextDocument::FindBackward); }
     void slotFindTextEdited(const QString &text);
     void slotFindAll();
@@ -78,10 +82,12 @@ private Q_SLOTS:
 protected:
     virtual bool eventFilter(QObject *obj, QEvent *e);
 
-private:
-    explicit Secretary(QWidget *parent = nullptr);
-    virtual ~Secretary();
+public:
+    explicit Secretary(dcpp::DCContext& ctx, QWidget *parent = nullptr);
+    ~Secretary() override;
 
+
+private:
     Secretary(const Secretary&) = delete;
     const Secretary& operator=(const Secretary&) = delete;
 

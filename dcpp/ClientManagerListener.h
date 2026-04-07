@@ -39,14 +39,14 @@ public:
     typedef X<6> ClientDisconnected;
 
     /** User online in at least one hub */
-    virtual void on(UserConnected, const UserPtr&) noexcept { }
-    virtual void on(UserUpdated, const OnlineUser&) noexcept { }
+    virtual void on(UserConnected, const UserPtr&) { }
+    virtual void on(UserUpdated, const OnlineUser&) { }
     /** User offline in all hubs */
-    virtual void on(UserDisconnected, const UserPtr&) noexcept { }
-    virtual void on(IncomingSearch, const string&) noexcept { }
-    virtual void on(ClientConnected, Client*) noexcept { }
-    virtual void on(ClientUpdated, Client*) noexcept { }
-    virtual void on(ClientDisconnected, Client*) noexcept { }
+    virtual void on(UserDisconnected, const UserPtr&) { }
+    virtual void on(IncomingSearch, const string&) { }
+    virtual void on(ClientConnected, Client*) { }
+    virtual void on(ClientUpdated, Client*) { }
+    virtual void on(ClientDisconnected, Client*) { }
 };
 
 } // namespace dcpp

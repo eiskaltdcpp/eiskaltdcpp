@@ -1,40 +1,36 @@
+cmake_minimum_required (VERSION 3.10)
 project (eiskaltdcpp-qt)
-
-cmake_minimum_required (VERSION 3.2.0)
 
 include_directories(${PROJECT_BINARY_DIR})
 
-if (USE_QT)
-    find_package (Qt4 4.7.0 COMPONENTS QtCore QtGui QtXml QtNetwork REQUIRED)
-elseif (USE_QT5)
-    find_package (Qt5Core          5.0.2 REQUIRED)
-    find_package (Qt5Gui           5.0.2 REQUIRED)
-    find_package (Qt5Widgets       5.0.2 REQUIRED)
-    find_package (Qt5Xml           5.0.2 REQUIRED)
-    find_package (Qt5Network       5.0.2 REQUIRED)
-    # This is temporary workaround which fixes build with Qt5 on Travis CI:
-    find_package (Qt5LinguistTools       REQUIRED)
-    find_package (Qt5Multimedia    5.0.2 REQUIRED)
-    find_package (Qt5Concurrent    5.0.2 REQUIRED)
+# --- Qt version selection ---
+set (QT_MAJOR 6)
+set (QT_MIN_VERSION 6.2.0)
+set (QT "Qt${QT_MAJOR}")
+message (STATUS "Building eiskaltdcpp-qt with ${QT}")
+
+# --- Find required Qt modules ---
+find_package (${QT} ${QT_MIN_VERSION} COMPONENTS Core Gui Widgets Xml Network
+              Concurrent REQUIRED)
+# Multimedia is optional (needed for QSoundEffect notification sounds)
+find_package (${QT} COMPONENTS Multimedia QUIET)
+if (${QT}Multimedia_FOUND)
+    message (STATUS "Found ${QT}::Multimedia — sound notifications enabled")
+else ()
+    message (STATUS "${QT}::Multimedia not found — sound notifications disabled")
+    add_definitions (-DNO_QT_MULTIMEDIA)
 endif ()
+# LinguistTools is optional (only needed for updating translations)
+find_package (${QT} COMPONENTS LinguistTools QUIET)
 
-set (QT_USE_QTNETWORK 1)
-set (QT_USE_QTXML 1)
-set (QT_USE_QTWEBKIT 0)
-
+# --- QDeclarativeView removed in Qt6, replaced with QQuickWidget ---
 if (USE_QT_QML)
-    if (USE_QT)
-        find_package (Qt4 4.7.0 COMPONENTS QtDeclarative REQUIRED)
-    elseif (USE_QT5)
-        find_package (Qt5Declarative 5.0.2 REQUIRED)
-        find_package (Qt5XmlPatterns 5.0.2 REQUIRED)
-    endif ()
-    add_definitions(-DUSE_QML)
-    set (QT_USE_QTDECLARATIVE 1)
+    find_package (${QT} ${QT_MIN_VERSION} COMPONENTS Quick QuickWidgets REQUIRED)
+    add_definitions (-DUSE_QML)
     set (USE_JS ON)
-    message (STATUS "Building with Qt Declarative UI support")
+    message (STATUS "Building with Qt Quick UI support")
 else (USE_QT_QML)
-    message (STATUS "Building without Qt Declarative UI support")
+    message (STATUS "Building without Qt Quick/Declarative UI support")
 endif (USE_QT_QML)
 
 if (APPLE OR HAIKU)
@@ -42,39 +38,24 @@ if (APPLE OR HAIKU)
 endif ()
 
 if (DBUS_NOTIFY)
-    if (USE_QT)
-        find_package (Qt4 4.6.0 COMPONENTS QtDBus REQUIRED)
-    elseif (USE_QT5)
-        find_package (Qt5DBus 5.0.2 REQUIRED)
-    endif (USE_QT)
+    find_package (${QT} ${QT_MIN_VERSION} COMPONENTS DBus REQUIRED)
     add_definitions (-DDBUS_NOTIFY)
-    set (QT_USE_QTDBUS 1)
     message (STATUS "Building with Qt DBus support")
 else (DBUS_NOTIFY)
     message (STATUS "Building without Qt DBus support")
 endif (DBUS_NOTIFY)
 
 if (USE_JS)
-    if (USE_QT)
-        find_package (Qt4 4.6.0 COMPONENTS QtScript REQUIRED)
-    elseif (USE_QT5)
-        find_package (Qt5Script 5.0.2 REQUIRED)
-    endif ()
+    find_package (${QT} ${QT_MIN_VERSION} COMPONENTS Qml REQUIRED)
     add_definitions (-DUSE_JS)
-    set (QT_USE_QTSCRIPT 1)
     message (STATUS "Building with Qt Script support")
 else (USE_JS)
     message (STATUS "Building without Qt Script support")
 endif (USE_JS)
 
 if (USE_QT_SQLITE)
-    if (USE_QT)
-        find_package (Qt4 4.6.0 COMPONENTS QtSql REQUIRED)
-    elseif (USE_QT5)
-        find_package (Qt5Sql 5.0.2 REQUIRED)
-    endif (USE_QT)
+    find_package (${QT} ${QT_MIN_VERSION} COMPONENTS Sql REQUIRED)
     add_definitions (-DUSE_QT_SQLITE)
-    set (QT_USE_QTSQL 1)
     message (STATUS "Building with Qt SQLite support")
 else (USE_QT_SQLITE)
     message (STATUS "Building without Qt SQLite support")
@@ -120,7 +101,7 @@ if (MINGW AND WIN32)
                                 -o "${PROJECT_BINARY_DIR}/eiskaltdcpp-qt_rc.o")
     set (WIN_RESOURCES ${PROJECT_BINARY_DIR}/eiskaltdcpp-qt_rc.o)
 elseif (NOT MINGW AND WIN32)
-    set (WIN_RESOURCES"${PROJECT_SOURCE_DIR}/eiskaltdcpp-qt.rc")
+    set (WIN_RESOURCES "${PROJECT_SOURCE_DIR}/eiskaltdcpp-qt.rc")
 endif (MINGW AND WIN32)
 
 if (NOT USE_ASPELL)
@@ -139,6 +120,7 @@ endif (NOT ASPELL_FOUND)
 if (USE_JS)
     file (GLOB scriptengine_srcs ${PROJECT_SOURCE_DIR}/scriptengine/*.cpp)
     file (GLOB scriptengine_hdrs ${PROJECT_SOURCE_DIR}/scriptengine/*.h)
+
     list (APPEND SRCS
             ${scriptengine_srcs}
             src/codeeditor/codeeditor.cpp)
@@ -157,22 +139,15 @@ if (NOT USE_JS)
             ${PROJECT_SOURCE_DIR}/src/ScriptManagerDialog.h)
 endif (NOT USE_JS)
 
-if (USE_QT)
-    #Create moc files
-    QT4_WRAP_CPP (M_SRCS ${MOC_HDRS} OPTIONS -nn)
-    #Create .h files from ui files
-    QT4_WRAP_UI (U_SRCS ${UI_FORMS})
-elseif (USE_QT5)
-    #Create moc files
-    QT5_WRAP_CPP (M_SRCS ${MOC_HDRS} OPTIONS -nn)
-    #Create .h files from ui files
-    QT5_WRAP_UI (U_SRCS ${UI_FORMS})
-endif()
+qt_wrap_cpp (M_SRCS ${MOC_HDRS} OPTIONS -nn)
+qt_wrap_ui (U_SRCS ${UI_FORMS})
 
-if (USE_QT5 AND NOT USE_QT)
-    set (QT_LRELEASE_EXECUTABLE ${Qt5_LRELEASE_EXECUTABLE})
-    get_target_property(QT_RCC_EXECUTABLE Qt5::rcc LOCATION)
-endif()
+if (TARGET ${QT}::lrelease)
+    get_target_property (QT_LRELEASE_EXECUTABLE ${QT}::lrelease LOCATION)
+else ()
+    find_program (QT_LRELEASE_EXECUTABLE NAMES lrelease-qt6 lrelease6 lrelease)
+endif ()
+get_target_property (QT_RCC_EXECUTABLE ${QT}::rcc LOCATION)
 
 #Create translations
 file (MAKE_DIRECTORY ${PROJECT_BINARY_DIR}/translations/)
@@ -189,7 +164,7 @@ endforeach ()
 
 if (WIN32 OR APPLE OR INSTALL_QT_TRANSLATIONS OR BUILD_STATIC)
     # Qt translations
-    get_target_property (QtCore_location Qt5::Core LOCATION)
+    get_target_property (QtCore_location ${QT}::Core LOCATION)
     get_filename_component (QtCore_DIR "${QtCore_location}" PATH)
     if (WIN32)
         set (QT_ROOT_DIR "${QtCore_DIR}/..")
@@ -198,7 +173,7 @@ if (WIN32 OR APPLE OR INSTALL_QT_TRANSLATIONS OR BUILD_STATIC)
     elseif (BUILD_STATIC)
         set (QT_ROOT_DIR "${QtCore_DIR}/..")
     elseif (INSTALL_QT_TRANSLATIONS AND NOT BUILD_STATIC)
-        set (QT_ROOT_DIR "/usr/share/qt5")
+        set (QT_ROOT_DIR "/usr/share/qt6")
     endif ()
     set (QT_TRANSLATIONS_DIR "${QT_ROOT_DIR}/translations/")
     file (GLOB QT_TRANSLATIONS "${QT_TRANSLATIONS_DIR}/qt_*.qm")
@@ -235,35 +210,35 @@ execute_process (COMMAND ${QT_RCC_EXECUTABLE} -binary  ${DEFAULT_QRC_FILE}
                                               -o ${PROJECT_BINARY_DIR}/default.rcc
                  WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/)
 
-if (USE_QT)
-    include (${QT_USE_FILE})
-    include_directories (${QT_INCLUDES})
-    list (APPEND LIBS ${QT_LIBRARIES})
-elseif (USE_QT5)
-    include_directories (${Qt5Core_INCLUDE_DIRS}
-                         ${Qt5Gui_INCLUDE_DIRS}
-                         ${Qt5Widgets_INCLUDE_DIRS}
-                         ${Qt5Xml_INCLUDE_DIRS}
-                         ${Qt5Multimedia_INCLUDE_DIRS}
-                         ${Qt5Concurrent_INCLUDE_DIRS}
-                         ${Qt5Declarative_INCLUDE_DIRS}
-                         ${Qt5XmlPatterns_INCLUDE_DIRS}
-                         ${Qt5DBus_INCLUDE_DIRS}
-                         ${Qt5Script_INCLUDE_DIRS}
-                         ${Qt5Sql_INCLUDE_DIRS}
-                         ${Qt5Network_INCLUDE_DIRS})
-    list (APPEND LIBS ${Qt5Core_LIBRARIES}
-                      ${Qt5Gui_LIBRARIES}
-                      ${Qt5Widgets_LIBRARIES}
-                      ${Qt5Xml_LIBRARIES}
-                      ${Qt5Multimedia_LIBRARIES}
-                      ${Qt5Concurrent_LIBRARIES}
-                      ${Qt5Declarative_LIBRARIES}
-                      ${Qt5XmlPatterns_LIBRARIES}
-                      ${Qt5DBus_LIBRARIES}
-                      ${Qt5Script_LIBRARIES}
-                      ${Qt5Sql_LIBRARIES}
-                      ${Qt5Network_LIBRARIES})
+# Symlink icons from source tree into build tree so the binary can find
+# user icons (usericons.png) and app icons when running uninstalled.
+if (NOT EXISTS "${PROJECT_BINARY_DIR}/icons")
+    execute_process (COMMAND ${CMAKE_COMMAND} -E create_symlink
+                     "${PROJECT_SOURCE_DIR}/icons"
+                     "${PROJECT_BINARY_DIR}/icons")
+endif ()
+
+# Qt target-based linking (handles include_directories automatically)
+list (APPEND LIBS ${QT}::Core
+                  ${QT}::Gui
+                  ${QT}::Widgets
+                  ${QT}::Xml
+                  ${QT}::Concurrent
+                  ${QT}::Network)
+if (${QT}Multimedia_FOUND)
+    list (APPEND LIBS ${QT}::Multimedia)
+endif ()
+if (USE_QT_QML)
+    list (APPEND LIBS ${QT}::Quick ${QT}::QuickWidgets)
+endif ()
+if (DBUS_NOTIFY)
+    list (APPEND LIBS ${QT}::DBus)
+endif ()
+if (USE_JS)
+    list (APPEND LIBS ${QT}::Qml)
+endif ()
+if (USE_QT_SQLITE)
+    list (APPEND LIBS ${QT}::Sql)
 endif ()
 
 include_directories (${PROJECT_SOURCE_DIR}
@@ -272,100 +247,6 @@ include_directories (${PROJECT_SOURCE_DIR}
                      ${PROJECT_SOURCE_DIR}/..
                      ${GETTEXT_INCLUDE_DIR})
 list (APPEND LIBS ${ICONV_LIBRARIES})
-
-if (BUILD_STATIC AND USE_QT5)
-    if (WIN32)
-        find_library (QT5FontDatabaseSupport Qt5FontDatabaseSupport)
-        find_library (QT5EventDispatcherSupport Qt5EventDispatcherSupport)
-        find_library (QT5ThemeSupport Qt5ThemeSupport)
-        find_library (QT5AccessibilitySupport Qt5AccessibilitySupport)
-        find_library (QT5WindowsUIAutomationSupport Qt5WindowsUIAutomationSupport)
-        list (INSERT LIBS 0 Qt5::QWindowsVistaStylePlugin)
-        if (DBUS_NOTIFY)
-            list (APPEND LIBS Qt5::DBus -ldbus-1)
-        endif (DBUS_NOTIFY)
-        list (APPEND LIBS Qt5::QWindowsIntegrationPlugin
-                          ${QT5FontDatabaseSupport}
-                          ${QT5EventDispatcherSupport}
-                          ${QT5ThemeSupport}
-                          ${QT5AccessibilitySupport}
-                          ${QT5WindowsUIAutomationSupport}
-                          Qt5::QSQLiteDriverPlugin
-                          Qt5::Sql
-                          Qt5::QWindowsAudioPlugin
-                          Qt5::Multimedia
-                          ${PCRE2_LIBRARIES}
-                          -lharfbuzz
-                          -lwinmm
-                          -limm32
-                          -lsqlite3
-                          -ljpeg
-                          -lpng
-                          -lopengl32
-                          -lwtsapi32
-                          -lwinmm
-                          -lcrypt32
-                          -lstrmiids
-                          -lfreetype
-             )
-    elseif (UNIX AND NOT APPLE AND NOT HAIKU)
-        add_definitions (-DSQLITE_ENABLE_COLUMN_METADATA=1)
-        find_library (QT5FontDatabaseSupport Qt5FontDatabaseSupport)
-        find_library (QT5EventDispatcherSupport Qt5EventDispatcherSupport)
-        find_library (QT5ThemeSupport Qt5ThemeSupport)
-        find_library (QT5ServiceSupport Qt5ServiceSupport)
-        find_library (QT5AccessibilitySupport Qt5AccessibilitySupport)
-        find_library (QT5EdidSupport Qt5EdidSupport)
-        find_library (QT5XcbQpa Qt5XcbQpa)
-        find_library (XcbStatic xcb-static)
-        if (DBUS_NOTIFY)
-            set (QT5DBus Qt5::DBus)
-        else (DBUS_NOTIFY)
-            set (QT5DBus "")
-        endif (DBUS_NOTIFY)
-        list (APPEND LIBS Qt5::QXcbIntegrationPlugin
-                          ${QT5XcbQpa}
-                          ${QT5FontDatabaseSupport}
-                          ${QT5EventDispatcherSupport}
-                          ${QT5ThemeSupport}
-                          ${QT5ServiceSupport}
-                          ${QT5AccessibilitySupport}
-                          ${QT5EdidSupport}
-                          Qt5::QSQLiteDriverPlugin
-                          Qt5::Sql
-                          Qt5::Multimedia
-                          ${QT5DBus}
-                          ${XcbStatic}
-                          ${PCRE2_LIBRARIES}
-                          -lsqlite3
-                          -ljpeg
-                          -lpng
-                          -lfontconfig
-                          -lfreetype
-                          -luuid
-                          -lexpat
-                          -lSM
-                          -lICE
-                          -lGL
-                          -lm
-                          -ldl
-                          -ldrm
-                          -lxkbcommon
-                          -lxkbcommon-x11
-                          -lXdamage
-                          -lXfixes
-                          -lX11-xcb
-                          -lxcb-glx
-                          -lxcb-dri2
-                          -lXxf86vm
-                          -lXext
-                          -lX11
-                          -lxcb
-                          -lXau
-                          -lXdmcp
-             )
-    endif (WIN32)
-endif (BUILD_STATIC AND USE_QT5)
 
 if (WIN32)
     if (OPENSSL_MSVC)
@@ -440,6 +321,15 @@ add_executable (${PROJECT_NAME} MACOSX_BUNDLE WIN32 src/main.cpp
                 ${TRANSLATIONS}
                 ${WIN_RESOURCES}
                 translations)
+
+# Embed application manifest for proper DLL loading, DPI awareness, and
+# Windows version compatibility.  For MSVC, CMake passes .manifest sources
+# to mt.exe for merging with its auto-generated manifest.  Embedding via
+# the RC file would cause a duplicate-resource link error (LNK1123).
+if (WIN32 AND MSVC)
+    target_sources (${PROJECT_NAME} PRIVATE
+        ${CMAKE_SOURCE_DIR}/windows/eiskaltdcpp.manifest)
+endif ()
 
 add_definitions (-DCLIENT_DATA_DIR="${CLIENT_DATA_DIR}")
 add_definitions (-DCLIENT_SOUNDS_DIR="${CLIENT_SOUNDS_DEST}")
@@ -544,30 +434,12 @@ if (INSTALL_METAINFO)
 endif ()
 
 if (APPLE)
-    if (USE_QT)
-        install (DIRECTORY ${QT_LIBRARY_DIR}/QtGui.framework/Resources/qt_menu.nib
-                 DESTINATION ${PROJECT_NAME_GLOBAL}.app/Contents/Resources)
-
-        install (CODE "
-                    file(WRITE \"\${CMAKE_INSTALL_PREFIX}/${qtconf_dest_dir}/qt.conf\" \"\")")
-
-        install (CODE "
-                    file(GLOB_RECURSE QTPLUGINS
-                        \"\${CMAKE_INSTALL_PREFIX}/${plugin_dest_dir}/plugins/*${CMAKE_SHARED_LIBRARY_SUFFIX}\")
-                    include(BundleUtilities)
-                    fixup_bundle(\"${APPS}\" \"\${QTPLUGINS}\" \"${DIRS}\")")
-    elseif (USE_QT5)
-        if (${_qt5Core_install_prefix} STREQUAL "")
-        message(WARNING "Warning! \"_qt5Core_install_prefix\" is not set, macdeployqt found in PATH will be used")
-        set (MACDEPLOYQT "macdeployqt")
-        else (${_qt5Core_install_prefix} STREQUAL "")
-        set (MACDEPLOYQT "${_qt5Core_install_prefix}/bin/macdeployqt")
-        endif (${_qt5Core_install_prefix} STREQUAL "")
-        install (CODE "
-                    execute_process(COMMAND ${MACDEPLOYQT} ${PROJECT_NAME_GLOBAL}.app -verbose=2
-                        WORKING_DIRECTORY \${CMAKE_INSTALL_PREFIX})")
-    endif (USE_QT)
+    get_target_property (_qt_install_prefix ${QT}::Core LOCATION)
+    get_filename_component (_qt_install_prefix "${_qt_install_prefix}" PATH)
+    get_filename_component (_qt_install_prefix "${_qt_install_prefix}" PATH)
+    set (MACDEPLOYQT "${_qt_install_prefix}/bin/macdeployqt")
+    install (CODE "
+                execute_process(COMMAND ${MACDEPLOYQT} ${PROJECT_NAME_GLOBAL}.app -verbose=2
+                    WORKING_DIRECTORY \${CMAKE_INSTALL_PREFIX})")
     set (CPACK_BINARY_DRAGNDROP ON)
 endif (APPLE)
-
-include(CPack)

@@ -1,6 +1,7 @@
 /*
  * Copyright (C) 2009-2010 Big Muscle, http://strongdc.sourceforge.net/
  * Copyright (C) 2019 Boris Pek <tehnick-8@yandex.ru>
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,25 +18,27 @@
  */
 
 #include "stdafx.h"
+#include "BootstrapManager.h"
 #include "Constants.h"
 #include "DHT.h"
 #include "KBucket.h"
 #include "Utils.h"
 #include "dcpp/ClientManager.h"
+#include "dcpp/DCPlusPlus.h"
 
 namespace dht
 {
 
     // Set all new nodes' type to 3 to avoid spreading dead nodes..
-    Node::Node(const UserPtr& u) :
-        OnlineUser(u, *DHT::getInstance(), 0), created(GET_TICK()), expires(0), type(3), ipVerified(false), online(false)
+    Node::Node(const UserPtr& u, DHT& dht) :
+        OnlineUser(u, dht, 0), dht_(dht), created(GET_TICK()), expires(0), type(3), ipVerified(false), online(false)
     {
     }
 
     CID Node::getUdpKey() const
     {
         // if our external IP changed from the last time, we can't encrypt packet with this key
-        if(DHT::getInstance()->getLastExternalIP() == key.ip)
+        if(dht_.getLastExternalIP() == key.ip)
             return key.key;
         else
             return CID();
@@ -44,7 +47,7 @@ namespace dht
     void Node::setUdpKey(const CID& _key)
     {
         // store key with our current IP address
-        key.ip = DHT::getInstance()->getLastExternalIP();
+        key.ip = dht_.getLastExternalIP();
         key.key = _key;
     }
 
@@ -78,7 +81,7 @@ namespace dht
     }
 
 
-    KBucket::KBucket(void)
+    KBucket::KBucket(DHT& dht) : dht_(dht)
     {
     }
 
@@ -90,7 +93,7 @@ namespace dht
             Node::Ptr& node = *it;
             if(node->isOnline())
             {
-                ClientManager::getInstance()->putOffline(node.get());
+                dht_.ctx().getClientManager()->putOffline(node.get());
                 node->dec();
             }
         }
@@ -124,7 +127,7 @@ namespace dht
             {
                 // try to get node from ClientManager (user can be online but not in our routing table)
                 // this fixes the bug with DHT node online twice
-                node = (Node*)ClientManager::getInstance()->findDHTNode(u->getCID());
+                node = (Node*)dht_.ctx().getClientManager()->findDHTNode(u->getCID());
                 node = node.get();
             }
 
@@ -153,7 +156,7 @@ namespace dht
                     node->getIdentity().setIp(ip);
                     node->getIdentity().setUdpPort(port);
 
-                    DHT::getInstance()->setDirty();
+                    dht_.setDirty();
                 }
 
                 return node;
@@ -162,7 +165,7 @@ namespace dht
 
         u->setFlag(User::DHT);
 
-        Node::Ptr node(new Node(u));
+        Node::Ptr node(new Node(u, dht_));
         node->getIdentity().setIp(ip);
         node->getIdentity().setUdpPort(port);
         node->setIpVerified(isUdpKeyValid);
@@ -189,8 +192,7 @@ namespace dht
             node->isInList = true;
             ipMap.insert(ip + ":" + port);
 
-            if(DHT::getInstance())
-                DHT::getInstance()->setDirty();
+            dht_.setDirty();
 
             return true;
         }
@@ -258,7 +260,7 @@ namespace dht
 
                     if(node->isOnline())
                     {
-                        ClientManager::getInstance()->putOffline(node.get());
+                        dht_.ctx().getClientManager()->putOffline(node.get());
                         node->dec();
                     }
 
@@ -283,7 +285,7 @@ namespace dht
             {
                 // ping the oldest (expired) node
                 node->setTimeout(currentTime);
-                DHT::getInstance()->info(node->getIdentity().getIp(), node->getIdentity().getUdpPort(), DHT::PING, node->getUser()->getCID(), node->getUdpKey());
+                dht_.info(node->getIdentity().getIp(), node->getIdentity().getUdpPort(), DHT::PING, node->getUser()->getCID(), node->getUdpKey());
                 pinged++;
             }
 
@@ -336,7 +338,7 @@ namespace dht
                     }
 
                     //addUser(cid, i4, u4);
-                    BootstrapManager::getInstance()->addBootstrapNode(i4, u4, cid, udpKey);
+                    dht_.getBootstrapManager().addBootstrapNode(i4, u4, cid, udpKey);
                 }
             }
             xml.stepOut();

@@ -6,25 +6,27 @@
 *   (at your option) any later version.                                   *
 *                                                                         *
 ***************************************************************************/
+/*
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
+ */
 
 #pragma once
 
 #include <QObject>
 #include <QList>
-#include <QRegExp>
+#include <QRegularExpression>
 #include <QString>
 
 #include "dcpp/stdinc.h"
-#include "dcpp/Singleton.h"
 #include "dcpp/NonCopyable.h"
+
+#include "QtContextAware.h"
 
 class SearchBlacklist:
         public QObject,
-        public dcpp::Singleton<SearchBlacklist>
+        public QtContextAware
 {
     Q_OBJECT
-
-    friend class dcpp::Singleton<SearchBlacklist>;
 
 public:
     enum Argument {
@@ -32,13 +34,18 @@ public:
         TTH
     };
 
+    explicit SearchBlacklist(dcpp::DCContext& ctx);
+    ~SearchBlacklist() override;
+
+    /// Access through QtContext — NOT a singleton.
+    /// Returns nullptr if no QtContext is active or blacklist not yet created.
+
     bool ok(const QString &exp, Argument type);
     QList<QString> getList(Argument arg) const { return (list[arg]); }
     void setList(Argument arg, const QList<QString> &l) { list[arg] = l; }
 
 private:
-    SearchBlacklist();
-    virtual ~SearchBlacklist();
+    friend class QtContext;  // QtContext owns and constructs us
 
     void loadLists();
     void saveLists();

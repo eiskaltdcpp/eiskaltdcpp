@@ -22,19 +22,21 @@
 #include "dcpp/CID.h"
 #include "dcpp/FastAlloc.h"
 #include "dcpp/MerkleTree.h"
-#include "dcpp/Singleton.h"
 #include "dcpp/TimerManager.h"
 #include "dcpp/User.h"
 
 namespace dht
 {
+    class DHT;
 
     struct Search :
         public FastAlloc<Search>
     {
 
-        Search() = default;
+        explicit Search(DHT& dht) : dht_(dht) {}
         ~Search();
+
+        DHT& dht_;
 
         enum class SearchType : uint8_t { // standard types should match ADC protocol
             TYPE_FILE = 1,
@@ -58,12 +60,14 @@ namespace dht
         void process();
     };
 
-    class SearchManager :
-        public Singleton<SearchManager>
+    class SearchManager
     {
     public:
-        SearchManager(void);
+        explicit SearchManager(DHT& dht);
         ~SearchManager(void);
+
+        SearchManager(const SearchManager&) = delete;
+        SearchManager& operator=(const SearchManager&) = delete;
 
         /** Performs node lookup in the network */
         void findNode(const CID& cid);
@@ -87,6 +91,7 @@ namespace dht
         bool processSearchResults(const UserPtr& user, size_t slots);
 
     private:
+        DHT& dht_;
 
         /** Running search operations */
         typedef std::unordered_map<string*, Search*, CaseStringHash, CaseStringEq> SearchMap;

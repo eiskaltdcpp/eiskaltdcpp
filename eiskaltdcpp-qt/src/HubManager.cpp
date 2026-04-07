@@ -9,10 +9,12 @@
 
 #include "HubManager.h"
 #include "HubFrame.h"
+#include "QtContext.h"
 
 #include <QtDebug>
 
-HubManager::HubManager():
+HubManager::HubManager(dcpp::DCContext& ctx):
+        QtContextAware(ctx),
         active(nullptr)
 {
 }

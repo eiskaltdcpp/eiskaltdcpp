@@ -38,17 +38,17 @@ namespace dcpp {
 class CriticalSection
 {
 public:
-    CriticalSection() noexcept {
+    CriticalSection() {
         pthread_mutexattr_init(&ma);
         pthread_mutexattr_settype(&ma, PTHREAD_MUTEX_RECURSIVE);
         pthread_mutex_init(&mtx, &ma);
     }
-    ~CriticalSection() noexcept {
+    ~CriticalSection() {
         pthread_mutex_destroy(&mtx);
         pthread_mutexattr_destroy(&ma);
     }
-    void lock() noexcept { pthread_mutex_lock(&mtx); }
-    void unlock() noexcept { pthread_mutex_unlock(&mtx); }
+    void lock() { pthread_mutex_lock(&mtx); }
+    void unlock() { pthread_mutex_unlock(&mtx); }
     pthread_mutex_t& getMutex() { return mtx; }
 private:
     CriticalSection(const CriticalSection&);
@@ -77,8 +77,8 @@ private:
 template<class T>
 class LockBase {
 public:
-    LockBase(T& aCs) noexcept : cs(aCs) { cs.lock(); }
-    ~LockBase() noexcept { cs.unlock(); }
+    LockBase(T& aCs) : cs(aCs) { cs.lock(); }
+    ~LockBase() { cs.unlock(); }
 private:
     LockBase& operator=(const LockBase&);
     T& cs;

@@ -6,8 +6,13 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
+/*
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
+ */
 
 #include "UserListModel.h"
+#include "QtContextAware.h"
+#include "QtContext.h"
 
 #include <QtAlgorithms>
 #include <QtGlobal>
@@ -29,10 +34,9 @@ UserListModel::UserListModel(QObject * parent)
     , rootItem(new UserListItem())
     , sortColumn(COLUMN_SHARE)
     , sortOrder(Qt::DescendingOrder)
-    , WU(WulforUtil::getInstance())
+    , WU(qtCtx()->wulforUtil())
 {
-    stripper.setPattern("\\[.*\\]");
-    stripper.setMinimal(true);
+    stripper.setPattern("\\[.*?\\]");
 }
 
 
@@ -99,17 +103,17 @@ QVariant UserListModel::data(const QModelIndex & index, int role) const {
             else {
 
                 QString nick = item->getNick();
-                WulforUtil::getInstance()->textToHtml(nick, true);
+                qtCtx()->wulforUtil()->textToHtml(nick, true);
 
                 QString ttip  = "<b>" + headerData(COLUMN_NICK, Qt::Horizontal, Qt::DisplayRole).toString() + "</b>: " + nick + "<br/>";
 
                 QString comment = item->getComment();
-                WulforUtil::getInstance()->textToHtml(comment, true);
+                qtCtx()->wulforUtil()->textToHtml(comment, true);
 
                 ttip += "<b>" + headerData(COLUMN_COMMENT, Qt::Horizontal, Qt::DisplayRole).toString() + "</b>: " + comment + "<br/>";
 
                 QString mail = item->getEmail();
-                WulforUtil::getInstance()->textToHtml(mail, true);
+                qtCtx()->wulforUtil()->textToHtml(mail, true);
 
                 ttip += "<b>" + headerData(COLUMN_EMAIL, Qt::Horizontal, Qt::DisplayRole).toString() + "</b>: " + mail + "<br/>";
 
@@ -118,12 +122,12 @@ QVariant UserListModel::data(const QModelIndex & index, int role) const {
                         WulforUtil::formatBytes(item->getShare()) + "<br/>";
 
                 QString tag = item->getTag();
-                WulforUtil::getInstance()->textToHtml(tag, true);
+                qtCtx()->wulforUtil()->textToHtml(tag, true);
 
                 ttip += "<b>" + headerData(COLUMN_TAG, Qt::Horizontal, Qt::DisplayRole).toString() + "</b>: " + tag + "<br/>";
 
                 QString connection = item->getConnection();
-                WulforUtil::getInstance()->textToHtml(connection, true);
+                qtCtx()->wulforUtil()->textToHtml(connection, true);
 
                 ttip += "<b>" + headerData(COLUMN_CONN, Qt::Horizontal, Qt::DisplayRole).toString() + "</b>: " + connection + "<br/>";
 
@@ -149,7 +153,7 @@ QVariant UserListModel::data(const QModelIndex & index, int role) const {
         }
         case Qt::FontRole:
         {
-            if (item->isFav() && WBGET(WB_CHAT_HIGHLIGHT_FAVS)) {
+            if (item->isFav() && qtCtx()->settings()->getBool(WB_CHAT_HIGHLIGHT_FAVS)) {
                 QFont font;
                 font.setBold(true);
                 return font;
@@ -241,7 +245,11 @@ struct Compare {
         }
 
         template <typename T>
+#if defined(_MSC_VER)
+        __forceinline static bool Cmp(const T& l, const T& r);
+#else
         inline bool static Cmp(const T& l, const T& r) __attribute__((always_inline));
+#endif
         
         static AttrComp attrs[8];
 };

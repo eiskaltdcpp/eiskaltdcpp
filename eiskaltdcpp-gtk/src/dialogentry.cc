@@ -32,13 +32,13 @@ DialogEntry::DialogEntry(const EntryType type, const string &ui, GtkWindow* pare
     gtk_window_set_role(window, getID().c_str());
 
     if (!parent)
-        parent = GTK_WINDOW(WulforManager::get()->getMainWindow()->getContainer());
+        parent = GTK_WINDOW(wulforManagerInstance()->getMainWindow()->getContainer());
 
     gboolean modal = gtk_window_get_modal(window);
     if (modal)
         gtk_window_set_transient_for(window, parent);
 
-    WulforManager::get()->insertEntry_gui(this);
+    wulforManagerInstance()->insertEntry_gui(this);
 }
 
 DialogEntry::~DialogEntry()
@@ -54,7 +54,7 @@ GtkWidget* DialogEntry::getContainer()
 gint DialogEntry::run()
 {
     responseID = gtk_dialog_run(GTK_DIALOG(getContainer()));
-    WulforManager::get()->deleteEntry_gui(this);
+    wulforManagerInstance()->deleteEntry_gui(this);
 
     return responseID;
 }

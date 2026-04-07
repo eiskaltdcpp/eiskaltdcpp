@@ -1,6 +1,7 @@
 /***************************************************************************
 *                                                                         *
 *   Copyright (C) 2009-2010  Alexandr Tkachev <tka4ev@gmail.com>          *
+*   Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>                *
 *                                                                         *
 *   This program is free software; you can redistribute it and/or modify  *
 *   it under the terms of the GNU General Public License as published by  *
@@ -9,79 +10,48 @@
 *                                                                         *
 ***************************************************************************/
 
-// Created on: 17.08.2009
-
-//---------------------------------------------------------------------------
 #include "stdafx.h"
+#include "dcpp/DCContext.h"
 #include "dcpp/DCPlusPlus.h"
-#include "dcpp/format.h"
-#include "dcpp/Util.h"
-//---------------------------------------------------------------------------
 #include "ServerManager.h"
 #include "ServerThread.h"
 #include "utility.h"
-//---------------------------------------------------------------------------
 
-ServerThread *ServersS = nullptr;
-bool bServerRunning = false, bServerTerminated = false, bIsRestart = false, bIsClose = false;
-bool bDaemon = false;
-#ifdef _WIN32
-    #ifdef _SERVICE
-        bool bService = false;
-    #endif
-#endif
-bool bsyslog = false;
+ServerManager::ServerManager(dcpp::DCContext& ctx, DaemonConfig config)
+    : dcCtx_(ctx), config_(std::move(config)) {}
 
-void callBack(void*, const string &a)
-{
-    logging(bDaemon, bsyslog, true, "Loading: " + a);
+ServerManager::~ServerManager() {
+    if (running_)
+        stop();
 }
 
-void ServerInitialize()
-{
-    ServersS = nullptr;
-    bServerRunning = bIsRestart = bIsClose = false;
-}
-
-bool ServerStart()
-{
-    dcpp::startup(callBack, nullptr);
-    ServerThread::newInstance();
-    ServersS = ServerThread::getInstance();
-
-    if(!ServersS)
-        return false;
-
-    ServersS->Resume();
-
-    bServerRunning = true;
-
+bool ServerManager::start() {
+    server_ = std::make_unique<ServerThread>(*this);
+    server_->Resume();
+    running_ = true;
     return true;
 }
 
-void ServerStop()
-{
-    ServersS->Close();
-    logging(bDaemon, bsyslog, true, "server stops");
-    logging(bDaemon, bsyslog, true, "waiting");
-    ServersS->WaitFor();
-    logging(bDaemon, bsyslog, true, "waiting finished");
-    ServersS->release();
-
-    ServersS = nullptr;
-    logging(bDaemon, bsyslog, true, "library stops");
-    dcpp::shutdown();
-    logging(bDaemon, bsyslog, true, "library was stopped");
-    bServerRunning = false;
+void ServerManager::stop() {
+    if (!server_) return;
+    server_->Close();
+    logging(config_.daemon, config_.useSyslog, true, "server stops");
+    logging(config_.daemon, config_.useSyslog, true, "waiting");
+    server_->WaitFor();
+    logging(config_.daemon, config_.useSyslog, true, "waiting finished");
+    server_.reset();
+    logging(config_.daemon, config_.useSyslog, true, "library stops");
+    dcCtx_.shutdown();
+    dcpp::setContext(nullptr);
+    logging(config_.daemon, config_.useSyslog, true, "library was stopped");
+    running_ = false;
 }
 
-
-void ConfigReload()
-{
-    if (ServerThread::getInstance()) {
-        ServerThread::getInstance()->configReload();
-        logging(bDaemon, bsyslog, true, "reload configuration success");
+void ServerManager::configReload() {
+    if (server_) {
+        server_->configReload();
+        logging(config_.daemon, config_.useSyslog, true, "reload configuration success");
     } else {
-        logging(bDaemon, bsyslog, true, "reload configuration failed");
+        logging(config_.daemon, config_.useSyslog, true, "reload configuration failed");
     }
 }

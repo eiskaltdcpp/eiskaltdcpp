@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2001-2012 Jacek Sieka, arnetheduck on gmail point com
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -19,8 +20,9 @@
 
 #include "Util.h"
 #include "Speaker.h"
-#include "Singleton.h"
+#include "DCContext.h"
 #include "Exception.h"
+#include "DCPlusPlus.h"
 
 namespace dcpp {
 
@@ -37,12 +39,12 @@ public:
     typedef X<1> Save;
     typedef X<2> SearchTypesChanged;
 
-    virtual void on(Load, SimpleXML&) noexcept { }
-    virtual void on(Save, SimpleXML&) noexcept { }
-    virtual void on(SearchTypesChanged) noexcept { }
+    virtual void on(Load, SimpleXML&) { }
+    virtual void on(Save, SimpleXML&) { }
+    virtual void on(SearchTypesChanged) { }
 };
 
-class SettingsManager : public Singleton<SettingsManager>, public Speaker<SettingsManagerListener>
+class SettingsManager : public Speaker<SettingsManagerListener>, public ContextAware
 {
 public:
     typedef std::unordered_map<string, StringList> SearchTypes;
@@ -124,6 +126,7 @@ public:
                       NMDC_DEBUG, SHARE_SKIP_ZERO_BYTE, REQUIRE_TLS, LOG_SPY,
                       APP_UNIT_BASE,
                       LOG_CMD_DEBUG,
+                      NMDC_GETINFO_LIMIT,
                       INT_LAST };
 
     enum Int64Setting { INT64_FIRST = INT_LAST + 1,
@@ -131,7 +134,7 @@ public:
                         INT64_LAST };
 
     enum FloatSetting { FLOAT_FIRST = INT64_LAST +1,
-                        FLOAT_LAST, SETTINGS_LAST = FLOAT_LAST };
+                        FLOAT_LAST = FLOAT_FIRST, SETTINGS_LAST = FLOAT_LAST };
 
     enum {
         INCOMING_DIRECT,
@@ -280,22 +283,23 @@ public:
     const string parseCoreCmd(const string& cmd);
     bool parseCoreCmd(string& ret, const string& key, const string& value);
 
-private:
-    friend class Singleton<SettingsManager>;
-    SettingsManager();
+public:
+    explicit SettingsManager(DCContext& ctx);
     virtual ~SettingsManager() { }
+
+private:
 
     static const string settingTags[SETTINGS_LAST+1];
 
     string strSettings[STR_LAST - STR_FIRST];
     int    intSettings[INT_LAST - INT_FIRST];
     int64_t int64Settings[INT64_LAST - INT64_FIRST];
-    float floatSettings[FLOAT_LAST - FLOAT_FIRST];
+    float floatSettings[FLOAT_LAST - FLOAT_FIRST > 0 ? FLOAT_LAST - FLOAT_FIRST : 1];
 
     string strDefaults[STR_LAST - STR_FIRST];
     int    intDefaults[INT_LAST - INT_FIRST];
     int64_t int64Defaults[INT64_LAST - INT64_FIRST];
-    float floatDefaults[FLOAT_LAST - FLOAT_FIRST];
+    float floatDefaults[FLOAT_LAST - FLOAT_FIRST > 0 ? FLOAT_LAST - FLOAT_FIRST : 1];
 
     bool isSet[SETTINGS_LAST];
 
@@ -307,8 +311,8 @@ private:
     SearchTypesIter getSearchType(const string& name);
 };
 
-// Shorthand accessor macros
-#define SETTING(k) (SettingsManager::getInstance()->get(SettingsManager::k, true))
-#define BOOLSETTING(k) (SettingsManager::getInstance()->getBool(SettingsManager::k, true))
+// Context-aware accessor macros — for use inside ContextAware member functions
+#define CTX_SETTING(k) (this->ctx().getSettingsManager()->get(SettingsManager::k, true))
+#define CTX_BOOLSETTING(k) (this->ctx().getSettingsManager()->getBool(SettingsManager::k, true))
 
 } // namespace dcpp

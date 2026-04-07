@@ -34,6 +34,8 @@
 
 namespace dcpp {
 
+class DCContext;
+
 using std::set;
 
 class ListLoader;
@@ -47,7 +49,7 @@ public:
     public:
         typedef File* Ptr;
 
-        File(Directory* aDir, const string& aName, int64_t aSize, const TTHValue& aTTH) noexcept :
+        File(Directory* aDir, const string& aName, int64_t aSize, const TTHValue& aTTH) :
             NonCopyable(),
             name(aName), size(aSize), parent(aDir), tthRoot(aTTH), adls(false),
             ts(0), hit(0)
@@ -120,8 +122,10 @@ public:
         GETSET(string, fullPath, FullPath);
     };
 
-    DirectoryListing(const HintedUser& aUser);
+    DirectoryListing(DCContext& ctx, const HintedUser& aUser);
     ~DirectoryListing();
+
+    DCContext& ctx() const { return ctx_; }
 
     void loadFile(const string& path);
 
@@ -146,7 +150,7 @@ public:
     const Directory* getRoot() const { return root; }
     Directory* getRoot() { return root; }
 
-    static UserPtr getUserFromFilename(const string& fileName);
+    static UserPtr getUserFromFilename(DCContext& ctx, const string& fileName);
 
     GETSET(HintedUser, user, User);
 
@@ -156,6 +160,7 @@ private:
     friend class ListLoader;
 
     Directory* root;
+    DCContext& ctx_;
 
 };
 

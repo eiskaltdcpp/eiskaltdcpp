@@ -1,5 +1,6 @@
 /*
  * Copyright © 2004-2010 Jens Oknelid, paskharen@gmail.com
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -20,31 +21,33 @@
 
 #include "hashdialog.hh"
 #include <dcpp/HashManager.h>
+#include "dcpp/DCPlusPlus.h"
 #include "wulformanager.hh"
 
 using namespace std;
 using namespace dcpp;
 
-Hash::Hash(GtkWindow* parent):
-    DialogEntry(Entry::HASH_DIALOG, "hash.ui", parent)
+Hash::Hash(dcpp::DCContext& dcCtx, GtkWindow* parent):
+    DialogEntry(Entry::HASH_DIALOG, "hash.ui", parent),
+    dcCtx_(dcCtx)
 {
     string stmp;
     startTime = GET_TICK();
-    HashManager::getInstance()->getStats(stmp, startBytes, startFiles);
-    HashManager::getInstance()->setPriority(Thread::NORMAL);
+    dcCtx_.getHashManager()->getStats(stmp, startBytes, startFiles);
+    dcCtx_.getHashManager()->setPriority(Thread::NORMAL);
     updateStats_gui("", 0, 0, 0);
-    //    bool paused = HashManager::getInstance()->isHashingPaused();
+    //    bool paused = dcCtx_.getHashManager()->isHashingPaused();
     //    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("pauseHashingToggleButton")), paused);
     //    gtk_window_set_title(GTK_WINDOW(getContainer()),
     //    paused ? _("Paused...") : _("Indexing files..."));
     handler_id = g_signal_connect(getWidget("pauseHashingToggleButton"), "toggled", G_CALLBACK(onPauseHashing_gui), (gpointer)this);
-    TimerManager::getInstance()->addListener(this);
+    dcCtx_.getTimerManager()->addListener(this);
 }
 
 Hash::~Hash()
 {
-    HashManager::getInstance()->setPriority(Thread::IDLE);
-    TimerManager::getInstance()->removeListener(this);
+    dcCtx_.getHashManager()->setPriority(Thread::IDLE);
+    dcCtx_.getTimerManager()->removeListener(this);
 }
 
 void Hash::updateStats_gui(string file, uint64_t bytes, size_t files, uint64_t tick)
@@ -56,7 +59,7 @@ void Hash::updateStats_gui(string file, uint64_t bytes, size_t files, uint64_t t
         startFiles = files;
 
     double diff = tick - startTime;
-    bool paused = HashManager::getInstance()->isHashingPaused();
+    bool paused = dcCtx_.getHashManager()->isHashingPaused();
 
     if (diff < 1000 || files == 0 || bytes == 0 || paused)
     {
@@ -111,16 +114,15 @@ void Hash::updateStats_gui(string file, uint64_t bytes, size_t files, uint64_t t
 void Hash::onPauseHashing_gui(GtkWidget *widget, gpointer data)
 {
     (void)widget;
-    (void)data;
+    Hash *h = (Hash *)data;
 
-    //    Hash *h = (Hash *)data;
-    bool paused = HashManager::getInstance()->isHashingPaused();
+    bool paused = h->dcCtx_.getHashManager()->isHashingPaused();
     if (paused) {
         //        gtk_window_set_title(GTK_WINDOW(h->getContainer()), _("Indexing files..."));
-        HashManager::getInstance()->resumeHashing();
+        h->dcCtx_.getHashManager()->resumeHashing();
     } else {
         //        gtk_window_set_title(GTK_WINDOW(h->getContainer()), _("Paused..."));
-        HashManager::getInstance()->pauseHashing();
+        h->dcCtx_.getHashManager()->pauseHashing();
     }
 }
 
@@ -131,7 +133,7 @@ void Hash::on(TimerManagerListener::Second, uint64_t tics) noexcept
     string file;
     uint64_t bytes = 0;
     size_t files = 0;
-    bool paused = HashManager::getInstance()->isHashingPaused();
+    bool paused = dcCtx_.getHashManager()->isHashingPaused();
     gtk_window_set_title(GTK_WINDOW(getContainer()),
                          paused ? _("Paused...") : _("Indexing files..."));
 
@@ -139,9 +141,9 @@ void Hash::on(TimerManagerListener::Second, uint64_t tics) noexcept
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("pauseHashingToggleButton")), paused);
     g_signal_handler_unblock(GTK_TOGGLE_BUTTON(getWidget("pauseHashingToggleButton")), handler_id);
 
-    HashManager::getInstance()->getStats(file, bytes, files);
+    dcCtx_.getHashManager()->getStats(file, bytes, files);
 
     typedef Func4<Hash, string, uint64_t, size_t, uint64_t> F4;
     F4 *func = new F4(this, &Hash::updateStats_gui, file, bytes, files, GET_TICK());
-    WulforManager::get()->dispatchGuiFunc(func);
+    wulforManagerInstance()->dispatchGuiFunc(func);
 }

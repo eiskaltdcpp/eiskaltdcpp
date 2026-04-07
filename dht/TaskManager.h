@@ -17,20 +17,24 @@
 
 #pragma once
 
-#include "dcpp/Singleton.h"
 #include "dcpp/TimerManager.h"
 
 namespace dht
 {
+    class DHT;
 
     class TaskManager :
-        public Singleton<TaskManager>, private TimerManagerListener
+        private TimerManagerListener
     {
     public:
-        TaskManager(void);
+        explicit TaskManager(DHT& dht);
         ~TaskManager(void);
 
+        TaskManager(const TaskManager&) = delete;
+        TaskManager& operator=(const TaskManager&) = delete;
+
     private:
+        DHT& dht_;
 
         /** Time of publishing next file in queue */
         uint64_t nextPublishTime;

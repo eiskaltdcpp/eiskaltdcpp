@@ -6,8 +6,13 @@
 *   (at your option) any later version.                                   *
 *                                                                         *
 ***************************************************************************/
+/*
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
+ */
 
 #include "LineEdit.h"
+#include "QtContextAware.h"
+#include "QtContext.h"
 #include "WulforUtil.h"
 
 #include <QMouseEvent>
@@ -22,7 +27,7 @@ LineEdit::LineEdit(QWidget *parent) :
 {
     parentHeight = QLineEdit::sizeHint().height();//save parent height before setting up new stylesheet
                                                   //because we losing top and bottom margins
-    pxm = WulforUtil::getInstance()->getPixmap(WulforUtil::eiEDITCLEAR).scaled(16, 16, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);;
+    pxm = qtCtx()->wulforUtil()->getPixmap(WulforUtil::eiEDITCLEAR).scaled(16, 16, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);;
 
     label = new QLabel(this);
     label->setPixmap(pxm);
@@ -30,7 +35,7 @@ LineEdit::LineEdit(QWidget *parent) :
     label->setAlignment(Qt::AlignVCenter | Qt::AlignRight);
     label->installEventFilter(this);
 
-    connect(this, SIGNAL(textChanged(QString)), this, SLOT(slotTextChanged()));
+    connect(this, &QLineEdit::textChanged, this, &LineEdit::slotTextChanged);
 
     updateGeometry();
     updateStyles();
@@ -94,7 +99,7 @@ QSize LineEdit::sizeHint() const{
     QStyleOptionFrame opt;
 
     initStyleOption(&opt);
-    return (style()->sizeFromContents(QStyle::CT_LineEdit, &opt, QSize(w, h).expandedTo(QApplication::globalStrut()), this));
+    return (style()->sizeFromContents(QStyle::CT_LineEdit, &opt, QSize(w, h), this));
 }
 
 QSizePolicy LineEdit::sizePolicy() const{

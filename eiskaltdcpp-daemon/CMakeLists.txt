@@ -1,6 +1,5 @@
+cmake_minimum_required(VERSION 3.10)
 project(eiskaltdcpp-daemon)
-
-cmake_minimum_required(VERSION 3.2.0)
 # ######### General setup ##########
 include_directories(${PROJECT_SOURCE_DIR}
                     ${PROJECT_SOURCE_DIR}/..
@@ -59,7 +58,7 @@ if (ENABLE_STACKTRACE)
 endif (ENABLE_STACKTRACE)
 
 # actual target:
-add_executable (${PROJECT_NAME} MACOSX_BUNDLE WIN32
+add_executable (${PROJECT_NAME} MACOSX_BUNDLE
                 ${nasdc_SRCS}
                 )
 

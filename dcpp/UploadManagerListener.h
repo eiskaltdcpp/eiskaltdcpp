@@ -34,12 +34,12 @@ public:
     typedef X<4> WaitingAddFile;
     typedef X<5> WaitingRemoveUser;
 
-    virtual void on(Starting, Upload*) noexcept { }
-    virtual void on(Tick, const UploadList&) noexcept { }
-    virtual void on(Complete, Upload*) noexcept { }
-    virtual void on(Failed, Upload*, const string&) noexcept { }
-    virtual void on(WaitingAddFile, const HintedUser&, const string&) noexcept { }
-    virtual void on(WaitingRemoveUser, const HintedUser&) noexcept { }
+    virtual void on(Starting, Upload*) { }
+    virtual void on(Tick, const UploadList&) { }
+    virtual void on(Complete, Upload*) { }
+    virtual void on(Failed, Upload*, const string&) { }
+    virtual void on(WaitingAddFile, const HintedUser&, const string&) { }
+    virtual void on(WaitingRemoveUser, const HintedUser&) { }
 
 };
 

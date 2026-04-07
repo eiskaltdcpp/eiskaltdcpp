@@ -6,12 +6,18 @@
 *   (at your option) any later version.                                   *
 *                                                                         *
 ***************************************************************************/
+/*
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
+ */
 
 #include "QueuedUsers.h"
 #include "WulforSettings.h"
+#include "QtContext.h"
+#include "QtContextAware.h"
 
 #include "dcpp/UploadManager.h"
 #include "dcpp/ClientManager.h"
+#include "dcpp/DCPlusPlus.h"
 
 #include <QAbstractItemModel>
 #include <QMenu>
@@ -20,7 +26,7 @@
 #include <QDebug>
 #endif
 
-QueuedUsers::QueuedUsers(){
+QueuedUsers::QueuedUsers(dcpp::DCContext& ctx) : QtContextAware(ctx) {
     setupUi(this);
 
     setUnload(false);
@@ -28,24 +34,24 @@ QueuedUsers::QueuedUsers(){
     model = new QueuedUsersModel(this);
     treeView_USERS->setModel(model);
     treeView_USERS->setContextMenuPolicy(Qt::CustomContextMenu);
-    treeView_USERS->header()->restoreState(WVGET("queued-users/headerstate", QByteArray()).toByteArray());
+    treeView_USERS->header()->restoreState(qtCtx()->settings()->getVar("queued-users/headerstate", QByteArray()).toByteArray());
 
-    connect(this, SIGNAL(coreWaitingAddFile(VarMap)), this, SLOT(slotWaitingAddFile(VarMap)), Qt::QueuedConnection);
-    connect(this, SIGNAL(coreWaitingRemoved(VarMap)), this, SLOT(slotWaitingRemoved(VarMap)), Qt::QueuedConnection);
-    connect(treeView_USERS, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotContextMenu()));
+    connect(this, &QueuedUsers::coreWaitingAddFile, this, &QueuedUsers::slotWaitingAddFile, Qt::QueuedConnection);
+    connect(this, &QueuedUsers::coreWaitingRemoved, this, &QueuedUsers::slotWaitingRemoved, Qt::QueuedConnection);
+    connect(treeView_USERS, &QWidget::customContextMenuRequested, this, &QueuedUsers::slotContextMenu);
 
-    UploadManager::getInstance()->addListener(this);
+    dcCtx().getUploadManager()->addListener(this);
     
     ArenaWidget::setState( ArenaWidget::Flags(ArenaWidget::state() | ArenaWidget::Singleton | ArenaWidget::Hidden) );
 }
 
 QueuedUsers::~QueuedUsers(){
-    UploadManager::getInstance()->removeListener(this);
+    dcCtx().getUploadManager()->removeListener(this);
 }
 
 void QueuedUsers::closeEvent(QCloseEvent *e){
     if (isUnload()){
-        WVSET("queued-users/headerstate", treeView_USERS->header()->saveState());
+        qtCtx()->settings()->setVar("queued-users/headerstate", treeView_USERS->header()->saveState());
 
         e->accept();
     }
@@ -81,10 +87,10 @@ void QueuedUsers::slotContextMenu(){
             QString id = item->cid;
 
             if (!id.isEmpty()){
-                UserPtr user = ClientManager::getInstance()->findUser(CID(id.toStdString()));
+                UserPtr user = dcCtx().getClientManager()->findUser(CID(id.toStdString()));
 
                 if (user){
-                    try { UploadManager::getInstance()->reserveSlot(HintedUser(user, _tq(item->hub))); }
+                    try { dcCtx().getUploadManager()->reserveSlot(HintedUser(user, _tq(item->hub))); }
                     catch ( ... ) {}
                 }
             }
@@ -153,7 +159,7 @@ QVariant QueuedUsersModel::data(const QModelIndex &index, int role) const
 Qt::ItemFlags QueuedUsersModel::flags(const QModelIndex &index) const
 {
     if (!index.isValid())
-        return nullptr;
+        return Qt::ItemFlags();
 
     return Qt::ItemIsEnabled | Qt::ItemIsSelectable;
 }
@@ -222,7 +228,7 @@ struct Compare {
     void static sort(int col, QList<QueuedUserItem*>& items) {
 #ifdef _DEBUG_QT_UI
         qDebug() << "Sorting by " << col
-                 << " column and " << WulforUtil::getInstance()->sortOrderToInt(order)
+                 << " column and " << qtCtx()->wulforUtil()->sortOrderToInt(order)
                  << " order.";
 #endif
         std::stable_sort(items.begin(), items.end(), getAttrComp(col));
@@ -298,7 +304,7 @@ void QueuedUsersModel::addResult(const VarMap &map)
     if (it != cids.end())
         parentItem = it.value();
     else {
-        parentItem = new QueuedUserItem(QList<QVariant>() << WulforUtil::getInstance()->getNicks(cid) << "", rootItem);
+        parentItem = new QueuedUserItem(QList<QVariant>() << qtCtx()->wulforUtil()->getNicks(cid) << "", rootItem);
         parentItem->cid     = cid;
         parentItem->file    = file;
         parentItem->hub     = hub;

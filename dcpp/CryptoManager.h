@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2001-2012 Jacek Sieka, arnetheduck on gmail point com
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -21,7 +22,7 @@
 
 #include "SettingsManager.h"
 #include "Exception.h"
-#include "Singleton.h"
+#include "DCContext.h"
 
 #include "SSLSocket.h"
 #include "SSL.h"
@@ -33,7 +34,7 @@ using std::string;
 
 STANDARD_EXCEPTION(CryptoException);
 
-class CryptoManager : public Singleton<CryptoManager>
+class CryptoManager : public ContextAware
 {
 public:
     string makeKey(const string& aLock);
@@ -46,18 +47,17 @@ public:
     SSLSocket* getClientSocket(bool allowUntrusted, Socket::Protocol proto);
     SSLSocket* getServerSocket(bool allowUntrusted);
 
-    void loadCertificates() noexcept;
+    void loadCertificates();
     void generateCertificate();
-    bool checkCertificate() noexcept;
-    const ByteVector& getKeyprint() const noexcept;
+    bool checkCertificate();
+    const ByteVector& getKeyprint() const;
 
-    bool TLSOk() const noexcept;
-private:
-
-    friend class Singleton<CryptoManager>;
-
-    CryptoManager();
+    bool TLSOk() const;
+public:
+    explicit CryptoManager(DCContext& ctx);
     virtual ~CryptoManager();
+
+private:
 
     ssl::SSL_CTX clientContext;
     ssl::SSL_CTX clientVerContext;
@@ -76,7 +76,7 @@ private:
     bool isExtra(uint8_t b) {
         return (b == 0 || b==5 || b==124 || b==96 || b==126 || b==36);
     }
-    void loadKeyprint(const string& file) noexcept;
+    void loadKeyprint(const string& file);
 };
 
 } // namespace dcpp

@@ -6,6 +6,9 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
+/*
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
+ */
 
 #pragma once
 
@@ -16,7 +19,6 @@
 #include <QList>
 #include <QHash>
 #include <QStringList>
-#include <QRegExp>
 
 #include "dcpp/stdinc.h"
 #include "dcpp/SearchResult.h"

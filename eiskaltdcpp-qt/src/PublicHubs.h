@@ -16,7 +16,6 @@
 #include <QSortFilterProxyModel>
 
 #include "dcpp/stdinc.h"
-#include "dcpp/Singleton.h"
 #include "dcpp/FavoriteManager.h"
 
 #include "ArenaWidget.h"
@@ -25,23 +24,26 @@
 
 #include "ui_UIPublicHubs.h"
 
+#include "QtContextAware.h"
+#include "QtContext.h"
+
 class PublicHubs :
         public  QWidget,
-        public  dcpp::Singleton<PublicHubs>,
         public  ArenaWidget,
         public  dcpp::FavoriteManagerListener,
-        private Ui::UIPublicHubs
+        private Ui::UIPublicHubs,
+        public QtContextAware
 {
 Q_OBJECT
 Q_INTERFACES(ArenaWidget)
-friend class dcpp::Singleton<PublicHubs>;
+friend class QtContext;
 
 public:
     QString  getArenaTitle(){ return tr("Public Hubs"); }
     QString  getArenaShortTitle(){ return getArenaTitle(); }
     QWidget *getWidget(){ return this; }
     QMenu   *getMenu(){ return nullptr; }
-    const QPixmap &getPixmap(){ return WICON(WulforUtil::eiSERVER); }
+    const QPixmap &getPixmap(){ return qtCtx()->wulforUtil()->getPixmap(WulforUtil::eiSERVER); }
     void requestFilter() { slotFilter(); }
     ArenaWidget::Role role() const { return ArenaWidget::PublicHubs; }
 
@@ -73,9 +75,12 @@ Q_SIGNALS:
     void coreDownloadFinished(const QString&);
     void coreCacheLoaded(const QString&);
 
-private:
-    PublicHubs(QWidget *parent = nullptr);
+public:
+    PublicHubs(dcpp::DCContext& ctx, QWidget *parent = nullptr);
     ~PublicHubs();
+
+
+private:
 
     void updateList();
 

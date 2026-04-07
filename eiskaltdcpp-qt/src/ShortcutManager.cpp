@@ -9,6 +9,7 @@
 
 #include "ShortcutManager.h"
 #include "WulforUtil.h"
+#include "QtContext.h"
 
 #include "dcpp/Util.h"
 
@@ -18,7 +19,7 @@
 
 using namespace dcpp;
 
-ShortcutManager::ShortcutManager(){
+ShortcutManager::ShortcutManager(dcpp::DCContext& ctx) : QtContextAware(ctx) {
     load();
 }
 

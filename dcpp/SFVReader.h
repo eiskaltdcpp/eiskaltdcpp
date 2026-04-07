@@ -39,10 +39,10 @@ public:
      * a file name that resides in the same directory as the .sfv file anyway.
      * https://en.wikipedia.org/wiki/Simple_file_verification
      */
-    void load(const string& fileName) noexcept;
+    void load(const string& fileName);
 
-    bool hasCRC() const noexcept { return crcFound; }
-    uint32_t getCRC() const noexcept { return crc32; }
+    bool hasCRC() const { return crcFound; }
+    uint32_t getCRC() const { return crc32; }
 
 private:
 

@@ -6,8 +6,13 @@
 *   (at your option) any later version.                                   *
 *                                                                         *
 ***************************************************************************/
+/*
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
+ */
 
 #include "MultiLineToolBar.h"
+#include "QtContextAware.h"
+#include "QtContext.h"
 #include "WulforSettings.h"
 #include "ArenaWidgetManager.h"
 
@@ -26,16 +31,16 @@ MultiLineToolBar::MultiLineToolBar(QWidget *parent) :
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
     setContextMenuPolicy(Qt::CustomContextMenu);
 
-    connect(ArenaWidgetManager::getInstance(), SIGNAL(added(ArenaWidget*)),     frame, SLOT(insertWidget(ArenaWidget*)));
-    connect(ArenaWidgetManager::getInstance(), SIGNAL(removed(ArenaWidget*)),   frame, SLOT(removeWidget(ArenaWidget*)));
-    connect(ArenaWidgetManager::getInstance(), SIGNAL(updated(ArenaWidget*)),   frame, SLOT(updated(ArenaWidget*)));
-    connect(ArenaWidgetManager::getInstance(), SIGNAL(activated(ArenaWidget*)), frame, SLOT(mapped(ArenaWidget*)));
-    connect(ArenaWidgetManager::getInstance(), SIGNAL(toggled(ArenaWidget*)),   frame, SLOT(toggled(ArenaWidget*)));
-    connect(this, SIGNAL(nextTab()), frame, SLOT(nextTab()));
-    connect(this, SIGNAL(prevTab()), frame, SLOT(prevTab()));
-    connect(this, SIGNAL(moveTabLeft()), frame, SLOT(moveLeft()));
-    connect(this, SIGNAL(moveTabRight()), frame, SLOT(moveRight()));
-    connect(this, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotContextMenu()));
+    connect(qtCtx()->arenaWidgetManager(), &ArenaWidgetManager::added,     frame, &TabFrame::insertWidget);
+    connect(qtCtx()->arenaWidgetManager(), &ArenaWidgetManager::removed,   frame, &TabFrame::removeWidget);
+    connect(qtCtx()->arenaWidgetManager(), &ArenaWidgetManager::updated,   frame, &TabFrame::updated);
+    connect(qtCtx()->arenaWidgetManager(), &ArenaWidgetManager::activated, frame, &TabFrame::mapped);
+    connect(qtCtx()->arenaWidgetManager(), &ArenaWidgetManager::toggled,   frame, &TabFrame::toggled);
+    connect(this, &MultiLineToolBar::nextTab, frame, &TabFrame::nextTab);
+    connect(this, &MultiLineToolBar::prevTab, frame, &TabFrame::prevTab);
+    connect(this, &MultiLineToolBar::moveTabLeft, frame, &TabFrame::moveLeft);
+    connect(this, &MultiLineToolBar::moveTabRight, frame, &TabFrame::moveRight);
+    connect(this, &QWidget::customContextMenuRequested, this, &MultiLineToolBar::slotContextMenu);
 }
 
 MultiLineToolBar::~MultiLineToolBar(){
@@ -45,9 +50,9 @@ MultiLineToolBar::~MultiLineToolBar(){
 void MultiLineToolBar::wheelEvent(QWheelEvent *e){
     e->ignore();
 
-    if (e->delta() > 0)
+    if (e->angleDelta().y() > 0)
         emit nextTab();
-    else if (e->delta() < 0)
+    else if (e->angleDelta().y() < 0)
         emit prevTab();
 }
 
@@ -56,12 +61,12 @@ void MultiLineToolBar::slotContextMenu(){
     QAction *act = new QAction(tr("Show close buttons"), m);
 
     act->setCheckable(true);
-    act->setChecked(WBGET(WB_APP_TBAR_SHOW_CL_BTNS));
+    act->setChecked(qtCtx()->settings()->getBool(WB_APP_TBAR_SHOW_CL_BTNS));
 
     m->addAction(act);
 
     if (m->exec(QCursor::pos())){
-        WBSET(WB_APP_TBAR_SHOW_CL_BTNS, act->isChecked());
+        qtCtx()->settings()->setBool(WB_APP_TBAR_SHOW_CL_BTNS, act->isChecked());
     }
 
     m->deleteLater();

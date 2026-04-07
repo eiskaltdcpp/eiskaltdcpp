@@ -27,13 +27,16 @@
 #include "dcpp/stdinc.h"
 #include "dcpp/UPnP.h"
 
+namespace dcpp { class DCContext; }
+
 class UPnPc :
     public dcpp::UPnP
 {
     public:
-        UPnPc() {}
+        explicit UPnPc(dcpp::DCContext& ctx) : ctx_(ctx) {}
 
     private:
+        dcpp::DCContext& ctx_;
         bool init();
 
         bool add(const std::string &port, const dcpp::UPnP::Protocol protocol, const std::string& description);

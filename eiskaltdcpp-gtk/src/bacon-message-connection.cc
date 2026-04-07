@@ -16,6 +16,47 @@
  *
  */
 
+#include "bacon-message-connection.hh"
+
+#ifdef _WIN32
+/*
+ * Windows stubs: Unix domain socket IPC is not available on Windows.
+ * These stubs allow the GTK UI to compile and run on Windows without
+ * single-instance detection via Unix sockets.
+ */
+
+BaconMessageConnection *
+bacon_message_connection_new (const char * /*prefix*/)
+{
+    return NULL;
+}
+
+void
+bacon_message_connection_free (BaconMessageConnection * /*conn*/)
+{
+}
+
+void
+bacon_message_connection_set_callback (BaconMessageConnection * /*conn*/,
+                                       BaconMessageReceivedFunc /*func*/,
+                                       gpointer /*user_data*/)
+{
+}
+
+void
+bacon_message_connection_send (BaconMessageConnection * /*conn*/,
+                               const char * /*message*/)
+{
+}
+
+gboolean
+bacon_message_connection_get_is_server (BaconMessageConnection * /*conn*/)
+{
+    return false;
+}
+
+#else /* !_WIN32 — full Unix domain socket implementation */
+
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
@@ -26,8 +67,6 @@
 #include <sys/socket.h>
 #include <sys/un.h>
 #include <errno.h>
-
-#include "bacon-message-connection.hh"
 
 #ifndef UNIX_PATH_MAX
 #define UNIX_PATH_MAX 108
@@ -399,4 +438,6 @@ bacon_message_connection_get_is_server (BaconMessageConnection *conn)
 
     return conn->is_server;
 }
+
+#endif /* !_WIN32 */
 

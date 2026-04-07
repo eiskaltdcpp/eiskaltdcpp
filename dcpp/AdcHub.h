@@ -88,7 +88,7 @@ private:
     friend class CommandHandler<AdcHub>;
     friend class Identity;
 
-    AdcHub(const string& aHubURL, bool secure);
+    AdcHub(DCContext& ctx, const string& aHubURL, bool secure);
 
     AdcHub(const AdcHub&);
     AdcHub& operator=(const AdcHub&);
@@ -109,7 +109,7 @@ private:
 
     std::unordered_set<uint32_t> forbiddenCommands;
 
-    static const vector<StringList> searchExts;
+    static vector<StringList> searchExts;
 
     virtual string checkNick(const string& nick);
 
@@ -120,37 +120,37 @@ private:
 
     void clearUsers();
 
-    void handle(AdcCommand::SUP, AdcCommand& c) noexcept;
-    void handle(AdcCommand::SID, AdcCommand& c) noexcept;
-    void handle(AdcCommand::MSG, AdcCommand& c) noexcept;
-    void handle(AdcCommand::INF, AdcCommand& c) noexcept;
-    void handle(AdcCommand::GPA, AdcCommand& c) noexcept;
-    void handle(AdcCommand::QUI, AdcCommand& c) noexcept;
-    void handle(AdcCommand::CTM, AdcCommand& c) noexcept;
-    void handle(AdcCommand::RCM, AdcCommand& c) noexcept;
-    void handle(AdcCommand::STA, AdcCommand& c) noexcept;
-    void handle(AdcCommand::SCH, AdcCommand& c) noexcept;
-    void handle(AdcCommand::CMD, AdcCommand& c) noexcept;
-    void handle(AdcCommand::RES, AdcCommand& c) noexcept;
-    void handle(AdcCommand::GET, AdcCommand& c) noexcept;
-    void handle(AdcCommand::PSR, AdcCommand& c) noexcept;
-    void handle(AdcCommand::NAT, AdcCommand& c) noexcept;
-    void handle(AdcCommand::RNT, AdcCommand& c) noexcept;
-    void handle(AdcCommand::ZON, AdcCommand& c) noexcept;
-    void handle(AdcCommand::ZOF, AdcCommand& c) noexcept;
+    void handle(AdcCommand::SUP, AdcCommand& c);
+    void handle(AdcCommand::SID, AdcCommand& c);
+    void handle(AdcCommand::MSG, AdcCommand& c);
+    void handle(AdcCommand::INF, AdcCommand& c);
+    void handle(AdcCommand::GPA, AdcCommand& c);
+    void handle(AdcCommand::QUI, AdcCommand& c);
+    void handle(AdcCommand::CTM, AdcCommand& c);
+    void handle(AdcCommand::RCM, AdcCommand& c);
+    void handle(AdcCommand::STA, AdcCommand& c);
+    void handle(AdcCommand::SCH, AdcCommand& c);
+    void handle(AdcCommand::CMD, AdcCommand& c);
+    void handle(AdcCommand::RES, AdcCommand& c);
+    void handle(AdcCommand::GET, AdcCommand& c);
+    void handle(AdcCommand::PSR, AdcCommand& c);
+    void handle(AdcCommand::NAT, AdcCommand& c);
+    void handle(AdcCommand::RNT, AdcCommand& c);
+    void handle(AdcCommand::ZON, AdcCommand& c);
+    void handle(AdcCommand::ZOF, AdcCommand& c);
 
     template<typename T> void handle(T, AdcCommand&) { }
 
     void sendSearch(AdcCommand& c);
-    void sendUDP(const AdcCommand& cmd) noexcept;
+    void sendUDP(const AdcCommand& cmd);
     void unknownProtocol(uint32_t target, const string& protocol, const string& token);
     bool secureAvail(uint32_t target, const string& protocol, const string& token);
-    virtual void on(Connecting) noexcept { fire(ClientListener::Connecting(), this); }
-    virtual void on(Connected) noexcept;
-    virtual void on(Line, const string& aLine) noexcept;
-    virtual void on(Failed, const string& aLine) noexcept;
+    virtual void on(Connecting) { fire(ClientListener::Connecting(), this); }
+    virtual void on(Connected);
+    virtual void on(Line, const string& aLine);
+    virtual void on(Failed, const string& aLine);
 
-    virtual void on(Second, uint64_t aTick) noexcept;
+    virtual void on(Second, uint64_t aTick);
 
 };
 

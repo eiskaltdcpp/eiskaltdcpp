@@ -26,6 +26,8 @@
 #include "bookentry.hh"
 #include "treeview.hh"
 
+namespace dcpp { class DCContext; }
+
 class PreviewMenu;
 
 class FinishedTransfers:
@@ -33,13 +35,13 @@ class FinishedTransfers:
         public dcpp::FinishedManagerListener
 {
 public:
-    static FinishedTransfers* createFinishedUploads();
-    static FinishedTransfers* createFinishedDownloads();
+    static FinishedTransfers* createFinishedUploads(dcpp::DCContext& dcCtx);
+    static FinishedTransfers* createFinishedDownloads(dcpp::DCContext& dcCtx);
     virtual ~FinishedTransfers();
     virtual void show();
 
 private:
-    FinishedTransfers(const EntryType type, const std::string &title, bool isUpload);
+    FinishedTransfers(dcpp::DCContext& dcCtx, const EntryType type, const std::string &title, bool isUpload);
 
     // GUI functions
     void addFile_gui(dcpp::StringMap params, bool update);
@@ -87,4 +89,5 @@ private:
     int totalUsers;
     int64_t totalBytes, totalTime;
     PreviewMenu *appsPreviewMenu;
+    dcpp::DCContext& dcCtx_;
 };

@@ -25,12 +25,14 @@
 #include "bookentry.hh"
 #include "treeview.hh"
 
+namespace dcpp { class DCContext; }
+
 class DownloadQueue:
         public BookEntry,
         public dcpp::QueueManagerListener
 {
 public:
-    DownloadQueue();
+    explicit DownloadQueue(dcpp::DCContext& dcCtx);
     virtual ~DownloadQueue();
     virtual void show();
 
@@ -109,4 +111,5 @@ private:
     int64_t totalSize;
 
     typedef std::map<std::string, std::string>::const_iterator SourceIter;
+    dcpp::DCContext& dcCtx_;
 };

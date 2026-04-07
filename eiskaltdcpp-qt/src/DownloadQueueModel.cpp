@@ -6,15 +6,16 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
+/*
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
+ */
 
 #include "DownloadQueueModel.h"
+#include "QtContextAware.h"
+#include "QtContext.h"
 #include "WulforUtil.h"
 
-#if QT_VERSION >= 0x050000
 #include <QtWidgets>
-#else
-#include <QtGui>
-#endif
 
 #include <QFileInfo>
 #include <QList>
@@ -98,7 +99,7 @@ DownloadQueueModel::~DownloadQueueModel()
 
 int DownloadQueueModel::columnCount(const QModelIndex &parent) const
 {
-    Q_D(const static DownloadQueueModel);
+    Q_D(const DownloadQueueModel);
 
     if (parent.isValid())
         return static_cast<DownloadQueueItem*>(parent.internalPointer())->columnCount();
@@ -117,9 +118,10 @@ QVariant DownloadQueueModel::data(const QModelIndex &index, int role) const
         case Qt::DecorationRole:
         {
             if (item->dir && index.column() == COLUMN_DOWNLOADQUEUE_NAME)
-                return WICON(WulforUtil::eiFOLDER_BLUE).scaled(16, 16);
+                return qtCtx()->wulforUtil()->getPixmap(WulforUtil::eiFOLDER_BLUE).scaled(16, 16);
             else if (index.column() == COLUMN_DOWNLOADQUEUE_NAME)
-                return WulforUtil::getInstance()->getPixmapForFile(item->data(COLUMN_DOWNLOADQUEUE_NAME).toString()).scaled(16, 16);
+                return qtCtx()->wulforUtil()->getPixmapForFile(item->data(COLUMN_DOWNLOADQUEUE_NAME).toString()).scaled(16, 16);
+            break;
         }
         case Qt::DisplayRole:
         {
@@ -175,7 +177,7 @@ QVariant DownloadQueueModel::data(const QModelIndex &index, int role) const
 
             break;
         }
-        case Qt::BackgroundColorRole:
+        case Qt::BackgroundRole:
             break;
         case Qt::ToolTipRole:
         {
@@ -290,7 +292,7 @@ QVariant DownloadQueueModel::headerData(int section, Qt::Orientation orientation
 
 QModelIndex DownloadQueueModel::index(int row, int column, const QModelIndex &parent) const
 {
-    Q_D(const static DownloadQueueModel);
+    Q_D(const DownloadQueueModel);
 
     if (!hasIndex(row, column, parent))
         return QModelIndex();
@@ -311,7 +313,7 @@ QModelIndex DownloadQueueModel::index(int row, int column, const QModelIndex &pa
 
 QModelIndex DownloadQueueModel::parent(const QModelIndex &index) const
 {
-    Q_D(const static DownloadQueueModel);
+    Q_D(const DownloadQueueModel);
 
     if (!index.isValid())
         return QModelIndex();
@@ -327,7 +329,7 @@ QModelIndex DownloadQueueModel::parent(const QModelIndex &index) const
 
 int DownloadQueueModel::rowCount(const QModelIndex &parent) const
 {
-    Q_D(const static DownloadQueueModel);
+    Q_D(const DownloadQueueModel);
     DownloadQueueItem *parentItem;
 
     if (parent.column() > 0)
@@ -558,7 +560,7 @@ DownloadQueueItem *DownloadQueueModel::createPath(const QString & path){
     QString _path = path;
     _path.replace("\\", "/");
 
-    QStringList list = _path.split("/", QString::SkipEmptyParts);
+    QStringList list = _path.split("/", Qt::SkipEmptyParts);
 
     DownloadQueueItem *root = d->rootItem;
 
@@ -741,24 +743,40 @@ void DownloadQueueDelegate::paint(QPainter *painter, const QStyleOptionViewItem 
     const qulonglong esize = item->data(COLUMN_DOWNLOADQUEUE_ESIZE).toLongLong();
     double percent = ((double)item->data(COLUMN_DOWNLOADQUEUE_DOWN).toLongLong() * 100.0);
     percent = (esize > 0) ? (percent/(double)esize) : 0.0;
-    const QString status = QString("%1%").arg(percent, 0, 'f', 1);
+
+    const QString statusText = item->data(COLUMN_DOWNLOADQUEUE_STATUS).toString();
+    const QString display = statusText.isEmpty()
+        ? QString("%1%").arg(percent, 0, 'f', 1)
+        : QString("%1 / %2%").arg(statusText).arg(percent, 0, 'f', 1);
 
     QStyleOptionProgressBar progressBarOption;
+    if (option.widget)
+        progressBarOption.initFrom(option.widget);
     progressBarOption.state = QStyle::State_Enabled;
     progressBarOption.direction = QApplication::layoutDirection();
     progressBarOption.rect = option.rect;
-    progressBarOption.fontMetrics = QApplication::fontMetrics();
+    progressBarOption.fontMetrics = option.fontMetrics;
     progressBarOption.minimum = 0;
     progressBarOption.maximum = 100;
     progressBarOption.textAlignment = Qt::AlignCenter;
-    progressBarOption.textVisible = true;
-    progressBarOption.text = status;
+    progressBarOption.textVisible = false;
     progressBarOption.progress = static_cast<int>(percent);
 
     if (option.state & QStyle::State_Selected)
         painter->fillRect(option.rect, option.palette.highlight());
 
-    QApplication::style()->drawControl(QStyle::CE_ProgressBar, &progressBarOption, painter);
+    // Draw groove and contents separately, then render text manually
+    // to avoid Qt6 style engines positioning text outside the bar.
+    QApplication::style()->drawControl(QStyle::CE_ProgressBarGroove, &progressBarOption, painter);
+    QApplication::style()->drawControl(QStyle::CE_ProgressBarContents, &progressBarOption, painter);
+
+    painter->save();
+    if (option.state & QStyle::State_Selected)
+        painter->setPen(option.palette.highlightedText().color());
+    else
+        painter->setPen(option.palette.text().color());
+    painter->drawText(option.rect, Qt::AlignCenter, display);
+    painter->restore();
 #else
     const qulonglong esize = item->data(COLUMN_DOWNLOADQUEUE_ESIZE).toLongLong();
     double percent = ((double)item->data(COLUMN_DOWNLOADQUEUE_DOWN).toLongLong() * 100.0);
@@ -771,4 +789,11 @@ void DownloadQueueDelegate::paint(QPainter *painter, const QStyleOptionViewItem 
 
     QApplication::style()->drawControl(QStyle::CE_ItemViewItem, &plainTextOption, painter);
 #endif
+}
+
+QSize DownloadQueueDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const{
+    QSize sz = QStyledItemDelegate::sizeHint(option, index);
+    // Ensure rows are tall enough for an embedded progress bar
+    sz.setHeight(qMax(sz.height(), option.fontMetrics.height() + 8));
+    return sz;
 }

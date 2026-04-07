@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2009-2010 Big Muscle, http://strongdc.sourceforge.net/
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -25,6 +26,7 @@
 #include "dcpp/SearchManager.h"
 #include "dcpp/SearchResult.h"
 #include "dcpp/SimpleXML.h"
+#include "dcpp/DCPlusPlus.h"
 
 namespace dht
 {
@@ -34,10 +36,10 @@ namespace dht
         switch(type)
         {
         case SearchType::TYPE_NODE:
-            IndexManager::getInstance()->setPublish(true);
+            dht_.getIndexManager().setPublish(true);
             break;
         case SearchType::TYPE_STOREFILE:
-            IndexManager::getInstance()->decPublishing();
+            dht_.getIndexManager().decPublishing();
             break;
         default:
             break;
@@ -79,12 +81,12 @@ namespace dht
             cmd.addParam("TO", token);
 
             //node->setTimeout();
-            DHT::getInstance()->send(cmd, node->getIdentity().getIp(), node->getIdentity().getUdpPort(), node->getUser()->getCID(), node->getUdpKey());
+            dht_.send(cmd, node->getIdentity().getIp(), node->getIdentity().getUdpPort(), node->getUser()->getCID(), node->getUdpKey());
         }
     }
 
-    SearchManager::SearchManager(void)
-        : lastSearchFile(0)
+    SearchManager::SearchManager(DHT& dht)
+        : dht_(dht), lastSearchFile(0)
     {
     }
 
@@ -100,7 +102,7 @@ namespace dht
         if(isAlreadySearchingFor(cid.toBase32()))
             return;
 
-        Search* s = new Search();
+        Search* s = new Search(dht_);
         s->type = Search::SearchType::TYPE_NODE;
         s->term = cid.toBase32();
         s->token = Util::toString(Util::rand());
@@ -122,25 +124,25 @@ namespace dht
 
         // do I have requested TTH in my store?
         //IndexManager::SourceList sources;
-        //if(IndexManager::getInstance()->findResult(TTHValue(tth), sources))
+        //if(dht_.getIndexManager().findResult(TTHValue(tth), sources))
         //{
         //  for(IndexManager::SourceList::const_iterator i = sources.begin(); i != sources.end(); ++i)
         //  {
         //      // create user as offline (only TCP connected users will be online)
-        //      UserPtr u = ClientManager::getInstance()->getUser(i->getCID());
+        //      UserPtr u = dht_.ctx().getClientManager()->getUser(i->getCID());
         //      u->setFlag(User::DHT);
         //
         //      // contact node that we are online and we want his info
-        //      DHT::getInstance()->info(i->getIp(), i->getUdpPort(), true);
+        //      dht_.info(i->getIp(), i->getUdpPort(), true);
         //
         //      SearchResultPtr sr(new SearchResult(u, SearchResult::TYPE_FILE, 0, 0, i->getSize(), tth, "DHT", Util::emptyString, i->getIp(), TTHValue(tth), token));
-        //      dcpp::SearchManager::getInstance()->fire(SearchManagerListener::SR(), sr);
+        //      dht_.ctx().getSearchManager()->fire(SearchManagerListener::SR(), sr);
         //  }
         //
         //  return;
         //}
 
-        Search* s = new Search();
+        Search* s = new Search(dht_);
         s->type = Search::SearchType::TYPE_FILE;
         s->term = tth;
         s->token = token;
@@ -157,11 +159,11 @@ namespace dht
     {
         if(isAlreadySearchingFor(tth))
         {
-            IndexManager::getInstance()->decPublishing();
+            dht_.getIndexManager().decPublishing();
             return;
         }
 
-        Search* s = new Search();
+        Search* s = new Search(dht_);
         s->type = Search::SearchType::TYPE_STOREFILE;
         s->term = tth;
         s->filesize = size;
@@ -192,7 +194,7 @@ namespace dht
         }
 
         // get nodes closest to requested ID
-        DHT::getInstance()->getClosestNodes(CID(s.term), s.possibleNodes, 50, 3);
+        dht_.getClosestNodes(CID(s.term), s.possibleNodes, 50, 3);
 
         if(s.possibleNodes.empty())
         {
@@ -240,7 +242,7 @@ namespace dht
                 // check file hash in our database
                 // if it's there, then select sources else do the same as node search
                 IndexManager::SourceList sources;
-                if(IndexManager::getInstance()->findResult(TTHValue(term), sources))
+                if(dht_.getIndexManager().findResult(TTHValue(term), sources))
                 {
                     // yes, we got sources for this file
                     unsigned int n = MAX_SEARCH_RESULTS;
@@ -279,7 +281,7 @@ namespace dht
 
                 // get nodes closest to requested ID
                 Node::Map nodes;
-                DHT::getInstance()->getClosestNodes(CID(term), nodes, count, 2);
+                dht_.getClosestNodes(CID(term), nodes, count, 2);
 
                 // add nodelist in XML format
                 for(Node::Map::const_iterator i = nodes.begin(); i != nodes.end(); ++i)
@@ -309,7 +311,7 @@ namespace dht
         res.addParam("NX", Utils::compressXML(nodes));
 
         // send search result
-        DHT::getInstance()->send(res, node->getIdentity().getIp(), node->getIdentity().getUdpPort(), node->getUser()->getCID(), node->getUdpKey());
+        dht_.send(res, node->getIdentity().getIp(), node->getIdentity().getUdpPort(), node->getUser()->getCID(), node->getUdpKey());
     }
 
     /*
@@ -356,43 +358,43 @@ namespace dht
                     bool partial        = xml.getBoolChildAttrib("PF");
 
                     // don't bother with invalid sources and private IPs
-                    if( !cid || ClientManager::getInstance()->getMe()->getCID() == cid || !Utils::isGoodIPPort(i4, u4))
+                    if( !cid || dht_.ctx().getClientManager()->getMe()->getCID() == cid || !Utils::isGoodIPPort(i4, u4))
                         continue;
 
                     // create user as offline (only TCP connected users will be online)
-                    Node::Ptr source = DHT::getInstance()->createNode(cid, i4, u4, false, false);
+                    Node::Ptr source = dht_.createNode(cid, i4, u4, false, false);
 
                     if(partial)
                     {
                         if(!source->isOnline())
                         {
                             // node is not online, try to contact him
-                            DHT::getInstance()->info(i4, u4, DHT::PING | DHT::MAKE_ONLINE, cid, source->getUdpKey());
+                            dht_.info(i4, u4, DHT::PING | DHT::MAKE_ONLINE, cid, source->getUdpKey());
                         }
 
                         // ask for partial file
                         AdcCommand cmd(AdcCommand::CMD_PSR, AdcCommand::TYPE_UDP);
-                        cmd.addParam("U4", dcpp::SearchManager::getInstance()->getPort());
+                        cmd.addParam("U4", dht_.ctx().getSearchManager()->getPort());
                         cmd.addParam("TR", s->term);
 
-                        DHT::getInstance()->send(cmd, i4, u4, cid, source->getUdpKey());
+                        dht_.send(cmd, i4, u4, cid, source->getUdpKey());
                     }
                     else
                     {
                         // create search result: hub name+ip => "DHT", file name => TTH
-                        SearchResultPtr sr(new SearchResult(source->getUser(), SearchResult::TYPE_FILE, 0, 0, size, s->term, DHT::getInstance()->getHubName(), DHT::getInstance()->getHubUrl(), i4, TTHValue(s->term), token));
+                        SearchResultPtr sr(new SearchResult(source->getUser(), SearchResult::TYPE_FILE, 0, 0, size, s->term, dht_.getHubName(), dht_.getHubUrl(), i4, TTHValue(s->term), token));
                         if(!source->isOnline())
                         {
                             // node is not online, try to contact him if we didn't contact him recently
                             if(searchResults.find(source->getUser()->getCID()) != searchResults.end())
-                                DHT::getInstance()->info(i4, u4, DHT::PING | DHT::MAKE_ONLINE, cid, source->getUdpKey());
+                                dht_.info(i4, u4, DHT::PING | DHT::MAKE_ONLINE, cid, source->getUdpKey());
 
                             searchResults.insert(std::make_pair(source->getUser()->getCID(), std::make_pair(GET_TICK(), sr)));
                         }
                         else
                         {
                             sr->setSlots(Util::toInt(source->getIdentity().get("SL")));
-                            dcpp::SearchManager::getInstance()->fire(SearchManagerListener::SR(), sr);
+                            dht_.ctx().getSearchManager()->fire(SearchManagerListener::SR(), sr);
                         }
                     }
                 }
@@ -408,7 +410,7 @@ namespace dht
                 CID distance = Utils::getDistance(cid, CID(s->term));
 
                 // don't bother with myself and nodes we've already tried or queued
-                if( ClientManager::getInstance()->getMe()->getCID() == cid ||
+                if( dht_.ctx().getClientManager()->getMe()->getCID() == cid ||
                     s->possibleNodes.find(distance) != s->possibleNodes.end() ||
                     s->triedNodes.find(distance) != s->triedNodes.end())
                 {
@@ -424,11 +426,11 @@ namespace dht
 
                 // create unverified node
                 // if this node already exists in our routing table, don't update it's ip/port for security reasons
-                Node::Ptr node = DHT::getInstance()->createNode(cid, i4, u4, false, false);
+                Node::Ptr node = dht_.createNode(cid, i4, u4, false, false);
 
                 // node won't be accept for several reasons (invalid IP etc.)
                 // if routing table is full, node can be accept
-                bool isAcceptable = DHT::getInstance()->addNode(node, false);
+                bool isAcceptable = dht_.addNode(node, false);
                 if(isAcceptable)
                 {
                     // update our list of possible nodes
@@ -463,7 +465,7 @@ namespace dht
                 cmd.addParam("PF", "1");
 
             //i->second->setTimeout();
-            DHT::getInstance()->send(cmd, node->getIdentity().getIp(), node->getIdentity().getUdpPort(), node->getUser()->getCID(), node->getUdpKey());
+            dht_.send(cmd, node->getIdentity().getIp(), node->getIdentity().getUdpPort(), node->getUser()->getCID(), node->getUdpKey());
         }
     }
 
@@ -519,7 +521,7 @@ namespace dht
                 SearchResultPtr sr = it->second.second;
                 sr->setSlots(slots); // slot count should be known now
 
-                dcpp::SearchManager::getInstance()->fire(SearchManagerListener::SR(), sr);
+                dht_.ctx().getSearchManager()->fire(SearchManagerListener::SR(), sr);
                 searchResults.erase(it++);
 
                 ok = true;

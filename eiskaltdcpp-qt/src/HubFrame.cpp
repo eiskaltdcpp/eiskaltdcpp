@@ -6,6 +6,9 @@
 *   (at your option) any later version.                                   *
 *                                                                         *
 ***************************************************************************/
+/*
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
+ */
 
 #include "ArenaWidgetFactory.h"
 #include "HubFrame.h"
@@ -14,6 +17,8 @@
 #include "Antispam.h"
 #include "HubManager.h"
 #include "Notification.h"
+#include "QtContext.h"
+#include "QtContextAware.h"
 #include "ShellCommandRunner.h"
 #include "EmoticonDialog.h"
 #include "WulforSettings.h"
@@ -37,13 +42,13 @@
 #include "dcpp/HashManager.h"
 #include "dcpp/Util.h"
 #include "dcpp/ChatMessage.h"
+#include "dcpp/DCPlusPlus.h"
 
 #if HAVE_MALLOC_TRIM
 #include <malloc.h>
 #endif
 
 #include <QMouseEvent>
-#include <QTextCodec>
 #include <QItemSelectionModel>
 #include <QMenu>
 #include <QClipboard>
@@ -55,14 +60,12 @@
 #include <QUrl>
 #include <QCloseEvent>
 #include <QThread>
-#include <QRegExp>
+#include <QRegularExpression>
 #include <QScrollBar>
 #include <QShortcut>
 #include <QHeaderView>
 
-#if QT_VERSION >= 0x050000
 #include <QUrlQuery>
-#endif
 
 #include <QtDebug>
 
@@ -78,8 +81,6 @@ public:
     Client *client;
 
     // Work data
-    QTextCodec *codec;
-
     quint64 total_shared;
     QString hub_title;
 
@@ -141,36 +142,9 @@ static bool parseBasicBBCode(const QString &tag, const QString &txt, QString &in
     return false;
 }
 
-HubFrame::Menu *HubFrame::Menu::instance = nullptr;
-unsigned HubFrame::Menu::counter = 0;
-
-void HubFrame::Menu::newInstance(){
-    counter++;
-
-    if (instance)
-        return;
-
-    instance = new Menu();
-}
-
-void HubFrame::Menu::deleteInstance(){
-    counter--;
-
-    if (counter)
-        return;
-
-    delete instance;
-
-    instance = nullptr;
-}
-
-HubFrame::Menu *HubFrame::Menu::getInstance(){
-    return instance;
-}
-
 HubFrame::Menu::Menu() : menu(new QMenu(nullptr))
 {
-    WulforUtil *WU = WulforUtil::getInstance();
+    WulforUtil *WU = qtCtx()->wulforUtil();
 
     last_user_cmd = "";
 
@@ -303,7 +277,7 @@ HubFrame::Menu::Action HubFrame::Menu::execUserMenu(Client *client, const QStrin
     menu->clear();
     menu->setProperty("iconVisibleInMenu", true);
 
-    menu->setTitle(WulforUtil::getInstance()->getNickViaOnlineUser(cid, _q(client->getHubUrl())));
+    menu->setTitle(qtCtx()->wulforUtil()->getNickViaOnlineUser(cid, _q(client->getHubUrl())));
 
     if (menu->title().isEmpty())
         menu->setTitle(tr("[User went offline]"));
@@ -313,7 +287,7 @@ HubFrame::Menu::Action HubFrame::Menu::execUserMenu(Client *client, const QStrin
     QMenu *user_menu = nullptr;
 
     if (!cid.isEmpty()){
-        user_menu = WulforUtil::getInstance()->buildUserCmdMenu(client->getHubUrl(), UserCommand::CONTEXT_USER);
+        user_menu = qtCtx()->wulforUtil()->buildUserCmdMenu(client->getHubUrl(), UserCommand::CONTEXT_USER);
 
         if (user_menu && !user_menu->actions().empty())
             menu->addMenu(user_menu);
@@ -321,10 +295,10 @@ HubFrame::Menu::Action HubFrame::Menu::execUserMenu(Client *client, const QStrin
 
     QMenu *antispam_menu = nullptr;
 
-    if (AntiSpam::getInstance()){
+    if (qtCtx()->antiSpam()){
         antispam_menu = new QMenu(nullptr);
         antispam_menu->setTitle(tr("AntiSpam"));
-        antispam_menu->menuAction()->setIcon(WICON(WulforUtil::eiSPAM));
+        antispam_menu->menuAction()->setIcon(qtCtx()->wulforUtil()->getPixmap(WulforUtil::eiSPAM));
         antispam_menu->setProperty("iconVisibleInMenu", true);
 
         antispam_menu->addAction(tr("Add to Black"))->setData(static_cast<int>(AntiSpamBlack));
@@ -350,16 +324,16 @@ HubFrame::Menu::Action HubFrame::Menu::execUserMenu(Client *client, const QStrin
         int id = res->data().toInt();
 
         UserCommand uc;
-        if (id == -1 || !FavoriteManager::getInstance()->getUserCommand(id, uc))
+        if (id == -1 || !qtCtx()->dcCtx().getFavoriteManager()->getUserCommand(id, uc))
             return None;
 
         StringMap params;
 
-        if (WulforUtil::getInstance()->getUserCommandParams(uc, params)) {
-            UserPtr user = ClientManager::getInstance()->findUser(CID(cid.toStdString()));
+        if (qtCtx()->wulforUtil()->getUserCommandParams(uc, params)) {
+            UserPtr user = qtCtx()->dcCtx().getClientManager()->findUser(CID(cid.toStdString()));
 
             if (user)
-                ClientManager::getInstance()->userCommand(HintedUser(user, client->getHubUrl()), uc, params, true);
+                qtCtx()->dcCtx().getClientManager()->userCommand(HintedUser(user, client->getHubUrl()), uc, params, true);
 
             return UserCommands;
         }
@@ -379,7 +353,7 @@ HubFrame::Menu::Action HubFrame::Menu::execChatMenu(Client *client, const QStrin
         return None;
 
     menu->clear();
-    QAction *title = new QAction(WulforUtil::getInstance()->getNickViaOnlineUser(cid, _q(client->getHubUrl())), menu);
+    QAction *title = new QAction(qtCtx()->wulforUtil()->getNickViaOnlineUser(cid, _q(client->getHubUrl())), menu);
     QFont f;
     f.setBold(true);
     title->setFont(f);
@@ -402,7 +376,7 @@ HubFrame::Menu::Action HubFrame::Menu::execChatMenu(Client *client, const QStrin
     QMenu *user_menu = nullptr;
 
     if (!cid.isEmpty() && !pmw){
-        user_menu = WulforUtil::getInstance()->buildUserCmdMenu(client->getHubUrl(), UserCommand::CONTEXT_HUB);
+        user_menu = qtCtx()->wulforUtil()->buildUserCmdMenu(client->getHubUrl(), UserCommand::CONTEXT_HUB);
 
         if (user_menu && !user_menu->actions().isEmpty())
             menu->addMenu(user_menu);
@@ -410,7 +384,7 @@ HubFrame::Menu::Action HubFrame::Menu::execChatMenu(Client *client, const QStrin
 
     QMenu *antispam_menu = nullptr;
 
-    if (AntiSpam::getInstance()){
+    if (qtCtx()->antiSpam()){
         antispam_menu = new QMenu(nullptr);
         antispam_menu->setTitle(tr("AntiSpam"));
 
@@ -437,16 +411,16 @@ HubFrame::Menu::Action HubFrame::Menu::execChatMenu(Client *client, const QStrin
         int id = res->data().toInt();
 
         UserCommand uc;
-        if (id == -1 || !FavoriteManager::getInstance()->getUserCommand(id, uc))
+        if (id == -1 || !qtCtx()->dcCtx().getFavoriteManager()->getUserCommand(id, uc))
             return None;
 
         StringMap params;
 
-        if (WulforUtil::getInstance()->getUserCommandParams(uc, params)){
-            UserPtr user = ClientManager::getInstance()->findUser(CID(cid.toStdString()));
+        if (qtCtx()->wulforUtil()->getUserCommandParams(uc, params)){
+            UserPtr user = qtCtx()->dcCtx().getClientManager()->findUser(CID(cid.toStdString()));
 
             if (user)
-                ClientManager::getInstance()->userCommand(HintedUser(user, client->getHubUrl()), uc, params, true);
+                qtCtx()->dcCtx().getClientManager()->userCommand(HintedUser(user, client->getHubUrl()), uc, params, true);
 
             return UserCommands;
         }
@@ -469,11 +443,11 @@ QString HubFrame::LinkParser::parseForLinks(QString input, bool use_emot){
 
     EmoticonMap emoticons;
 
-    if (use_emot && WBGET(WB_APP_ENABLE_EMOTICON) && EmoticonFactory::getInstance())
-        emoticons = EmoticonFactory::getInstance()->getEmoticons();
+    if (use_emot && qtCtx()->settings()->getBool(WB_APP_ENABLE_EMOTICON) && qtCtx()->emoticonFactory())
+        emoticons = qtCtx()->emoticonFactory()->getEmoticons();
 
-    const QString &emo_theme = WSGET(WS_APP_EMOTICON_THEME);
-    bool force_emot = WBGET(WB_APP_FORCE_EMOTICONS);
+    const QString &emo_theme = qtCtx()->settings()->getStr(WS_APP_EMOTICON_THEME);
+    bool force_emot = qtCtx()->settings()->getBool(WB_APP_FORCE_EMOTICONS);
 
     while (!input.isEmpty()){
         for (int j = 0; j < link_types.size(); j++){
@@ -508,27 +482,15 @@ QString HubFrame::LinkParser::parseForLinks(QString input, bool use_emot){
                 if (linktype == "magnet:"){
                     QString magnet = link;
 
-#if QT_VERSION >= 0x050000
                     QUrlQuery u;
-#else
-                    QUrl u;
-#endif
 
                     if (!magnet.contains("+")) {
-#if QT_VERSION >= 0x050000
                         u.setQuery(magnet.toUtf8());
-#else
-                        u.setEncodedUrl(magnet.toUtf8());
-#endif
                     } else {
                         QString _l = magnet;
 
                         _l.replace("+", "%20");
-#if QT_VERSION >= 0x050000
                             u.setQuery(_l.toUtf8());
-#else
-                            u.setEncodedUrl(_l.toUtf8());
-#endif
                     }
                     if (u.hasQueryItem("kt")) {
                         QString keywords = u.queryItemValue("kt");
@@ -543,15 +505,9 @@ QString HubFrame::LinkParser::parseForLinks(QString input, bool use_emot){
                             keywords = tr("Invalid keywords");
 
                         if (!hub.isEmpty())
-#if QT_VERSION >= 0x050000
                             toshow = keywords.toHtmlEscaped() + " (" + hub.toHtmlEscaped() + ")";
                         else
                             toshow = keywords.toHtmlEscaped();
-#else
-                            toshow = Qt::escape(keywords) + " (" + Qt::escape(hub) + ")";
-                        else
-                            toshow = Qt::escape(keywords);
-#endif
                     }
                     else {
                         QString name, tth;
@@ -646,7 +602,7 @@ QString HubFrame::LinkParser::parseForLinks(QString input, bool use_emot){
         if(smile_found)
             continue;
 
-        if (WBGET("hubframe/use-bb-code", false)){
+        if (qtCtx()->settings()->getBool("hubframe/use-bb-code", false)){
             if      (parseBasicBBCode("b", "b", input, output))
                 continue;
             else if (parseBasicBBCode("u", "u", input, output))
@@ -657,24 +613,26 @@ QString HubFrame::LinkParser::parseForLinks(QString input, bool use_emot){
                 continue;
 
             if (input.startsWith("[color=") && input.indexOf("[/color]") > 8){
-                QRegExp exp("\\[color=(\\w+|#.{6,6})\\]((.*))\\[/color\\].*");
+                static const QRegularExpression exp("\\A\\[color=(\\w+|#.{6,6})\\]((.*))\\[/color\\].*\\z");
                 QString chunk = input.left(input.indexOf("[/color]")+8);
+                QRegularExpressionMatch m = exp.match(chunk);
 
-                if (exp.exactMatch(chunk)){
-                    if (exp.captureCount() == 3){
-                        output += "<font color=\"" + exp.cap(1) + "\">" + parseForLinks(exp.cap(2), false) + "</font>";
+                if (m.hasMatch()){
+                    if (m.lastCapturedIndex() == 3){
+                        output += "<font color=\"" + m.captured(1) + "\">" + parseForLinks(m.captured(2), false) + "</font>";
 
                         input.remove(0, chunk.length());
                     }
                 }
             }
             else if (input.startsWith(("[url")) && input.indexOf("[/url]") > 0){
-                QRegExp exp("\\[url=*((.+[^\\]\\[]))*\\]((.+))\\[/url\\]");
+                static const QRegularExpression exp("\\A\\[url=*((.+[^\\]\\[]))*\\]((.+))\\[/url\\]\\z");
                 QString chunk = input.left(input.indexOf("[/url]")+6);
+                QRegularExpressionMatch m = exp.match(chunk);
 
-                if (exp.exactMatch(chunk) && exp.captureCount() == 4){
-                    QString link = exp.cap(2);
-                    QString title = exp.cap(3);
+                if (m.hasMatch() && m.lastCapturedIndex() == 4){
+                    QString link = m.captured(2);
+                    QString title = m.captured(3);
 
                     link = link.isEmpty()? title : link;
 
@@ -682,11 +640,7 @@ QString HubFrame::LinkParser::parseForLinks(QString input, bool use_emot){
                         link.remove(0, 1);
 
                     if (!title.isEmpty()){
-#if QT_VERSION >= 0x050000
                             output += "<a href=\"" + link + "\" title=\"" + title.toHtmlEscaped() + "\">" + title.toHtmlEscaped() + "</a>";
-#else
-                            output += "<a href=\"" + link + "\" title=\"" + Qt::escape(title) + "\">" + Qt::escape(title) + "</a>";
-#endif
 
                         input.remove(0, chunk.length());
                     }
@@ -779,25 +733,30 @@ QString HubFrame::LinkParser::parseForLinks(QString input, bool use_emot){
 
 void HubFrame::LinkParser::parseForMagnetAlias(QString &output){
     int pos = 0;
-    QRegExp rx("(<magnet(?:\\s+show=([^>]+))?>(.+)</magnet>)");
-    rx.setMinimal(true);
-    while ((pos = output.indexOf(rx, pos)) >= 0) {
-        QFileInfo fi(rx.cap(3));
+    // InvertedGreedinessOption = non-greedy by default (equivalent to setMinimal(true))
+    static const QRegularExpression rx("(<magnet(?:\\s+show=([^>]+))?>(.+)</magnet>)",
+                                       QRegularExpression::InvertedGreedinessOption);
+    QRegularExpressionMatch m = rx.match(output, pos);
+    while (m.hasMatch()) {
+        pos = m.capturedStart();
+        QFileInfo fi(m.captured(3));
         if (fi.isDir() || !fi.exists()) {
             pos++;
+            m = rx.match(output, pos);
             continue;
         }
         QString name = fi.fileName();
-        if (!rx.cap(2).isEmpty())
-            name = rx.cap(2);
+        if (!m.captured(2).isEmpty())
+            name = m.captured(2);
 
-        const TTHValue *tth = HashManager::getInstance()->getFileTTHif(_tq(fi.absoluteFilePath()));
+        const TTHValue *tth = qtCtx()->dcCtx().getHashManager()->getFileTTHif(_tq(fi.absoluteFilePath()));
         if (tth) {
-            QString urlStr = WulforUtil::getInstance()->makeMagnet(name, fi.size(), _q(tth->toBase32()));
-            output.replace(pos, rx.cap(1).length(), urlStr);
+            QString urlStr = qtCtx()->wulforUtil()->makeMagnet(name, fi.size(), _q(tth->toBase32()));
+            output.replace(pos, m.captured(1).length(), urlStr);
         } else {
-            output.replace(pos, rx.cap(1).length(), tr("not shared"));
+            output.replace(pos, m.captured(1).length(), tr("not shared"));
         }
+        m = rx.match(output, pos);
     }
 }
 
@@ -809,7 +768,6 @@ HubFrame::HubFrame(QWidget *parent, QString hub="", QString encoding="")
 
     d->total_shared = 0;
     d->arenaMenu = nullptr;
-    d->codec = nullptr;
     d->chatDisabled = false;
     d->hasMessages = false;
     d->hasHighlightMessages = false;
@@ -817,15 +775,15 @@ HubFrame::HubFrame(QWidget *parent, QString hub="", QString encoding="")
 
     setupUi(this);
 
-    Menu::newInstance();
+    menu_ = std::make_unique<Menu>();
 
-    d->client = ClientManager::getInstance()->getClient(hub.toStdString());
+    d->client = qtCtx()->dcCtx().getClientManager()->getClient(hub.toStdString());
     d->client->addListener(this);
 
-    QString enc = WulforUtil::getInstance()->qtEnc2DcEnc(encoding);
+    QString enc = qtCtx()->wulforUtil()->qtEnc2DcEnc(encoding);
 
     if (enc.isEmpty())
-        enc = WulforUtil::getInstance()->qtEnc2DcEnc(WSGET(WS_DEFAULT_LOCALE));
+        enc = qtCtx()->wulforUtil()->qtEnc2DcEnc(qtCtx()->settings()->getStr(WS_DEFAULT_LOCALE));
 
     if (enc.indexOf(" ") > 0){
         enc = enc.left(enc.indexOf(" "));
@@ -834,11 +792,9 @@ HubFrame::HubFrame(QWidget *parent, QString hub="", QString encoding="")
 
     d->client->setEncoding(enc.toStdString());
 
-    d->codec = WulforUtil::getInstance()->codecForEncoding(encoding);
-
     init();
 
-    FavoriteHubEntry* entry = FavoriteManager::getInstance()->getFavoriteHubEntry(_tq(hub));
+    FavoriteHubEntry* entry = qtCtx()->dcCtx().getFavoriteManager()->getFavoriteHubEntry(_tq(hub));
 
     if (entry && entry->getDisableChat())
         disableChat();
@@ -850,14 +806,26 @@ HubFrame::HubFrame(QWidget *parent, QString hub="", QString encoding="")
     d->out_messages_index = 0;
     d->out_messages_unsent = false;
 
-    FavoriteManager::getInstance()->addListener(this);
+    qtCtx()->dcCtx().getFavoriteManager()->addListener(this);
 }
 
 
 HubFrame::~HubFrame(){
     Q_D(HubFrame);
 
-    Menu::deleteInstance();
+    // Safety: if the destructor runs without closeEvent() (e.g. the
+    // parent widget is destroyed directly), make sure the dcpp Client
+    // is disconnected and released.  Without this the Client object
+    // outlives the HubFrame and its dangling listener pointers cause
+    // use-after-free crashes during dcpp::shutdown().
+    if (d->client) {
+        d->client->removeListener(this);
+        d->client->disconnect(true);
+        auto *cm = qtCtx()->dcCtx().getClientManager();
+        if (cm)
+            cm->putClient(d->client);
+        d->client = nullptr;
+    }
 
     treeView_USERS->setModel(nullptr);
 
@@ -899,7 +867,7 @@ bool HubFrame::eventFilter(QObject *obj, QEvent *e){
 
         if (static_cast<QTextEdit*>(obj) == plainTextEdit_INPUT)
         {
-            const bool useCtrlEnter = WBGET(WB_USE_CTRL_ENTER);
+            const bool useCtrlEnter = qtCtx()->settings()->getBool(WB_USE_CTRL_ENTER);
             const bool keyEnter = (k_e->key() == Qt::Key_Enter || k_e->key() == Qt::Key_Return);
             const bool shiftModifier = (k_e->modifiers() == Qt::ShiftModifier);
 
@@ -945,13 +913,13 @@ bool HubFrame::eventFilter(QObject *obj, QEvent *e){
         if (isChat && (m_e->button() == Qt::LeftButton)){
             QString pressedParagraph = textEdit_CHAT->anchorAt(textEdit_CHAT->mapFromGlobal(QCursor::pos()));
 
-            if (!WulforUtil::getInstance()->openUrl(pressedParagraph)){
+            if (!qtCtx()->wulforUtil()->openUrl(pressedParagraph)){
                 /**
                   Do nothing
                 */
             }
         }
-        else if ((isChat || isUserList) && m_e->button() == Qt::MidButton)
+        else if ((isChat || isUserList) && m_e->button() == Qt::MiddleButton)
         {
             QString nick;
             QString cid;
@@ -987,15 +955,15 @@ bool HubFrame::eventFilter(QObject *obj, QEvent *e){
             }
 
             if (!cid.isEmpty()){
-                if (WIGET(WI_CHAT_MDLCLICK_ACT) == 0){
+                if (qtCtx()->settings()->getInt(WI_CHAT_MDLCLICK_ACT) == 0){
                     if(!plainTextEdit_INPUT->textCursor().position())
-                        plainTextEdit_INPUT->textCursor().insertText(nick + WSGET(WS_CHAT_SEPARATOR) + " ");
+                        plainTextEdit_INPUT->textCursor().insertText(nick + qtCtx()->settings()->getStr(WS_CHAT_SEPARATOR) + " ");
                     else
                         plainTextEdit_INPUT->textCursor().insertText(nick + " ");
 
                     plainTextEdit_INPUT->setFocus();
                 }
-                else if (WIGET(WI_CHAT_MDLCLICK_ACT) == 2 && (cursoratnick || isUserList))
+                else if (qtCtx()->settings()->getInt(WI_CHAT_MDLCLICK_ACT) == 2 && (cursoratnick || isUserList))
                     addPM(cid, "", false);
                 else if (cursoratnick || isUserList)
                     browseUserFiles(cid, false);
@@ -1059,15 +1027,15 @@ bool HubFrame::eventFilter(QObject *obj, QEvent *e){
             }
 
             if (!cid.isEmpty()){
-                if (WIGET(WI_CHAT_DBLCLICK_ACT) == 1 && (cursoratnick || isUserList)){
+                if (qtCtx()->settings()->getInt(WI_CHAT_DBLCLICK_ACT) == 1 && (cursoratnick || isUserList)){
                     browseUserFiles(cid, false);
                 }
-                else if (WIGET(WI_CHAT_DBLCLICK_ACT) == 2 && (cursoratnick || isUserList)){
+                else if (qtCtx()->settings()->getInt(WI_CHAT_DBLCLICK_ACT) == 2 && (cursoratnick || isUserList)){
                     addPM(cid, "", false);
                 }
                 else if (textEdit_CHAT->anchorAt(textEdit_CHAT->mapFromGlobal(QCursor::pos())).startsWith("user://") || isUserList){//may be dbl click on user nick
                     if(!plainTextEdit_INPUT->textCursor().position())
-                        plainTextEdit_INPUT->textCursor().insertText(nick + WSGET(WS_CHAT_SEPARATOR) + " ");
+                        plainTextEdit_INPUT->textCursor().insertText(nick + qtCtx()->settings()->getStr(WS_CHAT_SEPARATOR) + " ");
                     else
                         plainTextEdit_INPUT->textCursor().insertText(nick + " ");
 
@@ -1093,22 +1061,23 @@ void HubFrame::closeEvent(QCloseEvent *e){
 
     QObject::disconnect(this, nullptr, this, nullptr);
 
-    FavoriteManager::getInstance()->removeListener(this);
+    qtCtx()->dcCtx().getFavoriteManager()->removeListener(this);
 
-    HubManager::getInstance()->unregisterHubUrl(_q(d->client->getHubUrl()));
+    qtCtx()->hubManager()->unregisterHubUrl(_q(d->client->getHubUrl()));
 
     d->client->removeListener(this);
     d->client->disconnect(true);
-    ClientManager::getInstance()->putClient(d->client);
+    qtCtx()->dcCtx().getClientManager()->putClient(d->client);
+    d->client = nullptr;  // prevent double-cleanup in ~HubFrame()
 
     save();
 
     for (const auto &it : d->pm){
         PMWindow *w = const_cast<PMWindow*>(it);
 
-        disconnect(w, SIGNAL(privateMessageClosed(QString)), this, SLOT(slotPMClosed(QString)));
+        disconnect(w, &PMWindow::privateMessageClosed, this, &HubFrame::slotPMClosed);
 
-        ArenaWidgetManager::getInstance()->rem(w);
+        qtCtx()->arenaWidgetManager()->rem(w);
     }
 
     d->pm.clear();
@@ -1126,7 +1095,7 @@ void HubFrame::closeEvent(QCloseEvent *e){
     }
 
     if (isVisible())
-        HubManager::getInstance()->setActiveHub(nullptr);
+        qtCtx()->hubManager()->setActiveHub(nullptr);
 
     setAttribute(Qt::WA_DeleteOnClose);
 
@@ -1146,12 +1115,12 @@ void HubFrame::showEvent(QShowEvent *e){
 
     d->drawLine = false;
 
-    HubManager::getInstance()->setActiveHub(this);
+    qtCtx()->hubManager()->setActiveHub(this);
 
     d->hasMessages = false;
     d->hasHighlightMessages = false;
 
-    MainWindow::getInstance()->redrawToolPanel();
+    qtCtx()->mainWindow()->redrawToolPanel();
 }
 
 void HubFrame::hideEvent(QHideEvent *e){
@@ -1162,7 +1131,7 @@ void HubFrame::hideEvent(QHideEvent *e){
     d->drawLine = true;
 
     if (!isVisible())
-        HubManager::getInstance()->setActiveHub(nullptr);
+        qtCtx()->hubManager()->setActiveHub(nullptr);
 }
 
 void HubFrame::init(){
@@ -1184,26 +1153,26 @@ void HubFrame::init(){
     lineEdit_FILTER->installEventFilter(this);
     lineEdit_FIND->installEventFilter(this);
 
-    textEdit_CHAT->document()->setMaximumBlockCount(WIGET(WI_CHAT_MAXPARAGRAPHS));
+    textEdit_CHAT->document()->setMaximumBlockCount(qtCtx()->settings()->getInt(WI_CHAT_MAXPARAGRAPHS));
     textEdit_CHAT->setContextMenuPolicy(Qt::CustomContextMenu);
     textEdit_CHAT->setReadOnly(true);
     textEdit_CHAT->setAutoFormatting(QTextEdit::AutoNone);
     textEdit_CHAT->viewport()->installEventFilter(this); // QTextEdit don't receive all mouse events
     textEdit_CHAT->setMouseTracking(true);
 
-    if (WBGET(WB_APP_ENABLE_EMOTICON) && EmoticonFactory::getInstance())
-        EmoticonFactory::getInstance()->addEmoticons(textEdit_CHAT->document());
+    if (qtCtx()->settings()->getBool(WB_APP_ENABLE_EMOTICON) && qtCtx()->emoticonFactory())
+        qtCtx()->emoticonFactory()->addEmoticons(textEdit_CHAT->document());
 
     searchFrame->setVisible(false);
 
     for (int i = 0; i < d->model->columnCount(); i++)
         comboBox_COLUMNS->addItem(d->model->headerData(i, Qt::Horizontal, Qt::DisplayRole).toString());
 
-    toolButton_SMILE->setVisible(WBGET(WB_APP_ENABLE_EMOTICON) && EmoticonFactory::getInstance());
+    toolButton_SMILE->setVisible(qtCtx()->settings()->getBool(WB_APP_ENABLE_EMOTICON) && qtCtx()->emoticonFactory());
     toolButton_SMILE->setContextMenuPolicy(Qt::CustomContextMenu);
-    toolButton_SMILE->setIcon(WICON(WulforUtil::eiEMOTICON));
+    toolButton_SMILE->setIcon(qtCtx()->wulforUtil()->getPixmap(WulforUtil::eiEMOTICON));
 
-    toolButton_HIDE->setIcon(WICON(WulforUtil::eiEDITDELETE));
+    toolButton_HIDE->setIcon(qtCtx()->wulforUtil()->getPixmap(WulforUtil::eiEDITDELETE));
 
     frame_SMILES->setLayout(new FlowLayout(frame_SMILES));
     frame_SMILES->setVisible(false);
@@ -1211,46 +1180,46 @@ void HubFrame::init(){
     QSize sz;
     Q_UNUSED(sz);
 
-    if (EmoticonFactory::getInstance())
-        EmoticonFactory::getInstance()->fillLayout(frame_SMILES->layout(), sz);
+    if (qtCtx()->emoticonFactory())
+        qtCtx()->emoticonFactory()->fillLayout(frame_SMILES->layout(), sz);
 
     for (const auto &l : frame_SMILES->findChildren<EmoticonLabel*>())
-        connect(l, SIGNAL(clicked()), this, SLOT(slotSmileClicked()));
+        connect(l, &EmoticonLabel::clicked, this, &HubFrame::slotSmileClicked);
 
-    connect(this, SIGNAL(coreConnecting(QString)), this, SLOT(addStatus(QString)), Qt::QueuedConnection);
-    connect(this, SIGNAL(coreConnected(QString)), this, SLOT(addStatus(QString)), Qt::QueuedConnection);
-    connect(this, SIGNAL(coreUserUpdated(dcpp::UserPtr,dcpp::Identity)), this, SLOT(userUpdated(dcpp::UserPtr,dcpp::Identity)), Qt::QueuedConnection);
-    connect(this, SIGNAL(coreUserRemoved(dcpp::UserPtr,dcpp::Identity)), this, SLOT(userRemoved(dcpp::UserPtr,dcpp::Identity)), Qt::QueuedConnection);
-    connect(this, SIGNAL(coreStatusMsg(QString)), this, SLOT(addStatus(QString)), Qt::QueuedConnection);
-    connect(this, SIGNAL(coreFollow(QString)), this, SLOT(follow(QString)), Qt::QueuedConnection);
-    connect(this, SIGNAL(coreFailed()), this, SLOT(clearUsers()), Qt::QueuedConnection);
-    connect(this, SIGNAL(corePassword()), this, SLOT(getPassword()), Qt::QueuedConnection);
-    connect(this, SIGNAL(coreMessage(VarMap)), this, SLOT(newMsg(VarMap)), Qt::QueuedConnection);
-    connect(this, SIGNAL(corePrivateMsg(VarMap)), this, SLOT(newPm(VarMap)), Qt::QueuedConnection);
-    connect(this, SIGNAL(coreHubUpdated()), MainWindow::getInstance(), SLOT(redrawToolPanel()), Qt::QueuedConnection);
-    connect(this, SIGNAL(coreFavoriteUserAdded(QString)), this, SLOT(changeFavStatus(QString)), Qt::QueuedConnection);
-    connect(this, SIGNAL(coreFavoriteUserRemoved(QString)), this, SLOT(changeFavStatus(QString)), Qt::QueuedConnection);
+    connect(this, &HubFrame::coreConnecting, this, &HubFrame::addStatus, Qt::QueuedConnection);
+    connect(this, &HubFrame::coreConnected, this, &HubFrame::addStatus, Qt::QueuedConnection);
+    connect(this, &HubFrame::coreUserUpdated, this, &HubFrame::userUpdated, Qt::QueuedConnection);
+    connect(this, &HubFrame::coreUserRemoved, this, &HubFrame::userRemoved, Qt::QueuedConnection);
+    connect(this, &HubFrame::coreStatusMsg, this, &HubFrame::addStatus, Qt::QueuedConnection);
+    connect(this, &HubFrame::coreFollow, this, &HubFrame::follow, Qt::QueuedConnection);
+    connect(this, &HubFrame::coreFailed, this, &HubFrame::clearUsers, Qt::QueuedConnection);
+    connect(this, &HubFrame::corePassword, this, &HubFrame::getPassword, Qt::QueuedConnection);
+    connect(this, &HubFrame::coreMessage, this, &HubFrame::newMsg, Qt::QueuedConnection);
+    connect(this, &HubFrame::corePrivateMsg, this, &HubFrame::newPm, Qt::QueuedConnection);
+    connect(this, &HubFrame::coreHubUpdated, qtCtx()->mainWindow(), &MainWindow::redrawToolPanel, Qt::QueuedConnection);
+    connect(this, &HubFrame::coreFavoriteUserAdded, this, &HubFrame::changeFavStatus, Qt::QueuedConnection);
+    connect(this, &HubFrame::coreFavoriteUserRemoved, this, &HubFrame::changeFavStatus, Qt::QueuedConnection);
 
-    connect(label_LAST_STATUS, SIGNAL(linkActivated(QString)), this, SLOT(slotStatusLinkOpen(QString)));
-    connect(treeView_USERS, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotUserListMenu(QPoint)));
-    connect(treeView_USERS->header(), SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotHeaderMenu(QPoint)));
-    connect(GlobalTimer::getInstance(), SIGNAL(second()), this, SLOT(slotUsersUpdated()));
-    connect(textEdit_CHAT, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotChatMenu(QPoint)));
-    connect(toolButton_BACK, SIGNAL(clicked()), this, SLOT(slotFindBackward()));
-    connect(toolButton_FORWARD, SIGNAL(clicked()), this, SLOT(slotFindForward()));
-    connect(toolButton_HIDE, SIGNAL(clicked()), this, SLOT(slotHideSearchBar()));
-    connect(lineEdit_FIND, SIGNAL(textEdited(QString)), this, SLOT(slotFindTextEdited(QString)));
-    connect(lineEdit_FILTER, SIGNAL(textChanged(QString)), this, SLOT(slotFilterTextChanged()));
-    connect(comboBox_COLUMNS, SIGNAL(activated(int)), this, SLOT(slotFilterTextChanged()));
-    connect(toolButton_SMILE, SIGNAL(clicked()), this, SLOT(slotSmile()));
-    connect(toolButton_SMILE, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotSmileContextMenu()));
-    connect(toolButton_ALL, SIGNAL(clicked()), this, SLOT(slotFindAll()));
-    connect(WulforSettings::getInstance(), SIGNAL(strValueChanged(QString, QString)), this, SLOT(slotSettingsChanged(QString,QString)));
-    connect(WulforSettings::getInstance(), SIGNAL(intValueChanged(QString,int)), this, SLOT(slotBoolSettingsChanged(QString,int)));
+    connect(label_LAST_STATUS, &QLabel::linkActivated, this, &HubFrame::slotStatusLinkOpen);
+    connect(treeView_USERS, &QTreeView::customContextMenuRequested, this, &HubFrame::slotUserListMenu);
+    connect(treeView_USERS->header(), &QHeaderView::customContextMenuRequested, this, &HubFrame::slotHeaderMenu);
+    connect(qtCtx()->globalTimer(), &GlobalTimer::second, this, &HubFrame::slotUsersUpdated);
+    connect(textEdit_CHAT, &QTextEdit::customContextMenuRequested, this, &HubFrame::slotChatMenu);
+    connect(toolButton_BACK, &QToolButton::clicked, this, &HubFrame::slotFindBackward);
+    connect(toolButton_FORWARD, &QToolButton::clicked, this, &HubFrame::slotFindForward);
+    connect(toolButton_HIDE, &QToolButton::clicked, this, &HubFrame::slotHideSearchBar);
+    connect(lineEdit_FIND, &QLineEdit::textEdited, this, &HubFrame::slotFindTextEdited);
+    connect(lineEdit_FILTER, &QLineEdit::textChanged, this, &HubFrame::slotFilterTextChanged);
+    connect(comboBox_COLUMNS, qOverload<int>(&QComboBox::activated), this, &HubFrame::slotFilterTextChanged);
+    connect(toolButton_SMILE, &QToolButton::clicked, this, &HubFrame::slotSmile);
+    connect(toolButton_SMILE, &QToolButton::customContextMenuRequested, this, &HubFrame::slotSmileContextMenu);
+    connect(toolButton_ALL, &QToolButton::clicked, this, &HubFrame::slotFindAll);
+    connect(qtCtx()->settings(), &WulforSettings::strValueChanged, this, &HubFrame::slotSettingsChanged);
+    connect(qtCtx()->settings(), &WulforSettings::intValueChanged, this, &HubFrame::slotBoolSettingsChanged);
 
 #ifdef USE_ASPELL
-    connect(plainTextEdit_INPUT, SIGNAL(textChanged()), this, SLOT(slotInputTextChanged()));
-    connect(plainTextEdit_INPUT, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotInputContextMenu()));
+    connect(plainTextEdit_INPUT, &ChatEdit::textChanged, this, &HubFrame::slotInputTextChanged);
+    connect(plainTextEdit_INPUT, &ChatEdit::customContextMenuRequested, this, &HubFrame::slotInputContextMenu);
 
     plainTextEdit_INPUT->setContextMenuPolicy(Qt::CustomContextMenu);
 #endif
@@ -1261,7 +1230,7 @@ void HubFrame::init(){
     plainTextEdit_INPUT->setAcceptRichText(false);
 
     textEdit_CHAT->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    textEdit_CHAT->setTabStopWidth(40);
+    textEdit_CHAT->setTabStopDistance(40);
     updateStyles();
 
     load();
@@ -1270,12 +1239,12 @@ void HubFrame::init(){
     d->completer->setMaxVisibleItems(10); // This property was introduced in Qt 4.6.
     plainTextEdit_INPUT->setCompleter(d->completer, d->model);
 
-    slotSettingsChanged(WS_APP_EMOTICON_THEME, WSGET(WS_APP_EMOTICON_THEME));//toggle emoticon button
+    slotSettingsChanged(WS_APP_EMOTICON_THEME, qtCtx()->settings()->getStr(WS_APP_EMOTICON_THEME));//toggle emoticon button
 }
 
 void HubFrame::initMenu(){
     Q_D(HubFrame);
-    WulforUtil *WU = WulforUtil::getInstance();
+    WulforUtil *WU = qtCtx()->wulforUtil();
 
     delete d->arenaMenu;
 
@@ -1301,7 +1270,7 @@ void HubFrame::initMenu(){
     d->arenaMenu->addMenu(copyInfo);
 
     if (d->client && d->client->isConnected()){
-        QMenu *u_c = WulforUtil::getInstance()->buildUserCmdMenu(d->client->getHubUrl(), UserCommand::CONTEXT_HUB, d->arenaMenu);
+        QMenu *u_c = qtCtx()->wulforUtil()->buildUserCmdMenu(d->client->getHubUrl(), UserCommand::CONTEXT_HUB, d->arenaMenu);
 
         if (u_c){
             if (!u_c->actions().isEmpty()){
@@ -1309,38 +1278,38 @@ void HubFrame::initMenu(){
 
                 d->arenaMenu->addMenu(u_c);
 
-                connect(u_c, SIGNAL(triggered(QAction*)), this, SLOT(slotHubMenu(QAction*)));
+                connect(u_c, &QMenu::triggered, this, &HubFrame::slotHubMenu);
             }
         }
     }
 
     d->arenaMenu->addActions(QList<QAction*>() << sep << close_wnd);
 
-    connect(reconnect,  SIGNAL(triggered()), this, SLOT(slotReconnect()));
-    connect(show_wnd,   SIGNAL(triggered()), this, SLOT(slotShowWnd()));
-    connect(addToFav,   SIGNAL(triggered()), this, SLOT(addAsFavorite()));
-    connect(copyIP,     SIGNAL(triggered()), this, SLOT(slotCopyHubIP()));
-    connect(copyTitle,  SIGNAL(triggered()), this, SLOT(slotCopyHubTitle()));
-    connect(copyURL,    SIGNAL(triggered()), this, SLOT(slotCopyHubURL()));
-    connect(close_wnd,  SIGNAL(triggered()), this, SLOT(slotClose()));
+    connect(reconnect,  &QAction::triggered, this, &HubFrame::slotReconnect);
+    connect(show_wnd,   &QAction::triggered, this, &HubFrame::slotShowWnd);
+    connect(addToFav,   &QAction::triggered, this, &HubFrame::addAsFavorite);
+    connect(copyIP,     &QAction::triggered, this, &HubFrame::slotCopyHubIP);
+    connect(copyTitle,  &QAction::triggered, this, &HubFrame::slotCopyHubTitle);
+    connect(copyURL,    &QAction::triggered, this, &HubFrame::slotCopyHubURL);
+    connect(close_wnd,  &QAction::triggered, this, &HubFrame::slotClose);
 }
 
 
 void HubFrame::save(){
     Q_D(HubFrame);
 
-    WSSET(WS_CHAT_USERLIST_STATE, treeView_USERS->header()->saveState().toBase64());
-    WISET(WI_CHAT_WIDTH, textEdit_CHAT->width());
-    WISET(WI_CHAT_USERLIST_WIDTH, treeView_USERS->width());
-    WISET(WI_CHAT_SORT_COLUMN, d->model->getSortColumn());
-    WISET(WI_CHAT_SORT_ORDER, WulforUtil::getInstance()->sortOrderToInt(d->model->getSortOrder()));
-    WSSET("hubframe/chat-background-color", textEdit_CHAT->palette().color(QPalette::Active, QPalette::Base).name());
+    qtCtx()->settings()->setStr(WS_CHAT_USERLIST_STATE, treeView_USERS->header()->saveState().toBase64());
+    qtCtx()->settings()->setInt(WI_CHAT_WIDTH, textEdit_CHAT->width());
+    qtCtx()->settings()->setInt(WI_CHAT_USERLIST_WIDTH, treeView_USERS->width());
+    qtCtx()->settings()->setInt(WI_CHAT_SORT_COLUMN, d->model->getSortColumn());
+    qtCtx()->settings()->setInt(WI_CHAT_SORT_ORDER, qtCtx()->wulforUtil()->sortOrderToInt(d->model->getSortOrder()));
+    qtCtx()->settings()->setStr("hubframe/chat-background-color", textEdit_CHAT->palette().color(QPalette::Active, QPalette::Base).name());
 }
 
 void HubFrame::load(){
-    const int w_chat = WIGET(WI_CHAT_WIDTH), w_ulist = WIGET(WI_CHAT_USERLIST_WIDTH);
+    const int w_chat = qtCtx()->settings()->getInt(WI_CHAT_WIDTH), w_ulist = qtCtx()->settings()->getInt(WI_CHAT_USERLIST_WIDTH);
 
-    QString ustate = WSGET(WS_CHAT_USERLIST_STATE);
+    QString ustate = qtCtx()->settings()->getStr(WS_CHAT_USERLIST_STATE);
 
     if (!ustate.isEmpty())
         treeView_USERS->header()->restoreState(QByteArray::fromBase64(ustate.toUtf8()));
@@ -1353,21 +1322,21 @@ void HubFrame::load(){
         splitter_2->setSizes(frames);
     }
 
-    treeView_USERS->sortByColumn(WIGET(WI_CHAT_SORT_COLUMN), WulforUtil::getInstance()->intToSortOrder(WIGET(WI_CHAT_SORT_ORDER)));
+    treeView_USERS->sortByColumn(qtCtx()->settings()->getInt(WI_CHAT_SORT_COLUMN), qtCtx()->wulforUtil()->intToSortOrder(qtCtx()->settings()->getInt(WI_CHAT_SORT_ORDER)));
 
     reloadSomeSettings();
 }
 
 void HubFrame::reloadSomeSettings(){
-    label_USERSTATE->setVisible(WBGET(WB_USERS_STATISTICS));
+    label_USERSTATE->setVisible(qtCtx()->settings()->getBool(WB_USERS_STATISTICS));
 
-    label_LAST_STATUS->setVisible(WBGET(WB_LAST_STATUS));
+    label_LAST_STATUS->setVisible(qtCtx()->settings()->getBool(WB_LAST_STATUS));
 
-    if (!WSGET("hubframe/chat-background-color", "").isEmpty()){
+    if (!qtCtx()->settings()->getStr("hubframe/chat-background-color", "").isEmpty()){
         QPalette p = textEdit_CHAT->palette();
         QColor clr = p.color(QPalette::Active, QPalette::Base);
 
-        clr.setNamedColor(WSGET("hubframe/chat-background-color"));
+        clr.setNamedColor(qtCtx()->settings()->getStr("hubframe/chat-background-color"));
 
         if (clr.isValid()){
             p.setColor(QPalette::Base, clr);
@@ -1432,11 +1401,11 @@ const QPixmap &HubFrame::getPixmap(){
     Q_D(HubFrame);
 
     if (d->hasHighlightMessages)
-        return WICON(WulforUtil::eiMESSAGE);
+        return qtCtx()->wulforUtil()->getPixmap(WulforUtil::eiMESSAGE);
     else if (d->hasMessages)
-        return WICON(WulforUtil::eiHUBMSG);
+        return qtCtx()->wulforUtil()->getPixmap(WulforUtil::eiHUBMSG);
     else
-        return WICON(WulforUtil::eiSERVER);
+        return qtCtx()->wulforUtil()->getPixmap(WulforUtil::eiSERVER);
 }
 
 void HubFrame::clearChat(){
@@ -1445,8 +1414,8 @@ void HubFrame::clearChat(){
 
     updateStyles();
 
-    if (WBGET(WB_APP_ENABLE_EMOTICON) && EmoticonFactory::getInstance())
-        EmoticonFactory::getInstance()->addEmoticons(textEdit_CHAT->document());
+    if (qtCtx()->settings()->getBool(WB_APP_ENABLE_EMOTICON) && qtCtx()->emoticonFactory())
+        qtCtx()->emoticonFactory()->addEmoticons(textEdit_CHAT->document());
 }
 
 void HubFrame::disableChat(){
@@ -1541,7 +1510,7 @@ void HubFrame::sendChat(QString msg, bool thirdPerson, bool stripNewLines){
 
         d->out_messages << msg;
 
-        if (d->out_messages.size() > WIGET(WI_OUT_IN_HIST))
+        if (d->out_messages.size() > qtCtx()->settings()->getInt(WI_OUT_IN_HIST))
             d->out_messages.removeFirst();
 
         d->out_messages_index = d->out_messages.size()-1;
@@ -1553,7 +1522,7 @@ bool HubFrame::parseForCmd(QString line, QWidget *wg){
     PMWindow *pm = qobject_cast<PMWindow *>(wg);
     Q_D(HubFrame);
 
-    QStringList list = line.split(" ", QString::SkipEmptyParts);
+    QStringList list = line.split(" ", Qt::SkipEmptyParts);
 
     if (list.isEmpty())
         return false;
@@ -1572,7 +1541,7 @@ bool HubFrame::parseForCmd(QString line, QWidget *wg){
 
     if (cmd == "/away"){
         if (Util::getAway() && emptyParam){
-            Util::setAway(false);
+            Util::setAway(qtCtx()->dcCtx(), false);
             Util::setManualAway(false);
 
             if (fr == this)
@@ -1581,7 +1550,7 @@ bool HubFrame::parseForCmd(QString line, QWidget *wg){
                 pm->addStatus(tr("Away mode off"));
         }
         else {
-            Util::setAway(true);
+            Util::setAway(qtCtx()->dcCtx(), true);
             Util::setManualAway(true);
 
             if (!emptyParam){
@@ -1596,10 +1565,10 @@ bool HubFrame::parseForCmd(QString line, QWidget *wg){
         }
     }
     else if (cmd == "/alias" && !emptyParam){
-        QStringList lex = line.split(" ", QString::SkipEmptyParts);
+        QStringList lex = line.split(" ", Qt::SkipEmptyParts);
 
         if (lex.size() >= 2){
-            QString aliases = QByteArray::fromBase64(WSGET(WS_CHAT_CMD_ALIASES).toUtf8());
+            QString aliases = QByteArray::fromBase64(qtCtx()->settings()->getStr(WS_CHAT_CMD_ALIASES).toUtf8());
 
             if (lex.at(1) == "list"){
                 if (!aliases.isEmpty()){
@@ -1617,10 +1586,10 @@ bool HubFrame::parseForCmd(QString line, QWidget *wg){
             }
             else if (lex.at(1) == "purge" && lex.size() == 3){
                 QString alias = lex.at(2);
-                QStringList alias_list = aliases.split('\n', QString::SkipEmptyParts);
+                QStringList alias_list = aliases.split('\n', Qt::SkipEmptyParts);
 
                 for (const auto &line : alias_list){
-                    QStringList cmds = line.split('\t', QString::SkipEmptyParts);
+                    QStringList cmds = line.split('\t', Qt::SkipEmptyParts);
 
                     if (cmds.size() == 2 && alias == cmds.at(0)){
                         alias_list.removeAt(alias_list.indexOf(line));
@@ -1629,7 +1598,7 @@ bool HubFrame::parseForCmd(QString line, QWidget *wg){
                         for (const auto &line : alias_list)
                             new_aliases += line + "\n";
 
-                        WSSET(WS_CHAT_CMD_ALIASES, new_aliases.toUtf8().toBase64());
+                        qtCtx()->settings()->setStr(WS_CHAT_CMD_ALIASES, new_aliases.toUtf8().toBase64());
 
                         if (fr == this)
                             addStatus(tr("Alias removed."));
@@ -1650,7 +1619,7 @@ bool HubFrame::parseForCmd(QString line, QWidget *wg){
                         pm->addStatus(tr("Invalid alias syntax."));
                 }
                 else {
-                    QStringList new_cmd = raw.split("::", QString::SkipEmptyParts);
+                    QStringList new_cmd = raw.split("::", Qt::SkipEmptyParts);
 
                     if (new_cmd.size() < 2 || new_cmd.at(1).isEmpty()){
                         if (fr == this)
@@ -1661,7 +1630,7 @@ bool HubFrame::parseForCmd(QString line, QWidget *wg){
                     else if (!aliases.contains(new_cmd.at(0)+'\t')){
                         aliases += new_cmd.at(0) + '\t' +  new_cmd.at(1) + '\n';
 
-                        WSSET(WS_CHAT_CMD_ALIASES, aliases.toUtf8().toBase64());
+                        qtCtx()->settings()->setStr(WS_CHAT_CMD_ALIASES, aliases.toUtf8().toBase64());
 
                         if (fr == this)
                             addStatus(tr("Alias %1 => %2 has been added").arg(new_cmd.at(0)).arg(new_cmd.at(1)));
@@ -1704,7 +1673,7 @@ bool HubFrame::parseForCmd(QString line, QWidget *wg){
             return false;
         }
 
-        QStringList kwords = WVGET("hubframe/chat-keywords", QStringList()).toStringList();
+        QStringList kwords = qtCtx()->settings()->getVar("hubframe/chat-keywords", QStringList()).toStringList();
 
         switch (kw_action){
         case List:
@@ -1743,12 +1712,12 @@ bool HubFrame::parseForCmd(QString line, QWidget *wg){
             break;
         }
 
-        WVSET("hubframe/chat-keywords", kwords);
+        qtCtx()->settings()->setVar("hubframe/chat-keywords", kwords);
     }
     else if (cmd == "/ratio"){
         double ratio;
-        double up   = static_cast<double>(SETTING(TOTAL_UPLOAD));
-        double down = static_cast<double>(SETTING(TOTAL_DOWNLOAD));
+        double up   = static_cast<double>(qtCtx()->dcCtx().getSettingsManager()->get(SettingsManager::TOTAL_UPLOAD, true));
+        double down = static_cast<double>(qtCtx()->dcCtx().getSettingsManager()->get(SettingsManager::TOTAL_DOWNLOAD, true));
 
 
         if (down > 0)
@@ -1774,29 +1743,29 @@ bool HubFrame::parseForCmd(QString line, QWidget *wg){
         }
     }
     else if (cmd == "/rebuild") {
-        HashManager::getInstance()->rebuild();
+        qtCtx()->dcCtx().getHashManager()->rebuild();
     }
     else if (cmd == "/refresh") {
-        ShareManager::getInstance()->setDirty();
-        ShareManager::getInstance()->refresh(true);
+        qtCtx()->dcCtx().getShareManager()->setDirty();
+        qtCtx()->dcCtx().getShareManager()->refresh(true);
     }
 #ifdef USE_ASPELL
     else if (cmd == "/aspell" && !emptyParam){
-        WBSET(WB_APP_ENABLE_ASPELL, param.trimmed() == "on");
+        qtCtx()->settings()->setBool(WB_APP_ENABLE_ASPELL, param.trimmed() == "on");
 
-        if (WBGET(WB_APP_ENABLE_ASPELL) && !SpellCheck::getInstance())
-            SpellCheck::newInstance();
-        else if (SpellCheck::getInstance())
-            SpellCheck::deleteInstance();
+        if (qtCtx()->settings()->getBool(WB_APP_ENABLE_ASPELL) && !qtCtx()->spellCheck())
+            qtCtx()->createSpellCheck();
+        else if (qtCtx()->spellCheck())
+            qtCtx()->destroySpellCheck();
 
         if (fr == this)
-            addStatus(tr("Aspell switched %1").arg((WBGET(WB_APP_ENABLE_ASPELL)? tr("on") : tr("off"))) );
+            addStatus(tr("Aspell switched %1").arg((qtCtx()->settings()->getBool(WB_APP_ENABLE_ASPELL)? tr("on") : tr("off"))) );
         else if (pm)
-            pm->addStatus(tr("Aspell switched %1").arg((WBGET(WB_APP_ENABLE_ASPELL)? tr("on") : tr("off"))) );
+            pm->addStatus(tr("Aspell switched %1").arg((qtCtx()->settings()->getBool(WB_APP_ENABLE_ASPELL)? tr("on") : tr("off"))) );
     }
 #endif
     else if (cmd == "/back"){
-        Util::setAway(false);
+        Util::setAway(qtCtx()->dcCtx(), false);
 
         if (fr == this)
             addStatus(tr("Away mode off"));
@@ -1825,7 +1794,7 @@ bool HubFrame::parseForCmd(QString line, QWidget *wg){
         grantSlot(d->model->CIDforNick(param, _q(d->client->getHubUrl())));
     }
     else if (cmd == "/magnet" && !emptyParam){
-        WISET(WI_DEF_MAGNET_ACTION, param.toInt());
+        qtCtx()->settings()->setInt(WI_DEF_MAGNET_ACTION, param.toInt());
     }
     else if (cmd == "/info" && !emptyParam){
         UserListItem *item = d->model->itemForNick(param, _q(d->client->getHubUrl()));
@@ -1897,10 +1866,10 @@ bool HubFrame::parseForCmd(QString line, QWidget *wg){
     }
 #ifdef LUA_SCRIPT
         else if (cmd == "/lua" && !emptyParam) {
-            ScriptManager::getInstance()->EvaluateChunk(Text::fromT(_tq(param)));
+            qtCtx()->dcCtx().getScriptManager()->EvaluateChunk(_tq(param));
         }
         else if( cmd == "/luafile" && !emptyParam) {
-            ScriptManager::getInstance()->EvaluateFile(Text::fromT(_tq(param)));
+            qtCtx()->dcCtx().getScriptManager()->EvaluateFile(_tq(param));
         }
 #endif
     else if (cmd == "/sh" && !emptyParam){
@@ -1910,7 +1879,7 @@ bool HubFrame::parseForCmd(QString line, QWidget *wg){
         line = line.remove(0, 4);
 
         ShellCommandRunner *sh = new ShellCommandRunner(line, wg);
-        connect(sh, SIGNAL(finished(bool,QString)), this, SLOT(slotShellFinished(bool,QString)));
+        connect(sh, qOverload<bool, const QString&>(&ShellCommandRunner::finished), this, &HubFrame::slotShellFinished);
 
         d->shell_list.append(sh);
 
@@ -1920,7 +1889,7 @@ bool HubFrame::parseForCmd(QString line, QWidget *wg){
         line = line.remove(0, 4);
         line.replace("\n", "");
         QString res;
-        WSCMD(line,res);
+        qtCtx()->settings()->parseCmd(line,res);
         if (fr == this)
             addStatus(res);
         else if (pm)
@@ -1928,19 +1897,19 @@ bool HubFrame::parseForCmd(QString line, QWidget *wg){
     }
     else if (cmd == "/dcpps" && !emptyParam) {
         line = line.remove(0,7);
-        QString out = _q(SettingsManager::getInstance()->parseCoreCmd (_tq(line)));
+        QString out = _q(qtCtx()->dcCtx().getSettingsManager()->parseCoreCmd (_tq(line)));
         if (fr == this)
             addStatus(out);
         else if (pm)
             pm->addStatus(out);
     }
-    else if (!WSGET(WS_CHAT_CMD_ALIASES).isEmpty()){
-        QString aliases = QByteArray::fromBase64(WSGET(WS_CHAT_CMD_ALIASES).toUtf8());
-        QStringList alias_list = aliases.split('\n', QString::SkipEmptyParts);
+    else if (!qtCtx()->settings()->getStr(WS_CHAT_CMD_ALIASES).isEmpty()){
+        QString aliases = QByteArray::fromBase64(qtCtx()->settings()->getStr(WS_CHAT_CMD_ALIASES).toUtf8());
+        QStringList alias_list = aliases.split('\n', Qt::SkipEmptyParts);
         bool ok = false;
 
         for (const auto &line : alias_list){
-            QStringList cmds = line.split('\t', QString::SkipEmptyParts);
+            QStringList cmds = line.split('\t', Qt::SkipEmptyParts);
 
             if (cmds.size() == 2 && cmd == ("/" + cmds.at(0))){
                 parseForCmd(cmds.at(1), wg);
@@ -1999,9 +1968,9 @@ void HubFrame::addStatus(QString msg){
 
     QString nick = " * ";
 
-    QStringList lines = msg.split(QRegExp("[\\n\\r\\f]+"), QString::SkipEmptyParts);
+    QStringList lines = msg.split(QRegularExpression("[\\n\\r\\f]+"), Qt::SkipEmptyParts);
     for (int i = 0; i < lines.size(); ++i) {
-        if (lines.at(i).contains(QRegExp("\\w+"))) {
+        if (lines.at(i).contains(QRegularExpression("\\w+"))) {
             short_msg = lines.at(i);
             break;
         }
@@ -2009,39 +1978,39 @@ void HubFrame::addStatus(QString msg){
     if (short_msg.isEmpty() && !lines.isEmpty())
         short_msg = lines.first();
 
-    pure_msg  = LinkParser::parseForLinks(msg.left(WIGET(WI_CHAT_STATUS_MSG_MAX_LEN)), false);
+    pure_msg  = LinkParser::parseForLinks(msg.left(qtCtx()->settings()->getInt(WI_CHAT_STATUS_MSG_MAX_LEN)), false);
     short_msg = LinkParser::parseForLinks(short_msg, false);
     msg       = LinkParser::parseForLinks(msg, true);
 
-    pure_msg        = "<font color=\"" + WSGET(WS_CHAT_STAT_COLOR) + "\">" + pure_msg + "</font>";
-    short_msg       = "<font color=\"" + WSGET(WS_CHAT_STAT_COLOR) + "\">" + short_msg + "</font>";
-    msg             = "<font color=\"" + WSGET(WS_CHAT_STAT_COLOR) + "\">" + msg + "</font>";
+    pure_msg        = "<font color=\"" + qtCtx()->settings()->getStr(WS_CHAT_STAT_COLOR) + "\">" + pure_msg + "</font>";
+    short_msg       = "<font color=\"" + qtCtx()->settings()->getStr(WS_CHAT_STAT_COLOR) + "\">" + short_msg + "</font>";
+    msg             = "<font color=\"" + qtCtx()->settings()->getStr(WS_CHAT_STAT_COLOR) + "\">" + msg + "</font>";
     QString time    = "";
 
-    if (!WSGET(WS_CHAT_TIMESTAMP).isEmpty())
-        time = "<font color=\"" + WSGET(WS_CHAT_TIME_COLOR)+ "\">[" + QDateTime::currentDateTime().toString(WSGET(WS_CHAT_TIMESTAMP)) + "]</font>";
+    if (!qtCtx()->settings()->getStr(WS_CHAT_TIMESTAMP).isEmpty())
+        time = "<font color=\"" + qtCtx()->settings()->getStr(WS_CHAT_TIME_COLOR)+ "\">[" + QDateTime::currentDateTime().toString(qtCtx()->settings()->getStr(WS_CHAT_TIMESTAMP)) + "]</font>";
 
-    status   = time + "<font color=\"" + WSGET(WS_CHAT_STAT_COLOR) + "\"><b>" + nick + "</b> </font>";
+    status   = time + "<font color=\"" + qtCtx()->settings()->getStr(WS_CHAT_STAT_COLOR) + "\"><b>" + nick + "</b> </font>";
 
-    QRegExp rot_msg = QRegExp("is(\\s+)kicking(\\s+)(\\S+)*(\\s+)because:");
+    static const QRegularExpression rot_msg("is(\\s+)kicking(\\s+)(\\S+)*(\\s+)because:");
 
-    bool isRotating = (msg.indexOf("is kicking because:") >= 0) || (rot_msg.indexIn(msg) >= 0);
+    bool isRotating = (msg.indexOf("is kicking because:") >= 0) || (rot_msg.match(msg).hasMatch());
 
-    if (!(isRotating && WBGET(WB_CHAT_ROTATING_MSGS)))
+    if (!(isRotating && qtCtx()->settings()->getBool(WB_CHAT_ROTATING_MSGS)))
         addOutput(status + msg);
 
-    if (Secretary::getInstance())
-        Secretary::getInstance()->coreStatusMsg("", status + msg, orig_msg, _q(d->client->getIp()));
+    if (qtCtx()->secretary())
+        qtCtx()->secretary()->coreStatusMsg("", status + msg, orig_msg, _q(d->client->getIp()));
 
     label_LAST_STATUS->setText(status + short_msg);
 
     status += pure_msg;
-    WulforUtil::getInstance()->textToHtml(status, false);
+    qtCtx()->wulforUtil()->textToHtml(status, false);
 
     d->status_msg_history.push_back(status);
 
-    if (WIGET(WI_CHAT_STATUS_HISTORY_SZ) > 0){
-        while (d->status_msg_history.size() > WIGET(WI_CHAT_STATUS_HISTORY_SZ))
+    if (qtCtx()->settings()->getInt(WI_CHAT_STATUS_HISTORY_SZ) > 0){
+        while (d->status_msg_history.size() > qtCtx()->settings()->getInt(WI_CHAT_STATUS_HISTORY_SZ))
             d->status_msg_history.removeFirst();
     }
     else
@@ -2068,16 +2037,16 @@ void HubFrame::addUserData(const QString &nick){
 
 void HubFrame::addPM(QString cid, QString output, bool keepfocus, QString nick){
     Q_D(HubFrame);
-    bool redirectToMainChat = WBGET("hubframe/redirect-pm-to-main-chat", true);
+    bool redirectToMainChat = qtCtx()->settings()->getBool("hubframe/redirect-pm-to-main-chat", true);
 
     if (!d->pm.contains(cid)){
         PMWindow *p = ArenaWidgetFactory().create<PMWindow, QString, QString>(cid, _q(d->client->getHubUrl()));
         p->textEdit_CHAT->setContextMenuPolicy(Qt::CustomContextMenu);
 
-        connect(p, SIGNAL(privateMessageClosed(QString)), this, SLOT(slotPMClosed(QString)));
-        connect(p, SIGNAL(inputTextChanged()), this, SLOT(slotInputTextChanged()));
-        connect(p, SIGNAL(inputTextMenu()), this, SLOT(slotInputContextMenu()));
-        connect(p->textEdit_CHAT, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotChatMenu(QPoint)));
+        connect(p, &PMWindow::privateMessageClosed, this, &HubFrame::slotPMClosed);
+        connect(p, &PMWindow::inputTextChanged, this, &HubFrame::slotInputTextChanged);
+        connect(p, &PMWindow::inputTextMenu, this, &HubFrame::slotInputContextMenu);
+        connect(p->textEdit_CHAT, &QTextEdit::customContextMenuRequested, this, &HubFrame::slotChatMenu);
 
         p->setCompleter(d->completer, d->model);
         p->setAttribute(Qt::WA_DeleteOnClose);
@@ -2085,8 +2054,8 @@ void HubFrame::addPM(QString cid, QString output, bool keepfocus, QString nick){
         if (!nick.isEmpty())
             p->addUserData(nick);
 
-        if (!(keepfocus && WBGET(WB_CHAT_KEEPFOCUS))){
-            ArenaWidgetManager::getInstance()->activate(p);
+        if (!(keepfocus && qtCtx()->settings()->getBool(WB_CHAT_KEEPFOCUS))){
+            qtCtx()->arenaWidgetManager()->activate(p);
 
             p->requestFocus();
         }
@@ -2109,8 +2078,8 @@ void HubFrame::addPM(QString cid, QString output, bool keepfocus, QString nick){
         if (!nick.isEmpty())
             it.value()->addUserData(nick);
 
-        if (!(keepfocus && WBGET(WB_CHAT_KEEPFOCUS))){
-            ArenaWidgetManager::getInstance()->activate(it.value());
+        if (!(keepfocus && qtCtx()->settings()->getBool(WB_CHAT_KEEPFOCUS))){
+            qtCtx()->arenaWidgetManager()->activate(it.value());
 
             it.value()->requestFocus();
         }
@@ -2135,10 +2104,10 @@ bool HubFrame::isOP(const QString& nick) {
 void HubFrame::userUpdated(const UserPtr &user, const dcpp::Identity &id){
     Q_D(HubFrame);
 
-    static WulforSettings *WS       = WulforSettings::getInstance();
+    auto *WS       = qtCtx()->settings();
     static bool showFavJoinsOnly    = WS->getBool(WB_CHAT_SHOW_JOINS_FAV);
     static bool showJoins           = WS->getBool(WB_CHAT_SHOW_JOINS);
-    const  bool isFavorite          = FavoriteManager::getInstance()->isFavoriteUser(user);
+    const  bool isFavorite          = qtCtx()->dcCtx().getFavoriteManager()->isFavoriteUser(user);
 
     if (!d->model)
         return;
@@ -2167,7 +2136,7 @@ void HubFrame::userUpdated(const UserPtr &user, const dcpp::Identity &id){
         }
 
         if (isFavorite)
-            Notification::getInstance()->showMessage(Notification::FAVORITE, tr("Favorites"), tr("%1 is now online").arg(nick));
+            qtCtx()->notification()->showMessage(Notification::FAVORITE, tr("Favorites"), tr("%1 is now online").arg(nick));
 
         if (d->pm.contains(nick)){
             PMWindow *wnd = d->pm[nick];
@@ -2214,18 +2183,18 @@ void HubFrame::userRemoved(const UserPtr &user, const dcpp::Identity &id){
         d->pm.remove(cid);
     }
 
-    if (WulforSettings::getInstance()->getBool(WB_CHAT_SHOW_JOINS)){
+    if (qtCtx()->settings()->getBool(WB_CHAT_SHOW_JOINS)){
         do {
-            if (WulforSettings::getInstance()->getBool(WB_CHAT_SHOW_JOINS_FAV) &&
-                !FavoriteManager::getInstance()->isFavoriteUser(user))
+            if (qtCtx()->settings()->getBool(WB_CHAT_SHOW_JOINS_FAV) &&
+                !qtCtx()->dcCtx().getFavoriteManager()->isFavoriteUser(user))
                 break;
 
             addStatus(nick + tr(" left the chat"));
         } while (false);
     }
 
-    if (FavoriteManager::getInstance()->isFavoriteUser(user))
-        Notification::getInstance()->showMessage(Notification::FAVORITE, tr("Favorites"), tr("%1 is now offline").arg(nick));
+    if (qtCtx()->dcCtx().getFavoriteManager()->isFavoriteUser(user))
+        qtCtx()->notification()->showMessage(Notification::FAVORITE, tr("Favorites"), tr("%1 is now offline").arg(nick));
 
     d->model->removeUser(user);
 }
@@ -2251,17 +2220,17 @@ void HubFrame::browseUserFiles(const QString& id, bool match){
 
     if (!cid.empty()){
         try{
-            UserPtr user = ClientManager::getInstance()->findUser(CID(cid));
+            UserPtr user = qtCtx()->dcCtx().getClientManager()->findUser(CID(cid));
 
             if (user){
                 Q_D(HubFrame);
 
-                if (user == ClientManager::getInstance()->getMe())
-                    MainWindow::getInstance()->browseOwnFiles();
+                if (user == qtCtx()->dcCtx().getClientManager()->getMe())
+                    qtCtx()->mainWindow()->browseOwnFiles();
                 else if (match)
-                    QueueManager::getInstance()->addList(HintedUser(user, d->client->getHubUrl()), QueueItem::FLAG_MATCH_QUEUE, "");
+                    qtCtx()->dcCtx().getQueueManager()->addList(HintedUser(user, d->client->getHubUrl()), QueueItem::FLAG_MATCH_QUEUE, "");
                 else
-                    QueueManager::getInstance()->addList(HintedUser(user, d->client->getHubUrl()), QueueItem::FLAG_CLIENT_VIEW, "");
+                    qtCtx()->dcCtx().getQueueManager()->addList(HintedUser(user, d->client->getHubUrl()), QueueItem::FLAG_CLIENT_VIEW, "");
             }
             else {
                 message = QString(tr("User not found")).toStdString();
@@ -2270,7 +2239,7 @@ void HubFrame::browseUserFiles(const QString& id, bool match){
         catch (const Exception &e){
             message = e.getError();
 
-            LogManager::getInstance()->message(message);
+            qtCtx()->dcCtx().getLogManager()->message(message);
         }
     }
 }
@@ -2281,15 +2250,15 @@ void HubFrame::grantSlot(const QString& id){
     QString message = tr("User not found");
 
     if (!id.isEmpty()){
-        UserPtr user = ClientManager::getInstance()->findUser(CID(id.toStdString()));
+        UserPtr user = qtCtx()->dcCtx().getClientManager()->findUser(CID(id.toStdString()));
 
         if (user){
-            UploadManager::getInstance()->reserveSlot(HintedUser(user, d->client->getHubUrl()));
-            message = tr("Slot granted to ") + WulforUtil::getInstance()->getNicks(user->getCID(), _q(d->client->getHubUrl()));
+            qtCtx()->dcCtx().getUploadManager()->reserveSlot(HintedUser(user, d->client->getHubUrl()));
+            message = tr("Slot granted to ") + qtCtx()->wulforUtil()->getNicks(user->getCID(), _q(d->client->getHubUrl()));
         }
     }
 
-    MainWindow::getInstance()->setStatusMessage(message);
+    qtCtx()->mainWindow()->setStatusMessage(message);
 }
 
 void HubFrame::addUserToFav(const QString& id){
@@ -2298,11 +2267,11 @@ void HubFrame::addUserToFav(const QString& id){
 
     string cid = id.toStdString();
 
-    UserPtr user = ClientManager::getInstance()->findUser(CID(cid));
+    UserPtr user = qtCtx()->dcCtx().getClientManager()->findUser(CID(cid));
 
     if (user){
-        if (user != ClientManager::getInstance()->getMe() && !FavoriteManager::getInstance()->isFavoriteUser(user))
-            FavoriteManager::getInstance()->addFavoriteUser(user);
+        if (user != qtCtx()->dcCtx().getClientManager()->getMe() && !qtCtx()->dcCtx().getFavoriteManager()->isFavoriteUser(user))
+            qtCtx()->dcCtx().getFavoriteManager()->addFavoriteUser(user);
     }
 }
 
@@ -2312,11 +2281,11 @@ void HubFrame::delUserFromFav(const QString& id){
 
     string cid = id.toStdString();
 
-    UserPtr user = ClientManager::getInstance()->findUser(CID(cid));
+    UserPtr user = qtCtx()->dcCtx().getClientManager()->findUser(CID(cid));
 
     if (user){
-        if (user != ClientManager::getInstance()->getMe() && FavoriteManager::getInstance()->isFavoriteUser(user))
-            FavoriteManager::getInstance()->removeFavoriteUser(user);
+        if (user != qtCtx()->dcCtx().getClientManager()->getMe() && qtCtx()->dcCtx().getFavoriteManager()->isFavoriteUser(user))
+            qtCtx()->dcCtx().getFavoriteManager()->removeFavoriteUser(user);
     }
 }
 
@@ -2324,7 +2293,7 @@ void HubFrame::changeFavStatus(const QString &id) {
     if (id.isEmpty())
         return;
 
-    UserPtr user = ClientManager::getInstance()->findUser(CID(id.toStdString()));
+    UserPtr user = qtCtx()->dcCtx().getClientManager()->findUser(CID(id.toStdString()));
 
     if (user) {
         Q_D(HubFrame);
@@ -2334,7 +2303,7 @@ void HubFrame::changeFavStatus(const QString &id) {
         if (d->model)
             item = d->model->itemForPtr(user);
 
-        bool bFav = FavoriteManager::getInstance()->isFavoriteUser(user);
+        bool bFav = qtCtx()->dcCtx().getFavoriteManager()->isFavoriteUser(user);
 
         if (item) {
             QModelIndex ixb = d->model->index(item->row(), COLUMN_NICK);
@@ -2343,28 +2312,28 @@ void HubFrame::changeFavStatus(const QString &id) {
             d->model->repaintData(ixb, ixe);
         }
 
-        QString message = WulforUtil::getInstance()->getNicks(id, _q(d->client->getHubUrl())) +
+        QString message = qtCtx()->wulforUtil()->getNicks(id, _q(d->client->getHubUrl())) +
                 (bFav ? tr(" has been added to favorites.") : tr(" has been removed from favorites."));
 
-        MainWindow::getInstance()->setStatusMessage(message);
+        qtCtx()->mainWindow()->setStatusMessage(message);
     }
 }
 
 void HubFrame::delUserFromQueue(const QString& id){
     if (!id.isEmpty()){
-        UserPtr user = ClientManager::getInstance()->findUser(CID(id.toStdString()));
+        UserPtr user = qtCtx()->dcCtx().getClientManager()->findUser(CID(id.toStdString()));
 
         if (user)
-            QueueManager::getInstance()->removeSource(user, QueueItem::Source::FLAG_REMOVED);
+            qtCtx()->dcCtx().getQueueManager()->removeSource(user, QueueItem::Source::FLAG_REMOVED);
     }
 }
 
 void HubFrame::addAsFavorite(){
     Q_D(HubFrame);
-    FavoriteHubEntry *existingHub = FavoriteManager::getInstance()->getFavoriteHubEntry(d->client->getHubUrl());
+    FavoriteHubEntry *existingHub = qtCtx()->dcCtx().getFavoriteManager()->getFavoriteHubEntry(d->client->getHubUrl());
 
     if (!existingHub){
-        FavoriteHubEntry aEntry;
+        FavoriteHubEntry aEntry(qtCtx()->dcCtx());
 
         aEntry.setServer(d->client->getHubUrl());
         aEntry.setName(d->client->getHubName());
@@ -2373,8 +2342,8 @@ void HubFrame::addAsFavorite(){
         aEntry.setNick(d->client->getMyNick());
         aEntry.setEncoding(d->client->getEncoding());
 
-        FavoriteManager::getInstance()->addFavorite(aEntry);
-        FavoriteManager::getInstance()->save();
+        qtCtx()->dcCtx().getFavoriteManager()->addFavorite(aEntry);
+        qtCtx()->dcCtx().getFavoriteManager()->save();
 
         addStatus(tr("Favorite hub added."));
     }
@@ -2385,9 +2354,9 @@ void HubFrame::addAsFavorite(){
 
 void HubFrame::disablePrivateMessages(bool disable) {
     if (disable)
-        disconnect(this, SIGNAL(corePrivateMsg(VarMap)), this, SLOT(newPm(VarMap)));
+        disconnect(this, &HubFrame::corePrivateMsg, this, &HubFrame::newPm);
     else
-        connect(this, SIGNAL(corePrivateMsg(VarMap)), this, SLOT(newPm(VarMap)), Qt::QueuedConnection);
+        connect(this, &HubFrame::corePrivateMsg, this, &HubFrame::newPm, Qt::QueuedConnection);
 }
 
 
@@ -2397,12 +2366,12 @@ void HubFrame::newMsg(const VarMap &map){
 
     QString nick = map["NICK"].toString();
     QString message = map["MSG"].toString();
-    QString time = "<font color=\"" + WSGET(WS_CHAT_TIME_COLOR)+ "\">[" + map["TIME"].toString() + "]</font>";;
+    QString time = "<font color=\"" + qtCtx()->settings()->getStr(WS_CHAT_TIME_COLOR)+ "\">[" + map["TIME"].toString() + "]</font>";;
     QString color = map["CLR"].toString();
     QString msg_color = WS_CHAT_MSG_COLOR;
     QString trigger;
 
-    const QStringList &kwords = WVGET("hubframe/chat-keywords", QStringList()).toStringList();
+    const QStringList &kwords = qtCtx()->settings()->getVar("hubframe/chat-keywords", QStringList()).toStringList();
 
     for (const auto &word : kwords){
         if (message.contains(word, Qt::CaseInsensitive)){
@@ -2417,7 +2386,7 @@ void HubFrame::newMsg(const VarMap &map){
         msg_color = WS_CHAT_SAY_NICK;
         trigger = _q(d->client->getMyNick());
 
-        Notification::getInstance()->showMessage(Notification::NICKSAY, getArenaTitle().left(20), nick + ": " + message);
+        qtCtx()->notification()->showMessage(Notification::NICKSAY, getArenaTitle().left(20), nick + ": " + message);
     }
 
     emit new_msg(map);
@@ -2435,18 +2404,18 @@ void HubFrame::newMsg(const VarMap &map){
 
     message = LinkParser::parseForLinks(message, true);
 
-    WulforUtil::getInstance()->textToHtml(nicktoout, true);
+    qtCtx()->wulforUtil()->textToHtml(nicktoout, true);
 
-    message = "<font color=\"" + WSGET(msg_color) + "\">" + message + "</font>";
+    message = "<font color=\"" + qtCtx()->settings()->getStr(msg_color) + "\">" + message + "</font>";
 
     output  += time;
-    string info= Util::formatAdditionalInfo(map["I4"].toString().toStdString(),BOOLSETTING(USE_IP),BOOLSETTING(GET_USER_COUNTRY));
+    string info= Util::formatAdditionalInfo(map["I4"].toString().toStdString(),qtCtx()->dcCtx().getSettingsManager()->getBool(SettingsManager::USE_IP, true),qtCtx()->dcCtx().getSettingsManager()->getBool(SettingsManager::GET_USER_COUNTRY, true));
 
     if (!info.empty())
-        output  += " <font color=\"" + WSGET(WS_CHAT_TIME_COLOR)+ "\">" + _q(info) + "</font>";
+        output  += " <font color=\"" + qtCtx()->settings()->getStr(WS_CHAT_TIME_COLOR)+ "\">" + _q(info) + "</font>";
 
     output  += QString(" <a style=\"text-decoration:none\" href=\"user://%1\"><font color=\"%2\"><b>%3</b></font></a>")
-               .arg(nicktoout).arg(WSGET(color)).arg(nicktoout.replace("\"", "&quot;"));
+               .arg(nicktoout).arg(qtCtx()->settings()->getStr(color)).arg(nicktoout.replace("\"", "&quot;"));
     output  += message;
 
     if (!isVisible()){
@@ -2455,12 +2424,12 @@ void HubFrame::newMsg(const VarMap &map){
 
         d->hasMessages = true;
 
-        MainWindow::getInstance()->redrawToolPanel();
+        qtCtx()->mainWindow()->redrawToolPanel();
     }
 
     QTextDocument *chatDoc = textEdit_CHAT->document();
 
-    if (d->drawLine && WBGET("hubframe/unreaden-draw-line", true)){
+    if (d->drawLine && qtCtx()->settings()->getBool("hubframe/unreaden-draw-line", true)){
         QString hr = "<hr />";
 
         int scrollbarValue = textEdit_CHAT->verticalScrollBar()->value();
@@ -2489,8 +2458,8 @@ void HubFrame::newMsg(const VarMap &map){
         addOutput(hr + output);
         addUserData(nick);
 
-        if (Secretary::getInstance())
-            Secretary::getInstance()->coreChatMessage(nick, output, map["MSG"].toString(), _q(d->client->getIp()));
+        if (qtCtx()->secretary())
+            qtCtx()->secretary()->coreChatMessage(nick, output, map["MSG"].toString(), _q(d->client->getIp()));
 
         for (QTextBlock it = chatDoc->begin(); it != chatDoc->end(); it = it.next()){
             if(!it.userState()){
@@ -2518,15 +2487,15 @@ void HubFrame::newMsg(const VarMap &map){
     addOutput(output);
     addUserData(nick);
 
-    if (Secretary::getInstance())
-        Secretary::getInstance()->coreChatMessage(nick, output, map["MSG"].toString(), _q(d->client->getIp()));
+    if (qtCtx()->secretary())
+        qtCtx()->secretary()->coreChatMessage(nick, output, map["MSG"].toString(), _q(d->client->getIp()));
 }
 
 void HubFrame::newPm(const VarMap &map){
     Q_D(HubFrame);
     QString nick = map["NICK"].toString();
     QString message = map["MSG"].toString();
-    QString time    = "<font color=\"" + WSGET(WS_CHAT_TIME_COLOR)+ "\">[" + map["TIME"].toString() + "]</font>";
+    QString time    = "<font color=\"" + qtCtx()->settings()->getStr(WS_CHAT_TIME_COLOR)+ "\">[" + map["TIME"].toString() + "]</font>";
     QString color = map["CLR"].toString();
     QString full_message;
 
@@ -2536,10 +2505,10 @@ void HubFrame::newPm(const VarMap &map){
         if (!d->pm.contains(map["CID"].toString()))
             show_msg = true;
         else
-            show_msg = (!d->pm[map["CID"].toString()]->isVisible() || WBGET("notification/play-sound-with-active-pm", true));
+            show_msg = (!d->pm[map["CID"].toString()]->isVisible() || qtCtx()->settings()->getBool("notification/play-sound-with-active-pm", true));
 
         if (show_msg)
-            Notification::getInstance()->showMessage(Notification::PM, nick, message);
+            qtCtx()->notification()->showMessage(Notification::PM, nick, message);
     }
 
     bool third = map["3RD"].toBool();
@@ -2553,25 +2522,25 @@ void HubFrame::newPm(const VarMap &map){
 
     message = LinkParser::parseForLinks(message, true);
 
-    WulforUtil::getInstance()->textToHtml(nick, true);
+    qtCtx()->wulforUtil()->textToHtml(nick, true);
 
-    message       = "<font color=\"" + WSGET(WS_CHAT_MSG_COLOR) + "\">" + message + "</font>";
+    message       = "<font color=\"" + qtCtx()->settings()->getStr(WS_CHAT_MSG_COLOR) + "\">" + message + "</font>";
     full_message  += time;
-    string info= Util::formatAdditionalInfo(map["I4"].toString().toStdString(),BOOLSETTING(USE_IP),BOOLSETTING(GET_USER_COUNTRY));
+    string info= Util::formatAdditionalInfo(map["I4"].toString().toStdString(),qtCtx()->dcCtx().getSettingsManager()->getBool(SettingsManager::USE_IP, true),qtCtx()->dcCtx().getSettingsManager()->getBool(SettingsManager::GET_USER_COUNTRY, true));
 
     if (!info.empty())
-        full_message += " <font color=\"" + WSGET(WS_CHAT_TIME_COLOR)+ "\">" + _q(info) + "</font>";
+        full_message += " <font color=\"" + qtCtx()->settings()->getStr(WS_CHAT_TIME_COLOR)+ "\">" + _q(info) + "</font>";
 
     full_message  += QString(" <a style=\"text-decoration:none\" href=\"user://%1\"><font color=\"%2\"><b>%3</b></font></a>")
-                     .arg(nick).arg(WSGET(color)).arg(nick.replace("\"", "&quot;"));
+                     .arg(nick).arg(qtCtx()->settings()->getStr(color)).arg(nick.replace("\"", "&quot;"));
     full_message  += message;
 
-    WulforUtil::getInstance()->textToHtml(full_message, false);
+    qtCtx()->wulforUtil()->textToHtml(full_message, false);
 
     addPM(map["CID"].toString(), full_message, true, map["NICK"].toString());
 
-    if (Secretary::getInstance())
-        Secretary::getInstance()->corePrivateMsg(map["NICK"].toString(), full_message, map["MSG"].toString(), _q(d->client->getIp()));
+    if (qtCtx()->secretary())
+        qtCtx()->secretary()->corePrivateMsg(map["NICK"].toString(), full_message, map["MSG"].toString(), _q(d->client->getIp()));
 }
 
 void HubFrame::createPMWindow(const QString &nick){
@@ -2620,16 +2589,16 @@ void HubFrame::pmUserEvent(const QString &cid, const QString &e){
     QString output = "";
     QString nick    = " * ";
 
-    QString msg     = "<font color=\"" + WSGET(WS_CHAT_MSG_COLOR) + "\">" + e + "</font>";
+    QString msg     = "<font color=\"" + qtCtx()->settings()->getStr(WS_CHAT_MSG_COLOR) + "\">" + e + "</font>";
     QString time    = "";
 
-    if (!WSGET(WS_CHAT_TIMESTAMP).isEmpty())
-        time = "<font color=\""+WSGET(WS_CHAT_TIME_COLOR)+">["+QDateTime::currentDateTime().toString(WSGET(WS_CHAT_TIMESTAMP))+"]</font>";
+    if (!qtCtx()->settings()->getStr(WS_CHAT_TIMESTAMP).isEmpty())
+        time = "<font color=\""+qtCtx()->settings()->getStr(WS_CHAT_TIME_COLOR)+">["+QDateTime::currentDateTime().toString(qtCtx()->settings()->getStr(WS_CHAT_TIMESTAMP))+"]</font>";
 
-    output = time + "<font color=\"" + WSGET(WS_CHAT_STAT_COLOR) + "\"><b>" + nick + "</b> </font>";
+    output = time + "<font color=\"" + qtCtx()->settings()->getStr(WS_CHAT_STAT_COLOR) + "\"><b>" + nick + "</b> </font>";
     output += msg;
 
-    WulforUtil::getInstance()->textToHtml(output, false);
+    qtCtx()->wulforUtil()->textToHtml(output, false);
 
     d->pm[cid]->addOutput(output);
 }
@@ -2637,7 +2606,7 @@ void HubFrame::pmUserEvent(const QString &cid, const QString &e){
 void HubFrame::getPassword(){
     Q_D(HubFrame);
 
-    MainWindow *MW = MainWindow::getInstance();
+    MainWindow *MW = qtCtx()->mainWindow();
 
     if (!MW->isVisible() && d->client->getPassword().empty()){
         MW->show();
@@ -2663,7 +2632,7 @@ void HubFrame::getPassword(){
 
 void HubFrame::follow(QString redirect){
     if(!redirect.isEmpty()) {
-        if(ClientManager::getInstance()->isConnected(_tq(redirect))) {
+        if(qtCtx()->dcCtx().getClientManager()->isConnected(_tq(redirect))) {
             addStatus(tr("Redirect request received to a hub that's already connected"));
             return;
         }
@@ -2673,10 +2642,10 @@ void HubFrame::follow(QString redirect){
         Q_D(HubFrame);
         // the client is dead, long live the client!
         d->client->removeListener(this);
-        HubManager::getInstance()->unregisterHubUrl(_q(d->client->getHubUrl()));
-        ClientManager::getInstance()->putClient(d->client);
+        qtCtx()->hubManager()->unregisterHubUrl(_q(d->client->getHubUrl()));
+        qtCtx()->dcCtx().getClientManager()->putClient(d->client);
         clearUsers();
-        d->client = ClientManager::getInstance()->getClient(url);
+        d->client = qtCtx()->dcCtx().getClientManager()->getClient(url);
 
         d->client->addListener(this);
         d->client->connect();
@@ -2706,7 +2675,7 @@ void HubFrame::findText(QTextDocument::FindFlags flag){
 }
 
 void HubFrame::updateStyles(){
-    QString custom_font_desc = WSGET(WS_CHAT_FONT);
+    QString custom_font_desc = qtCtx()->settings()->getStr(WS_CHAT_FONT);
     QFont custom_font;
 
     if (!custom_font_desc.isEmpty() && custom_font.fromString(custom_font_desc)){
@@ -2722,7 +2691,7 @@ void HubFrame::updateStyles(){
                                                        );
     }
 
-    custom_font_desc = WSGET(WS_CHAT_ULIST_FONT);
+    custom_font_desc = qtCtx()->settings()->getStr(WS_CHAT_ULIST_FONT);
 
     if (!custom_font_desc.isEmpty() && custom_font.fromString(custom_font_desc))
         treeView_USERS->setFont(custom_font);
@@ -2760,11 +2729,11 @@ void HubFrame::slotReconnect(){
 }
 
 void HubFrame::slotMapOnArena(){
-    ArenaWidgetManager::getInstance()->activate(this);
+    qtCtx()->arenaWidgetManager()->activate(this);
 }
 
 void HubFrame::slotClose(){
-    ArenaWidgetManager::getInstance()->rem(this);
+    qtCtx()->arenaWidgetManager()->rem(this);
 }
 
 void HubFrame::slotPMClosed(QString cid){
@@ -2832,7 +2801,7 @@ void HubFrame::slotUserListMenu(const QPoint&){
         cid = reinterpret_cast<UserListItem*>(i.internalPointer())->getCID();
     }
 
-    Menu::Action action = Menu::getInstance()->execUserMenu(d->client, cid);
+    Menu::Action action = menu_->execUserMenu(d->client, cid);
     UserListItem *item = nullptr;
 
     proxy_list = selection_model->selectedRows(0);
@@ -2988,11 +2957,11 @@ void HubFrame::slotUserListMenu(const QPoint&){
         case Menu::AntiSpamWhite:
         {
 
-            if (AntiSpam::getInstance()){
+            if (qtCtx()->antiSpam()){
                 for (const auto &i : list){
                     item = reinterpret_cast<UserListItem*>(i.internalPointer());
 
-                    (*AntiSpam::getInstance()) << eIN_WHITE << item->getNick();
+                    (*qtCtx()->antiSpam()) << eIN_WHITE << item->getNick();
                 }
             }
 
@@ -3000,11 +2969,11 @@ void HubFrame::slotUserListMenu(const QPoint&){
         }
         case Menu::AntiSpamBlack:
         {
-            if (AntiSpam::getInstance()){
+            if (qtCtx()->antiSpam()){
                 for (const auto &i : list){
                     item = reinterpret_cast<UserListItem*>(i.internalPointer());
 
-                    (*AntiSpam::getInstance()) << eIN_BLACK << item->getNick();
+                    (*qtCtx()->antiSpam()) << eIN_BLACK << item->getNick();
                 }
             }
 
@@ -3044,7 +3013,7 @@ void HubFrame::slotChatMenu(const QPoint &){
 
     bool pmw = (editor != this->textEdit_CHAT);
 
-    Menu::Action action = Menu::getInstance()->execChatMenu(d->client, cid, pmw);
+    Menu::Action action = menu_->execChatMenu(d->client, cid, pmw);
 
     switch (action){
         case Menu::CopyText:
@@ -3141,7 +3110,7 @@ void HubFrame::slotChatMenu(const QPoint &){
             addPM(cid, "", false);
 
             if (d->pm.contains(cid))
-                ArenaWidgetManager::getInstance()->activate(d->pm[cid]);
+                qtCtx()->arenaWidgetManager()->activate(d->pm[cid]);
 
             break;
         }
@@ -3177,7 +3146,7 @@ void HubFrame::slotChatMenu(const QPoint &){
         case Menu::ClearChat:
         {
             if (pmw)
-                MainWindow::getInstance()->slotChatClear(); // some hack
+                qtCtx()->mainWindow()->slotChatClear(); // some hack
             else
                 clearChat();
 
@@ -3215,15 +3184,15 @@ void HubFrame::slotChatMenu(const QPoint &){
         }
         case Menu::AntiSpamWhite:
         {
-            if (AntiSpam::getInstance())
-                (*AntiSpam::getInstance()) << eIN_WHITE << nick;
+            if (qtCtx()->antiSpam())
+                (*qtCtx()->antiSpam()) << eIN_WHITE << nick;
 
             break;
         }
         case Menu::AntiSpamBlack:
         {
-            if (AntiSpam::getInstance())
-                (*AntiSpam::getInstance()) << eIN_BLACK << nick;
+            if (qtCtx()->antiSpam())
+                (*qtCtx()->antiSpam()) << eIN_BLACK << nick;
 
             break;
         }
@@ -3246,7 +3215,7 @@ void HubFrame::slotShowWnd(){
     if (isVisible())
         return;
 
-   ArenaWidgetManager::getInstance()->activate(this);
+   qtCtx()->arenaWidgetManager()->activate(this);
 }
 
 void HubFrame::slotShellFinished(bool ok, QString output){
@@ -3372,7 +3341,7 @@ void HubFrame::slotFilterTextChanged(){
             d->proxy->setFilterCaseSensitivity(Qt::CaseInsensitive);
         }
         else{
-            d->proxy->setFilterRegExp(text);
+            d->proxy->setFilterRegularExpression(text);
             d->proxy->setFilterCaseSensitivity(Qt::CaseSensitive);
         }
 
@@ -3399,7 +3368,7 @@ void HubFrame::slotFindTextEdited(const QString & text){
     QTextCursor c = textEdit_CHAT->textCursor();
 
     c.movePosition(QTextCursor::StartOfLine,QTextCursor::MoveAnchor,1);
-    c = textEdit_CHAT->document()->find(lineEdit_FIND->text(), c, nullptr);
+    c = textEdit_CHAT->document()->find(lineEdit_FIND->text(), c, QTextDocument::FindFlags());
     if (!c.isNull()) {
         textEdit_CHAT->setExtraSelections(QList<QTextEdit::ExtraSelection>());
         textEdit_CHAT->setTextCursor(c);
@@ -3420,28 +3389,28 @@ void HubFrame::slotFindAll(){
         QTextEdit::ExtraSelection selection;
 
         QColor color;
-        color.setNamedColor(WSGET(WS_CHAT_FIND_COLOR));
-        color.setAlpha(WIGET(WI_CHAT_FIND_COLOR_ALPHA));
+        color.setNamedColor(qtCtx()->settings()->getStr(WS_CHAT_FIND_COLOR));
+        color.setAlpha(qtCtx()->settings()->getInt(WI_CHAT_FIND_COLOR_ALPHA));
 
         selection.format.setBackground(color);
 
-        QTextCursor c = textEdit_CHAT->document()->find(lineEdit_FIND->text(), 0, nullptr);
+        QTextCursor c = textEdit_CHAT->document()->find(lineEdit_FIND->text(), 0, QTextDocument::FindFlags());
 
         while (!c.isNull()) {
             selection.cursor = c;
             extraSelections.append(selection);
 
-            c = textEdit_CHAT->document()->find(lineEdit_FIND->text(), c, nullptr);
+            c = textEdit_CHAT->document()->find(lineEdit_FIND->text(), c, QTextDocument::FindFlags());
         }
     }
     textEdit_CHAT->setExtraSelections(extraSelections);
 }
 
 void HubFrame::slotSmile(){
-    if (!(WBGET(WB_APP_ENABLE_EMOTICON) && EmoticonFactory::getInstance()))
+    if (!(qtCtx()->settings()->getBool(WB_APP_ENABLE_EMOTICON) && qtCtx()->emoticonFactory()))
         return;
 
-    if (WBGET(WB_CHAT_USE_SMILE_PANEL)){
+    if (qtCtx()->settings()->getBool(WB_CHAT_USE_SMILE_PANEL)){
         frame_SMILES->setVisible(!frame_SMILES->isVisible());
     }
     else {
@@ -3492,20 +3461,20 @@ void HubFrame::slotSmileClicked(){
         plainTextEdit_INPUT->setFocus();
     }
 
-    if (WBGET(WB_CHAT_HIDE_SMILE_PANEL))
+    if (qtCtx()->settings()->getBool(WB_CHAT_HIDE_SMILE_PANEL))
         frame_SMILES->setVisible(false);
 }
 
 void HubFrame::slotSmileContextMenu(){
     QMenu *m = new QMenu(this);
 
-    for (const auto &f : QDir(WulforUtil::getInstance()->getEmoticonsPath())
+    for (const auto &f : QDir(qtCtx()->wulforUtil()->getEmoticonsPath())
                               .entryList(QDir::Dirs | QDir::NoSymLinks | QDir::NoDotAndDotDot)){
         if (!f.isEmpty()){
             QAction * act = m->addAction(f);
             act->setCheckable(true);
 
-            if (f == WSGET(WS_APP_EMOTICON_THEME)){
+            if (f == qtCtx()->settings()->getStr(WS_APP_EMOTICON_THEME)){
                 act->setChecked(false);
                 act->setChecked(true);
             }
@@ -3515,7 +3484,7 @@ void HubFrame::slotSmileContextMenu(){
     QAction *a = m->exec(QCursor::pos());
 
     if (a && a->isChecked())
-        WSSET(WS_APP_EMOTICON_THEME, a->text());
+        qtCtx()->settings()->setStr(WS_APP_EMOTICON_THEME, a->text());
 
     m->deleteLater();
 }
@@ -3529,11 +3498,11 @@ void HubFrame::slotInputTextChanged(){
         return;
     QString line = plainTextEdit_INPUT->toPlainText();
 
-    if (line.isEmpty() || !SpellCheck::getInstance())
+    if (line.isEmpty() || !qtCtx()->spellCheck())
         return;
 
-    SpellCheck *sp = SpellCheck::getInstance();
-    QStringList words = line.split(QRegExp("\\W+"), QString::SkipEmptyParts);
+    SpellCheck *sp = qtCtx()->spellCheck();
+    QStringList words = line.split(QRegularExpression("\\W+"), Qt::SkipEmptyParts);
 
     if (words.isEmpty())
         return;
@@ -3577,8 +3546,8 @@ void HubFrame::slotInputContextMenu(){
     m->exec(QCursor::pos());
     m->deleteLater();
 #else
-    if (SpellCheck::getInstance()) {
-        SpellCheck *sp = SpellCheck::getInstance();
+    if (qtCtx()->spellCheck()) {
+        SpellCheck *sp = qtCtx()->spellCheck();
         QTextCursor c = plainTextEdit_INPUT->cursorForPosition(plainTextEdit_INPUT->mapFromGlobal(QCursor::pos()));
         c.select(QTextCursor::WordUnderCursor);
 
@@ -3635,7 +3604,7 @@ void HubFrame::slotInputContextMenu(){
 }
 
 void HubFrame::slotStatusLinkOpen(const QString &url){
-    WulforUtil::getInstance()->openUrl(url);
+    qtCtx()->wulforUtil()->openUrl(url);
 }
 
 void HubFrame::slotHubMenu(QAction *res) {
@@ -3643,13 +3612,13 @@ void HubFrame::slotHubMenu(QAction *res) {
         const int id = res->data().toInt();
 
         UserCommand uc;
-        if (id == -1 || !FavoriteManager::getInstance()->getUserCommand(id, uc))
+        if (id == -1 || !qtCtx()->dcCtx().getFavoriteManager()->getUserCommand(id, uc))
             return;
 
         StringMap params;
         Q_D(HubFrame);
 
-        if (WulforUtil::getInstance()->getUserCommandParams(uc, params)) {
+        if (qtCtx()->wulforUtil()->getUserCommandParams(uc, params)) {
             d->client->getMyIdentity().getParams(params, "my", true);
             d->client->getHubIdentity().getParams(params, "hub", false);
 
@@ -3663,8 +3632,8 @@ void HubFrame::slotSettingsChanged(const QString &key, const QString &value){
     if (key == WS_CHAT_FONT || key == WS_CHAT_ULIST_FONT)
         updateStyles();
     else if (key == WS_APP_EMOTICON_THEME){
-        if (EmoticonFactory::getInstance()){
-            EmoticonFactory::getInstance()->load();
+        if (qtCtx()->emoticonFactory()){
+            qtCtx()->emoticonFactory()->load();
 
             frame_SMILES->setVisible(false);
 
@@ -3673,10 +3642,10 @@ void HubFrame::slotSettingsChanged(const QString &key, const QString &value){
             QSize sz;
             Q_UNUSED(sz);
 
-            EmoticonFactory::getInstance()->fillLayout(frame_SMILES->layout(), sz);
+            qtCtx()->emoticonFactory()->fillLayout(frame_SMILES->layout(), sz);
 
             for (const auto &l : frame_SMILES->findChildren<EmoticonLabel*>())
-                connect(l, SIGNAL(clicked()), this, SLOT(slotSmileClicked()));
+                connect(l, &EmoticonLabel::clicked, this, &HubFrame::slotSmileClicked);
         }
     }
     else if (key == "hubframe/chat-background-color"){
@@ -3701,8 +3670,8 @@ void HubFrame::slotBoolSettingsChanged(const QString &key, int value){
         bool enable = static_cast<bool>(value);
 
         if (enable){
-            EmoticonFactory::newInstance();
-            EmoticonFactory::getInstance()->load();
+            qtCtx()->createEmoticonFactory();
+            qtCtx()->emoticonFactory()->load();
 
             frame_SMILES->setVisible(false);
 
@@ -3711,15 +3680,15 @@ void HubFrame::slotBoolSettingsChanged(const QString &key, int value){
             QSize sz;
             Q_UNUSED(sz);
 
-            EmoticonFactory::getInstance()->fillLayout(frame_SMILES->layout(), sz);
+            qtCtx()->emoticonFactory()->fillLayout(frame_SMILES->layout(), sz);
 
             for (const auto &l : frame_SMILES->findChildren<EmoticonLabel*>())
-                connect(l, SIGNAL(clicked()), this, SLOT(slotSmileClicked()));
+                connect(l, &EmoticonLabel::clicked, this, &HubFrame::slotSmileClicked);
 
         }
         else{
-            if (EmoticonFactory::getInstance())
-                EmoticonFactory::deleteInstance();
+            if (qtCtx()->emoticonFactory())
+                qtCtx()->destroyEmoticonFactory();
 
             frame_SMILES->setVisible(false);
 
@@ -3778,11 +3747,11 @@ void HubFrame::on(ClientListener::Connected, Client*) noexcept{
 
     emit coreConnected(status);
 
-    HubManager::getInstance()->registerHubUrl(_q(d->client->getHubUrl()), this);
+    qtCtx()->hubManager()->registerHubUrl(_q(d->client->getHubUrl()), this);
 }
 
 void HubFrame::on(ClientListener::UserUpdated, Client*, const OnlineUser &user) noexcept{
-    if (user.getIdentity().isHidden() && !WBGET(WB_SHOW_HIDDEN_USERS))
+    if (user.getIdentity().isHidden() && !qtCtx()->settings()->getBool(WB_SHOW_HIDDEN_USERS))
         return;
 
     emit coreUserUpdated(user.getUser(), user.getIdentity());
@@ -3792,7 +3761,7 @@ void HubFrame::on(ClientListener::UsersUpdated x, Client*, const OnlineUserList 
     Q_UNUSED(x)
     for (const auto &it : list){
         const OnlineUser &user = *it;
-        if (user.getIdentity().isHidden() && !WBGET(WB_SHOW_HIDDEN_USERS))
+        if (user.getIdentity().isHidden() && !qtCtx()->settings()->getBool(WB_SHOW_HIDDEN_USERS))
             continue;
 
         emit coreUserUpdated(user.getUser(), user.getIdentity());
@@ -3800,20 +3769,20 @@ void HubFrame::on(ClientListener::UsersUpdated x, Client*, const OnlineUserList 
 }
 
 void HubFrame::on(ClientListener::UserRemoved, Client*, const OnlineUser &user) noexcept{
-    if (user.getIdentity().isHidden() && !WBGET(WB_SHOW_HIDDEN_USERS))
+    if (user.getIdentity().isHidden() && !qtCtx()->settings()->getBool(WB_SHOW_HIDDEN_USERS))
         return;
 
     emit coreUserRemoved(user.getUser(), user.getIdentity());
 }
 
 void HubFrame::on(ClientListener::Redirect, Client*, const string &link) noexcept{
-    if(ClientManager::getInstance()->isConnected(link)) {
+    if(qtCtx()->dcCtx().getClientManager()->isConnected(link)) {
         emit coreStatusMsg(tr("Redirect request received to a hub that's already connected"));
 
         return;
     }
 
-    if(BOOLSETTING(AUTO_FOLLOW))
+    if(qtCtx()->dcCtx().getSettingsManager()->getBool(SettingsManager::AUTO_FOLLOW, true))
         emit coreFollow(_q(link));
 }
 
@@ -3856,39 +3825,39 @@ void HubFrame::on(ClientListener::Message, Client*, const ChatMessage &message) 
     if(message.to && message.replyTo)
     {
         //private message
-        const OnlineUser *user = (message.replyTo->getUser() == ClientManager::getInstance()->getMe())?
+        const OnlineUser *user = (message.replyTo->getUser() == qtCtx()->dcCtx().getClientManager()->getMe())?
                                  message.to : message.replyTo;
 
         bool isBot = user->getIdentity().isBot() || user->getUser()->isSet(User::BOT);
         bool isHub = user->getIdentity().isHub();
         bool isOp  = user->getIdentity().isOp();
 
-        if (isHub && BOOLSETTING(IGNORE_HUB_PMS))
+        if (isHub && qtCtx()->dcCtx().getSettingsManager()->getBool(SettingsManager::IGNORE_HUB_PMS, true))
             return;
-        else if (isBot && BOOLSETTING(IGNORE_BOT_PMS))
+        else if (isBot && qtCtx()->dcCtx().getSettingsManager()->getBool(SettingsManager::IGNORE_BOT_PMS, true))
             return;
 
         CID id           = user->getUser()->getCID();
         QString nick     =  _q(message.from->getIdentity().getNick());
         bool isInSandBox = false;
-        bool isEcho      = (message.from->getUser() == ClientManager::getInstance()->getMe());
+        bool isEcho      = (message.from->getUser() == qtCtx()->dcCtx().getClientManager()->getMe());
         bool hasPMWindow = d->pm.contains(_q(id.toBase32()));//PMWindow is created
 
-        if (AntiSpam::getInstance())
-            isInSandBox = AntiSpam::getInstance()->isInSandBox(_q(id.toBase32()));
+        if (qtCtx()->antiSpam())
+            isInSandBox = qtCtx()->antiSpam()->isInSandBox(_q(id.toBase32()));
 
-        if (AntiSpam::getInstance() && !isEcho){
+        if (qtCtx()->antiSpam() && !isEcho){
             do {
                 if (hasPMWindow)
                     break;
 
-                if (isOp && !WBGET(WB_ANTISPAM_FILTER_OPS) && !isBot)
+                if (isOp && !qtCtx()->settings()->getBool(WB_ANTISPAM_FILTER_OPS) && !isBot)
                     break;
 
-                if (AntiSpam::getInstance()->isInBlack(nick))
+                if (qtCtx()->antiSpam()->isInBlack(nick))
                     return;
-                else if (!(AntiSpam::getInstance()->isInWhite(nick) || AntiSpam::getInstance()->isInGray(nick))){
-                    AntiSpam::getInstance()->checkUser(_q(id.toBase32()), msg, _q(d->client->getHubUrl()));
+                else if (!(qtCtx()->antiSpam()->isInWhite(nick) || qtCtx()->antiSpam()->isInGray(nick))){
+                    qtCtx()->antiSpam()->checkUser(_q(id.toBase32()), msg, _q(d->client->getHubUrl()));
 
                     return;
                 }
@@ -3899,7 +3868,7 @@ void HubFrame::on(ClientListener::Message, Client*, const ChatMessage &message) 
 
         map["NICK"]  = nick;
         map["MSG"]   = msg;
-        map["TIME"]  = QDateTime::currentDateTime().toString(WSGET(WS_CHAT_TIMESTAMP));
+        map["TIME"]  = QDateTime::currentDateTime().toString(qtCtx()->settings()->getStr(WS_CHAT_TIMESTAMP));
         map["ECHO"]  = isEcho;
 
         QString color = WS_CHAT_PRIV_USER_COLOR;
@@ -3918,27 +3887,27 @@ void HubFrame::on(ClientListener::Message, Client*, const ChatMessage &message) 
         map["CID"] = _q(id.toBase32());
         map["I4"]  = _q(message.from->getIdentity().getIp());
 
-        if (WBGET(WB_CHAT_REDIRECT_BOT_PMS) && isBot)
+        if (qtCtx()->settings()->getBool(WB_CHAT_REDIRECT_BOT_PMS) && isBot)
             emit coreMessage(map);
         else
             emit corePrivateMsg(map);
 
-        if (!(isBot || isHub) && (message.from->getUser() != ClientManager::getInstance()->getMe()) && Util::getAway() && !hasPMWindow)
-            ClientManager::getInstance()->privateMessage(HintedUser(user->getUser(), d->client->getHubUrl()), Util::getAwayMessage(), false);
+        if (!(isBot || isHub) && (message.from->getUser() != qtCtx()->dcCtx().getClientManager()->getMe()) && Util::getAway() && !hasPMWindow)
+            qtCtx()->dcCtx().getClientManager()->privateMessage(HintedUser(user->getUser(), d->client->getHubUrl()), Util::getAwayMessage(), false);
 
-        if (BOOLSETTING(LOG_PRIVATE_CHAT)){
-            string info = Util::formatAdditionalInfo(map["I4"].toString().toStdString(),BOOLSETTING(USE_IP),BOOLSETTING(GET_USER_COUNTRY));
+        if (qtCtx()->dcCtx().getSettingsManager()->getBool(SettingsManager::LOG_PRIVATE_CHAT, true)){
+            string info = Util::formatAdditionalInfo(map["I4"].toString().toStdString(),qtCtx()->dcCtx().getSettingsManager()->getBool(SettingsManager::USE_IP, true),qtCtx()->dcCtx().getSettingsManager()->getBool(SettingsManager::GET_USER_COUNTRY, true));
             QString qinfo = !info.empty() ? _q(info) : "";
 
             StringMap params;
             params["message"] = _tq(qinfo + "<" + nick + "> " + msg);
-            params["hubNI"] = _tq(WulforUtil::getInstance()->getHubNames(id));
+            params["hubNI"] = _tq(qtCtx()->wulforUtil()->getHubNames(id));
             params["hubURL"] = d->client->getHubUrl();
             params["userCID"] = id.toBase32();
             params["userNI"] = user->getIdentity().getNick();
-            params["myCID"] = ClientManager::getInstance()->getMe()->getCID().toBase32();
+            params["myCID"] = qtCtx()->dcCtx().getClientManager()->getMe()->getCID().toBase32();
             params["userI4"] = message.from->getIdentity().getIp();
-            LOG(LogManager::PM, params);
+            qtCtx()->dcCtx().getLogManager()->log(LogManager::PM, params);
         }
     }
     else
@@ -3949,12 +3918,12 @@ void HubFrame::on(ClientListener::Message, Client*, const ChatMessage &message) 
         if (d->chatDisabled)
             return;
 
-        if (AntiSpam::getInstance() && AntiSpam::getInstance()->isInBlack(_q(user->getIdentity().getNick())))
+        if (qtCtx()->antiSpam() && qtCtx()->antiSpam()->isInBlack(_q(user->getIdentity().getNick())))
             return;
 
         map["NICK"] = _q(user->getIdentity().getNick());
         map["MSG"]  = msg;
-        map["TIME"] = QDateTime::currentDateTime().toString(WSGET(WS_CHAT_TIMESTAMP));
+        map["TIME"] = QDateTime::currentDateTime().toString(qtCtx()->settings()->getStr(WS_CHAT_TIMESTAMP));
 
         QString color = WS_CHAT_USER_COLOR;
 
@@ -3967,7 +3936,7 @@ void HubFrame::on(ClientListener::Message, Client*, const ChatMessage &message) 
         else if (user->getIdentity().isBot())
             color = WS_CHAT_BOT_COLOR;
 
-        if (FavoriteManager::getInstance()->isFavoriteUser(user->getUser()))
+        if (qtCtx()->dcCtx().getFavoriteManager()->isFavoriteUser(user->getUser()))
             color = WS_CHAT_FAVUSER_COLOR;
 
         map["CLR"] = color;
@@ -3976,8 +3945,8 @@ void HubFrame::on(ClientListener::Message, Client*, const ChatMessage &message) 
 
         emit coreMessage(map);
 
-        if (BOOLSETTING(LOG_MAIN_CHAT)){
-            string info = Util::formatAdditionalInfo(map["I4"].toString().toStdString(),BOOLSETTING(USE_IP),BOOLSETTING(GET_USER_COUNTRY));
+        if (qtCtx()->dcCtx().getSettingsManager()->getBool(SettingsManager::LOG_MAIN_CHAT, true)){
+            string info = Util::formatAdditionalInfo(map["I4"].toString().toStdString(),qtCtx()->dcCtx().getSettingsManager()->getBool(SettingsManager::USE_IP, true),qtCtx()->dcCtx().getSettingsManager()->getBool(SettingsManager::GET_USER_COUNTRY, true));
             QString qinfo = !info.empty() ? _q(info) : "";
             QString nick  =  _q(user->getIdentity().getNick());
 
@@ -3988,7 +3957,7 @@ void HubFrame::on(ClientListener::Message, Client*, const ChatMessage &message) 
             params["userNI"] = _tq(nick);
             params["userI4"] = user->getIdentity().getIp();
             d->client->getMyIdentity().getParams(params, "my", true);
-            LOG(LogManager::CHAT, params);
+            qtCtx()->dcCtx().getLogManager()->log(LogManager::CHAT, params);
         }
     }
 }
@@ -4000,13 +3969,13 @@ void HubFrame::on(ClientListener::StatusMessage, Client*, const string &msg, int
 
     Q_D(HubFrame);
 
-    if (BOOLSETTING(LOG_STATUS_MESSAGES)){
+    if (qtCtx()->dcCtx().getSettingsManager()->getBool(SettingsManager::LOG_STATUS_MESSAGES, true)){
         StringMap params;
         d->client->getHubIdentity().getParams(params, "hub", false);
         params["hubURL"] = d->client->getHubUrl();
         d->client->getMyIdentity().getParams(params, "my", true);
         params["message"] = msg;
-        LOG(LogManager::STATUS, params);
+        qtCtx()->dcCtx().getLogManager()->log(LogManager::STATUS, params);
     }
 }
 

@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2001-2012 Jacek Sieka, arnetheduck on gmail point com
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -37,20 +38,21 @@
 #include "FinishedManager.h"
 #include "File.h"
 #include "extra/ipfilter.h"
+#include "DCPlusPlus.h"
 
 namespace dcpp {
 
 static const string UPLOAD_AREA = "Uploads";
 
 
-UploadManager::UploadManager() noexcept : extra(0), lastGrant(0), running(0), limits(NULL), lastFreeSlots(-1) {
-    ClientManager::getInstance()->addListener(this);
-    TimerManager::getInstance()->addListener(this);
+UploadManager::UploadManager(DCContext& ctx) : ContextAware(ctx), extra(0), lastGrant(0), running(0), limits(NULL), lastFreeSlots(-1) {
+    this->ctx().getClientManager()->addListener(this);
+    this->ctx().getTimerManager()->addListener(this);
 }
 
 UploadManager::~UploadManager() {
-    TimerManager::getInstance()->removeListener(this);
-    ClientManager::getInstance()->removeListener(this);
+    ctx().getTimerManager()->removeListener(this);
+    ctx().getClientManager()->removeListener(this);
     while(true) {
         {
             Lock l(cs);
@@ -63,17 +65,17 @@ UploadManager::~UploadManager() {
 
 bool UploadManager::hasUpload ( UserConnection& aSource ) {
     Lock l(cs);
-    if (!aSource.getSocket() || SETTING(ALLOW_SIM_UPLOADS))
+    if (!aSource.getSocket() || CTX_SETTING(ALLOW_SIM_UPLOADS))
         return false;
 
     for ( UploadList::const_iterator i = uploads.begin(); i != uploads.end(); ++i ) {
         Upload* u = *i;
         const string l_srcip = aSource.getSocket()->getIp();
-        const int64_t l_share = ClientManager::getInstance()->getBytesShared(aSource.getUser());
+        const int64_t l_share = ctx().getClientManager()->getBytesShared(aSource.getUser());
 
         if (u && u->getUserConnection().getSocket() &&
                 l_srcip == u->getUserConnection().getSocket()->getIp() &&
-                u->getUser() && l_share == ClientManager::getInstance()->getBytesShared(u->getUser())
+                u->getUser() && l_share == ctx().getClientManager()->getBytesShared(u->getUser())
                 )
         {
             return true;
@@ -105,13 +107,13 @@ bool UploadManager::prepareFile(UserConnection& aSource, const string& aType, co
 
     try {
         if(aType == Transfer::names[Transfer::TYPE_FILE]) {
-            sourceFile = ShareManager::getInstance()->toReal(aFile);
+            sourceFile = ctx().getShareManager()->toReal(aFile);
 
             if(aFile == Transfer::USER_LIST_NAME) {
                 // Unpack before sending...
                 string bz2 = File(sourceFile, File::READ, File::OPEN).read();
                 string xml;
-                CryptoManager::getInstance()->decodeBZ2(reinterpret_cast<const uint8_t*>(bz2.data()), bz2.size(), xml);
+                ctx().getCryptoManager()->decodeBZ2(reinterpret_cast<const uint8_t*>(bz2.data()), bz2.size(), xml);
                 // Clear to save some memory...
                 string().swap(bz2);
                 is = new MemoryInputStream(xml);
@@ -119,10 +121,10 @@ bool UploadManager::prepareFile(UserConnection& aSource, const string& aType, co
                 fileSize = size = xml.size();
             } else {
                 {
-                    ShareManager *SM = ShareManager::getInstance();
+                    ShareManager *SM = ctx().getShareManager();
                     string msg;
                     if ( aFile != Transfer::USER_LIST_NAME_BZ && aFile != Transfer::USER_LIST_NAME &&
-                         !limits.IsUserAllowed(SM->toVirtual(SM->getTTH(aFile)), aSource.getUser(), &msg)
+                         !limits.IsUserAllowed(ctx(), SM->toVirtual(SM->getTTH(aFile)), aSource.getUser(), &msg)
                          )
                     {
                         throw ShareException(msg);
@@ -149,7 +151,7 @@ bool UploadManager::prepareFile(UserConnection& aSource, const string& aType, co
                     return false;
                 }
 
-                free = free || (sz <= (int64_t)(SETTING(SET_MINISLOT_SIZE) * 1024) );
+                free = free || (sz <= (int64_t)(CTX_SETTING(SET_MINISLOT_SIZE) * 1024) );
 
                 f->setPos(start);
                 is = f;
@@ -159,8 +161,8 @@ bool UploadManager::prepareFile(UserConnection& aSource, const string& aType, co
             }
             type = userlist ? Transfer::TYPE_FULL_LIST : Transfer::TYPE_FILE;
         } else if(aType == Transfer::names[Transfer::TYPE_TREE]) {
-            sourceFile = ShareManager::getInstance()->toReal(aFile);
-            MemoryInputStream* mis = ShareManager::getInstance()->getTree(aFile);
+            sourceFile = ctx().getShareManager()->toReal(aFile);
+            MemoryInputStream* mis = ctx().getShareManager()->getTree(aFile);
             if(!mis) {
                 aSource.fileNotAvail();
                 return false;
@@ -173,7 +175,7 @@ bool UploadManager::prepareFile(UserConnection& aSource, const string& aType, co
             type = Transfer::TYPE_TREE;
         } else if(aType == Transfer::names[Transfer::TYPE_PARTIAL_LIST]) {
             // Partial file list
-            MemoryInputStream* mis = ShareManager::getInstance()->generatePartialList(aFile, listRecursive);
+            MemoryInputStream* mis = ctx().getShareManager()->generatePartialList(aFile, listRecursive);
             if(mis == NULL) {
                 aSource.fileNotAvail();
                 return false;
@@ -196,7 +198,7 @@ bool UploadManager::prepareFile(UserConnection& aSource, const string& aType, co
             // find in download queue
             string target;
 
-            if(QueueManager::getInstance()->isChunkDownloaded(fileHash, aStartPos, aBytes, target, fileSize)){
+            if(ctx().getQueueManager()->isChunkDownloaded(fileHash, aStartPos, aBytes, target, fileSize)){
                 sourceFile = target;
 
                 try {
@@ -229,7 +231,7 @@ bool UploadManager::prepareFile(UserConnection& aSource, const string& aType, co
                 }
             } else {
                 // Share finished file
-                target = FinishedManager::getInstance()->getTarget(fileHash.toBase32());
+                target = ctx().getFinishedManager()->getTarget(fileHash.toBase32());
 
                 if(!target.empty() && Util::fileExists(target)){
                     sourceFile = target;
@@ -266,20 +268,25 @@ bool UploadManager::prepareFile(UserConnection& aSource, const string& aType, co
         aSource.fileNotAvail(e.getError());
         return false;
     } catch(const Exception& e) {
-        LogManager::getInstance()->message(str(F_("Unable to send file %1%: %2%") % Util::addBrackets(sourceFile) % e.getError()));
+        ctx().getLogManager()->message(str(F_("Unable to send file %1%: %2%") % Util::addBrackets(sourceFile) % e.getError()));
+        aSource.fileNotAvail();
+        return false;
+    } catch(const std::exception& e) {
+        ctx().getLogManager()->message(str(F_("Unable to send file %1%: %2%") % Util::addBrackets(sourceFile) % string(e.what())));
         aSource.fileNotAvail();
         return false;
     }
 
 ok:
 
+    try {
     Lock l(cs);
 
     bool extraSlot = false;
 
     if(!aSource.isSet(UserConnection::FLAG_HASSLOT)) {
         bool hasReserved = (reservedSlots.find(aSource.getUser()) != reservedSlots.end());
-        bool isFavorite = FavoriteManager::getInstance()->hasSlot(aSource.getUser());
+        bool isFavorite = ctx().getFavoriteManager()->hasSlot(aSource.getUser());
 
         if(!(hasReserved || isFavorite || getFreeSlots() > 0 || getAutoSlot())) {
             bool supportsFree = aSource.isSet(UserConnection::FLAG_SUPPORTS_MINISLOTS);
@@ -293,7 +300,7 @@ ok:
                 // Check for tth root identifier
                 string tFile = aFile;
                 if (tFile.compare(0, 4, "TTH/") == 0)
-                    tFile = ShareManager::getInstance()->toVirtual(TTHValue(aFile.substr(4)));
+                    tFile = ctx().getShareManager()->toVirtual(TTHValue(aFile.substr(4)));
 
                 addFailedUpload(aSource, tFile +
                                 " (" +  Util::formatBytes(aStartPos) + " - " + Util::formatBytes(aStartPos + aBytes) + ")");
@@ -334,6 +341,13 @@ ok:
     }
 
     return true;
+
+    } catch(const std::exception& e) {
+        delete is;
+        ctx().getLogManager()->message(str(F_("Unable to send file %1%: %2%") % Util::addBrackets(sourceFile) % string(e.what())));
+        aSource.fileNotAvail();
+        return false;
+    }
 }
 
 int64_t UploadManager::getRunningAverage() {
@@ -347,13 +361,13 @@ int64_t UploadManager::getRunningAverage() {
 
 bool UploadManager::getAutoSlot() {
     /** A 0 in settings means disable */
-    if(SETTING(MIN_UPLOAD_SPEED) == 0)
+    if(CTX_SETTING(MIN_UPLOAD_SPEED) == 0)
         return false;
     /** Only grant one slot per 30 sec */
     if(GET_TICK() < getLastGrant() + 30*1000)
         return false;
     /** Grant if upload speed is less than the threshold speed */
-    return getRunningAverage() < (SETTING(MIN_UPLOAD_SPEED)*1024);
+    return getRunningAverage() < (CTX_SETTING(MIN_UPLOAD_SPEED)*1024);
 }
 
 void UploadManager::removeUpload(Upload* aUpload) {
@@ -369,10 +383,11 @@ void UploadManager::reserveSlot(const HintedUser& aUser) {
         reservedSlots.insert(aUser);
     }
     if(aUser.user->isOnline())
-        ClientManager::getInstance()->connect(aUser, Util::toString(Util::rand()));
+        ctx().getClientManager()->connect(aUser, Util::toString(Util::rand()));
 }
 
-void UploadManager::on(UserConnectionListener::Get, UserConnection* aSource, const string& aFile, int64_t aResume) noexcept {
+void UploadManager::on(UserConnectionListener::Get, UserConnection* aSource, const string& aFile, int64_t aResume) {
+    try {
     if(aSource->getState() != UserConnection::STATE_GET) {
         dcdebug("UM::onGet Bad state, ignoring\n");
         return;
@@ -382,9 +397,16 @@ void UploadManager::on(UserConnectionListener::Get, UserConnection* aSource, con
         aSource->setState(UserConnection::STATE_SEND);
         aSource->fileLength(Util::toString(aSource->getUpload()->getSize()));
     }
+    } catch(const std::exception& e) {
+        fprintf(stderr, "[UploadManager::on(Get)] exception: %s\n", e.what());
+        aSource->fileNotAvail();
+    } catch(...) {
+        fprintf(stderr, "[UploadManager::on(Get)] unknown exception\n");
+        aSource->fileNotAvail();
+    }
 }
 
-void UploadManager::on(UserConnectionListener::Send, UserConnection* aSource) noexcept {
+void UploadManager::on(UserConnectionListener::Send, UserConnection* aSource) {
     if(aSource->getState() != UserConnection::STATE_SEND) {
         dcdebug("UM::onSend Bad state, ignoring\n");
         return;
@@ -400,7 +422,8 @@ void UploadManager::on(UserConnectionListener::Send, UserConnection* aSource) no
     fire(UploadManagerListener::Starting(), u);
 }
 
-void UploadManager::on(AdcCommand::GET, UserConnection* aSource, const AdcCommand& c) noexcept {
+void UploadManager::on(AdcCommand::GET, UserConnection* aSource, const AdcCommand& c) {
+    try {
     if(aSource->getState() != UserConnection::STATE_GET) {
         dcdebug("UM::onGET Bad state, ignoring\n");
         return;
@@ -434,9 +457,16 @@ void UploadManager::on(AdcCommand::GET, UserConnection* aSource, const AdcComman
         aSource->transmitFile(u->getStream());
         fire(UploadManagerListener::Starting(), u);
     }
+    } catch(const std::exception& e) {
+        fprintf(stderr, "[UploadManager::on(ADC GET)] exception: %s\n", e.what());
+        aSource->fileNotAvail();
+    } catch(...) {
+        fprintf(stderr, "[UploadManager::on(ADC GET)] unknown exception\n");
+        aSource->fileNotAvail();
+    }
 }
 
-void UploadManager::on(UserConnectionListener::BytesSent, UserConnection* aSource, size_t aBytes, size_t aActual) noexcept {
+void UploadManager::on(UserConnectionListener::BytesSent, UserConnection* aSource, size_t aBytes, size_t aActual) {
     dcassert(aSource->getState() == UserConnection::STATE_RUNNING);
     Upload* u = aSource->getUpload();
     dcassert(u != NULL);
@@ -444,7 +474,7 @@ void UploadManager::on(UserConnectionListener::BytesSent, UserConnection* aSourc
     u->tick();
 }
 
-void UploadManager::on(UserConnectionListener::Failed, UserConnection* aSource, const string& aError) noexcept {
+void UploadManager::on(UserConnectionListener::Failed, UserConnection* aSource, const string& aError) {
     Upload* u = aSource->getUpload();
 
     if(u) {
@@ -457,17 +487,17 @@ void UploadManager::on(UserConnectionListener::Failed, UserConnection* aSource, 
     removeConnection(aSource);
 }
 
-void UploadManager::on(UserConnectionListener::TransmitDone, UserConnection* aSource) noexcept {
+void UploadManager::on(UserConnectionListener::TransmitDone, UserConnection* aSource) {
     dcassert(aSource->getState() == UserConnection::STATE_RUNNING);
     Upload* u = aSource->getUpload();
     dcassert(u != NULL);
 
     aSource->setState(UserConnection::STATE_GET);
 
-    if(BOOLSETTING(LOG_UPLOADS) && u->getType() != Transfer::TYPE_TREE && (BOOLSETTING(LOG_FILELIST_TRANSFERS) || u->getType() != Transfer::TYPE_FULL_LIST)) {
+    if(CTX_BOOLSETTING(LOG_UPLOADS) && u->getType() != Transfer::TYPE_TREE && (CTX_BOOLSETTING(LOG_FILELIST_TRANSFERS) || u->getType() != Transfer::TYPE_FULL_LIST)) {
         StringMap params;
         u->getParams(*aSource, params);
-        LOG(LogManager::UPLOAD, params);
+        CTX_LOG(LogManager::UPLOAD, params);
     }
 
     fire(UploadManagerListener::Complete(), u);
@@ -485,7 +515,7 @@ void UploadManager::notifyQueuedUsers() {
         if (waitingUsers.empty()) break;                //no users to notify
 
         // FIXME: record and replay a client url hint URL
-        ClientManager::getInstance()->connect(waitingUsers.front().first, Util::toString(Util::rand()));
+        ctx().getClientManager()->connect(waitingUsers.front().first, Util::toString(Util::rand()));
         --freeSlots;
 
         waitingUsers.pop_front();
@@ -536,7 +566,7 @@ const UploadManager::FileSet& UploadManager::getWaitingUserFiles(const UserPtr& 
 
 void UploadManager::addConnection(UserConnectionPtr conn) {
     Lock l(cs);
-    if (!BOOLSETTING(ALLOW_UPLOAD_MULTI_HUB)) {
+    if (!CTX_BOOLSETTING(ALLOW_UPLOAD_MULTI_HUB)) {
         for(auto u: uploads) {
             if (u->getUserConnection().getRemoteIp() == conn->getRemoteIp()) {
                 conn->disconnect();
@@ -544,15 +574,15 @@ void UploadManager::addConnection(UserConnectionPtr conn) {
             }
         }
     }
-    if (BOOLSETTING(IPFILTER) && !IPFilter::getInstance()->OK(conn->getRemoteIp(),eDIRECTION_OUT)) {
+    if (CTX_BOOLSETTING(IPFILTER) && !ctx().getIPFilter()->OK(conn->getRemoteIp(),eDIRECTION_OUT)) {
         conn->error("Your IP is Blocked!");// TODO translate
-        LogManager::getInstance()->message(_("IPFilter: Blocked incoming connection to ") + conn->getRemoteIp()); // TODO translate
-        //QueueManager::getInstance()->removeSource(conn->getUser(), QueueItem::Source::FLAG_REMOVED);
+        ctx().getLogManager()->message(_("IPFilter: Blocked incoming connection to ") + conn->getRemoteIp()); // TODO translate
+        //ctx().getQueueManager()->removeSource(conn->getUser(), QueueItem::Source::FLAG_REMOVED);
         conn->disconnect();
         return;
     }
 
-    if(SETTING(REQUIRE_TLS) && !conn->isSecure()) {
+    if(CTX_SETTING(REQUIRE_TLS) && !conn->isSecure()) {
         conn->error("Secure connection required!");
         conn->disconnect();
         return;
@@ -578,7 +608,7 @@ void UploadManager::reloadRestrictions(){
     limits.RenewList(NULL);
 }
 
-void UploadManager::on(TimerManagerListener::Minute, uint64_t /* aTick */) noexcept {
+void UploadManager::on(TimerManagerListener::Minute, uint64_t /* aTick */) {
     UserList disconnects;
     {
         Lock l(cs);
@@ -592,7 +622,7 @@ void UploadManager::on(TimerManagerListener::Minute, uint64_t /* aTick */) noexc
 
         waitingUsers.erase(i, waitingUsers.end());
 
-        if( BOOLSETTING(AUTO_KICK) ) {
+        if( CTX_BOOLSETTING(AUTO_KICK) ) {
             for(auto u: uploads) {
                 if(u->getUser()->isOnline()) {
                     u->unsetFlag(Upload::FLAG_PENDING_KICK);
@@ -604,7 +634,7 @@ void UploadManager::on(TimerManagerListener::Minute, uint64_t /* aTick */) noexc
                     continue;
                 }
 
-                if(BOOLSETTING(AUTO_KICK_NO_FAVS) && FavoriteManager::getInstance()->isFavoriteUser(u->getUser())) {
+                if(CTX_BOOLSETTING(AUTO_KICK_NO_FAVS) && ctx().getFavoriteManager()->isFavoriteUser(u->getUser())) {
                     continue;
                 }
 
@@ -614,24 +644,24 @@ void UploadManager::on(TimerManagerListener::Minute, uint64_t /* aTick */) noexc
     }
 
     for(auto i = disconnects.begin(); i != disconnects.end(); ++i) {
-        LogManager::getInstance()->message(str(F_("Disconnected user leaving the hub: %1%") %
-                                               Util::toString(ClientManager::getInstance()->getNicks((*i)->getCID(), Util::emptyString))));
-        ConnectionManager::getInstance()->disconnect(*i, false);
+        ctx().getLogManager()->message(str(F_("Disconnected user leaving the hub: %1%") %
+                                               Util::toString(ctx().getClientManager()->getNicks((*i)->getCID(), Util::emptyString))));
+        ctx().getConnectionManager()->disconnect(*i, false);
     }
 
     int freeSlots = getFreeSlots();
     if(freeSlots != lastFreeSlots) {
         lastFreeSlots = freeSlots;
-        ClientManager::getInstance()->infoUpdated();
+        ctx().getClientManager()->infoUpdated();
     }
 }
 
-void UploadManager::on(GetListLength, UserConnection* conn) noexcept {
+void UploadManager::on(GetListLength, UserConnection* conn) {
     conn->error("GetListLength not supported");
     conn->disconnect(false);
 }
 
-void UploadManager::on(AdcCommand::GFI, UserConnection* aSource, const AdcCommand& c) noexcept {
+void UploadManager::on(AdcCommand::GFI, UserConnection* aSource, const AdcCommand& c) {
     if(aSource->getState() != UserConnection::STATE_GET) {
         dcdebug("UM::onSend Bad state, ignoring\n");
         return;
@@ -647,7 +677,7 @@ void UploadManager::on(AdcCommand::GFI, UserConnection* aSource, const AdcComman
 
     if(type == Transfer::names[Transfer::TYPE_FILE]) {
         try {
-            aSource->send(ShareManager::getInstance()->getFileInfo(ident));
+            aSource->send(ctx().getShareManager()->getFileInfo(ident));
         } catch(const ShareException&) {
             aSource->fileNotAvail();
         }
@@ -657,7 +687,7 @@ void UploadManager::on(AdcCommand::GFI, UserConnection* aSource, const AdcComman
 }
 
 // TimerManagerListener
-void UploadManager::on(TimerManagerListener::Second, uint64_t) noexcept {
+void UploadManager::on(TimerManagerListener::Second, uint64_t) {
     Lock l(cs);
     UploadList ticks;
 
@@ -674,7 +704,7 @@ void UploadManager::on(TimerManagerListener::Second, uint64_t) noexcept {
     //notifyQueuedUsers();
 }
 
-void UploadManager::on(ClientManagerListener::UserDisconnected, const UserPtr& aUser) noexcept {
+void UploadManager::on(ClientManagerListener::UserDisconnected, const UserPtr& aUser) {
     if(!aUser->isOnline()) {
         clearUserFiles(aUser);
     }

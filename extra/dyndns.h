@@ -1,4 +1,5 @@
 //      Copyright 2011 Eugene Petrov <dhamp@ya.ru>
+//      Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
 //
 //      This program is free software; you can redistribute it and/or modify
 //      it under the terms of the GNU General Public License as published by
@@ -17,16 +18,16 @@
 
 #include "dcpp/stdinc.h"
 #include "dcpp/HttpConnection.h"
-#include "dcpp/Singleton.h"
+#include "dcpp/DCContext.h"
 #include "dcpp/TimerManager.h"
 
 namespace dcpp {
 
-class DynDNS : public Singleton<DynDNS>, private HttpConnectionListener
+class DynDNS : private HttpConnectionListener, public ContextAware
 {
 public:
-    DynDNS();
-    ~DynDNS();
+    explicit DynDNS(DCContext& ctx);
+    virtual ~DynDNS();
 
     void load();
     void stop();

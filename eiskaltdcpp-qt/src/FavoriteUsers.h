@@ -17,7 +17,6 @@
 #include <QMetaType>
 
 #include "dcpp/stdinc.h"
-#include "dcpp/Singleton.h"
 #include "dcpp/FavoriteManager.h"
 
 #include "ArenaWidget.h"
@@ -27,17 +26,20 @@
 
 class FavoriteUsersModel;
 
+#include "QtContextAware.h"
+#include "QtContext.h"
+
 class FavoriteUsers :
         public QWidget,
-        public dcpp::Singleton<FavoriteUsers>,
         public dcpp::FavoriteManagerListener,
         public ArenaWidget,
-        private Ui::UIFavoriteUsers
+        private Ui::UIFavoriteUsers,
+        public QtContextAware
 {
 Q_OBJECT
 Q_INTERFACES(ArenaWidget)
 
-friend class dcpp::Singleton<FavoriteUsers>;
+friend class QtContext;
 typedef QVariantMap VarMap;
 
 public:
@@ -46,7 +48,7 @@ public:
     virtual QString getArenaTitle() { return tr("Favourite users"); }
     virtual QString getArenaShortTitle() { return getArenaTitle(); }
     virtual QMenu *getMenu() { return nullptr; }
-    const QPixmap &getPixmap(){ return WICON(WulforUtil::eiFAVUSERS); }
+    const QPixmap &getPixmap(){ return qtCtx()->wulforUtil()->getPixmap(WulforUtil::eiFAVUSERS); }
     ArenaWidget::Role role() const { return ArenaWidget::FavoriteUsers; }
 
 Q_SIGNALS:
@@ -70,16 +72,19 @@ public Q_SLOTS:
 private Q_SLOTS:
     void slotContextMenu();
     void slotHeaderMenu();
-    void slotAutoGrant(bool b){ WBSET(WB_FAVUSERS_AUTOGRANT, b); }
+    void slotAutoGrant(bool b){ qtCtx()->settings()->setBool(WB_FAVUSERS_AUTOGRANT, b); }
     void slotSettingsChanged(const QString &key, const QString &);
 
     void addUser(const VarMap &);
     void updateUser(const QString &, const QString &);
     void remUser(const QString &);
 
+public:
+    FavoriteUsers(dcpp::DCContext& ctx, QWidget *parent = nullptr);
+    ~FavoriteUsers() override;
+
+
 private:
-    FavoriteUsers(QWidget *parent = nullptr);
-    virtual ~FavoriteUsers();
 
     void handleRemove(const QString &);
     void handleDesc(const QString &);

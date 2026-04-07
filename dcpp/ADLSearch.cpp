@@ -1,6 +1,7 @@
 /*
  * Copyright (C) 2001-2012 Jacek Sieka, arnetheduck on gmail point com
  * Copyright (C) 2009-2019 EiskaltDC++ developers
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -212,12 +213,16 @@ bool ADLSearch::searchAll(const string& s) {
 #endif
 }
 
-ADLSearchManager::ADLSearchManager() : breakOnFirst(false), user(UserPtr(), Util::emptyString) {
+ADLSearchManager::ADLSearchManager(DCContext& ctx) : ContextAware(ctx), breakOnFirst(false), user(UserPtr(), Util::emptyString) {
     load();
 }
 
 ADLSearchManager::~ADLSearchManager() {
-    save();
+    try {
+        save();
+    } catch (...) {
+        // Swallow exceptions — destructors must not throw
+    }
 }
 
 void ADLSearchManager::load() {
@@ -361,7 +366,7 @@ void ADLSearchManager::matchesFile(DestDirList& destDirVector, DirectoryListing:
 
             if(is.isAutoQueue){
                 try {
-                    QueueManager::getInstance()->add(SETTING(DOWNLOAD_DIRECTORY) + currentFile->getName(),
+                    ctx().getQueueManager()->add(CTX_SETTING(DOWNLOAD_DIRECTORY) + currentFile->getName(),
                                                      currentFile->getSize(), currentFile->getTTH(), getUser());
                 } catch(const Exception&) { }
             }
@@ -475,10 +480,10 @@ void ADLSearchManager::finalizeDestinationDirectories(DestDirList& destDirs, Dir
 
 void ADLSearchManager::matchListing(DirectoryListing& aDirList) {
     StringMap params;
-    params["userNI"] = ClientManager::getInstance()->getNicks(aDirList.getUser())[0];
+    params["userNI"] = ctx().getClientManager()->getNicks(aDirList.getUser())[0];
     params["userCID"] = aDirList.getUser().user->getCID().toBase32();
 
-    if (BOOLSETTING(USE_ADL_ONLY_OWN_LIST) && params["userCID"] != ClientManager::getInstance()->getMe()->getCID().toBase32())
+    if (CTX_BOOLSETTING(USE_ADL_ONLY_OWN_LIST) && params["userCID"] != ctx().getClientManager()->getMe()->getCID().toBase32())
         return;
 
     setUser(aDirList.getUser());
@@ -487,7 +492,7 @@ void ADLSearchManager::matchListing(DirectoryListing& aDirList) {
 
     DestDirList destDirs;
     prepareDestinationDirectories(destDirs, root, params);
-    setBreakOnFirst(BOOLSETTING(ADLS_BREAK_ON_FIRST));
+    setBreakOnFirst(CTX_BOOLSETTING(ADLS_BREAK_ON_FIRST));
 
     string path(root->getName());
     matchRecurse(destDirs, root, path);

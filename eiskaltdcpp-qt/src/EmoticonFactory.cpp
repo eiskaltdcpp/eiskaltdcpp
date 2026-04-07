@@ -6,10 +6,15 @@
 *   (at your option) any later version.                                   *
 *                                                                         *
 ***************************************************************************/
+/*
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
+ */
 
 #include "EmoticonFactory.h"
 #include "WulforSettings.h"
 #include "WulforUtil.h"
+#include "QtContext.h"
+#include "QtContextAware.h"
 
 #include <QDir>
 #include <QFile>
@@ -24,7 +29,8 @@ static const QString EmoticonSectionName = "emoticons-map";
 static const QString EmoticonSubsectionName = "emoticon";
 static const QString EmoticonTextSectionName = "name";
 
-EmoticonFactory::EmoticonFactory() :
+EmoticonFactory::EmoticonFactory(dcpp::DCContext& ctx) :
+    QtContextAware(ctx),
     QObject(nullptr)
 {
 }
@@ -34,15 +40,15 @@ EmoticonFactory::~EmoticonFactory(){
 }
 
 void EmoticonFactory::load(){
-    const QString emoTheme = WSGET(WS_APP_EMOTICON_THEME, "default");
+    const QString emoTheme = qtCtx()->settings()->getStr(WS_APP_EMOTICON_THEME, "default");
 
     if (emoTheme.isEmpty() || (currentTheme == emoTheme))
         return;
 
-    if (!QDir(WulforUtil::getInstance()->getEmoticonsPath() + emoTheme).exists())
+    if (!QDir(qtCtx()->wulforUtil()->getEmoticonsPath() + emoTheme).exists())
         return;
 
-    const QString xmlFile = WulforUtil::getInstance()->getEmoticonsPath() + emoTheme + ".xml";
+    const QString xmlFile = qtCtx()->wulforUtil()->getEmoticonsPath() + emoTheme + ".xml";
 
     if (!QFile::exists(xmlFile))
         return;
@@ -76,7 +82,7 @@ void EmoticonFactory::addEmoticons(QTextDocument *to){
     if (list.isEmpty() || !to)
         return;
 
-    QString emoTheme = WSGET(WS_APP_EMOTICON_THEME);
+    QString emoTheme = qtCtx()->settings()->getStr(WS_APP_EMOTICON_THEME);
 
     for (const auto &i : list){
         to->addResource( QTextDocument::ImageResource,
@@ -86,7 +92,7 @@ void EmoticonFactory::addEmoticons(QTextDocument *to){
     }
 
     if (!docs.contains(to)){
-        connect(to, SIGNAL(destroyed()), this, SLOT(slotDocDeleted()));
+        connect(to, &QTextDocument::destroyed, this, &EmoticonFactory::slotDocDeleted);
 
         docs << to;
     }
@@ -96,14 +102,14 @@ QString EmoticonFactory::convertEmoticons(const QString &html){
     if (html.isEmpty() || list.isEmpty() || map.isEmpty())
         return html;
 
-    QString emoTheme = WSGET(WS_APP_EMOTICON_THEME);
+    QString emoTheme = qtCtx()->settings()->getStr(WS_APP_EMOTICON_THEME);
     QString out = "";
     QString buf = html;
 
     auto it = map.end();
     auto begin = map.begin();
 
-    bool force_emot = WBGET(WB_APP_FORCE_EMOTICONS);
+    bool force_emot = qtCtx()->settings()->getBool(WB_APP_FORCE_EMOTICONS);
 
     if (!force_emot){
         buf.prepend(" ");
@@ -209,7 +215,7 @@ void EmoticonFactory::createEmoticonMap(const QDomNode &root){
     clear();
 
     for (const auto &node : emoNodes){
-        QString emoTheme = WSGET(WS_APP_EMOTICON_THEME);
+        QString emoTheme = qtCtx()->settings()->getStr(WS_APP_EMOTICON_THEME);
 
         EmoticonObject *emot = new EmoticonObject();
         QDomElement el = node.toElement();
@@ -217,7 +223,7 @@ void EmoticonFactory::createEmoticonMap(const QDomNode &root){
         emot->fileName  = el.attribute("file").toUtf8();
         emot->id        = list.size();
         emot->pixmap    = QPixmap();
-        emot->pixmap.load(WulforUtil::getInstance()->getEmoticonsPath() +
+        emot->pixmap.load(qtCtx()->wulforUtil()->getEmoticonsPath() +
                           emoTheme + QDir::separator() + emot->fileName);
 
         DomNodeList emoTexts;

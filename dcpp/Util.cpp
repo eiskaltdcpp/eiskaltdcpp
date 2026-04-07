@@ -2,6 +2,7 @@
  * Copyright (C) 2001-2012 Jacek Sieka, arnetheduck on gmail point com
  * Copyright (C) 2009-2019 EiskaltDC++ developers
  * Copyright (C) 2018-2019 Boris Pek <tehnick-8@yandex.ru>
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -65,6 +66,7 @@
 #include <locale.h>
 
 #include "CID.h"
+#include "DCContext.h"
 
 #include "FastAlloc.h"
 
@@ -74,6 +76,7 @@
 
 #if defined(__APPLE__) && defined(__MACH__)
 #include <mach-o/dyld.h> // _NSGetExecutablePath()
+#include "DCPlusPlus.h"
 #endif
 
 namespace dcpp {
@@ -164,9 +167,16 @@ static string getDownloadsPath(const string& def) {
 
 #endif // _WIN32
 
+static bool s_utilInitDone = false;
+
+void Util::uninitialize() {
+    for (auto& p : paths)
+        p.clear();
+    s_utilInitDone = false;
+}
+
 void Util::initialize(PathsMap pathOverrides) {
-    static bool initDone = false;
-    if (initDone)
+    if (s_utilInitDone)
         return;
 
     Text::initialize();
@@ -356,7 +366,7 @@ void Util::initialize(PathsMap pathOverrides) {
         }
     } catch(const FileException&) {
     }
-    initDone = true;
+    s_utilInitDone = true;
 }
 
 void Util::migrate(const string& file) {
@@ -551,7 +561,7 @@ string Util::getShortTimeString(time_t t) {
     if(_tm == NULL) {
         strcpy(buf, "xx:xx");
     } else {
-        strftime(buf, 254, SETTING(TIME_STAMPS_FORMAT).c_str(), _tm);
+        strftime(buf, 254, getContext()->getSettingsManager()->get(SettingsManager::TIME_STAMPS_FORMAT, true).c_str(), _tm);
     }
     return Text::toUtf8(buf);
 }
@@ -560,18 +570,19 @@ void Util::sanitizeUrl(string& url) {
     // Trim spaces and special characters
     static const std::array<char, 7> special_chars = { ' ', '<', '>', '"', '\t', '\r', '\n' };
     for(const auto &ch : special_chars) {
-        while(url[0] == ch)
+        while(!url.empty() && url[0] == ch)
             url.erase(0, 1);
-        while(url[url.length() - 1] == ch) {
+        while(!url.empty() && url[url.length() - 1] == ch) {
             url.erase(url.length()-1);
         }
     }
 }
 
 string Util::trimCopy(const string &aLine) {
-    string out = aLine;
-    sanitizeUrl(out);
-    return out;
+    auto start = aLine.find_first_not_of(" \t\r\n");
+    if (start == string::npos) return {};
+    auto end = aLine.find_last_not_of(" \t\r\n");
+    return aLine.substr(start, end - start + 1);
 }
 
 /**
@@ -721,7 +732,7 @@ map<string, string> Util::decodeQuery(const string& query) {
 }
 
 string Util::getAwayMessage() {
-    return (formatTime(awayMsg.empty() ? SETTING(DEFAULT_AWAY_MESSAGE) : awayMsg, awayTime)) + " <" APPNAME " v" VERSIONSTRING ">";
+    return (formatTime(awayMsg.empty() ? getContext()->getSettingsManager()->get(SettingsManager::DEFAULT_AWAY_MESSAGE, true) : awayMsg, awayTime)) + " <" APPNAME " v" VERSIONSTRING ">";
 }
 
 string Util::formatBytes(int64_t aBytes, uint8_t base) {
@@ -747,7 +758,7 @@ string Util::formatBytes(int64_t aBytes, uint8_t base) {
 }
 
 string Util::formatBytes(int64_t aBytes) {
-    return formatBytes(aBytes, SETTING(APP_UNIT_BASE));
+    return formatBytes(aBytes, getContext()->getSettingsManager()->get(SettingsManager::APP_UNIT_BASE, true));
 }
 
 string Util::formatExactSize(int64_t aBytes) {
@@ -937,7 +948,7 @@ string Util::toString(const StringList& lst) {
     return '[' + toString(",", lst) + ']';
 }
 
-string::size_type Util::findSubString(const string& aString, const string& aSubString, string::size_type start) noexcept {
+string::size_type Util::findSubString(const string& aString, const string& aSubString, string::size_type start) {
     if(aString.length() < start)
         return (string::size_type)string::npos;
 
@@ -973,7 +984,7 @@ string::size_type Util::findSubString(const string& aString, const string& aSubS
     return (string::size_type)string::npos;
 }
 
-wstring::size_type Util::findSubString(const wstring& aString, const wstring& aSubString, wstring::size_type pos) noexcept {
+wstring::size_type Util::findSubString(const wstring& aString, const wstring& aSubString, wstring::size_type pos) {
     if(aString.length() < pos)
         return static_cast<wstring::size_type>(wstring::npos);
 
@@ -1256,7 +1267,7 @@ uint32_t Util::rand() {
     more info: https://dev.maxmind.com/geoip/legacy/csv/
 */
 string Util::getIpCountry (string IP) {
-    if (BOOLSETTING(GET_USER_COUNTRY)) {
+    if (getContext()->getSettingsManager()->getBool(SettingsManager::GET_USER_COUNTRY)) {
         dcassert(count(IP.begin(), IP.end(), '.') == 3);
 
         //e.g IP 23.24.25.26 : w=23, x=24, y=25, z=26
@@ -1279,10 +1290,10 @@ string Util::getIpCountry (string IP) {
     return Util::emptyString; //if doesn't returned anything already, something is wrong...
 }
 
-void Util::setLang(const string &lang)
+void Util::setLang(DCContext& ctx, const string &lang)
 {
     if(!lang.empty()) {
-        if (SettingsManager *SM = SettingsManager::getInstance()) {
+        if (SettingsManager *SM = ctx.getSettingsManager()) {
             SM->set(SettingsManager::LANGUAGE, lang);
         }
 #ifdef _WIN32
@@ -1385,18 +1396,18 @@ bool Util::getAway() {
     return away;
 }
 
-void Util::setAway(bool b) {
+void Util::setAway(DCContext& ctx, bool b) {
     bool changed = b != away;
     away = b;
     if(away)
         awayTime = time(NULL);
 
     if(changed)
-        ClientManager::getInstance()->infoUpdated();
+        ctx.getClientManager()->infoUpdated();
 }
 
-void Util::switchAway() {
-    setAway(!away);
+void Util::switchAway(DCContext& ctx) {
+    setAway(ctx, !away);
 }
 
 string Util::formatAdditionalInfo(const string& aIp, bool sIp, bool sCC) {
@@ -1404,8 +1415,8 @@ string Util::formatAdditionalInfo(const string& aIp, bool sIp, bool sCC) {
 
     if(!aIp.empty()) {
         string cc = Util::getIpCountry(aIp);
-        bool showIp = BOOLSETTING(USE_IP) || sIp;
-        bool showCc = (BOOLSETTING(GET_USER_COUNTRY) || sCC) && !cc.empty();
+        bool showIp = getContext()->getSettingsManager()->getBool(SettingsManager::USE_IP) || sIp;
+        bool showCc = (getContext()->getSettingsManager()->getBool(SettingsManager::GET_USER_COUNTRY) || sCC) && !cc.empty();
 
         if(showIp) {
             int ll = 15 - aIp.size();

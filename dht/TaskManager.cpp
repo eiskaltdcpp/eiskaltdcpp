@@ -1,5 +1,6 @@
 /*
 * Copyright (C) 2009-2010 Big Muscle, http://strongdc.sourceforge.net/
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
 *
 * This program is free software; you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -26,60 +27,61 @@
 #include "dcpp/SettingsManager.h"
 #include "dcpp/ShareManager.h"
 #include "dcpp/TimerManager.h"
+#include "dcpp/DCPlusPlus.h"
 
 namespace dht
 {
 
-    TaskManager::TaskManager(void) :
-        nextPublishTime(GET_TICK()), nextSearchTime(GET_TICK()), nextSelfLookup(GET_TICK() + 3*60*1000),
+    TaskManager::TaskManager(DHT& dht) :
+        dht_(dht), nextPublishTime(GET_TICK()), nextSearchTime(GET_TICK()), nextSelfLookup(GET_TICK() + 3*60*1000),
         nextFirewallCheck(GET_TICK() + FWCHECK_TIME), lastBootstrap(0)
     {
-        TimerManager::getInstance()->addListener(this);
+        dht_.ctx().getTimerManager()->addListener(this);
     }
 
     TaskManager::~TaskManager(void)
     {
-        TimerManager::getInstance()->removeListener(this);
+        dht_.ctx().getTimerManager()->removeListener(this);
     }
 
     // TimerManagerListener
     void TaskManager::on(TimerManagerListener::Second, uint64_t aTick) throw()
     {
-        if(DHT::getInstance()->isConnected() && DHT::getInstance()->getNodesCount() >= K)
+        if(dht_.isConnected() && dht_.getNodesCount() >= K)
         {
-            if(!DHT::getInstance()->isFirewalled() && IndexManager::getInstance()->getPublish() && aTick >= nextPublishTime)
+            if(!dht_.isFirewalled() && dht_.getIndexManager().getPublish() && aTick >= nextPublishTime)
             {
                 // publish next file
-                IndexManager::getInstance()->publishNextFile();
+                dht_.getIndexManager().publishNextFile();
                 nextPublishTime = aTick + PUBLISH_TIME;
             }
         }
         else
         {
-            if(aTick - lastBootstrap > 15000 || (DHT::getInstance()->getNodesCount() == 0 && aTick - lastBootstrap >= 2000))
+            if(aTick - lastBootstrap > 15000 || (dht_.getNodesCount() == 0 && aTick - lastBootstrap >= 2000))
             {
                 // bootstrap if we doesn't know any remote node
-                BootstrapManager::getInstance()->process();
+                dht_.getBootstrapManager().process();
                 lastBootstrap = aTick;
             }
         }
 
         if(aTick >= nextSearchTime)
         {
-            SearchManager::getInstance()->processSearches();
+            dht_.getSearchManager().processSearches();
             nextSearchTime = aTick + SEARCH_PROCESSTIME;
         }
 
         if(aTick >= nextSelfLookup)
         {
             // find myself in the network
-            SearchManager::getInstance()->findNode(ClientManager::getInstance()->getMe()->getCID());
+            dht_.getSearchManager().findNode(dht_.ctx().getClientManager()->getMe()->getCID());
             nextSelfLookup = aTick + SELF_LOOKUP_TIMER;
         }
 
         if(aTick >= nextFirewallCheck)
         {
-            DHT::getInstance()->setRequestFWCheck();
+            dht_.setRequestFWCheck();
             nextFirewallCheck = aTick + FWCHECK_TIME;
         }
     }
@@ -89,10 +91,10 @@ namespace dht
         Utils::cleanFlood();
 
         // remove dead nodes
-        DHT::getInstance()->checkExpiration(aTick);
-        IndexManager::getInstance()->checkExpiration(aTick);
+        dht_.checkExpiration(aTick);
+        dht_.getIndexManager().checkExpiration(aTick);
 
-        DHT::getInstance()->saveData();
+        dht_.saveData();
     }
 
 }

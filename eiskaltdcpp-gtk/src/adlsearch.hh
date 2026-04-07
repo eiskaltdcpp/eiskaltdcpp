@@ -25,11 +25,13 @@
 #include "bookentry.hh"
 #include "treeview.hh"
 
+namespace dcpp { class DCContext; }
+
 class SearchADL:
         public BookEntry
 {
 public:
-    SearchADL();
+    explicit SearchADL(dcpp::DCContext& dcCtx);
     virtual ~SearchADL();
     virtual void show();
 private:
@@ -54,4 +56,5 @@ private:
     TreeView searchADLView;
     GtkListStore *searchADLStore;
     GtkTreeSelection *searchADLSelection;
+    dcpp::DCContext& dcCtx_;
 };

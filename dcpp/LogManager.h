@@ -1,6 +1,7 @@
 /*
  * Copyright (C) 2001-2012 Jacek Sieka, arnetheduck on gmail point com
  * Copyright (C) 2009-2019 EiskaltDC++ developers
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -20,13 +21,14 @@
 
 #include "typedefs.h"
 #include "CriticalSection.h"
-#include "Singleton.h"
+#include "DCContext.h"
 #include "Speaker.h"
 #include "LogManagerListener.h"
+#include "DCPlusPlus.h"
 
 namespace dcpp {
 
-class LogManager : public Singleton<LogManager>, public Speaker<LogManagerListener>
+class LogManager : public Speaker<LogManagerListener>, public ContextAware
 {
 public:
     typedef pair<time_t, string> Pair;
@@ -35,7 +37,7 @@ public:
     enum Area { CHAT, PM, DOWNLOAD, FINISHED_DOWNLOAD, UPLOAD, SYSTEM, STATUS, SPY, CMD_DEBUG, LAST };
     enum { FILE, FORMAT };
 
-    void log(Area area, ParamMap& params) noexcept;
+    void log(Area area, ParamMap& params);
     void message(const string& msg);
 
     List getLastLogs();
@@ -46,18 +48,20 @@ public:
     void saveSetting(int area, int sel, const string& setting);
 
 private:
-    void log(const string& area, const string& msg) noexcept;
+    void log(const string& area, const string& msg);
 
-    friend class Singleton<LogManager>;
+
+public:
+    explicit LogManager(DCContext& ctx);
+    virtual ~LogManager();
+
+private:
     CriticalSection cs;
     List lastLogs;
 
     int options[LAST][2];
-
-    LogManager();
-    virtual ~LogManager();
 };
 
-#define LOG(area, msg) LogManager::getInstance()->log(area, msg)
+#define CTX_LOG(area, msg) this->ctx().getLogManager()->log(area, msg)
 
 } // namespace dcpp

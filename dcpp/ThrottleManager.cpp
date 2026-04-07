@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2009-2012 Jacek Sieka, arnetheduck on gmail point com
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -20,12 +21,12 @@
 #include "ThrottleManager.h"
 
 #include "DownloadManager.h"
-#include "Singleton.h"
 #include "Socket.h"
 #include "Thread.h"
 #include "TimerManager.h"
 #include "UploadManager.h"
 #include "ClientManager.h"
+#include "DCPlusPlus.h"
 
 namespace dcpp {
 /**
@@ -39,9 +40,9 @@ namespace dcpp {
 int ThrottleManager::read(Socket* sock, void* buffer, size_t len)
 {
     int64_t readSize = -1;
-    size_t downs = DownloadManager::getInstance()->getDownloadCount();
+    size_t downs = ctx().getDownloadManager()->getDownloadCount();
     auto downLimit = getDownLimit(); // avoid even intra-function races
-    if(!BOOLSETTING(THROTTLE_ENABLE) || !getCurThrottling() || downLimit == 0 || downs == 0)
+    if(!CTX_BOOLSETTING(THROTTLE_ENABLE) || !getCurThrottling() || downLimit == 0 || downs == 0)
         return sock->read(buffer, len);
 
     {
@@ -77,9 +78,9 @@ int ThrottleManager::read(Socket* sock, void* buffer, size_t len)
 int ThrottleManager::write(Socket* sock, void* buffer, size_t& len)
 {
     bool gotToken = false;
-    size_t ups = UploadManager::getInstance()->getUploadCount();
+    size_t ups = ctx().getUploadManager()->getUploadCount();
     auto upLimit = getUpLimit(); // avoid even intra-function races
-    if(!BOOLSETTING(THROTTLE_ENABLE) || !getCurThrottling() || upLimit == 0 || ups == 0)
+    if(!CTX_BOOLSETTING(THROTTLE_ENABLE) || !getCurThrottling() || upLimit == 0 || ups == 0)
         return sock->write(buffer, len);
 
     {
@@ -113,14 +114,14 @@ SettingsManager::IntSetting ThrottleManager::getCurSetting(SettingsManager::IntS
     SettingsManager::IntSetting downLimit = SettingsManager::MAX_DOWNLOAD_SPEED_MAIN;
     SettingsManager::IntSetting slots     = SettingsManager::SLOTS_PRIMARY;
 
-    if(BOOLSETTING(TIME_DEPENDENT_THROTTLE)) {
+    if(CTX_BOOLSETTING(TIME_DEPENDENT_THROTTLE)) {
         time_t currentTime;
         time(&currentTime);
         int currentHour = localtime(&currentTime)->tm_hour;
-        if((SETTING(BANDWIDTH_LIMIT_START) < SETTING(BANDWIDTH_LIMIT_END) &&
-            currentHour >= SETTING(BANDWIDTH_LIMIT_START) && currentHour < SETTING(BANDWIDTH_LIMIT_END)) ||
-                (SETTING(BANDWIDTH_LIMIT_START) > SETTING(BANDWIDTH_LIMIT_END) &&
-                 (currentHour >= SETTING(BANDWIDTH_LIMIT_START) || currentHour < SETTING(BANDWIDTH_LIMIT_END))))
+        if((CTX_SETTING(BANDWIDTH_LIMIT_START) < CTX_SETTING(BANDWIDTH_LIMIT_END) &&
+            currentHour >= CTX_SETTING(BANDWIDTH_LIMIT_START) && currentHour < CTX_SETTING(BANDWIDTH_LIMIT_END)) ||
+                (CTX_SETTING(BANDWIDTH_LIMIT_START) > CTX_SETTING(BANDWIDTH_LIMIT_END) &&
+                 (currentHour >= CTX_SETTING(BANDWIDTH_LIMIT_START) || currentHour < CTX_SETTING(BANDWIDTH_LIMIT_END))))
         {
             upLimit   = SettingsManager::MAX_UPLOAD_SPEED_ALTERNATE;
             downLimit = SettingsManager::MAX_DOWNLOAD_SPEED_ALTERNATE;
@@ -141,16 +142,16 @@ SettingsManager::IntSetting ThrottleManager::getCurSetting(SettingsManager::IntS
 }
 
 int ThrottleManager::getUpLimit() {
-    return SettingsManager::getInstance()->get(getCurSetting(SettingsManager::MAX_UPLOAD_SPEED_MAIN));
+    return ctx().getSettingsManager()->get(getCurSetting(SettingsManager::MAX_UPLOAD_SPEED_MAIN));
 }
 
 int ThrottleManager::getDownLimit() {
-    return SettingsManager::getInstance()->get(getCurSetting(SettingsManager::MAX_DOWNLOAD_SPEED_MAIN));
+    return ctx().getSettingsManager()->get(getCurSetting(SettingsManager::MAX_DOWNLOAD_SPEED_MAIN));
 }
 
 void ThrottleManager::setSetting(SettingsManager::IntSetting setting, int value) {
-    SettingsManager::getInstance()->set(setting, value);
-    ClientManager::getInstance()->infoUpdated();
+    ctx().getSettingsManager()->set(setting, value);
+    ctx().getClientManager()->infoUpdated();
 }
 
 bool ThrottleManager::getCurThrottling() {
@@ -177,20 +178,14 @@ void ThrottleManager::waitToken() {
 ThrottleManager::~ThrottleManager()
 {
     shutdown();
-    TimerManager::getInstance()->removeListener(this);
+    ctx().getTimerManager()->removeListener(this);
 }
 
-#ifdef _WIN32
-
-void ThrottleManager::shutdown() {
-    Lock l(stateCS);
-    if (activeWaiter != -1) {
-        waitCS[activeWaiter].unlock();
-        activeWaiter = -1;
-    }
-}
-#else //*nix
-
+// Cooperatively shut down the throttle mechanism.  The timer callback
+// thread owns the waitCS locks, so we cannot unlock them directly from
+// this thread (that would be UB with std::recursive_mutex and crashes
+// in MSVC debug builds).  Instead, set a flag and wait for the timer
+// callback to release the locks on our behalf.
 void ThrottleManager::shutdown()
 {
     bool wait = false;
@@ -205,26 +200,23 @@ void ThrottleManager::shutdown()
         }
     }
 
-    // wait shutdown...
+    // Wait for the timer callback to see halt==1 and release the locks.
     if (wait)
     {
         Lock l(shutdownCS);
     }
 }
-#endif //*nix
 
 // TimerManagerListener
-void ThrottleManager::on(TimerManagerListener::Second, uint64_t /* aTick */) noexcept
+void ThrottleManager::on(TimerManagerListener::Second, uint64_t /* aTick */)
 {
-    int newSlots = SettingsManager::getInstance()->get(getCurSetting(SettingsManager::SLOTS));
-    if(newSlots != SETTING(SLOTS)) {
+    int newSlots = ctx().getSettingsManager()->get(getCurSetting(SettingsManager::SLOTS));
+    if(newSlots != CTX_SETTING(SLOTS)) {
         setSetting(SettingsManager::SLOTS, newSlots);
     }
 
     {
         Lock l(stateCS);
-
-#ifndef _WIN32 //*nix
 
         if (halt == 1)
         {
@@ -241,18 +233,15 @@ void ThrottleManager::on(TimerManagerListener::Second, uint64_t /* aTick */) noe
         {
             return;
         }
-#endif
+
         if (activeWaiter == -1)
         {
             // This will create slight weirdness for the read/write calls between
             // here and the first activeWaiter-toggle below.
             waitCS[activeWaiter = 0].lock();
 
-        #ifndef _WIN32 //*nix
-
-                    // lock shutdown
-                    shutdownCS.lock();
-        #endif
+            // lock shutdown
+            shutdownCS.lock();
         }
         }
 

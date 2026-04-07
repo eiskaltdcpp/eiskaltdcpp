@@ -1,5 +1,6 @@
 /*
  * Copyright © 2004-2010 Jens Oknelid, paskharen@gmail.com
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -20,14 +21,16 @@
 
 #include "publichubs.hh"
 #include "wulformanager.hh"
+#include "dcpp/DCPlusPlus.h"
 
 using namespace std;
 using namespace dcpp;
 
-PublicHubs::PublicHubs():
+PublicHubs::PublicHubs(dcpp::DCContext& dcCtx):
     BookEntry(Entry::PUBLIC_HUBS, _("Public Hubs"), "publichubs.ui"),
     hubs(0),
-    filter("")
+    filter(""),
+    dcCtx_(dcCtx)
 {
 #if !GTK_CHECK_VERSION(3,0,0)
     gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("statusMain")),false);
@@ -101,7 +104,7 @@ PublicHubs::PublicHubs():
 
 PublicHubs::~PublicHubs()
 {
-    FavoriteManager::getInstance()->removeListener(this);
+    dcCtx_.getFavoriteManager()->removeListener(this);
     gtk_widget_destroy(getWidget("configureDialog"));
     g_object_unref(getWidget("menu"));
 }
@@ -110,16 +113,16 @@ void PublicHubs::show()
 {
     buildHubList_gui();
 
-    FavoriteManager::getInstance()->addListener(this);
+    dcCtx_.getFavoriteManager()->addListener(this);
     Func0<PublicHubs> *func = new Func0<PublicHubs>(this, &PublicHubs::downloadList_client);
-    WulforManager::get()->dispatchClientFunc(func);
+    wulforManagerInstance()->dispatchClientFunc(func);
 }
 
 // Populate the public hubs list
 void PublicHubs::buildHubList_gui()
 {
-    StringList list = FavoriteManager::getInstance()->getHubLists();
-    int selected = FavoriteManager::getInstance()->getSelectedHubList();
+    StringList list = dcCtx_.getFavoriteManager()->getHubLists();
+    int selected = dcCtx_.getFavoriteManager()->getSelectedHubList();
 
     for (auto &it : list)
     {
@@ -278,7 +281,7 @@ void PublicHubs::onConnect_gui(GtkWidget*, gpointer data)
     if (gtk_tree_selection_get_selected(ph->hubSelection, NULL, &iter))
     {
         string address = ph->hubView.getString(&iter, _("Address"));
-        WulforManager::get()->getMainWindow()->showHub_gui(address);
+        wulforManagerInstance()->getMainWindow()->showHub_gui(address);
     }
 }
 
@@ -289,7 +292,7 @@ void PublicHubs::onRefresh_gui(GtkWidget*, gpointer data)
 
     typedef Func1<PublicHubs, int> F1;
     F1 *func = new F1(ph, &PublicHubs::refresh_client, pos);
-    WulforManager::get()->dispatchClientFunc(func);
+    wulforManagerInstance()->dispatchClientFunc(func);
 }
 
 void PublicHubs::onAddFav_gui(GtkMenuItem*, gpointer data)
@@ -299,7 +302,7 @@ void PublicHubs::onAddFav_gui(GtkMenuItem*, gpointer data)
 
     if (gtk_tree_selection_get_selected(ph->hubSelection, NULL, &iter))
     {
-        FavoriteHubEntry entry;
+        FavoriteHubEntry entry(ph->dcCtx_);
         string name = ph->hubView.getString(&iter, _("Name"));
         string description = ph->hubView.getString(&iter, _("Description"));
         string address = ph->hubView.getString(&iter, _("Address"));
@@ -307,13 +310,13 @@ void PublicHubs::onAddFav_gui(GtkMenuItem*, gpointer data)
         entry.setName(name);
         entry.setServer(address);
         entry.setHubDescription(description);
-        entry.setNick(SETTING(NICK));
+        entry.setNick(ph->dcCtx_.getSettingsManager()->get(SettingsManager::NICK, true));
         entry.setPassword("");
-        entry.setUserDescription(SETTING(DESCRIPTION));
+        entry.setUserDescription(ph->dcCtx_.getSettingsManager()->get(SettingsManager::DESCRIPTION, true));
 
         typedef Func1<PublicHubs, FavoriteHubEntry> F1;
         F1 *func = new F1(ph, &PublicHubs::addFav_client, entry);
-        WulforManager::get()->dispatchClientFunc(func);
+        wulforManagerInstance()->dispatchClientFunc(func);
     }
 }
 
@@ -357,7 +360,7 @@ void PublicHubs::onConfigure_gui(GtkWidget*, gpointer data)
         if (!lists.empty())
             lists.erase(lists.size() - 1);
 
-        SettingsManager::getInstance()->set(SettingsManager::HUBLIST_SERVERS, lists);
+        ph->dcCtx_.getSettingsManager()->set(SettingsManager::HUBLIST_SERVERS, lists);
     }
 }
 
@@ -424,26 +427,26 @@ void PublicHubs::onCellEdited_gui(GtkCellRendererText*, char *path, char *text, 
 
 void PublicHubs::downloadList_client()
 {
-    hubs = FavoriteManager::getInstance()->getPublicHubs();
+    hubs = dcCtx_.getFavoriteManager()->getPublicHubs();
 
     if (hubs.empty())
-        FavoriteManager::getInstance()->refresh();
+        dcCtx_.getFavoriteManager()->refresh();
 
-    FavoriteManager::getInstance()->save();
+    dcCtx_.getFavoriteManager()->save();
 
     Func0<PublicHubs> *func = new Func0<PublicHubs>(this, &PublicHubs::updateList_gui);
-    WulforManager::get()->dispatchGuiFunc(func);
+    wulforManagerInstance()->dispatchGuiFunc(func);
 }
 
 void PublicHubs::refresh_client(int pos)
 {
-    FavoriteManager::getInstance()->setHubList(pos);
-    FavoriteManager::getInstance()->refresh();
+    dcCtx_.getFavoriteManager()->setHubList(pos);
+    dcCtx_.getFavoriteManager()->refresh();
 }
 
 void PublicHubs::addFav_client(FavoriteHubEntry entry)
 {
-    FavoriteManager::getInstance()->addFavorite(entry);
+    dcCtx_.getFavoriteManager()->addFavorite(entry);
 }
 
 void PublicHubs::on(FavoriteManagerListener::DownloadStarting, const string &file) noexcept
@@ -451,7 +454,7 @@ void PublicHubs::on(FavoriteManagerListener::DownloadStarting, const string &fil
     string msg = _("Download starting: ") + file;
     typedef Func2<PublicHubs, string, string> Func;
     Func *func = new Func(this, &PublicHubs::setStatus_gui, "statusMain", msg);
-    WulforManager::get()->dispatchGuiFunc(func);
+    wulforManagerInstance()->dispatchGuiFunc(func);
 }
 
 void PublicHubs::on(FavoriteManagerListener::DownloadFailed, const string &file) noexcept
@@ -459,7 +462,7 @@ void PublicHubs::on(FavoriteManagerListener::DownloadFailed, const string &file)
     string msg = _("Download failed: ") + file;
     typedef Func2<PublicHubs, string, string> Func;
     Func *func = new Func(this, &PublicHubs::setStatus_gui, "statusMain", msg);
-    WulforManager::get()->dispatchGuiFunc(func);
+    wulforManagerInstance()->dispatchGuiFunc(func);
 }
 
 void PublicHubs::on(FavoriteManagerListener::DownloadFinished, const string &file) noexcept
@@ -467,12 +470,12 @@ void PublicHubs::on(FavoriteManagerListener::DownloadFinished, const string &fil
     string msg = _("Download finished: ") + file;
     typedef Func2<PublicHubs, string, string> Func;
     Func *f2 = new Func(this, &PublicHubs::setStatus_gui, "statusMain", msg);
-    WulforManager::get()->dispatchGuiFunc(f2);
+    wulforManagerInstance()->dispatchGuiFunc(f2);
 
-    hubs = FavoriteManager::getInstance()->getPublicHubs();
+    hubs = dcCtx_.getFavoriteManager()->getPublicHubs();
 
     Func0<PublicHubs> *f0 = new Func0<PublicHubs>(this, &PublicHubs::updateList_gui);
-    WulforManager::get()->dispatchGuiFunc(f0);
+    wulforManagerInstance()->dispatchGuiFunc(f0);
 }
 
 void PublicHubs::on(FavoriteManagerListener::LoadedFromCache, const string &file, const std::string& d) noexcept
@@ -480,12 +483,12 @@ void PublicHubs::on(FavoriteManagerListener::LoadedFromCache, const string &file
     string msg = _("Loaded from cache: ") + file + "(" + d +")";
     typedef Func2<PublicHubs, string, string> Func;
     Func *func = new Func(this, &PublicHubs::setStatus_gui, "statusMain", msg);
-    WulforManager::get()->dispatchGuiFunc(func);
+    wulforManagerInstance()->dispatchGuiFunc(func);
 
-    hubs = FavoriteManager::getInstance()->getPublicHubs();
+    hubs = dcCtx_.getFavoriteManager()->getPublicHubs();
 
     Func0<PublicHubs> *f0 = new Func0<PublicHubs>(this, &PublicHubs::updateList_gui);
-    WulforManager::get()->dispatchGuiFunc(f0);
+    wulforManagerInstance()->dispatchGuiFunc(f0);
 }
 
 void PublicHubs::on(FavoriteManagerListener::Corrupted, const string &file) noexcept
@@ -493,5 +496,5 @@ void PublicHubs::on(FavoriteManagerListener::Corrupted, const string &file) noex
     string msg = _("Downloaded hub list is corrupted or unsupported ") + file;
     typedef Func2<PublicHubs, string, string> Func;
     Func *func = new Func(this, &PublicHubs::setStatus_gui, "statusMain", msg);
-    WulforManager::get()->dispatchGuiFunc(func);
+    wulforManagerInstance()->dispatchGuiFunc(func);
 }

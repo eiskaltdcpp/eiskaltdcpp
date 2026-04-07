@@ -6,8 +6,13 @@
 *   (at your option) any later version.                                   *
 *                                                                         *
 ***************************************************************************/
+/*
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
+ */
 
 #include "ShareBrowser.h"
+#include "QtContextAware.h"
+#include "QtContext.h"
 #include "WulforUtil.h"
 #include "FileBrowserModel.h"
 #include "MainWindow.h"
@@ -22,6 +27,7 @@
 #include "dcpp/FavoriteManager.h"
 #include "dcpp/ClientManager.h"
 #include <dcpp/ADLSearch.h>
+#include "dcpp/DCPlusPlus.h"
 
 #if (HAVE_MALLOC_TRIM)
 #include <malloc.h>
@@ -42,12 +48,7 @@
 #include <QDesktopServices>
 #include <QDateTime>
 
-#if QT_VERSION >= 0x050000
 #include <QtConcurrent>
-#else
-#include <QtConcurrentFilter>
-#include <QtConcurrentRun>
-#endif
 
 using namespace dcpp;
 
@@ -69,10 +70,10 @@ void AsyncRunner::setRunFunction(const std::function<void()> &f){
 
 ShareBrowser::Menu::Menu() : menu(new QMenu(nullptr))
 {
-    WulforUtil *WU = WulforUtil::getInstance();
+    WulforUtil *WU = qtCtx()->wulforUtil();
 
     rest_menu = new QMenu(tr("Restrictions"));
-    QMenu *magnet_menu = new QMenu(tr("Magnet"), MainWindow::getInstance());
+    QMenu *magnet_menu = new QMenu(tr("Magnet"), qtCtx()->mainWindow());
 
     QAction *down    = new QAction(tr("Download"), menu);
     down->setIcon(WU->getPixmap(WulforUtil::eiDOWNLOAD));
@@ -137,20 +138,20 @@ ShareBrowser::Menu::Action ShareBrowser::Menu::exec(const dcpp::UserPtr &user){
     qDeleteAll(down_to->actions());
     down_to->clear();
 
-    const QPixmap &dir_px = WICON(WulforUtil::eiFOLDER_BLUE);
+    const QPixmap &dir_px = qtCtx()->wulforUtil()->getPixmap(WulforUtil::eiFOLDER_BLUE);
     QString aliases, paths;
 
-    aliases = QByteArray::fromBase64(WSGET(WS_DOWNLOADTO_ALIASES).toUtf8());
-    paths   = QByteArray::fromBase64(WSGET(WS_DOWNLOADTO_PATHS).toUtf8());
+    aliases = QByteArray::fromBase64(qtCtx()->settings()->getStr(WS_DOWNLOADTO_ALIASES).toUtf8());
+    paths   = QByteArray::fromBase64(qtCtx()->settings()->getStr(WS_DOWNLOADTO_PATHS).toUtf8());
 
-    QStringList a = aliases.split("\n", QString::SkipEmptyParts);
-    QStringList p = paths.split("\n", QString::SkipEmptyParts);
+    QStringList a = aliases.split("\n", Qt::SkipEmptyParts);
+    QStringList p = paths.split("\n", Qt::SkipEmptyParts);
 
     QStringList temp_pathes = DownloadToDirHistory::get();
 
     if (!temp_pathes.isEmpty()){
         for (const auto &t : temp_pathes){
-            QAction *act = new QAction(WICON(WulforUtil::eiFOLDER_BLUE), QDir(t).dirName(), down_to);
+            QAction *act = new QAction(qtCtx()->wulforUtil()->getPixmap(WulforUtil::eiFOLDER_BLUE), QDir(t).dirName(), down_to);
             act->setToolTip(t);
             act->setData(t);
 
@@ -172,14 +173,14 @@ ShareBrowser::Menu::Action ShareBrowser::Menu::exec(const dcpp::UserPtr &user){
         down_to->addSeparator();
     }
 
-    QAction *browse = new QAction(WICON(WulforUtil::eiFOLDER_BLUE), tr("Browse"), down_to);
+    QAction *browse = new QAction(qtCtx()->wulforUtil()->getPixmap(WulforUtil::eiFOLDER_BLUE), tr("Browse"), down_to);
     browse->setIcon(dir_px);
     browse->setData("");
 
     down_to->addAction(browse);
 
-    rest_menu->setEnabled(user == ClientManager::getInstance()->getMe());
-    open_url->setEnabled(user == ClientManager::getInstance()->getMe());
+    rest_menu->setEnabled(user == qtCtx()->dcCtx().getClientManager()->getMe());
+    open_url->setEnabled(user == qtCtx()->dcCtx().getClientManager()->getMe());
 
     QAction *ret = menu->exec(QCursor::pos());
 
@@ -195,11 +196,11 @@ ShareBrowser::Menu::Action ShareBrowser::Menu::exec(const dcpp::UserPtr &user){
 }
 
 ShareBrowser::ShareBrowser(UserPtr _user, const QString &_file, const QString &_jump_to):
-        QWidget(MainWindow::getInstance()),
+        QWidget(qtCtx()->mainWindow()),
         proxy(nullptr),
         file(_file),
         jump_to(_jump_to),
-        listing(HintedUser(_user, "")),
+        listing(qtCtx()->dcCtx(), HintedUser(_user, "")),
         user(_user),
         share_size(0),
         current_size(0),
@@ -210,10 +211,10 @@ ShareBrowser::ShareBrowser(UserPtr _user, const QString &_file, const QString &_
         list_root(nullptr)
 
 {
-    nick = WulforUtil::getInstance()->getNicks(user->getCID());
+    nick = qtCtx()->wulforUtil()->getNicks(user->getCID());
 
-    if (nick.indexOf(_q(user->getCID().toBase32()) >= nullptr)) { // User offline
-        nick = _q(ClientManager::getInstance()->getNicks(HintedUser(user, ""))[0]);
+    if (nick.indexOf(_q(user->getCID().toBase32())) >= 0) { // User offline
+        nick = _q(qtCtx()->dcCtx().getClientManager()->getNicks(HintedUser(user, ""))[0]);
 
         QFileInfo info(_file);
 
@@ -224,14 +225,17 @@ ShareBrowser::ShareBrowser(UserPtr _user, const QString &_file, const QString &_
         else
             title = tr("Listing: ") + nick;
     }
+    else {
+        title = tr("Listing: ") + nick;
+    }
 
-    connect(this, SIGNAL(die(QString)), this, SLOT(slotDie(QString)), Qt::QueuedConnection);
+    connect(this, &ShareBrowser::die, this, &ShareBrowser::slotDie, Qt::QueuedConnection);
 
     AsyncRunner *runner = new AsyncRunner(this);
 
     runner->setRunFunction([this]() { this->buildList(); });
-    connect(runner, SIGNAL(finished()), this, SLOT(init()), Qt::QueuedConnection);
-    connect(runner, SIGNAL(finished()), runner, SLOT(deleteLater()), Qt::QueuedConnection);
+    connect(runner, &QThread::finished, this, &ShareBrowser::init, Qt::QueuedConnection);
+    connect(runner, &QThread::finished, runner, &QObject::deleteLater, Qt::QueuedConnection);
 
     runner->start();
 
@@ -246,8 +250,6 @@ ShareBrowser::~ShareBrowser(){
     delete proxy;
 
     pathHistory.clear();
-
-    Menu::deleteInstance();
 
 #if (HAVE_MALLOC_TRIM)
     malloc_trim(0);
@@ -291,9 +293,9 @@ void ShareBrowser::init(){
 
     setAttribute(Qt::WA_DeleteOnClose);
 
-    toolButton_UP->setIcon(WICON(WulforUtil::eiTOP));
-    toolButton_FORWARD->setIcon(WICON(WulforUtil::eiNEXT));
-    toolButton_BACK->setIcon(WICON(WulforUtil::eiPREVIOUS));
+    toolButton_UP->setIcon(qtCtx()->wulforUtil()->getPixmap(WulforUtil::eiTOP));
+    toolButton_FORWARD->setIcon(qtCtx()->wulforUtil()->getPixmap(WulforUtil::eiNEXT));
+    toolButton_BACK->setIcon(qtCtx()->wulforUtil()->getPixmap(WulforUtil::eiPREVIOUS));
 
     frame_FILTER->setVisible(false);
 
@@ -320,34 +322,34 @@ void ShareBrowser::init(){
     treeView_RPANE->header()->setContextMenuPolicy(Qt::CustomContextMenu);
     treeView_RPANE->installEventFilter(this);
 
-    toolButton_CLOSEFILTER->setIcon(WICON(WulforUtil::eiEDITDELETE));
-    toolButton_SEARCH->setIcon(WICON(WulforUtil::eiFIND));
-    toolButton_MATCHLIST->setIcon(WICON(WulforUtil::eiDOWNLIST));
+    toolButton_CLOSEFILTER->setIcon(qtCtx()->wulforUtil()->getPixmap(WulforUtil::eiEDITDELETE));
+    toolButton_SEARCH->setIcon(qtCtx()->wulforUtil()->getPixmap(WulforUtil::eiFIND));
+    toolButton_MATCHLIST->setIcon(qtCtx()->wulforUtil()->getPixmap(WulforUtil::eiDOWNLIST));
 
     arena_menu = new QMenu(tr("Filebrowser"));
 
-    QAction *close_wnd = new QAction(WICON(WulforUtil::eiFILECLOSE), tr("Close"), arena_menu);
+    QAction *close_wnd = new QAction(qtCtx()->wulforUtil()->getPixmap(WulforUtil::eiFILECLOSE), tr("Close"), arena_menu);
     arena_menu->addAction(close_wnd);
 
-    connect(treeView_LPANE, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotCustomContextMenu(QPoint)));
-    connect(treeView_LPANE->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)),
-            this, SLOT(slotLeftPaneSelChanged(QItemSelection,QItemSelection)));
+    connect(treeView_LPANE, &QWidget::customContextMenuRequested, this, &ShareBrowser::slotCustomContextMenu);
+    connect(treeView_LPANE->selectionModel(), &QItemSelectionModel::selectionChanged,
+            this, &ShareBrowser::slotLeftPaneSelChanged);
 
-    connect(close_wnd, SIGNAL(triggered()), this, SLOT(slotClose()));
-    connect(toolButton_CLOSEFILTER, SIGNAL(clicked()), this, SLOT(slotFilter()));
+    connect(close_wnd, &QAction::triggered, this, &ShareBrowser::slotClose);
+    connect(toolButton_CLOSEFILTER, &QToolButton::clicked, this, &ShareBrowser::slotFilter);
 
-    connect(treeView_RPANE->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)),
-            this, SLOT(slotRightPaneSelChanged(QItemSelection,QItemSelection)));
-    connect(treeView_RPANE, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotCustomContextMenu(QPoint)));
-    connect(treeView_RPANE->header(), SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotHeaderMenu()));
-    connect(treeView_RPANE, SIGNAL(doubleClicked(QModelIndex)), this, SLOT(slotRightPaneClicked(QModelIndex)));
-    connect(tree_model, SIGNAL(layoutChanged()), this, SLOT(slotLayoutUpdated()));
-    connect(WulforSettings::getInstance(), SIGNAL(strValueChanged(QString,QString)), this, SLOT(slotSettingsChanged(QString,QString)));
-    connect(toolButton_SEARCH, SIGNAL(clicked()), this, SLOT(slotStartSearch()));
-    connect(toolButton_BACK, SIGNAL(clicked()), this, SLOT(slotButtonBack()));
-    connect(toolButton_FORWARD, SIGNAL(clicked()), this, SLOT(slotButtonForward()));
-    connect(toolButton_UP, SIGNAL(clicked()), this, SLOT(slotButtonUp()));
-    connect(toolButton_MATCHLIST, SIGNAL(clicked()), this, SLOT(slotMatchList()));
+    connect(treeView_RPANE->selectionModel(), &QItemSelectionModel::selectionChanged,
+            this, &ShareBrowser::slotRightPaneSelChanged);
+    connect(treeView_RPANE, &QWidget::customContextMenuRequested, this, &ShareBrowser::slotCustomContextMenu);
+    connect(treeView_RPANE->header(), &QWidget::customContextMenuRequested, this, &ShareBrowser::slotHeaderMenu);
+    connect(treeView_RPANE, &QTreeView::doubleClicked, this, &ShareBrowser::slotRightPaneClicked);
+    connect(tree_model, &QAbstractItemModel::layoutChanged, this, &ShareBrowser::slotLayoutUpdated);
+    connect(qtCtx()->settings(), &WulforSettings::strValueChanged, this, &ShareBrowser::slotSettingsChanged);
+    connect(toolButton_SEARCH, &QToolButton::clicked, this, &ShareBrowser::slotStartSearch);
+    connect(toolButton_BACK, &QToolButton::clicked, this, &ShareBrowser::slotButtonBack);
+    connect(toolButton_FORWARD, &QToolButton::clicked, this, &ShareBrowser::slotButtonForward);
+    connect(toolButton_UP, &QToolButton::clicked, this, &ShareBrowser::slotButtonUp);
+    connect(toolButton_MATCHLIST, &QToolButton::clicked, this, &ShareBrowser::slotMatchList);
 
     continueInit();
 }
@@ -358,7 +360,7 @@ void ShareBrowser::continueInit(){
 
     load();
 
-    if (user == ClientManager::getInstance()->getMe()){
+    if (user == qtCtx()->dcCtx().getClientManager()->getMe()){
         tree_model->loadRestrictions();
         list_model->setOwnList(true);
     }
@@ -380,13 +382,13 @@ void ShareBrowser::continueInit(){
 
     pathHistory.clear();
 
-    ArenaWidgetManager::getInstance()->activate(this);
+    qtCtx()->arenaWidgetManager()->activate(this);
 }
 
 
 void ShareBrowser::load(){
-    int w = WIGET(WI_SHARE_WIDTH);
-    int wr= WIGET(WI_SHARE_RPANE_WIDTH);
+    int w = qtCtx()->settings()->getInt(WI_SHARE_WIDTH);
+    int wr= qtCtx()->settings()->getInt(WI_SHARE_RPANE_WIDTH);
 
     if (w >= 0 && wr >= 0){
         QList<int> frames;
@@ -396,8 +398,8 @@ void ShareBrowser::load(){
         splitter->setSizes(frames);
     }
 
-    treeView_LPANE->header()->restoreState(QByteArray::fromBase64(WSGET(WS_SHARE_LPANE_STATE).toUtf8()));
-    treeView_RPANE->header()->restoreState(QByteArray::fromBase64(WSGET(WS_SHARE_RPANE_STATE).toUtf8()));
+    treeView_LPANE->header()->restoreState(QByteArray::fromBase64(qtCtx()->settings()->getStr(WS_SHARE_LPANE_STATE).toUtf8()));
+    treeView_RPANE->header()->restoreState(QByteArray::fromBase64(qtCtx()->settings()->getStr(WS_SHARE_RPANE_STATE).toUtf8()));
 
     treeView_LPANE->header()->hideSection(COLUMN_FILEBROWSER_ESIZE);
     treeView_LPANE->header()->hideSection(COLUMN_FILEBROWSER_TTH);
@@ -418,11 +420,11 @@ void ShareBrowser::load(){
 }
 
 void ShareBrowser::save(){
-    WSSET(WS_SHARE_LPANE_STATE, treeView_LPANE->header()->saveState().toBase64());
-    WSSET(WS_SHARE_RPANE_STATE, treeView_RPANE->header()->saveState().toBase64());
+    qtCtx()->settings()->setStr(WS_SHARE_LPANE_STATE, treeView_LPANE->header()->saveState().toBase64());
+    qtCtx()->settings()->setStr(WS_SHARE_RPANE_STATE, treeView_RPANE->header()->saveState().toBase64());
 
-    WISET(WI_SHARE_RPANE_WIDTH, treeView_RPANE->width());
-    WISET(WI_SHARE_WIDTH, treeView_RPANE->width() + treeView_LPANE->width());
+    qtCtx()->settings()->setInt(WI_SHARE_RPANE_WIDTH, treeView_RPANE->width());
+    qtCtx()->settings()->setInt(WI_SHARE_WIDTH, treeView_RPANE->width() + treeView_LPANE->width());
 }
 
 QString ShareBrowser::getArenaTitle(){
@@ -445,7 +447,7 @@ void ShareBrowser::buildList(){
     try {
         listing.loadFile(file.toStdString());
         listing.getRoot()->setName(nick.toStdString());
-        ADLSearchManager::getInstance()->matchListing(listing);
+        qtCtx()->dcCtx().getADLSearchManager()->matchListing(listing);
     }
     catch (const Exception &e){
         emit die(tr("Share browser error: %1").arg(_q(e.what())));
@@ -492,7 +494,7 @@ void ShareBrowser::goUp(QTreeView *view){
     if (view != treeView_RPANE)
         return;
 
-    QStringList paths = lineEdit_PATH->text().split("\\", QString::SkipEmptyParts);
+    QStringList paths = lineEdit_PATH->text().split("\\", Qt::SkipEmptyParts);
 
     if (paths.empty())//is it possible?
         return;
@@ -514,7 +516,7 @@ void ShareBrowser::download(dcpp::DirectoryListing::Directory *dir, const QStrin
             listing.download(dir, target.toStdString(), false);
         }
         catch (const Exception &e){
-            MainWindow::getInstance()->setStatusMessage(_q(e.getError()));
+            qtCtx()->mainWindow()->setStatusMessage(_q(e.getError()));
         }
     }
 }
@@ -527,7 +529,7 @@ void ShareBrowser::download(dcpp::DirectoryListing::File *file, const QString &t
             listing.download(file, (target+name).toStdString(), false, false);
         }
         catch (const Exception &e){
-            MainWindow::getInstance()->setStatusMessage(_q(e.getError()));
+            qtCtx()->mainWindow()->setStatusMessage(_q(e.getError()));
         }
     }
 }
@@ -547,7 +549,7 @@ void ShareBrowser::slotRightPaneClicked(const QModelIndex &index){
         return;
 
     if (item->file){
-        download(item->file, _q(SETTING(DOWNLOAD_DIRECTORY)));
+        download(item->file, _q(qtCtx()->dcCtx().getSettingsManager()->get(SettingsManager::DOWNLOAD_DIRECTORY, true)));
 
         return;
     }
@@ -610,7 +612,7 @@ void ShareBrowser::changeRoot(dcpp::DirectoryListing::Directory *root){
              << _q(file->mediaInfo.video_info)
              << _q(file->mediaInfo.audio_info)
              << (quint64)file->getHit()
-             << QDateTime::fromTime_t(file->getTS()).toString("yyyy-MM-dd hh:mm");
+             << QDateTime::fromSecsSinceEpoch(file->getTS()).toString("yyyy-MM-dd hh:mm");
 
         child = new FileBrowserItem(data, list_root);
         child->file = file;
@@ -732,8 +734,8 @@ void ShareBrowser::slotButtonUp(){
 
         if (nullptr != item->parent()){
 
-            disconnect(treeView_LPANE->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)),
-                    this, SLOT(slotLeftPaneSelChanged(QItemSelection,QItemSelection)));
+            disconnect(treeView_LPANE->selectionModel(), &QItemSelectionModel::selectionChanged,
+                    this, &ShareBrowser::slotLeftPaneSelChanged);
 
             SelPair sparent;
             sparent.index = index.parent();
@@ -749,17 +751,17 @@ void ShareBrowser::slotButtonUp(){
             pathHistory.append(sparent);
             pathHistory_iter = pathHistory.end();
 
-            connect(treeView_LPANE->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)),
-                    this, SLOT(slotLeftPaneSelChanged(QItemSelection,QItemSelection)));
+            connect(treeView_LPANE->selectionModel(), &QItemSelectionModel::selectionChanged,
+                    this, &ShareBrowser::slotLeftPaneSelChanged);
         }
     }
 }
 
 void ShareBrowser::slotButtonBack(){
-    if (pathHistory_iter && !pathHistory.isEmpty()){
+    if (!pathHistory.isEmpty()){
 
-        disconnect(treeView_LPANE->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)),
-                this, SLOT(slotLeftPaneSelChanged(QItemSelection,QItemSelection)));
+        disconnect(treeView_LPANE->selectionModel(), &QItemSelectionModel::selectionChanged,
+                this, &ShareBrowser::slotLeftPaneSelChanged);
 
         if(pathHistory.end() == pathHistory_iter || pathHistory.begin() != pathHistory_iter)
             --pathHistory_iter;
@@ -770,20 +772,20 @@ void ShareBrowser::slotButtonBack(){
 
         slotRightPaneClicked(sp.index);
 
-        connect(treeView_LPANE->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)),
-                this, SLOT(slotLeftPaneSelChanged(QItemSelection,QItemSelection)));
+        connect(treeView_LPANE->selectionModel(), &QItemSelectionModel::selectionChanged,
+                this, &ShareBrowser::slotLeftPaneSelChanged);
     }
 }
 
 void ShareBrowser::slotButtonForward(){
-    if (pathHistory_iter && !pathHistory.isEmpty()){
+    if (!pathHistory.isEmpty()){
 
-        disconnect(treeView_LPANE->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)),
-                this, SLOT(slotLeftPaneSelChanged(QItemSelection,QItemSelection)));
+        disconnect(treeView_LPANE->selectionModel(), &QItemSelectionModel::selectionChanged,
+                this, &ShareBrowser::slotLeftPaneSelChanged);
 
         if (pathHistory.end() == pathHistory_iter)
             --pathHistory_iter;
-        else if (pathHistory_iter != &pathHistory.last())
+        else if (pathHistory_iter != pathHistory.end() - 1)
             ++pathHistory_iter;
 
         SelPair sp= *pathHistory_iter;
@@ -792,8 +794,8 @@ void ShareBrowser::slotButtonForward(){
 
         slotRightPaneClicked(sp.index);
 
-        connect(treeView_LPANE->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)),
-                this, SLOT(slotLeftPaneSelChanged(QItemSelection,QItemSelection)));
+        connect(treeView_LPANE->selectionModel(), &QItemSelectionModel::selectionChanged,
+                this, &ShareBrowser::slotLeftPaneSelChanged);
     }
 }
 
@@ -814,11 +816,11 @@ void ShareBrowser::slotCustomContextMenu(const QPoint &){
     else
         list = selected;
 
-    if (!Menu::getInstance())
-        Menu::newInstance();
+    if (!menu_)
+        menu_ = std::make_unique<Menu>();
 
-    Menu::Action act = Menu::getInstance()->exec(view == treeView_LPANE? user : dcpp::UserPtr(nullptr));
-    QString target = _q(SETTING(DOWNLOAD_DIRECTORY));
+    Menu::Action act = menu_->exec(view == treeView_LPANE? user : dcpp::UserPtr(nullptr));
+    QString target = _q(qtCtx()->dcCtx().getSettingsManager()->get(SettingsManager::DOWNLOAD_DIRECTORY, true));
 
     switch (act){
         case Menu::None:
@@ -841,7 +843,7 @@ void ShareBrowser::slotCustomContextMenu(const QPoint &){
         case Menu::DownloadTo:
         {
             static QString old_target = QDir::homePath();
-            target = Menu::getInstance()->getTarget();
+            target = menu_->getTarget();
 
             if (!QDir(target).exists() || target.isEmpty())
                 target = QFileDialog::getExistingDirectory(this, tr("Select directory"), old_target);
@@ -904,7 +906,7 @@ void ShareBrowser::slotCustomContextMenu(const QPoint &){
                 tth  = item->data(COLUMN_FILEBROWSER_TTH).toString();
                 size = item->data(COLUMN_FILEBROWSER_ESIZE).toLongLong();
 
-                magnet = WulforUtil::getInstance()->makeMagnet(path, size, tth);
+                magnet = qtCtx()->wulforUtil()->makeMagnet(path, size, tth);
 
                 if (!magnet.isEmpty())
                     magnets += (magnet + "\n");
@@ -929,7 +931,7 @@ void ShareBrowser::slotCustomContextMenu(const QPoint &){
                 tth  = item->data(COLUMN_FILEBROWSER_TTH).toString();
                 size = item->data(COLUMN_FILEBROWSER_ESIZE).toLongLong();
 
-                magnet = "[magnet=\"" + WulforUtil::getInstance()->makeMagnet(path, size, tth) + "\"]"+path+"[/magnet]";
+                magnet = "[magnet=\"" + qtCtx()->wulforUtil()->makeMagnet(path, size, tth) + "\"]"+path+"[/magnet]";
 
                 if (!magnet.isEmpty())
                     magnets += (magnet + "\n");
@@ -953,7 +955,7 @@ void ShareBrowser::slotCustomContextMenu(const QPoint &){
                 tth  = item->data(COLUMN_FILEBROWSER_TTH).toString();
                 size = item->data(COLUMN_FILEBROWSER_ESIZE).toLongLong();
 
-                magnet = WulforUtil::getInstance()->makeMagnet(path, size, tth);
+                magnet = qtCtx()->wulforUtil()->makeMagnet(path, size, tth);
 
                 if (!magnet.isEmpty()){
                     Magnet m(this);
@@ -966,8 +968,8 @@ void ShareBrowser::slotCustomContextMenu(const QPoint &){
         }
         case Menu::AddToFav:
         {
-            if (user && user != ClientManager::getInstance()->getMe())
-                FavoriteManager::getInstance()->addFavoriteUser(user);
+            if (user && user != qtCtx()->dcCtx().getClientManager()->getMe())
+                qtCtx()->dcCtx().getFavoriteManager()->addFavoriteUser(user);
 
             break;
         }
@@ -993,7 +995,7 @@ void ShareBrowser::slotCustomContextMenu(const QPoint &){
         }
         case Menu::OpenUrl:
         {
-            ShareManager *SM = ShareManager::getInstance();
+            ShareManager *SM = qtCtx()->dcCtx().getShareManager();
 
             for (const auto &index : list){
                 FileBrowserItem *item = reinterpret_cast<FileBrowserItem*>(index.internalPointer());
@@ -1059,7 +1061,7 @@ void ShareBrowser::slotFilter(){
     if (frame_FILTER->isVisible()){
         treeView_RPANE->setModel(list_model);
 
-        disconnect(lineEdit_FILTER, SIGNAL(textChanged(QString)), proxy, SLOT(setFilterFixedString(QString)));
+        disconnect(lineEdit_FILTER, &LineEdit::textChanged, proxy, &QSortFilterProxyModel::setFilterFixedString);
 
         delete proxy;
         proxy = nullptr;
@@ -1074,7 +1076,7 @@ void ShareBrowser::slotFilter(){
 
         treeView_RPANE->setModel(proxy);
 
-        connect(lineEdit_FILTER, SIGNAL(textChanged(QString)), proxy, SLOT(setFilterFixedString(QString)));
+        connect(lineEdit_FILTER, &LineEdit::textChanged, proxy, &QSortFilterProxyModel::setFilterFixedString);
 
         lineEdit_FILTER->setFocus();
 
@@ -1089,7 +1091,7 @@ void ShareBrowser::slotStartSearch(){
     ShareBrowserSearch *sb_search = new ShareBrowserSearch(tree_model, this);
 
     sb_search->setSearchRoot(tree_root);
-    connect(sb_search, SIGNAL(indexClicked(FileBrowserItem*)), this, SLOT(slotSearchJumpTo(FileBrowserItem*)));
+    connect(sb_search, &ShareBrowserSearch::indexClicked, this, &ShareBrowser::slotSearchJumpTo);
 }
 
 void ShareBrowser::slotSearchJumpTo(FileBrowserItem *tree_item){
@@ -1108,16 +1110,16 @@ void ShareBrowser::slotSettingsChanged(const QString &key, const QString&){
 }
 
 void ShareBrowser::slotClose() {
-    ArenaWidgetManager::getInstance()->rem(this);
+    qtCtx()->arenaWidgetManager()->rem(this);
 }
 
 void ShareBrowser::slotDie(const QString &msg){
-    QMessageBox::warning(MainWindow::getInstance(), tr("Share browser"), msg, QMessageBox::Ok);
+    QMessageBox::warning(qtCtx()->mainWindow(), tr("Share browser"), msg, QMessageBox::Ok);
 
     slotClose();
 }
 
 void ShareBrowser::slotMatchList(){
-    int matched = QueueManager::getInstance()->matchListing(listing);
+    int matched = qtCtx()->dcCtx().getQueueManager()->matchListing(listing);
     label_LEFT->setText(QString(tr("Matched %1 files")).arg(matched));
 }

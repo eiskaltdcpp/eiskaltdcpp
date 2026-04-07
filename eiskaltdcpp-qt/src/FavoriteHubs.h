@@ -20,7 +20,6 @@
 #include "WulforUtil.h"
 
 #include "dcpp/stdinc.h"
-#include "dcpp/Singleton.h"
 #include "dcpp/FavoriteManager.h"
 #include "dcpp/FavoriteManagerListener.h"
 
@@ -43,17 +42,20 @@ class FavoriteHubEditor:
         }
 };
 
+#include "QtContextAware.h"
+#include "QtContext.h"
+
 class FavoriteHubs :
         public QWidget,
         private Ui::UIFavoriteHubs,
         public ArenaWidget,
         private dcpp::FavoriteManagerListener,
-        public dcpp::Singleton<FavoriteHubs>
+        public QtContextAware
 {
     Q_OBJECT
     Q_INTERFACES(ArenaWidget)
 
-    friend class dcpp::Singleton<FavoriteHubs>;
+    friend class QtContext;
 
     typedef QMap<QString,QVariant> StrMap;
 public:
@@ -61,7 +63,7 @@ public:
     QString getArenaTitle();
     QString getArenaShortTitle();
     QMenu *getMenu();
-    const QPixmap &getPixmap(){ return WICON(WulforUtil::eiFAVSERVER); }
+    const QPixmap &getPixmap(){ return qtCtx()->wulforUtil()->getPixmap(WulforUtil::eiFAVSERVER); }
     ArenaWidget::Role role() const { return ArenaWidget::FavoriteHubs; }
 
 protected:
@@ -81,9 +83,12 @@ private Q_SLOTS:
     void slotConnectButtonClicked();
     void slotUpdateComboBox_CID();
 
+public:
+    FavoriteHubs(dcpp::DCContext& ctx, QWidget* = nullptr);
+    ~FavoriteHubs() override;
+
+
 private:
-    FavoriteHubs(QWidget* = nullptr);
-    virtual ~FavoriteHubs();
 
     void load();
     void save();

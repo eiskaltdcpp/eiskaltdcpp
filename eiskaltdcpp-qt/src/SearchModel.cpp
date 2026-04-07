@@ -6,11 +6,10 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-#if QT_VERSION >= 0x050000
+/*
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
+ */
 #include <QtWidgets>
-#else
-#include <QtGui>
-#endif
 
 #include <QFileInfo>
 #include <QList>
@@ -20,6 +19,8 @@
 #include <QDir>
 
 #include "SearchModel.h"
+#include "QtContextAware.h"
+#include "QtContext.h"
 #include "SearchFrame.h"
 #include "WulforUtil.h"
 
@@ -28,6 +29,7 @@
 #include "dcpp/User.h"
 #include "dcpp/CID.h"
 #include "dcpp/ShareManager.h"
+#include "dcpp/DCPlusPlus.h"
 
 #ifdef _DEBUG_QT_UI
 #include <QtDebug>
@@ -81,9 +83,9 @@ QVariant SearchModel::data(const QModelIndex &index, int role) const
         case Qt::DecorationRole: // icon
         {
             if (index.column() == COLUMN_SF_FILENAME && !item->isDir)
-                return WulforUtil::getInstance()->getPixmapForFile(item->data(COLUMN_SF_FILENAME).toString()).scaled(16, 16);
+                return qtCtx()->wulforUtil()->getPixmapForFile(item->data(COLUMN_SF_FILENAME).toString()).scaled(16, 16);
             else if (index.column() == COLUMN_SF_FILENAME && item->isDir)
-                return WICON(WulforUtil::eiFOLDER_BLUE).scaled(16, 16);
+                return qtCtx()->wulforUtil()->getPixmap(WulforUtil::eiFOLDER_BLUE).scaled(16, 16);
             break;
         }
         case Qt::DisplayRole:
@@ -107,11 +109,11 @@ QVariant SearchModel::data(const QModelIndex &index, int role) const
             if (filterRole == static_cast<int>(SearchFrame::Highlight)){
                 TTHValue t(_tq(item->data(COLUMN_SF_TTH).toString()));
 
-                if (ShareManager::getInstance()->isTTHShared(t)){
+                if (qtCtx()->dcCtx().getShareManager()->isTTHShared(t)){
                     static QColor c;
 
-                    c.setNamedColor(WSGET(WS_APP_SHARED_FILES_COLOR));
-                    c.setAlpha(WIGET(WI_APP_SHARED_FILES_ALPHA));
+                    c.setNamedColor(qtCtx()->settings()->getStr(WS_APP_SHARED_FILES_COLOR));
+                    c.setAlpha(qtCtx()->settings()->getInt(WI_APP_SHARED_FILES_ALPHA));
 
                     return c;
                 }
@@ -119,12 +121,12 @@ QVariant SearchModel::data(const QModelIndex &index, int role) const
 
             break;
         }
-        case Qt::BackgroundColorRole:
+        case Qt::BackgroundRole:
             break;
         case Qt::ToolTipRole:
         {
             TTHValue t(_tq(item->data(COLUMN_SF_TTH).toString()));
-            ShareManager *SM = ShareManager::getInstance();
+            ShareManager *SM = qtCtx()->dcCtx().getShareManager();
 
             try{
                 QString toolTip = _q(SM->toReal(SM->toVirtual(t)));
@@ -147,7 +149,7 @@ void SearchModel::repaint(){
 Qt::ItemFlags SearchModel::flags(const QModelIndex &index) const
 {
     if (!index.isValid())
-        return nullptr;
+        return Qt::ItemFlags();
 
     return Qt::ItemIsEnabled | Qt::ItemIsSelectable;
 }

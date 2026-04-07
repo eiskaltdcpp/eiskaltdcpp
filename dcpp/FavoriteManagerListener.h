@@ -42,16 +42,16 @@ public:
     typedef X<8> LoadedFromCache;
     typedef X<9> Corrupted;
 
-    virtual void on(DownloadStarting, const string&) noexcept { }
-    virtual void on(DownloadFailed, const string&) noexcept { }
-    virtual void on(DownloadFinished, const string&) noexcept { }
-    virtual void on(FavoriteAdded, const FavoriteHubEntryPtr) noexcept { }
-    virtual void on(FavoriteRemoved, const FavoriteHubEntryPtr) noexcept { }
-    virtual void on(UserAdded, const FavoriteUser&) noexcept { }
-    virtual void on(UserRemoved, const FavoriteUser&) noexcept { }
-    virtual void on(StatusChanged, const FavoriteUser&) noexcept { } // NOTE: freedcpp
-    virtual void on(LoadedFromCache, const string&, const string&) noexcept { }
-    virtual void on(Corrupted, const string&) noexcept { }
+    virtual void on(DownloadStarting, const string&) { }
+    virtual void on(DownloadFailed, const string&) { }
+    virtual void on(DownloadFinished, const string&) { }
+    virtual void on(FavoriteAdded, const FavoriteHubEntryPtr) { }
+    virtual void on(FavoriteRemoved, const FavoriteHubEntryPtr) { }
+    virtual void on(UserAdded, const FavoriteUser&) { }
+    virtual void on(UserRemoved, const FavoriteUser&) { }
+    virtual void on(StatusChanged, const FavoriteUser&) { } // NOTE: freedcpp
+    virtual void on(LoadedFromCache, const string&, const string&) { }
+    virtual void on(Corrupted, const string&) { }
 };
 
 } // namespace dcpp

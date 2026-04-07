@@ -1,6 +1,7 @@
 /*
  * Copyright (C) 2001-2012 Jacek Sieka, arnetheduck on gmail point com
  * Copyright (C) 2009-2019 EiskaltDC++ developers
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -37,8 +38,8 @@
 
 namespace dcpp {
 
-NmdcHub::NmdcHub(const string& aHubURL, bool secure) :
-    Client(aHubURL, '|', secure, Socket::PROTO_NMDC),
+NmdcHub::NmdcHub(DCContext& ctx, const string& aHubURL, bool secure) :
+    Client(ctx, aHubURL, '|', secure, Socket::PROTO_NMDC),
     supportFlags(0),
     lastUpdate(0)
 {
@@ -54,6 +55,9 @@ NmdcHub::~NmdcHub() {
 void NmdcHub::connect(const OnlineUser& aUser, const string&) {
     checkstate();
     dcdebug("NmdcHub::connect %s\n", aUser.getIdentity().getNick().c_str());
+    fprintf(stderr, "[NmdcHub::connect] nick=%s active=%d mode=%d\n",
+            aUser.getIdentity().getNick().c_str(), (int)isActive(),
+            ctx().getClientManager()->getMode(getHubUrl()));
     if(isActive()) {
         connectToMe(aUser);
     } else {
@@ -82,9 +86,9 @@ OnlineUser& NmdcHub::getUser(const string& aNick) {
 
     UserPtr p;
     if(aNick == getCurrentNick()) {
-        p = ClientManager::getInstance()->getMe();
+        p = ctx().getClientManager()->getMe();
     } else {
-        p = ClientManager::getInstance()->getUser(aNick, getHubUrl());
+        p = ctx().getClientManager()->getUser(aNick, getHubUrl());
     }
 
     {
@@ -96,7 +100,7 @@ OnlineUser& NmdcHub::getUser(const string& aNick) {
         }
     }
 
-    ClientManager::getInstance()->putOnline(u);
+    ctx().getClientManager()->putOnline(u);
     return *u;
 }
 
@@ -124,7 +128,7 @@ void NmdcHub::putUser(const string& aNick) {
         ou = i->second;
         users.erase(i);
     }
-    ClientManager::getInstance()->putOffline(ou);
+    ctx().getClientManager()->putOffline(ou);
     delete ou;
 }
 
@@ -137,7 +141,7 @@ void NmdcHub::clearUsers() {
     }
 
     for(auto& i: u2) {
-        ClientManager::getInstance()->putOffline(i.second);
+        ctx().getClientManager()->putOffline(i.second);
         delete i.second;
     }
 }
@@ -179,7 +183,7 @@ void NmdcHub::updateFromTag(Identity& id, const string& tag) {
     id.set("TA", '<' + tag + '>');
 }
 
-void NmdcHub::onLine(const string& aLine) noexcept {
+void NmdcHub::onLine(const string& aLine) {
     if(aLine.length() == 0)
         return;
 
@@ -262,7 +266,7 @@ void NmdcHub::onLine(const string& aLine) noexcept {
         //printf("$Search->%s\n", seeker.c_str()); fflush(stdout);
         // Filter own searches
         if(isActive()) {
-            if(seeker == (getLocalIp() + ":" + SearchManager::getInstance()->getPort())) {
+            if(seeker == (getLocalIp() + ":" + ctx().getSearchManager()->getPort())) {
                 return;
             }
         } else {
@@ -443,6 +447,7 @@ void NmdcHub::onLine(const string& aLine) noexcept {
         if(state != STATE_NORMAL) {
             return;
         }
+        fprintf(stderr, "[NmdcHub::$ConnectToMe] raw param=%s\n", param.c_str());
         string::size_type i = param.find(' ');
         string::size_type j;
         if( (i == string::npos) || ((i + 1) >= param.size()) ) {
@@ -471,12 +476,15 @@ void NmdcHub::onLine(const string& aLine) noexcept {
         bool secure = false;
         if(port[port.size() - 1] == 'S') {
             port.erase(port.size() - 1);
-            if(CryptoManager::getInstance()->TLSOk()) {
+            if(ctx().getCryptoManager()->TLSOk()) {
                 secure = true;
             }
         }
 
-        if(BOOLSETTING(ALLOW_NATT)) {
+        fprintf(stderr, "[NmdcHub::$ConnectToMe] server=%s port=%s secure=%d\n",
+                server.c_str(), port.c_str(), (int)secure);
+
+        if(CTX_BOOLSETTING(ALLOW_NATT)) {
             if(port[port.size() - 1] == 'N') {
                 if(senderNick.empty())
                     return;
@@ -484,7 +492,7 @@ void NmdcHub::onLine(const string& aLine) noexcept {
                 port.erase(port.size() - 1);
 
                 // Trigger connection attempt sequence locally ...
-                ConnectionManager::getInstance()->nmdcConnect(server, port, sock->getLocalPort(),
+                ctx().getConnectionManager()->nmdcConnect(server, port, sock->getLocalPort(),
                                                               BufferedSocket::NAT_CLIENT, getMyNick(), getHubUrl(), getEncoding(), secure);
 
                 // ... and signal other client to do likewise.
@@ -494,7 +502,7 @@ void NmdcHub::onLine(const string& aLine) noexcept {
                 port.erase(port.size() - 1);
 
                 // Trigger connection attempt sequence locally
-                ConnectionManager::getInstance()->nmdcConnect(server, port, sock->getLocalPort(),
+                ctx().getConnectionManager()->nmdcConnect(server, port, sock->getLocalPort(),
                                                               BufferedSocket::NAT_SERVER, getMyNick(), getHubUrl(), getEncoding(), secure);
                 return;
             }
@@ -503,7 +511,10 @@ void NmdcHub::onLine(const string& aLine) noexcept {
         if(port.empty())
             return;
         // For simplicity, we make the assumption that users on a hub have the same character encoding
-        ConnectionManager::getInstance()->nmdcConnect(server, port, getMyNick(), getHubUrl(), getEncoding(), secure);
+        fprintf(stderr, "[NmdcHub::$ConnectToMe] calling nmdcConnect(%s, %s)\n",
+                server.c_str(), port.c_str());
+        ctx().getConnectionManager()->nmdcConnect(server, port, getMyNick(), getHubUrl(), getEncoding(), secure);
+        fprintf(stderr, "[NmdcHub::$ConnectToMe] nmdcConnect returned OK\n");
     } else if(cmd == "$RevConnectToMe") {
         if(state != STATE_NORMAL) {
             return;
@@ -514,14 +525,18 @@ void NmdcHub::onLine(const string& aLine) noexcept {
             return;
         }
 
+        fprintf(stderr, "[NmdcHub::$RevConnectToMe] from=%s active=%d mode=%d\n",
+                param.substr(0, j).c_str(), (int)isActive(),
+                ctx().getClientManager()->getMode(getHubUrl()));
+
         OnlineUser* u = findUser(param.substr(0, j));
         if(u == NULL)
             return;
 
         if(isActive()) {
             connectToMe(*u);
-        } else if(BOOLSETTING(ALLOW_NATT) && (u->getIdentity().getStatus() & Identity::NAT)) {
-            bool secure = CryptoManager::getInstance()->TLSOk() && u->getUser()->isSet(User::TLS);
+        } else if(CTX_BOOLSETTING(ALLOW_NATT) && (u->getIdentity().getStatus() & Identity::NAT)) {
+            bool secure = ctx().getCryptoManager()->TLSOk() && u->getUser()->isSet(User::TLS);
             // NMDC v2.205 supports "$ConnectToMe sender_nick remote_nick ip:port", but many NMDC hubsofts block it
             // sender_nick at the end should work at least in most used hubsofts
             send("$ConnectToMe " + fromUtf8(u->getIdentity().getNick()) + " " +
@@ -538,7 +553,7 @@ void NmdcHub::onLine(const string& aLine) noexcept {
             }
         }
     } else if(cmd == "$SR") {
-        SearchManager::getInstance()->onSearchResult(aLine);
+        ctx().getSearchManager()->onSearchResult(aLine);
     } else if(cmd == "$HubName") {
         // If " - " found, the first part goes to hub name, rest to description
         // If no " - " found, first word goes to hub name, rest to description
@@ -622,7 +637,7 @@ void NmdcHub::onLine(const string& aLine) noexcept {
                     lock = param;
             }
 
-            if(CryptoManager::getInstance()->isExtended(lock)) {
+            if(ctx().getCryptoManager()->isExtended(lock)) {
                 StringList feat = {
                     "UserCommand",
                     "NoGetINFO",
@@ -632,18 +647,18 @@ void NmdcHub::onLine(const string& aLine) noexcept {
                     "ZPipe0"
                 };
 
-                if(CryptoManager::getInstance()->TLSOk())
+                if(ctx().getCryptoManager()->TLSOk())
                     feat.push_back("TLS");
 
 #ifdef WITH_DHT
-                if(BOOLSETTING(USE_DHT))
+                if(CTX_BOOLSETTING(USE_DHT))
                     feat.push_back("DHT0");
 #endif
 
                 supports(feat);
             }
 
-            key(CryptoManager::getInstance()->makeKey(lock));
+            key(ctx().getCryptoManager()->makeKey(lock));
             OnlineUser& ou = getUser(getCurrentNick());
             validateNick(ou.getIdentity().getNick());
         }
@@ -724,14 +739,22 @@ void NmdcHub::onLine(const string& aLine) noexcept {
             }
 
             if(!(supportFlags & SUPPORTS_NOGETINFO)) {
+                int getInfoLimit = CTX_SETTING(NMDC_GETINFO_LIMIT);
+                size_t count = v.size();
+                if(getInfoLimit > 0 && count > static_cast<size_t>(getInfoLimit))
+                    count = static_cast<size_t>(getInfoLimit);
                 string tmp;
                 // Let's assume 10 characters per nick...
-                tmp.reserve(v.size() * (11 + 10 + getMyNick().length()));
+                tmp.reserve(count * (11 + 10 + getMyNick().length()));
                 string n = ' ' + fromUtf8(getMyNick()) + '|';
+                size_t sent = 0;
                 for(auto& i: v) {
+                    if(getInfoLimit > 0 && sent >= static_cast<size_t>(getInfoLimit))
+                        break;
                     tmp += "$GetINFO ";
                     tmp += fromUtf8(i->getIdentity().getNick());
                     tmp += n;
+                    ++sent;
                 }
                 if(!tmp.empty()) {
                     send(tmp);
@@ -850,16 +873,20 @@ void NmdcHub::connectToMe(const OnlineUser& aUser) {
     checkstate();
     dcdebug("NmdcHub::connectToMe %s\n", aUser.getIdentity().getNick().c_str());
     string nick = fromUtf8(aUser.getIdentity().getNick());
-    ConnectionManager::getInstance()->nmdcExpect(nick, getMyNick(), getHubUrl());
-    bool secure = CryptoManager::getInstance()->TLSOk() && aUser.getUser()->isSet(User::TLS);
-    string port = secure ? ConnectionManager::getInstance()->getSecurePort() : ConnectionManager::getInstance()->getPort();
-    send("$ConnectToMe " + nick + " " + getLocalIp() + ":" + port + (secure ? "S" : "") + "|");
+    ctx().getConnectionManager()->nmdcExpect(nick, getMyNick(), getHubUrl());
+    bool secure = ctx().getCryptoManager()->TLSOk() && aUser.getUser()->isSet(User::TLS);
+    string port = secure ? ctx().getConnectionManager()->getSecurePort() : ctx().getConnectionManager()->getPort();
+    string msg = "$ConnectToMe " + nick + " " + getLocalIp() + ":" + port + (secure ? "S" : "") + "|";
+    fprintf(stderr, "[NmdcHub::connectToMe] sending: %s\n", msg.c_str());
+    send(msg);
 }
 
 void NmdcHub::revConnectToMe(const OnlineUser& aUser) {
     checkstate();
     dcdebug("NmdcHub::revConnectToMe %s\n", aUser.getIdentity().getNick().c_str());
-    send("$RevConnectToMe " + fromUtf8(getMyNick()) + " " + fromUtf8(aUser.getIdentity().getNick()) + "|");
+    string msg = "$RevConnectToMe " + fromUtf8(getMyNick()) + " " + fromUtf8(aUser.getIdentity().getNick()) + "|";
+    fprintf(stderr, "[NmdcHub::revConnectToMe] sending: %s\n", msg.c_str());
+    send(msg);
 }
 
 void NmdcHub::hubMessage(const string& aMessage, bool thirdPerson) {
@@ -875,39 +902,39 @@ void NmdcHub::myInfo(bool alwaysSend) {
     char StatusMode = Identity::NORMAL;
 
     char modeChar = '?';
-    if(SETTING(OUTGOING_CONNECTIONS) == SettingsManager::OUTGOING_SOCKS5)
+    if(CTX_SETTING(OUTGOING_CONNECTIONS) == SettingsManager::OUTGOING_SOCKS5)
         modeChar = '5';
     else if(isActive())
         modeChar = 'A';
     else
         modeChar = 'P';
     string uploadSpeed;
-    int upLimit = ThrottleManager::getInstance()->getUpLimit();
-    if (upLimit > 0 && BOOLSETTING(THROTTLE_ENABLE)) {
+    int upLimit = ctx().getThrottleManager()->getUpLimit();
+    if (upLimit > 0 && CTX_BOOLSETTING(THROTTLE_ENABLE)) {
         uploadSpeed = Util::toString(upLimit) + " KiB/s";
     } else {
-        uploadSpeed = SETTING(UPLOAD_SPEED);
+        uploadSpeed = CTX_SETTING(UPLOAD_SPEED);
     }
     if(Util::getAway()) {
         StatusMode |= Identity::AWAY;
     }
-    if(BOOLSETTING(ALLOW_NATT) && !isActive()) {
+    if(CTX_BOOLSETTING(ALLOW_NATT) && !isActive()) {
         StatusMode |= Identity::NAT;
     }
-    if (CryptoManager::getInstance()->TLSOk()) {
+    if (ctx().getCryptoManager()->TLSOk()) {
         StatusMode |= Identity::TLS;
     }
 
-    bool gslotf = BOOLSETTING(SHOW_FREE_SLOTS_DESC);
-    string gslot = "["+Util::toString(UploadManager::getInstance()->getFreeSlots())+"]";
-    string uMin = (SETTING(MIN_UPLOAD_SPEED) == 0) ? Util::emptyString : ",O:" + Util::toString(SETTING(MIN_UPLOAD_SPEED));
+    bool gslotf = CTX_BOOLSETTING(SHOW_FREE_SLOTS_DESC);
+    string gslot = "["+Util::toString(ctx().getUploadManager()->getFreeSlots())+"]";
+    string uMin = (CTX_SETTING(MIN_UPLOAD_SPEED) == 0) ? Util::emptyString : ",O:" + Util::toString(CTX_SETTING(MIN_UPLOAD_SPEED));
     string myInfoA =
             "$MyINFO $ALL " + fromUtf8(getMyNick()) + " " +
             fromUtf8(escape((gslotf ? gslot :"")+getCurrentDescription())) + " <"+ getClientId().c_str() + ",M:" + modeChar + ",H:" + getCounts();
-    string myInfoB = ",S:" + Util::toString(SETTING(SLOTS));
+    string myInfoB = ",S:" + Util::toString(CTX_SETTING(SLOTS));
     string myInfoC = uMin +
-            ">$ $" + uploadSpeed + StatusMode + "$" + fromUtf8(escape(SETTING(EMAIL))) + '$';
-    string myInfoD = ShareManager::getInstance()->getShareSizeString() + "$|";
+            ">$ $" + uploadSpeed + StatusMode + "$" + fromUtf8(escape(CTX_SETTING(EMAIL))) + '$';
+    string myInfoD = ctx().getShareManager()->getShareSizeString() + "$|";
     // we always send A and C; however, B (slots) and D (share size) can frequently change so we delay them if needed
     if(alwaysSend ||
             ((lastMyInfoA != myInfoA || lastMyInfoC != myInfoC) && lastUpdate + 2*60*1000 < GET_TICK())
@@ -933,8 +960,8 @@ void NmdcHub::search(int aSizeType, int64_t aSize, int aFileType, const string& 
         tmp[i] = '$';
     }
     string tmp2;
-    if(isActive() && !BOOLSETTING(SEARCH_PASSIVE)) {
-        tmp2 = getLocalIp() + ':' + SearchManager::getInstance()->getPort();
+    if(isActive() && !CTX_BOOLSETTING(SEARCH_PASSIVE)) {
+        tmp2 = getLocalIp() + ':' + ctx().getSearchManager()->getPort();
     } else {
         tmp2 = "Hub:" + fromUtf8(getMyNick());
     }
@@ -1030,7 +1057,7 @@ void NmdcHub::clearFlooders(uint64_t aTick) {
     }
 }
 
-void NmdcHub::on(Connected) noexcept {
+void NmdcHub::on(Connected) {
     Client::on(Connected());
 
     if(state != STATE_PROTOCOL) {
@@ -1044,23 +1071,62 @@ void NmdcHub::on(Connected) noexcept {
     lastUpdate = 0;
 }
 
-void NmdcHub::on(Line, const string& aLine) noexcept {
+void NmdcHub::on(Line, const string& aLine) {
+    try {
 #ifdef LUA_SCRIPT
     if (onClientMessage(this, validateMessage(aLine, true)))
         return;
 #endif
-    if (BOOLSETTING(NMDC_DEBUG))
+    if (CTX_BOOLSETTING(NMDC_DEBUG))
         fire(ClientListener::StatusMessage(), this, "<NMDC>" + aLine + "</NMDC>");
     Client::on(Line(), aLine);
     onLine(aLine);
+    } catch(const std::bad_alloc&) {
+        string cmd;
+        auto sp = aLine.find(' ');
+        if(sp != string::npos) cmd = aLine.substr(0, sp);
+        else if(aLine.size() <= 80) cmd = aLine;
+        else cmd = aLine.substr(0, 80);
+#ifdef __linux__
+        long rssKB = 0, vmSizeKB = 0, vmPeakKB = 0;
+        if(FILE* f = fopen("/proc/self/status", "r")) {
+            char buf[256];
+            while(fgets(buf, sizeof(buf), f)) {
+                if(strncmp(buf, "VmRSS:", 6) == 0) rssKB = atol(buf + 6);
+                else if(strncmp(buf, "VmSize:", 7) == 0) vmSizeKB = atol(buf + 7);
+                else if(strncmp(buf, "VmPeak:", 7) == 0) vmPeakKB = atol(buf + 7);
+            }
+            fclose(f);
+        }
+        // Test if the allocator actually works
+        bool testAllocOk = false;
+        bool testAllocLargeOk = false;
+        try { auto* p = new char[4096]; delete[] p; testAllocOk = true; } catch(...) {}
+        try { auto* p = new char[65536]; delete[] p; testAllocLargeOk = true; } catch(...) {}
+        fprintf(stderr, "[NmdcHub::on(Line)] std::bad_alloc processing %s (line size=%zu, RSS=%ldKB, VmSize=%ldKB, VmPeak=%ldKB, testAlloc=%s, testAllocLarge=%s)\n",
+                cmd.c_str(), aLine.size(), rssKB, vmSizeKB, vmPeakKB,
+                testAllocOk ? "OK" : "FAIL", testAllocLargeOk ? "OK" : "FAIL");
+#else
+        fprintf(stderr, "[NmdcHub::on(Line)] std::bad_alloc processing %s (line size=%zu)\n",
+                cmd.c_str(), aLine.size());
+#endif
+    } catch(const std::exception& e) {
+        string cmd;
+        auto sp = aLine.find(' ');
+        if(sp != string::npos) cmd = aLine.substr(0, sp);
+        else if(aLine.size() <= 80) cmd = aLine;
+        else cmd = aLine.substr(0, 80);
+        fprintf(stderr, "[NmdcHub::on(Line)] %s processing %s (line size=%zu)\n",
+                e.what(), cmd.c_str(), aLine.size());
+    }
 }
 
-void NmdcHub::on(Failed, const string& aLine) noexcept {
+void NmdcHub::on(Failed, const string& aLine) {
     clearUsers();
     Client::on(Failed(), aLine);
 }
 
-void NmdcHub::on(Second, uint64_t aTick) noexcept {
+void NmdcHub::on(Second, uint64_t aTick) {
     Client::on(Second(), aTick);
 
     if(state == STATE_NORMAL && (aTick > (getLastActivity() + 120*1000)) ) {

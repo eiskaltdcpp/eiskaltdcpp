@@ -8,6 +8,7 @@
 ***************************************************************************/
 
 #include "ArenaWidgetManager.h"
+#include "QtContext.h"
 
 #include "ArenaWidget.h"
 #include "DebugHelper.h"
@@ -17,7 +18,7 @@
 
 #include <QApplication>
 
-ArenaWidgetManager::ArenaWidgetManager() : QObject(nullptr) {
+ArenaWidgetManager::ArenaWidgetManager(dcpp::DCContext& ctx) : QtContextAware(ctx), QObject(nullptr) {
     DEBUG_BLOCK
 }
 
@@ -26,19 +27,8 @@ ArenaWidgetManager::~ArenaWidgetManager(){
 
     disconnect(this, nullptr, nullptr, nullptr);
 
-    for (const auto &awgt : widgets) {
-        if (!dynamic_cast<QObject*>(awgt)){
-            continue;
-        }
-        if (dcpp::ISingleton *isingleton = dynamic_cast<dcpp::ISingleton*>(awgt)){
-            isingleton->release();
-        }
-        else if ( awgt == dynamic_cast<ArenaWidget*> ( awgt->getWidget() ) ) { // ArenaWidget is a parent class of Widget
-            awgt->getWidget()->setAttribute ( Qt::WA_DeleteOnClose );
-            awgt->setUnload(true);
-            awgt->getWidget()->close();
-        }
-    }
+    // Widget lifetimes are managed by QtContext (unique_ptr members) and
+    // MainWindow (Qt parent-child ownership).  Nothing to close/delete here.
 }
 
 void ArenaWidgetManager::add ( ArenaWidget *awgt) {

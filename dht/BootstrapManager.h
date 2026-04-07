@@ -21,17 +21,20 @@
 #include "KBucket.h"
 #include "dcpp/CID.h"
 #include "dcpp/HttpConnection.h"
-#include "dcpp/Singleton.h"
 
 namespace dht
 {
+    class DHT;
 
     class BootstrapManager :
-        public Singleton<BootstrapManager>, private HttpConnectionListener
+        private HttpConnectionListener
     {
     public:
-        BootstrapManager(void);
+        explicit BootstrapManager(DHT& dht);
         ~BootstrapManager(void);
+
+        BootstrapManager(const BootstrapManager&) = delete;
+        BootstrapManager& operator=(const BootstrapManager&) = delete;
 
         void bootstrap();
 
@@ -40,6 +43,7 @@ namespace dht
         void addBootstrapNode(const string& ip, const std::string &udpPort, const CID& targetCID, const UDPKey& udpKey);
 
     private:
+        DHT& dht_;
 
         CriticalSection cs;
 

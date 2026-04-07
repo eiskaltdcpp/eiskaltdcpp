@@ -6,6 +6,9 @@
 *   (at your option) any later version.                                   *
 *                                                                         *
 ***************************************************************************/
+/*
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
+ */
 
 #include "MainWindow.h"
 #include "Notification.h"
@@ -20,13 +23,11 @@
 #include <QModelIndex>
 #include <QItemSelectionModel>
 #include <QtDebug>
-#include <QTextCodec>
 #include <QMessageBox>
 #include <QClipboard>
 #include <QKeyEvent>
 #include <QProgressBar>
 #include <QFileDialog>
-#include <QRegExp>
 #include <QDir>
 #include <QInputDialog>
 #include <QDockWidget>
@@ -34,11 +35,11 @@
 #include <QShortcut>
 #include <QKeySequence>
 #include <QToolButton>
-#include <QRegExp>
 #include <QTreeView>
 #include <QMetaType>
 #include <QTimer>
 #include <QAction>
+#include <QActionGroup>
 #include <QStatusBar>
 #include <QDate>
 
@@ -83,10 +84,12 @@
 
 #include "dcpp/ShareManager.h"
 #include "dcpp/ConnectivityManager.h"
-#include "dcpp/Singleton.h"
 #include "dcpp/SettingsManager.h"
+#include "dcpp/DCPlusPlus.h"
 #include "WulforSettings.h"
 #include "WulforUtil.h"
+#include "QtContext.h"
+#include "QtContextAware.h"
 
 using namespace std;
 
@@ -227,7 +230,8 @@ static const QString &TOOLBUTTON_STYLE = "mainwindow/toolbar-toolbutton-style";
 static const QString &EMPTY_SETTINGS = "mainwindow/empty-settings";
 static const QString &SIDEBAR_SHOW_CLOSEBUTTONS = "mainwindow/sidebar-with-close-buttons";
 
-MainWindow::MainWindow (QWidget *parent):
+MainWindow::MainWindow (dcpp::DCContext& ctx, QWidget *parent):
+        QtContextAware(ctx),
         QMainWindow(parent),
         d_ptr(new MainWindowPrivate())
 {
@@ -246,43 +250,43 @@ MainWindow::MainWindow (QWidget *parent):
 
     d->exitBegin = false;
 
-    if (WBGET(WB_ANTISPAM_ENABLED)){
-        AntiSpam::newInstance();
+    if (qtCtx()->settings()->getBool(WB_ANTISPAM_ENABLED)){
+        qtCtx()->createAntiSpam();
 
-        AntiSpam::getInstance()->loadLists();
-        AntiSpam::getInstance()->loadSettings();
+        qtCtx()->antiSpam()->loadLists();
+        qtCtx()->antiSpam()->loadSettings();
     }
 
-    ShortcutManager::newInstance();
+    qtCtx()->createShortcutManager();
 
     init();
 
     retranslateUi();
 
-    LogManager::getInstance()->addListener(this);
-    TimerManager::getInstance()->addListener(this);
-    QueueManager::getInstance()->addListener(this);
+    dcCtx().getLogManager()->addListener(this);
+    dcCtx().getTimerManager()->addListener(this);
+    dcCtx().getQueueManager()->addListener(this);
 
     startSocket(false);
 
     setStatusMessage(tr("Ready"));
 
-    TransferView::newInstance();
+    qtCtx()->createTransferView();
 
-    d->transfer_dock->setWidget(TransferView::getInstance());
+    d->transfer_dock->setWidget(qtCtx()->transferView());
     d->toolsTransfers->setChecked(d->transfer_dock->isVisible());
 
-    if (!WSGET(WS_APP_THEME).isEmpty())
-        qApp->setStyle(WSGET(WS_APP_THEME));
+    if (!qtCtx()->settings()->getStr(WS_APP_THEME).isEmpty())
+        qApp->setStyle(qtCtx()->settings()->getStr(WS_APP_THEME));
 
-    if (WBGET(WB_APP_REMOVE_NOT_EX_DIRS)){
-        StringPairList directories = ShareManager::getInstance()->getDirectories();
+    if (qtCtx()->settings()->getBool(WB_APP_REMOVE_NOT_EX_DIRS)){
+        StringPairList directories = dcCtx().getShareManager()->getDirectories();
         for (const auto &it : directories){
             QDir dir(_q(it.second));
 
             if (!dir.exists()){
                 try {
-                    ShareManager::getInstance()->removeDirectory(it.second);
+                    dcCtx().getShareManager()->removeDirectory(it.second);
                 }
                 catch (const std::exception&){}
             }
@@ -301,14 +305,14 @@ HashProgress* MainWindow::progress_dialog() {
 }
 
 MainWindow::~MainWindow(){
-    LogManager::getInstance()->removeListener(this);
-    TimerManager::getInstance()->removeListener(this);
-    QueueManager::getInstance()->removeListener(this);
+    dcCtx().getLogManager()->removeListener(this);
+    dcCtx().getTimerManager()->removeListener(this);
+    dcCtx().getQueueManager()->removeListener(this);
 
-    if (AntiSpam::getInstance()){
-        AntiSpam::getInstance()->saveLists();
-        AntiSpam::getInstance()->saveSettings();
-        AntiSpam::deleteInstance();
+    if (qtCtx()->antiSpam()){
+        qtCtx()->antiSpam()->saveLists();
+        qtCtx()->antiSpam()->saveSettings();
+        qtCtx()->destroyAntiSpam();
     }
 
     Q_D(MainWindow);
@@ -317,8 +321,7 @@ MainWindow::~MainWindow(){
     delete d->fBar;
     delete d->sBar;
 
-    ShortcutManager::deleteInstance();
-    SearchBlacklist::deleteInstance();
+    // ShortcutManager is destroyed by QtContext
 
     delete d_ptr;
 }
@@ -335,7 +338,7 @@ void MainWindow::closeEvent(QCloseEvent *c_e){
 #if defined(Q_OS_MAC)
     if (!d->isUnload){
 #else // defined(Q_OS_MAC)
-    if (!d->isUnload && WBGET(WB_TRAY_ENABLED)){
+    if (!d->isUnload && qtCtx()->settings()->getBool(WB_TRAY_ENABLED)){
 #endif // defined(Q_OS_MAC)
         hide();
         c_e->ignore();
@@ -343,7 +346,7 @@ void MainWindow::closeEvent(QCloseEvent *c_e){
         return;
     }
 
-    if (d->isUnload && WBGET(WB_EXIT_CONFIRM) && !d->exitBegin){
+    if (d->isUnload && qtCtx()->settings()->getBool(WB_EXIT_CONFIRM) && !d->exitBegin){
         QMessageBox::StandardButton ret;
 
         QString dlg_message = tr("Exit program?");
@@ -369,10 +372,10 @@ void MainWindow::closeEvent(QCloseEvent *c_e){
 
     saveSettings();
 
-    if (WBGET("app/clear-search-history-on-exit", false))
-        WSSET(WS_SEARCH_HISTORY, "");
-    if (WBGET("app/clear-download-directories-history-on-exit", false))
-        WSSET(WS_DOWNLOAD_DIR_HISTORY, "");
+    if (qtCtx()->settings()->getBool("app/clear-search-history-on-exit", false))
+        qtCtx()->settings()->setStr(WS_SEARCH_HISTORY, "");
+    if (qtCtx()->settings()->getBool("app/clear-download-directories-history-on-exit", false))
+        qtCtx()->settings()->setStr(WS_DOWNLOAD_DIR_HISTORY, "");
 
     if (d->sideDock)
         d->sideDock->hide();
@@ -381,25 +384,43 @@ void MainWindow::closeEvent(QCloseEvent *c_e){
 
     blockSignals(true);
 
-    if (TransferView::getInstance()){
-        TransferView::getInstance()->close();
-        TransferView::deleteInstance();
+    if (qtCtx()->transferView()){
+        qtCtx()->transferView()->close();
+        // TransferView is destroyed by QtContext
     }
 
-    if (SearchManager::getInstance())
-        SearchManager::getInstance()->disconnect();
+    if (dcCtx().getSearchManager())
+        dcCtx().getSearchManager()->disconnect();
 
-    if (ConnectionManager::getInstance())
-        ConnectionManager::getInstance()->disconnect();
+    if (dcCtx().getConnectionManager())
+        dcCtx().getConnectionManager()->disconnect();
 
-    if (Notification::getInstance()){
-        Notification::deleteInstance();
+    if (qtCtx()->notification()){
+        qtCtx()->destroyNotification();
+    }
+
+    // Close all hub connections before quitting.  This triggers each
+    // HubFrame::closeEvent() which properly disconnects and releases
+    // the dcpp Client, preventing use-after-free crashes during
+    // dcpp::shutdown().
+    if (qtCtx()->hubManager()) {
+        QList<QObject*> hubList = qtCtx()->hubManager()->getHubs();
+        for (QObject *obj : hubList) {
+            HubFrame *hub = qobject_cast<HubFrame*>(obj);
+            if (hub)
+                hub->close();
+        }
     }
 
     d->arena->hide();
     d->arena->setWidget(nullptr);
 
     c_e->accept();
+
+    // In Qt6 the quit-on-last-window-closed mechanism may not fire when
+    // blockSignals(true) has been called on this widget.  Explicitly ask
+    // the application to quit so that QCoreApplication::exec() returns.
+    qApp->quit();
 }
 
 void MainWindow::beginExit(){
@@ -425,8 +446,8 @@ void MainWindow::showEvent(QShowEvent *e){
     if (!d->showMax && d->w > 0 && d->h > 0 && d->w != width() && d->h != height())
         this->resize(QSize(d->w, d->h));
 
-    if (WBGET(WB_APP_AUTO_AWAY) && !Util::getManualAway()){
-        Util::setAway(false);
+    if (qtCtx()->settings()->getBool(WB_APP_AUTO_AWAY) && !Util::getManualAway()){
+        Util::setAway(dcCtx(), false);
 
         d->toolsAwayOff->setChecked(true);
     }
@@ -454,7 +475,7 @@ void MainWindow::showEvent(QShowEvent *e){
     d->findInWidget->setEnabled(widgetWithFilter);
     d->chatDisable->setEnabled(role == ArenaWidget::Hub);
 
-    if (_q(SETTING(NICK)).isEmpty()){
+    if (_q(qtCtx()->dcCtx().getSettingsManager()->get(SettingsManager::NICK, true)).isEmpty()){
         activateWindow();
         raise();
 
@@ -462,7 +483,7 @@ void MainWindow::showEvent(QShowEvent *e){
         QString new_nick = QInputDialog::getText(this, tr("Enter user nick"), tr("Nick"), QLineEdit::Normal, tr("User"), &ok);
 
         if (ok && !new_nick.isEmpty()){
-            SettingsManager::getInstance()->set(SettingsManager::NICK, _tq(new_nick));
+            dcCtx().getSettingsManager()->set(SettingsManager::NICK, _tq(new_nick));
 
             ok = (QMessageBox::question(this, "EiskaltDC++", tr("Would you like to change other settings?"), QMessageBox::Yes, QMessageBox::No) == QMessageBox::No);
         }
@@ -497,8 +518,8 @@ void MainWindow::hideEvent(QHideEvent *e){
     if (d->sideDock && d->sideDock->isFloating())
         d->sideDock->hide();
 
-    if (WBGET(WB_APP_AUTO_AWAY)){
-        Util::setAway(true);
+    if (qtCtx()->settings()->getBool(WB_APP_AUTO_AWAY)){
+        Util::setAway(dcCtx(), true);
 
         d->toolsAwayOn->setChecked(true);
     }
@@ -529,9 +550,9 @@ void MainWindow::init(){
 
     setObjectName("MainWindow");
 
-    connect(this, SIGNAL(coreLogMessage(QString)), this, SLOT(setStatusMessage(QString)), Qt::QueuedConnection);
-    connect(this, SIGNAL(coreOpenShare(dcpp::UserPtr,QString,QString)), this, SLOT(showShareBrowser(dcpp::UserPtr,QString,QString)), Qt::QueuedConnection);
-    connect(this, SIGNAL(coreUpdateStats(QMap<QString,QString>)), this, SLOT(updateStatus(QMap<QString,QString>)), Qt::QueuedConnection);
+    connect(this, &MainWindow::coreLogMessage, this, &MainWindow::setStatusMessage, Qt::QueuedConnection);
+    connect(this, &MainWindow::coreOpenShare, this, &MainWindow::showShareBrowser, Qt::QueuedConnection);
+    connect(this, &MainWindow::coreUpdateStats, this, &MainWindow::updateStatus, Qt::QueuedConnection);
 
     d->arena = new QDockWidget();
     d->arena->setWidget(nullptr);
@@ -559,7 +580,7 @@ void MainWindow::init(){
 
     d->transfer_dock->hide();
 
-    this->setWindowIcon(WICON(WulforUtil::eiICON_APPL));
+    this->setWindowIcon(qtCtx()->wulforUtil()->getPixmap(WulforUtil::eiICON_APPL));
 
     setWindowTitle(QString::fromStdString(eiskaltdcppAppNameString));
 
@@ -580,26 +601,26 @@ void MainWindow::init(){
 
     loadSettings();
 
-    connect(qApp, SIGNAL(aboutToQuit()), this, SLOT(slotExit()));
+    connect(qApp, &QApplication::aboutToQuit, this, &MainWindow::slotExit);
 
-    connect(ArenaWidgetManager::getInstance(), SIGNAL(activated(ArenaWidget*)), this, SLOT(mapWidgetOnArena(ArenaWidget*)));
-    connect(ArenaWidgetManager::getInstance(), SIGNAL(added(ArenaWidget*)),     this, SLOT(insertWidget(ArenaWidget*)));
-    connect(ArenaWidgetManager::getInstance(), SIGNAL(removed(ArenaWidget*)),   this, SLOT(removeWidget(ArenaWidget*)));
-    connect(ArenaWidgetManager::getInstance(), SIGNAL(updated(ArenaWidget*)),   this, SLOT(updated(ArenaWidget*)));
+    connect(qtCtx()->arenaWidgetManager(), &ArenaWidgetManager::activated, this, &MainWindow::mapWidgetOnArena);
+    connect(qtCtx()->arenaWidgetManager(), &ArenaWidgetManager::added,     this, &MainWindow::insertWidget);
+    connect(qtCtx()->arenaWidgetManager(), &ArenaWidgetManager::removed,   this, &MainWindow::removeWidget);
+    connect(qtCtx()->arenaWidgetManager(), &ArenaWidgetManager::updated,   this, &MainWindow::updated);
 
 #ifdef LUA_SCRIPT
-    ScriptManager::getInstance()->load();
-    if (BOOLSETTING(USE_LUA)){
+    dcCtx().getScriptManager()->load();
+    if (qtCtx()->dcCtx().getSettingsManager()->getBool(SettingsManager::USE_LUA, true)){
         // Start as late as possible, as we might (formatting.lua) need to examine settings
         string defaultluascript="startup.lua";
-        ScriptManager::getInstance()->EvaluateFile(defaultluascript);
+        dcCtx().getScriptManager()->EvaluateFile(defaultluascript);
     }
 #endif
 }
 
 void MainWindow::loadSettings(){
     Q_D(MainWindow);
-    WulforSettings *WS = WulforSettings::getInstance();
+    WulforSettings *WS = qtCtx()->settings();
 
     d->showMax = WS->getBool(WB_MAINWINDOW_MAXIMIZED);
     d->w = WS->getInt(WI_MAINWINDOW_WIDTH);
@@ -616,34 +637,34 @@ void MainWindow::loadSettings(){
     if (sz.width() > 0 && sz.height() > 0)
         this->resize(sz);
 
-    QString dockwidgetsState = WSGET(WS_MAINWINDOW_STATE);
+    QString dockwidgetsState = qtCtx()->settings()->getStr(WS_MAINWINDOW_STATE);
 
     if (!dockwidgetsState.isEmpty())
         this->restoreState(QByteArray::fromBase64(dockwidgetsState.toUtf8()));
 
-    d->fBar->setVisible(WBGET(WB_TOOLS_PANEL_VISIBLE));
-    d->panelsTools->setChecked(WBGET(WB_TOOLS_PANEL_VISIBLE));
+    d->fBar->setVisible(qtCtx()->settings()->getBool(WB_TOOLS_PANEL_VISIBLE));
+    d->panelsTools->setChecked(qtCtx()->settings()->getBool(WB_TOOLS_PANEL_VISIBLE));
 
-    d->sBar->setVisible(WBGET(WB_SEARCH_PANEL_VISIBLE));
-    d->panelsSearch->setChecked(WBGET(WB_SEARCH_PANEL_VISIBLE));
+    d->sBar->setVisible(qtCtx()->settings()->getBool(WB_SEARCH_PANEL_VISIBLE));
+    d->panelsSearch->setChecked(qtCtx()->settings()->getBool(WB_SEARCH_PANEL_VISIBLE));
 
     if (d->sideDock){
-        if (d->sideDock->isFloating() && WBGET(WB_MAINWINDOW_HIDE) && WBGET(WB_TRAY_ENABLED))
+        if (d->sideDock->isFloating() && qtCtx()->settings()->getBool(WB_MAINWINDOW_HIDE) && qtCtx()->settings()->getBool(WB_TRAY_ENABLED))
             d->sideDock->hide();
         else
-            d->sideDock->setVisible(WBGET(WB_WIDGETS_PANEL_VISIBLE));
+            d->sideDock->setVisible(qtCtx()->settings()->getBool(WB_WIDGETS_PANEL_VISIBLE));
     } else if ( findChild<MultiLineToolBar*> ( "multiLineTabbar" ) ) {
-        findChild<MultiLineToolBar*> ( "multiLineTabbar" )->setVisible ( WBGET ( WB_WIDGETS_PANEL_VISIBLE ) );
+        findChild<MultiLineToolBar*> ( "multiLineTabbar" )->setVisible ( qtCtx()->settings()->getBool( WB_WIDGETS_PANEL_VISIBLE ) );
     } else if ( findChild<ToolBar*> ( "tBar" ) ) {
-        findChild<ToolBar*> ( "tBar" )->setVisible ( WBGET ( WB_WIDGETS_PANEL_VISIBLE ) );
+        findChild<ToolBar*> ( "tBar" )->setVisible ( qtCtx()->settings()->getBool( WB_WIDGETS_PANEL_VISIBLE ) );
     }
 
-    d->panelsWidgets->setChecked(WBGET(WB_WIDGETS_PANEL_VISIBLE));
+    d->panelsWidgets->setChecked(qtCtx()->settings()->getBool(WB_WIDGETS_PANEL_VISIBLE));
 
-    if (!WBGET(WB_MAIN_MENU_VISIBLE))
+    if (!qtCtx()->settings()->getBool(WB_MAIN_MENU_VISIBLE))
         toggleMainMenu(false);
 
-    if (WBGET("mainwindow/dont-show-icons-in-menus", false))
+    if (qtCtx()->settings()->getBool("mainwindow/dont-show-icons-in-menus", false))
         qApp->setAttribute(Qt::AA_DontShowIconsInMenus);
 }
 
@@ -657,31 +678,31 @@ void MainWindow::saveSettings(){
     if (isVisible())
         d->showMax = isMaximized();
 
-    WBSET(WB_MAINWINDOW_MAXIMIZED, d->showMax);
+    qtCtx()->settings()->setBool(WB_MAINWINDOW_MAXIMIZED, d->showMax);
 
     if (!d->showMax && height() > 0 && width() > 0){
-        WISET(WI_MAINWINDOW_HEIGHT, height());
-        WISET(WI_MAINWINDOW_WIDTH, width());
+        qtCtx()->settings()->setInt(WI_MAINWINDOW_HEIGHT, height());
+        qtCtx()->settings()->setInt(WI_MAINWINDOW_WIDTH, width());
     }
     else{
-        WISET(WI_MAINWINDOW_HEIGHT, d->h);
-        WISET(WI_MAINWINDOW_WIDTH, d->w);
+        qtCtx()->settings()->setInt(WI_MAINWINDOW_HEIGHT, d->h);
+        qtCtx()->settings()->setInt(WI_MAINWINDOW_WIDTH, d->w);
     }
 
     if (!d->showMax && x() >= 0 && y() >= 0){
-        WISET(WI_MAINWINDOW_X, x());
-        WISET(WI_MAINWINDOW_Y, y());
+        qtCtx()->settings()->setInt(WI_MAINWINDOW_X, x());
+        qtCtx()->settings()->setInt(WI_MAINWINDOW_Y, y());
     }
     else{
-        WISET(WI_MAINWINDOW_X, d->xPos);
-        WISET(WI_MAINWINDOW_Y, d->yPos);
+        qtCtx()->settings()->setInt(WI_MAINWINDOW_X, d->xPos);
+        qtCtx()->settings()->setInt(WI_MAINWINDOW_Y, d->yPos);
     }
 
-    if (WBGET(WB_MAINWINDOW_REMEMBER))
-        WBSET(WB_MAINWINDOW_HIDE, !isVisible());
+    if (qtCtx()->settings()->getBool(WB_MAINWINDOW_REMEMBER))
+        qtCtx()->settings()->setBool(WB_MAINWINDOW_HIDE, !isVisible());
 
     QString dockwidgetsState = QString::fromUtf8(saveState().toBase64());
-    WSSET(WS_MAINWINDOW_STATE, dockwidgetsState);
+    qtCtx()->settings()->setStr(WS_MAINWINDOW_STATE, dockwidgetsState);
 
     stateIsSaved = true;
 }
@@ -689,205 +710,205 @@ void MainWindow::saveSettings(){
 void MainWindow::initActions(){
     Q_D(MainWindow);
 
-    WulforUtil *WU = WulforUtil::getInstance();
-    ShortcutManager *SM = ShortcutManager::getInstance();
+    WulforUtil *WU = qtCtx()->wulforUtil();
+    ShortcutManager *SM = qtCtx()->shortcutManager();
 
     {
         d->fileOpenMagnet = new QAction("", this);
         d->fileOpenMagnet->setObjectName("fileOpenMagnet");
         SM->registerShortcut(d->fileOpenMagnet, QString("Ctrl+I"));
         d->fileOpenMagnet->setIcon(WU->getPixmap(WulforUtil::eiDOWNLOAD));
-        connect(d->fileOpenMagnet, SIGNAL(triggered()), this, SLOT(slotOpenMagnet()));
+        connect(d->fileOpenMagnet, &QAction::triggered, this, &MainWindow::slotOpenMagnet);
 
         d->fileFileListBrowserLocal = new QAction("", this);
         d->fileFileListBrowserLocal->setObjectName("fileFileListBrowserLocal");
         SM->registerShortcut(d->fileFileListBrowserLocal, QString("Ctrl+L"));
         d->fileFileListBrowserLocal->setIcon(WU->getPixmap(WulforUtil::eiOWN_FILELIST));
-        connect(d->fileFileListBrowserLocal, SIGNAL(triggered()), this, SLOT(slotFileBrowseOwnFilelist()));
+        connect(d->fileFileListBrowserLocal, &QAction::triggered, this, &MainWindow::slotFileBrowseOwnFilelist);
 
         d->fileFileListBrowser = new QAction("", this);
         d->fileFileListBrowser->setObjectName("fileFileListBrowser");
         d->fileFileListBrowser->setIcon(WU->getPixmap(WulforUtil::eiOPENLIST));
-        connect(d->fileFileListBrowser, SIGNAL(triggered()), this, SLOT(slotFileBrowseFilelist()));
+        connect(d->fileFileListBrowser, &QAction::triggered, this, &MainWindow::slotFileBrowseFilelist);
 
         d->fileFileListMatchAll = new QAction("", this);
         d->fileFileListMatchAll->setObjectName("fileFileListMatchAll");
         //d->fileFileListMatchAll->setIcon(WU->getPixmap(WulforUtil::eiOPENLIST));
-        connect(d->fileFileListMatchAll, SIGNAL(triggered()), this, SLOT(slotFileMatchAllList()));
+        connect(d->fileFileListMatchAll, &QAction::triggered, this, &MainWindow::slotFileMatchAllList);
 
         d->fileFileHasher = new QAction("", this);
         d->fileFileHasher->setObjectName("fileFileHasher");
         d->fileFileHasher->setIcon(WU->getPixmap(WulforUtil::eiOPENLIST));
-        connect(d->fileFileHasher, SIGNAL(triggered()), this, SLOT(slotFileHasher()));
+        connect(d->fileFileHasher, &QAction::triggered, this, &MainWindow::slotFileHasher);
 
         d->fileOpenLogFile = new QAction("", this);
         d->fileOpenLogFile->setObjectName("fileOpenLogFile");
         d->fileOpenLogFile->setIcon(WU->getPixmap(WulforUtil::eiOPEN_LOG_FILE));
-        connect(d->fileOpenLogFile, SIGNAL(triggered()), this, SLOT(slotFileOpenLogFile()));
+        connect(d->fileOpenLogFile, &QAction::triggered, this, &MainWindow::slotFileOpenLogFile);
 
         d->fileOpenDownloadDirectory = new QAction("", this);
         d->fileOpenDownloadDirectory->setObjectName("fileOpenDownloadDirectory");
         d->fileOpenDownloadDirectory->setIcon(WU->getPixmap(WulforUtil::eiFOLDER_BLUE));
-        connect(d->fileOpenDownloadDirectory, SIGNAL(triggered()), this, SLOT(slotFileOpenDownloadDirectory()));
+        connect(d->fileOpenDownloadDirectory, &QAction::triggered, this, &MainWindow::slotFileOpenDownloadDirectory);
 
         d->fileRefreshShareHashProgress = new QAction("", this);
         d->fileRefreshShareHashProgress->setObjectName("fileRefreshShareHashProgress");
         SM->registerShortcut(d->fileRefreshShareHashProgress, QString("Ctrl+E"));
         d->fileRefreshShareHashProgress->setIcon(WU->getPixmap(WulforUtil::eiHASHING));
-        connect(d->fileRefreshShareHashProgress, SIGNAL(triggered()), this, SLOT(slotFileRefreshShareHashProgress()));
+        connect(d->fileRefreshShareHashProgress, &QAction::triggered, this, &MainWindow::slotFileRefreshShareHashProgress);
 
         d->fileHideWindow = new QAction("", this);
         d->fileHideWindow->setObjectName("fileHideWindow");
         SM->registerShortcut(d->fileHideWindow, QString("Ctrl+Alt+H"));
         d->fileHideWindow->setIcon(WU->getPixmap(WulforUtil::eiHIDEWINDOW));
-        connect(d->fileHideWindow, SIGNAL(triggered()), this, SLOT(slotHideWindow()));
+        connect(d->fileHideWindow, &QAction::triggered, this, &MainWindow::slotHideWindow);
 
         d->fileQuit = new QAction("", this);
         d->fileQuit->setObjectName("fileQuit");
         SM->registerShortcut(d->fileQuit, QString("Ctrl+Q"));
         d->fileQuit->setMenuRole(QAction::QuitRole);
         d->fileQuit->setIcon(WU->getPixmap(WulforUtil::eiEXIT));
-        connect(d->fileQuit, SIGNAL(triggered()), this, SLOT(slotExit()));
+        connect(d->fileQuit, &QAction::triggered, this, &MainWindow::slotExit);
 
         d->hubsHubReconnect = new QAction("", this);
         d->hubsHubReconnect->setObjectName("hubsHubReconnect");
         SM->registerShortcut(d->hubsHubReconnect, QString("Ctrl+R"));
         d->hubsHubReconnect->setIcon(WU->getPixmap(WulforUtil::eiRECONNECT));
-        connect(d->hubsHubReconnect, SIGNAL(triggered()), this, SLOT(slotHubsReconnect()));
+        connect(d->hubsHubReconnect, &QAction::triggered, this, &MainWindow::slotHubsReconnect);
 
         d->hubsQuickConnect = new QAction("", this);
         d->hubsQuickConnect->setObjectName("hubsQuickConnect");
         SM->registerShortcut(d->hubsQuickConnect, QString("Ctrl+N"));
         d->hubsQuickConnect->setIcon(WU->getPixmap(WulforUtil::eiCONNECT));
-        connect(d->hubsQuickConnect, SIGNAL(triggered()), this, SLOT(slotQC()));
+        connect(d->hubsQuickConnect, &QAction::triggered, this, &MainWindow::slotQC);
 
         d->hubsFavoriteHubs = new QAction("", this);
         d->hubsFavoriteHubs->setObjectName("hubsFavoriteHubs");
         SM->registerShortcut(d->hubsFavoriteHubs, QString("Ctrl+H"));
         d->hubsFavoriteHubs->setIcon(WU->getPixmap(WulforUtil::eiFAVSERVER));
-        connect(d->hubsFavoriteHubs, SIGNAL(triggered()), this, SLOT(slotHubsFavoriteHubs()));
+        connect(d->hubsFavoriteHubs, &QAction::triggered, this, &MainWindow::slotHubsFavoriteHubs);
 
         d->hubsPublicHubs = new QAction("", this);
         d->hubsPublicHubs->setObjectName("hubsPublicHubs");
         SM->registerShortcut(d->hubsPublicHubs, QString("Ctrl+P"));
         d->hubsPublicHubs->setIcon(WU->getPixmap(WulforUtil::eiSERVER));
-        connect(d->hubsPublicHubs, SIGNAL(triggered()), this, SLOT(slotHubsPublicHubs()));
+        connect(d->hubsPublicHubs, &QAction::triggered, this, &MainWindow::slotHubsPublicHubs);
 
         d->hubsFavoriteUsers = new QAction("", this);
         d->hubsFavoriteUsers->setObjectName("hubsFavoriteUsers");
         SM->registerShortcut(d->hubsFavoriteUsers, QString("Ctrl+U"));
         d->hubsFavoriteUsers->setIcon(WU->getPixmap(WulforUtil::eiFAVUSERS));
-        connect(d->hubsFavoriteUsers, SIGNAL(triggered()), this, SLOT(slotHubsFavoriteUsers()));
+        connect(d->hubsFavoriteUsers, &QAction::triggered, this, &MainWindow::slotHubsFavoriteUsers);
 
         d->toolsHubManager = new QAction("", this);
         d->toolsHubManager->setObjectName("toolsHubManager");
         d->toolsHubManager->setIcon(WU->getPixmap(WulforUtil::eiSERVER));
-        connect(d->toolsHubManager, SIGNAL(triggered()), this, SLOT(slotToolsHubManager()));
+        connect(d->toolsHubManager, &QAction::triggered, this, &MainWindow::slotToolsHubManager);
 
         d->toolsCopyWindowTitle = new QAction("", this);
         d->toolsCopyWindowTitle->setObjectName("toolsCopyWindowTitle");
         d->toolsCopyWindowTitle->setIcon(WU->getPixmap(WulforUtil::eiEDITCOPY));
-        connect(d->toolsCopyWindowTitle, SIGNAL(triggered()), this, SLOT(slotToolsCopyWindowTitle()));
+        connect(d->toolsCopyWindowTitle, &QAction::triggered, this, &MainWindow::slotToolsCopyWindowTitle);
 
         d->toolsOptions = new QAction("", this);
         d->toolsOptions->setObjectName("toolsOptions");
         SM->registerShortcut(d->toolsOptions, QString("Ctrl+O"));
         d->toolsOptions->setMenuRole(QAction::PreferencesRole);
         d->toolsOptions->setIcon(WU->getPixmap(WulforUtil::eiCONFIGURE));
-        connect(d->toolsOptions, SIGNAL(triggered()), this, SLOT(slotToolsSettings()));
+        connect(d->toolsOptions, &QAction::triggered, this, &MainWindow::slotToolsSettings);
 
         d->toolsADLS = new QAction("", this);
         d->toolsADLS->setObjectName("toolsADLS");
         d->toolsADLS->setIcon(WU->getPixmap(WulforUtil::eiADLS));
-        connect(d->toolsADLS, SIGNAL(triggered()), this, SLOT(slotToolsADLS()));
+        connect(d->toolsADLS, &QAction::triggered, this, &MainWindow::slotToolsADLS);
 
         d->toolsCmdDebug = new QAction("", this);
         d->toolsCmdDebug->setObjectName("toolsCmdDebug");
         d->toolsCmdDebug->setIcon(WU->getPixmap(WulforUtil::eiCONSOLE));
-        connect(d->toolsCmdDebug, SIGNAL(triggered()), this, SLOT(slotToolsCmdDebug()));
+        connect(d->toolsCmdDebug, &QAction::triggered, this, &MainWindow::slotToolsCmdDebug);
 
         d->toolsSecretary = new QAction("", this);
         d->toolsSecretary->setObjectName("toolsSecretary");
         d->toolsSecretary->setIcon(WU->getPixmap(WulforUtil::eiMAGNET));
-        connect(d->toolsSecretary, SIGNAL(triggered()), this, SLOT(slotToolsSecretary()));
+        connect(d->toolsSecretary, &QAction::triggered, this, &MainWindow::slotToolsSecretary);
 
         d->toolsTransfers = new QAction("", this);
         d->toolsTransfers->setObjectName("toolsTransfers");
         SM->registerShortcut(d->toolsTransfers, QString("Ctrl+T"));
         d->toolsTransfers->setIcon(WU->getPixmap(WulforUtil::eiTRANSFER));
         d->toolsTransfers->setCheckable(true);
-        connect(d->toolsTransfers, SIGNAL(toggled(bool)), this, SLOT(slotToolsTransfer(bool)));
+        connect(d->toolsTransfers, &QAction::toggled, this, &MainWindow::slotToolsTransfer);
         //transfer_dock->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Preferred);
 
         d->toolsDownloadQueue = new QAction("", this);
         d->toolsDownloadQueue->setObjectName("toolsDownloadQueue");
         SM->registerShortcut(d->toolsDownloadQueue, QString("Ctrl+D"));
         d->toolsDownloadQueue->setIcon(WU->getPixmap(WulforUtil::eiDOWNLOAD));
-        connect(d->toolsDownloadQueue, SIGNAL(triggered()), this, SLOT(slotToolsDownloadQueue()));
+        connect(d->toolsDownloadQueue, &QAction::triggered, this, &MainWindow::slotToolsDownloadQueue);
 
         d->toolsQueuedUsers = new QAction("", this);
         d->toolsQueuedUsers->setObjectName("toolsQueuedUsers");
         SM->registerShortcut(d->toolsQueuedUsers, QString("Ctrl+Shift+U"));
         d->toolsQueuedUsers->setIcon(WU->getPixmap(WulforUtil::eiUSERS));
-        connect(d->toolsQueuedUsers, SIGNAL(triggered()), this, SLOT(slotToolsQueuedUsers()));
+        connect(d->toolsQueuedUsers, &QAction::triggered, this, &MainWindow::slotToolsQueuedUsers);
 
         d->toolsFinishedDownloads = new QAction("", this);
         d->toolsFinishedDownloads->setObjectName("toolsFinishedDownloads");
         SM->registerShortcut(d->toolsFinishedDownloads, QString("Ctrl+["));
         d->toolsFinishedDownloads->setIcon(WU->getPixmap(WulforUtil::eiDOWNLIST));
-        connect(d->toolsFinishedDownloads, SIGNAL(triggered()), this, SLOT(slotToolsFinishedDownloads()));
+        connect(d->toolsFinishedDownloads, &QAction::triggered, this, &MainWindow::slotToolsFinishedDownloads);
 
         d->toolsFinishedUploads = new QAction("", this);
         d->toolsFinishedUploads->setObjectName("toolsFinishedUploads");
         SM->registerShortcut(d->toolsFinishedUploads, QString("Ctrl+]"));
         d->toolsFinishedUploads->setIcon(WU->getPixmap(WulforUtil::eiUPLIST));
-        connect(d->toolsFinishedUploads, SIGNAL(triggered()), this, SLOT(slotToolsFinishedUploads()));
+        connect(d->toolsFinishedUploads, &QAction::triggered, this, &MainWindow::slotToolsFinishedUploads);
 
         d->toolsSearchSpy = new QAction("", this);
         d->toolsSearchSpy->setObjectName("toolsSpy");
         d->toolsSearchSpy->setIcon(WU->getPixmap(WulforUtil::eiSPY));
-        connect(d->toolsSearchSpy, SIGNAL(triggered()), this, SLOT(slotToolsSpy()));
+        connect(d->toolsSearchSpy, &QAction::triggered, this, &MainWindow::slotToolsSpy);
 
         d->toolsAntiSpam = new QAction("", this);
         d->toolsAntiSpam->setObjectName("toolsAntiSpam");
         d->toolsAntiSpam->setIcon(WU->getPixmap(WulforUtil::eiSPAM));
         d->toolsAntiSpam->setCheckable(true);
-        d->toolsAntiSpam->setChecked(AntiSpam::getInstance() != nullptr);
-        connect(d->toolsAntiSpam, SIGNAL(triggered()), this, SLOT(slotToolsAntiSpam()));
+        d->toolsAntiSpam->setChecked(qtCtx()->antiSpam() != nullptr);
+        connect(d->toolsAntiSpam, &QAction::triggered, this, &MainWindow::slotToolsAntiSpam);
 
         d->toolsIPFilter = new QAction("", this);
         d->toolsIPFilter->setObjectName("toolsIPFilter");
         d->toolsIPFilter->setIcon(WU->getPixmap(WulforUtil::eiFILTER));
         d->toolsIPFilter->setCheckable(true);
-        d->toolsIPFilter->setChecked(BOOLSETTING(SettingsManager::IPFILTER));
-        connect(d->toolsIPFilter, SIGNAL(triggered()), this, SLOT(slotToolsIPFilter()));
+        d->toolsIPFilter->setChecked(qtCtx()->dcCtx().getSettingsManager()->getBool(SettingsManager::IPFILTER));
+        connect(d->toolsIPFilter, &QAction::triggered, this, &MainWindow::slotToolsIPFilter);
 
         d->toolsAwayOn = new QAction("", this);
         d->toolsAwayOn->setObjectName("toolsAwayOn");
         d->toolsAwayOn->setCheckable(true);
-        connect(d->toolsAwayOn, SIGNAL(triggered()), this, SLOT(slotToolsSwitchAway()));
+        connect(d->toolsAwayOn, &QAction::triggered, this, &MainWindow::slotToolsSwitchAway);
 
         d->toolsAwayOff = new QAction("", this);
         d->toolsAwayOff->setObjectName("toolsAwayOff");
         d->toolsAwayOff->setCheckable(true);
-        connect(d->toolsAwayOff, SIGNAL(triggered()), this, SLOT(slotToolsSwitchAway()));
+        connect(d->toolsAwayOff, &QAction::triggered, this, &MainWindow::slotToolsSwitchAway);
 
         d->toolsAutoAway = new QAction("", this);
         d->toolsAutoAway->setCheckable(true);
-        d->toolsAutoAway->setChecked(WBGET(WB_APP_AUTO_AWAY));
-        connect(d->toolsAutoAway, SIGNAL(triggered()), this, SLOT(slotToolsAutoAway()));
+        d->toolsAutoAway->setChecked(qtCtx()->settings()->getBool(WB_APP_AUTO_AWAY));
+        connect(d->toolsAutoAway, &QAction::triggered, this, &MainWindow::slotToolsAutoAway);
 
 #ifdef USE_JS
         d->toolsJS = new QAction("", this);
         d->toolsJS->setObjectName("toolsJS");
         d->toolsJS->setIcon(WU->getPixmap(WulforUtil::eiPLUGIN));
-        connect(d->toolsJS, SIGNAL(triggered()), this, SLOT(slotToolsJS()));
+        connect(d->toolsJS, &QAction::triggered, this, &MainWindow::slotToolsJS);
 
         d->toolsJSConsole = new QAction("", this);
         d->toolsJSConsole->setObjectName("toolsJSConsole");
         SM->registerShortcut(d->toolsJSConsole, QString("Ctrl+Alt+J"));
         d->toolsJSConsole->setIcon(WU->getPixmap(WulforUtil::eiCONSOLE));
-        connect(d->toolsJSConsole, SIGNAL(triggered()), this, SLOT(slotToolsJSConsole()));
+        connect(d->toolsJSConsole, &QAction::triggered, this, &MainWindow::slotToolsJSConsole);
 #endif
 
         d->menuAwayAction = new QAction("", this);
@@ -913,7 +934,7 @@ void MainWindow::initActions(){
         d->toolsSearch->setObjectName("toolsSearch");
         SM->registerShortcut(d->toolsSearch, QString("Ctrl+S"));
         d->toolsSearch->setIcon(WU->getPixmap(WulforUtil::eiFILEFIND));
-        connect(d->toolsSearch, SIGNAL(triggered()), this, SLOT(slotToolsSearch()));
+        connect(d->toolsSearch, &QAction::triggered, this, &MainWindow::slotToolsSearch);
 
         d->toolsHideProgressSpace = new QAction("", this);
         d->toolsHideProgressSpace->setObjectName("toolsHideProgressSpace");
@@ -922,41 +943,41 @@ void MainWindow::initActions(){
         d->toolsHideProgressSpace->setVisible(false);
 #endif
         d->toolsHideProgressSpace->setIcon(WU->getPixmap(WulforUtil::eiFREESPACE));
-        connect(d->toolsHideProgressSpace, SIGNAL(triggered()), this, SLOT(slotHideProgressSpace()));
+        connect(d->toolsHideProgressSpace, &QAction::triggered, this, &MainWindow::slotHideProgressSpace);
 
         d->toolsHideLastStatus = new QAction("", this);
         d->toolsHideLastStatus->setObjectName("toolsHideLastStatus");
         d->toolsHideLastStatus->setIcon(WU->getPixmap(WulforUtil::eiSTATUS));
-        connect(d->toolsHideLastStatus, SIGNAL(triggered()), this, SLOT(slotHideLastStatus()));
+        connect(d->toolsHideLastStatus, &QAction::triggered, this, &MainWindow::slotHideLastStatus);
 
         d->toolsHideUsersStatisctics = new QAction("", this);
         d->toolsHideUsersStatisctics->setObjectName("toolsHideUsersStatisctics");
         d->toolsHideUsersStatisctics->setIcon(WU->getPixmap(WulforUtil::eiUSERS));
-        connect(d->toolsHideUsersStatisctics, SIGNAL(triggered()), this, SLOT(slotHideUsersStatistics()));
+        connect(d->toolsHideUsersStatisctics, &QAction::triggered, this, &MainWindow::slotHideUsersStatistics);
 
         d->toolsSwitchSpeedLimit = new QAction("", this);
         d->toolsSwitchSpeedLimit->setObjectName("toolsSwitchSpeedLimit");
         SM->registerShortcut(d->toolsSwitchSpeedLimit, QString("Ctrl+K"));
-        d->toolsSwitchSpeedLimit->setIcon(BOOLSETTING(THROTTLE_ENABLE)? WU->getPixmap(WulforUtil::eiSPEED_LIMIT_ON) : WU->getPixmap(WulforUtil::eiSPEED_LIMIT_OFF));
+        d->toolsSwitchSpeedLimit->setIcon(qtCtx()->dcCtx().getSettingsManager()->getBool(SettingsManager::THROTTLE_ENABLE, true)? WU->getPixmap(WulforUtil::eiSPEED_LIMIT_ON) : WU->getPixmap(WulforUtil::eiSPEED_LIMIT_OFF));
         d->toolsSwitchSpeedLimit->setCheckable(true);
-        d->toolsSwitchSpeedLimit->setChecked(BOOLSETTING(THROTTLE_ENABLE));
-        connect(d->toolsSwitchSpeedLimit, SIGNAL(triggered()), this, SLOT(slotToolsSwitchSpeedLimit()));
+        d->toolsSwitchSpeedLimit->setChecked(qtCtx()->dcCtx().getSettingsManager()->getBool(SettingsManager::THROTTLE_ENABLE, true));
+        connect(d->toolsSwitchSpeedLimit, &QAction::triggered, this, &MainWindow::slotToolsSwitchSpeedLimit);
 
         d->chatClear = new QAction("", this);
         d->chatClear->setObjectName("chatClear");
         d->chatClear->setIcon(WU->getPixmap(WulforUtil::eiCLEAR));
-        connect(d->chatClear, SIGNAL(triggered()), this, SLOT(slotChatClear()));
+        connect(d->chatClear, &QAction::triggered, this, &MainWindow::slotChatClear);
 
         d->findInWidget = new QAction("", this);
         d->findInWidget->setObjectName("findInWidget");
         SM->registerShortcut(d->findInWidget, QString("Ctrl+F"));
         d->findInWidget->setIcon(WU->getPixmap(WulforUtil::eiFIND));
-        connect(d->findInWidget, SIGNAL(triggered()), this, SLOT(slotFind()));
+        connect(d->findInWidget, &QAction::triggered, this, &MainWindow::slotFind);
 
         d->chatDisable = new QAction("", this);
         d->chatDisable->setObjectName("chatDisable");
         d->chatDisable->setIcon(WU->getPixmap(WulforUtil::eiEDITDELETE));
-        connect(d->chatDisable, SIGNAL(triggered()), this, SLOT(slotChatDisable()));
+        connect(d->chatDisable, &QAction::triggered, this, &MainWindow::slotChatDisable);
 
         QAction *separator0 = new QAction("", this);
         separator0->setObjectName("separator0");
@@ -1106,10 +1127,10 @@ void MainWindow::initActions(){
         SM->registerShortcut(d->closeWidgetShortCut, QString("Ctrl+W"));
         SM->registerShortcut(d->toggleMainMenuShortCut, QString("Ctrl+M"));
 
-        connect(d->nextMsgShortCut,        SIGNAL(triggered()), this, SLOT(nextMsg()));
-        connect(d->prevMsgShortCut,        SIGNAL(triggered()), this, SLOT(prevMsg()));
-        connect(d->closeWidgetShortCut,    SIGNAL(triggered()), this, SLOT(slotCloseCurrentWidget()));
-        connect(d->toggleMainMenuShortCut, SIGNAL(triggered()), this, SLOT(slotHideMainMenu()));
+        connect(d->nextMsgShortCut,        &QAction::triggered, this, &MainWindow::nextMsg);
+        connect(d->prevMsgShortCut,        &QAction::triggered, this, &MainWindow::prevMsg);
+        connect(d->closeWidgetShortCut,    &QAction::triggered, this, &MainWindow::slotCloseCurrentWidget);
+        connect(d->toggleMainMenuShortCut, &QAction::triggered, this, &MainWindow::slotHideMainMenu);
         // end
 
         d->sh_menu = new QMenu(this);
@@ -1123,45 +1144,45 @@ void MainWindow::initActions(){
 
         d->panelsWidgets = new QAction("", this);
         d->panelsWidgets->setCheckable(true);
-        connect(d->panelsWidgets, SIGNAL(triggered()), this, SLOT(slotPanelMenuActionClicked()));
+        connect(d->panelsWidgets, &QAction::triggered, this, &MainWindow::slotPanelMenuActionClicked);
 
         d->panelsTools = new QAction("", this);
         d->panelsTools->setCheckable(true);
-        connect(d->panelsTools, SIGNAL(triggered()), this, SLOT(slotPanelMenuActionClicked()));
+        connect(d->panelsTools, &QAction::triggered, this, &MainWindow::slotPanelMenuActionClicked);
 
         d->panelsSearch = new QAction("", this);
         d->panelsSearch->setCheckable(true);
-        connect(d->panelsSearch, SIGNAL(triggered()), this, SLOT(slotPanelMenuActionClicked()));
+        connect(d->panelsSearch, &QAction::triggered, this, &MainWindow::slotPanelMenuActionClicked);
     }
     {
         d->aboutHomepage = new QAction("", this);
-        connect(d->aboutHomepage, SIGNAL(triggered()), this, SLOT(slotAboutOpenUrl()));
+        connect(d->aboutHomepage, &QAction::triggered, this, &MainWindow::slotAboutOpenUrl);
 
         d->aboutBuilds = new QAction("", this);
-        connect(d->aboutBuilds, SIGNAL(triggered()), this, SLOT(slotAboutOpenUrl()));
+        connect(d->aboutBuilds, &QAction::triggered, this, &MainWindow::slotAboutOpenUrl);
 
         d->aboutSource = new QAction("", this);
-        connect(d->aboutSource, SIGNAL(triggered()), this, SLOT(slotAboutOpenUrl()));
+        connect(d->aboutSource, &QAction::triggered, this, &MainWindow::slotAboutOpenUrl);
 
         d->aboutIssues = new QAction("", this);
-        connect(d->aboutIssues, SIGNAL(triggered()), this, SLOT(slotAboutOpenUrl()));
+        connect(d->aboutIssues, &QAction::triggered, this, &MainWindow::slotAboutOpenUrl);
 
         d->aboutWiki = new QAction("", this);
-        connect(d->aboutWiki, SIGNAL(triggered()), this, SLOT(slotAboutOpenUrl()));
+        connect(d->aboutWiki, &QAction::triggered, this, &MainWindow::slotAboutOpenUrl);
 
         d->aboutChangelog = new QAction("", this);
-        connect(d->aboutChangelog, SIGNAL(triggered()), this, SLOT(slotAboutOpenUrl()));
+        connect(d->aboutChangelog, &QAction::triggered, this, &MainWindow::slotAboutOpenUrl);
 
         d->aboutClient = new QAction("", this);
         d->aboutClient->setMenuRole(QAction::AboutRole);
         d->aboutClient->setIcon(WU->getPixmap(WulforUtil::eiICON_APPL)
                     .scaled(22, 22, Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
-        connect(d->aboutClient, SIGNAL(triggered()), this, SLOT(slotAboutClient()));
+        connect(d->aboutClient, &QAction::triggered, this, &MainWindow::slotAboutClient);
 
         d->aboutQt = new QAction("", this);
         d->aboutQt->setMenuRole(QAction::AboutQtRole);
         d->aboutQt->setIcon(WU->getPixmap(WulforUtil::eiQT_LOGO));
-        connect(d->aboutQt, SIGNAL(triggered()), this, SLOT(slotAboutQt()));
+        connect(d->aboutQt, &QAction::triggered, this, &MainWindow::slotAboutQt);
     }
 }
 
@@ -1169,7 +1190,7 @@ void MainWindow::initMenuBar(){
 #if defined(Q_OS_MAC)
     setMenuBar(new QMenuBar());
     menuBar()->setParent(nullptr);
-    connect(this, SIGNAL(destroyed()), menuBar(), SLOT(deleteLater()));
+    connect(this, &QObject::destroyed, menuBar(), &QObject::deleteLater);
 #endif
 
     Q_D(MainWindow);
@@ -1277,10 +1298,10 @@ void MainWindow::initStatusBar(){
     d->progressFreeSpace->setToolTip(tr("Space free"));
     d->progressFreeSpace->installEventFilter(this);
 
-    if (!WBGET(WB_SHOW_FREE_SPACE))
+    if (!qtCtx()->settings()->getBool(WB_SHOW_FREE_SPACE))
         d->progressFreeSpace->hide();
 #else //FREE_SPACE_BAR_C
-    WBSET(WB_SHOW_FREE_SPACE, false);
+    qtCtx()->settings()->setBool(WB_SHOW_FREE_SPACE, false);
 #endif //FREE_SPACE_BAR_C
 
     d->progressHashing = new QProgressBar(this);
@@ -1307,7 +1328,7 @@ void MainWindow::initSearchBar(){
 
     d->searchLineEdit = new LineEdit(this);
 
-    connect(d->searchLineEdit,   SIGNAL(returnPressed()), this, SLOT(slotToolsSearch()));
+    connect(d->searchLineEdit,   &QLineEdit::returnPressed, this, &MainWindow::slotToolsSearch);
 }
 
 void MainWindow::retranslateUi(){
@@ -1335,7 +1356,7 @@ void MainWindow::retranslateUi(){
 
         d->fileHideWindow->setText(tr("Hide window"));
 
-        if (!WBGET(WB_TRAY_ENABLED))
+        if (!qtCtx()->settings()->getBool(WB_TRAY_ENABLED))
             d->fileHideWindow->setText(tr("Show/hide find frame"));
 
         d->fileQuit->setText(tr("Quit"));
@@ -1374,17 +1395,17 @@ void MainWindow::retranslateUi(){
 
         d->toolsHideProgressSpace->setText(tr("Hide free space bar"));
 
-        if (!WBGET(WB_SHOW_FREE_SPACE))
+        if (!qtCtx()->settings()->getBool(WB_SHOW_FREE_SPACE))
             d->toolsHideProgressSpace->setText(tr("Show free space bar"));
 
         d->toolsHideLastStatus->setText(tr("Hide last status message"));
 
-        if (!WBGET(WB_LAST_STATUS))
+        if (!qtCtx()->settings()->getBool(WB_LAST_STATUS))
             d->toolsHideLastStatus->setText(tr("Show last status message"));
 
         d->toolsHideUsersStatisctics->setText(tr("Hide users statistics"));
 
-        if (!WBGET(WB_USERS_STATISTICS))
+        if (!qtCtx()->settings()->getBool(WB_USERS_STATISTICS))
             d->toolsHideUsersStatisctics->setText(tr("Show users statistics"));
 
         d->menuAway->setTitle(tr("Away message"));
@@ -1425,7 +1446,7 @@ void MainWindow::retranslateUi(){
 
         d->menuPanels->setTitle(tr("&Panels"));
 
-        if (!WBGET(WB_MAINWINDOW_USE_SIDEBAR))
+        if (!qtCtx()->settings()->getBool(WB_MAINWINDOW_USE_SIDEBAR))
             d->panelsWidgets->setText(tr("Widgets panel"));
         else
             d->panelsWidgets->setText(tr("Widgets side dock"));
@@ -1466,7 +1487,7 @@ void MainWindow::initToolbar(){
     d->fBar = new ToolBar(this);
     d->fBar->setObjectName("fBar");
 
-    QStringList enabled_actions = QString(QByteArray::fromBase64(WSGET(WS_MAINWINDOW_TOOLBAR_ACTS).toUtf8())).split(";", QString::SkipEmptyParts);
+    QStringList enabled_actions = QString(QByteArray::fromBase64(qtCtx()->settings()->getStr(WS_MAINWINDOW_TOOLBAR_ACTS).toUtf8())).split(";", Qt::SkipEmptyParts);
 
     if (enabled_actions.isEmpty())
         d->fBar->addActions(d->toolBarActions);
@@ -1486,24 +1507,24 @@ void MainWindow::initToolbar(){
     d->fBar->setFloatable(true);
     d->fBar->setAllowedAreas(Qt::AllToolBarAreas);
     d->fBar->setWindowTitle(tr("Actions"));
-    d->fBar->setToolButtonStyle(static_cast<Qt::ToolButtonStyle>(WIGET(TOOLBUTTON_STYLE, Qt::ToolButtonIconOnly)));
+    d->fBar->setToolButtonStyle(static_cast<Qt::ToolButtonStyle>(qtCtx()->settings()->getInt(TOOLBUTTON_STYLE, Qt::ToolButtonIconOnly)));
 
-    connect(d->fBar, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotToolbarCustomization()));
+    connect(d->fBar, &QWidget::customContextMenuRequested, this, &MainWindow::slotToolbarCustomization);
 
     addToolBar(d->fBar);
 
-    if (!WBGET(WB_MAINWINDOW_USE_SIDEBAR) && WBGET(WB_MAINWINDOW_USE_M_TABBAR)){
+    if (!qtCtx()->settings()->getBool(WB_MAINWINDOW_USE_SIDEBAR) && qtCtx()->settings()->getBool(WB_MAINWINDOW_USE_M_TABBAR)){
 
         MultiLineToolBar *mBar = new MultiLineToolBar(this);
         mBar->setContextMenuPolicy(Qt::CustomContextMenu);
-        mBar->setVisible(WBGET(WB_WIDGETS_PANEL_VISIBLE));
+        mBar->setVisible(qtCtx()->settings()->getBool(WB_WIDGETS_PANEL_VISIBLE));
 
-        connect(d->nextTabShortCut, SIGNAL(triggered()), mBar, SIGNAL(nextTab()));
-        connect(d->prevTabShortCut, SIGNAL(triggered()), mBar, SIGNAL(prevTab()));
+        connect(d->nextTabShortCut, &QAction::triggered, mBar, &MultiLineToolBar::nextTab);
+        connect(d->prevTabShortCut, &QAction::triggered, mBar, &MultiLineToolBar::prevTab);
 
         addToolBar(mBar);
     }
-    else if (!WBGET(WB_MAINWINDOW_USE_SIDEBAR) && !WBGET(WB_MAINWINDOW_USE_M_TABBAR)){
+    else if (!qtCtx()->settings()->getBool(WB_MAINWINDOW_USE_SIDEBAR) && !qtCtx()->settings()->getBool(WB_MAINWINDOW_USE_M_TABBAR)){
 
         ToolBar *tBar = new ToolBar(this);
         tBar->setObjectName("tBar");
@@ -1515,8 +1536,8 @@ void MainWindow::initToolbar(){
 
         addToolBar(tBar);
 
-        connect(d->nextTabShortCut, SIGNAL(triggered()), tBar, SLOT(nextTab()));
-        connect(d->prevTabShortCut, SIGNAL(triggered()), tBar, SLOT(prevTab()));
+        connect(d->nextTabShortCut, &QAction::triggered, tBar, &ToolBar::nextTab);
+        connect(d->prevTabShortCut, &QAction::triggered, tBar, &ToolBar::prevTab);
     }
 
     d->sBar = new ToolBar(this);
@@ -1531,7 +1552,7 @@ void MainWindow::initToolbar(){
 }
 
 void MainWindow::initSideBar(){
-    if (!WBGET(WB_MAINWINDOW_USE_SIDEBAR))
+    if (!qtCtx()->settings()->getBool(WB_MAINWINDOW_USE_SIDEBAR))
         return;
 
     Q_D(MainWindow);
@@ -1546,7 +1567,7 @@ void MainWindow::initSideBar(){
 
     addDockWidget(Qt::LeftDockWidgetArea, d->sideDock);
 
-    connect(d->sideDock, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotSideBarDockMenu()));
+    connect(d->sideDock, &QWidget::customContextMenuRequested, this, &MainWindow::slotSideBarDockMenu);
 }
 
 void MainWindow::initFavHubMenu() {
@@ -1558,8 +1579,8 @@ void MainWindow::initFavHubMenu() {
     if (!d->favHubMenu) {
         d->favHubMenu = new QMenu(this);
 
-        connect(d->favHubMenu, SIGNAL(aboutToShow()), this, SLOT(slotUpdateFavHubMenu()));
-        connect(d->favHubMenu, SIGNAL(triggered(QAction*)), this, SLOT(slotConnectFavHub(QAction*)));
+        connect(d->favHubMenu, &QMenu::aboutToShow, this, &MainWindow::slotUpdateFavHubMenu);
+        connect(d->favHubMenu, &QMenu::triggered, this, &MainWindow::slotConnectFavHub);
     }
 
     QToolButton * btn = qobject_cast<QToolButton *>(d->fBar->widgetForAction(d->hubsFavoriteHubs));
@@ -1581,81 +1602,126 @@ QObject *MainWindow::getToolBar(){
 ArenaWidget *MainWindow::widgetForRole(ArenaWidget::Role r) const{
     ArenaWidget *awgt = nullptr;
     Q_D(const MainWindow);
+    auto *ctx = qtCtx();
 
     switch (r){
     case ArenaWidget::Downloads:
         {
-            awgt = ArenaWidgetFactory().create<dcpp::Singleton, DownloadQueue>();
+            if (!qtCtx()->downloadQueue()) {
+                ctx->createDownloadQueue();
+                qtCtx()->arenaWidgetManager()->add(qtCtx()->downloadQueue());
+            }
+            awgt = qtCtx()->downloadQueue();
             awgt->setToolButton(d->toolsDownloadQueue);
 
             break;
         }
     case ArenaWidget::FinishedUploads:
         {
-            awgt = ArenaWidgetFactory().create<dcpp::Singleton, FinishedUploads>();
+            if (!ctx->finishedUploads()) {
+                ctx->createFinishedUploads();
+                qtCtx()->arenaWidgetManager()->add(ctx->finishedUploads());
+            }
+            awgt = ctx->finishedUploads();
             awgt->setToolButton(d->toolsFinishedUploads);
 
             break;
         }
     case ArenaWidget::FinishedDownloads:
         {
-            awgt = ArenaWidgetFactory().create<dcpp::Singleton, FinishedDownloads>();
+            if (!ctx->finishedDownloads()) {
+                ctx->createFinishedDownloads();
+                qtCtx()->arenaWidgetManager()->add(ctx->finishedDownloads());
+            }
+            awgt = ctx->finishedDownloads();
             awgt->setToolButton(d->toolsFinishedDownloads);
 
             break;
         }
     case ArenaWidget::FavoriteHubs:
         {
-            awgt = ArenaWidgetFactory().create<dcpp::Singleton, FavoriteHubs>();
+            if (!qtCtx()->favoriteHubs()) {
+                ctx->createFavoriteHubs();
+                qtCtx()->arenaWidgetManager()->add(qtCtx()->favoriteHubs());
+            }
+            awgt = qtCtx()->favoriteHubs();
             awgt->setToolButton(d->hubsFavoriteHubs);
 
             break;
         }
     case ArenaWidget::FavoriteUsers:
         {
-            awgt = ArenaWidgetFactory().create<dcpp::Singleton, FavoriteUsers>();
+            if (!qtCtx()->favoriteUsers()) {
+                ctx->createFavoriteUsers();
+                qtCtx()->arenaWidgetManager()->add(qtCtx()->favoriteUsers());
+            }
+            awgt = qtCtx()->favoriteUsers();
             awgt->setToolButton(d->hubsFavoriteUsers);
 
             break;
         }
     case ArenaWidget::PublicHubs:
         {
-            awgt = ArenaWidgetFactory().create<dcpp::Singleton, PublicHubs>();
+            if (!qtCtx()->publicHubs()) {
+                ctx->createPublicHubs();
+                qtCtx()->arenaWidgetManager()->add(qtCtx()->publicHubs());
+            }
+            awgt = qtCtx()->publicHubs();
             awgt->setToolButton(d->hubsPublicHubs);
 
             break;
         }
     case ArenaWidget::SearchSpy:
         {
-            awgt = ArenaWidgetFactory().create<dcpp::Singleton, SpyFrame>();
+            if (!qtCtx()->spyFrame()) {
+                ctx->createSpyFrame();
+                qtCtx()->arenaWidgetManager()->add(qtCtx()->spyFrame());
+            }
+            awgt = qtCtx()->spyFrame();
             awgt->setToolButton(d->toolsSearchSpy);
 
             break;
         }
     case ArenaWidget::ADLS:
         {
-            awgt = ArenaWidgetFactory().create<dcpp::Singleton, ADLS>();
+            if (!qtCtx()->adls()) {
+                ctx->createADLS();
+                qtCtx()->arenaWidgetManager()->add(qtCtx()->adls());
+            }
+            awgt = qtCtx()->adls();
             awgt->setToolButton(d->toolsADLS);
 
             break;
         }
     case ArenaWidget::CmdDebug:
     {
-        awgt = ArenaWidgetFactory().create<dcpp::Singleton, CmdDebug>();
+        if (!qtCtx()->cmdDebug()) {
+            ctx->createCmdDebug();
+            qtCtx()->arenaWidgetManager()->add(qtCtx()->cmdDebug());
+        }
+        awgt = qtCtx()->cmdDebug();
         awgt->setToolButton(d->toolsCmdDebug);
 
         break;
     }
     case ArenaWidget::Secretary:
     {
-        awgt = ArenaWidgetFactory().create<dcpp::Singleton, Secretary>();
+        if (!qtCtx()->secretary()) {
+            ctx->createSecretary();
+            qtCtx()->arenaWidgetManager()->add(qtCtx()->secretary());
+        }
+        awgt = qtCtx()->secretary();
         awgt->setToolButton(d->toolsSecretary);
 
         break;
     }
     case ArenaWidget::QueuedUsers:
         {
-            awgt = ArenaWidgetFactory().create<dcpp::Singleton, QueuedUsers>();
+            if (!qtCtx()->queuedUsers()) {
+                ctx->createQueuedUsers();
+                qtCtx()->arenaWidgetManager()->add(qtCtx()->queuedUsers());
+            }
+            awgt = qtCtx()->queuedUsers();
             awgt->setToolButton(d->toolsQueuedUsers);
 
             break;
@@ -1673,17 +1739,17 @@ void MainWindow::newHubFrame(QString address, QString enc){
 
     address = QUrl::fromPercentEncoding(address.toUtf8());
 
-    HubFrame *fr = qobject_cast<HubFrame*>(HubManager::getInstance()->getHub(address));
+    HubFrame *fr = qobject_cast<HubFrame*>(qtCtx()->hubManager()->getHub(address));
 
     if (fr){
-        ArenaWidgetManager::getInstance()->activate(fr);
+        qtCtx()->arenaWidgetManager()->activate(fr);
 
         return;
     }
 
     fr = ArenaWidgetFactory().create<HubFrame, QWidget*, QString, QString>(this, address, enc);
 
-    ArenaWidgetManager::getInstance()->activate(fr);
+    qtCtx()->arenaWidgetManager()->activate(fr);
 }
 
 void MainWindow::updateStatus(const QMap<QString, QString> &map){
@@ -1703,20 +1769,21 @@ void MainWindow::updateStatus(const QMap<QString, QString> &map){
     d->statusSPLabel->setText(speedText);
     d->statusDLabel->setText(downText);
 
-    Notification *N = Notification::getInstance();
+    Notification *N = qtCtx()->notification();
     if (N)
         N->setToolTip(map["DSPEED"]+tr("/s"), map["USPEED"]+tr("/s"), map["DOWN"], map["UP"]);
 
     int leftM=0, topM=0, rightM=0, bottomM=0;
-    d->statusSPLabel->getContentsMargins(&leftM, &topM, &rightM, &bottomM);
+    const QMargins cm = d->statusSPLabel->contentsMargins();
+    leftM = cm.left(); topM = cm.top(); rightM = cm.right(); bottomM = cm.bottom();
     int boundWidth = leftM + rightM;
 
-    d->statusSPLabel->setFixedWidth(metrics.width(speedText) > d->statusSPLabel->width()? metrics.width(speedText) + boundWidth : d->statusSPLabel->width());
-    d->statusDLabel->setFixedWidth(metrics.width(downText) > d->statusDLabel->width()? metrics.width(downText) + boundWidth : d->statusDLabel->width());
+    d->statusSPLabel->setFixedWidth(metrics.horizontalAdvance(speedText) > d->statusSPLabel->width()? metrics.horizontalAdvance(speedText) + boundWidth : d->statusSPLabel->width());
+    d->statusDLabel->setFixedWidth(metrics.horizontalAdvance(downText) > d->statusDLabel->width()? metrics.horizontalAdvance(downText) + boundWidth : d->statusDLabel->width());
 
-    if (WBGET(WB_SHOW_FREE_SPACE)) {
+    if (qtCtx()->settings()->getBool(WB_SHOW_FREE_SPACE)) {
 #ifdef FREE_SPACE_BAR_C
-        std::string s = SETTING(DOWNLOAD_DIRECTORY);
+        std::string s = qtCtx()->dcCtx().getSettingsManager()->get(SettingsManager::DOWNLOAD_DIRECTORY, true);
         unsigned long long available = 0;
         unsigned long long total = 0;
         if (!s.empty()) {
@@ -1741,8 +1808,8 @@ void MainWindow::updateStatus(const QMap<QString, QString> &map){
 #endif
         d->progressFreeSpace->setToolTip(tooltip);
 
-        if (metrics.width(text) > d->progressFreeSpace->width()) {
-            d->progressFreeSpace->setFixedWidth(metrics.width(d->progressFreeSpace->text()) + 40);
+        if (metrics.horizontalAdvance(text) > d->progressFreeSpace->width()) {
+            d->progressFreeSpace->setFixedWidth(metrics.horizontalAdvance(d->progressFreeSpace->text()) + 40);
         }
         else {
             d->progressFreeSpace->setFixedWidth(d->progressFreeSpace->width());
@@ -1760,7 +1827,7 @@ void MainWindow::updateStatus(const QMap<QString, QString> &map){
 }
 
 void MainWindow::updateHashProgressStatus() {
-    WulforUtil *WU = WulforUtil::getInstance();
+    WulforUtil *WU = qtCtx()->wulforUtil();
     Q_D(MainWindow);
 
     switch( HashProgress::getHashStatus() ) {
@@ -1787,9 +1854,9 @@ void MainWindow::updateHashProgressStatus() {
         d->fileRefreshShareHashProgress->setIcon(WU->getPixmap(WulforUtil::eiHASHING));
         d->fileRefreshShareHashProgress->setText(tr("Hash progress"));
         {
-            if (SETTING(HASHING_START_DELAY) >= 0){
-                int left = SETTING(HASHING_START_DELAY) - Util::getUpTime();
-                d->progressHashing->setValue( 100 * left / SETTING(HASHING_START_DELAY) );
+            if (qtCtx()->dcCtx().getSettingsManager()->get(SettingsManager::HASHING_START_DELAY, true) >= 0){
+                int left = qtCtx()->dcCtx().getSettingsManager()->get(SettingsManager::HASHING_START_DELAY, true) - Util::getUpTime();
+                d->progressHashing->setValue( 100 * left / qtCtx()->dcCtx().getSettingsManager()->get(SettingsManager::HASHING_START_DELAY, true) );
                 d->progressHashing->setFormat(tr("Delayed"));
                 d->progressHashing->show();
             }
@@ -1803,7 +1870,7 @@ void MainWindow::updateHashProgressStatus() {
         d->fileRefreshShareHashProgress->setIcon(WU->getPixmap(WulforUtil::eiHASHING));
         d->fileRefreshShareHashProgress->setText(tr("Hash progress"));
         {
-            if (SETTING(HASHING_START_DELAY) >= 0){
+            if (qtCtx()->dcCtx().getSettingsManager()->get(SettingsManager::HASHING_START_DELAY, true) >= 0){
                 d->progressHashing->setValue( 100 );
                 d->progressHashing->setFormat(tr("Paused"));
                 d->progressHashing->show();
@@ -1837,18 +1904,18 @@ void MainWindow::setStatusMessage(QString msg){
     QFontMetrics m(d->msgLabel->font());
     QString pure_msg = msg;
 
-    if (m.width(msg) > d->msgLabel->width())
+    if (m.horizontalAdvance(msg) > d->msgLabel->width())
         pure_msg = m.elidedText(msg, Qt::ElideRight, d->msgLabel->width(), 0);
 
-    WulforUtil::getInstance()->textToHtml(pure_msg, true);
-    WulforUtil::getInstance()->textToHtml(msg, true);
+    qtCtx()->wulforUtil()->textToHtml(pure_msg, true);
+    qtCtx()->wulforUtil()->textToHtml(msg, true);
 
     d->msgLabel->setText(pure_msg);
 
     d->core_msg_history.push_back(msg);
 
-    if (WIGET(WI_STATUSBAR_HISTORY_SZ) > 0){
-        while (d->core_msg_history.size() > WIGET(WI_STATUSBAR_HISTORY_SZ))
+    if (qtCtx()->settings()->getInt(WI_STATUSBAR_HISTORY_SZ) > 0){
+        while (d->core_msg_history.size() > qtCtx()->settings()->getInt(WI_STATUSBAR_HISTORY_SZ))
             d->core_msg_history.removeFirst();
     }
     else
@@ -1859,16 +1926,16 @@ void MainWindow::setStatusMessage(QString msg){
 }
 
 void MainWindow::autoconnect(){
-    const FavoriteHubEntryList& fl = FavoriteManager::getInstance()->getFavoriteHubs();
+    const FavoriteHubEntryList& fl = dcCtx().getFavoriteManager()->getFavoriteHubs();
 
     for (const auto &i : fl) {
         FavoriteHubEntry* entry = i;
 
         if (entry->getConnect()) {
-            if (entry->getNick().empty() && SETTING(NICK).empty())
+            if (entry->getNick().empty() && qtCtx()->dcCtx().getSettingsManager()->get(SettingsManager::NICK, true).empty())
                 continue;
 
-            QString encoding = WulforUtil::getInstance()->dcEnc2QtEnc(QString::fromStdString(entry->getEncoding()));
+            QString encoding = qtCtx()->wulforUtil()->dcEnc2QtEnc(QString::fromStdString(entry->getEncoding()));
 
             newHubFrame(QString::fromStdString(entry->getServer()), encoding);
         }
@@ -1899,7 +1966,7 @@ void MainWindow::parseInstanceLine(const QString &data){
         redrawToolPanel();
     }
 
-    const QStringList args = data.split("\n", QString::SkipEmptyParts);
+    const QStringList args = data.split("\n", Qt::SkipEmptyParts);
     parseCmdLine(args);
 }
 
@@ -1918,7 +1985,7 @@ void MainWindow::slotFileBrowseFilelist(){
         return;
 
     file = QDir::toNativeSeparators(file);
-    UserPtr user = DirectoryListing::getUserFromFilename(_tq(file));
+    UserPtr user = DirectoryListing::getUserFromFilename(dcCtx(), _tq(file));
 
     if (user) {
         ArenaWidgetFactory().create<ShareBrowser, UserPtr, QString, QString>(user, file, "");
@@ -1928,7 +1995,7 @@ void MainWindow::slotFileBrowseFilelist(){
 }
 
 void MainWindow::slotFileMatchAllList(){
-    QueueManager::getInstance()->matchAllListings();
+    dcCtx().getQueueManager()->matchAllListings();
 }
 
 void MainWindow::redrawToolPanel(){
@@ -1958,13 +2025,13 @@ void MainWindow::redrawToolPanel(){
 
 #if !defined(Q_OS_MAC)
     if (!has_unread)
-        Notification::getInstance()->resetTrayIcon();
+        qtCtx()->notification()->resetTrayIcon();
 #else // !defined(Q_OS_MAC)
     // Change program icon in dock when there are new unread personal messages.
     if (has_unread)
-        qApp->setWindowIcon(WICON(WulforUtil::eiMESSAGE_TRAY_ICON));
+        qApp->setWindowIcon(qtCtx()->wulforUtil()->getPixmap(WulforUtil::eiMESSAGE_TRAY_ICON));
     else
-        qApp->setWindowIcon(WICON(WulforUtil::eiICON_APPL));
+        qApp->setWindowIcon(qtCtx()->wulforUtil()->getPixmap(WulforUtil::eiICON_APPL));
 #endif // !defined(Q_OS_MAC)
 
     emit redrawWidgetPanels();
@@ -2024,7 +2091,7 @@ void MainWindow::insertWidget ( ArenaWidget* awgt ) {
 
     d->menuWidgetsHash.insert(act, awgt);
 
-    connect(act, SIGNAL(triggered(bool)), this, SLOT(slotWidgetsToggle()));
+    connect(act, &QAction::triggered, this, &MainWindow::slotWidgetsToggle);
 }
 
 void MainWindow::removeWidget ( ArenaWidget* awgt ) {
@@ -2083,9 +2150,9 @@ void MainWindow::toggleSingletonWidget(ArenaWidget *a){
     }
 
     if (!a->getWidget()->isVisible())
-        ArenaWidgetManager::getInstance()->activate(a);
+        qtCtx()->arenaWidgetManager()->activate(a);
     else
-        ArenaWidgetManager::getInstance()->toggle(a);
+        qtCtx()->arenaWidgetManager()->toggle(a);
 }
 
 void MainWindow::toggleMainMenu(bool showMenu){
@@ -2104,7 +2171,7 @@ void MainWindow::toggleMainMenu(bool showMenu){
             if (!compactMenus){
                 compactMenus = new QAction(tr("Menu"), this);
                 compactMenus->setObjectName("compactMenus");
-                compactMenus->setIcon(WICON(WulforUtil::eiEDIT));
+                compactMenus->setIcon(qtCtx()->wulforUtil()->getPixmap(WulforUtil::eiEDIT));
             }
             else {
                 compactMenus->menu()->deleteLater();
@@ -2118,25 +2185,25 @@ void MainWindow::toggleMainMenu(bool showMenu){
 
             compactMenus->setMenu(m);
 
-            connect(compactMenus, SIGNAL(triggered()), this, SLOT(slotShowMainMenu()));
+            connect(compactMenus, &QAction::triggered, this, &MainWindow::slotShowMainMenu);
         }
 
         if (d->fBar)
             d->fBar->insertAction(d->toolBarActions.first(), compactMenus);
     }
 
-    WBSET(WB_MAIN_MENU_VISIBLE, showMenu);
+    qtCtx()->settings()->setBool(WB_MAIN_MENU_VISIBLE, showMenu);
 }
 
 void MainWindow::startSocket(bool changed){
     if (changed)
-        ConnectivityManager::getInstance()->updateLast();
+        dcCtx().getConnectivityManager()->updateLast();
     try {
-        ConnectivityManager::getInstance()->setup(true);
+        dcCtx().getConnectivityManager()->setup(true);
     } catch (const Exception& e) {
         showPortsError(e.getError());
     }
-    ClientManager::getInstance()->infoUpdated();
+    dcCtx().getClientManager()->infoUpdated();
 }
 void MainWindow::showPortsError(const string& port) {
     QString msg = tr("Unable to open %1 port. Searching or file transfers will not work correctly until you change settings or turn off any application that might be using that port.").arg(_q(port));
@@ -2156,11 +2223,11 @@ void MainWindow::reloadSomeSettings(){
             fr->reloadSomeSettings();
     }
 
-    d->toolsSwitchSpeedLimit->setChecked(BOOLSETTING(THROTTLE_ENABLE));
+    d->toolsSwitchSpeedLimit->setChecked(qtCtx()->dcCtx().getSettingsManager()->getBool(SettingsManager::THROTTLE_ENABLE, true));
 }
 
 void MainWindow::slotFileOpenLogFile(){
-    QString f = QFileDialog::getOpenFileName(this, tr("Open log file"),_q(SETTING(LOG_DIRECTORY)), tr("Log files (*.log);;All files (*.*)"));
+    QString f = QFileDialog::getOpenFileName(this, tr("Open log file"),_q(qtCtx()->dcCtx().getSettingsManager()->get(SettingsManager::LOG_DIRECTORY, true)), tr("Log files (*.log);;All files (*.*)"));
 
     if (!f.isEmpty()){
         f = QDir::toNativeSeparators(f);
@@ -2175,7 +2242,7 @@ void MainWindow::slotFileOpenLogFile(){
 }
 
 void MainWindow::slotFileOpenDownloadDirectory(){
-    QString directory = QString::fromStdString(SETTING(DOWNLOAD_DIRECTORY));
+    QString directory = QString::fromStdString(qtCtx()->dcCtx().getSettingsManager()->get(SettingsManager::DOWNLOAD_DIRECTORY, true));
 
     directory.prepend( directory.startsWith("/")? ("file://") : ("file:///"));
 
@@ -2183,8 +2250,8 @@ void MainWindow::slotFileOpenDownloadDirectory(){
 }
 
 void MainWindow::slotFileBrowseOwnFilelist(){
-    UserPtr user = ClientManager::getInstance()->getMe();
-    QString file = QString::fromStdString(ShareManager::getInstance()->getOwnListFile());
+    UserPtr user = dcCtx().getClientManager()->getMe();
+    QString file = QString::fromStdString(dcCtx().getShareManager()->getOwnListFile());
 
     ArenaWidgetFactory().create<ShareBrowser, UserPtr, QString, QString>(user, file, "");
 }
@@ -2195,7 +2262,7 @@ void MainWindow::slotFileHashProgress(){
 }
 
 void MainWindow::slotFileHasher(){
-    FileHasher *m = new FileHasher(MainWindow::getInstance());
+    FileHasher *m = new FileHasher(qtCtx()->mainWindow());
     m->setModal(true);
     m->exec();
     delete m;
@@ -2205,7 +2272,7 @@ void MainWindow::slotFileRefreshShareHashProgress(){
     switch( HashProgress::getHashStatus() ) {
     case HashProgress::IDLE:
     {
-        ShareManager *SM = ShareManager::getInstance();
+        ShareManager *SM = dcCtx().getShareManager();
 
         SM->setDirty();
         SM->refresh(true);
@@ -2244,7 +2311,7 @@ void MainWindow::slotOpenMagnet(){
 }
 
 void MainWindow::slotHubsReconnect(){
-    HubFrame *fr = qobject_cast<HubFrame*>(HubManager::getInstance()->activeHub());
+    HubFrame *fr = qobject_cast<HubFrame*>(qtCtx()->hubManager()->activeHub());
 
     if (fr)
         fr->reconnect();
@@ -2321,7 +2388,7 @@ void MainWindow::slotToolsAntiSpam(){
 
     Q_D(MainWindow);
 
-    d->toolsAntiSpam->setChecked(AntiSpam::getInstance() != nullptr);
+    d->toolsAntiSpam->setChecked(qtCtx()->antiSpam() != nullptr);
 }
 
 void MainWindow::slotToolsIPFilter(){
@@ -2331,13 +2398,13 @@ void MainWindow::slotToolsIPFilter(){
 
     Q_D(MainWindow);
 
-    d->toolsIPFilter->setChecked(BOOLSETTING(SettingsManager::IPFILTER));
+    d->toolsIPFilter->setChecked(qtCtx()->dcCtx().getSettingsManager()->getBool(SettingsManager::IPFILTER));
 }
 
 void MainWindow::slotToolsAutoAway(){
     Q_D(MainWindow);
 
-    WBSET(WB_APP_AUTO_AWAY, d->toolsAutoAway->isChecked());
+    qtCtx()->settings()->setBool(WB_APP_AUTO_AWAY, d->toolsAutoAway->isChecked());
 }
 
 void MainWindow::slotToolsSwitchAway(){
@@ -2348,7 +2415,7 @@ void MainWindow::slotToolsSwitchAway(){
 
     bool away = d->toolsAwayOn->isChecked();
 
-    Util::setAway(away);
+    Util::setAway(dcCtx(), away);
     Util::setManualAway(away);
 }
 
@@ -2370,7 +2437,7 @@ namespace {
 
 void MainWindow::slotJSFileChanged(const QString &script){
 #ifdef USE_JS
-    enum ScriptChangedAction act = (enum ScriptChangedAction)WIGET("scriptmanager/script-changed-action", 0);
+    enum ScriptChangedAction act = (enum ScriptChangedAction)qtCtx()->settings()->getInt("scriptmanager/script-changed-action", 0);
     bool ask = false;
 
     switch (act){
@@ -2396,7 +2463,7 @@ void MainWindow::slotJSFileChanged(const QString &script){
             break;
 
 
-        ScriptEngine::getInstance()->loadScript(script);
+        qtCtx()->scriptEngine()->loadScript(script);
 
         break;
     }
@@ -2449,7 +2516,7 @@ void MainWindow::slotToolsSettings(){
     Q_D(MainWindow);
 
     //reload some settings
-    if (!WBGET(WB_TRAY_ENABLED))
+    if (!qtCtx()->settings()->getBool(WB_TRAY_ENABLED))
         d->fileHideWindow->setText(tr("Show/hide find frame"));
     else
         d->fileHideWindow->setText(tr("Hide window"));
@@ -2460,7 +2527,7 @@ void MainWindow::slotToolsTransfer(bool toggled){
 
     if (toggled){
         d->transfer_dock->setVisible(true);
-        d->transfer_dock->setWidget(TransferView::getInstance());
+        d->transfer_dock->setWidget(qtCtx()->transferView());
     }
     else {
         d->transfer_dock->setWidget(nullptr);
@@ -2469,11 +2536,11 @@ void MainWindow::slotToolsTransfer(bool toggled){
 }
 
 void MainWindow::slotToolsSwitchSpeedLimit(){
-    static WulforUtil *WU = WulforUtil::getInstance();
+    auto *WU = qtCtx()->wulforUtil();
     Q_D(MainWindow);
 
-    SettingsManager::getInstance()->set(SettingsManager::THROTTLE_ENABLE, d->toolsSwitchSpeedLimit->isChecked());
-    d->toolsSwitchSpeedLimit->setIcon(BOOLSETTING(THROTTLE_ENABLE)? WU->getPixmap(WulforUtil::eiSPEED_LIMIT_ON) : WU->getPixmap(WulforUtil::eiSPEED_LIMIT_OFF));
+    dcCtx().getSettingsManager()->set(SettingsManager::THROTTLE_ENABLE, d->toolsSwitchSpeedLimit->isChecked());
+    d->toolsSwitchSpeedLimit->setIcon(qtCtx()->dcCtx().getSettingsManager()->getBool(SettingsManager::THROTTLE_ENABLE, true)? WU->getPixmap(WulforUtil::eiSPEED_LIMIT_ON) : WU->getPixmap(WulforUtil::eiSPEED_LIMIT_OFF));
 }
 
 void MainWindow::slotPanelMenuActionClicked(){
@@ -2494,15 +2561,15 @@ void MainWindow::slotPanelMenuActionClicked(){
         else if (d->sideDock)
             d->sideDock->setVisible(d->panelsWidgets->isChecked());
 
-        WBSET(WB_WIDGETS_PANEL_VISIBLE, d->panelsWidgets->isChecked());
+        qtCtx()->settings()->setBool(WB_WIDGETS_PANEL_VISIBLE, d->panelsWidgets->isChecked());
     }
     else if (act == d->panelsTools){
         d->fBar->setVisible(d->panelsTools->isChecked());
-        WBSET(WB_TOOLS_PANEL_VISIBLE, d->panelsTools->isChecked());
+        qtCtx()->settings()->setBool(WB_TOOLS_PANEL_VISIBLE, d->panelsTools->isChecked());
     }
     else if (act == d->panelsSearch){
         d->sBar->setVisible(d->panelsSearch->isChecked());
-        WBSET(WB_SEARCH_PANEL_VISIBLE, d->panelsSearch->isChecked());
+        qtCtx()->settings()->setBool(WB_SEARCH_PANEL_VISIBLE, d->panelsSearch->isChecked());
     }
 }
 
@@ -2527,7 +2594,7 @@ void MainWindow::slotFind(){
 }
 
 void MainWindow::slotChatDisable(){
-    HubFrame *fr = qobject_cast<HubFrame*>(HubManager::getInstance()->activeHub());
+    HubFrame *fr = qobject_cast<HubFrame*>(qtCtx()->hubManager()->activeHub());
 
     if (fr)
         fr->disableChat();
@@ -2542,7 +2609,7 @@ void MainWindow::slotWidgetsToggle(){
     if (it == d->menuWidgetsHash.end())
         return;
 
-    ArenaWidgetManager::getInstance()->activate(it.value());
+    qtCtx()->arenaWidgetManager()->activate(it.value());
 }
 
 void MainWindow::slotQC(){
@@ -2567,7 +2634,7 @@ void MainWindow::slotShowMainMenu() {
 void MainWindow::slotHideWindow(){
     Q_D(MainWindow);
 
-    if (!d->isUnload && isActiveWindow() && WBGET(WB_TRAY_ENABLED)) {
+    if (!d->isUnload && isActiveWindow() && qtCtx()->settings()->getBool(WB_TRAY_ENABLED)) {
         hide();
     }
 }
@@ -2575,23 +2642,23 @@ void MainWindow::slotHideWindow(){
 void MainWindow::slotHideProgressSpace() {
     Q_D(MainWindow);
 
-    if (WBGET(WB_SHOW_FREE_SPACE)) {
+    if (qtCtx()->settings()->getBool(WB_SHOW_FREE_SPACE)) {
         d->progressFreeSpace->hide();
         d->toolsHideProgressSpace->setText(tr("Show free space bar"));
 
-        WBSET(WB_SHOW_FREE_SPACE, false);
+        qtCtx()->settings()->setBool(WB_SHOW_FREE_SPACE, false);
     } else {
         d->progressFreeSpace->show();
         d->toolsHideProgressSpace->setText(tr("Hide free space bar"));
 
-        WBSET(WB_SHOW_FREE_SPACE, true);
+        qtCtx()->settings()->setBool(WB_SHOW_FREE_SPACE, true);
     }
 }
 
 void MainWindow::slotHideLastStatus(){
     Q_D(MainWindow);
 
-    bool st = WBGET(WB_LAST_STATUS);
+    bool st = qtCtx()->settings()->getBool(WB_LAST_STATUS);
 
     st = !st;
 
@@ -2600,7 +2667,7 @@ void MainWindow::slotHideLastStatus(){
     else
         d->toolsHideLastStatus->setText(tr("Hide last status message"));
 
-    WBSET(WB_LAST_STATUS, st);
+    qtCtx()->settings()->setBool(WB_LAST_STATUS, st);
 
     reloadSomeSettings();
 }
@@ -2608,7 +2675,7 @@ void MainWindow::slotHideLastStatus(){
 void MainWindow::slotHideUsersStatistics(){
     Q_D(MainWindow);
 
-    bool st = WBGET(WB_USERS_STATISTICS);
+    bool st = qtCtx()->settings()->getBool(WB_USERS_STATISTICS);
 
     st = !st;
 
@@ -2617,7 +2684,7 @@ void MainWindow::slotHideUsersStatistics(){
     else
         d->toolsHideUsersStatisctics->setText(tr("Hide users statistics"));
 
-    WBSET(WB_USERS_STATISTICS, st);
+    qtCtx()->settings()->setBool(WB_USERS_STATISTICS, st);
 
     reloadSomeSettings();
 }
@@ -2655,14 +2722,14 @@ void MainWindow::slotToolbarCustomization() {
 
     if (ret == customize){
         ActionCustomizer customizer(d->toolBarActions, d->fBar->actions(), this);
-        connect(&customizer, SIGNAL(done(QList<QAction*>)), this, SLOT(slotToolbarCustomizerDone(QList<QAction*>)));
+        connect(&customizer, &ActionCustomizer::done, this, &MainWindow::slotToolbarCustomizerDone);
 
         customizer.exec();
     }
     else if (ret){
         d->fBar->setToolButtonStyle(static_cast<Qt::ToolButtonStyle>(ret->data().toInt()));
 
-        WISET(TOOLBUTTON_STYLE, static_cast<int>(d->fBar->toolButtonStyle()));
+        qtCtx()->settings()->setInt(TOOLBUTTON_STYLE, static_cast<int>(d->fBar->toolButtonStyle()));
     }
 }
 
@@ -2683,7 +2750,7 @@ void MainWindow::slotToolbarCustomizerDone(const QList<QAction*> &enabled){
 
     initFavHubMenu();
 
-    WSSET(WS_MAINWINDOW_TOOLBAR_ACTS, enabled_list.join(";").toUtf8().toBase64());
+    qtCtx()->settings()->setStr(WS_MAINWINDOW_TOOLBAR_ACTS, enabled_list.join(";").toUtf8().toBase64());
 }
 
 void MainWindow::slotAboutOpenUrl(){
@@ -2691,7 +2758,6 @@ void MainWindow::slotAboutOpenUrl(){
 
     QAction *act = qobject_cast<QAction *>(sender());
 
-#if QT_VERSION >= 0x050000
     const QHash<QAction*, QUrl> urlsTable = {
         { d->aboutHomepage,     QUrl("https://github.com/eiskaltdcpp/eiskaltdcpp/#description") },
         { d->aboutBuilds,       QUrl("https://github.com/eiskaltdcpp/eiskaltdcpp/#packages-and-installers") },
@@ -2700,15 +2766,6 @@ void MainWindow::slotAboutOpenUrl(){
         { d->aboutWiki,         QUrl("https://github.com/eiskaltdcpp/eiskaltdcpp/wiki") },
         { d->aboutChangelog,    QUrl("https://github.com/eiskaltdcpp/eiskaltdcpp/blob/master/ChangeLog.txt") },
     };
-#else
-    QHash<QAction*, QUrl> urlsTable;
-    urlsTable.insert( d->aboutHomepage,     QUrl("https://github.com/eiskaltdcpp/eiskaltdcpp/#description") );
-    urlsTable.insert( d->aboutBuilds,       QUrl("https://github.com/eiskaltdcpp/eiskaltdcpp/#packages-and-installers") );
-    urlsTable.insert( d->aboutSource,       QUrl("https://github.com/eiskaltdcpp/eiskaltdcpp/") );
-    urlsTable.insert( d->aboutIssues,       QUrl("https://github.com/eiskaltdcpp/eiskaltdcpp/issues") );
-    urlsTable.insert( d->aboutWiki,         QUrl("https://github.com/eiskaltdcpp/eiskaltdcpp/wiki") );
-    urlsTable.insert( d->aboutChangelog,    QUrl("https://github.com/eiskaltdcpp/eiskaltdcpp/blob/master/ChangeLog.txt") );
-#endif
 
     if (urlsTable.contains(act)) {
         QDesktopServices::openUrl(urlsTable[act]);
@@ -2719,8 +2776,8 @@ void MainWindow::slotAboutClient() {
     About a(this);
 
     double ratio;
-    double down = static_cast<double>(SETTING(TOTAL_DOWNLOAD));
-    double up   = static_cast<double>(SETTING(TOTAL_UPLOAD));
+    double down = static_cast<double>(qtCtx()->dcCtx().getSettingsManager()->get(SettingsManager::TOTAL_DOWNLOAD, true));
+    double up   = static_cast<double>(qtCtx()->dcCtx().getSettingsManager()->get(SettingsManager::TOTAL_UPLOAD, true));
 
     if (down > 0)
         ratio = up / down;
@@ -2945,7 +3002,7 @@ void MainWindow::slotCloseCurrentWidget(){
     ArenaWidget *awgt = dynamic_cast<ArenaWidget*>(d->arena->widget());
 
     if (awgt)
-        ArenaWidgetManager::getInstance()->rem(awgt);
+        qtCtx()->arenaWidgetManager()->rem(awgt);
 }
 
 void MainWindow::slotSideBarDockMenu(){
@@ -2955,12 +3012,12 @@ void MainWindow::slotSideBarDockMenu(){
     QAction *act = new QAction(tr("Show close buttons"), m);
 
     act->setCheckable(true);
-    act->setChecked(WBGET(SIDEBAR_SHOW_CLOSEBUTTONS, true));
+    act->setChecked(qtCtx()->settings()->getBool(SIDEBAR_SHOW_CLOSEBUTTONS, true));
 
     m->addAction(act);
 
     if (m->exec(QCursor::pos())){
-        WBSET(SIDEBAR_SHOW_CLOSEBUTTONS, act->isChecked());
+        qtCtx()->settings()->setBool(SIDEBAR_SHOW_CLOSEBUTTONS, act->isChecked());
 
         // Tiny hack for repainting rows!
         d->sideDock->resize(d->sideDock->size()+QSize(0, -2));
@@ -2978,21 +3035,21 @@ void MainWindow::slotUpdateFavHubMenu() {
 
     d->favHubMenu->clear();
 
-    const FavoriteHubEntryList& fl = FavoriteManager::getInstance()->getFavoriteHubs();
+    const FavoriteHubEntryList& fl = dcCtx().getFavoriteManager()->getFavoriteHubs();
 
     for (auto &i : fl) {
         const FavoriteHubEntry &entry = *i;
 
         QString url = _q(entry.getServer());
         QString name = entry.getName().empty() ? tr("[No name]") : _q(entry.getName());
-        QString encoding = WulforUtil::getInstance()->dcEnc2QtEnc(QString::fromStdString(entry.getEncoding()));
+        QString encoding = qtCtx()->wulforUtil()->dcEnc2QtEnc(QString::fromStdString(entry.getEncoding()));
         QString menuItem = QString("%1 - %2").arg(name).arg(url);
 
         QAction *action = new QAction(menuItem, d->favHubMenu);
         action->setStatusTip(encoding);
         action->setToolTip(url);
 
-        if (qobject_cast<HubFrame*>(HubManager::getInstance()->getHub(url))) {
+        if (qobject_cast<HubFrame*>(qtCtx()->hubManager()->getHub(url))) {
             action->setCheckable(true);
             action->setChecked(true);
         }
@@ -3012,7 +3069,7 @@ void MainWindow::slotConnectFavHub(QAction *action) {
 void MainWindow::nextMsg(){
     Q_D(MainWindow);
 
-    HubFrame *fr = qobject_cast<HubFrame*>(HubManager::getInstance()->activeHub());
+    HubFrame *fr = qobject_cast<HubFrame*>(qtCtx()->hubManager()->activeHub());
 
     if (fr)
         fr->nextMsg();
@@ -3035,7 +3092,7 @@ void MainWindow::nextMsg(){
 
 void MainWindow::prevMsg(){
     Q_D(MainWindow);
-    HubFrame *fr = qobject_cast<HubFrame*>(HubManager::getInstance()->activeHub());
+    HubFrame *fr = qobject_cast<HubFrame*>(qtCtx()->hubManager()->activeHub());
 
     if (fr)
         fr->prevMsg();
@@ -3069,8 +3126,8 @@ void MainWindow::on(dcpp::QueueManagerListener::Finished, QueueItem *item, const
         emit coreOpenShare(user, listName, _q(dir));
     }
 
-    const int qsize = QueueManager::getInstance()->lockQueue().size();
-    QueueManager::getInstance()->unlockQueue();
+    const int qsize = dcCtx().getQueueManager()->lockQueue().size();
+    dcCtx().getQueueManager()->unlockQueue();
 
     if (qsize == 1)
         emit notifyMessage(Notification::TRANSFER, tr("Download Queue"), tr("All downloads complete"));
@@ -3107,41 +3164,39 @@ void MainWindow::on(dcpp::TimerManagerListener::Second, uint64_t ticks) noexcept
     lastUp     = Socket::getTotalUp();
     lastDown   = Socket::getTotalDown();
 
-    SettingsManager *SM = SettingsManager::getInstance();
-    SM->set(SettingsManager::TOTAL_UPLOAD,   SETTING(TOTAL_UPLOAD)   + upDiff);
-    SM->set(SettingsManager::TOTAL_DOWNLOAD, SETTING(TOTAL_DOWNLOAD) + downDiff);
+    SettingsManager *SM = dcCtx().getSettingsManager();
+    SM->set(SettingsManager::TOTAL_UPLOAD,   qtCtx()->dcCtx().getSettingsManager()->get(SettingsManager::TOTAL_UPLOAD, true)   + upDiff);
+    SM->set(SettingsManager::TOTAL_DOWNLOAD, qtCtx()->dcCtx().getSettingsManager()->get(SettingsManager::TOTAL_DOWNLOAD, true) + downDiff);
 
     emit coreUpdateStats(map);
 }
 
 void MainWindow::slotShowSpeedLimits(){
-    Notification *N = Notification::getInstance();
+    Notification *N = qtCtx()->notification();
     if (N)
         N->slotShowSpeedLimits();
 }
 
 void MainWindow::slotSuppressTxt(){
-    Notification *N = Notification::getInstance();
+    Notification *N = qtCtx()->notification();
     QAction *act = qobject_cast<QAction*>(sender());
     if (N && act)
         N->setSuppressTxt(act->isChecked());
 }
 
 void MainWindow::slotSuppressSnd(){
-    Notification *N = Notification::getInstance();
+    Notification *N = qtCtx()->notification();
     QAction *act = qobject_cast<QAction*>(sender());
     if (N && act)
         N->setSuppressSnd(act->isChecked());
 }
 
 #if defined(Q_OS_MAC)
-extern void qt_mac_set_dock_menu(QMenu *menu); // Qt internal function
-
 void MainWindow::initDockMenuBar(){
     QMenu *menu = new QMenu(this);
     QAction *setup_speed_lim = new QAction(tr("Setup speed limits"), menu);
 
-    setup_speed_lim->setIcon(WICON(WulforUtil::eiSPEED_LIMIT_ON));
+    setup_speed_lim->setIcon(qtCtx()->wulforUtil()->getPixmap(WulforUtil::eiSPEED_LIMIT_ON));
 
     QMenu *menuAdditional = new QMenu(tr("Additional"), this);
     QAction *actSuppressSnd = new QAction(tr("Suppress sound notifications"), menuAdditional);
@@ -3153,15 +3208,15 @@ void MainWindow::initDockMenuBar(){
     actSuppressTxt->setCheckable(true);
     actSuppressTxt->setChecked(false);
 
-    connect(setup_speed_lim, SIGNAL(triggered()), this, SLOT(slotShowSpeedLimits()));
-    connect(actSuppressTxt, SIGNAL(triggered()), this, SLOT(slotSuppressTxt()));
-    connect(actSuppressSnd, SIGNAL(triggered()), this, SLOT(slotSuppressSnd()));
+    connect(setup_speed_lim, &QAction::triggered, this, &MainWindow::slotShowSpeedLimits);
+    connect(actSuppressTxt, &QAction::triggered, this, &MainWindow::slotSuppressTxt);
+    connect(actSuppressSnd, &QAction::triggered, this, &MainWindow::slotSuppressSnd);
 
     menuAdditional->addActions(QList<QAction*>() << actSuppressTxt << actSuppressSnd);
     menu->addAction(setup_speed_lim);
     menu->addMenu(menuAdditional);
 
-    qt_mac_set_dock_menu(menu);
+    menu->setAsDockMenu();
 }
 #endif // defined(Q_OS_MAC)
 

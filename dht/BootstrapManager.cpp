@@ -1,6 +1,7 @@
 /*
  * Copyright (C) 2009-2010 Big Muscle, http://strongdc.sourceforge.net/
  * Copyright (C) 2019 Boris Pek <tehnick-8@yandex.ru>
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -26,12 +27,13 @@
 #include "dcpp/HttpConnection.h"
 #include "dcpp/LogManager.h"
 #include <zlib.h>
+#include "dcpp/DCPlusPlus.h"
 
 namespace dht
 {
     vector<string> dhtservers;
  
-    BootstrapManager::BootstrapManager(void)
+    BootstrapManager::BootstrapManager(DHT& dht) : dht_(dht), httpConnection(dht.ctx())
     {
         dhtservers.push_back("http://strongdc.sourceforge.net/bootstrap/");
         dhtservers.push_back("http://dht.fly-server.ru/dcDHT.php");
@@ -47,15 +49,15 @@ namespace dht
     {
         if(bootstrapNodes.empty())
         {
-            LogManager::getInstance()->message(_("DHT bootstrapping started"));
+            dht_.ctx().getLogManager()->message(_("DHT bootstrapping started"));
             string dhturl = dhtservers[Util::rand(dhtservers.size())];
             // TODO: make URL settable
-            string url = dhturl  + "?cid=" + ClientManager::getInstance()->getMe()->getCID().toBase32() + "&encryption=1";
+            string url = dhturl  + "?cid=" + dht_.ctx().getClientManager()->getMe()->getCID().toBase32() + "&encryption=1";
 
             // store only active nodes to database
-            if(ClientManager::getInstance()->isActive(Util::emptyString))
+            if(dht_.ctx().getClientManager()->isActive(Util::emptyString))
             {
-                url += "&u4=" + DHT::getInstance()->getPort();
+                url += "&u4=" + dht_.getPort();
             }
 
             httpConnection.downloadFile(url);
@@ -110,18 +112,18 @@ namespace dht
 
                 remoteXml.stepOut();
 
-                LogManager::getInstance()->message(_("DHT bootstrapping is finished successfully."));
+                dht_.ctx().getLogManager()->message(_("DHT bootstrapping is finished successfully."));
             }
             catch(Exception& e)
             {
-                LogManager::getInstance()->message(_("DHT bootstrap error: ") + e.getError());
+                dht_.ctx().getLogManager()->message(_("DHT bootstrap error: ") + e.getError());
             }
         }
     }
 
     void BootstrapManager::on(HttpConnectionListener::Failed, HttpConnection*, const string& aLine) throw()
     {
-        LogManager::getInstance()->message(_("DHT bootstrap error: ") + aLine);
+        dht_.ctx().getLogManager()->message(_("DHT bootstrap error: ") + aLine);
     }
 
     void BootstrapManager::addBootstrapNode(const string& ip, const string& udpPort, const CID& targetCID, const UDPKey& udpKey)
@@ -145,10 +147,10 @@ namespace dht
             CID key;
             // if our external IP changed from the last time, we can't encrypt packet with this key
             // this won't probably work now
-            if(DHT::getInstance()->getLastExternalIP() == node.udpKey.ip)
+            if(dht_.getLastExternalIP() == node.udpKey.ip)
                 key = node.udpKey.key;
 
-            DHT::getInstance()->send(cmd, node.ip, node.udpPort, node.cid, key);
+            dht_.send(cmd, node.ip, node.udpPort, node.cid, key);
 
             bootstrapNodes.pop_front();
         }

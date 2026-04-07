@@ -1,5 +1,6 @@
 /*
  * Copyright © 2009-2010 freedcpp, https://github.com/eiskaltdcpp/freedcpp
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -27,6 +28,7 @@
 
 #include "settingsmanager.hh"
 #include <dcpp/Text.h>
+#include "dcpp/DCPlusPlus.h"
 #include "sound.hh"
 #include "WulforUtil.hh"
 
@@ -71,7 +73,7 @@ void Sound::sound_init() const
 
 void Sound::playSound(TypeSound sound)
 {
-    WulforSettingsManager *wsm = WulforSettingsManager::getInstance();
+    WulforSettingsManager *wsm = wulforSettingsInstance();
 
     switch (sound)
     {
@@ -141,7 +143,7 @@ void Sound::playSound(const string &target)
 #elif USE_LIBCANBERRA
     ca_context_play(context, 1,CA_PROP_MEDIA_FILENAME, target.c_str(), NULL);
 #else
-    WulforUtil::openURItoApp(WulforSettingsManager::getInstance()->getString("sound-command") + " \"" +target+"\"");
+    WulforUtil::openURItoApp(wulforSettingsInstance()->getString("sound-command") + " \"" +target+"\"");
 #endif
 }
 

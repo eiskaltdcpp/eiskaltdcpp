@@ -26,12 +26,14 @@
 #include "bookentry.hh"
 #include "treeview.hh"
 
+namespace dcpp { class DCContext; }
+
 class PublicHubs:
         public BookEntry,
         public dcpp::FavoriteManagerListener
 {
 public:
-    PublicHubs();
+    explicit PublicHubs(dcpp::DCContext& dcCtx);
     virtual ~PublicHubs();
     virtual void show();
 
@@ -75,4 +77,5 @@ private:
     GtkTreeSelection *hubSelection, *listsSelection;
     GtkListStore *hubStore, *listsStore;
     guint oldButton, oldType;
+    dcpp::DCContext& dcCtx_;
 };

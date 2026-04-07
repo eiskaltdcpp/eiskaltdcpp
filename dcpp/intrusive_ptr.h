@@ -28,7 +28,7 @@ class intrusive_ptr
     typedef intrusive_ptr value_type;
 
 public:
-    constexpr intrusive_ptr() noexcept : ptr_(nullptr) { }
+    constexpr intrusive_ptr() : ptr_(nullptr) { }
 
     intrusive_ptr(T* val, bool add_ref = true): ptr_(val) {
         if(ptr_ && add_ref)
@@ -72,19 +72,19 @@ public:
         value_type(val).swap(*this);
     }
 
-    T* get() const noexcept {
+    T* get() const {
         return ptr_;
     }
 
-    T& operator*() const noexcept {
+    T& operator*() const {
         return *ptr_;
     }
 
-    T* operator->() const noexcept {
+    T* operator->() const {
         return ptr_;
     }
 
-    explicit operator bool() const noexcept {
+    explicit operator bool() const {
         return (ptr_ != 0);
     }
 
@@ -99,62 +99,62 @@ private:
 };
 
 template<typename T, typename U>
-bool operator==(const intrusive_ptr<T>& t, const intrusive_ptr<U>& u) noexcept {
+bool operator==(const intrusive_ptr<T>& t, const intrusive_ptr<U>& u) {
     return (t.get() == u.get());
 }
 
 template<typename T, typename U>
-bool operator==(const intrusive_ptr<T>& t, U* u) noexcept {
+bool operator==(const intrusive_ptr<T>& t, U* u) {
     return (t.get() == u);
 }
 
 template<typename T, typename U>
-bool operator==(T* t, const intrusive_ptr<U>& u) noexcept {
+bool operator==(T* t, const intrusive_ptr<U>& u) {
     return (t == u.get());
 }
 
 template<typename T>
-bool operator==(const intrusive_ptr<T>& p, nullptr_t) noexcept {
+bool operator==(const intrusive_ptr<T>& p, std::nullptr_t) {
     return (p.get() == 0);
 }
 
 template<typename T>
-bool operator==(nullptr_t, const intrusive_ptr<T>& p) noexcept {
+bool operator==(std::nullptr_t, const intrusive_ptr<T>& p) {
     return (p.get() == 0);
 }
 
 template<typename T, typename U>
-bool operator!=(const intrusive_ptr<T>& t, const intrusive_ptr<U>& u) noexcept {
+bool operator!=(const intrusive_ptr<T>& t, const intrusive_ptr<U>& u) {
     return (t.get() != u.get());
 }
 
 template<typename T, typename U>
-bool operator!=(const intrusive_ptr<T>& t, U* u) noexcept {
+bool operator!=(const intrusive_ptr<T>& t, U* u) {
     return (t.get() != u);
 }
 
 template<typename T, typename U>
-bool operator!=(T* t, const intrusive_ptr<U>& u) noexcept {
+bool operator!=(T* t, const intrusive_ptr<U>& u) {
     return (t != u.get());
 }
 
 template<typename T>
-bool operator!=(const intrusive_ptr<T>& p, nullptr_t) noexcept {
+bool operator!=(const intrusive_ptr<T>& p, std::nullptr_t) {
     return (p.get() != 0);
 }
 
 template<typename T>
-bool operator!=(nullptr_t, const intrusive_ptr<T>& p) noexcept {
+bool operator!=(std::nullptr_t, const intrusive_ptr<T>& p) {
     return (p.get() != 0);
 }
 
 template<typename T>
-bool operator<(const intrusive_ptr<T>& t, const intrusive_ptr<T>& u) noexcept {
+bool operator<(const intrusive_ptr<T>& t, const intrusive_ptr<T>& u) {
     return std::less<T*>()(t.get(), u.get());
 }
 
 template<typename T>
-std::size_t hash_value(const intrusive_ptr<T>& p) noexcept {
+std::size_t hash_value(const intrusive_ptr<T>& p) {
     return std::hash<T*>()(p.get());
 }
 

@@ -6,8 +6,13 @@
 *   (at your option) any later version.                                   *
 *                                                                         *
 ***************************************************************************/
+/*
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
+ */
 
 #include "SearchBlacklistDialog.h"
+#include "QtContextAware.h"
+#include "QtContext.h"
 #include "SearchBlacklist.h"
 #include "WulforUtil.h"
 
@@ -27,8 +32,8 @@ SearchBlackListDialog::SearchBlackListDialog(QWidget *parent): QDialog(parent){
     treeView_RULES->setSortingEnabled(true);
     treeView_RULES->sortByColumn(COLUMN_SBL_KEY, Qt::AscendingOrder);
 
-    connect(treeView_RULES, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotContextMenu()));
-    connect(this, SIGNAL(accepted()), this, SLOT(ok()));
+    connect(treeView_RULES, &QWidget::customContextMenuRequested, this, &SearchBlackListDialog::slotContextMenu);
+    connect(this, &QDialog::accepted, this, &SearchBlackListDialog::ok);
 }
 
 SearchBlackListDialog::~SearchBlackListDialog(){
@@ -55,8 +60,8 @@ void SearchBlackListDialog::slotContextMenu(){
     QModelIndexList indexes = s_m->selectedRows(0);
 
     QMenu *menu = new QMenu(this);
-    QAction *add = new QAction(WICON(WulforUtil::eiEDITADD), tr("Add new"), nullptr);
-    QAction *rem = new QAction(WICON(WulforUtil::eiEDITDELETE), tr("Remove"), nullptr);
+    QAction *add = new QAction(qtCtx()->wulforUtil()->getPixmap(WulforUtil::eiEDITADD), tr("Add new"), nullptr);
+    QAction *rem = new QAction(qtCtx()->wulforUtil()->getPixmap(WulforUtil::eiEDITDELETE), tr("Remove"), nullptr);
 
     menu->addActions(QList<QAction*>() << add << rem);
 
@@ -87,7 +92,7 @@ SearchBlackListModel::SearchBlackListModel(QObject * parent) :
 {
     rootItem = new SearchBlackListItem(nullptr);
 
-    SearchBlacklist *SB = SearchBlacklist::getInstance();
+    SearchBlacklist *SB = qtCtx()->searchBlacklist();
 
     QList<QString> names = SB->getList(SearchBlacklist::NAME);
     QList<QString> tths  = SB->getList(SearchBlacklist::TTH);
@@ -126,7 +131,7 @@ void SearchBlackListModel::save(){
         l.push_back(item->title);
     }
 
-    SearchBlacklist *SB = SearchBlacklist::getInstance();
+    SearchBlacklist *SB = qtCtx()->searchBlacklist();
     SB->setList(SearchBlacklist::NAME, names);
     SB->setList(SearchBlacklist::TTH, tths);
 }
@@ -141,7 +146,7 @@ int SearchBlackListModel::columnCount(const QModelIndex & ) const {
 
 Qt::ItemFlags SearchBlackListModel::flags(const QModelIndex &index) const {
     if (!index.isValid())
-        return nullptr;
+        return Qt::ItemFlags();
 
     return Qt::ItemIsEditable | Qt::ItemIsEnabled | Qt::ItemIsSelectable;
 }

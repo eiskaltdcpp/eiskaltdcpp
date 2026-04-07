@@ -6,6 +6,9 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
+/*
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
+ */
 
 #include "FavoriteHubModel.h"
 
@@ -76,7 +79,7 @@ QVariant FavoriteHubModel::data(const QModelIndex &index, int role) const
 Qt::ItemFlags FavoriteHubModel::flags(const QModelIndex &index) const
 {
     if (!index.isValid())
-        return nullptr;
+        return Qt::ItemFlags();
 
     Qt::ItemFlags flags = Qt::ItemIsEnabled | Qt::ItemIsSelectable | Qt::ItemIsEditable;
 

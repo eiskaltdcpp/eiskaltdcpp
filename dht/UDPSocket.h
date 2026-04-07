@@ -26,6 +26,7 @@
 
 namespace dht
 {
+    class DHT;
 
     struct Packet :
         FastAlloc<Packet>
@@ -60,6 +61,9 @@ namespace dht
         UDPSocket(void);
         ~UDPSocket(void);
 
+        /** Set back-reference to owning DHT (called once before listen()) */
+        void setDHT(DHT& dht) { dht_ = &dht; }
+
         /** Disconnects UDP socket */
         void disconnect() throw();
 
@@ -75,6 +79,8 @@ namespace dht
     private:
 
         std::unique_ptr<Socket> socket;
+
+        DHT* dht_ = nullptr;
 
         /** Indicates to stop socket thread */
         bool stop;

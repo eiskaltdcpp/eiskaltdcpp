@@ -146,7 +146,7 @@ public:
     void setFileSize(int64_t aSize) { fileSize = aSize; }
 
     bool verifyRoot(const uint8_t* aRoot) {
-        return memcmp(aRoot, getRoot().data(), BYTES) == 0;
+        return memcmp(aRoot, getRoot().data, BYTES) == 0;
     }
 
     void calcRoot() {

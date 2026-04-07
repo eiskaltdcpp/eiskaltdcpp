@@ -9,6 +9,9 @@
 *   (at your option) any later version.                                   *
 *                                                                         *
 ***************************************************************************/
+/*
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
+ */
 
 // Created on: 17.08.2009
 
@@ -21,11 +24,15 @@
 #include "dcpp/SearchManager.h"
 #include "dcpp/SearchManagerListener.h"
 #include "dcpp/SearchResult.h"
-#include "dcpp/Singleton.h"
 #include "dcpp/ShareManager.h"
 #include "dcpp/Socket.h"
 #include "dcpp/TimerManager.h"
 #include "dcpp/Thread.h"
+#include "dcpp/DCPlusPlus.h"
+
+class ServerManager;
+struct DaemonConfig;
+namespace dcpp { class DCContext; }
 
 class ServerThread :
         private TimerManagerListener,
@@ -33,11 +40,20 @@ class ServerThread :
         private LogManagerListener,
         private ClientListener,
         public SearchManagerListener,
-        public Thread,
-        public Singleton<ServerThread>
+        public Thread
 {
 
 public:
+    ServerThread(ServerManager& mgr);
+    ~ServerThread();
+
+    ServerManager& mgr() { return mgr_; }
+    dcpp::DCContext& dcCtx() { return dcCtx_; }
+    const DaemonConfig& config() const;
+
+    ServerThread(const ServerThread&) = delete;
+    ServerThread& operator=(const ServerThread&) = delete;
+
     void Resume();
     void Close();
     void WaitFor();
@@ -91,10 +107,6 @@ public:
     bool configReload();
 
 private:
-    friend class Singleton<ServerThread>;
-
-    ServerThread();
-    virtual ~ServerThread();
 
     virtual int run();
     void startSocket(bool changed);
@@ -154,6 +166,8 @@ private:
 
     int64_t lastUp;
     int64_t lastDown;
+    ServerManager& mgr_;
+    dcpp::DCContext& dcCtx_;
     uint64_t lastUpdate;
 
     dcpp::Socket sock;

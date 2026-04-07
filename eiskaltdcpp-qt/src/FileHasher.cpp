@@ -6,8 +6,13 @@
 *   (at your option) any later version.                                   *
 *                                                                         *
 ***************************************************************************/
+/*
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
+ */
 
 #include "FileHasher.h"
+#include "QtContextAware.h"
+#include "QtContext.h"
 
 #include <QFile>
 #include <QFileInfo>
@@ -23,6 +28,7 @@
 #include "dcpp/HashManager.h"
 #include "dcpp/CID.h"
 #include "dcpp/File.h"
+#include "dcpp/DCPlusPlus.h"
 
 #include "ArenaWidgetFactory.h"
 #include "SearchFrame.h"
@@ -40,20 +46,20 @@ FileHasher::FileHasher(QWidget *parent) :
     setupUi(this);
     hasher = new HashThread();
 
-    toolButton_COPY_MAGNET->setIcon(WICON(WulforUtil::eiMAGNET));
-    toolButton_COPY_SEARCH_LINK->setIcon(WICON(WulforUtil::eiMAGNET));
-    toolButton_BROWSE->setIcon(WICON(WulforUtil::eiFOLDER_BLUE));
+    toolButton_COPY_MAGNET->setIcon(qtCtx()->wulforUtil()->getPixmap(WulforUtil::eiMAGNET));
+    toolButton_COPY_SEARCH_LINK->setIcon(qtCtx()->wulforUtil()->getPixmap(WulforUtil::eiMAGNET));
+    toolButton_BROWSE->setIcon(qtCtx()->wulforUtil()->getPixmap(WulforUtil::eiFOLDER_BLUE));
 
-    connect(hasher, SIGNAL(finished()), this, SLOT(slotDone()));
-    connect(pushButton_SEARCH, SIGNAL(clicked()), this, SLOT(search()));
-    connect(pushButton_RUN,    SIGNAL(clicked()), this, SLOT(slotStart()));
-    connect(toolButton_BROWSE, SIGNAL(clicked()), this, SLOT(slotBrowse()));
-    connect(toolButton_COPY_MAGNET,      SIGNAL(clicked()), this, SLOT(slotCopyMagnet()));
-    connect(toolButton_COPY_SEARCH_LINK, SIGNAL(clicked()), this, SLOT(slotCopySearchString()));
-    connect(this, SIGNAL(finished(int)), this, SLOT(saveWindowSize()));
+    connect(hasher, &QThread::finished, this, &FileHasher::slotDone);
+    connect(pushButton_SEARCH, &QPushButton::clicked, this, qOverload<>(&FileHasher::search));
+    connect(pushButton_RUN,    &QPushButton::clicked, this, &FileHasher::slotStart);
+    connect(toolButton_BROWSE, &QToolButton::clicked, this, &FileHasher::slotBrowse);
+    connect(toolButton_COPY_MAGNET,      &QToolButton::clicked, this, &FileHasher::slotCopyMagnet);
+    connect(toolButton_COPY_SEARCH_LINK, &QToolButton::clicked, this, &FileHasher::slotCopySearchString);
+    connect(this, &QDialog::finished, this, &FileHasher::saveWindowSize);
 
-    if (WVGET(DIALOG_SIZE).isValid()) {
-        resize(WVGET(DIALOG_SIZE).toSize());
+    if (qtCtx()->settings()->getVar(DIALOG_SIZE).isValid()) {
+        resize(qtCtx()->settings()->getVar(DIALOG_SIZE).toSize());
     }
 }
 
@@ -67,7 +73,7 @@ FileHasher::~FileHasher() {
 }
 
 void FileHasher::saveWindowSize(){
-    WVSET(DIALOG_SIZE, size());
+    qtCtx()->settings()->setVar(DIALOG_SIZE, size());
 }
 
 void FileHasher::slotStart(){
@@ -80,7 +86,7 @@ void FileHasher::slotStart(){
         return;
 
     pushButton_RUN->setEnabled(false);
-    HashManager *HM = HashManager::getInstance();
+    HashManager *HM = qtCtx()->dcCtx().getHashManager();
     const TTHValue *tth_val= HM->getFileTTHif(_tq(file));
     if (tth_val) {
         lineEdit_TTH->setText(_q(tth_val->toBase32()));
@@ -140,7 +146,7 @@ void FileHasher::slotCopyMagnet(){
     }
 
     const qulonglong &&fileSize = sizeStr.left(sizeStr.indexOf(" (")).toULongLong();
-    const QString &&urlStr = WulforUtil::getInstance()->makeMagnet(fname, fileSize, tth);
+    const QString &&urlStr = qtCtx()->wulforUtil()->makeMagnet(fname, fileSize, tth);
     qApp->clipboard()->setText(urlStr);
 }
 
@@ -150,7 +156,7 @@ void FileHasher::slotCopySearchString(){
     if (fname.isEmpty())
         return;
 
-    const QString name = fname.split(QDir::separator(), QString::SkipEmptyParts).last();
+    const QString name = fname.split(QDir::separator(), Qt::SkipEmptyParts).last();
 
     // Special searching magnet link:
     const QString &&encoded_name = _q(Util::encodeURI(name.toStdString()));
@@ -203,8 +209,8 @@ void HashThread::calculate_tth() {
     memset(buf, 0, BUF_SIZE);
 
     try {
-        File f(Text::fromT(_tq(file_name)),File::READ, File::OPEN);
-        TigerTree tth(max(TigerTree::calcBlockSize(f.getSize(), 10), static_cast<int64_t>(MIN_BLOCK_SIZE)));
+        File f(_tq(file_name), File::READ, File::OPEN);
+        TigerTree tth(std::max(TigerTree::calcBlockSize(f.getSize(), 10), static_cast<int64_t>(MIN_BLOCK_SIZE)));
         if(f.getSize() > 0) {
             size_t n = BUF_SIZE;
             while( (n = f.read(&buf[0], n)) > 0) {

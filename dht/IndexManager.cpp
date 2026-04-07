@@ -28,8 +28,8 @@
 namespace dht
 {
 
-    IndexManager::IndexManager(void) :
-        publish(false), publishing(0), nextRepublishTime(GET_TICK())
+    IndexManager::IndexManager(DHT& dht) :
+        dht_(dht), publish(false), publishing(0), nextRepublishTime(GET_TICK())
     {
     }
 
@@ -80,7 +80,7 @@ namespace dht
             tthList.insert(std::make_pair(tth, SourceList(1, source)));
         }
 
-        DHT::getInstance()->setDirty();
+        dht_.setDirty();
     }
 
     /*
@@ -117,7 +117,7 @@ namespace dht
             f = publishQueue.front(); // get the first file in queue
             publishQueue.pop_front(); // and remove it from queue
         }
-        SearchManager::getInstance()->findStore(f.tth.toBase32(), f.size, f.partial);
+        dht_.getSearchManager().findStore(f.tth.toBase32(), f.size, f.partial);
     }
 
     /*
@@ -212,7 +212,7 @@ namespace dht
         AdcCommand res(AdcCommand::SEV_SUCCESS, AdcCommand::SUCCESS, "File published", AdcCommand::TYPE_UDP);
         res.addParam("FC", "PUB");
         res.addParam("TR", tth);
-        DHT::getInstance()->send(res, node->getIdentity().getIp(), node->getIdentity().getUdpPort(), node->getUser()->getCID(), node->getUdpKey());
+        dht_.send(res, node->getIdentity().getIp(), node->getIdentity().getUdpPort(), node->getUser()->getCID(), node->getUdpKey());
     }
 
     /*
@@ -248,7 +248,7 @@ namespace dht
         }
 
         if(dirty)
-            DHT::getInstance()->setDirty();
+            dht_.setDirty();
     }
 
     /** Publishes shared file */

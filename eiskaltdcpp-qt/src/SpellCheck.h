@@ -16,25 +16,27 @@
 #include <aspell.h>
 
 #include "dcpp/stdinc.h"
-#include "dcpp/Singleton.h"
+
+#include "QtContextAware.h"
 
 class SpellCheck :
         public QObject,
-        public dcpp::Singleton<SpellCheck>
+        public QtContextAware
 {
 Q_OBJECT
-friend class dcpp::Singleton<SpellCheck>;
+friend class QtContext;
 
 public:
+    SpellCheck(dcpp::DCContext& ctx, QObject *parent = nullptr);
+    ~SpellCheck() override;
+
+
     bool ok(const QString &word);
     void suggestions(const QString &word, QStringList &list);
     void setLanguage(const QString &lang);
     void addToDict(const QString &word);
 
 private:
-    SpellCheck(QObject *parent = nullptr);
-    ~SpellCheck();
-
     void deleteSpeller();
     void loadAspellConfig(AspellConfig * const config);
     AspellConfig *defaultAspellConfig();

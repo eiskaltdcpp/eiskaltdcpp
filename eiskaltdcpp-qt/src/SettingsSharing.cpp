@@ -6,8 +6,13 @@
 *   (at your option) any later version.                                   *
 *                                                                         *
 ***************************************************************************/
+/*
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
+ */
 
 #include "SettingsSharing.h"
+#include "QtContextAware.h"
+#include "QtContext.h"
 #include "HashProgress.h"
 #include "WulforUtil.h"
 #include "WulforSettings.h"
@@ -15,6 +20,7 @@
 #include "dcpp/stdinc.h"
 #include "dcpp/SettingsManager.h"
 #include "dcpp/ShareManager.h"
+#include "dcpp/DCPlusPlus.h"
 
 #include <QListWidgetItem>
 #include <QTreeWidget>
@@ -49,14 +55,14 @@ SettingsSharing::~SettingsSharing(){
 void SettingsSharing::showEvent(QShowEvent *e){
     e->accept();
 
-    if (WSGET(WS_SHAREHEADER_STATE).isEmpty() && model){
+    if (qtCtx()->settings()->getStr(WS_SHAREHEADER_STATE).isEmpty() && model){
         for (int i = 0; i < model->columnCount(); i++)
             treeView->setColumnWidth(i, treeView->width()/4);
     }
 }
 
 void SettingsSharing::ok(){
-    SettingsManager *SM = SettingsManager::getInstance();
+    SettingsManager *SM = qtCtx()->dcCtx().getSettingsManager();
 
     SM->set(SettingsManager::FOLLOW_LINKS, checkBox_FOLLOW->isChecked());
     SM->set(SettingsManager::USE_ADL_ONLY_OWN_LIST, checkBox_USE_ADL_ONLY_OWN_LIST->isChecked());
@@ -79,18 +85,18 @@ void SettingsSharing::ok(){
 
     SM->set(SettingsManager::SKIPLIST_SHARE, (list.isEmpty()? "|" : _tq(list.join("|"))));
 
-    WBSET(WB_SIMPLE_SHARE_MODE, checkBox_SIMPLE_SHARE_MODE->isChecked());
+    qtCtx()->settings()->setBool(WB_SIMPLE_SHARE_MODE, checkBox_SIMPLE_SHARE_MODE->isChecked());
 
     if (checkBox_SIMPLE_SHARE_MODE->isChecked())
         SM->save();
 
-    WSSET(WS_SHAREHEADER_STATE, treeView->header()->saveState().toBase64());
-    WSSET("settings-simple-share-headerstate", treeWidget_SIMPLE_MODE->header()->saveState().toBase64());
-    WBSET(WB_APP_REMOVE_NOT_EX_DIRS, checkBox_AUTOREMOVE->isChecked());
+    qtCtx()->settings()->setStr(WS_SHAREHEADER_STATE, treeView->header()->saveState().toBase64());
+    qtCtx()->settings()->setStr("settings-simple-share-headerstate", treeWidget_SIMPLE_MODE->header()->saveState().toBase64());
+    qtCtx()->settings()->setBool(WB_APP_REMOVE_NOT_EX_DIRS, checkBox_AUTOREMOVE->isChecked());
 }
 
 void SettingsSharing::init(){
-    WulforUtil *WU = WulforUtil::getInstance();
+    WulforUtil *WU = qtCtx()->wulforUtil();
 
     toolButton_ADD->setIcon(WU->getPixmap(WulforUtil::eiBOOKMARK_ADD));
     toolButton_EDIT->setIcon(WU->getPixmap(WulforUtil::eiEDIT));
@@ -99,50 +105,50 @@ void SettingsSharing::init(){
 
     toolButton_RECREATE->setIcon(WU->getPixmap(WulforUtil::eiRELOAD));
 
-    checkBox_SHAREHIDDEN->setChecked(BOOLSETTING(SHARE_HIDDEN));
-    checkBox_SHARE_TEMP_FILES->setChecked(BOOLSETTING(SHARE_TEMP_FILES));
-    checkBox_FOLLOW->setChecked(BOOLSETTING(FOLLOW_LINKS));
-    checkBox_USE_ADL_ONLY_OWN_LIST->setChecked(BOOLSETTING(USE_ADL_ONLY_OWN_LIST));
-    spinBox_UPLOAD->setValue(SETTING(SLOTS_PRIMARY));
-    spinBox_MAXHASHSPEED->setValue(SETTING(MAX_HASH_SPEED));
-    spinBox_EXTRA->setValue(SETTING(MIN_UPLOAD_SPEED));
-    spinBox_REFRESH_TIME->setValue(SETTING(AUTO_REFRESH_TIME));
-    spinBox_HASHING_START_DELAY->setValue(SETTING(HASHING_START_DELAY));
-    checkBox_AUTOREMOVE->setChecked(WBGET(WB_APP_REMOVE_NOT_EX_DIRS));
-    checkBox_SHARE_SKIP_ZERO_BYTE->setChecked(BOOLSETTING(SHARE_SKIP_ZERO_BYTE));
-    checkBox_FASTHASH->setChecked(BOOLSETTING(FAST_HASH));
-    groupBox_FASTHASH->setEnabled(BOOLSETTING(FAST_HASH));
+    checkBox_SHAREHIDDEN->setChecked(qtCtx()->dcCtx().getSettingsManager()->getBool(SettingsManager::SHARE_HIDDEN, true));
+    checkBox_SHARE_TEMP_FILES->setChecked(qtCtx()->dcCtx().getSettingsManager()->getBool(SettingsManager::SHARE_TEMP_FILES, true));
+    checkBox_FOLLOW->setChecked(qtCtx()->dcCtx().getSettingsManager()->getBool(SettingsManager::FOLLOW_LINKS, true));
+    checkBox_USE_ADL_ONLY_OWN_LIST->setChecked(qtCtx()->dcCtx().getSettingsManager()->getBool(SettingsManager::USE_ADL_ONLY_OWN_LIST, true));
+    spinBox_UPLOAD->setValue(qtCtx()->dcCtx().getSettingsManager()->get(SettingsManager::SLOTS_PRIMARY, true));
+    spinBox_MAXHASHSPEED->setValue(qtCtx()->dcCtx().getSettingsManager()->get(SettingsManager::MAX_HASH_SPEED, true));
+    spinBox_EXTRA->setValue(qtCtx()->dcCtx().getSettingsManager()->get(SettingsManager::MIN_UPLOAD_SPEED, true));
+    spinBox_REFRESH_TIME->setValue(qtCtx()->dcCtx().getSettingsManager()->get(SettingsManager::AUTO_REFRESH_TIME, true));
+    spinBox_HASHING_START_DELAY->setValue(qtCtx()->dcCtx().getSettingsManager()->get(SettingsManager::HASHING_START_DELAY, true));
+    checkBox_AUTOREMOVE->setChecked(qtCtx()->settings()->getBool(WB_APP_REMOVE_NOT_EX_DIRS));
+    checkBox_SHARE_SKIP_ZERO_BYTE->setChecked(qtCtx()->dcCtx().getSettingsManager()->getBool(SettingsManager::SHARE_SKIP_ZERO_BYTE, true));
+    checkBox_FASTHASH->setChecked(qtCtx()->dcCtx().getSettingsManager()->getBool(SettingsManager::FAST_HASH, true));
+    groupBox_FASTHASH->setEnabled(qtCtx()->dcCtx().getSettingsManager()->getBool(SettingsManager::FAST_HASH, true));
 
-    listWidget_SKIPLIST->addItems(_q(SETTING(SKIPLIST_SHARE)).split('|', QString::SkipEmptyParts));
+    listWidget_SKIPLIST->addItems(_q(qtCtx()->dcCtx().getSettingsManager()->get(SettingsManager::SKIPLIST_SHARE, true)).split('|', Qt::SkipEmptyParts));
 
     label_TOTALSHARED->setText(tr("Total shared: %1")
-                               .arg(WulforUtil::formatBytes(ShareManager::getInstance()->getShareSize())));
+                               .arg(WulforUtil::formatBytes(qtCtx()->dcCtx().getShareManager()->getShareSize())));
 
-    checkBox_SIMPLE_SHARE_MODE->setChecked(WBGET(WB_SIMPLE_SHARE_MODE));
-    treeWidget_SIMPLE_MODE->setVisible(WBGET(WB_SIMPLE_SHARE_MODE));
+    checkBox_SIMPLE_SHARE_MODE->setChecked(qtCtx()->settings()->getBool(WB_SIMPLE_SHARE_MODE));
+    treeWidget_SIMPLE_MODE->setVisible(qtCtx()->settings()->getBool(WB_SIMPLE_SHARE_MODE));
     treeWidget_SIMPLE_MODE->setContextMenuPolicy(Qt::CustomContextMenu);
-    treeView->setHidden(WBGET(WB_SIMPLE_SHARE_MODE));
+    treeView->setHidden(qtCtx()->settings()->getBool(WB_SIMPLE_SHARE_MODE));
 
-    checkBox_MAPNORESERVE->setChecked(SETTING(HASH_BUFFER_NORESERVE));
-    checkBox_MAPPOPULATE->setChecked(SETTING(HASH_BUFFER_POPULATE));
-    checkBox_MAPPRIVATE->setChecked(SETTING(HASH_BUFFER_PRIVATE));
+    checkBox_MAPNORESERVE->setChecked(qtCtx()->dcCtx().getSettingsManager()->get(SettingsManager::HASH_BUFFER_NORESERVE, true));
+    checkBox_MAPPOPULATE->setChecked(qtCtx()->dcCtx().getSettingsManager()->get(SettingsManager::HASH_BUFFER_POPULATE, true));
+    checkBox_MAPPRIVATE->setChecked(qtCtx()->dcCtx().getSettingsManager()->get(SettingsManager::HASH_BUFFER_PRIVATE, true));
 
-    int ind = comboBox_BUFSIZE->findText(QString().setNum(SETTING(HASH_BUFFER_SIZE_MB)));
+    int ind = comboBox_BUFSIZE->findText(QString().setNum(qtCtx()->dcCtx().getSettingsManager()->get(SettingsManager::HASH_BUFFER_SIZE_MB, true)));
     if (ind >= 0)
         comboBox_BUFSIZE->setCurrentIndex(ind);
 
-    connect(toolButton_ADD, SIGNAL(clicked()), this, SLOT(slotAddExeption()));
-    connect(toolButton_EDIT, SIGNAL(clicked()), this, SLOT(slotEditExeption()));
-    connect(toolButton_DELETE, SIGNAL(clicked()), this, SLOT(slotDeleteExeption()));
-    connect(toolButton_BROWSE, SIGNAL(clicked()), this, SLOT(slotAddDirExeption()));
-    connect(listWidget_SKIPLIST, SIGNAL(itemDoubleClicked(QListWidgetItem *)), this, SLOT(slotEditExeption()));
+    connect(toolButton_ADD, &QToolButton::clicked, this, &SettingsSharing::slotAddExeption);
+    connect(toolButton_EDIT, &QToolButton::clicked, this, &SettingsSharing::slotEditExeption);
+    connect(toolButton_DELETE, &QToolButton::clicked, this, &SettingsSharing::slotDeleteExeption);
+    connect(toolButton_BROWSE, &QToolButton::clicked, this, &SettingsSharing::slotAddDirExeption);
+    connect(listWidget_SKIPLIST, &QListWidget::itemDoubleClicked, this, &SettingsSharing::slotEditExeption);
 
-    connect(toolButton_RECREATE, SIGNAL(clicked()), this, SLOT(slotRecreateShare()));
-    connect(checkBox_SHAREHIDDEN, SIGNAL(clicked(bool)), this, SLOT(slotShareHidden(bool)));
-    connect(treeView->header(), SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotHeaderMenu()));
+    connect(toolButton_RECREATE, &QToolButton::clicked, this, &SettingsSharing::slotRecreateShare);
+    connect(checkBox_SHAREHIDDEN, &QCheckBox::clicked, this, &SettingsSharing::slotShareHidden);
+    connect(treeView->header(), &QHeaderView::customContextMenuRequested, this, &SettingsSharing::slotHeaderMenu);
 
-    connect(treeWidget_SIMPLE_MODE, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotContextMenu(QPoint)));
-    connect(checkBox_SIMPLE_SHARE_MODE, SIGNAL(clicked()), this, SLOT(slotSimpleShareModeChanged()));
+    connect(treeWidget_SIMPLE_MODE, &QTreeWidget::customContextMenuRequested, this, &SettingsSharing::slotContextMenu);
+    connect(checkBox_SIMPLE_SHARE_MODE, &QCheckBox::clicked, this, &SettingsSharing::slotSimpleShareModeChanged);
 
     slotSimpleShareModeChanged();
 }
@@ -151,23 +157,23 @@ void SettingsSharing::updateShareView(){
     if (checkBox_SIMPLE_SHARE_MODE->isChecked()){
         treeWidget_SIMPLE_MODE->clear();
 
-        StringPairList directories = ShareManager::getInstance()->getDirectories();
+        StringPairList directories = qtCtx()->dcCtx().getShareManager()->getDirectories();
         for (const auto &pair : directories){
             QTreeWidgetItem *item = new QTreeWidgetItem(treeWidget_SIMPLE_MODE);
 
             item->setText(0, pair.second.c_str());
             item->setText(1, pair.first.c_str());
-            item->setText(2, Util::formatBytes(ShareManager::getInstance()->getShareSize(pair.second)).c_str());
-            item->setText(3, QString().setNum(ShareManager::getInstance()->getShareSize(pair.second)));
+            item->setText(2, Util::formatBytes(qtCtx()->dcCtx().getShareManager()->getShareSize(pair.second)).c_str());
+            item->setText(3, QString().setNum(qtCtx()->dcCtx().getShareManager()->getShareSize(pair.second)));
         }
     }
 
     label_TOTALSHARED->setText(tr("Total shared: %1")
-                               .arg(WulforUtil::formatBytes(ShareManager::getInstance()->getShareSize())));
+                               .arg(WulforUtil::formatBytes(qtCtx()->dcCtx().getShareManager()->getShareSize())));
 }
 
 void SettingsSharing::slotRecreateShare(){
-    ShareManager *SM = ShareManager::getInstance();
+    ShareManager *SM = qtCtx()->dcCtx().getShareManager();
 
     SM->setDirty();
     SM->refresh(true);
@@ -180,9 +186,9 @@ void SettingsSharing::slotRecreateShare(){
 }
 
 void SettingsSharing::slotShareHidden(bool share){
-    SettingsManager::getInstance()->set(SettingsManager::SHARE_HIDDEN, share);
-    ShareManager::getInstance()->setDirty();
-    ShareManager::getInstance()->refresh(true);
+    qtCtx()->dcCtx().getSettingsManager()->set(SettingsManager::SHARE_HIDDEN, share);
+    qtCtx()->dcCtx().getShareManager()->setDirty();
+    qtCtx()->dcCtx().getShareManager()->refresh(true);
 
     updateShareView();
 }
@@ -262,11 +268,11 @@ void SettingsSharing::slotSimpleShareModeChanged(){
             treeView->header()->hideSection(1);
             treeView->header()->hideSection(2);
 
-            if (!WSGET(WS_SHAREHEADER_STATE).isEmpty())
-                treeView->header()->restoreState(QByteArray::fromBase64(WSGET(WS_SHAREHEADER_STATE).toUtf8()));
+            if (!qtCtx()->settings()->getStr(WS_SHAREHEADER_STATE).isEmpty())
+                treeView->header()->restoreState(QByteArray::fromBase64(qtCtx()->settings()->getStr(WS_SHAREHEADER_STATE).toUtf8()));
 
-            connect(model, SIGNAL(getName(QModelIndex)), this, SLOT(slotGetName(QModelIndex)));
-            connect(model, SIGNAL(expandMe(QModelIndex)), treeView, SLOT(expand(QModelIndex)));
+            connect(model, &ShareDirModel::getName, this, &SettingsSharing::slotGetName);
+            connect(model, &ShareDirModel::expandMe, treeView, &QTreeView::expand);
 
             model->beginExpanding();
         }
@@ -275,7 +281,7 @@ void SettingsSharing::slotSimpleShareModeChanged(){
         }
     }
     else{
-        treeWidget_SIMPLE_MODE->header()->restoreState(QByteArray::fromBase64((WSGET("settings-simple-share-headerstate").toUtf8())));
+        treeWidget_SIMPLE_MODE->header()->restoreState(QByteArray::fromBase64((qtCtx()->settings()->getStr("settings-simple-share-headerstate").toUtf8())));
 
         updateShareView();
     }
@@ -285,7 +291,7 @@ void SettingsSharing::slotContextMenu(const QPoint &){
     QList<QTreeWidgetItem*> selected = treeWidget_SIMPLE_MODE->selectedItems();
     QMenu *menu = new QMenu(nullptr);
     QAction *add_new = nullptr, *rem = nullptr, *rename = nullptr;
-    WulforUtil *WU = WulforUtil::getInstance();
+    WulforUtil *WU = qtCtx()->wulforUtil();
 
     add_new = new QAction(WU->getPixmap(WulforUtil::eiEDITADD), tr("Add"), menu);
     menu->addAction(add_new);
@@ -329,7 +335,7 @@ void SettingsSharing::slotContextMenu(const QPoint &){
 
         try
         {
-            ShareManager::getInstance()->addDirectory(dir.toStdString(), dir_alias.toStdString());
+            qtCtx()->dcCtx().getShareManager()->addDirectory(dir.toStdString(), dir_alias.toStdString());
         }
         catch (const ShareException &e)
         {
@@ -352,7 +358,7 @@ void SettingsSharing::slotContextMenu(const QPoint &){
     }
     else if (res == rem){
         for (const auto &i : selected)
-            ShareManager::getInstance()->removeDirectory(i->text(0).toStdString());
+            qtCtx()->dcCtx().getShareManager()->removeDirectory(i->text(0).toStdString());
     }
     else if (res == rename){
         QTreeWidgetItem *item = selected.at(0);
@@ -366,7 +372,7 @@ void SettingsSharing::slotContextMenu(const QPoint &){
             return;
 
         try {
-            ShareManager::getInstance()->renameDirectory(realname.toStdString(), new_virtname.toStdString());
+            qtCtx()->dcCtx().getShareManager()->renameDirectory(realname.toStdString(), new_virtname.toStdString());
         }
         catch (const ShareException &e){
             QMessageBox msg_box(QMessageBox::Critical,
@@ -384,14 +390,15 @@ void SettingsSharing::slotContextMenu(const QPoint &){
 }
 
 QString ShareDirModel::filePath( const QModelIndex & index ) const {
-    return QDir::toNativeSeparators( QDirModel::filePath(index) );
+    return QDir::toNativeSeparators( QFileSystemModel::filePath(index) );
 }
 
 ShareDirModel::ShareDirModel(QObject *parent){
-    QDirModel::setParent(parent);
-    QDirModel::setFilter((QDir::AllDirs | QDir::NoDotAndDotDot));
+    QFileSystemModel::setParent(parent);
+    QFileSystemModel::setFilter((QDir::AllDirs | QDir::NoDotAndDotDot));
+    setRootPath(QString());  // show all filesystems
 
-    StringPairList directories = ShareManager::getInstance()->getDirectories();
+    StringPairList directories = qtCtx()->dcCtx().getShareManager()->getDirectories();
     for (const auto &pair : directories){
         QString path = pair.second.c_str();
 
@@ -409,7 +416,7 @@ ShareDirModel::~ShareDirModel(){
 }
 
 Qt::ItemFlags ShareDirModel::flags(const QModelIndex& index) const{
-    Qt::ItemFlags f = QDirModel::flags(index);
+    Qt::ItemFlags f = QFileSystemModel::flags(index);
 
     if (!index.column())
         f |= Qt::ItemIsUserCheckable;
@@ -475,7 +482,7 @@ QVariant ShareDirModel::data(const QModelIndex& index, int role = Qt::DisplayRol
         }
     }
 
-    return QDirModel::data(index, role);
+    return QFileSystemModel::data(index, role);
 }
 
 bool ShareDirModel::setData(const QModelIndex& index, const QVariant& value, int role = Qt::EditRole)
@@ -491,7 +498,7 @@ bool ShareDirModel::setData(const QModelIndex& index, const QVariant& value, int
                 if (!path.endsWith(QDir::separator()))
                     path += QDir::separator();
 
-                ShareManager::getInstance()->removeDirectory(path.toStdString());
+                qtCtx()->dcCtx().getShareManager()->removeDirectory(path.toStdString());
             }
             catch (const Exception&){}
 
@@ -501,7 +508,7 @@ bool ShareDirModel::setData(const QModelIndex& index, const QVariant& value, int
         return true;
     }
 
-    return QDirModel::setData(index, value, role);
+    return QFileSystemModel::setData(index, value, role);
 }
 
 void ShareDirModel::setAlias(const QModelIndex &index, const QString &alias){
@@ -517,7 +524,7 @@ void ShareDirModel::setAlias(const QModelIndex &index, const QString &alias){
         if (!fp.endsWith(QDir::separator()))
             fp += QDir::separator();
 
-        ShareManager::getInstance()->addDirectory(fp.toStdString(), alias.toStdString());
+        qtCtx()->dcCtx().getShareManager()->addDirectory(fp.toStdString(), alias.toStdString());
     }
     catch (const ShareException &e)
     {
@@ -531,7 +538,7 @@ void ShareDirModel::setAlias(const QModelIndex &index, const QString &alias){
         return;
     }
 
-    QDirModel::setData(index, true, Qt::CheckStateRole);
+    QFileSystemModel::setData(index, true, Qt::CheckStateRole);
 
     emit layoutChanged();
 }

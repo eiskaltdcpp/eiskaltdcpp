@@ -6,14 +6,18 @@
 *   (at your option) any later version.                                   *
 *                                                                         *
 ***************************************************************************/
+/*
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
+ */
 
 #include "UCModel.h"
+#include "QtContextAware.h"
+#include "QtContext.h"
 #include "MainWindow.h"
 #include "WulforUtil.h"
 
-#include <QRegExp>
-
 #include "dcpp/NmdcHub.h"
+#include "dcpp/DCPlusPlus.h"
 
 using namespace dcpp;
 
@@ -69,7 +73,7 @@ QVariant UCModel::data(const QModelIndex &index, int role) const
 Qt::ItemFlags UCModel::flags(const QModelIndex &index) const
 {
     if (!index.isValid())
-        return nullptr;
+        return Qt::ItemFlags();
 
     Qt::ItemFlags flags = Qt::ItemIsEnabled | Qt::ItemIsSelectable;
 
@@ -139,7 +143,7 @@ void UCModel::sort(int column, Qt::SortOrder order) {
 }
 
 void UCModel::loadUC(){
-    UserCommand::List list = FavoriteManager::getInstance()->getUserCommands();
+    UserCommand::List list = qtCtx()->dcCtx().getFavoriteManager()->getUserCommands();
     for (const UserCommand& uc : list) {
         if(!uc.isSet(UserCommand::FLAG_NOSAVE))
             addUC(uc);
@@ -163,10 +167,10 @@ void UCModel::addUC(const dcpp::UserCommand &uc){
 }
 
 void UCModel::newUC(){
-    UCDialog ucd(MainWindow::getInstance());
+    UCDialog ucd(qtCtx()->mainWindow());
 
     if (ucd.exec() == QDialog::Accepted){
-        addUC(FavoriteManager::getInstance()->addUserCommand(ucd.getType(),
+        addUC(qtCtx()->dcCtx().getFavoriteManager()->addUserCommand(ucd.getType(),
                                                              ucd.getCtx(),
                                                              0,
                                                              _tq(ucd.getName()),
@@ -186,13 +190,13 @@ void UCModel::changeUC(const QModelIndex &i){
     if (!rootItem->childItems.contains(item))
         return;
 
-    UCDialog ucd(MainWindow::getInstance());
+    UCDialog ucd(qtCtx()->mainWindow());
 
     initDlgFromItem(ucd, *item);
 
     if (ucd.exec() == QDialog::Accepted){
         UserCommand uc;
-        FavoriteManager::getInstance()->getUserCommand(item->id, uc);
+        qtCtx()->dcCtx().getFavoriteManager()->getUserCommand(item->id, uc);
 
         uc.setName(_tq(ucd.getName()));
         uc.setCommand(_tq(ucd.getCmd()));
@@ -200,7 +204,7 @@ void UCModel::changeUC(const QModelIndex &i){
         uc.setType(ucd.getType());
         uc.setCtx(ucd.getCtx());
         uc.setTo(_tq(ucd.lineEdit_TO->text()));
-        FavoriteManager::getInstance()->updateUserCommand(uc);
+        qtCtx()->dcCtx().getFavoriteManager()->updateUserCommand(uc);
 
         item->name = ((uc.getType() == dcpp::UserCommand::TYPE_SEPARATOR)? tr("Separator") : _q(uc.getName()));
         item->comm = _q(uc.getCommand());
@@ -222,7 +226,7 @@ void UCModel::remUC(const QModelIndex &i){
     if (!rootItem->childItems.contains(item))
         return;
     
-    FavoriteManager::getInstance()->removeUserCommand(item->id);
+    qtCtx()->dcCtx().getFavoriteManager()->removeUserCommand(item->id);
 
     beginRemoveRows(QModelIndex(), item->row(), item->row());
     rootItem->childItems.removeAt(item->row());
@@ -245,7 +249,7 @@ void UCModel::moveUp(const QModelIndex &i){
     rootItem->childItems.insert(r-1, item);
     emit layoutChanged();
 
-    FavoriteManager::getInstance()->moveUserCommand(item->id, -1);
+    qtCtx()->dcCtx().getFavoriteManager()->moveUserCommand(item->id, -1);
 
     emit selectIndex(index(item->row(), 0, QModelIndex()));
 }
@@ -265,7 +269,7 @@ void UCModel::moveDown(const QModelIndex &i){
     rootItem->childItems.insert(r+1, item);
     emit layoutChanged();
 
-    FavoriteManager::getInstance()->moveUserCommand(item->id, 1);
+    qtCtx()->dcCtx().getFavoriteManager()->moveUserCommand(item->id, 1);
 
     emit selectIndex(index(item->row(), 0, QModelIndex()));
 }
@@ -366,16 +370,16 @@ UCDialog::UCDialog(QWidget *parent): QDialog(parent){
 
     setupUi(this);
 
-    connect(lineEdit_CMD,     SIGNAL(textChanged(QString)), this, SLOT(updateLines()));
-    connect(lineEdit_TO,      SIGNAL(textChanged(QString)), this, SLOT(updateLines()));
-    connect(radioButton_CHAT, SIGNAL(toggled(bool)),        this, SLOT(updateLines()));
-    connect(radioButton_PM,   SIGNAL(toggled(bool)),        this, SLOT(updateLines()));
-    connect(radioButton_RAW,  SIGNAL(toggled(bool)),        this, SLOT(updateLines()));
-    connect(radioButton_SEP,  SIGNAL(toggled(bool)),        this, SLOT(updateLines()));
-    connect(radioButton_CHAT, SIGNAL(toggled(bool)),        this, SLOT(updateType()));
-    connect(radioButton_PM,   SIGNAL(toggled(bool)),        this, SLOT(updateType()));
-    connect(radioButton_RAW,  SIGNAL(toggled(bool)),        this, SLOT(updateType()));
-    connect(radioButton_SEP,  SIGNAL(toggled(bool)),        this, SLOT(updateType()));
+    connect(lineEdit_CMD,     &QLineEdit::textChanged, this, &UCDialog::updateLines);
+    connect(lineEdit_TO,      &QLineEdit::textChanged, this, &UCDialog::updateLines);
+    connect(radioButton_CHAT, &QRadioButton::toggled,        this, &UCDialog::updateLines);
+    connect(radioButton_PM,   &QRadioButton::toggled,        this, &UCDialog::updateLines);
+    connect(radioButton_RAW,  &QRadioButton::toggled,        this, &UCDialog::updateLines);
+    connect(radioButton_SEP,  &QRadioButton::toggled,        this, &UCDialog::updateLines);
+    connect(radioButton_CHAT, &QRadioButton::toggled,        this, &UCDialog::updateType);
+    connect(radioButton_PM,   &QRadioButton::toggled,        this, &UCDialog::updateType);
+    connect(radioButton_RAW,  &QRadioButton::toggled,        this, &UCDialog::updateType);
+    connect(radioButton_SEP,  &QRadioButton::toggled,        this, &UCDialog::updateType);
 }
 
 unsigned long UCDialog::getCtx() const {

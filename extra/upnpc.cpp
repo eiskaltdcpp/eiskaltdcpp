@@ -1,6 +1,7 @@
 /*
  * Copyright (C) 2001-2011 Jacek Sieka, arnetheduck on gmail point com
  * Copyright (C) 2019 Boris Pek <tehnick-8@yandex.ru>
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -31,6 +32,7 @@
 #include <miniupnpc/miniupnpc.h>
 #include <miniupnpc/upnpcommands.h>
 #include <miniupnpc/upnperrors.h>
+#include "dcpp/DCContext.h"
 
 static UPNPUrls urls;
 static IGDdatas data;
@@ -41,8 +43,9 @@ using namespace dcpp;
 
 bool UPnPc::init()
 {
-    const string bind_address = SETTING(BIND_ADDRESS);
-    const char *multicast_interface = SettingsManager::getInstance()->isDefault(SettingsManager::BIND_ADDRESS) ? nullptr : bind_address.c_str();
+    auto* sm = ctx_.getSettingsManager();
+    const string bind_address = sm->get(SettingsManager::BIND_ADDRESS, true);
+    const char *multicast_interface = sm->isDefault(SettingsManager::BIND_ADDRESS) ? nullptr : bind_address.c_str();
 
 #if (MINIUPNPC_API_VERSION >= 14)
     UPNPDev *devices = upnpDiscover(5000, multicast_interface, nullptr, 0, 0, 2, nullptr);
@@ -54,9 +57,9 @@ bool UPnPc::init()
         return false;
 
 #if (MINIUPNPC_API_VERSION >= 18)
-    bool ret = UPNP_GetValidIGD(devices, &urls, &data, nullptr, 0, nullptr, 0);
+    bool ret = UPNP_GetValidIGD(devices, &urls, &::data, nullptr, 0, nullptr, 0);
 #else
-    bool ret = UPNP_GetValidIGD(devices, &urls, &data, nullptr, 0);
+    bool ret = UPNP_GetValidIGD(devices, &urls, &::data, nullptr, 0);
 #endif
 
     freeUPNPDevlist(devices);
@@ -66,20 +69,20 @@ bool UPnPc::init()
 
 bool UPnPc::add(const string& port, const UPnP::Protocol protocol, const string& description)
 {
-    return UPNP_AddPortMapping(urls.controlURL, data.first.servicetype, port.c_str(), port.c_str(),
+    return UPNP_AddPortMapping(urls.controlURL, ::data.first.servicetype, port.c_str(), port.c_str(),
         Util::getLocalIp(AF_INET).c_str(), description.c_str(), protocols[protocol], nullptr, nullptr) == UPNPCOMMAND_SUCCESS;
 }
 
 bool UPnPc::remove(const string& port, const UPnP::Protocol protocol)
 {
-    return UPNP_DeletePortMapping(urls.controlURL, data.first.servicetype, port.c_str(),
+    return UPNP_DeletePortMapping(urls.controlURL, ::data.first.servicetype, port.c_str(),
         protocols[protocol], nullptr) == UPNPCOMMAND_SUCCESS;
 }
 
 string UPnPc::getExternalIP()
 {
     char buf[16] = { 0 };
-    if (UPNP_GetExternalIPAddress(urls.controlURL, data.first.servicetype, buf) == UPNPCOMMAND_SUCCESS)
+    if (UPNP_GetExternalIPAddress(urls.controlURL, ::data.first.servicetype, buf) == UPNPCOMMAND_SUCCESS)
         return string(buf);
     return Util::emptyString;
 }

@@ -1,5 +1,6 @@
 /*
  * Copyright © 2004-2010 Jens Oknelid, paskharen@gmail.com
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -26,6 +27,7 @@
 #include <dcpp/StringTokenizer.h>
 #include <dcpp/Text.h>
 #include <dcpp/UserCommand.h>
+#include "dcpp/DCPlusPlus.h"
 #include "UserCommandMenu.hh"
 #include "wulformanager.hh"
 #include "WulforUtil.hh"
@@ -36,9 +38,10 @@ using namespace dcpp;
 
 GtkTreeModel* Search::searchEntriesModel = NULL;
 
-Search::Search():
+Search::Search(dcpp::DCContext& dcCtx):
     BookEntry(Entry::SEARCH, _("Search"), "search.ui", generateID(this)),
-    previousGrouping(NOGROUPING)
+    previousGrouping(NOGROUPING),
+    dcCtx_(dcCtx)
 {
 #if GTK_CHECK_VERSION(3,0,0)
     gtk_progress_bar_set_show_text(GTK_PROGRESS_BAR(getWidget("progressbar1")), true);
@@ -63,15 +66,15 @@ Search::Search():
     gtk_widget_grab_focus(getWidget("comboboxentrySearch"));
 
     // Configure the dialog
-    File::ensureDirectory(SETTING(DOWNLOAD_DIRECTORY));
-    gtk_file_chooser_set_current_folder(GTK_FILE_CHOOSER(getWidget("dirChooserDialog")), Text::fromUtf8(SETTING(DOWNLOAD_DIRECTORY)).c_str());
+    File::ensureDirectory(dcCtx_.getSettingsManager()->get(SettingsManager::DOWNLOAD_DIRECTORY, true));
+    gtk_file_chooser_set_current_folder(GTK_FILE_CHOOSER(getWidget("dirChooserDialog")), Text::fromUtf8(dcCtx_.getSettingsManager()->get(SettingsManager::DOWNLOAD_DIRECTORY, true)).c_str());
     gtk_dialog_set_alternative_button_order(GTK_DIALOG(getWidget("dirChooserDialog")), GTK_RESPONSE_OK, GTK_RESPONSE_CANCEL, -1);
 
     // menu
     g_object_ref_sink(getWidget("mainMenu"));
 
     // Initialize check button options.
-    onlyFree = BOOLSETTING(SEARCH_ONLY_FREE_SLOTS);
+    onlyFree = dcCtx_.getSettingsManager()->getBool(SettingsManager::SEARCH_ONLY_FREE_SLOTS, true);
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("checkbuttonSlots")), onlyFree);
     gtk_widget_set_sensitive(GTK_WIDGET(getWidget("checkbuttonSlots")), false);
     gtk_widget_set_sensitive(GTK_WIDGET(getWidget("checkbuttonShared")), false);
@@ -134,7 +137,7 @@ Search::Search():
     gtk_tree_view_set_fixed_height_mode(resultView.get(), true);
 
     // Initialize the user command menu
-    userCommandMenu = new UserCommandMenu(getWidget("usercommandMenu"), ::UserCommand::CONTEXT_SEARCH);
+    userCommandMenu = new UserCommandMenu(dcCtx_, getWidget("usercommandMenu"), ::UserCommand::CONTEXT_SEARCH);
     addChild(userCommandMenu);
 
     // Initialize search types
@@ -142,7 +145,7 @@ Search::Search():
     GtkComboBox *combo_box = GTK_COMBO_BOX(getWidget("comboboxFile"));
     GtkTreeModel *model = gtk_combo_box_get_model(combo_box);
     GtkListStore *store = GTK_LIST_STORE(model);
-    const SettingsManager::SearchTypes &searchTypes = SettingsManager::getInstance()->getSearchTypes();
+    const SettingsManager::SearchTypes &searchTypes = dcCtx_.getSettingsManager()->getSearchTypes();
 
     // Predefined
     for (int i = SearchManager::TYPE_ANY; i < SearchManager::TYPE_LAST; ++i)
@@ -202,9 +205,9 @@ Search::Search():
 
 Search::~Search()
 {
-    ClientManager::getInstance()->removeListener(this);
-    SearchManager::getInstance()->removeListener(this);
-    TimerManager::getInstance()->removeListener(this);
+    dcCtx_.getClientManager()->removeListener(this);
+    dcCtx_.getSearchManager()->removeListener(this);
+    dcCtx_.getTimerManager()->removeListener(this);
 
     gtk_widget_destroy(getWidget("dirChooserDialog"));
     g_object_unref(getWidget("mainMenu"));
@@ -213,9 +216,9 @@ Search::~Search()
 void Search::show()
 {
     initHubs_gui();
-    ClientManager::getInstance()->addListener(this);
-    SearchManager::getInstance()->addListener(this);
-    TimerManager::getInstance()->addListener(this);
+    dcCtx_.getClientManager()->addListener(this);
+    dcCtx_.getSearchManager()->addListener(this);
+    dcCtx_.getTimerManager()->addListener(this);
 }
 
 void Search::putValue_gui(const string &str, int64_t size, SearchManager::SizeModes mode, SearchManager::TypeModes type)
@@ -230,9 +233,9 @@ void Search::putValue_gui(const string &str, int64_t size, SearchManager::SizeMo
 
 void Search::initHubs_gui()
 {
-    auto lock = ClientManager::getInstance()->lock();
+    auto lock = dcCtx_.getClientManager()->lock();
 
-    const Client::List clients = ClientManager::getInstance()->getClients();
+    const Client::List clients = dcCtx_.getClientManager()->getClients();
 
     Client *client = nullptr;
     for (auto it = clients.begin(); it != clients.end(); ++it)
@@ -331,7 +334,7 @@ void Search::popupMenu_gui()
     // Build "Download to..." submenu
 
     // Add favorite download directories
-    StringPairList spl = FavoriteManager::getInstance()->getFavoriteDirs();
+    StringPairList spl = dcCtx_.getFavoriteManager()->getFavoriteDirs();
     if (!spl.empty())
     {
         for (auto& i : spl)
@@ -384,7 +387,7 @@ void Search::popupMenu_gui()
 
     if (hasTTH)
     {
-        StringList targets = QueueManager::getInstance()->getTargets(TTHValue(tth));
+        StringList targets = dcCtx_.getQueueManager()->getTargets(TTHValue(tth));
 
         if (!targets.empty())
         {
@@ -402,7 +405,7 @@ void Search::popupMenu_gui()
     // Build "Download whole directory to..." submenu
 
     spl.clear();
-    spl = FavoriteManager::getInstance()->getFavoriteDirs();
+    spl = dcCtx_.getFavoriteManager()->getFavoriteDirs();
     if (!spl.empty())
     {
         for (auto& i : spl)
@@ -510,7 +513,7 @@ void Search::search_gui()
     string ftypeStr;
     if (ftype > SearchManager::TYPE_ANY && ftype < SearchManager::TYPE_LAST)
     {
-        ftypeStr = SearchManager::getInstance()->getTypeStr(ftype);
+        ftypeStr = dcCtx_.getSearchManager()->getTypeStr(ftype);
     }
     else
     {
@@ -527,12 +530,12 @@ void Search::search_gui()
         if (ftype == SearchManager::TYPE_ANY)
         {
             // Custom searchtype
-            exts = SettingsManager::getInstance()->getExtensions(ftypeStr);
+            exts = dcCtx_.getSettingsManager()->getExtensions(ftypeStr);
         }
         else if (ftype > SearchManager::TYPE_ANY && ftype < SearchManager::TYPE_DIRECTORY)
         {
             // Predefined searchtype
-            exts = SettingsManager::getInstance()->getExtensions(string(1, '0' + ftype));
+            exts = dcCtx_.getSettingsManager()->getExtensions(string(1, '0' + ftype));
         }
     }
     catch (const SearchTypeException&)
@@ -548,7 +551,7 @@ void Search::search_gui()
 
     // Add new searches to the dropdown list
     GtkListStore *store = GTK_LIST_STORE(searchEntriesModel);
-    size_t max = std::max(SETTING(SEARCH_HISTORY) - 1, 0);
+    size_t max = std::max(dcCtx_.getSettingsManager()->get(SettingsManager::SEARCH_HISTORY, true) - 1, 0);
     size_t count = 0;
     gchar *entry;
     valid = gtk_tree_model_get_iter_first(searchEntriesModel, &iter);
@@ -577,7 +580,7 @@ void Search::search_gui()
     target = text;
 
     dcdebug(_("Sent ADC extensions : %s\n"), Util::toString(";", exts).c_str());
-    uint64_t maxDelayBeforeSearch = SearchManager::getInstance()->search(clients, text, llsize, (SearchManager::TypeModes)ftype, mode, "manual", exts, (void*)this);
+    uint64_t maxDelayBeforeSearch = dcCtx_.getSearchManager()->search(clients, text, llsize, (SearchManager::TypeModes)ftype, mode, "manual", exts, (void*)this);
     uint64_t waitingResultsTime = 20000; // just assumption that user receives most of results in 20 seconds
 
     searchEndTime = searchStartTime + maxDelayBeforeSearch + waitingResultsTime;
@@ -941,7 +944,7 @@ void Search::download_gui(const string &target)
                     string tth = resultView.getString(&iter, _("TTH"));
                     string hubUrl = resultView.getString(&iter, "Hub URL");
                     F6 *func = new F6(this, &Search::download_client, target, cid, filename, size, tth, hubUrl);
-                    WulforManager::get()->dispatchClientFunc(func);
+                    wulforManagerInstance()->dispatchClientFunc(func);
                 }
             }
             while (parent && WulforUtil::getNextIter_gui(sortedFilterModel, &iter, true, false));
@@ -1113,8 +1116,8 @@ void Search::onSlotsButtonToggled_gui(GtkToggleButton *button, gpointer data)
     if (!s) return;
 
     s->onlyFree = gtk_toggle_button_get_active(button);
-    if (s->onlyFree != BOOLSETTING(SEARCH_ONLY_FREE_SLOTS))
-        SettingsManager::getInstance()->set(SettingsManager::SEARCH_ONLY_FREE_SLOTS, s->onlyFree);
+    if (s->onlyFree != s->dcCtx_.getSettingsManager()->getBool(SettingsManager::SEARCH_ONLY_FREE_SLOTS, true))
+        s->dcCtx_.getSettingsManager()->set(SettingsManager::SEARCH_ONLY_FREE_SLOTS, s->onlyFree);
 
     // Refilter current view only if "Search within local results" is enabled
     if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(s->getWidget("checkbuttonFilter"))))
@@ -1156,7 +1159,7 @@ void Search::onDownloadClicked_gui(GtkMenuItem *item, gpointer data)
     Search *s = (Search *)data;
     if (!s) return;
 
-    string target = SETTING(DOWNLOAD_DIRECTORY);
+    string target = s->dcCtx_.getSettingsManager()->get(SettingsManager::DOWNLOAD_DIRECTORY, true);
     s->download_gui(target);
 }
 
@@ -1229,7 +1232,7 @@ void Search::onDownloadToMatchClicked_gui(GtkMenuItem *item, gpointer data)
                         string tth = s->resultView.getString(&iter, _("TTH"));
                         string hubUrl = s->resultView.getString(&iter, "Hub URL");
                         F5 *func = new F5(s, &Search::addSource_client, fileName, cid, size, tth, hubUrl);
-                        WulforManager::get()->dispatchClientFunc(func);
+                        wulforManagerInstance()->dispatchClientFunc(func);
                     }
                 }
                 while (parent && WulforUtil::getNextIter_gui(s->sortedFilterModel, &iter, true, false));
@@ -1250,7 +1253,7 @@ void Search::onDownloadDirClicked_gui(GtkMenuItem*, gpointer data)
         GtkTreeIter iter;
         GtkTreePath *path;
         GList *list = gtk_tree_selection_get_selected_rows(s->selection, NULL);
-        string target = SETTING(DOWNLOAD_DIRECTORY);
+        string target = s->dcCtx_.getSettingsManager()->get(SettingsManager::DOWNLOAD_DIRECTORY, true);
         typedef Func4<Search, string, string, string, string> F4;
 
         for (GList *i = list; i; i = i->next)
@@ -1269,7 +1272,7 @@ void Search::onDownloadDirClicked_gui(GtkMenuItem*, gpointer data)
                         filename += s->resultView.getString(&iter, _("Filename"));
                         string hubUrl = s->resultView.getString(&iter, "Hub URL");
                         F4 *func = new F4(s, &Search::downloadDir_client, target, cid, filename, hubUrl);
-                        WulforManager::get()->dispatchClientFunc(func);
+                        wulforManagerInstance()->dispatchClientFunc(func);
                     }
                 }
                 while (parent && WulforUtil::getNextIter_gui(s->sortedFilterModel, &iter, true, false));
@@ -1309,7 +1312,7 @@ void Search::onDownloadFavoriteDirClicked_gui(GtkMenuItem *item, gpointer data)
                         filename += s->resultView.getString(&iter, _("Filename"));
                         string hubUrl = s->resultView.getString(&iter, "Hub URL");
                         F4 *func = new F4(s, &Search::downloadDir_client, fav, cid, filename, hubUrl);
-                        WulforManager::get()->dispatchClientFunc(func);
+                        wulforManagerInstance()->dispatchClientFunc(func);
                     }
                 }
                 while (parent && WulforUtil::getNextIter_gui(s->sortedFilterModel, &iter, true, false));
@@ -1367,7 +1370,7 @@ void Search::onDownloadDirToClicked_gui(GtkMenuItem*, gpointer data)
                             filename += s->resultView.getString(&iter, _("Filename"));
                             string hubUrl = s->resultView.getString(&iter, "Hub URL");
                             F4 *func = new F4(s, &Search::downloadDir_client, target, cid, filename, hubUrl);
-                            WulforManager::get()->dispatchClientFunc(func);
+                            wulforManagerInstance()->dispatchClientFunc(func);
                         }
                     }
                     while (parent && WulforUtil::getNextIter_gui(s->sortedFilterModel, &iter, true, false));
@@ -1398,7 +1401,7 @@ void Search::onSearchByTTHClicked_gui(GtkMenuItem*, gpointer data)
                 string tth = s->resultView.getString(&iter, _("TTH"));
                 if (!tth.empty())
                 {
-                    s = WulforManager::get()->getMainWindow()->addSearch_gui();
+                    s = wulforManagerInstance()->getMainWindow()->addSearch_gui();
                     s->putValue_gui(tth, 0, SearchManager::SIZE_DONTCARE, SearchManager::TYPE_TTH);
                 }
             }
@@ -1433,7 +1436,7 @@ void Search::onGetFileListClicked_gui(GtkMenuItem*, gpointer data)
                     string dir = s->resultView.getString(&iter, _("Path"));
                     string hubUrl = s->resultView.getString(&iter, "Hub URL");
                     F5 *func = new F5(s, &Search::getFileList_client, cid, dir, false, hubUrl, true);
-                    WulforManager::get()->dispatchClientFunc(func);
+                    wulforManagerInstance()->dispatchClientFunc(func);
                 }
                 while (parent && WulforUtil::getNextIter_gui(s->sortedFilterModel, &iter, true, false));
             }
@@ -1468,7 +1471,7 @@ void Search::onPartialFileListOpen_gui(GtkMenuItem*, gpointer data)
                     string dir = s->resultView.getString(&iter, _("Path"));
                     string hubUrl = s->resultView.getString(&iter, "Hub URL");
                     F5 *func = new F5(s, &Search::getFileList_client, cid, dir, false, hubUrl, false);
-                    WulforManager::get()->dispatchClientFunc(func);
+                    wulforManagerInstance()->dispatchClientFunc(func);
                 }
                 while (parent && WulforUtil::getNextIter_gui(s->sortedFilterModel, &iter, true, false));
             }
@@ -1502,7 +1505,7 @@ void Search::onMatchQueueClicked_gui(GtkMenuItem*, gpointer data)
                     string cid = s->resultView.getString(&iter, "CID");
                     string hubUrl = s->resultView.getString(&iter, "Hub URL");
                     F5 *func = new F5(s, &Search::getFileList_client, cid, "", true, hubUrl, true);
-                    WulforManager::get()->dispatchClientFunc(func);
+                    wulforManagerInstance()->dispatchClientFunc(func);
                 }
                 while (parent && WulforUtil::getNextIter_gui(s->sortedFilterModel, &iter, true, false));
             }
@@ -1535,7 +1538,7 @@ void Search::onPrivateMessageClicked_gui(GtkMenuItem*, gpointer data)
                     string cid = s->resultView.getString(&iter, "CID");
                     string hubUrl = s->resultView.getString(&iter, "Hub URL");
                     if (!cid.empty())
-                        WulforManager::get()->getMainWindow()->addPrivateMessage_gui(Msg::UNKNOWN, cid, hubUrl);
+                        wulforManagerInstance()->getMainWindow()->addPrivateMessage_gui(Msg::UNKNOWN, cid, hubUrl);
                 }
                 while (parent && WulforUtil::getNextIter_gui(s->sortedFilterModel, &iter, true, false));
             }
@@ -1570,7 +1573,7 @@ void Search::onAddFavoriteUserClicked_gui(GtkMenuItem*, gpointer data)
                 {
                     cid = s->resultView.getString(&iter, "CID");
                     func = new F1(s, &Search::addFavUser_client, cid);
-                    WulforManager::get()->dispatchClientFunc(func);
+                    wulforManagerInstance()->dispatchClientFunc(func);
                 }
                 while (parent && WulforUtil::getNextIter_gui(s->sortedFilterModel, &iter, true, false));
             }
@@ -1604,7 +1607,7 @@ void Search::onGrantExtraSlotClicked_gui(GtkMenuItem*, gpointer data)
                     string cid = s->resultView.getString(&iter, "CID");
                     string hubUrl = s->resultView.getString(&iter, "Hub URL");
                     F2 *func = new F2(s, &Search::grantSlot_client, cid, hubUrl);
-                    WulforManager::get()->dispatchClientFunc(func);
+                    wulforManagerInstance()->dispatchClientFunc(func);
                 }
                 while (parent && WulforUtil::getNextIter_gui(s->sortedFilterModel, &iter, true, false));
             }
@@ -1639,7 +1642,7 @@ void Search::onRemoveUserFromQueueClicked_gui(GtkMenuItem*, gpointer data)
                 {
                     cid = s->resultView.getString(&iter, "CID");
                     func = new F1(s, &Search::removeSource_client, cid);
-                    WulforManager::get()->dispatchClientFunc(func);
+                    wulforManagerInstance()->dispatchClientFunc(func);
                 }
                 while (parent && WulforUtil::getNextIter_gui(s->sortedFilterModel, &iter, true, false));
             }
@@ -1760,7 +1763,7 @@ void Search::parseSearchResult_gui(SearchResultPtr result, StringMap &resultMap)
         resultMap["Size"] = Util::formatBytes(result->getSize());
         resultMap["Exact Size"] = Util::formatExactSize(result->getSize());
         resultMap["Icon"] = "icon-file";
-        resultMap["Shared"] = Util::toString(ShareManager::getInstance()->isTTHShared(result->getTTH()));
+        resultMap["Shared"] = Util::toString(dcCtx_.getShareManager()->isTTHShared(result->getTTH()));
     }
     else
     {
@@ -1780,10 +1783,10 @@ void Search::parseSearchResult_gui(SearchResultPtr result, StringMap &resultMap)
         }
     }
 
-    resultMap["Nick"] = WulforUtil::getNicks(result->getUser(), result->getHubURL());
+    resultMap["Nick"] = WulforUtil::getNicks(dcCtx_, result->getUser(), result->getHubURL());
     resultMap["CID"] = result->getUser()->getCID().toBase32();
     resultMap["Slots"] = result->getSlotString();
-    resultMap["Connection"] = ClientManager::getInstance()->getConnection(result->getUser()->getCID());
+    resultMap["Connection"] = dcCtx_.getClientManager()->getConnection(result->getUser()->getCID());
     resultMap["Hub"] = result->getHubName().empty() ? result->getHubURL().c_str() : result->getHubName().c_str();
     resultMap["Hub URL"] = result->getHubURL();
     resultMap["IP"] = result->getIP();
@@ -1800,7 +1803,7 @@ void Search::download_client(string target, string cid, string filename, int64_t
 {
     try
     {
-        UserPtr user = ClientManager::getInstance()->findUser(CID(cid));
+        UserPtr user = dcCtx_.getClientManager()->findUser(CID(cid));
         if (!user)
             return;
 
@@ -1808,12 +1811,12 @@ void Search::download_client(string target, string cid, string filename, int64_t
         if (!tth.empty())
         {
             string subdir = Util::getFileName(filename);
-            QueueManager::getInstance()->add(target + subdir, size, TTHValue(tth), HintedUser(user, hubUrl));
+            dcCtx_.getQueueManager()->add(target + subdir, size, TTHValue(tth), HintedUser(user, hubUrl));
         }
         else
         {
             string dir = WulforUtil::windowsSeparator(filename);
-            QueueManager::getInstance()->addDirectory(dir, HintedUser(user, hubUrl), target);
+            dcCtx_.getQueueManager()->addDirectory(dir, HintedUser(user, hubUrl), target);
         }
     }
     catch (const Exception&)
@@ -1837,10 +1840,10 @@ void Search::downloadDir_client(string target, string cid, string filename, stri
             dir = WulforUtil::windowsSeparator(filename);
         }
 
-        UserPtr user = ClientManager::getInstance()->findUser(CID(cid));
+        UserPtr user = dcCtx_.getClientManager()->findUser(CID(cid));
         if (user)
         {
-            QueueManager::getInstance()->addDirectory(dir, HintedUser(user, hubUrl), target);
+            dcCtx_.getQueueManager()->addDirectory(dir, HintedUser(user, hubUrl), target);
         }
     }
     catch (const Exception&)
@@ -1852,10 +1855,10 @@ void Search::addSource_client(string source, string cid, int64_t size, string tt
 {
     try
     {
-        UserPtr user = ClientManager::getInstance()->findUser(CID(cid));
+        UserPtr user = dcCtx_.getClientManager()->findUser(CID(cid));
         if (!tth.empty() && user)
         {
-            QueueManager::getInstance()->add(source, size, TTHValue(tth), HintedUser(user, hubUrl));
+            dcCtx_.getQueueManager()->add(source, size, TTHValue(tth), HintedUser(user, hubUrl));
         }
     }
     catch (const Exception&)
@@ -1869,7 +1872,7 @@ void Search::getFileList_client(string cid, string dir, bool match, string hubUr
     {
         try
         {
-            UserPtr user = ClientManager::getInstance()->findUser(CID(cid));
+            UserPtr user = dcCtx_.getClientManager()->findUser(CID(cid));
             if (user)
             {
                 int flags = 0;
@@ -1882,7 +1885,7 @@ void Search::getFileList_client(string cid, string dir, bool match, string hubUr
                 if (!full)
                     flags = QueueItem::FLAG_CLIENT_VIEW | QueueItem::FLAG_PARTIAL_LIST;
 
-                QueueManager::getInstance()->addList(HintedUser(user, hubUrl), flags, dir);
+                dcCtx_.getQueueManager()->addList(HintedUser(user, hubUrl), flags, dir);
             }
         }
         catch (const Exception&)
@@ -1895,10 +1898,10 @@ void Search::grantSlot_client(string cid, string hubUrl)
 {
     if (!cid.empty())
     {
-        UserPtr user = ClientManager::getInstance()->findUser(CID(cid));
+        UserPtr user = dcCtx_.getClientManager()->findUser(CID(cid));
         if (user)
         {
-            UploadManager::getInstance()->reserveSlot(HintedUser(user, hubUrl));
+            dcCtx_.getUploadManager()->reserveSlot(HintedUser(user, hubUrl));
         }
     }
 }
@@ -1907,9 +1910,9 @@ void Search::addFavUser_client(string cid)
 {
     if (!cid.empty())
     {
-        UserPtr user = ClientManager::getInstance()->findUser(CID(cid));
+        UserPtr user = dcCtx_.getClientManager()->findUser(CID(cid));
         if (user)
-            FavoriteManager::getInstance()->addFavoriteUser(user);
+            dcCtx_.getFavoriteManager()->addFavoriteUser(user);
     }
 }
 
@@ -1917,9 +1920,9 @@ void Search::removeSource_client(string cid)
 {
     if (!cid.empty())
     {
-        UserPtr user = ClientManager::getInstance()->findUser(CID(cid));
+        UserPtr user = dcCtx_.getClientManager()->findUser(CID(cid));
         if (user)
-            QueueManager::getInstance()->removeSource(user, QueueItem::Source::FLAG_REMOVED);
+            dcCtx_.getQueueManager()->removeSource(user, QueueItem::Source::FLAG_REMOVED);
     }
 }
 
@@ -1929,7 +1932,7 @@ void Search::on(ClientManagerListener::ClientConnected, Client *client) noexcept
     {
         typedef Func2<Search, string, string> F2;
         F2 *func = new F2(this, &Search::addHub_gui, client->getHubName(), client->getHubUrl());
-        WulforManager::get()->dispatchGuiFunc(func);
+        wulforManagerInstance()->dispatchGuiFunc(func);
     }
 }
 
@@ -1939,7 +1942,7 @@ void Search::on(ClientManagerListener::ClientUpdated, Client *client) noexcept
     {
         typedef Func2<Search, string, string> F2;
         F2 *func = new F2(this, &Search::modifyHub_gui, client->getHubName(), client->getHubUrl());
-        WulforManager::get()->dispatchGuiFunc(func);
+        wulforManagerInstance()->dispatchGuiFunc(func);
     }
 }
 
@@ -1949,7 +1952,7 @@ void Search::on(ClientManagerListener::ClientDisconnected, Client *client) noexc
     {
         typedef Func1<Search, string> F1;
         F1 *func = new F1(this, &Search::removeHub_gui, client->getHubUrl());
-        WulforManager::get()->dispatchGuiFunc(func);
+        wulforManagerInstance()->dispatchGuiFunc(func);
     }
 }
 
@@ -1962,7 +1965,7 @@ void Search::on(TimerManagerListener::Second, uint64_t aTick) noexcept {
         if (search->waitingResults)
         {
             // use rounding below to workaround bug in gtk_progress_bar_set_fraction()
-            uint fract  = (1000 * (args->aTick - search->searchStartTime)) / (search->searchEndTime - search->searchStartTime);
+            unsigned int fract  = (1000 * (args->aTick - search->searchStartTime)) / (search->searchEndTime - search->searchStartTime);
             float fraction  = 1.0f * fract / 1000;
             if (fraction >= 1.0)
             {
@@ -1999,7 +2002,7 @@ void Search::on(SearchManagerListener::SR, const SearchResultPtr& result) noexce
         {
             ++droppedResult;
             F2 *func = new F2(this, &Search::setStatus_gui, "statusbar3", _("Filtered: ") + Util::toString(droppedResult));
-            WulforManager::get()->dispatchGuiFunc(func);
+            wulforManagerInstance()->dispatchGuiFunc(func);
             return;
         }
     }
@@ -2012,7 +2015,7 @@ void Search::on(SearchManagerListener::SR, const SearchResultPtr& result) noexce
             {
                 ++droppedResult;
                 F2 *func = new F2(this, &Search::setStatus_gui, "statusbar3", _("Dropped: ") + Util::toString(droppedResult));
-                WulforManager::get()->dispatchGuiFunc(func);
+                wulforManagerInstance()->dispatchGuiFunc(func);
                 return;
             }
         }
@@ -2020,7 +2023,7 @@ void Search::on(SearchManagerListener::SR, const SearchResultPtr& result) noexce
 
     typedef Func1<Search, SearchResultPtr> F1;
     F1 *func = new F1(this, &Search::addResult_gui, result);
-    WulforManager::get()->dispatchGuiFunc(func);
+    wulforManagerInstance()->dispatchGuiFunc(func);
 }
 
 // Filtering causes Gtk-CRITICAL assertion failure, when last item is removed
@@ -2118,7 +2121,7 @@ gboolean Search::searchFilterFunc_gui(GtkTreeModel *model, GtkTreeIter *iter, gp
     }
 
     int type = gtk_combo_box_get_active(GTK_COMBO_BOX(s->getWidget("comboboxFile")));
-    if (type != SearchManager::TYPE_ANY && type != ShareManager::getInstance()->getType(filename))
+    if (type != SearchManager::TYPE_ANY && type != s->dcCtx_.getShareManager()->getType(filename))
         return false;
 
     return true;

@@ -6,6 +6,9 @@
 *   (at your option) any later version.                                   *
 *                                                                         *
 ***************************************************************************/
+/*
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
+ */
 
 #pragma once
 
@@ -71,7 +74,7 @@ private Q_SLOTS:
     void slotHideSearchBar();
     void slotFindTextEdited(const QString &);
     void slotFindAll();
-    void slotFindForward() { findText(nullptr); }
+    void slotFindForward() { findText(QTextDocument::FindFlags()); }
     void slotFindBackward(){ findText(QTextDocument::FindBackward); }
     void slotClose();
 

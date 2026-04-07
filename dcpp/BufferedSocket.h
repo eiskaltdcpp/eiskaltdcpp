@@ -33,6 +33,8 @@
 
 namespace dcpp {
 
+class DCContext;
+
 using std::deque;
 using std::function;
 using std::pair;
@@ -57,8 +59,8 @@ public:
      * @param sep Line separator
      * @return An unconnected socket
      */
-    static BufferedSocket* getSocket(char sep) {
-        return new BufferedSocket(sep);
+    static BufferedSocket* getSocket(char sep, DCContext& ctx) {
+        return new BufferedSocket(sep, ctx);
     }
 
     static void putSocket(BufferedSocket* aSock) {
@@ -96,14 +98,14 @@ public:
     vector<uint8_t> getKeyprint() const { return sock->getKeyprint(); }
 
     void write(const string& aData) { write(aData.data(), aData.length()); }
-    void write(const char* aBuf, size_t aLen) noexcept;
+    void write(const char* aBuf, size_t aLen);
     /** Send the file f over this socket. */
     void transmitFile(InputStream* f) { Lock l(cs); addTask(SEND_FILE, new SendFileInfo(f)); }
 
     /** Send an updated signal to all listeners */
     void updated() { Lock l(cs); addTask(UPDATED, 0); }
 
-    void disconnect(bool graceless = false) noexcept { Lock l(cs); if(graceless) disconnecting = true; addTask(DISCONNECT, 0); }
+    void disconnect(bool graceless = false) { Lock l(cs); if(graceless) disconnecting = true; addTask(DISCONNECT, 0); }
 
     string getLocalIp() const { return sock->getLocalIp(); }
     string getLocalPort() const { return sock->getLocalPort(); }
@@ -153,9 +155,11 @@ public:
         InputStream* stream;
     };
 
-    BufferedSocket(char aSeparator);
+    BufferedSocket(char aSeparator, DCContext& ctx);
 
     virtual ~BufferedSocket();
+
+    DCContext& ctx() const { return ctx_; }
 
     CriticalSection cs;
 
@@ -172,6 +176,7 @@ public:
     ByteVector sendBuf;
 
     unique_ptr<Socket> sock;
+    DCContext& ctx_;
     State state;
     bool disconnecting;
 

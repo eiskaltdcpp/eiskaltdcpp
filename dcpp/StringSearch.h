@@ -35,10 +35,10 @@ public:
     typedef vector<StringSearch> List;
 
     StringSearch() { }
-    StringSearch(const string& aPattern) noexcept : pattern(Text::toLower(aPattern)) {
+    StringSearch(const string& aPattern) : pattern(Text::toLower(aPattern)) {
         initDelta1();
     }
-    StringSearch(const StringSearch& rhs) noexcept : pattern(rhs.pattern) {
+    StringSearch(const StringSearch& rhs) : pattern(rhs.pattern) {
         memcpy(delta1, rhs.delta1, sizeof(delta1));
     }
     StringSearch& operator=(const StringSearch& rhs) {
@@ -52,12 +52,12 @@ public:
         return *this;
     }
 
-    bool operator==(const StringSearch& rhs) { return pattern == rhs.pattern; }
+    bool operator==(const StringSearch& rhs) const { return pattern == rhs.pattern; }
 
     const string& getPattern() const { return pattern; }
 
     /** Match a text against the pattern */
-    bool match(const string& aText) const noexcept {
+    bool match(const string& aText) const {
 
         // Lower-case representation of UTF-8 string, since we no longer have that 1 char = 1 byte...
         string lower;

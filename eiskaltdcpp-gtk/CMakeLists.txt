@@ -1,16 +1,20 @@
+cmake_minimum_required (VERSION 3.10)
 project (eiskaltdcpp-gtk)
-
-cmake_minimum_required (VERSION 3.2.0)
 
 set (GTK2_DIR "${PROJECT_SOURCE_DIR}/cmake/")
 
 find_package (X11 QUIET)
 
-if (USE_GTK)
-    find_package (GTK2 REQUIRED gtk)
-elseif (USE_GTK3)
-    find_package (GTK3 REQUIRED gtk)
-endif (USE_GTK)
+if (USE_GTK3)
+    # On MSYS2/MinGW and macOS/Homebrew, the custom FindGTK3.cmake cannot
+    # locate headers in non-standard prefixes.  Use pkg-config instead.
+    if (MINGW OR APPLE)
+        find_package (PkgConfig REQUIRED)
+        pkg_check_modules (GTK3 REQUIRED gtk+-3.0)
+    else ()
+        find_package (GTK3 REQUIRED gtk)
+    endif ()
+endif (USE_GTK3)
 
 if (USE_LIBGNOME2)
     message (STATUS "Building with LibGnome2 support")
@@ -45,18 +49,19 @@ set (GTK_HDRS ${gtk_hdrs} PARENT_SCOPE)
 set (GTK_UI   ${gtk_ui}  PARENT_SCOPE)
 set (GTHREAD "-lgthread-2.0")
 
-if (USE_GTK)
-    set (GTK_INCLUDE_DIRS ${GTK2_INCLUDE_DIRS})
-    set (GTK_LIBRARIES ${GTK2_LIBRARIES})
-elseif (USE_GTK3)
+if (USE_GTK3)
     add_definitions(-DGSEAL_ENABLE)
     set (GTK_INCLUDE_DIRS ${GTK3_INCLUDE_DIRS})
     set (GTK_LIBRARIES ${GTK3_LIBRARIES})
-endif (USE_GTK)
+    if (GTK3_LIBRARY_DIRS)
+        link_directories (${GTK3_LIBRARY_DIRS})
+    endif ()
+endif (USE_GTK3)
 
 include_directories (${GTK_INCLUDE_DIRS}
                      ${LIBGNOME2_INCLUDE_DIRS}
                      ${CANBERRA_INCLUDE_DIR}
+                     ${OPENSSL_INCLUDE_DIR}
                      ${PROJECT_SOURCE_DIR})
 list (APPEND LIBS
       ${X11_LIBRARIES}
@@ -72,7 +77,10 @@ if (LUA_SCRIPT)
     list (APPEND LIBS ${LUA_LIBRARIES})
 endif (LUA_SCRIPT)
 
-add_executable (${PROJECT_NAME} MACOSX_BUNDLE WIN32 ${gtk_srcs})
+# Build the widget-independent models library (no GTK dependency)
+add_subdirectory(src/models)
+
+add_executable (${PROJECT_NAME} MACOSX_BUNDLE ${gtk_srcs})
 
 if (USE_LIBNOTIFY)
     add_definitions (-DUSE_LIBNOTIFY)
@@ -116,9 +124,9 @@ else (APPLE)
 endif (APPLE)
 
 if (APPLE)
-    target_link_libraries (${PROJECT_NAME} ${LIBS} dcpp iconv intl)
+    target_link_libraries (${PROJECT_NAME} ${LIBS} gtkmodels dcpp iconv intl)
 else (APPLE)
-    target_link_libraries (${PROJECT_NAME} ${LIBS} dcpp)
+    target_link_libraries (${PROJECT_NAME} ${LIBS} gtkmodels dcpp)
 endif (APPLE)
 
 if (UNIX)

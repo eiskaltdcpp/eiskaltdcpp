@@ -19,7 +19,6 @@
 
 #include <dcpp/stdinc.h>
 #include <dcpp/QueueManager.h>
-#include <dcpp/Singleton.h>
 #include "ArenaWidget.h"
 #include "WulforUtil.h"
 #include "ui_UIDownloadQueue.h"
@@ -29,12 +28,15 @@ class DownloadQueueItem;
 class DownloadQueueDelegate;
 class DownloadQueuePrivate;
 
+#include "QtContextAware.h"
+#include "QtContext.h"
+
 class DownloadQueue :
         public QWidget,
         public ArenaWidget,
         private Ui::UIDownloadQueue,
         private dcpp::QueueManagerListener,
-        public dcpp::Singleton<DownloadQueue>
+        public QtContextAware
 {
     Q_OBJECT
     Q_INTERFACES(ArenaWidget)
@@ -42,7 +44,7 @@ class DownloadQueue :
 typedef QVariantMap VarMap;
 typedef QMap<QString, QMap<QString, QString> > SourceMap;
 
-friend class dcpp::Singleton<DownloadQueue>;
+friend class QtContext;
 
 class Menu{
 public:
@@ -89,7 +91,7 @@ public:
     QString  getArenaShortTitle(){ return getArenaTitle(); }
     QWidget *getWidget(){ return this; }
     QMenu   *getMenu(){ return nullptr; }
-    const QPixmap &getPixmap(){ return WICON(WulforUtil::eiDOWNLOAD); }
+    const QPixmap &getPixmap(){ return qtCtx()->wulforUtil()->getPixmap(WulforUtil::eiDOWNLOAD); }
 
     ArenaWidget::Role role() const { return ArenaWidget::Downloads; }
 
@@ -133,9 +135,12 @@ Q_SIGNALS:
     void coreSourcesUpdated(VarMap);
     void coreStatusUpdated(VarMap);
 
+public:
+    DownloadQueue(dcpp::DCContext& ctx, QWidget* = nullptr);
+    ~DownloadQueue() override;
+
+
 private:
-    DownloadQueue(QWidget* = nullptr);
-    virtual ~DownloadQueue();
 
     void init();
     void load();

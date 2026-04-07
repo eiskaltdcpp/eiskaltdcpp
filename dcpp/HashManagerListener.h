@@ -28,7 +28,7 @@ public:
 
     typedef X<0> TTHDone;
 
-    virtual void on(TTHDone, const string& /* fileName */, const TTHValue& /* root */) noexcept = 0;
+    virtual void on(TTHDone, const string& /* fileName */, const TTHValue& /* root */) = 0;
 };
 
 }

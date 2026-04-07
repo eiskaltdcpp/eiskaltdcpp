@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2001-2012 Jacek Sieka, arnetheduck on gmail point com
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -66,11 +67,11 @@ void MappingManager::close() {
 int MappingManager::run() {
     // cache these
     const string
-            conn_port = ConnectionManager::getInstance()->getPort(),
-            secure_port = ConnectionManager::getInstance()->getSecurePort(),
-            search_port = SearchManager::getInstance()->getPort();
+            conn_port = ctx().getConnectionManager()->getPort(),
+            secure_port = ctx().getConnectionManager()->getSecurePort(),
+            search_port = ctx().getSearchManager()->getPort();
 #ifdef WITH_DHT
-    const string dht_port = dht::DHT::getInstance()->getPort();
+    const string dht_port = ctx().getDHT()->getPort();
 #endif
 
     for(auto &i : impls) {
@@ -115,12 +116,12 @@ int MappingManager::run() {
         log(str(F_("Successfully created port mappings (TCP: %1%, UDP: %2%, TLS: %3%), mapped using the %4% interface") % conn_port % search_port % secure_port % impl.getName()));
 #endif
 
-        if(!BOOLSETTING(NO_IP_OVERRIDE)) {
+        if(!CTX_BOOLSETTING(NO_IP_OVERRIDE)) {
             // now lets configure the external IP (connect to me) address
             string ExternalIP = impl.getExternalIP();
             if(!ExternalIP.empty()) {
                 // woohoo, we got the external IP from the UPnP framework
-                SettingsManager::getInstance()->set(SettingsManager::EXTERNAL_IP, ExternalIP);
+                ctx().getSettingsManager()->set(SettingsManager::EXTERNAL_IP, ExternalIP);
             } else {
                 //:-( Looks like we have to rely on the user setting the external IP manually
                 // no need to do cleanup here because the mappings work
@@ -128,14 +129,14 @@ int MappingManager::run() {
             }
         }
 
-        ConnectivityManager::getInstance()->mappingFinished(true);
+        ctx().getConnectivityManager()->mappingFinished(true);
 
         break;
     }
 
     if(!opened) {
         log(_("Failed to create port mappings"));
-        ConnectivityManager::getInstance()->mappingFinished(false);
+        ctx().getConnectivityManager()->mappingFinished(false);
     }
     portMapping = false;
     return 0;
@@ -149,12 +150,12 @@ void MappingManager::close(UPnP& impl) {
 }
 
 void MappingManager::log(const string& message) {
-    ConnectivityManager::getInstance()->log(str(F_("UPnP: %1%") % message));
+    ctx().getConnectivityManager()->log(str(F_("UPnP: %1%") % message));
 }
 
 #ifdef USE_MINIUPNP
 void MappingManager::runMiniUPnP() {
-    addImplementation(new UPnPc());
+    addImplementation(new UPnPc(ctx()));
 }
 #endif
 } // namespace dcpp

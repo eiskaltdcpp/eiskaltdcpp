@@ -6,8 +6,13 @@
 *   (at your option) any later version.                                   *
 *                                                                         *
 ***************************************************************************/
+/*
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
+ */
 
 #include "TabButton.h"
+#include "QtContextAware.h"
+#include "QtContext.h"
 
 #include <QResizeEvent>
 #include <QLabel>
@@ -47,7 +52,7 @@ TabButton::TabButton(QWidget *parent) :
     parentHeight = QPushButton::sizeHint().height();
 
     label = new QLabel(this);
-    label->setPixmap(WulforUtil::getInstance()->getPixmap(WulforUtil::eiEDITDELETE).scaled(CLOSEPXWIDTH, CLOSEPXWIDTH, Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
+    label->setPixmap(qtCtx()->wulforUtil()->getPixmap(WulforUtil::eiEDITDELETE).scaled(CLOSEPXWIDTH, CLOSEPXWIDTH, Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
     label->setFixedSize(QSize(LABELWIDTH, LABELWIDTH));
     label->setAlignment(Qt::AlignCenter | Qt::AlignVCenter);
 
@@ -73,7 +78,7 @@ bool TabButton::eventFilter(QObject *obj, QEvent *e){
     if (e->type() == QEvent::MouseButtonRelease){
         QMouseEvent *m_e = reinterpret_cast<QMouseEvent*>(e);
 
-        if ((m_e->button() == Qt::MidButton) || (childAt(m_e->pos()) == static_cast<QWidget*>(label)))
+        if ((m_e->button() == Qt::MiddleButton) || (childAt(m_e->pos()) == static_cast<QWidget*>(label)))
             emit closeRequest();
     }
 
@@ -130,7 +135,7 @@ void TabButton::mouseMoveEvent(QMouseEvent *e){
         return;
     }
 
-    QPixmap pxm = QPixmap::grabWidget(this, rect());
+    QPixmap pxm = grab(rect());
 
     QByteArray data;
     QDataStream stream(&data, QIODevice::WriteOnly);
@@ -173,11 +178,11 @@ void TabButton::paintEvent(QPaintEvent *e){
         QLinearGradient gr(0, 0, this->width(), 0);
 
         gr.setSpread(QGradient::PadSpread);
-        gr.setColorAt(0.00, this->palette().background().color());
+        gr.setColorAt(0.00, this->palette().window().color());
         gr.setColorAt(0.25, this->palette().highlight().color().lighter(sideFactor));
         gr.setColorAt(0.50, this->palette().highlight().color().lighter(centralFactor));
         gr.setColorAt(0.75, this->palette().highlight().color().lighter(sideFactor));
-        gr.setColorAt(1.00, this->palette().background().color());
+        gr.setColorAt(1.00, this->palette().window().color());
 
         return gr;
     };
@@ -207,7 +212,7 @@ QSize TabButton::sizeHint() const {
 int TabButton::normalWidth() const {
     QFontMetrics metrics = qApp->fontMetrics();
 
-    return LABELWIDTH*2+metrics.width(text())+margin*3;
+    return LABELWIDTH*2+metrics.horizontalAdvance(text())+margin*3;
 }
 
 int TabButton::normalHeight() const {
@@ -225,7 +230,7 @@ void TabButton::updateStyles() {
     QString styleText_pressed = "QPushButton:checked {\n";
     QString styleText_button = "QPushButton {\n";
 
-    if (WBGET(WB_APP_TBAR_SHOW_CL_BTNS)){
+    if (qtCtx()->settings()->getBool(WB_APP_TBAR_SHOW_CL_BTNS)){
         styleText_pressed += QString("padding-right: %1;\n padding-left: %1;\n").arg(LABELWIDTH);
         styleText_button += QString("padding-right: %1;\n padding-left: %1;\n").arg(LABELWIDTH);
     }
@@ -241,7 +246,7 @@ void TabButton::updateStyles() {
 }
 
 void TabButton::updateGeometry() {
-    if (WBGET(WB_APP_TBAR_SHOW_CL_BTNS)){
+    if (qtCtx()->settings()->getBool(WB_APP_TBAR_SHOW_CL_BTNS)){
         if (!label->isVisible())
             label->show();
 

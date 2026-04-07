@@ -6,6 +6,9 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
+/*
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
+ */
 
 #pragma once
 
@@ -15,7 +18,7 @@
 #include <QPixmap>
 #include <QList>
 #include <QStringList>
-#include <QRegExp>
+#include <QRegularExpression>
 #include <QHash>
 
 #if !defined(Q_OS_WIN)
@@ -157,7 +160,7 @@ private:
 
     int sortColumn;
     Qt::SortOrder sortOrder;
-    QRegExp stripper;
+    QRegularExpression stripper;
 
     WulforUtil *WU;
 };

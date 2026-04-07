@@ -30,6 +30,8 @@
 
 namespace dcpp {
 
+class DCContext;
+
 class QueueManager;
 
 class QueueItem : public Flags, public FastAlloc<QueueItem> {
@@ -138,14 +140,14 @@ public:
     typedef SegmentSet::iterator SegmentIter;
     typedef SegmentSet::const_iterator SegmentConstIter;
 
-    QueueItem(const string& aTarget, int64_t aSize, Priority aPriority, int aFlag,
+    QueueItem(DCContext& ctx, const string& aTarget, int64_t aSize, Priority aPriority, int aFlag,
               time_t aAdded, const TTHValue& tth) :
-        Flags(aFlag), target(aTarget), size(aSize),
+        Flags(aFlag), ctx_(ctx), target(aTarget), size(aSize),
         priority(aPriority), added(aAdded), tthRoot(tth), nextPublishingTime(0)
     { }
 
     QueueItem(const QueueItem& rhs) :
-        Flags(rhs), done(rhs.done), downloads(rhs.downloads), target(rhs.target),
+        Flags(rhs), ctx_(rhs.ctx_), done(rhs.done), downloads(rhs.downloads), target(rhs.target),
         size(rhs.size), priority(rhs.priority), added(rhs.added), tthRoot(rhs.tthRoot),
         nextPublishingTime(rhs.nextPublishingTime), sources(rhs.sources), badSources(rhs.badSources),
         tempTarget(rhs.tempTarget)
@@ -153,6 +155,8 @@ public:
     { }
 
     virtual ~QueueItem() { }
+
+    DCContext& ctx() const { return ctx_; }
 
     int countOnlineUsers() const;
     bool hasOnlineUsers() const { return countOnlineUsers() > 0; }
@@ -243,6 +247,7 @@ private:
     QueueItem& operator=(const QueueItem&);
 
     friend class QueueManager;
+    DCContext& ctx_;
     SourceList sources;
     SourceList badSources;
     string tempTarget;

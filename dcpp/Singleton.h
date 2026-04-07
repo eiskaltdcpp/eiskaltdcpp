@@ -1,6 +1,7 @@
 /*
  * Copyright (C) 2001-2012 Jacek Sieka, arnetheduck on gmail point com
  * Copyright (C) 2009-2019 EiskaltDC++ developers
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,41 +19,47 @@
 
 #pragma once
 
-#include "NonCopyable.h"
-
 #include "debug.h"
 
 namespace dcpp {
 
+/// Abstract interface for releasing singleton-like objects via dynamic_cast.
+/// Used by the Qt GUI's ArenaWidgetManager. Will be removed with A4.
 class ISingleton {
 public:
-    ISingleton() {}
-
+    virtual ~ISingleton() = default;
     virtual void release() = 0;
 };
 
+/**
+ * CRTP singleton base — will be removed entirely once DCContext
+ * owns all managers (milestone A4). Do not add new singletons.
+ */
 template<typename T>
-class Singleton : private NonCopyable {
+class Singleton {
 public:
-    Singleton() { }
-    virtual ~Singleton() { }
+    Singleton() = default;
+    virtual ~Singleton() = default;
 
-    static T* getInstance() {
+    // Non-copyable, non-movable
+    Singleton(const Singleton&) = delete;
+    Singleton& operator=(const Singleton&) = delete;
+    Singleton(Singleton&&) = delete;
+    Singleton& operator=(Singleton&&) = delete;
+
+    [[nodiscard]] static T* getInstance() {
         dcassert(instance);
         return instance;
     }
 
     static void newInstance() {
-        if(instance)
-            delete instance;
-
+        delete instance;
         instance = new T();
     }
 
     static void deleteInstance() {
-        if(instance)
-            delete instance;
-        instance = NULL;
+        delete instance;
+        instance = nullptr;
     }
 
     virtual void release() {
@@ -63,6 +70,6 @@ protected:
     static T* instance;
 };
 
-template<class T> T* Singleton<T>::instance = NULL;
+template<class T> T* Singleton<T>::instance = nullptr;
 
 } // namespace dcpp

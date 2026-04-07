@@ -6,6 +6,9 @@
 *   (at your option) any later version.                                   *
 *                                                                         *
 ***************************************************************************/
+/*
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
+ */
 
 #include "TransferView.h"
 #include "TransferViewModel.h"
@@ -17,6 +20,8 @@
 #include "SearchFrame.h"
 #include "DownloadQueue.h"
 #include "ArenaWidgetFactory.h"
+#include "QtContext.h"
+#include "QtContextAware.h"
 
 #include "dcpp/Util.h"
 #include "dcpp/User.h"
@@ -29,6 +34,7 @@
 #include "dcpp/QueueManager.h"
 #include "dcpp/FavoriteManager.h"
 #include "dcpp/HashManager.h"
+#include "dcpp/DCPlusPlus.h"
 
 #include "extra/ipfilter.h"
 
@@ -42,7 +48,7 @@
 TransferView::Menu::Menu(bool showTransferredFilesOnly):
         menu(new QMenu(nullptr)), selectedColumn(0)
 {
-    WulforUtil *WU = WulforUtil::getInstance();
+    WulforUtil *WU = ::qtCtx()->wulforUtil();
 
     QAction *browse     = new QAction(tr("Browse files"), menu);
     browse->setIcon(WU->getPixmap(WulforUtil::eiFOLDER_BLUE));
@@ -142,7 +148,8 @@ TransferView::Menu::Action TransferView::Menu::exec(){
     return None;
 }
 
-TransferView::TransferView(QWidget *parent):
+TransferView::TransferView(dcpp::DCContext& ctx, QWidget *parent):
+        QtContextAware(ctx),
         QWidget(parent),
         model(nullptr)
 {
@@ -150,17 +157,17 @@ TransferView::TransferView(QWidget *parent):
 
     init();
 
-    QueueManager::getInstance()->addListener(this);
-    DownloadManager::getInstance()->addListener(this);
-    UploadManager::getInstance()->addListener(this);
-    ConnectionManager::getInstance()->addListener(this);
+    dcCtx().getQueueManager()->addListener(this);
+    dcCtx().getDownloadManager()->addListener(this);
+    dcCtx().getUploadManager()->addListener(this);
+    dcCtx().getConnectionManager()->addListener(this);
 }
 
 TransferView::~TransferView(){
-    QueueManager::getInstance()->removeListener(this);
-    DownloadManager::getInstance()->removeListener(this);
-    UploadManager::getInstance()->removeListener(this);
-    ConnectionManager::getInstance()->removeListener(this);
+    dcCtx().getQueueManager()->removeListener(this);
+    dcCtx().getDownloadManager()->removeListener(this);
+    dcCtx().getUploadManager()->removeListener(this);
+    dcCtx().getConnectionManager()->removeListener(this);
 
     delete model;
 }
@@ -175,32 +182,32 @@ void TransferView::resizeEvent(QResizeEvent *e){
     e->accept();
 
     if (isVisible())
-        WISET(WI_TRANSFER_HEIGHT, height());
+        qtCtx()->settings()->setInt(WI_TRANSFER_HEIGHT, height());
 }
 
 void TransferView::hideEvent(QHideEvent *e){
     save();
 
-    WISET(WI_TRANSFER_HEIGHT, height());
+    qtCtx()->settings()->setInt(WI_TRANSFER_HEIGHT, height());
 
     e->accept();
 }
 
 void TransferView::save(){
-    WSSET(WS_TRANSFERS_STATE, treeView_TRANSFERS->header()->saveState().toBase64());
+    qtCtx()->settings()->setStr(WS_TRANSFERS_STATE, treeView_TRANSFERS->header()->saveState().toBase64());
 }
 
 void TransferView::load(){
-    int h = WIGET(WI_TRANSFER_HEIGHT);
+    int h = qtCtx()->settings()->getInt(WI_TRANSFER_HEIGHT);
 
     if (h >= 0)
         resize(this->width(), h);
 
-    treeView_TRANSFERS->header()->restoreState(QByteArray::fromBase64(WSGET(WS_TRANSFERS_STATE).toUtf8()));
+    treeView_TRANSFERS->header()->restoreState(QByteArray::fromBase64(qtCtx()->settings()->getStr(WS_TRANSFERS_STATE).toUtf8()));
 }
 
 QSize TransferView::sizeHint() const{
-    int h = WIGET(WI_TRANSFER_HEIGHT);
+    int h = qtCtx()->settings()->getInt(WI_TRANSFER_HEIGHT);
 
     if (h > 0)
         return QSize(300, h);
@@ -218,29 +225,29 @@ void TransferView::init(){
     treeView_TRANSFERS->setContextMenuPolicy(Qt::CustomContextMenu);
     treeView_TRANSFERS->header()->setContextMenuPolicy(Qt::CustomContextMenu);
 
-    connect(treeView_TRANSFERS, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotContextMenu(QPoint)));
-    connect(treeView_TRANSFERS->header(), SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotHeaderMenu(QPoint)));
+    connect(treeView_TRANSFERS, &QTreeView::customContextMenuRequested, this, &TransferView::slotContextMenu);
+    connect(treeView_TRANSFERS->header(), &QHeaderView::customContextMenuRequested, this, &TransferView::slotHeaderMenu);
 
-    connect(this, SIGNAL(coreDMRequesting(VarMap)),     model, SLOT(initTransfer(VarMap)), Qt::QueuedConnection);
-    connect(this, SIGNAL(coreDMStarting(VarMap)),       model, SLOT(updateTransfer(VarMap)), Qt::QueuedConnection);
-    connect(this, SIGNAL(coreDMTick(VarMap)),           model, SLOT(updateTransfer(VarMap)), Qt::QueuedConnection);
-    connect(this, SIGNAL(coreUpdateParents()),          model, SLOT(updateParents()), Qt::QueuedConnection);
-    connect(this, SIGNAL(coreUpdateParents()),          model, SLOT(sort()), Qt::QueuedConnection);
-    connect(this, SIGNAL(coreDMComplete(VarMap)),       model, SLOT(updateTransfer(VarMap)), Qt::QueuedConnection);
-    connect(this, SIGNAL(coreUpdateTransferPosition(VarMap,qint64)), model, SLOT(updateTransferPos(VarMap,qint64)), Qt::QueuedConnection);
-    connect(this, SIGNAL(coreDMFailed(VarMap)),         model, SLOT(updateTransfer(VarMap)), Qt::QueuedConnection);
-    connect(this, SIGNAL(coreCMAdded(VarMap)),          model, SLOT(addConnection(VarMap)));
-    connect(this, SIGNAL(coreCMConnected(VarMap)),      model, SLOT(updateTransfer(VarMap)), Qt::QueuedConnection);
-    connect(this, SIGNAL(coreCMRemoved(VarMap)),        model, SLOT(removeTransfer(VarMap)), Qt::QueuedConnection);
-    connect(this, SIGNAL(coreCMFailed(VarMap)),         model, SLOT(updateTransfer(VarMap)), Qt::QueuedConnection);
-    connect(this, SIGNAL(coreCMStatusChanged(VarMap)),  model, SLOT(updateTransfer(VarMap)), Qt::QueuedConnection);
-    connect(this, SIGNAL(coreQMFinished(VarMap)),       model, SLOT(finishParent(VarMap)), Qt::QueuedConnection);
-    connect(this, SIGNAL(coreQMRemoved(VarMap)),        model, SLOT(finishParent(VarMap)), Qt::QueuedConnection);
-    connect(this, SIGNAL(coreDownloadComplete(QString)), this, SLOT(downloadComplete(QString)), Qt::QueuedConnection);
-    connect(this, SIGNAL(coreUMStarting(VarMap)),       model, SLOT(updateTransfer(VarMap)), Qt::QueuedConnection);
-    connect(this, SIGNAL(coreUMTick(VarMap)),           model, SLOT(updateTransfer(VarMap)), Qt::QueuedConnection);
-    connect(this, SIGNAL(coreUMComplete(VarMap)),       model, SLOT(updateTransfer(VarMap)), Qt::QueuedConnection);
-    connect(this, SIGNAL(coreUMFailed(VarMap)),         model, SLOT(updateTransfer(VarMap)), Qt::QueuedConnection);
+    connect(this, &TransferView::coreDMRequesting,     model, &TransferViewModel::initTransfer, Qt::QueuedConnection);
+    connect(this, &TransferView::coreDMStarting,       model, &TransferViewModel::updateTransfer, Qt::QueuedConnection);
+    connect(this, &TransferView::coreDMTick,           model, &TransferViewModel::updateTransfer, Qt::QueuedConnection);
+    connect(this, &TransferView::coreUpdateParents,          model, &TransferViewModel::updateParents, Qt::QueuedConnection);
+    connect(this, &TransferView::coreUpdateParents,          model, qOverload<>(&TransferViewModel::sort), Qt::QueuedConnection);
+    connect(this, &TransferView::coreDMComplete,       model, &TransferViewModel::updateTransfer, Qt::QueuedConnection);
+    connect(this, &TransferView::coreUpdateTransferPosition, model, &TransferViewModel::updateTransferPos, Qt::QueuedConnection);
+    connect(this, &TransferView::coreDMFailed,         model, &TransferViewModel::updateTransfer, Qt::QueuedConnection);
+    connect(this, &TransferView::coreCMAdded,          model, &TransferViewModel::addConnection);
+    connect(this, &TransferView::coreCMConnected,      model, &TransferViewModel::updateTransfer, Qt::QueuedConnection);
+    connect(this, &TransferView::coreCMRemoved,        model, &TransferViewModel::removeTransfer, Qt::QueuedConnection);
+    connect(this, &TransferView::coreCMFailed,         model, &TransferViewModel::updateTransfer, Qt::QueuedConnection);
+    connect(this, &TransferView::coreCMStatusChanged,  model, &TransferViewModel::updateTransfer, Qt::QueuedConnection);
+    connect(this, &TransferView::coreQMFinished,       model, &TransferViewModel::finishParent, Qt::QueuedConnection);
+    connect(this, &TransferView::coreQMRemoved,        model, &TransferViewModel::finishParent, Qt::QueuedConnection);
+    connect(this, &TransferView::coreDownloadComplete, this, &TransferView::downloadComplete, Qt::QueuedConnection);
+    connect(this, &TransferView::coreUMStarting,       model, &TransferViewModel::updateTransfer, Qt::QueuedConnection);
+    connect(this, &TransferView::coreUMTick,           model, &TransferViewModel::updateTransfer, Qt::QueuedConnection);
+    connect(this, &TransferView::coreUMComplete,       model, &TransferViewModel::updateTransfer, Qt::QueuedConnection);
+    connect(this, &TransferView::coreUMFailed,         model, &TransferViewModel::updateTransfer, Qt::QueuedConnection);
 
     load();
 }
@@ -250,10 +257,10 @@ void TransferView::getFileList(const QString &cid, const QString &host){
         return;
 
     try{
-        dcpp::UserPtr user = ClientManager::getInstance()->getUser(CID(_tq(cid)));
+        dcpp::UserPtr user = dcCtx().getClientManager()->getUser(CID(_tq(cid)));
 
         if (user)
-            QueueManager::getInstance()->addList(HintedUser(user, _tq(host)), QueueItem::FLAG_CLIENT_VIEW, "");
+            dcCtx().getQueueManager()->addList(HintedUser(user, _tq(host)), QueueItem::FLAG_CLIENT_VIEW, "");
     }
     catch (const Exception&){}
 }
@@ -263,10 +270,10 @@ void TransferView::matchQueue(const QString &cid, const QString &host){
         return;
 
     try{
-        dcpp::UserPtr user = ClientManager::getInstance()->getUser(CID(_tq(cid)));
+        dcpp::UserPtr user = dcCtx().getClientManager()->getUser(CID(_tq(cid)));
 
         if (user)
-            QueueManager::getInstance()->addList(HintedUser(user, _tq(host)), QueueItem::FLAG_MATCH_QUEUE, "");
+            dcCtx().getQueueManager()->addList(HintedUser(user, _tq(host)), QueueItem::FLAG_MATCH_QUEUE, "");
     }
     catch (const Exception&){}
 }
@@ -276,10 +283,10 @@ void TransferView::addFavorite(const QString &cid){
         return;
 
     try{
-        dcpp::UserPtr user = ClientManager::getInstance()->getUser(CID(_tq(cid)));
+        dcpp::UserPtr user = dcCtx().getClientManager()->getUser(CID(_tq(cid)));
 
         if (user)
-            FavoriteManager::getInstance()->addFavoriteUser(user);
+            dcCtx().getFavoriteManager()->addFavoriteUser(user);
     }
     catch (const Exception&){}
 }
@@ -289,10 +296,10 @@ void TransferView::grantSlot(const QString &cid, const QString &host){
         return;
 
     try{
-        dcpp::UserPtr user = ClientManager::getInstance()->getUser(CID(_tq(cid)));
+        dcpp::UserPtr user = dcCtx().getClientManager()->getUser(CID(_tq(cid)));
 
         if (user)
-            UploadManager::getInstance()->reserveSlot(HintedUser(user, _tq(host)));
+            dcCtx().getUploadManager()->reserveSlot(HintedUser(user, _tq(host)));
     }
     catch (const Exception&){}
 }
@@ -302,10 +309,10 @@ void TransferView::removeFromQueue(const QString &cid){
         return;
 
     try{
-        dcpp::UserPtr user = ClientManager::getInstance()->getUser(CID(_tq(cid)));
+        dcpp::UserPtr user = dcCtx().getClientManager()->getUser(CID(_tq(cid)));
 
         if (user)
-            QueueManager::getInstance()->removeSource(user, QueueItem::Source::FLAG_REMOVED);
+            dcCtx().getQueueManager()->removeSource(user, QueueItem::Source::FLAG_REMOVED);
     }
     catch (const Exception&){}
 }
@@ -315,10 +322,10 @@ void TransferView::forceAttempt(const QString &cid){
         return;
 
     try{
-        dcpp::UserPtr user = ClientManager::getInstance()->getUser(CID(_tq(cid)));
+        dcpp::UserPtr user = dcCtx().getClientManager()->getUser(CID(_tq(cid)));
 
         if (user)
-            ConnectionManager::getInstance()->force(user);
+            dcCtx().getConnectionManager()->force(user);
     }
     catch (const Exception&){}
 }
@@ -328,10 +335,10 @@ void TransferView::closeConection(const QString &cid, bool download){
         return;
 
     try{
-        dcpp::UserPtr user = ClientManager::getInstance()->getUser(CID(_tq(cid)));
+        dcpp::UserPtr user = dcCtx().getClientManager()->getUser(CID(_tq(cid)));
 
         if (user)
-            ConnectionManager::getInstance()->disconnect(user, download);
+            dcCtx().getConnectionManager()->disconnect(user, download);
     }
     catch (const Exception&){}
 }
@@ -345,7 +352,7 @@ void TransferView::searchAlternates(const QString &tth){
 }
 
 void TransferView::downloadComplete(QString target){
-    Notification::getInstance()->showMessage(Notification::TRANSFER, tr("Download complete"), target);
+    qtCtx()->notification()->showMessage(Notification::TRANSFER, tr("Download complete"), target);
 }
 
 QString TransferView::getTTHFromItem(const TransferViewItem *item){
@@ -354,7 +361,7 @@ QString TransferView::getTTHFromItem(const TransferViewItem *item){
     if (item->download)
         tth_str = item->tth;
     else {
-        const TTHValue *tth = dcpp::HashManager::getInstance()->getFileTTHif(_tq(item->target));
+        const TTHValue *tth = dcCtx().getHashManager()->getFileTTHif(_tq(item->target));
 
         if (tth)
             tth_str = _q(tth->toBase32());
@@ -365,7 +372,7 @@ QString TransferView::getTTHFromItem(const TransferViewItem *item){
 
 void TransferView::getParams(TransferView::VarMap &params, const dcpp::ConnectionQueueItem *item){
     const dcpp::UserPtr &user = item->getUser();
-    WulforUtil *WU = WulforUtil::getInstance();
+    WulforUtil *WU = qtCtx()->wulforUtil();
 
     params["CID"]   = _q(user->getCID().toBase32());
     params["USER"]  = WU->getNicks(user->getCID());
@@ -377,7 +384,7 @@ void TransferView::getParams(TransferView::VarMap &params, const dcpp::Connectio
 
 void TransferView::getParams(TransferView::VarMap &params, const dcpp::Transfer *trf){
     const UserPtr& user = trf->getUser();
-    WulforUtil *WU = WulforUtil::getInstance();
+    WulforUtil *WU = qtCtx()->wulforUtil();
     double percent = 0.0;
 
     params["CID"]   = _q(user->getCID().toBase32());
@@ -519,14 +526,14 @@ void TransferView::slotContextMenu(const QPoint &){
 
                 if (tth_str.isEmpty()) {
                     QString str = QDir::toNativeSeparators(fi.canonicalFilePath() ); // try to follow symlinks
-                    const TTHValue *tth = HashManager::getInstance()->getFileTTHif(str.toStdString());
+                    const TTHValue *tth = dcCtx().getHashManager()->getFileTTHif(str.toStdString());
 
                     if (tth)
                         tth_str = _q(tth->toBase32());
                 }
 
                 if (!tth_str.isEmpty())
-                    data += WulforUtil::getInstance()->makeMagnet(fi.fileName(), fi.size(), tth_str) + "\n";
+                    data += qtCtx()->wulforUtil()->makeMagnet(fi.fileName(), fi.size(), tth_str) + "\n";
             }
         }
 
@@ -569,7 +576,7 @@ void TransferView::slotContextMenu(const QPoint &){
             dcpp::CID cid(_tq(i->cid));
             QString hubUrl = i->data(COLUMN_TRANSFER_HOST).toString();
 
-            fr = qobject_cast<HubFrame*>(HubManager::getInstance()->getHub(hubUrl));
+            fr = qobject_cast<HubFrame*>(qtCtx()->hubManager()->getHub(hubUrl));
 
             if (fr)
                 fr->createPMWindow(cid);
@@ -591,15 +598,15 @@ void TransferView::on(dcpp::DownloadManagerListener::Requesting, dcpp::Download*
 
     getParams(params, dl);
 
-    if (IPFilter::getInstance()){
-        if (!IPFilter::getInstance()->OK(vstr(params["IP"]).toStdString(), eDIRECTION_IN)){
+    if (dcCtx().getIPFilter()){
+        if (!dcCtx().getIPFilter()->OK(vstr(params["IP"]).toStdString(), eDIRECTION_IN)){
             closeConection(vstr(params["CID"]), true);
             return;
         }
     }
 
-    params["ESIZE"] = (qlonglong)QueueManager::getInstance()->getSize(dl->getPath());
-    params["FPOS"]  = (qlonglong)QueueManager::getInstance()->getPos(dl->getPath());
+    params["ESIZE"] = (qlonglong)dcCtx().getQueueManager()->getSize(dl->getPath());
+    params["FPOS"]  = (qlonglong)dcCtx().getQueueManager()->getPos(dl->getPath());
     params["STAT"]  = tr("Requesting");
     params["FAIL"]  = false;
 
@@ -612,7 +619,7 @@ void TransferView::on(dcpp::DownloadManagerListener::Starting, dcpp::Download* d
     getParams(params, dl);
 
     params["STAT"] = tr("Download starting...");
-    params["FPOS"]  = (qlonglong)QueueManager::getInstance()->getPos(dl->getPath());
+    params["FPOS"]  = (qlonglong)dcCtx().getQueueManager()->getPos(dl->getPath());
 
     emit coreDMStarting(params);
 }
@@ -624,7 +631,7 @@ void TransferView::on(dcpp::DownloadManagerListener::Tick, const dcpp::DownloadL
         QString str;
 
         getParams(params, dl);
-        params["FPOS"]  = (qlonglong)QueueManager::getInstance()->getPos(dl->getPath());
+        params["FPOS"]  = (qlonglong)dcCtx().getQueueManager()->getPos(dl->getPath());
 
         if (dl->getUserConnection().isSecure())
         {
@@ -660,7 +667,7 @@ void TransferView::on(dcpp::DownloadManagerListener::Complete, dcpp::Download* d
     params["STAT"]  = tr("Download complete");
     params["SPEED"] = 0;
 
-    qint64 pos = QueueManager::getInstance()->getPos(dl->getPath()) + dl->getPos();
+    qint64 pos = dcCtx().getQueueManager()->getPos(dl->getPath()) + dl->getPos();
 
     emit coreDMComplete(params);
     emit coreUpdateTransferPosition(params, pos);
@@ -684,7 +691,7 @@ void TransferView::onFailed(dcpp::Download* dl, const std::string& reason) {
     params["FAIL"]  = true;
     params["TLEFT"] = -1;
 
-    qint64 pos = QueueManager::getInstance()->getPos(dl->getPath()) + dl->getPos();
+    qint64 pos = dcCtx().getQueueManager()->getPos(dl->getPath()) + dl->getPos();
 
     emit coreDMFailed(params);
     emit coreUpdateTransferPosition(params, pos);
@@ -700,7 +707,7 @@ void TransferView::on(dcpp::ConnectionManagerListener::Added, dcpp::ConnectionQu
 
     if(cqi->getDownload()) {
         string aTarget; int64_t aSize; int aFlags = 0;
-        if(QueueManager::getInstance()->getQueueInfo(cqi->getUser(), aTarget, aSize, aFlags)) {
+        if(dcCtx().getQueueManager()->getQueueInfo(cqi->getUser(), aTarget, aSize, aFlags)) {
             params["TARGET"] = _q(aTarget);
             params["ESIZE"] = (qlonglong)aSize;
 
@@ -782,8 +789,8 @@ void TransferView::on(dcpp::UploadManagerListener::Starting, dcpp::Upload* ul) n
 
     getParams(params, ul);
 
-    if (IPFilter::getInstance()){
-        if (!IPFilter::getInstance()->OK(vstr(params["IP"]).toStdString(), eDIRECTION_OUT)){
+    if (dcCtx().getIPFilter()){
+        if (!dcCtx().getIPFilter()->OK(vstr(params["IP"]).toStdString(), eDIRECTION_OUT)){
             closeConection(vstr(params["CID"]), false);
             return;
         }

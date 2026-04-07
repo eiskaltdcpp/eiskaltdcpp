@@ -2,6 +2,7 @@
  * Copyright (C) 2001-2012 Jacek Sieka, arnetheduck on gmail point com
  * Copyright (C) 2009-2019 EiskaltDC++ developers
  * Copyright (C) 2019 Boris Pek <tehnick-8@yandex.ru>
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -30,6 +31,7 @@
 #include "QueueItem.h"
 #include "StringTokenizer.h"
 #include "FinishedManager.h"
+#include "DCPlusPlus.h"
 
 namespace dcpp {
 
@@ -49,8 +51,8 @@ const char* SearchManager::getTypeStr(int type) {
     return _(types[type]);
 }
 
-SearchManager::SearchManager() :
-    stop(false)
+SearchManager::SearchManager(DCContext& ctx) :
+    ContextAware(ctx), stop(false), queue(this->ctx())
 {
     queue.start();
 }
@@ -59,9 +61,7 @@ SearchManager::~SearchManager() {
     if(socket.get()) {
         stop = true;
         socket->disconnect();
-#ifdef _WIN32
         join();
-#endif
     }
 }
 
@@ -76,11 +76,11 @@ string SearchManager::normalizeWhitespace(const string& aString){
 }
 
 void SearchManager::search(const string& aName, int64_t aSize, TypeModes aTypeMode /* = TYPE_ANY */, SizeModes aSizeMode /* = SIZE_ATLEAST */, const string& aToken /* = Util::emptyString */, void* aOwner /* = NULL */) {
-    ClientManager::getInstance()->search(aSizeMode, aSize, aTypeMode, normalizeWhitespace(aName), aToken, aOwner);
+    ctx().getClientManager()->search(aSizeMode, aSize, aTypeMode, normalizeWhitespace(aName), aToken, aOwner);
 }
 
 uint64_t SearchManager::search(StringList& who, const string& aName, int64_t aSize /* = 0 */, TypeModes aTypeMode /* = TYPE_ANY */, SizeModes aSizeMode /* = SIZE_ATLEAST */, const string& aToken /* = Util::emptyString */, const StringList& aExtList, void* aOwner /* = NULL */) {
-    return ClientManager::getInstance()->search(who, aSizeMode, aSize, aTypeMode, normalizeWhitespace(aName), aToken, aExtList, aOwner);
+    return ctx().getClientManager()->search(who, aSizeMode, aSize, aTypeMode, normalizeWhitespace(aName), aToken, aExtList, aOwner);
 }
 
 void SearchManager::listen() {
@@ -92,7 +92,7 @@ void SearchManager::listen() {
         socket->create(Socket::TYPE_UDP);
         socket->setBlocking(true);
         socket->setSocketOpt(SO_REUSEADDR, 1);
-        port = socket->bind(Util::toString(SETTING(UDP_PORT)), SETTING(BIND_IFACE)? socket->getIfaceI4(SETTING(BIND_IFACE_NAME)).c_str() : SETTING(BIND_ADDRESS));
+        port = socket->bind(Util::toString(CTX_SETTING(UDP_PORT)), CTX_SETTING(BIND_IFACE)? socket->getIfaceI4(CTX_SETTING(BIND_IFACE_NAME)).c_str() : CTX_SETTING(BIND_ADDRESS));
         start();
     } catch(...) {
         socket.reset();
@@ -100,7 +100,7 @@ void SearchManager::listen() {
     }
 }
 
-void SearchManager::disconnect() noexcept {
+void SearchManager::disconnect() {
     if(socket.get()) {
         stop = true;
         queue.shutdown();
@@ -143,9 +143,9 @@ int SearchManager::run() {
                 socket->disconnect();
                 socket->create(Socket::TYPE_UDP);
                 socket->setBlocking(true);
-                socket->bind(port, SETTING(BIND_ADDRESS));
+                socket->bind(port, CTX_SETTING(BIND_ADDRESS));
                 if(failed) {
-                    LogManager::getInstance()->message(_("Search enabled again"));
+                    ctx().getLogManager()->message(_("Search enabled again"));
                     failed = false;
                 }
                 break;
@@ -153,7 +153,7 @@ int SearchManager::run() {
                 dcdebug("SearchManager::run Stopped listening: %s\n", e.getError().c_str());
 
                 if(!failed) {
-                    LogManager::getInstance()->message(str(F_("Search disabled: %1%") % e.getError()));
+                    ctx().getLogManager()->message(str(F_("Search disabled: %1%") % e.getError()));
                     failed = true;
                 }
 
@@ -255,27 +255,27 @@ int SearchManager::UdpQueue::run() {
             }
 
             string hubIpPort = x.substr(i, j-i);
-            string url = ClientManager::getInstance()->findHub(hubIpPort);
+            string url = ctx().getClientManager()->findHub(hubIpPort);
 
-            string encoding = ClientManager::getInstance()->findHubEncoding(url);
+            string encoding = ctx().getClientManager()->findHubEncoding(url);
             nick = Text::toUtf8(nick, encoding);
             file = Text::toUtf8(file, encoding);
             hubName = Text::toUtf8(hubName, encoding);
 
-            UserPtr user = ClientManager::getInstance()->findUser(nick, url);
+            UserPtr user = ctx().getClientManager()->findUser(nick, url);
             if(!user) {
                 // Could happen if hub has multiple URLs / IPs
-                user = ClientManager::getInstance()->findLegacyUser(nick);
+                user = ctx().getClientManager()->findLegacyUser(nick);
                 if(!user)
                     continue;
             }
 
-            ClientManager::getInstance()->setIPUser(user, remoteIp);
+            ctx().getClientManager()->setIPUser(user, remoteIp);
 
             string tth;
             if(hubName.compare(0, 4, "TTH:") == 0) {
                 tth = hubName.substr(4);
-                StringList names = ClientManager::getInstance()->getHubNames(user->getCID(), Util::emptyString);
+                StringList names = ctx().getClientManager()->getHubNames(user->getCID(), Util::emptyString);
                 hubName = names.empty() ? _("Offline") : Util::toString(names);
             }
 
@@ -285,7 +285,7 @@ int SearchManager::UdpQueue::run() {
 
             SearchResultPtr sr(new SearchResult(user, type, slots, freeSlots, size,
                                                 file, hubName, url, remoteIp, TTHValue(tth), Util::emptyString));
-            SearchManager::getInstance()->fire(SearchManagerListener::SR(), sr);
+            ctx().getSearchManager()->fire(SearchManagerListener::SR(), sr);
 
         } else if(x.compare(1, 4, "RES ") == 0 && x[x.length() - 1] == 0x0a) {
             AdcCommand c(x.substr(0, x.length()-1));
@@ -295,14 +295,14 @@ int SearchManager::UdpQueue::run() {
             if(cid.size() != 39)
                 continue;
 
-            UserPtr user = ClientManager::getInstance()->findUser(CID(cid));
+            UserPtr user = ctx().getClientManager()->findUser(CID(cid));
             if(!user)
                 continue;
 
             // This should be handled by AdcCommand really...
             c.getParameters().erase(c.getParameters().begin());
 
-            SearchManager::getInstance()->onRES(c, user, remoteIp);
+            ctx().getSearchManager()->onRES(c, user, remoteIp);
 
         } if(x.compare(1, 4, "PSR ") == 0 && x[x.length() - 1] == 0x0a) {
             AdcCommand c(x.substr(0, x.length()-1));
@@ -312,12 +312,12 @@ int SearchManager::UdpQueue::run() {
             if(cid.size() != 39)
                 continue;
 
-            UserPtr user = ClientManager::getInstance()->findUser(CID(cid));
+            UserPtr user = ctx().getClientManager()->findUser(CID(cid));
             // when user == NULL then it is probably NMDC user, check it later
 
             c.getParameters().erase(c.getParameters().begin());
 
-            SearchManager::getInstance()->onPSR(c, user, remoteIp);
+            ctx().getSearchManager()->onPSR(c, user, remoteIp);
 
         } /*else if(x.compare(1, 4, "SCH ") == 0 && x[x.length() - 1] == 0x0a) {
         try {
@@ -362,16 +362,16 @@ void SearchManager::onRES(const AdcCommand& cmd, const UserPtr& from, const stri
     if(!file.empty() && freeSlots != -1 && size != -1) {
 
         /// @todo get the hub this was sent from, to be passed as a hint? (eg by using the token?)
-        StringList names = ClientManager::getInstance()->getHubNames(from->getCID(), Util::emptyString);
+        StringList names = ctx().getClientManager()->getHubNames(from->getCID(), Util::emptyString);
         string hubName = names.empty() ? _("Offline") : Util::toString(names);
-        StringList hubs = ClientManager::getInstance()->getHubs(from->getCID(), Util::emptyString);
+        StringList hubs = ctx().getClientManager()->getHubs(from->getCID(), Util::emptyString);
         string hub = hubs.empty() ? _("Offline") : Util::toString(hubs);
 
         SearchResult::Types type = (file[file.length() - 1] == '\\' ? SearchResult::TYPE_DIRECTORY : SearchResult::TYPE_FILE);
         if(type == SearchResult::TYPE_FILE && tth.empty())
             return;
 
-        uint8_t slots = ClientManager::getInstance()->getSlots(from->getCID());
+        uint8_t slots = ctx().getClientManager()->getSlots(from->getCID());
         SearchResultPtr sr(new SearchResult(from, type, slots, (uint8_t)freeSlots, size,
                                             file, hubName, hub, remoteIp, TTHValue(tth), token));
         fire(SearchManagerListener::SR(), sr);
@@ -407,18 +407,18 @@ void SearchManager::onPSR(const AdcCommand& cmd, UserPtr from, const string& rem
         }
     }
 
-    string url = ClientManager::getInstance()->findHub(hubIpPort);
-    if(!from || from == ClientManager::getInstance()->getMe()) {
+    string url = ctx().getClientManager()->findHub(hubIpPort);
+    if(!from || from == ctx().getClientManager()->getMe()) {
         // for NMDC support
 
         if(nick.empty() || hubIpPort.empty()) {
             return;
         }
 
-        from = ClientManager::getInstance()->findUser(nick, url);
+        from = ctx().getClientManager()->findUser(nick, url);
         if(!from) {
             // Could happen if hub has multiple URLs / IPs
-            from = ClientManager::getInstance()->findLegacyUser(nick);
+            from = ctx().getClientManager()->findLegacyUser(nick);
             if(!from) {
                 dcdebug("Search result from unknown user");
                 return;
@@ -426,7 +426,7 @@ void SearchManager::onPSR(const AdcCommand& cmd, UserPtr from, const string& rem
         }
     }
 
-    ClientManager::getInstance()->setIPUser(from, remoteIp, udpPort);
+    ctx().getClientManager()->setIPUser(from, remoteIp, udpPort);
 
     if(partialInfo.size() != partialCount) {
         // what to do now ? just ignore partial search result :-/
@@ -434,15 +434,15 @@ void SearchManager::onPSR(const AdcCommand& cmd, UserPtr from, const string& rem
     }
 
     PartsInfo outPartialInfo;
-    QueueItem::PartialSource ps(from->isNMDC() ? ClientManager::getInstance()->getClient(url)->getMyIdentity().getNick() : Util::emptyString, hubIpPort, remoteIp, udpPort);
+    QueueItem::PartialSource ps(from->isNMDC() ? ctx().getClientManager()->getClient(url)->getMyIdentity().getNick() : Util::emptyString, hubIpPort, remoteIp, udpPort);
     ps.setPartialInfo(partialInfo);
 
-    QueueManager::getInstance()->handlePartialResult(from, url, TTHValue(tth), ps, outPartialInfo);
+    ctx().getQueueManager()->handlePartialResult(from, url, TTHValue(tth), ps, outPartialInfo);
 
     if((Util::toInt(udpPort) > 0) && !outPartialInfo.empty()) {
         try {
-            AdcCommand cmd = SearchManager::getInstance()->toPSR(false, ps.getMyNick(), hubIpPort, tth, outPartialInfo);
-            ClientManager::getInstance()->send(cmd, from->getCID());
+            AdcCommand cmd = ctx().getSearchManager()->toPSR(false, ps.getMyNick(), hubIpPort, tth, outPartialInfo);
+            ctx().getClientManager()->send(cmd, from->getCID());
         } catch(...) {
             dcdebug("Partial search caught error\n");
         }
@@ -452,15 +452,15 @@ void SearchManager::onPSR(const AdcCommand& cmd, UserPtr from, const string& rem
 
 void SearchManager::respond(const AdcCommand& adc, const CID& from,  bool isUdpActive, const string& hubIpPort) {
     // Filter own searches
-    if(from == ClientManager::getInstance()->getMe()->getCID())
+    if(from == ctx().getClientManager()->getMe()->getCID())
         return;
 
-    UserPtr p = ClientManager::getInstance()->findUser(from);
+    UserPtr p = ctx().getClientManager()->findUser(from);
     if(!p)
         return;
 
     SearchResultList results;
-    ShareManager::getInstance()->search(results, adc.getParameters(), isUdpActive ? 10 : 5);
+    ctx().getShareManager()->search(results, adc.getParameters(), isUdpActive ? 10 : 5);
 
     string token;
 
@@ -473,15 +473,15 @@ void SearchManager::respond(const AdcCommand& adc, const CID& from,  bool isUdpA
             return;
 
         PartsInfo partialInfo;
-        if(!QueueManager::getInstance()->handlePartialSearch(TTHValue(tth), partialInfo)) {
+        if(!ctx().getQueueManager()->handlePartialSearch(TTHValue(tth), partialInfo)) {
             // if not found, try to find in finished list
-            if(!FinishedManager::getInstance()->handlePartialRequest(TTHValue(tth), partialInfo)) {
+            if(!ctx().getFinishedManager()->handlePartialRequest(TTHValue(tth), partialInfo)) {
                 return;
             }
         }
 
         AdcCommand cmd = toPSR(true, Util::emptyString, hubIpPort, tth, partialInfo);
-        ClientManager::getInstance()->send(cmd, from);
+        ctx().getClientManager()->send(cmd, from);
         return;
     }
 
@@ -489,7 +489,7 @@ void SearchManager::respond(const AdcCommand& adc, const CID& from,  bool isUdpA
         AdcCommand cmd = (*i)->toRES(AdcCommand::TYPE_UDP);
         if(!token.empty())
             cmd.addParam("TO", token);
-        ClientManager::getInstance()->send(cmd, from);
+        ctx().getClientManager()->send(cmd, from);
     }
 }
 
@@ -510,7 +510,7 @@ AdcCommand SearchManager::toPSR(bool wantResponse, const string& myNick, const s
         cmd.addParam("NI", Text::utf8ToAcp(myNick));
 
     cmd.addParam("HI", hubIpPort);
-    cmd.addParam("U4", (wantResponse && ClientManager::getInstance()->isActive(hubIpPort)) ? SearchManager::getInstance()->getPort() : Util::emptyString);
+    cmd.addParam("U4", (wantResponse && ctx().getClientManager()->isActive(hubIpPort)) ? ctx().getSearchManager()->getPort() : Util::emptyString);
     cmd.addParam("TR", tth);
     cmd.addParam("PC", Util::toString(partialInfo.size() / 2));
     cmd.addParam("PI", getPartsString(partialInfo));

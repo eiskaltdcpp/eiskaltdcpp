@@ -1,4 +1,5 @@
 //      Copyright 2011 Eugene Petrov <dhamp@ya.ru>
+//      Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
 //
 //      This program is free software; you can redistribute it and/or modify
 //      it under the terms of the GNU General Public License as published by
@@ -17,12 +18,15 @@
 #include "dyndns.h"
 #include "dcpp/SettingsManager.h"
 #include "dcpp/ClientManager.h"
+#include "dcpp/DCPlusPlus.h"
 
 namespace dcpp {
 
-DynDNS::DynDNS() :
+DynDNS::DynDNS(DCContext& ctx) :
+    ContextAware(ctx),
     request(false),
-    minutesCounter(0)
+    minutesCounter(0),
+    httpConnection(this->ctx())
 {
     httpConnection.addListener(this);
 }
@@ -44,11 +48,11 @@ void DynDNS::stop()
 }
 
 void DynDNS::Request() {
-    if (BOOLSETTING(DYNDNS_ENABLE)) {
-        string tmps = SETTING(DYNDNS_SERVER);
-        if (!SETTING(DYNDNS_SERVER).compare(0,7,"http://") &&
-                !SETTING(DYNDNS_SERVER).compare(0,8,"https://")) {
-            tmps = "http://" + SETTING(DYNDNS_SERVER);
+    if (CTX_BOOLSETTING(DYNDNS_ENABLE)) {
+        string tmps = CTX_SETTING(DYNDNS_SERVER);
+        if (!CTX_SETTING(DYNDNS_SERVER).compare(0,7,"http://") &&
+                !CTX_SETTING(DYNDNS_SERVER).compare(0,8,"https://")) {
+            tmps = "http://" + CTX_SETTING(DYNDNS_SERVER);
         }
         httpConnection.downloadFile(tmps);
     }
@@ -90,8 +94,8 @@ void DynDNS::on(HttpConnectionListener::Complete, HttpConnection*, string const&
     }
 
     if (!internetIP.empty()) {
-        SettingsManager::getInstance()->set(SettingsManager::INTERNETIP, internetIP);
-        Client::List clients = ClientManager::getInstance()->getClients();
+        ctx().getSettingsManager()->set(SettingsManager::INTERNETIP, internetIP);
+        Client::List clients = ctx().getClientManager()->getClients();
 
         for(auto c : clients) {
             if(c->isConnected()) {

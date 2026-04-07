@@ -148,7 +148,7 @@ public:
     typedef List::iterator Iter;
 
     OnlineUser(const UserPtr& ptr, ClientBase& client_, uint32_t sid_);
-    virtual ~OnlineUser() noexcept { }
+    virtual ~OnlineUser() { }
     operator UserPtr&() { return getUser(); }
     operator const UserPtr&() const { return getUser(); }
 

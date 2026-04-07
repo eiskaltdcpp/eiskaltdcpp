@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2001-2012 Jacek Sieka, arnetheduck on gmail point com
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -23,7 +24,7 @@
 
 #include "Atomic.h"
 #include "forward.h"
-#include "Singleton.h"
+#include "DCContext.h"
 #include "Thread.h"
 #include "UPnP.h"
 
@@ -35,8 +36,7 @@ using std::unique_ptr;
 using std::vector;
 
 class MappingManager :
-        public Singleton<MappingManager>,
-        private Thread
+        private Thread, public ContextAware
 {
 public:
     /**
@@ -52,17 +52,17 @@ public:
 
     bool getOpened() const { return opened; }
 
+public:
+    explicit MappingManager(DCContext& ctx) : ContextAware(ctx), opened(false), portMapping(false) { }
+    virtual ~MappingManager() { join(); }
+
 private:
-    friend class Singleton<MappingManager>;
 
     typedef std::vector<std::unique_ptr<UPnP>> Impls;
     Impls impls;
 
     bool opened;
     Atomic<bool,memory_ordering_strong> portMapping;
-
-    MappingManager() : opened(false), portMapping(false) { }
-    virtual ~MappingManager() noexcept { join(); }
 
     int run();
 

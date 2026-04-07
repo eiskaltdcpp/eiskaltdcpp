@@ -6,11 +6,17 @@
 *   (at your option) any later version.                                   *
 *                                                                         *
 ***************************************************************************/
+/*
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
+ */
 
 #include "ChatEdit.h"
+#include "QtContextAware.h"
+#include "QtContext.h"
 #include "WulforUtil.h"
 
 #include "dcpp/HashManager.h"
+#include "dcpp/DCPlusPlus.h"
 
 #include <QCompleter>
 #include <QKeyEvent>
@@ -20,6 +26,7 @@
 #include <QFileInfo>
 #include <QDir>
 #include <QMimeData>
+#include <QRegularExpression>
 
 ChatEdit::ChatEdit(QWidget *parent) : QTextEdit(parent), cc(nullptr)
 {
@@ -29,7 +36,7 @@ ChatEdit::ChatEdit(QWidget *parent) : QTextEdit(parent), cc(nullptr)
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
-    connect(this, SIGNAL(textChanged()), this, SLOT(recalculateGeometry()));
+    connect(this, &QTextEdit::textChanged, this, &ChatEdit::recalculateGeometry);
 }
 
 ChatEdit::~ChatEdit()
@@ -52,8 +59,8 @@ void ChatEdit::setCompleter(QCompleter *completer, UserListModel *model)
 
     cc_model = model;
 
-    QObject::connect(cc, SIGNAL(activated(const QModelIndex&)),
-                     this, SLOT(insertCompletion(const QModelIndex&)));
+    QObject::connect(cc, qOverload<const QModelIndex &>(&QCompleter::activated),
+                     this, &ChatEdit::insertCompletion);
 }
 
 QSize ChatEdit::minimumSizeHint() const{
@@ -110,7 +117,7 @@ QString ChatEdit::textUnderCursor() const
     int curpos = cursor.position();
     QString text = cursor.block().text().left(curpos);
 
-    QStringList wordList = text.split(QRegExp("\\s"));
+    QStringList wordList = text.split(QRegularExpression("\\s"));
 
     if (wordList.isEmpty())
         return QString();
@@ -206,8 +213,8 @@ void ChatEdit::complete()
     }
 
     if (!cc->popup()->isVisible() || completionPrefix.length() < cc->completionPrefix().length()) {
-        QString pattern = QString("(\\[.*\\])?%1.*").arg( QRegExp::escape(completionPrefix) );
-        QStringList nicks = cc_model->findItems(pattern, Qt::MatchRegExp, 0);
+        QString pattern = QString("(\\[.*\\])?%1.*").arg( QRegularExpression::escape(completionPrefix) );
+        QStringList nicks = cc_model->findItems(pattern, Qt::MatchRegularExpression, 0);
 
         if (nicks.isEmpty())
             return;
@@ -260,13 +267,13 @@ void ChatEdit::dropEvent(QDropEvent *e)
                 QString str = QDir::toNativeSeparators( fi.absoluteFilePath() );
 
                 if ( fi.exists() && fi.isFile() && !str.isEmpty() ) {
-                    const TTHValue *tth = HashManager::getInstance()->getFileTTHif(str.toStdString());
+                    const TTHValue *tth = qtCtx()->dcCtx().getHashManager()->getFileTTHif(str.toStdString());
                     if ( !tth ) {
                         str = QDir::toNativeSeparators( fi.canonicalFilePath() ); // try to follow symlinks
-                        tth = HashManager::getInstance()->getFileTTHif(str.toStdString());
+                        tth = qtCtx()->dcCtx().getHashManager()->getFileTTHif(str.toStdString());
                     }
                     if (tth)
-                        urlStr = WulforUtil::getInstance()->makeMagnet(fi.fileName(), fi.size(), _q(tth->toBase32()));
+                        urlStr = qtCtx()->wulforUtil()->makeMagnet(fi.fileName(), fi.size(), _q(tth->toBase32()));
                 }
             };
 

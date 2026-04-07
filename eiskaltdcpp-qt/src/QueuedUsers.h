@@ -14,7 +14,6 @@
 #include <QHash>
 
 #include "dcpp/stdinc.h"
-#include "dcpp/Singleton.h"
 #include "dcpp/UploadManager.h"
 #include "dcpp/UploadManagerListener.h"
 #include "dcpp/User.h"
@@ -85,24 +84,27 @@ private:
     QHash<QString, QueuedUserItem*> cids;
 };
 
+#include "QtContextAware.h"
+#include "QtContext.h"
+
 class QueuedUsers:
         public QWidget,
         public ArenaWidget,
         private Ui::UIQueuedUsers,
-        public dcpp::Singleton<QueuedUsers>,
-        private dcpp::UploadManagerListener
+        private dcpp::UploadManagerListener,
+        public QtContextAware
 {
     Q_OBJECT
     Q_INTERFACES(ArenaWidget)
 
-    friend class dcpp::Singleton<QueuedUsers>;
+    friend class QtContext;
 
 public:
     QWidget *getWidget() { return this; }
     QString getArenaTitle() { return tr("Queued Users"); }
     QString getArenaShortTitle() { return getArenaTitle(); }
     QMenu *getMenu() { return nullptr; }
-    const QPixmap &getPixmap(){ return WulforUtil::getInstance()->getPixmap(WulforUtil::eiUSERS); }
+    const QPixmap &getPixmap(){ return qtCtx()->wulforUtil()->getPixmap(WulforUtil::eiUSERS); }
     ArenaWidget::Role role() const { return ArenaWidget::QueuedUsers; }
 
 Q_SIGNALS:
@@ -117,9 +119,12 @@ private Q_SLOTS:
 protected:
     void closeEvent(QCloseEvent *e);
 
+public:
+    explicit QueuedUsers(dcpp::DCContext& ctx);
+    ~QueuedUsers() override;
+
+
 private:
-    QueuedUsers();
-    virtual ~QueuedUsers();
 
     virtual void on(WaitingAddFile, const dcpp::HintedUser&, const std::string&) noexcept;
     virtual void on(WaitingRemoveUser, const dcpp::HintedUser&) noexcept;

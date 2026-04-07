@@ -1,6 +1,7 @@
 /*
  * Copyright © 2010 Mank <mank@besthub.eu>
  * Copyright © 2010 Eugene Petrov <dhamp@ya.ru>
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -23,12 +24,14 @@
 #include "wulformanager.hh"
 #include "WulforUtil.hh"
 #include <dcpp/DebugManager.h>
+#include "dcpp/DCPlusPlus.h"
 
 using namespace std;
 using namespace dcpp;
 
-cmddebug::cmddebug():
-    BookEntry(Entry::CMD,_("CMD"),"cmddebug.ui")
+cmddebug::cmddebug(dcpp::DCContext& dcCtx):
+    BookEntry(Entry::CMD,_("CMD"),"cmddebug.ui"),
+    dcCtx_(dcCtx)
 {
     buffer = gtk_text_view_get_buffer (GTK_TEXT_VIEW (getWidget("cmdtextview")));
     gtk_text_buffer_get_end_iter(buffer, &iter);
@@ -45,7 +48,7 @@ cmddebug::cmddebug():
 
 cmddebug::~cmddebug()
 {
-    DebugManager::getInstance()->removeListener(this);
+    dcCtx_.getDebugManager()->removeListener(this);
 }
 
 void cmddebug::add_gui(string file)
@@ -76,7 +79,7 @@ void cmddebug::add_gui(string file)
 void cmddebug::init()
 {
     start();
-    DebugManager::getInstance()->addListener(this);
+    dcCtx_.getDebugManager()->addListener(this);
 }
 
 void cmddebug::show()

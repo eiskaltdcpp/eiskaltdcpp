@@ -25,12 +25,14 @@
 
 #include "dialogentry.hh"
 
+namespace dcpp { class DCContext; }
+
 class Hash:
         public DialogEntry,
         public dcpp::TimerManagerListener
 {
 public:
-    Hash(GtkWindow* parent = NULL);
+    Hash(dcpp::DCContext& dcCtx, GtkWindow* parent = NULL);
     ~Hash();
 
 private:
@@ -46,4 +48,5 @@ private:
     size_t startFiles;
     uint64_t startTime;
     gulong handler_id;
+    dcpp::DCContext& dcCtx_;
 };

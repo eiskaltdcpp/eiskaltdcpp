@@ -10,20 +10,26 @@
 #pragma once
 
 #include "dcpp/stdinc.h"
-#include "dcpp/Singleton.h"
 
 #include <QObject>
 #include <QMap>
 #include <QAction>
 #include <QShortcut>
 
-class ShortcutManager: public QObject, public dcpp::Singleton<ShortcutManager>
+#include "QtContextAware.h"
+
+class ShortcutManager: public QObject,
+        public QtContextAware
 {
     Q_OBJECT
 
-friend class dcpp::Singleton<ShortcutManager>;
+friend class QtContext;
 
 public:
+    explicit ShortcutManager(dcpp::DCContext& ctx);
+    ~ShortcutManager() override;
+
+
     bool registerShortcut(QAction *act, const QString &key);
     bool updateShortcut(QAction *act, const QString &key);
     QMap<QString, QKeySequence> getShortcuts() { return shortcuts; }
@@ -31,9 +37,7 @@ public:
     void save();
 
 private:
-    ShortcutManager();
-    ShortcutManager(const ShortcutManager&){}
-    virtual ~ShortcutManager();
+    ShortcutManager(const ShortcutManager&) = delete;
 
     void load();
 

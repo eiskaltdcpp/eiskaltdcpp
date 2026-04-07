@@ -1,5 +1,6 @@
 /*
  * Copyright © 2004-2010 Jens Oknelid, paskharen@gmail.com
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -24,6 +25,7 @@
 #include <dcpp/ShareManager.h>
 #include <dcpp/Text.h>
 #include <dcpp/ADLSearch.h>
+#include "dcpp/DCPlusPlus.h"
 #include "search.hh"
 #include "settingsmanager.hh"
 #include "UserCommandMenu.hh"
@@ -33,19 +35,20 @@
 using namespace std;
 using namespace dcpp;
 
-ShareBrowser::ShareBrowser(UserPtr _user, const string &_file, const string &_initialDirectory, const bool _full):
-    BookEntry(Entry::SHARE_BROWSER, _("List: ") + WulforUtil::getNicks(_user, ""), "sharebrowser.ui", _user->getCID().toBase32()),
+ShareBrowser::ShareBrowser(dcpp::DCContext& dcCtx, UserPtr _user, const string &_file, const string &_initialDirectory, const bool _full):
+    BookEntry(Entry::SHARE_BROWSER, _("List: ") + WulforUtil::getNicks(dcCtx_, _user, ""), "sharebrowser.ui", _user->getCID().toBase32()),
     user(_user),
     file(_file),
     initialDirectory(_initialDirectory),
-    listing(HintedUser(_user, "")),
+    listing(dcCtx_, HintedUser(_user, "")),
     shareSize(0),
     currentSize(0),
     shareItems(0),
     currentItems(0),
     updateFileView(true),
     skipHits(0),
-    full(_full)
+    full(_full),
+    dcCtx_(dcCtx)
 {
 #if !GTK_CHECK_VERSION(3,0,0)
     gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("mainStatus")),false);
@@ -56,7 +59,7 @@ ShareBrowser::ShareBrowser(UserPtr _user, const string &_file, const string &_in
 #endif
 
     // Use the nick from the file name in case the user is offline and core only returns CID
-    nick = WulforUtil::getNicks(user, "");
+    nick = WulforUtil::getNicks(dcCtx_, user, "");
     if (nick.find(user->getCID().toBase32(), 1) != string::npos)
     {
         string name = Util::getFileName(file);
@@ -66,9 +69,9 @@ ShareBrowser::ShareBrowser(UserPtr _user, const string &_file, const string &_in
     }
 
     // Configure the dialogs
-    File::ensureDirectory(SETTING(DOWNLOAD_DIRECTORY));
+    File::ensureDirectory(dcCtx_.getSettingsManager()->get(SettingsManager::DOWNLOAD_DIRECTORY, true));
     gtk_dialog_set_alternative_button_order(GTK_DIALOG(getWidget("findDialog")), GTK_RESPONSE_OK, GTK_RESPONSE_CANCEL, -1);
-    gtk_file_chooser_set_current_folder(GTK_FILE_CHOOSER(getWidget("dirChooserDialog")), Text::fromUtf8(SETTING(DOWNLOAD_DIRECTORY)).c_str());
+    gtk_file_chooser_set_current_folder(GTK_FILE_CHOOSER(getWidget("dirChooserDialog")), Text::fromUtf8(dcCtx_.getSettingsManager()->get(SettingsManager::DOWNLOAD_DIRECTORY, true)).c_str());
     gtk_dialog_set_alternative_button_order(GTK_DIALOG(getWidget("dirChooserDialog")), GTK_RESPONSE_OK, GTK_RESPONSE_CANCEL, -1);
 
     // menu
@@ -123,9 +126,9 @@ ShareBrowser::ShareBrowser(UserPtr _user, const string &_file, const string &_in
     gtk_tree_view_set_enable_tree_lines(dirView.get(), true);
 
     // Initialize the user command menus
-    fileUserCommandMenu = new UserCommandMenu(getWidget("fileUserCommandMenu"), ::UserCommand::CONTEXT_FILELIST);
+    fileUserCommandMenu = new UserCommandMenu(dcCtx_, getWidget("fileUserCommandMenu"), ::UserCommand::CONTEXT_FILELIST);
     addChild(fileUserCommandMenu);
-    dirUserCommandMenu = new UserCommandMenu(getWidget("dirUserCommandMenu"), ::UserCommand::CONTEXT_FILELIST);
+    dirUserCommandMenu = new UserCommandMenu(dcCtx_, getWidget("dirUserCommandMenu"), ::UserCommand::CONTEXT_FILELIST);
     addChild(dirUserCommandMenu);
 
     // Connect the signals to their callback functions.
@@ -177,7 +180,7 @@ bool ShareBrowser::isFull()
 void ShareBrowser::show()
 {
     updateStatus_gui();
-    WulforManager::get()->getMainWindow()->setMainStatus_gui(_("File list loaded"));
+    wulforManagerInstance()->getMainWindow()->setMainStatus_gui(_("File list loaded"));
 }
 
 gpointer ShareBrowser::threadLoad_list(gpointer data)
@@ -201,7 +204,7 @@ bool ShareBrowser::buildList_gui()
             listing.loadFile(file);
 
             // Search ADL
-            ADLSearchManager::getInstance()->matchListing(listing);
+            dcCtx_.getADLSearchManager()->matchListing(listing);
         }
         // Add entries to dir tree view starting with the root entry.
         buildDirs_gui(listing.getRoot(), NULL);
@@ -431,7 +434,7 @@ void ShareBrowser::fileViewSelected_gui()
                 typedef Func1<ShareBrowser, DirectoryListing::Directory*> F1;
                 F1 *func = new F1(this,&ShareBrowser::downloadChangedDir,
                                   (DirectoryListing::Directory *)dirView.getValue<gpointer>(&iter, "DL Dir"));
-                WulforManager::get()->dispatchClientFunc(func);
+                wulforManagerInstance()->dispatchClientFunc(func);
                 path = gtk_tree_model_get_path(m, &iter);
                 gtk_tree_view_expand_to_path(dirView.get(), path);
                 gtk_tree_view_set_cursor(dirView.get(), path, NULL, false);
@@ -440,7 +443,7 @@ void ShareBrowser::fileViewSelected_gui()
             }
         }
         else
-            downloadSelectedFiles_gui(Text::fromUtf8(SETTING(DOWNLOAD_DIRECTORY)));
+            downloadSelectedFiles_gui(Text::fromUtf8(dcCtx_.getSettingsManager()->get(SettingsManager::DOWNLOAD_DIRECTORY, true)));
     }
 
     gtk_tree_path_free(path);
@@ -472,7 +475,7 @@ void ShareBrowser::downloadSelectedFiles_gui(const string &target)
 
                 typedef Func2<ShareBrowser, DirectoryListing::Directory *, string> F2;
                 F2 * func = new F2(this, &ShareBrowser::downloadDir_client, dir, target);
-                WulforManager::get()->dispatchClientFunc(func);
+                wulforManagerInstance()->dispatchClientFunc(func);
             }
             else
             {
@@ -482,7 +485,7 @@ void ShareBrowser::downloadSelectedFiles_gui(const string &target)
 
                 typedef Func2<ShareBrowser, DirectoryListing::File *, string> F2;
                 F2 * func = new F2(this, &ShareBrowser::downloadFile_client, file, target + filename);
-                WulforManager::get()->dispatchClientFunc(func);
+                wulforManagerInstance()->dispatchClientFunc(func);
             }
         }
         gtk_tree_path_free(path);
@@ -501,7 +504,7 @@ void ShareBrowser::downloadSelectedDirs_gui(const string &target)
 
         typedef Func2<ShareBrowser, DirectoryListing::Directory *, string> F2;
         F2 * func = new F2(this, &ShareBrowser::downloadDir_client, dir, target);
-        WulforManager::get()->dispatchClientFunc(func);
+        wulforManagerInstance()->dispatchClientFunc(func);
     }
 }
 
@@ -514,7 +517,7 @@ void ShareBrowser::popupFileMenu_gui()
     fileUserCommandMenu->cleanMenu_gui();
 
     // Build file download menu
-    StringPairList spl = FavoriteManager::getInstance()->getFavoriteDirs();
+    StringPairList spl = dcCtx_.getFavoriteManager()->getFavoriteDirs();
     if (!spl.empty())
     {
         for (StringPairIter i = spl.begin(); i != spl.end(); ++i)
@@ -533,7 +536,7 @@ void ShareBrowser::popupFileMenu_gui()
     gtk_menu_shell_append(GTK_MENU_SHELL(getWidget("fileDownloadMenu")), menuItem);
 
     // Build user command menu
-    StringList hubs = WulforUtil::getHubAddress(listing.getUser().user->getCID(), "");
+    StringList hubs = WulforUtil::getHubAddress(dcCtx_, listing.getUser().user->getCID(), "");
     fileUserCommandMenu->addHub(hubs);
     GtkTreeIter iter;
     GList *list = gtk_tree_selection_get_selected_rows(fileSelection, NULL);
@@ -586,7 +589,7 @@ void ShareBrowser::popupDirMenu_gui()
     gtk_container_foreach(GTK_CONTAINER(getWidget("dirDownloadMenu")), (GtkCallback)gtk_widget_destroy, NULL);
     dirUserCommandMenu->cleanMenu_gui();
 
-    StringPairList spl = FavoriteManager::getInstance()->getFavoriteDirs();
+    StringPairList spl = dcCtx_.getFavoriteManager()->getFavoriteDirs();
     if (!spl.empty())
     {
         for (StringPairIter i = spl.begin(); i != spl.end(); ++i)
@@ -611,7 +614,7 @@ void ShareBrowser::popupDirMenu_gui()
         string filename;
         string filepath;
         string cid = listing.getUser().user->getCID().toBase32();
-        StringList hubs = WulforUtil::getHubAddress(listing.getUser().user->getCID(), "");
+        StringList hubs = WulforUtil::getHubAddress(dcCtx_, listing.getUser().user->getCID(), "");
         DirectoryListing::Directory *dir = dirView.getValue<DirectoryListing::Directory *>(&iter, "DL Dir");
 
         if (dir != listing.getRoot())
@@ -872,7 +875,7 @@ void ShareBrowser::onMatchButtonClicked_gui(GtkWidget *widget, gpointer data)
     (void)widget;
     typedef Func0<ShareBrowser> F0;
     F0 *f0 = new F0((ShareBrowser*)data, &ShareBrowser::matchQueue_client);
-    WulforManager::get()->dispatchClientFunc(f0);
+    wulforManagerInstance()->dispatchClientFunc(f0);
 }
 
 void ShareBrowser::onFindButtonClicked_gui(GtkWidget *widget, gpointer data)
@@ -921,7 +924,7 @@ void ShareBrowser::onDownloadClicked_gui(GtkMenuItem *item, gpointer data)
     (void)item;
 
     ShareBrowser *sb = (ShareBrowser *)data;
-    sb->downloadSelectedFiles_gui(Text::fromUtf8(SETTING(DOWNLOAD_DIRECTORY)));
+    sb->downloadSelectedFiles_gui(Text::fromUtf8(sb->dcCtx_.getSettingsManager()->get(SettingsManager::DOWNLOAD_DIRECTORY, true)));
 }
 
 void ShareBrowser::onDownloadToClicked_gui(GtkMenuItem *item, gpointer data)
@@ -964,7 +967,7 @@ void ShareBrowser::onDownloadDirClicked_gui(GtkMenuItem *item, gpointer data)
     (void)item;
 
     ShareBrowser *sb = (ShareBrowser *)data;
-    sb->downloadSelectedDirs_gui(Text::fromUtf8(SETTING(DOWNLOAD_DIRECTORY)));
+    sb->downloadSelectedDirs_gui(Text::fromUtf8(sb->dcCtx_.getSettingsManager()->get(SettingsManager::DOWNLOAD_DIRECTORY, true)));
 }
 
 void ShareBrowser::onDownloadDirToClicked_gui(GtkMenuItem *item, gpointer data)
@@ -1024,7 +1027,7 @@ void ShareBrowser::onSearchAlternatesClicked_gui(GtkMenuItem *item, gpointer dat
             if (fileOrder[0] == 'f')
             {
                 file = sb->fileView.getValue<gpointer, DirectoryListing::File *>(&iter, "DL File");
-                s = WulforManager::get()->getMainWindow()->addSearch_gui();
+                s = wulforManagerInstance()->getMainWindow()->addSearch_gui();
                 s->putValue_gui(file->getTTH().toBase32(), 0, SearchManager::SIZE_DONTCARE, SearchManager::TYPE_TTH);
             }
         }
@@ -1116,7 +1119,7 @@ void ShareBrowser::downloadFile_client(DirectoryListing::File *file, string targ
     {
         typedef Func2<ShareBrowser, string, string> F2;
         F2 *func = new F2(this, &ShareBrowser::setStatus_gui, "mainStatus", e.getError());
-        WulforManager::get()->dispatchGuiFunc(func);
+        wulforManagerInstance()->dispatchGuiFunc(func);
     }
 }
 
@@ -1130,18 +1133,18 @@ void ShareBrowser::downloadDir_client(DirectoryListing::Directory *dir, string t
     {
         typedef Func2<ShareBrowser, string, string> F2;
         F2 *func = new F2(this, &ShareBrowser::setStatus_gui, "mainStatus", e.getError());
-        WulforManager::get()->dispatchGuiFunc(func);
+        wulforManagerInstance()->dispatchGuiFunc(func);
     }
 }
 
 void ShareBrowser::matchQueue_client()
 {
-    int matched = QueueManager::getInstance()->matchListing(listing);
+    int matched = dcCtx_.getQueueManager()->matchListing(listing);
     string message = _("Matched ") + Util::toString(matched) + _(" files");
 
     typedef Func2<ShareBrowser, string, string> F2;
     F2 *f = new F2(this, &ShareBrowser::setStatus_gui, "mainStatus", message);
-    WulforManager::get()->dispatchGuiFunc(f);
+    wulforManagerInstance()->dispatchGuiFunc(f);
 }
 void ShareBrowser::onDirGet(GtkMenuItem* item, gpointer data)
 {
@@ -1211,7 +1214,7 @@ void ShareBrowser::loadXML(string txt)
 {
     typedef Func1<ShareBrowser,string> F1;
     F1 *func = new F1(this,&ShareBrowser::load,txt);
-    WulforManager::get()->dispatchGuiFunc(func);
+    wulforManagerInstance()->dispatchGuiFunc(func);
 }
 
 void ShareBrowser::load(string xml)
@@ -1229,7 +1232,7 @@ void ShareBrowser::load(string xml)
         path2 = dirList->getName();
         treepath = gtk_tree_path_copy(gtk_tree_model_get_path (GTK_TREE_MODEL(dirStore), gtk_tree_iter_copy(&iter)));
 
-        //path = QueueManager::getInstance()->getListPath(listing.getUser()) + ".xml";
+        //path = dcCtx_.getQueueManager()->getListPath(listing.getUser()) + ".xml";
         path = Util::getListPath() + nick + user->getCID().toBase32() + ".xml.bz2";
         if(File::getSize(path) != -1) {
             // load the cached list.
@@ -1237,7 +1240,7 @@ void ShareBrowser::load(string xml)
         }
         auto base = listing.updateXML(xml);
         //listing.save(path);
-        ADLSearchManager::getInstance()->matchListing(listing);
+        dcCtx_.getADLSearchManager()->matchListing(listing);
         gtk_tree_store_clear(dirStore);
         gtk_list_store_clear(fileStore);
         buildDirs_gui(listing.getRoot(),NULL);
@@ -1257,7 +1260,7 @@ void ShareBrowser::viewPartial_gui()
         dirList = (DirectoryListing::Directory *)dirView.getValue<gpointer>(&iter,"DL Dir");
         typedef Func1<ShareBrowser, DirectoryListing::Directory*> F1;
         F1 *func = new F1(this,&ShareBrowser::downloadChangedDir,dirList);
-        WulforManager::get()->dispatchClientFunc(func);
+        wulforManagerInstance()->dispatchClientFunc(func);
     }
 }
 
@@ -1267,7 +1270,7 @@ void ShareBrowser::downloadChangedDir(DirectoryListing::Directory* d) {
         dcdebug("Directory %s incomplete, downloading...\n", d->getName().c_str());
         if(listing.getUser().user->isOnline()) {
             try {
-                QueueManager::getInstance()->addList(listing.getUser(), QueueItem::FLAG_PARTIAL_LIST, listing.getPath(d));
+                dcCtx_.getQueueManager()->addList(listing.getUser(), QueueItem::FLAG_PARTIAL_LIST, listing.getPath(d));
             } catch(const QueueException& e) { }
         } else {
             setStatus_gui("mainStatus","User went offline");

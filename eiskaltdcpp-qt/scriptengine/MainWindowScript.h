@@ -6,6 +6,9 @@
 *   (at your option) any later version.                                   *
 *                                                                         *
 ***************************************************************************/
+/*
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
+ */
 
 #pragma once
 
@@ -13,13 +16,13 @@
 #include <QAction>
 #include <QIcon>
 #include <QMap>
-#include <QtScript/QScriptEngine>
+#include <QJSEngine>
 
 class MainWindowScript : public QObject
 {
 Q_OBJECT
 public:
-    explicit MainWindowScript(QScriptEngine *engine, QObject *parent = nullptr);
+    explicit MainWindowScript(QJSEngine *engine, QObject *parent = nullptr);
     virtual ~MainWindowScript();
 
 public slots:
@@ -29,7 +32,7 @@ public slots:
     bool remMenu(QMenu *menu);
 
 private:
-    QScriptEngine *engine;
+    QJSEngine *engine;
     QMap<QString, QAction*> actions;
     QMap<QMenu*, QAction*> menus;
 };

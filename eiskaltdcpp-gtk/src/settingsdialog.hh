@@ -26,13 +26,15 @@
 #include "dialogentry.hh"
 #include "treeview.hh"
 
+namespace dcpp { class DCContext; }
+
 class WulforSettingsManager;
 
 class Settings:
         public DialogEntry
 {
 public:
-    Settings(GtkWindow* parent = NULL);
+    Settings(dcpp::DCContext& dcCtx, GtkWindow* parent = NULL);
     ~Settings();
 
     void response_gui();
@@ -216,4 +218,5 @@ private:
     void set(const std::string &key, const std::string &value);
     void applyIconsTheme(bool useDefault = false);
     void applyTextTheme(bool useDefault = false);
+    dcpp::DCContext& dcCtx_;
 };

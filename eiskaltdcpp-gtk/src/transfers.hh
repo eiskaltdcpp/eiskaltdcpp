@@ -31,6 +31,8 @@
 #include "entry.hh"
 #include "sound.hh"
 
+namespace dcpp { class DCContext; }
+
 class PreviewMenu;
 class UserCommandMenu;
 
@@ -42,7 +44,7 @@ class Transfers:
         public Entry
 {
 public:
-    Transfers();
+    explicit Transfers(dcpp::DCContext& dcCtx);
     ~Transfers();
 
     GtkWidget *getContainer() { return getWidget("mainBox"); }
@@ -119,4 +121,5 @@ private:
     GtkTreeSelection *transferSelection;
     UserCommandMenu* userCommandMenu;
     PreviewMenu *appsPreviewMenu;
+    dcpp::DCContext& dcCtx_;
 };

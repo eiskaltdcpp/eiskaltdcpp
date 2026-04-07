@@ -1,6 +1,7 @@
 /*
  * Copyright (C) 2001-2012 Jacek Sieka, arnetheduck on gmail point com
  * Copyright (C) 2009-2019 EiskaltDC++ developers
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -23,7 +24,7 @@
 #include "User.h"
 #include "Thread.h"
 #include "Client.h"
-#include "Singleton.h"
+#include "DCContext.h"
 #include "Semaphore.h"
 #include "SearchManagerListener.h"
 #include "TimerManager.h"
@@ -35,7 +36,7 @@ namespace dcpp {
 class SearchManager;
 class SocketException;
 
-class SearchManager : public Speaker<SearchManagerListener>, public Singleton<SearchManager>, public Thread
+class SearchManager : public Speaker<SearchManagerListener>, public Thread, public ContextAware
 {
 public:
     enum SizeModes {
@@ -80,7 +81,7 @@ public:
     }
 
     void listen();
-    void disconnect() noexcept;
+    void disconnect();
     void onSearchResult(const string& aLine) {
         onData((const uint8_t*)aLine.data(), aLine.length(), Util::emptyString);
     }
@@ -92,13 +93,16 @@ public:
 private:
     class UdpQueue: public Thread {
     public:
-        UdpQueue() : stop(false) {}
-        ~UdpQueue() noexcept { shutdown(); }
+        explicit UdpQueue(DCContext& ctx) : stop(false), ctx_(ctx) {}
+        ~UdpQueue() { shutdown(); }
+
+        [[nodiscard]] DCContext& ctx() const { return ctx_; }
 
         int run();
         void shutdown() {
             stop = true;
             s.signal();
+            join();
         }
         void addResult(const string& buf, const string& ip) {
             {
@@ -115,20 +119,21 @@ private:
         deque<pair<string, string> > resultList;
 
         bool stop;
+        DCContext& ctx_;
     } queue;
 
     CriticalSection cs;
     std::unique_ptr<Socket> socket;
     string port;
     bool stop;
-    friend class Singleton<SearchManager>;
+public:
+    explicit SearchManager(DCContext& ctx);
+    virtual ~SearchManager();
 
-    SearchManager();
+private:
 
     static std::string normalizeWhitespace(const std::string& aString);
     int run();
-
-    ~SearchManager();
     void onData(const uint8_t* buf, size_t aLen, const string& address);
 
     string getPartsString(const PartsInfo& partsInfo) const;

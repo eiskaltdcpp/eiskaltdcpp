@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2001-2012 Jacek Sieka, arnetheduck on gmail point com
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -22,6 +23,7 @@
 #include "UserConnection.h"
 #include "ClientManager.h"
 #include "format.h"
+#include "DCPlusPlus.h"
 
 namespace dcpp {
 
@@ -74,13 +76,13 @@ double Transfer::getAverageSpeed() const {
 
 void Transfer::getParams(const UserConnection& aSource, ParamMap& params) {
     params["userCID"] = aSource.getUser()->getCID().toBase32();
-    params["userNI"] = Util::toString(ClientManager::getInstance()->getNicks(aSource.getUser()->getCID(), aSource.getHubUrl()));
+    params["userNI"] = Util::toString(aSource.ctx().getClientManager()->getNicks(aSource.getUser()->getCID(), aSource.getHubUrl()));
     params["userI4"] = aSource.getRemoteIp();
-    StringList hubNames = ClientManager::getInstance()->getHubNames(aSource.getUser()->getCID(), aSource.getHubUrl());
+    StringList hubNames = aSource.ctx().getClientManager()->getHubNames(aSource.getUser()->getCID(), aSource.getHubUrl());
     if(hubNames.empty())
         hubNames.push_back(_("Offline"));
     params["hub"] = Util::toString(hubNames);
-    StringList hubs = ClientManager::getInstance()->getHubs(aSource.getUser()->getCID(), aSource.getHubUrl());
+    StringList hubs = aSource.ctx().getClientManager()->getHubs(aSource.getUser()->getCID(), aSource.getHubUrl());
     if(hubs.empty())
         hubs.push_back(_("Offline"));
     params["hubURL"] = Util::toString(hubs);

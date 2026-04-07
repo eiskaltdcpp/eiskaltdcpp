@@ -1,5 +1,6 @@
 /*
  * Copyright © 2009-2010 freedcpp, https://github.com/eiskaltdcpp/freedcpp
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -22,6 +23,7 @@
 #include <dcpp/SearchManager.h>
 #include <dcpp/TimerManager.h>
 #include <dcpp/Util.h>
+#include "dcpp/DCPlusPlus.h"
 #include "settingsmanager.hh"
 #include "search.hh"
 #include "wulformanager.hh"
@@ -30,11 +32,12 @@
 using namespace std;
 using namespace dcpp;
 
-SearchSpy::SearchSpy()
+SearchSpy::SearchSpy(dcpp::DCContext& dcCtx)
     : BookEntry(Entry::SEARCH_SPY, _("Search Spy"), "searchspy.ui")
     , FrameSize((SearchType)WGETI("search-spy-frame"))
     , Waiting((guint)WGETI("search-spy-waiting"))
-    , Top((guint)WGETI("search-spy-top"))
+    , Top((guint)WGETI("search-spy-top")),
+    dcCtx_(dcCtx)
 {
 #if !GTK_CHECK_VERSION(3,0,0)
     gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("statusbar")),false);
@@ -42,7 +45,7 @@ SearchSpy::SearchSpy()
 
     // Configure the dialog
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(getWidget("ignoreTTHSearchCheckButton")), WGETB("spyframe-ignore-tth-searches"));
-    gtk_window_set_transient_for(GTK_WINDOW(getWidget("TopSearchDialog")), GTK_WINDOW(WulforManager::get()->getMainWindow()->getContainer()));
+    gtk_window_set_transient_for(GTK_WINDOW(getWidget("TopSearchDialog")), GTK_WINDOW(wulforManagerInstance()->getMainWindow()->getContainer()));
     gtk_spin_button_set_value(GTK_SPIN_BUTTON(getWidget("frameSpinButton")), (double)FrameSize);
     gtk_spin_button_set_value(GTK_SPIN_BUTTON(getWidget("waitingSpinButton")), (double)Waiting);
     gtk_spin_button_set_value(GTK_SPIN_BUTTON(getWidget("topSpinButton")), (double)Top);
@@ -114,14 +117,14 @@ SearchSpy::~SearchSpy()
     gtk_widget_destroy(getWidget("TopSearchDialog"));
     g_object_unref(getWidget("menu"));
 
-    TimerManager::getInstance()->removeListener(this);
-    ClientManager::getInstance()->removeListener(this);
+    dcCtx_.getTimerManager()->removeListener(this);
+    dcCtx_.getClientManager()->removeListener(this);
 }
 
 void SearchSpy::show()
 {
-    ClientManager::getInstance()->addListener(this);
-    TimerManager::getInstance()->addListener(this);
+    dcCtx_.getClientManager()->addListener(this);
+    dcCtx_.getTimerManager()->addListener(this);
 }
 
 void SearchSpy::preferences_gui()
@@ -466,7 +469,7 @@ void SearchSpy::onSearchTopClicked_gui(GtkWidget*, gpointer data)
     {
         string type = s->topView.getString(&iter, "type");
         string search = s->topView.getString(&iter, _("Search String"));
-        Search *ss = WulforManager::get()->getMainWindow()->addSearch_gui();
+        Search *ss = wulforManagerInstance()->getMainWindow()->addSearch_gui();
 
         if (type[0] == 't')
         {
@@ -564,7 +567,7 @@ void SearchSpy::onSearchItemClicked_gui(GtkMenuItem*, gpointer data)
             {
                 string type = s->searchView.getString(&iter, "type");
                 string search = s->searchView.getString(&iter, _("Search String"));
-                Search *ss = WulforManager::get()->getMainWindow()->addSearch_gui();
+                Search *ss = wulforManagerInstance()->getMainWindow()->addSearch_gui();
 
                 if (type[0] == 't')
                 {
@@ -671,12 +674,12 @@ void SearchSpy::on(ClientManagerListener::IncomingSearch, const string& s) noexc
     }
     typedef Func2<SearchSpy, string, string> F2;
     F2 *func = new F2(this, &SearchSpy::updateFrameSearch_gui, search, type);
-    WulforManager::get()->dispatchGuiFunc(func);
+    wulforManagerInstance()->dispatchGuiFunc(func);
 }
 
 void SearchSpy::on(TimerManagerListener::Minute, uint64_t) noexcept
 {
     typedef Func0<SearchSpy> F0;
     F0 *func = new F0(this, &SearchSpy::updateFrameStatus_gui);
-    WulforManager::get()->dispatchGuiFunc(func);
+    wulforManagerInstance()->dispatchGuiFunc(func);
 }

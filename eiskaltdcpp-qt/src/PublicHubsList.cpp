@@ -6,8 +6,12 @@
 *   (at your option) any later version.                                   *
 *                                                                         *
 ***************************************************************************/
+/*
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
+ */
 
 #include "PublicHubsList.h"
+#include "QtContext.h"
 #include "WulforUtil.h"
 
 #include <QInputDialog>
@@ -16,6 +20,7 @@
 #include "dcpp/Singleton.h"
 #include "dcpp/FavoriteManager.h"
 #include "dcpp/SettingsManager.h"
+#include "dcpp/DCPlusPlus.h"
 
 using namespace dcpp;
 
@@ -23,15 +28,15 @@ PublicHubsList::PublicHubsList(QWidget *parent): QDialog(parent)
 {
     setupUi(this);
 
-    listWidget->addItems(_q(SettingsManager::getInstance()->get(SettingsManager::HUBLIST_SERVERS))
-                         .split(";", QString::SkipEmptyParts));
+    listWidget->addItems(_q(qtCtx()->dcCtx().getSettingsManager()->get(SettingsManager::HUBLIST_SERVERS))
+                         .split(";", Qt::SkipEmptyParts));
 
-    connect(pushButton_DOWN, SIGNAL(clicked()), this, SLOT(slotDown()));
-    connect(pushButton_UP,   SIGNAL(clicked()), this, SLOT(slotUp()));
-    connect(pushButton_ADD,  SIGNAL(clicked()), this, SLOT(slotAdd()));
-    connect(pushButton_REM,  SIGNAL(clicked()), this, SLOT(slotRem()));
-    connect(pushButton_EDIT, SIGNAL(clicked()), this, SLOT(slotChange()));
-    connect(this, SIGNAL(accepted()), this, SLOT(slotAccepted()));
+    connect(pushButton_DOWN, &QPushButton::clicked, this, &PublicHubsList::slotDown);
+    connect(pushButton_UP,   &QPushButton::clicked, this, &PublicHubsList::slotUp);
+    connect(pushButton_ADD,  &QPushButton::clicked, this, &PublicHubsList::slotAdd);
+    connect(pushButton_REM,  &QPushButton::clicked, this, &PublicHubsList::slotRem);
+    connect(pushButton_EDIT, &QPushButton::clicked, this, &PublicHubsList::slotChange);
+    connect(this, &QDialog::accepted, this, &PublicHubsList::slotAccepted);
 }
 
 void PublicHubsList::slotAccepted(){
@@ -39,7 +44,7 @@ void PublicHubsList::slotAccepted(){
     for (int i = 0; i < listWidget->count(); i++)
         hubs += (hubs.isEmpty()? "" : ";") + listWidget->item(i)->text();
 
-    SettingsManager::getInstance()->set(SettingsManager::HUBLIST_SERVERS, _tq(hubs));
+    qtCtx()->dcCtx().getSettingsManager()->set(SettingsManager::HUBLIST_SERVERS, _tq(hubs));
 }
 
 void PublicHubsList::slotDown(){

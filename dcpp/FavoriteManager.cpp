@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2001-2012 Jacek Sieka, arnetheduck on gmail point com
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -27,19 +28,23 @@
 #include "SimpleXML.h"
 #include "StringTokenizer.h"
 #include "UserCommand.h"
+#include "DCPlusPlus.h"
 
 namespace dcpp {
 
-FavoriteManager::FavoriteManager() : lastId(0), useHttp(false), running(false), c(nullptr), lastServer(0), listType(TYPE_NORMAL), dontSave(false) {
-    SettingsManager::getInstance()->addListener(this);
-    ClientManager::getInstance()->addListener(this);
+FavoriteManager::FavoriteManager(DCContext& ctx) : ContextAware(ctx), lastId(0), useHttp(false), running(false), c(nullptr), lastServer(0), listType(TYPE_NORMAL), dontSave(false) {
+    this->ctx().getSettingsManager()->addListener(this);
+    if (this->ctx().getClientManager())
+        this->ctx().getClientManager()->addListener(this);
 
     File::ensureDirectory(Util::getHubListsPath());
 }
 
 FavoriteManager::~FavoriteManager() {
-    ClientManager::getInstance()->removeListener(this);
-    SettingsManager::getInstance()->removeListener(this);
+    if (ctx().getClientManager())
+        ctx().getClientManager()->removeListener(this);
+    if (ctx().getSettingsManager())
+        ctx().getSettingsManager()->removeListener(this);
     if(c) {
         c->removeListener(this);
         delete c;
@@ -136,8 +141,8 @@ void FavoriteManager::removeHubUserCommands(int ctx, const string& hub) {
 void FavoriteManager::addFavoriteUser(const UserPtr& aUser) {
     Lock l(cs);
     if(users.find(aUser->getCID()) == users.end()) {
-        StringList urls = ClientManager::getInstance()->getHubs(aUser->getCID(), Util::emptyString);
-        StringList nicks = ClientManager::getInstance()->getNicks(aUser->getCID(), Util::emptyString);
+        StringList urls = ctx().getClientManager()->getHubs(aUser->getCID(), Util::emptyString);
+        StringList nicks = ctx().getClientManager()->getNicks(aUser->getCID(), Util::emptyString);
 
         /// @todo make this an error probably...
         if(urls.empty())
@@ -272,7 +277,7 @@ private:
     HubEntryList& publicHubs;
 };
 
-bool FavoriteManager::onHttpFinished(bool fromHttp) noexcept {
+bool FavoriteManager::onHttpFinished(bool fromHttp) {
     MemoryInputStream mis(downloadBuf);
     bool success = true;
 
@@ -445,7 +450,7 @@ void FavoriteManager::load(SimpleXML& aXml) {
 
         aXml.resetCurrentChild();
         while(aXml.findChild("Hub")) {
-            FavoriteHubEntry* e = new FavoriteHubEntry();
+            FavoriteHubEntry* e = new FavoriteHubEntry(ctx());
             e->setName(aXml.getChildAttrib("Name"));
             e->setConnect(aXml.getBoolChildAttrib("Connect"));
             e->setHubDescription(aXml.getChildAttrib("Description"));
@@ -482,16 +487,6 @@ void FavoriteManager::load(SimpleXML& aXml) {
     }
     // parse groups that have the "Connect" param and send their hubs to WindowManager
     //for(auto i = favHubGroups.begin(), iend = favHubGroups.end(); i != iend; ++i) {
-    //if(i->second.connect) {
-    //FavoriteHubEntryList hubs = getFavoriteHubs(i->first);
-    //for(auto hub = hubs.begin(), hub_end = hubs.end(); hub != hub_end; ++hub) {
-    //StringMap map;
-    //map[WindowInfo::address] = (*hub)->getServer();
-    //WindowManager::getInstance()->add(WindowManager::hub(), map);
-    //}
-    //}
-    //}
-
     aXml.resetCurrentChild();
     if(aXml.findChild("Users")) {
         aXml.stepIn();
@@ -504,9 +499,9 @@ void FavoriteManager::load(SimpleXML& aXml) {
             if(cid.length() != 39) {
                 if(nick.empty() || hubUrl.empty())
                     continue;
-                u = ClientManager::getInstance()->getUser(nick, hubUrl);
+                u = ctx().getClientManager()->getUser(nick, hubUrl);
             } else {
-                u = ClientManager::getInstance()->getUser(CID(cid));
+                u = ctx().getClientManager()->getUser(CID(cid));
             }
             auto i = users.emplace(u->getCID(), FavoriteUser(u, nick, hubUrl)).first;
 
@@ -541,7 +536,7 @@ void FavoriteManager::load(SimpleXML& aXml) {
         while(aXml.findChild("Directory")) {
             string virt = aXml.getChildAttrib("Name");
             string d(aXml.getChildData());
-            FavoriteManager::getInstance()->addFavoriteDir(d, virt);
+            ctx().getFavoriteManager()->addFavoriteDir(d, virt);
         }
         try {
             aXml.stepOut();
@@ -635,7 +630,7 @@ void FavoriteManager::setUserDescription(const UserPtr& aUser, const string& des
 }
 
 StringList FavoriteManager::getHubLists() {
-    StringTokenizer<string> lists(SETTING(HUBLIST_SERVERS), ';');
+    StringTokenizer<string> lists(CTX_SETTING(HUBLIST_SERVERS), ';');
     return lists.getTokens();
 }
 
@@ -706,18 +701,18 @@ void FavoriteManager::refresh(bool forceDownload /* = false */) {
         }
         fire(FavoriteManagerListener::DownloadStarting(), publicListServer);
         if(c == NULL)
-            c = new HttpConnection();
+            c = new HttpConnection(ctx());
         c->addListener(this);
         c->downloadFile(publicListServer);
         running = true;
     }
 }
 
-UserCommand::List FavoriteManager::getUserCommands(int ctx, const StringList& hubs) {
+UserCommand::List FavoriteManager::getUserCommands(int ucCtx, const StringList& hubs) {
     vector<bool> isOp(hubs.size());
 
     for(size_t i = 0; i < hubs.size(); ++i) {
-        if(ClientManager::getInstance()->isOp(ClientManager::getInstance()->getMe(), hubs[i])) {
+        if(ctx().getClientManager()->isOp(ctx().getClientManager()->getMe(), hubs[i])) {
             isOp[i] = true;
         }
     }
@@ -726,7 +721,7 @@ UserCommand::List FavoriteManager::getUserCommands(int ctx, const StringList& hu
     UserCommand::List lst;
     for(auto i = userCommands.begin(); i != userCommands.end(); ++i) {
         UserCommand& uc = *i;
-        if(!(uc.getCtx() & ctx)) {
+        if(!(uc.getCtx() & ucCtx)) {
             //printf("%s\n", uc.getName().c_str());
             //printf("false\n");
             continue;
@@ -760,12 +755,12 @@ UserCommand::List FavoriteManager::getUserCommands(int ctx, const StringList& hu
 }
 
 // HttpConnectionListener
-void FavoriteManager::on(Data, HttpConnection*, const uint8_t* buf, size_t len) noexcept {
+void FavoriteManager::on(Data, HttpConnection*, const uint8_t* buf, size_t len) {
     if(useHttp)
         downloadBuf.append((const char*)buf, len);
 }
 
-void FavoriteManager::on(Failed, HttpConnection*, const string& aLine) noexcept {
+void FavoriteManager::on(Failed, HttpConnection*, const string& aLine) {
     c->removeListener(this);
     lastServer++;
     running = false;
@@ -774,7 +769,7 @@ void FavoriteManager::on(Failed, HttpConnection*, const string& aLine) noexcept 
         fire(FavoriteManagerListener::DownloadFailed(), aLine);
     }
 }
-void FavoriteManager::on(Complete, HttpConnection*, const string& aLine) noexcept {
+void FavoriteManager::on(Complete, HttpConnection*, const string& aLine) {
     bool parseSuccess = false;
 
     c->removeListener(this);
@@ -787,32 +782,32 @@ void FavoriteManager::on(Complete, HttpConnection*, const string& aLine) noexcep
     }
 }
 
-void FavoriteManager::on(Retried, HttpConnection*, const bool Connected) noexcept {
+void FavoriteManager::on(Retried, HttpConnection*, const bool Connected) {
     if (Connected)
         downloadBuf = Util::emptyString;
 }
 
-void FavoriteManager::on(Redirected, HttpConnection*, const string& aLine) noexcept {
+void FavoriteManager::on(Redirected, HttpConnection*, const string& aLine) {
     if(useHttp)
         fire(FavoriteManagerListener::DownloadStarting(), aLine);
 }
 
-void FavoriteManager::on(TypeNormal, HttpConnection*) noexcept {
+void FavoriteManager::on(TypeNormal, HttpConnection*) {
     if(useHttp)
         listType = TYPE_NORMAL;
 }
 
-void FavoriteManager::on(TypeBZ2, HttpConnection*) noexcept {
+void FavoriteManager::on(TypeBZ2, HttpConnection*) {
     if(useHttp)
         listType = TYPE_BZIP2;
 }
 
-void FavoriteManager::on(UserUpdated, const OnlineUser& user) noexcept {
+void FavoriteManager::on(UserUpdated, const OnlineUser& user) {
     userUpdated(user);
 }
 
 //NOTE: freedcpp
-void FavoriteManager::on(UserDisconnected, const UserPtr& user) noexcept {
+void FavoriteManager::on(UserDisconnected, const UserPtr& user) {
     Lock l(cs);
 
     auto i = users.find(user->getCID());
@@ -824,7 +819,7 @@ void FavoriteManager::on(UserDisconnected, const UserPtr& user) noexcept {
     }
 }
 
-void FavoriteManager::on(UserConnected, const UserPtr& user) noexcept {
+void FavoriteManager::on(UserConnected, const UserPtr& user) {
     Lock l(cs);
 
     auto i = users.find(user->getCID());

@@ -1,6 +1,7 @@
 /*
  * Copyright (C) 2001-2012 Jacek Sieka, arnetheduck on gmail point com
  * Copyright (C) 2009-2019 EiskaltDC++ developers
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -28,19 +29,20 @@
 #include "QueueManager.h"
 #include "UploadManager.h"
 #include "ClientManager.h"
+#include "DCPlusPlus.h"
 
 namespace dcpp {
 
-FinishedManager::FinishedManager() {
-    DownloadManager::getInstance()->addListener(this);
-    UploadManager::getInstance()->addListener(this);
-    QueueManager::getInstance()->addListener(this);
+FinishedManager::FinishedManager(DCContext& ctx) : ContextAware(ctx) {
+    this->ctx().getDownloadManager()->addListener(this);
+    this->ctx().getUploadManager()->addListener(this);
+    this->ctx().getQueueManager()->addListener(this);
 }
 
 FinishedManager::~FinishedManager() {
-    DownloadManager::getInstance()->removeListener(this);
-    UploadManager::getInstance()->removeListener(this);
-    QueueManager::getInstance()->removeListener(this);
+    ctx().getDownloadManager()->removeListener(this);
+    ctx().getUploadManager()->removeListener(this);
+    ctx().getQueueManager()->removeListener(this);
 
     clearDLs();
     clearULs();
@@ -118,12 +120,12 @@ void FinishedManager::getParams(const string & target, ParamMap& params) {
         string ip;
         for(auto& i: entry->getUsers()) {
 
-            nicks.push_back(Util::toString(ClientManager::getInstance()->getNicks(i)));
+            nicks.push_back(Util::toString(ctx().getClientManager()->getNicks(i)));
             cids.push_back(i.user->getCID().toBase32());
 
             ip.clear();
             if (i.user->isOnline()) {
-                OnlineUser* u = ClientManager::getInstance()->findOnlineUser(i, false);
+                OnlineUser* u = ctx().getClientManager()->findOnlineUser(i, false);
                 if (u) {
                     ip = u->getIdentity().getIp();
                 }
@@ -133,13 +135,13 @@ void FinishedManager::getParams(const string & target, ParamMap& params) {
             }
             ips.push_back(ip);
 
-            temp = ClientManager::getInstance()->getHubNames(i);
+            temp = ctx().getClientManager()->getHubNames(i);
             if(temp.empty()) {
                 temp.push_back(_("Offline"));
             }
             hubNames.push_back(Util::toString(temp));
 
-            temp = ClientManager::getInstance()->getHubUrls(i);
+            temp = ctx().getClientManager()->getHubUrls(i);
             if(temp.empty()) {
                 temp.push_back(_("Offline"));
             }
@@ -163,7 +165,7 @@ void FinishedManager::getParams(const string & target, ParamMap& params) {
 }
 
 void FinishedManager::onComplete(Transfer* t, bool upload, bool crc32Checked) {
-    if(t->getType() == Transfer::TYPE_FILE || (t->getType() == Transfer::TYPE_FULL_LIST && BOOLSETTING(LOG_FILELIST_TRANSFERS))) {
+    if(t->getType() == Transfer::TYPE_FILE || (t->getType() == Transfer::TYPE_FULL_LIST && CTX_BOOLSETTING(LOG_FILELIST_TRANSFERS))) {
         string file = t->getPath();
         const HintedUser& user = t->getHintedUser();
 
@@ -185,7 +187,7 @@ void FinishedManager::onComplete(Transfer* t, bool upload, bool crc32Checked) {
                 }
                 size = t->getSize();
             } else {
-                QueueManager::getInstance()->getSizeInfo(size, pos, file);
+                ctx().getQueueManager()->getSizeInfo(size, pos, file);
                 if (size == -1) {
                     // not in the queue anymore?
                     return;
@@ -249,24 +251,24 @@ void FinishedManager::onComplete(Transfer* t, bool upload, bool crc32Checked) {
     }
 }
 
-void FinishedManager::on(QueueManagerListener::CRCChecked, Download* d) noexcept {
+void FinishedManager::on(QueueManagerListener::CRCChecked, Download* d) {
     onComplete(d, false, /*crc32Checked*/true);
 }
 
-void FinishedManager::on(DownloadManagerListener::Complete, Download* d) noexcept {
+void FinishedManager::on(DownloadManagerListener::Complete, Download* d) {
     onComplete(d, false);
 }
 
-void FinishedManager::on(DownloadManagerListener::Failed, Download* d, const string&) noexcept {
+void FinishedManager::on(DownloadManagerListener::Failed, Download* d, const string&) {
     if(d->getPos() > 0)
         onComplete(d, false);
 }
 
-void FinishedManager::on(UploadManagerListener::Complete, Upload* u) noexcept {
+void FinishedManager::on(UploadManagerListener::Complete, Upload* u) {
     onComplete(u, true);
 }
 
-void FinishedManager::on(UploadManagerListener::Failed, Upload* u, const string&) noexcept {
+void FinishedManager::on(UploadManagerListener::Failed, Upload* u, const string&) {
     if(u->getPos() > 0)
         onComplete(u, true);
 }

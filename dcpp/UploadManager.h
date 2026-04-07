@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2001-2012 Jacek Sieka, arnetheduck on gmail point com
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -24,7 +25,7 @@
 
 #include "forward.h"
 #include "UserConnectionListener.h"
-#include "Singleton.h"
+#include "DCContext.h"
 #include "UploadManagerListener.h"
 #include "Client.h"
 #include "ClientManagerListener.h"
@@ -39,7 +40,7 @@
 
 namespace dcpp {
 
-class UploadManager : private ClientManagerListener, private UserConnectionListener, public Speaker<UploadManagerListener>, private TimerManagerListener, public Singleton<UploadManager>
+class UploadManager : private ClientManagerListener, private UserConnectionListener, public Speaker<UploadManagerListener>, private TimerManagerListener, public ContextAware
 {
 public:
     /** @return Number of uploads. */
@@ -52,9 +53,9 @@ public:
      * @return Running average download speed in Bytes/s
      */
     int64_t getRunningAverage();
-    uint8_t getSlots() const { return (uint8_t) (SETTING(SLOTS)* Client::getTotalCounts());}
+    uint8_t getSlots() const { return (uint8_t) (CTX_SETTING(SLOTS)* Client::getTotalCounts());}
     /** @return Number of free slots. */
-    int getFreeSlots() { return max((SETTING(SLOTS) - running), 0); }
+    int getFreeSlots() { return max((CTX_SETTING(SLOTS) - running), 0); }
 
     /** @internal */
     int getFreeExtraSlots() { return max(3 - getExtra(), 0); }
@@ -106,9 +107,11 @@ private:
     FilesMap waitingFiles;      //set of files which this user has asked for
     void addFailedUpload(const UserConnection& source, string filename);
 
-    friend class Singleton<UploadManager>;
-    UploadManager() noexcept;
+public:
+    explicit UploadManager(DCContext& ctx);
     virtual ~UploadManager();
+
+private:
 
     bool hasUpload(UserConnection& aSource);
     bool getAutoSlot();
@@ -116,22 +119,22 @@ private:
     void removeUpload(Upload* aUpload);
 
     // ClientManagerListener
-    virtual void on(ClientManagerListener::UserDisconnected, const UserPtr& aUser) noexcept;
+    virtual void on(ClientManagerListener::UserDisconnected, const UserPtr& aUser);
 
     // TimerManagerListener
-    virtual void on(Second, uint64_t aTick) noexcept;
-    virtual void on(Minute, uint64_t aTick) noexcept;
+    virtual void on(Second, uint64_t aTick);
+    virtual void on(Minute, uint64_t aTick);
 
     // UserConnectionListener
-    virtual void on(BytesSent, UserConnection*, size_t, size_t) noexcept;
-    virtual void on(Failed, UserConnection*, const string&) noexcept;
-    virtual void on(Get, UserConnection*, const string&, int64_t) noexcept;
-    virtual void on(Send, UserConnection*) noexcept;
-    virtual void on(GetListLength, UserConnection* conn) noexcept;
-    virtual void on(TransmitDone, UserConnection*) noexcept;
+    virtual void on(BytesSent, UserConnection*, size_t, size_t);
+    virtual void on(Failed, UserConnection*, const string&);
+    virtual void on(Get, UserConnection*, const string&, int64_t);
+    virtual void on(Send, UserConnection*);
+    virtual void on(GetListLength, UserConnection* conn);
+    virtual void on(TransmitDone, UserConnection*);
 
-    virtual void on(AdcCommand::GET, UserConnection*, const AdcCommand&) noexcept;
-    virtual void on(AdcCommand::GFI, UserConnection*, const AdcCommand&) noexcept;
+    virtual void on(AdcCommand::GET, UserConnection*, const AdcCommand&);
+    virtual void on(AdcCommand::GFI, UserConnection*, const AdcCommand&);
 
     bool prepareFile(UserConnection& aSource, const string& aType, const string& aFile, int64_t aResume, int64_t aBytes, bool listRecursive = false);
 };

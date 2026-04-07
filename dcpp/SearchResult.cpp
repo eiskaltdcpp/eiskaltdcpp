@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2001-2012 Jacek Sieka, arnetheduck on gmail point com
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -23,6 +24,7 @@
 #include "User.h"
 #include "ClientManager.h"
 #include "Client.h"
+#include "DCContext.h"
 
 namespace dcpp {
 
@@ -33,9 +35,9 @@ SearchResult::SearchResult(const UserPtr& aUser, Types aType, int aSlots, int aF
     size(aSize), type(aType), aslots(aSlots), freeSlots(aFreeSlots), IP(ip),
     tth(aTTH), token(aToken) { }
 
-SearchResult::SearchResult(Types aType, int64_t aSize, const string& aFile, const TTHValue& aTTH) :
-    file(aFile), user(ClientManager::getInstance()->getMe()), size(aSize), type(aType), aslots(SETTING(SLOTS)),
-    freeSlots(UploadManager::getInstance()->getFreeSlots()),
+SearchResult::SearchResult(DCContext& ctx, Types aType, int64_t aSize, const string& aFile, const TTHValue& aTTH) :
+    file(aFile), user(ctx.getClientManager()->getMe()), size(aSize), type(aType), aslots(ctx.getSettingsManager()->get(SettingsManager::SLOTS, true)),
+    freeSlots(ctx.getUploadManager()->getFreeSlots()),
     tth(aTTH) { }
 
 string SearchResult::toSR(const Client& c) const {

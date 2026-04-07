@@ -6,6 +6,9 @@
 *   (at your option) any later version.                                   *
 *                                                                         *
 ***************************************************************************/
+/*
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
+ */
 
 #ifdef BUILD_STATIC
 #include <QtPlugin>
@@ -13,9 +16,7 @@
 Q_IMPORT_PLUGIN (QWindowsAudioPlugin);
 Q_IMPORT_PLUGIN (QWindowsIntegrationPlugin);
 Q_IMPORT_PLUGIN (QSQLiteDriverPlugin);
-#if (QT_VERSION >= QT_VERSION_CHECK(5, 10, 0))
 Q_IMPORT_PLUGIN (QWindowsVistaStylePlugin);
-#endif // QT_VERSION
 #elif defined(__linux) // defined(_WIN32)
 Q_IMPORT_PLUGIN (QXcbIntegrationPlugin);
 Q_IMPORT_PLUGIN (QSQLiteDriverPlugin);
@@ -39,6 +40,8 @@ using namespace std;
 
 #include "WulforUtil.h"
 #include "WulforSettings.h"
+#include "QtContext.h"
+#include "QtContextAware.h"
 #include "HubManager.h"
 #include "Notification.h"
 #include "VersionGlobal.h"
@@ -68,9 +71,9 @@ using namespace std;
 
 #include <QApplication>
 #include <QMainWindow>
-#include <QRegExp>
+#include <QRegularExpression>
 #include <QObject>
-#include <QTextCodec>
+#include <QScopeGuard>
 
 #ifdef DBUS_NOTIFY
 #include <QtDBus>
@@ -103,6 +106,29 @@ void migrateConfig();
 
 #else //WIN32
 #include <locale.h>
+#include <windows.h>
+#include <string>
+#include <sstream>
+
+/**
+ * Show a diagnostic MessageBox when the Qt GUI app fails to start.
+ * WIN32 subsystem apps have no console, so a missing DLL or early
+ * crash is completely silent without explicit error reporting.
+ */
+static LONG WINAPI earlyExceptionHandler(EXCEPTION_POINTERS *ep)
+{
+    char buf[512];
+    snprintf(buf, sizeof(buf),
+             "EiskaltDC++ crashed during startup.\n\n"
+             "Exception code: 0x%08lX\nAddress: %p\n\n"
+             "This may indicate a missing DLL or incompatible library.\n"
+             "Please report this to the developers.",
+             ep->ExceptionRecord->ExceptionCode,
+             ep->ExceptionRecord->ExceptionAddress);
+    MessageBoxA(nullptr, buf, "EiskaltDC++ — Fatal Error",
+                MB_OK | MB_ICONERROR);
+    return EXCEPTION_EXECUTE_HANDLER;
+}
 #endif
 
 #if defined(Q_OS_MAC)
@@ -113,7 +139,7 @@ bool dockClickHandler(id self,SEL _cmd,...)
 {
     Q_UNUSED(self)
     Q_UNUSED(_cmd)
-    Notification *N = Notification::getInstance();
+    Notification *N = qtCtx()->notification();
     if (N)
         N->slotShowHide();
     return true;
@@ -122,9 +148,12 @@ bool dockClickHandler(id self,SEL _cmd,...)
 
 int main(int argc, char *argv[])
 {
-#if QT_VERSION < 0x050000
-    QTextCodec::setCodecForCStrings(QTextCodec::codecForName("UTF-8"));
+#if defined(Q_OS_WIN)
+    // Install an early crash handler so WIN32 subsystem apps don't
+    // die silently when a DLL is missing or initialization fails.
+    SetUnhandledExceptionFilter(earlyExceptionHandler);
 #endif
+
     setlocale(LC_ALL, "");
 
     EiskaltApp app(argc, argv, _q(dcpp::Util::getLoginName()+"EDCPP"));
@@ -149,118 +178,111 @@ int main(int argc, char *argv[])
     migrateConfig();
 #endif
 
-    dcpp::startup(callBack, nullptr);
-    dcpp::TimerManager::getInstance()->start();
+    auto dcContext = dcpp::startup(callBack, nullptr);
+    dcContext->getTimerManager()->start();
 
-    HashManager::getInstance()->setPriority(Thread::IDLE);
-#if QT_VERSION < 0x050000
-    QTextCodec::setCodecForCStrings(QTextCodec::codecForName("UTF-8"));
-#endif
+    dcContext->getHashManager()->setPriority(Thread::IDLE);
+
     app.setOrganizationName("EiskaltDC++ Team");
     app.setApplicationName("EiskaltDC++ Qt");
     app.setApplicationVersion(QString::fromStdString(eiskaltdcppVersionString));
     
-    GlobalTimer::newInstance();
+    { // Begin Qt-widget scope: everything inside is destroyed before dcpp shutdown
+    QtContext ctx(*dcContext);
+    // Guard: ensure settings are saved on scope exit.
+    // The guard runs before ~QtContext.
+    auto cleanupGuard = qScopeGuard([&]() {
+        qtCtx()->settings()->save();
+    });
 
-    WulforSettings::newInstance();
-    WulforSettings::getInstance()->load();
-    WulforSettings::getInstance()->loadTheme();
+    ctx.createGlobalTimer();
+    ctx.createSettings();
 
-    WulforUtil::newInstance();
-    WulforSettings::getInstance()->loadTranslation();
+    ctx.settings()->load();
+    ctx.settings()->loadTheme();
+
+    ctx.createWulforUtil();
+    ctx.settings()->loadTranslation();
 #if defined(Q_OS_MAC)
     // Disable system tray functionality in Mac OS X:
-    WBSET(WB_TRAY_ENABLED, false);
+    qtCtx()->settings()->setBool(WB_TRAY_ENABLED, false);
 #endif
 
-    Text::hubDefaultCharset = WulforUtil::getInstance()->qtEnc2DcEnc(WSGET(WS_DEFAULT_LOCALE)).toStdString();
+    Text::hubDefaultCharset = qtCtx()->wulforUtil()->qtEnc2DcEnc(qtCtx()->settings()->getStr(WS_DEFAULT_LOCALE)).toStdString();
+    // Safety: if the conversion returned an empty string (should not happen
+    // after the qtEnc2DcEnc fix, but guard against it), fall back to the
+    // system charset so NMDC hubs get a real encoding for iconv.
+    if (Text::hubDefaultCharset.empty())
+        Text::hubDefaultCharset = Text::systemCharset;
 
-    if (WulforUtil::getInstance()->loadUserIcons())
+    if (qtCtx()->wulforUtil()->loadUserIcons())
         std::cout << QObject::tr("UserList icons has been loaded").toStdString() << std::endl;
 
-    if (WulforUtil::getInstance()->loadIcons())
+    if (qtCtx()->wulforUtil()->loadIcons())
         std::cout << QObject::tr("Application icons has been loaded").toStdString() << std::endl;
 
-    app.setWindowIcon(WICON(WulforUtil::eiICON_APPL));
-#if (QT_VERSION >= QT_VERSION_CHECK(5, 10, 1))
-    app.setAttribute(Qt::AA_DisableWindowContextHelpButton);
-#endif
+    app.setWindowIcon(qtCtx()->wulforUtil()->getPixmap(WulforUtil::eiICON_APPL));
 
-    ArenaWidgetManager::newInstance();
+    ctx.createArenaWidgetManager();
 
-    MainWindow::newInstance();
+    ctx.createMainWindow();
 #if defined(Q_OS_MAC)
-    MainWindow::getInstance()->setUnload(false);
-    QObject::connect(&app, SIGNAL(clickedOnDock()),
-                     MainWindow::getInstance(), SLOT(show()));
+    qtCtx()->mainWindow()->setUnload(false);
+    QObject::connect(&app, &EiskaltApp::clickedOnDock,
+                     qtCtx()->mainWindow(), &MainWindow::show);
 #else // defined(Q_OS_MAC)
-    MainWindow::getInstance()->setUnload(!WBGET(WB_TRAY_ENABLED));
+    qtCtx()->mainWindow()->setUnload(!qtCtx()->settings()->getBool(WB_TRAY_ENABLED));
 #endif // defined(Q_OS_MAC)
 
-    app.connect(&app, SIGNAL(messageReceived(QString)), MainWindow::getInstance(), SLOT(parseInstanceLine(QString)));
+    QObject::connect(&app, &QtSingleCoreApplication::messageReceived, qtCtx()->mainWindow(), &MainWindow::parseInstanceLine);
 
-    HubManager::newInstance();
+    ctx.createHubManager();
 
-    WulforSettings::getInstance()->loadTheme();
+    qtCtx()->settings()->loadTheme();
 
-    if (WBGET(WB_APP_ENABLE_EMOTICON)){
-        EmoticonFactory::newInstance();
-        EmoticonFactory::getInstance()->load();
+    if (qtCtx()->settings()->getBool(WB_APP_ENABLE_EMOTICON)){
+        ctx.createEmoticonFactory();
+        qtCtx()->emoticonFactory()->load();
     }
 
 #ifdef USE_ASPELL
-    if (WBGET(WB_APP_ENABLE_ASPELL))
-        SpellCheck::newInstance();
+    if (qtCtx()->settings()->getBool(WB_APP_ENABLE_ASPELL))
+        ctx.createSpellCheck();
 #endif
 
-    Notification::newInstance();
+    ctx.createNotification();
 
 #ifdef USE_JS
-    ScriptEngine::newInstance();
-    QObject::connect(ScriptEngine::getInstance(), SIGNAL(scriptChanged(QString)), MainWindow::getInstance(), SLOT(slotJSFileChanged(QString)));
+    ctx.createScriptEngine();
+    QObject::connect(qtCtx()->scriptEngine(), SIGNAL(scriptChanged(QString)), qtCtx()->mainWindow(), SLOT(slotJSFileChanged(QString)));
 #endif
 
-    ArenaWidgetFactory().create< dcpp::Singleton, FinishedUploads >();
-    ArenaWidgetFactory().create< dcpp::Singleton, FinishedDownloads >();
-    ArenaWidgetFactory().create< dcpp::Singleton, QueuedUsers >();
+    ctx.createFinishedUploads();
+    qtCtx()->arenaWidgetManager()->add(ctx.finishedUploads());
+    ctx.createFinishedDownloads();
+    qtCtx()->arenaWidgetManager()->add(ctx.finishedDownloads());
+    ctx.createQueuedUsers();
+    qtCtx()->arenaWidgetManager()->add(ctx.queuedUsers());
 
-    MainWindow::getInstance()->autoconnect();
-    MainWindow::getInstance()->parseCmdLine(app.arguments());
+    qtCtx()->mainWindow()->autoconnect();
+    qtCtx()->mainWindow()->parseCmdLine(app.arguments());
 
-    if (!WBGET(WB_MAINWINDOW_HIDE) || !WBGET(WB_TRAY_ENABLED))
-        MainWindow::getInstance()->show();
+    if (!qtCtx()->settings()->getBool(WB_MAINWINDOW_HIDE) || !qtCtx()->settings()->getBool(WB_TRAY_ENABLED))
+        qtCtx()->mainWindow()->show();
 
     ret = app.exec();
 
     std::cout << QObject::tr("Shutting down libeiskaltdcpp...").toStdString() << std::endl;
 
-    WulforSettings::getInstance()->save();
+    // Destruction order (reverse of declaration):
+    //   1. cleanupGuard → saves settings
+    //   2. ~QtContext   → destroys ScriptEngine then all other
+    //      Qt widgets, and deregisters the process-wide context.
+    }
 
-    EmoticonFactory::deleteInstance();
-
-#ifdef USE_ASPELL
-    if (SpellCheck::getInstance())
-        SpellCheck::deleteInstance();
-#endif
-    Notification::deleteInstance();
-
-#ifdef USE_JS
-    ScriptEngine::deleteInstance();
-#endif
-
-    GlobalTimer::deleteInstance();
-    
-    ArenaWidgetManager::deleteInstance();
-    
-    HubManager::getInstance()->release();
-
-    MainWindow::deleteInstance();
-
-    WulforUtil::deleteInstance();
-
-    WulforSettings::deleteInstance();
-
-    dcpp::shutdown();
+    dcContext->shutdown();
+    dcContext.reset();
+    dcpp::setContext(nullptr);
 
     std::cout << QObject::tr("Quit...").toStdString() << std::endl;
 
@@ -412,7 +434,7 @@ void migrateConfig(){
         QTextStream rstream(&orig);
         QTextStream wstream(&new_file);
 
-        QRegExp replace_str("/(\\S+)/\\.eiskaltdc\\+\\+/");
+        QRegularExpression replace_str("/(\\S+)/\\.eiskaltdc\\+\\+/");
         QString line = "";
 
         while (!rstream.atEnd()){

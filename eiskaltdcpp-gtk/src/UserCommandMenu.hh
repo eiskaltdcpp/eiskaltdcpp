@@ -25,10 +25,12 @@
 #include <dcpp/typedefs.h>
 #include "entry.hh"
 
+namespace dcpp { class DCContext; }
+
 class UserCommandMenu : public Entry
 {
 public:
-    UserCommandMenu(GtkWidget *userCommandMenu, int ctx);
+    UserCommandMenu(dcpp::DCContext& dcCtx, GtkWidget *userCommandMenu, int ctx);
     virtual ~UserCommandMenu() {}
 
     GtkWidget *getContainer() { return userCommandMenu; }
@@ -63,4 +65,5 @@ private:
         int64_t size = 0;
     };
     std::vector<UCParam> ucParams;
+    dcpp::DCContext& dcCtx_;
 };

@@ -8,12 +8,17 @@
 *   (at your option) any later version.                                   *
 *                                                                         *
 ***************************************************************************/
+/*
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
+ */
 
 #include "stdafx.h"
 
 #include "dcpp/Util.h"
 #include "dcpp/File.h"
 #include "dcpp/Thread.h"
+#include "dcpp/DCPlusPlus.h"
+#include "dcpp/DCContext.h"
 
 #include "utility.h"
 #include "ServerManager.h"
@@ -34,6 +39,8 @@ char config_dir[1024+1] = {0};
 char local_dir[1024+1] = {0};
 
 #ifndef _WIN32
+static ServerManager* g_serverMgr = nullptr;
+
 static void SigHandler(int sig) {
     string str = "Received signal ";
 
@@ -44,7 +51,7 @@ static void SigHandler(int sig) {
     } else if (sig == SIGQUIT) {
         str += "SIGQUIT";
     } else if (sig == SIGHUP) {
-       ConfigReload();
+       if (g_serverMgr) g_serverMgr->configReload();
        return;
     } else {
         str += Util::toString(sig);
@@ -52,10 +59,11 @@ static void SigHandler(int sig) {
 
     str += " ending...";
 
-    logging(bDaemon, bsyslog, true, str);
-
-    bIsClose = true;
-    ServerStop();
+    if (g_serverMgr) {
+        const auto& cfg = g_serverMgr->config();
+        logging(cfg.daemon, cfg.useSyslog, true, str);
+        g_serverMgr->stop();
+    }
 
     // restore to default...
     struct sigaction sigact;
@@ -160,36 +168,36 @@ void writePidFile(char *path)
     pidfile << getpid();
 }
 
-void parseArgs(int argc, char* argv[]) {
+void parseArgs(int argc, char* argv[], DaemonConfig& config) {
     int ch;
     while((ch = getopt_long(argc, argv, "hVdvDsp:c:l:P:L:S:u:U:", opts, nullptr)) != -1) {
         switch (ch) {
             case 'P':
-                lport = (unsigned short int) atoi (optarg);
+                config.port = (unsigned short int) atoi (optarg);
                 break;
             case 'L':
-                lip.assign(optarg,50);
+                config.ip.assign(optarg,50);
                 break;
             case 'S':
                 LOG_FILE.assign(optarg,1024);
                 break;
             case 'u':
-                xmlrpcLog.assign(optarg,1024);
+                config.xmlrpcLog.assign(optarg,1024);
                 break;
            case 'U':
-                xmlrpcUriPath.assign(optarg,1024);
+                config.xmlrpcUriPath.assign(optarg,1024);
                 break;
             case 'v':
-                isVerbose = true;
+                config.verbose = true;
                 break;
             case 'D':
-                isDebug = true;
+                config.debug = true;
                 break;
             case 'd':
-                bDaemon = true;
+                config.daemon = true;
                 break;
             case 's':
-                bsyslog = true;
+                config.useSyslog = true;
                 break;
             case 'p':
                 strncpy(pidfile, optarg, 256);
@@ -212,7 +220,7 @@ void parseArgs(int argc, char* argv[]) {
     }
 }
 #else // _WIN32
-void parseArgs(int argc, char* argv[]) {
+void parseArgs(int argc, char* argv[], DaemonConfig& /*config*/) {
     for (int i = 0; i < argc; i++){
         if (!strcmp(argv[i],"--help") || !strcmp(argv[i],"-h")){
             printHelp();
@@ -228,7 +236,8 @@ void parseArgs(int argc, char* argv[]) {
 
 int main(int argc, char* argv[])
 {
-    parseArgs(argc, argv);
+    DaemonConfig config;
+    parseArgs(argc, argv, config);
 
     sTitle = "eiskaltdcpp-daemon (" + eiskaltdcppVersionString + ")";
 
@@ -244,7 +253,7 @@ int main(int argc, char* argv[])
         override[Util::PATH_USER_CONFIG] = tmp;
         override[Util::PATH_USER_LOCAL] = tmp;
         if (!Util::fileExists(string(config_dir))) {
-            logging(bDaemon, bsyslog, false, string("ERROR: Config directory: No such file or directory (" + string(config_dir) + ")"));
+            logging(config.daemon, config.useSyslog, false, string("ERROR: Config directory: No such file or directory (" + string(config_dir) + ")"));
         }
     }
     if (local_dir[0]) {
@@ -252,13 +261,13 @@ int main(int argc, char* argv[])
         tmp = tmp.substr(tmp.size()-1, tmp.size()) == PATH_SEPARATOR_STR ? tmp : tmp + PATH_SEPARATOR_STR;
         override[Util::PATH_USER_LOCAL] = tmp;
         if (!Util::fileExists(string(local_dir))) {
-            logging(bDaemon, bsyslog, false, string("ERROR: Local data directory: No such file or directory (" + string(local_dir) + ")"));
+            logging(config.daemon, config.useSyslog, false, string("ERROR: Local data directory: No such file or directory (" + string(local_dir) + ")"));
         }
     }
 
     Util::initialize(override);
 
-    if (isDebug) {
+    if (config.debug) {
         printf("\
             PATH_GLOBAL_CONFIG: %s\n\
             PATH_USER_CONFIG: %s\n\
@@ -292,14 +301,14 @@ int main(int argc, char* argv[])
         LOG_FILE = PATH + "Logs/daemon.log";
 #endif
 
-    if (bDaemon) {
+    if (config.daemon) {
         if (!Util::fileExists(LOG_FILE)) {
             logging(false, false, false, string("ERROR: Daemon log: No such file or directory (") + LOG_FILE.c_str()+ string(")"));
         }
     }
 
 #ifndef _WIN32
-    if (bDaemon) {
+    if (config.daemon) {
         if (eidcpp_daemon(true,false) == -1)
             return EXIT_FAILURE;
 
@@ -307,7 +316,7 @@ int main(int argc, char* argv[])
             writePidFile(pidfile);
     }
 #endif
-    logging(bDaemon, bsyslog, true, string("Starting "+sTitle+" using "+PATH+" as config directory and "+LOCAL_PATH+" as local data directory."));
+    logging(config.daemon, config.useSyslog, true, string("Starting "+sTitle+" using "+PATH+" as config directory and "+LOCAL_PATH+" as local data directory."));
 #ifndef _WIN32
 
     sigset_t sst;
@@ -316,7 +325,7 @@ int main(int argc, char* argv[])
     sigaddset(&sst, SIGURG);
     sigaddset(&sst, SIGALRM);
 
-    if (bDaemon)
+    if (config.daemon)
         sigaddset(&sst, SIGHUP);
 
     pthread_sigmask(SIG_BLOCK, &sst, nullptr);
@@ -328,43 +337,57 @@ int main(int argc, char* argv[])
     sigact.sa_flags = 0;
 
     if (sigaction(SIGINT, &sigact, nullptr) == -1) {
-        logging(bDaemon, bsyslog, false, string("Cannot create sigaction SIGINT!" + string(strerror(errno))));
+        logging(config.daemon, config.useSyslog, false, string("Cannot create sigaction SIGINT!" + string(strerror(errno))));
         exit(EXIT_FAILURE);
     }
 
     if (sigaction(SIGTERM, &sigact, nullptr) == -1) {
-        logging(bDaemon, bsyslog, false, string("Cannot create sigaction SIGTERM!"+ string(strerror(errno))));
+        logging(config.daemon, config.useSyslog, false, string("Cannot create sigaction SIGTERM!"+ string(strerror(errno))));
         exit(EXIT_FAILURE);
     }
 
     if (sigaction(SIGQUIT, &sigact, nullptr) == -1) {
-        logging(bDaemon, bsyslog, false, string("Cannot create sigaction SIGQUIT!" + string(strerror(errno))));
+        logging(config.daemon, config.useSyslog, false, string("Cannot create sigaction SIGQUIT!" + string(strerror(errno))));
         exit(EXIT_FAILURE);
     }
 
-    if (!bDaemon && sigaction(SIGHUP, &sigact, nullptr) == -1) {
-        logging(bDaemon, bsyslog, false, string("Cannot create sigaction SIGHUP!" + string(strerror(errno))));
+    if (!config.daemon && sigaction(SIGHUP, &sigact, nullptr) == -1) {
+        logging(config.daemon, config.useSyslog, false, string("Cannot create sigaction SIGHUP!" + string(strerror(errno))));
         exit(EXIT_FAILURE);
     }
 #endif
-    ServerInitialize();
 
-    if (!ServerStart()) {
-        logging(bDaemon, bsyslog, false, "Server start failed!");
+    // Stack-allocated DCContext — no dynamic allocation needed.
+    dcpp::DCContext ctx;
+    dcpp::setContext(&ctx);
+    ctx.startup([&config](const std::string& msg) {
+        logging(config.daemon, config.useSyslog, true, "Loading: " + msg);
+    });
+
+    ServerManager mgr(ctx, config);
+#ifndef _WIN32
+    g_serverMgr = &mgr;
+#endif
+
+    if (!mgr.start()) {
+        logging(config.daemon, config.useSyslog, false, "Server start failed!");
         return EXIT_FAILURE;
     } else {
-        logging(bDaemon, bsyslog, true, sTitle+" running...");
+        logging(config.daemon, config.useSyslog, true, sTitle+" running...");
     }
 
 #if !defined(_WIN32) && defined(ENABLE_STACKTRACE)
     signal(SIGSEGV, printBacktrace);
 #endif
 
-    while (bServerRunning) {
+    while (mgr.isRunning()) {
         Thread::sleep(1);
-        if (bServerTerminated)
-            ServerStop();
+        if (mgr.isTerminated())
+            mgr.stop();
     }
 
+#ifndef _WIN32
+    g_serverMgr = nullptr;
+#endif
     return 0;
 }

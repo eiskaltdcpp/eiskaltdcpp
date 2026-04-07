@@ -1,6 +1,5 @@
+cmake_minimum_required (VERSION 3.10)
 project (dcpp)
-
-cmake_minimum_required (VERSION 3.2.0)
 
 aux_source_directory(${PROJECT_SOURCE_DIR} dcpp_srcs)
 file (GLOB dcpp_hdrs ${PROJECT_SOURCE_DIR}/*.h)
@@ -20,12 +19,23 @@ include_directories (${PROJECT_BINARY_DIR}
                      ${ZLIB_INCLUDE_DIR}
                      ${OPENSSL_INCLUDE_DIR}
                      ${GETTEXT_INCLUDE_DIR}
-                     ${LUA_INCLUDE_DIR}
-                     ${IDN2_INCLUDE_DIR})
+                     ${ICONV_INCLUDE_DIR})
+if (LUA_SCRIPT)
+    include_directories (${LUA_INCLUDE_DIR})
+endif ()
+if (USE_IDN2)
+    include_directories (${IDN2_INCLUDE_DIR})
+endif ()
 
 if (WIN32)
     set (LINK STATIC)
-    set (WIN32_LIBS "unistring" "ws2_32")
+    # libunistring may be statically linked into libidn2 (e.g. vcpkg)
+    find_library(UNISTRING_LIB NAMES unistring)
+    if (UNISTRING_LIB)
+        set (WIN32_LIBS ${UNISTRING_LIB} "ws2_32")
+    else ()
+        set (WIN32_LIBS "ws2_32")
+    endif ()
 else (WIN32)
     if (HAIKU)
         set (LINK STATIC)
@@ -68,11 +78,12 @@ if (GETTEXT_FOUND)
             return 0;
         }"
         HAVE_NL_MSG_CAT_CNTR)
-    set_property(SOURCE ${PROJECT_SOURCE_DIR}/Util.h
-                 PROPERTY COMPILE_DEFINITIONS HAVE_NL_MSG_CAT_CNTR APPEND)
-    set_property(SOURCE ${PROJECT_SOURCE_DIR}/Util.cpp
-                 PROPERTY COMPILE_DEFINITIONS HAVE_NL_MSG_CAT_CNTR APPEND)
-    if (NOT HAVE_NL_MSG_CAT_CNTR)
+    if (HAVE_NL_MSG_CAT_CNTR)
+        set_property(SOURCE ${PROJECT_SOURCE_DIR}/Util.h
+                     PROPERTY COMPILE_DEFINITIONS HAVE_NL_MSG_CAT_CNTR APPEND)
+        set_property(SOURCE ${PROJECT_SOURCE_DIR}/Util.cpp
+                     PROPERTY COMPILE_DEFINITIONS HAVE_NL_MSG_CAT_CNTR APPEND)
+    else ()
         message (STATUS "Build without GNU libintl library")
     endif ()
 endif (GETTEXT_FOUND)
@@ -150,14 +161,21 @@ if (APPLE)
 endif(APPLE)
 
 if (LINK STREQUAL SHARED)
+    # Always install the shared library (.so/.dylib) and DLL (.dll)
+    install (TARGETS dcpp
+        RUNTIME DESTINATION ${BINDIR}                   # .dll on Windows
+        LIBRARY DESTINATION ${LIBDIR} NAMELINK_SKIP)    # .so / .dylib (no dev symlink)
     if (WITH_DEV_FILES)
-        install (TARGETS dcpp LIBRARY DESTINATION ${LIBDIR})
-    else (WITH_DEV_FILES)
-        install (TARGETS dcpp LIBRARY DESTINATION ${LIBDIR} NAMELINK_SKIP)
-    endif (WITH_DEV_FILES)
+        # Also install the namelink symlink and import library for development
+        install (TARGETS dcpp
+            LIBRARY DESTINATION ${LIBDIR} NAMELINK_ONLY
+            ARCHIVE DESTINATION ${LIBDIR})
+    endif ()
     message (STATUS "Build libeiskaltdcpp as shared library")
-elseif (LINK STREQUAL STATIC AND WITH_DEV_FILES)
-    install (TARGETS dcpp LIBRARY DESTINATION ${LIBDIR})
+elseif (LINK STREQUAL STATIC)
+    if (WITH_DEV_FILES)
+        install (TARGETS dcpp ARCHIVE DESTINATION ${LIBDIR})
+    endif ()
     message (STATUS "Build libeiskaltdcpp as static library")
 endif (LINK STREQUAL SHARED)
 

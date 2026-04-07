@@ -20,7 +20,6 @@
 #include "Constants.h"
 #include "KBucket.h"
 #include "dcpp/ShareManager.h"
-#include "dcpp/Singleton.h"
 
 namespace dht
 {
@@ -50,12 +49,16 @@ namespace dht
         GETSET(bool, partial, Partial);
     };
 
-    class IndexManager :
-        public Singleton<IndexManager>
+    class DHT;
+
+    class IndexManager
     {
     public:
-        IndexManager(void);
-        ~IndexManager(void);
+        explicit IndexManager(DHT& dht);
+        ~IndexManager();
+
+        IndexManager(const IndexManager&) = delete;
+        IndexManager& operator=(const IndexManager&) = delete;
 
         typedef std::deque<Source> SourceList;
 
@@ -98,6 +101,8 @@ namespace dht
         bool isTimeForPublishing() const { return GET_TICK() >= nextRepublishTime; }
 
     private:
+
+        DHT& dht_;
 
         /** Contains known hashes in the network and their sources */
         typedef std::unordered_map<TTHValue, SourceList> TTHMap;

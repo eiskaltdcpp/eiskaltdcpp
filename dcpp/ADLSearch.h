@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2001-2012 Jacek Sieka, arnetheduck on gmail point com
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -24,7 +25,7 @@
 
 #include "DirectoryListing.h"
 #include "SettingsManager.h"
-#include "Singleton.h"
+#include "DCContext.h"
 #include "StringSearch.h"
 #include "Util.h"
 
@@ -102,7 +103,7 @@ private:
 };
 
 ///  Class that holds all active searches
-class ADLSearchManager : public Singleton<ADLSearchManager>
+class ADLSearchManager : public ContextAware
 {
 public:
     // Destination directory indexing
@@ -114,7 +115,7 @@ public:
     };
     typedef vector<DestDir> DestDirList;
 
-    ADLSearchManager();
+    explicit ADLSearchManager(DCContext& ctx);
     virtual ~ADLSearchManager();
 
     // Search collection

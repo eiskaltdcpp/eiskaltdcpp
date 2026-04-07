@@ -6,8 +6,13 @@
 *   (at your option) any later version.                                   *
 *                                                                         *
 ***************************************************************************/
+/*
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
+ */
 
 #include "DownloadQueue.h"
+#include "QtContext.h"
+#include "QtContextAware.h"
 
 #include <QMap>
 #include <QTreeView>
@@ -29,6 +34,7 @@
 #include "Magnet.h"
 #include "dcpp/ClientManager.h"
 #include "dcpp/User.h"
+#include "dcpp/DCPlusPlus.h"
 
 #if _DEBUG_QT_UI
 #include <QtDebug>
@@ -55,7 +61,7 @@ public:
 
 DownloadQueue::Menu::Menu() : menu(new QMenu(nullptr))
 {
-    QMenu *menu_magnet = new QMenu(tr("Magnet"), DownloadQueue::getInstance());
+    QMenu *menu_magnet = new QMenu(tr("Magnet"), ::qtCtx()->downloadQueue());
 
     QAction *search_alt  = new QAction(tr("Search for alternates"), menu);
     QAction *copy_magnet = new QAction(tr("Copy magnet"), menu_magnet);
@@ -203,14 +209,15 @@ QVariant DownloadQueue::Menu::getArg(){
     return arg;
 }
 
-DownloadQueue::DownloadQueue(QWidget *parent):
+DownloadQueue::DownloadQueue(dcpp::DCContext& ctx, QWidget *parent):
+        QtContextAware(ctx),
         QWidget(parent), d_ptr(new DownloadQueuePrivate())
 {
     setupUi(this);
 
     init();
 
-    QueueManager::getInstance()->addListener(this);
+    dcCtx().getQueueManager()->addListener(this);
 
     setUnload(false);
 }
@@ -218,7 +225,7 @@ DownloadQueue::DownloadQueue(QWidget *parent):
 DownloadQueue::~DownloadQueue(){
     save();
 
-    QueueManager::getInstance()->removeListener(this);
+    dcCtx().getQueueManager()->removeListener(this);
     Q_D(DownloadQueue);
 
     delete d->menu;
@@ -252,7 +259,7 @@ void DownloadQueue::requestDelete(){
             items.push_front(item);
     }
 
-    QueueManager *QM = QueueManager::getInstance();
+    QueueManager *QM = dcCtx().getQueueManager();
     for (const auto &i : items){
         QString target = i->data(COLUMN_DOWNLOADQUEUE_PATH).toString() + i->data(COLUMN_DOWNLOADQUEUE_NAME).toString();
 
@@ -282,21 +289,21 @@ void DownloadQueue::init(){
     d->deleteShortcut = new QShortcut(QKeySequence(Qt::Key_Delete), this);
     d->deleteShortcut->setContext(Qt::WidgetWithChildrenShortcut);
 
-    connect(this, SIGNAL(coreAdded(VarMap)),            this, SLOT(addFile(VarMap)), Qt::QueuedConnection);
-    connect(this, SIGNAL(coreRemoved(VarMap)),          this, SLOT(remFile(VarMap)), Qt::QueuedConnection);
-    connect(this, SIGNAL(coreSourcesUpdated(VarMap)),   this, SLOT(updateFile(VarMap)), Qt::QueuedConnection);
-    connect(this, SIGNAL(coreStatusUpdated(VarMap)),    this, SLOT(updateFile(VarMap)), Qt::QueuedConnection);
-    connect(this, SIGNAL(coreMoved(VarMap)),            this, SLOT(remFile(VarMap)), Qt::QueuedConnection);
-    connect(this, SIGNAL(coreMoved(VarMap)),            this, SLOT(addFile(VarMap)), Qt::QueuedConnection);
+    connect(this, &DownloadQueue::coreAdded,            this, &DownloadQueue::addFile, Qt::QueuedConnection);
+    connect(this, &DownloadQueue::coreRemoved,          this, &DownloadQueue::remFile, Qt::QueuedConnection);
+    connect(this, &DownloadQueue::coreSourcesUpdated,   this, &DownloadQueue::updateFile, Qt::QueuedConnection);
+    connect(this, &DownloadQueue::coreStatusUpdated,    this, &DownloadQueue::updateFile, Qt::QueuedConnection);
+    connect(this, &DownloadQueue::coreMoved,            this, &DownloadQueue::remFile, Qt::QueuedConnection);
+    connect(this, &DownloadQueue::coreMoved,            this, &DownloadQueue::addFile, Qt::QueuedConnection);
 
-    connect(d->deleteShortcut, SIGNAL(activated()), this, SLOT(requestDelete()));
-    connect(treeView_TARGET, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotContextMenu(QPoint)));
-    connect(treeView_TARGET->header(), SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotHeaderMenu(QPoint)));
-    connect(d->queue_model, SIGNAL(needExpand(QModelIndex)), treeView_TARGET, SLOT(expand(QModelIndex)));
-    connect(d->queue_model, SIGNAL(rowRemoved(QModelIndex)), this, SLOT(slotCollapseRow(QModelIndex)));
-    connect(d->queue_model, SIGNAL(updateStats(quint64,quint64)), this, SLOT(slotUpdateStats(quint64,quint64)));
-    connect(pushButton_EXPAND,      SIGNAL(clicked()), treeView_TARGET, SLOT(expandAll()));
-    connect(pushButton_COLLAPSE,    SIGNAL(clicked()), treeView_TARGET, SLOT(collapseAll()));
+    connect(d->deleteShortcut, &QShortcut::activated, this, &DownloadQueue::requestDelete);
+    connect(treeView_TARGET, &QTreeView::customContextMenuRequested, this, &DownloadQueue::slotContextMenu);
+    connect(treeView_TARGET->header(), &QHeaderView::customContextMenuRequested, this, &DownloadQueue::slotHeaderMenu);
+    connect(d->queue_model, &DownloadQueueModel::needExpand, treeView_TARGET, &QTreeView::expand);
+    connect(d->queue_model, &DownloadQueueModel::rowRemoved, this, &DownloadQueue::slotCollapseRow);
+    connect(d->queue_model, &DownloadQueueModel::updateStats, this, &DownloadQueue::slotUpdateStats);
+    connect(pushButton_EXPAND,      &QPushButton::clicked, treeView_TARGET, &QTreeView::expandAll);
+    connect(pushButton_COLLAPSE,    &QPushButton::clicked, treeView_TARGET, &QTreeView::collapseAll);
 
     d->menu = new Menu();
 
@@ -312,12 +319,12 @@ void DownloadQueue::init(){
 }
 
 void DownloadQueue::load(){
-    treeView_TARGET->header()->restoreState(WVGET(WS_DQUEUE_STATE, QByteArray()).toByteArray());
+    treeView_TARGET->header()->restoreState(qtCtx()->settings()->getVar(WS_DQUEUE_STATE, QByteArray()).toByteArray());
     treeView_TARGET->setSortingEnabled(true);
 }
 
 void DownloadQueue::save(){
-    WVSET(WS_DQUEUE_STATE, treeView_TARGET->header()->saveState());
+    qtCtx()->settings()->setVar(WS_DQUEUE_STATE, treeView_TARGET->header()->saveState());
 }
 
 void DownloadQueue::getParams(DownloadQueue::VarMap &params, const QueueItem *item){
@@ -343,7 +350,7 @@ void DownloadQueue::getParams(DownloadQueue::VarMap &params, const QueueItem *it
         if (usr.user->isOnline())
             ++online;
 
-        nick = WulforUtil::getInstance()->getNicks(cid, _q(usr.hint));
+        nick = qtCtx()->wulforUtil()->getNicks(cid, _q(usr.hint));
 
         if (!nick.isEmpty()){
             source[nick] = _q(cid.toBase32());
@@ -377,7 +384,7 @@ void DownloadQueue::getParams(DownloadQueue::VarMap &params, const QueueItem *it
         QString errors = params["ERRORS"].toString();
         UserPtr usr = src.getUser();
 
-        nick = WulforUtil::getInstance()->getNicks(usr->getCID());
+        nick = qtCtx()->wulforUtil()->getNicks(usr->getCID());
         source[nick] = _q(usr->getCID().toBase32());
 
         if (!src.isSet(QueueItem::Source::FLAG_REMOVED)){
@@ -432,7 +439,7 @@ QStringList DownloadQueue::getSources(){
 }
 
 void DownloadQueue::removeTarget(const QString &target){
-    QueueManager *QM = QueueManager::getInstance();
+    QueueManager *QM = dcCtx().getQueueManager();
 
     try {
         QM->remove(target.toStdString());
@@ -441,11 +448,11 @@ void DownloadQueue::removeTarget(const QString &target){
 }
 
 void DownloadQueue::removeSource(const QString &cid, const QString &target){
-    QueueManager *QM = QueueManager::getInstance();
+    QueueManager *QM = dcCtx().getQueueManager();
     Q_D(DownloadQueue);
 
     if (d->sources.contains(target) && !cid.isEmpty()){
-        UserPtr user = ClientManager::getInstance()->findUser(CID(cid.toStdString()));
+        UserPtr user = dcCtx().getClientManager()->findUser(CID(cid.toStdString()));
 
         if (user){
             try {
@@ -459,7 +466,7 @@ void DownloadQueue::removeSource(const QString &cid, const QString &target){
 void DownloadQueue::loadList(){
     VarMap params;
 
-    const QueueItem::StringMap &ll = QueueManager::getInstance()->lockQueue();
+    const QueueItem::StringMap &ll = dcCtx().getQueueManager()->lockQueue();
 
     for (const auto &k : ll) {
         getParams(params, k.second);
@@ -467,7 +474,7 @@ void DownloadQueue::loadList(){
         addFile(params);
     }
 
-    QueueManager::getInstance()->unlockQueue();
+    dcCtx().getQueueManager()->unlockQueue();
 
     Q_D(DownloadQueue);
 
@@ -563,7 +570,7 @@ void DownloadQueue::slotContextMenu(const QPoint &){
     Q_D(DownloadQueue);
 
     Menu::Action act = d->menu->exec(d->sources, target, items.size() > 1);
-    QueueManager *QM = QueueManager::getInstance();
+    QueueManager *QM = dcCtx().getQueueManager();
     QVariant arg = d->menu->getArg();
     VarMap rmap;
 
@@ -590,7 +597,7 @@ void DownloadQueue::slotContextMenu(const QPoint &){
             QString magnet = "";
 
             for (const auto &i : items)
-                magnet += WulforUtil::getInstance()->makeMagnet(
+                magnet += qtCtx()->wulforUtil()->makeMagnet(
                         i->data(COLUMN_DOWNLOADQUEUE_NAME).toString().trimmed(),
                         i->data(COLUMN_DOWNLOADQUEUE_ESIZE).toLongLong(),
                         i->data(COLUMN_DOWNLOADQUEUE_TTH).toString()) + "\n";
@@ -606,7 +613,7 @@ void DownloadQueue::slotContextMenu(const QPoint &){
 
             for (const auto &i : items){
                 magnet += "[magnet=\"" +
-                    WulforUtil::getInstance()->makeMagnet(
+                    qtCtx()->wulforUtil()->makeMagnet(
                         i->data(COLUMN_DOWNLOADQUEUE_NAME).toString().trimmed(),
                         i->data(COLUMN_DOWNLOADQUEUE_ESIZE).toLongLong(),
                         i->data(COLUMN_DOWNLOADQUEUE_TTH).toString()) +
@@ -621,7 +628,7 @@ void DownloadQueue::slotContextMenu(const QPoint &){
         case Menu::MagnetInfo:
         {
             for (const auto &i : items){
-                const QString &&magnet = WulforUtil::getInstance()->makeMagnet(
+                const QString &&magnet = qtCtx()->wulforUtil()->makeMagnet(
                             i->data(COLUMN_DOWNLOADQUEUE_NAME).toString().trimmed(),
                             i->data(COLUMN_DOWNLOADQUEUE_ESIZE).toLongLong(),
                             i->data(COLUMN_DOWNLOADQUEUE_TTH).toString());
@@ -672,7 +679,7 @@ void DownloadQueue::slotContextMenu(const QPoint &){
             QString cid = getCID(rmap);
 
             if (d->sources.contains(target) && !cid.isEmpty()){
-                UserPtr user = ClientManager::getInstance()->findUser(CID(cid.toStdString()));
+                UserPtr user = dcCtx().getClientManager()->findUser(CID(cid.toStdString()));
 
                 if (user){
                     try {
@@ -690,7 +697,7 @@ void DownloadQueue::slotContextMenu(const QPoint &){
             auto it = rmap.constBegin();
             dcpp::CID cid(_tq(getCID(rmap)));
             QString nick = ((++it).key());
-            QList<QObject*> list = HubManager::getInstance()->getHubs();
+            QList<QObject*> list = qtCtx()->hubManager()->getHubs();
 
             for (const auto &obj : list){
                 HubFrame *fr = qobject_cast<HubFrame*>(obj);
@@ -713,7 +720,7 @@ void DownloadQueue::slotContextMenu(const QPoint &){
             QString cid = getCID(rmap);
 
             if (d->sources.contains(target) && !cid.isEmpty()){
-                UserPtr user = ClientManager::getInstance()->findUser(CID(cid.toStdString()));
+                UserPtr user = dcCtx().getClientManager()->findUser(CID(cid.toStdString()));
 
                 if (user){
                     try {
@@ -731,7 +738,7 @@ void DownloadQueue::slotContextMenu(const QPoint &){
             QString cid = getCID(rmap);
 
             if (d->sources.contains(target) && !cid.isEmpty()){
-                UserPtr user = ClientManager::getInstance()->findUser(CID(cid.toStdString()));
+                UserPtr user = dcCtx().getClientManager()->findUser(CID(cid.toStdString()));
 
                 if (user){
                     try {

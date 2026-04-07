@@ -1,6 +1,7 @@
 /*
  * Copyright (C) 2001-2012 Jacek Sieka, arnetheduck on gmail point com
  * Copyright (C) 2009-2019 EiskaltDC++ developers
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -25,12 +26,12 @@
 
 namespace dcpp {
 
-void LogManager::log(Area area, ParamMap& params) noexcept {
+void LogManager::log(Area area, ParamMap& params) {
     log(getPath(area, params), Util::formatParams(getSetting(area, FORMAT), params));
 }
 
 void LogManager::message(const string& msg) {
-    if(BOOLSETTING(LOG_SYSTEM)) {
+    if(CTX_BOOLSETTING(LOG_SYSTEM)) {
         ParamMap params;
         params["message"] = msg;
         log(SYSTEM, params);
@@ -52,7 +53,7 @@ LogManager::List LogManager::getLastLogs() {
 }
 
 string LogManager::getPath(Area area, ParamMap& params) const {
-    return SETTING(LOG_DIRECTORY) + Util::formatParams(getSetting(area, FILE), params, true);
+    return CTX_SETTING(LOG_DIRECTORY) + Util::formatParams(getSetting(area, FILE), params, true);
 }
 
 string LogManager::getPath(Area area) const {
@@ -61,14 +62,14 @@ string LogManager::getPath(Area area) const {
 }
 
 const string& LogManager::getSetting(int area, int sel) const {
-    return SettingsManager::getInstance()->get(static_cast<SettingsManager::StrSetting>(options[area][sel]), true);
+    return ctx().getSettingsManager()->get(static_cast<SettingsManager::StrSetting>(options[area][sel]), true);
 }
 
 void LogManager::saveSetting(int area, int sel, const string& setting) {
-    SettingsManager::getInstance()->set(static_cast<SettingsManager::StrSetting>(options[area][sel]), setting);
+    ctx().getSettingsManager()->set(static_cast<SettingsManager::StrSetting>(options[area][sel]), setting);
 }
 
-void LogManager::log(const string& area, const string& msg) noexcept {
+void LogManager::log(const string& area, const string& msg) {
     Lock l(cs);
     try {
         string aArea = Util::validateFileName(area);
@@ -81,7 +82,7 @@ void LogManager::log(const string& area, const string& msg) noexcept {
     }
 }
 
-LogManager::LogManager() {
+LogManager::LogManager(DCContext& ctx) : ContextAware(ctx) {
     options[UPLOAD][FILE]              = SettingsManager::LOG_FILE_UPLOAD;
     options[UPLOAD][FORMAT]            = SettingsManager::LOG_FORMAT_POST_UPLOAD;
     options[DOWNLOAD][FILE]            = SettingsManager::LOG_FILE_DOWNLOAD;

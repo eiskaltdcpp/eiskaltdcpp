@@ -21,7 +21,6 @@
 #include "TransferViewModel.h"
 
 #include "dcpp/stdinc.h"
-#include "dcpp/Singleton.h"
 #include "dcpp/ConnectionManager.h"
 #include "dcpp/DownloadManager.h"
 #include "dcpp/LogManager.h"
@@ -31,17 +30,19 @@
 
 class TransferViewModel;
 
+#include "QtContextAware.h"
+
 class TransferView : public QWidget,
                      private Ui::UITransferView,
-                     public dcpp::Singleton<TransferView>,
                      public dcpp::ConnectionManagerListener,
                      public dcpp::DownloadManagerListener,
                      public dcpp::QueueManagerListener,
-                     public dcpp::UploadManagerListener
+                     public dcpp::UploadManagerListener,
+        public QtContextAware
 {
     Q_OBJECT
 
-friend class dcpp::Singleton<TransferView>;
+friend class QtContext;
 
 typedef QVariantMap VarMap;
 
@@ -153,9 +154,12 @@ private Q_SLOTS:
     void slotHeaderMenu(const QPoint&);
     void downloadComplete(QString);
 
+public:
+    TransferView(dcpp::DCContext& ctx, QWidget* = nullptr);
+    ~TransferView() override;
+
+
 private:
-    TransferView(QWidget* = nullptr);
-    virtual ~TransferView();
 
     void load();
     void save();

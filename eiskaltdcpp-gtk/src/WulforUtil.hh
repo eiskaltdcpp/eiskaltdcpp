@@ -25,6 +25,8 @@
 #include <dcpp/CID.h>
 #include <dcpp/HintedUser.h>
 
+namespace dcpp { class DCContext; }
+
 class WulforUtil
 {
 public:
@@ -34,22 +36,22 @@ public:
     static std::vector<std::string> getLocalIPs();
 
     /** get nick */
-    static std::string getNicks(const std::string &cid, const std::string& hintUrl);
-    static std::string getNicks(const dcpp::CID& cid, const std::string& hintUrl);
-    static std::string getNicks(const dcpp::UserPtr& user, const std::string& hintUrl);
-    static std::string getNicks(const dcpp::HintedUser& user) {return getNicks(user.user->getCID(), user.hint);}
+    static std::string getNicks(dcpp::DCContext& ctx, const std::string &cid, const std::string& hintUrl);
+    static std::string getNicks(dcpp::DCContext& ctx, const dcpp::CID& cid, const std::string& hintUrl);
+    static std::string getNicks(dcpp::DCContext& ctx, const dcpp::UserPtr& user, const std::string& hintUrl);
+    static std::string getNicks(dcpp::DCContext& ctx, const dcpp::HintedUser& user) {return getNicks(ctx, user.user->getCID(), user.hint);}
     /** get hub name */
-    static std::string getHubNames(const std::string &cid, const std::string& hintUrl);
-    static std::string getHubNames(const dcpp::CID& cid, const std::string& hintUrl);
-    static std::string getHubNames(const dcpp::UserPtr& user, const std::string& hintUrl);
-    static std::string getHubNames(const dcpp::HintedUser& user) {return getHubNames(user.user->getCID(), user.hint);}
+    static std::string getHubNames(dcpp::DCContext& ctx, const std::string &cid, const std::string& hintUrl);
+    static std::string getHubNames(dcpp::DCContext& ctx, const dcpp::CID& cid, const std::string& hintUrl);
+    static std::string getHubNames(dcpp::DCContext& ctx, const dcpp::UserPtr& user, const std::string& hintUrl);
+    static std::string getHubNames(dcpp::DCContext& ctx, const dcpp::HintedUser& user) {return getHubNames(ctx, user.user->getCID(), user.hint);}
     /** get hub address */
-    static dcpp::StringList getHubAddress(const dcpp::CID& cid, const std::string& hintUrl);
-    static dcpp::StringList getHubAddress(const dcpp::UserPtr& user, const std::string& hintUrl);
+    static dcpp::StringList getHubAddress(dcpp::DCContext& ctx, const dcpp::CID& cid, const std::string& hintUrl);
+    static dcpp::StringList getHubAddress(dcpp::DCContext& ctx, const dcpp::UserPtr& user, const std::string& hintUrl);
 
     static std::string getTextFromMenu(GtkMenuItem *item);
     static std::vector<std::string>& getCharsets();
-    static void openURI(const std::string &uri);
+    static void openURI(dcpp::DCContext& ctx, const std::string &uri);
     static void openURItoApp(const std::string &cmd);
 
 #if GTK_CHECK_VERSION (3,0,0)

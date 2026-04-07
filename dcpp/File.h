@@ -67,37 +67,37 @@ public:
 
     // some ftruncate implementations can't extend files like SetEndOfFile,
     // not sure if the client code needs this...
-    int extendFile(int64_t len) noexcept;
+    int extendFile(int64_t len);
 
 #endif // !_WIN32
 
     File(const string& aFileName, int access, int mode);
 
-    bool isOpen() noexcept;
-    virtual void close() noexcept;
-    virtual int64_t getSize() noexcept;
+    bool isOpen();
+    virtual void close();
+    virtual int64_t getSize();
     virtual void setSize(int64_t newSize);
 
-    virtual int64_t getPos() noexcept;
-    virtual void setPos(int64_t pos) noexcept;
-    virtual void setEndPos(int64_t pos) noexcept;
-    virtual void movePos(int64_t pos) noexcept;
+    virtual int64_t getPos();
+    virtual void setPos(int64_t pos);
+    virtual void setEndPos(int64_t pos);
+    virtual void movePos(int64_t pos);
     virtual void setEOF();
 
     virtual size_t read(void* buf, size_t& len);
     virtual size_t write(const void* buf, size_t len);
     virtual size_t flush();
 
-    uint32_t getLastModified() noexcept;
+    uint32_t getLastModified();
 
     static void copyFile(const string& src, const string& target);
     static void renameFile(const string& source, const string& target);
-    static void deleteFile(const string& aFileName) noexcept;
+    static void deleteFile(const string& aFileName);
 
-    static int64_t getSize(const string& aFileName) noexcept;
+    static int64_t getSize(const string& aFileName);
 
-    static void ensureDirectory(const string& aFile) noexcept;
-    static bool isAbsolute(const string& path) noexcept;
+    static void ensureDirectory(const string& aFile);
+    static bool isAbsolute(const string& path);
 
     virtual ~File() { File::close(); }
 

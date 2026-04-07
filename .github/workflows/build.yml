@@ -1,0 +1,1254 @@
+name: Build
+
+on:
+  push:
+    branches: [ master ]
+    tags: [ 'v*' ]
+  pull_request:
+    branches: [ master ]
+
+permissions:
+  actions: write      # vcpkg binary caching via x-gha
+  contents: write     # GitHub Releases
+
+jobs:
+  # ─── Version Info ──────────────────────────────────────────────────
+
+  prepare:
+    name: Prepare version info
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.info.outputs.version }}
+      short_sha: ${{ steps.info.outputs.short_sha }}
+      artifact_prefix: ${{ steps.info.outputs.artifact_prefix }}
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        sparse-checkout: CMakeLists.txt
+        sparse-checkout-cone-mode: false
+    - name: Compute version and artifact prefix
+      id: info
+      run: |
+        version=$(sed -n 's/^set (APP_VERSION "\([^"]*\)").*/\1/p' CMakeLists.txt)
+        short_sha="${GITHUB_SHA::7}"
+        if [[ "$GITHUB_REF" == refs/tags/v* ]]; then
+          dev_suffix=""
+        else
+          dev_suffix="+dev"
+        fi
+        echo "version=${version}" >> "$GITHUB_OUTPUT"
+        echo "short_sha=${short_sha}" >> "$GITHUB_OUTPUT"
+        echo "artifact_prefix=eiskaltdcpp-${version}${dev_suffix}-${short_sha}" >> "$GITHUB_OUTPUT"
+
+  # ─── Build & Test ────────────────────────────────────────────────────
+
+  build-linux-qt6:
+    name: Linux / Qt6 (${{ matrix.build_type }})
+    needs: prepare
+    runs-on: ubuntu-24.04
+    env:
+      AP: ${{ needs.prepare.outputs.artifact_prefix }}
+    strategy:
+      matrix:
+        build_type: [Debug, Release]
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Install dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y --no-install-recommends \
+          cmake ninja-build g++ gettext \
+          libbz2-dev zlib1g-dev libssl-dev \
+          libminiupnpc-dev libidn2-dev libpcre2-dev \
+          liblua5.4-dev libaspell-dev \
+          qt6-base-dev qt6-tools-dev qt6-tools-dev-tools \
+          qt6-multimedia-dev qt6-declarative-dev \
+          qt6-l10n-tools libqt6svg6-dev \
+          libgl-dev libdbus-1-dev libsqlite3-dev
+
+    - name: Configure
+      run: |
+        cmake -B build -G Ninja \
+          -DCMAKE_BUILD_TYPE=${{ matrix.build_type }} \
+          -DCMAKE_INSTALL_PREFIX=/usr \
+          -DUSE_QT6=ON \
+          -DUSE_GTK3=OFF \
+          -DUSE_JS=ON \
+          -DUSE_QT_QML=OFF \
+          -DUSE_MINIUPNP=ON \
+          -DWITH_DHT=ON \
+          -DUSE_IDN2=ON \
+          -DLUA_SCRIPT=ON \
+          -DPERL_REGEX=ON \
+          -DUSE_ASPELL=ON \
+          -DDBUS_NOTIFY=ON \
+          -DWITH_EMOTICONS=ON \
+          -DWITH_SOUNDS=ON \
+          -DBUILD_TESTS=ON
+
+    - name: Build
+      run: cmake --build build
+
+    - name: Test
+      run: ctest --test-dir build --output-on-failure
+
+    - name: Install (Debug)
+      if: matrix.build_type == 'Debug'
+      run: DESTDIR="$PWD/dist" cmake --install build
+
+    - name: Upload build tree
+      uses: actions/upload-artifact@v4
+      with:
+        name: ${{ env.AP }}-linux-x64-qt6-${{ matrix.build_type }}-buildtree
+        path: build/
+        retention-days: 1
+
+    - name: Upload distribution (Debug)
+      if: matrix.build_type == 'Debug'
+      uses: actions/upload-artifact@v4
+      with:
+        name: ${{ env.AP }}-linux-x64-qt6-Debug
+        path: dist/
+        retention-days: 3
+
+  build-linux-gtk3:
+    name: Linux / GTK3 (${{ matrix.build_type }})
+    needs: prepare
+    runs-on: ubuntu-24.04
+    env:
+      AP: ${{ needs.prepare.outputs.artifact_prefix }}
+    strategy:
+      matrix:
+        build_type: [Debug, Release]
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Install dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y --no-install-recommends \
+          cmake ninja-build g++ gettext \
+          libbz2-dev zlib1g-dev libssl-dev \
+          libminiupnpc-dev libidn2-dev libpcre2-dev \
+          liblua5.4-dev libaspell-dev \
+          libgtk-3-dev libnotify-dev libcanberra-dev libcanberra-gtk3-dev \
+          libx11-dev libgl-dev libsqlite3-dev
+
+    - name: Configure
+      run: |
+        cmake -B build -G Ninja \
+          -DCMAKE_BUILD_TYPE=${{ matrix.build_type }} \
+          -DCMAKE_INSTALL_PREFIX=/usr \
+          -DUSE_QT6=OFF \
+          -DUSE_GTK3=ON \
+          -DUSE_MINIUPNP=ON \
+          -DWITH_DHT=ON \
+          -DUSE_IDN2=ON \
+          -DLUA_SCRIPT=ON \
+          -DPERL_REGEX=ON \
+          -DUSE_ASPELL=ON \
+          -DUSE_LIBNOTIFY=ON \
+          -DUSE_LIBCANBERRA=ON \
+          -DWITH_EMOTICONS=ON \
+          -DWITH_SOUNDS=ON \
+          -DBUILD_TESTS=ON
+
+    - name: Build
+      run: cmake --build build
+
+    - name: Test
+      run: ctest --test-dir build --output-on-failure
+
+    - name: Install (Debug)
+      if: matrix.build_type == 'Debug'
+      run: DESTDIR="$PWD/dist" cmake --install build
+
+    - name: Upload build tree
+      uses: actions/upload-artifact@v4
+      with:
+        name: ${{ env.AP }}-linux-x64-gtk3-${{ matrix.build_type }}-buildtree
+        path: build/
+        retention-days: 1
+
+    - name: Upload distribution (Debug)
+      if: matrix.build_type == 'Debug'
+      uses: actions/upload-artifact@v4
+      with:
+        name: ${{ env.AP }}-linux-x64-gtk3-Debug
+        path: dist/
+        retention-days: 3
+
+  build-windows-qt6:
+    name: Windows / Qt6 / MSVC (${{ matrix.build_type }})
+    needs: prepare
+    runs-on: windows-latest
+
+    strategy:
+      matrix:
+        build_type: [Debug, Release]
+
+    env:
+      AP: ${{ needs.prepare.outputs.artifact_prefix }}
+      VCPKG_DEFAULT_TRIPLET: x64-windows
+      VCPKG_BINARY_SOURCES: 'clear;x-gha,readwrite'
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Export GitHub Actions cache variables
+      uses: actions/github-script@v7
+      with:
+        script: |
+          core.exportVariable('ACTIONS_CACHE_URL', process.env.ACTIONS_CACHE_URL || '');
+          core.exportVariable('ACTIONS_RUNTIME_TOKEN', process.env.ACTIONS_RUNTIME_TOKEN || '');
+
+    - name: Set up MSVC
+      uses: ilammy/msvc-dev-cmd@v1
+      with:
+        arch: x64
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.12'
+
+    - name: Install Qt6
+      uses: jurplel/install-qt-action@v4
+      with:
+        version: '6.8.3'
+        arch: 'win64_msvc2022_64'
+        modules: 'qtmultimedia'
+        cache: true
+
+    - name: Install vcpkg dependencies
+      run: |
+        vcpkg install --triplet x64-windows `
+          openssl bzip2 zlib miniupnpc pcre2 lua `
+          libiconv libidn2 gettext
+
+    - name: Install gettext tools (MSYS2)
+      shell: pwsh
+      run: |
+        # vcpkg provides libintl for linking; MSYS2 provides the CLI tools
+        # (xgettext, msgfmt, msgmerge, etc.) needed for i18n processing
+        C:\msys64\usr\bin\pacman.exe -S --noconfirm --needed gettext
+
+    - name: Add vcpkg tools to PATH
+      shell: pwsh
+      run: |
+        $toolsBase = "$env:VCPKG_INSTALLATION_ROOT/installed/x64-windows/tools"
+        if (Test-Path $toolsBase) {
+          Get-ChildItem -Path $toolsBase -Directory -Recurse |
+            Where-Object { Get-ChildItem $_.FullName -Filter "*.exe" -ErrorAction SilentlyContinue } |
+            ForEach-Object { echo $_.FullName >> $env:GITHUB_PATH }
+        }
+        echo "$env:VCPKG_INSTALLATION_ROOT/installed/x64-windows/bin" >> $env:GITHUB_PATH
+
+    - name: Configure
+      run: |
+        $vcpkgBase = "$env:VCPKG_INSTALLATION_ROOT/installed/x64-windows"
+        cmake -B build -G Ninja `
+          -DCMAKE_BUILD_TYPE=${{ matrix.build_type }} `
+          -DCMAKE_INSTALL_PREFIX="$PWD/dist" `
+          -DCMAKE_TOOLCHAIN_FILE="$env:VCPKG_INSTALLATION_ROOT/scripts/buildsystems/vcpkg.cmake" `
+          -DGETTEXT_SEARCH_PATH="$vcpkgBase" `
+          -DUSE_QT6=ON `
+          -DUSE_GTK3=OFF `
+          -DUSE_JS=ON `
+          -DUSE_QT_QML=OFF `
+          -DUSE_MINIUPNP=ON `
+          -DWITH_DHT=ON `
+          -DUSE_IDN2=ON `
+          -DLUA_SCRIPT=ON `
+          -DPERL_REGEX=ON `
+          -DUSE_ASPELL=OFF `
+          -DDBUS_NOTIFY=OFF `
+          -DWITH_EMOTICONS=ON `
+          -DWITH_SOUNDS=ON `
+          -DWITH_DEV_FILES=OFF `
+          -DBUILD_TESTS=ON `
+          -DOPENSSL_MSVC=ON
+
+    - name: Build
+      run: cmake --build build
+
+    - name: Test
+      run: ctest --test-dir build --output-on-failure
+
+    - name: Install
+      shell: pwsh
+      run: cmake --install build --config ${{ matrix.build_type }}
+
+    - name: Deploy Qt DLLs
+      shell: pwsh
+      run: |
+        $deployFlag = if ('${{ matrix.build_type }}' -eq 'Debug') { '--debug' } else { '--release' }
+        $exePath = Get-ChildItem dist/*.exe | Select-Object -First 1
+        if (-not $exePath) { Write-Error "No exe found in dist/"; exit 1 }
+        Write-Host "Running windeployqt on $($exePath.FullName)"
+        # Deploy Qt DLLs and plugins.  --no-compiler-runtime prevents adding
+        # the VC++ Redistributable installer; the dumpbin step below copies the
+        # actual runtime DLLs (msvcp140, vcruntime140, etc.) from System32.
+        windeployqt $deployFlag --no-translations --no-compiler-runtime $exePath.FullName
+
+        # Create qt.conf so Qt finds plugins relative to the exe directory.
+        # Without this, Qt falls back to the hardcoded install prefix from
+        # the CI build machine, which doesn't exist on the user's machine.
+        @"
+        [Paths]
+        Plugins = .
+        "@ -replace '^\s+','' | Set-Content "$($exePath.DirectoryName)/qt.conf" -Encoding UTF8
+
+    - name: Resolve and copy DLL dependencies (dumpbin)
+      shell: pwsh
+      run: |
+        $installDir = "dist"
+        $vcpkgBase = "$env:VCPKG_INSTALLATION_ROOT/installed/x64-windows"
+        $searchPaths = if ('${{ matrix.build_type }}' -eq 'Debug') {
+          @("$vcpkgBase/debug/bin", "$vcpkgBase/bin")
+        } else {
+          @("$vcpkgBase/bin")
+        }
+
+        $vcRuntimeRe = '^(msvcp\d|vcruntime\d|concrt\d|ucrtbase|vcomp\d)'
+
+        $visited = [System.Collections.Generic.HashSet[string]]::new(
+                     [System.StringComparer]::OrdinalIgnoreCase)
+        $toCopy  = [ordered]@{}
+        $queue   = [System.Collections.Queue]::new()
+
+        # Seed with all exe and dll files in the install tree
+        Get-ChildItem $installDir -Recurse -Include *.exe,*.dll -ErrorAction SilentlyContinue |
+          ForEach-Object { $queue.Enqueue($_.FullName) }
+
+        while ($queue.Count -gt 0) {
+          $file     = $queue.Dequeue()
+          $fileName = [IO.Path]::GetFileName($file)
+          if (-not $visited.Add($fileName)) { continue }
+
+          $deps = & dumpbin /nologo /dependents $file 2>&1 |
+                  Select-String '^\s+(\S+\.dll)\s*$' |
+                  ForEach-Object { $_.Matches.Groups[1].Value }
+
+          foreach ($dep in $deps) {
+            if ($visited.Contains($dep))                                    { continue }
+            if ($dep -like 'api-ms-*' -or $dep -like 'ext-ms-*')           { continue }
+
+            # Already in install dir?
+            $inInstall = Get-ChildItem "$installDir/$dep" -ErrorAction SilentlyContinue
+            if ($inInstall) {
+              $queue.Enqueue($inInstall.FullName)
+              continue
+            }
+
+            # Search vcpkg
+            $found = $false
+            foreach ($sp in $searchPaths) {
+              $candidate = Join-Path $sp $dep
+              if (Test-Path $candidate) {
+                $toCopy[$dep] = $candidate
+                $queue.Enqueue($candidate)
+                $found = $true
+                break
+              }
+            }
+            if ($found) { continue }
+
+            # VC runtime from System32
+            if ($dep -match $vcRuntimeRe) {
+              $sys32 = Join-Path $env:SystemRoot "System32/$dep"
+              if (Test-Path $sys32) { $toCopy[$dep] = $sys32 }
+            }
+          }
+        }
+
+        foreach ($entry in $toCopy.GetEnumerator()) {
+          Copy-Item $entry.Value "$installDir/"
+          Write-Host "  dumpbin: $($entry.Key)  <-  $($entry.Value)"
+        }
+
+        Write-Host "`n=== Install directory contents ==="
+        Get-ChildItem $installDir -Recurse | ForEach-Object {
+          $rel = $_.FullName.Substring((Resolve-Path $installDir).Path.Length + 1)
+          Write-Host "  $rel"
+        }
+
+    - name: Install NSIS (Release only)
+      if: matrix.build_type == 'Release'
+      shell: pwsh
+      run: |
+        $maxRetries = 3
+        for ($i = 1; $i -le $maxRetries; $i++) {
+          Write-Host "Attempting to install NSIS (attempt $i/$maxRetries)..."
+          choco install nsis -y --no-progress
+          if ($LASTEXITCODE -eq 0) { break }
+          if ($i -lt $maxRetries) {
+            Write-Host "Chocolatey install failed (exit $LASTEXITCODE), retrying in 30s..."
+            Start-Sleep -Seconds 30
+          } else {
+            throw "Failed to install NSIS after $maxRetries attempts"
+          }
+        }
+        $nsisDir = "C:\Program Files (x86)\NSIS"
+        echo "$nsisDir" >> $env:GITHUB_PATH
+        Write-Host "NSIS installed: $(& "$nsisDir\makensis.exe" /VERSION 2>&1)"
+
+    - name: Build NSIS installer (Release only)
+      if: matrix.build_type == 'Release'
+      shell: pwsh
+      run: |
+        New-Item -ItemType Directory -Force -Path install-nsis
+        $version = (Select-String -Path CMakeLists.txt -Pattern 'set \(APP_VERSION "([^"]+)"' |
+                    ForEach-Object { $_.Matches.Groups[1].Value }) | Select-Object -First 1
+        cpack -G NSIS `
+          -D "CPACK_PACKAGE_NAME=EiskaltDC++" `
+          -D "CPACK_PACKAGE_VERSION=$version" `
+          -D "CPACK_PACKAGE_FILE_NAME=EiskaltDC++-${version}-win64" `
+          -D "CPACK_PACKAGE_VENDOR=EiskaltDC++ developers" `
+          -D "CPACK_PACKAGE_DESCRIPTION_SUMMARY=EiskaltDC++ - Direct Connect and ADC client" `
+          -D "CPACK_PACKAGE_DESCRIPTION=A cross-platform program that uses the Direct Connect and ADC protocols." `
+          -D "CPACK_RESOURCE_FILE_LICENSE=$PWD/COPYING" `
+          -D "CPACK_NSIS_DISPLAY_NAME=EiskaltDC++" `
+          -D "CPACK_NSIS_PACKAGE_NAME=EiskaltDC++" `
+          -D "CPACK_NSIS_INSTALL_ROOT=`$PROGRAMFILES64" `
+          -D "CPACK_NSIS_ENABLE_UNINSTALL_BEFORE_INSTALL=ON" `
+          -D "CPACK_INSTALLED_DIRECTORIES=$PWD/dist;." `
+          -D "CPACK_PACKAGE_DIRECTORY=$PWD/install-nsis" `
+          --verbose
+
+    - name: Collect PDB files (Debug only)
+      if: matrix.build_type == 'Debug'
+      shell: pwsh
+      run: |
+        # MSVC generates .pdb files alongside compiled binaries in the build
+        # tree but cmake --install does not copy them.  Collect PDBs that
+        # match our own exe/dll names into the dist/ directory so they are
+        # included in the debug artifact for symbol-level debugging.
+        $ownBinaries = Get-ChildItem dist -Filter *.exe |
+                       ForEach-Object { $_.BaseName }
+        # Also grab the shared library PDB (eiskaltdcpp.pdb / dcpp.pdb)
+        $ownBinaries += Get-ChildItem dist -Filter *.dll |
+                        Where-Object { $_.Name -like 'eiskaltdcpp*' -or $_.Name -like 'dcpp*' } |
+                        ForEach-Object { $_.BaseName }
+        $found = 0
+        foreach ($name in $ownBinaries) {
+          $pdbs = Get-ChildItem build -Recurse -Filter "$name.pdb" -ErrorAction SilentlyContinue
+          foreach ($pdb in $pdbs) {
+            Copy-Item $pdb.FullName dist/
+            Write-Host "  PDB: $($pdb.Name)  <-  $($pdb.FullName)"
+            $found++
+          }
+        }
+        # Also grab any PDB generated by the linker for our targets
+        Get-ChildItem build -Recurse -Filter '*.pdb' -ErrorAction SilentlyContinue |
+          Where-Object { $_.DirectoryName -notlike '*_deps*' -and $_.DirectoryName -notlike '*tests*' -and $_.DirectoryName -notlike '*CMakeFiles*\CompilerIdCXX*' } |
+          ForEach-Object {
+            $dest = "dist/$($_.Name)"
+            if (-not (Test-Path $dest)) {
+              Copy-Item $_.FullName $dest
+              Write-Host "  PDB: $($_.Name)  <-  $($_.FullName)"
+              $found++
+            }
+          }
+        Write-Host "`nCollected $found PDB file(s)"
+
+    - name: Upload distribution
+      uses: actions/upload-artifact@v4
+      with:
+        name: ${{ env.AP }}-windows-x64-qt6-${{ matrix.build_type }}
+        path: dist/
+
+    - name: Upload NSIS installer
+      if: matrix.build_type == 'Release'
+      uses: actions/upload-artifact@v4
+      with:
+        name: ${{ env.AP }}-windows-x64-qt6-nsis-installer
+        path: install-nsis/*.exe
+
+  build-windows-gtk3:
+    name: Windows / GTK3 / MSYS2 (${{ matrix.build_type }})
+    needs: prepare
+    runs-on: windows-latest
+
+    strategy:
+      matrix:
+        build_type: [Debug, Release]
+
+    env:
+      AP: ${{ needs.prepare.outputs.artifact_prefix }}
+
+    defaults:
+      run:
+        shell: msys2 {0}
+
+    steps:
+    - name: Set up MSYS2
+      uses: msys2/setup-msys2@v2
+      with:
+        msystem: UCRT64
+        update: true
+        install: >-
+          mingw-w64-ucrt-x86_64-gcc
+          mingw-w64-ucrt-x86_64-cmake
+          mingw-w64-ucrt-x86_64-ninja
+          mingw-w64-ucrt-x86_64-pkg-config
+          mingw-w64-ucrt-x86_64-gtk3
+          mingw-w64-ucrt-x86_64-openssl
+          mingw-w64-ucrt-x86_64-bzip2
+          mingw-w64-ucrt-x86_64-zlib
+          mingw-w64-ucrt-x86_64-miniupnpc
+          mingw-w64-ucrt-x86_64-pcre2
+          mingw-w64-ucrt-x86_64-lua
+          mingw-w64-ucrt-x86_64-libidn2
+          mingw-w64-ucrt-x86_64-gettext-tools
+          mingw-w64-ucrt-x86_64-gettext-runtime
+          mingw-w64-ucrt-x86_64-libiconv
+          mingw-w64-ucrt-x86_64-libnotify
+
+    - uses: actions/checkout@v4
+
+    - name: Configure
+      run: |
+        cmake -B build -G Ninja \
+          -DCMAKE_BUILD_TYPE=${{ matrix.build_type }} \
+          -DCMAKE_INSTALL_PREFIX="$PWD/dist" \
+          -DUSE_QT6=OFF \
+          -DUSE_GTK3=ON \
+          -DUSE_MINIUPNP=ON \
+          -DWITH_DHT=ON \
+          -DUSE_IDN2=ON \
+          -DLUA_SCRIPT=ON \
+          -DPERL_REGEX=ON \
+          -DUSE_ASPELL=OFF \
+          -DUSE_LIBNOTIFY=ON \
+          -DUSE_LIBCANBERRA=OFF \
+          -DWITH_EMOTICONS=ON \
+          -DWITH_SOUNDS=ON \
+          -DWITH_DEV_FILES=OFF \
+          -DBUILD_TESTS=ON
+
+    - name: Build
+      run: cmake --build build
+
+    - name: Test
+      run: ctest --test-dir build --output-on-failure
+
+    - name: Install
+      run: cmake --install build --config ${{ matrix.build_type }}
+
+    - name: Bundle DLLs and GTK3 runtime
+      run: |
+        # Copy DLL dependencies using ldd
+        ldd dist/eiskaltdcpp-gtk.exe \
+          | grep -i '/ucrt64/' \
+          | awk '{print $3}' \
+          | while read -r dll; do
+              cp "$dll" dist/ 2>/dev/null || true
+            done
+
+        echo "=== Bundled DLLs ==="
+        ls -1 dist/*.dll | wc -l
+
+        # Bundle GTK3 runtime data
+        mkdir -p dist/lib
+        cp -r /ucrt64/lib/gdk-pixbuf-2.0 dist/lib/ 2>/dev/null || true
+        LOADERS_DIR="dist/lib/gdk-pixbuf-2.0/2.10.0/loaders"
+        if [ -d "$LOADERS_DIR" ]; then
+          # Bundle DLL dependencies of pixbuf loader modules (e.g. librsvg for SVG)
+          for loader_dll in "$LOADERS_DIR"/*.dll; do
+            ldd "$loader_dll" 2>/dev/null \
+              | grep -i '/ucrt64/' \
+              | awk '{print $3}' \
+              | while read -r dep; do
+                  cp -n "$dep" dist/ 2>/dev/null || true
+                done
+          done
+          # Generate loaders.cache — the runtime fixLoadersCacheWin32() in
+          # wulfor.cc rewrites all DLL paths to absolute, so the exact format
+          # from gdk-pixbuf-query-loaders doesn't matter much.  We still strip
+          # paths to just "loaders/filename.dll" for readability.
+          /ucrt64/bin/gdk-pixbuf-query-loaders.exe "$LOADERS_DIR"/*.dll > \
+            "dist/lib/gdk-pixbuf-2.0/2.10.0/loaders.cache" 2>/dev/null || true
+          # Handle both forward-slash and backslash paths from query-loaders
+          sed -i -E 's|"[^"]*[/\\]loaders[/\\]([^"]+\.dll)"|"loaders/\1"|g' \
+            "dist/lib/gdk-pixbuf-2.0/2.10.0/loaders.cache" 2>/dev/null || true
+        fi
+        mkdir -p dist/share/glib-2.0
+        cp -r /ucrt64/share/glib-2.0/schemas dist/share/glib-2.0/ 2>/dev/null || true
+        /ucrt64/bin/glib-compile-schemas dist/share/glib-2.0/schemas/ 2>/dev/null || true
+        mkdir -p dist/share/icons
+        cp -r /ucrt64/share/icons/Adwaita dist/share/icons/ 2>/dev/null || true
+        cp -r /ucrt64/share/icons/hicolor dist/share/icons/ 2>/dev/null || true
+
+        # Create launcher script — the exe sets its own GTK env vars via
+        # setupGtkEnvironmentWin32(), so the script just needs to start it.
+        printf '%s\r\n' \
+          '@echo off' \
+          'start "" "%~dp0eiskaltdcpp-gtk.exe" %*' \
+          > dist/eiskaltdcpp-gtk.cmd
+
+        echo "=== Install directory ==="
+        find dist -type f | sort | head -100
+
+    - name: Upload distribution
+      uses: actions/upload-artifact@v4
+      with:
+        name: ${{ env.AP }}-windows-x64-gtk3-${{ matrix.build_type }}
+        path: dist/
+
+  build-macos-qt6:
+    name: macOS / Qt6 (${{ matrix.arch }}, ${{ matrix.build_type }})
+    needs: prepare
+    runs-on: ${{ matrix.runner }}
+    env:
+      AP: ${{ needs.prepare.outputs.artifact_prefix }}
+    strategy:
+      matrix:
+        arch: [arm64]
+        build_type: [Debug, Release]
+        include:
+          - arch: arm64
+            runner: macos-14
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Install dependencies
+      run: |
+        brew update
+        brew install cmake ninja gettext openssl@3 bzip2 zlib \
+          miniupnpc libidn2 pcre2 lua aspell qt@6
+
+    - name: Configure
+      run: |
+        export HOMEBREW="$(brew --prefix)"
+        cmake -B build -G Ninja \
+          -DCMAKE_BUILD_TYPE=${{ matrix.build_type }} \
+          -DCMAKE_INSTALL_PREFIX="$PWD/dist" \
+          -DCMAKE_PREFIX_PATH="$HOMEBREW/opt/qt@6;$HOMEBREW/opt/openssl@3;$HOMEBREW/opt/gettext;$HOMEBREW" \
+          -DCMAKE_OSX_DEPLOYMENT_TARGET=13.0 \
+          -DUSE_QT6=ON \
+          -DUSE_GTK3=OFF \
+          -DUSE_JS=ON \
+          -DUSE_QT_QML=OFF \
+          -DUSE_QT_SQLITE=ON \
+          -DUSE_MINIUPNP=ON \
+          -DWITH_DHT=ON \
+          -DUSE_IDN2=ON \
+          -DLUA_SCRIPT=ON \
+          -DPERL_REGEX=ON \
+          -DUSE_ASPELL=ON \
+          -DDBUS_NOTIFY=OFF \
+          -DWITH_EMOTICONS=ON \
+          -DWITH_SOUNDS=ON \
+          -DBUILD_TESTS=ON
+
+    - name: Build
+      run: cmake --build build
+
+    - name: Test
+      run: ctest --test-dir build --output-on-failure
+
+    - name: Install
+      run: cmake --install build
+
+    - name: Upload build tree
+      uses: actions/upload-artifact@v4
+      with:
+        name: ${{ env.AP }}-macos-${{ matrix.arch }}-qt6-${{ matrix.build_type }}-buildtree
+        path: build/
+        retention-days: 1
+
+    - name: Upload distribution
+      uses: actions/upload-artifact@v4
+      with:
+        name: ${{ env.AP }}-macos-${{ matrix.arch }}-qt6-${{ matrix.build_type }}
+        path: dist/
+        retention-days: 3
+
+  build-macos-gtk3:
+    name: macOS / GTK3 (${{ matrix.arch }}, ${{ matrix.build_type }})
+    needs: prepare
+    runs-on: ${{ matrix.runner }}
+    env:
+      AP: ${{ needs.prepare.outputs.artifact_prefix }}
+    strategy:
+      matrix:
+        arch: [arm64]
+        build_type: [Debug, Release]
+        include:
+          - arch: arm64
+            runner: macos-14
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Install dependencies
+      run: |
+        brew update
+        brew install cmake ninja gettext openssl@3 bzip2 zlib \
+          miniupnpc libidn2 pcre2 lua aspell \
+          gtk+3 adwaita-icon-theme librsvg
+
+    - name: Configure
+      run: |
+        export HOMEBREW="$(brew --prefix)"
+        export PKG_CONFIG_PATH="$HOMEBREW/lib/pkgconfig:$HOMEBREW/share/pkgconfig:${PKG_CONFIG_PATH:-}"
+        cmake -B build -G Ninja \
+          -DCMAKE_BUILD_TYPE=${{ matrix.build_type }} \
+          -DCMAKE_INSTALL_PREFIX="$PWD/dist" \
+          -DCMAKE_PREFIX_PATH="$HOMEBREW/opt/openssl@3;$HOMEBREW/opt/gettext;$HOMEBREW" \
+          -DCMAKE_OSX_DEPLOYMENT_TARGET=13.0 \
+          -DUSE_QT6=OFF \
+          -DUSE_GTK3=ON \
+          -DUSE_MINIUPNP=ON \
+          -DWITH_DHT=ON \
+          -DUSE_IDN2=ON \
+          -DLUA_SCRIPT=ON \
+          -DPERL_REGEX=ON \
+          -DUSE_ASPELL=ON \
+          -DUSE_LIBNOTIFY=OFF \
+          -DUSE_LIBCANBERRA=OFF \
+          -DWITH_EMOTICONS=ON \
+          -DWITH_SOUNDS=ON \
+          -DBUILD_TESTS=ON
+
+    - name: Build
+      run: cmake --build build
+
+    - name: Test
+      run: ctest --test-dir build --output-on-failure
+
+    - name: Install
+      run: cmake --install build
+
+    - name: Upload build tree
+      uses: actions/upload-artifact@v4
+      with:
+        name: ${{ env.AP }}-macos-${{ matrix.arch }}-gtk3-${{ matrix.build_type }}-buildtree
+        path: build/
+        retention-days: 1
+
+    - name: Upload distribution
+      uses: actions/upload-artifact@v4
+      with:
+        name: ${{ env.AP }}-macos-${{ matrix.arch }}-gtk3-${{ matrix.build_type }}
+        path: dist/
+        retention-days: 3
+
+  test-coverage:
+    name: Test Coverage
+    runs-on: ubuntu-24.04
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Install dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y --no-install-recommends \
+          cmake ninja-build g++ gettext lcov \
+          libbz2-dev zlib1g-dev libssl-dev \
+          libminiupnpc-dev libidn2-dev libpcre2-dev \
+          liblua5.4-dev libaspell-dev \
+          qt6-base-dev qt6-tools-dev qt6-tools-dev-tools \
+          qt6-multimedia-dev qt6-declarative-dev \
+          qt6-l10n-tools libqt6svg6-dev \
+          libgl-dev libdbus-1-dev libsqlite3-dev
+
+    - name: Configure with coverage
+      run: |
+        cmake -B build -G Ninja \
+          -DCMAKE_BUILD_TYPE=Debug \
+          -DCMAKE_C_FLAGS="--coverage" \
+          -DCMAKE_CXX_FLAGS="--coverage" \
+          -DCMAKE_EXE_LINKER_FLAGS="--coverage" \
+          -DUSE_QT6=ON \
+          -DUSE_GTK3=OFF \
+          -DUSE_JS=ON \
+          -DUSE_QT_QML=OFF \
+          -DUSE_MINIUPNP=ON \
+          -DWITH_DHT=ON \
+          -DUSE_IDN2=ON \
+          -DLUA_SCRIPT=ON \
+          -DPERL_REGEX=ON \
+          -DUSE_ASPELL=ON \
+          -DDBUS_NOTIFY=ON \
+          -DWITH_EMOTICONS=ON \
+          -DWITH_SOUNDS=ON \
+          -DBUILD_TESTS=ON
+
+    - name: Build
+      run: cmake --build build
+
+    - name: Run tests
+      run: ctest --test-dir build --output-on-failure
+
+    - name: Collect coverage
+      run: |
+        # Capture coverage data (ignore gcov quirks with system headers)
+        lcov --capture --directory build --output-file coverage.info \
+          --rc lcov_branch_coverage=1 \
+          --ignore-errors mismatch,gcov,inconsistent,source
+
+        # Remove external/system headers, Catch2 sources, and test code from report
+        lcov --remove coverage.info \
+          '/usr/*' \
+          '*/build/_deps/*' \
+          '*/build/src/catch2/*' \
+          '*/tests/*' \
+          --output-file coverage.info \
+          --rc lcov_branch_coverage=1 \
+          --ignore-errors unused
+
+        # Summary
+        lcov --list coverage.info --rc lcov_branch_coverage=1
+
+    - name: Generate HTML report
+      run: |
+        genhtml coverage.info \
+          --output-directory coverage-report \
+          --rc lcov_branch_coverage=1 \
+          --ignore-errors unmapped,source \
+          --title "EiskaltDC++ Test Coverage" \
+          --legend
+
+    - name: Upload coverage report
+      uses: actions/upload-artifact@v4
+      with:
+        name: coverage-report
+        path: coverage-report/
+
+  # ─── Linux Packaging (depends on successful builds) ───────────────
+
+  package-linux-qt6:
+    name: Package Linux Qt6
+    runs-on: ubuntu-24.04
+    needs: [prepare, build-linux-qt6]
+    env:
+      AP: ${{ needs.prepare.outputs.artifact_prefix }}
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Install dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y --no-install-recommends \
+          cmake ninja-build g++ gettext \
+          libbz2-dev zlib1g-dev libssl-dev \
+          libminiupnpc-dev libidn2-dev libpcre2-dev \
+          liblua5.4-dev libaspell-dev \
+          qt6-base-dev qt6-tools-dev qt6-tools-dev-tools \
+          qt6-multimedia-dev qt6-declarative-dev \
+          qt6-l10n-tools libqt6svg6-dev \
+          libgl-dev libdbus-1-dev libsqlite3-dev
+
+    - name: Download build tree
+      uses: actions/download-artifact@v4
+      with:
+        name: ${{ env.AP }}-linux-x64-qt6-Release-buildtree
+        path: build/
+
+    - name: Re-run CMake configure (restore install metadata)
+      run: |
+        cmake -B build -G Ninja \
+          -DCMAKE_BUILD_TYPE=Release \
+          -DCMAKE_INSTALL_PREFIX=/usr \
+          -DUSE_QT6=ON \
+          -DUSE_GTK3=OFF \
+          -DUSE_JS=ON \
+          -DUSE_QT_QML=OFF \
+          -DUSE_MINIUPNP=ON \
+          -DWITH_DHT=ON \
+          -DUSE_IDN2=ON \
+          -DLUA_SCRIPT=ON \
+          -DPERL_REGEX=ON \
+          -DUSE_ASPELL=ON \
+          -DDBUS_NOTIFY=ON \
+          -DWITH_EMOTICONS=ON \
+          -DWITH_SOUNDS=ON \
+          -DBUILD_TESTS=OFF
+
+    - name: Build .deb package
+      run: |
+        DESTDIR="$(pwd)/pkg" cmake --install build
+        PKG_VERSION=$(grep 'set (APP_VERSION' CMakeLists.txt | head -1 | sed 's/.*"\(.*\)".*/\1/' | tr '+' '~')
+        ARCH=$(dpkg --print-architecture)
+        PKG_NAME="eiskaltdcpp-qt6_${PKG_VERSION}_${ARCH}"
+        mkdir -p pkg/DEBIAN
+        printf 'Package: eiskaltdcpp-qt6\n' > pkg/DEBIAN/control
+        printf 'Version: %s\n' "$PKG_VERSION" >> pkg/DEBIAN/control
+        printf 'Section: net\n' >> pkg/DEBIAN/control
+        printf 'Priority: optional\n' >> pkg/DEBIAN/control
+        printf 'Architecture: %s\n' "$ARCH" >> pkg/DEBIAN/control
+        printf 'Depends: libc6, libstdc++6, libssl3t64, libbz2-1.0, zlib1g, libminiupnpc17, libidn2-0, libpcre2-8-0, liblua5.4-0, libaspell15, libqt6core6t64, libqt6gui6t64, libqt6widgets6t64, libqt6xml6t64, libqt6network6t64, libqt6concurrent6t64, libqt6multimedia6, libqt6sql6t64, libqt6svg6, libdbus-1-3\n' >> pkg/DEBIAN/control
+        printf 'Maintainer: EiskaltDC++ developers\n' >> pkg/DEBIAN/control
+        printf 'Description: EiskaltDC++ - Direct Connect client (Qt6 UI)\n' >> pkg/DEBIAN/control
+        printf ' A cross-platform program that uses the Direct Connect and ADC protocols.\n' >> pkg/DEBIAN/control
+        printf ' This package contains the Qt6 graphical user interface.\n' >> pkg/DEBIAN/control
+        chmod 0755 pkg/DEBIAN
+        chmod 0644 pkg/DEBIAN/control
+        dpkg-deb --root-owner-group --build pkg "${PKG_NAME}.deb"
+
+    - name: Upload .deb
+      uses: actions/upload-artifact@v4
+      with:
+        name: ${{ env.AP }}-linux-x64-qt6-deb
+        path: "*.deb"
+
+  package-linux-gtk3:
+    name: Package Linux GTK3
+    runs-on: ubuntu-24.04
+    needs: [prepare, build-linux-gtk3]
+    env:
+      AP: ${{ needs.prepare.outputs.artifact_prefix }}
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Install dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y --no-install-recommends \
+          cmake ninja-build g++ gettext \
+          libbz2-dev zlib1g-dev libssl-dev \
+          libminiupnpc-dev libidn2-dev libpcre2-dev \
+          liblua5.4-dev libaspell-dev \
+          libgtk-3-dev libnotify-dev libcanberra-dev libcanberra-gtk3-dev \
+          libx11-dev libgl-dev libsqlite3-dev
+
+    - name: Download build tree
+      uses: actions/download-artifact@v4
+      with:
+        name: ${{ env.AP }}-linux-x64-gtk3-Release-buildtree
+        path: build/
+
+    - name: Re-run CMake configure (restore install metadata)
+      run: |
+        cmake -B build -G Ninja \
+          -DCMAKE_BUILD_TYPE=Release \
+          -DCMAKE_INSTALL_PREFIX=/usr \
+          -DUSE_QT6=OFF \
+          -DUSE_GTK3=ON \
+          -DUSE_MINIUPNP=ON \
+          -DWITH_DHT=ON \
+          -DUSE_IDN2=ON \
+          -DLUA_SCRIPT=ON \
+          -DPERL_REGEX=ON \
+          -DUSE_ASPELL=ON \
+          -DUSE_LIBNOTIFY=ON \
+          -DUSE_LIBCANBERRA=ON \
+          -DWITH_EMOTICONS=ON \
+          -DWITH_SOUNDS=ON \
+          -DBUILD_TESTS=OFF
+
+    - name: Build .deb package
+      run: |
+        DESTDIR="$(pwd)/pkg" cmake --install build
+        PKG_VERSION=$(grep 'set (APP_VERSION' CMakeLists.txt | head -1 | sed 's/.*"\(.*\)".*/\1/' | tr '+' '~')
+        ARCH=$(dpkg --print-architecture)
+        PKG_NAME="eiskaltdcpp-gtk3_${PKG_VERSION}_${ARCH}"
+        mkdir -p pkg/DEBIAN
+        printf 'Package: eiskaltdcpp-gtk3\n' > pkg/DEBIAN/control
+        printf 'Version: %s\n' "$PKG_VERSION" >> pkg/DEBIAN/control
+        printf 'Section: net\n' >> pkg/DEBIAN/control
+        printf 'Priority: optional\n' >> pkg/DEBIAN/control
+        printf 'Architecture: %s\n' "$ARCH" >> pkg/DEBIAN/control
+        printf 'Depends: libc6, libstdc++6, libssl3t64, libbz2-1.0, zlib1g, libminiupnpc17, libidn2-0, libpcre2-8-0, liblua5.4-0, libaspell15, libgtk-3-0t64, libnotify4, libcanberra0t64, libx11-6\n' >> pkg/DEBIAN/control
+        printf 'Maintainer: EiskaltDC++ developers\n' >> pkg/DEBIAN/control
+        printf 'Description: EiskaltDC++ - Direct Connect client (GTK3 UI)\n' >> pkg/DEBIAN/control
+        printf ' A cross-platform program that uses the Direct Connect and ADC protocols.\n' >> pkg/DEBIAN/control
+        printf ' This package contains the GTK3 graphical user interface.\n' >> pkg/DEBIAN/control
+        chmod 0755 pkg/DEBIAN
+        chmod 0644 pkg/DEBIAN/control
+        dpkg-deb --root-owner-group --build pkg "${PKG_NAME}.deb"
+
+    - name: Upload .deb
+      uses: actions/upload-artifact@v4
+      with:
+        name: ${{ env.AP }}-linux-x64-gtk3-deb
+        path: "*.deb"
+
+  # ─── macOS Packaging (depends on successful builds) ───────────────
+
+  package-macos-qt6:
+    name: Package macOS Qt6 DMG (${{ matrix.arch }})
+    runs-on: ${{ matrix.runner }}
+    needs: [prepare, build-macos-qt6]
+    env:
+      AP: ${{ needs.prepare.outputs.artifact_prefix }}
+    strategy:
+      matrix:
+        include:
+          - runner: macos-14
+            arch: arm64
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Install dependencies
+      run: |
+        brew update
+        brew install cmake ninja gettext openssl@3 bzip2 zlib \
+          miniupnpc libidn2 pcre2 lua aspell qt@6
+
+    - name: Download build tree
+      uses: actions/download-artifact@v4
+      with:
+        name: ${{ env.AP }}-macos-${{ matrix.arch }}-qt6-Release-buildtree
+        path: build/
+
+    - name: Re-run CMake configure (restore install metadata)
+      run: |
+        export HOMEBREW="$(brew --prefix)"
+        cmake -B build -G Ninja \
+          -DCMAKE_BUILD_TYPE=Release \
+          -DCMAKE_INSTALL_PREFIX="$PWD/dist" \
+          -DCMAKE_PREFIX_PATH="$HOMEBREW/opt/qt@6;$HOMEBREW/opt/openssl@3;$HOMEBREW/opt/gettext;$HOMEBREW" \
+          -DCMAKE_OSX_DEPLOYMENT_TARGET=13.0 \
+          -DUSE_QT6=ON \
+          -DUSE_GTK3=OFF \
+          -DUSE_JS=ON \
+          -DUSE_QT_QML=OFF \
+          -DUSE_QT_SQLITE=ON \
+          -DUSE_MINIUPNP=ON \
+          -DWITH_DHT=ON \
+          -DUSE_IDN2=ON \
+          -DLUA_SCRIPT=ON \
+          -DPERL_REGEX=ON \
+          -DUSE_ASPELL=ON \
+          -DDBUS_NOTIFY=OFF \
+          -DWITH_EMOTICONS=ON \
+          -DWITH_SOUNDS=ON \
+          -DBUILD_TESTS=OFF
+
+    - name: Install and deploy Qt
+      run: |
+        cmake --install build
+        # macdeployqt is run automatically via CMake install() on APPLE
+        # Verify the app bundle exists
+        ls -la dist/EiskaltDC++.app/Contents/MacOS/ || true
+
+    - name: Build DMG
+      run: |
+        cd build
+        cpack -G DragNDrop --verbose
+        ls -la *.dmg
+
+    - name: Upload DMG
+      uses: actions/upload-artifact@v4
+      with:
+        name: ${{ env.AP }}-macos-${{ matrix.arch }}-qt6-dmg
+        path: build/*.dmg
+
+  package-macos-gtk3:
+    name: Package macOS GTK3 DMG (${{ matrix.arch }})
+    runs-on: ${{ matrix.runner }}
+    needs: [prepare, build-macos-gtk3]
+    env:
+      AP: ${{ needs.prepare.outputs.artifact_prefix }}
+    strategy:
+      matrix:
+        include:
+          - runner: macos-14
+            arch: arm64
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Install dependencies
+      run: |
+        brew update
+        brew install cmake ninja gettext openssl@3 bzip2 zlib \
+          miniupnpc libidn2 pcre2 lua aspell \
+          gtk+3 adwaita-icon-theme librsvg
+
+    - name: Download build tree
+      uses: actions/download-artifact@v4
+      with:
+        name: ${{ env.AP }}-macos-${{ matrix.arch }}-gtk3-Release-buildtree
+        path: build/
+
+    - name: Re-run CMake configure (restore install metadata)
+      run: |
+        export HOMEBREW="$(brew --prefix)"
+        export PKG_CONFIG_PATH="$HOMEBREW/lib/pkgconfig:$HOMEBREW/share/pkgconfig:${PKG_CONFIG_PATH:-}"
+        cmake -B build -G Ninja \
+          -DCMAKE_BUILD_TYPE=Release \
+          -DCMAKE_INSTALL_PREFIX="$PWD/dist" \
+          -DCMAKE_PREFIX_PATH="$HOMEBREW/opt/openssl@3;$HOMEBREW/opt/gettext;$HOMEBREW" \
+          -DCMAKE_OSX_DEPLOYMENT_TARGET=13.0 \
+          -DUSE_QT6=OFF \
+          -DUSE_GTK3=ON \
+          -DUSE_MINIUPNP=ON \
+          -DWITH_DHT=ON \
+          -DUSE_IDN2=ON \
+          -DLUA_SCRIPT=ON \
+          -DPERL_REGEX=ON \
+          -DUSE_ASPELL=ON \
+          -DUSE_LIBNOTIFY=OFF \
+          -DUSE_LIBCANBERRA=OFF \
+          -DWITH_EMOTICONS=ON \
+          -DWITH_SOUNDS=ON \
+          -DBUILD_TESTS=OFF
+
+    - name: Install
+      run: cmake --install build
+
+    - name: Create app bundle and bundle libraries
+      run: |
+        HOMEBREW="$(brew --prefix)"
+        APP_DIR="dist/EiskaltDC++.app"
+        # If the GTK build didn't produce an .app bundle, create one
+        if [ ! -d "$APP_DIR" ]; then
+          APP_DIR="dist/eiskaltdcpp-gtk.app"
+        fi
+        if [ ! -d "$APP_DIR" ]; then
+          # Create a minimal .app bundle from the installed binary
+          APP_DIR="dist/EiskaltDC++-GTK.app"
+          mkdir -p "$APP_DIR/Contents/MacOS"
+          mkdir -p "$APP_DIR/Contents/Resources"
+          cp dist/bin/eiskaltdcpp-gtk "$APP_DIR/Contents/MacOS/eiskaltdcpp-gtk"
+          # Copy data files into the bundle
+          if [ -d dist/share ]; then
+            cp -R dist/share "$APP_DIR/Contents/Resources/share"
+          fi
+          # Create Info.plist
+          VERSION=$(grep 'set (APP_VERSION' CMakeLists.txt | head -1 | sed 's/.*"\(.*\)".*/\1/')
+          /usr/bin/python3 -c "
+        import sys
+        v = sys.argv[1]
+        print('''<?xml version=\"1.0\" encoding=\"UTF-8\"?>
+        <!DOCTYPE plist PUBLIC \"-//Apple Computer//DTD PLIST 1.0//EN\" \"https://www.apple.com/DTDs/PropertyList-1.0.dtd\">
+        <plist version=\"1.0\">
+        <dict>
+          <key>CFBundleDevelopmentRegion</key><string>English</string>
+          <key>CFBundleExecutable</key><string>eiskaltdcpp-gtk</string>
+          <key>CFBundleIdentifier</key><string>com.github.eiskaltdcpp-gtk</string>
+          <key>CFBundleName</key><string>EiskaltDC++ GTK</string>
+          <key>CFBundleShortVersionString</key><string>%s</string>
+          <key>CFBundleVersion</key><string>%s</string>
+          <key>CFBundlePackageType</key><string>APPL</string>
+          <key>NSHighResolutionCapable</key><true/>
+        </dict>
+        </plist>''' % (v, v))
+        " "$VERSION" > "$APP_DIR/Contents/Info.plist"
+        fi
+
+        # Bundle shared library dependencies using dylibbundler
+        brew install dylibbundler
+        EXEC_PATH=$(find "$APP_DIR/Contents/MacOS" -type f -perm +111 | head -1)
+        dylibbundler -od -b \
+          -x "$EXEC_PATH" \
+          -d "$APP_DIR/Contents/libs" \
+          -p @executable_path/../libs/ \
+          -s "$HOMEBREW/lib" \
+          2>&1 || echo "dylibbundler warnings (non-fatal)"
+
+        echo "=== App bundle contents ==="
+        find "$APP_DIR" -type f | head -50
+
+    - name: Build DMG
+      run: |
+        cd build
+        cpack -G DragNDrop --verbose
+        ls -la *.dmg
+
+    - name: Upload DMG
+      uses: actions/upload-artifact@v4
+      with:
+        name: ${{ env.AP }}-macos-${{ matrix.arch }}-gtk3-dmg
+        path: build/*.dmg
+
+  # ─── Release ───────────────────────────────────────────────────────
+
+  release:
+    name: Create Release
+    if: startsWith(github.ref, 'refs/tags/v')
+    runs-on: ubuntu-latest
+    needs:
+      - prepare
+      - build-windows-qt6
+      - build-windows-gtk3
+      - build-linux-qt6
+      - build-linux-gtk3
+      - build-macos-qt6
+      - build-macos-gtk3
+      - package-linux-qt6
+      - package-linux-gtk3
+      - package-macos-qt6
+      - package-macos-gtk3
+    env:
+      AP: ${{ needs.prepare.outputs.artifact_prefix }}
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Download all packaging artifacts
+      uses: actions/download-artifact@v4
+      with:
+        path: release-assets/
+
+    - name: Prepare release files
+      run: |
+        mkdir -p release
+        TAG="${GITHUB_REF#refs/tags/}"
+        # Zip Windows Qt6 (Debug + Release)
+        for bt in Debug Release; do
+          dir="release-assets/${AP}-windows-x64-qt6-${bt}"
+          if [ -d "$dir" ]; then
+            (cd "$dir" && zip -r "../../release/EiskaltDC++-Qt6-${TAG}-windows-x64-${bt}.zip" .)
+          fi
+        done
+        # Zip Windows GTK3 (Debug + Release)
+        for bt in Debug Release; do
+          dir="release-assets/${AP}-windows-x64-gtk3-${bt}"
+          if [ -d "$dir" ]; then
+            (cd "$dir" && zip -r "../../release/EiskaltDC++-GTK3-${TAG}-windows-x64-${bt}.zip" .)
+          fi
+        done
+        # Zip Linux Qt6 Debug
+        dir="release-assets/${AP}-linux-x64-qt6-Debug"
+        if [ -d "$dir" ]; then
+          (cd "$dir" && zip -r "../../release/EiskaltDC++-Qt6-${TAG}-linux-x64-Debug.zip" .)
+        fi
+        # Zip Linux GTK3 Debug
+        dir="release-assets/${AP}-linux-x64-gtk3-Debug"
+        if [ -d "$dir" ]; then
+          (cd "$dir" && zip -r "../../release/EiskaltDC++-GTK3-${TAG}-linux-x64-Debug.zip" .)
+        fi
+        # Copy Linux .deb files (Release)
+        find "release-assets/${AP}-linux-x64-qt6-deb" -name '*.deb' -exec cp {} release/ \; 2>/dev/null || true
+        find "release-assets/${AP}-linux-x64-gtk3-deb" -name '*.deb' -exec cp {} release/ \; 2>/dev/null || true
+        # Copy NSIS installer if present
+        find "release-assets/${AP}-windows-x64-qt6-nsis-installer" -name '*.exe' -exec cp {} release/ \; 2>/dev/null || true
+        # Copy macOS DMG files (Release, arm64)
+        for arch in arm64; do
+          find "release-assets/${AP}-macos-${arch}-qt6-dmg" -name '*.dmg' -exec cp {} release/ \; 2>/dev/null || true
+          find "release-assets/${AP}-macos-${arch}-gtk3-dmg" -name '*.dmg' -exec cp {} release/ \; 2>/dev/null || true
+        done
+        # Zip macOS Debug (arm64)
+        for arch in arm64; do
+          dir="release-assets/${AP}-macos-${arch}-qt6-Debug"
+          if [ -d "$dir" ]; then
+            (cd "$dir" && zip -r "../../release/EiskaltDC++-Qt6-${TAG}-macos-${arch}-Debug.zip" .)
+          fi
+          dir="release-assets/${AP}-macos-${arch}-gtk3-Debug"
+          if [ -d "$dir" ]; then
+            (cd "$dir" && zip -r "../../release/EiskaltDC++-GTK3-${TAG}-macos-${arch}-Debug.zip" .)
+          fi
+        done
+        ls -la release/
+
+    - name: Create GitHub Release
+      uses: softprops/action-gh-release@v2
+      with:
+        name: "EiskaltDC++ ${{ github.ref_name }}"
+        draft: false
+        prerelease: ${{ contains(github.ref_name, '-rc') || contains(github.ref_name, '-beta') || contains(github.ref_name, '-alpha') }}
+        generate_release_notes: true
+        files: release/*

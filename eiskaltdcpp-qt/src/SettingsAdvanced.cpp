@@ -6,8 +6,14 @@
 *   (at your option) any later version.                                   *
 *                                                                         *
 ***************************************************************************/
+/*
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
+ */
 
 #include "SettingsAdvanced.h"
+#include "QtContextAware.h"
+#include "QtContext.h"
+#include "dcpp/DCPlusPlus.h"
 #include "MainWindow.h"
 #include "WulforSettings.h"
 #include "WulforUtil.h"
@@ -27,16 +33,16 @@ SettingsAdvanced::~SettingsAdvanced() {
 }
 
 void SettingsAdvanced::ok() {
-    SettingsManager *SM = SettingsManager::getInstance();
+    SettingsManager *SM = qtCtx()->dcCtx().getSettingsManager();
 
     SM->set(SettingsManager::MIME_HANDLER, _tq(lineEdit_MIME->text()));
 }
 
 void SettingsAdvanced::init() {
-    lineEdit_MIME->setText(_q(SETTING(MIME_HANDLER)));
-    toolButton_BROWSE->setIcon(WICON(WulforUtil::eiFOLDER_BLUE));
+    lineEdit_MIME->setText(_q(qtCtx()->dcCtx().getSettingsManager()->get(SettingsManager::MIME_HANDLER, true)));
+    toolButton_BROWSE->setIcon(qtCtx()->wulforUtil()->getPixmap(WulforUtil::eiFOLDER_BLUE));
 
-    connect(toolButton_BROWSE, SIGNAL(clicked()), SLOT(slotBrowse()));
+    connect(toolButton_BROWSE, &QToolButton::clicked, this, &SettingsAdvanced::slotBrowse);
 }
 
 void SettingsAdvanced::slotBrowse()

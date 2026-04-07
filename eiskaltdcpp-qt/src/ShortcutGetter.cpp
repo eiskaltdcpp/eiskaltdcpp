@@ -6,6 +6,9 @@
 *   (at your option) any later version.                                   *
 *                                                                         *
 ***************************************************************************/
+/*
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
+ */
 
 
 #include "ShortcutGetter.h"
@@ -179,7 +182,7 @@ static QString keyToString(int k)
 {
 	if (	k == Qt::Key_Shift || k == Qt::Key_Control || k == Qt::Key_Meta ||
 			k == Qt::Key_Alt || k == Qt::Key_AltGr )
-		return QString::null;
+		return QString();
 
 	initKeyMap();
 	
@@ -215,7 +218,7 @@ ShortcutGetter::ShortcutGetter(QWidget *parent) : QDialog(parent)
 
 			
 	QVBoxLayout *vbox = new QVBoxLayout(this);
-	vbox->setMargin(2);
+	vbox->setContentsMargins(2, 2, 2, 2);
 	vbox->setSpacing(4);
 			
 	QLabel *l = new QLabel(this);
@@ -240,15 +243,14 @@ ShortcutGetter::ShortcutGetter(QWidget *parent) : QDialog(parent)
 	captureButton->setToolTip( tr("Capture keystrokes") );
 	captureButton->setCheckable( captureKeyboard() );
 	captureButton->setChecked( captureKeyboard() );
-	connect(captureButton, SIGNAL(toggled(bool)), 
-            this, SLOT(setCaptureKeyboard(bool)));
+	connect(captureButton, &QPushButton::toggled, this, &ShortcutGetter::setCaptureKeyboard);
 
 
 	buttonbox->addButton(captureButton, QDialogButtonBox::ActionRole);
 
-	connect( buttonbox, SIGNAL(accepted()), this, SLOT(accept()) );
-	connect( buttonbox, SIGNAL(rejected()), this, SLOT(reject()) );
-	connect( clearbutton, SIGNAL(clicked()), leKey, SLOT(clear()) );
+	connect(buttonbox, &QDialogButtonBox::accepted, this, &QDialog::accept);
+	connect(buttonbox, &QDialogButtonBox::rejected, this, &QDialog::reject);
+	connect(clearbutton, &QPushButton::clicked, leKey, &QLineEdit::clear);
 	vbox->addWidget(buttonbox);
 }
 

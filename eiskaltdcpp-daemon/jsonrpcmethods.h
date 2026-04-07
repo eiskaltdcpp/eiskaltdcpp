@@ -12,9 +12,13 @@
 #pragma once
 
 #include <json/json.h>
+
+class ServerThread;
+
 class JsonRpcMethods
 {
   public:
+    explicit JsonRpcMethods(ServerThread& server) : server_(server) {}
 
     bool StopDaemon(const Json::Value& root, Json::Value& response);
     bool MagnetAdd(const Json::Value& root, Json::Value& response);
@@ -67,5 +71,7 @@ class JsonRpcMethods
     bool IpFilterPurgeRules(const Json::Value &root, Json::Value &response);
     bool IpFilterUpDownRule(const Json::Value &root, Json::Value &response);
 private:
+    ServerThread& server_;
+    bool debug() const;
     void FailedValidateRequest(Json::Value &error);
 };

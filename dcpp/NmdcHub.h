@@ -54,7 +54,7 @@ public:
     using Client::send;
     using Client::connect;
 
-    void onLine(const string& aLine) noexcept;
+    void onLine(const string& aLine);
     virtual void connect(const OnlineUser& aUser, const string&);
 
     virtual void hubMessage(const string& aMessage, bool /*thirdPerson*/ = false);
@@ -95,12 +95,12 @@ private:
     string lastMyInfoC;
     string lastMyInfoD;
 
-    typedef list<pair<string, uint32_t> > FloodMap;
+    typedef list<pair<string, uint64_t> > FloodMap;
     typedef FloodMap::iterator FloodIter;
     FloodMap seekers;
     FloodMap flooders;
 
-    NmdcHub(const string& aHubURL, bool secure);
+    NmdcHub(DCContext& ctx, const string& aHubURL, bool secure);
     virtual ~NmdcHub();
 
     void clearUsers();
@@ -127,11 +127,11 @@ private:
     virtual string checkNick(const string& aNick);
 
     // TimerManagerListener
-    virtual void on(Second, uint64_t aTick) noexcept;
+    virtual void on(Second, uint64_t aTick);
 
-    virtual void on(Connected) noexcept;
-    virtual void on(Line, const string& l) noexcept;
-    virtual void on(Failed, const string&) noexcept;
+    virtual void on(Connected);
+    virtual void on(Line, const string& l);
+    virtual void on(Failed, const string&);
 
 };
 

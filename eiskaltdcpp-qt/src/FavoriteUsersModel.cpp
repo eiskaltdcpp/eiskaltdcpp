@@ -6,8 +6,13 @@
 *   (at your option) any later version.                                   *
 *                                                                         *
 ***************************************************************************/
+/*
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
+ */
 
 #include "FavoriteUsersModel.h"
+#include "QtContextAware.h"
+#include "QtContext.h"
 
 #include "WulforUtil.h"
 
@@ -18,6 +23,7 @@
 #include "dcpp/ClientManager.h"
 #include "dcpp/FavoriteManager.h"
 #include "dcpp/CID.h"
+#include "dcpp/DCPlusPlus.h"
 
 
 FavoriteUsersModel::FavoriteUsersModel(QObject *parent)
@@ -56,14 +62,14 @@ QVariant FavoriteUsersModel::data(const QModelIndex &index, int role) const
         case Qt::DecorationRole: // icon
         {
             if (!index.column()){
-                FavoriteManager::FavoriteMap ul = FavoriteManager::getInstance()->getFavoriteUsers();
+                FavoriteManager::FavoriteMap ul = qtCtx()->dcCtx().getFavoriteManager()->getFavoriteUsers();
 
                 for (const auto &i : ul) {
                     const dcpp::FavoriteUser &u = i.second;
 
                     if (_q(u.getUser()->getCID().toBase32()) == item->cid){
                         if (u.isSet(FavoriteUser::FLAG_GRANTSLOT))
-                            return WICON(WulforUtil::eiBALL_GREEN).scaled(16, 16);
+                            return qtCtx()->wulforUtil()->getPixmap(WulforUtil::eiBALL_GREEN).scaled(16, 16);
                     }
                 }
             }
@@ -88,7 +94,7 @@ QVariant FavoriteUsersModel::data(const QModelIndex &index, int role) const
 Qt::ItemFlags FavoriteUsersModel::flags(const QModelIndex &index) const
 {
     if (!index.isValid())
-        return nullptr;
+        return Qt::ItemFlags();
 
     Qt::ItemFlags flags = Qt::ItemIsEnabled | Qt::ItemIsSelectable;
 

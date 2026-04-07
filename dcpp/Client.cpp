@@ -1,6 +1,7 @@
 /*
  * Copyright (C) 2001-2012 Jacek Sieka, arnetheduck on gmail point com
  * Copyright (C) 2009-2020 EiskaltDC++ developers
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -27,6 +28,7 @@
 #include "FavoriteManager.h"
 #include "TimerManager.h"
 #include "version.h"
+#include "DCPlusPlus.h"
 
 namespace dcpp {
 
@@ -34,8 +36,9 @@ Client::Counts Client::counts;
 
 uint32_t idCounter = 0;
 
-Client::Client(const string& hubURL, char separator_, bool secure_, Socket::Protocol proto_) :
-    myIdentity(ClientManager::getInstance()->getMe(), 0), uniqueId(++idCounter),
+Client::Client(DCContext& ctx, const string& hubURL, char separator_, bool secure_, Socket::Protocol proto_) :
+    ContextAware(ctx),
+    myIdentity(this->ctx().getClientManager()->getMe(), 0), uniqueId(++idCounter),
     reconnDelay(120), lastActivity(GET_TICK()), registered(false), autoReconnect(false),
     encoding(Text::hubDefaultCharset), state(STATE_DISCONNECTED), sock(0),
     hubUrl(hubURL), separator(separator_), proto(proto_),
@@ -46,15 +49,15 @@ Client::Client(const string& hubURL, char separator_, bool secure_, Socket::Prot
 
     keyprint = Util::decodeQuery(query)["kp"];
 
-    TimerManager::getInstance()->addListener(this);
+    this->ctx().getTimerManager()->addListener(this);
 }
 
 Client::~Client() {
     dcassert(!sock);
 
     // In case we were deleted before we Failed
-    FavoriteManager::getInstance()->removeUserCommand(getHubUrl());
-    TimerManager::getInstance()->removeListener(this);
+    ctx().getFavoriteManager()->removeUserCommand(getHubUrl());
+    ctx().getTimerManager()->removeListener(this);
     updateCounts(true);
 }
 
@@ -72,7 +75,7 @@ void Client::shutdown() {
 }
 
 void Client::reloadSettings(bool updateNick) {
-    auto fav = FavoriteManager::getInstance()->getFavoriteHubEntry(getHubUrl());
+    auto fav = ctx().getFavoriteManager()->getFavoriteHubEntry(getHubUrl());
 
     string ClientId;
     if (::strncmp(getHubUrl().c_str(),"adc://", 6) == 0 ||
@@ -89,7 +92,7 @@ void Client::reloadSettings(bool updateNick) {
         if(!fav->getUserDescription().empty()) {
             setCurrentDescription(fav->getUserDescription());
         } else {
-            setCurrentDescription(SETTING(DESCRIPTION));
+            setCurrentDescription(CTX_SETTING(DESCRIPTION));
         }
 
         if(!fav->getPassword().empty())
@@ -101,23 +104,23 @@ void Client::reloadSettings(bool updateNick) {
         if (!fav->getEncoding().empty()){
             setEncoding(fav->getEncoding());
         }
-        if (fav->getUseInternetIP() && !SETTING(INTERNETIP).empty()){
-            externalIP = SETTING(INTERNETIP);
+        if (fav->getUseInternetIP() && !CTX_SETTING(INTERNETIP).empty()){
+            externalIP = CTX_SETTING(INTERNETIP);
         }
 
         setSearchInterval(fav->getSearchInterval());
     } else {
         if(updateNick) {
-            setCurrentNick(checkNick(SETTING(NICK)));
+            setCurrentNick(checkNick(CTX_SETTING(NICK)));
         }
-        setCurrentDescription(SETTING(DESCRIPTION));
-        setSearchInterval(SETTING(MINIMUM_SEARCH_INTERVAL));
+        setCurrentDescription(CTX_SETTING(DESCRIPTION));
+        setSearchInterval(CTX_SETTING(MINIMUM_SEARCH_INTERVAL));
     }
     setClientId(ClientId);
 }
 
 bool Client::isActive() const {
-    return ClientManager::getInstance()->isActive(hubUrl);
+    return ctx().getClientManager()->isActive(hubUrl);
 }
 
 void Client::connect() {
@@ -127,18 +130,18 @@ void Client::connect() {
     }
 
     setAutoReconnect(true);
-    setReconnDelay(SETTING(RECONNECT_DELAY));
+    setReconnDelay(CTX_SETTING(RECONNECT_DELAY));
     reloadSettings(true);
     setRegistered(false);
-    setMyIdentity(Identity(ClientManager::getInstance()->getMe(), 0));
+    setMyIdentity(Identity(ctx().getClientManager()->getMe(), 0));
     setHubIdentity(Identity());
 
     state = STATE_CONNECTING;
 
     try {
-        sock = BufferedSocket::getSocket(separator);
+        sock = BufferedSocket::getSocket(separator, ctx());
         sock->addListener(this);
-        sock->connect(address, port, secure, BOOLSETTING(ALLOW_UNTRUSTED_HUBS), true, proto);
+        sock->connect(address, port, secure, CTX_BOOLSETTING(ALLOW_UNTRUSTED_HUBS), true, proto);
     } catch(const Exception& e) {
         shutdown();
         /// @todo at this point, this hub instance is completely useless
@@ -154,10 +157,10 @@ void Client::send(const char* aMessage, size_t aLen) {
     }
     updateActivity();
     sock->write(aMessage, aLen);
-    COMMAND_DEBUG((Util::stricmp(getEncoding(), Text::utf8) != 0 ? Text::toUtf8(aMessage, getEncoding()) : aMessage), DebugManager::HUB_OUT, getIpPort());
+    CTX_COMMAND_DEBUG((Util::stricmp(getEncoding(), Text::utf8) != 0 ? Text::toUtf8(aMessage, getEncoding()) : aMessage), DebugManager::HUB_OUT, getIpPort());
 }
 
-void Client::on(Connected) noexcept {
+void Client::on(Connected) {
     updateActivity();
     ip = sock->getIp();
     localIp = sock->getLocalIp();
@@ -178,9 +181,9 @@ void Client::on(Connected) noexcept {
     state = STATE_PROTOCOL;
 }
 
-void Client::on(Failed, const string& aLine) noexcept {
+void Client::on(Failed, const string& aLine) {
     state = STATE_DISCONNECTED;
-    FavoriteManager::getInstance()->removeUserCommand(getHubUrl());
+    ctx().getFavoriteManager()->removeUserCommand(getHubUrl());
     sock->removeListener(this);
     fire(ClientListener::Failed(), this, aLine);
 }
@@ -245,12 +248,12 @@ string Client::getLocalIp() const {
         return Socket::resolve(externalIP);
 
     // Best case - the server detected it
-    if((!BOOLSETTING(NO_IP_OVERRIDE) || SETTING(EXTERNAL_IP).empty()) && !getMyIdentity().getIp().empty()) {
+    if((!CTX_BOOLSETTING(NO_IP_OVERRIDE) || CTX_SETTING(EXTERNAL_IP).empty()) && !getMyIdentity().getIp().empty()) {
         return getMyIdentity().getIp();
     }
 
-    if(!SETTING(EXTERNAL_IP).empty()) {
-        return Socket::resolve(SETTING(EXTERNAL_IP));
+    if(!CTX_SETTING(EXTERNAL_IP).empty()) {
+        return Socket::resolve(CTX_SETTING(EXTERNAL_IP));
     }
 
     if(localIp.empty()) {
@@ -282,12 +285,12 @@ uint64_t Client::search(int aSizeMode, int64_t aSize, int aFileType, const strin
     return 0;
 }
 
-void Client::on(Line, const string& aLine) noexcept {
+void Client::on(Line, const string& aLine) {
     updateActivity();
-    COMMAND_DEBUG((Util::stricmp(getEncoding(), Text::utf8) != 0 ? Text::toUtf8(aLine, getEncoding()) : aLine), DebugManager::HUB_IN, getIpPort())
+    CTX_COMMAND_DEBUG((Util::stricmp(getEncoding(), Text::utf8) != 0 ? Text::toUtf8(aLine, getEncoding()) : aLine), DebugManager::HUB_IN, getIpPort())
 }
 
-void Client::on(Second, uint64_t aTick) noexcept {
+void Client::on(Second, uint64_t aTick) {
     if(state == STATE_DISCONNECTED && getAutoReconnect() && (aTick > (getLastActivity() + getReconnDelay() * 1000)) ) {
         // Try to reconnect...
         connect();

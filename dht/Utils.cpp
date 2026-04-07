@@ -23,6 +23,7 @@
 #include "dcpp/MerkleTree.h"
 #include "dcpp/TimerManager.h"
 #include "dcpp/SettingsManager.h"
+#include "dcpp/DCContext.h"
 
 namespace dht
 {
@@ -164,9 +165,9 @@ namespace dht
     /*
      * Generates UDP key for specified IP address
      */
-    CID Utils::getUdpKey(const string& targetIp)
+    CID Utils::getUdpKey(dcpp::DCContext& ctx, const string& targetIp)
     {
-        CID myUdpKey = CID(SETTING(DHT_KEY));
+        CID myUdpKey = CID(ctx.getSettingsManager()->get(SettingsManager::DHT_KEY, true));
 
         TigerTree th;
         th.update(myUdpKey.data(), sizeof(CID));

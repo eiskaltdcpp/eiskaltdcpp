@@ -19,7 +19,6 @@
 #include "WulforUtil.h"
 #include <dcpp/stdinc.h>
 #include <dcpp/ADLSearch.h>
-#include <dcpp/Singleton.h>
 
 class ADLSModel;
 class ADLSItem;
@@ -40,16 +39,19 @@ class ADLSEditor:
         }
 };
 
+#include "QtContextAware.h"
+#include "QtContext.h"
+
 class ADLS :
         public QWidget,
         private Ui::UIADLS,
         public ArenaWidget,
-        public dcpp::Singleton<ADLS>
+        public QtContextAware
 {
     Q_OBJECT
     Q_INTERFACES(ArenaWidget)
 
-    friend class dcpp::Singleton<ADLS>;
+    friend class QtContext;
 
     typedef QMap<QString,QVariant> StrMap;
 public:
@@ -57,7 +59,7 @@ public:
     QString getArenaTitle();
     QString getArenaShortTitle();
     QMenu *getMenu();
-    const QPixmap &getPixmap(){ return WICON(WulforUtil::eiADLS); }
+    const QPixmap &getPixmap(){ return qtCtx()->wulforUtil()->getPixmap(WulforUtil::eiADLS); }
     ArenaWidget::Role role() const { return ArenaWidget::ADLS; }
 
 protected:
@@ -77,10 +79,12 @@ private Q_SLOTS:
     void slotUpButtonClicked();
     void slotDownButtonClicked();
 
+public:
+    ADLS(dcpp::DCContext& ctx, QWidget* = nullptr);
+    ~ADLS() override;
+
+
 private:
-    typedef ADLSearchManager::SearchCollection::size_type VectorSize;
-    ADLS(QWidget* = nullptr);
-    virtual ~ADLS();
 
     void load();
     void save();

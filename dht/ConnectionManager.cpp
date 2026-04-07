@@ -1,6 +1,7 @@
 /*
  * Copyright (C) 2009-2010 Big Muscle, http://strongdc.sourceforge.net/
  * Copyright (C) 2019 Boris Pek <tehnick-8@yandex.ru>
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -24,11 +25,12 @@
 #include "dcpp/ConnectionManager.h"
 #include "dcpp/CryptoManager.h"
 #include "dcpp/ClientManager.h"
+#include "dcpp/DCPlusPlus.h"
 
 namespace dht
 {
 
-    ConnectionManager::ConnectionManager(void)
+    ConnectionManager::ConnectionManager(DHT& dht) : dht_(dht)
     {
     }
 
@@ -41,7 +43,7 @@ namespace dht
      */
     void ConnectionManager::connect(const Node::Ptr& node, const string& token)
     {
-        ConnectionManager::connect(node, token, CryptoManager::getInstance()->TLSOk() && node->getUser()->isSet(User::TLS));
+        ConnectionManager::connect(node, token, dht_.ctx().getCryptoManager()->TLSOk() && node->getUser()->isSet(User::TLS));
     }
 
     void ConnectionManager::connect(const Node::Ptr& node, const string& token, bool secure)
@@ -50,12 +52,12 @@ namespace dht
         if(!node->isOnline())
         {
             // do handshake at first
-            DHT::getInstance()->info(node->getIdentity().getIp(), node->getIdentity().getUdpPort(),
+            dht_.info(node->getIdentity().getIp(), node->getIdentity().getUdpPort(),
                 DHT::PING | DHT::MAKE_ONLINE, node->getUser()->getCID(), node->getUdpKey());
             return;
         }
 
-        bool active = ClientManager::getInstance()->isActive();
+        bool active = dht_.ctx().getClientManager()->isActive();
 
         // if I am not active, send reverse connect to me request
         AdcCommand cmd(active ? AdcCommand::CMD_CTM : AdcCommand::CMD_RCM, AdcCommand::TYPE_UDP);
@@ -63,13 +65,13 @@ namespace dht
 
         if(active)
         {
-            string port = secure ? dcpp::ConnectionManager::getInstance()->getSecurePort() : dcpp::ConnectionManager::getInstance()->getPort();
+            string port = secure ? dht_.ctx().getConnectionManager()->getSecurePort() : dht_.ctx().getConnectionManager()->getPort();
             cmd.addParam(port);
         }
 
         cmd.addParam(token);
 
-        DHT::getInstance()->send(cmd, node->getIdentity().getIp(), node->getIdentity().getUdpPort(),
+        dht_.send(cmd, node->getIdentity().getIp(), node->getIdentity().getUdpPort(),
             node->getUser()->getCID(), node->getUdpKey());
     }
 
@@ -82,7 +84,7 @@ namespace dht
         if(!node->isOnline())
         {
             // do handshake at first
-            DHT::getInstance()->info(node->getIdentity().getIp(), node->getIdentity().getUdpPort(),
+            dht_.info(node->getIdentity().getIp(), node->getIdentity().getUdpPort(),
                 DHT::PING | DHT::MAKE_ONLINE, node->getUser()->getCID(), node->getUdpKey());
             return;
         }
@@ -96,7 +98,7 @@ namespace dht
         {
             // Nothing special
         }
-        else if(protocol == SECURE_CLIENT_PROTOCOL_TEST && CryptoManager::getInstance()->TLSOk())
+        else if(protocol == SECURE_CLIENT_PROTOCOL_TEST && dht_.ctx().getCryptoManager()->TLSOk())
         {
             secure = true;
         }
@@ -106,7 +108,7 @@ namespace dht
             cmd.addParam("PR", protocol);
             cmd.addParam("TO", token);
 
-            DHT::getInstance()->send(cmd, node->getIdentity().getIp(), node->getIdentity().getUdpPort(),
+            dht_.send(cmd, node->getIdentity().getIp(), node->getIdentity().getUdpPort(),
                 node->getUser()->getCID(), node->getUdpKey());
             return;
         }
@@ -114,12 +116,12 @@ namespace dht
         if(!node->getIdentity().isTcpActive())
         {
             AdcCommand err(AdcCommand::SEV_FATAL, AdcCommand::ERROR_PROTOCOL_GENERIC, "IP unknown", AdcCommand::TYPE_UDP);
-            DHT::getInstance()->send(err, node->getIdentity().getIp(), node->getIdentity().getUdpPort(),
+            dht_.send(err, node->getIdentity().getIp(), node->getIdentity().getUdpPort(),
                 node->getUser()->getCID(), node->getUdpKey());
             return;
         }
 
-        dcpp::ConnectionManager::getInstance()->adcConnect(*node, port, token, secure);
+        dht_.ctx().getConnectionManager()->adcConnect(*node, port, token, secure);
     }
 
     /*
@@ -132,7 +134,7 @@ namespace dht
         //  return;
 
         // this is valid for active-passive connections only
-        if(!ClientManager::getInstance()->isActive())
+        if(!dht_.ctx().getClientManager()->isActive())
             return;
 
         const string& protocol = cmd.getParam(1);
@@ -143,7 +145,7 @@ namespace dht
         {
             secure = false;
         }
-        else if(protocol == SECURE_CLIENT_PROTOCOL_TEST && CryptoManager::getInstance()->TLSOk())
+        else if(protocol == SECURE_CLIENT_PROTOCOL_TEST && dht_.ctx().getCryptoManager()->TLSOk())
         {
             secure = true;
         }
@@ -153,7 +155,7 @@ namespace dht
             sta.addParam("PR", protocol);
             sta.addParam("TO", token);
 
-            DHT::getInstance()->send(sta, node->getIdentity().getIp(), node->getIdentity().getUdpPort(),
+            dht_.send(sta, node->getIdentity().getIp(), node->getIdentity().getUdpPort(),
                 node->getUser()->getCID(), node->getUdpKey());
             return;
         }

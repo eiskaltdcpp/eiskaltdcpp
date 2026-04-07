@@ -6,6 +6,9 @@
 *   (at your option) any later version.                                   *
 *                                                                         *
 ***************************************************************************/
+/*
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
+ */
 
 #include <QAction>
 #include <QClipboard>
@@ -23,15 +26,18 @@
 #include "WulforSettings.h"
 #include "WulforUtil.h"
 #include "Secretary.h"
+#include "QtContext.h"
+#include "QtContextAware.h"
 
-Secretary::Secretary(QWidget *parent)
-    : QWidget(parent)
+Secretary::Secretary(dcpp::DCContext& ctx, QWidget *parent)
+    : QtContextAware(ctx)
+    , QWidget(parent)
     , d_ptr(new SecretaryPrivate())
 {
     setupUi(this);
     Q_D(Secretary);
 
-    toolButton_HIDE->setIcon(WICON(WulforUtil::eiEDITDELETE));
+    toolButton_HIDE->setIcon(qtCtx()->wulforUtil()->getPixmap(WulforUtil::eiEDITDELETE));
     searchFrame->hide();
 
     installEventFilter(this);
@@ -45,28 +51,28 @@ Secretary::Secretary(QWidget *parent)
     textEdit_MESSAGES->viewport()->installEventFilter(this); // QTextEdit don't receive all mouse events
     textEdit_MESSAGES->setMouseTracking(true);
 
-    if (WBGET(WB_APP_ENABLE_EMOTICON) && EmoticonFactory::getInstance())
-        EmoticonFactory::getInstance()->addEmoticons(textEdit_MESSAGES->document());
+    if (qtCtx()->settings()->getBool(WB_APP_ENABLE_EMOTICON) && qtCtx()->emoticonFactory())
+        qtCtx()->emoticonFactory()->addEmoticons(textEdit_MESSAGES->document());
 
 
-    connect(this, SIGNAL(coreStatusMsg(const QString, const QString, const QString, const QString)),
-            this, SLOT(addStatus(const QString, const QString, const QString, const QString)), Qt::QueuedConnection);
-    connect(this, SIGNAL(coreChatMessage(const QString, const QString, const QString, const QString)),
-            this, SLOT(newChatMsg(const QString, const QString, const QString, const QString)), Qt::QueuedConnection);
-    connect(this, SIGNAL(corePrivateMsg(const QString, const QString, const QString, const QString)),
-            this, SLOT(newPrivMsg(const QString, const QString, const QString, const QString)), Qt::QueuedConnection);
+    connect(this, &Secretary::coreStatusMsg,
+            this, &Secretary::addStatus, Qt::QueuedConnection);
+    connect(this, &Secretary::coreChatMessage,
+            this, &Secretary::newChatMsg, Qt::QueuedConnection);
+    connect(this, &Secretary::corePrivateMsg,
+            this, &Secretary::newPrivMsg, Qt::QueuedConnection);
 
-    connect(textEdit_MESSAGES, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotChatMenu(QPoint)));
-    connect(checkBox_MAGNETS, SIGNAL(toggled(bool)), this, SLOT(searchMagnetLinks(bool)));
-    connect(spinBoxLines, SIGNAL(valueChanged(int)), this, SLOT(maxLinesChanged(int)));
-    connect(pushButton_ClearLog, SIGNAL(clicked(bool)), this, SLOT(clearNotes()));
-    connect(toolButton_BACK, SIGNAL(clicked()), this, SLOT(slotFindBackward()));
-    connect(toolButton_FORWARD, SIGNAL(clicked()), this, SLOT(slotFindForward()));
-    connect(toolButton_HIDE, SIGNAL(clicked()), this, SLOT(slotHideSearchBar()));
-    connect(lineEdit_FIND, SIGNAL(textEdited(QString)), this, SLOT(slotFindTextEdited(QString)));
-    connect(toolButton_ALL, SIGNAL(clicked()), this, SLOT(slotFindAll()));
+    connect(textEdit_MESSAGES, &QTextEdit::customContextMenuRequested, this, &Secretary::slotChatMenu);
+    connect(checkBox_MAGNETS, &QCheckBox::toggled, this, &Secretary::searchMagnetLinks);
+    connect(spinBoxLines, qOverload<int>(&QSpinBox::valueChanged), this, &Secretary::maxLinesChanged);
+    connect(pushButton_ClearLog, &QPushButton::clicked, this, &Secretary::clearNotes);
+    connect(toolButton_BACK, &QToolButton::clicked, this, &Secretary::slotFindBackward);
+    connect(toolButton_FORWARD, &QToolButton::clicked, this, &Secretary::slotFindForward);
+    connect(toolButton_HIDE, &QToolButton::clicked, this, &Secretary::slotHideSearchBar);
+    connect(lineEdit_FIND, &QLineEdit::textEdited, this, &Secretary::slotFindTextEdited);
+    connect(toolButton_ALL, &QToolButton::clicked, this, &Secretary::slotFindAll);
 
-    connect(WulforSettings::getInstance(), SIGNAL(strValueChanged(QString,QString)), this, SLOT(slotSettingsChanged(QString,QString)));
+    connect(qtCtx()->settings(), &WulforSettings::strValueChanged, this, &Secretary::slotSettingsChanged);
 
     ArenaWidget::setState( ArenaWidget::Flags(ArenaWidget::state() | ArenaWidget::Singleton | ArenaWidget::Hidden) );
     updateStyles();
@@ -125,7 +131,6 @@ bool Secretary::eventFilter(QObject *obj, QEvent *e){
             return true;
         }
 
-#if QT_VERSION >= 0x050000
         if (controlModifier) {
             if (k_e->key() == Qt::Key_Equal || k_e->key() == Qt::Key_Plus){
                 textEdit_MESSAGES->zoomIn();
@@ -138,7 +143,6 @@ bool Secretary::eventFilter(QObject *obj, QEvent *e){
                 return true;
             }
         }
-#endif
     }
     else if (e->type() == QEvent::MouseButtonPress){
         QMouseEvent *m_e = reinterpret_cast<QMouseEvent*>(e);
@@ -151,13 +155,13 @@ bool Secretary::eventFilter(QObject *obj, QEvent *e){
         if (isChat && (m_e->button() == Qt::LeftButton)){
             QString pressedParagraph = textEdit_MESSAGES->anchorAt(textEdit_MESSAGES->mapFromGlobal(QCursor::pos()));
 
-            if (!WulforUtil::getInstance()->openUrl(pressedParagraph)){
+            if (!qtCtx()->wulforUtil()->openUrl(pressedParagraph)){
                 /**
                   Do nothing
                 */
             }
         }
-        else if (isChat && m_e->button() == Qt::MidButton)
+        else if (isChat && m_e->button() == Qt::MiddleButton)
         {
             QString nick;
             bool cursoratnick = false;
@@ -227,7 +231,7 @@ bool Secretary::eventFilter(QObject *obj, QEvent *e){
 }
 
 void Secretary::updateStyles() {
-    QString custom_font_desc = WSGET(WS_CHAT_FONT);
+    QString custom_font_desc = qtCtx()->settings()->getStr(WS_CHAT_FONT);
     QFont custom_font;
 
     if (!custom_font_desc.isEmpty() && custom_font.fromString(custom_font_desc)){
@@ -251,8 +255,8 @@ void Secretary::clearNotes(){
 
     updateStyles();
 
-    if (WBGET(WB_APP_ENABLE_EMOTICON) && EmoticonFactory::getInstance())
-        EmoticonFactory::getInstance()->addEmoticons(textEdit_MESSAGES->document());
+    if (qtCtx()->settings()->getBool(WB_APP_ENABLE_EMOTICON) && qtCtx()->emoticonFactory())
+        qtCtx()->emoticonFactory()->addEmoticons(textEdit_MESSAGES->document());
 }
 
 void Secretary::searchMagnetLinks(bool value){
@@ -307,7 +311,7 @@ void Secretary::slotChatMenu(const QPoint &){
     title->setFont(f);
     title->setEnabled(false);
 
-    WulforUtil *WU = WulforUtil::getInstance();
+    WulforUtil *WU = qtCtx()->wulforUtil();
     QAction *copy_text    = new QAction(WU->getPixmap(WulforUtil::eiEDITCOPY), tr("Copy"), menu);
     QAction *search_text  = new QAction(WU->getPixmap(WulforUtil::eiFIND), tr("Search text"), menu);
     QAction *copy_nick    = new QAction(WU->getPixmap(WulforUtil::eiEDITCOPY), tr("Copy nick"), menu);
@@ -466,7 +470,7 @@ void Secretary::slotFindTextEdited(const QString &text){
     QTextCursor c = textEdit_MESSAGES->textCursor();
 
     c.movePosition(QTextCursor::StartOfLine,QTextCursor::MoveAnchor,1);
-    c = textEdit_MESSAGES->document()->find(lineEdit_FIND->text(), c, nullptr);
+    c = textEdit_MESSAGES->document()->find(lineEdit_FIND->text(), c, QTextDocument::FindFlags());
     if (!c.isNull()) {
         textEdit_MESSAGES->setExtraSelections(QList<QTextEdit::ExtraSelection>());
         textEdit_MESSAGES->setTextCursor(c);
@@ -487,18 +491,18 @@ void Secretary::slotFindAll(){
         QTextEdit::ExtraSelection selection;
 
         QColor color;
-        color.setNamedColor(WSGET(WS_CHAT_FIND_COLOR));
-        color.setAlpha(WIGET(WI_CHAT_FIND_COLOR_ALPHA));
+        color.setNamedColor(qtCtx()->settings()->getStr(WS_CHAT_FIND_COLOR));
+        color.setAlpha(qtCtx()->settings()->getInt(WI_CHAT_FIND_COLOR_ALPHA));
 
         selection.format.setBackground(color);
 
-        QTextCursor c = textEdit_MESSAGES->document()->find(lineEdit_FIND->text(), 0, nullptr);
+        QTextCursor c = textEdit_MESSAGES->document()->find(lineEdit_FIND->text(), 0, QTextDocument::FindFlags());
 
         while (!c.isNull()) {
             selection.cursor = c;
             extraSelections.append(selection);
 
-            c = textEdit_MESSAGES->document()->find(lineEdit_FIND->text(), c, nullptr);
+            c = textEdit_MESSAGES->document()->find(lineEdit_FIND->text(), c, QTextDocument::FindFlags());
         }
     }
     textEdit_MESSAGES->setExtraSelections(extraSelections);
@@ -591,7 +595,7 @@ void Secretary::addOutput(const QString& htmlMsg, const QString& origMsg, const 
 
     if (checkBox_HUBS_FILTER->isChecked()) {
         const QStringList &&urlParts = url.split(":");
-        const QStringList &&addresses = lineEdit_HUBS_FILTER->text().split(",", QString::SkipEmptyParts);
+        const QStringList &&addresses = lineEdit_HUBS_FILTER->text().split(",", Qt::SkipEmptyParts);
         if (urlParts.isEmpty() || addresses.isEmpty())
             return;
 
@@ -629,7 +633,7 @@ void Secretary::addOutput(const QString& htmlMsg, const QString& origMsg, const 
     }
 
     if (checkBox_KEYWORDS->isChecked()) {
-        const QStringList &&keywords = lineEdit_KEYWORDS->text().split(",", QString::SkipEmptyParts);
+        const QStringList &&keywords = lineEdit_KEYWORDS->text().split(",", Qt::SkipEmptyParts);
         for (const auto &k : keywords) {
             if (origMsg.contains(k, Qt::CaseInsensitive)) {
                 storeMessage = true;

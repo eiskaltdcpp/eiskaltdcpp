@@ -6,9 +6,14 @@
 *   (at your option) any later version.                                   *
 *                                                                         *
 ***************************************************************************/
+/*
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
+ */
 
 #include "WulforSettings.h"
 #include "WulforUtil.h"
+#include "QtContext.h"
+#include "QtContextAware.h"
 
 #ifdef USE_ASPELL
 #include "SpellCheck.h"
@@ -21,7 +26,6 @@
 
 #include <QApplication>
 #include <QFile>
-#include <QTextCodec>
 #include <QLocale>
 #include <QFile>
 #include <QDir>
@@ -38,10 +42,9 @@
 
 using namespace dcpp;
 
-
-
-WulforSettings::WulforSettings()
-    : settings(_q(Util::getPath(Util::PATH_USER_CONFIG)) + "EiskaltDC++_Qt.conf", QSettings::IniFormat)
+WulforSettings::WulforSettings(dcpp::DCContext& ctx)
+    : QtContextAware(ctx)
+    , settings(_q(Util::getPath(Util::PATH_USER_CONFIG)) + "EiskaltDC++_Qt.conf", QSettings::IniFormat)
     , configFileOld(_q(Util::getPath(Util::PATH_USER_CONFIG)) + "EiskaltDC++.xml")
     , appTranslator(nullptr)
     , qtTranslator(nullptr)
@@ -51,8 +54,8 @@ WulforSettings::WulforSettings()
     idns.push_back("рф");
     QUrl::setIdnWhitelist(idns);
 
-    connect(this, SIGNAL(fontChanged(QString,QString)),
-            this, SIGNAL(strValueChanged(QString,QString)));
+    connect(this, &WulforSettings::fontChanged,
+            this, &WulforSettings::strValueChanged);
 }
 
 WulforSettings::~WulforSettings(){
@@ -111,7 +114,7 @@ void WulforSettings::load(){
             settings.setValue(WS_CHAT_SEPARATOR,        ":");
             settings.setValue(WS_CHAT_TIMESTAMP,        "hh:mm:ss");
             settings.setValue(WS_QCONNECT_HISTORY,      "");
-            settings.setValue(WS_DEFAULT_LOCALE,        "UTF-8");
+            settings.setValue(WS_DEFAULT_LOCALE,        "System default");
             settings.setValue(WS_DOWNLOAD_DIR_HISTORY,  "");
             settings.setValue(WS_DQUEUE_STATE,          "");
             settings.setValue(WS_SEARCH_STATE,          "");
@@ -247,7 +250,7 @@ void WulforSettings::loadOldConfig(){
         strmap.insert(WS_CHAT_SEPARATOR,        ":");
         strmap.insert(WS_CHAT_TIMESTAMP,        "hh:mm:ss");
         strmap.insert(WS_QCONNECT_HISTORY,      "");
-        strmap.insert(WS_DEFAULT_LOCALE,        "UTF-8");
+        strmap.insert(WS_DEFAULT_LOCALE,        "System default");
         strmap.insert(WS_DOWNLOAD_DIR_HISTORY,  "");
         strmap.insert(WS_DQUEUE_STATE,          "");
         strmap.insert(WS_SEARCH_STATE,          "");
@@ -392,7 +395,7 @@ void WulforSettings::save(){
 }
 
 void WulforSettings::parseCmd(const QString &cmd, QString& res) {
-    QStringList args = cmd.split(" ", QString::SkipEmptyParts);
+    QStringList args = cmd.split(" ", Qt::SkipEmptyParts);
 
     if (args.size() == 1) {
         res = tr("GUI setting %1: %2").arg(args.at(0)).arg(getStr(args.at(0)));
@@ -407,11 +410,12 @@ void WulforSettings::parseCmd(const QString &cmd, QString& res) {
     res = tr("Change GUI setting %1 to %2").arg(sname).arg(svalue);
 }
 
+#ifndef QT_CONTEXT_MINIMAL
 void WulforSettings::loadTranslation(){
     const QString appTranslationFile =
             QDir::fromNativeSeparators(getStr(WS_TRANSLATION_FILE));
     const QString translationsPath =
-            QDir::fromNativeSeparators(WulforUtil::getInstance()->getTranslationsPath());
+            QDir::fromNativeSeparators(qtCtx()->wulforUtil()->getTranslationsPath());
 
     if (appTranslationFile.isEmpty() || !QFile::exists(appTranslationFile)){
         const QString lcName = QLocale::system().name();
@@ -422,11 +426,11 @@ void WulforSettings::loadTranslation(){
         loadQtTranslation(lcName);
         installTranslator(appTranslator, lcName, "en", translationsPath);
 
-        dcpp::Util::setLang(lcName.toStdString());
+        dcpp::Util::setLang(dcCtx(), lcName.toStdString());
 
         setStr(WS_APP_ASPELL_LANG, lcName);
 #ifdef USE_ASPELL
-        if (SpellCheck *SC = SpellCheck::getInstance()) {
+        if (SpellCheck *SC = qtCtx()->spellCheck()) {
             SC->setLanguage(lcName);
         }
 #endif
@@ -441,11 +445,11 @@ void WulforSettings::loadTranslation(){
         loadQtTranslation(lcName);
         installTranslator(appTranslator, lcName, "en", translationsPath);
 
-        dcpp::Util::setLang(lcName.toStdString());
+        dcpp::Util::setLang(dcCtx(), lcName.toStdString());
 
         setStr(WS_APP_ASPELL_LANG, lcName);
 #ifdef USE_ASPELL
-        if (SpellCheck *SC = SpellCheck::getInstance()) {
+        if (SpellCheck *SC = qtCtx()->spellCheck()) {
             SC->setLanguage(lcName);
         }
 #endif
@@ -456,11 +460,11 @@ void WulforSettings::loadTranslation(){
 }
 
 void WulforSettings::loadQtTranslation(const QString &lcName){
-    if (!WulforUtil::getInstance())
+    if (!qtCtx()->wulforUtil())
         return;
 
 #if defined (Q_OS_WIN) || defined (Q_OS_MAC)
-    const QString translationsPath = WulforUtil::getInstance()->getTranslationsPath();
+    const QString translationsPath = qtCtx()->wulforUtil()->getTranslationsPath();
 #else // Other OS
     const QString translationsPath = QLibraryInfo::location(QLibraryInfo::TranslationsPath);
 #endif
@@ -468,6 +472,8 @@ void WulforSettings::loadQtTranslation(const QString &lcName){
     installTranslator(qtTranslator, "qt_" + lcName, "qt_en", translationsPath);
     installTranslator(qtBaseTranslator, "qtbase_" + lcName, "qtbase_en", translationsPath);
 }
+
+#endif // QT_CONTEXT_MINIMAL
 
 void WulforSettings::installTranslator(QTranslator &translator,
                                        const QString &defualtName,

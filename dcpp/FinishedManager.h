@@ -1,6 +1,7 @@
 /*
  * Copyright (C) 2001-2012 Jacek Sieka, arnetheduck on gmail point com
  * Copyright (C) 2009-2019 EiskaltDC++ developers
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -23,7 +24,7 @@
 #include "QueueManagerListener.h"
 #include "Speaker.h"
 #include "CriticalSection.h"
-#include "Singleton.h"
+#include "DCContext.h"
 #include "FinishedManagerListener.h"
 #include "Util.h"
 #include "User.h"
@@ -62,8 +63,8 @@ private:
 
 };
 /**/
-class FinishedManager : public Singleton<FinishedManager>,
-        public Speaker<FinishedManagerListener>, private DownloadManagerListener, private UploadManagerListener, private QueueManagerListener
+class FinishedManager :
+        public Speaker<FinishedManagerListener>, private DownloadManagerListener, private UploadManagerListener, private QueueManagerListener, public ContextAware
 {
 public:
     typedef unordered_map<string, FinishedFileItemPtr> MapByFile;
@@ -83,8 +84,12 @@ public:
 
     bool handlePartialRequest(const TTHValue& tth, vector<uint16_t>& outPartialInfo);
     //end
+
+public:
+    explicit FinishedManager(DCContext& ctx);
+    virtual ~FinishedManager();
+
 private:
-    friend class Singleton<FinishedManager>;
 
     CriticalSection cs;
     MapByFile DLByFile, ULByFile;
@@ -92,21 +97,18 @@ private:
     //Partial
     FinishedItem::FinishedItemList downloads, uploads;
 
-    FinishedManager();
-    virtual ~FinishedManager();
-
     void clearDLs();
     void clearULs();
 
     void onComplete(Transfer* t, bool upload, bool crc32Checked = false);
 
-    virtual void on(DownloadManagerListener::Complete, Download* d) noexcept;
-    virtual void on(DownloadManagerListener::Failed, Download* d, const string&) noexcept;
+    virtual void on(DownloadManagerListener::Complete, Download* d);
+    virtual void on(DownloadManagerListener::Failed, Download* d, const string&);
 
-    virtual void on(UploadManagerListener::Complete, Upload* u) noexcept;
-    virtual void on(UploadManagerListener::Failed, Upload* u, const string&) noexcept;
+    virtual void on(UploadManagerListener::Complete, Upload* u);
+    virtual void on(UploadManagerListener::Failed, Upload* u, const string&);
 
-    virtual void on(QueueManagerListener::CRCChecked, Download* d) noexcept;
+    virtual void on(QueueManagerListener::CRCChecked, Download* d);
 };
 
 } // namespace dcpp

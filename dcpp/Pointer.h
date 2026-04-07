@@ -33,20 +33,20 @@ template<typename T>
 class intrusive_ptr_base
 {
 public:
-    void inc() noexcept {
+    void inc() {
         intrusive_ptr_add_ref(this);
     }
 
-    void dec() noexcept {
+    void dec() {
         intrusive_ptr_release(this);
     }
 
-    bool unique(int val = 1) const noexcept {
+    bool unique(int val = 1) const {
         return (ref <= val);
     }
 
 protected:
-    intrusive_ptr_base() noexcept : ref(0) { }
+    intrusive_ptr_base() : ref(0) { }
 
 private:
     friend void intrusive_ptr_add_ref(intrusive_ptr_base* p) { ++p->ref; }

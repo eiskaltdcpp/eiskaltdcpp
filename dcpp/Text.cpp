@@ -20,18 +20,17 @@
 #include "Text.h"
 
 #include <cmath>
+#include <errno.h>
+#include <iconv.h>
 
 #ifdef _WIN32
 #include "w.h"
 #else
-#include <errno.h>
-#include <iconv.h>
 #include <langinfo.h>
+#endif
 
 #ifndef ICONV_CONST
 #define ICONV_CONST
-#endif
-
 #endif
 
 #include "Util.h"
@@ -50,18 +49,20 @@ void initialize() {
     setlocale(LC_ALL, "");
 
 #ifdef _WIN32
-    char *ctype = setlocale(LC_CTYPE, NULL);
-    if(ctype) {
-        systemCharset = string(ctype);
-    } else {
-        dcdebug("Unable to determine the program's locale");
-    }
+    // Construct an iconv-compatible charset name from the system ANSI code
+    // page (e.g. "CP1252", "CP1251").  The old code stored the locale string
+    // (e.g. "English_United States.1252") which iconv doesn't understand.
+    UINT acp = GetACP();
+    if (acp == 65001)
+        systemCharset = "UTF-8";
+    else
+        systemCharset = "CP" + std::to_string(acp);
 #else
     systemCharset = string(nl_langinfo(CODESET));
 #endif
 }
 
-bool isAscii(const char* str) noexcept {
+bool isAscii(const char* str) {
     for(const uint8_t* p = (const uint8_t*)str; *p; ++p) {
         if(*p & 0x80)
             return false;
@@ -131,12 +132,12 @@ void wcToUtf8(wchar_t c, string& str) {
     }
 }
 
-const string& acpToUtf8(const string& str, string& tmp) noexcept {
+const string& acpToUtf8(const string& str, string& tmp) {
     wstring wtmp;
     return wideToUtf8(acpToWide(str, wtmp), tmp);
 }
 
-const wstring& acpToWide(const string& str, wstring& tmp) noexcept {
+const wstring& acpToWide(const string& str, wstring& tmp) {
     if(str.empty())
         return Util::emptyStringW;
 #ifdef _WIN32
@@ -178,7 +179,7 @@ const wstring& acpToWide(const string& str, wstring& tmp) noexcept {
 #endif
 }
 
-const string& wideToUtf8(const wstring& str, string& tgt) noexcept {
+const string& wideToUtf8(const wstring& str, string& tgt) {
     if(str.empty()) {
         return Util::emptyString;
     }
@@ -191,7 +192,7 @@ const string& wideToUtf8(const wstring& str, string& tgt) noexcept {
     return tgt;
 }
 
-const string& wideToAcp(const wstring& str, string& tmp) noexcept {
+const string& wideToAcp(const wstring& str, string& tmp) {
     if(str.empty())
         return Util::emptyString;
 #ifdef _WIN32
@@ -225,7 +226,7 @@ const string& wideToAcp(const wstring& str, string& tmp) noexcept {
 #endif
 }
 
-bool validateUtf8(const string& str) noexcept {
+bool validateUtf8(const string& str) {
     string::size_type i = 0;
     while(i < str.length()) {
         wchar_t dummy = 0;
@@ -237,12 +238,12 @@ bool validateUtf8(const string& str) noexcept {
     return true;
 }
 
-const string& utf8ToAcp(const string& str, string& tmp) noexcept {
+const string& utf8ToAcp(const string& str, string& tmp) {
     wstring wtmp;
     return wideToAcp(utf8ToWide(str, wtmp), tmp);
 }
 
-const wstring& utf8ToWide(const string& str, wstring& tgt) noexcept {
+const wstring& utf8ToWide(const string& str, wstring& tgt) {
     tgt.reserve(str.length());
     string::size_type n = str.length();
     for(string::size_type i = 0; i < n; ) {
@@ -259,7 +260,7 @@ const wstring& utf8ToWide(const string& str, wstring& tgt) noexcept {
     return tgt;
 }
 
-wchar_t toLower(wchar_t c) noexcept {
+wchar_t toLower(wchar_t c) {
 #ifdef _WIN32
     return static_cast<wchar_t>(reinterpret_cast<ptrdiff_t>(CharLowerW((LPWSTR)c)));
 #else
@@ -267,7 +268,7 @@ wchar_t toLower(wchar_t c) noexcept {
 #endif
 }
 
-const wstring& toLower(const wstring& str, wstring& tmp) noexcept {
+const wstring& toLower(const wstring& str, wstring& tmp) {
     if(str.empty())
         return Util::emptyStringW;
     tmp.clear();
@@ -278,7 +279,7 @@ const wstring& toLower(const wstring& str, wstring& tmp) noexcept {
     return tmp;
 }
 
-const string& toLower(const string& str, string& tmp) noexcept {
+const string& toLower(const string& str, string& tmp) {
     if(str.empty())
         return Util::emptyString;
     tmp.reserve(str.length());
@@ -297,59 +298,50 @@ const string& toLower(const string& str, string& tmp) noexcept {
     return tmp;
 }
 
-const string& toUtf8(const string& str, const string& fromCharset, string& tmp) noexcept {
+const string& toUtf8(const string& str, const string& fromCharset, string& tmp) {
     if(str.empty()) {
         return str;
     }
 
-#ifdef _WIN32
     if (fromCharset == utf8 || toLower(fromCharset, tmp) == utf8) {
         return str;
     }
 
-    return acpToUtf8(str, tmp);
-#else
     return convert(str, tmp, fromCharset, utf8);
-#endif
 }
 
-const string& fromUtf8(const string& str, const string& toCharset, string& tmp) noexcept {
+const string& fromUtf8(const string& str, const string& toCharset, string& tmp) {
     if(str.empty()) {
         return str;
     }
 
-#ifdef _WIN32
     if (toCharset == utf8 || toLower(toCharset, tmp) == utf8) {
         return str;
     }
 
-    return utf8ToAcp(str, tmp);
-#else
     return convert(str, tmp, utf8, toCharset);
-#endif
 }
 
-const string& convert(const string& str, string& tmp, const string& fromCharset, const string& toCharset) noexcept {
+const string& convert(const string& str, string& tmp, const string& fromCharset, const string& toCharset) {
     if(str.empty())
         return str;
 
-#ifdef _WIN32
     if (Util::stricmp(fromCharset, toCharset) == 0)
         return str;
-    if(toCharset == utf8 || toLower(toCharset, tmp) == utf8)
-        return acpToUtf8(str, tmp);
-    if(fromCharset == utf8 || toLower(fromCharset, tmp) == utf8)
-        return utf8ToAcp(str, tmp);
 
-    // We don't know how to convert arbitrary charsets
-    dcdebug("Unknown conversion from %s to %s\n", fromCharset.c_str(), toCharset.c_str());
-    return str;
-#else
-
-    // Initialize the converter
+    // Use iconv for all charset conversions (works on all platforms;
+    // libiconv is a required dependency on Windows via vcpkg/MSYS2).
     iconv_t cd = iconv_open(toCharset.c_str(), fromCharset.c_str());
-    if(cd == (iconv_t)-1)
+    if(cd == (iconv_t)-1) {
+#ifdef _WIN32
+        // Fallback to Windows ACP conversion if iconv doesn't know the charset
+        if(toCharset == utf8 || toLower(toCharset, tmp) == utf8)
+            return acpToUtf8(str, tmp);
+        if(fromCharset == utf8 || toLower(fromCharset, tmp) == utf8)
+            return utf8ToAcp(str, tmp);
+#endif
         return str;
+    }
 
     size_t rv;
     size_t len = str.length() * 2; // optimization
@@ -372,6 +364,8 @@ const string& convert(const string& str, string& tmp, const string& fromCharset,
                 ++inbuf;
                 --inleft;
                 tmp[used] = '_';
+                ++outbuf;
+                --outleft;
             } else {
                 tmp.replace(used, inleft, string(inleft, '_'));
                 inleft = 0;
@@ -383,7 +377,6 @@ const string& convert(const string& str, string& tmp, const string& fromCharset,
         tmp.resize(len - outleft);
     }
     return tmp;
-#endif
 }
 }
 

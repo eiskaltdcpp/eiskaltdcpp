@@ -6,11 +6,17 @@
 *   (at your option) any later version.                                   *
 *                                                                         *
 ***************************************************************************/
+/*
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
+ */
 
 #include "SettingsLog.h"
+#include "QtContextAware.h"
+#include "QtContext.h"
 #include "WulforUtil.h"
 
 #include "dcpp/SettingsManager.h"
+#include "dcpp/DCPlusPlus.h"
 
 #include <QDir>
 #include <QFileDialog>
@@ -26,48 +32,48 @@ SettingsLog::SettingsLog(QWidget *parent) :
 }
 
 void SettingsLog::init(){
-    lineEdit_LOGDIR->setText(_q(SETTING(LOG_DIRECTORY)));
+    lineEdit_LOGDIR->setText(_q(qtCtx()->dcCtx().getSettingsManager()->get(SettingsManager::LOG_DIRECTORY, true)));
 
-    groupBox_MAINCHAT->setChecked(BOOLSETTING(LOG_MAIN_CHAT));
-    lineEdit_CHATFMT->setText(_q(SETTING(LOG_FORMAT_MAIN_CHAT)));
-    lineEdit_FILE_CHATFMT->setText(_q(SETTING(LOG_FILE_MAIN_CHAT)));
+    groupBox_MAINCHAT->setChecked(qtCtx()->dcCtx().getSettingsManager()->getBool(SettingsManager::LOG_MAIN_CHAT, true));
+    lineEdit_CHATFMT->setText(_q(qtCtx()->dcCtx().getSettingsManager()->get(SettingsManager::LOG_FORMAT_MAIN_CHAT, true)));
+    lineEdit_FILE_CHATFMT->setText(_q(qtCtx()->dcCtx().getSettingsManager()->get(SettingsManager::LOG_FILE_MAIN_CHAT, true)));
 
-    groupBox_PM->setChecked(BOOLSETTING(LOG_PRIVATE_CHAT));
-    lineEdit_PMFMT->setText(_q(SETTING(LOG_FORMAT_PRIVATE_CHAT)));
-    lineEdit_FILE_PMFMT->setText(_q(SETTING(LOG_FILE_PRIVATE_CHAT)));
+    groupBox_PM->setChecked(qtCtx()->dcCtx().getSettingsManager()->getBool(SettingsManager::LOG_PRIVATE_CHAT, true));
+    lineEdit_PMFMT->setText(_q(qtCtx()->dcCtx().getSettingsManager()->get(SettingsManager::LOG_FORMAT_PRIVATE_CHAT, true)));
+    lineEdit_FILE_PMFMT->setText(_q(qtCtx()->dcCtx().getSettingsManager()->get(SettingsManager::LOG_FILE_PRIVATE_CHAT, true)));
 
-    groupBox_DOWN->setChecked(BOOLSETTING(LOG_DOWNLOADS));
-    lineEdit_DOWNFMT->setText(_q(SETTING(LOG_FORMAT_POST_DOWNLOAD)));
-    lineEdit_FILE_DOWNFMT->setText(_q(SETTING(LOG_FILE_DOWNLOAD)));
+    groupBox_DOWN->setChecked(qtCtx()->dcCtx().getSettingsManager()->getBool(SettingsManager::LOG_DOWNLOADS, true));
+    lineEdit_DOWNFMT->setText(_q(qtCtx()->dcCtx().getSettingsManager()->get(SettingsManager::LOG_FORMAT_POST_DOWNLOAD, true)));
+    lineEdit_FILE_DOWNFMT->setText(_q(qtCtx()->dcCtx().getSettingsManager()->get(SettingsManager::LOG_FILE_DOWNLOAD, true)));
 
-    groupBox_UP->setChecked(BOOLSETTING(LOG_UPLOADS));
-    lineEdit_UPFMT->setText(_q(SETTING(LOG_FORMAT_POST_UPLOAD)));
-    lineEdit_FILE_UPFMT->setText(_q(SETTING(LOG_FILE_UPLOAD)));
+    groupBox_UP->setChecked(qtCtx()->dcCtx().getSettingsManager()->getBool(SettingsManager::LOG_UPLOADS, true));
+    lineEdit_UPFMT->setText(_q(qtCtx()->dcCtx().getSettingsManager()->get(SettingsManager::LOG_FORMAT_POST_UPLOAD, true)));
+    lineEdit_FILE_UPFMT->setText(_q(qtCtx()->dcCtx().getSettingsManager()->get(SettingsManager::LOG_FILE_UPLOAD, true)));
 
-    groupBox_FINISH_DOWN->setChecked(BOOLSETTING(LOG_FINISHED_DOWNLOADS));
-    lineEdit_FINISH_DOWNFMT->setText(_q(SETTING(LOG_FORMAT_POST_FINISHED_DOWNLOAD)));
-    lineEdit_FILE_FINISH_DOWNFMT->setText(_q(SETTING(LOG_FILE_FINISHED_DOWNLOAD)));
+    groupBox_FINISH_DOWN->setChecked(qtCtx()->dcCtx().getSettingsManager()->getBool(SettingsManager::LOG_FINISHED_DOWNLOADS, true));
+    lineEdit_FINISH_DOWNFMT->setText(_q(qtCtx()->dcCtx().getSettingsManager()->get(SettingsManager::LOG_FORMAT_POST_FINISHED_DOWNLOAD, true)));
+    lineEdit_FILE_FINISH_DOWNFMT->setText(_q(qtCtx()->dcCtx().getSettingsManager()->get(SettingsManager::LOG_FILE_FINISHED_DOWNLOAD, true)));
 
-    checkBox_FILELIST->setChecked(BOOLSETTING(LOG_FILELIST_TRANSFERS));
-    checkBox_STAT->setChecked(BOOLSETTING(LOG_STATUS_MESSAGES));
-    checkBox_SYSTEM->setChecked(BOOLSETTING(LOG_SYSTEM));
-    checkBox_REPORT_ALTERNATES->setChecked(BOOLSETTING(REPORT_ALTERNATES));
+    checkBox_FILELIST->setChecked(qtCtx()->dcCtx().getSettingsManager()->getBool(SettingsManager::LOG_FILELIST_TRANSFERS, true));
+    checkBox_STAT->setChecked(qtCtx()->dcCtx().getSettingsManager()->getBool(SettingsManager::LOG_STATUS_MESSAGES, true));
+    checkBox_SYSTEM->setChecked(qtCtx()->dcCtx().getSettingsManager()->getBool(SettingsManager::LOG_SYSTEM, true));
+    checkBox_REPORT_ALTERNATES->setChecked(qtCtx()->dcCtx().getSettingsManager()->getBool(SettingsManager::REPORT_ALTERNATES, true));
 
-    groupBox_SPYLOG->setChecked(BOOLSETTING(LOG_SPY));
-    lineEdit_SPYFMT->setText(_q(SETTING(LOG_FORMAT_SPY)));
-    lineEdit_FILE_SPYFMT->setText(_q(SETTING(LOG_FILE_SPY)));
+    groupBox_SPYLOG->setChecked(qtCtx()->dcCtx().getSettingsManager()->getBool(SettingsManager::LOG_SPY, true));
+    lineEdit_SPYFMT->setText(_q(qtCtx()->dcCtx().getSettingsManager()->get(SettingsManager::LOG_FORMAT_SPY, true)));
+    lineEdit_FILE_SPYFMT->setText(_q(qtCtx()->dcCtx().getSettingsManager()->get(SettingsManager::LOG_FILE_SPY, true)));
 
-    groupBox_CMD_DEBUG->setChecked(BOOLSETTING(LOG_CMD_DEBUG));
-    lineEdit_CMD_DEBUGFMT->setText(_q(SETTING(LOG_FORMAT_CMD_DEBUG)));
-    lineEdit_FILE_CMD_DEBUGFMT->setText(_q(SETTING(LOG_FILE_CMD_DEBUG)));
+    groupBox_CMD_DEBUG->setChecked(qtCtx()->dcCtx().getSettingsManager()->getBool(SettingsManager::LOG_CMD_DEBUG, true));
+    lineEdit_CMD_DEBUGFMT->setText(_q(qtCtx()->dcCtx().getSettingsManager()->get(SettingsManager::LOG_FORMAT_CMD_DEBUG, true)));
+    lineEdit_FILE_CMD_DEBUGFMT->setText(_q(qtCtx()->dcCtx().getSettingsManager()->get(SettingsManager::LOG_FILE_CMD_DEBUG, true)));
 
-    toolButton_BROWSE->setIcon(WulforUtil::getInstance()->getPixmap(WulforUtil::eiFOLDER_BLUE));
+    toolButton_BROWSE->setIcon(qtCtx()->wulforUtil()->getPixmap(WulforUtil::eiFOLDER_BLUE));
 
-    connect(toolButton_BROWSE, SIGNAL(clicked()), this, SLOT(slotBrowse()));
+    connect(toolButton_BROWSE, &QToolButton::clicked, this, &SettingsLog::slotBrowse);
 }
 
 void SettingsLog::ok(){
-    SettingsManager *sm = SettingsManager::getInstance();
+    SettingsManager *sm = qtCtx()->dcCtx().getSettingsManager();
 
     QString path = lineEdit_LOGDIR->text();
     if (!path.isEmpty() && !path.endsWith(QDir::separator()))

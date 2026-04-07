@@ -10,6 +10,8 @@
 #include "SpellCheck.h"
 #include "WulforSettings.h"
 #include "WulforUtil.h"
+#include "QtContext.h"
+#include "QtContextAware.h"
 #include "dcpp/stdinc.h"
 #include "dcpp/Util.h"
 
@@ -17,7 +19,8 @@
 #include <QDir>
 #include <QtDebug>
 
-SpellCheck::SpellCheck(QObject *parent) :
+SpellCheck::SpellCheck(dcpp::DCContext& ctx, QObject *parent) :
+    QtContextAware(ctx),
     QObject(parent),
     spell_checker(nullptr)
 {
@@ -58,12 +61,12 @@ AspellConfig *SpellCheck::defaultAspellConfig()
     aspell_config_replace(config, "encoding", "utf-8");
     aspell_config_replace(config, "personal", (dcpp::Util::getPath(dcpp::Util::PATH_USER_CONFIG)+"dict").c_str());
 
-    if (WulforSettings::getInstance()) {
-        aspell_config_replace(config, "lang", WSGET(WS_APP_ASPELL_LANG, "en").toUtf8().constData());
+    if (qtCtx()->settings()) {
+        aspell_config_replace(config, "lang", qtCtx()->settings()->getStr(WS_APP_ASPELL_LANG, "en").toUtf8().constData());
     }
 
 #if defined(Q_OS_WIN) || defined(Q_OS_MAC) || defined(LOCAL_ASPELL_DATA)
-    const QString aspellDataPath = WulforUtil::getInstance()->getAspellDataPath();
+    const QString aspellDataPath = qtCtx()->wulforUtil()->getAspellDataPath();
     aspell_config_replace(config, "data-dir",
                           QByteArray(aspellDataPath.toUtf8() + "/data").constData());
     aspell_config_replace(config, "dict-dir",

@@ -1,6 +1,7 @@
 /*
  * Copyright (C) 2001-2019 Jacek Sieka, arnetheduck on gmail point com
  * Copyright (C) 2020 Boris Pek <tehnick-8@yandex.ru>
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -20,7 +21,7 @@
 
 #include "Thread.h"
 #include "Speaker.h"
-#include "Singleton.h"
+#include "DCContext.h"
 
 #include <mutex>
 #include <climits>
@@ -39,24 +40,24 @@ public:
     typedef X<0> Second;
     typedef X<1> Minute;
 
-    virtual void on(Second, uint64_t) noexcept { }
-    virtual void on(Minute, uint64_t) noexcept { }
+    virtual void on(Second, uint64_t) { }
+    virtual void on(Minute, uint64_t) { }
 };
 
-class TimerManager : public Speaker<TimerManagerListener>, public Singleton<TimerManager>, public Thread
+class TimerManager : public Speaker<TimerManagerListener>, public Thread, public ContextAware
 {
 public:
     void shutdown();
 
     static time_t getTime() { return (time_t)time(NULL); }
     static uint64_t getTick();
+public:
+    explicit TimerManager(DCContext& ctx);
+    virtual ~TimerManager();
+
 private:
-    friend class Singleton<TimerManager>;
 
     std::timed_mutex mtx;
-
-    TimerManager();
-    virtual ~TimerManager();
 
     virtual int run();
 };

@@ -36,16 +36,16 @@ class Semaphore : private NonCopyable
 {
 #if defined(_WIN32)
 public:
-    Semaphore() noexcept :
+    Semaphore() :
         h(CreateSemaphore(NULL, 0, MAXLONG, NULL))
     { }
 
-    void signal() noexcept {
+    void signal() {
         ReleaseSemaphore(h, 1, NULL);
     }
 
-    bool wait() noexcept { return WaitForSingleObject(h, INFINITE) == WAIT_OBJECT_0; }
-    bool wait(uint32_t millis) noexcept { return WaitForSingleObject(h, millis) == WAIT_OBJECT_0; }
+    bool wait() { return WaitForSingleObject(h, INFINITE) == WAIT_OBJECT_0; }
+    bool wait(uint32_t millis) { return WaitForSingleObject(h, millis) == WAIT_OBJECT_0; }
 
     ~Semaphore() {
         CloseHandle(h);
@@ -55,15 +55,15 @@ private:
     HANDLE h;
 #elif defined(__APPLE__) && defined(__MACH__)
 public:
-    Semaphore() noexcept : count(0) { pthread_cond_init(&cond, NULL); }
+    Semaphore() : count(0) { pthread_cond_init(&cond, NULL); }
     ~Semaphore() { pthread_cond_destroy(&cond); }
-    void signal() noexcept {
+    void signal() {
         Lock l(cs);
         count++;
         pthread_cond_signal(&cond);
     }
 
-    bool wait() noexcept {
+    bool wait() {
         Lock l(cs);
         while (count == 0) {
             pthread_cond_wait(&cond, &cs.getMutex());
@@ -72,7 +72,7 @@ public:
         return true;
     }
 
-    bool wait(uint32_t millis) noexcept {
+    bool wait(uint32_t millis) {
         Lock l(cs);
         if(count == 0) {
             timeval timev;
@@ -98,7 +98,7 @@ private:
     int count;
 #else
 public:
-    Semaphore() noexcept {
+    Semaphore() {
         sem_init(&semaphore, 0, 0);
     }
 
@@ -106,11 +106,11 @@ public:
         sem_destroy(&semaphore);
     }
 
-    void signal() noexcept {
+    void signal() {
         sem_post(&semaphore);
     }
 
-    bool wait() noexcept {
+    bool wait() {
         int retval = 0;
         do {
             retval = sem_wait(&semaphore);
@@ -119,7 +119,7 @@ public:
         return true;
     }
 
-    bool wait(uint32_t millis) noexcept {
+    bool wait(uint32_t millis) {
         timeval timev;
         timespec t;
         gettimeofday(&timev, NULL);

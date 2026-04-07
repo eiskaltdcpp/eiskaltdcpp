@@ -24,12 +24,14 @@
 #include "bookentry.hh"
 #include "treeview.hh"
 
+namespace dcpp { class DCContext; }
+
 class UploadQueue:
         public BookEntry,
         private dcpp::UploadManagerListener
 {
 public:
-    UploadQueue();
+    explicit UploadQueue(dcpp::DCContext& dcCtx);
     virtual ~UploadQueue();
     virtual void show();
 
@@ -69,4 +71,5 @@ private:
     GdkEventType previous;
 
 
+    dcpp::DCContext& dcCtx_;
 };

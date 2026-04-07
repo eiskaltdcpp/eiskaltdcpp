@@ -1,5 +1,6 @@
 /*
  * Copyright © 2004-2010 Jens Oknelid, paskharen@gmail.com
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -22,16 +23,18 @@
 #include <dcpp/FavoriteManager.h>
 #include <dcpp/UserCommand.h>
 #include <dcpp/ClientManager.h>
+#include "dcpp/DCPlusPlus.h"
 #include "wulformanager.hh"
 #include "WulforUtil.hh"
 
 using namespace std;
 using namespace dcpp;
 
-UserCommandMenu::UserCommandMenu(GtkWidget *userCommandMenu, int ctx):
+UserCommandMenu::UserCommandMenu(dcpp::DCContext& dcCtx, GtkWidget *userCommandMenu, int ctx):
     Entry(Entry::USER_COMMAND_MENU, "", generateID(this)),
     userCommandMenu(userCommandMenu),
-    ctx(ctx)
+    ctx(ctx),
+    dcCtx_(dcCtx)
 {
 }
 
@@ -78,7 +81,7 @@ void UserCommandMenu::cleanMenu_gui()
 
 void UserCommandMenu::buildMenu_gui()
 {
-    UserCommand::List userCommandList = FavoriteManager::getInstance()->getUserCommands(ctx, hubs);
+    UserCommand::List userCommandList = dcCtx_.getFavoriteManager()->getUserCommands(ctx, hubs);
 
     GtkWidget *menuItem;
     GtkWidget *menu = userCommandMenu;
@@ -181,7 +184,7 @@ void UserCommandMenu::onUserCommandClick_gui(GtkMenuItem *item, gpointer data)
             }
             F4 *func = new F4(ucm, &UserCommandMenu::sendUserCommand_client,
                               i->cid, commandName, hub, params);
-            WulforManager::get()->dispatchClientFunc(func);
+            wulforManagerInstance()->dispatchClientFunc(func);
         }
     }
 }
@@ -190,14 +193,14 @@ void UserCommandMenu::sendUserCommand_client(string cid, string commandName, str
 {
     if (!cid.empty() && !commandName.empty())
     {
-        int id = FavoriteManager::getInstance()->findUserCommand(commandName, hub);
+        int id = dcCtx_.getFavoriteManager()->findUserCommand(commandName, hub);
         UserCommand uc;
 
-        if (id == -1 || !FavoriteManager::getInstance()->getUserCommand(id, uc))
+        if (id == -1 || !dcCtx_.getFavoriteManager()->getUserCommand(id, uc))
             return;
 
-        UserPtr user = ClientManager::getInstance()->findUser(CID(cid));
+        UserPtr user = dcCtx_.getClientManager()->findUser(CID(cid));
         if (user)
-            ClientManager::getInstance()->userCommand(HintedUser(user, hub), uc, params, true);
+            dcCtx_.getClientManager()->userCommand(HintedUser(user, hub), uc, params, true);
     }
 }

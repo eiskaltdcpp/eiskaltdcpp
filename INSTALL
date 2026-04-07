@@ -150,10 +150,8 @@ Keys for cmake
 ----------------
 :eiskaltdcpp-qt:
 ----------------
--DUSE_QT=ON/OFF (default: OFF)
-    Build EiskaltDC++ with Qt interface using Qt 4.x libraries
--DUSE_QT5=ON/OFF (default: ON)
-    Build EiskaltDC++ with Qt interface using Qt 5.x libraries
+-DUSE_QT6=ON/OFF (default: ON)
+    Build EiskaltDC++ with Qt interface using Qt 6.x libraries (requires Qt >= 6.2)
 -DUSE_ASPELL=ON/OFF (default: ON)
     Use or not use aspell
 -DUSE_PROGRESS_BARS=ON/OFF (default: ON)

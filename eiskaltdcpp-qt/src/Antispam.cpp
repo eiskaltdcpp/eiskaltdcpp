@@ -6,6 +6,9 @@
 *   (at your option) any later version.                                   *
 *                                                                         *
 ***************************************************************************/
+/*
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
+ */
 
 #include <QDir>
 #include <QFile>
@@ -13,13 +16,27 @@
 
 #include "Antispam.h"
 #include "WulforUtil.h"
+#include "WulforSettings.h"
+#include "QtContext.h"
+#include "QtContextAware.h"
 #include "dcpp/stdinc.h"
 #include "dcpp/Util.h"
 #include "dcpp/ClientManager.h"
 #include "dcpp/User.h"
 #include "dcpp/CID.h"
+#include "dcpp/DCPlusPlus.h"
 
 using namespace dcpp;
+
+namespace {
+QString nickForCid(const QString &cid) {
+#ifndef QT_CONTEXT_MINIMAL
+    return qtCtx()->wulforUtil()->getNicks(cid);
+#else
+    return cid;
+#endif
+}
+} // anonymous namespace
 
 AntiSpam& operator<<(AntiSpam &sp, AntiSpamObjectState st){
     sp.state = st;
@@ -47,12 +64,13 @@ AntiSpam& operator <<(AntiSpam &sp, const QString &list){
     QString users = list;
     users += ",";
 
-    sp << users.split(",", QString::SkipEmptyParts);
+    sp << users.split(",", Qt::SkipEmptyParts);
 
     return sp;
 }
 
-AntiSpam::AntiSpam():
+AntiSpam::AntiSpam(dcpp::DCContext& ctx):
+        QtContextAware(ctx),
         state(eIN_BLACK)
 {
     try_count = 0;
@@ -117,11 +135,11 @@ bool AntiSpam::isInBlack(const QString &obj) const {
 }
 
 bool AntiSpam::isInGray(const QString &obj) const {
-    return ( gray_list.contains(obj) || WBGET(WB_ANTISPAM_AS_FILTER));
+    return ( gray_list.contains(obj) || qtCtx()->settings()->getBool(WB_ANTISPAM_AS_FILTER));
 }
 
 bool AntiSpam::isInWhite(const QString &obj) const {
-    return ( white_list.contains(obj) || WBGET(WB_ANTISPAM_AS_FILTER));
+    return ( white_list.contains(obj) || qtCtx()->settings()->getBool(WB_ANTISPAM_AS_FILTER));
 }
 
 bool AntiSpam::isInSandBox(const QString &obj_cid) const {
@@ -129,7 +147,7 @@ bool AntiSpam::isInSandBox(const QString &obj_cid) const {
 }
 
 void AntiSpam::checkUser(const QString &cid, const QString &msg, const QString &hubUrl){
-    UserPtr user = ClientManager::getInstance()->findUser(CID(_tq(cid)));
+    UserPtr user = dcCtx().getClientManager()->findUser(CID(_tq(cid)));
 
     if (!user->isOnline()){
         if (sandbox.contains(cid))
@@ -138,7 +156,7 @@ void AntiSpam::checkUser(const QString &cid, const QString &msg, const QString &
         return;
     }
 
-    log(tr("Checking user %1 (message: %2, cid: %3)...").arg(WulforUtil::getInstance()->getNicks(cid)).arg(msg).arg(cid));
+    log(tr("Checking user %1 (message: %2, cid: %3)...").arg(nickForCid(cid)).arg(msg).arg(cid));
 
     if (sandbox.contains(cid)){
         int counter = sandbox[cid];
@@ -148,7 +166,7 @@ void AntiSpam::checkUser(const QString &cid, const QString &msg, const QString &
 
         for (auto key : keys){
             if (key.toUpper() == msg.toUpper()){
-                (*this) << eIN_GRAY << WulforUtil::getInstance()->getNicks(cid);
+                (*this) << eIN_GRAY << nickForCid(cid);
                 log(tr("%1: Moving user to GRAY.").arg(cid));
 
                 sandbox.remove(cid);
@@ -158,7 +176,7 @@ void AntiSpam::checkUser(const QString &cid, const QString &msg, const QString &
         }
 
         if (counter > try_count){
-            (*this) << eIN_BLACK << WulforUtil::getInstance()->getNicks(cid);
+            (*this) << eIN_BLACK << nickForCid(cid);
             log(tr("%1: Moving user to BLACK.").arg(cid));
 
             sandbox.remove(cid);
@@ -166,7 +184,7 @@ void AntiSpam::checkUser(const QString &cid, const QString &msg, const QString &
             return;
         }
 
-        ClientManager::getInstance()->privateMessage(HintedUser(user, _tq(hubUrl)), _tq("Try again."), false);
+        dcCtx().getClientManager()->privateMessage(HintedUser(user, _tq(hubUrl)), _tq("Try again."), false);
         log(tr("%1: Sending \"Try again\" message.").arg(cid));
 
         sandbox[cid] = counter;
@@ -176,7 +194,7 @@ void AntiSpam::checkUser(const QString &cid, const QString &msg, const QString &
 
         QString question = tr("Hi, this is AntiSpam bot. So question is \"%1\"").arg(phrase);
 
-        ClientManager::getInstance()->privateMessage(HintedUser(user, _tq(hubUrl)), _tq(question), false);
+        dcCtx().getClientManager()->privateMessage(HintedUser(user, _tq(hubUrl)), _tq(question), false);
     }
 }
 
@@ -372,7 +390,7 @@ void AntiSpam::loadSettings() {
                 keys.append("10");
             }
             else {
-                QList<QString> words = line.split("|", QString::SkipEmptyParts);
+                QList<QString> words = line.split("|", Qt::SkipEmptyParts);
                 keys.clear();
                 keys.append(words);
             }

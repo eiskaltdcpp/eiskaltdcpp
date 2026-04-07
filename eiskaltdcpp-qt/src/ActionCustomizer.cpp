@@ -6,6 +6,9 @@
 *   (at your option) any later version.                                   *
 *                                                                         *
 ***************************************************************************/
+/*
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
+ */
 
 #include "ActionCustomizer.h"
 
@@ -40,11 +43,11 @@ ActionCustomizer::ActionCustomizer(const QList<QAction*> &available, const QList
         avail_items.insert(item, act);
     }
 
-    connect(pushButton_DOWN,    SIGNAL(clicked()), this, SLOT(moveDown()));
-    connect(pushButton_UP,      SIGNAL(clicked()), this, SLOT(moveUp()));
-    connect(pushButton_REM,     SIGNAL(clicked()), this, SLOT(moveToAvailable()));
-    connect(pushButton_ADD,     SIGNAL(clicked()), this, SLOT(moveToEnabled()));
-    connect(buttonBox,          SIGNAL(accepted()),this, SLOT(actionAccepted()));
+    connect(pushButton_DOWN,    &QPushButton::clicked, this, &ActionCustomizer::moveDown);
+    connect(pushButton_UP,      &QPushButton::clicked, this, &ActionCustomizer::moveUp);
+    connect(pushButton_REM,     &QPushButton::clicked, this, &ActionCustomizer::moveToAvailable);
+    connect(pushButton_ADD,     &QPushButton::clicked, this, &ActionCustomizer::moveToEnabled);
+    connect(buttonBox,          &QDialogButtonBox::accepted, this, &ActionCustomizer::actionAccepted);
 }
 
 void ActionCustomizer::actionAccepted() {

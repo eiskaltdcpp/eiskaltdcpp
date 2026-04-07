@@ -6,23 +6,31 @@
 *   (at your option) any later version.                                   *
 *                                                                         *
 ***************************************************************************/
+/*
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
+ */
 
 #include "ADLS.h"
 #include "ADLSModel.h"
 #include "WulforUtil.h"
 #include "WulforSettings.h"
+#include "QtContext.h"
+#include "QtContextAware.h"
 #include "dcpp/stdinc.h"
 #include "dcpp/ADLSearch.h"
+#include "dcpp/DCPlusPlus.h"
 
 #include <QTreeView>
 #include <QHeaderView>
 #include <QItemSelectionModel>
 #include <QList>
+#include <QPushButton>
 #include <QtDebug>
 
 using namespace dcpp;
 
-ADLS::ADLS(QWidget *parent):
+ADLS::ADLS(dcpp::DCContext& ctx, QWidget *parent):
+        QtContextAware(ctx),
         QWidget(parent),
         model(nullptr)
 {
@@ -36,7 +44,7 @@ ADLS::ADLS(QWidget *parent):
 ADLS::~ADLS(){
     save();
 
-    ADLSearchManager::getInstance()->save();
+    dcCtx().getADLSearchManager()->save();
 
     delete model;
 }
@@ -62,11 +70,11 @@ QMenu *ADLS::getMenu(){
 }
 
 void ADLS::load(){
-    treeView->header()->restoreState(WVGET(WS_ADLS_STATE, QByteArray()).toByteArray());
+    treeView->header()->restoreState(qtCtx()->settings()->getVar(WS_ADLS_STATE, QByteArray()).toByteArray());
 }
 
 void ADLS::save(){
-    WVSET(WS_ADLS_STATE, treeView->header()->saveState());
+    qtCtx()->settings()->setVar(WS_ADLS_STATE, treeView->header()->saveState());
 }
 
 void ADLS::init(){
@@ -75,7 +83,7 @@ void ADLS::init(){
 
     treeView->setModel(model);
 
-    ADLSearchManager::SearchCollection& collection = ADLSearchManager::getInstance()->collection;
+    ADLSearchManager::SearchCollection& collection = dcCtx().getADLSearchManager()->collection;
 
     for (const ADLSearch &search : collection) {
         addItem(search);
@@ -89,7 +97,7 @@ void ADLS::init(){
     treeView->setAcceptDrops(false); // temporary
     //treeView->setDragDropMode(QAbstractItemView::InternalMove);
 
-    WulforUtil *WU = WulforUtil::getInstance();
+    WulforUtil *WU = qtCtx()->wulforUtil();
 
     add_newButton->setIcon(WU->getPixmap(WulforUtil::eiBOOKMARK_ADD));
     changeButton->setIcon(WU->getPixmap(WulforUtil::eiEDIT));
@@ -113,24 +121,24 @@ void ADLS::init(){
         downButton->setEnabled(false);
     }
 
-    connect(treeView, SIGNAL(customContextMenuRequested(const QPoint&)), this, SLOT(slotContexMenu(const QPoint&)));
-    connect(treeView, SIGNAL(clicked(QModelIndex)), this, SLOT(slotClicked(QModelIndex)));
-    connect(treeView->header(), SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotHeaderMenu()));
-    connect(treeView, SIGNAL(doubleClicked(QModelIndex)), this, SLOT(slotDblClicked()));
+    connect(treeView, &QWidget::customContextMenuRequested, this, &ADLS::slotContexMenu);
+    connect(treeView, &QTreeView::clicked, this, &ADLS::slotClicked);
+    connect(treeView->header(), &QWidget::customContextMenuRequested, this, &ADLS::slotHeaderMenu);
+    connect(treeView, &QTreeView::doubleClicked, this, &ADLS::slotDblClicked);
 
-    connect(WulforSettings::getInstance(), SIGNAL(strValueChanged(QString,QString)), this, SLOT(slotSettingsChanged(QString,QString)));
+    connect(qtCtx()->settings(), &WulforSettings::strValueChanged, this, &ADLS::slotSettingsChanged);
 
-    connect(add_newButton, SIGNAL(clicked()), this, SLOT(slotAdd_newButtonClicked()));
-    connect(changeButton,  SIGNAL(clicked()), this, SLOT(slotChangeButtonClicked()));
-    connect(removeButton,  SIGNAL(clicked()), this, SLOT(slotRemoveButtonClicked()));
-    connect(upButton,      SIGNAL(clicked()), this, SLOT(slotUpButtonClicked()));
-    connect(downButton,    SIGNAL(clicked()), this, SLOT(slotDownButtonClicked()));
+    connect(add_newButton, &QPushButton::clicked, this, &ADLS::slotAdd_newButtonClicked);
+    connect(changeButton,  &QPushButton::clicked, this, &ADLS::slotChangeButtonClicked);
+    connect(removeButton,  &QPushButton::clicked, this, &ADLS::slotRemoveButtonClicked);
+    connect(upButton,      &QPushButton::clicked, this, &ADLS::slotUpButtonClicked);
+    connect(downButton,    &QPushButton::clicked, this, &ADLS::slotDownButtonClicked);
 }
 
 void ADLS::slotContexMenu(const QPoint &){
     QItemSelectionModel *s_model = treeView->selectionModel();
     QModelIndexList list = s_model->selectedRows(0);
-    WulforUtil *WU = WulforUtil::getInstance();
+    WulforUtil *WU = qtCtx()->wulforUtil();
     bool empty = list.empty();
     QMenu *menu = new QMenu(this);
 
@@ -189,11 +197,11 @@ void ADLS::slotClicked(const QModelIndex &index){
         return;
 
     ADLSItem *item = reinterpret_cast<ADLSItem*>(index.internalPointer());
-    ADLSearchManager::SearchCollection &collection = ADLSearchManager::getInstance()->collection;
+    ADLSearchManager::SearchCollection &collection = dcCtx().getADLSearchManager()->collection;
     StrMap mapcheck;
     mapcheck["SSTRING"] = item->data(COLUMN_SSTRING).toString();
     mapcheck["DIRECTORY"] = item->data(COLUMN_DIRECTORY).toString();
-    VectorSize i = findEntry(mapcheck);
+    int i = findEntry(mapcheck);
     ADLSearch entry = collection[i];
 
         bool check = !item->data(COLUMN_CHECK).toBool();
@@ -204,7 +212,7 @@ void ADLS::slotClicked(const QModelIndex &index){
             collection[i] = entry;
         model->repaint();
 
-        ADLSearchManager::getInstance()->save();
+        dcCtx().getADLSearchManager()->save();
 }
 
 void ADLS::initEditor(ADLSEditor &editor){
@@ -213,7 +221,7 @@ void ADLS::initEditor(ADLSEditor &editor){
 
 void ADLS::slotAdd_newButtonClicked(){
     ADLSEditor editor;
-    ADLSearchManager::SearchCollection &collection = ADLSearchManager::getInstance()->collection;
+    ADLSearchManager::SearchCollection &collection = dcCtx().getADLSearchManager()->collection;
     ADLSearch search;
 
     initEditor(editor);
@@ -224,7 +232,7 @@ void ADLS::slotAdd_newButtonClicked(){
         getParams(editor, map);
         updateEntry(search, map);
         collection.push_back(search);
-        ADLSearchManager::getInstance()->save();
+        dcCtx().getADLSearchManager()->save();
         addItem(search);
     }
 }
@@ -238,9 +246,9 @@ void ADLS::slotChangeButtonClicked(){
     StrMap mapcheck;
     mapcheck["SSTRING"] = item->data(COLUMN_SSTRING).toString();
     mapcheck["DIRECTORY"] = item->data(COLUMN_DIRECTORY).toString();
-    VectorSize i = findEntry(mapcheck);
+    int i = findEntry(mapcheck);
     ADLSEditor editor;
-    ADLSearchManager::SearchCollection &collection = ADLSearchManager::getInstance()->collection;
+    ADLSearchManager::SearchCollection &collection = dcCtx().getADLSearchManager()->collection;
     ADLSearch search = collection[i];
 
         StrMap map;
@@ -268,8 +276,8 @@ void ADLS::slotRemoveButtonClicked(){
     StrMap mapcheck;
     mapcheck["SSTRING"] = item->data(COLUMN_SSTRING).toString();
     mapcheck["DIRECTORY"] = item->data(COLUMN_DIRECTORY).toString();
-    VectorSize i = findEntry(mapcheck);
-    ADLSearchManager::SearchCollection &collection = ADLSearchManager::getInstance()->collection;
+    int i = findEntry(mapcheck);
+    ADLSearchManager::SearchCollection &collection = dcCtx().getADLSearchManager()->collection;
 
     if (i < collection.size()) {
         collection.erase(collection.begin() + i);
@@ -402,7 +410,7 @@ void ADLS::slotSettingsChanged(const QString &key, const QString &value){
 }
 
 /*ADLS::VectorSize*/int ADLS::findEntry(StrMap &map){
-    ADLSearchManager::SearchCollection& collection = ADLSearchManager::getInstance()->collection;
+    ADLSearchManager::SearchCollection& collection = dcCtx().getADLSearchManager()->collection;
     int j = 0;
     for (const ADLSearch &search : collection) {
         if (_q(search.searchString) == map["SSTRING"] &&

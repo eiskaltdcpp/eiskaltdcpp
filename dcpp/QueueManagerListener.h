@@ -52,26 +52,26 @@ public:
     typedef X<16> CRCFailed;
     typedef X<17> CRCChecked;
 
-    virtual void on(Added, QueueItem*) noexcept { }
-    virtual void on(Finished, QueueItem*, const string&, int64_t) noexcept { }
-    virtual void on(Removed, QueueItem*) noexcept { }
-    virtual void on(Moved, QueueItem*, const string&) noexcept { }
-    virtual void on(SourcesUpdated, QueueItem*) noexcept { }
-    virtual void on(StatusUpdated, QueueItem*) noexcept { }
-    virtual void on(SearchStringUpdated, QueueItem*) noexcept { }
-    virtual void on(PartialList, const HintedUser&, const string&) noexcept { }
+    virtual void on(Added, QueueItem*) { }
+    virtual void on(Finished, QueueItem*, const string&, int64_t) { }
+    virtual void on(Removed, QueueItem*) { }
+    virtual void on(Moved, QueueItem*, const string&) { }
+    virtual void on(SourcesUpdated, QueueItem*) { }
+    virtual void on(StatusUpdated, QueueItem*) { }
+    virtual void on(SearchStringUpdated, QueueItem*) { }
+    virtual void on(PartialList, const HintedUser&, const string&) { }
 
-    virtual void on(RecheckStarted, const string&) noexcept { }
-    virtual void on(RecheckNoFile, const string&) noexcept { }
-    virtual void on(RecheckFileTooSmall, const string&) noexcept { }
-    virtual void on(RecheckDownloadsRunning, const string&) noexcept { }
-    virtual void on(RecheckNoTree, const string&) noexcept { }
-    virtual void on(RecheckAlreadyFinished, const string&) noexcept { }
-    virtual void on(RecheckDone, const string&) noexcept { }
-    virtual void on(FileMoved, const string&) noexcept { }
+    virtual void on(RecheckStarted, const string&) { }
+    virtual void on(RecheckNoFile, const string&) { }
+    virtual void on(RecheckFileTooSmall, const string&) { }
+    virtual void on(RecheckDownloadsRunning, const string&) { }
+    virtual void on(RecheckNoTree, const string&) { }
+    virtual void on(RecheckAlreadyFinished, const string&) { }
+    virtual void on(RecheckDone, const string&) { }
+    virtual void on(FileMoved, const string&) { }
 
-    virtual void on(CRCFailed, Download*, const string&) noexcept { }
-    virtual void on(CRCChecked, Download*) noexcept { }
+    virtual void on(CRCFailed, Download*, const string&) { }
+    virtual void on(CRCChecked, Download*) { }
 };
 
 } // namespace dcpp

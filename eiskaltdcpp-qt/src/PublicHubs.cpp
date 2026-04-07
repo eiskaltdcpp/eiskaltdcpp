@@ -6,11 +6,17 @@
 *   (at your option) any later version.                                   *
 *                                                                         *
 ***************************************************************************/
+/*
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
+ */
 
 #include "PublicHubs.h"
+#include "dcpp/DCPlusPlus.h"
 #include "MainWindow.h"
 #include "WulforSettings.h"
 #include "AutoToolTip.h"
+#include "QtContext.h"
+#include "QtContextAware.h"
 
 #include <QApplication>
 #include <QClipboard>
@@ -20,7 +26,8 @@
 
 using namespace dcpp;
 
-PublicHubs::PublicHubs(QWidget *parent) :
+PublicHubs::PublicHubs(dcpp::DCContext& ctx, QWidget *parent) :
+    QtContextAware(ctx),
     QWidget(parent), proxy(nullptr)
 {
     setupUi(this);
@@ -31,16 +38,16 @@ PublicHubs::PublicHubs(QWidget *parent) :
 
     treeView->setModel(model);
     treeView->setItemDelegate(new AutoToolTipDelegate(treeView));
-    treeView->header()->restoreState(WVGET(WS_PUBLICHUBS_STATE, QByteArray()).toByteArray());
+    treeView->header()->restoreState(qtCtx()->settings()->getVar(WS_PUBLICHUBS_STATE, QByteArray()).toByteArray());
 
     lineEdit_FILTER->installEventFilter(this);
 
-    FavoriteManager::getInstance()->addListener(this);
+    dcCtx().getFavoriteManager()->addListener(this);
 
-    QString hubs = _q(SettingsManager::getInstance()->get(SettingsManager::HUBLIST_SERVERS));
+    QString hubs = _q(dcCtx().getSettingsManager()->get(SettingsManager::HUBLIST_SERVERS));
 
-    comboBox_HUBS->addItems(hubs.split(";", QString::SkipEmptyParts));
-    comboBox_HUBS->setCurrentIndex(FavoriteManager::getInstance()->getSelectedHubList());
+    comboBox_HUBS->addItems(hubs.split(";", Qt::SkipEmptyParts));
+    comboBox_HUBS->setCurrentIndex(dcCtx().getFavoriteManager()->getSelectedHubList());
 
     for (int i = 0; i < model->columnCount(); i++)
         comboBox_FILTER->addItem(model->headerData(i, Qt::Horizontal, Qt::DisplayRole).toString());
@@ -49,32 +56,32 @@ PublicHubs::PublicHubs(QWidget *parent) :
 
     frame->hide();
 
-    entries = FavoriteManager::getInstance()->getPublicHubs();
+    entries = dcCtx().getFavoriteManager()->getPublicHubs();
 
     updateList();
 
-    if(FavoriteManager::getInstance()->isDownloading()) {
+    if(dcCtx().getFavoriteManager()->isDownloading()) {
         label_STATUS->setText(tr("Downloading public hub list..."));
     } else if(entries.empty()) {
-        FavoriteManager::getInstance()->refresh();
+        dcCtx().getFavoriteManager()->refresh();
     }
 
     treeView->setContextMenuPolicy(Qt::CustomContextMenu);
     treeView->header()->setContextMenuPolicy(Qt::CustomContextMenu);
 
-    toolButton_CLOSEFILTER->setIcon(WICON(WulforUtil::eiEDITDELETE));
+    toolButton_CLOSEFILTER->setIcon(qtCtx()->wulforUtil()->getPixmap(WulforUtil::eiEDITDELETE));
 
-    connect(this, SIGNAL(coreDownloadStarted(QString)),  this, SLOT(setStatus(QString)), Qt::QueuedConnection);
-    connect(this, SIGNAL(coreDownloadFailed(QString)),   this, SLOT(setStatus(QString)), Qt::QueuedConnection);
-    connect(this, SIGNAL(coreDownloadFinished(QString)), this, SLOT(onFinished(QString)), Qt::QueuedConnection);
-    connect(this, SIGNAL(coreCacheLoaded(QString)),      this, SLOT(onFinished(QString)), Qt::QueuedConnection);
+    connect(this, &PublicHubs::coreDownloadStarted,  this, &PublicHubs::setStatus, Qt::QueuedConnection);
+    connect(this, &PublicHubs::coreDownloadFailed,   this, &PublicHubs::setStatus, Qt::QueuedConnection);
+    connect(this, &PublicHubs::coreDownloadFinished, this, &PublicHubs::onFinished, Qt::QueuedConnection);
+    connect(this, &PublicHubs::coreCacheLoaded,      this, &PublicHubs::onFinished, Qt::QueuedConnection);
 
-    connect(treeView, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotContextMenu()));
-    connect(treeView, SIGNAL(doubleClicked(QModelIndex)), this, SLOT(slotDoubleClicked(QModelIndex)));
-    connect(treeView->header(), SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotHeaderMenu()));
-    connect(toolButton_CLOSEFILTER, SIGNAL(clicked()), this, SLOT(slotFilter()));
-    connect(comboBox_HUBS, SIGNAL(activated(int)), this, SLOT(slotHubChanged(int)));
-    connect(WulforSettings::getInstance(), SIGNAL(strValueChanged(QString,QString)), this, SLOT(slotSettingsChanged(QString,QString)));
+    connect(treeView, &QTreeView::customContextMenuRequested, this, &PublicHubs::slotContextMenu);
+    connect(treeView, &QTreeView::doubleClicked, this, &PublicHubs::slotDoubleClicked);
+    connect(treeView->header(), &QHeaderView::customContextMenuRequested, this, &PublicHubs::slotHeaderMenu);
+    connect(toolButton_CLOSEFILTER, &QToolButton::clicked, this, &PublicHubs::slotFilter);
+    connect(comboBox_HUBS, qOverload<int>(&QComboBox::activated), this, &PublicHubs::slotHubChanged);
+    connect(qtCtx()->settings(), &WulforSettings::strValueChanged, this, &PublicHubs::slotSettingsChanged);
     
     ArenaWidget::setState( ArenaWidget::Flags(ArenaWidget::state() | ArenaWidget::Singleton | ArenaWidget::Hidden) );
     if (comboBox_HUBS->count())
@@ -82,12 +89,12 @@ PublicHubs::PublicHubs(QWidget *parent) :
 }
 
 PublicHubs::~PublicHubs(){
-    WVSET(WS_PUBLICHUBS_STATE, treeView->header()->saveState());
+    qtCtx()->settings()->setVar(WS_PUBLICHUBS_STATE, treeView->header()->saveState());
     
     delete model;
     delete proxy;
 
-    FavoriteManager::getInstance()->removeListener(this);
+    dcCtx().getFavoriteManager()->removeListener(this);
 }
 
 bool PublicHubs::eventFilter(QObject *obj, QEvent *e){
@@ -137,7 +144,7 @@ void PublicHubs::updateList(){
 void PublicHubs::onFinished(const QString &stat){
     setStatus(stat);
 
-    entries = FavoriteManager::getInstance()->getPublicHubs();
+    entries = dcCtx().getFavoriteManager()->getPublicHubs();
 
     updateList();
 }
@@ -152,7 +159,7 @@ void PublicHubs::slotContextMenu(){
     if (proxy)
         std::transform(indexes.begin(), indexes.end(), indexes.begin(), [&](QModelIndex i) { return proxy->mapToSource(i); });
 
-    WulforUtil *WU = WulforUtil::getInstance();
+    WulforUtil *WU = qtCtx()->wulforUtil();
 
     QMenu *m = new QMenu();
     QAction *connect = new QAction(WU->getPixmap(WulforUtil::eiCONNECT), tr("Connect"), m);
@@ -167,7 +174,7 @@ void PublicHubs::slotContextMenu(){
 
     if (ret == connect){
         PublicHubItem * item = nullptr;
-        MainWindow *MW = MainWindow::getInstance();
+        MainWindow *MW = qtCtx()->mainWindow();
 
         for (const auto &i : indexes){
             item = reinterpret_cast<PublicHubItem*>(i.internalPointer());
@@ -186,7 +193,8 @@ void PublicHubs::slotContextMenu(){
 
             if (item && item->entry){
                 try{
-                    FavoriteManager::getInstance()->addFavorite(*item->entry);
+                    FavoriteHubEntry fhe(dcCtx(), *item->entry);
+                    dcCtx().getFavoriteManager()->addFavorite(fhe);
                 }
                 catch (const std::exception&){}
             }
@@ -223,7 +231,7 @@ void PublicHubs::slotDoubleClicked(const QModelIndex &index){
     QModelIndex i = proxy? proxy->mapToSource(index) : index;
 
     PublicHubItem * item = reinterpret_cast<PublicHubItem*>(i.internalPointer());
-    MainWindow *MW = MainWindow::getInstance();
+    MainWindow *MW = qtCtx()->mainWindow();
 
     if (item)
         MW->newHubFrame(item->data(COLUMN_PHUB_ADDRESS).toString(), "");
@@ -233,7 +241,7 @@ void PublicHubs::slotFilter(){
     if (frame->isVisible()){
         treeView->setModel(model);
 
-        disconnect(lineEdit_FILTER, SIGNAL(textChanged(QString)), proxy, SLOT(setFilterFixedString(QString)));
+        disconnect(lineEdit_FILTER, &QLineEdit::textChanged, proxy, &QSortFilterProxyModel::setFilterFixedString);
 
         delete proxy;
         proxy = nullptr;
@@ -248,8 +256,8 @@ void PublicHubs::slotFilter(){
 
         treeView->setModel(proxy);
 
-        connect(lineEdit_FILTER, SIGNAL(textChanged(QString)), proxy, SLOT(setFilterFixedString(QString)));
-        connect(comboBox_FILTER, SIGNAL(currentIndexChanged(int)), this, SLOT(slotFilterColumnChanged()));
+        connect(lineEdit_FILTER, &QLineEdit::textChanged, proxy, &QSortFilterProxyModel::setFilterFixedString);
+        connect(comboBox_FILTER, qOverload<int>(&QComboBox::currentIndexChanged), this, &PublicHubs::slotFilterColumnChanged);
 
         lineEdit_FILTER->setFocus();
 
@@ -261,8 +269,8 @@ void PublicHubs::slotFilter(){
 }
 
 void PublicHubs::slotHubChanged(int pos){
-    FavoriteManager::getInstance()->setHubList(pos);
-    FavoriteManager::getInstance()->refresh();
+    dcCtx().getFavoriteManager()->setHubList(pos);
+    dcCtx().getFavoriteManager()->refresh();
 }
 
 void PublicHubs::slotFilterColumnChanged(){

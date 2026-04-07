@@ -1,5 +1,6 @@
 /*
  * Copyright © 2009-2010 freedcpp, https://github.com/eiskaltdcpp/freedcpp
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -20,6 +21,7 @@
 
 #include "favoriteusers.hh"
 #include <dcpp/ClientManager.h>
+#include "dcpp/DCPlusPlus.h"
 #include "settingsmanager.hh"
 #include "wulformanager.hh"
 #include "WulforUtil.hh"
@@ -28,8 +30,9 @@
 using namespace std;
 using namespace dcpp;
 
-FavoriteUsers::FavoriteUsers():
-    BookEntry(Entry::FAVORITE_USERS, _("Favorite Users"), "favoriteusers.ui")
+FavoriteUsers::FavoriteUsers(dcpp::DCContext& dcCtx):
+    BookEntry(Entry::FAVORITE_USERS, _("Favorite Users"), "favoriteusers.ui"),
+    dcCtx_(dcCtx)
 {
 #if !GTK_CHECK_VERSION(3,0,0)
     gtk_statusbar_set_has_resize_grip (GTK_STATUSBAR(getWidget("status")),false);
@@ -84,7 +87,7 @@ FavoriteUsers::FavoriteUsers():
 
 FavoriteUsers::~FavoriteUsers()
 {
-    FavoriteManager::getInstance()->removeListener(this);
+    dcCtx_.getFavoriteManager()->removeListener(this);
 
     gtk_widget_destroy(getWidget("DescriptionDialog"));
     g_object_unref(getWidget("menu"));
@@ -93,14 +96,14 @@ FavoriteUsers::~FavoriteUsers()
 void FavoriteUsers::show()
 {
     // Initialize favorite users list
-    FavoriteManager::FavoriteMap map = FavoriteManager::getInstance()->getFavoriteUsers();
+    FavoriteManager::FavoriteMap map = dcCtx_.getFavoriteManager()->getFavoriteUsers();
 
     for (FavoriteManager::FavoriteMap::const_iterator it = map.begin(); it != map.end(); ++it)
     {
         GtkTreeIter iter;
         const FavoriteUser &user = it->second;
         bool online = user.getUser()->isOnline();
-        string hub = online ? WulforUtil::getHubNames(user.getUser(), user.getUrl()) : user.getUrl();
+        string hub = online ? WulforUtil::getHubNames(dcCtx_, user.getUser(), user.getUrl()) : user.getUrl();
         string seen = online ? _("Online") : Util::formatTime("%Y-%m-%d %H:%M", user.getLastSeen());
         string cid = user.getUser()->getCID().toBase32();
 
@@ -118,7 +121,7 @@ void FavoriteUsers::show()
 
         userIters.insert(UserIters::value_type(cid, iter));
     }
-    FavoriteManager::getInstance()->addListener(this);
+    dcCtx_.getFavoriteManager()->addListener(this);
 }
 
 gboolean FavoriteUsers::onKeyReleased_gui(GtkWidget *widget, GdkEventKey *event, gpointer data)
@@ -225,7 +228,7 @@ void FavoriteUsers::onBrowseItemClicked_gui(GtkMenuItem *item, gpointer data)
                                   fu->favoriteUserView.getString(&iter, _("CID")),
                                   fu->favoriteUserView.getString(&iter, "URL"),
                                   false);
-                WulforManager::get()->dispatchClientFunc(func);
+                wulforManagerInstance()->dispatchClientFunc(func);
             }
             gtk_tree_path_free(path);
         }
@@ -255,7 +258,7 @@ void FavoriteUsers::onMatchQueueItemClicked_gui(GtkMenuItem *item, gpointer data
                                   fu->favoriteUserView.getString(&iter, _("CID")),
                                   fu->favoriteUserView.getString(&iter, "URL"),
                                   true);
-                WulforManager::get()->dispatchClientFunc(func);
+                wulforManagerInstance()->dispatchClientFunc(func);
             }
             gtk_tree_path_free(path);
         }
@@ -280,7 +283,7 @@ void FavoriteUsers::onSendPMItemClicked_gui(GtkMenuItem *item, gpointer data)
 
             if (gtk_tree_model_get_iter(GTK_TREE_MODEL(fu->favoriteUserStore), &iter, path))
             {
-                WulforManager::get()->getMainWindow()->addPrivateMessage_gui(Msg::UNKNOWN,
+                wulforManagerInstance()->getMainWindow()->addPrivateMessage_gui(Msg::UNKNOWN,
                                                                              fu->favoriteUserView.getString(&iter, _("CID")),
                                                                              fu->favoriteUserView.getString(&iter, "URL"));
             }
@@ -311,7 +314,7 @@ void FavoriteUsers::onGrantSlotItemClicked_gui(GtkMenuItem *item, gpointer data)
                 F2 *func = new F2(fu, &FavoriteUsers::grantSlot_client,
                                   fu->favoriteUserView.getString(&iter, _("CID")),
                                   fu->favoriteUserView.getString(&iter, "URL"));
-                WulforManager::get()->dispatchClientFunc(func);
+                wulforManagerInstance()->dispatchClientFunc(func);
             }
             gtk_tree_path_free(path);
         }
@@ -336,7 +339,7 @@ void FavoriteUsers::onConnectItemClicked_gui(GtkMenuItem *item, gpointer data)
 
             if (gtk_tree_model_get_iter(GTK_TREE_MODEL(fu->favoriteUserStore), &iter, path))
             {
-                WulforManager::get()->getMainWindow()->showHub_gui(fu->favoriteUserView.getString(&iter, "URL"));
+                wulforManagerInstance()->getMainWindow()->showHub_gui(fu->favoriteUserView.getString(&iter, "URL"));
             }
             gtk_tree_path_free(path);
         }
@@ -363,7 +366,7 @@ void FavoriteUsers::onRemoveFromQueueItemClicked_gui(GtkMenuItem *item, gpointer
             if (gtk_tree_model_get_iter(GTK_TREE_MODEL(fu->favoriteUserStore), &iter, path))
             {
                 F1 *func = new F1(fu, &FavoriteUsers::removeUserFromQueue_client, fu->favoriteUserView.getString(&iter, _("CID")));
-                WulforManager::get()->dispatchClientFunc(func);
+                wulforManagerInstance()->dispatchClientFunc(func);
             }
             gtk_tree_path_free(path);
         }
@@ -417,7 +420,7 @@ void FavoriteUsers::onDescriptionItemClicked_gui(GtkMenuItem *item, gpointer dat
 
                 typedef Func2<FavoriteUsers, string, string> F2;
                 F2 *func = new F2(fu, &FavoriteUsers::setUserDescription_client, cid, description);
-                WulforManager::get()->dispatchClientFunc(func);
+                wulforManagerInstance()->dispatchClientFunc(func);
             }
         }
     }
@@ -451,7 +454,7 @@ void FavoriteUsers::onRemoveItemClicked_gui(GtkMenuItem *item, gpointer data)
 
         if (WGETB("confirm-user-removal"))
         {
-            GtkWidget* dialog = gtk_message_dialog_new(GTK_WINDOW(WulforManager::get()->getMainWindow()->getContainer()),
+            GtkWidget* dialog = gtk_message_dialog_new(GTK_WINDOW(wulforManagerInstance()->getMainWindow()->getContainer()),
                                                        GTK_DIALOG_DESTROY_WITH_PARENT,
                                                        GTK_MESSAGE_QUESTION,
                                                        GTK_BUTTONS_NONE,
@@ -474,7 +477,7 @@ void FavoriteUsers::onRemoveItemClicked_gui(GtkMenuItem *item, gpointer data)
         for (auto it = params.begin(); it != params.end(); ++it)
         {
             F1 *func = new F1(fu, &FavoriteUsers::removeFavoriteUser_client, it->first);
-            WulforManager::get()->dispatchClientFunc(func);
+            wulforManagerInstance()->dispatchClientFunc(func);
         }
     }
 }
@@ -494,7 +497,7 @@ void FavoriteUsers::onAutoGrantSlotToggled_gui(GtkCellRendererToggle *cell, gcha
 
         typedef Func2<FavoriteUsers, string, bool> F2;
         F2 *func = new F2(fu, &FavoriteUsers::setAutoGrantSlot_client, cid, grant);
-        WulforManager::get()->dispatchClientFunc(func);
+        wulforManagerInstance()->dispatchClientFunc(func);
     }
 }
 
@@ -502,34 +505,34 @@ void FavoriteUsers::getFileList_client(const string cid, const string hubUrl, bo
 {
     try
     {
-        UserPtr user = ClientManager::getInstance()->findUser(CID(cid));
+        UserPtr user = dcCtx_.getClientManager()->findUser(CID(cid));
 
         if (user)
         {
             const HintedUser hintedUser(user, hubUrl);
             if (match)
-                QueueManager::getInstance()->addList(hintedUser, QueueItem::FLAG_MATCH_QUEUE);
+                dcCtx_.getQueueManager()->addList(hintedUser, QueueItem::FLAG_MATCH_QUEUE);
             else
-                QueueManager::getInstance()->addList(hintedUser, QueueItem::FLAG_CLIENT_VIEW);
+                dcCtx_.getQueueManager()->addList(hintedUser, QueueItem::FLAG_CLIENT_VIEW);
         }
     }
     catch (const Exception& e)
     {
         typedef Func1<FavoriteUsers, string> F1;
         F1 *func = new F1(this, &FavoriteUsers::setStatus_gui, e.getError());
-        WulforManager::get()->dispatchGuiFunc(func);
+        wulforManagerInstance()->dispatchGuiFunc(func);
     }
 }
 
 void FavoriteUsers::grantSlot_client(const string cid, const string hubUrl)
 {
-    UserPtr user = ClientManager::getInstance()->findUser(CID(cid));
+    UserPtr user = dcCtx_.getClientManager()->findUser(CID(cid));
     if (user)
     {
-        UploadManager::getInstance()->reserveSlot(HintedUser(user, hubUrl));
+        dcCtx_.getUploadManager()->reserveSlot(HintedUser(user, hubUrl));
         typedef Func1<FavoriteUsers, string> F1;
-        F1 *func = new F1(this, &FavoriteUsers::setStatus_gui, _("Slot granted to ") + WulforUtil::getNicks(user, hubUrl));
-        WulforManager::get()->dispatchGuiFunc(func);
+        F1 *func = new F1(this, &FavoriteUsers::setStatus_gui, _("Slot granted to ") + WulforUtil::getNicks(dcCtx_, user, hubUrl));
+        wulforManagerInstance()->dispatchGuiFunc(func);
     }
 }
 
@@ -537,39 +540,39 @@ void FavoriteUsers::removeUserFromQueue_client(const string cid)
 {
     if (!cid.empty())
     {
-        UserPtr user = ClientManager::getInstance()->findUser(CID(cid));
+        UserPtr user = dcCtx_.getClientManager()->findUser(CID(cid));
         if (user)
-            QueueManager::getInstance()->removeSource(user, QueueItem::Source::FLAG_REMOVED);
+            dcCtx_.getQueueManager()->removeSource(user, QueueItem::Source::FLAG_REMOVED);
     }
 }
 
 void FavoriteUsers::setAutoGrantSlot_client(const string cid, bool grant)
 {
-    UserPtr user = ClientManager::getInstance()->findUser(CID(cid));
+    UserPtr user = dcCtx_.getClientManager()->findUser(CID(cid));
 
     if (user)
     {
-        FavoriteManager::getInstance()->setAutoGrant(user, grant);
+        dcCtx_.getFavoriteManager()->setAutoGrant(user, grant);
     }
 }
 
 void FavoriteUsers::removeFavoriteUser_client(const string cid)
 {
-    UserPtr user = ClientManager::getInstance()->findUser(CID(cid));
+    UserPtr user = dcCtx_.getClientManager()->findUser(CID(cid));
 
     if (user)
     {
-        FavoriteManager::getInstance()->removeFavoriteUser(user);
+        dcCtx_.getFavoriteManager()->removeFavoriteUser(user);
     }
 }
 
 void FavoriteUsers::setUserDescription_client(const string cid, const string description)
 {
-    UserPtr user = ClientManager::getInstance()->findUser(CID(cid));
+    UserPtr user = dcCtx_.getClientManager()->findUser(CID(cid));
 
     if (user)
     {
-        FavoriteManager::getInstance()->setUserDescription(user, description);
+        dcCtx_.getFavoriteManager()->setUserDescription(user, description);
     }
 }
 
@@ -639,21 +642,21 @@ void FavoriteUsers::on(FavoriteManagerListener::UserAdded, const FavoriteUser &u
     ParamMap params;
     bool online = user.getUser()->isOnline();
     params.insert(ParamMap::value_type("Nick", user.getNick()));
-    params.insert(ParamMap::value_type("Hub", online ? WulforUtil::getHubNames(user.getUser(), user.getUrl()) : user.getUrl()));
+    params.insert(ParamMap::value_type("Hub", online ? WulforUtil::getHubNames(dcCtx_, user.getUser(), user.getUrl()) : user.getUrl()));
     params.insert(ParamMap::value_type("Time", online ? _("Online") : Util::formatTime("%Y-%m-%d %H:%M", user.getLastSeen())));
     params.insert(ParamMap::value_type("Description", user.getDescription()));
     params.insert(ParamMap::value_type("CID", user.getUser()->getCID().toBase32()));
     params.insert(ParamMap::value_type("URL", user.getUrl()));
 
     Func1<FavoriteUsers, ParamMap> *func = new Func1<FavoriteUsers, ParamMap>(this, &FavoriteUsers::updateFavoriteUser_gui, params);
-    WulforManager::get()->dispatchGuiFunc(func);
+    wulforManagerInstance()->dispatchGuiFunc(func);
 }
 
 void FavoriteUsers::on(FavoriteManagerListener::UserRemoved, const FavoriteUser &user) noexcept
 {
     Func1<FavoriteUsers, string> *func = new Func1<FavoriteUsers, string>(this, &FavoriteUsers::removeFavoriteUser_gui,
                                                                           user.getUser()->getCID().toBase32());
-    WulforManager::get()->dispatchGuiFunc(func);
+    wulforManagerInstance()->dispatchGuiFunc(func);
 }
 
 void FavoriteUsers::on(FavoriteManagerListener::StatusChanged, const FavoriteUser &user) noexcept
@@ -664,5 +667,5 @@ void FavoriteUsers::on(FavoriteManagerListener::StatusChanged, const FavoriteUse
     params.insert(ParamMap::value_type("CID", user.getUser()->getCID().toBase32()));
 
     Func1<FavoriteUsers, ParamMap> *func = new Func1<FavoriteUsers, ParamMap>(this, &FavoriteUsers::updateFavoriteUser_gui, params);
-    WulforManager::get()->dispatchGuiFunc(func);
+    wulforManagerInstance()->dispatchGuiFunc(func);
 }

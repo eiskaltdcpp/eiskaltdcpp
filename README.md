@@ -54,7 +54,7 @@ Currently supported features (not full list):
 * Support of handling of magnet links, web magnet links and hub links transferred via command line from other programs (for example from web browsers).
 * Support of files drag-and-drop into field for entering messages (if file is present in user file list, magnet link to it will be added).
 * Support of automatic replies to private messages in case of user absent.
-* Support of user extensions on QtScript (only in Qt based GUI in GNU/Linux) and on Lua (in all supported systems).
+* Support of user extensions on JavaScript (QJSEngine, in Qt-based GUI on GNU/Linux) and on Lua (in all supported systems).
 * Support of IDN2 (recognition of national domain names).
 * Support of URL encoded strings for hub addresses.
 * Support of traffic encryption.
@@ -70,6 +70,25 @@ See [ChangeLog.txt](https://github.com/eiskaltdcpp/eiskaltdcpp/blob/master/Chang
 ## Installation
 
 For build from sources see [INSTALL](https://github.com/eiskaltdcpp/eiskaltdcpp/blob/master/INSTALL) file.
+
+### Build requirements (Qt GUI)
+
+The Qt-based GUI requires Qt 6.2 or later. Key dependencies:
+
+* **Qt6** (Core, Gui, Widgets, Xml, Network, Concurrent)
+* **Qt6 Qml** (for JavaScript scripting support, optional via `-DUSE_JS=ON`)
+* **Qt6 Quick + QuickWidgets** (for QML UI, optional via `-DUSE_QT_QML=ON`)
+* **Qt6 Multimedia** (for sound notifications, optional)
+* **Qt6 DBus** (for notifications on Linux, optional)
+* **CMake** 3.10+
+* **C++20** compiler (GCC 11+, Clang 14+, MSVC 2022+)
+
+Quick build on Linux:
+
+```bash
+cmake -B build -DUSE_QT6=ON -DUSE_JS=ON
+cmake --build build
+```
 
 GNU/Linux and FreeBSD users may install [packages](https://github.com/eiskaltdcpp/eiskaltdcpp#packages-and-installers) from official and unofficial repositories, ports, etc.
 
@@ -118,7 +137,7 @@ During the development EiskaltDC++ in past years we have used different CVS (Sub
 * In case when where are very few changes since last stable release, but they are important and should be quickly delivered to users the `<patch>` part of program version should be changed.
 * There are no limits for changes suitable for a new `<patch>` releases if they do not affect Core of program: they may contain new features and noticeable changes in any part of GUI.
 
-During development all changes are tested on Continuous Integration services [Travis CI](https://travis-ci.com/github/eiskaltdcpp/eiskaltdcpp) and [Sibuserv CI](https://sibuserv-ci.org/projects/eiskaltdcpp).
+During development all changes are tested on Continuous Integration services.
 
 ## Developers
 

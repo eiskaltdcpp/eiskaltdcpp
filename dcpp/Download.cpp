@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2001-2012 Jacek Sieka, arnetheduck on gmail point com
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -27,10 +28,11 @@
 #include "File.h"
 #include "FilteredFile.h"
 #include "ZUtils.h"
+#include "DCPlusPlus.h"
 
 namespace dcpp {
 
-Download::Download(UserConnection& conn, QueueItem& qi, const string& path, bool supportsTrees) noexcept : Transfer(conn, path, qi.getTTH()),
+Download::Download(UserConnection& conn, QueueItem& qi, const string& path, bool supportsTrees) : Transfer(conn, path, qi.getTTH()),
     tempTarget(qi.getTempTarget()), file(0), treeValid(false)
 {
     conn.setDownload(this);
@@ -44,7 +46,7 @@ Download::Download(UserConnection& conn, QueueItem& qi, const string& path, bool
     }
 
     if(getType() == TYPE_FILE && qi.getSize() != -1) {
-        if(HashManager::getInstance()->getTree(getTTH(), getTigerTree())) {
+        if(conn.ctx().getHashManager()->getTree(getTTH(), getTigerTree())) {
             setTreeValid(true);
             setSegment(qi.getNextSegment(getTigerTree().getBlockSize(), conn.getChunkSize(),conn.getSpeed(), source->getPartialSource()));
         } else if(supportsTrees && conn.isSet(UserConnection::FLAG_SUPPORTS_TTHL) && !qi.getSource(conn.getUser())->isSet(QueueItem::Source::FLAG_NO_TREE) && qi.getSize() > HashManager::MIN_BLOCK_SIZE) {
@@ -97,7 +99,7 @@ AdcCommand Download::getCommand(bool zlib) {
     cmd.addParam(Util::toString(getStartPos()));
     cmd.addParam(Util::toString(getSize()));
 
-    if(zlib && BOOLSETTING(COMPRESS_TRANSFERS)) {
+    if(zlib && getUserConnection().ctx().getSettingsManager()->getBool(SettingsManager::COMPRESS_TRANSFERS, true)) {
         cmd.addParam("ZL1");
     }
 

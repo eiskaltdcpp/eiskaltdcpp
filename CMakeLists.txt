@@ -1,15 +1,19 @@
+cmake_minimum_required (VERSION 3.10...3.28)
 project (eiskaltdcpp)
-cmake_minimum_required (VERSION 3.2.0)
 
 set (PROJECT_NAME "EiskaltDC++")
-set (APP_VERSION "2.4.2+devel") # Main program version (displayed in UI)
-set (CONF_VERSION "2.0402") # Config version (for updating of DCPlusPlus.xml)
-set (SO_VERSION "2.4") # Library version (incremented after changes in API or ABI)
+set (APP_VERSION "2.5.0") # Main program version (displayed in UI)
+set (CONF_VERSION "2.0500") # Config version (for updating of DCPlusPlus.xml)
+set (SO_VERSION "2.5") # Library version (incremented after changes in API or ABI)
 
 if (WIN32 OR APPLE OR HAIKU)
     set (PROJECT_NAME_GLOBAL "${PROJECT_NAME}") # Package name is the same as project name
 else ()
     set (PROJECT_NAME_GLOBAL "eiskaltdcpp") # Simplifies packaging in GNU/Linux distros
+endif ()
+
+if (WIN32)
+    add_definitions(-DNOMINMAX -DWIN32_LEAN_AND_MEAN)
 endif ()
 
 include (CheckCXXSourceCompiles)
@@ -37,11 +41,9 @@ find_package (Gettext REQUIRED)
 find_package (Iconv REQUIRED)
 find_package (Git QUIET)
 
-option (USE_QT  "Qt 4.x interface" OFF)
-option (USE_QT5 "Qt 5.x interface." ON)
+option (USE_QT6 "Qt 6.x interface (requires Qt >= 6.2)." ON)
 option (USE_QT_QML "Build with Qt Declarative Ui support" OFF)
 option (USE_QT_SQLITE "Build with SQLite support" ON)
-option (USE_GTK  "GTK+ 2.x interface" OFF)
 option (USE_GTK3 "GTK+ 3.x interface" OFF)
 option (NO_UI_DAEMON "Daemon without any UI" OFF)
 option (WITH_DHT "DHT support for libeiskaltdcpp" ON)
@@ -58,8 +60,9 @@ option (WITH_EXAMPLES "Install examples sh and others scripts" ON)
 option (WITH_LUASCRIPTS "Install examples of lua scripts" ON)
 option (WITH_SOUNDS "Install sound files" ON)
 option (WITH_DEV_FILES "Install development files (headers for libeiskaltdcpp)" OFF)
+option (BUILD_TESTS "Build unit tests (requires internet for Catch2 fetch)" OFF)
 option (DBUS_NOTIFY "QtDbus support in Qt interface" ON)
-option (USE_JS "QtScript support in Qt interface" OFF)
+option (USE_JS "JavaScript scripting support in Qt interface (QJSEngine)" OFF)
 option (XMLRPC_DAEMON "Make daemon as xmlrpc server" OFF)
 option (PERL_REGEX "Use PCRE2 lib for regex in Perl style" ON)
 option (ENABLE_STACKTRACE "Show stacktrace when program receive SIGSEGV" OFF)
@@ -133,7 +136,7 @@ else (USE_MINIUPNP)
     message (STATUS "Building without UPnP support (miniupnpc)")
 endif (USE_MINIUPNP)
 
-if (USE_QT OR USE_QT5)
+if (USE_QT6)
     if (USE_PROGRESS_BARS)
         message (STATUS "Building with Qt UI with progress bars")
     else (USE_PROGRESS_BARS)
@@ -175,12 +178,12 @@ endif (INSTALL_RUNTIME_PATH)
 
 if (NOT CMAKE_BUILD_TYPE)
     set (CMAKE_BUILD_TYPE "RelWithDebInfo")
-elseif (CMAKE_BUILD_TYPE STREQUAL "Debug" AND (USE_QT OR USE_QT5))
+elseif (CMAKE_BUILD_TYPE STREQUAL "Debug" AND USE_QT6)
     message (STATUS "${PROJECT_NAME} Qt with CMAKE_BUILD_TYPE=Debug is very unstable now!\n"
                    "\tYou can build it for your own risk.\n"
                    "\tBut do not even try to write bug reports in this case.\n"
                    "\tPlease use RelWithDebInfo instead it.")
-elseif (CMAKE_BUILD_TYPE STREQUAL "Gentoo" AND (USE_QT OR USE_QT5))
+elseif (CMAKE_BUILD_TYPE STREQUAL "Gentoo" AND USE_QT6)
     message (STATUS "${PROJECT_NAME} Qt with CMAKE_BUILD_TYPE=Gentoo may be unstable now.\n"
                    "\tPlease try to use RelWithDebInfo instead it if some troubles happened.")
 endif (NOT CMAKE_BUILD_TYPE)
@@ -230,10 +233,14 @@ elseif (GIT_FOUND)
     if (EXISTS "${PROJECT_SOURCE_DIR}/.git/config")
         execute_process (COMMAND ${GIT_EXECUTABLE} describe --tags
                          WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}
-                         OUTPUT_VARIABLE APP_VERSION
-                         OUTPUT_STRIP_TRAILING_WHITESPACE)
-        string (REGEX REPLACE "^v" "" APP_VERSION "${APP_VERSION}")
-        string (REGEX REPLACE "-" "+" APP_VERSION "${APP_VERSION}")
+                         OUTPUT_VARIABLE GIT_APP_VERSION
+                         OUTPUT_STRIP_TRAILING_WHITESPACE
+                         RESULT_VARIABLE GIT_DESCRIBE_RESULT
+                         ERROR_QUIET)
+        if (GIT_DESCRIBE_RESULT EQUAL 0 AND GIT_APP_VERSION)
+            string (REGEX REPLACE "^v" "" APP_VERSION "${GIT_APP_VERSION}")
+            string (REGEX REPLACE "-" "+" APP_VERSION "${APP_VERSION}")
+        endif ()
     endif()
 endif (REPLACE_VERSION)
 
@@ -241,7 +248,7 @@ string (REGEX REPLACE "^([0-9]+\\.[0-9]+\\.[0-9]+).*" "\\1" VERSION_BASE "${APP_
 message (STATUS "${PROJECT_NAME} full version: ${APP_VERSION}")
 message (STATUS "${PROJECT_NAME} base version: ${VERSION_BASE}")
 
-configure_file (${CMAKE_SOURCE_DIR}/Version.h.in ${CMAKE_BINARY_DIR}/VersionGlobal.h)
+configure_file (${CMAKE_CURRENT_SOURCE_DIR}/Version.h.in ${CMAKE_CURRENT_BINARY_DIR}/VersionGlobal.h)
 
 if (UNIX)
     add_definitions (-D_GNU_SOURCE)
@@ -288,12 +295,20 @@ if (USE_CCACHE)
     endif ()
 endif ()
 
-set (CMAKE_CXX_STANDARD 14)
+set (CMAKE_CXX_STANDARD 20)
 set (CMAKE_CXX_STANDARD_REQUIRED ON)
+set (CMAKE_CXX_EXTENSIONS OFF)
 
 if (CMAKE_CXX_COMPILER_ID STREQUAL GNU OR CMAKE_CXX_COMPILER_ID STREQUAL Clang)
-    set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14 -pipe -Wformat -Werror=format-security")
+    set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++20 -pipe -Wformat -Werror=format-security")
     set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC -D_FORTIFY_SOURCE=2")
+    # GCC 15+ on MSYS2/MinGW: libstdc++ <semaphore> tries to use POSIX sem_t
+    # but the functions are unavailable on Windows/UCRT.  Force-include a shim
+    # that pulls in <bits/c++config.h> (triggering its include guard) and then
+    # undefs _GLIBCXX_HAVE_POSIX_SEMAPHORE, so the atomic fallback is used.
+    if (MINGW AND CMAKE_CXX_COMPILER_VERSION VERSION_GREATER_EQUAL "15")
+        add_compile_options(-include ${CMAKE_CURRENT_SOURCE_DIR}/cmake/mingw_gcc15_semaphore_fix.h)
+    endif ()
     if (USE_GOLD)
         set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fuse-linker-plugin")
         set (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fuse-linker-plugin")
@@ -373,6 +388,11 @@ endif (WITH_DHT)
 
 add_subdirectory (dcpp)
 
+if (BUILD_TESTS)
+    enable_testing()
+    add_subdirectory (tests)
+endif (BUILD_TESTS)
+
 if (HAIKU AND HAIKU_PKG)
     add_subdirectory (haiku)
 endif ()
@@ -381,13 +401,13 @@ if (JSONRPC_DAEMON)
     add_subdirectory (json)
 endif (JSONRPC_DAEMON)
 
-if (USE_QT OR USE_QT5)
+if (USE_QT6)
     add_subdirectory (eiskaltdcpp-qt)
-endif (USE_QT OR USE_QT5)
+endif ()
 
-if (USE_GTK OR USE_GTK3)
+if (USE_GTK3)
     add_subdirectory (eiskaltdcpp-gtk)
-endif (USE_GTK OR USE_GTK3)
+endif (USE_GTK3)
 
 if (NO_UI_DAEMON OR XMLRPC_DAEMON OR JSONRPC_DAEMON)
     add_subdirectory (eiskaltdcpp-daemon)
@@ -432,8 +452,41 @@ message (STATUS "CMAKE will use these libraries (and headers) during build:
     attr \t: ${XATTR_LIBRARIES} (${IDN2_INCLUDE_DIR})
     ")
 
-configure_file ("${CMAKE_SOURCE_DIR}/cmake/cmake_uninstall.cmake.in"
-    "${CMAKE_BINARY_DIR}/cmake_uninstall.cmake"
+configure_file ("${CMAKE_CURRENT_SOURCE_DIR}/cmake/cmake_uninstall.cmake.in"
+    "${CMAKE_CURRENT_BINARY_DIR}/cmake_uninstall.cmake"
     IMMEDIATE @ONLY)
 add_custom_target (uninstall
-    "${CMAKE_COMMAND}" -P "${CMAKE_BINARY_DIR}/cmake_uninstall.cmake")
+    "${CMAKE_COMMAND}" -P "${CMAKE_CURRENT_BINARY_DIR}/cmake_uninstall.cmake")
+
+# ─── CPack configuration ────────────────────────────────────────────
+set (CPACK_PACKAGE_NAME "${PROJECT_NAME_GLOBAL}")
+set (CPACK_PACKAGE_VERSION "${APP_VERSION}")
+set (CPACK_PACKAGE_VENDOR "EiskaltDC++ developers")
+set (CPACK_PACKAGE_DESCRIPTION_SUMMARY "EiskaltDC++ - Direct Connect and ADC client")
+set (CPACK_RESOURCE_FILE_LICENSE "${CMAKE_CURRENT_SOURCE_DIR}/COPYING")
+
+if (WIN32)
+    # NSIS installer
+    set (CPACK_GENERATOR "NSIS;ZIP")
+    set (CPACK_NSIS_DISPLAY_NAME "${PROJECT_NAME_GLOBAL}")
+    set (CPACK_NSIS_PACKAGE_NAME "${PROJECT_NAME_GLOBAL}")
+    set (CPACK_NSIS_INSTALL_ROOT "$PROGRAMFILES64")
+    set (CPACK_NSIS_ENABLE_UNINSTALL_BEFORE_INSTALL ON)
+    set (CPACK_NSIS_URL_INFO_ABOUT "https://github.com/eiskaltdcpp/eiskaltdcpp")
+    # Start-menu shortcuts
+    set (CPACK_NSIS_CREATE_ICONS_EXTRA
+        "CreateShortCut '$SMPROGRAMS\\\\$STARTMENU_FOLDER\\\\${PROJECT_NAME_GLOBAL}.lnk' '$INSTDIR\\\\EiskaltDC++.exe'")
+    set (CPACK_NSIS_DELETE_ICONS_EXTRA
+        "Delete '$SMPROGRAMS\\\\$STARTMENU_FOLDER\\\\${PROJECT_NAME_GLOBAL}.lnk'")
+    # Desktop shortcut (optional, offered during install)
+    set (CPACK_NSIS_MODIFY_PATH OFF)
+    set (CPACK_NSIS_EXECUTABLES_DIRECTORY ".")
+elseif (APPLE)
+    set (CPACK_GENERATOR "DragNDrop")
+else ()
+    set (CPACK_GENERATOR "DEB;TGZ")
+    set (CPACK_DEBIAN_PACKAGE_MAINTAINER "EiskaltDC++ developers")
+    set (CPACK_DEBIAN_PACKAGE_SECTION "net")
+endif ()
+
+include (CPack)

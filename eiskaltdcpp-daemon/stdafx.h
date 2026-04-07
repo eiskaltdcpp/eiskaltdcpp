@@ -8,12 +8,16 @@
 *   (at your option) any later version.                                   *
 *                                                                         *
 ***************************************************************************/
+/*
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
+ */
 
 // Created on: 23.04.2010
 
 #pragma once
 
 #include "dcpp/stdinc.h"
+#include "dcpp/DCPlusPlus.h"
 
 #include <libintl.h>
 #include <iostream>

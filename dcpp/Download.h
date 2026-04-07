@@ -46,7 +46,7 @@ public:
         FLAG_OVERLAP    = 0x100
     };
 
-    Download(UserConnection& conn, QueueItem& qi, const string& path, bool supportsTrees) noexcept;
+    Download(UserConnection& conn, QueueItem& qi, const string& path, bool supportsTrees);
 
     virtual void getParams(const UserConnection& aSource, ParamMap& params);
 

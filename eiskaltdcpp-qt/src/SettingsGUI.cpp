@@ -6,8 +6,14 @@
 *   (at your option) any later version.                                   *
 *                                                                         *
 ***************************************************************************/
+/*
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
+ */
 
 #include "SettingsGUI.h"
+#include "QtContextAware.h"
+#include "QtContext.h"
+#include "dcpp/DCPlusPlus.h"
 #include "WulforSettings.h"
 #include "WulforUtil.h"
 #include "MainWindow.h"
@@ -47,7 +53,7 @@ SettingsGUI::~SettingsGUI(){
 
 void SettingsGUI::init(){
     {//Basic tab
-        WulforUtil *WU = WulforUtil::getInstance();
+        WulforUtil *WU = qtCtx()->wulforUtil();
         QStringList styles = QStyleFactory::keys();
 
         comboBox_THEMES->addItem(tr("Default (need to restart)"));
@@ -55,7 +61,7 @@ void SettingsGUI::init(){
         for (const QString &s : styles)
             comboBox_THEMES->addItem(s);
 
-        comboBox_THEMES->setCurrentIndex(styles.indexOf(WSGET(WS_APP_THEME)) >= 0? (styles.indexOf(WSGET(WS_APP_THEME))+1) : 0);
+        comboBox_THEMES->setCurrentIndex(styles.indexOf(qtCtx()->settings()->getStr(WS_APP_THEME)) >= 0? (styles.indexOf(qtCtx()->settings()->getStr(WS_APP_THEME))+1) : 0);
 
         int i = 0;
         int k = -1;
@@ -99,7 +105,7 @@ void SettingsGUI::init(){
             if (!lang.isEmpty()){
                 comboBox_LANGS->addItem(lang, full_path);
 
-                if (WSGET(WS_TRANSLATION_FILE).endsWith(f))
+                if (qtCtx()->settings()->getStr(WS_TRANSLATION_FILE).endsWith(f))
                     k = i;
 
                 ++i;
@@ -114,7 +120,7 @@ void SettingsGUI::init(){
             if (!f.isEmpty()){
                 comboBox_USERS->addItem(f);
 
-                if (f == WSGET(WS_APP_USERTHEME))
+                if (f == qtCtx()->settings()->getStr(WS_APP_USERTHEME))
                     k = i;
 
                 ++i;
@@ -129,7 +135,7 @@ void SettingsGUI::init(){
             if (!f.isEmpty()){
                 comboBox_ICONS->addItem(f);
 
-                if (f == WSGET(WS_APP_ICONTHEME))
+                if (f == qtCtx()->settings()->getStr(WS_APP_ICONTHEME))
                     k = i;
 
                 ++i;
@@ -144,38 +150,38 @@ void SettingsGUI::init(){
             if (!f.isEmpty()){
                 comboBox_EMOT->addItem(f);
 
-                if (f == WSGET(WS_APP_EMOTICON_THEME))
+                if (f == qtCtx()->settings()->getStr(WS_APP_EMOTICON_THEME))
                     comboBox_EMOT->setCurrentIndex(i);
 
                 ++i;
             }
         }
 
-        lineEdit_LANGFILE->setText(WSGET(WS_TRANSLATION_FILE));
+        lineEdit_LANGFILE->setText(qtCtx()->settings()->getStr(WS_TRANSLATION_FILE));
 
         toolButton_LANGBROWSE->setIcon(WU->getPixmap(WulforUtil::eiFOLDER_BLUE));
 
-        if (WBGET(WB_MAINWINDOW_REMEMBER))
+        if (qtCtx()->settings()->getBool(WB_MAINWINDOW_REMEMBER))
             radioButton_REMEMBER->setChecked(true);
-        else if (WBGET(WB_MAINWINDOW_HIDE))
+        else if (qtCtx()->settings()->getBool(WB_MAINWINDOW_HIDE))
             radioButton_HIDE->setChecked(true);
         else
             radioButton_SHOW->setChecked(true);
 
-        groupBox_TRAY->setChecked(WBGET(WB_TRAY_ENABLED));
+        groupBox_TRAY->setChecked(qtCtx()->settings()->getBool(WB_TRAY_ENABLED));
         groupBox_TRAY->setEnabled(QSystemTrayIcon::isSystemTrayAvailable());
 
-        if (WBGET(WB_MAINWINDOW_USE_SIDEBAR))
+        if (qtCtx()->settings()->getBool(WB_MAINWINDOW_USE_SIDEBAR))
             comboBox_TABBAR->setCurrentIndex(2);
-        else if (WBGET(WB_MAINWINDOW_USE_M_TABBAR))
+        else if (qtCtx()->settings()->getBool(WB_MAINWINDOW_USE_M_TABBAR))
             comboBox_TABBAR->setCurrentIndex(1);
         else
             comboBox_TABBAR->setCurrentIndex(0);
 
 #if defined(Q_OS_UNIX) && !defined(Q_OS_MAC)
-        checkBox_ICONTHEME->setChecked(WBGET("app/use-icon-theme", false));
+        checkBox_ICONTHEME->setChecked(qtCtx()->settings()->getBool("app/use-icon-theme", false));
 #endif
-        checkBox_HIDE_ICONS_IN_MENU->setChecked(WBGET("mainwindow/dont-show-icons-in-menus", false));
+        checkBox_HIDE_ICONS_IN_MENU->setChecked(qtCtx()->settings()->getBool("mainwindow/dont-show-icons-in-menus", false));
 
         // Hide options which do not work in Mac OS X, MS Windows or Haiku:
 #if defined (Q_OS_WIN) || defined(Q_OS_MAC) || defined (Q_OS_HAIKU)
@@ -186,101 +192,101 @@ void SettingsGUI::init(){
 #endif
     }
     {//Chat tab
-        checkBox_CHATJOINS->setChecked(WBGET(WB_CHAT_SHOW_JOINS));
-        checkBox_JOINSFAV->setChecked(WBGET(WB_CHAT_SHOW_JOINS_FAV));
-        checkBox_CHATHIDDEN->setChecked(WBGET(WB_SHOW_HIDDEN_USERS));
-        checkBox_IGNOREPMHUB->setChecked(BOOLSETTING(IGNORE_HUB_PMS));
-        checkBox_IGNOREPMBOT->setChecked(BOOLSETTING(IGNORE_BOT_PMS));
-        checkBox_REDIRECTPMBOT->setChecked(WBGET(WB_CHAT_REDIRECT_BOT_PMS));
-        checkBox_REDIRECT_UNREAD->setChecked(WBGET("hubframe/redirect-pm-to-main-chat", false));
-        checkBox_KEEPFOCUS->setChecked(WBGET(WB_CHAT_KEEPFOCUS));
-        checkBox_UNREADEN_DRAW_LINE->setChecked(WBGET("hubframe/unreaden-draw-line", true));
-        checkBox_USE_CTRL_ENTER->setChecked(WBGET(WB_USE_CTRL_ENTER));
-        checkBox_ROTATING->setChecked(WBGET(WB_CHAT_ROTATING_MSGS));
-        checkBox_EMOT->setChecked(WBGET(WB_APP_ENABLE_EMOTICON));
-        checkBox_EMOTFORCE->setChecked(WBGET(WB_APP_FORCE_EMOTICONS));
-        checkBox_SMILEPANEL->setChecked(WBGET(WB_CHAT_USE_SMILE_PANEL));
-        checkBox_HIDESMILEPANEL->setChecked(WBGET(WB_CHAT_HIDE_SMILE_PANEL));
+        checkBox_CHATJOINS->setChecked(qtCtx()->settings()->getBool(WB_CHAT_SHOW_JOINS));
+        checkBox_JOINSFAV->setChecked(qtCtx()->settings()->getBool(WB_CHAT_SHOW_JOINS_FAV));
+        checkBox_CHATHIDDEN->setChecked(qtCtx()->settings()->getBool(WB_SHOW_HIDDEN_USERS));
+        checkBox_IGNOREPMHUB->setChecked(qtCtx()->dcCtx().getSettingsManager()->getBool(SettingsManager::IGNORE_HUB_PMS, true));
+        checkBox_IGNOREPMBOT->setChecked(qtCtx()->dcCtx().getSettingsManager()->getBool(SettingsManager::IGNORE_BOT_PMS, true));
+        checkBox_REDIRECTPMBOT->setChecked(qtCtx()->settings()->getBool(WB_CHAT_REDIRECT_BOT_PMS));
+        checkBox_REDIRECT_UNREAD->setChecked(qtCtx()->settings()->getBool("hubframe/redirect-pm-to-main-chat", false));
+        checkBox_KEEPFOCUS->setChecked(qtCtx()->settings()->getBool(WB_CHAT_KEEPFOCUS));
+        checkBox_UNREADEN_DRAW_LINE->setChecked(qtCtx()->settings()->getBool("hubframe/unreaden-draw-line", true));
+        checkBox_USE_CTRL_ENTER->setChecked(qtCtx()->settings()->getBool(WB_USE_CTRL_ENTER));
+        checkBox_ROTATING->setChecked(qtCtx()->settings()->getBool(WB_CHAT_ROTATING_MSGS));
+        checkBox_EMOT->setChecked(qtCtx()->settings()->getBool(WB_APP_ENABLE_EMOTICON));
+        checkBox_EMOTFORCE->setChecked(qtCtx()->settings()->getBool(WB_APP_FORCE_EMOTICONS));
+        checkBox_SMILEPANEL->setChecked(qtCtx()->settings()->getBool(WB_CHAT_USE_SMILE_PANEL));
+        checkBox_HIDESMILEPANEL->setChecked(qtCtx()->settings()->getBool(WB_CHAT_HIDE_SMILE_PANEL));
     }
     {//Chat (extended) tab
-        comboBox_DBL_CLICK->setCurrentIndex(WIGET(WI_CHAT_DBLCLICK_ACT));
-        comboBox_MDL_CLICK->setCurrentIndex(WIGET(WI_CHAT_MDLCLICK_ACT));
-        comboBox_DEF_MAGNET_ACTION->setCurrentIndex(WIGET(WI_DEF_MAGNET_ACTION));
-        comboBox_APP_UNIT_BASE->setCurrentIndex(SETTING(APP_UNIT_BASE));
-        checkBox_HIGHLIGHTFAVS->setChecked(WBGET(WB_CHAT_HIGHLIGHT_FAVS));
-        checkBox_CHAT_SHOW_IP->setChecked(BOOLSETTING(USE_IP));
-        checkBox_CHAT_SHOW_CC->setChecked(BOOLSETTING(GET_USER_COUNTRY));
-        checkBox_BB_CODE->setChecked(WBGET("hubframe/use-bb-code", true));
-        lineEdit_TIMESTAMP->setText(WSGET(WS_CHAT_TIMESTAMP));
+        comboBox_DBL_CLICK->setCurrentIndex(qtCtx()->settings()->getInt(WI_CHAT_DBLCLICK_ACT));
+        comboBox_MDL_CLICK->setCurrentIndex(qtCtx()->settings()->getInt(WI_CHAT_MDLCLICK_ACT));
+        comboBox_DEF_MAGNET_ACTION->setCurrentIndex(qtCtx()->settings()->getInt(WI_DEF_MAGNET_ACTION));
+        comboBox_APP_UNIT_BASE->setCurrentIndex(qtCtx()->dcCtx().getSettingsManager()->get(SettingsManager::APP_UNIT_BASE, true));
+        checkBox_HIGHLIGHTFAVS->setChecked(qtCtx()->settings()->getBool(WB_CHAT_HIGHLIGHT_FAVS));
+        checkBox_CHAT_SHOW_IP->setChecked(qtCtx()->dcCtx().getSettingsManager()->getBool(SettingsManager::USE_IP, true));
+        checkBox_CHAT_SHOW_CC->setChecked(qtCtx()->dcCtx().getSettingsManager()->getBool(SettingsManager::GET_USER_COUNTRY, true));
+        checkBox_BB_CODE->setChecked(qtCtx()->settings()->getBool("hubframe/use-bb-code", true));
+        lineEdit_TIMESTAMP->setText(qtCtx()->settings()->getStr(WS_CHAT_TIMESTAMP));
 
-        spinBox_OUT_IN_HIST->setValue(WIGET(WI_OUT_IN_HIST));
-        spinBox_PARAGRAPHS->setValue(WIGET(WI_CHAT_MAXPARAGRAPHS));
+        spinBox_OUT_IN_HIST->setValue(qtCtx()->settings()->getInt(WI_OUT_IN_HIST));
+        spinBox_PARAGRAPHS->setValue(qtCtx()->settings()->getInt(WI_CHAT_MAXPARAGRAPHS));
 
-        comboBox_CHAT_SEPARATOR->setCurrentIndex(comboBox_CHAT_SEPARATOR->findText(WSGET(WS_CHAT_SEPARATOR)));
+        comboBox_CHAT_SEPARATOR->setCurrentIndex(comboBox_CHAT_SEPARATOR->findText(qtCtx()->settings()->getStr(WS_CHAT_SEPARATOR)));
     }
     {//Color tab
         QColor c;
         QPixmap p(10, 10);
 
-        c.setNamedColor(WSGET(WS_CHAT_LOCAL_COLOR));
+        c.setNamedColor(qtCtx()->settings()->getStr(WS_CHAT_LOCAL_COLOR));
         p.fill(c);
         new QListWidgetItem(p, tr("Local user"), listWidget_CHATCOLOR);
 
-        c.setNamedColor(WSGET(WS_CHAT_OP_COLOR));
+        c.setNamedColor(qtCtx()->settings()->getStr(WS_CHAT_OP_COLOR));
         p.fill(c);
         new QListWidgetItem(p, tr("Operator"), listWidget_CHATCOLOR);
 
-        c.setNamedColor(WSGET(WS_CHAT_BOT_COLOR));
+        c.setNamedColor(qtCtx()->settings()->getStr(WS_CHAT_BOT_COLOR));
         p.fill(c);
         new QListWidgetItem(p, tr("Bot"), listWidget_CHATCOLOR);
 
-        c.setNamedColor(WSGET(WS_CHAT_PRIV_LOCAL_COLOR));
+        c.setNamedColor(qtCtx()->settings()->getStr(WS_CHAT_PRIV_LOCAL_COLOR));
         p.fill(c);
         new QListWidgetItem(p, tr("Private: local user"), listWidget_CHATCOLOR);
 
-        c.setNamedColor(WSGET(WS_CHAT_PRIV_USER_COLOR));
+        c.setNamedColor(qtCtx()->settings()->getStr(WS_CHAT_PRIV_USER_COLOR));
         p.fill(c);
         new QListWidgetItem(p, tr("Private: user"), listWidget_CHATCOLOR);
 
-        c.setNamedColor(WSGET(WS_CHAT_SAY_NICK));
+        c.setNamedColor(qtCtx()->settings()->getStr(WS_CHAT_SAY_NICK));
         p.fill(c);
         new QListWidgetItem(p, tr("Chat: Say nick"), listWidget_CHATCOLOR);
 
-        c.setNamedColor(WSGET(WS_CHAT_STAT_COLOR));
+        c.setNamedColor(qtCtx()->settings()->getStr(WS_CHAT_STAT_COLOR));
         p.fill(c);
         new QListWidgetItem(p, tr("Status"), listWidget_CHATCOLOR);
 
-        c.setNamedColor(WSGET(WS_CHAT_USER_COLOR));
+        c.setNamedColor(qtCtx()->settings()->getStr(WS_CHAT_USER_COLOR));
         p.fill(c);
         new QListWidgetItem(p, tr("User"), listWidget_CHATCOLOR);
 
-        c.setNamedColor(WSGET(WS_CHAT_FAVUSER_COLOR));
+        c.setNamedColor(qtCtx()->settings()->getStr(WS_CHAT_FAVUSER_COLOR));
         p.fill(c);
         new QListWidgetItem(p, tr("Favorite User"), listWidget_CHATCOLOR);
 
-        c.setNamedColor(WSGET(WS_CHAT_TIME_COLOR));
+        c.setNamedColor(qtCtx()->settings()->getStr(WS_CHAT_TIME_COLOR));
         p.fill(c);
         new QListWidgetItem(p, tr("Time stamp"), listWidget_CHATCOLOR);
 
-        c.setNamedColor(WSGET(WS_CHAT_MSG_COLOR));
+        c.setNamedColor(qtCtx()->settings()->getStr(WS_CHAT_MSG_COLOR));
         p.fill(c);
         new QListWidgetItem(p, tr("Message"), listWidget_CHATCOLOR);
 
-        c.setNamedColor(WSGET(WS_CHAT_FIND_COLOR));
+        c.setNamedColor(qtCtx()->settings()->getStr(WS_CHAT_FIND_COLOR));
         h_color = c;
 
-        c.setAlpha(WIGET(WI_CHAT_FIND_COLOR_ALPHA));
+        c.setAlpha(qtCtx()->settings()->getInt(WI_CHAT_FIND_COLOR_ALPHA));
         p.fill(c);
         toolButton_H_COLOR->setIcon(p);
 
-        c.setNamedColor(WSGET(WS_APP_SHARED_FILES_COLOR));
+        c.setNamedColor(qtCtx()->settings()->getStr(WS_APP_SHARED_FILES_COLOR));
         shared_files_color = c;
-        c.setAlpha(WIGET(WI_APP_SHARED_FILES_ALPHA));
+        c.setAlpha(qtCtx()->settings()->getInt(WI_APP_SHARED_FILES_ALPHA));
         p.fill(c);
         toolButton_SHAREDFILES->setIcon(p);
 
-        downloads_clr = qvariant_cast<QColor>(WVGET("transferview/download-bar-color", QColor()));
-        uploads_clr = qvariant_cast<QColor>(WVGET("transferview/upload-bar-color", QColor()));
+        downloads_clr = qvariant_cast<QColor>(qtCtx()->settings()->getVar("transferview/download-bar-color", QColor()));
+        uploads_clr = qvariant_cast<QColor>(qtCtx()->settings()->getVar("transferview/upload-bar-color", QColor()));
 
         if (downloads_clr.isValid()){
             c = downloads_clr;
@@ -295,155 +301,155 @@ void SettingsGUI::init(){
             toolButton_UPLOADSCLR->setIcon(p);
         }
 
-        checkBox_CHAT_BACKGROUND_COLOR->setChecked(WBGET("hubframe/change-chat-background-color", false));
-        toolButton_CHAT_BACKGROUND_COLOR->setEnabled(WBGET("hubframe/change-chat-background-color", false));
-        if (!WSGET("hubframe/chat-background-color", "").isEmpty()){
-            c.setNamedColor(WSGET("hubframe/chat-background-color"));
+        checkBox_CHAT_BACKGROUND_COLOR->setChecked(qtCtx()->settings()->getBool("hubframe/change-chat-background-color", false));
+        toolButton_CHAT_BACKGROUND_COLOR->setEnabled(qtCtx()->settings()->getBool("hubframe/change-chat-background-color", false));
+        if (!qtCtx()->settings()->getStr("hubframe/chat-background-color", "").isEmpty()){
+            c.setNamedColor(qtCtx()->settings()->getStr("hubframe/chat-background-color"));
             chat_background_color = c;
             c.setAlpha(255);
             p.fill(c);
             toolButton_CHAT_BACKGROUND_COLOR->setIcon(p);
         }
 
-        horizontalSlider_H_COLOR->setValue(WIGET(WI_CHAT_FIND_COLOR_ALPHA));
-        horizontalSlider_SHAREDFILES->setValue(WIGET(WI_APP_SHARED_FILES_ALPHA));
+        horizontalSlider_H_COLOR->setValue(qtCtx()->settings()->getInt(WI_CHAT_FIND_COLOR_ALPHA));
+        horizontalSlider_SHAREDFILES->setValue(qtCtx()->settings()->getInt(WI_APP_SHARED_FILES_ALPHA));
     }
     {// Fonts tab
         CustomFontModel *model = new CustomFontModel(this);
         tableView->setModel(model);
 
-        tableView->horizontalHeader()->restoreState(QByteArray::fromBase64(WSGET(WS_SETTINGS_GUI_FONTS_STATE).toUtf8()));
+        tableView->horizontalHeader()->restoreState(QByteArray::fromBase64(qtCtx()->settings()->getStr(WS_SETTINGS_GUI_FONTS_STATE).toUtf8()));
 
-        connect(tableView, SIGNAL(doubleClicked(QModelIndex)), model, SLOT(itemDoubleClicked(QModelIndex)));
-        connect(this, SIGNAL(saveFonts()), model, SLOT(ok()));
+        connect(tableView, &QTableView::doubleClicked, model, &CustomFontModel::itemDoubleClicked);
+        connect(this, &SettingsGUI::saveFonts, model, &CustomFontModel::ok);
     }
 
-    connect(pushButton_TEST, SIGNAL(clicked()), this, SLOT(slotTestAppTheme()));
-    connect(comboBox_THEMES, SIGNAL(activated(int)), this, SLOT(slotThemeChanged()));
-    connect(listWidget_CHATCOLOR, SIGNAL(itemDoubleClicked(QListWidgetItem*)), this, SLOT(slotChatColorItemClicked(QListWidgetItem*)));
-    connect(toolButton_LANGBROWSE, SIGNAL(clicked()), this, SLOT(slotBrowseLng()));
-    connect(comboBox_LANGS, SIGNAL(activated(int)), this, SLOT(slotLngIndexChanged(int)));
-    connect(comboBox_USERS, SIGNAL(activated(int)), this, SLOT(slotUsersChanged()));
-    connect(comboBox_ICONS, SIGNAL(activated(int)), this, SLOT(slotIconsChanged()));
-    connect(toolButton_H_COLOR, SIGNAL(clicked()), this, SLOT(slotGetColor()));
-    connect(toolButton_SHAREDFILES, SIGNAL(clicked()), this, SLOT(slotGetColor()));
-    connect(toolButton_CHAT_BACKGROUND_COLOR, SIGNAL(clicked()), this, SLOT(slotGetColor()));
-    connect(toolButton_DOWNLOADSCLR, SIGNAL(clicked()), this, SLOT(slotGetColor()));
-    connect(toolButton_UPLOADSCLR, SIGNAL(clicked()), this, SLOT(slotGetColor()));
-    connect(pushButton_RESET, SIGNAL(clicked()), this, SLOT(slotResetTransferColors()));
-    connect(horizontalSlider_H_COLOR, SIGNAL(valueChanged(int)), this, SLOT(slotSetTransparency(int)));
-    connect(horizontalSlider_SHAREDFILES, SIGNAL(valueChanged(int)), this, SLOT(slotSetTransparency(int)));
+    connect(pushButton_TEST, &QPushButton::clicked, this, &SettingsGUI::slotTestAppTheme);
+    connect(comboBox_THEMES, qOverload<int>(&QComboBox::activated), this, &SettingsGUI::slotThemeChanged);
+    connect(listWidget_CHATCOLOR, &QListWidget::itemDoubleClicked, this, &SettingsGUI::slotChatColorItemClicked);
+    connect(toolButton_LANGBROWSE, &QToolButton::clicked, this, &SettingsGUI::slotBrowseLng);
+    connect(comboBox_LANGS, qOverload<int>(&QComboBox::activated), this, &SettingsGUI::slotLngIndexChanged);
+    connect(comboBox_USERS, qOverload<int>(&QComboBox::activated), this, &SettingsGUI::slotUsersChanged);
+    connect(comboBox_ICONS, qOverload<int>(&QComboBox::activated), this, &SettingsGUI::slotIconsChanged);
+    connect(toolButton_H_COLOR, &QToolButton::clicked, this, &SettingsGUI::slotGetColor);
+    connect(toolButton_SHAREDFILES, &QToolButton::clicked, this, &SettingsGUI::slotGetColor);
+    connect(toolButton_CHAT_BACKGROUND_COLOR, &QToolButton::clicked, this, &SettingsGUI::slotGetColor);
+    connect(toolButton_DOWNLOADSCLR, &QToolButton::clicked, this, &SettingsGUI::slotGetColor);
+    connect(toolButton_UPLOADSCLR, &QToolButton::clicked, this, &SettingsGUI::slotGetColor);
+    connect(pushButton_RESET, &QPushButton::clicked, this, &SettingsGUI::slotResetTransferColors);
+    connect(horizontalSlider_H_COLOR, &QSlider::valueChanged, this, &SettingsGUI::slotSetTransparency);
+    connect(horizontalSlider_SHAREDFILES, &QSlider::valueChanged, this, &SettingsGUI::slotSetTransparency);
 }
 
 void SettingsGUI::ok(){
-    SettingsManager *SM = SettingsManager::getInstance();
+    SettingsManager *SM = qtCtx()->dcCtx().getSettingsManager();
     {//Basic tab
         if (custom_style && comboBox_THEMES->currentIndex() > 0)
-            WSSET(WS_APP_THEME, comboBox_THEMES->currentText());
+            qtCtx()->settings()->setStr(WS_APP_THEME, comboBox_THEMES->currentText());
         else if (!comboBox_THEMES->currentIndex())
-            WSSET(WS_APP_THEME, "");
+            qtCtx()->settings()->setStr(WS_APP_THEME, "");
 
-        WSSET(WS_TRANSLATION_FILE, lineEdit_LANGFILE->text());
+        qtCtx()->settings()->setStr(WS_TRANSLATION_FILE, lineEdit_LANGFILE->text());
 
-        WBSET(WB_MAINWINDOW_REMEMBER, radioButton_REMEMBER->isChecked());
-        WBSET(WB_MAINWINDOW_HIDE, radioButton_HIDE->isChecked());
+        qtCtx()->settings()->setBool(WB_MAINWINDOW_REMEMBER, radioButton_REMEMBER->isChecked());
+        qtCtx()->settings()->setBool(WB_MAINWINDOW_HIDE, radioButton_HIDE->isChecked());
 
-        if (WBGET(WB_TRAY_ENABLED) != groupBox_TRAY->isChecked()){
-            WBSET(WB_TRAY_ENABLED, groupBox_TRAY->isChecked());
+        if (qtCtx()->settings()->getBool(WB_TRAY_ENABLED) != groupBox_TRAY->isChecked()){
+            qtCtx()->settings()->setBool(WB_TRAY_ENABLED, groupBox_TRAY->isChecked());
 
-            Notification::getInstance()->enableTray(WBGET(WB_TRAY_ENABLED));
+            qtCtx()->notification()->enableTray(qtCtx()->settings()->getBool(WB_TRAY_ENABLED));
         }
 
-        if (WSGET(WS_APP_EMOTICON_THEME) != comboBox_EMOT->currentText()){
-            WSSET(WS_APP_EMOTICON_THEME, comboBox_EMOT->currentText());
+        if (qtCtx()->settings()->getStr(WS_APP_EMOTICON_THEME) != comboBox_EMOT->currentText()){
+            qtCtx()->settings()->setStr(WS_APP_EMOTICON_THEME, comboBox_EMOT->currentText());
 
-            if (EmoticonFactory::getInstance())
-                EmoticonFactory::getInstance()->load();
+            if (qtCtx()->emoticonFactory())
+                qtCtx()->emoticonFactory()->load();
         }
 
         if (comboBox_TABBAR->currentIndex() == 2){
-            WBSET(WB_MAINWINDOW_USE_SIDEBAR, true);
-            WBSET(WB_MAINWINDOW_USE_M_TABBAR, false);
+            qtCtx()->settings()->setBool(WB_MAINWINDOW_USE_SIDEBAR, true);
+            qtCtx()->settings()->setBool(WB_MAINWINDOW_USE_M_TABBAR, false);
         }
         else if (comboBox_TABBAR->currentIndex() == 1){
-            WBSET(WB_MAINWINDOW_USE_SIDEBAR, false);
-            WBSET(WB_MAINWINDOW_USE_M_TABBAR, true);
+            qtCtx()->settings()->setBool(WB_MAINWINDOW_USE_SIDEBAR, false);
+            qtCtx()->settings()->setBool(WB_MAINWINDOW_USE_M_TABBAR, true);
         }
         else{
-            WBSET(WB_MAINWINDOW_USE_SIDEBAR, false);
-            WBSET(WB_MAINWINDOW_USE_M_TABBAR, false);
+            qtCtx()->settings()->setBool(WB_MAINWINDOW_USE_SIDEBAR, false);
+            qtCtx()->settings()->setBool(WB_MAINWINDOW_USE_M_TABBAR, false);
         }
 
-        WBSET("app/use-icon-theme", checkBox_ICONTHEME->isChecked());
-        WBSET("mainwindow/dont-show-icons-in-menus", checkBox_HIDE_ICONS_IN_MENU->isChecked());
+        qtCtx()->settings()->setBool("app/use-icon-theme", checkBox_ICONTHEME->isChecked());
+        qtCtx()->settings()->setBool("mainwindow/dont-show-icons-in-menus", checkBox_HIDE_ICONS_IN_MENU->isChecked());
     }
     {//Chat tab
-        WBSET(WB_SHOW_HIDDEN_USERS, checkBox_CHATHIDDEN->isChecked());
-        WBSET(WB_CHAT_SHOW_JOINS, checkBox_CHATJOINS->isChecked());
-        WBSET(WB_CHAT_SHOW_JOINS_FAV, checkBox_JOINSFAV->isChecked());
-        WBSET(WB_CHAT_REDIRECT_BOT_PMS, checkBox_REDIRECTPMBOT->isChecked());
-        WBSET("hubframe/redirect-pm-to-main-chat", checkBox_REDIRECT_UNREAD->isChecked());
-        WBSET(WB_CHAT_KEEPFOCUS, checkBox_KEEPFOCUS->isChecked());
-        WBSET("hubframe/unreaden-draw-line", checkBox_UNREADEN_DRAW_LINE->isChecked());
-        WBSET(WB_CHAT_ROTATING_MSGS, checkBox_ROTATING->isChecked());
-        WBSET(WB_USE_CTRL_ENTER, checkBox_USE_CTRL_ENTER->isChecked());
-        WBSET(WB_APP_ENABLE_EMOTICON, checkBox_EMOT->isChecked());
-        WBSET(WB_APP_FORCE_EMOTICONS, checkBox_EMOTFORCE->isChecked());
-        WBSET(WB_CHAT_USE_SMILE_PANEL, checkBox_SMILEPANEL->isChecked());
-        WBSET(WB_CHAT_HIDE_SMILE_PANEL, checkBox_HIDESMILEPANEL->isChecked());
+        qtCtx()->settings()->setBool(WB_SHOW_HIDDEN_USERS, checkBox_CHATHIDDEN->isChecked());
+        qtCtx()->settings()->setBool(WB_CHAT_SHOW_JOINS, checkBox_CHATJOINS->isChecked());
+        qtCtx()->settings()->setBool(WB_CHAT_SHOW_JOINS_FAV, checkBox_JOINSFAV->isChecked());
+        qtCtx()->settings()->setBool(WB_CHAT_REDIRECT_BOT_PMS, checkBox_REDIRECTPMBOT->isChecked());
+        qtCtx()->settings()->setBool("hubframe/redirect-pm-to-main-chat", checkBox_REDIRECT_UNREAD->isChecked());
+        qtCtx()->settings()->setBool(WB_CHAT_KEEPFOCUS, checkBox_KEEPFOCUS->isChecked());
+        qtCtx()->settings()->setBool("hubframe/unreaden-draw-line", checkBox_UNREADEN_DRAW_LINE->isChecked());
+        qtCtx()->settings()->setBool(WB_CHAT_ROTATING_MSGS, checkBox_ROTATING->isChecked());
+        qtCtx()->settings()->setBool(WB_USE_CTRL_ENTER, checkBox_USE_CTRL_ENTER->isChecked());
+        qtCtx()->settings()->setBool(WB_APP_ENABLE_EMOTICON, checkBox_EMOT->isChecked());
+        qtCtx()->settings()->setBool(WB_APP_FORCE_EMOTICONS, checkBox_EMOTFORCE->isChecked());
+        qtCtx()->settings()->setBool(WB_CHAT_USE_SMILE_PANEL, checkBox_SMILEPANEL->isChecked());
+        qtCtx()->settings()->setBool(WB_CHAT_HIDE_SMILE_PANEL, checkBox_HIDESMILEPANEL->isChecked());
     }
     {//Chat (extended) tab
-        WISET(WI_CHAT_DBLCLICK_ACT, comboBox_DBL_CLICK->currentIndex());
-        WISET(WI_CHAT_MDLCLICK_ACT, comboBox_MDL_CLICK->currentIndex());
-        WISET(WI_DEF_MAGNET_ACTION, comboBox_DEF_MAGNET_ACTION->currentIndex());
+        qtCtx()->settings()->setInt(WI_CHAT_DBLCLICK_ACT, comboBox_DBL_CLICK->currentIndex());
+        qtCtx()->settings()->setInt(WI_CHAT_MDLCLICK_ACT, comboBox_MDL_CLICK->currentIndex());
+        qtCtx()->settings()->setInt(WI_DEF_MAGNET_ACTION, comboBox_DEF_MAGNET_ACTION->currentIndex());
         SM->set(SettingsManager::APP_UNIT_BASE, comboBox_APP_UNIT_BASE->currentIndex());
-        WBSET(WB_CHAT_HIGHLIGHT_FAVS, checkBox_HIGHLIGHTFAVS->isChecked());
+        qtCtx()->settings()->setBool(WB_CHAT_HIGHLIGHT_FAVS, checkBox_HIGHLIGHTFAVS->isChecked());
         SM->set(SettingsManager::USE_IP, checkBox_CHAT_SHOW_IP->isChecked());
-        WBSET("hubframe/use-bb-code", checkBox_BB_CODE->isChecked());
+        qtCtx()->settings()->setBool("hubframe/use-bb-code", checkBox_BB_CODE->isChecked());
 
-        WSSET(WS_CHAT_TIMESTAMP, lineEdit_TIMESTAMP->text());
+        qtCtx()->settings()->setStr(WS_CHAT_TIMESTAMP, lineEdit_TIMESTAMP->text());
 
-        WISET(WI_OUT_IN_HIST, spinBox_OUT_IN_HIST->value());
-        WISET(WI_CHAT_MAXPARAGRAPHS, spinBox_PARAGRAPHS->value());
+        qtCtx()->settings()->setInt(WI_OUT_IN_HIST, spinBox_OUT_IN_HIST->value());
+        qtCtx()->settings()->setInt(WI_CHAT_MAXPARAGRAPHS, spinBox_PARAGRAPHS->value());
 
         SM->set(SettingsManager::IGNORE_BOT_PMS, checkBox_IGNOREPMBOT->isChecked());
         SM->set(SettingsManager::IGNORE_HUB_PMS, checkBox_IGNOREPMHUB->isChecked());
         SM->set(SettingsManager::GET_USER_COUNTRY, checkBox_CHAT_SHOW_CC->isChecked());
-        WSSET(WS_CHAT_SEPARATOR, comboBox_CHAT_SEPARATOR->currentText());
+        qtCtx()->settings()->setStr(WS_CHAT_SEPARATOR, comboBox_CHAT_SEPARATOR->currentText());
     }
     {//Color tab
         int i = 0;
 
-        WSSET(WS_CHAT_LOCAL_COLOR,      QColor(listWidget_CHATCOLOR->item(i++)->icon().pixmap(10, 10).toImage().pixel(0, 0)).name());
-        WSSET(WS_CHAT_OP_COLOR,         QColor(listWidget_CHATCOLOR->item(i++)->icon().pixmap(10, 10).toImage().pixel(0, 0)).name());
-        WSSET(WS_CHAT_BOT_COLOR,        QColor(listWidget_CHATCOLOR->item(i++)->icon().pixmap(10, 10).toImage().pixel(0, 0)).name());
-        WSSET(WS_CHAT_PRIV_LOCAL_COLOR, QColor(listWidget_CHATCOLOR->item(i++)->icon().pixmap(10, 10).toImage().pixel(0, 0)).name());
-        WSSET(WS_CHAT_PRIV_USER_COLOR,  QColor(listWidget_CHATCOLOR->item(i++)->icon().pixmap(10, 10).toImage().pixel(0, 0)).name());
-        WSSET(WS_CHAT_SAY_NICK,         QColor(listWidget_CHATCOLOR->item(i++)->icon().pixmap(10, 10).toImage().pixel(0, 0)).name());
-        WSSET(WS_CHAT_STAT_COLOR,       QColor(listWidget_CHATCOLOR->item(i++)->icon().pixmap(10, 10).toImage().pixel(0, 0)).name());
-        WSSET(WS_CHAT_USER_COLOR,       QColor(listWidget_CHATCOLOR->item(i++)->icon().pixmap(10, 10).toImage().pixel(0, 0)).name());
-        WSSET(WS_CHAT_FAVUSER_COLOR,    QColor(listWidget_CHATCOLOR->item(i++)->icon().pixmap(10, 10).toImage().pixel(0, 0)).name());
-        WSSET(WS_CHAT_TIME_COLOR,       QColor(listWidget_CHATCOLOR->item(i++)->icon().pixmap(10, 10).toImage().pixel(0, 0)).name());
-        WSSET(WS_CHAT_MSG_COLOR,        QColor(listWidget_CHATCOLOR->item(i++)->icon().pixmap(10, 10).toImage().pixel(0, 0)).name());
+        qtCtx()->settings()->setStr(WS_CHAT_LOCAL_COLOR, QColor(listWidget_CHATCOLOR->item(i++)->icon().pixmap(10, 10).toImage().pixel(0, 0)).name());
+        qtCtx()->settings()->setStr(WS_CHAT_OP_COLOR, QColor(listWidget_CHATCOLOR->item(i++)->icon().pixmap(10, 10).toImage().pixel(0, 0)).name());
+        qtCtx()->settings()->setStr(WS_CHAT_BOT_COLOR, QColor(listWidget_CHATCOLOR->item(i++)->icon().pixmap(10, 10).toImage().pixel(0, 0)).name());
+        qtCtx()->settings()->setStr(WS_CHAT_PRIV_LOCAL_COLOR, QColor(listWidget_CHATCOLOR->item(i++)->icon().pixmap(10, 10).toImage().pixel(0, 0)).name());
+        qtCtx()->settings()->setStr(WS_CHAT_PRIV_USER_COLOR, QColor(listWidget_CHATCOLOR->item(i++)->icon().pixmap(10, 10).toImage().pixel(0, 0)).name());
+        qtCtx()->settings()->setStr(WS_CHAT_SAY_NICK, QColor(listWidget_CHATCOLOR->item(i++)->icon().pixmap(10, 10).toImage().pixel(0, 0)).name());
+        qtCtx()->settings()->setStr(WS_CHAT_STAT_COLOR, QColor(listWidget_CHATCOLOR->item(i++)->icon().pixmap(10, 10).toImage().pixel(0, 0)).name());
+        qtCtx()->settings()->setStr(WS_CHAT_USER_COLOR, QColor(listWidget_CHATCOLOR->item(i++)->icon().pixmap(10, 10).toImage().pixel(0, 0)).name());
+        qtCtx()->settings()->setStr(WS_CHAT_FAVUSER_COLOR, QColor(listWidget_CHATCOLOR->item(i++)->icon().pixmap(10, 10).toImage().pixel(0, 0)).name());
+        qtCtx()->settings()->setStr(WS_CHAT_TIME_COLOR, QColor(listWidget_CHATCOLOR->item(i++)->icon().pixmap(10, 10).toImage().pixel(0, 0)).name());
+        qtCtx()->settings()->setStr(WS_CHAT_MSG_COLOR, QColor(listWidget_CHATCOLOR->item(i++)->icon().pixmap(10, 10).toImage().pixel(0, 0)).name());
 
-        WSSET(WS_CHAT_FIND_COLOR,       h_color.name());
-        WISET(WI_CHAT_FIND_COLOR_ALPHA, horizontalSlider_H_COLOR->value());
+        qtCtx()->settings()->setStr(WS_CHAT_FIND_COLOR, h_color.name());
+        qtCtx()->settings()->setInt(WI_CHAT_FIND_COLOR_ALPHA, horizontalSlider_H_COLOR->value());
 
-        WSSET(WS_APP_SHARED_FILES_COLOR, shared_files_color.name());
-        WISET(WI_APP_SHARED_FILES_ALPHA, horizontalSlider_SHAREDFILES->value());
+        qtCtx()->settings()->setStr(WS_APP_SHARED_FILES_COLOR, shared_files_color.name());
+        qtCtx()->settings()->setInt(WI_APP_SHARED_FILES_ALPHA, horizontalSlider_SHAREDFILES->value());
 
-        WBSET("hubframe/change-chat-background-color", checkBox_CHAT_BACKGROUND_COLOR->isChecked());
+        qtCtx()->settings()->setBool("hubframe/change-chat-background-color", checkBox_CHAT_BACKGROUND_COLOR->isChecked());
         if (chat_background_color.isValid())
-            WSSET("hubframe/chat-background-color", chat_background_color.name());
+            qtCtx()->settings()->setStr("hubframe/chat-background-color", chat_background_color.name());
         if (!checkBox_CHAT_BACKGROUND_COLOR->isChecked())
-            WSSET("hubframe/chat-background-color", QTextEdit().palette().color(QPalette::Active, QPalette::Base).name());
+            qtCtx()->settings()->setStr("hubframe/chat-background-color", QTextEdit().palette().color(QPalette::Active, QPalette::Base).name());
         if (downloads_clr.isValid())
-            WVSET("transferview/download-bar-color", downloads_clr);
+            qtCtx()->settings()->setVar("transferview/download-bar-color", downloads_clr);
         if (uploads_clr.isValid())
-            WVSET("transferview/upload-bar-color", uploads_clr);
+            qtCtx()->settings()->setVar("transferview/upload-bar-color", uploads_clr);
     }
 
-    WSSET(WS_SETTINGS_GUI_FONTS_STATE, tableView->horizontalHeader()->saveState().toBase64());
+    qtCtx()->settings()->setStr(WS_SETTINGS_GUI_FONTS_STATE, tableView->horizontalHeader()->saveState().toBase64());
 
     emit saveFonts();
 }
@@ -541,7 +547,7 @@ void SettingsGUI::slotSetTransparency(int value){
 
 void SettingsGUI::slotTestAppTheme(){
     if (!comboBox_THEMES->currentIndex()){ //Default
-        WSSET(WS_APP_THEME, "");
+        qtCtx()->settings()->setStr(WS_APP_THEME, "");
 
         return;
     }
@@ -555,7 +561,7 @@ void SettingsGUI::slotTestAppTheme(){
 
     qApp->setStyle(s);
 
-    WSSET(WS_APP_THEME, s);
+    qtCtx()->settings()->setStr(WS_APP_THEME, s);
 }
 
 void SettingsGUI::slotThemeChanged(){
@@ -565,55 +571,55 @@ void SettingsGUI::slotThemeChanged(){
 void SettingsGUI::slotBrowseLng(){
     QString file = QFileDialog::getOpenFileName(this,
                                                 tr("Select translation"),
-                                                WulforUtil::getInstance()->getTranslationsPath(),
+                                                qtCtx()->wulforUtil()->getTranslationsPath(),
                                                 tr("Translation (*.qm)"));
 
     if (!file.isEmpty()){
         file = QDir::toNativeSeparators(file);
 
-        WulforSettings::getInstance()->blockSignals(true);//do not emit signal that translation file has been changed
-        WSSET(WS_TRANSLATION_FILE, file);
-        WulforSettings::getInstance()->blockSignals(false);
+        qtCtx()->settings()->blockSignals(true);//do not emit signal that translation file has been changed
+        qtCtx()->settings()->setStr(WS_TRANSLATION_FILE, file);
+        qtCtx()->settings()->blockSignals(false);
 
-        WulforSettings::getInstance()->loadTranslation();//set language for application
-        MainWindow::getInstance()->retranslateUi();
+        qtCtx()->settings()->loadTranslation();//set language for application
+        qtCtx()->mainWindow()->retranslateUi();
 
-        WSSET(WS_TRANSLATION_FILE, file);//emit signals for other widgets
+        qtCtx()->settings()->setStr(WS_TRANSLATION_FILE, file);//emit signals for other widgets
 
-        lineEdit_LANGFILE->setText(WSGET(WS_TRANSLATION_FILE));
+        lineEdit_LANGFILE->setText(qtCtx()->settings()->getStr(WS_TRANSLATION_FILE));
     }
 }
 
 void SettingsGUI::slotLngIndexChanged(int index){
     QString file = comboBox_LANGS->itemData(index).toString();
 
-    WSSET(WS_TRANSLATION_FILE, file);
+    qtCtx()->settings()->setStr(WS_TRANSLATION_FILE, file);
 
-    WulforSettings::getInstance()->blockSignals(true);//do not emit signal that translation file has been changed
-    WSSET(WS_TRANSLATION_FILE, file);
-    WulforSettings::getInstance()->blockSignals(false);
+    qtCtx()->settings()->blockSignals(true);//do not emit signal that translation file has been changed
+    qtCtx()->settings()->setStr(WS_TRANSLATION_FILE, file);
+    qtCtx()->settings()->blockSignals(false);
 
-    WulforSettings::getInstance()->loadTranslation();
-    MainWindow::getInstance()->retranslateUi();
+    qtCtx()->settings()->loadTranslation();
+    qtCtx()->mainWindow()->retranslateUi();
 
-    WSSET(WS_TRANSLATION_FILE, file);
+    qtCtx()->settings()->setStr(WS_TRANSLATION_FILE, file);
 
-    lineEdit_LANGFILE->setText(WSGET(WS_TRANSLATION_FILE));
+    lineEdit_LANGFILE->setText(qtCtx()->settings()->getStr(WS_TRANSLATION_FILE));
 }
 
 void SettingsGUI::slotIconsChanged(){
-    WSSET(WS_APP_ICONTHEME, comboBox_ICONS->currentText());
+    qtCtx()->settings()->setStr(WS_APP_ICONTHEME, comboBox_ICONS->currentText());
 
-    WulforUtil::getInstance()->loadIcons();
+    qtCtx()->wulforUtil()->loadIcons();
 }
 
 void SettingsGUI::slotUsersChanged(){
-    WSSET(WS_APP_USERTHEME, comboBox_USERS->currentText());
+    qtCtx()->settings()->setStr(WS_APP_USERTHEME, comboBox_USERS->currentText());
 }
 
 void SettingsGUI::slotResetTransferColors(){
-    WVSET("transferview/download-bar-color", QColor());
-    WVSET("transferview/upload-bar-color", QColor());
+    qtCtx()->settings()->setVar("transferview/download-bar-color", QColor());
+    qtCtx()->settings()->setVar("transferview/upload-bar-color", QColor());
 
     downloads_clr = QColor();
     uploads_clr = QColor();

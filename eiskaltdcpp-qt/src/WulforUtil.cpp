@@ -6,11 +6,16 @@
 *   (at your option) any later version.                                   *
 *                                                                         *
 ***************************************************************************/
+/*
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
+ */
 
 #include "MainWindow.h"
 #include "Magnet.h"
 #include "WulforUtil.h"
 #include "ArenaWidgetFactory.h"
+#include "QtContext.h"
+#include "QtContextAware.h"
 #include "icons/gv.xpm"
 
 #ifdef HAVE_IFADDRS_H
@@ -24,6 +29,8 @@
 #include "dcpp/SettingsManager.h"
 #include "dcpp/Util.h"
 #include "dcpp/AdcHub.h"
+#include "dcpp/DCPlusPlus.h"
+#include "dcpp/Text.h"
 
 #include <QDir>
 #include <QFileInfo>
@@ -44,12 +51,10 @@
 #include <QPushButton>
 #include <QFrame>
 #include <QHBoxLayout>
-#include <QRegExp>
+#include <QRegularExpression>
 #include <QProcess>
 
-#if QT_VERSION >= 0x050000
 #include <QUrlQuery>
-#endif
 
 #include "SearchFrame.h"
 #include "extra/magnet.h"
@@ -78,7 +83,8 @@ using namespace dcpp;
 
 const QString WulforUtil::magnetSignature = "magnet:?xt=urn:tree:tiger:";
 
-WulforUtil::WulforUtil()
+WulforUtil::WulforUtil(dcpp::DCContext& ctx)
+    : QtContextAware(ctx)
 {
     qRegisterMetaType< QMap<QString,QVariant> >("VarMap");
     qRegisterMetaType<dcpp::UserPtr>("dcpp::UserPtr");
@@ -140,7 +146,7 @@ bool WulforUtil::loadUserIcons(){
 QString WulforUtil::findAppIconsPath() const
 {
     // Try to find application icons directory
-    const QString icon_theme = WSGET(WS_APP_ICONTHEME);
+    const QString icon_theme = qtCtx()->settings()->getStr(WS_APP_ICONTHEME);
 
     QStringList settings_path_list = {
         QDir::currentPath() + "/icons/appl/" + icon_theme,
@@ -150,6 +156,8 @@ QString WulforUtil::findAppIconsPath() const
 #endif // defined(Q_OS_MAC)
         QDir::homePath() + "/.eiskaltdc++/icons/appl/" + icon_theme,
         bin_path + "/appl/" + icon_theme,
+        bin_path + "/icons/appl/" + icon_theme,
+        bin_path + "/../icons/appl/" + icon_theme,
         CLIENT_ICONS_DIR "/appl/" + icon_theme,
         bin_path + CLIENT_ICONS_DIR "/appl/" + icon_theme,
         bin_path + "/../" CLIENT_ICONS_DIR "/appl/" + icon_theme,
@@ -168,7 +176,7 @@ QString WulforUtil::findAppIconsPath() const
 QString WulforUtil::findUserIconsPath() const
 {
     // Try to find icons directory
-    const QString user_theme = WSGET(WS_APP_USERTHEME);
+    const QString user_theme = qtCtx()->settings()->getStr(WS_APP_USERTHEME);
 
     QStringList settings_path_list = {
         QDir::currentPath() + "/icons/user/" + user_theme,
@@ -178,6 +186,8 @@ QString WulforUtil::findUserIconsPath() const
 #endif // defined(Q_OS_MAC)
         QDir::homePath() + "/.eiskaltdc++/icons/user/" + user_theme,
         bin_path + "icons/user/" + user_theme,
+        bin_path + "/icons/user/" + user_theme,
+        bin_path + "/../icons/user/" + user_theme,
         bin_path + "/user/" + user_theme,
         CLIENT_ICONS_DIR "/user/" + user_theme,
         bin_path + CLIENT_ICONS_DIR "/user/" + user_theme,
@@ -259,7 +269,7 @@ QString WulforUtil::getAspellDataPath() const
 
 QString WulforUtil::getClientResourcesPath() const
 {
-    const QString icon_theme = WSGET(WS_APP_ICONTHEME);
+    const QString icon_theme = qtCtx()->settings()->getStr(WS_APP_ICONTHEME);
 
 #if defined(Q_OS_WIN) || defined(Q_OS_HAIKU)
     const QString client_res_path = bin_path + CLIENT_RES_DIR "/" + icon_theme + ".rcc";
@@ -267,8 +277,10 @@ QString WulforUtil::getClientResourcesPath() const
     const QString client_res_path = bin_path + QString("/../Resources/" CLIENT_RES_DIR "/") + icon_theme + ".rcc";
 #else // Other systems
     QString client_res_path = QString(CLIENT_RES_DIR) + PATH_SEPARATOR_STR + icon_theme + ".rcc";
-    if (!QDir(client_res_path).exists()) // Fix for Snap, AppImage, etc.
-        client_res_path = bin_path + "/../../" + client_res_path;
+    if (!QFile(client_res_path).exists()) // Build tree: .rcc next to binary
+        client_res_path = bin_path + icon_theme + ".rcc";
+    if (!QFile(client_res_path).exists()) // Fix for Snap, AppImage, etc.
+        client_res_path = bin_path + "/../../" + QString(CLIENT_RES_DIR) + PATH_SEPARATOR_STR + icon_theme + ".rcc";
 #endif
 
     return QDir(client_res_path).absolutePath();;
@@ -306,7 +318,7 @@ QPixmap *WulforUtil::getUserIcon(const UserPtr &id, bool isAway, bool isOp, cons
     if (id->isSet(User::TLS))
         y += 2;
 
-    Identity iid = ClientManager::getInstance()->getOnlineUserIdentity(id);
+    Identity iid = dcCtx().getClientManager()->getOnlineUserIdentity(id);
 
     if( (iid.supports(AdcHub::ADCS_FEATURE) && iid.supports(AdcHub::SEGA_FEATURE)) &&
         ((iid.supports(AdcHub::TCP4_FEATURE) && iid.supports(AdcHub::UDP4_FEATURE)) || iid.supports(AdcHub::NAT0_FEATURE)))
@@ -318,7 +330,7 @@ QPixmap *WulforUtil::getUserIcon(const UserPtr &id, bool isAway, bool isOp, cons
     if (id->isSet(User::PASSIVE)){
         y += 16;
 
-        if (SETTING(INCOMING_CONNECTIONS) == SettingsManager::INCOMING_FIREWALL_PASSIVE)
+        if (qtCtx()->dcCtx().getSettingsManager()->get(SettingsManager::INCOMING_CONNECTIONS, true) == SettingsManager::INCOMING_FIREWALL_PASSIVE)
             x = 7;
     }
 
@@ -363,7 +375,7 @@ bool WulforUtil::loadIcons(){
 
     const QString fname = getClientResourcesPath();
     bool resourceFound = false;
-    if (QFile(fname).exists() && !WBGET("app/use-icon-theme", false))
+    if (QFile(fname).exists() && !qtCtx()->settings()->getBool("app/use-icon-theme", false))
         resourceFound = QResource::registerResource(fname);
 
     m_PixmapMap.clear();
@@ -477,12 +489,12 @@ QString WulforUtil::getNicks(const QString &cid, const QString &hintUrl){
 }
 
 QString WulforUtil::getNickViaOnlineUser(const QString &cid, const QString &hintUrl) {
-    OnlineUser* user = ClientManager::getInstance()->findOnlineUser(CID(_tq(cid)), _tq(hintUrl), true);
+    OnlineUser* user = dcCtx().getClientManager()->findOnlineUser(CID(_tq(cid)), _tq(hintUrl), true);
     return user ? _q(user->getIdentity().getNick()) : QString();
 }
 
 QString WulforUtil::getNicks(const CID &cid, const QString &hintUrl){
-    return _q(dcpp::Util::toString(ClientManager::getInstance()->getNicks(cid, _tq(hintUrl))));
+    return _q(dcpp::Util::toString(dcCtx().getClientManager()->getNicks(cid, _tq(hintUrl))));
 }
 
 void WulforUtil::textToHtml(QString &str, bool print){
@@ -737,8 +749,12 @@ const QPixmap &WulforUtil::getPixmapForFile(const QString &file){
 QString WulforUtil::qtEnc2DcEnc(QString name){
     if (QtEnc2DCEnc.contains(name))
         return QtEnc2DCEnc[name].left(QtEnc2DCEnc[name].indexOf(" "));
-    else
-        return "";
+
+    // "System default" (or any unknown encoding) → use the OS charset
+    // detected by dcpp at startup (e.g. "CP1252" on Western-European
+    // Windows, "UTF-8" on modern Linux).  Returning an empty string
+    // would cause iconv_open("UTF-8", "") to fail silently.
+    return QString::fromStdString(dcpp::Text::systemCharset);
 }
 
 QString WulforUtil::dcEnc2QtEnc(QString name){
@@ -754,29 +770,22 @@ QStringList WulforUtil::encodings(){
     return QtEnc2DCEnc.keys();
 }
 
-QTextCodec *WulforUtil::codecForEncoding(const QString &name){
-    if (!QtEnc2DCEnc.contains(name))
-        return QTextCodec::codecForLocale();
-
-    return QTextCodec::codecForName(name.toUtf8());
-}
-
 bool WulforUtil::openUrl(const QString &url){
     if (url.startsWith("http://") || url.startsWith("www.") || url.startsWith(("ftp://")) || url.startsWith("https://")){
-        if (!SETTING(MIME_HANDLER).empty())
-            QProcess::startDetached(_q(SETTING(MIME_HANDLER)), QStringList(url));
+        if (!qtCtx()->dcCtx().getSettingsManager()->get(SettingsManager::MIME_HANDLER, true).empty())
+            QProcess::startDetached(_q(qtCtx()->dcCtx().getSettingsManager()->get(SettingsManager::MIME_HANDLER, true)), QStringList(url));
         else
             QDesktopServices::openUrl(QUrl::fromEncoded(url.toUtf8()));
     }
     else if (url.startsWith("adc://") || url.startsWith("adcs://")){
-        MainWindow::getInstance()->newHubFrame(url, "UTF-8");
+        qtCtx()->mainWindow()->newHubFrame(url, "UTF-8");
     }
     else if (url.startsWith("dchub://") || url.startsWith("nmdcs://")){
-        MainWindow::getInstance()->newHubFrame(url, WSGET(WS_DEFAULT_LOCALE));
+        qtCtx()->mainWindow()->newHubFrame(url, qtCtx()->settings()->getStr(WS_DEFAULT_LOCALE));
     }
     else if (url.startsWith("magnet:") && url.contains("urn:tree:tiger")){
         QString magnet = url;
-        Magnet *m = new Magnet(MainWindow::getInstance());
+        Magnet *m = new Magnet(qtCtx()->mainWindow());
 
         m->setLink(magnet);
         m->exec();
@@ -786,27 +795,15 @@ bool WulforUtil::openUrl(const QString &url){
     else if (url.startsWith("magnet:")){
         const QString magnet = url;
 
-#if QT_VERSION >= 0x050000
         QUrlQuery u;
-#else
-        QUrl u;
-#endif
 
         if (!magnet.contains("+")) {
-#if QT_VERSION >= 0x050000
                 u.setQuery(magnet.toUtf8());
-#else
-                u.setEncodedUrl(magnet.toUtf8());
-#endif
         } else {
             QString _l = magnet;
 
             _l.replace("+", "%20");
-#if QT_VERSION >= 0x050000
                 u.setQuery(_l.toUtf8());
-#else
-                u.setEncodedUrl(_l.toUtf8());
-#endif
         }
 
         StringMap params;
@@ -829,8 +826,8 @@ bool WulforUtil::openUrl(const QString &url){
             sfr->fastSearch(keywords, false);
         }
         else {
-            if (!SETTING(MIME_HANDLER).empty())
-                QProcess::startDetached(_q(SETTING(MIME_HANDLER)), QStringList(url));
+            if (!qtCtx()->dcCtx().getSettingsManager()->get(SettingsManager::MIME_HANDLER, true).empty())
+                QProcess::startDetached(_q(qtCtx()->dcCtx().getSettingsManager()->get(SettingsManager::MIME_HANDLER, true)), QStringList(url));
             else
                 QDesktopServices::openUrl(QUrl::fromEncoded(url.toUtf8()));
         }
@@ -858,7 +855,7 @@ bool WulforUtil::getUserCommandParams(const UserCommand& uc, StringMap& params) 
     if (names.empty())
         return true;
 
-    QDialog dlg(MainWindow::getInstance());
+    QDialog dlg(qtCtx()->mainWindow());
     dlg.setWindowTitle(_q(uc.getDisplayName().back()));
 
     QVBoxLayout *vlayout = new QVBoxLayout(&dlg);
@@ -928,8 +925,8 @@ bool WulforUtil::getUserCommandParams(const UserCommand& uc, StringMap& params) 
 
     dlg.setFixedHeight(vlayout->sizeHint().height());
 
-    connect(buttonBox, SIGNAL(accepted()), &dlg, SLOT(accept()));
-    connect(buttonBox, SIGNAL(rejected()), &dlg, SLOT(reject()));
+    connect(buttonBox, &QDialogButtonBox::accepted, &dlg, &QDialog::accept);
+    connect(buttonBox, &QDialogButtonBox::rejected, &dlg, &QDialog::reject);
 
     if (dlg.exec() != QDialog::Accepted)
         return false;
@@ -1066,7 +1063,7 @@ Qt::SortOrder WulforUtil::intToSortOrder(int i){
 }
 
 QString WulforUtil::getHubNames(const dcpp::CID &cid){
-    StringList hubs = ClientManager::getInstance()->getHubNames(cid, "");
+    StringList hubs = dcCtx().getClientManager()->getHubNames(cid, "");
 
     if (hubs.empty())
         return tr("Offline");
@@ -1167,7 +1164,7 @@ QMenu *WulforUtil::buildUserCmdMenu(const std::string& hub_url, int ctx, QWidget
 }
 
 QMenu *WulforUtil::buildUserCmdMenu(const StringList& hub_list, int ctx, QWidget* parent) {
-    UserCommand::List userCommands = FavoriteManager::getInstance()->getUserCommands(ctx, hub_list);
+    UserCommand::List userCommands = dcCtx().getFavoriteManager()->getUserCommands(ctx, hub_list);
 
     if (userCommands.empty())
         return nullptr;
@@ -1215,5 +1212,6 @@ QMenu *WulforUtil::buildUserCmdMenu(const StringList& hub_list, int ctx, QWidget
 }
 
 bool WulforUtil::isTTH ( const QString& text ) {
-    return ((text.length() == 39) && (QRegExp("[A-Z0-9]+").exactMatch(text)));
+    static const QRegularExpression tthPattern("\\A[A-Z0-9]+\\z");
+    return ((text.length() == 39) && tthPattern.match(text).hasMatch());
 }

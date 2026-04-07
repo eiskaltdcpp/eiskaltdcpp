@@ -6,15 +6,16 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
+/*
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
+ */
 
 #include "FileBrowserModel.h"
+#include "QtContextAware.h"
+#include "QtContext.h"
 #include "WulforUtil.h"
 
-#if QT_VERSION >= 0x050000
 #include <QtWidgets>
-#else
-#include <QtGui>
-#endif
 
 #include <QFileInfo>
 #include <QList>
@@ -29,6 +30,7 @@
 
 #include "dcpp/ShareManager.h"
 #include "dcpp/UploadManager.h"
+#include "dcpp/DCPlusPlus.h"
 
 using namespace dcpp;
 
@@ -68,7 +70,7 @@ FileBrowserModel::~FileBrowserModel()
 
             f.close();
 
-            dcpp::UploadManager::getInstance()->reloadRestrictions();
+            qtCtx()->dcCtx().getUploadManager()->reloadRestrictions();
         }
     }
 }
@@ -102,9 +104,10 @@ QVariant FileBrowserModel::data(const QModelIndex &index, int role) const
         case Qt::DecorationRole:
         {
             if (item->dir && index.column() == COLUMN_FILEBROWSER_NAME)
-                return WICON(WulforUtil::eiFOLDER_BLUE).scaled(16, 16);
+                return qtCtx()->wulforUtil()->getPixmap(WulforUtil::eiFOLDER_BLUE).scaled(16, 16);
             else if (index.column() == COLUMN_FILEBROWSER_NAME)
-                return WulforUtil::getInstance()->getPixmapForFile(item->data(COLUMN_FILEBROWSER_NAME).toString()).scaled(16, 16);
+                return qtCtx()->wulforUtil()->getPixmapForFile(item->data(COLUMN_FILEBROWSER_NAME).toString()).scaled(16, 16);
+            break;
         }
         case Qt::DisplayRole:
         {
@@ -132,18 +135,18 @@ QVariant FileBrowserModel::data(const QModelIndex &index, int role) const
 
             TTHValue t(_tq(item->data(COLUMN_FILEBROWSER_TTH).toString()));
 
-            if (ShareManager::getInstance()->isTTHShared(t)){
+            if (qtCtx()->dcCtx().getShareManager()->isTTHShared(t)){
                 static QColor c;
 
-                c.setNamedColor(WSGET(WS_APP_SHARED_FILES_COLOR));
-                c.setAlpha(WIGET(WI_APP_SHARED_FILES_ALPHA));
+                c.setNamedColor(qtCtx()->settings()->getStr(WS_APP_SHARED_FILES_COLOR));
+                c.setAlpha(qtCtx()->settings()->getInt(WI_APP_SHARED_FILES_ALPHA));
 
                 return c;
             }
 
             break;
         }
-        case Qt::BackgroundColorRole:
+        case Qt::BackgroundRole:
         {
             if (item->isDuplicate){
                 QPalette pal = qApp->palette();
@@ -201,7 +204,7 @@ QVariant FileBrowserModel::data(const QModelIndex &index, int role) const
             }
 
             TTHValue t(_tq(item->data(COLUMN_FILEBROWSER_TTH).toString()));
-            ShareManager *SM = ShareManager::getInstance();
+            ShareManager *SM = qtCtx()->dcCtx().getShareManager();
 
             if (!ownList){
                 try{
@@ -511,7 +514,7 @@ FileBrowserItem *FileBrowserModel::createRootForPath(const QString &path, FileBr
     QString _path = path;
     _path.replace("\\", "/");
 
-    QStringList list = _path.split("/", QString::SkipEmptyParts);
+    QStringList list = _path.split("/", Qt::SkipEmptyParts);
     FileBrowserItem *root = pathRoot?pathRoot:rootItem;
 
     if (list.empty() || !root)

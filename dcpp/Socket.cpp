@@ -64,14 +64,14 @@ string Socket::udpPort;
 
 #ifdef _DEBUG
 
-SocketException::SocketException(int aError) noexcept {
+SocketException::SocketException(int aError) {
     error = "SocketException: " + errorToString(aError);
     dcdebug("Thrown: %s\n", error.c_str());
 }
 
 #else // _DEBUG
 
-SocketException::SocketException(int aError) noexcept : Exception(errorToString(aError)) { }
+SocketException::SocketException(int aError) : Exception(errorToString(aError)) { }
 
 #endif
 
@@ -79,7 +79,7 @@ Socket::Stats Socket::stats = { 0, 0 };
 
 static const uint32_t SOCKS_TIMEOUT = 30000;
 
-string SocketException::errorToString(int aError) noexcept {
+string SocketException::errorToString(int aError) {
     string msg = Util::translateError(aError);
     if(msg.empty()) {
         msg = str(F_("Unknown error: 0x%1$x") % aError);
@@ -105,8 +105,8 @@ void Socket::create(int aType /* = TYPE_TCP */) {
 
     setBlocking(false);
 
-    if (SETTING(IP_TOS_VALUE) != -1)
-        setSocketOpt(IP_TOS, IPTOS_TOS(SETTING(IP_TOS_VALUE)));
+    if (ctx_ && ctx().getSettingsManager()->get(SettingsManager::IP_TOS_VALUE) != -1)
+        setSocketOpt(IP_TOS, IPTOS_TOS(ctx().getSettingsManager()->get(SettingsManager::IP_TOS_VALUE)));
 }
 
 void Socket::accept(const Socket& listeningSocket) {
@@ -223,14 +223,15 @@ inline uint64_t timeLeft(uint64_t start, uint64_t timeout) {
 }
 
 void Socket::socksConnect(const string& aAddr, const string& aPort, uint32_t timeout) {
+    auto* sm = ctx().getSettingsManager();
 
-    if(SETTING(SOCKS_SERVER).empty() || SETTING(SOCKS_PORT) == 0) {
+    if(sm->get(SettingsManager::SOCKS_SERVER).empty() || sm->get(SettingsManager::SOCKS_PORT) == 0) {
         throw SocketException(_("The socks server failed establish a connection"));
     }
 
     uint64_t start = GET_TICK();
 
-    connect(SETTING(SOCKS_SERVER), Util::toString(SETTING(SOCKS_PORT)));
+    connect(sm->get(SettingsManager::SOCKS_SERVER), Util::toString(sm->get(SettingsManager::SOCKS_PORT)));
 
     if(wait(timeLeft(start, timeout), WAIT_CONNECT) != WAIT_CONNECT) {
         throw SocketException(_("The socks server failed establish a connection"));
@@ -245,7 +246,7 @@ void Socket::socksConnect(const string& aAddr, const string& aPort, uint32_t tim
     connStr.push_back(1);           // Connect
     connStr.push_back(0);           // Reserved
 
-    if(BOOLSETTING(SOCKS_RESOLVE)) {
+    if(sm->getBool(SettingsManager::SOCKS_RESOLVE, true)) {
         connStr.push_back(3);       // Address type: domain name
         connStr.push_back((uint8_t)aAddr.size());
         connStr.insert(connStr.end(), aAddr.begin(), aAddr.end());
@@ -282,10 +283,11 @@ void Socket::socksConnect(const string& aAddr, const string& aPort, uint32_t tim
 
 void Socket::socksAuth(uint32_t timeout) {
     vector<uint8_t> connStr;
+    auto* sm = ctx().getSettingsManager();
 
     uint64_t start = GET_TICK();
 
-    if(SETTING(SOCKS_USER).empty() && SETTING(SOCKS_PASSWORD).empty()) {
+    if(sm->get(SettingsManager::SOCKS_USER).empty() && sm->get(SettingsManager::SOCKS_PASSWORD).empty()) {
         // No username and pw, easier...=)
         connStr.push_back(5);           // SOCKSv5
         connStr.push_back(1);           // 1 method
@@ -318,10 +320,10 @@ void Socket::socksAuth(uint32_t timeout) {
         connStr.clear();
         // Now we send the username / pw...
         connStr.push_back(1);
-        connStr.push_back((uint8_t)SETTING(SOCKS_USER).length());
-        connStr.insert(connStr.end(), SETTING(SOCKS_USER).begin(), SETTING(SOCKS_USER).end());
-        connStr.push_back((uint8_t)SETTING(SOCKS_PASSWORD).length());
-        connStr.insert(connStr.end(), SETTING(SOCKS_PASSWORD).begin(), SETTING(SOCKS_PASSWORD).end());
+        connStr.push_back((uint8_t)sm->get(SettingsManager::SOCKS_USER).length());
+        connStr.insert(connStr.end(), sm->get(SettingsManager::SOCKS_USER).begin(), sm->get(SettingsManager::SOCKS_USER).end());
+        connStr.push_back((uint8_t)sm->get(SettingsManager::SOCKS_PASSWORD).length());
+        connStr.insert(connStr.end(), sm->get(SettingsManager::SOCKS_PASSWORD).begin(), sm->get(SettingsManager::SOCKS_PASSWORD).end());
 
         writeAll(&connStr[0], connStr.size(), timeLeft(start, timeout));
 
@@ -513,7 +515,7 @@ void Socket::writeTo(const string& aAddr, const string& aPort, const void* aBuff
     auto buf = (const uint8_t*)aBuffer;
 
     int sent;
-    if(SETTING(OUTGOING_CONNECTIONS) == SettingsManager::OUTGOING_SOCKS5 && proxy) {
+    if(ctx_ && ctx().getSettingsManager()->get(SettingsManager::OUTGOING_CONNECTIONS) == SettingsManager::OUTGOING_SOCKS5 && proxy) {
         if(udpServer.empty() || udpPort.empty()) {
             throw SocketException(_("Failed to set up the socks server for UDP relay (check socks address and port)"));
         }
@@ -522,7 +524,7 @@ void Socket::writeTo(const string& aAddr, const string& aPort, const void* aBuff
         serv_addr.sin_family = AF_INET;
         serv_addr.sin_addr.s_addr = inet_addr(udpServer.c_str());
 
-        string s = BOOLSETTING(SOCKS_RESOLVE) ? resolve(ip) : ip;
+        string s = ctx().getSettingsManager()->getBool(SettingsManager::SOCKS_RESOLVE, true) ? resolve(ip) : ip;
 
         vector<uint8_t> connStr;
 
@@ -530,7 +532,7 @@ void Socket::writeTo(const string& aAddr, const string& aPort, const void* aBuff
         connStr.push_back(0);       // Reserved
         connStr.push_back(0);       // Fragment number, always 0 in our case...
 
-        if(BOOLSETTING(SOCKS_RESOLVE)) {
+        if(ctx().getSettingsManager()->getBool(SettingsManager::SOCKS_RESOLVE, true)) {
             connStr.push_back(3);
             connStr.push_back((uint8_t)s.size());
             connStr.insert(connStr.end(), aAddr.begin(), aAddr.end());
@@ -697,12 +699,12 @@ string Socket::resolve(const string& aDns) {
 }
 
 #ifdef _WIN32
-void Socket::setBlocking(bool block) noexcept {
+void Socket::setBlocking(bool block) {
     u_long b = block ? 0 : 1;
     ioctlsocket(sock, FIONBIO, &b);
 }
 #else
-void Socket::setBlocking(bool block) noexcept {
+void Socket::setBlocking(bool block) {
     int flags = fcntl(sock, F_GETFL, 0);
     if(block) {
         fcntl(sock, F_SETFL, flags & (~O_NONBLOCK));
@@ -712,7 +714,7 @@ void Socket::setBlocking(bool block) noexcept {
 }
 #endif
 
-string Socket::getLocalIp() noexcept {
+string Socket::getLocalIp() {
     if(sock == INVALID_SOCKET)
         return Util::emptyString;
 
@@ -724,7 +726,7 @@ string Socket::getLocalIp() noexcept {
     return Util::emptyString;
 }
 
-string Socket::getLocalPort() noexcept {
+string Socket::getLocalPort() {
     if(sock == INVALID_SOCKET)
         return Util::emptyString;
 
@@ -736,19 +738,21 @@ string Socket::getLocalPort() noexcept {
     return Util::emptyString;
 }
 
-Socket::Protocol Socket::getNextProtocol() noexcept {
+Socket::Protocol Socket::getNextProtocol() {
     return proto;
 }
 
-void Socket::socksUpdated() {
+void Socket::socksUpdated(DCContext& ctx) {
     udpServer.clear();
     udpPort.clear();
 
-    if(SETTING(OUTGOING_CONNECTIONS) == SettingsManager::OUTGOING_SOCKS5) {
+    auto* sm = ctx.getSettingsManager();
+    if(sm->get(SettingsManager::OUTGOING_CONNECTIONS) == SettingsManager::OUTGOING_SOCKS5) {
         try {
             Socket s;
+            s.setContext(&ctx);
             s.setBlocking(false);
-            s.connect(SETTING(SOCKS_SERVER), Util::toString(SETTING(SOCKS_PORT)));
+            s.connect(sm->get(SettingsManager::SOCKS_SERVER), Util::toString(sm->get(SettingsManager::SOCKS_PORT)));
             s.socksAuth(SOCKS_TIMEOUT);
 
             char connStr[10];
@@ -784,12 +788,12 @@ void Socket::socksUpdated() {
     }
 }
 
-void Socket::shutdown() noexcept {
+void Socket::shutdown() {
     if(sock != INVALID_SOCKET)
         ::shutdown(sock, 2);
 }
 
-void Socket::close() noexcept {
+void Socket::close() {
     if(sock != INVALID_SOCKET) {
 #ifdef _WIN32
         ::closesocket(sock);
@@ -801,7 +805,7 @@ void Socket::close() noexcept {
     }
 }
 
-void Socket::disconnect() noexcept {
+void Socket::disconnect() {
     shutdown();
     close();
 }

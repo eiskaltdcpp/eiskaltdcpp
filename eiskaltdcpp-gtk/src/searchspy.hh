@@ -26,13 +26,15 @@
 #include "bookentry.hh"
 #include "treeview.hh"
 
+namespace dcpp { class DCContext; }
+
 class SearchSpy:
         public BookEntry,
         public dcpp::ClientManagerListener,
         public dcpp::TimerManagerListener
 {
 public:
-    SearchSpy();
+    explicit SearchSpy(dcpp::DCContext& dcCtx);
     virtual ~SearchSpy();
     virtual void show();
     void preferences_gui();
@@ -81,4 +83,5 @@ private:
     TreeView topView;
     GtkListStore *topStore;
     std::string aSearchColor, cSearchColor, rSearchColor, tSearchColor, qSearchColor;
+    dcpp::DCContext& dcCtx_;
 };

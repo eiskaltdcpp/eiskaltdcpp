@@ -1,6 +1,7 @@
 /****************************************************************************
 **
 ** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
+** Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
 ** All rights reserved.
 ** Contact: Nokia Corporation (qt-info@nokia.com)
 **
@@ -69,7 +70,7 @@ int CodeEditor::lineNumberAreaWidth()
         ++digits;
     }
 
-    int space = 3 + fontMetrics().width(QChar('9')) * digits;
+    int space = 3 + fontMetrics().horizontalAdvance(QChar('9')) * digits;
 
     return space;
 }

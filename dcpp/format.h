@@ -40,7 +40,7 @@ using std::string;
 class formated_string : public std::string
 {
 public:
-    explicit formated_string(const string& s) noexcept : string(s) { }
+    explicit formated_string(const string& s) : string(s) { }
 
     formated_string& operator%(const string& x) {
         const string &&counter_string = "%" + std::to_string(++counter_) + "%";

@@ -6,8 +6,13 @@
 *   (at your option) any later version.                                   *
 *                                                                         *
 ***************************************************************************/
+/*
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
+ */
 
 #include "TabFrame.h"
+#include "QtContextAware.h"
+#include "QtContext.h"
 
 #include "FlowLayout.h"
 #include "TabButton.h"
@@ -16,11 +21,7 @@
 #include "DebugHelper.h"
 #include "GlobalTimer.h"
 
-#if QT_VERSION >= 0x050000
 #include <QtWidgets>
-#else
-#include <QtGui>
-#endif
 
 #include <QPushButton>
 #include <QWheelEvent>
@@ -39,24 +40,24 @@ TabFrame::TabFrame(QWidget *parent) :
     setMinimumHeight(20);
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
 
-    shortcuts << (new QShortcut(QKeySequence(Qt::ALT + Qt::Key_1), this))
-              << (new QShortcut(QKeySequence(Qt::ALT + Qt::Key_2), this))
-              << (new QShortcut(QKeySequence(Qt::ALT + Qt::Key_3), this))
-              << (new QShortcut(QKeySequence(Qt::ALT + Qt::Key_4), this))
-              << (new QShortcut(QKeySequence(Qt::ALT + Qt::Key_5), this))
-              << (new QShortcut(QKeySequence(Qt::ALT + Qt::Key_6), this))
-              << (new QShortcut(QKeySequence(Qt::ALT + Qt::Key_7), this))
-              << (new QShortcut(QKeySequence(Qt::ALT + Qt::Key_8), this))
-              << (new QShortcut(QKeySequence(Qt::ALT + Qt::Key_9), this))
-              << (new QShortcut(QKeySequence(Qt::ALT + Qt::Key_0), this));
+    shortcuts << (new QShortcut(QKeySequence(int(Qt::ALT) | int(Qt::Key_1)), this))
+              << (new QShortcut(QKeySequence(int(Qt::ALT) | int(Qt::Key_2)), this))
+              << (new QShortcut(QKeySequence(int(Qt::ALT) | int(Qt::Key_3)), this))
+              << (new QShortcut(QKeySequence(int(Qt::ALT) | int(Qt::Key_4)), this))
+              << (new QShortcut(QKeySequence(int(Qt::ALT) | int(Qt::Key_5)), this))
+              << (new QShortcut(QKeySequence(int(Qt::ALT) | int(Qt::Key_6)), this))
+              << (new QShortcut(QKeySequence(int(Qt::ALT) | int(Qt::Key_7)), this))
+              << (new QShortcut(QKeySequence(int(Qt::ALT) | int(Qt::Key_8)), this))
+              << (new QShortcut(QKeySequence(int(Qt::ALT) | int(Qt::Key_9)), this))
+              << (new QShortcut(QKeySequence(int(Qt::ALT) | int(Qt::Key_0)), this));
 
     for (const auto &s : shortcuts){
         s->setContext(Qt::ApplicationShortcut);
 
-        connect(s, SIGNAL(activated()), this, SLOT(slotShorcuts()));
+        connect(s, &QShortcut::activated, this, &TabFrame::slotShorcuts);
     }
 
-    connect(GlobalTimer::getInstance(), SIGNAL(second()), this, SLOT(redraw()));
+    connect(qtCtx()->globalTimer(), &GlobalTimer::second, this, &TabFrame::redraw);
 }
 
 
@@ -81,11 +82,11 @@ bool TabFrame::eventFilter(QObject *obj, QEvent *e){
     QWheelEvent *w_e = reinterpret_cast<QWheelEvent*>(e);
 
     if (btn && (e->type() == QEvent::Wheel) && w_e){
-        int numDegrees = (w_e->delta() < 0)? (-1*w_e->delta()/8) : (w_e->delta()/8);
+        int numDegrees = (w_e->angleDelta().y() < 0)? (-1*w_e->angleDelta().y()/8) : (w_e->angleDelta().y()/8);
         int numSteps = numDegrees/15;
         std::function<void()> f = [this]() { this->nextTab(); };
 
-        if (w_e->delta() < 0)
+        if (w_e->angleDelta().y() < 0)
             f = [this]() { this->prevTab(); };
 
         for (int i = 0; i < numSteps; i++)
@@ -135,7 +136,7 @@ void TabFrame::insertWidget(ArenaWidget *awgt){
 
     TabButton *btn = new TabButton();
     btn->setText(awgt->getArenaShortTitle().left(32));
-    btn->setToolTip(WulforUtil::getInstance()->compactToolTipText(awgt->getArenaTitle(), 60, "\n"));
+    btn->setToolTip(qtCtx()->wulforUtil()->compactToolTipText(awgt->getArenaTitle(), 60, "\n"));
     btn->setWidgetIcon(awgt->getPixmap());
     btn->setContextMenuPolicy(Qt::CustomContextMenu);
     btn->installEventFilter(this);
@@ -148,10 +149,10 @@ void TabFrame::insertWidget(ArenaWidget *awgt){
     if (awgt->toolButton())
         awgt->toolButton()->setChecked(true);
 
-    connect(btn, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotContextMenu()));
-    connect(btn, SIGNAL(clicked()), this, SLOT(buttonClicked()));
-    connect(btn, SIGNAL(closeRequest()), this, SLOT(closeRequsted()));
-    connect(btn, SIGNAL(dropped(TabButton*)), this, SLOT(slotDropped(TabButton*)));
+    connect(btn, &QWidget::customContextMenuRequested, this, &TabFrame::slotContextMenu);
+    connect(btn, &TabButton::clicked, this, &TabFrame::buttonClicked);
+    connect(btn, &TabButton::closeRequest, this, &TabFrame::closeRequsted);
+    connect(btn, &TabButton::dropped, this, &TabFrame::slotDropped);
 }
 
 bool TabFrame::hasWidget(ArenaWidget *awgt) const{
@@ -193,7 +194,7 @@ void TabFrame::redraw() {
         ArenaWidget *awgt = const_cast<ArenaWidget*>(it.value());
 
         btn->setText(awgt->getArenaShortTitle().left(32));
-        btn->setToolTip(WulforUtil::getInstance()->compactToolTipText(awgt->getArenaTitle(), 60, "\n"));
+        btn->setToolTip(qtCtx()->wulforUtil()->compactToolTipText(awgt->getArenaTitle(), 60, "\n"));
         btn->setWidgetIcon(awgt->getPixmap());
 
         if (awgt->state() & ArenaWidget::Hidden)
@@ -230,19 +231,19 @@ void TabFrame::historyPop(){
         TabButton *btn = qobject_cast<TabButton*>(item->widget());
 
         if (btn)
-            ArenaWidgetManager::getInstance()->activate(tbtn_map[btn]);
+            qtCtx()->arenaWidgetManager()->activate(tbtn_map[btn]);
 
         return;
     }
     else if (history.isEmpty()){
-        ArenaWidgetManager::getInstance()->activate(nullptr);
+        qtCtx()->arenaWidgetManager()->activate(nullptr);
         
         return;
     }
 
     ArenaWidget *awgt = history.takeLast();
 
-    ArenaWidgetManager::getInstance()->activate(awgt);
+    qtCtx()->arenaWidgetManager()->activate(awgt);
 }
 
 void TabFrame::buttonClicked(){
@@ -255,7 +256,7 @@ void TabFrame::buttonClicked(){
 
     btn->setFocus();
 
-    ArenaWidgetManager::getInstance()->activate(tbtn_map[btn]);
+    qtCtx()->arenaWidgetManager()->activate(tbtn_map[btn]);
 }
 
 void TabFrame::closeRequsted() {
@@ -267,7 +268,7 @@ void TabFrame::closeRequsted() {
         return;
 
     ArenaWidget *awgt = const_cast<ArenaWidget*>(tbtn_map[btn]);
-    ArenaWidgetManager::getInstance()->rem(awgt);
+    qtCtx()->arenaWidgetManager()->rem(awgt);
 }
 
 void TabFrame::nextTab(){
@@ -292,7 +293,7 @@ void TabFrame::nextTab(){
     if (!next)
         return;
 
-    ArenaWidgetManager::getInstance()->activate(tbtn_map[next]);
+    qtCtx()->arenaWidgetManager()->activate(tbtn_map[next]);
 }
 
 void TabFrame::prevTab(){
@@ -317,7 +318,7 @@ void TabFrame::prevTab(){
     if (!next)
         return;
 
-   ArenaWidgetManager::getInstance()->activate(tbtn_map[next]);
+   qtCtx()->arenaWidgetManager()->activate(tbtn_map[next]);
 }
 
 void TabFrame::slotShorcuts(){
@@ -336,7 +337,7 @@ void TabFrame::slotShorcuts(){
         if (!next)
             return;
 
-        ArenaWidgetManager::getInstance()->activate(tbtn_map[next]);
+        qtCtx()->arenaWidgetManager()->activate(tbtn_map[next]);
     }
 }
 
@@ -356,10 +357,10 @@ void TabFrame::slotContextMenu() {
             widget_menu->exec(btn->mapToGlobal(btn->rect().bottomLeft()));
         } else {
             widget_menu = new QMenu(this);
-            widget_menu->addAction(WulforUtil::getInstance()->getPixmap(WulforUtil::eiEDITDELETE), tr("Close"));
+            widget_menu->addAction(qtCtx()->wulforUtil()->getPixmap(WulforUtil::eiEDITDELETE), tr("Close"));
 
             if (widget_menu->exec(QCursor::pos()))
-                ArenaWidgetManager::getInstance()->rem(awgt);
+                qtCtx()->arenaWidgetManager()->rem(awgt);
 
             delete widget_menu;
         }
@@ -417,8 +418,8 @@ void TabFrame::toggled ( ArenaWidget* awgt ) {
         return;
     
     if (awgt->state() & ArenaWidget::Hidden)
-        ArenaWidgetManager::getInstance()->activate(awgt);
+        qtCtx()->arenaWidgetManager()->activate(awgt);
     else
-        ArenaWidgetManager::getInstance()->rem(awgt);
+        qtCtx()->arenaWidgetManager()->rem(awgt);
 }
 

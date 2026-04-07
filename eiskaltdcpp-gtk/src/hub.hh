@@ -41,7 +41,7 @@ class Hub:
         public dcpp::QueueManagerListener
 {
 public:
-    Hub(const std::string &address, const std::string &encoding);
+    Hub(dcpp::DCContext& dcCtx, const std::string &address, const std::string &encoding);
     virtual ~Hub();
     virtual void show();
 
@@ -209,6 +209,7 @@ private:
     GtkTextTag *selectedTag;
     std::string selectedTagStr;
     UserCommandMenu *userCommandMenu;
+    dcpp::DCContext& dcCtx_;
     std::string address;
     std::string encoding;
     bool scrollToBottom;

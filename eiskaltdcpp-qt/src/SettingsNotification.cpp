@@ -6,8 +6,13 @@
 *   (at your option) any later version.                                   *
 *                                                                         *
 ***************************************************************************/
+/*
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
+ */
 
 #include "SettingsNotification.h"
+#include "QtContextAware.h"
+#include "QtContext.h"
 
 #include "WulforSettings.h"
 #include "WulforUtil.h"
@@ -15,7 +20,10 @@
 #include "ShellCommandRunner.h"
 
 #include <QFileDialog>
-#include <QSound>
+#ifndef NO_QT_MULTIMEDIA
+#include <QSoundEffect>
+#endif
+#include <QUrl>
 #include <QDir>
 
 SettingsNotification::SettingsNotification(QWidget *parent) :
@@ -27,33 +35,33 @@ SettingsNotification::SettingsNotification(QWidget *parent) :
 }
 
 void SettingsNotification::init(){
-    WulforUtil *WU = WulforUtil::getInstance();
+    WulforUtil *WU = qtCtx()->wulforUtil();
 
     {//Text
-        checkBox_EXIT_CONFIRM->setChecked(WBGET(WB_EXIT_CONFIRM));
+        checkBox_EXIT_CONFIRM->setChecked(qtCtx()->settings()->getBool(WB_EXIT_CONFIRM));
 
-        groupBox->setChecked(WBGET(WB_NOTIFY_ENABLED));
+        groupBox->setChecked(qtCtx()->settings()->getBool(WB_NOTIFY_ENABLED));
 
-        unsigned emap = static_cast<unsigned>(WIGET(WI_NOTIFY_EVENTMAP));
+        unsigned emap = static_cast<unsigned>(qtCtx()->settings()->getInt(WI_NOTIFY_EVENTMAP));
 
         checkBox_NICKSAY->setChecked(emap & Notification::NICKSAY);
         checkBox_ANY->setChecked(emap & Notification::ANY);
         checkBox_PM->setChecked(emap & Notification::PM);
         checkBox_TRDONE->setChecked(emap & Notification::TRANSFER);
         checkBox_FAVJOIN->setChecked(emap & Notification::FAVORITE);
-        checkBox_MWACTIVE->setChecked(WBGET(WB_NOTIFY_SHOW_ON_ACTIVE));
-        checkBox_MWVISIBLE->setChecked(WBGET(WB_NOTIFY_SHOW_ON_VISIBLE));
-        checkBox_CHICON->setChecked(WBGET(WB_NOTIFY_CH_ICON_ALWAYS));
+        checkBox_MWACTIVE->setChecked(qtCtx()->settings()->getBool(WB_NOTIFY_SHOW_ON_ACTIVE));
+        checkBox_MWVISIBLE->setChecked(qtCtx()->settings()->getBool(WB_NOTIFY_SHOW_ON_VISIBLE));
+        checkBox_CHICON->setChecked(qtCtx()->settings()->getBool(WB_NOTIFY_CH_ICON_ALWAYS));
 
-        if (WBGET(WB_NOTIFY_SHOW_ON_ACTIVE)){
+        if (qtCtx()->settings()->getBool(WB_NOTIFY_SHOW_ON_ACTIVE)){
             checkBox_MWVISIBLE->setChecked(true);
             checkBox_MWVISIBLE->setDisabled(true);
         }
 
-        comboBox->setCurrentIndex(WIGET(WI_NOTIFY_MODULE));
+        comboBox->setCurrentIndex(qtCtx()->settings()->getInt(WI_NOTIFY_MODULE));
     }
     {//Sound
-        QString encoded = WSGET(WS_NOTIFY_SOUNDS);
+        QString encoded = qtCtx()->settings()->getStr(WS_NOTIFY_SOUNDS);
         QString decoded = QByteArray::fromBase64(encoded.toUtf8());
         QStringList sounds = decoded.split("\n");
 
@@ -64,19 +72,19 @@ void SettingsNotification::init(){
             lineEdit_FAV->setText(sounds.at(3));
         }
 
-        groupBox_SND->setChecked(WBGET(WB_NOTIFY_SND_ENABLED));
-        groupBox_SNDCMD->setChecked(WBGET(WB_NOTIFY_SND_EXTERNAL));
+        groupBox_SND->setChecked(qtCtx()->settings()->getBool(WB_NOTIFY_SND_ENABLED));
+        groupBox_SNDCMD->setChecked(qtCtx()->settings()->getBool(WB_NOTIFY_SND_EXTERNAL));
 
-        lineEdit_SNDCMD->setText(WSGET(WS_NOTIFY_SND_CMD));
+        lineEdit_SNDCMD->setText(qtCtx()->settings()->getStr(WS_NOTIFY_SND_CMD));
 
-        unsigned emap = static_cast<unsigned>(WIGET(WI_NOTIFY_SNDMAP));
+        unsigned emap = static_cast<unsigned>(qtCtx()->settings()->getInt(WI_NOTIFY_SNDMAP));
 
         groupBox_NICK->setChecked(emap & Notification::NICKSAY);
         groupBox_PM->setChecked(emap & Notification::PM);
         groupBox_TR->setChecked(emap & Notification::TRANSFER);
         groupBox_FAV->setChecked(emap & Notification::FAVORITE);
 
-        checkBox_ACTIVEPM->setChecked(WBGET("notification/play-sound-with-active-pm", true));
+        checkBox_ACTIVEPM->setChecked(qtCtx()->settings()->getBool("notification/play-sound-with-active-pm", true));
     }
 
     toolButton_BRWNICK->setIcon(WU->getPixmap(WulforUtil::eiFOLDER_BLUE));
@@ -84,17 +92,17 @@ void SettingsNotification::init(){
     toolButton_BRWTR->setIcon(WU->getPixmap(WulforUtil::eiFOLDER_BLUE));
     toolButton_BRWFAV->setIcon(WU->getPixmap(WulforUtil::eiFOLDER_BLUE));
 
-    connect(toolButton_BRWNICK, SIGNAL(clicked()), this, SLOT(slotBrowseFile()));
-    connect(toolButton_BRWPM,   SIGNAL(clicked()), this, SLOT(slotBrowseFile()));
-    connect(toolButton_BRWTR,   SIGNAL(clicked()), this, SLOT(slotBrowseFile()));
-    connect(toolButton_BRWFAV,  SIGNAL(clicked()), this, SLOT(slotBrowseFile()));
+    connect(toolButton_BRWNICK, &QToolButton::clicked, this, &SettingsNotification::slotBrowseFile);
+    connect(toolButton_BRWPM,   &QToolButton::clicked, this, &SettingsNotification::slotBrowseFile);
+    connect(toolButton_BRWTR,   &QToolButton::clicked, this, &SettingsNotification::slotBrowseFile);
+    connect(toolButton_BRWFAV,  &QToolButton::clicked, this, &SettingsNotification::slotBrowseFile);
 
-    connect(pushButton_TESTNICKSAY, SIGNAL(clicked()), this, SLOT(slotTest()));
-    connect(pushButton_TESTPM,      SIGNAL(clicked()), this, SLOT(slotTest()));
-    connect(pushButton_TESTTR,      SIGNAL(clicked()), this, SLOT(slotTest()));
-    connect(pushButton_TESTFAV,     SIGNAL(clicked()), this, SLOT(slotTest()));
+    connect(pushButton_TESTNICKSAY, &QPushButton::clicked, this, &SettingsNotification::slotTest);
+    connect(pushButton_TESTPM,      &QPushButton::clicked, this, &SettingsNotification::slotTest);
+    connect(pushButton_TESTTR,      &QPushButton::clicked, this, &SettingsNotification::slotTest);
+    connect(pushButton_TESTFAV,     &QPushButton::clicked, this, &SettingsNotification::slotTest);
 
-    connect(groupBox_SNDCMD, SIGNAL(toggled(bool)), this, SLOT(slotToggleSndCmd(bool)));
+    connect(groupBox_SNDCMD, &QGroupBox::toggled, this, &SettingsNotification::slotToggleSndCmd);
 
 #ifndef DBUS_NOTIFY
     frame->setVisible(false);
@@ -102,20 +110,27 @@ void SettingsNotification::init(){
 }
 
 void SettingsNotification::playFile(const QString &file){
-    if (WBGET(WB_NOTIFY_SND_ENABLED) || groupBox_SND->isChecked()){
+    if (qtCtx()->settings()->getBool(WB_NOTIFY_SND_ENABLED) || groupBox_SND->isChecked()){
         if (file.isEmpty() || !QFile::exists(file))
             return;
 
-        if (!WBGET(WB_NOTIFY_SND_EXTERNAL))
-            QSound::play(file);
-        else {
+        if (!qtCtx()->settings()->getBool(WB_NOTIFY_SND_EXTERNAL)) {
+#ifndef NO_QT_MULTIMEDIA
+            auto *effect = new QSoundEffect(this);
+            effect->setSource(QUrl::fromLocalFile(file));
+            connect(effect, &QSoundEffect::playingChanged, effect, [effect]() {
+                if (!effect->isPlaying()) effect->deleteLater();
+            });
+            effect->play();
+#endif
+        } else {
             QString cmd = lineEdit_SNDCMD->text();
 
             if (cmd.isEmpty())
                 return;
 
             ShellCommandRunner *r = new ShellCommandRunner(cmd, QStringList() << file, this);
-            connect(r, SIGNAL(finished(bool,QString)), this, SLOT(slotCmdFinished(bool,QString)));
+            connect(r, &ShellCommandRunner::finished, this, &SettingsNotification::slotCmdFinished);
 
             r->start();
         }
@@ -124,12 +139,12 @@ void SettingsNotification::playFile(const QString &file){
 
 void SettingsNotification::ok(){
     {//Text
-        WBSET(WB_NOTIFY_ENABLED, groupBox->isChecked());
-        WBSET(WB_NOTIFY_CH_ICON_ALWAYS, checkBox_CHICON->isChecked());
-        WBSET(WB_NOTIFY_SHOW_ON_ACTIVE, checkBox_MWACTIVE->isChecked());
-        WBSET(WB_NOTIFY_SHOW_ON_VISIBLE, checkBox_MWVISIBLE->isChecked());
+        qtCtx()->settings()->setBool(WB_NOTIFY_ENABLED, groupBox->isChecked());
+        qtCtx()->settings()->setBool(WB_NOTIFY_CH_ICON_ALWAYS, checkBox_CHICON->isChecked());
+        qtCtx()->settings()->setBool(WB_NOTIFY_SHOW_ON_ACTIVE, checkBox_MWACTIVE->isChecked());
+        qtCtx()->settings()->setBool(WB_NOTIFY_SHOW_ON_VISIBLE, checkBox_MWVISIBLE->isChecked());
 
-        WBSET(WB_EXIT_CONFIRM, checkBox_EXIT_CONFIRM->isChecked());
+        qtCtx()->settings()->setBool(WB_EXIT_CONFIRM, checkBox_EXIT_CONFIRM->isChecked());
 
         unsigned emap = 0;
 
@@ -148,10 +163,10 @@ void SettingsNotification::ok(){
         if (checkBox_FAVJOIN->isChecked())
             emap |= Notification::FAVORITE;
 
-        WISET(WI_NOTIFY_EVENTMAP, emap);
-        WISET(WI_NOTIFY_MODULE, comboBox->currentIndex());
+        qtCtx()->settings()->setInt(WI_NOTIFY_EVENTMAP, emap);
+        qtCtx()->settings()->setInt(WI_NOTIFY_MODULE, comboBox->currentIndex());
 
-        Notification::getInstance()->switchModule(comboBox->currentIndex());
+        qtCtx()->notification()->switchModule(comboBox->currentIndex());
     }
     {//Sound
         QString sounds = "";
@@ -161,14 +176,14 @@ void SettingsNotification::ok(){
         sounds += lineEdit_SNDTRDONE->text() + "\n";
         sounds += lineEdit_FAV->text();
 
-        WSSET(WS_NOTIFY_SOUNDS, sounds.toUtf8().toBase64());
-        WBSET(WB_NOTIFY_SND_ENABLED, groupBox_SND->isChecked());
-        WBSET("notification/play-sound-with-active-pm", checkBox_ACTIVEPM->isChecked());
+        qtCtx()->settings()->setStr(WS_NOTIFY_SOUNDS, sounds.toUtf8().toBase64());
+        qtCtx()->settings()->setBool(WB_NOTIFY_SND_ENABLED, groupBox_SND->isChecked());
+        qtCtx()->settings()->setBool("notification/play-sound-with-active-pm", checkBox_ACTIVEPM->isChecked());
 
-        Notification::getInstance()->reloadSounds();
+        qtCtx()->notification()->reloadSounds();
 
-        if (WBGET(WB_NOTIFY_SND_EXTERNAL))
-            WSSET(WS_NOTIFY_SND_CMD, lineEdit_SNDCMD->text());
+        if (qtCtx()->settings()->getBool(WB_NOTIFY_SND_EXTERNAL))
+            qtCtx()->settings()->setStr(WS_NOTIFY_SND_CMD, lineEdit_SNDCMD->text());
 
         unsigned emap = 0;
 
@@ -184,7 +199,7 @@ void SettingsNotification::ok(){
         if (groupBox_FAV->isChecked())
             emap |= Notification::FAVORITE;
 
-        WISET(WI_NOTIFY_SNDMAP, emap);
+        qtCtx()->settings()->setInt(WI_NOTIFY_SNDMAP, emap);
     }
 }
 
@@ -226,7 +241,7 @@ void SettingsNotification::slotTest(){
 }
 
 void SettingsNotification::slotToggleSndCmd(bool checked){
-    WBSET(WB_NOTIFY_SND_EXTERNAL, checked);
+    qtCtx()->settings()->setBool(WB_NOTIFY_SND_EXTERNAL, checked);
 }
 
 void SettingsNotification::slotCmdFinished(bool, QString){

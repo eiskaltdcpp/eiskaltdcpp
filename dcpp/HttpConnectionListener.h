@@ -38,13 +38,13 @@ public:
     typedef X<5> TypeBZ2;
     typedef X<6> Retried;
 
-    virtual void on(Data, HttpConnection*, const uint8_t*, size_t) noexcept = 0;
-    virtual void on(Failed, HttpConnection*, const string&) noexcept { }
-    virtual void on(Complete, HttpConnection*, const string&) noexcept { }
-    virtual void on(Redirected, HttpConnection*, const string&) noexcept { }
-    virtual void on(TypeNormal, HttpConnection*) noexcept { }
-    virtual void on(TypeBZ2, HttpConnection*) noexcept { }
-    virtual void on(Retried, HttpConnection*, const bool) noexcept { }
+    virtual void on(Data, HttpConnection*, const uint8_t*, size_t) = 0;
+    virtual void on(Failed, HttpConnection*, const string&) { }
+    virtual void on(Complete, HttpConnection*, const string&) { }
+    virtual void on(Redirected, HttpConnection*, const string&) { }
+    virtual void on(TypeNormal, HttpConnection*) { }
+    virtual void on(TypeBZ2, HttpConnection*) { }
+    virtual void on(Retried, HttpConnection*, const bool) { }
 };
 
 } // namespace dcpp

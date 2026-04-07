@@ -6,6 +6,9 @@
 *   (at your option) any later version.                                   *
 *                                                                         *
 ***************************************************************************/
+/*
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
+ */
 
 #pragma once
 
@@ -22,6 +25,7 @@
 #include <QCompleter>
 #include <QMetaType>
 #include <QTextBlockUserData>
+#include <memory>
 
 #include "ui_HubFrame.h"
 
@@ -107,10 +111,6 @@ class HubFrame :
         Menu(const Menu&) = delete;
         Menu& operator=(const Menu&) = delete;
 
-        static void newInstance();
-        static void deleteInstance();
-        static Menu *getInstance();
-
         Action execUserMenu(Client*, const QString&);
         Action execChatMenu(Client*, const QString&, bool pmw);
 
@@ -125,8 +125,6 @@ class HubFrame :
         QList<QAction*> pm_chat_actions;   // chat actions list for menu in PMWindow
         QMap<QAction*, Action> chat_actions_map; //chat menu has separators and because of it all actions are mapped
         QString last_user_cmd;
-        static Menu *instance;
-        static unsigned counter;
     };
 
 public:
@@ -234,7 +232,7 @@ private Q_SLOTS:
     void slotShowWnd();
     void slotShellFinished(bool, QString);
     void slotFilterTextChanged();
-    void slotFindForward() { findText(nullptr); }
+    void slotFindForward() { findText(QTextDocument::FindFlags()); }
     void slotFindBackward(){ findText(QTextDocument::FindBackward); }
     void slotFindTextEdited(const QString & text);
     void slotInputTextChanged();
@@ -308,6 +306,8 @@ private:
 
     Q_DECLARE_PRIVATE(HubFrame)
     HubFramePrivate *d_ptr;
+
+    std::unique_ptr<Menu> menu_;
 };
 
 Q_DECLARE_METATYPE(HubFrame*)

@@ -28,7 +28,7 @@
 
 namespace dcpp {
 
-HttpConnection::HttpConnection(const string& aUserAgent) :
+HttpConnection::HttpConnection(DCContext& ctx, const string& aUserAgent) :
     userAgent(aUserAgent),
     port("80"),
     size(-1),
@@ -38,7 +38,8 @@ HttpConnection::HttpConnection(const string& aUserAgent) :
     lastTick(0),
     connState(CONN_UNKNOWN),
     connType(TYPE_POST),
-    socket(0)
+    socket(0),
+    ctx_(ctx)
 {
 }
 
@@ -110,12 +111,12 @@ void HttpConnection::prepareRequest(RequestType type) {
     }
 
     string proto, query, fragment;
-    if(SETTING(HTTP_PROXY).empty()) {
+    if(CTX_SETTING(HTTP_PROXY).empty()) {
         Util::decodeUrl(url, proto, server, port, file, query, fragment);
         if(file.empty())
             file = "/";
     } else {
-        Util::decodeUrl(SETTING(HTTP_PROXY), proto, server, port, file, query, fragment);
+        Util::decodeUrl(CTX_SETTING(HTTP_PROXY), proto, server, port, file, query, fragment);
         file = url;
     }
 
@@ -129,7 +130,7 @@ void HttpConnection::prepareRequest(RequestType type) {
         userAgent = dcpp::fullHTTPVersionString;
 
     if(!socket)
-        socket = BufferedSocket::getSocket(0x0a);
+        socket = BufferedSocket::getSocket(0x0a, ctx());
 
 
     socket->addListener(this);
@@ -165,12 +166,12 @@ void HttpConnection::updateSpeed() {
     }
 }
 
-void HttpConnection::on(BufferedSocketListener::Connected) noexcept {
+void HttpConnection::on(BufferedSocketListener::Connected) {
     dcassert(socket);
     socket->write(method + " " + file + " HTTP/1.1\r\n");
 
     string sRemoteServer = server;
-    if(!SETTING(HTTP_PROXY).empty())
+    if(!CTX_SETTING(HTTP_PROXY).empty())
     {
         string tfile, tport, proto, query, fragment;
         Util::decodeUrl(file, proto, sRemoteServer, tport, tfile, query, fragment);
@@ -198,7 +199,7 @@ void HttpConnection::on(BufferedSocketListener::Connected) noexcept {
         socket->write(requestBody);
 }
 
-void HttpConnection::on(BufferedSocketListener::Line, const string& aLine) noexcept {
+void HttpConnection::on(BufferedSocketListener::Line, const string& aLine) {
     if(connState == CONN_CHUNKED && aLine.size() > 1) {
         string::size_type i;
         string chunkSizeStr;
@@ -279,21 +280,21 @@ void HttpConnection::on(BufferedSocketListener::Line, const string& aLine) noexc
     }
 }
 
-void HttpConnection::on(BufferedSocketListener::Failed, const string& aLine) noexcept {
+void HttpConnection::on(BufferedSocketListener::Failed, const string& aLine) {
     abortRequest(false);
     connState = CONN_FAILED;
     statusLine = Util::trimCopy(aLine);
     fire(HttpConnectionListener::Failed(), this, str(dcpp::dcpp_fmt("%1% (%2%)") % statusLine % url));
 }
 
-void HttpConnection::on(BufferedSocketListener::ModeChange) noexcept {
+void HttpConnection::on(BufferedSocketListener::ModeChange) {
     if(connState != CONN_CHUNKED) {
         abortRequest(true);
 
         fire(HttpConnectionListener::Complete(), this, url);
     }
 }
-void HttpConnection::on(BufferedSocketListener::Data, uint8_t* aBuf, size_t aLen) noexcept {
+void HttpConnection::on(BufferedSocketListener::Data, uint8_t* aBuf, size_t aLen) {
     if(size != -1 && static_cast<size_t>(size - done)  < aLen) {
         abortRequest(true);
 

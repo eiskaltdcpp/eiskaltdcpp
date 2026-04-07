@@ -1,6 +1,7 @@
 /*
  * Copyright (C) 2001-2012 Jacek Sieka, arnetheduck on gmail point com
  * Copyright (C) 2009-2020 EiskaltDC++ developers
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -26,6 +27,7 @@
 #include "forward.h"
 #include "OnlineUser.h"
 #include "SearchQueue.h"
+#include "DCContext.h"
 #include "Socket.h"
 #include "Speaker.h"
 #include "TimerManager.h"
@@ -61,6 +63,7 @@ public:
 };
 /** Yes, this should probably be called a Hub */
 class Client : public ClientBase, public Speaker<ClientListener>, public BufferedSocketListener, protected TimerManagerListener
+        , public ContextAware
         #ifdef LUA_SCRIPT
         , public ClientScriptInstance
         #endif
@@ -164,7 +167,7 @@ public:
     void reloadSettings(bool updateNick);
 protected:
     friend class ClientManager;
-    Client(const string& hubURL, char separator, bool secure_, Socket::Protocol proto_);
+    Client(DCContext& ctx, const string& hubURL, char separator, bool secure_, Socket::Protocol proto_);
     virtual ~Client();
     struct Counts {
     private:
@@ -201,12 +204,12 @@ protected:
     virtual string checkNick(const string& nick) = 0;
 
     // TimerManagerListener
-    virtual void on(Second, uint64_t aTick) noexcept;
+    virtual void on(Second, uint64_t aTick);
     // BufferedSocketListener
-    virtual void on(Connecting) noexcept { fire(ClientListener::Connecting(), this); }
-    virtual void on(Connected) noexcept;
-    virtual void on(Line, const string& aLine) noexcept;
-    virtual void on(Failed, const string&) noexcept;
+    virtual void on(Connecting) { fire(ClientListener::Connecting(), this); }
+    virtual void on(Connected);
+    virtual void on(Line, const string& aLine);
+    virtual void on(Failed, const string&);
 
 private:
 

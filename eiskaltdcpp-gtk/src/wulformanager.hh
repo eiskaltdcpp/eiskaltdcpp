@@ -27,14 +27,12 @@
 #include "func.hh"
 #include "mainwindow.hh"
 
+namespace dcpp { class DCContext; }
+
 class WulforManager
 {
 public:
-    static void start(int argc, char **argv);
-    static void stop();
-    static WulforManager *get();
-
-    WulforManager();
+    WulforManager(dcpp::DCContext& dcCtx, int argc, char **argv);
     ~WulforManager();
 
     WulforManager(const WulforManager&) = delete;
@@ -70,32 +68,32 @@ private:
     DialogEntry *getDialogEntry_gui(const std::string &id);
 
     // Thread-related functions
-    static gpointer threadFunc_gui(gpointer data);
+    static gboolean idleCallback_gui(gpointer data);
     static gpointer threadFunc_client(gpointer data);
-    void processGuiQueue();
     void processClientQueue();
 
-    static WulforManager *manager;
     MainWindow *mainWin;
     std::string path;
-    std::deque<FuncBase *> guiFuncs;
     std::deque<FuncBase *> clientFuncs;
     std::unordered_map<std::string, Entry *> entries;
-    gint guiCondValue;
     gint clientCondValue;
-    GCond *guiCond;
     GCond *clientCond;
-    GMutex *guiCondMutex;
     GMutex *clientCondMutex;
     GMutex *clientCallMutex;
-    GMutex *guiQueueMutex;
     GMutex *clientQueueMutex;
 #if !GLIB_CHECK_VERSION(2,32,0)
     GStaticRWLock entryMutex;
 #else
     GRWLock entryMutex;
 #endif
-    GThread *guiThread;
+    dcpp::DCContext& dcCtx_;
     GThread *clientThread;
     bool abort;
 };
+
+/// Access the active WulforManager instance.
+/// The pointer is set in wulfor.cc during the RAII scope block.
+WulforManager *wulforManagerInstance();
+
+/// Set/clear the active WulforManager instance.
+void setWulforManagerInstance(WulforManager *instance);

@@ -6,6 +6,9 @@
 *   (at your option) any later version.                                   *
 *                                                                         *
 ***************************************************************************/
+/*
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
+ */
 
 #include "SettingsUC.h"
 #include "UCModel.h"
@@ -24,16 +27,16 @@ SettingsUC::SettingsUC(QWidget *parent) :
 
     treeView->setModel(model);
 
-    connect(pushButton_ADD, SIGNAL(clicked()),          model, SLOT(newUC()));
-    connect(pushButton_REM, SIGNAL(clicked()),          this,  SLOT(slotRemClicked()));
-    connect(pushButton_CH,  SIGNAL(clicked()),          this,  SLOT(slotChangeClicked()));
-    connect(pushButton_UP,  SIGNAL(clicked()),          this,  SLOT(slotUpClicked()));
-    connect(pushButton_DOWN,SIGNAL(clicked()),          this,  SLOT(slotDownClicked()));
-    connect(this,           SIGNAL(remUC(QModelIndex)),     model, SLOT(remUC(QModelIndex)));
-    connect(this,           SIGNAL(changeUC(QModelIndex)),  model, SLOT(changeUC(QModelIndex)));
-    connect(this,           SIGNAL(upUC(QModelIndex)),      model, SLOT(moveUp(QModelIndex)));
-    connect(this,           SIGNAL(downUC(QModelIndex)),    model, SLOT(moveDown(QModelIndex)));
-    connect(model,          SIGNAL(selectIndex(QModelIndex)), this, SLOT(slotSelect(QModelIndex)));
+    connect(pushButton_ADD, &QPushButton::clicked,          model, &UCModel::newUC);
+    connect(pushButton_REM, &QPushButton::clicked,          this,  &SettingsUC::slotRemClicked);
+    connect(pushButton_CH,  &QPushButton::clicked,          this,  &SettingsUC::slotChangeClicked);
+    connect(pushButton_UP,  &QPushButton::clicked,          this,  &SettingsUC::slotUpClicked);
+    connect(pushButton_DOWN, &QPushButton::clicked,          this,  &SettingsUC::slotDownClicked);
+    connect(this,           &SettingsUC::remUC,     model, &UCModel::remUC);
+    connect(this,           &SettingsUC::changeUC,  model, &UCModel::changeUC);
+    connect(this,           &SettingsUC::upUC,      model, &UCModel::moveUp);
+    connect(this,           &SettingsUC::downUC,    model, &UCModel::moveDown);
+    connect(model,          &UCModel::selectIndex, this, &SettingsUC::slotSelect);
 }
 
 SettingsUC::~SettingsUC(){

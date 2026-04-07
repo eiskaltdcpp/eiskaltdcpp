@@ -153,7 +153,7 @@ void BookEntry::setLabel_gui(string text)
 
     // Update the main window title if the current tab is selected.
     if (isActive_gui())
-        WulforManager::get()->getMainWindow()->setTitle(getLabelText());
+        wulforManagerInstance()->getMainWindow()->setTitle(getLabelText());
 }
 
 void BookEntry::setBold_gui()
@@ -169,7 +169,7 @@ void BookEntry::setUrgent_gui()
 {
     if (!isActive_gui())
     {
-        MainWindow *mw = WulforManager::get()->getMainWindow();
+        MainWindow *mw = wulforManagerInstance()->getMainWindow();
 
         if (!urgent)
         {
@@ -195,7 +195,7 @@ void BookEntry::setActive_gui()
 
 bool BookEntry::isActive_gui()
 {
-    MainWindow *mw = WulforManager::get()->getMainWindow();
+    MainWindow *mw = wulforManagerInstance()->getMainWindow();
 
     return mw->isActive_gui() && mw->currentPage_gui() == getContainer();
 }

@@ -6,8 +6,13 @@
 *   (at your option) any later version.                                   *
 *                                                                         *
 ***************************************************************************/
+/*
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
+ */
 
 #include "ShareBrowserSearch.h"
+#include "QtContextAware.h"
+#include "QtContext.h"
 #include "WulforUtil.h"
 #include "ShareBrowser.h"
 #include "FileBrowserModel.h"
@@ -24,17 +29,17 @@ ShareBrowserSearch::ShareBrowserSearch(FileBrowserModel *model, QWidget *parent)
     
     this->model = model;
 
-    if (WVGET("sharebrowsersearch/size").isValid())
-        resize(WVGET("sharebrowsersearch/size").toSize());
+    if (qtCtx()->settings()->getVar("sharebrowsersearch/size").isValid())
+        resize(qtCtx()->settings()->getVar("sharebrowsersearch/size").toSize());
 
-    comboBox_TYPE_SEARCH->setCurrentIndex(WVGET("sharebrowsersearch/currenttype").toInt());
-    treeWidget->header()->restoreState(WVGET("sharebrowsersearch/columnstate").toByteArray());
+    comboBox_TYPE_SEARCH->setCurrentIndex(qtCtx()->settings()->getVar("sharebrowsersearch/currenttype").toInt());
+    treeWidget->header()->restoreState(qtCtx()->settings()->getVar("sharebrowsersearch/columnstate").toByteArray());
 
     setAttribute(Qt::WA_DeleteOnClose, true);
 
-    connect(pushButton_SEARCH, SIGNAL(clicked()), this, SLOT(slotStartSearch()));
-    connect(this, SIGNAL(gotItem(QString,FileBrowserItem*)), this, SLOT(slotGotItem(QString,FileBrowserItem*)), Qt::QueuedConnection);
-    connect(treeWidget, SIGNAL(itemActivated(QTreeWidgetItem*,int)), this, SLOT(slotItemActivated(QTreeWidgetItem*,int)));
+    connect(pushButton_SEARCH, &QPushButton::clicked, this, &ShareBrowserSearch::slotStartSearch);
+    connect(this, &ShareBrowserSearch::gotItem, this, &ShareBrowserSearch::slotGotItem, Qt::QueuedConnection);
+    connect(treeWidget, &QTreeWidget::itemActivated, this, &ShareBrowserSearch::slotItemActivated);
 
     show();
 }
@@ -46,9 +51,9 @@ ShareBrowserSearch::~ShareBrowserSearch(){
 }
 
 void ShareBrowserSearch::closeEvent(QCloseEvent *e){
-    WVSET("sharebrowsersearch/size", size());
-    WVSET("sharebrowsersearch/columnstate", treeWidget->header()->saveState());
-    WVSET("sharebrowsersearch/currenttype", comboBox_TYPE_SEARCH->currentIndex());
+    qtCtx()->settings()->setVar("sharebrowsersearch/size", size());
+    qtCtx()->settings()->setVar("sharebrowsersearch/columnstate", treeWidget->header()->saveState());
+    qtCtx()->settings()->setVar("sharebrowsersearch/currenttype", comboBox_TYPE_SEARCH->currentIndex());
 
     QDialog::closeEvent(e);
 }
@@ -73,9 +78,11 @@ void ShareBrowserSearch::slotStartSearch(){
     AsyncRunner *runner = new AsyncRunner(this);
     runner->setRunFunction([this]() { this->findMatches(this->searchRoot); });
 
-    connect(runner, SIGNAL(finished()), runner, SLOT(deleteLater()));
+    connect(runner, &QThread::finished, runner, &QObject::deleteLater);
 
-    regexp = QRegExp(lineEdit_SEARCHSTR->text(), Qt::CaseInsensitive, QRegExp::Wildcard);
+    regexp = QRegularExpression(
+        QRegularExpression::wildcardToRegularExpression(lineEdit_SEARCHSTR->text()),
+        QRegularExpression::CaseInsensitiveOption);
 
     runner->start();
 }
@@ -128,7 +135,7 @@ void ShareBrowserSearch::findMatches(FileBrowserItem *item){
         if (i->dir){
             if (type_search == 1 || type_search == 2) {
                 fname = _q(i->dir->getName());
-                if (fname.indexOf(lineEdit_SEARCHSTR->text(), 0, Qt::CaseInsensitive) >= 0 || fname.indexOf(regexp) >= 0 || regexp.exactMatch(fname))
+                if (fname.indexOf(lineEdit_SEARCHSTR->text(), 0, Qt::CaseInsensitive) >= 0 || regexp.match(fname).hasMatch())
                     emit gotItem(_q(i->dir->getName()), item);
             }
             findMatches(i);
@@ -136,7 +143,7 @@ void ShareBrowserSearch::findMatches(FileBrowserItem *item){
                 for (const auto &it_file : i->dir->files){
                     fname = _q(it_file->getName());
 
-                    if (fname.indexOf(lineEdit_SEARCHSTR->text(), 0, Qt::CaseInsensitive) >= 0 || fname.indexOf(regexp) >= 0 || regexp.exactMatch(fname))
+                    if (fname.indexOf(lineEdit_SEARCHSTR->text(), 0, Qt::CaseInsensitive) >= 0 || regexp.match(fname).hasMatch())
                         emit gotItem(_q(it_file->getName()), i);
                 }
             }

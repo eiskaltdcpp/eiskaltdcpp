@@ -16,9 +16,10 @@
 #endif
 #include <QTimer>
 #include "dcpp/stdinc.h"
-#include "dcpp/Singleton.h"
 
 #include "WulforUtil.h"
+
+#include "QtContextAware.h"
 
 class NotifyModule {
 public:
@@ -38,10 +39,15 @@ public:
 #endif
 class Notification :
         public QObject,
-        public dcpp::Singleton<Notification>
+        public QtContextAware
 {
 Q_OBJECT
-friend class dcpp::Singleton<Notification>;
+friend class QtContext;
+
+public:
+    explicit Notification(dcpp::DCContext& ctx, QObject *parent = nullptr);
+    ~Notification() override;
+
 
 public:
 
@@ -83,9 +89,6 @@ private Q_SLOTS:
     void slotSuppressSnd();
 
 private:
-    explicit Notification(QObject *parent = nullptr);
-    virtual ~Notification();
-
     QStringList sounds;
 
     QSystemTrayIcon *tray;

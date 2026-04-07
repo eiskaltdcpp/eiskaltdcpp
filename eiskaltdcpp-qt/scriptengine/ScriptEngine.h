@@ -6,12 +6,15 @@
 *   (at your option) any later version.                                   *
 *                                                                         *
 ***************************************************************************/
+/*
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
+ */
 
 #pragma once
 
 #include <QObject>
-#include <QtScript/QScriptEngine>
-#include <QtScript/QScriptValue>
+#include <QJSEngine>
+#include <QJSValue>
 #include <QFileSystemWatcher>
 #include <QMetaType>
 
@@ -22,19 +25,23 @@
 
 #include "dcpp/stdinc.h"
 #include "dcpp/DCPlusPlus.h"
-#include "dcpp/Singleton.h"
+
+#include "ScriptBridge.h"
 
 struct ScriptObject {
-    QScriptEngine engine;
+    QJSEngine engine;
+    ScriptBridge *bridge = nullptr;
     QString path;
 };
 
+#include "QtContextAware.h"
+
 class ScriptEngine :
         public QObject,
-        public dcpp::Singleton<ScriptEngine>
+        public QtContextAware
 {
 Q_OBJECT
-friend class dcpp::Singleton<ScriptEngine>;
+friend class QtContext;
 
 public:
 
@@ -46,27 +53,31 @@ public Q_SLOTS:
     void loadScript(const QString&);
     void stopScripts();
     void stopScript(const QString&);
-    void prepareThis(QScriptEngine &);
+
+public:
+    void prepareThis(QJSEngine &);
 
 private Q_SLOTS:
     void slotWSKeyChanged(const QString &key, const QString &value);
     void slotScriptChanged(const QString &script);
     void slotProcessChangedFiles();
 
-private:
-    ScriptEngine();
+public:
+    explicit ScriptEngine(dcpp::DCContext& ctx);
     virtual ~ScriptEngine();
+
+private:
 
     void loadJSScript(const QString&);
 #ifdef USE_QML
     void loadQMLScript(const QString&);
 #endif
 
-    ScriptEngine(const ScriptEngine&) {}
-    ScriptEngine &operator =(const ScriptEngine&){ return *this; }
+    ScriptEngine(const ScriptEngine&) = delete;
+    ScriptEngine &operator =(const ScriptEngine&) = delete;
 
-    void registerStaticMembers(QScriptEngine &);
-    void registerDynamicMembers(QScriptEngine &);
+    void registerStaticMembers(QJSEngine &);
+    void registerDynamicMembers(QJSEngine &);
 
     QMap<QString, ScriptObject*> scripts;
 

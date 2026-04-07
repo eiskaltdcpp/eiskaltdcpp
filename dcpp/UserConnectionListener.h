@@ -47,32 +47,32 @@ public:
     typedef X<19> ProtocolError;
     typedef X<20> FileNotAvailable;
 
-    virtual void on(BytesSent, UserConnection*, size_t, size_t) noexcept { }
-    virtual void on(Connected, UserConnection*) noexcept { }
-    virtual void on(Data, UserConnection*, const uint8_t*, size_t) noexcept { }
-    virtual void on(Failed, UserConnection*, const string&) noexcept { }
-    virtual void on(ProtocolError, UserConnection*, const string&) noexcept { }
-    virtual void on(CLock, UserConnection*, const string&, const string&) noexcept { }
-    virtual void on(Key, UserConnection*, const string&) noexcept { }
-    virtual void on(Direction, UserConnection*, const string&, const string&) noexcept { }
-    virtual void on(Get, UserConnection*, const string&, int64_t) noexcept { }
-    virtual void on(Send, UserConnection*) noexcept { }
-    virtual void on(GetListLength, UserConnection*) noexcept { }
-    virtual void on(MaxedOut, UserConnection*) noexcept { }
-    virtual void on(ModeChange, UserConnection*) noexcept { }
-    virtual void on(MyNick, UserConnection*, const string&) noexcept { }
-    virtual void on(TransmitDone, UserConnection*) noexcept { }
-    virtual void on(Supports, UserConnection*, const StringList&) noexcept { }
-    virtual void on(FileNotAvailable, UserConnection*) noexcept { }
-    virtual void on(Updated, UserConnection*) noexcept { }
+    virtual void on(BytesSent, UserConnection*, size_t, size_t) { }
+    virtual void on(Connected, UserConnection*) { }
+    virtual void on(Data, UserConnection*, const uint8_t*, size_t) { }
+    virtual void on(Failed, UserConnection*, const string&) { }
+    virtual void on(ProtocolError, UserConnection*, const string&) { }
+    virtual void on(CLock, UserConnection*, const string&, const string&) { }
+    virtual void on(Key, UserConnection*, const string&) { }
+    virtual void on(Direction, UserConnection*, const string&, const string&) { }
+    virtual void on(Get, UserConnection*, const string&, int64_t) { }
+    virtual void on(Send, UserConnection*) { }
+    virtual void on(GetListLength, UserConnection*) { }
+    virtual void on(MaxedOut, UserConnection*) { }
+    virtual void on(ModeChange, UserConnection*) { }
+    virtual void on(MyNick, UserConnection*, const string&) { }
+    virtual void on(TransmitDone, UserConnection*) { }
+    virtual void on(Supports, UserConnection*, const StringList&) { }
+    virtual void on(FileNotAvailable, UserConnection*) { }
+    virtual void on(Updated, UserConnection*) { }
 
-    virtual void on(AdcCommand::SUP, UserConnection*, const AdcCommand&) noexcept { }
-    virtual void on(AdcCommand::INF, UserConnection*, const AdcCommand&) noexcept { }
-    virtual void on(AdcCommand::GET, UserConnection*, const AdcCommand&) noexcept { }
-    virtual void on(AdcCommand::SND, UserConnection*, const AdcCommand&) noexcept { }
-    virtual void on(AdcCommand::STA, UserConnection*, const AdcCommand&) noexcept { }
-    virtual void on(AdcCommand::RES, UserConnection*, const AdcCommand&) noexcept { }
-    virtual void on(AdcCommand::GFI, UserConnection*, const AdcCommand&) noexcept { }
+    virtual void on(AdcCommand::SUP, UserConnection*, const AdcCommand&) { }
+    virtual void on(AdcCommand::INF, UserConnection*, const AdcCommand&) { }
+    virtual void on(AdcCommand::GET, UserConnection*, const AdcCommand&) { }
+    virtual void on(AdcCommand::SND, UserConnection*, const AdcCommand&) { }
+    virtual void on(AdcCommand::STA, UserConnection*, const AdcCommand&) { }
+    virtual void on(AdcCommand::RES, UserConnection*, const AdcCommand&) { }
+    virtual void on(AdcCommand::GFI, UserConnection*, const AdcCommand&) { }
 };
 
 } // namespace dcpp

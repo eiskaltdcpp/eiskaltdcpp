@@ -92,13 +92,13 @@ public:
         found = true;
     }
 
-    void resetCurrentChild() noexcept {
+    void resetCurrentChild() {
         found = false;
         dcassert(current != NULL);
         currentChild = current->children.begin();
     }
 
-    bool findChild(const string& aName) noexcept;
+    bool findChild(const string& aName);
 
     const string& getChildData() const {
         checkChildSelected();
@@ -232,7 +232,7 @@ private:
 
     Tag::Iter currentChild;
 
-    void checkChildSelected() const noexcept {
+    void checkChildSelected() const {
         dcassert(current != NULL);
         dcassert(currentChild != current->children.end());
     }

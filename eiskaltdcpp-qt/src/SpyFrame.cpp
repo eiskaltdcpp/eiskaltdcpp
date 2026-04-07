@@ -6,12 +6,18 @@
 *   (at your option) any later version.                                   *
 *                                                                         *
 ***************************************************************************/
+/*
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
+ */
 
 #include "SpyFrame.h"
+#include "dcpp/DCPlusPlus.h"
 #include "SpyModel.h"
 #include "WulforUtil.h"
 #include "SearchFrame.h"
 #include "ArenaWidgetFactory.h"
+#include "QtContext.h"
+#include "QtContextAware.h"
 
 #include <QMenu>
 #include <QMessageBox>
@@ -19,8 +25,9 @@
 
 using namespace dcpp;
 
-SpyFrame::SpyFrame(QWidget *parent)
-    : QWidget(parent)
+SpyFrame::SpyFrame(dcpp::DCContext& ctx, QWidget *parent)
+    : QtContextAware(ctx)
+    , QWidget(parent)
     , model(new SpyModel())
 {
     setupUi(this);
@@ -29,21 +36,21 @@ SpyFrame::SpyFrame(QWidget *parent)
 
     treeView->setModel(model);
     treeView->setContextMenuPolicy(Qt::CustomContextMenu);
-    treeView->header()->restoreState(WVGET("spyframe-header-state", QByteArray()).toByteArray());
+    treeView->header()->restoreState(qtCtx()->settings()->getVar("spyframe-header-state", QByteArray()).toByteArray());
 
     connect(this, SIGNAL(coreIncomingSearch(QString,bool)), model, SLOT(addResult(QString,bool)), Qt::QueuedConnection);
-    connect(pushButton, SIGNAL(clicked()), this, SLOT(slotStartStop()));
-    connect(pushButton_CLEAR, SIGNAL(clicked()), this, SLOT(slotClear()));
-    connect(treeView, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(contextMenu()));
-    connect(WulforSettings::getInstance(), SIGNAL(strValueChanged(QString,QString)), this, SLOT(slotSettingsChanged(QString,QString)));
+    connect(pushButton, &QPushButton::clicked, this, &SpyFrame::slotStartStop);
+    connect(pushButton_CLEAR, &QPushButton::clicked, this, &SpyFrame::slotClear);
+    connect(treeView, &QWidget::customContextMenuRequested, this, &SpyFrame::contextMenu);
+    connect(qtCtx()->settings(), &WulforSettings::strValueChanged, this, &SpyFrame::slotSettingsChanged);
     
     ArenaWidget::setState( ArenaWidget::Flags(ArenaWidget::state() | ArenaWidget::Singleton | ArenaWidget::Hidden) );
 }
 
 SpyFrame::~SpyFrame(){
-    WVSET("spyframe-header-state", treeView->header()->saveState());
+    qtCtx()->settings()->setVar("spyframe-header-state", treeView->header()->saveState());
     
-    ClientManager::getInstance()->removeListener(this);
+    dcCtx().getClientManager()->removeListener(this);
 }
 
 void SpyFrame::closeEvent(QCloseEvent *e){
@@ -75,12 +82,12 @@ void SpyFrame::slotStartStop(){
     if (!started){
         pushButton->setText(tr("Stop"));
 
-        ClientManager::getInstance()->addListener(this);
+        dcCtx().getClientManager()->addListener(this);
     }
     else {
         pushButton->setText(tr("Start"));
 
-        ClientManager::getInstance()->removeListener(this);
+        dcCtx().getClientManager()->removeListener(this);
     }
 
     started = !started;

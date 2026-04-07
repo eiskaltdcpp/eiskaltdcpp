@@ -6,16 +6,20 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/ 
+/*
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
+ */
 
 #include "GlobalTimer.h"
+#include "QtContext.h"
 
 #include <QTimer>
 
-GlobalTimer::GlobalTimer() : QObject(nullptr), timer(new QTimer()), tickCount(0) {
+GlobalTimer::GlobalTimer(dcpp::DCContext& ctx) : QtContextAware(ctx), QObject(nullptr), timer(new QTimer()), tickCount(0) {
     timer->setInterval(1000);
     timer->setSingleShot(false);
     
-    connect(timer.get(), SIGNAL(timeout()), this, SLOT(slotTick()));
+    connect(timer.get(), &QTimer::timeout, this, &GlobalTimer::slotTick);
     
     timer->start();
 }

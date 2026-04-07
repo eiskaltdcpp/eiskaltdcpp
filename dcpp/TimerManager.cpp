@@ -1,6 +1,7 @@
 /*
  * Copyright (C) 2001-2019 Jacek Sieka, arnetheduck on gmail point com
  * Copyright (C) 2020 Boris Pek <tehnick-8@yandex.ru>
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -26,12 +27,17 @@ namespace dcpp {
 
 using namespace std::chrono;
 
-TimerManager::TimerManager() {
+TimerManager::TimerManager(DCContext& ctx) : ContextAware(ctx) {
     // This mutex will be unlocked only upon shutdown
     mtx.lock();
 }
 
 TimerManager::~TimerManager() {
+    // Safety net: if shutdown() was not called, join the thread now
+    if (joinable()) {
+        mtx.unlock();
+        join();
+    }
     dcassert(listeners.empty());
 }
 

@@ -1,6 +1,7 @@
 /*
  * Copyright (C) 2001-2012 Jacek Sieka, arnetheduck on gmail point com
  * Copyright (C) 2009-2019 EiskaltDC++ developers
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -21,7 +22,7 @@
 #include <functional>
 #include <map>
 
-#include "Singleton.h"
+#include "DCContext.h"
 #include "MerkleTree.h"
 #include "Thread.h"
 #include "CriticalSection.h"
@@ -35,6 +36,7 @@
 
 #ifdef USE_XATTR
 #include "attr/attributes.h"
+#include "DCPlusPlus.h"
 #else
 #define ATTR_MAX_VALUELEN 128
 #endif
@@ -50,19 +52,19 @@ class File;
 class HashLoader;
 class FileException;
 
-class HashManager : public Singleton<HashManager>, public Speaker<HashManagerListener>,
-        private TimerManagerListener
+class HashManager : public Speaker<HashManagerListener>,
+        private TimerManagerListener, public ContextAware
 {
 public:
 
     /** We don't keep leaves for blocks smaller than this... */
     static const int64_t MIN_BLOCK_SIZE;
 
-    HashManager() {
-        TimerManager::getInstance()->addListener(this);
+    explicit HashManager(DCContext& ctx) : ContextAware(ctx), hasher(this->ctx()), store(this->ctx()) {
+        this->ctx().getTimerManager()->addListener(this);
     }
     virtual ~HashManager() {
-        TimerManager::getInstance()->removeListener(this);
+        ctx().getTimerManager()->removeListener(this);
         hasher.join();
     }
 
@@ -109,29 +111,33 @@ public:
     }
 
     struct HashPauser {
-        HashPauser();
+        explicit HashPauser(DCContext& ctx);
         ~HashPauser();
 
+        [[nodiscard]] DCContext& ctx() const { return ctx_; }
     private:
+        DCContext& ctx_;
         bool resume;
     };
 
     /// @return whether hashing was already paused
-    bool pauseHashing() noexcept;
-    void resumeHashing() noexcept;
-    bool isHashingPaused() const noexcept;
+    bool pauseHashing();
+    void resumeHashing();
+    bool isHashingPaused() const;
 
 private:
     class Hasher : public Thread {
     public:
-        Hasher() : stop(false), running(false), paused(0), rebuild(false), currentSize(0) { }
+        explicit Hasher(DCContext& ctx) : stop(false), running(false), paused(0), rebuild(false), currentSize(0), ctx_(ctx) { }
 
-        void hashFile(const string& fileName, int64_t size) noexcept;
+        [[nodiscard]] DCContext& ctx() const { return ctx_; }
+
+        void hashFile(const string& fileName, int64_t size);
 
         /// @return whether hashing was already paused
-        bool pause() noexcept;
-        void resume() noexcept;
-        bool isPaused() const noexcept;
+        bool pause();
+        void resume();
+        bool isPaused() const;
 
         void stopHashing(const string& baseDir);
         virtual int run();
@@ -153,6 +159,7 @@ private:
         bool rebuild;
         string currentFile;
         int64_t currentSize;
+        DCContext& ctx_;
 
         void instantPause();
     };
@@ -161,7 +168,8 @@ private:
 
     class HashStore {
     public:
-        HashStore();
+        explicit HashStore(DCContext& ctx);
+        [[nodiscard]] DCContext& ctx() const { return ctx_; }
         void addFile(const string& aFileName, uint32_t aTimeStamp, const TigerTree& tth, bool aUsed);
 
         void load();
@@ -172,7 +180,7 @@ private:
         bool checkTTH(const string& aFileName, int64_t aSize, uint32_t aTimeStamp);
         const TTHValue* getTTH(const string& aFileName);
 
-        void addTree(const TigerTree& tt) noexcept;
+        void addTree(const TigerTree& tt);
         bool getTree(const TTHValue& root, TigerTree& tth);
         int64_t getBlockSize(const TTHValue& root) const;
         bool isDirty() { return dirty; }
@@ -209,6 +217,7 @@ private:
         unordered_map<TTHValue, TreeInfo> treeIndex;
 
         bool dirty;
+        DCContext& ctx_;
 
         void createDataFile(const string& name);
 
@@ -262,11 +271,11 @@ private:
         store.rebuild();
     }
 
-    virtual void on(TimerManagerListener::Minute, uint64_t) noexcept {
+    virtual void on(TimerManagerListener::Minute, uint64_t) {
         Lock l(cs);
         store.save();
     }
-    void on(TimerManagerListener::Second, uint64_t) noexcept;
+    void on(TimerManagerListener::Second, uint64_t);
 };
 
 } // namespace dcpp

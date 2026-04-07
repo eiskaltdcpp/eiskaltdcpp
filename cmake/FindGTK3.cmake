@@ -409,7 +409,8 @@ foreach(_GTK3_component ${GTK3_FIND_COMPONENTS})
 
  # ********* At least on Debian the gdk & gtk libraries
  # ********* don't have the -x11 suffix.
-        if(UNIX)
+ # ********* MSYS2/MinGW also uses Unix-style library names.
+        if(UNIX OR MINGW)
             _GTK3_FIND_LIBRARY    (GTK3_GDK_LIBRARY gdk false true)
             _GTK3_FIND_LIBRARY    (GTK3_GTK_LIBRARY gtk false true)
         else()

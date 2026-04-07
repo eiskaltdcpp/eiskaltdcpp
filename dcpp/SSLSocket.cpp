@@ -217,7 +217,7 @@ int SSLSocket::wait(uint32_t millis, int waitFor) {
     return Socket::wait(millis, waitFor);
 }
 
-bool SSLSocket::isTrusted() const noexcept {
+bool SSLSocket::isTrusted() const {
     if(!ssl) {
         return false;
     }
@@ -234,14 +234,14 @@ bool SSLSocket::isTrusted() const noexcept {
     return true;
 }
 
-std::string SSLSocket::getCipherName() const noexcept {
+std::string SSLSocket::getCipherName() const {
     if(!ssl)
         return Util::emptyString;
 
     return SSL_get_cipher_name(ssl);
 }
 
-ByteVector SSLSocket::getKeyprint() const noexcept {
+ByteVector SSLSocket::getKeyprint() const {
     if(!ssl)
         return ByteVector();
     X509* x509 = SSL_get_peer_certificate(ssl);
@@ -251,12 +251,12 @@ ByteVector SSLSocket::getKeyprint() const noexcept {
     return ssl::X509_digest(x509, EVP_sha256());
 }
 
-void SSLSocket::shutdown() noexcept {
+void SSLSocket::shutdown() {
     if(ssl)
         SSL_shutdown(ssl);
 }
 
-void SSLSocket::close() noexcept {
+void SSLSocket::close() {
     if(ssl) {
         ssl.reset();
     }

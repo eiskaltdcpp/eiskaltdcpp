@@ -1,6 +1,5 @@
+cmake_minimum_required (VERSION 3.10)
 project(haiku)
-
-cmake_minimum_required (VERSION 3.2.0)
 
 if (HAIKU_PKG)
     install (CODE "

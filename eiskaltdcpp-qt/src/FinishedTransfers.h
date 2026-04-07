@@ -6,6 +6,9 @@
 *   (at your option) any later version.                                   *
 *                                                                         *
 ***************************************************************************/
+/*
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
+ */
 
 #pragma once
 
@@ -28,7 +31,7 @@
 #include "dcpp/Util.h"
 #include "dcpp/FinishedItem.h"
 #include "dcpp/User.h"
-#include "dcpp/Singleton.h"
+#include "dcpp/DCPlusPlus.h"
 
 #include "ui_UIFinishedTransfers.h"
 #include "ArenaWidget.h"
@@ -66,18 +69,21 @@ public Q_SLOTS:
     virtual void slotSettingsChanged(const QString &key, const QString &) = 0;
 };
 
+#include "QtContextAware.h"
+#include "QtContext.h"
+
 template <bool isUpload>
 class FinishedTransfers :
         public dcpp::FinishedManagerListener,
         private Ui::UIFinishedTransfers,
-        public dcpp::Singleton< FinishedTransfers<isUpload> >,
         public ArenaWidget,
-        public FinishedTransferProxy
+        public FinishedTransferProxy,
+        public QtContextAware
 {
 Q_INTERFACES(ArenaWidget)
 
 typedef QVariantMap VarMap;
-friend class dcpp::Singleton< FinishedTransfers<isUpload> >;
+friend class QtContext;
 
 public:
     QWidget *getWidget() { return this;}
@@ -88,9 +94,9 @@ public:
 
     const QPixmap &getPixmap(){
         if (isUpload)
-            return WICON(WulforUtil::eiUPLIST);
+            return qtCtx()->wulforUtil()->getPixmap(WulforUtil::eiUPLIST);
         else
-            return WICON(WulforUtil::eiDOWNLIST);
+            return qtCtx()->wulforUtil()->getPixmap(WulforUtil::eiDOWNLIST);
     }
 
 protected:
@@ -98,9 +104,9 @@ protected:
         isUnload()? e->accept() : e->ignore();
     }
 
-private:
-    FinishedTransfers(QWidget *parent = nullptr) :
-        FinishedTransferProxy(parent), db_opened(false)
+public:
+    FinishedTransfers(dcpp::DCContext& ctx, QWidget *parent = nullptr) :
+        QtContextAware(ctx), FinishedTransferProxy(parent), db_opened(false)
     {
         setupUi(this);
 
@@ -133,27 +139,27 @@ private:
 
         loadList();
 
-        FinishedManager::getInstance()->addListener(this);
+        dcCtx().getFinishedManager()->addListener(this);
 
         setUnload(false);
 
         treeView->setContextMenuPolicy(Qt::CustomContextMenu);
         treeView->header()->setContextMenuPolicy(Qt::CustomContextMenu);
 
-        QObject::connect(this, SIGNAL(coreAddedFile(VarMap)),   model, SLOT(addFile(VarMap)), Qt::QueuedConnection);
-        QObject::connect(this, SIGNAL(coreAddedUser(VarMap)),   model, SLOT(addUser(VarMap)), Qt::QueuedConnection);
-        QObject::connect(this, SIGNAL(coreUpdatedFile(VarMap)), model, SLOT(addFile(VarMap)), Qt::QueuedConnection);
-        QObject::connect(this, SIGNAL(coreUpdatedUser(VarMap)), model, SLOT(addUser(VarMap)), Qt::QueuedConnection);
-        QObject::connect(this, SIGNAL(coreRemovedFile(QString)), model, SLOT(remFile(QString)), Qt::QueuedConnection);
-        QObject::connect(this, SIGNAL(coreRemovedUser(QString)), model, SLOT(remUser(QString)), Qt::QueuedConnection);
+        QObject::connect(this, &FinishedTransferProxy::coreAddedFile,   model, &FinishedTransfersModel::addFile, Qt::QueuedConnection);
+        QObject::connect(this, &FinishedTransferProxy::coreAddedUser,   model, &FinishedTransfersModel::addUser, Qt::QueuedConnection);
+        QObject::connect(this, &FinishedTransferProxy::coreUpdatedFile, model, &FinishedTransfersModel::addFile, Qt::QueuedConnection);
+        QObject::connect(this, &FinishedTransferProxy::coreUpdatedUser, model, &FinishedTransfersModel::addUser, Qt::QueuedConnection);
+        QObject::connect(this, &FinishedTransferProxy::coreRemovedFile, model, &FinishedTransfersModel::remFile, Qt::QueuedConnection);
+        QObject::connect(this, &FinishedTransferProxy::coreRemovedUser, model, &FinishedTransfersModel::remUser, Qt::QueuedConnection);
 
-        QObject::connect(WulforSettings::getInstance(), SIGNAL(strValueChanged(QString,QString)), this, SLOT(slotSettingsChanged(QString,QString)));
-        QObject::connect(comboBox, SIGNAL(activated(int)), this, SLOT(slotTypeChanged(int)));
-        QObject::connect(pushButton, SIGNAL(clicked()), this, SLOT(slotClear()));
-        QObject::connect(treeView, SIGNAL(doubleClicked(const QModelIndex&)), this, SLOT(slotItemDoubleClicked(const QModelIndex &)));
-        QObject::connect(treeView, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotContextMenu()));
-        QObject::connect(treeView->header(), SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(slotHeaderMenu()));
-        QObject::connect(checkBox_FULL, SIGNAL(toggled(bool)), this, SLOT(slotSwitchOnlyFull(bool)));
+        QObject::connect(qtCtx()->settings(), &WulforSettings::strValueChanged, this, &FinishedTransferProxy::slotSettingsChanged);
+        QObject::connect(comboBox, qOverload<int>(&QComboBox::activated), this, &FinishedTransferProxy::slotTypeChanged);
+        QObject::connect(pushButton, &QPushButton::clicked, this, &FinishedTransferProxy::slotClear);
+        QObject::connect(treeView, &QTreeView::doubleClicked, this, &FinishedTransferProxy::slotItemDoubleClicked);
+        QObject::connect(treeView, &QTreeView::customContextMenuRequested, this, &FinishedTransferProxy::slotContextMenu);
+        QObject::connect(treeView->header(), &QHeaderView::customContextMenuRequested, this, &FinishedTransferProxy::slotHeaderMenu);
+        QObject::connect(checkBox_FULL, &QCheckBox::toggled, this, &FinishedTransferProxy::slotSwitchOnlyFull);
 
         FinishedTransfers::slotSwitchOnlyFull(false);
         FinishedTransfers::slotTypeChanged(0);
@@ -163,9 +169,9 @@ private:
 
     ~FinishedTransfers(){
         QString key = (comboBox->currentIndex() == 0)? WS_FTRANSFERS_FILES_STATE : WS_FTRANSFERS_USERS_STATE;
-        WVSET(key, treeView->header()->saveState());
+        qtCtx()->settings()->setVar(key, treeView->header()->saveState());
 
-        FinishedManager::getInstance()->removeListener(this);
+        dcCtx().getFinishedManager()->removeListener(this);
 
         model->clearModel();
 
@@ -177,12 +183,13 @@ private:
         delete model;
     }
 
+
     void loadList(){
         VarMap params;
 
-        auto lock = FinishedManager::getInstance()->lock();
-        const FinishedManager::MapByFile &list = FinishedManager::getInstance()->getMapByFile(isUpload);
-        const FinishedManager::MapByUser &user = FinishedManager::getInstance()->getMapByUser(isUpload);
+        auto lock = dcCtx().getFinishedManager()->lock();
+        const FinishedManager::MapByFile &list = dcCtx().getFinishedManager()->getMapByFile(isUpload);
+        const FinishedManager::MapByUser &user = dcCtx().getFinishedManager()->getMapByUser(isUpload);
 
         for (auto it = list.begin(); it != list.end(); ++it) {
             params.clear();
@@ -203,7 +210,7 @@ private:
         AsyncRunner *runner = new AsyncRunner(this);
 
         runner->setRunFunction([this]() { this->loadListFromDB(); });
-        connect(runner, SIGNAL(finished()), runner, SLOT(deleteLater()));
+        connect(runner, &QThread::finished, runner, &QObject::deleteLater);
 
         runner->start();
     }
@@ -272,7 +279,7 @@ private:
         params["PATH"]  = _q(Util::getFilePath(file));
 
         for (const auto &user : item->getUsers()) {
-            nicks += WulforUtil::getInstance()->getNicks(user.user->getCID()) + " ";
+            nicks += qtCtx()->wulforUtil()->getNicks(user.user->getCID()) + " ";
         }
 
         params["USERS"] = nicks;
@@ -310,7 +317,7 @@ private:
         QString files = "";
 
         params["TIME"]  = _q(Util::formatTime("%Y-%m-%d %H:%M:%S", item->getTime()));
-        params["NICK"]  = WulforUtil::getInstance()->getNicks(user->getCID());
+        params["NICK"]  = qtCtx()->wulforUtil()->getNicks(user->getCID());
 
         for (const auto &file: item->getFiles()) {
                 files += _q(file) + " ";
@@ -351,9 +358,9 @@ private:
         QByteArray old_state = treeView->header()->saveState();
 
         if (sender() == comboBox)
-            WVSET(from_key, old_state);
+            qtCtx()->settings()->setVar(from_key, old_state);
 
-        treeView->header()->restoreState(WVGET(to_key, QByteArray()).toByteArray());
+        treeView->header()->restoreState(qtCtx()->settings()->getVar(to_key, QByteArray()).toByteArray());
         treeView->setSortingEnabled(true);
 
         model->switchViewType(static_cast<FinishedTransfersModel::ViewType>(index));
@@ -368,7 +375,7 @@ private:
         model->clearModel();
 
         try {
-            FinishedManager::getInstance()->removeAll(isUpload);
+            dcCtx().getFinishedManager()->removeAll(isUpload);
         }
         catch (const std::exception&){}
 
@@ -436,7 +443,7 @@ private:
     }
 
     void slotContextMenu(){
-        static WulforUtil *WU = WulforUtil::getInstance();
+        auto *WU = qtCtx()->wulforUtil();
 
         QItemSelectionModel *s_model = treeView->selectionModel();
         QModelIndexList p_indexes = s_model->selectedRows(0);
@@ -471,7 +478,7 @@ private:
                 file_list = item->data(COLUMN_FINISHED_PATH).toString();
 
                 if (!file_list.isEmpty()){
-                    files.append(file_list.split("; ", QString::SkipEmptyParts));
+                    files.append(file_list.split("; ", Qt::SkipEmptyParts));
                 }
 
             }
@@ -558,7 +565,7 @@ private:
 
     void on(FinishedManagerListener::UpdatedUser, bool upload, const dcpp::HintedUser &user) noexcept{
         if (isUpload == upload){
-            const FinishedManager::MapByUser &umap = FinishedManager::getInstance()->getMapByUser(isUpload);
+            const FinishedManager::MapByUser &umap = dcCtx().getFinishedManager()->getMapByUser(isUpload);
             auto userit = umap.find(user);
             if (userit == umap.end())
                 return;
@@ -597,3 +604,5 @@ inline ArenaWidget::Role FinishedTransfers<true>::role() const { return ArenaWid
 
 typedef FinishedTransfers<true>  FinishedUploads;
 typedef FinishedTransfers<false> FinishedDownloads;
+
+

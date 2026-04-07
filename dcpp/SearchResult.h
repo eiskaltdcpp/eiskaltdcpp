@@ -27,6 +27,7 @@
 
 namespace dcpp {
 
+class DCContext;
 class SearchManager;
 
 class SearchResult : public FastAlloc<SearchResult>, public intrusive_ptr_base<SearchResult> {
@@ -36,7 +37,7 @@ public:
         TYPE_DIRECTORY
     };
 
-    SearchResult(Types aType, int64_t aSize, const string& name, const TTHValue& aTTH);
+    SearchResult(DCContext& ctx, Types aType, int64_t aSize, const string& name, const TTHValue& aTTH);
 
     SearchResult(const UserPtr& aUser, Types aType, int aSlots, int aFreeSlots,
                  int64_t aSize, const string& aFile, const string& aHubName,

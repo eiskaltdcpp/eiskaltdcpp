@@ -30,7 +30,7 @@ inline static uint32_t make_ip(unsigned int a, unsigned int b, unsigned int c, u
     return ((a << 24) | (b << 16) | (c << 8) | d);
 }
 
-IPFilter::IPFilter() {
+IPFilter::IPFilter(DCContext& ctx) : ContextAware(ctx) {
 }
 
 IPFilter::~IPFilter() {
@@ -533,17 +533,10 @@ void IPFilter::clearRules() {
 }
 
 void IPFilter::load() {
-    if (IPFilter::getInstance())
-        IPFilter::getInstance()->loadList();
-    else {
-        IPFilter::newInstance();
-        IPFilter::getInstance()->loadList();
-    }
+    loadList();
 }
 
 void IPFilter::shutdown() {
-    if (IPFilter::getInstance()) {
-        IPFilter::getInstance()->saveList();
-        IPFilter::deleteInstance();
-    }
+    saveList();
+    clearRules();
 }

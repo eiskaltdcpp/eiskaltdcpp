@@ -56,7 +56,7 @@ public:
     };
 
     UserCommand() : cid(0), type(0), ctx(0) { }
-    UserCommand(int aId, int aType, int aCtx, int aFlags, const string& aName, const string& aCommand, const string& aTo, const string& aHub) noexcept
+    UserCommand(int aId, int aType, int aCtx, int aFlags, const string& aName, const string& aCommand, const string& aTo, const string& aHub)
         : Flags(aFlags), cid(aId), type(aType), ctx(aCtx), name(aName), command(aCommand), to(aTo), hub(aHub)
     {
         setDisplayName();

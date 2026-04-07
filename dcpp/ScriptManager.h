@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2008 cologic, cologic@parsoma.net
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
 *
 * This program is free software; you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -17,13 +18,14 @@
 
 #pragma once
 
-#include "Singleton.h"
+#include "DCContext.h"
 #include "User.h"
 #include "Socket.h"
 #include "TimerManager.h"
 #include "ClientManagerListener.h"
 #include "CriticalSection.h"
 #include "extra/lunar.h"
+#include "DCPlusPlus.h"
 
 namespace dcpp {
 
@@ -36,7 +38,7 @@ public:
     enum Types {
         DEBUG_MESSAGE
     };
-    virtual void onAction(Types, const string&) noexcept = 0;
+    virtual void onAction(Types, const string&) = 0;
 };
 
 struct LuaManager  {
@@ -73,21 +75,21 @@ struct LuaManager  {
 };
 
 class ScriptInstance {
-    bool MakeCallRaw(const string& table, const string& method , int args, int ret) noexcept;
+    bool MakeCallRaw(const string& table, const string& method , int args, int ret);
 protected:
     virtual ~ScriptInstance() { }
     static lua_State* L;
     static CriticalSection cs;
 
     template <typename T> bool MakeCall(const string& table, const string& method,
-                                        int ret, const T& t) noexcept {
+                                        int ret, const T& t) {
         Lock l(cs);
         dcassert(lua_gettop(L) == 0);
         LuaPush(t);
         return MakeCallRaw(table, method, 1 , ret);
     }
     template <typename T, typename T2> bool MakeCall(const string& table, const string& method,
-                                                     int ret, const T& t, const T2& t2) noexcept {
+                                                     int ret, const T& t, const T2& t2) {
         Lock l(cs);
         dcassert(lua_gettop(L) == 0);
         LuaPush(t);
@@ -105,14 +107,14 @@ public:
     void EvaluateChunk(const string& chunk);
 };
 
-class ScriptManager: public ScriptInstance, public Singleton<ScriptManager>, public Speaker<ScriptManagerListener>, private ClientManagerListener, private TimerManagerListener
+class ScriptManager: public ScriptInstance, public Speaker<ScriptManagerListener>, private ClientManagerListener, private TimerManagerListener, public ContextAware
 {
     Socket s;
 
-    friend class Singleton<ScriptManager>;
-    ScriptManager();
-    virtual ~ScriptManager() throw () { if (L) lua_close(L); if(timerEnabled) TimerManager::getInstance()->removeListener(this); }
 public:
+    explicit ScriptManager(DCContext& ctx);
+    virtual ~ScriptManager() { if (L) lua_close(L); if(timerEnabled) ctx().getTimerManager()->removeListener(this); }
+
     void load();
     void  SendDebugMessage(const string& s);
     GETSET(bool , timerEnabled, TimerEnabled);
@@ -120,9 +122,9 @@ private:
     friend struct LuaManager;
     friend class ScriptInstance;
 
-    virtual void on(ClientConnected, Client* aClient) noexcept;
-    virtual void on(ClientDisconnected, Client* aClient) noexcept;
-    virtual void on(Second, uint64_t /* ticks */) noexcept;
+    virtual void on(ClientConnected, Client* aClient);
+    virtual void on(ClientDisconnected, Client* aClient);
+    virtual void on(Second, uint64_t /* ticks */);
 
 
 };

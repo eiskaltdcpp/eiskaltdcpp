@@ -31,11 +31,15 @@ namespace dcpp {
 
 using std::string;
 
+class DCContext;
+
 class HttpConnection : BufferedSocketListener, public Speaker<HttpConnectionListener>, private NonCopyable
 {
 public:
-    HttpConnection(const string& aUserAgent = Util::emptyString);
+    HttpConnection(DCContext& ctx, const string& aUserAgent = Util::emptyString);
     virtual ~HttpConnection();
+
+    DCContext& ctx() const { return ctx_; }
 
     void downloadFile(const string& aUrl);
     void download(const string& aUrl, const StringMap& postData);
@@ -77,6 +81,7 @@ private:
     RequestType connType;
 
     BufferedSocket* socket;
+    DCContext& ctx_;
 
     void prepareRequest(RequestType type);
     void abortRequest(bool disconnect);
@@ -84,11 +89,11 @@ private:
     void updateSpeed();
 
     // BufferedSocketListener
-    void on(Connected) noexcept;
-    void on(Line, const string&) noexcept;
-    void on(Data, uint8_t*, size_t) noexcept;
-    void on(ModeChange) noexcept;
-    void on(Failed, const string&) noexcept;
+    void on(Connected);
+    void on(Line, const string&);
+    void on(Data, uint8_t*, size_t);
+    void on(ModeChange);
+    void on(Failed, const string&);
 };
 
 } // namespace dcpp

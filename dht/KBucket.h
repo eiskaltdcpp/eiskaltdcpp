@@ -28,6 +28,7 @@
 
 namespace dht
 {
+    class DHT;
     struct UDPKey
     {
         string  ip;
@@ -40,7 +41,7 @@ namespace dht
         typedef dcpp::intrusive_ptr<Node> Ptr;
         typedef std::map<CID, Node::Ptr> Map;
 
-        Node(const UserPtr& u);
+        Node(const UserPtr& u, DHT& dht);
         ~Node() throw() {}
 
         uint8_t getType() const { return type; }
@@ -61,6 +62,7 @@ namespace dht
 
         friend class KBucket;
 
+        DHT&        dht_;
         UDPKey      key;
 
         uint64_t    created;
@@ -73,7 +75,7 @@ namespace dht
     class KBucket
     {
     public:
-        KBucket(void);
+        KBucket(DHT& dht);
         ~KBucket(void);
 
         typedef std::deque<Node::Ptr> NodeList;
@@ -100,6 +102,8 @@ namespace dht
         void saveNodes(SimpleXML& xml);
 
     private:
+
+        DHT& dht_;
 
         /** List of nodes in this bucket */
         NodeList nodes;

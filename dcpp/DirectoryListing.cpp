@@ -1,6 +1,7 @@
 /*
  * Copyright (C) 2001-2012 Jacek Sieka, arnetheduck on gmail point com
  * Copyright (C) 2009-2019 EiskaltDC++ developers
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -30,10 +31,12 @@
 #include "SimpleXMLReader.h"
 #include "StringTokenizer.h"
 #include "version.h"
+#include "DCContext.h"
 
 namespace dcpp {
 
-DirectoryListing::DirectoryListing(const HintedUser& aUser) :
+DirectoryListing::DirectoryListing(DCContext& ctx, const HintedUser& aUser) :
+    ctx_(ctx),
     user(aUser),
     root(new Directory(NULL, Util::emptyString, false, false))
 {
@@ -43,7 +46,7 @@ DirectoryListing::~DirectoryListing() {
     delete root;
 }
 
-UserPtr DirectoryListing::getUserFromFilename(const string& fileName) {
+UserPtr DirectoryListing::getUserFromFilename(DCContext& ctx, const string& fileName) {
     // General file list name format: [username].[CID].[xml|xml.bz2]
 
     string name = Util::getFileName(fileName);
@@ -72,7 +75,7 @@ UserPtr DirectoryListing::getUserFromFilename(const string& fileName) {
     if(!cid)
         return UserPtr();
 
-    return ClientManager::getInstance()->getUser(cid);
+    return ctx.getClientManager()->getUser(cid);
 }
 
 void DirectoryListing::loadFile(const string& path) {
@@ -136,7 +139,7 @@ string DirectoryListing::updateXML(const string& xml) {
 string DirectoryListing::loadXML(InputStream& is, bool updating) {
     ListLoader ll(getRoot(), updating);
 
-    SimpleXMLReader(&ll).parse(is, SETTING(MAX_FILELIST_SIZE) ? (size_t)SETTING(MAX_FILELIST_SIZE)*1024*1024 : 0);
+    SimpleXMLReader(&ll).parse(is, CTX_SETTING(MAX_FILELIST_SIZE) ? (size_t)CTX_SETTING(MAX_FILELIST_SIZE)*1024*1024 : 0);
 
     return ll.getBase();
 }
@@ -297,7 +300,7 @@ string DirectoryListing::getPath(const Directory* d) const {
 
 StringList DirectoryListing::getLocalPaths(const File* f) const {
     try {
-        return ShareManager::getInstance()->getRealPaths(Util::toAdcFile(getPath(f) + f->getName()));
+        return ctx().getShareManager()->getRealPaths(Util::toAdcFile(getPath(f) + f->getName()));
     } catch(const ShareException&) {
         return StringList();
     }
@@ -305,7 +308,7 @@ StringList DirectoryListing::getLocalPaths(const File* f) const {
 
 StringList DirectoryListing::getLocalPaths(const Directory* d) const {
     try {
-        return ShareManager::getInstance()->getRealPaths(Util::toAdcFile(getPath(d)));
+        return ctx().getShareManager()->getRealPaths(Util::toAdcFile(getPath(d)));
     } catch(const ShareException&) {
         return StringList();
     }
@@ -340,10 +343,10 @@ void DirectoryListing::download(const string& aDir, const string& aTarget, bool 
 void DirectoryListing::download(File* aFile, const string& aTarget, bool view, bool highPrio) {
     int flags = (view ? (QueueItem::FLAG_TEXT | QueueItem::FLAG_CLIENT_VIEW) : 0);
 
-    QueueManager::getInstance()->add(aTarget, aFile->getSize(), aFile->getTTH(), getUser(), flags);
+    ctx().getQueueManager()->add(aTarget, aFile->getSize(), aFile->getTTH(), getUser(), flags);
 
     if(highPrio)
-        QueueManager::getInstance()->setPriority(aTarget, QueueItem::HIGHEST);
+        ctx().getQueueManager()->setPriority(aTarget, QueueItem::HIGHEST);
 }
 
 DirectoryListing::Directory* DirectoryListing::find(const string& aName, Directory* current) const {

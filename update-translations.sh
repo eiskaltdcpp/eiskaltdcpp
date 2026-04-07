@@ -35,7 +35,7 @@ case "${1}" in
         make eiskaltdcpp-qt_tr mo-update
     else
         mkdir -p builddir && cd builddir
-        cmake -DUSE_QT5=ON ..
+        cmake -DUSE_QT6=ON ..
         make eiskaltdcpp-qt_tr mo-update
     fi
 

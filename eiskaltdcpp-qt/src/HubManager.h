@@ -18,21 +18,24 @@
 #include "WulforUtil.h"
 
 #include "dcpp/stdinc.h"
-#include "dcpp/Singleton.h"
 
 class HubFrame;
+#include "QtContextAware.h"
 
 class HubManager :
         public QObject,
-        public dcpp::Singleton<HubManager>
+        public QtContextAware
 {
 Q_OBJECT
 
-friend class dcpp::Singleton<HubManager>;
+friend class QtContext;
 friend class HubFrame;
 typedef QHash<QString, HubFrame*> HubHash;
 
 public:
+    explicit HubManager(dcpp::DCContext& ctx);
+    ~HubManager() override;
+
 
 Q_SIGNALS:
     void hubRegistered(QObject*);
@@ -45,9 +48,6 @@ public Q_SLOTS:
     QObject *activeHub() const;
 
 private:
-    explicit HubManager();
-    virtual ~HubManager();
-
     void registerHubUrl(const QString &, HubFrame *);
     void unregisterHubUrl(const QString &);
     void setActiveHub(HubFrame*);

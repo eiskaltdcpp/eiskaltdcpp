@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2001-2012 Jacek Sieka, arnetheduck on gmail point com
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -34,7 +35,7 @@ OnlineUser::OnlineUser(const UserPtr& ptr, ClientBase& client_, uint32_t sid_) :
 }
 
 bool Identity::isTcpActive(const Client* c) const {
-    if(c != NULL && user == ClientManager::getInstance()->getMe()) {
+    if(c != NULL && user == c->ctx().getClientManager()->getMe()) {
         return c->isActive(); // userlist should display our real mode
     } else {
         return (!user->isSet(User::NMDC)) ?

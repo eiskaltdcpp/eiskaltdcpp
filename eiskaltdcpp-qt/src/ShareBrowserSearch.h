@@ -6,11 +6,14 @@
 *   (at your option) any later version.                                   *
 *                                                                         *
 ***************************************************************************/
+/*
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
+ */
 
 #pragma once
 
 #include <QDialog>
-#include <QRegExp>
+#include <QRegularExpression>
 #include <QHash>
 #include <QList>
 
@@ -45,7 +48,7 @@ private:
     void findMatches(FileBrowserItem *);
 
     FileBrowserItem *searchRoot;
-    QRegExp regexp;
+    QRegularExpression regexp;
     QList<QTreeWidgetItem*> items;
     QHash<QTreeWidgetItem*,FileBrowserItem*> hash;
     FileBrowserModel *model;

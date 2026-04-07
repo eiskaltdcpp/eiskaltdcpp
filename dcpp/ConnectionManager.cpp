@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2001-2012 Jacek Sieka, arnetheduck on gmail point com
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -28,16 +29,18 @@
 #include "QueueManager.h"
 #include "UploadManager.h"
 #include "UserConnection.h"
+#include "DCPlusPlus.h"
 
 namespace dcpp {
 
-ConnectionManager::ConnectionManager() :
+ConnectionManager::ConnectionManager(DCContext& ctx) :
+    ContextAware(ctx),
     floodCounter(0),
     server(0),
     secureServer(0),
     shuttingDown(false)
 {
-    TimerManager::getInstance()->addListener(this);
+    this->ctx().getTimerManager()->addListener(this);
 
     features = {
         UserConnection::FEATURE_MINISLOTS,
@@ -58,14 +61,14 @@ ConnectionManager::ConnectionManager() :
 void ConnectionManager::listen() {
     disconnect();
 
-    server = new Server(false, Util::toString(SETTING(TCP_PORT)), SETTING(BIND_ADDRESS));
+    server = new Server(ctx(), false, Util::toString(CTX_SETTING(TCP_PORT)), CTX_SETTING(BIND_ADDRESS));
 
-    if(!CryptoManager::getInstance()->TLSOk()) {
-        dcdebug("Skipping secure port: %d\n", SETTING(TLS_PORT));
+    if(!ctx().getCryptoManager()->TLSOk()) {
+        dcdebug("Skipping secure port: %d\n", CTX_SETTING(TLS_PORT));
         return;
     }
 
-    secureServer = new Server(true, Util::toString(SETTING(TLS_PORT)), SETTING(BIND_ADDRESS));
+    secureServer = new Server(ctx(), true, Util::toString(CTX_SETTING(TLS_PORT)), CTX_SETTING(BIND_ADDRESS));
 }
 
 ConnectionQueueItem::ConnectionQueueItem(const HintedUser &aUser, bool aDownload) :
@@ -92,7 +95,7 @@ void ConnectionManager::getDownloadConnection(const HintedUser& aUser) {
         if(i == downloads.end()) {
             getCQI(aUser, true);
         } else {
-            DownloadManager::getInstance()->checkIdle(aUser.user);
+            ctx().getDownloadManager()->checkIdle(aUser.user);
         }
     }
 }
@@ -123,12 +126,27 @@ void ConnectionManager::putCQI(ConnectionQueueItem* cqi) {
     delete cqi;
 }
 
-UserConnection* ConnectionManager::getConnection(bool aNmdc, bool secure) noexcept {
-    UserConnection* uc = new UserConnection(secure);
+UserConnection* ConnectionManager::getConnection(bool aNmdc, bool secure) {
+    fprintf(stderr, "[CM::getConnection] new UserConnection (sizeof=%zu)\n", sizeof(UserConnection));
+    UserConnection* uc = nullptr;
+    try {
+        uc = new UserConnection(secure, ctx());
+    } catch (const std::bad_alloc&) {
+        fprintf(stderr, "[CM::getConnection] bad_alloc in new UserConnection\n");
+        throw;
+    }
     uc->addListener(this);
     {
         Lock l(cs);
-        userConnections.push_back(uc);
+        fprintf(stderr, "[CM::getConnection] push_back (vec size=%zu, cap=%zu)\n",
+                userConnections.size(), userConnections.capacity());
+        try {
+            userConnections.push_back(uc);
+        } catch (const std::bad_alloc&) {
+            fprintf(stderr, "[CM::getConnection] bad_alloc in push_back\n");
+            delete uc;
+            throw;
+        }
     }
     if(aNmdc)
         uc->setFlag(UserConnection::FLAG_NMDC);
@@ -143,7 +161,7 @@ void ConnectionManager::putConnection(UserConnection* aConn) {
     userConnections.erase(remove(userConnections.begin(), userConnections.end(), aConn), userConnections.end());
 }
 
-void ConnectionManager::on(TimerManagerListener::Second, uint64_t aTick) noexcept {
+void ConnectionManager::on(TimerManagerListener::Second, uint64_t aTick) {
     UserList passiveUsers;
     ConnectionQueueItem::List removed;
 
@@ -161,7 +179,7 @@ void ConnectionManager::on(TimerManagerListener::Second, uint64_t aTick) noexcep
                     continue;
                 }
 
-                if(cqi->getUser().user->isSet(User::PASSIVE) && !ClientManager::getInstance()->isActive()) {
+                if(cqi->getUser().user->isSet(User::PASSIVE) && !ctx().getClientManager()->isActive()) {
                     passiveUsers.push_back(cqi->getUser());
                     removed.push_back(cqi);
                     continue;
@@ -177,19 +195,20 @@ void ConnectionManager::on(TimerManagerListener::Second, uint64_t aTick) noexcep
                 {
                     cqi->setLastAttempt(aTick);
 
-                    QueueItem::Priority prio = QueueManager::getInstance()->hasDownload(cqi->getUser());
+                    QueueItem::Priority prio = ctx().getQueueManager()->hasDownload(cqi->getUser());
 
                     if(prio == QueueItem::PAUSED) {
                         removed.push_back(cqi);
                         continue;
                     }
 
-                    bool startDown = DownloadManager::getInstance()->startDownload(prio);
+                    bool startDown = ctx().getDownloadManager()->startDownload(prio);
 
                     if(cqi->getState() == ConnectionQueueItem::WAITING) {
                         if(startDown) {
                             cqi->setState(ConnectionQueueItem::CONNECTING);
-                            ClientManager::getInstance()->connect(cqi->getUser(), cqi->getToken());
+                            fprintf(stderr, "[CM::onSecond] CONNECTING — calling ClientManager::connect\n");
+                            ctx().getClientManager()->connect(cqi->getUser(), cqi->getToken());
                             fire(ConnectionManagerListener::StatusChanged(), cqi);
                             attemptDone = true;
                         } else {
@@ -201,6 +220,7 @@ void ConnectionManager::on(TimerManagerListener::Second, uint64_t aTick) noexcep
                     }
                 } else if(cqi->getState() == ConnectionQueueItem::CONNECTING && cqi->getLastAttempt() + 50 * 1000 < aTick) {
                     cqi->setErrors(cqi->getErrors() + 1);
+                    fprintf(stderr, "[CM::onSecond] connection timeout, errors=%d\n", cqi->getErrors());
                     fire(ConnectionManagerListener::Failed(), cqi, _("Connection timeout"));
                     cqi->setState(ConnectionQueueItem::WAITING);
                 }
@@ -214,11 +234,11 @@ void ConnectionManager::on(TimerManagerListener::Second, uint64_t aTick) noexcep
     }
 
     for(auto& ui : passiveUsers) {
-        QueueManager::getInstance()->removeSource(ui, QueueItem::Source::FLAG_PASSIVE);
+        ctx().getQueueManager()->removeSource(ui, QueueItem::Source::FLAG_PASSIVE);
     }
 }
 
-void ConnectionManager::on(TimerManagerListener::Minute, uint64_t aTick) noexcept {
+void ConnectionManager::on(TimerManagerListener::Minute, uint64_t aTick) {
     Lock l(cs);
 
     for(auto& j : userConnections) {
@@ -239,10 +259,10 @@ const string& ConnectionManager::getSecurePort() const {
 static const uint32_t FLOOD_TRIGGER = 20000;
 static const uint32_t FLOOD_ADD = 2000;
 
-ConnectionManager::Server::Server(const bool secure_, const string& aPort, const string& ip_ /* = "0.0.0.0" */) : secure(secure_), die(false) {
+ConnectionManager::Server::Server(DCContext& ctx, const bool secure_, const string& aPort, const string& ip_ /* = "0.0.0.0" */) : secure(secure_), die(false), ctx_(ctx) {
     sock.create();
     sock.setSocketOpt(SO_REUSEADDR, 1);
-    ip = SETTING(BIND_IFACE)? sock.getIfaceI4(SETTING(BIND_IFACE_NAME)).c_str() : ip_;
+    ip = CTX_SETTING(BIND_IFACE)? sock.getIfaceI4(CTX_SETTING(BIND_IFACE_NAME)).c_str() : ip_;
     port = sock.bind(aPort, ip);
     sock.listen();
 
@@ -251,7 +271,7 @@ ConnectionManager::Server::Server(const bool secure_, const string& aPort, const
 
 static const uint32_t POLL_TIMEOUT = 250;
 
-int ConnectionManager::Server::run() noexcept {
+int ConnectionManager::Server::run() {
     {
         char threadName[17];
         snprintf(threadName, sizeof threadName, "Server_%s", port.c_str());
@@ -260,7 +280,7 @@ int ConnectionManager::Server::run() noexcept {
         try {
             while(!die) {
                 if(sock.wait(POLL_TIMEOUT, Socket::WAIT_READ) == Socket::WAIT_READ) {
-                    ConnectionManager::getInstance()->accept(sock, secure);
+                    ctx().getConnectionManager()->accept(sock, secure);
                 }
             }
         } catch(const Exception& e) {
@@ -275,7 +295,7 @@ int ConnectionManager::Server::run() noexcept {
                 sock.bind(port, ip);
                 sock.listen();
                 if(failed) {
-                    LogManager::getInstance()->message(_("Connectivity restored"));
+                    ctx().getLogManager()->message(_("Connectivity restored"));
                     failed = false;
                 }
                 break;
@@ -283,7 +303,7 @@ int ConnectionManager::Server::run() noexcept {
                 dcdebug("ConnectionManager::Server::run Stopped listening: %s\n", e.getError().c_str());
 
                 if(!failed) {
-                    LogManager::getInstance()->message(str(F_("Connectivity error: %1%") % e.getError()));
+                    ctx().getLogManager()->message(str(F_("Connectivity error: %1%") % e.getError()));
                     failed = true;
                 }
 
@@ -301,7 +321,7 @@ int ConnectionManager::Server::run() noexcept {
  * Someone's connecting, accept the connection and wait for identification...
  * It's always the other fellow that starts sending if he made the connection.
  */
-void ConnectionManager::accept(const Socket& sock, bool secure) noexcept {
+void ConnectionManager::accept(const Socket& sock, bool secure) {
     uint64_t now = GET_TICK();
 
     if(now > floodCounter) {
@@ -343,18 +363,41 @@ void ConnectionManager::nmdcConnect(const string& aServer, const string& aPort, 
     if (checkHubCCBlock(aServer, aPort, hubUrl))
         return;
 
+    fprintf(stderr, "[CM::nmdcConnect] step 1: getConnection\n");
     UserConnection* uc = getConnection(true, secure);
-    uc->setToken(aNick);
-    uc->setHubUrl(hubUrl);
-    uc->setEncoding(encoding);
+    fprintf(stderr, "[CM::nmdcConnect] step 2: setToken(%zu bytes)\n", aNick.size());
+    try { uc->setToken(aNick); } catch (const std::bad_alloc&) {
+        fprintf(stderr, "[CM::nmdcConnect] bad_alloc in setToken\n"); throw;
+    }
+    fprintf(stderr, "[CM::nmdcConnect] step 3: setHubUrl(%zu bytes)\n", hubUrl.size());
+    try { uc->setHubUrl(hubUrl); } catch (const std::bad_alloc&) {
+        fprintf(stderr, "[CM::nmdcConnect] bad_alloc in setHubUrl\n"); throw;
+    }
+    fprintf(stderr, "[CM::nmdcConnect] step 4: setEncoding(%zu bytes)\n", encoding.size());
+    try { uc->setEncoding(encoding); } catch (const std::bad_alloc&) {
+        fprintf(stderr, "[CM::nmdcConnect] bad_alloc in setEncoding\n"); throw;
+    }
     uc->setState(UserConnection::STATE_CONNECT);
     uc->setFlag(UserConnection::FLAG_NMDC);
+    fprintf(stderr, "[CM::nmdcConnect] step 5: connect(%s, %s)\n", aServer.c_str(), aPort.c_str());
     try {
         uc->connect(aServer, aPort, localPort, natRole);
-    } catch(const Exception&) {
+    } catch(const Exception& e) {
+        fprintf(stderr, "[CM::nmdcConnect] Exception in connect: %s\n", e.what());
         putConnection(uc);
         delete uc;
+    } catch(const std::bad_alloc&) {
+        fprintf(stderr, "[CM::nmdcConnect] bad_alloc in connect (thread/socket creation)\n");
+        putConnection(uc);
+        delete uc;
+        throw;
+    } catch(...) {
+        fprintf(stderr, "[CM::nmdcConnect] unknown exception in connect\n");
+        putConnection(uc);
+        delete uc;
+        throw;
     }
+    fprintf(stderr, "[CM::nmdcConnect] done\n");
 }
 
 void ConnectionManager::adcConnect(const OnlineUser& aUser, const string &aPort, const string& aToken, bool secure) {
@@ -382,17 +425,21 @@ void ConnectionManager::adcConnect(const OnlineUser& aUser, const string &aPort,
     } catch(const Exception&) {
         putConnection(uc);
         delete uc;
+    } catch(...) {
+        putConnection(uc);
+        delete uc;
+        throw;
     }
 }
 
-void ConnectionManager::disconnect() noexcept {
+void ConnectionManager::disconnect() {
     delete server;
     delete secureServer;
     server = nullptr;
     secureServer = nullptr;
 }
 
-void ConnectionManager::on(AdcCommand::SUP, UserConnection* aSource, const AdcCommand& cmd) noexcept {
+void ConnectionManager::on(AdcCommand::SUP, UserConnection* aSource, const AdcCommand& cmd) {
     if(aSource->getState() != UserConnection::STATE_SUPNICK) {
         // Already got this once, ignore...@todo fix support updates
         dcdebug("CM::onSUP %p sent sup twice\n", (void*)aSource);
@@ -429,7 +476,7 @@ void ConnectionManager::on(AdcCommand::SUP, UserConnection* aSource, const AdcCo
 
     if(aSource->isSet(UserConnection::FLAG_INCOMING)) {
         StringList defFeatures = adcFeatures;
-        if(BOOLSETTING(COMPRESS_TRANSFERS)) {
+        if(CTX_BOOLSETTING(COMPRESS_TRANSFERS)) {
             defFeatures.push_back("AD" + UserConnection::FEATURE_ZLIB_GET);
         }
         aSource->sup(defFeatures);
@@ -440,25 +487,25 @@ void ConnectionManager::on(AdcCommand::SUP, UserConnection* aSource, const AdcCo
     aSource->setState(UserConnection::STATE_INF);
 }
 
-void ConnectionManager::on(AdcCommand::STA, UserConnection*, const AdcCommand&) noexcept {
+void ConnectionManager::on(AdcCommand::STA, UserConnection*, const AdcCommand&) {
 
 }
 
-void ConnectionManager::on(UserConnectionListener::Connected, UserConnection* aSource) noexcept {
+void ConnectionManager::on(UserConnectionListener::Connected, UserConnection* aSource) {
     // incorrect check because aSource->getUser().get() == nullptr
-    if(aSource->isSecure() && !aSource->isTrusted() && !BOOLSETTING(ALLOW_UNTRUSTED_CLIENTS)) {
+    if(aSource->isSecure() && !aSource->isTrusted() && !CTX_BOOLSETTING(ALLOW_UNTRUSTED_CLIENTS)) {
         putConnection(aSource);
-        //        QueueManager::getInstance()->removeSource(aSource->getUser(), QueueItem::Source::FLAG_UNTRUSTED);
+        //        ctx().getQueueManager()->removeSource(aSource->getUser(), QueueItem::Source::FLAG_UNTRUSTED);
         return;
     }
 
     dcassert(aSource->getState() == UserConnection::STATE_CONNECT);
     if(aSource->isSet(UserConnection::FLAG_NMDC)) {
         aSource->myNick(aSource->getToken());
-        aSource->lock(CryptoManager::getInstance()->getLock(), CryptoManager::getInstance()->getPk() + "Ref=" + aSource->getHubUrl());
+        aSource->lock(ctx().getCryptoManager()->getLock(), ctx().getCryptoManager()->getPk() + "Ref=" + aSource->getHubUrl());
     } else {
         StringList defFeatures = adcFeatures;
-        if(BOOLSETTING(COMPRESS_TRANSFERS)) {
+        if(CTX_BOOLSETTING(COMPRESS_TRANSFERS)) {
             defFeatures.push_back("AD" + UserConnection::FEATURE_ZLIB_GET);
         }
         aSource->sup(defFeatures);
@@ -467,7 +514,7 @@ void ConnectionManager::on(UserConnectionListener::Connected, UserConnection* aS
     aSource->setState(UserConnection::STATE_SUPNICK);
 }
 
-void ConnectionManager::on(UserConnectionListener::MyNick, UserConnection* aSource, const string& aNick) noexcept {
+void ConnectionManager::on(UserConnectionListener::MyNick, UserConnection* aSource, const string& aNick) {
     if(aSource->getState() != UserConnection::STATE_SUPNICK) {
         // Already got this once, ignore...
         dcdebug("CM::onMyNick %p sent nick twice\n", (void*)aSource);
@@ -488,11 +535,11 @@ void ConnectionManager::on(UserConnectionListener::MyNick, UserConnection* aSour
         }
         aSource->setToken(i.first);
         aSource->setHubUrl(i.second);
-        aSource->setEncoding(ClientManager::getInstance()->findHubEncoding(i.second));
+        aSource->setEncoding(ctx().getClientManager()->findHubEncoding(i.second));
     }
 
     string nick = Text::toUtf8(aNick, aSource->getEncoding());
-    CID cid = ClientManager::getInstance()->makeCid(nick, aSource->getHubUrl());
+    CID cid = ctx().getClientManager()->makeCid(nick, aSource->getHubUrl());
 
     // First, we try looking in the pending downloads...hopefully it's one of them...
     {
@@ -513,8 +560,8 @@ void ConnectionManager::on(UserConnectionListener::MyNick, UserConnection* aSour
     if(!aSource->getUser()) {
         // Make sure we know who it is, i e that he/she is connected...
 
-        aSource->setUser(ClientManager::getInstance()->findUser(cid));
-        if(!aSource->getUser() || !ClientManager::getInstance()->isOnline(aSource->getUser())) {
+        aSource->setUser(ctx().getClientManager()->findUser(cid));
+        if(!aSource->getUser() || !ctx().getClientManager()->isOnline(aSource->getUser())) {
             dcdebug("CM::onMyNick Incoming connection from unknown user %s\n", nick.c_str());
             putConnection(aSource);
             return;
@@ -523,20 +570,20 @@ void ConnectionManager::on(UserConnectionListener::MyNick, UserConnection* aSour
         aSource->setFlag(UserConnection::FLAG_UPLOAD);
     }
 
-    if(ClientManager::getInstance()->isOp(aSource->getUser(), aSource->getHubUrl()))
+    if(ctx().getClientManager()->isOp(aSource->getUser(), aSource->getHubUrl()))
         aSource->setFlag(UserConnection::FLAG_OP);
 
-    ClientManager::getInstance()->setIPUser(aSource->getUser(), aSource->getRemoteIp());
+    ctx().getClientManager()->setIPUser(aSource->getUser(), aSource->getRemoteIp());
 
     if( aSource->isSet(UserConnection::FLAG_INCOMING) ) {
         aSource->myNick(aSource->getToken());
-        aSource->lock(CryptoManager::getInstance()->getLock(), CryptoManager::getInstance()->getPk());
+        aSource->lock(ctx().getCryptoManager()->getLock(), ctx().getCryptoManager()->getPk());
     }
 
     aSource->setState(UserConnection::STATE_LOCK);
 }
 
-void ConnectionManager::on(UserConnectionListener::CLock, UserConnection* aSource, const string& aLock, const string& aPk) noexcept {
+void ConnectionManager::on(UserConnectionListener::CLock, UserConnection* aSource, const string& aLock, const string& aPk) {
     (void)aPk;
 
     if(aSource->getState() != UserConnection::STATE_LOCK) {
@@ -544,9 +591,9 @@ void ConnectionManager::on(UserConnectionListener::CLock, UserConnection* aSourc
         return;
     }
 
-    if( CryptoManager::getInstance()->isExtended(aLock) ) {
+    if( ctx().getCryptoManager()->isExtended(aLock) ) {
         StringList defFeatures = features;
-        if(BOOLSETTING(COMPRESS_TRANSFERS)) {
+        if(CTX_BOOLSETTING(COMPRESS_TRANSFERS)) {
             defFeatures.push_back(UserConnection::FEATURE_ZLIB_GET);
         }
 
@@ -555,10 +602,10 @@ void ConnectionManager::on(UserConnectionListener::CLock, UserConnection* aSourc
 
     aSource->setState(UserConnection::STATE_DIRECTION);
     aSource->direction(aSource->getDirectionString(), aSource->getNumber());
-    aSource->key(CryptoManager::getInstance()->makeKey(aLock));
+    aSource->key(ctx().getCryptoManager()->makeKey(aLock));
 }
 
-void ConnectionManager::on(UserConnectionListener::Direction, UserConnection* aSource, const string& dir, const string& num) noexcept {
+void ConnectionManager::on(UserConnectionListener::Direction, UserConnection* aSource, const string& dir, const string& num) {
     if(aSource->getState() != UserConnection::STATE_DIRECTION) {
         dcdebug("CM::onDirection %p received direction twice, ignoring\n", (void*)aSource);
         return;
@@ -613,7 +660,7 @@ void ConnectionManager::addDownloadConnection(UserConnection* uc) {
     }
 
     if(addConn) {
-        DownloadManager::getInstance()->addConnection(uc);
+        ctx().getDownloadManager()->addConnection(uc);
     } else {
         putConnection(uc);
     }
@@ -641,13 +688,13 @@ void ConnectionManager::addUploadConnection(UserConnection* uc) {
     }
 
     if(addConn) {
-        UploadManager::getInstance()->addConnection(uc);
+        ctx().getUploadManager()->addConnection(uc);
     } else {
         putConnection(uc);
     }
 }
 
-void ConnectionManager::on(UserConnectionListener::Key, UserConnection* aSource, const string&/* aKey*/) noexcept {
+void ConnectionManager::on(UserConnectionListener::Key, UserConnection* aSource, const string&/* aKey*/) {
     if(aSource->getState() != UserConnection::STATE_KEY) {
         dcdebug("CM::onKey Bad state, ignoring");
         return;
@@ -660,7 +707,7 @@ void ConnectionManager::on(UserConnectionListener::Key, UserConnection* aSource,
     }
 }
 
-void ConnectionManager::on(AdcCommand::INF, UserConnection* aSource, const AdcCommand& cmd) noexcept {
+void ConnectionManager::on(AdcCommand::INF, UserConnection* aSource, const AdcCommand& cmd) {
     if(aSource->getState() != UserConnection::STATE_INF) {
         aSource->send(AdcCommand(AdcCommand::SEV_FATAL, AdcCommand::ERROR_PROTOCOL_GENERIC, "Expecting INF"));
         aSource->disconnect();
@@ -669,9 +716,9 @@ void ConnectionManager::on(AdcCommand::INF, UserConnection* aSource, const AdcCo
 
     // Leaks CSUPs, other client's CINF, and ADC connection's presence. Allows removing
     // user from queue by waiting long enough for aSource->getUser() to function.
-    if(SETTING(REQUIRE_TLS) && !aSource->isSet(UserConnection::FLAG_NMDC) && !aSource->isSecure()) {
+    if(CTX_SETTING(REQUIRE_TLS) && !aSource->isSet(UserConnection::FLAG_NMDC) && !aSource->isSecure()) {
         putConnection(aSource);
-        QueueManager::getInstance()->removeSource(aSource->getUser(), QueueItem::Source::FLAG_UNENCRYPTED);
+        ctx().getQueueManager()->removeSource(aSource->getUser(), QueueItem::Source::FLAG_UNENCRYPTED);
         return;
     }
 
@@ -684,7 +731,7 @@ void ConnectionManager::on(AdcCommand::INF, UserConnection* aSource, const AdcCo
     }
 
     if(!aSource->getUser()) {
-        aSource->setUser(ClientManager::getInstance()->findUser(CID(cid)));
+        aSource->setUser(ctx().getClientManager()->findUser(CID(cid)));
 
         if(!aSource->getUser()) {
             aSource->send(AdcCommand(AdcCommand::SEV_FATAL, AdcCommand::ERROR_INF_FIELD, "INF ID: user not found").addParam("FB", "ID"));
@@ -695,7 +742,7 @@ void ConnectionManager::on(AdcCommand::INF, UserConnection* aSource, const AdcCo
 
     // without a valid KeyPrint this degrades into normal turst check
     if(!checkKeyprint(aSource)) {
-        QueueManager::getInstance()->removeSource(aSource->getUser(), QueueItem::Source::FLAG_UNTRUSTED);
+        ctx().getQueueManager()->removeSource(aSource->getUser(), QueueItem::Source::FLAG_UNTRUSTED);
         putConnection(aSource);
         return;
     }
@@ -752,7 +799,7 @@ bool ConnectionManager::checkKeyprint(UserConnection *aSource) {
         return true;
     }
 
-    auto kp2 = ClientManager::getInstance()->getField(aSource->getUser()->getCID(), aSource->getHubUrl(), "KP");
+    auto kp2 = ctx().getClientManager()->getField(aSource->getUser()->getCID(), aSource->getHubUrl(), "KP");
     if(kp2.empty()) {
         // TODO false probably
         return true;
@@ -814,17 +861,17 @@ bool ConnectionManager::checkHubCCBlock(const string& aServer, const string& aPo
 
     if(cc_blocked)
     {
-        LogManager::getInstance()->message(str(F_("Blocked a C-C connection to a hub ('%1%:%2%'; request from '%3%')") % aServer % aPort % aHubUrl));
+        ctx().getLogManager()->message(str(F_("Blocked a C-C connection to a hub ('%1%:%2%'; request from '%3%')") % aServer % aPort % aHubUrl));
         return true;
     }
     return false;
 }
 
-void ConnectionManager::on(UserConnectionListener::Failed, UserConnection* aSource, const string& aError) noexcept {
+void ConnectionManager::on(UserConnectionListener::Failed, UserConnection* aSource, const string& aError) {
     failed(aSource, aError, false);
 }
 
-void ConnectionManager::on(UserConnectionListener::ProtocolError, UserConnection* aSource, const string& aError) noexcept {
+void ConnectionManager::on(UserConnectionListener::ProtocolError, UserConnection* aSource, const string& aError) {
     if(aError.compare(0, 7, "CTM2HUB", 7) == 0) {
         {
             Lock l(cs);
@@ -832,7 +879,7 @@ void ConnectionManager::on(UserConnectionListener::ProtocolError, UserConnection
         }
 
         string aServerPort = aSource->getRemoteIp() + ":" + aSource->getPort();
-        LogManager::getInstance()->message(str(F_("Blocking '%1%', potential DDoS detected (originating hub '%2%')") % aServerPort % aSource->getHubUrl() ));
+        ctx().getLogManager()->message(str(F_("Blocking '%1%', potential DDoS detected (originating hub '%2%')") % aServerPort % aSource->getHubUrl() ));
     }
 
     failed(aSource, aError, true);
@@ -857,7 +904,7 @@ void ConnectionManager::disconnect(const UserPtr& user, int isDownload) {
 }
 
 void ConnectionManager::shutdown() {
-    TimerManager::getInstance()->removeListener(this);
+    ctx().getTimerManager()->removeListener(this);
     shuttingDown = true;
     disconnect();
     {
@@ -879,7 +926,7 @@ void ConnectionManager::shutdown() {
 }
 
 // UserConnectionListener
-void ConnectionManager::on(UserConnectionListener::Supports, UserConnection* conn, const StringList& feat) noexcept {
+void ConnectionManager::on(UserConnectionListener::Supports, UserConnection* conn, const StringList& feat) {
     for(auto& i: feat) {
         if(i == UserConnection::FEATURE_MINISLOTS) {
             conn->setFlag(UserConnection::FLAG_SUPPORTS_MINISLOTS);

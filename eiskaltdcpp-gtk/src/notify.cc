@@ -1,5 +1,6 @@
 /*
  * Copyright © 2009 Leliksan Floyd <leliksan@Quadrafon2>
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -38,6 +39,7 @@
 #include "WulforUtil.hh"
 #include "settingsmanager.hh"
 #include <dcpp/Text.h>
+#include "dcpp/DCPlusPlus.h"
 #include "notify.hh"
 
 #ifndef NOTIFY_CHECK_VERSION
@@ -137,7 +139,7 @@ void Notify::setCurrIconSize(const int size)
 
 void Notify::showNotify(const string &head, const string &body, TypeNotify notify)
 {
-    WulforSettingsManager *wsm = WulforSettingsManager::getInstance();
+    WulforSettingsManager *wsm = wulforSettingsInstance();
 
     switch (notify)
     {
@@ -281,7 +283,7 @@ void Notify::onAction(NotifyNotification *notify, const char*, gpointer data)
     const string target = (gchar*)data;
 
     if (!target.empty())
-        WulforUtil::openURI(target);
+        WulforUtil::openURI(*dcpp::getContext(), target);
 
 #ifdef USE_LIBNOTIFY
     notify_notification_close(notify, NULL);

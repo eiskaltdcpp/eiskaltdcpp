@@ -18,18 +18,20 @@
 #pragma once
 
 #include "KBucket.h"
-#include "dcpp/Singleton.h"
 #include "dcpp/User.h"
 
 namespace dht
 {
+    class DHT;
 
-    class ConnectionManager :
-        public Singleton<ConnectionManager>
+    class ConnectionManager
     {
     public:
-        ConnectionManager(void);
+        explicit ConnectionManager(DHT& dht);
         ~ConnectionManager(void);
+
+        ConnectionManager(const ConnectionManager&) = delete;
+        ConnectionManager& operator=(const ConnectionManager&) = delete;
 
         /** Sends Connect To Me request to online node */
         void connect(const Node::Ptr& node, const string& token);
@@ -41,6 +43,8 @@ namespace dht
         /** Sends request to create connection with me */
         void revConnectToMe(const Node::Ptr& node, const AdcCommand& cmd);
 
+    private:
+        DHT& dht_;
     };
 
 }

@@ -6,36 +6,29 @@
 *   (at your option) any later version.                                   *
 *                                                                         *
 ***************************************************************************/
+/*
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
+ */
 
 #include "HashManagerScript.h"
+#include "QtContext.h"
 #include "WulforUtil.h"
 
 #include "dcpp/MerkleTree.h"
+#include "dcpp/DCPlusPlus.h"
 
-HashManagerScript::HashManagerScript(QObject *parent) :
+HashManagerScript::HashManagerScript(dcpp::DCContext& ctx, QObject *parent) :
+    QtContextAware(ctx),
     QObject(parent)
 {
-    HM = dcpp::HashManager::getInstance();
+    HM = dcCtx().getHashManager();
     HM->addListener(this);
 }
 
-HashManagerScript::HashManagerScript(const HashManagerScript &)
-{
-    HM = dcpp::HashManager::getInstance();
-    HM->addListener(this);
-}
 
 HashManagerScript::~HashManagerScript()
 {
     HM->removeListener(this);
-}
-
-HashManagerScript &HashManagerScript::operator=(const HashManagerScript &)
-{
-    HM = dcpp::HashManager::getInstance();
-    HM->addListener(this);
-
-    return *this;
 }
 
 void HashManagerScript::stopHashing(const QString &baseDir) {

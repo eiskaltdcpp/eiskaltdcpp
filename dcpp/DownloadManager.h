@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2001-2012 Jacek Sieka, arnetheduck on gmail point com
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -22,7 +23,7 @@
 #include "UserConnectionListener.h"
 #include "QueueItem.h"
 #include "TimerManager.h"
-#include "Singleton.h"
+#include "DCContext.h"
 #include "MerkleTree.h"
 #include "Speaker.h"
 
@@ -34,7 +35,7 @@ namespace dcpp {
  */
 class DownloadManager : public Speaker<DownloadManagerListener>,
         private UserConnectionListener, private TimerManagerListener,
-        public Singleton<DownloadManager>
+        public ContextAware
 {
 public:
 
@@ -68,10 +69,11 @@ private:
 
     void failDownload(UserConnection* aSource, const string& reason);
 
-    friend class Singleton<DownloadManager>;
-
-    DownloadManager();
+public:
+    explicit DownloadManager(DCContext& ctx);
     virtual ~DownloadManager();
+
+private:
 
     void checkDownloads(UserConnection* aConn);
     void startData(UserConnection* aSource, int64_t start, int64_t newSize, bool z);
@@ -80,18 +82,18 @@ private:
     void onFailed(UserConnection* aSource, const string& aError);
 
     // UserConnectionListener
-    virtual void on(Data, UserConnection*, const uint8_t*, size_t) noexcept;
-    virtual void on(Failed, UserConnection* aSource, const string& aError) noexcept { onFailed(aSource, aError); }
-    virtual void on(ProtocolError, UserConnection* aSource, const string& aError) noexcept { onFailed(aSource, aError); }
-    virtual void on(MaxedOut, UserConnection*) noexcept;
-    virtual void on(FileNotAvailable, UserConnection*) noexcept;
-    virtual void on(Updated, UserConnection*) noexcept;
+    virtual void on(Data, UserConnection*, const uint8_t*, size_t);
+    virtual void on(Failed, UserConnection* aSource, const string& aError) { onFailed(aSource, aError); }
+    virtual void on(ProtocolError, UserConnection* aSource, const string& aError) { onFailed(aSource, aError); }
+    virtual void on(MaxedOut, UserConnection*);
+    virtual void on(FileNotAvailable, UserConnection*);
+    virtual void on(Updated, UserConnection*);
 
-    virtual void on(AdcCommand::SND, UserConnection*, const AdcCommand&) noexcept;
-    virtual void on(AdcCommand::STA, UserConnection*, const AdcCommand&) noexcept;
+    virtual void on(AdcCommand::SND, UserConnection*, const AdcCommand&);
+    virtual void on(AdcCommand::STA, UserConnection*, const AdcCommand&);
 
     // TimerManagerListener
-    virtual void on(TimerManagerListener::Second, uint64_t aTick) noexcept;
+    virtual void on(TimerManagerListener::Second, uint64_t aTick);
 };
 
 } // namespace dcpp

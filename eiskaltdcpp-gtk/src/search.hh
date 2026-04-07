@@ -28,6 +28,8 @@
 #include "bookentry.hh"
 #include "treeview.hh"
 
+namespace dcpp { class DCContext; }
+
 class UserCommandMenu;
 
 class Search:
@@ -37,7 +39,7 @@ class Search:
         public dcpp::TimerManagerListener
 {
 public:
-    Search();
+    explicit Search(dcpp::DCContext& dcCtx);
     virtual ~Search();
     virtual void show();
 
@@ -151,4 +153,5 @@ private:
     UserCommandMenu *userCommandMenu;
     GroupType previousGrouping;
     std::unordered_map<std::string, std::vector<dcpp::SearchResultPtr> > results;
+    dcpp::DCContext& dcCtx_;
 };

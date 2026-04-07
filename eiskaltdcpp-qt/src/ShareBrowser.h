@@ -14,11 +14,14 @@
 #include <QAction>
 #include <QMap>
 #include <QItemSelectionModel>
+#include <memory>
 #include <QThread>
 #include <QCloseEvent>
 #include <QSortFilterProxyModel>
 
 #include "ArenaWidget.h"
+#include "QtContextAware.h"
+#include "QtContext.h"
 #include "WulforUtil.h"
 #include "ui_UIShareBrowser.h"
 
@@ -26,7 +29,6 @@
 #include "dcpp/ClientManager.h"
 #include "dcpp/User.h"
 #include "dcpp/DirectoryListing.h"
-#include "dcpp/Singleton.h"
 
 class MainWindow;
 
@@ -57,11 +59,15 @@ class ShareBrowser : public  QWidget,
     Q_OBJECT
     Q_INTERFACES(ArenaWidget)
 
-    class Menu : public dcpp::Singleton<Menu>{
-
-    friend class dcpp::Singleton<Menu>;
+    class Menu {
 
     public:
+        Menu();
+        ~Menu();
+
+        Menu(const Menu&) = delete;
+        Menu& operator=(const Menu&) = delete;
+
         enum Action {
             Download=0,
             DownloadTo,
@@ -81,9 +87,6 @@ class ShareBrowser : public  QWidget,
         QString getTarget() { return target; }
 
     private:
-        Menu();
-        virtual ~Menu();
-
         QMap<QAction*, Action> actions;
         QMenu *menu;
         QMenu *down_to;
@@ -100,7 +103,7 @@ public:
     QString  getArenaShortTitle();
     QWidget *getWidget();
     QMenu   *getMenu();
-    const QPixmap &getPixmap(){ return WICON(WulforUtil::eiOWN_FILELIST); }
+    const QPixmap &getPixmap(){ return qtCtx()->wulforUtil()->getPixmap(WulforUtil::eiOWN_FILELIST); }
     void requestFilter() { slotFilter(); }
     ArenaWidget::Role role() const { return ArenaWidget::ShareBrowser; }
 
@@ -175,4 +178,6 @@ private:
     FileBrowserModel *list_model;
     FileBrowserItem  *tree_root;
     FileBrowserItem  *list_root;
+
+    std::unique_ptr<Menu> menu_;
 };

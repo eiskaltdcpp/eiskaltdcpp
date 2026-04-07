@@ -6,8 +6,13 @@
 *   (at your option) any later version.                                   *
 *                                                                         *
 ***************************************************************************/
+/*
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
+ */
 
 #include "ArenaWidget.h"
+#include "QtContextAware.h"
+#include "QtContext.h"
 
 #include <QUrl>
 #include <QFile>
@@ -61,7 +66,7 @@ void  ScriptWidget::setPixmap(const QPixmap &px) { pxm = px; }
 
 #ifdef USE_QML
 DeclarativeWidget::DeclarativeWidget(const QString &file) : QWidget(nullptr) {
-    view = new QDeclarativeView();
+    view = new QQuickWidget();
     view->setSource(QUrl::fromLocalFile(file));
 
     setLayout(new QVBoxLayout());
@@ -76,7 +81,7 @@ void DeclarativeWidget::closeEvent(QCloseEvent *e){
 
     setAttribute(Qt::WA_DeleteOnClose);
 
-    ArenaWidgetManager::getInstance()->rem(this);
+    qtCtx()->arenaWidgetManager()->rem(this);
 }
 
 QWidget *DeclarativeWidget::getWidget(){
@@ -98,6 +103,6 @@ QMenu *DeclarativeWidget::getMenu(){
 }
 
 const QPixmap &DeclarativeWidget::getPixmap(){
-    return WICON(WulforUtil::eiFILETYPE_APPLICATION);
+    return qtCtx()->wulforUtil()->getPixmap(WulforUtil::eiFILETYPE_APPLICATION);
 }
 #endif

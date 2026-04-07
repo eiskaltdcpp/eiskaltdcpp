@@ -6,9 +6,14 @@
 *   (at your option) any later version.                                   *
 *                                                                         *
 ***************************************************************************/
+/*
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
+ */
 
 #include "AntiSpamFrame.h"
 #include "WulforSettings.h"
+#include "QtContext.h"
+#include "QtContextAware.h"
 
 #include <QTreeWidget>
 #include <QTreeWidgetItem>
@@ -26,19 +31,19 @@ AntiSpamFrame::~AntiSpamFrame() {
     clearTreeWidget(treeWidget_BLACK);
     clearTreeWidget(treeWidget_BLACK);
 
-    if (AntiSpam::getInstance()) {
-        AntiSpam::getInstance()->saveLists();
-        AntiSpam::getInstance()->saveSettings();
+    if (qtCtx()->antiSpam()) {
+        qtCtx()->antiSpam()->saveLists();
+        qtCtx()->antiSpam()->saveSettings();
     }
 }
 
 void AntiSpamFrame::InitDocument() {
-   if (WBGET(WB_ANTISPAM_ENABLED)) {
-        if (!AntiSpam::getInstance())
-            AntiSpam::newInstance();
+   if (qtCtx()->settings()->getBool(WB_ANTISPAM_ENABLED)) {
+        if (!qtCtx()->antiSpam())
+            qtCtx()->createAntiSpam();
 
-        AntiSpam::getInstance()->loadSettings();
-        AntiSpam::getInstance()->loadLists();
+        qtCtx()->antiSpam()->loadSettings();
+        qtCtx()->antiSpam()->loadLists();
 
         checkBox_ASENABLE->setChecked(true);
     } else
@@ -46,30 +51,30 @@ void AntiSpamFrame::InitDocument() {
 
     loadGUIData();
 
-    connect(checkBox_ASENABLE, SIGNAL(clicked()), this, SLOT(slotAntiSpamSwitch()));
-    connect(checkBox_ASFILTER, SIGNAL(clicked()), this, SLOT(slotAsFilter()));
-    connect(checkBox_FILTER_OPS, SIGNAL(clicked()), this, SLOT(slotFilterOps()));
+    connect(checkBox_ASENABLE, &QCheckBox::clicked, this, &AntiSpamFrame::slotAntiSpamSwitch);
+    connect(checkBox_ASFILTER, &QCheckBox::clicked, this, &AntiSpamFrame::slotAsFilter);
+    connect(checkBox_FILTER_OPS, &QCheckBox::clicked, this, &AntiSpamFrame::slotFilterOps);
 
-    connect(pushButton_ADDWHITE, SIGNAL(clicked()), this, SLOT(slotAddToWhite()));
-    connect(pushButton_ADDBLACK, SIGNAL(clicked()), this, SLOT(slotAddToBlack()));
-    connect(pushButton_ADDGRAY, SIGNAL(clicked()), this, SLOT(slotAddToGray()));
-    connect(pushButton_REMWHITE, SIGNAL(clicked()), this, SLOT(slotRemFromWhite()));
-    connect(pushButton_REMBLACK, SIGNAL(clicked()), this, SLOT(slotRemFromBlack()));
-    connect(pushButton_REMGRAY, SIGNAL(clicked()), this, SLOT(slotRemFromGray()));
-    connect(pushButton_CLRWHITE, SIGNAL(clicked()), this, SLOT(slotClearWhite()));
-    connect(pushButton_CLRBLACK, SIGNAL(clicked()), this, SLOT(slotClearBlack()));
-    connect(pushButton_CLRGRAY, SIGNAL(clicked()), this, SLOT(slotClearGray()));
+    connect(pushButton_ADDWHITE, &QPushButton::clicked, this, &AntiSpamFrame::slotAddToWhite);
+    connect(pushButton_ADDBLACK, &QPushButton::clicked, this, &AntiSpamFrame::slotAddToBlack);
+    connect(pushButton_ADDGRAY, &QPushButton::clicked, this, &AntiSpamFrame::slotAddToGray);
+    connect(pushButton_REMWHITE, &QPushButton::clicked, this, &AntiSpamFrame::slotRemFromWhite);
+    connect(pushButton_REMBLACK, &QPushButton::clicked, this, &AntiSpamFrame::slotRemFromBlack);
+    connect(pushButton_REMGRAY, &QPushButton::clicked, this, &AntiSpamFrame::slotRemFromGray);
+    connect(pushButton_CLRWHITE, &QPushButton::clicked, this, &AntiSpamFrame::slotClearWhite);
+    connect(pushButton_CLRBLACK, &QPushButton::clicked, this, &AntiSpamFrame::slotClearBlack);
+    connect(pushButton_CLRGRAY, &QPushButton::clicked, this, &AntiSpamFrame::slotClearGray);
 
-    connect(pushButton_OK, SIGNAL(clicked()), this, SLOT(slotAccept()));
+    connect(pushButton_OK, &QPushButton::clicked, this, &AntiSpamFrame::slotAccept);
 
-    connect(pushButton_WTOG, SIGNAL(clicked()), this, SLOT(slotWToG()));
-    connect(pushButton_WTOB, SIGNAL(clicked()), this, SLOT(slotWToB()));
-    connect(pushButton_BTOW, SIGNAL(clicked()), this, SLOT(slotBToW()));
-    connect(pushButton_BTOG, SIGNAL(clicked()), this, SLOT(slotBToG()));
-    connect(pushButton_GTOB, SIGNAL(clicked()), this, SLOT(slotGToB()));
-    connect(pushButton_GTOW, SIGNAL(clicked()), this, SLOT(slotGToW()));
+    connect(pushButton_WTOG, &QPushButton::clicked, this, &AntiSpamFrame::slotWToG);
+    connect(pushButton_WTOB, &QPushButton::clicked, this, &AntiSpamFrame::slotWToB);
+    connect(pushButton_BTOW, &QPushButton::clicked, this, &AntiSpamFrame::slotBToW);
+    connect(pushButton_BTOG, &QPushButton::clicked, this, &AntiSpamFrame::slotBToG);
+    connect(pushButton_GTOB, &QPushButton::clicked, this, &AntiSpamFrame::slotGToB);
+    connect(pushButton_GTOW, &QPushButton::clicked, this, &AntiSpamFrame::slotGToW);
 
-    connect(WulforSettings::getInstance(), SIGNAL(strValueChanged(QString,QString)), this, SLOT(slotSettingsChanged(QString,QString)));
+    connect(qtCtx()->settings(), &WulforSettings::strValueChanged, this, &AntiSpamFrame::slotSettingsChanged);
 
     slotAntiSpamSwitch();
 }
@@ -77,7 +82,7 @@ void AntiSpamFrame::InitDocument() {
 void AntiSpamFrame::slotAntiSpamSwitch() {
     bool b = checkBox_ASENABLE->isChecked();
 
-    WBSET(WB_ANTISPAM_ENABLED, b);
+    qtCtx()->settings()->setBool(WB_ANTISPAM_ENABLED, b);
 
     checkBox_ASFILTER->setEnabled(b);
     groupBox_WHITE->setEnabled(b);
@@ -93,21 +98,21 @@ void AntiSpamFrame::slotAntiSpamSwitch() {
     pushButton_GTOB->setEnabled(b);
     pushButton_GTOW->setEnabled(b);
 
-    groupBox_WHITE->setEnabled(!WBGET(WB_ANTISPAM_AS_FILTER));
-    groupBox_GRAY->setEnabled(!WBGET(WB_ANTISPAM_AS_FILTER));
-    groupBox_PHRASE->setEnabled(!WBGET(WB_ANTISPAM_AS_FILTER));
+    groupBox_WHITE->setEnabled(!qtCtx()->settings()->getBool(WB_ANTISPAM_AS_FILTER));
+    groupBox_GRAY->setEnabled(!qtCtx()->settings()->getBool(WB_ANTISPAM_AS_FILTER));
+    groupBox_PHRASE->setEnabled(!qtCtx()->settings()->getBool(WB_ANTISPAM_AS_FILTER));
 
-    if (!b && AntiSpam::getInstance()) {
-        AntiSpam::getInstance()->setAttempts(spinBox_TRYCOUNT->value());
-        AntiSpam::getInstance()->saveSettings();
-        AntiSpam::getInstance()->saveLists();
+    if (!b && qtCtx()->antiSpam()) {
+        qtCtx()->antiSpam()->setAttempts(spinBox_TRYCOUNT->value());
+        qtCtx()->antiSpam()->saveSettings();
+        qtCtx()->antiSpam()->saveLists();
 
-        AntiSpam::deleteInstance();
-    } else if (b && !AntiSpam::getInstance()) {
-        AntiSpam::newInstance();
+        qtCtx()->destroyAntiSpam();
+    } else if (b && !qtCtx()->antiSpam()) {
+        qtCtx()->createAntiSpam();
 
-        AntiSpam::getInstance()->loadSettings();
-        AntiSpam::getInstance()->loadLists();
+        qtCtx()->antiSpam()->loadSettings();
+        qtCtx()->antiSpam()->loadLists();
 
         loadGUIData();
     }
@@ -116,7 +121,7 @@ void AntiSpamFrame::slotAntiSpamSwitch() {
 void AntiSpamFrame::slotAsFilter(){
     bool b = checkBox_ASFILTER->isChecked();
 
-    WBSET(WB_ANTISPAM_AS_FILTER, b);
+    qtCtx()->settings()->setBool(WB_ANTISPAM_AS_FILTER, b);
 
     groupBox_WHITE->setEnabled(!b);
     groupBox_GRAY->setEnabled(!b);
@@ -124,20 +129,20 @@ void AntiSpamFrame::slotAsFilter(){
 }
 
 void AntiSpamFrame::slotFilterOps(){
-    WBSET(WB_ANTISPAM_FILTER_OPS, checkBox_FILTER_OPS->isChecked());
+    qtCtx()->settings()->setBool(WB_ANTISPAM_FILTER_OPS, checkBox_FILTER_OPS->isChecked());
 }
 
 void AntiSpamFrame::loadGUIData() {
-    if (AntiSpam::getInstance()) {
-        lineEdit_PHRASE->setText(AntiSpam::getInstance()->getPhrase());
+    if (qtCtx()->antiSpam()) {
+        lineEdit_PHRASE->setText(qtCtx()->antiSpam()->getPhrase());
 
-        checkBox_ASFILTER->setChecked(WBGET(WB_ANTISPAM_AS_FILTER));
+        checkBox_ASFILTER->setChecked(qtCtx()->settings()->getBool(WB_ANTISPAM_AS_FILTER));
 
-        spinBox_TRYCOUNT->setValue(AntiSpam::getInstance()->getAttempts());
+        spinBox_TRYCOUNT->setValue(qtCtx()->antiSpam()->getAttempts());
 
-        checkBox_FILTER_OPS->setChecked(WBGET(WB_ANTISPAM_FILTER_OPS));
+        checkBox_FILTER_OPS->setChecked(qtCtx()->settings()->getBool(WB_ANTISPAM_FILTER_OPS));
 
-        QList<QString> keys = AntiSpam::getInstance()->getKeys();
+        QList<QString> keys = qtCtx()->antiSpam()->getKeys();
         QString words = "";
 
         for (int i = 0; i < keys.size(); i++)
@@ -156,17 +161,17 @@ void AntiSpamFrame::loadGUIData() {
 }
 
 void AntiSpamFrame::loadBlackList() {
-    QList<QString> list = AntiSpam::getInstance()->getBlack();
+    QList<QString> list = qtCtx()->antiSpam()->getBlack();
     loadList(treeWidget_BLACK, list);
 }
 
 void AntiSpamFrame::loadGrayList() {
-    QList<QString> list = AntiSpam::getInstance()->getGray();
+    QList<QString> list = qtCtx()->antiSpam()->getGray();
     loadList(treeWidget_GRAY, list);
 }
 
 void AntiSpamFrame::loadWhiteList() {
-    QList<QString> list = AntiSpam::getInstance()->getWhite();
+    QList<QString> list = qtCtx()->antiSpam()->getWhite();
     loadList(treeWidget_WHITE, list);
 }
 
@@ -198,15 +203,15 @@ bool AntiSpamFrame::addToList(AntiSpamObjectState state, const QString &nick) {
     if (nick.isEmpty())
         return false;
 
-    if (!AntiSpam::getInstance())
+    if (!qtCtx()->antiSpam())
         return false;
 
-    if (AntiSpam::getInstance()->isInAny(nick)) {//nick already in lists
+    if (qtCtx()->antiSpam()->isInAny(nick)) {//nick already in lists
         AntiSpamObjectState e;
 
-        if (AntiSpam::getInstance()->isInBlack(nick))
+        if (qtCtx()->antiSpam()->isInBlack(nick))
             e = eIN_BLACK;
-        else if (AntiSpam::getInstance()->isInGray(nick))
+        else if (qtCtx()->antiSpam()->isInGray(nick))
             e = eIN_GRAY;
         else
             e = eIN_WHITE;
@@ -214,7 +219,7 @@ bool AntiSpamFrame::addToList(AntiSpamObjectState state, const QString &nick) {
         if (e == state)//in some list
             return false;
 
-        AntiSpam::getInstance()->move(nick, state);
+        qtCtx()->antiSpam()->move(nick, state);
 
         QTreeWidget *tree = nullptr;
 
@@ -250,7 +255,7 @@ bool AntiSpamFrame::addToList(AntiSpamObjectState state, const QString &nick) {
 
     QTreeWidget *tree = nullptr;
 
-    (*AntiSpam::getInstance()) << state << nick;
+    (*qtCtx()->antiSpam()) << state << nick;
 
     switch (state) {
         case eIN_BLACK:
@@ -318,22 +323,22 @@ void AntiSpamFrame::slotAddToWhite() {
 void AntiSpamFrame::slotClearBlack() {
     clearTreeWidget(treeWidget_BLACK);
 
-    if (AntiSpam::getInstance())
-        AntiSpam::getInstance()->clearBlack();
+    if (qtCtx()->antiSpam())
+        qtCtx()->antiSpam()->clearBlack();
 }
 
 void AntiSpamFrame::slotClearGray() {
     clearTreeWidget(treeWidget_GRAY);
 
-    if (AntiSpam::getInstance())
-        AntiSpam::getInstance()->clearGray();
+    if (qtCtx()->antiSpam())
+        qtCtx()->antiSpam()->clearGray();
 }
 
 void AntiSpamFrame::slotClearWhite() {
     clearTreeWidget(treeWidget_WHITE);
 
-    if (AntiSpam::getInstance())
-        AntiSpam::getInstance()->clearWhite();
+    if (qtCtx()->antiSpam())
+        qtCtx()->antiSpam()->clearWhite();
 }
 
 void AntiSpamFrame::slotRemFromBlack() {
@@ -344,8 +349,8 @@ void AntiSpamFrame::slotRemFromBlack() {
 
         remItemFromTree(treeWidget_BLACK, nick);
 
-        if (AntiSpam::getInstance())
-            AntiSpam::getInstance()->remFromBlack(QList<QString > () << nick);
+        if (qtCtx()->antiSpam())
+            qtCtx()->antiSpam()->remFromBlack(QList<QString > () << nick);
     }
 }
 
@@ -357,8 +362,8 @@ void AntiSpamFrame::slotRemFromGray() {
 
         remItemFromTree(treeWidget_GRAY, nick);
 
-        if (AntiSpam::getInstance())
-            AntiSpam::getInstance()->remFromGray(QList<QString > () << nick);
+        if (qtCtx()->antiSpam())
+            qtCtx()->antiSpam()->remFromGray(QList<QString > () << nick);
     }
 }
 
@@ -370,13 +375,13 @@ void AntiSpamFrame::slotRemFromWhite() {
 
         remItemFromTree(treeWidget_WHITE, nick);
 
-        if (AntiSpam::getInstance())
-            AntiSpam::getInstance()->remFromWhite(QList<QString > () << nick);
+        if (qtCtx()->antiSpam())
+            qtCtx()->antiSpam()->remFromWhite(QList<QString > () << nick);
     }
 }
 
 void AntiSpamFrame::slotAccept() {
-    if (!AntiSpam::getInstance()) {
+    if (!qtCtx()->antiSpam()) {
         accept();
         return;
     }
@@ -391,9 +396,9 @@ void AntiSpamFrame::slotAccept() {
         }
     }
 
-    AntiSpam::getInstance()->setPhrase(phrase);
-    AntiSpam::getInstance()->setKeys(keys);
-    AntiSpam::getInstance()->setAttempts(spinBox_TRYCOUNT->value());
+    qtCtx()->antiSpam()->setPhrase(phrase);
+    qtCtx()->antiSpam()->setKeys(keys);
+    qtCtx()->antiSpam()->setAttempts(spinBox_TRYCOUNT->value());
 
     accept();
 }

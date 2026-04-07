@@ -2,6 +2,7 @@
  * Copyright (C) 2001-2012 Jacek Sieka, arnetheduck on gmail point com
  * Copyright (C) 2009-2019 EiskaltDC++ developers
  * Copyright (C) 2019 Boris Pek <tehnick-8@yandex.ru>
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -31,6 +32,7 @@
 #include "ThrottleManager.h"
 #include "TimerManager.h"
 #include "ZUtils.h"
+#include "DCPlusPlus.h"
 
 namespace dcpp {
 
@@ -40,9 +42,9 @@ using std::max;
 // Polling is used for tasks...should be fixed...
 #define POLL_TIMEOUT 250
 
-BufferedSocket::BufferedSocket(char aSeparator) :
+BufferedSocket::BufferedSocket(char aSeparator, DCContext& ctx) :
     separator(aSeparator), mode(MODE_LINE), dataBytes(0), rollback(0), state(STARTING),
-    disconnecting(false)
+    ctx_(ctx), disconnecting(false)
 {
     start();
 
@@ -76,25 +78,26 @@ void BufferedSocket::setMode (Modes aMode, size_t aRollback) {
 
 void BufferedSocket::setSocket(std::unique_ptr<Socket> s) {
     dcassert(!sock.get());
-    if(SETTING(SOCKET_IN_BUFFER) > 0)
-        s->setSocketOpt(SO_RCVBUF, SETTING(SOCKET_IN_BUFFER));
-    if(SETTING(SOCKET_OUT_BUFFER) > 0)
-        s->setSocketOpt(SO_SNDBUF, SETTING(SOCKET_OUT_BUFFER));
+    s->setContext(&ctx());
+    if(ctx().getSettingsManager()->get(SettingsManager::SOCKET_IN_BUFFER) > 0)
+        s->setSocketOpt(SO_RCVBUF, ctx().getSettingsManager()->get(SettingsManager::SOCKET_IN_BUFFER));
+    if(ctx().getSettingsManager()->get(SettingsManager::SOCKET_OUT_BUFFER) > 0)
+        s->setSocketOpt(SO_SNDBUF, ctx().getSettingsManager()->get(SettingsManager::SOCKET_OUT_BUFFER));
     s->setSocketOpt(SO_REUSEADDR, 1);   // NAT traversal
 
     inbuf.resize(s->getSocketOptInt(SO_RCVBUF));
 
-    sock = move(s);
+    sock = std::move(s);
 }
 
 void BufferedSocket::accept(const Socket& srv, bool secure, bool allowUntrusted) {
     dcdebug("BufferedSocket::accept() %p\n", (void*)this);
 
-    std::unique_ptr<Socket> s(secure ? CryptoManager::getInstance()->getServerSocket(allowUntrusted) : new Socket);
+    std::unique_ptr<Socket> s(secure ? ctx().getCryptoManager()->getServerSocket(allowUntrusted) : new Socket);
 
     s->accept(srv);
 
-    setSocket(move(s));
+    setSocket(std::move(s));
 
     Lock l(cs);
     addTask(ACCEPTED, 0);
@@ -107,14 +110,14 @@ void BufferedSocket::connect(const string& aAddress, const string& aPort, bool s
 void BufferedSocket::connect(const string& aAddress, const string& aPort, const string& localPort, NatRoles natRole, bool secure, bool allowUntrusted, bool proxy, Socket::Protocol proto, const string& expKP) {
     (void)expKP;
     dcdebug("BufferedSocket::connect() %p\n", (void*)this);
-    std::unique_ptr<Socket> s(secure ? (natRole == NAT_SERVER ? CryptoManager::getInstance()->getServerSocket(allowUntrusted) : CryptoManager::getInstance()->getClientSocket(allowUntrusted, proto)) : new Socket);
+    std::unique_ptr<Socket> s(secure ? (natRole == NAT_SERVER ? ctx().getCryptoManager()->getServerSocket(allowUntrusted) : ctx().getCryptoManager()->getClientSocket(allowUntrusted, proto)) : new Socket);
 
     s->create();
-    setSocket(move(s));
-    sock->bind(localPort, SETTING(BIND_IFACE)? sock->getIfaceI4(SETTING(BIND_IFACE_NAME)).c_str() : SETTING(BIND_ADDRESS));
+    setSocket(std::move(s));
+    sock->bind(localPort, ctx().getSettingsManager()->get(SettingsManager::BIND_IFACE)? sock->getIfaceI4(ctx().getSettingsManager()->get(SettingsManager::BIND_IFACE_NAME)).c_str() : ctx().getSettingsManager()->get(SettingsManager::BIND_ADDRESS));
 
     Lock l(cs);
-    addTask(CONNECT, new ConnectInfo(aAddress, aPort, localPort, natRole, proxy && (SETTING(OUTGOING_CONNECTIONS) == SettingsManager::OUTGOING_SOCKS5)));
+    addTask(CONNECT, new ConnectInfo(aAddress, aPort, localPort, natRole, proxy && (ctx().getSettingsManager()->get(SettingsManager::OUTGOING_CONNECTIONS) == SettingsManager::OUTGOING_SOCKS5)));
 }
 
 #define LONG_TIMEOUT 30000
@@ -181,7 +184,7 @@ void BufferedSocket::threadRead() {
     if(state != RUNNING)
         return;
 
-    int left = (mode == MODE_DATA) ? ThrottleManager::getInstance()->read(sock.get(), &inbuf[0], (int)inbuf.size()) : sock->read(&inbuf[0], (int)inbuf.size());
+    int left = (mode == MODE_DATA) ? ctx().getThrottleManager()->read(sock.get(), &inbuf[0], (int)inbuf.size()) : sock->read(&inbuf[0], (int)inbuf.size());
     if(left == -1) {
         // EWOULDBLOCK, no data received...
         return;
@@ -277,7 +280,7 @@ void BufferedSocket::threadRead() {
         }
     }
 
-    if(mode == MODE_LINE && line.size() > static_cast<size_t>(SETTING(MAX_COMMAND_LENGTH))) {
+    if(mode == MODE_LINE && line.size() > static_cast<size_t>(ctx().getSettingsManager()->get(SettingsManager::MAX_COMMAND_LENGTH))) {
         throw SocketException(_("Maximum command length exceeded"));
     }
 }
@@ -347,7 +350,7 @@ void BufferedSocket::threadSendFile(InputStream* file) {
                 }
             } else {
                 writeSize = min(sockSize / 2, writeBuf.size() - writePos);
-                written = ThrottleManager::getInstance()->write(sock.get(), &writeBuf[writePos], writeSize);
+                written = ctx().getThrottleManager()->write(sock.get(), &writeBuf[writePos], writeSize);
             }
 
             if(written > 0) {
@@ -386,7 +389,7 @@ void BufferedSocket::threadSendFile(InputStream* file) {
     }
 }
 
-void BufferedSocket::write(const char* aBuf, size_t aLen) noexcept {
+void BufferedSocket::write(const char* aBuf, size_t aLen) {
     if(!sock.get())
         return;
     Lock l(cs);
@@ -438,7 +441,7 @@ bool BufferedSocket::checkEvents() {
         {
             Lock l(cs);
             dcassert(!tasks.empty());
-            p = move(tasks.front());
+            p = std::move(tasks.front());
             tasks.erase(tasks.begin());
         }
 
@@ -497,9 +500,17 @@ int BufferedSocket::run() {
             }
         } catch(const Exception& e) {
             fail(e.getError());
+        } catch(const std::exception& e) {
+            // Catch std::bad_alloc and other std::exception subclasses that
+            // are not derived from dcpp::Exception.  Without this, an
+            // uncaught exception would call std::terminate() and crash the
+            // entire process.
+            dcdebug("BufferedSocket::run() std::exception: %s\n", e.what());
+            fail(string("std::exception in socket thread: ") + e.what());
         }
     }
     dcdebug("BufferedSocket::run() end %p\n", (void*)this);
+    detach();  // prevent jthread destructor from self-joining
     delete this;
     return 0;
 }

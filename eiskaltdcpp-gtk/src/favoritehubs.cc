@@ -1,5 +1,6 @@
 /*
  * Copyright © 2004-2010 Jens Oknelid, paskharen@gmail.com
+ * Copyright (C) 2026 Joe Rivera <transfix@sublevels.net>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -22,12 +23,14 @@
 #include "settingsmanager.hh"
 #include "wulformanager.hh"
 #include "WulforUtil.hh"
+#include "dcpp/DCPlusPlus.h"
 
 using namespace std;
 using namespace dcpp;
 
-FavoriteHubs::FavoriteHubs():
-    BookEntry(Entry::FAVORITE_HUBS, _("Favorite Hubs"), "favoritehubs.ui")
+FavoriteHubs::FavoriteHubs(dcpp::DCContext& dcCtx):
+    BookEntry(Entry::FAVORITE_HUBS, _("Favorite Hubs"), "favoritehubs.ui"),
+    dcCtx_(dcCtx)
 {
     // Configure the dialog
     gtk_dialog_set_alternative_button_order(GTK_DIALOG(getWidget("favoriteHubsDialog")), GTK_RESPONSE_OK, GTK_RESPONSE_CANCEL, -1);
@@ -38,7 +41,7 @@ FavoriteHubs::FavoriteHubs():
     // menu
     g_object_ref_sink(getWidget("menu"));
 
-    gtk_window_set_transient_for(GTK_WINDOW(getWidget("favoriteHubsDialog")), GTK_WINDOW(WulforManager::get()->getMainWindow()->getContainer()));
+    gtk_window_set_transient_for(GTK_WINDOW(getWidget("favoriteHubsDialog")), GTK_WINDOW(wulforManagerInstance()->getMainWindow()->getContainer()));
     gtk_window_set_destroy_with_parent(GTK_WINDOW(getWidget("favoriteHubsDialog")), true);
 
     // Fill the charset drop-down list in edit fav hub dialog.
@@ -101,7 +104,7 @@ FavoriteHubs::FavoriteHubs():
 
 FavoriteHubs::~FavoriteHubs()
 {
-    FavoriteManager::getInstance()->removeListener(this);
+    dcCtx_.getFavoriteManager()->removeListener(this);
 
     gtk_widget_destroy(getWidget("favoriteHubsDialog"));
     g_object_unref(getWidget("menu"));
@@ -110,8 +113,8 @@ FavoriteHubs::~FavoriteHubs()
 void FavoriteHubs::show()
 {
     initializeList_client();
-    //WulforManager::get()->dispatchClientFunc(new Func0<FavoriteHubs>(this, &FavoriteHubs::initializeList_client));
-    FavoriteManager::getInstance()->addListener(this);
+    //wulforManagerInstance()->dispatchClientFunc(new Func0<FavoriteHubs>(this, &FavoriteHubs::initializeList_client));
+    dcCtx_.getFavoriteManager()->addListener(this);
 }
 
 void FavoriteHubs::addEntry_gui(StringMap params)
@@ -229,7 +232,7 @@ gboolean FavoriteHubs::onButtonReleased_gui(GtkWidget *widget, GdkEventButton *e
         }
         else if (fh->previous == GDK_2BUTTON_PRESS && event->button == 1)
         {
-            WulforManager::get()->getMainWindow()->showHub_gui(
+            wulforManagerInstance()->getMainWindow()->showHub_gui(
                         fh->favoriteView.getString(&iter, _("Address")),
                         fh->favoriteView.getString(&iter, _("Encoding")));
         }
@@ -251,7 +254,7 @@ gboolean FavoriteHubs::onKeyReleased_gui(GtkWidget *widget, GdkEventKey *event, 
 
         if (event->keyval == GDK_KEY_Return || event->keyval == GDK_KEY_KP_Enter)
         {
-            WulforManager::get()->getMainWindow()->showHub_gui(
+            wulforManagerInstance()->getMainWindow()->showHub_gui(
                         fh->favoriteView.getString(&iter, _("Address")),
                         fh->favoriteView.getString(&iter, _("Encoding")));
         }
@@ -295,7 +298,7 @@ void FavoriteHubs::onAddEntry_gui(GtkWidget *widget, gpointer data)
     {
         typedef Func1<FavoriteHubs, StringMap> F1;
         F1 *func = new F1(fh, &FavoriteHubs::addEntry_client, params);
-        WulforManager::get()->dispatchClientFunc(func);
+        wulforManagerInstance()->dispatchClientFunc(func);
     }
 }
 
@@ -332,7 +335,7 @@ void FavoriteHubs::onEditEntry_gui(GtkWidget *widget, gpointer data)
 
         typedef Func2<FavoriteHubs, string, StringMap> F2;
         F2 *func = new F2(fh, &FavoriteHubs::editEntry_client, address, params);
-        WulforManager::get()->dispatchClientFunc(func);
+        wulforManagerInstance()->dispatchClientFunc(func);
     }
 }
 
@@ -357,7 +360,7 @@ bool FavoriteHubs::showFavoriteHubDialog_gui(StringMap &params, FavoriteHubs *fh
     gboolean disableChat = params["Disable Chat"] == "1" ? true : false;
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(fh->getWidget("checkDisableChat")), disableChat);
 
-    gboolean externalIP = !(params["External IP"].empty() || params["External IP"] == SETTING(EXTERNAL_IP));
+    gboolean externalIP = !(params["External IP"].empty() || params["External IP"] == fh->dcCtx_.getSettingsManager()->get(SettingsManager::EXTERNAL_IP, true));
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(fh->getWidget("checkExternalIP")), externalIP);
 
     gboolean internetIP = params["Internet IP"] == "1" ? true : false;
@@ -369,11 +372,11 @@ bool FavoriteHubs::showFavoriteHubDialog_gui(StringMap &params, FavoriteHubs *fh
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(fh->getWidget("checkbuttonEncoding")), overrideEncoding);
 
     // Set the override default nick checkbox
-    gboolean overrideNick = !(params["Nick"].empty() || params["Nick"] == SETTING(NICK));
+    gboolean overrideNick = !(params["Nick"].empty() || params["Nick"] == fh->dcCtx_.getSettingsManager()->get(SettingsManager::NICK, true));
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(fh->getWidget("checkbuttonNick")), overrideNick);
 
     // Set the override default user description checkbox
-    gboolean overrideUserDescription = !(params["User Description"].empty() || params["User Description"] == SETTING(DESCRIPTION));
+    gboolean overrideUserDescription = !(params["User Description"].empty() || params["User Description"] == fh->dcCtx_.getSettingsManager()->get(SettingsManager::DESCRIPTION, true));
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(fh->getWidget("checkbuttonUserDescription")), overrideUserDescription);
 
     // Show the dialog
@@ -455,7 +458,7 @@ void FavoriteHubs::onRemoveEntry_gui(GtkWidget *widget, gpointer data)
         if (WGETB("confirm-hub-removal"))
         {
             string name = fh->favoriteView.getString(&iter, _("Name")).c_str();
-            GtkWindow* parent = GTK_WINDOW(WulforManager::get()->getMainWindow()->getContainer());
+            GtkWindow* parent = GTK_WINDOW(wulforManagerInstance()->getMainWindow()->getContainer());
             GtkWidget* dialog = gtk_message_dialog_new(parent,
                                                        GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_QUESTION, GTK_BUTTONS_NONE,
                                                        _("Are you sure you want to delete favorite hub \"%s\"?"), name.c_str());
@@ -476,7 +479,7 @@ void FavoriteHubs::onRemoveEntry_gui(GtkWidget *widget, gpointer data)
 
         typedef Func1<FavoriteHubs, string> F1;
         F1 *func = new F1(fh, &FavoriteHubs::removeEntry_client, address);
-        WulforManager::get()->dispatchClientFunc(func);
+        wulforManagerInstance()->dispatchClientFunc(func);
     }
 }
 
@@ -487,7 +490,7 @@ void FavoriteHubs::onConnect_gui(GtkButton *widget, gpointer data)
     GtkTreeIter iter;
 
     if (gtk_tree_selection_get_selected(fh->favoriteSelection, NULL, &iter))
-        WulforManager::get()->getMainWindow()->showHub_gui(
+        wulforManagerInstance()->getMainWindow()->showHub_gui(
                     fh->favoriteView.getString(&iter, _("Address")),
                     fh->favoriteView.getString(&iter, _("Encoding")));
 }
@@ -507,7 +510,7 @@ void FavoriteHubs::onToggledClicked_gui(GtkCellRendererToggle *cell, gchar *path
 
         typedef Func2<FavoriteHubs, string, bool> F2;
         F2 *func = new F2(fh, &FavoriteHubs::setConnect_client, address, fixed);
-        WulforManager::get()->dispatchClientFunc(func);
+        wulforManagerInstance()->dispatchClientFunc(func);
     }
 }
 
@@ -527,14 +530,14 @@ void FavoriteHubs::onCheckButtonToggled_gui(GtkToggleButton *button, gpointer da
 void FavoriteHubs::initializeList_client()
 {
     StringMap params;
-    const FavoriteHubEntryList& fl = FavoriteManager::getInstance()->getFavoriteHubs();
+    const FavoriteHubEntryList& fl = dcCtx_.getFavoriteManager()->getFavoriteHubs();
 
     for (auto it = fl.begin(); it != fl.end(); ++it)
     {
         getFavHubParams_client(*it, params);
         addEntry_gui(params);
         //func = new F1(this, &FavoriteHubs::addEntry_gui, params);
-        //WulforManager::get()->dispatchGuiFunc(func);
+        //wulforManagerInstance()->dispatchGuiFunc(func);
     }
 }
 
@@ -557,7 +560,7 @@ void FavoriteHubs::getFavHubParams_client(const FavoriteHubEntry *entry, StringM
 
 void FavoriteHubs::addEntry_client(StringMap params)
 {
-    FavoriteHubEntry entry;
+    FavoriteHubEntry entry(dcCtx_);
     entry.setConnect(Util::toInt(params["Auto Connect"]));
     entry.setName(params["Name"]);
     entry.setServer(params["Address"]);
@@ -571,15 +574,15 @@ void FavoriteHubs::addEntry_client(StringMap params)
     entry.setDisableChat(Util::toInt(params["Disable Chat"]));
     entry.setExternalIP(params["External IP"]);
     entry.setUseInternetIP(Util::toInt(params["Internet IP"]));
-    FavoriteManager::getInstance()->addFavorite(entry);
+    dcCtx_.getFavoriteManager()->addFavorite(entry);
 
-    const FavoriteHubEntryList &fh = FavoriteManager::getInstance()->getFavoriteHubs();
-    WulforManager::get()->getMainWindow()->updateFavoriteHubMenu_client(fh);
+    const FavoriteHubEntryList &fh = dcCtx_.getFavoriteManager()->getFavoriteHubs();
+    wulforManagerInstance()->getMainWindow()->updateFavoriteHubMenu_client(fh);
 }
 
 void FavoriteHubs::editEntry_client(string address, StringMap params)
 {
-    FavoriteHubEntry *entry = FavoriteManager::getInstance()->getFavoriteHubEntry(address);
+    FavoriteHubEntry *entry = dcCtx_.getFavoriteManager()->getFavoriteHubEntry(address);
 
     if (entry)
     {
@@ -596,34 +599,34 @@ void FavoriteHubs::editEntry_client(string address, StringMap params)
         entry->setDisableChat(Util::toInt(params["Disable Chat"]));
         entry->setExternalIP(params["External IP"]);
         entry->setUseInternetIP(Util::toInt(params["Internet IP"]));
-        FavoriteManager::getInstance()->save();
+        dcCtx_.getFavoriteManager()->save();
 
-        const FavoriteHubEntryList &fh = FavoriteManager::getInstance()->getFavoriteHubs();
-        WulforManager::get()->getMainWindow()->updateFavoriteHubMenu_client(fh);
+        const FavoriteHubEntryList &fh = dcCtx_.getFavoriteManager()->getFavoriteHubs();
+        wulforManagerInstance()->getMainWindow()->updateFavoriteHubMenu_client(fh);
     }
 }
 
 void FavoriteHubs::removeEntry_client(string address)
 {
-    FavoriteHubEntry *entry = FavoriteManager::getInstance()->getFavoriteHubEntry(address);
+    FavoriteHubEntry *entry = dcCtx_.getFavoriteManager()->getFavoriteHubEntry(address);
 
     if (entry)
     {
-        FavoriteManager::getInstance()->removeFavorite(entry);
+        dcCtx_.getFavoriteManager()->removeFavorite(entry);
 
-        const FavoriteHubEntryList &fh = FavoriteManager::getInstance()->getFavoriteHubs();
-        WulforManager::get()->getMainWindow()->updateFavoriteHubMenu_client(fh);
+        const FavoriteHubEntryList &fh = dcCtx_.getFavoriteManager()->getFavoriteHubs();
+        wulforManagerInstance()->getMainWindow()->updateFavoriteHubMenu_client(fh);
     }
 }
 
 void FavoriteHubs::setConnect_client(string address, bool active)
 {
-    FavoriteHubEntry *entry = FavoriteManager::getInstance()->getFavoriteHubEntry(address);
+    FavoriteHubEntry *entry = dcCtx_.getFavoriteManager()->getFavoriteHubEntry(address);
 
     if (entry)
     {
         entry->setConnect(active);
-        FavoriteManager::getInstance()->save();
+        dcCtx_.getFavoriteManager()->save();
     }
 }
 
@@ -634,12 +637,12 @@ void FavoriteHubs::on(FavoriteManagerListener::FavoriteAdded, const FavoriteHubE
 
     typedef Func1<FavoriteHubs, StringMap> F1;
     F1 *func = new F1(this, &FavoriteHubs::addEntry_gui, params);
-    WulforManager::get()->dispatchGuiFunc(func);
+    wulforManagerInstance()->dispatchGuiFunc(func);
 }
 
 void FavoriteHubs::on(FavoriteManagerListener::FavoriteRemoved, const FavoriteHubEntryPtr entry) noexcept
 {
     typedef Func1<FavoriteHubs, string> F1;
     F1 *func = new F1(this, &FavoriteHubs::removeEntry_gui, entry->getServer());
-    WulforManager::get()->dispatchGuiFunc(func);
+    wulforManagerInstance()->dispatchGuiFunc(func);
 }
