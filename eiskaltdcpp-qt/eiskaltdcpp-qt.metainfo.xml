@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<component type="desktop">
+<component type="desktop-application">
   <id>com.github.eiskaltdcpp</id>
   <launchable type="desktop-id">eiskaltdcpp-qt.desktop</launchable>
   <metadata_license>CC0-1.0</metadata_license>
@@ -55,7 +55,15 @@
       <image>https://tehnick.github.io/eiskaltdcpp/eiskaltdcpp-qt-2.2.10-588_search_widget.png</image>
     </screenshot>
   </screenshots>
-  <content_rating type="oars-1.0">
+  <content_rating type="oars-1.1">
     <content_attribute id="social-chat">intense</content_attribute>
   </content_rating>
+  <developer id="io.github.eiskaltdcpp">
+    <name>EiskaltDC++ Developers</name>
+  </developer>
+  <releases>
+    <release version="2.4.2" date="2021-03-02">
+        <url type="details">https://github.com/eiskaltdcpp/eiskaltdcpp/blob/697db4b03e3d9ffa48b3d4c74fd043dee7663266/ChangeLog.txt</url>
+    </release>
+  </releases>
 </component>

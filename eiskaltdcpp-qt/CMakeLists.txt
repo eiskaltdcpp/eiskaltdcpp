@@ -540,7 +540,7 @@ if (UNIX AND NOT APPLE AND NOT HAIKU)
 endif ()
 
 if (INSTALL_METAINFO)
-    install (FILES ${PROJECT_NAME}.appdata.xml DESTINATION ${SHARE_DIR}/metainfo)
+    install (FILES ${PROJECT_NAME}.metainfo.xml DESTINATION ${SHARE_DIR}/metainfo)
 endif ()
 
 if (APPLE)

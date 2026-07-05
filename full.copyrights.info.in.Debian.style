@@ -211,7 +211,7 @@ Files: json/jsonrpc-cpp/mongoose.*
 Copyright: 2004-2013 Sergey Lyubka
 License: Expat
 
-Files: eiskaltdcpp-*/*.appdata.xml
+Files: eiskaltdcpp-*/*.metainfo.xml
 Copyright: not-applicable
 License: cc0-1.0
  No license required for any purpose; the work is not subject to copyright

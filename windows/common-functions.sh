@@ -311,8 +311,8 @@ PrepareAppDirs()
               "${DIR_OUT_QT_UI}/share/"
         cp -a "${DIR_IN}/share/man/man1/eiskaltdcpp-qt.1.gz" \
               "${DIR_OUT_QT_UI}/share/man/man1/"
-        cp -a "${DIR_IN}/share/metainfo/eiskaltdcpp-qt.appdata.xml" \
-              "${DIR_OUT_QT_UI}/share/metainfo/eiskaltdcpp-qt.appdata.xml"
+        cp -a "${DIR_IN}/share/metainfo/eiskaltdcpp-qt.metainfo.xml" \
+              "${DIR_OUT_QT_UI}/share/metainfo/eiskaltdcpp-qt.metainfo.xml"
         cp -a "${DIR_IN}/share/pixmaps" \
               "${DIR_OUT_QT_UI}/share/"
         # additional files
@@ -345,8 +345,8 @@ PrepareAppDirs()
               "${DIR_OUT_DAEMON}/share/"
         cp -a "${DIR_IN}/share/man/man1/eiskaltdcpp-daemon.1.gz" \
               "${DIR_OUT_DAEMON}/share/man/man1/"
-        cp -a "${DIR_IN}/share/metainfo/eiskaltdcpp-daemon.appdata.xml" \
-              "${DIR_OUT_DAEMON}/share/metainfo/eiskaltdcpp-daemon.appdata.xml"
+        cp -a "${DIR_IN}/share/metainfo/eiskaltdcpp-daemon.metainfo.xml" \
+              "${DIR_OUT_DAEMON}/share/metainfo/eiskaltdcpp-daemon.metainfo.xml"
         cp -a "${DIR_IN}/share/pixmaps" \
               "${DIR_OUT_DAEMON}/share/"
         # additional files
