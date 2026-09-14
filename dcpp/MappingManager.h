@@ -25,6 +25,7 @@
 #include "forward.h"
 #include "Singleton.h"
 #include "Thread.h"
+#include "TimerManager.h"
 #include "UPnP.h"
 
 namespace dcpp {
@@ -36,7 +37,8 @@ using std::vector;
 
 class MappingManager :
         public Singleton<MappingManager>,
-        private Thread
+        private Thread,
+        private TimerManagerListener
 {
 public:
     /**
@@ -48,6 +50,7 @@ public:
     void runMiniUPnP();
     void addImplementation(UPnP* impl);
     bool open();
+    bool refresh();
     void close();
 
     bool getOpened() const { return opened; }
@@ -59,12 +62,15 @@ private:
     Impls impls;
 
     bool opened;
+    bool refreshing;
     Atomic<bool,memory_ordering_strong> portMapping;
+    uint64_t lastRefresh;
 
-    MappingManager() : opened(false), portMapping(false) { }
-    virtual ~MappingManager() noexcept { join(); }
+    MappingManager();
+    virtual ~MappingManager() noexcept;
 
     int run();
+    void on(TimerManagerListener::Minute, uint64_t aTick) noexcept;
 
     void close(UPnP& impl);
     void log(const string& message);

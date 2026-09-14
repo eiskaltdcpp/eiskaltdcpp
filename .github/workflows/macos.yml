@@ -1,0 +1,47 @@
+name: macOS
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+env:
+  HOMEBREW_NO_ENV_HINTS: 1
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - arch: arm64
+            runner: macos-14
+    runs-on: ${{ matrix.runner }}
+    steps:
+      - uses: actions/checkout@v6
+      - name: Install dependencies
+        run: |
+          brew update
+          deps=(cmake ninja ccache qt@5 gettext openssl@3 aspell jsoncpp libidn2 lua miniupnpc pcre2)
+          missing=()
+          for dep in "${deps[@]}"; do
+            brew list --formula "$dep" >/dev/null 2>&1 || missing+=("$dep")
+          done
+          if [[ "${#missing[@]}" -gt 0 ]]; then
+            # GitHub Actions turns Homebrew's harmless "Warning:" lines into annotations.
+            # Keep logs readable without hiding brew failures.
+            brew install "${missing[@]}" 2>&1 | sed 's/Warning:/Note:/g'
+          fi
+      - name: Build app
+        run: |
+          export HOMEBREW_PREFIX="$(brew --prefix)"
+          macos/build-app.sh --arch "${{ matrix.arch }}" --no-package
+      - name: Verify app
+        run: |
+          app="dist/macos-${{ matrix.arch }}-release/EiskaltDC++.app"
+          file "$app/Contents/MacOS/EiskaltDC++"
+          codesign --verify --deep --strict "$app"
+      - uses: actions/upload-artifact@v7
+        with:
+          name: EiskaltDC++-${{ matrix.arch }}
+          path: dist/macos-${{ matrix.arch }}-release/EiskaltDC++.app

@@ -1,0 +1,55 @@
+{
+  "version": 4,
+  "cmakeMinimumRequired": { "major": 3, "minor": 23, "patch": 0 },
+  "configurePresets": [
+    {
+      "name": "macos-base-release",
+      "hidden": true,
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/${presetName}",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "CMAKE_POLICY_VERSION_MINIMUM": "3.5",
+        "CMAKE_INSTALL_PREFIX": "${sourceDir}/dist/${presetName}",
+        "USE_QT": "OFF",
+        "USE_QT5": "ON",
+        "USE_QT_SQLITE": "ON",
+        "USE_MINIUPNP": "ON",
+        "WITH_DHT": "OFF",
+        "USE_ASPELL": "ON",
+        "USE_PROGRESS_BARS": "OFF",
+        "NO_UI_DAEMON": "OFF",
+        "JSONRPC_DAEMON": "OFF",
+        "PERL_REGEX": "ON",
+        "LUA_SCRIPT": "ON",
+        "WITH_SOUNDS": "ON",
+        "WITH_LUASCRIPTS": "ON",
+        "LOCAL_ASPELL_DATA": "OFF",
+        "LOCAL_JSONCPP": "OFF"
+      },
+      "environment": {
+        "CMAKE_PREFIX_PATH": "$env{HOMEBREW_PREFIX}/opt/qt@5;$env{HOMEBREW_PREFIX};$env{HOMEBREW_PREFIX}/opt/gettext;$env{HOMEBREW_PREFIX}/opt/openssl@3;$env{HOMEBREW_PREFIX}/opt/pcre2"
+      }
+    },
+    {
+      "name": "macos-arm64-release",
+      "inherits": "macos-base-release",
+      "cacheVariables": {
+        "CMAKE_OSX_ARCHITECTURES": "arm64",
+        "CMAKE_OSX_DEPLOYMENT_TARGET": "13.0"
+      }
+    },
+    {
+      "name": "macos-x86_64-release",
+      "inherits": "macos-base-release",
+      "cacheVariables": {
+        "CMAKE_OSX_ARCHITECTURES": "x86_64",
+        "CMAKE_OSX_DEPLOYMENT_TARGET": "10.15"
+      }
+    }
+  ],
+  "buildPresets": [
+    { "name": "macos-arm64-release", "configurePreset": "macos-arm64-release" },
+    { "name": "macos-x86_64-release", "configurePreset": "macos-x86_64-release" }
+  ]
+}

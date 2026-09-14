@@ -24,7 +24,14 @@ namespace dcpp {
 
 using std::string;
 
+struct StartupOptions {
+    bool skipHashLoad = false;
+    bool skipShareRefresh = false;
+    bool nonBlockingShareRefresh = false;
+};
+
 extern void startup(void (*f)(void*, const string&), void* p);
+extern void startup(void (*f)(void*, const string&), void* p, const StartupOptions& options);
 extern void shutdown();
 
 } // namespace dcpp

@@ -15,6 +15,12 @@ if (NOT LUA_SCRIPT)
     list (REMOVE_ITEM dcpp_srcs ${PROJECT_SOURCE_DIR}/ScriptManager.cpp)
 endif (NOT LUA_SCRIPT)
 
+if (APPLE)
+    list (REMOVE_ITEM dcpp_srcs ${PROJECT_SOURCE_DIR}/PasswordStore.cpp)
+else (APPLE)
+    list (REMOVE_ITEM dcpp_srcs ${PROJECT_SOURCE_DIR}/PasswordStore_mac.cpp)
+endif (APPLE)
+
 include_directories (${PROJECT_BINARY_DIR}
                      ${BZIP2_INCLUDE_DIR}
                      ${ZLIB_INCLUDE_DIR}
@@ -46,7 +52,8 @@ if (NOT LINK)
 endif (NOT LINK)
 
 if (APPLE)
-    set (APPLE_LIBS "iconv")
+    find_library(SECURITY_LIBRARY Security)
+    set (APPLE_LIBS "iconv" ${SECURITY_LIBRARY})
 endif (APPLE)
 
 set (UPNP "extra")

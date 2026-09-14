@@ -67,7 +67,9 @@ using namespace std;
 #endif
 
 #include <QApplication>
+#include <QElapsedTimer>
 #include <QMainWindow>
+#include <QProcessEnvironment>
 #include <QRegExp>
 #include <QObject>
 #include <QTextCodec>
@@ -76,17 +78,53 @@ using namespace std;
 #include <QtDBus>
 #endif
 
+namespace {
+
+struct QtStartupOptions {
+    bool safeMode = false;
+    bool skipHashLoad = false;
+    bool skipShareRefresh = false;
+    bool nonBlockingShareRefresh = false;
+    bool startupTiming = false;
+};
+
+QtStartupOptions startupOptions;
+QElapsedTimer startupTimer;
+qint64 lastStartupMark = 0;
+
+bool startupTimingEnabled()
+{
+    return startupOptions.startupTiming || qEnvironmentVariableIsSet("EISKALT_STARTUP_TIMING");
+}
+
+void startupMark(const QString& step)
+{
+    if (!startupTimingEnabled())
+        return;
+
+    if (!startupTimer.isValid())
+        startupTimer.start();
+
+    const qint64 now = startupTimer.elapsed();
+    std::cout << "Startup timing: +" << (now - lastStartupMark) << "ms (" << now << "ms) "
+              << step.toStdString() << std::endl;
+    lastStartupMark = now;
+}
+
+} // namespace
+
 void callBack(void *, const std::string &a)
 {
     std::cout << QObject::tr("Loading: ").toStdString() << a << std::endl;
+    startupMark(QString::fromStdString(a));
 }
 
-void parseCmdLine(const QStringList &);
+QtStartupOptions parseCmdLine(const QStringList &);
 
 #if !defined(Q_OS_WIN)
 #include <unistd.h>
 #include <signal.h>
-#if !defined (Q_OS_HAIKU) && defined (__GLIBC__)
+#if !defined (Q_OS_HAIKU)
 #include <execinfo.h>
 
 #ifdef ENABLE_STACKTRACE
@@ -130,7 +168,18 @@ int main(int argc, char *argv[])
     EiskaltApp app(argc, argv, _q(dcpp::Util::getLoginName()+"EDCPP"));
     int ret = 0;
 
-    parseCmdLine(app.arguments());
+    startupOptions = parseCmdLine(app.arguments());
+    if (startupOptions.safeMode) {
+        startupOptions.skipHashLoad = true;
+        startupOptions.skipShareRefresh = true;
+        startupOptions.nonBlockingShareRefresh = true;
+        std::cout << "Safe mode enabled: skipping hash load, share refresh, and autoconnect." << std::endl;
+    }
+    if (startupTimingEnabled()) {
+        startupTimer.start();
+        lastStartupMark = 0;
+        startupMark("application constructed");
+    }
 
     if (app.isRunning()){
         QStringList args = app.arguments();
@@ -141,7 +190,7 @@ int main(int argc, char *argv[])
         return 0;
     }
 
-#if !defined (Q_OS_WIN) && !defined (Q_OS_HAIKU) && defined (__GLIBC__)
+#if !defined (Q_OS_WIN) && !defined (Q_OS_HAIKU)
     installHandlers();
 #endif
 
@@ -149,7 +198,12 @@ int main(int argc, char *argv[])
     migrateConfig();
 #endif
 
-    dcpp::startup(callBack, nullptr);
+    dcpp::StartupOptions coreStartupOptions;
+    coreStartupOptions.skipHashLoad = startupOptions.skipHashLoad;
+    coreStartupOptions.skipShareRefresh = startupOptions.skipShareRefresh;
+    coreStartupOptions.nonBlockingShareRefresh = startupOptions.nonBlockingShareRefresh;
+    dcpp::startup(callBack, nullptr, coreStartupOptions);
+    startupMark("dcpp::startup complete");
     dcpp::TimerManager::getInstance()->start();
 
     HashManager::getInstance()->setPriority(Thread::IDLE);
@@ -161,6 +215,7 @@ int main(int argc, char *argv[])
     app.setApplicationVersion(QString::fromStdString(eiskaltdcppVersionString));
     
     GlobalTimer::newInstance();
+    startupMark("GlobalTimer initialized");
 
     WulforSettings::newInstance();
     WulforSettings::getInstance()->load();
@@ -180,6 +235,7 @@ int main(int argc, char *argv[])
 
     if (WulforUtil::getInstance()->loadIcons())
         std::cout << QObject::tr("Application icons has been loaded").toStdString() << std::endl;
+    startupMark("icons loaded");
 
     app.setWindowIcon(WICON(WulforUtil::eiICON_APPL));
 #if (QT_VERSION >= QT_VERSION_CHECK(5, 10, 1))
@@ -189,6 +245,7 @@ int main(int argc, char *argv[])
     ArenaWidgetManager::newInstance();
 
     MainWindow::newInstance();
+    startupMark("MainWindow created");
 #if defined(Q_OS_MAC)
     MainWindow::getInstance()->setUnload(false);
     QObject::connect(&app, SIGNAL(clickedOnDock()),
@@ -214,6 +271,7 @@ int main(int argc, char *argv[])
 #endif
 
     Notification::newInstance();
+    startupMark("notifications initialized");
 
 #ifdef USE_JS
     ScriptEngine::newInstance();
@@ -224,11 +282,14 @@ int main(int argc, char *argv[])
     ArenaWidgetFactory().create< dcpp::Singleton, FinishedDownloads >();
     ArenaWidgetFactory().create< dcpp::Singleton, QueuedUsers >();
 
-    MainWindow::getInstance()->autoconnect();
+    if (!startupOptions.safeMode)
+        MainWindow::getInstance()->autoconnect();
+    startupMark("autoconnect complete");
     MainWindow::getInstance()->parseCmdLine(app.arguments());
 
     if (!WBGET(WB_MAINWINDOW_HIDE) || !WBGET(WB_TRAY_ENABLED))
         MainWindow::getInstance()->show();
+    startupMark("main window shown");
 
     ret = app.exec();
 
@@ -267,10 +328,17 @@ int main(int argc, char *argv[])
     return ret;
 }
 
-void parseCmdLine(const QStringList &args){
+QtStartupOptions parseCmdLine(const QStringList &args){
+    QtStartupOptions options;
     for (const auto &arg : args){
         if (arg == "-h" || arg == "--help"){
             About().printHelp();
+            std::cout << "\nModern macOS recovery options:\n"
+                      << "  --safe-mode                 skip hash load, share refresh, and autoconnect\n"
+                      << "  --skip-hash-load            skip loading HashIndex/HashData during startup\n"
+                      << "  --skip-share-refresh        skip initial shared-file refresh/cache load\n"
+                      << "  --nonblocking-share-refresh do not block startup on initial share scan\n"
+                      << "  --startup-timing            print startup phase timings\n";
 
             exit(0);
         }
@@ -279,7 +347,20 @@ void parseCmdLine(const QStringList &args){
 
             exit(0);
         }
+        else if (arg == "--safe-mode")
+            options.safeMode = true;
+        else if (arg == "--skip-hash-load")
+            options.skipHashLoad = true;
+        else if (arg == "--skip-share-refresh")
+            options.skipShareRefresh = true;
+        else if (arg == "--nonblocking-share-refresh")
+            options.nonBlockingShareRefresh = true;
+        else if (arg == "--startup-timing")
+            options.startupTiming = true;
     }
+    if (options.skipHashLoad)
+        options.skipShareRefresh = true;
+    return options;
 }
 
 #if !defined (Q_OS_WIN) && !defined (Q_OS_HAIKU)

@@ -24,6 +24,7 @@
 #include "File.h"
 #include "FilteredFile.h"
 #include "HttpConnection.h"
+#include "PasswordStore.h"
 #include "SimpleXML.h"
 #include "StringTokenizer.h"
 #include "UserCommand.h"
@@ -334,7 +335,15 @@ void FavoriteManager::save() {
             xml.addChildAttrib("Connect", (*i)->getConnect());
             xml.addChildAttrib("Description", (*i)->getHubDescription());
             xml.addChildAttrib("Nick", (*i)->getNick(false));
+#if defined(__APPLE__)
+            if (PasswordStore::isAvailable() && PasswordStore::setHubPassword((*i)->getServer(), (*i)->getNick(false), (*i)->getPassword())) {
+                xml.addChildAttrib("PasswordStore", string("Keychain"));
+            } else {
+                xml.addChildAttrib("Password", (*i)->getPassword());
+            }
+#else
             xml.addChildAttrib("Password", (*i)->getPassword());
+#endif
             xml.addChildAttrib("Server", (*i)->getServer());
             xml.addChildAttrib("UserDescription", (*i)->getUserDescription());
             xml.addChildAttrib("Encoding", (*i)->getEncoding());
@@ -450,8 +459,21 @@ void FavoriteManager::load(SimpleXML& aXml) {
             e->setConnect(aXml.getBoolChildAttrib("Connect"));
             e->setHubDescription(aXml.getChildAttrib("Description"));
             e->setNick(aXml.getChildAttrib("Nick"));
-            e->setPassword(aXml.getChildAttrib("Password"));
+            const string legacyPassword = aXml.getChildAttrib("Password");
+            e->setPassword(legacyPassword);
             e->setServer(aXml.getChildAttrib("Server"));
+#if defined(__APPLE__)
+            if (PasswordStore::isAvailable()) {
+                string keychainPassword;
+                if (PasswordStore::getHubPassword(e->getServer(), e->getNick(false), keychainPassword)) {
+                    e->setPassword(keychainPassword);
+                    if (!legacyPassword.empty())
+                        needSave = true;
+                } else if (!legacyPassword.empty() && PasswordStore::setHubPassword(e->getServer(), e->getNick(false), legacyPassword)) {
+                    needSave = true;
+                }
+            }
+#endif
             e->setUserDescription(aXml.getChildAttrib("UserDescription"));
             e->setEncoding(aXml.getChildAttrib("Encoding"));
             e->setExternalIP(aXml.getChildAttrib("ExternalIP"));

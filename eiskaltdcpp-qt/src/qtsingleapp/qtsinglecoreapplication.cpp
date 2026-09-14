@@ -12,41 +12,64 @@
 
 #include <QTimer>
 #include <QByteArray>
+#include <QCryptographicHash>
+#include <QDataStream>
 #include <QDebug>
+#include <QLocalSocket>
 
 static const unsigned int SHARED_MEM_SIZE = 2048;
 
 QtSingleCoreApplication::QtSingleCoreApplication(int &argc, char **argv, const QString &uniqueKey)
-    : QApplication(argc, argv), sharedMemory()
+    : QApplication(argc, argv), localServer(nullptr), sharedMemory()
 {
     sharedMemory.setKey(uniqueKey);
+    localServerName = QStringLiteral("edcpp-") +
+        QString::fromLatin1(QCryptographicHash::hash(uniqueKey.toUtf8(), QCryptographicHash::Sha1).toHex().left(16));
 
-    if (sharedMemory.attach())
+    QLocalSocket socket;
+    socket.connectToServer(localServerName, QIODevice::WriteOnly);
+    if (socket.waitForConnected(250)) {
         _isRunning = true;
-    else {
-        _isRunning = false;
-        // attach data to shared memory.
-        QByteArray byteArray("0"); // default value to note that no message is available.
-        byteArray.resize(SHARED_MEM_SIZE);
+        return;
+    }
 
-        if (!sharedMemory.create(byteArray.size()))
-        {
-            qDebug("Unable to create single instance.");
-            return;
-        }
+    QLocalServer::removeServer(localServerName);
+    localServer = new QLocalServer(this);
+    if (!localServer->listen(localServerName)) {
+        qWarning() << "Unable to create local single-instance server" << localServerName << localServer->errorString();
+        delete localServer;
+        localServer = nullptr;
+    } else {
+        connect(localServer, SIGNAL(newConnection()), this, SLOT(receiveLocalConnection()));
+    }
+
+    _isRunning = false;
+
+    // Keep the legacy shared-memory channel for crash-handler cleanup and compatibility.
+    QByteArray byteArray("0"); // default value to note that no message is available.
+    byteArray.resize(SHARED_MEM_SIZE);
+
+    if (!sharedMemory.create(byteArray.size()))
+    {
+        sharedMemory.attach();
+        sharedMemory.detach();
+        sharedMemory.create(byteArray.size());
+    }
+
+    if (sharedMemory.isAttached()) {
         sharedMemory.lock();
         char *to = (char*)sharedMemory.data();
         const char *from = byteArray.data();
         memcpy(to, from, qMin(sharedMemory.size(), byteArray.size()));
         sharedMemory.unlock();
-        // start checking for messages of other instances.
-        QTimer *timer = new QTimer(this);
-        connect(timer, SIGNAL(timeout()), this, SLOT(checkForMessage()));
-        timer->start(2000);
     }
 }
 
 QtSingleCoreApplication::~QtSingleCoreApplication(){
+    if (localServer) {
+        localServer->close();
+        QLocalServer::removeServer(localServerName);
+    }
     sharedMemory.detach();
 }
 
@@ -61,25 +84,51 @@ bool QtSingleCoreApplication::sendMessage(QString message)
     if (!_isRunning)
         return false;
 
-    if (message.length() > sharedMemory.size() - 2)//two reserved bytes
-        message = message.left(sharedMemory.size()-2);
+    QLocalSocket socket;
+    socket.connectToServer(localServerName, QIODevice::WriteOnly);
+    if (!socket.waitForConnected(1000))
+        return false;
 
-    QByteArray byteArray("1");
-    byteArray.append(message.toUtf8());
-    byteArray.append('\0');
+    QByteArray payload = message.toUtf8();
+    QByteArray frame;
+    QDataStream stream(&frame, QIODevice::WriteOnly);
+    stream.setVersion(QDataStream::Qt_5_0);
+    stream << static_cast<quint32>(payload.size());
+    frame.append(payload);
 
-    sharedMemory.lock();
-
-    char *to = (char*)sharedMemory.data();
-    const char *from = byteArray.data();
-
-    memcpy(to, from, qMin(sharedMemory.size(), byteArray.size()));
-
-    sharedMemory.unlock();
-
-    return true;
+    if (socket.write(frame) != frame.size())
+        return false;
+    return socket.waitForBytesWritten(1000);
 }
 
+
+void QtSingleCoreApplication::receiveLocalConnection()
+{
+    while (localServer && localServer->hasPendingConnections()) {
+        QLocalSocket *socket = localServer->nextPendingConnection();
+        if (!socket)
+            continue;
+
+        while (socket->bytesAvailable() < static_cast<qint64>(sizeof(quint32)) && socket->waitForReadyRead(1000)) { }
+
+        if (socket->bytesAvailable() >= static_cast<qint64>(sizeof(quint32))) {
+            QDataStream stream(socket);
+            stream.setVersion(QDataStream::Qt_5_0);
+            quint32 payloadSize = 0;
+            stream >> payloadSize;
+
+            while (socket->bytesAvailable() < static_cast<qint64>(payloadSize) && socket->waitForReadyRead(1000)) { }
+
+            if (socket->bytesAvailable() >= static_cast<qint64>(payloadSize)) {
+                QByteArray payload = socket->read(payloadSize);
+                if (!payload.isEmpty())
+                    emit messageReceived(QString::fromUtf8(payload));
+            }
+        }
+        socket->disconnectFromServer();
+        socket->deleteLater();
+    }
+}
 
 void QtSingleCoreApplication::checkForMessage()
 {

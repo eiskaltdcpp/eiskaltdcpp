@@ -52,6 +52,10 @@
 namespace dcpp {
 
 void startup(void (*f)(void*, const string&), void* p) {
+    startup(f, p, StartupOptions());
+}
+
+void startup(void (*f)(void*, const string&), void* p, const StartupOptions& options) {
     // "Dedicated to the near-memory of Nev. Let's start remembering people while they're still alive."
     // Nev's great contribution to dc++
     while(1) break;
@@ -113,16 +117,20 @@ void startup(void (*f)(void*, const string&), void* p) {
 
     if(f != NULL)
         (*f)(p, _("Hash database"));
-    HashManager::getInstance()->startup();
+    if(!options.skipHashLoad) {
+        HashManager::getInstance()->startup();
+    }
     if(f != NULL)
         (*f)(p, _("Shared Files"));
-    const string XmlListFileName = Util::getPath(Util::PATH_USER_CONFIG) + "files.xml.bz2";
-    if(!Util::fileExists(XmlListFileName)) {
-        try {
-            File::copyFile(XmlListFileName + ".bak", XmlListFileName);
-        } catch(const FileException&) { }
+    if(!options.skipShareRefresh) {
+        const string XmlListFileName = Util::getPath(Util::PATH_USER_CONFIG) + "files.xml.bz2";
+        if(!Util::fileExists(XmlListFileName)) {
+            try {
+                File::copyFile(XmlListFileName + ".bak", XmlListFileName);
+            } catch(const FileException&) { }
+        }
+        ShareManager::getInstance()->refresh(true, false, !options.nonBlockingShareRefresh);
     }
-    ShareManager::getInstance()->refresh(true, false, true);
     if(f != NULL)
         (*f)(p, _("Download Queue"));
     QueueManager::getInstance()->loadQueue();

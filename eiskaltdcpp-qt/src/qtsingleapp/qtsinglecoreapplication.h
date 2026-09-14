@@ -9,6 +9,7 @@
 
 
 #include <QApplication>
+#include <QLocalServer>
 #include <QSharedMemory>
 
 class QtSingleCoreApplication : public QApplication
@@ -32,5 +33,10 @@ Q_SIGNALS:
 
 private:
     bool _isRunning;
+    QString localServerName;
+    QLocalServer *localServer;
     QSharedMemory sharedMemory;
+
+private Q_SLOTS:
+    void receiveLocalConnection();
 };
