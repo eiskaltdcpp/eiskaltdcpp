@@ -331,7 +331,7 @@ bool CryptoManager::checkCertificate() noexcept {
         return false;
     }
 
-    X509_NAME* name = X509_get_subject_name(x509);
+    const X509_NAME* name = X509_get_subject_name(x509);
     if(!name) {
         return false;
     }
@@ -339,8 +339,8 @@ bool CryptoManager::checkCertificate() noexcept {
     if(i == -1) {
         return false;
     }
-    X509_NAME_ENTRY* entry = X509_NAME_get_entry(name, i);
-    ASN1_STRING* str = X509_NAME_ENTRY_get_data(entry);
+    const X509_NAME_ENTRY* entry = X509_NAME_get_entry(name, i);
+    const ASN1_STRING* str = X509_NAME_ENTRY_get_data(entry);
     if(!str) {
         return false;
     }
