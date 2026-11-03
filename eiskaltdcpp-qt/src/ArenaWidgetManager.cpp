@@ -26,7 +26,12 @@ ArenaWidgetManager::~ArenaWidgetManager(){
 
     disconnect(this, nullptr, nullptr, nullptr);
 
-    for (const auto &awgt : widgets) {
+    // Closing a hub also closes and removes its PM windows, so iterate over a
+    // snapshot and skip widgets that were removed (and deleted) meanwhile.
+    const auto snapshot = widgets;
+    for (const auto &awgt : snapshot) {
+        if (!widgets.contains(awgt))
+            continue;
         if (!dynamic_cast<QObject*>(awgt)){
             continue;
         }
