@@ -165,6 +165,8 @@ friend class dcpp::Singleton<MainWindow>;
         virtual bool eventFilter(QObject *, QEvent *);
 
     private Q_SLOTS:
+        /** */
+        void doRedrawToolPanel();
         /** Show widget on arena */
         void mapWidgetOnArena(ArenaWidget*);
         void removeWidget(ArenaWidget *awgt);

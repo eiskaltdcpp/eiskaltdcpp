@@ -96,6 +96,8 @@ public:
 
         bool isUnload = false;
         bool exitBegin = false;
+        bool redrawToolPanelPending = false;
+        int unreadIconState = -1;
 
         // position and geometry
         bool showMax = false;
@@ -1934,6 +1936,19 @@ void MainWindow::slotFileMatchAllList(){
 void MainWindow::redrawToolPanel(){
     Q_D(MainWindow);
 
+    // Chat and PM windows call this for every incoming line; coalesce bursts into one redraw.
+    if (d->redrawToolPanelPending)
+        return;
+
+    d->redrawToolPanelPending = true;
+    QTimer::singleShot(250, this, SLOT(doRedrawToolPanel()));
+}
+
+void MainWindow::doRedrawToolPanel(){
+    Q_D(MainWindow);
+
+    d->redrawToolPanelPending = false;
+
     ArenaWidget *awgt = nullptr;
     PMWindow *pm = nullptr;
     bool has_unread = false;
@@ -1946,7 +1961,14 @@ void MainWindow::redrawToolPanel(){
             continue;
 
         it.key()->setText(awgt->getArenaShortTitle());
-        it.key()->setIcon(awgt->getPixmap());
+
+        // Each icon change re-syncs the native menu on macOS, so skip unchanged icons.
+        const QPixmap pixmap = awgt->getPixmap();
+        const QVariant pixmapKey = QVariant::fromValue(pixmap.cacheKey());
+        if (it.key()->property("arenaPixmapKey") != pixmapKey){
+            it.key()->setProperty("arenaPixmapKey", pixmapKey);
+            it.key()->setIcon(pixmap);
+        }
 
         pm = qobject_cast<PMWindow *>(awgt->getWidget());
         if (pm && pm->hasNewMessages())
@@ -1961,10 +1983,14 @@ void MainWindow::redrawToolPanel(){
         Notification::getInstance()->resetTrayIcon();
 #else // !defined(Q_OS_MAC)
     // Change program icon in dock when there are new unread personal messages.
-    if (has_unread)
-        qApp->setWindowIcon(WICON(WulforUtil::eiMESSAGE_TRAY_ICON));
-    else
-        qApp->setWindowIcon(WICON(WulforUtil::eiICON_APPL));
+    if (d->unreadIconState != int(has_unread)){
+        d->unreadIconState = int(has_unread);
+
+        if (has_unread)
+            qApp->setWindowIcon(WICON(WulforUtil::eiMESSAGE_TRAY_ICON));
+        else
+            qApp->setWindowIcon(WICON(WulforUtil::eiICON_APPL));
+    }
 #endif // !defined(Q_OS_MAC)
 
     emit redrawWidgetPanels();
